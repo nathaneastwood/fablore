@@ -12,6 +12,7 @@ default-theme = "light"
 preferred-dark-theme = "navy"
 git-repository-url = "https://github.com/nathaneastwood/fablore"
 git-repository-icon = "fa-github"
+cname = "legendarystories.net"
 
 [output.html.fold]
 enable = true
