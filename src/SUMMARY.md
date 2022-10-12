@@ -131,6 +131,7 @@
     - [Plasma Barrel shot](weapons/plasma-barrel-shot.md)
     - [Reaping Blade](weapons/reaping-blade.md)
     - [Red Liner](weapons/red-liner.md)
+    - [Rok](weapons/rok.md)
     - [Sandscour Greatbow](weapons/sandscour-greatbow.md)
     - [Sledge Of Anvilheim](weapons/sledge-of-anvilheim.md)
     - [Talishar, Lost Prince](weapons/talishar-lost-prince.md)
