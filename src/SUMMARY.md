@@ -140,6 +140,7 @@
 
 - [Equipment](equipment/README.md)
     - [Amethyst Tiara](equipment/amethyst-tiara.md)
+    - [Blazen Yoroi](equipment/blazen-yoroi.md)
     - [Bloodsheath Skeleta](equipment/bloodsheath-skeleta.md)
     - [Breeze Rider Boots](equipment/breeze-rider-boots.md)
     - [Courage of Bladehold](equipment/courage-of-bladehold.md)
