@@ -1,0 +1,18 @@
+[book]
+authors = ["nathaneastwood"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Flesh and Blood Lore"
+
+[output.html]
+additional-css = ["style.css"]
+additional-js = ["sidebar.js"]
+default-theme = "light"
+preferred-dark-theme = "navy"
+git-repository-url = "https://github.com/nathaneastwood/fablore"
+git-repository-icon = "fa-github"
+
+[output.html.fold]
+enable = true
+level = 0
