@@ -2,7 +2,7 @@
 
 # fablore
 
-<a href="https://www.buymeacoffee.com/nathaneastwood"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a tea&emoji=&slug=nathaneastwood&button_colour=ef60a3&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" /></a>
+<a href="https://www.buymeacoffee.com/nathaneastwood"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a beer&emoji=🍺&slug=nathaneastwood&button_colour=ef60a3&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=FFDD00" /></a>
 
 This repository contains the source of the [fablore](https://nathaneastwood.github.io/fablore/) book. This is a web book aiming to contain all known official Flesh and Blood lore. The book is built using [mdBook](https://github.com/rust-lang/mdBook).
 
