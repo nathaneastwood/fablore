@@ -134,6 +134,7 @@
     - [Rok](weapons/rok.md)
     - [Sandscour Greatbow](weapons/sandscour-greatbow.md)
     - [Sledge Of Anvilheim](weapons/sledge-of-anvilheim.md)
+    - [Surgent Aethertide](weapons/surgent-aethertide.md)
     - [Talishar, Lost Prince](weapons/talishar-lost-prince.md)
     - [The Blade Of Eridani](weapons/the-blade-of-eridani.md)
     - [Zephyr Needle](weapons/zephyr-needle.md)
