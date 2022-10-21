@@ -230,6 +230,9 @@ If you know how to flaunt it, you barely need to use it.
 #### Great Library of Solana - (MON000)
 Those seeking knowledge travel to Solana for the sole purpose of visiting the Library of Illumination, a vast library located at the base of the Solarium. A grand sight, the floor is constructed from lustrous marble, with floor-to-ceiling shelves containing thousands of tomes and volumes, as well as bound parchments authored by the scholars of Solana. Solanians and travelers alike can enter and soak in the knowledge gathered from all across Rathe, though it is said that countless hidden sections and levels are privy only to the magisters and select scholars from the Light of Sol.
 
+#### Herald of Erudition - (MON004)
+Suraya, keeper of knowledge, who enlightens the minds of Rathe.
+
 #### Illuminate - (MON072)
 "Sometimes, a hands-on lesson is the best approach." - Instructor Merlen Rivera
 
