@@ -1,3 +1,5 @@
+# Minerva Themis
+
 Their lives first began as orphan foundlings, struggling to survive beyond the Golden Fields. Minerva and her twin brother were rescued by a travelling knight and brought into Solana at a very young age, and given sanctuary within the city's walls. From there, it took little time for the twins to be selected for the Gemini, where the skills they'd learned on the streets could best be utilised.
 
 Together, Minerva and Mercurius made an almost unstoppable team, as they travelled beyond Solana's walls to gather information in the lands beyond. From the volatile, arid landscape of Volcor to the towering, copper skylines of Metrix, the pair worked side by side, bringing their invaluable insights into potential threats to their city. But on one dark night, as they crept between underground taverns, they inadvertently stumbled into an ambush. Between her experience, her skill and sheer luck, Minerva managed to escape with her life, but only after she'd seen her brother cut down in the brief battle.

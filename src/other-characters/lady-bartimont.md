@@ -1,3 +1,5 @@
+# Lady Bartimont
+
 Born the daughter of a noble house in the Northern Realms, the future Lady Barthimont was raised with the grace and cunning expected of a woman of her rank. Once she had come of age, her father quickly found a match for her, marrying her to another Lord in order to secure the power and status that he felt his daughter rightfully deserved.
 
 But when Lady Barthimont had moved to her new estate with her servants in tow, expecting a life of luxury and comfort, she was faced with a harsh reality. Lord Barthimont was lazy, dull and impassive; he gallivanted across the plains with his hunting parties, his inexperienced new wife to take over the running of the estate in his absence, toiling over paperwork and engaging in empty pleasantries with unwanted visitors. Over the years, as she watched her youth wither away, she grew ever more embittered by her absent husband and the mundane, maddening work he left her to face alone.
