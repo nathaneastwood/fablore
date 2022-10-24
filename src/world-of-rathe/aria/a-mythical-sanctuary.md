@@ -1,3 +1,5 @@
+# A Mythical Sanctuary
+
 For thousands of years, the fantastical realm of Aria has remained untouched by the passage of time, far removed from the chaos and struggles that affect the rest of the world. Iridescent flora and verdant trees cover the landscape in brilliant colours, as vibrant as the people who call this land home. With great mountain ranges glittering with ice and snow, vast forests of green and gold, and lush meadows filled with vibrant flowers, the rolling hills of this fantastical realm are teeming with life.
 
 A true sanctuary, Aria's abundant resources are nurtured by the mysterious energy known as the Flow. The Flow shapes and changes the landscape as it passes, transforming mountains into valleys, and forests into plains. The energy of the Flow has created some of the most incredible scenery in all of Rathe, creating plains of constant thunderstorms, and forests of translucent fungi.

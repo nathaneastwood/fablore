@@ -1,3 +1,5 @@
+# Tides of Change
+
 Great barriers and magical landmarks once protected Aria from the outside world, hiding its existence from the rest of Rathe. However, after many centuries, these barriers have begun to wane, and the ancient magics that once concealed Aria's existence from the rest of the world are failing. More and more outsiders are entering Aria in an attempt to steal from its people, weakening the land in the process.
 
 These outlanders are clashing with the people of Aria, as they seek to strip the land of all that makes it magical. They attack anyone who dares to challenge them, taking whatever they please without a hint of remorse. Defenders and guardians have risen once more to challenge the outlanders and protect Aria from those who would harm it.

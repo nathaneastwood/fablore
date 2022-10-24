@@ -6,6 +6,8 @@
   }
 </style>
 
+# Lexi, Livewire
+
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/05-tales-of-aria/media/lexi-1.webp" alt="lexi-1" class="center">
 
 To the North of Korshem, far beyond Lake Frigid and the endless plains of ice and snow. Up the sides of mighty fjords that reach up into the heavens, lies a realm that floated amongst the long white clouds.

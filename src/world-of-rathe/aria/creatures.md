@@ -1,3 +1,5 @@
+# Creatures
+
 The creatures of Aria are incredibly diverse, fantastical and magnificent beings unlike anything found elsewhere on Rathe. Years of living in a peaceful environment have made them docile, and friendly toward most other creatures.
 
 #### Vitr'eo

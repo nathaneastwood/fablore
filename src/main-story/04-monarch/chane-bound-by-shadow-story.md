@@ -6,6 +6,8 @@
   }
 </style>
 
+# Chane, Bound By Shadow
+
 In a golden city devoted to the pursuit of knowledge, a small group of scholars worked within the grand library, toiling over ancient records and illuminated tomes. However, as the months passed and they continued to read through the notes of their earliest predecessors, the more they began to notice that there were inconsistencies in the tomes of old. When the scholars dared to question these missing details and contradictions, they were cast out. Their own people turned against them, declaring them heretics and driving them from the city. Even when the scholars and their loved ones escaped the city walls, their former brethren continued to hunt them, persecuting them to the farthest corners of the land.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/chane-1.webp" alt="chane-1" class="center">

@@ -1,3 +1,5 @@
+# Between the Cliffs
+
 Villages and towns lie hidden amongst the mountains, close-knit communities following ancient traditions. The treacherous landscape hides these villages from outsiders, a thick blanket of mist concealing the buildings from view. Individual houses hang between the cliffs, suspended from massive networks of rope that can support the weight of entire villages. Larger communal buildings are carved into the mountainside - taverns, inns, teahouses, dojos, spaces for markets and shops, as well as places to eat, and spaces for sparring.
 
 Every village was borne of one of the great Houses of Misteria, ancient households that can trace their lineage through the centuries. Members of the old families live in larger clusters of buildings, constructed on the highest levels of the village.

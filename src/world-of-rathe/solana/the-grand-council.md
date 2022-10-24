@@ -1,3 +1,5 @@
+# The Grand Council
+
 The Grand Council is a divine assembly which represents the pinnacle of human existence, its members hand-selected by Sol from amongst the Light and Hand of Sol. Paragons of virtue, they embody Solana's divine purpose, to elevate humanity above the reach of the Shadows. The members of the Grand Council serve not only to lead Solana, but to inspire the Children of the Light in their journey toward illumination, and seek to strengthen their relationship with Sol. The Grand Council is led by the Grand Magister, comprised of all eight Magisters, and a selection of archons and templars.
 
 All matters of state pass into the hands of the Grand Council, who ensure the continued happiness and wellbeing of their people, and of Solana as a whole. Gathering in the inner sanctum that floats above the Amphitheatre, the Grand Council makes decisions on behalf of Solana.

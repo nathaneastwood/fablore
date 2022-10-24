@@ -1,3 +1,5 @@
+# Eat, Kill... Survive
+
 An ancient primal wilderness, the Savage Lands is a jungle that sprawls far to the west of Rathe. This seemingly endless expanse of dense woodland is unrepresented by any map, due to its sheer size and the dangers that lie within. It remains untouched by the passage of time, as generations of humans try and fail to tame or settle any part of the vast jungle.
 
 The first known explorers to survive the Savage Lands described a treacherous and unforgiving landscape, filled with hidden dangers and horrific beasts. With no landmarks to note their passage through the jungle, they found themselves lost within an endless mass of trees, with no way to navigate the jungle. Many members of that first party lost their lives within the wilderness, their corpses left to rot amongst the trees. However, those that survived returned with a wealth of information on the dangers and mysteries of the primordial jungle.

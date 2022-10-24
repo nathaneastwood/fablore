@@ -1,3 +1,5 @@
+# The Seven Arts
+
 The Seven Arts encompass every occupation and role within Misteria. Education for every Misterian begins with a foundation in all seven, slowly reducing the number of subjects as the child chooses their path. The Seven Arts have been a part of Misterian culture for generations, curated from centuries of traditions and customs. Through the Seven Arts, ancient skills and practices have been preserved, so that they can be passed on for generations to come.
 
 ### Major Arts

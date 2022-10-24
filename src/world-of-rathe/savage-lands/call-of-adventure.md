@@ -1,3 +1,5 @@
+# Call of Adventure
+
 A vast and mysterious jungle, the Savage Lands attracted many prospective explorers, all eager to discover what lay hidden within its depths. Adventurers who entered would inevitably disappear, their bones abandoned amongst the undergrowth; a legacy of the lost. Occasionally, rumours would surface of some brave adventurer who had re-emerged, telling tall tales of horrific beasts and hidden wonders. Many stepped forward to explore the jungle, and yet no one could survive long enough to bring back information on what lay within.
 
 No one, that is, until Theodore Hamilton Scarborough. A researcher who sought to uncover the jungle's secrets, he amassed a large team of mercenaries and explorers, and led the first successful expedition into the Savage Lands. Of the original twenty-four team members, only five would emerge alive. Scarborough wrote at length about his experiences, an account that would soon be published as the first known information on the fauna and flora of the Savage Lands.

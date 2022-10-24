@@ -1,3 +1,5 @@
+# The Maw
+
 The main entrance to the Pits, the Maw is known to the people of Metrix as Pit 2. Once the site of a massive strip-mine operation, Pit 2 is now abandoned, its entrance shrouded beneath the district of Coppertown. The denizens of the Pits use the Maw as a gateway to the world above, using an old mine cage to travel between the underground and the city of Metrix.
 
 ## Skulduggery

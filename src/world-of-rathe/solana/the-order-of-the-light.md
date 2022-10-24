@@ -1,3 +1,5 @@
+# The Order Of The Light
+
 In ancient times, the light of Sol guided the city's founders onto the shores of Rathe; it showed them where to build their home, and was what protected their fledgling fortress from the Shadows. The Order of the Light was born of these ancestors, noble individuals who sought to spread Sol's blessings and watch over their people. The Light of Sol is mainly composed of scholars, those born with a connection to the aether, who study spells in order to embrace the Light, while the Hand of Sol are an order of knights, dedicated to protecting and watching over their people.
 
 ## Order Of The Light

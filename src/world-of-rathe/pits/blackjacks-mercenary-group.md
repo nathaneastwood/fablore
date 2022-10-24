@@ -1,3 +1,5 @@
+# Blackjack's Mercenary Group
+
 The Blackjack's Tavern is well-known throughout the Pits, not only for the drinks they serve, but for the services that Blackjack's provide. The Tavern is the central hub of the Blackjack's Mercenary Group, the largest mercenary organisation in Rathe.
 
 Unlike other groups, Blackjack's do not hire mercenaries themselves, instead acting as an intermediary. Once they receive a contract, it is posted on the noticeboard for all to see. Anyone who wishes to take the contract speaks to the tavern's handler, Greenbird, for further details. The first to complete it and return with proof is paid in full.

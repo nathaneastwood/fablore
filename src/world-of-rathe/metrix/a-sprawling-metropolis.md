@@ -1,3 +1,5 @@
+# A Sprawling Metropolis
+
 The city of Metrix was built in layers, beginning with the areas now known as Old Metrix and the Sprawl. As the city has expanded and advanced, it has built upwards, constructing ever-higher districts that tower over the Sprawl far below. Currently, the highest section of the city is the Expanse, its tall buildings leaving some sectors of the West Rise in permanent shade.
 
 ### East Rise

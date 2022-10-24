@@ -1,3 +1,5 @@
+# The Battle Against the Shadow
+
 Once, many centuries ago, an apostate betrayed the people of Solana, and turned his back upon the light. Driven mad with power, he embraced the vile corruptions of the Shadow and unleashed his toxic ideology upon the world. When the noble warriors of the Light sought to stop him, he fled to an isolated island and soiled the earth there with the corruption of the shadows, severing his place of horrors from the rest of Rathe. The Demonastery was thus born of blood and sacrifice, a cursed, blighted castle which harbours the horrors of the damned.
 
 Ever since, the Demonastery and Solana have stood in direct opposition to one another. It is the nature of the Shadow to destroy, seeking to eliminate the Light; the Light seeks to defend the innocent from the Shadows, and halt the spread of its vile corruption across the land of Rathe. Solana has fought many battles in its quest to bring an end to the scourge of the Shadow; however, for many years the city knew a kind of peace, untouched by the raging wars of their past.

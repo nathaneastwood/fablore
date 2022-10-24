@@ -6,6 +6,8 @@
   }
 </style>
 
+# Step Into The Light
+
 The trade route wound between the rolling hills, a path of dirt and clay moulded by the passage of the centuries. Dark shadows enfolded the dim landscape, and the beaten path was cast in shades of violet and listless green as the sun sank behind the horizon, relinquishing the stage to a foreboding twilight. Golden armour gleamed faintly in the last few traces of sunlight, quietly announcing the arrival of a small party of knights, marching along the trail to the north.
 
 Boltyn's gaze was locked firmly on the fields ahead, scanning the skyline for signs of any other travellers. Behind him, the rest of his party strode forward, their hands resting on their weapons, eyes flicking from side to side as they scoured the gloomy landscape for potential threats. Months of hunting down cultists in the Northern Realms had left each of them changed by the weight of duty; their shoulders were taut with silent tension, their weapons at the ready, their gazes ever-moving, constantly checking their surroundings for the slightest trace of shadow aether.

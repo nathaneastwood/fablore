@@ -6,6 +6,8 @@
   }
 </style>
 
+# In Flames
+
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/08-uprising/media/in-flames-1.webp" alt="in-flames-1" class="center">
 
 I will gain my audience with the Emperor of Volcor. Though my attempts thus far have been met with near fatal disappointment, I now hold the key to our alliance in the palm of my hand.

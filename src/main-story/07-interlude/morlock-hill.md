@@ -6,6 +6,8 @@
   }
 </style>
 
+# Morlock Hill
+
 The setting sun casts Morlock Hill in a bloody hue.
 
 Soldiers hide amongst the wizened bushes, waiting with bated breath. Their leader, armor glinting in the fading light, points up at the hill's peak.

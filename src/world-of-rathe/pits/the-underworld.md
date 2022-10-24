@@ -1,3 +1,5 @@
+# The Underworld
+
 The Pits are a series of massive chasms that lie beneath the city of Metrix. Through centuries of excavation, miners have uncovered a network of underground passages, carved into the bedrock by subterranean rivers and streams. Yet the mining corporations of Metrix have allowed fumes and toxic waste to accumulate beneath the earth, staining the waters a fetid black.
 
 While the Iron Assembly works to keep relative peace in the city above, they turn a blind eye to the depths of the Pits. In the shadows beneath the earth, a lawless society has taken shape. Thieves, mercenaries, smugglers and slavers have built their homes here, offering their services to anyone with the coin to pay.

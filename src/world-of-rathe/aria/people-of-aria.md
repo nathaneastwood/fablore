@@ -1,3 +1,5 @@
+# People of Aria
+
 The Flow fuels everything that grows within Aria. The plants here thrive - trees never stop producing fruit, plants grow at a rapid pace, and the creatures are docile and tame. As a result, the people of Aria are free to pursue a more relaxed lifestyle, becoming musicians, performers, entertainers or craftsmen. The people of Aria flock to the region's abundant taverns for drinks, stories, music and entertainment, taking advantage of any opportunity for celebration or festivity.
 
 While many people settle in villages, some choose a more nomadic lifestyle, travelling across the region. These nomads travel from village to village, pitching tents or sleeping beneath the stars. As they pass through villages, they offer help or entertainment, and the village provides for them in return.

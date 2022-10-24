@@ -6,6 +6,8 @@
   }
 </style>
 
+# Bravo, Showstopper
+
 _Once a land of fables, Aria was disconnected from the rest of Rathe, protected from the conflicts and troubles that plagued the rest of the world. Its people were well-cared for by a plentiful land, nurtured by the energy of the Flow. As the landscape changed, shaped by the passage of the Flow, the transformations shaped the people of Aria as well. Its cheerful and carefree people have cultivated a culture rich in music, entertainment and celebration._
 
 _However, in recent times the Flow has become increasingly unstable, and a growing number of outsiders are entering Aria. The volatile energy of the Flow is changing the landscape of Aria faster than ever before, bringing a sense of unease and confusion to its people. Amongst the uncertainty and disquiet, the traditions and festivals of Aria have become more important than ever, bringing a measure of peace to the hearts of the people._

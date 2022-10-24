@@ -6,6 +6,8 @@
   }
 </style>
 
+# Boltyn, Break of Dawn
+
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/boltyn-1.webp" alt="boltyn-1" class="center">
 
 Far beyond the borders of Solana lie the Northern Realms, a large expanse of land divided amongst ancient families, who rule under the watchful, detached gaze of the City of Light. Boltyn was born to nobility, raised with the knowledge that he would inherit his father's lands. Despite his exalted status, the young Boltyn was more interested in his grandmother's tales of Solana, with their noble knights, shining streets, and great library of knowledge.

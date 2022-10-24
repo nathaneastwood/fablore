@@ -6,6 +6,8 @@
   }
 </style>
 
+# Fai, Rising Rebellion
+
 Life was never easy in the Forest of Flames. Farmers and foresters eked out a meager living from the land, barely making enough to feed their families once the Emperor's tax collectors had taken their due.
 
 Fai's mother, Min, spoke of a better time, when Volcai and Dracai would walk the roads of Volcor hand in hand, ruling the empire as equals. Fai didn't listen. He was too busy playing minion to his sister's mastermind. While Dromai drew the eye with monsters and wonders of ash and soot, Fai applied his swift hands and feet to the delights of petty larceny. No trove of childish treats was safe from this devious duo. Of course, she would scold him when he gave half their haul away to the poorest children of the village. But what else could he do? Min had taught him that life was never fair by nature, only by practice.

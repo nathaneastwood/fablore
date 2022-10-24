@@ -1,3 +1,5 @@
+# The Royal Court
+
 The palace of the royal court sits on the banks of Mt Volcor, high above the conflict that plagues the rest of the region. Carved deep into the bedrock, the palace is home to the Emperor and the Royal Family, housing all those who live to serve them. From the court wizards to lord generals, grand strategists to consorts, the Emperor is served and protected by some of the most powerful individuals in Volcor.
 
 ### The Royal Bloodline

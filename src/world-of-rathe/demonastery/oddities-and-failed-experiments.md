@@ -1,3 +1,5 @@
+# Oddities and Failed Experiments
+
 Over the centuries, the residents of the Demonastery have delved into many long-forgotten areas of study, most of which are forbidden in the outside world. Sometimes, experiments in these sciences can result in the foulest of abominations, created by toxic tinctures and the darkest types of biomancy. Other times, a creation is intentionally brought to life, summoned into existence by the spellcasters who inhabit the Demonastery's halls. Some of the entities which now exist within the mansion remain a mystery to even the oldest residents, their origins unknown to all but the very edifice itself.
 
 #### Apophos

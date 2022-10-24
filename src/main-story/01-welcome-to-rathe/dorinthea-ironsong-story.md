@@ -6,6 +6,8 @@
   }
 </style>
 
+# Dorinthea, Ironsong
+
 _Centuries after the end of the great wars, Solana is experiencing an era of peace and prosperity, with the last of its great defenses completed, and its people watched over by noble protectors. And yet, a strange wind has begun to stir once more, sowing seeds of unrest across the continent. Strangers hail from the East, bringing their strange customs and mystic rites to the outskirts of the grand city. To the South, blasphemous cults gather, driven by greed and gluttony. Worst of all, the savage packs of the west gather near the outskirts of the jungle, creeping ever closer to the villages under Solana's protection._
 
 _Amidst the brewing storm, the Hand of Sol gathers in ever larger patrols, permanently stationing knights in villages across the golden fields. As terrible beasts begin to emerge, Solana's scholars continue to search for a possible cause, and a way to eliminate the creatures once and for all. The knights of the Hand of Sol are needed now more than ever, to defend innocent lives from the horrors that threaten to overwhelm them all._

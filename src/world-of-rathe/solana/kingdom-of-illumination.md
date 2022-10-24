@@ -1,3 +1,5 @@
+# Kingdom of Illumination
+
 The city of Solana stands tall amidst the golden fields, at the very heart of Rathe; it is a radiant beacon for all to follow. Its soaring stone walls glitter in the light of the sun as it watches over its outlying villages like a stalwart guardian. It shepherds its charges along the path of the Light. Through its grand gates lie shining city streets, lined with banners of white and gold.
 
 Once a small settlement, the city of Solana has grown throughout the centuries, providing a place of sanctuary to all who follow the Light. Benevolent scholars smile upon the crowds, providing enlightenment, guidance and counsel, while noble knights patrol the city walls and fields beyond, protecting the innocent with sword and shield. Together, they work to protect and provide for their people, dedicating their lives to upholding the word of Sol.

@@ -1,3 +1,5 @@
+# Among the Mists
+
 The steep landscape of Misteria is equal parts treacherous and tranquil. The sun streams through the clouds, illuminating the mists in shades of white and gold, revealing the patches of greenery clinging to the steep rock face. Anyone not born within Misteria would struggle to survive in such an inhospitable environment, where one wrong step can send you plummeting down to the sharp rocks far below.
 
 The villages of Misteria are built in some of the most inaccessible areas in Rathe, and those who live here must rely on their strength and agility to travel amongst the mountains. Racing along suspended ropes, scaling cliffs, and jumping across platforms are all second nature for the people of Misteria, who have built their lives around the unique environment.

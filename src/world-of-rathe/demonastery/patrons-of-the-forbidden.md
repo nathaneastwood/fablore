@@ -1,3 +1,5 @@
+# Patrons of the Forbidden
+
 The residents of the Demonastery originate from across the many regions and kingdoms of the world of Rathe, unified only by their voracious appetite for arcane knowledge. Biomancers, arcanists, wizards, conjurers, summoners, witches, necromancers, alchemists, and mechanologists number among those who now reside within the mansion, each with their own agenda and field of study.
 
 Every resident of the Demonastery has decided to pursue their own research at any cost, regardless of the consequences. These scholars, irrespective of their backgrounds, are united by their single-minded determination to delve into fields of study long since abandoned by the rest of Rathe. The Demonastery provides a safe haven for these outcasts, exiles and fugitives, offering the opportunity to seek knowledge interference.

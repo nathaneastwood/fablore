@@ -1,3 +1,5 @@
+# The Grandmaster's Guild
+
 The Grandmaster's Guild is not an organisation, but a collection of individuals with mastery over their respective arts. The exact requirements and selection process are shrouded in mystery, but the Guild's legacy is well-known across Misteria, as they work to promote the Seven Arts and improve villages across the region.
 
 ### Aui's Scales

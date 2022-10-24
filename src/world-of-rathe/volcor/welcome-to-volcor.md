@@ -1,3 +1,5 @@
+# Welcome to Volcor
+
 The people of Volcor (VOHL-cawr) are divided between the Dracai (DRAH-kai) and the Volcai (VOHL-kai). The Dracai are bestowed names that are free of any restrictions, conventions or stigma, granted positions in the Royal Court of Volcor by the Emperor. The Volcai, however, are more limited, and their names are homogeneous, ending in _ai_ as a mark of their Volcai origin status. (Names ending in _ai_ rhyme with _lie_, _my_, _bye_.)
 
 | Male Dracai | Pronunciation | Phonetic  | Female Dracai | Pronunciation | Phonetic |

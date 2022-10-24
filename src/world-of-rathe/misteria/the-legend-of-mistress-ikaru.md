@@ -1,3 +1,5 @@
+# The Legend of Mistress Ikaru
+
 Long ago, a mysterious woman landed on the shores of Misteria. She came from an unknown land, travelling from village to village. This mysterious young woman rarely spoke, occasionally giving voice to a question, or engaging with someone in quiet discussion. One day, she came across a wizened old man sitting on a log, carefully setting out his wares on a worn blanket. On the ground before him lay five items: a chunk of rock, a dark crystal, a pale branch, a vibrant flower, and a tiny pouch.
 
 Looking over the items, the woman found herself drawn to the pouch. Old and faded, its drawstrings were tied in a simple knot, concealing the contents within. Curious, she asked if he knew what lay within, and if she might open it. Silently, the old man shook his head. After a moment's deliberation, the woman removed a ring from her finger, a deceptively plain silver band.

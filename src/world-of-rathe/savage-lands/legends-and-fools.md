@@ -1,3 +1,5 @@
+# Legends and Fools
+
 Tales of Scarborough's time in the jungle have attracted adventurers from all over Rathe, drawn by tales of monstrous beasts and incredible battles. The allure of the untamed wilderness proves impossible to resist for many, a mysterious region filled with legendary creatures. One after another, would-be heroes arrive to challenge the wilds within.
 
 For some, it is a chance to prove one's own abilities, pitted against dangerous beasts and the jungle itself in a savage battle to the death. For others, it is a chance for fame, to reach the legendary status that Scarborough has achieved. Yet others arrive seeking fortune, pursuing the lucrative contracts offered by corporations, researchers, and those wishing to cull the beasts within.

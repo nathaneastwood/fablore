@@ -6,6 +6,8 @@
   }
 </style>
 
+# Prism, Sculptor of Arc Light
+
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/prism-1.webp" alt="prism-1" class="center">
 
 Deep within the Library of Illumination's innermost sanctum, a Magister came across a young child. Small and silent, her pale blonde hair glowing in the lamplight, she was at odds with the ancient tomes and hidden secrets which surrounded her; yet in spite of her mysterious appearance within the Signarus, she appeared to be entirely ordinary. Nevertheless, the Magister struggled to make sense of the strange young girl.
