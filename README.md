@@ -30,6 +30,14 @@ mdbook serve --open
 (<a href="#readme-top">back to top</a>)
 </p>
 
+## Images
+
+When adding images to the book, be sure to convert them to webp format.
+
+```
+for file in path/to/file/*; do cwebp -q 70 $file -o ${file%.*}.webp; done
+```
+
 ## License
 
 All code in this repository is licensed under **_MIT_**, for more information take a look at the [LICENSE](https://github.com/nathaneastwood/fablore/blob/main/LICENSE) file. All content in the book is © Legend Story Studios.
