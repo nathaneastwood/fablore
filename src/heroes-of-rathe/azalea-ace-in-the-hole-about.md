@@ -10,10 +10,19 @@ A life on the streets has made Azalea cynical and restless. In the Pits, anarchy
 
 ## Hero Highlights
 
-#### Bow and Arrow
+<div class="hero-container">
+  <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/azalea-icon-bow-arrow.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Bow and Arrow</b><br>
+    The tools of the trade. Use your bow to load arrows into your arsenal, and ready, aim, fire! Azalea's signature bow, Death Dealer, allows you to draw a card whenever you load an arrow, ensuring Azalea always has one more ace up her sleeve.
+  </div>
+</div>
 
-The tools of the trade. Use your bow to load arrows into your arsenal, and ready, aim, fire! Azalea's signature bow, Death Dealer, allows you to draw a card whenever you load an arrow, ensuring Azalea always has one more ace up her sleeve.
+<div class="hero-container">
+  <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/azalea-icon-target-precise.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Kill Shot</b><br>
+    One shot is all you need. Take your time, set up your position, and shoot to kill. Use effects to set up the top of your deck with Azalea's hero ability, to guarantee your kill shot hits the mark! Azalea's ability to give her arrows dominate is deadly when combined with effects that increase the power of her death whistlers.
+  </div>
+</div>
 
-#### Kill Shot
-
-One shot is all you need. Take your time, set up your position, and shoot to kill. Use effects to set up the top of your deck with Azalea's hero ability, to guarantee your kill shot hits the mark! Azalea's ability to give her arrows dominate is deadly when combined with effects that increase the power of her death whistlers.
