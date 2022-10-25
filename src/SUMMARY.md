@@ -105,6 +105,7 @@
     - [Azalea, Ace in the Hole](main-story/02-arcane-rising/azalea-ace-in-the-hole-story.md)
     - [Dash, Inventor Extraordinaire](main-story/02-arcane-rising/dash-inventor-extraordinaire-story.md)
     - [Kano, Dracai of Aether](main-story/02-arcane-rising/kano-dracai-of-aether-story.md)
+    - [Sutcliffe's Research Notes](main-story/03-crucible-of-war/sutcliffes-research-notes.md)
     - [Ira, Crimson Haze](main-story/03-crucible-of-war/ira-crimson-haze-story.md)
     - [No Smoke without Fire](main-story/03-crucible-of-war/no-smoke-without-fire.md)
     - [Levia, Shadowborn Abomination](main-story/04-monarch/levia-shadowborn-abomination-story.md)
