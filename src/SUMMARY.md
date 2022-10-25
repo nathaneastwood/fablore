@@ -128,6 +128,7 @@
     - [Hanabi Blaster](weapons/hanabi-blaster.md)
     - [Mandible Claw](weapons/mandible-claw.md)
     - [Merciless Battleaxe](weapons/merciless-battleaxe.md)
+    - [Nebula Blade](weapons/nebula-blade.md)
     - [Plasma Barrel shot](weapons/plasma-barrel-shot.md)
     - [Reaping Blade](weapons/reaping-blade.md)
     - [Red Liner](weapons/red-liner.md)
@@ -136,7 +137,6 @@
     - [Sledge Of Anvilheim](weapons/sledge-of-anvilheim.md)
     - [Surgent Aethertide](weapons/surgent-aethertide.md)
     - [Talishar, Lost Prince](weapons/talishar-lost-prince.md)
-    - [The Blade Of Eridani](weapons/the-blade-of-eridani.md)
     - [Zephyr Needle](weapons/zephyr-needle.md)
 
 - [Equipment](equipment/README.md)
