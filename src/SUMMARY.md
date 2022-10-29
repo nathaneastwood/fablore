@@ -123,6 +123,7 @@
     - [Dromai, Ash Artist](main-story/08-uprising/dromai-ash-artist-story.md)
     - [Fai, Rising Rebellion](main-story/08-uprising/fai-rising-rebellion-story.md)
     - [The One Emperor](main-story/09-dynasty/emperor-the-one-emperor.md)
+    - [Ember in the Ash](main-story/09-dynasty/ember-in-the-ash.md)
 
 - [Weapons](weapons/README.md)
     - [Cintari Saber](weapons/cintari-saber.md)
