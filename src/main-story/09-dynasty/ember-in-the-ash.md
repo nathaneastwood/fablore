@@ -1,6 +1,6 @@
 # Ember in the Ash
 
-_Your Imperial Majesty, forgive this impertinence, but these are desperate times. Our workers have turned rabid, infected by rebellious lies. They steal from our caravans. They plunder our warehouses. We petitioned our Lord Wizard for aid. He burned our messengers and fled the Red Desert—a disgrace to your glorious dragon blood. You are the greatest of the Dracai. Your flame is the brightest of all. Punish these upstarts. Sear their treacherous hopes from their dim minds. We beseech you, our mighty Emperor. Please, help us._
+_Your Imperial Majesty, forgive this impertinence, but these are desperate times. Our workers have turned rabid, infected by rebellious lies. They steal from our caravans. They plunder our warehouses. We petitioned our Lord Wizard for aid. He burned our messengers and fled the Red Desert—a disgrace to your glorious dragon blood. You are the greatest of the Dracai. Your flame is the brightest of all. Punish these upstarts. Sear their treacherous hopes from their dim minds. We beseech you, our mighty [Emperor](https://legendarystories.net/heroes-of-rathe/emperor-about.html). Please, help us._
 
 _Your humble servant,_
 
@@ -10,9 +10,9 @@ _Lord Merchant Savai of Deshvahan_
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/09-dynasty/media/ember-1.webp" alt="ember-in-the-ash-1" class="center">
 
-Dromai looks about to make sure she is alone before expelling her excitement in a long, shuddering breath. This is what she has waited for, worked so hard for. She defeated the rebels in battle. She slew their most aggressive leader. And in a moment of inspiration, she erased Spymaster Xathari from the picture. Thus, she cleared the way for her most ambitious move—an audience with the Emperor and a chance to claim Xathari's position and power.
+[Dromai](https://legendarystories.net/heroes-of-rathe/dromai-ash-artist-about.html) looks about to make sure she is alone before expelling her excitement in a long, shuddering breath. This is what she has waited for, worked so hard for. She defeated the rebels in battle. She slew their most aggressive leader. And in a moment of inspiration, she erased Spymaster Xathari from the picture. Thus, she cleared the way for her most ambitious move—an audience with the Emperor and a chance to claim Xathari's position and power.
 
-No longer the "half-breed". No longer the traitor's spawn to be slighted or ignored. She is Dracai, and so much more. With Xathari's secrets at her fingertips, she will paint illusions such as Volcor has never seen. Wizard and worker alike, the citizens of this empire will see only what she, the Ash Artist, _wants_ them to see.
+No longer the "half-breed". No longer the traitor's spawn to be slighted or ignored. She is Dracai, and so much more. With Xathari's secrets at her fingertips, she will paint illusions such as [Volcor](https://legendarystories.net/world-of-rathe/volcor/volcor.html) has never seen. Wizard and worker alike, the citizens of this empire will see only what she, the Ash Artist, _wants_ them to see.
 
 She ascends the steps and looks up at the magnificent doors that dwarf her. Polished gold shimmers upon black iron and tempered steel. A gateway forged to withstand a thousand sieges, so strong, so thick, that even Dracona Optimai might barely scald its surface.
 
@@ -52,15 +52,15 @@ Her mind's eye recalls the litter of papers, inked in the dead hand of Spymaster
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/09-dynasty/media/ember-4.webp" alt="ember-in-the-ash-4" class="center">
 
-The Demonastery sought to manipulate the Dracai so they would not find common cause with Solana. Thus is their ignorance, their paranoia. Solana is nothing to Volcor.
+The [Demonastery](https://legendarystories.net/world-of-rathe/demonastery/demonastery.html) sought to manipulate the Dracai so they would not find common cause with [Solana](https://legendarystories.net/world-of-rathe/solana/solana.html). Thus is their ignorance, their paranoia. Solana is nothing to Volcor.
 
 A Solanian spy lurks about the palace, an agent so elusive that even a fireseer cannot find them.
 
 Sandfolk fury continues to fester, as Xathari hoped it would. Their attack was a lance, puncturing a boil. In time, the infection will be drawn out into the open.
 
-The scheming Ezu and loyal Alshoni—two great Dracai houses locked in a deadly game of power and usurpation. The Alshoni defending stability and dynasty against dangerous Ezu aspirations. A trail of missives exchanged through the Pits. Prices paid in coin and blood.
+The scheming [Ezu and loyal Alshoni](https://legendarystories.net/world-of-rathe/volcor/fire-in-their-veins.html#factions)—two great Dracai houses locked in a deadly game of power and usurpation. The Alshoni defending stability and dynasty against dangerous Ezu aspirations. A trail of missives exchanged through the [Pits](https://legendarystories.net/world-of-rathe/pits/pits.html). Prices paid in coin and blood.
 
-Fai and his foolish Volcai, their filthy hands tearing the empire apart. Enemies in every scullery and stable. Vermin that might yet overrun the entire palace.
+[Fai](https://legendarystories.net/heroes-of-rathe/fai-rising-rebellion-about.html) and his foolish Volcai, their filthy hands tearing the empire apart. Enemies in every scullery and stable. Vermin that might yet overrun the entire palace.
 
 Dromai follows the threads, weaving a tapestry of treachery in her mind. Yet try as she might, she can see neither the pattern nor the weaver. They are as elusive as that vile visage glimpsed and then gone into tortured darkness.
 
@@ -116,7 +116,7 @@ The legacy of the dragon. Awaiting one with the will to command it.
 
 Fai crests the wall and cuts down the first soldier who tries to repel him. His sword slices through armor and muscle as he clears the way for his compatriots. An archer on the tower looses an arrow at him. Fai plucks the missile from the air and drives it into a nearby soldier's fear-bulged eye. With a flick of his wrist, he sends a throwing star into the archer's throat. He watches the woman fall into the courtyard below, catches his breath as her blood runs red—a brushstroke of scarlet upon a canvas of ash.
 
-A horn sounds from the keep, but it's too late for its inhabitants. No-one is coming to their aid. Fai knows this, the message delivered to him in the claws of an imperial bird of prey, a flame-winged vuurlin, shot from the ashen sky by a rebel arrow. The Emperor is dead, slain by a _skeletal assassin as twisted as the spirits of Serpent's Crescent_, the missive read. He could not have hoped for better, the greatest threat to the rebellion removed from the field. Yet his exaltation is leaden with doubt. There is another force at play, shaping the fate of Volcor to its own ends. A force so powerful that its masked instrument struck down Volcor's mightiest wizard, unchallenged, beyond justice or retribution.
+A horn sounds from the keep, but it's too late for its inhabitants. No-one is coming to their aid. Fai knows this, the message delivered to him in the claws of an imperial bird of prey, a flame-winged [vuurlin](https://legendarystories.net/world-of-rathe/volcor/wildlife.html#vuurlin), shot from the ashen sky by a rebel arrow. The Emperor is dead, slain by a _skeletal assassin as twisted as the spirits of Serpent's Crescent_, the missive read. He could not have hoped for better, the greatest threat to the rebellion removed from the field. Yet his exaltation is leaden with doubt. There is another force at play, shaping the fate of Volcor to its own ends. A force so powerful that its masked instrument struck down Volcor's mightiest wizard, unchallenged, beyond justice or retribution.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/09-dynasty/media/ember-6.webp" alt="ember-in-the-ash-6" class="center">
 
@@ -126,5 +126,6 @@ Above him in the now reddish sky, he notices another vuurlin. This one wild; hun
 
 ---
 
+_Source: [https://fabtcg.com/articles/ember-ash/](https://fabtcg.com/articles/ember-ash/_)_<br>
 _Written by Edwin McRae and Rachel Rees._<br>
 _Directed by Robbie. Illus. by Sam Yang._
