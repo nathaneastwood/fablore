@@ -1,11 +1,3 @@
-<style>
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
-
 # Lexi, Livewire
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/05-tales-of-aria/media/lexi-1.webp" alt="lexi-1" class="center">

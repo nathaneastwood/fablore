@@ -1,11 +1,3 @@
-<style>
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
-
 The Blade of Eridani was once commissioned by the Grand Magister, the Radiant, and gifted to a templar named Aelius, as part of a ceremony to thank Aelius for his many great deeds for the people of Solana. A two-handed greatsword, it was forged from pure silversteel, with a gilded hilt engraved with a blessing from the Grand Magister himself. An enchanted crystal was embedded into the sword's pommel, which imbued the blade with a fragment of Sol's light.
 
 On his deathbed, Aelius gifted the Blade of Eridani to his eldest son, who in turn gifted it to his eldest daughter. The Blade of Eridani passed down the generations, until it was one day inherited by Leto, a templar in the Hand of Sol.

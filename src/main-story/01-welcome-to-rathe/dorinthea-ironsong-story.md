@@ -1,11 +1,3 @@
-<style>
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
-
 # Dorinthea, Ironsong
 
 _Centuries after the end of the great wars, Solana is experiencing an era of peace and prosperity, with the last of its great defenses completed, and its people watched over by noble protectors. And yet, a strange wind has begun to stir once more, sowing seeds of unrest across the continent. Strangers hail from the East, bringing their strange customs and mystic rites to the outskirts of the grand city. To the South, blasphemous cults gather, driven by greed and gluttony. Worst of all, the savage packs of the west gather near the outskirts of the jungle, creeping ever closer to the villages under Solana's protection._

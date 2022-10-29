@@ -1,11 +1,3 @@
-<style>
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
-
 # A Grand Adventure
 
 _Lightning...Ice...Earth..._<br>

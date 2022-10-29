@@ -1,11 +1,3 @@
-<style>
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
-
 # Iyslander, Stormbind
 
 Beneath Iyslander's icy facade there beats a heart that is warm and full of longing. Her isolation has taught her much. How to survive. How to strive and thrive in a harsh land. Yet Iyslander knows she still has so much more to learn.

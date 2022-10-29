@@ -1,11 +1,3 @@
-<style>
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
-
 # Levia, Shadowborn Abomination
 
 Levia was born into poverty, her impoverished family one of many who worked for the nobility of the Northern Realms. Her father had been a stablehand for Lord Barthimont, but he disappeared suddenly when Levia was very young, leaving his family destitute. Without the means to support herself and her daughter, Levia's mother sold them both into the service of the Barthimont estate, an act borne of desperation.

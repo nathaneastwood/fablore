@@ -1,11 +1,3 @@
-<style>
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
-
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/09-dynasty/media/emporer-1.webp" alt="emporer-1" class="center">
 
 # The One Emperor

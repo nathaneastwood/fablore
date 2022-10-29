@@ -10,14 +10,6 @@ The Flow has given life to some of the most remarkable scenery in all of Rathe. 
 Ethereal creatures borne of magic, fading in and out of existence based on the ebb and wane of the Flow. While they appear sentient, Cesari are mirages, mere echoes of ancient beings that once called Aria home. They appear as iridescent, semi-translucent phantoms, shimmering as they ripple through the air. Cesari can range in size from small, floating wisps that drift along with the breeze, to massive, twin-tailed creatures the size of comets, leaving streaks of vibrant light in their wake.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/world-of-rathe/aria/media/cesari.webp" alt="Cesari" class="center">
-<style>
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 35%;
-  }
-</style>
 
 ## Folktales Across Aria
 #### Wishing Wells

@@ -1,11 +1,3 @@
-<style>
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
-
 ## The Jaws of Death
 
 A life on the streets has hardened Azalea, leaving her cynical and callous. Fighting to survive, she taught herself to hunt and kill, honing her skills to a fine edge.

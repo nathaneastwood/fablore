@@ -1,11 +1,3 @@
-<style>
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
-
 # Dromai, Ash Artist
 
 Dromai barely remembers her parents, Torvai the Dracai, and Sani of the Sandfolk. Murdered before she had even learned to walk. Min of the Forest of Flames found her, raised her in a humble village amongst the struggle and strife of Volcai life. A hatchling dragon in the nest of the phoenix.

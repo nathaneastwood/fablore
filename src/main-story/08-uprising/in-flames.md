@@ -1,11 +1,3 @@
-<style>
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
-
 # In Flames
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/08-uprising/media/in-flames-1.webp" alt="in-flames-1" class="center">

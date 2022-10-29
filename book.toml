@@ -6,7 +6,7 @@ src = "src"
 title = "Flesh and Blood Lore"
 
 [output.html]
-additional-css = ["style.css", "hero.css"]
+additional-css = ["style.css", "hero.css", "image.css"]
 additional-js = ["sidebar.js"]
 default-theme = "light"
 preferred-dark-theme = "navy"

@@ -1,11 +1,3 @@
-<style>
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
-
 # Fai, Rising Rebellion
 
 Life was never easy in the Forest of Flames. Farmers and foresters eked out a meager living from the land, barely making enough to feed their families once the Emperor's tax collectors had taken their due.

@@ -1,11 +1,3 @@
-<style>
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
-
 ## Tales of a Teklo
 
 A mechanologist from the city of Metrix, Dash is a brilliant inventor with a creative mind and a spark of genius. Born into the city of tomorrow, she grew up surrounded by some of the greatest minds in Metrix, playing in the laboratories and workshops of Teklo Industries scientists. Brimming with enthusiasm, she learned to explore the world around her, wanting to experience everything that life has to offer.

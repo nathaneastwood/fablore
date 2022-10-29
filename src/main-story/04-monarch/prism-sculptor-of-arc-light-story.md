@@ -1,11 +1,3 @@
-<style>
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
-
 # Prism, Sculptor of Arc Light
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/prism-1.webp" alt="prism-1" class="center">

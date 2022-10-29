@@ -1,11 +1,3 @@
-<style>
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
-
 # Oldhim, Grandfather of Eternity
 
 Ash and smoke filled our lungs, as the stench of death weigh upon our every step.

@@ -1,11 +1,3 @@
-<style>
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
-
 # Morlock Hill
 
 The setting sun casts Morlock Hill in a bloody hue.

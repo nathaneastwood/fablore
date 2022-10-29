@@ -1,11 +1,3 @@
-<style>
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
-
 # No Smoke Without Fire
 
 The blade whistled faintly as it soared past her cheekbone, her head ducked as she sidestepped the raiders attack. With a sharp exhale, she swept past his follow-up attack, sword glancing off her crossed blades with a loud clang. Kassai scowled as she sprung backwards, narrowly avoiding a third slash. Out of the corner of her eye, she noted her fellow Cintari, scattered throughout the ruined village.

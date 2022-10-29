@@ -1,11 +1,3 @@
-<style>
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
-
 # Boltyn, Break of Dawn
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/boltyn-1.webp" alt="boltyn-1" class="center">

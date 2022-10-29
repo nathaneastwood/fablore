@@ -1,11 +1,3 @@
-<style>
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
-
 # Briar, Warden of Thorns
 
 The heartlands of Aria are painted with vast swaths of forests. Crystalline trees glimmer under the rainbow glow of the Flow, as beautiful Cesari and all manner of wondrous creatures dance amongst the trees. These woods had borne witness to countless stories and legends throughout the Ages, as the once arid badlands was transformed into the sanctuary that it is today by the remnants of the Ancients' power.

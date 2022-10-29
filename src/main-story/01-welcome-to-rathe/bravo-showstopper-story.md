@@ -1,11 +1,3 @@
-<style>
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
-
 # Bravo, Showstopper
 
 _Once a land of fables, Aria was disconnected from the rest of Rathe, protected from the conflicts and troubles that plagued the rest of the world. Its people were well-cared for by a plentiful land, nurtured by the energy of the Flow. As the landscape changed, shaped by the passage of the Flow, the transformations shaped the people of Aria as well. Its cheerful and carefree people have cultivated a culture rich in music, entertainment and celebration._

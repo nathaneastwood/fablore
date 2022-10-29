@@ -1,11 +1,3 @@
-<style>
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
-
 ## To Become a Dracai
 
 A distant descendant of the first Emperor, Kano was born with the raw power of the dragon's fire within his veins, able to summon flames as easily as breathing. As a court wizard, he lives within the royal palace, enjoying comforts unknown to the masses of Volcor.

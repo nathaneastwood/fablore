@@ -1,11 +1,3 @@
-<style>
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
-
 # The Librarian
 
 The Library of Illumination stands at the very heart of the bright city of Solana, rising high above the surrounding buildings on every side; it remains a sanctuary for any person with a curious mind and the desire to learn. The soaring shelves are lined with books from floor to ceiling, towering above the heads of visitors and staff alike. Scholars of the Light of Sol draw books down with a gesture, aether curling through the air as they source another volume for their studies. Citizens of Solana sit quietly in the archival wings, reading tomes and illuminated manuscripts, while children gather at the feet of acolytes in shining robes, listening to tales of noble knights and radiant scholars.
