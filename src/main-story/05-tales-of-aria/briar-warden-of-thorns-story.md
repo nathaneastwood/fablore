@@ -44,7 +44,7 @@ Until at long last it was her turn to bloom.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/05-tales-of-aria/media/briar-7.webp" alt="briar-7" class="center">
 
-She took the name of Briar, the wild rose that sprung forth from amongst the bramble. And all of Candlehold rejoiced, as the last of their sisters returned to them.
+She took the name of [Briar](https://legendarystories.net/heroes-of-rathe/briar-warden-of-thorns-about.html), the wild rose that sprung forth from amongst the bramble. And all of Candlehold rejoiced, as the last of their sisters returned to them.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/05-tales-of-aria/media/briar-8.webp" alt="briar-8" class="center">
 

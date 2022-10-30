@@ -28,6 +28,6 @@ Perfect. He is already responding well to the initial runework, I suspect that h
 
 From his armour, I suspect he may originally come from Volcor, though I'm not certain how he survived the seas. Perhaps he was meant for this, a survivor in the truest sense.
 
-I think that I shall name him Viserai - it feels fitting, and every weapon must have a name. I have faith that this subject may survive the Arknight system. Only time shall tell whether Viserai can become the Arknight, or whether he shall become one more failed test. Either way, I am certain to learn much more about the process, as he has survived more of the process than any other subject thus far.
+I think that I shall name him [Viserai](https://legendarystories.net/heroes-of-rathe/viserai-rune-blood-about.html) - it feels fitting, and every weapon must have a name. I have faith that this subject may survive the Arknight system. Only time shall tell whether Viserai can become the Arknight, or whether he shall become one more failed test. Either way, I am certain to learn much more about the process, as he has survived more of the process than any other subject thus far.
 
 I am eager to see the results.

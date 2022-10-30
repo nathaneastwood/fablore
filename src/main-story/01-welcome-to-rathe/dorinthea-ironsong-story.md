@@ -8,7 +8,7 @@ _Amidst the brewing storm, the Hand of Sol gathers in ever larger patrols, perma
 
 For centuries, the Ironsong family have prided themselves on their reputation as master blacksmiths. The first generation of the bloodline were awarded the name of Ironsong for their work with weapons and armour, forging some of the finest in all of Solana. In the years since, they have passed down their trade secrets from generation to generation, preserving the Ironsong name.
 
-Dorinthea Ironsong was an only child with a penchant for mischief. Her earliest memories are of the forge, and the heavy scent of smoke hanging in the air as she watched her parents work, expertly crafting graceful blades and sun-blessed shields. Her mother would often talk to her while smithing, explaining everything to her curious daughter.
+[Dorinthea Ironsong](https://legendarystories.net/heroes-of-rathe/dorinthea-ironsong-about.html) was an only child with a penchant for mischief. Her earliest memories are of the forge, and the heavy scent of smoke hanging in the air as she watched her parents work, expertly crafting graceful blades and sun-blessed shields. Her mother would often talk to her while smithing, explaining everything to her curious daughter.
 
 When she wasn't in the forge with her parents, Thea could usually be found with Minerva, the reserved, steely-eyed woman who ran the Golden Chariot next to the Ironsong forge. Her parents had known Minerva since they were children, long since passing the line between friends and family. While Thea knew that Minerva had been born outside of Solana, the innkeeper was incredibly private, and rarely spoke about her past.
 

@@ -6,7 +6,7 @@ _The Mugenshi clan, having secluded themselves long ago, remain afflicted by an 
 
 ## Stalemate
 
-Silence. The last of Katsu's words echoed through the room as he watched the grandmasters turn their faces toward him, expressions cool and unaffected, as still as a lake in the midst of winter.
+Silence. The last of [Katsu](https://legendarystories.net/heroes-of-rathe/katsu-the-wanderer-about.html)'s words echoed through the room as he watched the grandmasters turn their faces toward him, expressions cool and unaffected, as still as a lake in the midst of winter.
 
 "It is not yet time." Master Takumi spoke, his voice a counterpoint to the stillness of the room. "There are things that have to be taken into consideration. Autumn is already upon us, and you know well that the winds are more active at this time of year. That aside, the clan is not prepared for such a journey."
 

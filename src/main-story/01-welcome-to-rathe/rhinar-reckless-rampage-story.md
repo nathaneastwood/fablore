@@ -50,7 +50,7 @@ After all, it is not only beasts that spell danger in the Savage Lands. Some are
 
 ## Never Back Down
 
-It does not last forever. The brute soon becomes a predator. Rhinar marks a place for himself amongst some of the most dangerous beasts in the Savage Lands. This is his territory, his kingdom, and any creature who dares to step foot within his land will die for it.
+It does not last forever. The brute soon becomes a predator. [Rhinar](https://legendarystories.net/heroes-of-rathe/rhinar-reckless-rampage-about.html) marks a place for himself amongst some of the most dangerous beasts in the Savage Lands. This is his territory, his kingdom, and any creature who dares to step foot within his land will die for it.
 
 Now fully grown, the fear and caution have given way to aggression, an overwhelming urge to carve out a territory for his own. Yet Rhinar grows ever larger, towering over the other predators of the jungle. He drives scraps of metal into his wooden club, the rashari branch he'd once scavenged from the forest floor; adds the jawbone of another brute and the tusk of a young brawnhide.
 
