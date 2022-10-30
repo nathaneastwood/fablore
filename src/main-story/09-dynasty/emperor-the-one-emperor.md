@@ -2,7 +2,7 @@
 
 # The One Emperor
 
-The Emperor stands before the ancient altar. His eyes take in the rough-hewn base and its pyroglyphic symbols, carved by the first emperor at the dawn of Volcor. The symbols roam from raw rock to wrought iron and glass, replaced during his reign by the dynasty's finest metallurgists and glaziers. His gaze follows the sinuous lines of the bracing dragons, the gentle curvature of the glass, to the vision that burns within. A blazing apparition. A spark, cast here from a fire beyond reach, beyond understanding.
+The [Emperor](https://legendarystories.net/heroes-of-rathe/emperor-about.html) stands before the ancient altar. His eyes take in the rough-hewn base and its pyroglyphic symbols, carved by the first emperor at the dawn of [Volcor](https://legendarystories.net/world-of-rathe/volcor/volcor.html). The symbols roam from raw rock to wrought iron and glass, replaced during his reign by the dynasty's finest metallurgists and glaziers. His gaze follows the sinuous lines of the bracing dragons, the gentle curvature of the glass, to the vision that burns within. A blazing apparition. A spark, cast here from a fire beyond reach, beyond understanding.
 
 Muffled whispers scratch at the glass. The Emperor is all too familiar with those insidious promises. They are the sovereign's blessing, and his curse. He has listened to them since he was a young man, long before he took the throne from his father. Today he wishes they would be silent.
 
@@ -63,3 +63,9 @@ One land.
 One people.
 
 One Emperor.
+
+---
+
+_Source: [https://fabtcg.com/heroes/emperor-dracai-aesir/?stories=True](https://fabtcg.com/heroes/emperor-dracai-aesir/?stories=True)_<br>
+_Written by Edwin McRae and Rachel Rees._<br>
+_Directed by Robbie. Illus. by Sam Yang._

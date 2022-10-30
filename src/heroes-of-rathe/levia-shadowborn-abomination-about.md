@@ -24,4 +24,4 @@ There's no such thing as a free lunch, and in íArathael the currency is power o
 
 #### Doomsday Scenario
 
-From farmhand to Shadowborn Abomination, Levia's transformation isn't by chance. A willing pawn in the Demonastery's plan, Levia is a dimenxxional gateway for the Shadow embra Blasmophet to descend upon Rathe.
+From farmhand to Shadowborn Abomination, Levia's transformation isn't by chance. A willing pawn in the [Demonastery](https://legendarystories.net/world-of-rathe/demonastery/demonastery.html)'s plan, Levia is a dimenxxional gateway for the Shadow embra Blasmophet to descend upon Rathe.

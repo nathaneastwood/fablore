@@ -2,7 +2,7 @@
 
 ![data-doll-mkii](https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/data-doll.webp)
 
-Buried deep beneath Iron Assembly headquarters there lies a vast, secret chamber. Inside rests Data Doll, a steam-powered automaton delicately suspended by a web of wires and hoses. Night and day, her pneumatic mind surges with an influx of data reported from all across Metrix. Her purpose: to provide pertinent data to the Iron Assembly's most elite members. These select few jealously guard the secret of Data Doll's existence; afraid that the key to their copiously cognizant intelligence network might be discovered. Compliant as ever, Data Doll obeys them without complaint and with all the cold, calculated accuracy of the Assembly itself.
+Buried deep beneath Iron Assembly headquarters there lies a vast, secret chamber. Inside rests Data Doll, a steam-powered automaton delicately suspended by a web of wires and hoses. Night and day, her pneumatic mind surges with an influx of data reported from all across [Metrix](https://legendarystories.net/world-of-rathe/metrix/metrix.html). Her purpose: to provide pertinent data to the Iron Assembly's most elite members. These select few jealously guard the secret of Data Doll's existence; afraid that the key to their copiously cognizant intelligence network might be discovered. Compliant as ever, Data Doll obeys them without complaint and with all the cold, calculated accuracy of the Assembly itself.
 
 Data Doll compiles massive quantities of data in order to provide her users with up-to-date intelligence. To meet this demand, Data Doll learned to do something entirely new for an automaton: she began to ask questions.
 

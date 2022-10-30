@@ -1,10 +1,10 @@
 ## To Become a Dracai
 
-A distant descendant of the first Emperor, Kano was born with the raw power of the dragon's fire within his veins, able to summon flames as easily as breathing. As a court wizard, he lives within the royal palace, enjoying comforts unknown to the masses of Volcor.
+A distant descendant of the first Emperor, Kano was born with the raw power of the dragon's fire within his veins, able to summon flames as easily as breathing. As a court wizard, he lives within the royal palace, enjoying comforts unknown to the masses of [Volcor](https://legendarystories.net/world-of-rathe/volcor/volcor.html).
 
 In recent years, something has been stirring, slow and insidious, disrupting the flow of aether within Volcor. Wizards throughout the court have been struggling to control their innate magic, finding difficulty in casting even the simplest aetheric spell. When Kano stumbles upon a mysterious being dwelling within the body of his former mentor, he uncovers a secret that threatens to overwhelm the innermost circles of the royal court.
 
-In exposing the threat before the Chamber of the Dragon, Kano manages to gain the gratitude of the Emperor himself. Wielding his unique aether affinity, Kano is gifted the title of 'Dracai of Aether'; sent to uncover the truth and correct the imbalance of aether, before every wizard in Volcor is left powerless.
+In exposing the threat before the Chamber of the Dragon, Kano manages to gain the gratitude of the [Emperor](https://legendarystories.net/heroes-of-rathe/emperor-about.html) himself. Wielding his unique aether affinity, Kano is gifted the title of 'Dracai of Aether'; sent to uncover the truth and correct the imbalance of aether, before every wizard in Volcor is left powerless.
 
 ## Playing with Fire
 

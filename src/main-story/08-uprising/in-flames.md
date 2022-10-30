@@ -2,13 +2,13 @@
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/08-uprising/media/in-flames-1.webp" alt="in-flames-1" class="center">
 
-I will gain my audience with the Emperor of Volcor. Though my attempts thus far have been met with near fatal disappointment, I now hold the key to our alliance in the palm of my hand.
+I will gain my audience with the [Emperor](https://legendarystories.net/heroes-of-rathe/emperor-about.html) of [Volcor](https://legendarystories.net/world-of-rathe/volcor/volcor.html). Though my attempts thus far have been met with near fatal disappointment, I now hold the key to our alliance in the palm of my hand.
 
 A secret passageway leads from the Chamber of the Dragon into the bowels of Mount Volcor. Hidden in those molten depths is the emperor's private residence, a sanctum secure against the slights and schemes of his lessers.
 
 Assassination has become virulent among these Dracai, this arcane nobility. The ruling houses fight fire with fire as they struggle for dominance over this already fractured land. I had expected Volcor's politics to be heated. I did not expect to see a Dracai melted into a puddle of scorched fat in her own chambers.
 
-They care for nothing but their arrogant ambitions. Yet without allies, the Demonastery's hordes will consume our blessed Solana, and Volcor will be next. The emperor must see that.
+They care for nothing but their arrogant ambitions. Yet without allies, the [Demonastery](https://legendarystories.net/world-of-rathe/demonastery/demonastery.html)'s hordes will consume our blessed [Solana](https://legendarystories.net/world-of-rathe/solana/solana.html), and Volcor will be next. The emperor must see that.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/08-uprising/media/in-flames-2.webp" alt="in-flames-2" class="center">
 

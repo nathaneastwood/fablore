@@ -1,6 +1,6 @@
 # Viserai, Rune Blood
 
-For hundreds of years, the Demonastery lurked beyond the shores of Rathe, surrounded by a wall of thick sea fog. Stormy seas kept ships from ever reaching its shores, surging waves tossing would-be intruders onto the sharp rocks. An eerie silence blanketed the grounds, stifling the distant sounds of the ocean. T'was a place that is neither here nor there, a dark sanctuary free from the bounds of morality.
+For hundreds of years, the [Demonastery](https://legendarystories.net/world-of-rathe/demonastery/demonastery.html) lurked beyond the shores of Rathe, surrounded by a wall of thick sea fog. Stormy seas kept ships from ever reaching its shores, surging waves tossing would-be intruders onto the sharp rocks. An eerie silence blanketed the grounds, stifling the distant sounds of the ocean. T'was a place that is neither here nor there, a dark sanctuary free from the bounds of morality.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/viserai-1.webp" alt="viserai-1" class="center">
 

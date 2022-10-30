@@ -64,7 +64,7 @@ Lexi felt herself drawn to the centre, where a huge pedestal lay. Deep grooves r
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-3.webp" alt="grand-3" class="center">
 
-Yorick called them over to the walls of the chamber, which were sprawling with painted murals. Some of the pictures were intricate and beautiful, such as a blue crystalline maiden weaving ice and snow throughout what looked like Aria. Others were strange and outlandish, such as an enormous squid-like creature lurking within sunken ruins. And even more had a threatening and sinister feel, such as a blood-red dragon perched atop a mountain of skulls, surrounded by hellfire.
+Yorick called them over to the walls of the chamber, which were sprawling with painted murals. Some of the pictures were intricate and beautiful, such as a blue crystalline maiden weaving ice and snow throughout what looked like [Aria](https://legendarystories.net/world-of-rathe/aria/aria.html). Others were strange and outlandish, such as an enormous squid-like creature lurking within sunken ruins. And even more had a threatening and sinister feel, such as a blood-red dragon perched atop a mountain of skulls, surrounded by hellfire.
 
 Underneath each of the scenes was the same odd text. Lexi ran her palm over the wall.
 

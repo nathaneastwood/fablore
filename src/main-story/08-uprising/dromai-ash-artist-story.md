@@ -72,7 +72,7 @@ On the thirtieth day, Xathari visits her chambers; a modest room at the rear of 
 
 "There has been an insurrection," begins Xathari.
 
-"You have spoken with the Emperor?"
+"You have spoken with the [Emperor](https://legendarystories.net/heroes-of-rathe/emperor-about.html)?"
 
 He raises his hand, silencing her. "The rebels have captured General Riku."
 
@@ -144,7 +144,7 @@ She is Dracai.
 
 Dromai sits in the Oasis, her feet dangling in the cave's simmering lake. She watches luminous carp flit through the water, hunting flarefish that fall from the lava river.
 
-The water comes from Misteria. The lava comes from Mount Volcor. Here water and lava meet, a union of opposing forces, just like her.
+The water comes from [Misteria](https://legendarystories.net/world-of-rathe/misteria/misteria.html). The lava comes from Mount Volcor. Here water and lava meet, a union of opposing forces, just like her.
 
 She delivered General Riku to Ashvahan. The Royal Court gave her the mantle of Dracai in return. For a time there, she even allowed herself to celebrate, to luxuriate in the trappings of palace life.
 

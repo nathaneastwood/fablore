@@ -42,7 +42,7 @@ Kassai turned her face toward the sun's silhouette, drawing her hood up with one
 
 ---
 
-The warm light of the morning sun cast the city streets in gold, illuminating the embroidered banners hanging above. A figure strolled down the ivory pavement, her hair a flaxen gold, silversteel armour gleaming, polished to a brilliant shine. The crimson cloak fluttered in the light breeze, the symbol of Solana embossed onto her chestplate. Exchanging a bright smile with one of the merchants, the lieutenant bowed her head in greeting, gaze sweeping across the crowds.
+The warm light of the morning sun cast the city streets in gold, illuminating the embroidered banners hanging above. A figure strolled down the ivory pavement, her hair a flaxen gold, silversteel armour gleaming, polished to a brilliant shine. The crimson cloak fluttered in the light breeze, the symbol of [Solana](https://legendarystories.net/world-of-rathe/solana/solana.html) embossed onto her chestplate. Exchanging a bright smile with one of the merchants, the lieutenant bowed her head in greeting, gaze sweeping across the crowds.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/03-crucible-of-war/media/no-smoke-3.webp" alt="no-smoke-3" class="center">
 

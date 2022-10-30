@@ -20,4 +20,4 @@ Kano is the first hero of Flesh and Blood who is able to play the game at instan
 
 #### Dragonblood
 
-Only those with the blood of the dragon can hold a position of Dracai in the royal court of Volcor. Being a Dracai of Aether is one part training and one lineage, and with it Kano expands on the general knowledge base of Aether to learn the arcane specialization of Draconic magic.
+Only those with the blood of the dragon can hold a position of Dracai in the royal court of [Volcor](https://legendarystories.net/world-of-rathe/volcor/volcor.html). Being a Dracai of Aether is one part training and one lineage, and with it Kano expands on the general knowledge base of Aether to learn the arcane specialization of Draconic magic.

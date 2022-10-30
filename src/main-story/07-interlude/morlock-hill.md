@@ -28,7 +28,7 @@ Hope falters, guttering like a candle in the wind.
 
 ---
 
-Solana, plunged into shadow by the endless hordes brought forth by the Demonastery.
+[Solana](https://legendarystories.net/world-of-rathe/solana/solana.html), plunged into shadow by the endless hordes brought forth by the [Demonastery](https://legendarystories.net/world-of-rathe/demonastery/demonastery.html).
 
 Fardreyas was the first village to be consumed. Then Sunvale, Audra, and Hazeltown. Solana's farmlands and crops burned to ash, animals slaughtered.
 
