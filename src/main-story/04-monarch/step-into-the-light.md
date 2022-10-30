@@ -158,7 +158,7 @@ Boltyn looked from Prism to the image of Bellona, her bronze mask moulded into a
 
 "How did you learn to wield it? Did it always come naturally to you?"
 
-"A little. It usually just feels like something that you know you've done before, but you haven't done it in a long time. I began to learn pretty quickly, once I started practicing." At her weighted pause, Botlyn looked over to see Prism staring thoughtfully at Suraya's serene, inscrutable countenance. "The Librarian said that it's not uncommon for the Light talent to start emerging when Solana enters a time of war. I'm not sure if it is Sol, or the heralds, or just simply born of our own determination. Maybe we all hold the potential, and a struggle just makes us remember."
+"A little. It usually just feels like something that you know you've done before, but you haven't done it in a long time. I began to learn pretty quickly, once I started practicing." At her weighted pause, Boltyn looked over to see Prism staring thoughtfully at Suraya's serene, inscrutable countenance. "[The Librarian](https://legendarystories.net/other-characters/the-librarian.html) said that it's not uncommon for the Light talent to start emerging when Solana enters a time of war. I'm not sure if it is Sol, or the heralds, or just simply born of our own determination. Maybe we all hold the potential, and a struggle just makes us remember."
 
 "I think that if anyone could figure out what the Light talent is, and why it emerges, it would be you."
 

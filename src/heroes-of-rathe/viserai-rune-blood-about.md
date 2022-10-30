@@ -12,7 +12,7 @@ As his creator searches for a way to bind Viserai to his will, the secrets of th
 
 #### The Arknight
 
-From decorated warrior of [Volcor](https://legendarystories.net/world-of-rathe/volcor/volcor.html), to washed up carcass on the shores of the Demonastery. Lord Sutcliffe had at last found a vassal with enough strength to bear the agonizing procedure he sought to prove possible. Opening the chest cavity, he replaced viscera with an Arknight Shard, carved channels in bone to feed the arcane energy into runic vents etched into skin, and the first Arknight was born.
+From decorated warrior of [Volcor](https://legendarystories.net/world-of-rathe/volcor/volcor.html), to washed up carcass on the shores of the Demonastery. [Lord Sutcliffe](https://legendarystories.net/other-characters/lord-sutcliffe.html) had at last found a vassal with enough strength to bear the agonizing procedure he sought to prove possible. Opening the chest cavity, he replaced viscera with an Arknight Shard, carved channels in bone to feed the arcane energy into runic vents etched into skin, and the first Arknight was born.
 
 #### Sword & Sorcery
 
