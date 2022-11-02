@@ -10,7 +10,7 @@ For centuries, the Ironsong family have prided themselves on their reputation as
 
 [Dorinthea Ironsong](https://legendarystories.net/heroes-of-rathe/dorinthea-ironsong-about.html) was an only child with a penchant for mischief. Her earliest memories are of the forge, and the heavy scent of smoke hanging in the air as she watched her parents work, expertly crafting graceful blades and sun-blessed shields. Her mother would often talk to her while smithing, explaining everything to her curious daughter.
 
-When she wasn't in the forge with her parents, Thea could usually be found with Minerva, the reserved, steely-eyed woman who ran the Golden Chariot next to the Ironsong forge. Her parents had known Minerva since they were children, long since passing the line between friends and family. While Thea knew that Minerva had been born outside of Solana, the innkeeper was incredibly private, and rarely spoke about her past.
+When she wasn't in the forge with her parents, Thea could usually be found with [Minerva](https://legendarystories.net/other-characters/minerva-themis.html), the reserved, steely-eyed woman who ran the Golden Chariot next to the Ironsong forge. Her parents had known Minerva since they were children, long since passing the line between friends and family. While Thea knew that Minerva had been born outside of Solana, the innkeeper was incredibly private, and rarely spoke about her past.
 
 In the mornings, Thea helped out with minor chores, sweeping and cleaning the tavern before returning to the family forge in the afternoon. Then, as all the guests were settling in for their evening meal, she would take up residence next to the fire and listen to the chatter around her.
 

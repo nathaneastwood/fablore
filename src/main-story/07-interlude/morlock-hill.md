@@ -46,7 +46,7 @@ As the first giant raises its sword, something flashes between them. Weapons cra
 
 "I cannot leave you alone for one moment, can I?"
 
-Minerva's scarlet hair flows over her shoulders, brighter than the demon blood she flicks from her twin blades. Her expression is grim and determined, weathered by violent experience.
+[Minerva](https://legendarystories.net/other-characters/minerva-themis.html)'s scarlet hair flows over her shoulders, brighter than the demon blood she flicks from her twin blades. Her expression is grim and determined, weathered by violent experience.
 
 A smile cracks through the drying blood on Dorinthea's face. "What kept you?"
 
