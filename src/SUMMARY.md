@@ -146,6 +146,7 @@
     - [Blazen Yoroi](equipment/blazen-yoroi.md)
     - [Bloodsheath Skeleta](equipment/bloodsheath-skeleta.md)
     - [Breeze Rider Boots](equipment/breeze-rider-boots.md)
+    - [Celestial Kimono](equipment/celestial-kimono.md)
     - [Courage of Bladehold](equipment/courage-of-bladehold.md)
     - [Crater Fist](equipment/crater-fist.md)
     - [Metacarpus Node](equipment/metacarpus-node.md)
