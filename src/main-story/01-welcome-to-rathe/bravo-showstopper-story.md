@@ -139,3 +139,8 @@ He had heard wayfarers speak of unusual changes in the Flow, and one had hinted 
 As Bravo greeted his companions, following them into the sea of tents with a broad grin, a single figure remained near the edge of the tents. An old woman, dressed in the loose silks and woven fabrics of the oracles, her golden jewellery marking her as one of the Maela. Her single eye gleamed as she watched Bravo leave, a small smile tugging at the corners of her lips.
 
 "At last, it is time. The Guardians shall return once more."
+
+---
+
+_Source: [https://fabtcg.com/heroes/bravo-showstopper/?stories=True](https://fabtcg.com/heroes/bravo-showstopper/?stories=True)_<br>
+_Illustrations by MJ Fetesio, colour by Sindy Wo, story by Nicola Price._

@@ -157,3 +157,8 @@ Despite the prestige of her accomplishment, promoted to lieutenant at just twent
 "In the name of Sol, I swear that I shall serve Solana to the best of my ability, until death relieves me of this sacred duty. I swear that I will protect Solana, and all those who live within its walls." Her voice rang out, cutting through the hushed quiet of the crowds watching over her. "By the blessed light, I shall carry out this oath, and never shall I knowingly nor willingly violate this, my solemn oath and obligation as a lieutenant of Solana, the outstretched hand of Sol. By the glory of Sol's light, in Sol's name, so shall it be."
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/01-welcome-to-rathe/media/dori-5.webp" alt="dori-5" class="center">
+
+---
+
+_Source: [https://fabtcg.com/heroes/dorinthea-ironsong/?stories=True](https://fabtcg.com/heroes/dorinthea-ironsong/?stories=True)_<br>
+_Illustrations by MJ Fetesio, colour by Sindy Wo, story by Nicola Price._

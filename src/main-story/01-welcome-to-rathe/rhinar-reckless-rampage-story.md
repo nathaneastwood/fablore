@@ -95,3 +95,8 @@ He stormed into the heart of the fray, ripping one creature's head clean off its
 Finally, all was still.
 
 Standing above the carnage, Rhinar bellows, a challenge to fall on empty ears, no surviving beast to hear his challenge. His bellow echoed through the trees, signalling the birth of an apex predator, an alpha unmatched by any other.
+
+---
+
+_Source: [https://fabtcg.com/heroes/rhinar-reckless-rampage/?stories=True](https://fabtcg.com/heroes/rhinar-reckless-rampage/?stories=True)_<br>
+_Illustrated by MJ Fetesio, story by Nicola Price._

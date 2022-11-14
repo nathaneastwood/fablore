@@ -325,3 +325,7 @@ Azalea remained silent, extending a hand towards Greenbird, the contract card he
 She shrugged in response.
 
 "There," he spat, tossing a pouch of 'tallics across the counter. "There's your coin. Now get these bodies the hell out of my tavern."
+
+---
+
+_Sources: [The Jaws of Death](https://fabtcg.com/heroes/azalea/?stories=True), [Slings and Arrows](https://fabtcg.com/heroes/azalea/slings-and-arrows/), [Cards on the Table](https://fabtcg.com/heroes/azalea/cards-on-the-table/), [A Bird in the Hand](https://fabtcg.com/heroes/azalea/a-bird-in-the-hand/)_

@@ -399,3 +399,7 @@ Rising from his seat, Kano stared down at the staff before him, looking over the
 In his hands, the staff appeared to awaken, firelight dancing between the obsidian scales. He felt the aether around him in stir in response, arcane energy channeling through the core of the staff. With a laugh, he nodded, straightening.
 
 "Dracai of Aether. I like the sound of that."
+
+---
+
+_Sources: [To Become a Dracai](https://fabtcg.com/heroes/kano/?stories=True), [Playing With Fire](https://fabtcg.com/heroes/kano/playing-fire/), [Smoke and Mirrors](https://fabtcg.com/heroes/kano/smoke-and-mirrors/), [From the Ashes](https://fabtcg.com/heroes/kano/rise-ashes/)_

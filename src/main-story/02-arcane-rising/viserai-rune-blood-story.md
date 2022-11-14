@@ -297,3 +297,8 @@ Turning away from the frame, Viserai looked out over the small crowd which had g
 **_The doorway is opened. Behold, íArathael._**
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/viserai-11.webp" alt="viserai-11" class="center">
+
+---
+
+_Sources: [https://fabtcg.com/heroes/viserai/?stories=True](https://fabtcg.com/heroes/viserai/?stories=True), [Return of the Shadow](https://fabtcg.com/articles/return-shadow/)_<br>
+_Featuring illustrations by MJ Fetesio and Nikolay Moskvin. Story by Nicola Price._

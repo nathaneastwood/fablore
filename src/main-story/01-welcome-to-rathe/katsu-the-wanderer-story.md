@@ -223,3 +223,8 @@ Katsu turned to inspect the contents of the jade tray, slowly unfurling the topm
 Adjusting his bundle, Katsu turned to lead the way back home, leaping from the cliff face and disappearing into the mists below.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/01-welcome-to-rathe/media/katsu-5.webp" alt="katsu-5" class="center">
+
+---
+
+_Source: [https://fabtcg.com/heroes/katsu-the-wanderer/?stories=True](https://fabtcg.com/heroes/katsu-the-wanderer/?stories=True)_<br>
+_Illustrations by MJ Fetesio, colour by Sindy Wo, story by Nicola Price._

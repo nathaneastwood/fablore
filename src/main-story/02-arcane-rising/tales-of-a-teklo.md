@@ -479,3 +479,8 @@ With a dry chuckle, he shrugged.
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/dash-12.webp" alt="dash-12" class="center">
 
 Ducking between the stalls, they hurried off, turning their backs on the twisted remains of the Gigadrill, smoke rising behind them.
+
+---
+
+_Sources: [Tales of a Teklo](https://fabtcg.com/heroes/dash/?stories=True), [Stroke of Genius](https://fabtcg.com/heroes/dash/stroke-of-genius/), [Needle in a Haystack](https://fabtcg.com/heroes/dash/needle-in-a-haystack/), [Full Steam Ahead](https://fabtcg.com/heroes/dash/full-steam-ahead/)_<br>
+_Illustrated by Sam Yang_
