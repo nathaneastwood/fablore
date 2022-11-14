@@ -12,14 +12,26 @@ Guided by his mother's wisdom, Fai brings bloody justice to the selfish and the 
 
 ## Hero Highlights
 
-#### Phoenix Rising
+<div class="hero-container">
+  <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/fai-phoenix-rising.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Phoenix Rising</b><br>
+    Molten cleansing events, instigated by the Imperials, routinely raze the settlements of the Volcai people. Yet, a phoenix will always rise from the ashes, to soar once more. Use Fai's hero ability along with his talent cards to raise a phoenix force and overwhelm the opposition with your combat chains that reach far and wide.
+  </div>
+</div>
 
-Molten cleansing events, instigated by the Imperials, routinely raze the settlements of the Volcai people. Yet, a phoenix will always rise from the ashes, to soar once more. Use Fai's hero ability along with his talent cards to raise a phoenix force and overwhelm the opposition with your combat chains that reach far and wide.
+<div class="hero-container">
+  <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/fai-lavavein-loyalty.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Lavavein Loyalty</b><br>
+    The Volcai may be regularly beaten and burned by the Imperial oppressor, but their bonds of brotherhood and sisterhood will never be broken. Many of Fai's Draconic attacks are at their strongest when paired with other Draconic attacks, a reflection that the Volcai's power comes from their devotion to their cause.
+  </div>
+</div>
 
-#### Lavavein Loyalty
-
-The Volcai may be regularly beaten and burned by the Imperial oppressor, but their bonds of brotherhood and sisterhood will never be broken. Many of Fai's Draconic attacks are at their strongest when paired with other Draconic attacks, a reflection that the Volcai's power comes from their devotion to their cause.
-
-#### Violent Eruption
-
-Like the explosive power of Mt Volcor itself, Fai compounds his pent up anger, unleashing his fury as a dramatic rupture point at chain link 4 or higher.
+<div class="hero-container">
+  <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/fai-violent-eruption.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Violent Eruption</b><br>
+    Like the explosive power of Mt Volcor itself, Fai compounds his pent up anger, unleashing his fury as a dramatic rupture point at chain link 4 or higher.
+  </div>
+</div>
