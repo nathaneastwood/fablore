@@ -16,14 +16,26 @@ For He is the dynasty, and the dynasty shall prevail.
 
 ## Hero Highlights
 
-#### Royal
+<div class="hero-container">
+  <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/emperor-royal.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Royal</b><br>
+    The position of Emperor comes with equal parts responsibility and privilege. With the strike of a pen, the movement of a few gilded beads, or the reverberation of a single breath exhaled, you are able to exert and unleash power like no other.
+  </div>
+</div>
 
-The position of Emperor comes with equal parts responsibility and privilege. With the strike of a pen, the movement of a few gilded beads, or the reverberation of a single breath exhaled, you are able to exert and unleash power like no other.
+<div class="hero-container">
+  <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/emperor-command-and-conquer.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Command and Conquer</b><br>
+    The passage of power is lined not with decadence, but with dominance. The most feared offensive force known in Rathe is at your command.
+  </div>
+</div>
 
-#### Command and Conquer
-
-The passage of power is lined not with decadence, but with dominance. The most feared offensive force known in Rathe is at your command.
-
-#### Dual Class
-
-More than exceptional is a requisite of any mortal with desires to rule the volatile land of Volcor. The Emperor is no mere mortal, being the only known hero who can proficiently wield dual classes.
+<div class="hero-container">
+  <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/emperor-dual-class.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Dual Class</b><br>
+    More than exceptional is a requisite of any mortal with desires to rule the volatile land of Volcor. The Emperor is no mere mortal, being the only known hero who can proficiently wield dual classes.
+  </div>
+</div>
