@@ -59,6 +59,7 @@
         - [Wildlife](world-of-rathe/volcor/wildlife.md)
 
 - [Heroes of Rathe](heroes-of-rathe/professions-of-rathe.md)
+    - [Arakni](heroes-of-rathe/arakni-about.md)
     - [Azaela](heroes-of-rathe/azalea-ace-in-the-hole-about.md)
     - [Benji](heroes-of-rathe/benji-the-piercing-wind-about.md)
     - [Boltyn](heroes-of-rathe/boltyn-breaker-of-dawn-about.md)
@@ -125,6 +126,7 @@
     - [The One Emperor](main-story/09-dynasty/emperor-the-one-emperor.md)
     - [Ember in the Ash](main-story/09-dynasty/ember-in-the-ash.md)
     - [Vow of Vigilence](main-story/09-dynasty/vow-of-vigilence.md)
+    - [The Blood Stained Web](main-story/09-dynasty/the-blood-stained-web.md)
 
 - [Weapons](weapons/README.md)
     - [Cintari Saber](weapons/cintari-saber.md)
