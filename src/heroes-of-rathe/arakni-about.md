@@ -1,4 +1,4 @@
-# Azaela, Huntsman
+# Arakni, Huntsman
 
 <video controls autoplay loop playsinline>
   <source src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/arakni-huntsman.mp4" type="video/mp4">
