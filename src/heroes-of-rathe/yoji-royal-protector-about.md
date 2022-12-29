@@ -1,6 +1,6 @@
 # Yoji, Royal Protector
 
-<video controls autoplay loop playsinline>
+<video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/yoji.mp4" type="video/mp4">
 </video>
 
