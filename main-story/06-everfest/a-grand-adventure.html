@@ -1,0 +1,365 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>A Grand Adventure - Flesh and Blood Lore</title>
+        <!-- Custom HTML head -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XGZH476DML');
+</script>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../style.css">
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="../../intro.html">Introduction</a></li><li class="chapter-item "><a href="../../world-of-rathe/world-of-rathe.html"><strong aria-hidden="true">1.</strong> World of Rathe</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../world-of-rathe/aria/aria.html"><strong aria-hidden="true">1.1.</strong> Aria</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../world-of-rathe/aria/the-land-of-legends.html"><strong aria-hidden="true">1.1.1.</strong> The Lands of Legends</a></li><li class="chapter-item "><a href="../../world-of-rathe/aria/a-mythical-sanctuary.html"><strong aria-hidden="true">1.1.2.</strong> A Mythical Sanctuary</a></li><li class="chapter-item "><a href="../../world-of-rathe/aria/a-true-sanctuary.html"><strong aria-hidden="true">1.1.3.</strong> A True Sanctuary</a></li><li class="chapter-item "><a href="../../world-of-rathe/aria/people-of-aria.html"><strong aria-hidden="true">1.1.4.</strong> People of Aria</a></li><li class="chapter-item "><a href="../../world-of-rathe/aria/tides-of-change.html"><strong aria-hidden="true">1.1.5.</strong> Tides of Change</a></li><li class="chapter-item "><a href="../../world-of-rathe/aria/a-lost-tome.html"><strong aria-hidden="true">1.1.6.</strong> A Lost Tome</a></li><li class="chapter-item "><a href="../../world-of-rathe/aria/creatures.html"><strong aria-hidden="true">1.1.7.</strong> Creatures</a></li></ol></li><li class="chapter-item "><a href="../../world-of-rathe/demonastery/demonastery.html"><strong aria-hidden="true">1.2.</strong> Demonastery</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../world-of-rathe/demonastery/realm-of-the-forbidden.html"><strong aria-hidden="true">1.2.1.</strong> Realm of the Forbidden</a></li><li class="chapter-item "><a href="../../world-of-rathe/demonastery/a-history-of-persecution.html"><strong aria-hidden="true">1.2.2.</strong> A History of Persecution</a></li><li class="chapter-item "><a href="../../world-of-rathe/demonastery/patrons-of-the-forbidden.html"><strong aria-hidden="true">1.2.3.</strong> Patrons of the Forbidden</a></li><li class="chapter-item "><a href="../../world-of-rathe/demonastery/oddities-and-failed-experiments.html"><strong aria-hidden="true">1.2.4.</strong> Oddities and Failed Experiments</a></li><li class="chapter-item "><a href="../../world-of-rathe/demonastery/the-gateway-to-iarathael.html"><strong aria-hidden="true">1.2.5.</strong> The Gateway to íArathael</a></li><li class="chapter-item "><a href="../../world-of-rathe/demonastery/the-demonasterys-plans.html"><strong aria-hidden="true">1.2.6.</strong> The Demonastery's Plans</a></li></ol></li><li class="chapter-item "><a href="../../world-of-rathe/metrix/metrix.html"><strong aria-hidden="true">1.3.</strong> Metrix</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../world-of-rathe/metrix/city-of-wonder.html"><strong aria-hidden="true">1.3.1.</strong> City of Wonder</a></li><li class="chapter-item "><a href="../../world-of-rathe/metrix/advent-of-science-and-technology.html"><strong aria-hidden="true">1.3.2.</strong> Advent of Science & Technology</a></li><li class="chapter-item "><a href="../../world-of-rathe/metrix/a-sprawling-metropolis.html"><strong aria-hidden="true">1.3.3.</strong> A Sprawling Metropolis</a></li><li class="chapter-item "><a href="../../world-of-rathe/metrix/a-better-tomorrow.html"><strong aria-hidden="true">1.3.4.</strong> A Better Tomorrow</a></li></ol></li><li class="chapter-item "><a href="../../world-of-rathe/misteria/misteria.html"><strong aria-hidden="true">1.4.</strong> Misteria</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../world-of-rathe/misteria/steeped-in-tradition.html"><strong aria-hidden="true">1.4.1.</strong> Steeped in Tradition</a></li><li class="chapter-item "><a href="../../world-of-rathe/misteria/among-the-mists.html"><strong aria-hidden="true">1.4.2.</strong> Among the Mists</a></li><li class="chapter-item "><a href="../../world-of-rathe/misteria/between-the-cliffs.html"><strong aria-hidden="true">1.4.3.</strong> Between the Cliffs</a></li><li class="chapter-item "><a href="../../world-of-rathe/misteria/the-seven-arts.html"><strong aria-hidden="true">1.4.4.</strong> The Seven Arts</a></li><li class="chapter-item "><a href="../../world-of-rathe/misteria/prestigious-households.html"><strong aria-hidden="true">1.4.5.</strong> Prestigious Households</a></li><li class="chapter-item "><a href="../../world-of-rathe/misteria/the-legend-of-mistress-ikaru.html"><strong aria-hidden="true">1.4.6.</strong> The Legend of Mistress Ikaru</a></li><li class="chapter-item "><a href="../../world-of-rathe/misteria/the-grandmasters-guild.html"><strong aria-hidden="true">1.4.7.</strong> The Grandmaster's Guild</a></li></ol></li><li class="chapter-item "><a href="../../world-of-rathe/pits/pits.html"><strong aria-hidden="true">1.5.</strong> Pits</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../world-of-rathe/pits/the-underworld.html"><strong aria-hidden="true">1.5.1.</strong> The Underworld</a></li><li class="chapter-item "><a href="../../world-of-rathe/pits/the-maw.html"><strong aria-hidden="true">1.5.2.</strong> The Maw</a></li><li class="chapter-item "><a href="../../world-of-rathe/pits/blackjacks-mercenary-group.html"><strong aria-hidden="true">1.5.3.</strong> Blackjack's Mercenary Group</a></li></ol></li><li class="chapter-item "><a href="../../world-of-rathe/savage-lands/savage-lands.html"><strong aria-hidden="true">1.6.</strong> Savage Lands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../world-of-rathe/savage-lands/eat-kill-survive.html"><strong aria-hidden="true">1.6.1.</strong> Eat, Kill... Survive</a></li><li class="chapter-item "><a href="../../world-of-rathe/savage-lands/the-primal-way.html"><strong aria-hidden="true">1.6.2.</strong> The Primal Way</a></li><li class="chapter-item "><a href="../../world-of-rathe/savage-lands/call-of-adventure.html"><strong aria-hidden="true">1.6.3.</strong> Call of Adventure</a></li><li class="chapter-item "><a href="../../world-of-rathe/savage-lands/legends-and-fools.html"><strong aria-hidden="true">1.6.4.</strong> Legends and Fools</a></li></ol></li><li class="chapter-item "><a href="../../world-of-rathe/solana/solana.html"><strong aria-hidden="true">1.7.</strong> Solana</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../world-of-rathe/solana/kingdom-of-illumination.html"><strong aria-hidden="true">1.7.1.</strong> A Kingdom of Illumination</a></li><li class="chapter-item "><a href="../../world-of-rathe/solana/the-golden-city.html"><strong aria-hidden="true">1.7.2.</strong> The Golden City</a></li><li class="chapter-item "><a href="../../world-of-rathe/solana/a-radiant-city.html"><strong aria-hidden="true">1.7.3.</strong> A Radiant City</a></li><li class="chapter-item "><a href="../../world-of-rathe/solana/to-be-a-solanian.html"><strong aria-hidden="true">1.7.4.</strong> To Be A Solanian</a></li><li class="chapter-item "><a href="../../world-of-rathe/solana/the-order-of-the-light.html"><strong aria-hidden="true">1.7.5.</strong> The Order of the Light</a></li><li class="chapter-item "><a href="../../world-of-rathe/solana/children-of-the-light.html"><strong aria-hidden="true">1.7.6.</strong> Children Of The Light</a></li><li class="chapter-item "><a href="../../world-of-rathe/solana/the-awakening.html"><strong aria-hidden="true">1.7.7.</strong> The Awakening</a></li><li class="chapter-item "><a href="../../world-of-rathe/solana/the-grand-council.html"><strong aria-hidden="true">1.7.8.</strong> The Grand Council</a></li><li class="chapter-item "><a href="../../world-of-rathe/solana/solstice-of-laurels.html"><strong aria-hidden="true">1.7.9.</strong> The Solstice of Laurels</a></li><li class="chapter-item "><a href="../../world-of-rathe/solana/the-battle-against-the-shadow.html"><strong aria-hidden="true">1.7.10.</strong> The Battle Against the Shadow</a></li></ol></li><li class="chapter-item "><a href="../../world-of-rathe/volcor/volcor.html"><strong aria-hidden="true">1.8.</strong> Volcor</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../world-of-rathe/volcor/welcome-to-volcor.html"><strong aria-hidden="true">1.8.1.</strong> Welcome to Volcor</a></li><li class="chapter-item "><a href="../../world-of-rathe/volcor/a-volatile-kingdom.html"><strong aria-hidden="true">1.8.2.</strong> A Volatile Kingdom</a></li><li class="chapter-item "><a href="../../world-of-rathe/volcor/the-royal-court.html"><strong aria-hidden="true">1.8.3.</strong> The Royal Court</a></li><li class="chapter-item "><a href="../../world-of-rathe/volcor/fire-in-their-veins.html"><strong aria-hidden="true">1.8.4.</strong> Fire in Their Veins</a></li><li class="chapter-item "><a href="../../world-of-rathe/volcor/wildlife.html"><strong aria-hidden="true">1.8.5.</strong> Wildlife</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../heroes-of-rathe/professions-of-rathe.html"><strong aria-hidden="true">2.</strong> Heroes of Rathe</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../heroes-of-rathe/arakni-about.html"><strong aria-hidden="true">2.1.</strong> Arakni</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/azalea-ace-in-the-hole-about.html"><strong aria-hidden="true">2.2.</strong> Azaela</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/benji-the-piercing-wind-about.html"><strong aria-hidden="true">2.3.</strong> Benji</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/boltyn-breaker-of-dawn-about.html"><strong aria-hidden="true">2.4.</strong> Boltyn</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/bravo-showstopper-about.html"><strong aria-hidden="true">2.5.</strong> Bravo</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/briar-warden-of-thorns-about.html"><strong aria-hidden="true">2.6.</strong> Briar</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/chane-bound-by-shadow-about.html"><strong aria-hidden="true">2.7.</strong> Chane</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/dash-inventor-extraordinaire-about.html"><strong aria-hidden="true">2.8.</strong> Dash</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/data-doll-mkii-about.html"><strong aria-hidden="true">2.9.</strong> Data Doll</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/dorinthea-ironsong-about.html"><strong aria-hidden="true">2.10.</strong> Dorinthea</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/dromai-ash-artist-about.html"><strong aria-hidden="true">2.11.</strong> Dromai</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/emperor-about.html"><strong aria-hidden="true">2.12.</strong> Emperor</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/fai-rising-rebellion-about.html"><strong aria-hidden="true">2.13.</strong> Fai</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/genis-wotchuneed-about.html"><strong aria-hidden="true">2.14.</strong> Genis</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/ira-crimson-haze-about.html"><strong aria-hidden="true">2.15.</strong> Ira</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/iyslander-stormbind-about.html"><strong aria-hidden="true">2.16.</strong> Iyslander</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/kano-dracai-of-aether-about.html"><strong aria-hidden="true">2.17.</strong> Kano</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/kassai-cintair-sellsword-about.html"><strong aria-hidden="true">2.18.</strong> Kassai</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/katsu-the-wanderer-about.html"><strong aria-hidden="true">2.19.</strong> Katsu</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/kavdaen-trader-of-skins-about.html"><strong aria-hidden="true">2.20.</strong> Kavdaen</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/kayo-beserker-runt-about.html"><strong aria-hidden="true">2.21.</strong> Kayo</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/levia-shadowborn-abomination-about.html"><strong aria-hidden="true">2.22.</strong> Levia</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/lexi-livewire-about.html"><strong aria-hidden="true">2.23.</strong> Lexi</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/oldhim-grandfather-of-eternity-about.html"><strong aria-hidden="true">2.24.</strong> Oldhim</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/prism-sculptor-of-arc-light-about.html"><strong aria-hidden="true">2.25.</strong> Prism</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/rhinar-reckless-rampage-about.html"><strong aria-hidden="true">2.26.</strong> Rhinar</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/shiyana-diamond-gemini-about.html"><strong aria-hidden="true">2.27.</strong> Shiyana</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/valda-brightaxe-about.html"><strong aria-hidden="true">2.28.</strong> Valda</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/viserai-rune-blood-about.html"><strong aria-hidden="true">2.29.</strong> Viserai</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/yoji-royal-protector-about.html"><strong aria-hidden="true">2.30.</strong> Yoji</a></li><li class="chapter-item "><a href="../../heroes-of-rathe/other.html"><strong aria-hidden="true">2.31.</strong> Others</a></li></ol></li><li class="chapter-item "><a href="../../other-characters/index.html"><strong aria-hidden="true">3.</strong> Other Characters</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../other-characters/lord-sutcliffe.html"><strong aria-hidden="true">3.1.</strong> Lord Sutcliffe</a></li><li class="chapter-item "><a href="../../other-characters/lady-bartimont.html"><strong aria-hidden="true">3.2.</strong> Lady Bartimont</a></li><li class="chapter-item "><a href="../../other-characters/minerva-themis.html"><strong aria-hidden="true">3.3.</strong> Minerva Themis</a></li><li class="chapter-item "><a href="../../other-characters/the-librarian.html"><strong aria-hidden="true">3.4.</strong> The Librarian</a></li></ol></li><li class="chapter-item expanded "><a href="../../main-story/index.html"><strong aria-hidden="true">4.</strong> Main Story</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../main-story/01-welcome-to-rathe/bravo-showstopper-story.html"><strong aria-hidden="true">4.1.</strong> Bravo, Showstopper</a></li><li class="chapter-item "><a href="../../main-story/01-welcome-to-rathe/dorinthea-ironsong-story.html"><strong aria-hidden="true">4.2.</strong> Dorinthea, Ironsong</a></li><li class="chapter-item "><a href="../../main-story/01-welcome-to-rathe/rhinar-reckless-rampage-story.html"><strong aria-hidden="true">4.3.</strong> Rhinar, Reckless Rampage</a></li><li class="chapter-item "><a href="../../main-story/01-welcome-to-rathe/katsu-the-wanderer-story.html"><strong aria-hidden="true">4.4.</strong> Katsu, The Wanderer</a></li><li class="chapter-item "><a href="../../main-story/02-arcane-rising/viserai-rune-blood-story.html"><strong aria-hidden="true">4.5.</strong> Viserai, Rune Blood</a></li><li class="chapter-item "><a href="../../main-story/02-arcane-rising/the-jaws-of-death.html"><strong aria-hidden="true">4.6.</strong> The Jaws of Death</a></li><li class="chapter-item "><a href="../../main-story/02-arcane-rising/tales-of-a-teklo.html"><strong aria-hidden="true">4.7.</strong> Tales of a Teklo</a></li><li class="chapter-item "><a href="../../main-story/02-arcane-rising/to-become-a-dracai.html"><strong aria-hidden="true">4.8.</strong> To Become a Dracai</a></li><li class="chapter-item "><a href="../../main-story/03-crucible-of-war/sutcliffes-research-notes.html"><strong aria-hidden="true">4.9.</strong> Sutcliffe's Research Notes</a></li><li class="chapter-item "><a href="../../main-story/03-crucible-of-war/ira-crimson-haze-story.html"><strong aria-hidden="true">4.10.</strong> Ira, Crimson Haze</a></li><li class="chapter-item "><a href="../../main-story/03-crucible-of-war/no-smoke-without-fire.html"><strong aria-hidden="true">4.11.</strong> No Smoke without Fire</a></li><li class="chapter-item "><a href="../../main-story/04-monarch/levia-shadowborn-abomination-story.html"><strong aria-hidden="true">4.12.</strong> Levia, Shadowborn Abomination</a></li><li class="chapter-item "><a href="../../main-story/04-monarch/chane-bound-by-shadow-story.html"><strong aria-hidden="true">4.13.</strong> Chane, Bound by Shadow</a></li><li class="chapter-item "><a href="../../main-story/04-monarch/boltyn-breaker-of-dawn-story.html"><strong aria-hidden="true">4.14.</strong> Boltyn, Breaker of Dawn</a></li><li class="chapter-item "><a href="../../main-story/04-monarch/prism-sculptor-of-arc-light-story.html"><strong aria-hidden="true">4.15.</strong> Prism, Sculptor of Arc Light</a></li><li class="chapter-item "><a href="../../main-story/04-monarch/step-into-the-light.html"><strong aria-hidden="true">4.16.</strong> Step into the Light</a></li><li class="chapter-item "><a href="../../main-story/05-tales-of-aria/oldhim-grandfather-of-eternity-story.html"><strong aria-hidden="true">4.17.</strong> Oldhim, Grandfather of Eternity</a></li><li class="chapter-item "><a href="../../main-story/05-tales-of-aria/lexi-livewire-story.html"><strong aria-hidden="true">4.18.</strong> Lexi, Livewire</a></li><li class="chapter-item "><a href="../../main-story/05-tales-of-aria/briar-warden-of-thorns-story.html"><strong aria-hidden="true">4.19.</strong> Briar, Warden of Thorns</a></li><li class="chapter-item expanded "><a href="../../main-story/06-everfest/a-grand-adventure.html" class="active"><strong aria-hidden="true">4.20.</strong> A Grand Adventure</a></li><li class="chapter-item "><a href="../../main-story/07-interlude/morlock-hill.html"><strong aria-hidden="true">4.21.</strong> Morlock Hill</a></li><li class="chapter-item "><a href="../../main-story/08-uprising/iyslander-stormbind-story.html"><strong aria-hidden="true">4.22.</strong> Iyslander, Stormbind</a></li><li class="chapter-item "><a href="../../main-story/08-uprising/in-flames.html"><strong aria-hidden="true">4.23.</strong> In Flames</a></li><li class="chapter-item "><a href="../../main-story/08-uprising/dromai-ash-artist-story.html"><strong aria-hidden="true">4.24.</strong> Dromai, Ash Artist</a></li><li class="chapter-item "><a href="../../main-story/08-uprising/fai-rising-rebellion-story.html"><strong aria-hidden="true">4.25.</strong> Fai, Rising Rebellion</a></li><li class="chapter-item "><a href="../../main-story/09-dynasty/emperor-the-one-emperor.html"><strong aria-hidden="true">4.26.</strong> The One Emperor</a></li><li class="chapter-item "><a href="../../main-story/09-dynasty/ember-in-the-ash.html"><strong aria-hidden="true">4.27.</strong> Ember in the Ash</a></li><li class="chapter-item "><a href="../../main-story/09-dynasty/vow-of-vigilence.html"><strong aria-hidden="true">4.28.</strong> Vow of Vigilence</a></li><li class="chapter-item "><a href="../../main-story/09-dynasty/the-blood-stained-web.html"><strong aria-hidden="true">4.29.</strong> The Blood Stained Web</a></li><li class="chapter-item "><a href="../../main-story/10-outsiders/squeakers-christmas.html"><strong aria-hidden="true">4.30.</strong> Squeakers' Christmas</a></li></ol></li><li class="chapter-item "><a href="../../weapons/index.html"><strong aria-hidden="true">5.</strong> Weapons</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../weapons/cintari-saber.html"><strong aria-hidden="true">5.1.</strong> Cintari Saber</a></li><li class="chapter-item "><a href="../../weapons/hanabi-blaster.html"><strong aria-hidden="true">5.2.</strong> Hanabi Blaster</a></li><li class="chapter-item "><a href="../../weapons/mandible-claw.html"><strong aria-hidden="true">5.3.</strong> Mandible Claw</a></li><li class="chapter-item "><a href="../../weapons/merciless-battleaxe.html"><strong aria-hidden="true">5.4.</strong> Merciless Battleaxe</a></li><li class="chapter-item "><a href="../../weapons/nebula-blade.html"><strong aria-hidden="true">5.5.</strong> Nebula Blade</a></li><li class="chapter-item "><a href="../../weapons/plasma-barrel-shot.html"><strong aria-hidden="true">5.6.</strong> Plasma Barrel shot</a></li><li class="chapter-item "><a href="../../weapons/reaping-blade.html"><strong aria-hidden="true">5.7.</strong> Reaping Blade</a></li><li class="chapter-item "><a href="../../weapons/red-liner.html"><strong aria-hidden="true">5.8.</strong> Red Liner</a></li><li class="chapter-item "><a href="../../weapons/rok.html"><strong aria-hidden="true">5.9.</strong> Rok</a></li><li class="chapter-item "><a href="../../weapons/sandscour-greatbow.html"><strong aria-hidden="true">5.10.</strong> Sandscour Greatbow</a></li><li class="chapter-item "><a href="../../weapons/sledge-of-anvilheim.html"><strong aria-hidden="true">5.11.</strong> Sledge Of Anvilheim</a></li><li class="chapter-item "><a href="../../weapons/surgent-aethertide.html"><strong aria-hidden="true">5.12.</strong> Surgent Aethertide</a></li><li class="chapter-item "><a href="../../weapons/talishar-lost-prince.html"><strong aria-hidden="true">5.13.</strong> Talishar, Lost Prince</a></li><li class="chapter-item "><a href="../../weapons/zephyr-needle.html"><strong aria-hidden="true">5.14.</strong> Zephyr Needle</a></li></ol></li><li class="chapter-item "><a href="../../equipment/index.html"><strong aria-hidden="true">6.</strong> Equipment</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../equipment/amethyst-tiara.html"><strong aria-hidden="true">6.1.</strong> Amethyst Tiara</a></li><li class="chapter-item "><a href="../../equipment/blazen-yoroi.html"><strong aria-hidden="true">6.2.</strong> Blazen Yoroi</a></li><li class="chapter-item "><a href="../../equipment/bloodsheath-skeleta.html"><strong aria-hidden="true">6.3.</strong> Bloodsheath Skeleta</a></li><li class="chapter-item "><a href="../../equipment/breeze-rider-boots.html"><strong aria-hidden="true">6.4.</strong> Breeze Rider Boots</a></li><li class="chapter-item "><a href="../../equipment/celestial-kimono.html"><strong aria-hidden="true">6.5.</strong> Celestial Kimono</a></li><li class="chapter-item "><a href="../../equipment/courage-of-bladehold.html"><strong aria-hidden="true">6.6.</strong> Courage of Bladehold</a></li><li class="chapter-item "><a href="../../equipment/crater-fist.html"><strong aria-hidden="true">6.7.</strong> Crater Fist</a></li><li class="chapter-item "><a href="../../equipment/metacarpus-node.html"><strong aria-hidden="true">6.8.</strong> Metacarpus Node</a></li><li class="chapter-item "><a href="../../equipment/seasoned-saviour.html"><strong aria-hidden="true">6.9.</strong> Seasoned Saviour</a></li><li class="chapter-item "><a href="../../equipment/skullhorn.html"><strong aria-hidden="true">6.10.</strong> Skullhorn</a></li><li class="chapter-item "><a href="../../equipment/viziertronic-model-i.html"><strong aria-hidden="true">6.11.</strong> Viziertronic Model i</a></li></ol></li><li class="chapter-item "><a href="../../flavour.html"><strong aria-hidden="true">7.</strong> Flavour Text</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://www.buymeacoffee.com/nathaneastwood" target="_blank" rel="noopener noreferrer" title="https://www.buymeacoffee.com/nathaneastwood" aria-label="https://www.buymeacoffee.com/nathaneastwood">
+                        <i id="beer" class="fa fa-beer"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- Page table of contents -->
+                        <div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="a-grand-adventure"><a class="header" href="#a-grand-adventure">A Grand Adventure</a></h1>
+<p><em>Lightning...Ice...Earth...</em><br>
+<em>The elements are entwined in turmoil.</em><br>
+<em>A seething storm rages throughout Enion, threatening to destroy Volthaven and its people.</em><br>
+<em>The very land itself is twisting and turning, as if awakening from a dark slumber, and unearthing ancient mysteries thought to be lost to the ages.</em><br>
+<em>The starry-eyed wayfarer <a href="https://legendarystories.net/heroes-of-rathe/lexi-livewire-about.html">Lexi</a> has been tasked with leading a troupe of adventurers into the heart of Enion, to uncover the origin of this elemental frenzy.</em><br>
+<em>She is joined by the traveling bard <a href="https://legendarystories.net/heroes-of-rathe/other.html#yorick-weaver-of-tales">Yorick</a> - always searching for new stories, the gruff dwarven blacksmith Thawne - with a keen eye for craftsmanship, and the aspiring magician Māra - who has a flair for the dramatic.</em>
+<em>For weeks our heroes have braved the elements as they venture deeper into Enion, where secrets await them...</em><br></p>
+<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-1.webp" alt="grand-1" class="center">
+<p>Despite being used to the cold, Lexi couldn't help but feel a chill run up her spine as she gazed over the landscape. Floating mountains that had spent an eternity frozen solid had shaken off their frosty shell, projecting strange mechanical whirring sounds. The wind, normally brisk and flecked with snowflakes, had been whipped up into a frenzy of crackling energy. Seismic vibrations rattled throughout the region in an almost rhythmic pattern, emanating from the centre of the region.</p>
+<p>Enion was changing.</p>
+<p>Yorick noticed her concern, which was unusual for the adventure-thirsty wayfarer.</p>
+<p>&quot;You okay?&quot; he asked.</p>
+<p>Lexi sighed. &quot;Something just isn't right. I don't know what it is, but I am afraid for the people of Volthaven.&quot;</p>
+<p>He nodded. &quot;Hopefully the answer lies at the very centre - Yvor's Peak.&quot;</p>
+<p><em>But what will we find there...she wondered to herself.</em></p>
+<p>The party gritted their teeth against hail and thunder as they trudged onward. The earth beneath their feet trembled, as patches of glowing symbols poked out of the soil.</p>
+<p>At last the shadow of Yvor's Peak loomed behind a wall of fog.</p>
+<p>&quot;Can you feel that?&quot; Māra whispered, shivering. The others halted as the air itself buzzed with static electricity, setting their nerves on end.</p>
+<p>&quot;Curious,&quot; murmured Lexi, lifting Voltaire, the silvery bow that marked her as a Wayfarer. She drew an arrow from her quiver and aimed high. Voltaire's bowstring hummed with tension.</p>
+<p>Lexi released the arrow and it soared into the mist, flashing with lightning and leaving a glowing aurora trail in its wake.</p>
+<p>They gasped as the mist broke away and Yvor's Peak was revealed. The entire mountain had been separated down the middle, as if a giant had ripped it in twain.</p>
+<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-2.webp" alt="grand-2" class="center">
+<p>&quot;So this must have been what was causing the quakes,&quot; Lexi exclaimed. &quot;But what could possibly have enough strength to do this?&quot;</p>
+<p>Thawne shook his head. &quot;Look at the ridges. They're smooth. This mountain didn't just break apart. It was...built this way.&quot;</p>
+<p>Cautiously they ventured forth, avoiding whizzing boulders that orbited the mountain, propelled by the uncanny static aura. Coming closer they were able to gain a clearer view of the mountain's interior.</p>
+<p>The frosty layer that had once blanketed Yvor's Peak had now been dislodged, littering the ground with icy debris. Towering above it was a colossal stone statue - Lexi recognised it as the mythical Ancient of Thunder and Ice. The stone was pristine, having been encased within the mountain for thousands of years, hidden from the elements.</p>
+<p>&quot;I don't understand...&quot; Lexi said. &quot;What is this place...and why has it revealed itself now?&quot; She gazed up at the statue, and couldn't help but feel the weight of responsibility on her usually carefree shoulders.</p>
+<p>Thawne let out a whoop of joy, pointing at the base of Yvor's staff.</p>
+<p>&quot;That's a lever mechanism if I ever saw one,&quot; he yelled, and heaved at it, stout muscles straining. The others joined to help, and eventually the stone pommel grinded back a few feet, followed by a click.</p>
+<p>A deep rumbling echoed throughout the mountain as Yvor's statue began to rise. The party ran for shelter and watched in awe as the base of the statue twisted upwards. Finally it came to a halt, revealing a massive door. Symbols were etched into the doors' surface from some dialect lost to the ages. It took all of their combined strength to push the door open, revealing steps leading into darkness.</p>
+<p>Māra clicked her fingers, producing a dancing rainbow flame, and lit the way. The walls were adorned with metal gears, valves, and pipes, and every few moments a faint ticking sound could be heard.</p>
+<p>Eventually they came to a gigantic round chamber. Lexi felt like an insect as she walked past huge pillars, each sporting enormous metal hooks to store various huge weapons.</p>
+<p>&quot;It's some kind of armoury!&quot; Thawne exclaimed, running to and fro like a child in a sweetshop.</p>
+<p>Lexi felt herself drawn to the centre, where a huge pedestal lay. Deep grooves ran down the pedestal, across the floor, and up the pillars, sparkling with a weak silvery glow. The pedestal itself contained a carved hole, perfect fit for a gem, coin, key, or some other small item. The hole was empty, and surrounded by the same strange text they had seen on the door.</p>
+<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-3.webp" alt="grand-3" class="center">
+<p>Yorick called them over to the walls of the chamber, which were sprawling with painted murals. Some of the pictures were intricate and beautiful, such as a blue crystalline maiden weaving ice and snow throughout what looked like <a href="https://legendarystories.net/world-of-rathe/aria/aria.html">Aria</a>. Others were strange and outlandish, such as an enormous squid-like creature lurking within sunken ruins. And even more had a threatening and sinister feel, such as a blood-red dragon perched atop a mountain of skulls, surrounded by hellfire.</p>
+<p>Underneath each of the scenes was the same odd text. Lexi ran her palm over the wall.</p>
+<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-4.webp" alt="grand-4" class="center">
+<p>&quot;Do you recognise it?&quot; she asked Yorick hopefully. He shook his head, and produced a small leather tome from his pack, copying the inscriptions as Māra held the hovering flame above.</p>
+<p>When Yorick was done, they took one last long look at the chamber, then headed back out into the fray above.</p>
+<hr />
+<p>Arriving back in Volthaven, Lexi watched as villagers frantically scurried to pack their belongings. Nobody had time to stop and chat, although they did send brief smiles her way. She noticed several homes crushed under the weight of an avalanche, or singed by lightning bolts.</p>
+<p>They made their way to the home of Isulvf, the oldest and wisest seer in the whole village. He ushered them into his hut out of the cold, and his eyes lit up when they told him what they had seen. Yorick handed him the leather tome.</p>
+<p>Isulvf scratched his head as he flicked through the pages, then sighed.</p>
+<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-5.webp" alt="grand-5" class="center">
+<p>&quot;This writing...It's old. Possibly older than Volthaven itself. I do not know what it says.&quot;</p>
+<p>&quot;Is there anyone who might know?&quot; asked Lexi with a hint of desperation.</p>
+<p>He shook his head. &quot;Not here in Volthaven, that's certain.&quot;</p>
+<p>&quot;Then what do we do? Everything that's happening right now, it all seems to be connected to this writing.&quot;</p>
+<p>Isulvf hobbled over to the stovetop, pouring herbal tea for his guests.</p>
+<p>&quot;There is a place far from here, where the elements converge, and fate behaves in a strange manner,&quot; he said, carrying the tray back to where they sat. &quot;Many old mystics, even before my time, used to make pilgrimages there to seek spiritual guidance.&quot;</p>
+<p>Lexi accepted the warm mug gratefully.</p>
+<p>&quot;Perhaps you should do the same.&quot;</p>
+<hr />
+<p><a href="https://legendarystories.net/heroes-of-rathe/oldhim-grandfather-of-eternity-about.html">Oldhim</a> lumbered forwards like a relentless locomotive, completely ignoring the chaos around him.</p>
+<p><em>This road used to be quiet</em>...He contemplated, as a merchant's caravan swerved to the side to avoid him, spilling a cart of fruit. With each heavy step his bulky frame slowly inched a little further, oblivious to the bustling traffic around him who were trying to head in the other direction.</p>
+<p>The more impatient caravan drivers would curse out - but fell silent when they caught sight of Oldhim, meekly veering off the road to move out of his way. Those who tried to push past him were flung off their horses as the beasts reared and bucked.</p>
+<p>Of all the looks they gave him - fear, awe, anger - he noticed none.</p>
+<p>Deep in thought, Oldhim nearly stepped upon a small crying child. For the first time since leaving his frozen slumber deep within Isenloft, Oldhim halted. The child stopped sniffling, gazing up at the oaken one in total shock. Everyone watched with bated breath, as Oldhim slowly reached within his robes.</p>
+<p>A woman burst forth to grab the child, her face pale with terror as the massive guardian bent down, peering at them with icy blue eyes.</p>
+<p>He withdrew his gloved fist, and opened it, revealing a tiny hand-knitted cotton toy.</p>
+<p>The child reached out with trembling hands, and clutched it close to her chest.</p>
+<p>An audible sigh of relief was heard, as the mother scampered away with the now-giggling child.</p>
+<p>Oldhim straightened his back, feeling the unkindness of age, and resumed plowing forwards.</p>
+<p>&quot;Excuse me?&quot; said an eager voice, to which Oldhim did not grace with a response.</p>
+<p>&quot;Hello?&quot; The voice pestered again. Oldhim drowned it out by delving deep into ancient memories - war, bloodshed, the last desperate stand against the -</p>
+<p>&quot;Hey!&quot; The voice broke through with such conviction that Oldhim stopped dead in his tracks and blinked in surprise. He glared at the bright-haired woman who had interrupted him, then caught sight of her gleaming bow.</p>
+<p>&quot;Wayfarer.&quot; He murmured.</p>
+<p>She bowed. &quot;You must not be from around here,&quot; she said.</p>
+<p>Oldhim grunted. &quot;Aria has changed.&quot; He said gruffly.</p>
+<p>&quot;Changed? Do you remember a time when it was different?&quot; She asked.</p>
+<p>Oldhim stayed silent.</p>
+<p>She beckoned to one of her companions, a bard, who passed her a leather tome. &quot;Perhaps you recognise this?&quot;</p>
+<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-6.webp" alt="grand-6" class="center">
+<p>Oldhim scanned the pages. The markings were old. Something about them felt familiar, but he couldn't grasp it. He shook his head, and continued walking.</p>
+<p>The wayfarer continued to skip alongside him, and much to his annoyance, the bard began playing an irritating tune on his lute.</p>
+<p>&quot;What brings you to the road to Korshem?&quot; Asked the wayfarer.</p>
+<p>&quot;Answers.&quot; He replied.</p>
+<p>&quot;It appears we have similar goals. My name is Lexi, perhaps we can travel together?&quot;</p>
+<p>Oldhim paused, then reached out and snatched the bard's lute. He hurled it through the air, where it shattered to splinters against a tree.</p>
+<p>&quot;Now you may join me.&quot; He growled, and strode onwards.</p>
+<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-7.webp" alt="grand-7" class="center">
+<p>Lexi shrugged apologetically to Yorick, who grumbled and fell back to join the others. Lexi stayed at the frosty guardian's side, respectfully slowing herself to his pace.</p>
+<hr />
+<p>&quot;For the last time, it was an accident!&quot;</p>
+<p><a href="https://legendarystories.net/heroes-of-rathe/briar-warden-of-thorns-about.html">Briar</a> boiled with anger as she danced out of the path of swinging fists. The red-faced merchant continued to splutter as he punched wildly.</p>
+<p>The two circled each other, as spurts of lager bursting from a nearby keg rained down on them.</p>
+<p>Briar felt a small twinge of regret at having caused the wreckage, but it was quickly replaced by fury when the man clipped her shoulder with a right hook.</p>
+<p>It wasn't her fault. Nature was wild and so was she. Briar glanced at the ruined keg, which had been busted open by her wayward vines, then back at the sopping wet man attempting to clobber her.</p>
+<p>&quot;Keep this up and you'll wish the keg was the only thing broken,&quot; She hissed, drawing her Rosetta Thorn from its sheath.</p>
+<p>He continued to yell gibberish, and rushed at her. Red clouded Briar's judgment and she stepped back, splaying her palm. Roots burst from the earth, wrapping around the man's ankles, bringing him down like a felled tree.</p>
+<p>Briar rotated Rosetta Thorn, preparing to knock him out with its pommel, when an arrow whistled through the air, snaking between them, and thudding into the keg. A wave of cold spread from the arrows' tip, freezing the cracks, and reducing the torrent of lager to a foamy drizzle.</p>
+<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-8.webp" alt="grand-8" class="center">
+<p>Briar stepped back in surprise.</p>
+<p>The source of the arrow, a woman with snowy hair and electric eyes, ran towards them, followed by the oddest bunch of people Briar had ever seen - including an enormous figure with a winter-white beard.</p>
+<p>The innkeeper took one glance at the stranger's glistening bow and cooled off immediately. She handed him some coins, and he waddled off.</p>
+<p>The woman turned to Briar, who scowled.</p>
+<p>&quot;If it's thanks you're expecting wayfarer, then you're out of luck.&quot;</p>
+<p>The wayfarer shook her head. &quot;It was my pleasure. But I do want to know where such a unique flower like yourself sprang from.&quot;</p>
+<p>Briar grimaced at the use of the term flower. &quot;I hail from Candlehold. I'm the first of my kind to venture beyond the thorns since we were sealed away by the essence of Davnir.&quot;</p>
+<p>&quot;Love that for you,&quot; Said the wayfarer. &quot;I've heard legends of the Ancients, Yvor, Davnir, Isen...Perhaps you may be able to help us after all.&quot;</p>
+<p>The wayfarer took a leather tome from one of her friends and showed it to her.</p>
+<p>Briar forced her temper into check and gazed at the pages. She did not recognise the markings, but there was something strange about them, like they were calling to her, drawing her in. She snapped the cover shut.</p>
+<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-9.webp" alt="grand-9" class="center">
+<p>&quot;I have no idea.&quot;</p>
+<p>The wayfarer's face fell. Briar turned to leave but immediately bumped into the bearded giant, who searched her with his steely gaze for what felt like an eternity.</p>
+<p>&quot;Rosetta,&quot; he finally mumbled.</p>
+<p>Briar turned back to the wayfarer. &quot;I may not be able to help you, but the queen of Candlehold is the wisest person I know.&quot;</p>
+<p>Sparks of joy returned to the wayfarer's face. &quot;Fantastic! Could you lead us there?&quot;</p>
+<p>Briar marched off. &quot;Fine. Keep up.&quot;</p>
+<p>The party followed Briar into the woods as dusk fell behind the branches of the legendary Korshem.</p>
+<hr />
+<p>Yorick couldn't decide who was less fun - stone cold Oldhim, or Candlehold's sleepy queen.</p>
+<p>She sat perfectly still upon her wooden throne, face marbled like the tree-bark that surrounded her. In fact, if you didn't look hard enough, you would have missed spotting her completely.</p>
+<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-10.webp" alt="grand-10" class="center">
+<p>Oldhim stood further back within the shade, as solemn as the grave.</p>
+<p>Neither would make an interesting character in his next play, Yorick decided.</p>
+<p>&quot;Please, your majesty,&quot; begged Lexi. &quot;We need to learn what the markings mean!&quot;</p>
+<p>&quot;Hmm?&quot; The queen rasped, without moving even an inch to look at her. &quot;Apologies dear, I must have dozed off again.&quot;</p>
+<p>&quot;Our people's safety depends on it - all of Aria could depend on it!&quot;</p>
+<p>&quot;Like one blade of grass in a meadow...&quot; The queen trailed off, not bothering to finish her sentence.</p>
+<p>Lexi exhaled in frustration. Oldhim stepped closer, scanning the queen's restful face.</p>
+<p>&quot;My memory is...clouded,&quot; he muttered. &quot;But the Rosetta...The Ollin...&quot;</p>
+<p>If the queen was surprised by his presence, she showed no signs of it.</p>
+<p>&quot;Ollin...&quot; She murmured. &quot;You've been gone a long time.&quot;</p>
+<p>Oldhim's brow creased as he tried to recall what had been lost to the passage of time.</p>
+<p>&quot;The Covenant...what happened?&quot;</p>
+<p>A long silence filled the room. When the queen finally spoke, her voice was soft, but with a hint of sadness.</p>
+<p>&quot;...I do not have the answers you seek.&quot;</p>
+<p>The queen idly waved a hand, signalling for them to leave.</p>
+<p>Briar hurled a bolt of lightning at her.</p>
+<p>Jolted awake, the queen blinked as Briar stomped towards the throne.</p>
+<p>&quot;The trees rustle as if nervous. Animals are abandoning their homes. Something is coming, and I fear Candlehold will not be able to remain hidden. There's a reason the wayfarer and I crossed paths, I can feel the Strale calling.&quot;</p>
+<p>There was a creaking sound as the queen tilted her head to look at Briar directly. Though her face was wizened and hardened, her eyes were kind.</p>
+<p>&quot;I will try...&quot; she croaked, gently rubbing her eyes.</p>
+<p>Lexi handed her the leather tome, and they waited impatiently as the queen turned each page with a deliberate slowness.</p>
+<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-11.webp" alt="grand-11" class="center">
+<p>At last the queen glanced up, and closed the tome.</p>
+<p>&quot;This dialect is of the Seers.&quot;</p>
+<p>Oldhim's ears pricked up.</p>
+<p>Handing the tome back to Lexi, the queen leaned back in her throne, yawning.</p>
+<p>&quot;What do you mean?&quot; Lexi frowned in confusion. &quot;We have seers in Volthaven, but they were not able to decipher it.&quot;</p>
+<p>The queen chuckled, a sound similar to that of a snoring toad.</p>
+<p>&quot;Not those seers...the Seers...of old.</p>
+<p>&quot;I don't understand, who were the old Seers?&quot;</p>
+<p>&quot;Hidden allies...Bearers of the Indigo Eye...Find them...If they still exist.&quot;</p>
+<p>&quot;Any idea where we might start looking?&quot; asked Lexi.</p>
+<p>The queen closed her eyes, and exhaled deeply, sinking further into the wood.</p>
+<hr />
+<p>Back under Korshem's sprawling canopy, the heroes washed their worries away at a nearby tavern.</p>
+<p>Yorick tuned his new lute, keeping well away from Oldhim, and began strumming an enchanting melody.</p>
+<p>Thawne and Briar were locked in an arm-wrestle, beads of sweat rolling down the dwarf's forehead as he strained to out-muscle her.</p>
+<p>Māra performed a magic trick for Oldhim, producing a dove from her sleeve. With an extravagant wave of her hand she transformed it into a dazzling rainbow aether flare.</p>
+<p>The oaken one did not crack even the slightest of grins.</p>
+<p>Lexi wandered away from the party, her mind racing with questions. Where were the Seers? Why was there an armoury in the heart of Enion? What did it all mean?</p>
+<p>Her eyes were drawn to a poster tacked on a nearby wall.</p>
+<p><em>Challenge the Showstopper to a test of might!</em><br>
+<em>Experience crazy brews from Aria's finest Braumeister!</em><br>
+<em>Have your fate foreseen by the whimsical seers!</em><br>
+<em>All this and many more wonders - see it all at Everfest!</em><br></p>
+<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-12.webp" alt="grand-12" class="center">
+<p>She snatched the poster and returned to the group, slapping it on the table.</p>
+<p>&quot;Look!&quot; she pointed.</p>
+<p>Yorick rolled his eyes. &quot;Yes, because an ancient secret organisation just happens to be conveniently advertising their location on a carnival poster.&quot;</p>
+<p>&quot;Any better ideas?&quot;</p>
+<p>Nobody responded except Briar, who just shrugged and went back to crushing Thawne's arm.</p>
+<p>Lexi lifted her mug. &quot;Then drink up, friends! Tomorrow we set foot for <em>Everfest</em>!&quot;</p>
+<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-13.webp" alt="grand-13" class="center">
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/05-tales-of-aria/briar-warden-of-thorns-story.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../main-story/07-interlude/morlock-hill.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/05-tales-of-aria/briar-warden-of-thorns-story.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../main-story/07-interlude/morlock-hill.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../../sidebar.js"></script>
+    </body>
+</html>
