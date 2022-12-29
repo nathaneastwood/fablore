@@ -1,5 +1,9 @@
 # Squeakers' Christmas
 
+<p>
+(<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)
+</p>
+
 'Tis the night before Christmas, and the air is ripe for the robbing. A crooked shadow vanishes through a window, stealthy as a huntsman. From her vantage point across the street, [Azalea](https://legendarystories.net/heroes-of-rathe/azalea-ace-in-the-hole-about.html) traces the path [Arakni](https://legendarystories.net/heroes-of-rathe/arakni-about.html) cleared. Steep rooflines, yawning alleyways, a traverse more treacherous than she would dare.
 
 "Agile," she observes. "And sneaky too."
@@ -98,3 +102,13 @@ _Happy Holidays from LSS Creatives!_<br>
 _Source: [https://fabtcg.com/articles/squeakers-christmas/](https://fabtcg.com/articles/squeakers-christmas/)_<br>
 _Stories written by Edwin McRae and Rachel Rees._<br>
 _Directed by Robbie Wen. Illus. by Sam Yang._
+
+---
+
+## Narrated Video by [Peranine](https://www.youtube.com/@Peranine)
+
+<p>
+(<a href="#squeakers-christmas">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/f8PdwFkuhM8" title="Squeakers' Christmas YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
