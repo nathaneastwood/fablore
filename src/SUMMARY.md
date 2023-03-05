@@ -85,7 +85,9 @@
     - [Oldhim](heroes-of-rathe/oldhim-grandfather-of-eternity-about.md)
     - [Prism](heroes-of-rathe/prism-sculptor-of-arc-light-about.md)
     - [Rhinar](heroes-of-rathe/rhinar-reckless-rampage-about.md)
+    - [Riptide](heroes-of-rathe/riptide-about.md)
     - [Shiyana](heroes-of-rathe/shiyana-diamond-gemini-about.md)
+    - [Uzuri](heroes-of-rathe/uzuri-about.md)
     - [Valda](heroes-of-rathe/valda-brightaxe-about.md)
     - [Viserai](heroes-of-rathe/viserai-rune-blood-about.md)
     - [Yoji](heroes-of-rathe/yoji-royal-protector-about.md)
@@ -129,6 +131,7 @@
     - [The Blood Stained Web](main-story/09-dynasty/the-blood-stained-web.md)
     - [Squeakers' Christmas](main-story/10-outsiders/squeakers-christmas.md)
     - [Tidings in the Light](main-story/10-outsiders/tidings-in-the-light.md)
+    - [The Spider's Trap](main-story/10-outsiders/the-spiders-trap.md)
 
 - [Weapons](weapons/README.md)
     - [Cintari Saber](weapons/cintari-saber.md)
