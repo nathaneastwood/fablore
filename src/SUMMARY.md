@@ -128,6 +128,7 @@
     - [Vow of Vigilence](main-story/09-dynasty/vow-of-vigilence.md)
     - [The Blood Stained Web](main-story/09-dynasty/the-blood-stained-web.md)
     - [Squeakers' Christmas](main-story/10-outsiders/squeakers-christmas.md)
+    - [Tidings in the Light](main-story/10-outsiders/tidings-in-the-light.md)
 
 - [Weapons](weapons/README.md)
     - [Cintari Saber](weapons/cintari-saber.md)
