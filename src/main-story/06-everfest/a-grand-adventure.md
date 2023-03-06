@@ -4,7 +4,7 @@ _Lightning...Ice...Earth..._<br>
 _The elements are entwined in turmoil._<br>
 _A seething storm rages throughout Enion, threatening to destroy Volthaven and its people._<br>
 _The very land itself is twisting and turning, as if awakening from a dark slumber, and unearthing ancient mysteries thought to be lost to the ages._<br>
-_The starry-eyed wayfarer [Lexi](https://legendarystories.net/heroes-of-rathe/lexi-livewire-about.html) has been tasked with leading a troupe of adventurers into the heart of Enion, to uncover the origin of this elemental frenzy._<br>
+_The starry-eyed wayfarer [Lexi](https://legendarystories.net/heroes-of-rathe/lexi-about.html) has been tasked with leading a troupe of adventurers into the heart of Enion, to uncover the origin of this elemental frenzy._<br>
 _She is joined by the traveling bard [Yorick](https://legendarystories.net/heroes-of-rathe/other.html#yorick-weaver-of-tales) - always searching for new stories, the gruff dwarven blacksmith Thawne - with a keen eye for craftsmanship, and the aspiring magician Māra - who has a flair for the dramatic._
 _For weeks our heroes have braved the elements as they venture deeper into Enion, where secrets await them..._<br>
 
@@ -102,7 +102,7 @@ Lexi accepted the warm mug gratefully.
 
 ---
 
-[Oldhim](https://legendarystories.net/heroes-of-rathe/oldhim-grandfather-of-eternity-about.html) lumbered forwards like a relentless locomotive, completely ignoring the chaos around him.
+[Oldhim](https://legendarystories.net/heroes-of-rathe/oldhim-about.html) lumbered forwards like a relentless locomotive, completely ignoring the chaos around him.
 
 _This road used to be quiet_...He contemplated, as a merchant's caravan swerved to the side to avoid him, spilling a cart of fruit. With each heavy step his bulky frame slowly inched a little further, oblivious to the bustling traffic around him who were trying to head in the other direction.
 
@@ -164,7 +164,7 @@ Lexi shrugged apologetically to Yorick, who grumbled and fell back to join the o
 
 "For the last time, it was an accident!"
 
-[Briar](https://legendarystories.net/heroes-of-rathe/briar-warden-of-thorns-about.html) boiled with anger as she danced out of the path of swinging fists. The red-faced merchant continued to splutter as he punched wildly.
+[Briar](https://legendarystories.net/heroes-of-rathe/briar-about.html) boiled with anger as she danced out of the path of swinging fists. The red-faced merchant continued to splutter as he punched wildly.
 
 The two circled each other, as spurts of lager bursting from a nearby keg rained down on them.
 

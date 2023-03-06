@@ -9,7 +9,7 @@ They called to him from beyond the Mists. "It's time to come home."
 "Sometimes you gotta roll with the punches."
 
 #### Cranial Crush - (WTR045)
-"Leave now, or a hangover will be the least of your worries." - [Valda Brightaxe](https://legendarystories.net/heroes-of-rathe/valda-brightaxe-about.html)
+"Leave now, or a hangover will be the least of your worries." - [Valda Brightaxe](https://legendarystories.net/heroes-of-rathe/valda-about.html)
 
 #### Debilitate - (WTR066)
 ...and at that moment, Flannigan knew failure was close at hand.
@@ -21,7 +21,7 @@ They called to him from beyond the Mists. "It's time to come home."
 Side effects may include agitation, confusion, aggression, tachycardia, fever and delirium.
 
 #### Flic Flak - (WTR092)
-Silver flashes under the pale moonlight, blades slicing through air as [Ira](https://legendarystories.net/heroes-of-rathe/ira-crimson-haze-about.html) twisted and turned, narrowly avoiding their ambush.
+Silver flashes under the pale moonlight, blades slicing through air as [Ira](https://legendarystories.net/heroes-of-rathe/ira-about.html) twisted and turned, narrowly avoiding their ambush.
 
 #### Heart of Fyendal - (WTR000)
 Deep within the wilderness, a tree falls, succumbing to the passage of time. As the wood rots, its essence flows into the earth, fuelling the new life which blossoms amongst the moss and stone. The ruler of the jungle deep, a predator without equal, is lost in slumber... yet its heart still beats, somewhere amongst the undergrowth, echoing the endless cycle of life and death.
@@ -91,7 +91,7 @@ As he is forced to rise once again and defend his long-forsaken tomb, he longs f
 "This is going to hurt your wallet more than your arm." - Doctor Mortimer, 'The Fixer'
 
 #### Blazing Aether - (ARC118)
-"Oh, you thought you were going to win?" - [Kano](https://legendarystories.net/heroes-of-rathe/kano-dracai-of-aether-about.html)
+"Oh, you thought you were going to win?" - [Kano](https://legendarystories.net/heroes-of-rathe/kano-about.html)
 
 #### Come to Fight - (ARC203)
 Graham the Gallant strode among the trees, tracking a band of notorious thieves.
@@ -107,7 +107,7 @@ Beyond the turbulent waters of Death's Knell, the ocean stretches as far as the 
 "Should you wish to see the future, know this... what has been seen cannot be unseen." - Vera
 
 #### High Octane - (ARC006)
-"Now that's what I call blowing off steam!" - [Dash](https://legendarystories.net/heroes-of-rathe/dash-inventor-extraordinaire-about.html)
+"Now that's what I call blowing off steam!" - [Dash](https://legendarystories.net/heroes-of-rathe/dash-about.html)
 
 #### Index - (ARC135)
 "They banished me from their radiant kingdom, fearful in the face of true knowledge." - Xaine, Runescribe
@@ -131,7 +131,7 @@ With each step, the tide draws in, drowning the world in shadow.
 Ancient runes guard its dusty windows, its darkened halls where the Shadows sleep.
 
 #### Spark of Genius - (ARC009)
-"So if I grab... and then connect... That's it!" - [Dash](https://legendarystories.net/heroes-of-rathe/dash-inventor-extraordinaire-about.html)
+"So if I grab... and then connect... That's it!" - [Dash](https://legendarystories.net/heroes-of-rathe/dash-about.html)
 
 #### Sun Kiss - (ARC212)
 Separated by a power greater than their own, they chased each other across the sky, wishing for nothing more than to reunite.
@@ -140,7 +140,7 @@ Separated by a power greater than their own, they chased each other across the s
 In the Pits, every nook, cranny, or demolition debris serves as worthy refuge when it's time to take cover.
 
 #### Three of a Kind - (ARC044)
-"Finally. Time to take out the trash." - [Azalea](https://legendarystories.net/heroes-of-rathe/azalea-ace-in-the-hole-about.html)
+"Finally. Time to take out the trash." - [Azalea](https://legendarystories.net/heroes-of-rathe/azalea-about.html)
 
 #### Throttle - (ARC023)
 "Why, my steam-propelled hammer could increase mining efficiency by up to 38%!" - Elias Edgecombe
@@ -156,7 +156,7 @@ Breath turns to mist, mist to aether; in her hands, a glimpse of fate.
 
 ## Crucible of War
 #### Aetherize - (CRU164)
-"I find it amusing how often mortals turn to prayer as their last line of defense." - [Kano]https://legendarystories.net/heroes-of-rathe/kano-dracai-of-aether-about.html
+"I find it amusing how often mortals turn to prayer as their last line of defense." - [Kano]https://legendarystories.net/heroes-of-rathe/kano-about.html
 
 #### Arknight Shard - (CRU000)
 The flow of aether disturbs the ancient mists, ripples along the surface of a mirror, unravelling the fabric of time and space. Like grits of sand beneath the tongue, he feels the echoes of the forgotten, feels their gaze rasping against his skin. The foreign heartbeat is an ember within his ribcage, its icy burn heavy with the promise of power.
@@ -229,7 +229,7 @@ When word of war reached the Rek'vas Bloodboars, they were struck with fear... f
 If you know how to flaunt it, you barely need to use it.
 
 #### Celestial Cataclysm - (MON062)
-"Legends grow larger and bolder from one generation to the next. What began as a brave warrior with a spear becomes a deity of virtue, raining down thunder upon tyrants." - [Prism](https://legendarystories.net/heroes-of-rathe/prism-sculptor-of-arc-light-about.html)
+"Legends grow larger and bolder from one generation to the next. What began as a brave warrior with a spear becomes a deity of virtue, raining down thunder upon tyrants." - [Prism](https://legendarystories.net/heroes-of-rathe/prism-about.html)
 
 #### Enigma Chimera - (MON098)
 "If you don't think it's real, try petting it." - Amira Surana
@@ -406,7 +406,7 @@ Before the Age of Man, the specter of war loomed over Rathe, as the great Aesirs
 The "Strongest Man in Rathe" performance is always a mainstay and fan favorite, wherever the Everfest Carnival roams.
 
 #### Outland Skirmish - (EVR066)
-"Volcai, Dracai, it's all the same to me." - [Kassai](https://legendarystories.net/heroes-of-rathe/kassai-cintair-sellsword-about.html)
+"Volcai, Dracai, it's all the same to me." - [Kassai](https://legendarystories.net/heroes-of-rathe/kassai-about.html)
 
 #### Payload - (EVR076)
 The latest in Teklo Industries armament. Guaranteed to leave a dent in your enemies... and your wallet!
@@ -424,13 +424,13 @@ The latest in Teklo Industries armament. Guaranteed to leave a dent in your enem
 Victory is oft found before the first shot is fired.
 
 #### Runic Reclamation - (EVR104)
-A morbid union; [Viserai](https://legendarystories.net/heroes-of-rathe/viserai-rune-blood-about.html)'s hunger for revenge, and his Master's hunger for power.
+A morbid union; [Viserai](https://legendarystories.net/heroes-of-rathe/viserai-about.html)'s hunger for revenge, and his Master's hunger for power.
 
 #### Seismic Stir - (EVR030)
 The Ollin stand guard over the land of Aria, and the land in turn shall answer their call.
 
 #### Steadfast - (EVR033)
-"Be it sword or sorcery, we defend, we defeat, or we die." - [Oldhim, Grandfather of Eternity](https://legendarystories.net/heroes-of-rathe/oldhim-grandfather-of-eternity-about.html)
+"Be it sword or sorcery, we defend, we defeat, or we die." - [Oldhim, Grandfather of Eternity](https://legendarystories.net/heroes-of-rathe/oldhim-about.html)
 
 #### Swing Big - (EVR002)
 Savage Lands politics is simple; those with the biggest swing, have the biggest sway.
@@ -439,7 +439,7 @@ Savage Lands politics is simple; those with the biggest swing, have the biggest 
 It's said that wherever the Dracai of War planted this talisman, the lava was soon to flow.
 
 #### This Round's on Me - (EVR160)
-"Cheers to the good times, with good friends." - [Lexi](https://legendarystories.net/heroes-of-rathe/lexi-livewire-about.html)
+"Cheers to the good times, with good friends." - [Lexi](https://legendarystories.net/heroes-of-rathe/lexi-about.html)
 
 #### Wax On - (EVR050)
 "Find lessons in every task you undertake.." - Master Morita, Art of the Hand
@@ -470,7 +470,7 @@ Push hard enough, and even the weakest Volcai might find within their heart the 
 On both sides of the battlefield, brotherhood is a catalyst of courage, conviction, and most importantly, hope.
 
 #### Burn Away - (UPR094)
-"I will set your lies aflame, and reveal the ugly heart of this Uprising. Sometimes, walking away isn't nearly enough..." - [Dromai](https://legendarystories.net/heroes-of-rathe/dromai-ash-artist-about.html)
+"I will set your lies aflame, and reveal the ugly heart of this Uprising. Sometimes, walking away isn't nearly enough..." - [Dromai](https://legendarystories.net/heroes-of-rathe/dromai-about.html)
 
 #### Cinderskin Devotion - (UPR063)
 Through famine, oppression, and the horrors of war, the Volcai's oath to their fallen bretheren shall never be broken.
@@ -524,7 +524,7 @@ The dragon of endurance, said to be rooted deep within the Savage Lands.
 As the insurgency reached a boiling point, even the Volcai monks let their temper flare.
 
 #### Lava Vein Loyalty - (UPR069)
-"Burn bright or burn out, we burn together." - [Fai](https://legendarystories.net/heroes-of-rathe/fai-rising-rebellion-about.html)
+"Burn bright or burn out, we burn together." - [Fai](https://legendarystories.net/heroes-of-rathe/fai-about.html)
 
 #### Sand Cover - (UPR039)
 A million insignificant grains will choke even the mightiest of dragon – old Volcai proverb
@@ -597,7 +597,7 @@ It is said that the Imperial Forge of Volcor produces the sturdiest armor in all
 Like most fruits of the forest, the good part’s inside the shell.
 
 #### Spirit of Eirina - (DYN066)
-"Her spirit inside me, always." - [Boltyn](https://legendarystories.net/heroes-of-rathe/boltyn-breaker-of-dawn-about.html)
+"Her spirit inside me, always." - [Boltyn](https://legendarystories.net/heroes-of-rathe/boltyn-about.html)
 
 #### Visit the Imperial Forge - (DYN085)
 The sharpest blades of Rathe are forged within molten rivers that flow from the heart of Mt. Volcor.

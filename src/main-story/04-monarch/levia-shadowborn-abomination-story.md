@@ -1,6 +1,6 @@
 # Levia, Shadowborn Abomination
 
-[Levia](https://legendarystories.net/heroes-of-rathe/levia-shadowborn-abomination-about.html) was born into poverty, her impoverished family one of many who worked for the nobility of the Northern Realms. Her father had been a stablehand for Lord Barthimont, but he disappeared suddenly when Levia was very young, leaving his family destitute. Without the means to support herself and her daughter, Levia's mother sold them both into the service of the Barthimont estate, an act borne of desperation.
+[Levia](https://legendarystories.net/heroes-of-rathe/levia-about.html) was born into poverty, her impoverished family one of many who worked for the nobility of the Northern Realms. Her father had been a stablehand for Lord Barthimont, but he disappeared suddenly when Levia was very young, leaving his family destitute. Without the means to support herself and her daughter, Levia's mother sold them both into the service of the Barthimont estate, an act borne of desperation.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/levia-1.webp" alt="levia-1" class="center">
 
@@ -258,7 +258,7 @@ He chuckled darkly, and for an instant, she glimpsed the presence which lingered
 
 "You're like me." She laughed, the sound harsh, and felt the creatures behind her cower, slinking back into the shadows. "What are you?"
 
-"You can call me [Chane](https://legendarystories.net/heroes-of-rathe/chane-bound-by-shadow-about.html). I found my patron beyond the veil, but it seems you found yours through... other means. Tell me..."
+"You can call me [Chane](https://legendarystories.net/heroes-of-rathe/chane-about.html). I found my patron beyond the veil, but it seems you found yours through... other means. Tell me..."
 
 "Levia."
 

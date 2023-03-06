@@ -2,7 +2,7 @@
 
 The trade route wound between the rolling hills, a path of dirt and clay moulded by the passage of the centuries. Dark shadows enfolded the dim landscape, and the beaten path was cast in shades of violet and listless green as the sun sank behind the horizon, relinquishing the stage to a foreboding twilight. Golden armour gleamed faintly in the last few traces of sunlight, quietly announcing the arrival of a small party of knights, marching along the trail to the north.
 
-[Boltyn](https://legendarystories.net/heroes-of-rathe/boltyn-breaker-of-dawn-about.html)'s gaze was locked firmly on the fields ahead, scanning the skyline for signs of any other travellers. Behind him, the rest of his party strode forward, their hands resting on their weapons, eyes flicking from side to side as they scoured the gloomy landscape for potential threats. Months of hunting down cultists in the Northern Realms had left each of them changed by the weight of duty; their shoulders were taut with silent tension, their weapons at the ready, their gazes ever-moving, constantly checking their surroundings for the slightest trace of shadow aether.
+[Boltyn](https://legendarystories.net/heroes-of-rathe/boltyn-about.html)'s gaze was locked firmly on the fields ahead, scanning the skyline for signs of any other travellers. Behind him, the rest of his party strode forward, their hands resting on their weapons, eyes flicking from side to side as they scoured the gloomy landscape for potential threats. Months of hunting down cultists in the Northern Realms had left each of them changed by the weight of duty; their shoulders were taut with silent tension, their weapons at the ready, their gazes ever-moving, constantly checking their surroundings for the slightest trace of shadow aether.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/step-1.webp" alt="step-1" class="center">
 
@@ -82,7 +82,7 @@ As much as he wished to return home and greet Aios, his mind refused to be at ea
 
 At this hour, the Library was almost completely empty; most of its daily patrons having been chased away by the lengthening shadows of dusk. The usual hushed whispers had given way to a heavy blanket of silence, betraying the age of the tomes which lined the library's shelves. As Boltyn moved down the hallway, he made a concerted effort to quiet his footsteps, conscious of the armoured travelling boots he had yet to remove.
 
-As if summoned, [Prism](https://legendarystories.net/heroes-of-rathe/prism-sculptor-of-arc-light-about.html) suddenly emerged from one of the aisles ahead, turning towards him with a cheerful, unguarded smile.
+As if summoned, [Prism](https://legendarystories.net/heroes-of-rathe/prism-about.html) suddenly emerged from one of the aisles ahead, turning towards him with a cheerful, unguarded smile.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/step-3.webp" alt="step-3" class="center">
 
