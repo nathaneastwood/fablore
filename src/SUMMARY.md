@@ -162,4 +162,8 @@
     - [Skullhorn](equipment/skullhorn.md)
     - [Viziertronic Model i](equipment/viziertronic-model-i.md)
 
+- [Data](data/README.md)
+    - [Characters](data/characters.md)
+    - [Locations](data/locations.md)
+
 - [Flavour Text](flavour.md)
