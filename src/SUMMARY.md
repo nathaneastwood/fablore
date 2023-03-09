@@ -162,6 +162,9 @@
     - [Skullhorn](equipment/skullhorn.md)
     - [Viziertronic Model i](equipment/viziertronic-model-i.md)
 
+- [Digital Tiles](digital-tiles/README.md)
+    - [Crucible of War](digital-tiles/crucible-of-war/crucible-of-war.md)
+
 - [Data](data/data.md)
     - [Characters](data/characters.md)
     - [Locations](data/locations.md)
