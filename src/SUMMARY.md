@@ -165,5 +165,5 @@
 - [Flavour Text](flavour.md)
 
 - [Digital Tiles](digital-tiles/README.md)
-    - [Crucible of War](digital-tiles/crucible-of-war/README.md)
-        - [Beast Within](digital-tiles/crucible-of-war/beast-within.md)
+    - [Crucible of War](digital-tiles/crucible-of-war/crucible-of-war.md)
+        
