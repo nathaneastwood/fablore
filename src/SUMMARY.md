@@ -167,3 +167,5 @@
     - [Locations](data/locations.md)
 
 - [Flavour Text](flavour.md)
+
+- [FAQ](faq.md)
