@@ -1,6 +1,6 @@
 ## Tales of a Teklo
 
-A mechanologist from the city of [Metrix](https://legendarystories.net/world-of-rathe/metrix/metrix.html), [Dash](https://legendarystories.net/heroes-of-rathe/dash-inventor-extraordinaire-about.html) is a brilliant inventor with a creative mind and a spark of genius. Born into the city of tomorrow, she grew up surrounded by some of the greatest minds in Metrix, playing in the laboratories and workshops of Teklo Industries scientists. Brimming with enthusiasm, she learned to explore the world around her, wanting to experience everything that life has to offer.
+A mechanologist from the city of [Metrix](https://legendarystories.net/world-of-rathe/metrix/metrix.html), [Dash](https://legendarystories.net/heroes-of-rathe/dash-about.html) is a brilliant inventor with a creative mind and a spark of genius. Born into the city of tomorrow, she grew up surrounded by some of the greatest minds in Metrix, playing in the laboratories and workshops of Teklo Industries scientists. Brimming with enthusiasm, she learned to explore the world around her, wanting to experience everything that life has to offer.
 
 Dash is stubborn and rebellious. Her energetic nature often gets her into trouble, and once she gets an idea in her head, it's difficult to dissuade her. However, the Teklo family name has allowed her to follow her whims and crazy ideas, providing both funding and protection from the law. Dash despises the rigidity and dullness of Metrix's upper class, and will do anything to avoid becoming just like them.
 

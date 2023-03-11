@@ -4,7 +4,7 @@
 (<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)
 </p>
 
-'Tis the night before Christmas, and the air is ripe for the robbing. A crooked shadow vanishes through a window, stealthy as a huntsman. From her vantage point across the street, [Azalea](https://legendarystories.net/heroes-of-rathe/azalea-ace-in-the-hole-about.html) traces the path [Arakni](https://legendarystories.net/heroes-of-rathe/arakni-about.html) cleared. Steep rooflines, yawning alleyways, a traverse more treacherous than she would dare.
+'Tis the night before Christmas, and the air is ripe for the robbing. A crooked shadow vanishes through a window, stealthy as a huntsman. From her vantage point across the street, [Azalea](https://legendarystories.net/heroes-of-rathe/azalea-about.html) traces the path [Arakni](https://legendarystories.net/heroes-of-rathe/arakni-about.html) cleared. Steep rooflines, yawning alleyways, a traverse more treacherous than she would dare.
 
 "Agile," she observes. "And sneaky too."
 
@@ -40,7 +40,7 @@ Azalea recalls it clearly. A rare moment of pity. Lena Belle has never let her f
 
 "Don't worry." Another of those too hard pats on the back. "No gold stars this year. That would be a crime."
 
-"Glad to hear it. Now where the bloody rot is [Dash](https://legendarystories.net/heroes-of-rathe/dash-inventor-extraordinaire-about.html)?"
+"Glad to hear it. Now where the bloody rot is [Dash](https://legendarystories.net/heroes-of-rathe/dash-about.html)?"
 
 On cue, the object of Azalea's impatience rolls up, her steam-wagon spouting aphotic gas. The mechanologist dismounts her contraption and greets them with a rowdy, "Helloooo!"
 

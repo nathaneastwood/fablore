@@ -1,6 +1,6 @@
 ## The Jaws of Death
 
-A life on the streets has hardened [Azalea](https://legendarystories.net/heroes-of-rathe/azalea-ace-in-the-hole-about.html), leaving her cynical and callous. Fighting to survive, she taught herself to hunt and kill, honing her skills to a fine edge.
+A life on the streets has hardened [Azalea](https://legendarystories.net/heroes-of-rathe/azalea-about.html), leaving her cynical and callous. Fighting to survive, she taught herself to hunt and kill, honing her skills to a fine edge.
 
 Working out of the Blackjack's Tavern, Azalea has carved out a reputation for herself as one of the best mercenaries in the [Pits](https://legendarystories.net/world-of-rathe/pits/pits.html). In contrast to the anarchy and disorder that surrounds her, Azalea carefully selects each contract, going to great lengths to secure a flawless execution.
 

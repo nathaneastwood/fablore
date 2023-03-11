@@ -10,7 +10,7 @@ _Lord Merchant Savai of Deshvahan_
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/09-dynasty/media/ember-1.webp" alt="ember-in-the-ash-1" class="center">
 
-[Dromai](https://legendarystories.net/heroes-of-rathe/dromai-ash-artist-about.html) looks about to make sure she is alone before expelling her excitement in a long, shuddering breath. This is what she has waited for, worked so hard for. She defeated the rebels in battle. She slew their most aggressive leader. And in a moment of inspiration, she erased Spymaster Xathari from the picture. Thus, she cleared the way for her most ambitious move—an audience with the Emperor and a chance to claim Xathari's position and power.
+[Dromai](https://legendarystories.net/heroes-of-rathe/dromai-about.html) looks about to make sure she is alone before expelling her excitement in a long, shuddering breath. This is what she has waited for, worked so hard for. She defeated the rebels in battle. She slew their most aggressive leader. And in a moment of inspiration, she erased Spymaster Xathari from the picture. Thus, she cleared the way for her most ambitious move—an audience with the Emperor and a chance to claim Xathari's position and power.
 
 No longer the "half-breed". No longer the traitor's spawn to be slighted or ignored. She is Dracai, and so much more. With Xathari's secrets at her fingertips, she will paint illusions such as [Volcor](https://legendarystories.net/world-of-rathe/volcor/volcor.html) has never seen. Wizard and worker alike, the citizens of this empire will see only what she, the Ash Artist, _wants_ them to see.
 
@@ -60,7 +60,7 @@ Sandfolk fury continues to fester, as Xathari hoped it would. Their attack was a
 
 The scheming [Ezu and loyal Alshoni](https://legendarystories.net/world-of-rathe/volcor/fire-in-their-veins.html#factions)—two great Dracai houses locked in a deadly game of power and usurpation. The Alshoni defending stability and dynasty against dangerous Ezu aspirations. A trail of missives exchanged through the [Pits](https://legendarystories.net/world-of-rathe/pits/pits.html). Prices paid in coin and blood.
 
-[Fai](https://legendarystories.net/heroes-of-rathe/fai-rising-rebellion-about.html) and his foolish Volcai, their filthy hands tearing the empire apart. Enemies in every scullery and stable. Vermin that might yet overrun the entire palace.
+[Fai](https://legendarystories.net/heroes-of-rathe/fai-about.html) and his foolish Volcai, their filthy hands tearing the empire apart. Enemies in every scullery and stable. Vermin that might yet overrun the entire palace.
 
 Dromai follows the threads, weaving a tapestry of treachery in her mind. Yet try as she might, she can see neither the pattern nor the weaver. They are as elusive as that vile visage glimpsed and then gone into tortured darkness.
 

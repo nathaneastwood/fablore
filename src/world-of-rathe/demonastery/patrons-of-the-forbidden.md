@@ -17,7 +17,7 @@ A witch who was blinded many years ago, when her twin brother lashed out at her 
 
 #### Corva
 
-She had studied necromancy, biomancy and blood magic. After clashing with the Arknight, [Viserai](https://legendarystories.net/heroes-of-rathe/viserai-rune-blood-about.html), she was disembowelled, and her corpse went missing shortly afterwards. Viserai is known to have taken a grimoire from her corpse which contained all of her research and personal notes, but the tome disappeared shortly afterward, and its whereabouts—and contents—remain unknown.
+She had studied necromancy, biomancy and blood magic. After clashing with the Arknight, [Viserai](https://legendarystories.net/heroes-of-rathe/viserai-about.html), she was disembowelled, and her corpse went missing shortly afterwards. Viserai is known to have taken a grimoire from her corpse which contained all of her research and personal notes, but the tome disappeared shortly afterward, and its whereabouts—and contents—remain unknown.
 
 #### Jerome
 

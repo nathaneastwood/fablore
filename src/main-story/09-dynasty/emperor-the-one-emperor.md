@@ -16,7 +16,7 @@ Without a strong emperor to guide them, the people of Volcor had turned against 
 
 To vale and plain, city and citadel, they restored the peace that his father let slip through his trembling fingers.
 
-He surrounded himself with individuals of power and vision. With a click of his fingers, he could light every torch in the city so that Xathari, his fireseer, might peer into every corner of Ashvahan. So that [Yoji](https://legendarystories.net/heroes-of-rathe/yoji-royal-protector-about.html), his captain of the Imperial Guard, might exact justice upon the dishonorable.
+He surrounded himself with individuals of power and vision. With a click of his fingers, he could light every torch in the city so that Xathari, his fireseer, might peer into every corner of Ashvahan. So that [Yoji](https://legendarystories.net/heroes-of-rathe/yoji-about.html), his captain of the Imperial Guard, might exact justice upon the dishonorable.
 
 These were people he could use, but never wholly trust. While their ambitions aligned with his, they remained his loyal servants. He expected nothing more nor anything less.
 
