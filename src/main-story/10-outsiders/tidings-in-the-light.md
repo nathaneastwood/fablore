@@ -1,5 +1,9 @@
 # Tidings in the Light
 
+<p>
+(<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)
+</p>
+
 Rays of golden sun kiss the once golden fields of [Solana](../../world-of-rathe/solana/solana.md).
 
 A cloaked figure pauses at the doorway of a ruined homestead, eyes lost in shadow as it looks across the embattled earth. The clamoring horde of the [Demonastery](../../world-of-rathe/demonastery/demonastery.md) is a chorus of rumbles and howls, like a foul storm brooding in the distance.
@@ -141,3 +145,14 @@ Shiyana joins the chorus as it soars to the highest arches of the Amphitheatre. 
 _Source: [https://fabtcg.com/articles/tidings-light/](https://fabtcg.com/articles/tidings-light/)_<br>
 _Written by Edwin McRae and Rachel Rees._<br>
 _Directed by Robbie Wen. Illus. by Henrique Lindner._
+
+---
+
+## Narrated Video by [Peranine](https://www.youtube.com/@Peranine)
+
+<p>
+(<a href="#tidings-in-the-light">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/bYYi8b7uhRs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+

@@ -1,5 +1,9 @@
 # The Spider's Trap
 
+<p>
+(<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)
+</p>
+
 _(Warning: story features content that may be upsetting to certain readers.<br>
 Viewer discretion is advised.)_
 
@@ -188,3 +192,13 @@ For they are Outsiders.
 _Source: [https://fabtcg.com/articles/spiders-trap/](https://fabtcg.com/articles/spiders-trap/)_<br>
 _Written by Edwin McRae and Rachel Rees._<br>
 _Directed by Robbie Wen. Illus. by Sam Yang._
+
+---
+
+## Narrated Video by [Peranine](https://www.youtube.com/@Peranine)
+
+<p>
+(<a href="#the-spiders-trap">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/ElblmAxTQPA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
