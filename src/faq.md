@@ -18,11 +18,13 @@ Jarl Vetreidi is the character shown on [Mangle](flavour.md#mangle---cru026) and
 
 ## What do we know about Fyendal?
 
-We don't know much about Fyendal yet, however we do know that Fyendal is according to [flavour text](flavour.md#heart-of-fyendal---wtr000): 
+We don't know much about Fyendal yet, however we do know that Fyendal is according to [flavour text](flavour.md#heart-of-fyendal---wtr000):
 
-> The ruler of the jungle deep, a predator without equal, is lost in slumber... yet its heart still beats, somewhere amongst the undergrowth, echoing the endless cycle of life and death." 
+> The ruler of the jungle deep, a predator without equal, is lost in slumber... yet its heart still beats, somewhere amongst the undergrowth, echoing the endless cycle of life and death."
 
 ## What do we know about Ophidia?
+
+Not much beyond what is written on the [flavour text](flavour.md#eye-of-ophidia---arc000).
 
 ## What do we know about Elias Edgecomb?
 
