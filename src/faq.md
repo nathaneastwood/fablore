@@ -1,36 +1,15 @@
 # FAQ
 
-## Is Ira dead?
-
-We don't know. [Her story](main-story/03-crucible-of-war/ira-crimson-haze-story.md) takes place hundreds of years before the current main story timeline, that's all we know. There is nothing written that outright states she is dead, however she is human...
-
-## What do we know about Jackdaw?
-
-Not much, he is mentioned in some flavour text such as [Pitfall Trap](./flavour.md#pitfall-trap---cru127), [Out Muscle](./flavour.md#out-muscle---mon248) and [Pay Day](./flavour.md#pay-day---dyn123). We also read about him in [The Jaws of Death](main-story/02-arcane-rising/the-jaws-of-death.md) where he is standing outside [Blackjack's Tavern](world-of-rathe/pits/blackjacks-mercenary-group.md#blackjacks-mercenary-group).
-
-## Are Brutes a species or a class?
+## Species
+### Are Brutes a species or a class?
 
 They are both. We know they are a species from [Call of Adventure](world-of-rathe/savage-lands/call-of-adventure.md#brutes).
 
-## What do we know about Jarl?
+### Do Elves exist within Rathe?
 
-Jarl Vetreidi is the character shown on [Mangle](flavour.md#mangle---cru026) and Pulverize. He's an Ollin. The Ollin were guardians from Aria, an Order of them, which got frozen by an ancient to protect them thousands of years ago.
+Whilst there is not specific mention of the species, we see some artwork which implies that Elves may in fact exist within the world of Rathe. Some art to look out for are the main image for [Aria](world-of-rathe/aria/aria.md), and the cards "Wild Ride" and "Crown of Seeds".
 
-## What do we know about Fyendal?
-
-We don't know much about Fyendal yet, however we do know that Fyendal is according to [flavour text](flavour.md#heart-of-fyendal---wtr000):
-
-> The ruler of the jungle deep, a predator without equal, is lost in slumber... yet its heart still beats, somewhere amongst the undergrowth, echoing the endless cycle of life and death."
-
-## What do we know about Ophidia?
-
-Not much beyond what is written on the [flavour text](flavour.md#eye-of-ophidia---arc000).
-
-## What do we know about Elias Edgecomb?
-
-They are mentioned on the flavour text of [Throttle](flavour.md#throttle---arc023) and they seem to appear in the artwork of other cards too.
-
-## What's the difference between the Ancients, the Old Ones, the Aesir and the Embra?
+### What's the difference between the Ancients, the Old Ones, the Aesir and the Embra?
 
 The Old Ones have a proper name for their race; Aesir. Although one weird contradiction to this name is from [Viserai's backstory](main-story/02-arcane-rising/viserai-rune-blood-story.md).
 
@@ -64,7 +43,58 @@ Curious to know what you all think as I'd like to get a think tank going on this
 
 [Credit](https://discord.com/channels/625953788343091200/743050420363984898/921433017430470666)
 
-## What is the general timeline of world events?
+### Are there any other humanoid species?
+
+* There is an artistic reflection of "Tiefling" in the card art, "Runic Reaping".
+* ["Hecklers"](world-of-rathe/savage-lands/call-of-adventure.md#hecklers) are ruthless, violent and feral humanoids. See the card "Wounded Bull".
+* There is an artistic reflection of a "Dwarf" in the cards "Belittle" and "Minnowism" though these could just be humans.
+* "Plant people" are described in [Briar's Origin Story](main-story/05-tales-of-aria/briar-warden-of-thorns-story.md)
+
+### What animals/non-humanoids exist within Rathe?
+
+* [Vitr'eo](world-of-rathe/aria/creatures.md#vitreo)
+* [Kai'eo](world-of-rathe/aria/creatures.md#kaieo)
+* [Na'shari](world-of-rathe/aria/creatures.md#nashari)
+* [Meep](world-of-rathe/aria/creatures.md#meep)
+* [Fianna](world-of-rathe/aria/creatures.md#fianna)
+* [Vuurlin](world-of-rathe/volcor/wildlife.md#vuurlin)
+* [Longma](world-of-rathe/volcor/wildlife.md#longma)
+* [Ryoki](world-of-rathe/volcor/wildlife.md#ryoki)
+* [Morrows](world-of-rathe/volcor/wildlife.md#morrows)
+* [Apophis](world-of-rathe/volcor/wildlife.md#apophis)
+* [Cesari](world-of-rathe/aria/a-true-sanctuary.md#cesari)
+* [Azeri](digital-tiles/crucible-of-war/crucible-of-war.md#skullhorn)
+
+## Characters
+### Is Ira dead?
+
+We don't know. [Her story](main-story/03-crucible-of-war/ira-crimson-haze-story.md) takes place hundreds of years before the current main story timeline, that's all we know. There is nothing written that outright states she is dead, however she is human...
+
+### What do we know about Jackdaw?
+
+Not much, he is mentioned in some flavour text such as [Pitfall Trap](./flavour.md#pitfall-trap---cru127), [Out Muscle](./flavour.md#out-muscle---mon248) and [Pay Day](./flavour.md#pay-day---dyn123). We also read about him in [The Jaws of Death](main-story/02-arcane-rising/the-jaws-of-death.md) where he is standing outside [Blackjack's Tavern](world-of-rathe/pits/blackjacks-mercenary-group.md#blackjacks-mercenary-group).
+
+### What do we know about Jarl?
+
+Jarl Vetreidi is the character shown on [Mangle](flavour.md#mangle---cru026) and Pulverize. He's an Ollin. The Ollin were guardians from Aria, an Order of them, which got frozen by an ancient to protect them thousands of years ago.
+
+### What do we know about Fyendal?
+
+We don't know much about Fyendal yet, however we do know that Fyendal is according to [flavour text](flavour.md#heart-of-fyendal---wtr000):
+
+> The ruler of the jungle deep, a predator without equal, is lost in slumber... yet its heart still beats, somewhere amongst the undergrowth, echoing the endless cycle of life and death."
+
+### What do we know about Ophidia?
+
+Not much beyond what is written on the [flavour text](flavour.md#eye-of-ophidia---arc000).
+
+### What do we know about Elias Edgecomb?
+
+They are mentioned on the flavour text of [Throttle](flavour.md#throttle---arc023) and they seem to appear in the artwork of other cards too.
+
+## Story Arc
+
+### What is the general timeline of world events?
 
 The general gist is:
 
