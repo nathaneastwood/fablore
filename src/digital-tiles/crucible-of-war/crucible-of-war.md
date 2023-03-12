@@ -1,18 +1,18 @@
 ### Aetherize
 
-The wizards of Volcor draw their power from within, an innate connection to aether inherited from their distant ancestors. Only those born with this gift can utilise the fire magics of the Dracai.
+The wizards of [Volcor](../../world-of-rathe/volcor/volcor.md) draw their power from within, an innate connection to aether inherited from their distant ancestors. Only those born with this gift can utilise the fire magics of the Dracai.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/digital-tiles/crucible-of-war/media/aetherize.webp" alt="aetherize" class="center" />
 
 ### Argh... Smash!
 
-Unfamiliar faces now frequent the jungle, a mysterious threat encroaching on the Savage Lands. These strange fiends roam between the trees, filling the air with the stench of rot and decay, a plague which seeps further into brute territory with each passing day.
+Unfamiliar faces now frequent the jungle, a mysterious threat encroaching on the [Savage Lands](../../world-of-rathe/savage-lands/savage-lands.md). These strange fiends roam between the trees, filling the air with the stench of rot and decay, a plague which seeps further into brute territory with each passing day.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/digital-tiles/crucible-of-war/media/argh-smash.webp" alt="argh-smash" class="center" />
 
 ### Beast Within
 
-Brutes walk a fine line when harnessing the power of the bloodrage; tip too far, and vecome consumed by your basest instincts, slaughtering everything in sight until something else finally manages to cut you down.
+Brutes walk a fine line when harnessing the power of the bloodrage; tip too far, and become consumed by your basest instincts, slaughtering everything in sight until something else finally manages to cut you down.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/digital-tiles/crucible-of-war/media/beast-within.webp" alt="beast-within" class="center" />
 
@@ -30,7 +30,7 @@ The forbidden lends its raw power, armour forged from skin and bone; a parasite 
 
 ### Breeze Rider Boots
 
-United by catasrophe, remnants of the Lost Clans move in the dead of night; tonight, they prepare for their greatest battle yet. Each bears the regalia of their clan, remembering their homes, their kinsmen, their traditions. Tonight, they claim answers they deserve.
+United by catastrophe, remnants of the Lost Clans move in the dead of night; tonight, they prepare for their greatest battle yet. Each bears the regalia of their clan, remembering their homes, their kinsmen, their traditions. Tonight, they claim answers they deserve.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/digital-tiles/crucible-of-war/media/breeze-rider-boots.webp" alt="breeze-rider-boots" class="center" />
 
@@ -43,13 +43,13 @@ Money ain't mean nothing to a dead man. Spend up, stock up, and prepare to fight
 
 ### Cindering Foresight
 
-Never stand against the Emperor. Those who dare to cross the Royal Court of Volcor will quickly find themselves in the firing line, decimated by the power of the Dracai.
+Never stand against the [Emperor](../../heroes-of-rathe/emperor-about.md). Those who dare to cross the [Royal Court](../../world-of-rathe/volcor/the-royal-court.md) of [Volcor](../../world-of-rathe/volcor/volcor.md) will quickly find themselves in the firing line, decimated by the power of the Dracai.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/digital-tiles/crucible-of-war/media/cindering-foresight.webp" alt="cindering-foresight" class="center" />
 
 ### Cintari Saber
 
-The General's daughter, cornered, bared her teeth. Armed with a pair of stolen blades, she carved a path through the raging coup, securing her freedom... Yet her family remains. Imprisoned, unable to escape the usurper, they wait for the day that Kassai will return and set them free.
+The General's daughter, cornered, bared her teeth. Armed with a pair of stolen blades, she carved a path through the raging coup, securing her freedom... Yet her family remains. Imprisoned, unable to escape the usurper, they wait for the day that [Kassai](../../heroes-of-rathe/kassai-about.md) will return and set them free.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/digital-tiles/crucible-of-war/media/cintari-saber.webp" alt="cintari-saber" class="center" />
 
@@ -61,13 +61,13 @@ Through the shattered barrier seeps the essence from beyond, blurring the line a
 
 ### Courage of Bladehold
 
-As she dons her new armour, the lieutenant Dorinthea admires the handiwork of her proud parents, gleaming in the light of the sun. She bears the weight of duty with grace and courage; she will not let them down.
+As she dons her new armour, the lieutenant [Dorinthea](../../heroes-of-rathe/dorinthea-about.md) admires the handiwork of her proud parents, gleaming in the light of the sun. She bears the weight of duty with grace and courage; she will not let them down.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/digital-tiles/crucible-of-war/media/courage-of-bladehold.webp" alt="courage-of-bladehold" class="center" />
 
 ### Coax a Commotion
 
-Sensing a change in the tides of the Flow, wayfarers, defenders, and heroes gather in local taverns, 'preparing' for the battle ahead.
+Sensing a change in the tides of [the Flow](../../world-of-rathe/aria/a-true-sanctuary.md#the-flow), wayfarers, defenders, and heroes gather in local taverns, 'preparing' for the battle ahead.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/digital-tiles/crucible-of-war/media/coax-a-commotion.webp" alt="coax-a-commotion" class="center" />
 
@@ -79,7 +79,7 @@ While the guardians of old have long since departed this world, their armour rem
 
 ### Dread Triptych
 
-Í Arathael lies within our reach; a realm ripe for the picking, teeming with arcane power. You think you've seen real power? You haven't seen anything yet.
+[íArathael](../../world-of-rathe/demonastery/the-gateway-to-iarathael.md) lies within our reach; a realm ripe for the picking, teeming with arcane power. You think you've seen real power? You haven't seen anything yet.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/digital-tiles/crucible-of-war/media/dread-triptych.webp" alt="dread-triptych" class="center" />
 
@@ -91,7 +91,7 @@ In the Broken Chariot, where even the slightest advantage can change your fate, 
 
 ### Gaze the Ages
 
-Within the Demonastery, a small group of wizards devote themselves to the study of the beyond, a hidden realm which lies just out of reach. They would sacrifice their lives for just one, fleeting glimpse of what lies behind the veil.
+Within the [Demonastery](../../world-of-rathe/demonastery/demonastery.md), a small group of wizards devote themselves to the study of the beyond, a hidden realm which lies just out of reach. They would sacrifice their lives for just one, fleeting glimpse of what lies behind the veil.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/digital-tiles/crucible-of-war/media/gaze-the-ages.webp" alt="gaze-the-ages" class="center" />
 
@@ -115,7 +115,7 @@ The horns of war ring throughout the ancient temple, awakening the Ollin, as the
 
 ### Metacarpus Node
 
-"The power of aether is infinite, drawing upon the very essence of our world. Charge any object with aether, an you elevate its power, drawing upon the forces of the natural world. Lightning, fire, the seas, and the earth beneath our feet; all of these can lend their power. You need only know how to ask." - Írunaéabh
+"The power of aether is infinite, drawing upon the very essence of our world. Charge any object with aether, and you elevate its power, drawing upon the forces of the natural world. Lightning, fire, the seas, and the earth beneath our feet; all of these can lend their power. You need only know how to ask." - Írunaméabh
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/digital-tiles/crucible-of-war/media/metacarpus-node.webp" alt="metacarpus-node" class="center" />
 
@@ -175,19 +175,19 @@ A thousand years of fury awakened by a change in the Flow ready to be unleashed 
 
 ### Skullhorn
 
-"The Azeri are elusive and mysterious, lingering in the innermost depths of the Savage Lands. Despite my best efforts, I can find little evidence of their existence, save for those previous few artefacts which they leave behind." - T.H. Scarborough
+"The Azeri are elusive and mysterious, lingering in the innermost depths of the [Savage Lands](../../world-of-rathe/savage-lands/savage-lands.md). Despite my best efforts, I can find little evidence of their existence, save for those previous few artefacts which they leave behind." - T.H. Scarborough
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/digital-tiles/crucible-of-war/media/skullhorn.webp" alt="skullhorn" class="center" />
 
 ### Sledge of Anvilheim
 
-After centuries of slumber, horns echo throughout the valleys and the plains, calling on the people to take up arms and defend their beloved home. For the first time in generations, Aria prepares for war.
+After centuries of slumber, horns echo throughout the valleys and the plains, calling on the people to take up arms and defend their beloved home. For the first time in generations, [Aria](../../world-of-rathe/aria/aria.md) prepares for war.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/digital-tiles/crucible-of-war/media/sledge-of-anvilheim.webp" alt="sledge-of-anvilheim" class="center" />
 
 ### Spoils of War
 
-General Ekoda watches as his men descend upon the village like a rain of fire, the embodiment of the Phoenix Cycle which commands all of Volcor. In purging the weak, only the strong will remain. Once his men finish looting their supplied, the farmland will be burned to the ground, leaving Lord Sabuto with no choice but to submit.
+General Ekoda watches as his men descend upon the village like a rain of fire, the embodiment of the Phoenix Cycle which commands all of [Volcor](../../world-of-rathe/volcor/volcor.md). In purging the weak, only the strong will remain. Once his men finish looting their supplied, the farmland will be burned to the ground, leaving Lord Sabuto with no choice but to submit.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/digital-tiles/crucible-of-war/media/spoils-of-war.webp" alt="spoils-of-war" class="center" />
 
@@ -199,7 +199,7 @@ The Ollin once swore an unbreakable oath; they would plunge into the depths of t
 
 ### Sutcliffe's Research Notes
 
-"...it comes from beyond, a conduit for something far older. This is the price of true power - an equivalent exchange, and the cost not always known; not until it is far too late to change your fate. There must always be a source, whether from some order being, or from the artefacts that they left behind. The Arknight shard is, of course..." - excerpt from Lord Sutcliffe's personal research
+"...it comes from beyond, a conduit for something far older. This is the price of true power - an equivalent exchange, and the cost not always known; not until it is far too late to change your fate. There must always be a source, whether from some order being, or from the artefacts that they left behind. The Arknight shard is, of course..." - excerpt from [Lord Sutcliffe](../../other-characters/lord-sutcliffe.md)'s personal research
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/digital-tiles/crucible-of-war/media/sutcliffes-research-notes.webp" alt="sutcliffes-research-notes" class="center" />
 
@@ -211,19 +211,19 @@ Despite the thick coating of dust, the blade holds a certain majesty about it; t
 
 ### Teklovossen's Workshop
 
-The Greatest minds of Metrix are held in high esteem, their workshops put on display for future generations; a source of inspiration for those who seek to follow in their footsteps.
+The Greatest minds of [Metrix](../../world-of-rathe/metrix/metrix.md) are held in high esteem, their workshops put on display for future generations; a source of inspiration for those who seek to follow in their footsteps.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/digital-tiles/crucible-of-war/media/teklovossens-workshop.webp" alt="teklovossens-workshop" class="center" />
 
 ### Towering Titan
 
-This ancient guardiand stands watch over the entrance into Aria, a tribute to those who came before.
+This ancient guardian stands watch over the entrance into [Aria](../../world-of-rathe/aria/aria.md), a tribute to those who came before.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/digital-tiles/crucible-of-war/media/towering-titan.webp" alt="towering-titan" class="center" />
 
 ### Tripwire Trap
 
-The denizens of the Pits are used to the harsh realities of survival. This is just one more horror to endure.
+The denizens of the [Pits](../../world-of-rathe/pits/pits.md) are used to the harsh realities of survival. This is just one more horror to endure.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/digital-tiles/crucible-of-war/media/tripwire-trap.webp" alt="tripwire-trap" class="center" />
 
@@ -235,6 +235,6 @@ Whispers of war on the horizon are spreading throughout the city, sowing seeds o
 
 ### Zephyr Needle
 
-For three days and three nights, the grandmaster worked, oblivious to the passage of time. As the storm raged around him, he drew upon its raw power, distilling the sotrm's essence into a pair of twin daggers; one final gift for the Mugenshi clan.
+For three days and three nights, the grandmaster worked, oblivious to the passage of time. As the storm raged around him, he drew upon its raw power, distilling the storm's essence into a pair of twin daggers; one final gift for the Mugenshi clan.
 
 <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/digital-tiles/crucible-of-war/media/zephyr-needle.webp" alt="zephyr-needle" class="center" />
