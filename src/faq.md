@@ -64,6 +64,7 @@ Curious to know what you all think as I'd like to get a think tank going on this
 * [Apophis](world-of-rathe/volcor/wildlife.md#apophis)
 * [Cesari](world-of-rathe/aria/a-true-sanctuary.md#cesari)
 * [Azeri](digital-tiles/crucible-of-war/crucible-of-war.md#skullhorn)
+* [Rek'vas](weapons/talishar-lost-prince.md)
 
 ## Characters
 ### Is Ira dead?
