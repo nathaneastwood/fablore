@@ -1,13 +1,6 @@
 # FAQ
 
 ## Species
-### Are Brutes a species or a class?
-
-They are both. We know they are a species from [Call of Adventure](world-of-rathe/savage-lands/call-of-adventure.md#brutes).
-
-### Do Elves exist within Rathe?
-
-Whilst there is not specific mention of the species, we see some artwork which implies that Elves may in fact exist within the world of Rathe. Some art to look out for are the main image for [Aria](world-of-rathe/aria/aria.md), and the cards "Wild Ride" and "Crown of Seeds".
 
 ### What's the difference between the Ancients, the Old Ones, the Aesir and the Embra?
 
@@ -31,12 +24,17 @@ Currently my understanding is that Solana is not all it is cut out to be, as the
 
 [Credit](https://discord.com/channels/625953788343091200/743050420363984898/921433017430470666)
 
-### Are there any other humanoid species?
+### What are the races of Rathe?
 
-* There is an artistic reflection of "Tiefling" in the card art, "Runic Reaping".
-* ["Hecklers"](world-of-rathe/savage-lands/call-of-adventure.md#hecklers) are ruthless, violent and feral humanoids. See the card "Wounded Bull".
-* There is an artistic reflection of a "Dwarf" in the cards "Belittle" and "Minnowism" though these could just be humans.
-* "Plant people" are described in [Briar's Origin Story](main-story/05-tales-of-aria/briar-warden-of-thorns-story.md)
+* _Brutes_ are confirmed to be a race in [Call of Adventure](world-of-rathe/savage-lands/call-of-adventure.md#brutes).
+* _Demons_ are mentioned in [Morlock Hill](main-story/07-interlude/morlock-hill.md).
+* _Dwarves_ are referenced in [A Grand Adventure](main-story/06-everfest/a-grand-adventure.md) by the line "gruff dwarven blacksmith Thawne". Some art to look out for are the cards "Belittle" and "Minnowism".
+* _Elves_ are explicitly mentioned in the Wild Ride digital tile. Other art to look out for are the main image for [Aria](world-of-rathe/aria/aria.md) and "Crown of Seeds".
+* [_Hecklers_](world-of-rathe/savage-lands/call-of-adventure.md#hecklers) are ruthless, violent and feral humanoids. See the card "Wounded Bull".
+* _Gnomes_ are speculated to exist due to the merchant stall named "The Golden Gnome" on the Knick Knack Bric-a-Brac Spoiler Tile.
+* _Humans_
+* "_Plant people_" are described in [Briar's Origin Story](main-story/05-tales-of-aria/briar-warden-of-thorns-story.md) though we do not have an official name for them.
+* _Tiefling_ seem to appear in the card art, "Runic Reaping".
 
 ### What animals/non-humanoids exist within Rathe?
 
