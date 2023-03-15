@@ -169,6 +169,16 @@
     - [Characters](data/characters.md)
     - [Locations](data/locations.md)
 
-- [Flavour Text](flavour.md)
+- [Flavour Text](flavour/intro.md)
+    - [Welcome to Rathe](flavour/01-welcome-to-rathe.md)
+    - [Arcane Rising](flavour/02-arcane-rising.md)
+    - [Crucible of War](flavour/03-crucible-of-war.md)
+    - [Monarch](flavour/04-monarch.md)
+    - [Tales of Aria](flavour/05-tales-of-aria.md)
+    - [Everfest](flavour/06-everfest.md)
+    - [Uprising](flavour/07-uprising.md)
+    - [Dynasty](flavour/08-dynasty.md)
+    - [Outsiders](flavour/09-outsiders.md)
+    - [Non-Set Cards](flavour/00-non-set-cards.md)
 
 - [FAQ](faq.md)

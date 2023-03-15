@@ -12,7 +12,7 @@ To aid this instruction set, we will use the Squeaker's Christmas story, which w
 * Replace any horizontal bars with `---` which creates a horizontal bar using markdown.
 * Add links to the first mention of each unique hero, character or location.
 * Add any mentions of new characters, heroes or locations to the [data files](../data).
-* Add the story to the [SUMMARY.md](../SUMMARY.md) file. 
+* Add the story to the [SUMMARY.md](../SUMMARY.md) file.
 
 The final file should have the following format:
 
