@@ -62,7 +62,7 @@ _The living weapon approaches at last._ The voice seemed to anticipate his respo
 
 When he made no move to leave, watching the stained glass from behind his helm, he heard a breathy chuckle.
 
-_Listen well, Arknight. Beware the man born into power, who abandoned his people to pursue the Arcane Arts. He who, even now, seeks power to rival the Aevus themselves. He who would bend and break the laws of this world as he sees fit. No amount of power shall ever be enough to satisfy his desires._
+_Listen well, Arknight. Beware the man born into power, who abandoned his people to pursue the Arcane Arts. He who, even now, seeks power to rival the Aesir themselves. He who would bend and break the laws of this world as he sees fit. No amount of power shall ever be enough to satisfy his desires._
 
 _A mere weapon is nothing to a god; a tool to be used as he sees fit, kept on a short leash. However, the leash may yet be more fragile than it first appears. There was once a human behind the armour, and he may be there still. Humans are conduits for change. From the day they are born, they are ever-changing from one day to the next. Find the chinks in his armour, or someone else may find them first._
 

@@ -11,17 +11,7 @@ Whilst there is not specific mention of the species, we see some artwork which i
 
 ### What's the difference between the Ancients, the Old Ones, the Aesir and the Embra?
 
-The Old Ones have a proper name for their race; Aesir. Although one weird contradiction to this name is from [Viserai's backstory](main-story/02-arcane-rising/viserai-rune-blood-story.md).
-
-A one point in the backstory, we get this quote from Whisper:
-
-> "Beware the man born into power, who abandoned his people to pursue the Arcane Arts. He who, even now, seeks power to rival the Aesir themselves. He who would bend and break the laws of this world as he sees fit. No amount of power shall ever be enough to satisfy his desires."
-
-However earlier in the story we get a similar quote, but with the word Aesir replaced:
-
-> "Listen well, Arknight. Beware the man born into power, who abandoned his people to pursue the Arcane Arts. He who, even now, seeks power to rival the Aevus themselves. He who would bend and break the laws of this world as he sees fit. No amount of power shall ever be enough to satisfy his desires."
-
-Regardless, Chane and the Disciples of Pain are determined to prevent the Aesir/Old Ones from re-invading Rathe, which on a surface level is a noble and benevolent cause. However, he specifically teams up with an Embra (Ursur), and Embra seem to be the leaders or superiors to the regular Aesir we see.
+The Old Ones have a proper name for their race; Aesir. Chane and the Disciples of Pain are determined to prevent the Aesir/Old Ones from re-invading Rathe, which on a surface level is a noble and benevolent cause. However, he specifically teams up with an Embra (Ursur), and Embra seem to be the leaders or superiors to the regular Aesir we see.
 
 The "[Land of Legends](world-of-rathe/aria/the-land-of-legends.md)" article says this quote at the bottom:
 
@@ -38,8 +28,6 @@ So why would Chane and Co. team up with the things they are specifically trying 
 So it seems like they are trying to turn the Aesir on themselves, but why would they attack Solana if they wish to protect Rathe?
 
 Currently my understanding is that Solana is not all it is cut out to be, as the magisters declared anyone heretics who would question contradictions in the old tomes. Perhaps "Sol" is some form of Embra? Perhaps their devout worship of an Embra or god-like being is what is attracting the Aesir in the first place to Rathe?
-
-Curious to know what you all think as I'd like to get a think tank going on this subject to help make better sense of it.
 
 [Credit](https://discord.com/channels/625953788343091200/743050420363984898/921433017430470666)
 
