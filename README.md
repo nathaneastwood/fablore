@@ -32,11 +32,13 @@ mdbook serve --open
 
 ## Images
 
-When adding images to the book, be sure to convert them to webp format.
+When adding images to the book, be sure to convert them to [webp](https://chromium.googlesource.com/webm/libwebp) format using the `cwebp` tool.
 
 ```
 for file in path/to/file/*; do cwebp -q 70 $file -o ${file%.*}.webp; done
 ```
+
+Note, to install webp on your machine, please consult the [downloads page](https://developers.google.com/speed/webp/download) or [build instructions](https://chromium.googlesource.com/webm/libwebp/+/HEAD/doc/building.md).
 
 ## License
 
