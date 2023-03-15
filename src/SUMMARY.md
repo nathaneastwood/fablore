@@ -99,7 +99,7 @@
     - [Minerva Themis](other-characters/minerva-themis.md)
     - [The Librarian](other-characters/the-librarian.md)
 
-- [Main Story](main-story/README.md)
+- [Main Story](main-story/intro.md)
     - [Bravo, Showstopper](main-story/01-welcome-to-rathe/bravo-showstopper-story.md)
     - [Dorinthea, Ironsong](main-story/01-welcome-to-rathe/dorinthea-ironsong-story.md)
     - [Rhinar, Reckless Rampage](main-story/01-welcome-to-rathe/rhinar-reckless-rampage-story.md)
