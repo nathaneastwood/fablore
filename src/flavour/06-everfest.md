@@ -7,7 +7,7 @@
 "I may look frail, but my mind will CRUSH you!" - Efaris Brittlebone
 
 #### Firebreathing - (EVR157)
-It's always show time at the spectacular, stupendous, sensational extravaganza that is the Everfest Carnival.
+It's always show time at the spectacular, stupendous, sensational extravaganza that is the [Everfest Carnival](../world-of-rathe/aria/people-of-aria.md#the-everfest-carnival).
 
 #### Healing Potion - (EVR183)
 "Guaranteed to heal everything but a broken heart." - Jezabelle, Everfest Healer and Allsorts
@@ -22,7 +22,7 @@ Before the Age of Man, the specter of war loomed over Rathe, as the great Aesirs
 The "Strongest Man in Rathe" performance is always a mainstay and fan favorite, wherever the Everfest Carnival roams.
 
 #### Outland Skirmish - (EVR066)
-"Volcai, Dracai, it's all the same to me." - [Kassai](https://legendarystories.net/heroes-of-rathe/kassai-about.html)
+"[Volcai, Dracai](../world-of-rathe/volcor/welcome-to-volcor.md), it's all the same to me." - [Kassai](../heroes-of-rathe/kassai-about.md)
 
 #### Payload - (EVR076)
 The latest in Teklo Industries armament. Guaranteed to leave a dent in your enemies... and your wallet!
@@ -43,19 +43,19 @@ Victory is oft found before the first shot is fired.
 A morbid union; [Viserai](https://legendarystories.net/heroes-of-rathe/viserai-about.html)'s hunger for revenge, and his Master's hunger for power.
 
 #### Seismic Stir - (EVR030)
-The Ollin stand guard over the land of Aria, and the land in turn shall answer their call.
+The Ollin stand guard over the land of [Aria](../world-of-rathe/aria/aria.md), and the land in turn shall answer their call.
 
 #### Steadfast - (EVR033)
 "Be it sword or sorcery, we defend, we defeat, or we die." - [Oldhim, Grandfather of Eternity](https://legendarystories.net/heroes-of-rathe/oldhim-about.html)
 
 #### Swing Big - (EVR002)
-Savage Lands politics is simple; those with the biggest swing, have the biggest sway.
+[Savage Lands](../world-of-rathe/savage-lands/savage-lands.md) politics is simple; those with the biggest swing, have the biggest sway.
 
 #### Talisman of Warfare - (EVR193)
 It's said that wherever the Dracai of War planted this talisman, the lava was soon to flow.
 
 #### This Round's on Me - (EVR160)
-"Cheers to the good times, with good friends." - [Lexi](https://legendarystories.net/heroes-of-rathe/lexi-about.html)
+"Cheers to the good times, with good friends." - [Lexi](../heroes-of-rathe/lexi-about.md)
 
 #### Wax On - (EVR050)
 "Find lessons in every task you undertake.." - Master Morita, Art of the Hand

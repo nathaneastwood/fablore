@@ -1,13 +1,13 @@
 ## Uprising
 
 #### Arctic Incarceration - (UPR144)
-Tales be told, the kiss of an ice nymph draws the last breath from a soul lost to the Bleak Expanse.
+Tales be told, the kiss of an ice nymph draws the last breath from a soul lost to the [Bleak Expanse](../world-of-rathe/aria/a-true-sanctuary.md#the-bleak-expanse).
 
 #### Blaze Headlong - (UPR092)
-The Volcai army of vigilantes, renegades, and outlaws, is like a tinderbox looking for a spark.
+The [Volcai](../world-of-rathe/volcor/welcome-to-volcor.md) army of vigilantes, renegades, and outlaws, is like a tinderbox looking for a spark.
 
 #### Brand with Cinderclaw - (UPR060)
-To the Dracai, it's a mark of shame. To the Volcai, it's a sign of brotherhood.
+To the [Dracai](../world-of-rathe/volcor/welcome-to-volcor.md), it's a mark of shame. To the Volcai, it's a sign of brotherhood.
 
 #### Breaking Point - (UPR093)
 Push hard enough, and even the weakest Volcai might find within their heart the courage, to stand against mightiest of dragons.
@@ -16,7 +16,7 @@ Push hard enough, and even the weakest Volcai might find within their heart the 
 On both sides of the battlefield, brotherhood is a catalyst of courage, conviction, and most importantly, hope.
 
 #### Burn Away - (UPR094)
-"I will set your lies aflame, and reveal the ugly heart of this Uprising. Sometimes, walking away isn't nearly enough..." - [Dromai](https://legendarystories.net/heroes-of-rathe/dromai-about.html)
+"I will set your lies aflame, and reveal the ugly heart of this Uprising. Sometimes, walking away isn't nearly enough..." - [Dromai](../heroes-of-rathe/dromai-about.html)
 
 #### Cinderskin Devotion - (UPR063)
 Through famine, oppression, and the horrors of war, the Volcai's oath to their fallen bretheren shall never be broken.
@@ -34,7 +34,7 @@ The old ways are not forgotten.
 The dragon of choice, said to guard the crossroads of Sandikai.
 
 #### Invoke Cromai - (UPR010)
-The dragon of engineering, said to soar over the Metrix rust belt.
+The dragon of engineering, said to soar over the [Metrix](../world-of-rathe/metrix/metrix.md) rust belt.
 
 #### Invoke Dominia - (UPR008)
 The dragon of dominion, said to oppress the Volcai.
@@ -43,19 +43,19 @@ The dragon of dominion, said to oppress the Volcai.
 The dragon of devastation, said to serve only the Aesir of Flames.
 
 #### Invoke Kyloria - (UPR011)
-The dragon of greed, said to dwell in her lair deep beneath the Pits.
+The dragon of greed, said to dwell in her lair deep beneath the [Pits](../world-of-rathe/pits/pits.md).
 
 #### Invoke Miragai - (UPR012)
-The dragon of tactics, said to be adrift within the ash sprays of the Misterian coast.
+The dragon of tactics, said to be adrift within the ash sprays of the [Misterian](../world-of-rathe/misteria/misteria.md) coast.
 
 #### Invoke Nekria - (UPR013)
-The dragon of decay, said to roam the crypts of the Demonastery.
+The dragon of decay, said to roam the crypts of the [Demonastery](../world-of-rathe/demonastery/demonastery.md).
 
 #### Invoke Ouvia - (UPR014)
-The dragon of fertility, said to roost within the lush caverns of Aria.
+The dragon of fertility, said to roost within the lush caverns of [Aria](../world-of-rathe/aria/aria.md).
 
 #### Invoke Themai - (UPR015)
-The dragon of law, said to watch over the golden plains of Solana.
+The dragon of law, said to watch over the golden plains of [Solana](../world-of-rathe/solana/solana.md).
 
 #### Invoke Tomeltai - (UPR007)
 The dragon of metallurgy, said to power the Imperial Furnace.
@@ -64,13 +64,13 @@ The dragon of metallurgy, said to power the Imperial Furnace.
 The dragon of aggression, said to prowl the Red Desert.
 
 #### Invoke Yendurai - (UPR017)
-The dragon of endurance, said to be rooted deep within the Savage Lands.
+The dragon of endurance, said to be rooted deep within the [Savage Lands](../world-of-rathe/savage-lands/savage-lands.md).
 
 #### Lava Burst - (UPR098)
 As the insurgency reached a boiling point, even the Volcai monks let their temper flare.
 
 #### Lava Vein Loyalty - (UPR069)
-"Burn bright or burn out, we burn together." - [Fai](https://legendarystories.net/heroes-of-rathe/fai-about.html)
+"Burn bright or burn out, we burn together." - [Fai](../heroes-of-rathe/fai-about.md)
 
 #### Sand Cover - (UPR039)
 A million insignificant grains will choke even the mightiest of dragon – old Volcai proverb
@@ -82,7 +82,7 @@ These iron citadels and machines of war, will do little to slow the advances of 
 With the war of the Monarchs raging on, we need every bit of knowledge we can find to hold back the Shadows.
 
 #### Stoke the Flames - (UPR100)
-For some Volcai, honour is nothing compared to the sweet taste of vengence.
+For some Volcai, honour is nothing compared to the sweet taste of vengeance.
 
 #### Sweeping Blow - (UPR030)
 The illusionists of the Ash Plains can quickly turn home ground to their advantage.
