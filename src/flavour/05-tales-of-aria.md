@@ -1,7 +1,7 @@
 ## Tales of Aria
 
 #### Arcanic Shockwave - (ELE073)
-After centuries of seclusion, the Rosetta have learned to harness Strale; the power that resonates throughout their beloved forest.
+After centuries of seclusion, the Rosetta have learned to harness [Strale](../world-of-rathe/aria/the-land-of-legends.md#candlehold); the power that resonates throughout their beloved forest.
 
 #### Autumn's Touch - (ELE128)
 The hand of autumn sweeps the land, guiding life towards rebirth.
@@ -10,16 +10,16 @@ The hand of autumn sweeps the land, guiding life towards rebirth.
 "Better to fight and fall than to live without hope." - Valgard Hoarfrost
 
 #### Blizzard - (ELE147)
-Between the blinding snow and biting cold, the Bleak Expanse can quickly prove fatal to anyone foolish enough to traverse it.
+Between the blinding snow and biting cold, the [Bleak Expanse](../world-of-rathe/aria/a-true-sanctuary.md#the-bleak-expanse) can quickly prove fatal to anyone foolish enough to traverse it.
 
 #### Break Ground - (ELE131)
-The ancient defenders of Aria were unyielding, crushing any threat to their home without hesitation.
+The ancient defenders of [Aria](../world-of-rathe/aria/aria.md) were unyielding, crushing any threat to their home without hesitation.
 
 #### Burgeoning - (ELE134)
 Burgeon or bludgeon, the Rosetta do what they must to protect the forest.
 
 #### Earthlore Surge - (ELE137)
-Currents of earth energy rush through Candlehold forest, swelling like the rapids of a mighty river.
+Currents of earth energy rush through [Candlehold](../world-of-rathe/aria/the-land-of-legends.md#candlehold) forest, swelling like the rapids of a mighty river.
 
 #### Evergreen - (ELE119)
 "Evergreen, everlasting." - Old Aria proverb, to endure
@@ -37,7 +37,7 @@ When the whole is greater than the sum of its parts.
 Deep in the heart of the forests of Aria, the Rosetta bloom.
 
 #### Pulse of Isenloft - (ELE114)
-A veil of permafrost perserves the Ollin, and with them, Aria's past.
+A veil of permafrost preserves the Ollin, and with them, Aria's past.
 
 #### Pulse of Volthaven - (ELE112)
 An eclectic convergence of tradition and aspiration, the Einion strike to defend Aria's future.
@@ -53,13 +53,13 @@ Wherever you tread, you will feel thorns.
 He stood, unyielding, as their blood turned to ice.
 
 #### Summerwood Shelter - (ELE125)
-Those who understand the Flow, will always find shelter in the forests of Aria.
+Those who understand the [Flow](../world-of-rathe/aria/a-true-sanctuary.md#the-flow), will always find shelter in the forests of Aria.
 
 #### Tear Asunder - (ELE205)
 Heavens old, eternal cold; the Ollin's return, the Fates foretold.
 
 #### Turn Timber - (ELE010)
-The ancient Guardians embody the elements of Aria, drawing upon the land itself.
+The ancient [Guardians](../world-of-rathe/aria/tides-of-change.md#legend-of-the-guardians) embody the elements of Aria, drawing upon the land itself.
 
 #### Vela Flash - (ELE076)
 A flash amidst the darkness; a surprising spark of life.

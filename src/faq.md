@@ -33,7 +33,8 @@ Currently my understanding is that Solana is not all it is cut out to be, as the
 * [_Hecklers_](world-of-rathe/savage-lands/call-of-adventure.md#hecklers) are ruthless, violent and feral humanoids. See the card "Wounded Bull".
 * _Gnomes_ are speculated to exist due to the merchant stall named "The Golden Gnome" on the Knick Knack Bric-a-Brac Spoiler Tile.
 * _Humans_
-* "_Plant people_" are described in [Briar's Origin Story](main-story/05-tales-of-aria/briar-warden-of-thorns-story.md) though we do not have an official name for them.
+* _Nymphs_ are [described](fablore/src/flavour/07-uprising.md#arctic-incarceration---upr144) in tales.
+* _Rosetta_ are described in several places including [Briar's Origin Story](main-story/05-tales-of-aria/briar-warden-of-thorns-story.md) and [Briar's About Page](heroes-of-rathe/briar-about.md).
 * _Tiefling_ seem to appear in the card art, "Runic Reaping".
 
 ### What animals/non-humanoids exist within Rathe?
@@ -51,6 +52,15 @@ Currently my understanding is that Solana is not all it is cut out to be, as the
 * [Cesari](world-of-rathe/aria/a-true-sanctuary.md#cesari)
 * [Azeri](digital-tiles/crucible-of-war/crucible-of-war.md#skullhorn)
 * [Rek'vas](weapons/talishar-lost-prince.md)
+* [Skera](main-story/01-welcome-to-rathe/rhinar-reckless-rampage-story.md#kill-or-be-killed)
+* [Peluda](main-story/01-welcome-to-rathe/rhinar-reckless-rampage-story.md#kill-or-be-killed)
+* [Ank'is](main-story/01-welcome-to-rathe/rhinar-reckless-rampage-story.md#kill-or-be-killed)
+* [Brawnhide](main-story/01-welcome-to-rathe/rhinar-reckless-rampage-story.md#kill-or-be-killed)
+
+### What powers/forces exist within Rathe?
+
+* [The Flow](world-of-rathe/aria/a-true-sanctuary.md#the-flow) is a wild, unpredictable force of nature in Aria, the Flow shapes the landscape around it as it ebbs and flows.
+* [Strale](world-of-rathe/aria/the-land-of-legends.md#candlehold) is the elemental energy and power that resonates throughout the Candlehold.
 
 ## Characters
 ### Is Ira dead?
