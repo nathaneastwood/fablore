@@ -89,7 +89,7 @@ Uzuri makes the most of the surprise. She leaps across the intervening space lik
 
 Out of the corner of her eye she glimpses a flurry of violence, Arakni thinning the crowd. She wipes blood and cerebral fluid from her dirk while counting. On "three" her loyal killers burst through the entrance, punctual as expected. Widow leads the pack, scything through the hirelings, severing limbs and decapitating heads with brutal abandon. Amber, Jape, Florence, and Silka fan out across the room, stabbing and slicing those distracted by the sheer ferocity of Widow's assault.
 
-Uzuri rolls across a table, lands in a crouch and sends a throwing knife at Blave's leg. He goes down screaming as the blade bites deep into the meat of his thigh. She readies another knife for Whitetail, but the coward is sprinting for the balcony, too fast for her to intercept, even with her abilities—always was a fleet-footed bastard.
+Uzuri rolls across a table, lands in a crouch and sends a throwing knife at Blave's leg. He goes down screaming as the blade bites deep into the meat of his thigh. She readies another knife for Whitetail, but the coward is sprinting for the balcony, too fast for her to intercept, even with her abilities-always was a fleet-footed bastard.
 
 The fleeing fink leaps over the railing, and for a sweet moment Uzuri thinks he has chosen the fall over a slow and painful death at her hands. Instead, Whitetail pulls a cord in his bulky jacket and out billows a silken parachute.
 
@@ -129,13 +129,13 @@ A tip-off worth a few tallics to the squeaker, but a hundred thousand to the cre
 
 He beckons for his gang to follow as he passes under the dusty, broken panes. In the wan light, the scarred leader looks like a half-cooked sausage returned to the oven for extra crisp. It's the price he's paid for his love affair with the flame. A cost he'll happily suffer, over and over, for the warming blaze and sweet scent of roasting flesh.
 
-Wick lets his eyes adjust to the gloom, the vast chamber lit only by a few green phosphor lanterns—[Metrix](../../world-of-rathe/metrix/metrix.md) issue—stolen from a Blackjack's Mining compound.
+Wick lets his eyes adjust to the gloom, the vast chamber lit only by a few green phosphor lanterns-[Metrix](../../world-of-rathe/metrix/metrix.md) issue-stolen from a Blackjack's Mining compound.
 
-There, tucked into a makeshift shelter of fallen detritus, a misshapen figure lies dormant, the occasional twitch a sign of sleep. Wick presses his scarred finger to the skinned surface where lips once existed—a request for discretion from his fellow [Torched](../../world-of-rathe/pits/the-maw.md#torched)—then gestures for the gang to surround the prey. Arakni's reputation precedes them, but Wick doubts they'll last long against his lot. Too many, even for the Huntsman.
+There, tucked into a makeshift shelter of fallen detritus, a misshapen figure lies dormant, the occasional twitch a sign of sleep. Wick presses his scarred finger to the skinned surface where lips once existed-a request for discretion from his fellow [Torched](../../world-of-rathe/pits/the-maw.md#torched)-then gestures for the gang to surround the prey. Arakni's reputation precedes them, but Wick doubts they'll last long against his lot. Too many, even for the Huntsman.
 
 He raises the spout of his flamethrower, ignites it with a spark from the starter, and shoots a gout of fire into the air. Arakni leaps off the heap, pouncing like his namesake upon one of the Torched as they rush in. The assassin's knives make swift and bloody work of the hapless ganger, but the victory is short-lived. Hemmed in by firebrands and bursts from flamethrowers, they soon lose any chance of attacking or escape. Two of Wick's bravest get close enough to hurl a net over them, bearing the quarry to the ground.
 
-A grin cracks the smooth cast of Wick's melted face. Too easy. Perhaps the Huntsman's reputation is mere speculation. Perhaps—
+A grin cracks the smooth cast of Wick's melted face. Too easy. Perhaps the Huntsman's reputation is mere speculation. Perhaps-
 
 A guttural roar derails his train of thought. From a side tunnel enters a hunched figure clad in skins and chain. With her sinewy arms, Cager hauls on a pair of leashes, restraining a brace of slavering dregs. Behind her, the rest of the [Freakshow](../../world-of-rathe/pits/the-maw.md#freakshow) spills into the cave.
 

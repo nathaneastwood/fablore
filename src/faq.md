@@ -56,6 +56,8 @@ Currently my understanding is that Solana is not all it is cut out to be, as the
 * [Peluda](main-story/01-welcome-to-rathe/rhinar-reckless-rampage-story.md#kill-or-be-killed)
 * [Ank'is](main-story/01-welcome-to-rathe/rhinar-reckless-rampage-story.md#kill-or-be-killed)
 * [Brawnhide](main-story/01-welcome-to-rathe/rhinar-reckless-rampage-story.md#kill-or-be-killed)
+* [Blindseal](main-story/10-outsiders/uzuri-switchblade-story.md)
+* [Bloatfin](main-story/10-outsiders/uzuri-switchblade-story.md)
 
 ### What powers/forces exist within Rathe?
 
