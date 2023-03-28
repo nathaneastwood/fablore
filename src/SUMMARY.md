@@ -132,6 +132,9 @@
     - [Squeakers' Christmas](main-story/10-outsiders/squeakers-christmas.md)
     - [Tidings in the Light](main-story/10-outsiders/tidings-in-the-light.md)
     - [The Spider's Trap](main-story/10-outsiders/the-spiders-trap.md)
+    - [Uzuri, Switchblade](main-story/10-outsiders/uzuri-switchblade-story.md)
+    - [Arakni, Solitary Confinement](main-story/10-outsiders/arakni-solitary-confinement-story.md)
+    - [Riptide, Lurker of the Deep](main-story/10-outsiders/riptide-lurker-of-the-seep-story.md)
 
 - [Weapons](weapons/README.md)
     - [Cintari Saber](weapons/cintari-saber.md)
