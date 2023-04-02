@@ -1,5 +1,9 @@
 # Morlock Hill
 
+<p>
+(<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)
+</p>
+
 The setting sun casts Morlock Hill in a bloody hue.
 
 Soldiers hide amongst the wizened bushes, waiting with bated breath. Their leader, armor glinting in the fading light, points up at the hill's peak.
@@ -161,3 +165,19 @@ Dorinthea brushes back her silver hair and stands.
 "We shall be the rallying cry for all of Rathe, for only together can we survive."
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-13.webp" alt="morlock-hill-13" class="center">
+
+---
+
+_Source: [https://fabtcg.com/articles/morlock-hill/](https://fabtcg.com/articles/morlock-hill/)_<br>
+_Written by Kasharn Rao and Edwin McRae_<br>
+_Illustrated by Nikolay Moskvin_
+
+---
+
+### Narrated Video by [Peranine](https://www.youtube.com/@Peranine)
+
+<p>
+(<a href="#morlock-hill">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/oGjk-wZhM3I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

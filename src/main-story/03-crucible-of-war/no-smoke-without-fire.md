@@ -1,5 +1,9 @@
 # No Smoke Without Fire
 
+<p>
+(<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)
+</p>
+
 The blade whistled faintly as it soared past her cheekbone, her head ducked as she sidestepped the raiders attack. With a sharp exhale, she swept past his follow-up attack, sword glancing off her crossed blades with a loud clang. [Kassai](https://legendarystories.net/heroes-of-rathe/kassai-about.html) scowled as she sprung backwards, narrowly avoiding a third slash. Out of the corner of her eye, she noted her fellow Cintari, scattered throughout the ruined village.
 
 Her feet dragged in the ashen sand, eight inches of fine powder clinging to her every move. With a flick of her wrist, Kassai deflected a second raider's attack, his dagger sailing as it flew into the remains of a nearby building. A split-second glance showed the dagger embedded in a half-collapsed wall, a fingers-breadth from the pale face of one terrified ex-villager. Clicking her tongue, Kassai swept one leg out from underneath her first opponent, pressing the advantage before he could regain his footing.
@@ -71,3 +75,18 @@ Dorinthea stood guard as the crowds began to move, following the decree of the G
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/03-crucible-of-war/no-smoke-4.webp" alt="no-smoke-4" class="center">
 
 _'Come to the Solarium, noble knights, and ready your blades... the Shadow has emerged once more.'_
+
+---
+
+_Source: [https://fabtcg.com/articles/no-smoke-without-fire/](https://fabtcg.com/articles/no-smoke-without-fire/)_<br>
+_Illustrated by Nikolay Moskvin featuring art of Bramasta Aji._
+
+---
+
+### Narrated Video by [Peranine](https://www.youtube.com/@Peranine)
+
+<p>
+(<a href="#no-smoke-without-fire">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/KIcOgSfh8kw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
