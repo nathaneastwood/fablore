@@ -26,7 +26,7 @@ Brutes walk a fine line when harnessing the power of the bloodrage; tip too far,
 
 The forbidden lends its raw power, armour forged from skin and bone; a parasite which will eventually consume its wearer.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/bloosheath-skeleta.webp" alt="bloosheath-skeleta" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/bloodsheath-skeleta.webp" alt="bloodsheath-skeleta" class="center" />
 
 ### Breeze Rider Boots
 
