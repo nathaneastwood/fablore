@@ -137,6 +137,11 @@
     - [Arakni, Solitary Confinement](main-story/10-outsiders/arakni-solitary-confinement-story.md)
     - [Riptide, Lurker of the Deep](main-story/10-outsiders/riptide-lurker-of-the-seep-story.md)
 
+- [Languages](languages/intro.md)
+    - [Arcane](languages/01-arcane.md)
+    - [Solanian](languages/02-solanian.md)
+    - [Seers](languages/03-seers.md)
+
 - [Weapons](weapons/README.md)
     - [Cintari Saber](weapons/cintari-saber.md)
     - [Hanabi Blaster](weapons/hanabi-blaster.md)
