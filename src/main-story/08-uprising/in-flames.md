@@ -37,3 +37,21 @@ Look to the new power. The ascending power.
 Look to the **Uprising**.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/in-flames-6.webp" alt="in-flames-6" class="center">
+
+---
+
+_Source: [https://fabtcg.com/articles/flames/](https://fabtcg.com/articles/flames/)<br>
+_Directed by Robbie._<br>
+_Written by Edwin McRae._<br>
+_Edited by Rachel Rees._<br>
+_Illustrated by Sam Yang and various artists._
+
+---
+
+### Narrated Video by [Peranine](https://www.youtube.com/@Peranine)
+
+<p>
+(<a href="#in-flames">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/B2qHOZ5mZi8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

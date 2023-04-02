@@ -148,7 +148,7 @@ _Directed by Robbie Wen. Illus. by Henrique Lindner._
 
 ---
 
-## Narrated Video by [Peranine](https://www.youtube.com/@Peranine)
+### Narrated Video by [Peranine](https://www.youtube.com/@Peranine)
 
 <p>
 (<a href="#tidings-in-the-light">Jump to the Top</a>)

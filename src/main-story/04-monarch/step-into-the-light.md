@@ -192,10 +192,10 @@ _Illustrated by [Sam Yang](https://www.artstation.com/samyang)._
 
 ---
 
-## Narrated Video by [Peranine](https://www.youtube.com/@Peranine)
+### Narrated Video by [Peranine](https://www.youtube.com/@Peranine)
 
 <p>
-(<a href="#tidings-in-the-light">Jump to the Top</a>)
+(<a href="#step-into-the-light">Jump to the Top</a>)
 </p>
 
 <div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/AEjF0pAdS0o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

@@ -58,6 +58,10 @@ At last, Levia has been released from her erstwhile mistress's control, and is f
 
 ## Harbinger of the Abyss
 
+<p>
+(<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)
+</p>
+
 A heavy silence blanketed the great hall, which was saturated with the metallic stench of blood and bile. The once pristine walls were streaked with copper stains, and claret pooled beneath cooling corpses, their expressions twisted with fear and pain. Only one of the room's occupants remained upright, stalking through the carnage.
 
 For the first time she could remember, the Barthimont estate lay completely silent, deprived of even the tangible, unspoken tension which usually hung in the air. Yet, as Levia drew nearer to the main entrance of the great hall, she heard the faint, distant sound of footsteps echoing down the hallway lying just beyond the doors.
@@ -271,3 +275,20 @@ He grinned, gesturing to the other residents who now milled behind him, watching
 "We seek to strike at [Solana](https://legendarystories.net/world-of-rathe/solana/solana.html)—the city would practically be a banquet for a power like yours. Even Sutcliffe desires to take a power like theirs." Chane gestured to the head at her hip, hands outstretched. "Join us, Levia, and devour the Light."
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-16.webp" alt="levia-16" class="center">
+
+---
+
+_Source: [https://fabtcg.com/articles/harbinger-abyss/](https://fabtcg.com/articles/harbinger-abyss/)<br>
+_Written by Nicola Price._<br>
+_Edited by [Tarryn Thomas](https://tarrynlisathomas.wordpress.com/)._<br>
+_Illustrated by [Nikolay Moskvin](https://www.artstation.com/nik_moskvin)._
+
+---
+
+### Narrated Video by [Peranine](https://www.youtube.com/@Peranine)
+
+<p>
+(<a href="#harbinger-of-the-abyss">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/nqAxFkEqT8Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

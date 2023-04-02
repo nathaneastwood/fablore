@@ -10,7 +10,15 @@ From that day forth, Fai paid heed to his mother's words. He vowed to forge her 
 
 With blade in hand, Fai would make sure the Volcai never suffered again.
 
+---
+
+_Source: [https://fabtcg.com/heroes/fai/?stories=True](https://fabtcg.com/heroes/fai/?stories=True)_
+
 ## Fires of Rebellion
+
+<p>
+(<a href="#fires-of-rebellion-narrated-by-peranine">Jump to Narrated Video</a>)
+</p>
 
 "Will they rise?" asks Eun as she ties back her silver hair, ready for battle.
 
@@ -154,7 +162,25 @@ The name is a slap to Fai's face. His scars burn hot in his flesh. "You know whe
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/fai-6.webp" alt="fai-6" class="center">
 
+---
+
+_Source: https://fabtcg.com/heroes/fai/fires-rebellion/_
+
+---
+
+### Fires of Rebellion, Narrated by [Peranine](https://www.youtube.com/@Peranine)
+
+<p>
+(<a href="#fires-of-rebellion">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/fS5WRXRcedA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+
 ## The Phoenix and the Dragon
+
+<p>
+(<a href="#the-phoenix-and-the-dragon-narrated-by-peranine">Jump to Narrated Video</a>)
+</p>
 
 A trap laid for a spymaster and his Ash Artist accomplice. Eun as the bait that Xathari would be compelled to take. Hundreds of ninjas waiting in ambush. Swords drawn for the soldiers. Nets and spears readied for Dromai's dragons.
 
@@ -225,3 +251,19 @@ Fai thrusts his sword into the ash and earth, planting his fury in the firmament
 No longer will the Volcai be ground into the dirt. It is time for the Phoenix to rise.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/fai-9.webp" alt="fai-9" class="center">
+
+---
+
+### The Phoenix and the Dragon, Narrated by [Peranine](https://www.youtube.com/@Peranine)
+
+<p>
+(<a href="#the-phoenix-and-the-dragon">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/Cak-19PYp8E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+
+---
+
+_Stories written by Edwin McRae and Rachel Rees._<br>
+_Directed by Robbie._<br>
+_Illustrated by Sam Yang, Nikolay Moskvin._
