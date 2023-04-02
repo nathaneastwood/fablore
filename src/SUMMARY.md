@@ -94,6 +94,7 @@
     - [Others](heroes-of-rathe/other.md)
 
 - [Other Characters](other-characters/README.md)
+    - [Dr. Krest Mortimer](other-characters/krest-mortimer.md)
     - [Lord Sutcliffe](other-characters/lord-sutcliffe.md)
     - [Lady Bartimont](other-characters/lady-bartimont.md)
     - [Minerva Themis](other-characters/minerva-themis.md)
