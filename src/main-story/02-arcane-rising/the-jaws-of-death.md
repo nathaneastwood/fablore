@@ -12,7 +12,7 @@ It was always cold and damp in the Pits, the underground caverns hidden well awa
 
 Left to the mercy of the Pits, abandoned children lurked around every corner, scurrying through the shadows like rats. Tiny, skeletal figures hiding in alleyways, dangerously desperate, clutching makeshift weapons in their shaking hands. The squeakers fought like the vermin they were, teeth bared, ripping into flesh with knife and tooth and nail, clawing out eyes and tearing away skin. While feral and vicious, they are still little more than pests to the denizens of the Pits, an insignificant speck in a sea of anarchy.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/azalea-1.webp" alt="azalea-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-1.webp" alt="azalea-1" class="center">
 
 Hiding in alleyways and beneath buildings, a nameless girl shivered in the shadows, her nights passing in a haze of fever dreams and stiff limbs. The chill never left, cold set deep into her bones, ragged clothing doing little to protect her from the damp, diseased air. Shaking hands and blue lips were a close companion of every squeaker.
 
@@ -20,7 +20,7 @@ While others died around her, the tiniest scraps of luck allowed her to survive,
 
 Surrounded by the dead and dying, she watched as other children succumbed to the dangers of the Pits. Hollow cheeks and bloated stomachs, lying still within the shadows. Beaten and bloodied, fallen next to the corpse they'd been fighting over, their hands still curled into fists. Slumped against a wall on the main streets, eyes staring blankly, ignored by anyone who walked by. Sometimes, she came across the remains of a small skeleton, stripped of even their flesh by the desperate and the dying.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/azalea-2.webp" alt="azalea-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-2.webp" alt="azalea-2" class="center">
 
 She tried to learn from everything she found, poking at the remains of those around her. Don't steal from the taverns. Don't go near the mercenaries. Never remain in the open. Avoid the brain and the organs. Never drink from the river. Don't go in the water. Don't go near the dregs. Avoid the travelling merchants. Don't ever get caught.
 
@@ -30,7 +30,7 @@ It was not luck alone that kept her alive. She learned from the mistakes of othe
 
 She followed one back to his main hideout, looking up at the sign of the tavern. She watched everyone who visited the building, taking note of which ones seemed to be the most powerful. Where gangs rose and fell, where other mercenaries died, these were the ones that continued to come back. And so, she set her sights on Blackjack's.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/azalea-3.webp" alt="azalea-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-3.webp" alt="azalea-3" class="center">
 
 ## Cards on the Table
 
@@ -42,7 +42,7 @@ Launching herself forward, she rushed to the end of the alley, following the sou
 
 Azalea slipped between the warehouses, gaze fixed on the tavern sitting at the end of the wharf. Her mouth began to water at the smells wafting out of the open door; hot fish-head stew, pickled eggs, offal cakes, jellied trotters, and dark ale. Through the glass, she could see a pouch of coins pass hands, copper and silver gleaming in the lantern's light as a mercenary began to count.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/azalea-4.webp" alt="azalea-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-4.webp" alt="azalea-4" class="center">
 
 Two giant, burly men stood watch just outside the open door, arms crossed, weapons within reach. The taller of the pair was built like a brick, skin ashen and chalky, with a wide jaw and deep-set eyes. At his side lay a baseball bat studded with nails, chunks of hair caught in the metal. The slightly shorter man had thin, greasy hair, with a thick moustache and crooked teeth, a machete leaning against the wall behind him. His short sleeves revealed a tattoo inked on his upper arm, depicting a black spade with three daggers piercing its centre.
 
@@ -64,7 +64,7 @@ Azalea started forward, hands stretching out for the coin he held between his fi
 
 A hand grabbed the back of her neck, hauling her up into the air. Look here, ya pest. You aren't allowed 'ere." Writhing in his grasp, she spat at him, grimacing when he just chuckled. "Yer lucky we ain't sellin' ya for scraps."
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/azalea-5.webp" alt="azalea-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-5.webp" alt="azalea-5" class="center">
 
 Unceremoniously, she dropped her onto the pavement, the pair of them staring down at her as she scrambled to her feet. Gaze flicking to where she'd seen the coin, she barely hesitated before running straight for the water, diving in after it. Behind her, she could hear the men laughing, cackling to themselves as they returned to their post.
 
@@ -142,13 +142,13 @@ Walking into the tavern, Azalea was greeted by the familiar sound of a high-pitc
 
 Greenbird turned toward her, acknowledging her with a nod. He placed a pouch of 'tallics on top of the card, then slid a different contract card onto the counter alongside it.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/azalea-6.webp" alt="azalea-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-6.webp" alt="azalea-6" class="center">
 
 "I have something else for you. One of the gangs is causing some trouble. They keep triggering the tavern's defenses, and I'm getting fuckin' tired of getting their blood off the walls. I'll give you ten silvers for their leader's head." With a sigh, Greenbird waved her off, already dismissing her to attend to the busy tavern.
 
 Weaving through the crowded tables, she slipped past the guards at the door, keeping a close eye on a nearby group of mercenaries. Once she was clear, Azalea ducked into an alleyway, withdrawing the contract card from her pocket. Flipping it over, she found a single mechanical arm sketched onto the front, a skull nestled just above its elbow.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/azalea-7.webp" alt="azalea-7" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-7.webp" alt="azalea-7" class="center">
 
 _Arms Dealers_. It made sense. She'd had run-ins with a couple of its members on the streets, they were exactly the kind to throw themselves at the tavern. _Fucking cults_.
 
@@ -170,7 +170,7 @@ Knocking on the front door of his shack, Azalea waited, listening as sounds with
 
 The door opened just enough for him to peer around the corner, one hazel eye peeking out at her.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/azalea-8.webp" alt="azalea-8" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-8.webp" alt="azalea-8" class="center">
 
 "Azalea! Didn't expect you for another couple months yet." Opening the door proper, Barton waved her in, brushing back his greying hair with a grin. "Not that I'm not happy t' see ya, 'course."
 
@@ -238,7 +238,7 @@ In the centre of it all sat Barton, or what remained of him. His corpse was perc
 
 His skin hung off him in tatters, revealing the dark glisten of muscle underneath. In some places, the bones burst through, the points of his ribcage piercing through his abdomen. It looked like at some point, his stomach had ruptured - in addition to the sharp, acrid scent of bile in the air, she could see it coating what remained of his clothes.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/azalea-9.webp" alt="azalea-9" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-9.webp" alt="azalea-9" class="center">
 
 _Shit_. Jaw clenched, Azalea stepped closer, ignoring the pungent smell to the air around the corpse. Emptying his pockets, she found three coppers, four lockpicks and a piece of flint, tucking them into one of her pouches. The rest of the clutter she left, looking around the room to check for anything else she could use.
 
@@ -310,7 +310,7 @@ _One_.
 
 Finally, the Harvester was the only one left, his gun held aloft as he ducked out from behind the counter. The instant he appeared, before he had time to react, the thwack of a bowstring sounded as an arrow pierced his skull. This one was slightly thicker than the others, the fletching longer and wider. As the Harvester stood there, frozen, his skull suddenly detonated, sending chunks of brain matter, blood and skull fragments flying across the room.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/azalea-10.webp" alt="azalea-10" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-10.webp" alt="azalea-10" class="center">
 
 Greenbird slowly raised one hand to wipe the blood splatter from his face, his expression thunderous. There was a strip of skin dangling from his bodice, the Harvester's hair still attached to the piece of scalp. Pinching the hair between the tips of his fingers, he flung it one side, expression twisting into a look of disgust.
 

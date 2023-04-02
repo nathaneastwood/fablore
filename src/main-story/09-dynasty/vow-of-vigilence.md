@@ -4,7 +4,7 @@ No sovereign could ask for a guardian more loyal, more devoted to his duty.
 
 He was the first volunteer through the breach at Tchankem Castle, one of the bloodiest battles in [Volcor](https://legendarystories.net/world-of-rathe/volcor/volcor.html)'s visceral history. The soldier who pulled his wounded commander through Serpent's Crescent on a makeshift sand skiff. The protector who shielded his lord wizard from a rival's attack, an arcane assault of such ferocity that it almost claimed his life.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/09-dynasty/media/vow-of-vigilence-1.webp" alt="vow-of-vigilence-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/vow-of-vigilence-1.webp" alt="vow-of-vigilence-1" class="center">
 
 A valiant Volcai, sworn to protect what he believes to be good and just. The eyes and ears of vigilance. The raised voice of alarm, and the clenched fists of retribution.
 
@@ -16,7 +16,7 @@ Or so Yoji thought. How could he know of traitors planted long ago? Of turncoats
 
 Yoji wished to follow his [Emperor](https://legendarystories.net/heroes-of-rathe/emperor-about.html) into death, to be taken in chains to the Obsidian Coast and cast from Dragon's Peak. An honorable death that might redeem some small portion of his shame-shadowed soul.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/09-dynasty/media/vow-of-vigilence-2.webp" alt="vow-of-vigilence-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/vow-of-vigilence-2.webp" alt="vow-of-vigilence-2" class="center">
 
 Chancellor Yama, leader of the Ezu Dracai faction, would not allow it. Why waste a loyal subject, even one so blinded by the Alshoni faction and their deluded devotion to a dying dynasty?
 
@@ -26,7 +26,7 @@ Betrayed by his own garrison, now surrounded by Ezu enemies, Yoji chose to first
 
 Remorse has thrust Yoji into a sovereignty of suspicion. He patrols a land haunted by paranoia, doggedly protecting the memory of his fallen master. In Yoji's mourning heart, he feels the smoldering embers of the Dynasty. Though they cool and fade, he clutches them ever tighter. He will continue to serve his true master until his dying breath.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/09-dynasty/media/vow-of-vigilence-3.webp" alt="vow-of-vigilence-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/vow-of-vigilence-3.webp" alt="vow-of-vigilence-3" class="center">
 
 ---
 

@@ -7,7 +7,7 @@ The playable variants of Dorinthea are:
 # Dorinthea, Ironsong
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
-  <source src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/dorinthea.mp4" type="video/mp4">
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dorinthea.mp4" type="video/mp4">
 </video>
 
 A young lieutenant in the Hand of Sol, Dorinthea Ironsong has dedicated her life to defending the people of [Solana](https://legendarystories.net/world-of-rathe/solana/solana.html). Once, her kind heart and natural curiosity lead her to question her elders, forgoing the orders of her superiors in favour of following her heart. Yet her brash actions put the party in danger, and her fellow knights paid for her mistake with their lives. Thea has since learned to follow the wisdom of Sol in all aspects of her life, vowing to honour the memory of those that were lost that fateful day.

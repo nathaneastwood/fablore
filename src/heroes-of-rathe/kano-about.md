@@ -1,7 +1,7 @@
 # Kano, Dracai of Aether
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
-  <source src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/kano.mp4" type="video/mp4">
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/kano.mp4" type="video/mp4">
 </video>
 
 Descended from nobility, Kano was born with the power of the dragon's fire within his veins, able to shape the flames from the instant he drew his first breath. A cunning trickster yet undeniably gifted with a connection to aether, he is both admired and scorned by the other Lord Wizards of the Court.

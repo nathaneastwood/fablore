@@ -1,7 +1,7 @@
 # Prism, Sculptor of Arc Light
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
-  <source src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/prism.mp4" type="video/mp4">
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/prism.mp4" type="video/mp4">
 </video>
 
 The Library of Illuminations innermost sanctum contains a strange secret. Once, a Magister came across a young child, small and silent, her hair almost glowing in the lamplight, an orb shining softly in the palm of her hand. This unfamiliar child was unable to remember anything of her past, or her origins. Her only possession was the glowing sphere, which contained a single, pristine drop of rare arclight; a gift which would quickly reveal her talent for the Light.

@@ -7,4 +7,4 @@ a massive series of towers rise above the streets below - the magnificent Solari
 
 The city's elegance and symmetry are apparent to all who enter. Beyond its eight imposing gates lie eight city sectors, with eight grand walkways leading through the city to the Amphitheatre at its very core. It was built in accordance with Sol's divine will, imbued with magical wards to protect all who call it home.
 
-![The Golden City](https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/world-of-rathe/solana/media/the-golden-city.webp)
+![The Golden City](https://d2hl7maqck52px.cloudfront.net/world-of-rathe/solana/the-golden-city.webp)

@@ -18,7 +18,7 @@ With blade in hand, Fai would make sure the Volcai never suffered again.
 
 Fai wasn't as confident as he made out, but as his mother was wont to say, Bravery is in the belief.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/08-uprising/media/fai-1.webp" alt="fai-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/fai-1.webp" alt="fai-1" class="center">
 
 Eun jerks her thumb at the stack of sacks behind them, each stenciled with the tree and coin mark of Golden Orchard Estate. "We fed them with stolen rice. We made them accomplices to our own hopes. In the eyes of the Imperial Court, they are as good as dead."
 
@@ -56,7 +56,7 @@ Fai taps the scarred side of his face. "I remember my lessons."
 
 The old burn feels hot, inflamed, like his village the night Riku's soldiers took Dromai. The night he fled with the survivors into the forest. The thought of his sister only fans the flames of his anger. His sweating palms itch, yearning for the grip of his sword, but he breathes through the smoldering emotions; forces himself to calm.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/08-uprising/media/fai-2.webp" alt="fai-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/fai-2.webp" alt="fai-2" class="center">
 
 "They have to listen to us. To the people."
 
@@ -80,7 +80,7 @@ They wait and watch as Riku's army spreads like tar across the fields and farms.
 
 Rebels throw off their Cintari disguises, mercenary allies turning to zealous enemies before the imperials' startled eyes. Farmers pounce from hatch and hole, using their knowledge of the land to throw their unwitting visitors into chaos. Riku's carefully chosen positions become deathtraps as his soldiers clash with rebels on all sides.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/08-uprising/media/fai-3.webp" alt="fai-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/fai-3.webp" alt="fai-3" class="center">
 
 Fai and Eun charge with their veteran ninjas down the hillside. They puncture the enemy's flank like a dagger slipping between plates of armor. Sword points stab at frightened faces and pierce screaming throats. Blades slice through raised wrists and craning necks. Like reapers in a field, the raiders harvest life and limb, quenching the earth with imperial blood.
 
@@ -94,7 +94,7 @@ Though his weary muscles ache, his lungs gasp for breath, Fai meets a charging f
 
 Through the pulsing heart of the battle, Fai sees the raven-haired general upon his flame-maned steed. He remembers the cruel lines of that lean face, the gleam of the Imperial Dragon on his golden breastplate. He remembers the flames of his burning village reflected in those dark eyes.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/08-uprising/media/fai-4.webp" alt="fai-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/fai-4.webp" alt="fai-4" class="center">
 
 "To me!" roars Fai.
 
@@ -114,7 +114,7 @@ Fai feints high, then drives his sword through the bodyguard's meaty thigh. The 
 
 The man howls with rage and raises his ax to squash the unarmed ant before him. Fai catches hold of his breastplate, steps onto the sword handle jutting from his leg, and climbs him like a tree. From the surprised giant's shoulders, Fai launches himself at Riku's horse and lands astride its hind quarters.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/08-uprising/media/fai-5.webp" alt="fai-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/fai-5.webp" alt="fai-5" class="center">
 
 Before Riku can turn to wonder at his passenger, Fai has the general's own dagger at his throat.
 
@@ -152,13 +152,13 @@ The name is a slap to Fai's face. His scars burn hot in his flesh. "You know whe
 
 "I told you there are many roads to Ashvahan, boy." She points her bloodied dagger at General Riku. "The trick is knowing who to kill to get there."
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/08-uprising/media/fai-6.webp" alt="fai-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/fai-6.webp" alt="fai-6" class="center">
 
 ## The Phoenix and the Dragon
 
 A trap laid for a spymaster and his Ash Artist accomplice. Eun as the bait that Xathari would be compelled to take. Hundreds of ninjas waiting in ambush. Swords drawn for the soldiers. Nets and spears readied for Dromai's dragons.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/08-uprising/media/fai-7.webp" alt="fai-7" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/fai-7.webp" alt="fai-7" class="center">
 
 Eun's plan was cunning. Fai had to give her that. Since the massacre at Golden Orchard, Eun had been obsessed with ridding Volcor of 'that scheming snake'. With Xathari and his firesight extinguished, it would be easier to infiltrate the Imperial Palace, to tear the Dracai down from within.
 
@@ -208,7 +208,7 @@ Jaws burst through the rock with such force that the tremor knocks Fai off his f
 
 "Not him," commands Dromai. She points at Xathari.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/08-uprising/media/fai-8.webp" alt="fai-8" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/fai-8.webp" alt="fai-8" class="center">
 
 The Dracai shrieks with fear, tries to run. Flames billow around him as teeth close shut on his limping form. The dragon tosses him into the air, and with a snap of its great jaws, it swallows the wriggling man down.
 
@@ -224,4 +224,4 @@ Fai thrusts his sword into the ash and earth, planting his fury in the firmament
 
 No longer will the Volcai be ground into the dirt. It is time for the Phoenix to rise.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/08-uprising/media/fai-9.webp" alt="fai-9" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/fai-9.webp" alt="fai-9" class="center">

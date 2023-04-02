@@ -2,7 +2,7 @@
 
 For hundreds of years, the [Demonastery](https://legendarystories.net/world-of-rathe/demonastery/demonastery.html) lurked beyond the shores of Rathe, surrounded by a wall of thick sea fog. Stormy seas kept ships from ever reaching its shores, surging waves tossing would-be intruders onto the sharp rocks. An eerie silence blanketed the grounds, stifling the distant sounds of the ocean. T'was a place that is neither here nor there, a dark sanctuary free from the bounds of morality.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/viserai-1.webp" alt="viserai-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-1.webp" alt="viserai-1" class="center">
 
 Two massive wrought-iron gates lead into a courtyard carved from marbled stone. While the stone paving is worn and stained, the inscribed runes were still visible, illuminated by the pale moonlight. Just beyond the courtyard lies the manor itself, looming over the grounds like a vengeful apparition.
 
@@ -16,7 +16,7 @@ Only the dust collecting on the edges of his torn cloak suggested the passage of
 
 However, unlike the creature he now hunted, [Viserai](https://legendarystories.net/heroes-of-rathe/viserai-about.html)'s existence was explained. [Lord Sutcliffe](https://legendarystories.net/other-characters/lord-sutcliffe.html) was his creator, his master, without whom he would not exist. The Arknight remembered little of the ritual that gave him new life, left only with fragments of memories shattered by blinding pain. This other creature was far older, presumably one of many borne from ill-fated experiments, whose creator had long since passed. The other creature was an accident, while Viserai was designed, a success in every sense of the word.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/viserai-2.webp" alt="viserai-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-2.webp" alt="viserai-2" class="center">
 
 The tests were proof enough of that. Viserai had passed all of Lord Sutcliffe's tests thus far, procuring useful items and knowledge from around the Demonastery, aiding his research and proving his usefulness to the Lord. Retrieving a sample of this strange creature, an alchemical anomaly incapable of dying, was just one more test for Viserai. In this, as in all things, he obeyed the will of his master.
 
@@ -24,7 +24,7 @@ The sound of a shrill scream echoed down the hall, shattering the unnatural sile
 
 Through the open doorway, an amorphous shadow hung in the inky darkness, looming the body of an alchemist. A beaker lay on the ground next to his outstretched hand, shattered upon the floor, its contents seeping into the cracks in the stone. The shadow came into focus as the creature slowly lifted one of its heads, releasing a metallic, shrieking gurgle. Its body began to shift, reshaping, lurching over the corpse.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/viserai-3.webp" alt="viserai-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-3.webp" alt="viserai-3" class="center">
 
 Viserai's runic markings flared to life, aether escaping through the vents in his armour as he drew upon the arcane energy within. With a wave of his hand, he summoned a runechant into the air, illuminating the room with a white-violet glow. A sharp crack echoed off the walls as the arcane energy burst forth, a bolt of pure aether striking the creature, its flesh sizzling and crackling on contact with the arcane energy.
 
@@ -88,7 +88,7 @@ The grounds were a pale silver in the light of the crescent moon, only barely vi
 
 The faint glow of candle flames in the distance caught his attention, flickering faintly through the mists. A figure appeared amongst the shadows, almost completely masked by the surrounding fog. As Viserai drew closer, he could see the scene illuminated by the eerie light of a runic circle, carved into the solid earth. About her lay a range of detached heads in various stages of decay, eyes carved from their skills, their gaping, bloody sockets left empty.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/viserai-4.webp" alt="viserai-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-4.webp" alt="viserai-4" class="center">
 
 Corva's face was distorted by a wide grin, stretching almost ear to ear. Her eyes gleamed with unrestrained glee, blood smeared down her chin. A series of runes were painted on her skin in dark, congealed blood, matching the ones on the ground below her, while an open wound on her arm allowed blood to flow freely down her outstretched arm, dripping onto the freshly carved runes.
 
@@ -160,7 +160,7 @@ _Do you want to spend the rest of your days serving your master?_
 
 Images flashed through his mind; chains around bloodied limbs, a man screaming as a crystal was embedded into his chest, runic script carved into skin with a scalpel. His armour lying upon a table, coated in blood. Viserai, wizened, drained, his skin grey, runes covering the entirety of his face. Chains wound around his throat, choking him, his skin turning black beneath the metal.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/viserai-5.webp" alt="viserai-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-5.webp" alt="viserai-5" class="center">
 
 Viserai, washing up on a beach, the slow turn of a gargoyle's head as it watched Sutcliffe come across him. The master, dragging his body into the laboratory. A younger Lord Sutcliffe, slashing open his palm, allowing the blood to spill into a stone circle. Another man, much older, swearing himself to the Demonastery; a woman carving a runic sigil into her wrist; Corva, watching as a pallas flew down and gripped her severed finger in its claws, flying off into the mists.
 
@@ -224,7 +224,7 @@ Slowly, Viserai opened his eyes.
 
 His body was slow to respond as he forced himself into a sitting position, reaching toward the dim, flickering light of the Nebula Blade, lying nearby. Mind warped from years of his master's experimentation, he was accustomed to the disoriented confusion that came with memory loss, and began to carefully sort through his fragmented memories.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/viserai-6.webp" alt="viserai-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-6.webp" alt="viserai-6" class="center">
 
 _Driving his blade into the solid earth... an oath. The entrance hall. An army. The creatures. Whisper... a... bargain?_
 
@@ -248,7 +248,7 @@ The Arknight shard flared brighter and brighter as he tore through the hall, bon
 
 _Unleash._
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/viserai-7.webp" alt="viserai-7" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-7.webp" alt="viserai-7" class="center">
 
 Blood pooled about his feet, collecting in shallow channels carved into the stone floor. As it circulated through the room, a series of sigils began to illuminate, one by one, spellwork activating beneath his feet. Aether began to rise, the air almost seeming to vibrate as arcane energy flooded through the room. Viserai's knees buckled beneath him as the shard reacted to the aether in the air, activating the runework carved into his skin.
 
@@ -264,7 +264,7 @@ Chains shot out from the floor, wrapping tightly around Viserai's wrists, coilin
 
 Faces emerged from the shadows around him, each bearing an eerie, twisted grin. They drew closer, the light revealing the unnatural pallor to their skin, marred by darker patches of rot and decay. The acrid tang of necrosis flooded the room, mingling with the overwhelming metallic scent of fresh blood.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/viserai-8.webp" alt="viserai-8" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-8.webp" alt="viserai-8" class="center">
 
 Viserai turned his head slightly toward them, struggling to regain control as the ritual chipped away at his will. Nine graying faces stared back at him, their expressions drawn and tense in the pale light. As he began to struggle, he saw their eyes widen, their hushed voices rising in a panicked crescendo.
 
@@ -274,13 +274,13 @@ All at once, his senses were overwhelmed, as if there were a thousand voices sho
 
 The world tilted beneath him, equilibrium shifting to accommodate the sudden influx of energy. Bowed beneath the strain, Viserai felt the acute burn of his arcane bonds, lances of pain piercing through to his very bones. The Arknight was no stranger to pain. Refocusing, he pushed past it, ignoring the icy bite of aether. With one great heave, Viserai pulled at his connection to the arcane, calling on the power of the Arknight shard, calling on the energy flowing through to him from beyond... and broke free.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/viserai-9.webp" alt="viserai-9" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-9.webp" alt="viserai-9" class="center">
 
 As the metal shards fell to the ground, Viserai surged to his feet, flinging out one arm to catch the nearest cultist by the throat. The man never had a chance to react, throat bared to the sharp edges of Viserai's gauntlet. With the aether flowing through his veins, Viserai barely needed to flex his fingers; the cultist was decapitated with startling efficiency, his head rolling to a stop at the Arknight's feet.
 
 Tearing the spine from the cultist's fresh corpse, Viserai tapped into the newfound connection, drawing on the images playing out in his mind's eye. He cracked the sinewy structure like a whip, channeling aether along its length, watching with morbid fascination as dark material sprouted from the remnants of the cultist's spine. Arcane energy flared from between the vertebrae, forming the basis of a new blade; one of Viserai's own making. Fresh blood dripped from its honed edge, an arcane core gleaming through the marred, inky flesh which formed the body of the blade, gleaming a deep amethyst in the unnatural light.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/viserai-10.webp" alt="viserai-10" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-10.webp" alt="viserai-10" class="center">
 
 The cultists skittered backward, their wide-eyed gazes fixed firmly on Viserai. Turning toward the silhouette of the window-frame, he raised one hand toward the rippling surface of the glass, and reached for the thread of aether he could sense trickling through.
 
@@ -296,7 +296,7 @@ Turning away from the frame, Viserai looked out over the small crowd which had g
 
 **_The doorway is opened. Behold, íArathael._**
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/viserai-11.webp" alt="viserai-11" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-11.webp" alt="viserai-11" class="center">
 
 ---
 

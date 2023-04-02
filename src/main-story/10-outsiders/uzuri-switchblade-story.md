@@ -6,7 +6,7 @@ Whitetail stretches out his arms to encompass the kinetic clamor of the street. 
 
 "Sure is," answers [Uzuri](../../heroes-of-rathe/uzuri-about.md#uzuri-switchblade), only sure of one thing: that Whitetail likes the sound of his own voice.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/uzuri-1.webp" alt="uzuri-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/uzuri-1.webp" alt="uzuri-1" class="center">
 
 She walks with him through hawkers and hustlers, harlots and hucksters, all working on their next score. If the Pits is a brew, it's one that gets you drunk on hope, then drops you in the gutter with the roaches and rats. Uzuri's not been here that long, but the runaway learned fast not to drink too deeply of the Pits' dubious delights.
 
@@ -106,7 +106,7 @@ The waitress shows Uzuri into a cluttered office and leaves, shutting the door w
 
 Uzuri bites back a retort, looking instead at a painting pinned to Jemjang's wall; a group portrait surrounded by the notes and observations of Jemjang's trade. A younger version of the fixer stands front and center, flanked by Uzuri's parents. Gathered behind them, tough and tattooed women and men pose for the painter, muscles flexed, eyes cold.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/uzuri-2.webp" alt="uzuri-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/uzuri-2.webp" alt="uzuri-2" class="center">
 
 "I thought you might help me," states Uzuri, deadly calm. "For old times' sake."
 
@@ -134,7 +134,7 @@ Uzuri points at herself. "And one less mouth to blab about his side hustle."
 
 Jemjang drums her long, lacquered fingernails on the desk, weighing her options. At last she turns to the pigeonholes behind her, pulls out a scroll and passes it to Uzuri. Unfurled, it turns out to be a map, drafted by Blackjack's Mining Incorporated. Jemjang takes a brush from her desk, dips it in a well of red ink, and marks an X on the yellowed parchment.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/uzuri-3.webp" alt="uzuri-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/uzuri-3.webp" alt="uzuri-3" class="center">
 
 "Where Crichton's mansion now stands," she explains. A second stroke of the brush marks a spot some hundred strides from the first. "Your way out. A mine shaft, covered and forgotten."
 
@@ -156,7 +156,7 @@ The ground patrols prove too frequent for her to climb the brickwork without bei
 
 Out of desperation, Uzuri musters her ability, imagining a different weapon. The merc gurgles and chokes, impaled through the neck by the sword Uzuri now grips in her hand. He releases her and staggers as Uzuri pulls the sword free. She uses his own momentum to push the dying man behind a broad statue, then cleans and sheaths her weapon, a dirk once more. After retrieving her throwing knife, she climbs the mansion like a spider up a web.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/uzuri-4.webp" alt="uzuri-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/uzuri-4.webp" alt="uzuri-4" class="center">
 
 Using her glass-cutting tool, she accesses a window on the third floor, stalking through the quiet corridors until she finds the master bedroom. Crichton is a plump parcel wrapped in sheets, boxed in by his four-poster bed. A gift for Uzuri to rip open.
 
@@ -164,7 +164,7 @@ She hesitates, dirk in hand, having killed no one in cold blood before. In self-
 
 The dirk is gone, replaced with a straight razor. She places her hand on Crichton's forehead like a mother checking the temperature of a feverish child. He stirs, but doesn't wake until Uzuri draws the razor across his throat. His eyes snap open. He gasps for breath but sucks in nothing but blood. Uzuri leans hard on his forehead, pinning him to the bed as he struggles in vain. Blood soaks the sheets, seeps into the mattress, as Crichton's movements weaken and finally stop. Uzuri takes her hand from his forehead, brushes his eyelids closed with her fingertips, and wipes the razor on his pillow. By the time the blade is clean, the razor has become her dirk once more.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/uzuri-5.webp" alt="uzuri-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/uzuri-5.webp" alt="uzuri-5" class="center">
 
 Outside, an alarm bell rings. The dead guard has been discovered. Uzuri saws off a couple of plump fingers for proof and pops them into an oilskin pouch. Then she's off at a sprint, rushing past the rousing servants, hurtling down stairs until she's stopped in her tracks by the thumping of hobnailed boots on carpet.
 
@@ -202,7 +202,7 @@ Whitetail sighs, then takes a purse from his belt and pushes it across the table
 
 "Your promise."
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/uzuri-6.webp" alt="uzuri-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/uzuri-6.webp" alt="uzuri-6" class="center">
 
 Whitetail laughs, impressed. "Alright, kid. Guess you might as well learn from the best." He offers her his hand. "Welcome to the Spider."
 

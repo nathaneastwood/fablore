@@ -8,4 +8,4 @@ The Librarian oversees all, a radiant and dignified custodian dedicated to guidi
 
 Beyond their essential duty to the people of Solana, and their role in caring for the Library, the Librarian also leads the quest for new knowledge, scouring ancient tomes and crumbling scrolls procured from across the land of Rathe. For many decades, the Librarian was accustomed to solitude, preferring to withdraw for days at a time and focus on their research. However, this changed when a young girl found her way into the innermost sanctum of the Library and quickly established herself as the Librarian's would-be apprentice. With their protégée by their side, the Librarian seeks out the truth behind the recent onslaught of the Shadow, using their talents to unravel the mysteries which now threaten their fair city of Light.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/other-characters/media/librarian.webp" alt="librarian" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/other-characters/librarian.webp" alt="librarian" class="center" />

@@ -1,7 +1,7 @@
 # Valda Brightaxe
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
-  <source src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/valda.mp4" type="video/mp4">
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/valda.mp4" type="video/mp4">
 </video>
 
 The Everfest Carnival, what a sight to behold! Slowly making its way through the idyllic landscape, the Carnival brings joy and cheer to the most remote of locations, and draws forth massive crowds that fawn and gawk at the spectacles that lie within.

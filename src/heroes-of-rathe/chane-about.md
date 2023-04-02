@@ -1,7 +1,7 @@
 # Chane, Bound by Shadow
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
-  <source src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/chane.mp4" type="video/mp4">
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/chane.mp4" type="video/mp4">
 </video>
 
 Deep within the [Demonastery](https://legendarystories.net/world-of-rathe/demonastery/demonastery.html), the Disciples of Pain work to unlock the true bounds of human potential; their goal, to free all of Rathe from the oppression of [Solana](https://legendarystories.net/world-of-rathe/solana/solana.html). Through embracing pain, they are able to reach a higher state of being, and surpass their own mortality.

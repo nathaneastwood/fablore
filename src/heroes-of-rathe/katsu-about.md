@@ -1,7 +1,7 @@
 # Katsu, The Wanderer
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
-  <source src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/katsu.mp4" type="video/mp4">
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/katsu.mp4" type="video/mp4">
 </video>
 
 The head of the Mugenshi clan, Katsu belongs to one of the hidden households of [Misteria](https://legendarystories.net/world-of-rathe/misteria/misteria.html), concealed within the Gorge of a Thousand Winds. Undergoing the traditional journey of the Jokyoku, he successfully regained his memories and returned to the clan, earning his place as head of the clan. Years later, he has left the gorge once more, determined to find a cure for the curse affecting his people.

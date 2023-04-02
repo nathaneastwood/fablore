@@ -20,7 +20,7 @@ While the troupe had their fair share of followers, it was Bravo who often found
 ## Call to Adventure
 During a life travelling with the Everfest Carnival, Bravo had visited every village in Aria - yet no matter how many he travelled to, Aldevyr remained one of his favourites. A sprawling village, its buildings were scattered across the plains, flowers and herbs growing in rolling meadows. In the midst of summer, the Everfest made its way to Aldevyr once more, greeted with the sight of lush, dense meadows overrun with flowers.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/01-welcome-to-rathe/media/bravo-1.webp" alt="bravo-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/bravo-1.webp" alt="bravo-1" class="center">
 
 With the Legendarium on hiatus, many of the troupe members had scattered across Aria, taking their time to visit other villages and explore. After spending the previous day helping to set up the many tents and stalls of the Everfest, Bravo was looking forward to spending his morning in the company of a nice, tall glass of alder cider inside the local tavern.
 
@@ -36,7 +36,7 @@ Bravo looked from their grim expressions, to the packs upon their shoulders, to 
 
 It reminded Bravo of the tales that they performed, of noble defenders leaving on a quest; an adventure that would take them across Aria in the pursuit of protecting the innocent. Gawain and Morgan, leaving on some grand journey; clad in armour and furs, wielding their greataxes with pride. Travelling for months, perhaps years; a journey taking them from village to village in search of their target, helping townsfolk and rescuing fair maidens from harm. At last, when they arrive at their destination, a great evil would appear before them, one that they are destined to defeat...
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/01-welcome-to-rathe/media/bravo-2.webp" alt="bravo-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/bravo-2.webp" alt="bravo-2" class="center">
 
 _Gawain and Morgan stood toe to toe with an ancient creature, something long forgotten by the people of Aria. Covered in scales, it raised its head with a bellowing roar and launched itself toward them. They fought valiantly, taking blow after blow as they worked together to defeat the beast. At last, Morgan got close enough to the creature to find an opening in its defenses. With a single swing of his greataxe, he beheaded the great beast, silencing it once more. They return to the townsfolk with the creature's head, arriving to the sound of cheering. The townsfolk hold a festival in their honour, a token of thanks for their valiant heroes..._
 
@@ -50,7 +50,7 @@ Morgan shrugged. "We leave at noon."
 
 It didn't take long for Bravo to gather his things, his pack still mostly untouched from arriving in Aldevyr the previous day. The last thing he gathered was his beloved mallet, Anothos, forged from polished wood and finely hammered silversteel. He stopped to visit his companions amongst the Maela, and those of his troupe who had stayed within Aldevyr. Once he had said his goodbyes, he left to meet Gawain and Morgan just beyond the outermost circle of tents.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/01-welcome-to-rathe/media/bravo-3.webp" alt="bravo-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/bravo-3.webp" alt="bravo-3" class="center">
 
 ## The Hero's Journey
 The trio began their journey across Aria, making their way toward the massive crystalline cliffs of the Fractal Scar. The long days and balmy evenings of midsummer allowed them to spend more hours travelling during the day, spending their nights sleeping beneath the gentle light of the stars. The towns they passed through were more than happy to give them a place to rest, gifting them fruit, bottles of ale, and loaves of fresh bread for them to take on their journey.
@@ -67,7 +67,7 @@ While Gawain and Morgan scouted out the rest of the village, Bravo searched the 
 
 As Bravo began to make his way downstairs, he heard a quiet chitter. Anyone who visited the Everfest Carnival knew to keep an eye out for the mischievous meeps. Growing up within the Everfest, Bravo had developed a keen awareness for the sound of a meep making its move, the only warning one might get before the creatures ran off with one's purse.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/01-welcome-to-rathe/media/bravo-4.webp" alt="bravo-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/bravo-4.webp" alt="bravo-4" class="center">
 
 Sure enough, Bravo turned to find a meep sitting on the balustrade, its beady little gaze fixed pointedly on one of Bravo's golden earrings. It was incredibly rare to find a meep outside of the Everfest Carnival, the perfect environment for the tiny thieves. Yet here one was, and in a deserted village no less.
 
@@ -115,7 +115,7 @@ In that instant, Bravo suddenly felt the world tilt sideways, and a number of th
 
 Instinctually, he swung Anothos in a wide arc, and the mallet collided with the bottom of the dreg's jaw. Its skull immediately exploded, fragments of bone dropping to the grass at its feet. Bravo charged at the other dreg on his left, taking its head off its shoulders with a single swing, and a sickening, liquid crunch. Gawain and Morgan appeared in the midst of the fray, joining him on either side, their greataxes a flash of silver in his peripheral vision.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/01-welcome-to-rathe/media/bravo-5.webp" alt="bravo-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/bravo-5.webp" alt="bravo-5" class="center">
 
 Dreg after dreg collapsed to the ground, bodies dropping to encircle Bravo as he made short work of the creatures around him. Every swing sent another dreg slamming into the earth, bones cracking beneath the force of every hammer strike. Before long, the last dreg fell, leaving the village silent as every person present slowly turned to look at their surroundings.
 

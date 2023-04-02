@@ -4,7 +4,7 @@ The blade whistled faintly as it soared past her cheekbone, her head ducked as s
 
 Her feet dragged in the ashen sand, eight inches of fine powder clinging to her every move. With a flick of her wrist, Kassai deflected a second raider's attack, his dagger sailing as it flew into the remains of a nearby building. A split-second glance showed the dagger embedded in a half-collapsed wall, a fingers-breadth from the pale face of one terrified ex-villager. Clicking her tongue, Kassai swept one leg out from underneath her first opponent, pressing the advantage before he could regain his footing.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/03-crucible-of-war/media/no-smoke-1.webp" alt="no-smoke-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/03-crucible-of-war/no-smoke-1.webp" alt="no-smoke-1" class="center">
 
 All around her, shouts and the clang of metal on metal filled the air, the unmistakable clamour of battle echoing through the ruined buildings. The villagers they'd accompanied cowered behind broken walls and torched furniture, watching with wide eyes as the Cintari got down to business. Looking around her for the raider's leader, she caught a glimpse of him amidst the chaos, a wide grin splitting his face from ear to ear as he cut down one of her men. With a hissed curse, she whistled sharply between her teeth, attempting to gather the group around her.
 
@@ -12,7 +12,7 @@ Suddenly, a flash of lightning flared above them, lighting the entire southern s
 
 As the violet light faded from the skies above, an inky darkness crept across the icy blue, flowing directly in front of the sun. The shadow spread rapidly, blocking out the light and casting the world around them into crimson shade.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/03-crucible-of-war/media/no-smoke-2.webp" alt="no-smoke-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/03-crucible-of-war/no-smoke-2.webp" alt="no-smoke-2" class="center">
 
 A sharp cry reached her ears as one of the villagers collapsed to his knees, pressing his forehead against the earth. He curled his hands in the air before him, stretched out toward the faint silhouette of Mt. Volcor.
 
@@ -44,7 +44,7 @@ Kassai turned her face toward the sun's silhouette, drawing her hood up with one
 
 The warm light of the morning sun cast the city streets in gold, illuminating the embroidered banners hanging above. A figure strolled down the ivory pavement, her hair a flaxen gold, silversteel armour gleaming, polished to a brilliant shine. The crimson cloak fluttered in the light breeze, the symbol of [Solana](https://legendarystories.net/world-of-rathe/solana/solana.html) embossed onto her chestplate. Exchanging a bright smile with one of the merchants, the lieutenant bowed her head in greeting, gaze sweeping across the crowds.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/03-crucible-of-war/media/no-smoke-3.webp" alt="no-smoke-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/03-crucible-of-war/no-smoke-3.webp" alt="no-smoke-3" class="center">
 
 As she passed beneath one of the stone archways of the plaza, [Dorinthea](https://legendarystories.net/heroes-of-rathe/dorinthea-about.html) glanced at the crowd around her, listening to the hum of the nearby marketplace. Buildings lined the path ahead of her, the ivory spires of the Solarium stretching above the rooftops.
 
@@ -68,6 +68,6 @@ The ice-cold sensation of dread gave way to a flood of panic, setting her veins 
 
 Dorinthea stood guard as the crowds began to move, following the decree of the Grand Magister. As if changing in volume, the voice dimmed, this time the quiet brush of a whisper.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/03-crucible-of-war/media/no-smoke-4.webp" alt="no-smoke-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/03-crucible-of-war/no-smoke-4.webp" alt="no-smoke-4" class="center">
 
 _'Come to the Solarium, noble knights, and ready your blades... the Shadow has emerged once more.'_

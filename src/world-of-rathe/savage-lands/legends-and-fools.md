@@ -15,7 +15,7 @@ Some researchers come to the Savage Lands themselves, setting up in the forward 
 
 Of course, not everyone who comes to the Savage Lands is a trader, researcher or fortune seeker. The knights of Solana are also a regular sight within the camps, helping with defense in exchange for a safe place to rest in-between patrols. These knights pursue a nobler cause, hunting down the beasts within in order to protect the villages that lie beyond the outskirts of the Savage Lands.
 
-![Savage Land Essentials](https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/world-of-rathe/savage-lands/media/forward-camps.webp)
+![Savage Land Essentials](https://d2hl7maqck52px.cloudfront.net/world-of-rathe/savage-lands/forward-camps.webp)
 <p align = "center">
 Those venturing into the jungle must be well-prepared. Whether a mercenary, explorer or a knight, those who enter the Savage Lands all carry the same essential items.
 </p>

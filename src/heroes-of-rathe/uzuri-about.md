@@ -1,7 +1,7 @@
 # Uzuri, Switchblade
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
-  <source src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/uzuri.mp4" type="video/mp4">
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/uzuri.mp4" type="video/mp4">
 </video>
 
 Few dare challenge the Boss.
@@ -25,7 +25,7 @@ She's at the top of her game, and no-one will ever play it better.
 ## Hero Highlights
 
 <div class="hero-container">
-  <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/uzuri-switchblade.webp" class="hero-icon" />
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/uzuri-switchblade.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Switchblade</b><br>
     Danger lurks around every corner and it always pays to have an extra trick up your sleeve. Uzuri can switch tactics mid-battle and take out her targets before they even realize they've made a fatal mistake.
@@ -33,7 +33,7 @@ She's at the top of her game, and no-one will ever play it better.
 </div>
 
 <div class="hero-container">
-  <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/stealth.webp" class="hero-icon" />
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/stealth.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Stealth</b><br>
     Stealth alone is nothing, but in the hands of a trained Assassin, it is everything. Stealth is a keyword found on certain Assassin cards that can enable powerful effects when combined with the right tools. Master the art of stealth to get the job done quickly and quietly. No fuss, no muss.

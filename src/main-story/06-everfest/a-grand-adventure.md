@@ -8,7 +8,7 @@ _The starry-eyed wayfarer [Lexi](https://legendarystories.net/heroes-of-rathe/le
 _She is joined by the traveling bard [Yorick](https://legendarystories.net/heroes-of-rathe/other.html#yorick-weaver-of-tales) - always searching for new stories, the gruff dwarven blacksmith Thawne - with a keen eye for craftsmanship, and the aspiring magician Māra - who has a flair for the dramatic._
 _For weeks our heroes have braved the elements as they venture deeper into Enion, where secrets await them..._<br>
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-1.webp" alt="grand-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-1.webp" alt="grand-1" class="center">
 
 Despite being used to the cold, Lexi couldn't help but feel a chill run up her spine as she gazed over the landscape. Floating mountains that had spent an eternity frozen solid had shaken off their frosty shell, projecting strange mechanical whirring sounds. The wind, normally brisk and flecked with snowflakes, had been whipped up into a frenzy of crackling energy. Seismic vibrations rattled throughout the region in an almost rhythmic pattern, emanating from the centre of the region.
 
@@ -36,7 +36,7 @@ Lexi released the arrow and it soared into the mist, flashing with lightning and
 
 They gasped as the mist broke away and Yvor's Peak was revealed. The entire mountain had been separated down the middle, as if a giant had ripped it in twain.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-2.webp" alt="grand-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-2.webp" alt="grand-2" class="center">
 
 "So this must have been what was causing the quakes," Lexi exclaimed. "But what could possibly have enough strength to do this?"
 
@@ -62,13 +62,13 @@ Eventually they came to a gigantic round chamber. Lexi felt like an insect as sh
 
 Lexi felt herself drawn to the centre, where a huge pedestal lay. Deep grooves ran down the pedestal, across the floor, and up the pillars, sparkling with a weak silvery glow. The pedestal itself contained a carved hole, perfect fit for a gem, coin, key, or some other small item. The hole was empty, and surrounded by the same strange text they had seen on the door.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-3.webp" alt="grand-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-3.webp" alt="grand-3" class="center">
 
 Yorick called them over to the walls of the chamber, which were sprawling with painted murals. Some of the pictures were intricate and beautiful, such as a blue crystalline maiden weaving ice and snow throughout what looked like [Aria](https://legendarystories.net/world-of-rathe/aria/aria.html). Others were strange and outlandish, such as an enormous squid-like creature lurking within sunken ruins. And even more had a threatening and sinister feel, such as a blood-red dragon perched atop a mountain of skulls, surrounded by hellfire.
 
 Underneath each of the scenes was the same odd text. Lexi ran her palm over the wall.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-4.webp" alt="grand-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-4.webp" alt="grand-4" class="center">
 
 "Do you recognise it?" she asked Yorick hopefully. He shook his head, and produced a small leather tome from his pack, copying the inscriptions as Māra held the hovering flame above.
 
@@ -82,7 +82,7 @@ They made their way to the home of Isulvf, the oldest and wisest seer in the who
 
 Isulvf scratched his head as he flicked through the pages, then sighed.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-5.webp" alt="grand-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-5.webp" alt="grand-5" class="center">
 
 "This writing...It's old. Possibly older than Volthaven itself. I do not know what it says."
 
@@ -140,7 +140,7 @@ Oldhim stayed silent.
 
 She beckoned to one of her companions, a bard, who passed her a leather tome. "Perhaps you recognise this?"
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-6.webp" alt="grand-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-6.webp" alt="grand-6" class="center">
 
 Oldhim scanned the pages. The markings were old. Something about them felt familiar, but he couldn't grasp it. He shook his head, and continued walking.
 
@@ -156,7 +156,7 @@ Oldhim paused, then reached out and snatched the bard's lute. He hurled it throu
 
 "Now you may join me." He growled, and strode onwards.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-7.webp" alt="grand-7" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-7.webp" alt="grand-7" class="center">
 
 Lexi shrugged apologetically to Yorick, who grumbled and fell back to join the others. Lexi stayed at the frosty guardian's side, respectfully slowing herself to his pace.
 
@@ -178,7 +178,7 @@ He continued to yell gibberish, and rushed at her. Red clouded Briar's judgment 
 
 Briar rotated Rosetta Thorn, preparing to knock him out with its pommel, when an arrow whistled through the air, snaking between them, and thudding into the keg. A wave of cold spread from the arrows' tip, freezing the cracks, and reducing the torrent of lager to a foamy drizzle.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-8.webp" alt="grand-8" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-8.webp" alt="grand-8" class="center">
 
 Briar stepped back in surprise.
 
@@ -200,7 +200,7 @@ The wayfarer took a leather tome from one of her friends and showed it to her.
 
 Briar forced her temper into check and gazed at the pages. She did not recognise the markings, but there was something strange about them, like they were calling to her, drawing her in. She snapped the cover shut.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-9.webp" alt="grand-9" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-9.webp" alt="grand-9" class="center">
 
 "I have no idea."
 
@@ -222,7 +222,7 @@ Yorick couldn't decide who was less fun - stone cold Oldhim, or Candlehold's sle
 
 She sat perfectly still upon her wooden throne, face marbled like the tree-bark that surrounded her. In fact, if you didn't look hard enough, you would have missed spotting her completely.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-10.webp" alt="grand-10" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-10.webp" alt="grand-10" class="center">
 
 Oldhim stood further back within the shade, as solemn as the grave.
 
@@ -266,7 +266,7 @@ There was a creaking sound as the queen tilted her head to look at Briar directl
 
 Lexi handed her the leather tome, and they waited impatiently as the queen turned each page with a deliberate slowness.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-11.webp" alt="grand-11" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-11.webp" alt="grand-11" class="center">
 
 At last the queen glanced up, and closed the tome.
 
@@ -311,7 +311,7 @@ _Experience crazy brews from Aria's finest Braumeister!_<br>
 _Have your fate foreseen by the whimsical seers!_<br>
 _All this and many more wonders - see it all at Everfest!_<br>
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-12.webp" alt="grand-12" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-12.webp" alt="grand-12" class="center">
 
 She snatched the poster and returned to the group, slapping it on the table.
 
@@ -325,4 +325,4 @@ Nobody responded except Briar, who just shrugged and went back to crushing Thawn
 
 Lexi lifted her mug. "Then drink up, friends! Tomorrow we set foot for _Everfest_!"
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/06-everfest/media/grand-13.webp" alt="grand-13" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-13.webp" alt="grand-13" class="center">

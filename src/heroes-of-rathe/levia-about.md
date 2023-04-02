@@ -1,7 +1,7 @@
 # Levia, Shadowborn Abomination
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
-  <source src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/levia.mp4" type="video/mp4">
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/levia.mp4" type="video/mp4">
 </video>
 
 Levia was born into extreme poverty, her mother forced to sell both herself and her child into the service of the Barthimont estate in order to survive. But after both of her parents disappeared under mysterious circumstances, Levia was left to spend her life serving Lady Barthimont. Although she was haunted by her mother's final warning, to escape the Barthimonts by any means necessary, Levia chose instead to stay, determined to uncover the secrets of the Lord and Lady.

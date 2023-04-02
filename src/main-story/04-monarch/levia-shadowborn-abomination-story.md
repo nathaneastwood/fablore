@@ -2,17 +2,17 @@
 
 [Levia](https://legendarystories.net/heroes-of-rathe/levia-about.html) was born into poverty, her impoverished family one of many who worked for the nobility of the Northern Realms. Her father had been a stablehand for Lord Barthimont, but he disappeared suddenly when Levia was very young, leaving his family destitute. Without the means to support herself and her daughter, Levia's mother sold them both into the service of the Barthimont estate, an act borne of desperation.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/levia-1.webp" alt="levia-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-1.webp" alt="levia-1" class="center">
 
 Levia remembered little of her mother, who was forced to spend long hours serving Lady Barthimont. She would leave their shared bed shortly before first light, and would return long after the candles had extinguished themselves. Once, several years after they'd come to live at the estate, Levia's mother woke her in the early hours of the morning, her face drawn with terror as she begged her daughter not to trust the Barthimonts and to flee their holdings as soon as she had an opportunity to escape.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/levia-2.webp" alt="levia-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-2.webp" alt="levia-2" class="center">
 
 Several days later her mother vanished, leaving Levia with only that last haunting, cryptic warning. However, she refused to heed her mother's words. Stubborn, strong-willed, and resolved to uncover the truth, she instead decided to investigate and explore the deepest, darkest corners of the castle.
 
 As Levia grew older and more determined, the Barthimont estate descended ever deeper into madness. The servants fought over scraps of food while the nobles dined on elaborate feasts, Lord Barthimont's hunting trips took him further and further from his lands, and all the while, Lady Barthimont only seemed to thrive on the bitter emotions which flooded the manor.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/levia-3.webp" alt="levia-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-3.webp" alt="levia-3" class="center">
 
 On one of Levia's late-night walks through the mansion, she heard a shrill, piercing scream, distant and muffled; the sound of pure, unadulterated horror. Resolute, she wandered in the direction of the sound, searching for answers—and later, a part of her would wish that she had never found them.
 
@@ -20,7 +20,7 @@ Through the keyhole of a solid oaken door, Levia glimpsed the walls of a room, p
 
 Even through the door Levia could feel the swell of energy in the room, humming like the air before a thunderstorm. The sigils at the woman's feet lit up one by one, flooding the room with a crimson light. As the one directly beneath her feet caught flame, the bodies of her servants were illuminated by a violent, crimson light, casting Lady Barthimont's shadow along the length of the floor. With a satisfied sigh, she fell upon the servants and began to devour them in a fervid frenzy, spraying a fine mist of blood across the room, face streaked with blood and viscera.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/levia-4.webp" alt="levia-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-4.webp" alt="levia-4" class="center">
 
 Fear seized Levia's lungs in an icy grip, squeezing the breath from her chest—but as she stumbled back, she felt the fierce burning of a deep rage course through her veins. While the sight of the servants' mangled, butchered corpses had disgusted Levia, a part of her cried out in hunger. This was perhaps her one and only path to power; her only opportunity to take charge of her own fate, lest she end up like them.
 
@@ -32,7 +32,7 @@ For months Levia sought that feeling, that single taste, in search of a way to q
 
 One evening, just as the candles began to sputter, she found herself summoned to the great hall, where Lady Barthimont was hosting noble guests for the evening. Twelve servants in all, they entered through the main doors to find the room to be empty; empty, save for the banquet which lay before them.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/levia-5.webp" alt="levia-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-5.webp" alt="levia-5" class="center">
 
 Great, glistening roast meats; piles of baked vegetables; baskets of fresh bread; goblets filled to the brim with dark, red wine; tiny cakes decorated with candied fruit and nuts; salted caramels wrapped in wax paper. Even from a distance, Levia could smell the spices and fresh herbs, the salted beef and rich gravy. As the other servants looked around for the lords and ladies, one of the youngest servants stepped forward. His eyes locked onto the nearest basket of buttery biscuits, he stretched out a hand to take one and quietly began to eat.
 
@@ -42,7 +42,7 @@ Looking up at them, Levia caught a glimpse of Lady Barthimont's pleased smirk. H
 
 A horrific, droning reverberation flooded the room, driving many of the servants to their knees. The walls ran red with blood, dripping scarlet stains onto the floor. The terrified screams of the other servants echoed off the walls as they collapsed, their bodies beginning to dissolve, melting into rancid puddles of flesh and blood. The smell of their burning marrow seared the back of Levia's throat, her very bones vibrating as her skin began to boil and her legs trembled beneath her.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/levia-6.webp" alt="levia-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-6.webp" alt="levia-6" class="center">
 
 Painfully aware of the fate which awaited them all, she reluctantly succumbed to her need to survive and enacted the final, terrible price of the rituals she'd learned from her mistress. With a bellowing cry, she crawled forward and lunged at the nearest body, tearing its flesh away in strips and cramming the raw meat into her open mouth. Her mind turned grey with smoke, her consciousness detaching from the gore which surrounded her. Through a veil of wine-dark mist, she glimpsed a dark entity, surrounded by an endless sea of crimson and ivory, its gaping maw lined with hundreds of massive fangs.
 
@@ -52,7 +52,7 @@ She threw herself at the beast, feeling her bloodlust spill over into an all-con
 
 The marble floor caved in under the weight of her body, stone tiles cracking as Levia leapt back, landing on her feet. As her bloodlust finally began to fade, she became aware of the blood and viscera coating her skin; she looked down at the weight in her left hand, and met the blank-eyed stare of Lady Barthimont's disembodied head. For the first time in months, the great hall was completely silent, stained red from the carnage which surrounded her.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/levia-7.webp" alt="levia-7" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-7.webp" alt="levia-7" class="center">
 
 At last, Levia has been released from her erstwhile mistress's control, and is finally free to decide her own fate. However, the strength she now wields has come at a terrible price. Once someone has sacrificed a living being, the grip of the Shadows is as iron. Levia is compelled to follow the whims of a creature from the beyond, succumbing to her base instinct to destroy and consume. Now that she has been released from the Barthimonts' clutches, Levia refuses to let anybody else control her ever again.
 
@@ -72,7 +72,7 @@ _Here_ was the same power, the same dark influence that she'd come to know so we
 
 Snarling, Levia lunged towards the strange visitor, slamming him against the nearest wall. Her clawed fingers cut easily into his flesh, shreds of fabric hanging from his battered skin as Levia drove her hand into his chest, elbow-deep in the man's ribcage. She felt the staccato rhythm beat against her palm, his muscles seizing as blood vessels burst beneath her pointed talons, and then she tore the stranger's heart from his chest.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/levia-8.webp" alt="levia-8" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-8.webp" alt="levia-8" class="center">
 
 With a wet, disbelieving gurgle, he collapsed to the ground, face going slack as his blood pooled atop the marble. Levia crushed his heart in her fist, letting the shredded tissue spill onto the floor at her feet. The skin on his chest tore easily beneath her talons, exposing his internal organs to her ravenous gaze. Sinking her hands into the pooling blood, she grabbed his organs by the handful, ramming lungs and kidneys and intestines into her open mouth, grinding the viscera between her teeth until they were a fine paste, watery purge leaking from her carnassials.
 
@@ -80,7 +80,7 @@ As the bloodlust faded, hunger sated for the time being, her gaze fell to the gl
 
 A small, grotesque gargoyle met her gaze, the claws on its hands forming a rudimentary clasp at the top of the pendant. As she gazed down at the object, she felt the telltale etchings of an inscription on the back, rough against her fingertips. When Levia turned the pendant over, she found an unfamiliar script carved into the silver surface.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/levia-9.webp" alt="levia-9" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-9.webp" alt="levia-9" class="center">
 
 _Some say that those who die come to this:_<br>
 _That which brings both an end_<br>
@@ -100,7 +100,7 @@ Turning her gaze away, Levia refocused her attention on the courtyard proper, wa
 
 After a long moment, the Demonastery itself came into view. A large, imposing gothic manor, it stretched far to the east and to the west; stained glass windows lined its walls, hanging below stone arches and towering spires. The massive front door was cracked open, and dusky light spilled out onto the flagstones. As Levia drew nearer, something within her shuddered at the perfect silence, absent the usual distant calls and eerie shrieks which were wont to echo across the grounds.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/levia-10.webp" alt="levia-10" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-10.webp" alt="levia-10" class="center">
 
 _...the usual? How would I know what it's usually like?_
 
@@ -114,7 +114,7 @@ A sea of green and glass stretched out before her, and a name rose to the tip of
 
 _The Venarium._
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/levia-11.webp" alt="levia-11" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-11.webp" alt="levia-11" class="center">
 
 The name rose to the tip of her tongue, unbidden, as if whispered by some long-forgotten echo at the edges of her consciousness. For one split-second, Levia could have sworn she remembered the Venarium in all its former glory.
 
@@ -152,7 +152,7 @@ Gleaming white bone lay exposed on one side of the head, the face split by a gas
 
 The man's wide, pale green eyes locked onto Levia's from across the room, his teeth bared in an expression raw with both anger and agony. Without warning, an unfamiliar voice echoed within her mind, a tangible feeling which translated itself readily into words.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/levia-12.webp" alt="levia-12" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-12.webp" alt="levia-12" class="center">
 
 _Free me. If you wish to avoid meeting the same fate as I have, free me, and I shall share what I know._
 
@@ -170,7 +170,7 @@ Levia distantly heard the protests of the disembodied voice, the head calling on
 
 A visceral, crimson landscape stretched as far as her eyes could see. Levia's feet came into contact with layers upon layers of rotting carrion, her gaze greeted by writhing fiends and decomposing corpses.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/levia-13.webp" alt="levia-13" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-13.webp" alt="levia-13" class="center">
 
 Blasmophet's domain was a sea of gluttonous waste; consumption incarnate, a hunger for power only sated by devouring the bodies of friend and foe alike. Yet when she turned her attention to the head hanging from her fingers, its teeth were bared in a snarl.
 
@@ -204,7 +204,7 @@ The fifth and final class of Blasmophet's creatures were the beasts of old, colo
 
 Devoratum lingered at the centre of Blasphema, watching over the empty throne. Almost four times her height, the colossal fiend towered above her, its grey, fleshy body twisted and misshapen. Dozens of eyes sprouted from the top of its body, reddened and glistening in the light, their dilated pupils locked onto Levia. Multitudes of slender, frog-like limbs supported its immense weight, allowing it to scuttle along the earth like a centipede. A gash in the front of its body constituted a kind of mouth, opening to reveal a great, gaping chasm lined with hundreds of razor-sharp fangs, its dozens of tentacle-like tongues covered in a corrosive saliva.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/levia-14.webp" alt="levia-14" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-14.webp" alt="levia-14" class="center">
 
 However, even in the face of this horrendous brute, Levia did not falter. After hunting and devouring enough creatures to become a beast in her own right, Levia went toe to toe with the Devoratum, propelled by sheer rage and bloodlust, lunging at the being's immense mass of a body.
 
@@ -224,7 +224,7 @@ _You. I killed you. You should be dead._
 
 _You should know better than that. People like you and I, we do not die so easily_. His reverberating laughter stoked the tight burn of her rage into a firestorm, and distantly, Levia felt their—felt her hand curl into a fist, talons biting into their palm sharply enough to draw blood. _Now, surrender to me, and I might just let you remain._
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/levia-15.webp" alt="levia-15" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-15.webp" alt="levia-15" class="center">
 
 _This is my body, and you shall not control it._
 
@@ -270,4 +270,4 @@ He grinned, gesturing to the other residents who now milled behind him, watching
 
 "We seek to strike at [Solana](https://legendarystories.net/world-of-rathe/solana/solana.html)—the city would practically be a banquet for a power like yours. Even Sutcliffe desires to take a power like theirs." Chane gestured to the head at her hip, hands outstretched. "Join us, Levia, and devour the Light."
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/levia-16.webp" alt="levia-16" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-16.webp" alt="levia-16" class="center">

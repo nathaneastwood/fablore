@@ -10,19 +10,19 @@ The leader signals to their soldiers to hold. For several taught seconds, Morloc
 
 At the fore, armor splattered with gore, the leader catches their breath. It is the briefest respite.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/07-interlude/media/morlock-hill-1.webp" alt="morlock-hill-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-1.webp" alt="morlock-hill-1" class="center">
 
 Through the seething mass of monstrosity comes a sight that sets the leader's heart hammering. A cluster of towering fiends thunder forwards, crushing lesser creatures under hoof. Their battle-axes burn with sigils and fire flares in their nostrils.
 
 The closest fiend shrieks with manic glee and swings its ax at the leader. The warrior rolls to the side, escaping the bisecting blow by a hair's breadth. Yet before they find their feet, the beast has wrenched their weapon from the ground and whipped it upwards, catching the leader's helm with the tip of its blade. The helm goes flying, unleashing a cascade of golden locks.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/07-interlude/media/morlock-hill-2.webp" alt="morlock-hill-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-2.webp" alt="morlock-hill-2" class="center">
 
 [Dorinthea](https://legendarystories.net/heroes-of-rathe/dorinthea-about.html) spits blood and braces herself for the next attack. The creature barges forward, but this time Dorinthea slides low, passing beneath the ax's arc. She leaps to her feet, and as the fiend turns to face her, she sweeps her Dawnblade through its thick neck. The horned head thuds into the dirt, souring the earth with its blood.
 
 Her victory is fleeting. Dorinthea spins to meet her next foe, and the blood drains from her face at the sight of three looming demons, larger again than the fiend she has felled.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/07-interlude/media/morlock-hill-3.webp" alt="morlock-hill-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-3.webp" alt="morlock-hill-3" class="center">
 
 Hope falters, guttering like a candle in the wind.
 
@@ -32,7 +32,7 @@ Hope falters, guttering like a candle in the wind.
 
 Fardreyas was the first village to be consumed. Then Sunvale, Audra, and Hazeltown. Solana's farmlands and crops burned to ash, animals slaughtered.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/07-interlude/media/morlock-hill-4.webp" alt="morlock-hill-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-4.webp" alt="morlock-hill-4" class="center">
 
 So far [Ser Boltyn](https://legendarystories.net/heroes-of-rathe/boltyn-about.html) and his vanguard have held the walls of the city itself, but not without dire losses. Unlike the Demonastery's soulless army, Solana's people are not expendable. Every soldier, farmer, scholar, and child killed is a name remembered. A family broken.
 
@@ -42,7 +42,7 @@ Screams pierce Dorinthea's ears as creatures rend and devour her soldiers. She r
 
 As the first giant raises its sword, something flashes between them. Weapons crash to the ground, still clutched by dismembered claws.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/07-interlude/media/morlock-hill-5.webp" alt="morlock-hill-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-5.webp" alt="morlock-hill-5" class="center">
 
 "I cannot leave you alone for one moment, can I?"
 
@@ -64,7 +64,7 @@ The Vitiate Gateway, the last of nine portals linking Rathe to i'Arathael.
 
 During the Third Age, the Ancients believed they had destroyed the Gateways, forever banishing the realm of dreams. Hidden behind a veil of lies and illusion by an envoy of i'Arathael, the ninth portal remained intact and sealed. There it remained, closed and forgotten for thousands of years, until now.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/07-interlude/media/morlock-hill-6.webp" alt="morlock-hill-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-6.webp" alt="morlock-hill-6" class="center">
 
 Able to slip through the fabric of space, the Demonastery carries the Vitiate Gateway with it, using rifts to disgorge their hordes wherever they please.
 
@@ -78,7 +78,7 @@ The last horned head thumps into the blood-drenched earth. The hill is theirs, b
 
 Dorinthea doesn't reply, instead fixing Minerva with a steely gaze that brooks no argument.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/07-interlude/media/morlock-hill-7.webp" alt="morlock-hill-7" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-7.webp" alt="morlock-hill-7" class="center">
 
 Minerva levels her sword at the rift. "Look!" she pleads, as the next wave of horror spills out. "We need to regroup with Boltyn's vanguard, defend our people upon the walls of Solana."
 
@@ -96,7 +96,7 @@ Solanian souls recoil as dismembered demons reform and rise. Bones crack back in
 
 Dorinthea charges forward, but before she can take but a few steps, the ground sprouts a forest of rotted arms that wrap around her legs, fixing her in place. Dawnblade is wrenched from her grasp and cast aside.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/07-interlude/media/morlock-hill-8.webp" alt="morlock-hill-8" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-8.webp" alt="morlock-hill-8" class="center">
 
 While she struggles to free herself, teeth and tentacles tear her allies apart. Even Minerva struggles against the writhing mass.
 
@@ -106,7 +106,7 @@ Minerva twirls her remaining sword, her will steeled against the many wounds she
 
 As she draws within striking distance, the hooded one's chest ruptures open. His ribs part and grow, extending out to trap the assailing warrior.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/07-interlude/media/morlock-hill-9.webp" alt="morlock-hill-9" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-9.webp" alt="morlock-hill-9" class="center">
 
 Minerva doesn't struggle. Her escape is futile. Instead, she casts one last look at Dorinthea. There's no fear in her eyes. Only acceptance.
 
@@ -114,13 +114,13 @@ The hooded one laughs, a sound like shattering bone, and tosses Minerva into the
 
 Dorinthea's sorrow burns, her thoughts seared from her mind by white-hot fury. There's a flash like a lightning strike and her cadaverous restraints melt away. Her foes cower as she looks upon them, eyes now crackling and bright, hair shimmering with holy radiance. She reaches out with her sword hand and summons Dawnblade to her grasp.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/07-interlude/media/morlock-hill-10.webp" alt="morlock-hill-10" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-10.webp" alt="morlock-hill-10" class="center">
 
 The hooded one reels from her splendor, croaking desperately for his creatures to attack. They obey, only to be destroyed by Dorinthea's incandescent rage. Bolts of foul energy leap from the hooded one's hands only to shatter harmlessly against Dorinthea's Bladehold armor. His reaching ribs snap like dry twigs beneath Dawnblade's blurring strikes.
 
 With nothing left standing between her and her quarry, Dorinthea roars as she thrusts her sword through the hooded one's silent heart.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/07-interlude/media/morlock-hill-11.webp" alt="morlock-hill-11" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-11.webp" alt="morlock-hill-11" class="center">
 
 Dorinthea turns to the rift, bracing herself to enter. A guttural retching at her feet stops her. Corruption shrouds the body of the hooded one as it coughs the morbidity from its fetid lungs. With a rictus grin, it twitches and jerks across the torn earth and into the portal. The Vitiate Gateway shuts like a giant eye, then is gone.
 
@@ -134,7 +134,7 @@ In the scorched woods, there lies a small encampment.
 
 Beyond that, once-golden wheat fields now blackened and bare, green meadows churned to mud and littered with bloated carcasses. In the distance, plumes of smoke climb the sky from their battered city.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/07-interlude/media/morlock-hill-12.webp" alt="morlock-hill-12" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-12.webp" alt="morlock-hill-12" class="center">
 
 Dorinthea and Boltyn survey the dismal scene. Proud Solana has been brought to its knees.
 
@@ -160,4 +160,4 @@ Dorinthea brushes back her silver hair and stands.
 
 "We shall be the rallying cry for all of Rathe, for only together can we survive."
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/07-interlude/media/morlock-hill-13.webp" alt="morlock-hill-13" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-13.webp" alt="morlock-hill-13" class="center">

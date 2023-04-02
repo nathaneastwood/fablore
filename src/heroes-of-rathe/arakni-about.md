@@ -7,7 +7,7 @@ The playable variants of Arakni are:
 # Arakni, Huntsman
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
-  <source src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/arakni-huntsman.mp4" type="video/mp4">
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/arakni-huntsman.mp4" type="video/mp4">
 </video>
 
 Arakni is the blade that strikes in the dead of night.
@@ -25,7 +25,7 @@ Death is Arakni's only concern. Assassination, their singular delight.
 ## Hero Highlights
 
 <div class="hero-container">
-  <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/arakni-contact-killer.webp" class="hero-icon" />
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/arakni-contact-killer.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Contract Killer</b><br>
     Scour every nook and cranny from top to bottom, as you hunt the mark and claim your bounty. Use Arakni's hero ability to hunt for the target of your contract, and exterminate them to claim your pay day.
@@ -35,7 +35,7 @@ Death is Arakni's only concern. Assassination, their singular delight.
 # Arakni, Solitary Confinement
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
-  <source src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/arakni-solitary-confinement.mp4" type="video/mp4">
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/arakni-solitary-confinement.mp4" type="video/mp4">
 </video>
 
 No-one escapes Southmaw. No-one except Patient 1413.
@@ -57,7 +57,7 @@ Death is Arakni's only concern. Assassination, their singular delight.
 ## Hero Highlights
 
 <div class="hero-container">
-  <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/stealth.webp" class="hero-icon" />
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/stealth.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Stealth</b><br>
     Stealth is a deadly tool in the right hands, and Arakni knows how to keep their targets in the dark. With their ability to play multiple cards with stealth in a turn, you never know what's hiding around the corner...

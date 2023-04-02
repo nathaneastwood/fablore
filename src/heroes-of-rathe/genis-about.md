@@ -1,7 +1,7 @@
 # Genis Wotchuneed
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
-  <source src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/genis.mp4" type="video/mp4">
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/genis.mp4" type="video/mp4">
 </video>
 
 There's talk of a kindly old man that roams the breadth of [Aria](https://legendarystories.net/world-of-rathe/aria/aria.html), carrying upon his back the treasures from a thousand lost kingdoms. They call him the Roaming Bazaar, and what a spectacle he is! A friendly face in unfamiliar lands, a helping hand in your hour of need. His pack overflows with riches both wonderful and strange, as he spreads the joy of the Everfest far and wide.

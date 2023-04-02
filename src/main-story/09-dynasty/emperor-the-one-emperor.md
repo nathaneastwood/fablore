@@ -1,4 +1,4 @@
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/09-dynasty/media/emporer-1.webp" alt="emporer-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/emporer-1.webp" alt="emporer-1" class="center">
 
 # The One Emperor
 
@@ -22,7 +22,7 @@ These were people he could use, but never wholly trust. While their ambitions al
 
 The memory melts away as the Emperor takes up his sword, his fingertips brushing the golden tassels of magma lion fur dangling by silver threads from its pommel. He was merely a prince when he last raised this blade in battle.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/09-dynasty/media/emporer-2.webp" alt="emporer-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/emporer-2.webp" alt="emporer-2" class="center">
 
 The sky burned and fire rained down upon the town that day. Warriors lurched and screamed as the conflagration spread and consumed. It was a simple matter to pry into the mind of the town's self-appointed general, to pluck the positions of his men and armaments from his drunken mind. Then the guilty melted like candles while the innocent cowered in awe. Their prince was nothing if not merciful.
 
@@ -32,7 +32,7 @@ They knew their place, as all knew their place in this dynasty of his making. Se
 
 For he was once like the Volcai, a boy of imposed aspiration, his mind caged by the fears of his father. Until the moment he listened to the lava and heard its seething song.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/09-dynasty/media/emporer-3.webp" alt="emporer-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/emporer-3.webp" alt="emporer-3" class="center">
 
 Through the tunnels they labored, a reckless princeling and his chosen few, determined to discover what secret an emperor might keep from his only son.
 
@@ -54,7 +54,7 @@ The Emperor has heard the cries rise up beyond the walls of his capitol. He has 
 
 In spite of everything, he has become his father's son.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/09-dynasty/media/emporer-4.webp" alt="emporer-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/emporer-4.webp" alt="emporer-4" class="center">
 
 His will cools and crystallizes like lava after an eruption. Aether flickers in his palms, ready to serve, ready to smite at his command. He is the forge that will mend this broken land, with fire and brimstone if he must. Once again, the few will suffer so the many may thrive.
 

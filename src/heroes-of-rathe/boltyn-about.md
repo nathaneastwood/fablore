@@ -1,7 +1,7 @@
 # Boltyn, Breaker of Dawn
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
-  <source src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/boltyn.mp4" type="video/mp4">
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/boltyn.mp4" type="video/mp4">
 </video>
 
 Boltyn was born into the nobility of the Northern Realms, growing up immersed in his grandmother's tales of a golden kingdom, a city which brought light and knowledge to all. When he had at last taken his father's place as lord, a party of knights passed through his lands. They brought news of the golden city he'd heard so much about, and their words of light brought such joy and inspiration to him that he immediately embarked on a pilgrimage to [Solana](https://legendarystories.net/world-of-rathe/solana/solana.html), leaving his lands and titles behind in the hope of starting a new life.

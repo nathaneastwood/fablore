@@ -4,4 +4,4 @@ Within the darkness of the pawn shop lies an ancient blade, set out on a tablecl
 
 Yet, despite its age, the blade has a certain majesty about it, the well-worn look of an adventurer, an explorer, the subject of legends. Here, the streaky, dappled mark of rek'vas venom. There, a smooth, stretched ripple from nearing magma. There, the pitted, warped sheen of a lightning strike. Here, in the dark, Talishar's name is unrecognisable, its tales forgotten, the journal that once accompanied it lost long ago.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/weapons/media/talishar-lost-prince.webp" alt="talishar-lost-prince" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/weapons/talishar-lost-prince.webp" alt="talishar-lost-prince" class="center">

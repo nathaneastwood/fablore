@@ -18,7 +18,7 @@ As of yet, I have had no success with the Arknight shard itself. I suspect that 
 
 Some of my experiments have shown signs that a gradual process may have a higher chance of success. If the body grows overwhelmed by the introduction of aether, it may be possible to make a human body grow accustomed to the arcane force over time, increasing the dose as the body develops resistance. Eventually, I may be able to surgically embed the Arknight shard without the body failing, though I would need a particularly durable subject; preferably one who already had some amount of exposure to the arcane arts.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/03-crucible-of-war/media/runechant.webp" alt="runechant" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/03-crucible-of-war/runechant.webp" alt="runechant" class="center">
 
 I have been conducting some experiments with sigils and runework, attempting to create layers which mimic spells. While I cannot practice the arcane arts myself, I do possess the theoretical knowledge required. I have had some success with creating runes in advance, which can then be charged by someone with the necessary affinity - Leona has proven somewhat useful in this respect, though I have had to sacrifice some minor research for her to cooperate. At the least, the information she asked for is not particularly important, and I doubt that she shall become a threat. I doubt that Leona is even aware of
 

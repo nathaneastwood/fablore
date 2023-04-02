@@ -8,7 +8,7 @@ Aria has no form of currency, as its people function on a simple bartering syste
 
 ## The Everfest Carnival
 
-![The Everfest Carnival](https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/world-of-rathe/aria/media/everfest.webp)
+![The Everfest Carnival](https://d2hl7maqck52px.cloudfront.net/world-of-rathe/aria/everfest.webp)
 
 The people of Aria are never more excited than when the Everfest Carnival is near. A giant, travelling circus, the Everfest Carnival is the size of a small town, boasting hundreds of tents and attractions. The Everfest has been a staple within Aria for centuries, travelling from village to village, growing larger with every passing decade. Some of the oldest families in Aria are part of the Everfest, their ancient traditions evolving to number among the most popular Carnival acts.
 

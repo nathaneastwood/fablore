@@ -12,7 +12,7 @@ Amidst the clamor of the marketplace, a woman pushed her way through the crowds,
 
 As the flow of the crowd shoved her out to the sides of the thoroughfare, she stumbled into a merchant's stall, drawing his attention. He reached out with one plump, gloved hand to steady her.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/dash-1.webp" alt="dash-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-1.webp" alt="dash-1" class="center">
 
 Behind a single table adorned with a crudely painted sign, the merchant peered out from beneath his bushy eyebrows, curled lips revealing a toothy grin. His entire head was covered by a mass of messy white hair and a giant hat, his figure obscured by layers upon layers of cloth, leather and fur.
 
@@ -30,7 +30,7 @@ Behind a single table adorned with a crudely painted sign, the merchant peered o
 
 "Oh, the lasers these days aren't nearly as powerful as they used to be. Nobody makes 'em like that anymore. When I was a lad, you could carve furniture with a laser; now ye'd be lucky to cut a Centennial loaf. 'Course, there's always the induction chamber."
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/dash-2.webp" alt="dash-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-2.webp" alt="dash-2" class="center">
 
 "What's an induction chamber?" The research assistant frowned, clutching the package tightly. "Why would that help?"
 
@@ -72,7 +72,7 @@ In the light of midday, the plumes of white around the city were cast a pale gol
 
 "Ugh. Okay, I'm out," the merchant groaned, reaching into one sleeve to retrieve a small key. "Time to check up on that researcher from earlier." He ducked behind his stall, unlocking a false panel in the back of the stand.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/dash-3.webp" alt="dash-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-3.webp" alt="dash-3" class="center">
 
 Glancing from side to side, he pulled off his wig, revealing a head of bright copper hair. Removing several layers of clothing, the gleam of burnished metal flashed in the sun as the merchant stashed the disguise beneath the market stall. A petite, spry young girl stepped out of her platform shoes, a shower of freckles scattered across her face.
 
@@ -114,7 +114,7 @@ Then, a peal of laughter shattered the tentative quiet. As one, the group of sci
 
 "Wasn't intentional," Wyverstone roared, firing in Dash's direction. "Someone bring me that brat right now! Somebody call Thiroux and tell her to control her daughter! No, call Teklo- Call the Iron Council! Bring me my phone this instant...!"
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/dash-4.webp" alt="dash-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-4.webp" alt="dash-4" class="center">
 
 Dash grimaced as the man continued raving, waving her fingers sheepishly at the occupants of the room as she ducked out of view, beginning to descend down the face of the Needle. Her feet touched the ground just as the front doors burst open, revealing Wyverstone standing in the entranceway, several staff members standing just behind him. Turning on her heel, Dash made for the nearest aperture, ducking down into the city level below.
 
@@ -122,7 +122,7 @@ Dash grimaced as the man continued raving, waving her fingers sheepishly at the 
 
 From her seat on the edge of the rooftop, Dash looked down upon the rooftops of Coppertown, through to the thick layer of smog that separated the Sprawl from the rest of Metrix. In the distance, the automatons of Zinnia Park moved and shifted on their pedestals, dancing against the faint light of the Gigadrill Elevator. Dash watched as a ball of molten plasma dropped from the top of the elevator, plummeting to the mining pits far below.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/dash-5.webp" alt="dash-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-5.webp" alt="dash-5" class="center">
 
 "Oi. You listenin', or wot?" Ricky's eyebrows furrowed, nose wrinkling as Dash finally looked in his direction.
 
@@ -150,7 +150,7 @@ Dash blinked, raising an eyebrow.
 
 "You always say that. You could make stuff, you know - you'd be good at it!" Dash tossed back her hair, grinning. "I made fifteen credits a couple days ago. Sold one of my gadgets in the Markets."
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/dash-6.webp" alt="dash-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-6.webp" alt="dash-6" class="center">
 
 Ricky chuckled, shaking his head.
 
@@ -162,7 +162,7 @@ Ricky chuckled, shaking his head.
 
 "Like what?"
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/dash-7.webp" alt="dash-7" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-7.webp" alt="dash-7" class="center">
 
 "Your suit looks like summat you found in a junkyard."
 
@@ -290,7 +290,7 @@ From Beacon to Zesca's, the Teklo database to Voxx press, nobody seemed to have 
 
 That night, over dinner, her parents argued about a Teklo scientist's investigation into the boundary layer effect, and their development of a bladeless turbine.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/dash-8.webp" alt="dash-8" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-8.webp" alt="dash-8" class="center">
 
 "Everyone knows mechanical vapor recompression is much more efficient," Dash muttered, picking idly at her dinner with a frown. Finally, her parents turned to look at her, her father raising an eyebrow. Before they could launch into further discussion of the matter, she cleared her throat.
 
@@ -324,7 +324,7 @@ The pounding in his head was what woke him up, slowly registering the familiar s
 
 A tall man with a patchy beard kneeled in front of him, gaze dark as he stared blankly at Ricky.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/dash-9.webp" alt="dash-9" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-9.webp" alt="dash-9" class="center">
 
 "Mornin' sunshine. Y'been sleepin' for ages." He scratched his beard idly, squinting. "Wasn' sure if ya'd wake up."
 
@@ -364,7 +364,7 @@ Light travelled along the surface as the device came to life, drawing on the pow
 
 "Okay, little buddy!" Dash grinned, slowly turning as she listened for feedback from the device. "Where are we going?"
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/dash-10.webp" alt="dash-10" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-10.webp" alt="dash-10" class="center">
 
 Choosing a direction at random, she began to walk toward the outline of Zinnia Park, listening carefully. In a day, she could cover the whole of the Midtown Markets, and a part of Lowlake. The next led her down into Coppertown, scouring every street for the slightest signal from her device. However, it continued to stay silent.
 
@@ -424,7 +424,7 @@ In front of her, six men burst into action, reaching for nearby weapons. In a sp
 
 "Grab a fucking weapon, rat boy!" Dash yelled, backing up as one of the men came at her with a nail-studded baseball bat. Even as she ducked, avoiding the blow, her mind dimly wondered why the man was wielding a bat, and not one of the endless varieties of Cogwerx or Teklo-produced weaponry.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/dash-11.webp" alt="dash-11" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-11.webp" alt="dash-11" class="center">
 
 Gathering herself, she lashed out with her fist, the gauntlet deploying knuckle guards as she slammed it into his jaw with a sickening crunch. He collided with the floor with a thud, yelling as he scrabbled for his bat. Turning on her heel, Dash fired the pistol at a man reaching for her, narrowly avoiding the knife that he wielded with one hand.
 
@@ -476,7 +476,7 @@ With a dry chuckle, he shrugged.
 
 "Let's go, then. Probably best we get away from this, anyway."
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/dash-12.webp" alt="dash-12" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-12.webp" alt="dash-12" class="center">
 
 Ducking between the stalls, they hurried off, turning their backs on the twisted remains of the Gigadrill, smoke rising behind them.
 

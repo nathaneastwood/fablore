@@ -12,7 +12,7 @@ A vast, open arena which can hold all the citizens of Solana, it is used for cer
 
 ### The Library of Illumination
 
-![The Great Library](https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/world-of-rathe/solana/media/the-great-library.webp)
+![The Great Library](https://d2hl7maqck52px.cloudfront.net/world-of-rathe/solana/the-great-library.webp)
 
 Many scholars and seekers of knowledge have travelled to Solana for the sole purpose of seeing the Great Library, a labyrinthine complex found at the base of the Solarium. An imposing sight; the floor is constructed from lustrous marble, with floor-to-ceiling shelves containing thousands of tomes and scrolls, as well as bound parchments authored by the scholars of Solana. Above, towering mosaics of coloured glass depict scenes from the history of the city and its people. Five colossal statues stand at the very centre of the Library's main foyer, constructed in gold and ivory, each one portraying one of Solana's five Grand Magisters.
 

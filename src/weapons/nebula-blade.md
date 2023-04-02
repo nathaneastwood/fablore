@@ -22,8 +22,8 @@ Renamed the Nebula Blade, Lord Sutcliffe engraved the blade with conductive and 
 
 When Viserai holds the Nebula Blade, the power of the Arknight shard reforges the sword; the enchanted silversteel blade, while broken, remembers its original shape. As the aether moves through the crystal, it recreates the sword, forming a blade of solid aether. The embedded runes allow the blade to possess the strength of solid silversteel, and the sharp, honed edge of a Solanian blade.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/weapons/media/two-blades.webp" alt="two-blades" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/weapons/two-blades.webp" alt="two-blades" class="center">
 
 In combining the physical and the arcane, two halves forming a whole, the blade mirrors its wielder; made stronger by the break.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/weapons/media/nebula-blade.webp" alt="nebula-blade" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/weapons/nebula-blade.webp" alt="nebula-blade" class="center">

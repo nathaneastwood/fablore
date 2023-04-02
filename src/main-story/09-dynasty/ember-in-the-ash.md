@@ -8,7 +8,7 @@ _Lord Merchant Savai of Deshvahan_
 
 ---
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/09-dynasty/media/ember-1.webp" alt="ember-in-the-ash-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/ember-1.webp" alt="ember-in-the-ash-1" class="center">
 
 [Dromai](https://legendarystories.net/heroes-of-rathe/dromai-about.html) looks about to make sure she is alone before expelling her excitement in a long, shuddering breath. This is what she has waited for, worked so hard for. She defeated the rebels in battle. She slew their most aggressive leader. And in a moment of inspiration, she erased Spymaster Xathari from the picture. Thus, she cleared the way for her most ambitious move—an audience with the Emperor and a chance to claim Xathari's position and power.
 
@@ -26,7 +26,7 @@ The quiet cacophony dies away, leaving a silence that is deafening. The doors re
 
 The door is hot, drying the sweat from her palm as she presses it to the metal. The prodigious mass swings open, made light by perfectly crafted balance. A man topples through the gap. His bloodied armor shatters the silence with its deadened weight.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/09-dynasty/media/ember-2.webp" alt="ember-in-the-ash-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/ember-2.webp" alt="ember-in-the-ash-2" class="center">
 
 Dromai skirts the corpse and enters the throne room. Imperial guards lie strewn across the vast floor, their spears fallen from lifeless hands, armor torn and flesh cut to the bone. Wizards lie in crumpled piles, their robes stained and steaming with draconic blood.
 
@@ -36,7 +36,7 @@ Any thoughts of a daring pursuit drown in the blood that wets the throneward ste
 
 The Emperor is dead.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/09-dynasty/media/ember-3.webp" alt="ember-in-the-ash-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/ember-3.webp" alt="ember-in-the-ash-3" class="center">
 
 ---
 
@@ -50,7 +50,7 @@ If, of course, it acted alone.
 
 Her mind's eye recalls the litter of papers, inked in the dead hand of Spymaster Xathari. From the day she returned to the palace, she has pored over Xathari's notes, scripts of friend and foe forming a theater of intrigue.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/09-dynasty/media/ember-4.webp" alt="ember-in-the-ash-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/ember-4.webp" alt="ember-in-the-ash-4" class="center">
 
 The [Demonastery](https://legendarystories.net/world-of-rathe/demonastery/demonastery.html) sought to manipulate the Dracai so they would not find common cause with [Solana](https://legendarystories.net/world-of-rathe/solana/solana.html). Thus is their ignorance, their paranoia. Solana is nothing to Volcor.
 
@@ -106,7 +106,7 @@ She turns to Chiyo, bows her head enough to signal respect, but not too low as t
 
 "No. My place is here."
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/09-dynasty/media/ember-5.webp" alt="ember-in-the-ash-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/ember-5.webp" alt="ember-in-the-ash-5" class="center">
 
 Dromai glances in the direction of the throne room, her mind fixed on the chambers beyond and the power secreted within.
 
@@ -118,7 +118,7 @@ Fai crests the wall and cuts down the first soldier who tries to repel him. His 
 
 A horn sounds from the keep, but it's too late for its inhabitants. No-one is coming to their aid. Fai knows this, the message delivered to him in the claws of an imperial bird of prey, a flame-winged [vuurlin](https://legendarystories.net/world-of-rathe/volcor/wildlife.html#vuurlin), shot from the ashen sky by a rebel arrow. The Emperor is dead, slain by a _skeletal assassin as twisted as the spirits of Serpent's Crescent_, the missive read. He could not have hoped for better, the greatest threat to the rebellion removed from the field. Yet his exaltation is leaden with doubt. There is another force at play, shaping the fate of Volcor to its own ends. A force so powerful that its masked instrument struck down Volcor's mightiest wizard, unchallenged, beyond justice or retribution.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/09-dynasty/media/ember-6.webp" alt="ember-in-the-ash-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/ember-6.webp" alt="ember-in-the-ash-6" class="center">
 
 Fai's ninjas swarm over the wall, compelling him to bury his dark thoughts. He has a rebellion to lead. Again he spearheads the assault, taking the keep floor by bloody floor. He reaches the Dracai's chambers first and uses the lord's own dining table to block the incoming fireball. He dances around the sparks and spells, closes in on the panicked wizard and drives his sword through the man's heart, thus tempering his blade in dragon blood. He then ascends the turret of the holdfast, the steel of his sword still burning with arcane fire.
 

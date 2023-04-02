@@ -1,7 +1,7 @@
 # Rhinar, Reckless Rampage
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
-  <source src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/rhinar.mp4" type="video/mp4">
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/rhinar.mp4" type="video/mp4">
 </video>
 
 In the depths of the [Savage Lands](https://legendarystories.net/world-of-rathe/savage-lands/savage-lands.html), a lone brute has carved out his territory in blood and bone. Abandoned to the mercy of the jungle as a cub, he fought to survive, fending off vicious beasts and scavengers. Yet this struggle has forged an alpha predator, relentless and unflinching, tearing through anything that gets in his way.

@@ -1,7 +1,7 @@
 # Oldhim, Grandfather of Eternity
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
-  <source src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/oldhim.mp4" type="video/mp4">
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/oldhim.mp4" type="video/mp4">
 </video>
 
 Oldhim is a mighty Shieldbearer of the Ollin; powerful defenders that stood alongside the Ancients against the Old Ones since the dawn of time.

@@ -6,7 +6,7 @@ A sortie of said specimens emerged from the tunnels of the Skein and assaulted t
 
 A train driver found the youth soon after, clinging like a rust spider to one of the loading cranes. After quite the fracas, and no small number of minor injuries, the youth was subdued and brought to Southmaw Asylum where I took them into custody for study and treatment.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/arakni-1.webp" alt="arakni-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/arakni-1.webp" alt="arakni-1" class="center">
 
 Through careful observation, I deduced that 1413 was 'raised' among the deviant tribes in the darker hollows of the Skein. Their mannerisms were uncultivated. In fact, primitive in the extreme. They lacked any rudiment of verbal language, although I was able to discern and learn their twitches and stances; gestures that must have passed for communication amongst the degenerates of the subject's pack. Through interrogation and intensive observation, I soon came to realize the exciting potential of this nugget in the raw.
 
@@ -29,7 +29,7 @@ Harassed by a chorus of alarm, 1413 dances from near miss to imminent peril. Ind
 
 Orderlies close in with nets and sick-sticks, their hulking forms padded out with armor. 1413 feels the ache of hunger in their entrails, not for food, but for the fight-for the iron tang of blood in the air. They won't go back. This morsel of freedom is the sweetest thing they've tasted in years. No longer will they swallow the bitterness of confinement, the sour metal of drugs and tests, the foul duet of mindless drudgery and shivering pain.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/arakni-2.webp" alt="arakni-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/arakni-2.webp" alt="arakni-2" class="center">
 
 They eye up a butcher, the fool's carving knife tucked and forgotten into his belt. They ready themselves to pounce; to go down cutting and bleeding.
 
@@ -41,7 +41,7 @@ Shrewd eyes look them up and down. Balanced on the roof's ridge, the figure's st
 
 "Hello, little spider."
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/arakni-3.webp" alt="arakni-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/arakni-3.webp" alt="arakni-3" class="center">
 
 1413's instinct is to run, but the woman's smooth voice is an intoxicant to their curious mind; her steady presence is almost hypnotic.
 
@@ -62,7 +62,7 @@ When they return, I expect they will peel open the shell of this mighty cloister
 _Doctor Krest Mortimer,_<br>
 _Director of Southmaw Asylum_
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/arakni-4.webp" alt="arakni-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/arakni-4.webp" alt="arakni-4" class="center">
 
 ---
 

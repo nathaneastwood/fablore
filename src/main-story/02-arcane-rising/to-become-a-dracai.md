@@ -8,11 +8,11 @@ In exposing the threat before the Chamber of the Dragon, Kano manages to gain th
 
 ## Playing with Fire
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/kano-1.webp" alt="kano-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-1.webp" alt="kano-1" class="center">
 
 The combined nervous chatter of fourty young wizards was almost deafening, bouncing off the walls in a way that made his ears ring. Ryo looked around the room, gazing at the tense expressions of the other students gathered nearby. One of the youngest in the room looked as if she was going to pass out, her face pale with anxiety, small hands trembling as she teased a flame into existence between her fingers.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/kano-2.webp" alt="kano-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-2.webp" alt="kano-2" class="center">
 
 Ryo ran a hand over his already immaculate robes, straightening the fabric with a small frown. Despite his age, he was already wearing the apophis hairpin that marked him as the Hideshi heir, its obsidian scales gleaming in the firelight. Noting the curious stare of a couple of older students, Ryo dipped his head in greeting, watching as their gaze landed on the hairpin. One of them turned slightly to whisper in the other's ear, hiding the movement of his lips behind one hand.
 
@@ -38,7 +38,7 @@ Ryo startled at the feeling of something hitting his ankle, glancing over to the
 
 Just as Ryo thought the other boy had given up, he felt a hand slide into his pocket .The boy withdrew, quietly leaning back into his usual spot. After a moment, Ryo reached into his pocket with one hand, withdrawing a small slip of parchment. Slowly, he turned to look over his shoulder, glancing at the other student.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/kano-3.webp" alt="kano-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-3.webp" alt="kano-3" class="center">
 
 "Read it." The whisper was just barely audible, but even watching the boy's face, Ryo wasn't sure he hadn't seen his lips move.
 
@@ -82,7 +82,7 @@ The dragon circled him in one massive loop, weaving through the air, illuminatin
 
 Ryo heard several of the other students gasp behind him, and turned slightly to see the Lord Wizard drawing closer, something unreadable barely visible within his carefully blank expression.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/kano-4.webp" alt="kano-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-4.webp" alt="kano-4" class="center">
 
 "Well done, Kano. Good work." After a long moment, the Lord Wizard finally gave Kano a simple nod before turning back to the other students, continuing on to inspect those remaining.
 
@@ -124,7 +124,7 @@ Across the rolling hills of Volcor, the earth was stained black with soot and as
 
 Beyond them, the silhouette of Mt. Volcor rises above the rocky slopes, a massive active volcano which can be seen from the furthest borders of the region. A plume of toxic smoke and poisonous gases rises into the air, painting the sky in shades of grey and blocking out the sun for months at a time.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/kano-5.webp" alt="kano-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-5.webp" alt="kano-5" class="center">
 
 A path cut into the slope of the volcano leads to the imperial palace, an imposing structure carved from obsidian and stone. The palace extends deep below the earth, a massive network of underground halls providing a home for every member of the royal court. It stands apart from the villages far below, equal parts magnificent and formidable, separated from the rest of Volcor by a series of stone walls and grand gates.
 
@@ -134,7 +134,7 @@ Great golden lanterns illuminated the halls, casting everything they touched in 
 
 A court wizard strolled down one such hallway, his crimson robes a splash of colour against the pale mats and dark stone walls. The crimson fabric was bordered in fine gold embroidery, set against the jet-black skirt of his robes. In one hand, he held a staff carved from pure obsidian, gold detailing running along its length. His hair was drawn up into a high ponytail, decorated with a large, blood-red feather plume, which was held in place by an intricate golden hairpin.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/kano-6.webp" alt="kano-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-6.webp" alt="kano-6" class="center">
 
 As he strode down the hall, Kano came to a stop near one of the sigils embedded in the wall, weaving a spell into the air with his free hand. Most of the court's wizards weren't required to perform such menial tasks, but most wizards had already received a title and become a true member of the royal court. Kano, still awaiting a title, was still included within the group of young wizards that worked to maintain the spells around the palace.
 
@@ -228,7 +228,7 @@ Even as Kano drew the fire away, holding it at the ready, Akihiko continued to w
 
 After a long moment, Kano allowed the fire to extinguish, cautiously approaching the still form of his former mentor. Now that he lay still, Kano could suddenly see the Lord Wizard's sunken cheeks, the bluish pallor to his skin, the dark rings that circled his eyes. The skin on his hands was wrinkled and dry, his lips cracked, unseeing milky-white eyes staring blankly into the middle distance.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/kano-7.webp" alt="kano-7" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-7.webp" alt="kano-7" class="center">
 
 The sound of thunderous footsteps startled Kano out of his confusion, whipping around in time to see a host of armored imperial guards racing around the corner. As they came into view, Kano recognised the Lord Wizard at the front of the group, her alarmed gaze meeting his. As he watched, the Lord Wizard Chiyo's gaze fell to the body at his feet, shock rippling across her expression at the sight of Akihiko's corpse.
 
@@ -244,7 +244,7 @@ The Lord Wizard Chiyo looked back up at Kano, jaw set, her expression shifting i
 
 The imperial guards ushered him into the room, the Lord Wizard Chiyo close behind. As she stepped in front of him, the members of the Chamber of the Dragon all turned, looking down at the scene before them. Clearing her throat, the Lord Wizard turned her gaze to the Lord Chancellor himself.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/kano-8.webp" alt="kano-8" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-8.webp" alt="kano-8" class="center">
 
 "Not five minutes ago, I heard a commotion in the halls of the inner palace. When I found the source of the noise, I found this young wizard standing over Lord Wizard Akihiko's body."
 
@@ -298,7 +298,7 @@ The Lord Chancellor sighed deeply, rubbing a hand over his forehead.
 
 "This is preposterous." One of the grand strategists, a large man by the name of Daijo, rose from his seat, pointing down at Kano. "We've heard of this young man before. He has a reputation for trickery and lies - we have no reason to believe him."
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/kano-9.webp" alt="kano-9" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-9.webp" alt="kano-9" class="center">
 
 "I concur with Daijo-"
 
@@ -334,7 +334,7 @@ Almost a third of the Chamber were frozen in place, staring blankly into mid-air
 
 The Lord Chancellor, for his part, caught on quickly, gazing around the room with horror dawning on his face. One by one, the other members of the Chamber began to realise what was happening, turning to look at their neighbours with expressions of alarm. Next to him, he heard the Lord Wizard Chiyo's sharp inhale.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/kano-10.webp" alt="kano-10" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-10.webp" alt="kano-10" class="center">
 
 The tension in the room reached a tipping point, a moment of silence reigning as everyone froze in place. Kano watched as the grand strategist Daijo stared down at him, his dark expression morphing into a snarl, and with an ear-splitting shriek, he leapt forward.
 
@@ -368,7 +368,7 @@ Rising from his position on the floor, the Lord Chancellor kept his head bowed, 
 
 For almost two days, Kano heard nothing further, excluded from the Chamber of the Dragon's discussions. Finally, someone came to collect him, his uniform identifying him as one of the imperial family's personal retinue. With some amount of apprehension, Kano followed him down into the innermost sanctum of the palace.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/kano-11.webp" alt="kano-11" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-11.webp" alt="kano-11" class="center">
 
 The guard led him into a hidden room, its doorway masked by the panels decorating the halls. It was almost indistinguishable from its surroundings, unless you knew exactly where to look. The guard remained standing nearby, staring directly ahead, waiting. Kano looked at the room around him, choosing to remain standing.
 
@@ -390,7 +390,7 @@ It is my understanding that you have yet to receive a title. The Emperor himself
 
 Taking the staff from the guard, she stood, hands outstretched, offering the staff to Kano.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/02-arcane-rising/media/kano-12.webp" alt="kano-12" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-12.webp" alt="kano-12" class="center">
 
 "This is the Crucible of Aetherweave, an heirloom which was once gifted to your ancestor by the past Emperor. Accept this, and you accept your role as the Dracai of Aether."
 

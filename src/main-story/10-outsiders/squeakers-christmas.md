@@ -22,7 +22,7 @@ Lena Belle shrugs. "Bacteria, booze—the boundary is fuzzy. Besides, you needed
 
 Azalea winces as the gorge rises in her throat. Lena Belle offers a reassuring smile, and an overly firm pat on her hooded cloak.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/xmas-story-1.webp" alt="xmas-story-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/xmas-story-1.webp" alt="xmas-story-1" class="center">
 
 "The distillation kills all the pathogens. Nice, meaty backend though, right?"
 
@@ -46,7 +46,7 @@ On cue, the object of Azalea's impatience rolls up, her steam-wagon spouting aph
 
 Azalea winces for the second time that night before cautioning Dash with an urgent, "Shoosh, you!"
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/xmas-story-2.webp" alt="xmas-story-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/xmas-story-2.webp" alt="xmas-story-2" class="center">
 
 "Sorry," whispers Dash when they're close enough to hear. "Can't wait to see the kids' faces when they unbox the presents this year."
 
@@ -82,7 +82,7 @@ And they streak through the wreckage down a dark tunnel destined for HQ.
 
 ---
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/xmas-story-3.webp" alt="xmas-story-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/xmas-story-3.webp" alt="xmas-story-3" class="center">
 
 "It's perfect!" hollers Dash as she waggles the plasma globe up and down. "First, a cup of Festive Flare, and now I have a gift?! Thank you, Lena Belle!"
 
@@ -94,7 +94,7 @@ Arakni nods, either in approval or bemusement—it's impossible to define it. Az
 
 "Socks. Again?!"
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/xmas-story-4.webp" alt="xmas-story-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/xmas-story-4.webp" alt="xmas-story-4" class="center">
 
 ---
 

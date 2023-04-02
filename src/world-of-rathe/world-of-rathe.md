@@ -8,4 +8,4 @@ Now, this era of peace threatens to descend into chaos once more. The people of 
 
 # Map of Rathe
 
-![map-of-rathe](https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/world-of-rathe/media/map-of-rathe.webp)
+![map-of-rathe](https://d2hl7maqck52px.cloudfront.net/world-of-rathe/map-of-rathe.webp)

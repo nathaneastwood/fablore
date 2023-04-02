@@ -15,7 +15,7 @@ The faintest scrape alerts her to [Arakni](../../heroes-of-rathe/arakni-about.md
 
 "There's a front door, you know. Quite a nice one, too. Hand carved."
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/the-spiders-trap-1.webp" alt="the-spiders-trap-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/the-spiders-trap-1.webp" alt="the-spiders-trap-1" class="center">
 
 Perched on the railing, Arakni stares at her in silence.
 
@@ -39,7 +39,7 @@ As if on cue, the windows of The Drop explode inward. The floorboards tremble as
 
 The leading cutthroat tugs down his kerchief, revealing a cruelly handsome face. Framed by clipper cut hair, piercing blue eyes and chiseled cheekbones, is a smug smirk that Uzuri has suffered for years.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/the-spiders-trap-2.webp" alt="the-spiders-trap-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/the-spiders-trap-2.webp" alt="the-spiders-trap-2" class="center">
 
 "Whitetail."
 
@@ -73,7 +73,7 @@ The knife streaks across the room, nicks the ear of a ducking assassin, and sail
 
 With a clatter of running chains, steel jaws drop from the ceiling and snap up half a dozen assassins, hauling them thrashing and screaming into the rafters.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/the-spiders-trap-3.webp" alt="the-spiders-trap-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/the-spiders-trap-3.webp" alt="the-spiders-trap-3" class="center">
 
 Blood showers down, the only rain the Pits ever sees. A bulky shadow looms in the broken window. Glinting eyes look up at the entrapped and dying. "Wriggle little fishes," rasps [Riptide](../../heroes-of-rathe/riptide.md), his voice harsh as a falling guillotine.
 
@@ -97,7 +97,7 @@ Uzuri sprints to the railing and watches the turncoat sail out across the Pits. 
 
 The knife is gone, replaced by a short, barb-headed harpoon. She takes a couple of steps back, aims high, and launches the harpoon off the balcony. The missile arcs gracefully through the air and descends upon Whitetail's dangling form. There is a distant cry as it hits him in the back.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/the-spiders-trap-4.webp" alt="the-spiders-trap-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/the-spiders-trap-4.webp" alt="the-spiders-trap-4" class="center">
 
 It was never going to be a fatal blow. Too far, even for Uzuri. More of a memento. Something to remember her by.
 
@@ -151,7 +151,7 @@ Wick sends an almighty blaze into the air from his flamethrower and addresses th
 
 It's the match that lights the fireworks. With whoops and howls, shrieks and growls, the gangers join in battle.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/the-spiders-trap-5.webp" alt="the-spiders-trap-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/the-spiders-trap-5.webp" alt="the-spiders-trap-5" class="center">
 
 Moments later, Wick finds himself engulfing a Numbskull in a crackling inferno. The victim shrieks and stumbles about, crashing into others as she beats the flames with her burning hands. Her collisions set a Freak and one of Wick's own Torched ablaze. It matters not. When the flame is hungry, it will eat what it pleases.
 
@@ -173,7 +173,7 @@ She reads the message, then signals for her crew to take Slab away. "One of them
 
 Arakni waits, still as a trapdoor spider.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/the-spiders-trap-6.webp" alt="the-spiders-trap-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/the-spiders-trap-6.webp" alt="the-spiders-trap-6" class="center">
 
 "You cut one thread at a time."
 

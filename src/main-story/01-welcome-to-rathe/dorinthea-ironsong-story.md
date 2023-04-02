@@ -32,7 +32,7 @@ Following the chancellor into the ceremonial chamber, Thea went to stand at the 
 
 One sword in particular caught Thea's attention, a graceful, thin blade with a gilded hilt. It circled closer and closer, and on its next pass, Thea reached out and plucked it from the air, grasping it tightly in her tiny hand. All at once, the rest of the swords fell to the ground with a sharp clatter, still and silent upon the marble floor.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/01-welcome-to-rathe/media/dori-1.webp" alt="dori-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/dori-1.webp" alt="dori-1" class="center">
 
 The next day, the Archon of Thea's district proclaimed her a prodigy swordsman of great potential, and Thea was immediately enrolled into training with the Hand of Sol. Even as her parents rejoiced, honoured that Sol would choose their daughter to be a knight, Minerva only watched Thea quietly, something unreadable lingering in her shrewd gaze.
 
@@ -44,7 +44,7 @@ Thea quickly made friends with two of her fellow trainees. Valeria, short and st
 
 Every day, Thea rose from her warm bed above the family forge and travelled to the outer walls to begin training. Solides through Verides were spent with scholars and knights in the classroom, learning theory. Exorides and Merides were spent training, beginning with drills to learn footwork and technique, before progressing to sparring as they grew older and a little more experienced. Finally, Vesperides would come - a day of rest, for the trainees to do as they pleased, and enjoy the company of their family and friends.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/01-welcome-to-rathe/media/dori-2.webp" alt="dori-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/dori-2.webp" alt="dori-2" class="center">
 
 Thea, Valeria and Felix often spent Vesperides either in the Golden Chariot, listening to travellers' tales, or in the Amphitheatre, listening to the Magisters who spoke the word of Sol. On their way home, strolling amongst the verdant gardens of the Silvarium, they would often talk about the future, dreaming about the day that they would journey outside the walls as knights of Solana. They wondered aloud about distant lands, imagining what they might see beyond the golden fields. The tales they heard in the Golden Chariot fuelled their imaginations, and they dreamed together about the day they would step forward to uphold their sacred duty. Most of all, they dreamt about their future party, and the radiant templar that would lead them beyond the great gates of Solana.
 
@@ -60,7 +60,7 @@ After six long years, Thea, Valeria and Felix journeyed to the Amphitheatre, exc
 
 Thea and Valeria, assigned to the same party, stepped forward to meet the templar striding toward them. A masked figure cast in gold and silver met their gaze, armour polished to a bright shine, the features of her mask pulled into an aloof expression, with eyes that made it seem as if she were staring straight through them.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/01-welcome-to-rathe/media/dori-3.webp" alt="dori-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/dori-3.webp" alt="dori-3" class="center">
 
 The templar, Hala, introduced them to their lieutenant, a younger man named Farris; the knights of their party, Vitus, Pallas and Darius; and Marcus, a scholar from the Light of Sol.
 
@@ -110,7 +110,7 @@ On closer inspection, Thea saw the wounds seeping crimson against their armour, 
 
 Just as she began to wonder how she was going to help these people escape, she heard the distinctive rasp of metal against wood. Behind her, the guard rose to its feet, club clenched tightly in one fist. Thea drew her blade, already moving in an attempt to silence it before it could alert the rest of the pack, but it was too late - with a bellowing roar, it roused the other brutes from their slumber. As the pack lurched to their feet, Thea noticed one of the warriors out of the corner of her eye, struggling to rise, leaning heavily on the tree as he straightened.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/01-welcome-to-rathe/media/dori-4.webp" alt="dori-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/dori-4.webp" alt="dori-4" class="center">
 
 Raising Dawnblade before her, Thea placed herself between the pack of brutes and the camp survivors. She was preparing herself for battle when she noticed a faint flash of light between the trees, recognising the metallic shine of silver armour. Hala and the rest of her party burst into the clearing, the templar holding her shield out before her as she charged the brutes, brandishing her sword, shining with the light of Marcus's magic. Within seconds, the group was under attack, and the sounds of fierce battle filled the clearing. The party began to make some headway as one of the brutes ran into the jungle, badly injured. For a moment, it almost seemed as if they could all make it out okay.
 
@@ -156,7 +156,7 @@ Despite the prestige of her accomplishment, promoted to lieutenant at just twent
 
 "In the name of Sol, I swear that I shall serve Solana to the best of my ability, until death relieves me of this sacred duty. I swear that I will protect Solana, and all those who live within its walls." Her voice rang out, cutting through the hushed quiet of the crowds watching over her. "By the blessed light, I shall carry out this oath, and never shall I knowingly nor willingly violate this, my solemn oath and obligation as a lieutenant of Solana, the outstretched hand of Sol. By the glory of Sol's light, in Sol's name, so shall it be."
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/01-welcome-to-rathe/media/dori-5.webp" alt="dori-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/dori-5.webp" alt="dori-5" class="center">
 
 ---
 

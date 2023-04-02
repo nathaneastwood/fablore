@@ -1,6 +1,6 @@
 # Kavdaen, Trader of Skins
 
-![kavdaen-trader-of-skins](https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/kavdaen.webp)
+![kavdaen-trader-of-skins](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/kavdaen.webp)
 
 Deep underground, where the streets of the Maw are cast in perpetual darkness, a black market thrives. Targeting the desperate and the dying, Kavdaen steps out of the shadows, extending a helping hand. When all hope seems lost, he provides a second chance, offering a loan to help people make a name for themselves. Yet when their deal inevitably falls through, their business venture plagued by a string of extraordinarily bad luck, Kavdaen will come calling once more, seeking his dues. With their life in ruins, the only thing his victims have left to offer is their own flesh and blood.
 

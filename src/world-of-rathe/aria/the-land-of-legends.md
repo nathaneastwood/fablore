@@ -1,6 +1,6 @@
 # The Land of Legends
 
-![korshem](https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/world-of-rathe/aria/media/korshem.webp)
+![korshem](https://d2hl7maqck52px.cloudfront.net/world-of-rathe/aria/korshem.webp)
 
 For eons, the realm of Aria has remained untouched by the passage of time. Far removed from the chaos and struggles that enveloped the rest of Rathe, its beautiful flora and fauna are as vibrant and welcoming as the diverse people that live here. Great mountain ranges glitter with ice and snow, as fast forests of green and gold stretch out far into the distance, teeming with life.
 
@@ -12,7 +12,7 @@ These tales had been lost throughout the ages, left only in whispers of fables a
 
 ### Isenloft
 
-![isenloft](https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/world-of-rathe/aria/media/isenloft.webp)
+![isenloft](https://d2hl7maqck52px.cloudfront.net/world-of-rathe/aria/isenloft.webp)
 
 A mighty citadel that overlooks the only passage into Aria, Isenloft stands proudly amidst the Isen Ranges that separate western Aria from the rest of Rathe. Once the stronghold of the Order of Ollin, Isenloft was the first line of defence against the legions of the void. The element of Ice and Earth converge here in a breath-taking spectacle, as the mighty mountains stretch up into the heavens against the harsh gales at the heart of Mt. Isen.
 
@@ -20,7 +20,7 @@ At the end of the Third Age, Isenloft was frozen by a tremendous burst of Elemen
 
 ### Volthaven
 
-![volthaven](https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/world-of-rathe/aria/media/volthaven.webp)
+![volthaven](https://d2hl7maqck52px.cloudfront.net/world-of-rathe/aria/volthaven.webp)
 
 It's said that when the Ancient of Lightning and Ice, Yvor, fell in the defence of its people, its body drifted up into the heavens and formed the isles of Enion. Floating high above the skies to the north of Isenloft, powerful streaks of Lightning flow through its skies, as the essence of Lightning and Ice converge here in a violent fashion.
 
@@ -28,7 +28,7 @@ The people of Volthaven wandered here by accident, not too long ago, and fell in
 
 ### Candlehold
 
-![candlehold](https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/world-of-rathe/aria/media/candlehold.webp)
+![candlehold](https://d2hl7maqck52px.cloudfront.net/world-of-rathe/aria/candlehold.webp)
 
 Deep within the woods, to the east of Korshem, lie the secretive grove of Candlehold. The essence of Earth and Lightning is strong here, converging into a potent elemental energy called the Strale which is aggressive and volatile, unlike the soft and gentle Flow that permeates the rest of Aria.
 

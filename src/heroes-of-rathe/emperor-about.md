@@ -1,7 +1,7 @@
 # Emperor, Dracai of Aesir
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
-  <source src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/emperor.mp4" type="video/mp4">
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/emperor.mp4" type="video/mp4">
 </video>
 
 Upon the Imperial Throne of [Volcor](https://legendarystories.net/world-of-rathe/volcor/volcor.html) sits the greatest wizard that this volatile land has ever seen. Cities burn at his command. The earth trembles at the might of his armies. He is the man who united a nation once divided and embattled. He is the man who reforged the empire in the furnaces of war. His draconic will scorched the corruption and dissent from the hearts and minds of his people. He is the blood of the dragon in its purest incarnation. Even the most powerful Dracai bow their heads to his will, their own flames but candles to his raging inferno.
@@ -17,7 +17,7 @@ For He is the dynasty, and the dynasty shall prevail.
 ## Hero Highlights
 
 <div class="hero-container">
-  <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/emperor-royal.webp" class="hero-icon" />
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/emperor-royal.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Royal</b><br>
     The position of Emperor comes with equal parts responsibility and privilege. With the strike of a pen, the movement of a few gilded beads, or the reverberation of a single breath exhaled, you are able to exert and unleash power like no other.
@@ -25,7 +25,7 @@ For He is the dynasty, and the dynasty shall prevail.
 </div>
 
 <div class="hero-container">
-  <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/emperor-command-and-conquer.webp" class="hero-icon" />
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/emperor-command-and-conquer.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Command and Conquer</b><br>
     The passage of power is lined not with decadence, but with dominance. The most feared offensive force known in Rathe is at your command.
@@ -33,7 +33,7 @@ For He is the dynasty, and the dynasty shall prevail.
 </div>
 
 <div class="hero-container">
-  <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/emperor-dual-class.webp" class="hero-icon" />
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/emperor-dual-class.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Dual Class</b><br>
     More than exceptional is a requisite of any mortal with desires to rule the volatile land of Volcor. The Emperor is no mere mortal, being the only known hero who can proficiently wield dual classes.

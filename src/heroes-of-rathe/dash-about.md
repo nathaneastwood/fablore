@@ -1,7 +1,7 @@
 # Dash, Inventor Extraordinaire
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
-  <source src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/dash.mp4" type="video/mp4">
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dash.mp4" type="video/mp4">
 </video>
 
 A young mechanologist from the city's elite caste, Dash is a brilliant inventor full of wild ideas and the spark of genius. Born into the city of tomorrow to scientists of Teklo Industries, she grew up surrounded by some of the greatest minds in all of Rathe. And as she explored the world around her, she fell in love with the city, all the goods and bads that lay within.

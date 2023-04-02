@@ -1,7 +1,7 @@
 # Yoji, Royal Protector
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
-  <source src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/yoji.mp4" type="video/mp4">
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/yoji.mp4" type="video/mp4">
 </video>
 
 To advance from rank grunt to royal guardian takes discipline and an exceptional nature. It speaks to grueling training and dark nights of tense vigilance. Respect earned with halberd in hand, paid for in the black bruises and spilled blood of violent duty. A pledge of allegiance performed with neither pause nor protest.
@@ -15,7 +15,7 @@ Just as there is no rest for the wicked, Yoji knows that there is no rest for th
 ## Hero Highlights
 
 <div class="hero-container">
-  <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/yoji-bodyguard.webp" class="hero-icon" />
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/yoji-bodyguard.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Body Guard</b><br>
     A stalwart defender of the Dynasty, Yoji stands firm in the face of the most extreme of adversities, shielding his allies with his impenetrable armour and iron will.

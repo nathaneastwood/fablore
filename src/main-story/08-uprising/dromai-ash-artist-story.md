@@ -14,7 +14,7 @@ No. Dromai's imagination is as boundless as her ambition. She is an ash artist, 
 
 "Azvolai! Nekria!"
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/08-uprising/media/dromai-1.webp" alt="dromai-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/dromai-1.webp" alt="dromai-1" class="center">
 
 Vynserakai bursts from a fire-gutted house, raw and red with fury.
 
@@ -64,7 +64,7 @@ The fire of anger flickers beneath her weariness. Though her mind reels from the
 
 Dromai forces herself to watch the army's withdrawal, to sear this failure into her memory with a white-hot brand. If she is to become a Dracai, she must never turn from shame. She must never forget.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/08-uprising/media/dromai-2.webp" alt="dromai-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/dromai-2.webp" alt="dromai-2" class="center">
 
 Back in Ashvahan, the restless days crawl by as Dromai bides her time. Every day, she pores over the tomes of The Twelve Dragons. Every day, she practices her art, driving herself to exhaustion so that her sleep is empty of shameful dreams. Every day, she petitions Xathari for another mission. Another chance to prove herself.
 
@@ -84,7 +84,7 @@ The stain of her Volcai blood washed clean. Dromai hides her excitement behind a
 
 "When do we leave?"
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/08-uprising/media/dromai-3.webp" alt="dromai-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/dromai-3.webp" alt="dromai-3" class="center">
 
 They ride out at first light with a thousand hussars at their backs. At dusk of the second day, they reach the mangled outer fields of Golden Orchard Estate. The air is thick with the meaty sweetness of funeral pyres. Peasants pick over the corpses of imperial soldiers, heaping their plunder onto carts.
 
@@ -108,7 +108,7 @@ Silverhair barks orders to the fighters who are holding the high ground against 
 
 Though not for long.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/08-uprising/media/dromai-4.webp" alt="dromai-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/dromai-4.webp" alt="dromai-4" class="center">
 
 She brings Tomeltai soaring into view. Riku is too close to the rebels to risk dragonfire. Instead, she whips Silverhair off her feet with the dragon's tail, then charges Tomeltai into the fray to rend and tear the traitors apart.
 
@@ -124,7 +124,7 @@ Her false sibling gallops down the hillside with the silver-haired rebel slung o
 
 Dromai smiles, but not for Riku's sake. His gratitude is meaningless. It is the Emperor's thanks she keenly awaits.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/08-uprising/media/dromai-5.webp" alt="dromai-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/dromai-5.webp" alt="dromai-5" class="center">
 
 She looks up as Xathari rides over the crest of the hill. His sharp eyes take in the scene. His smile mirrors hers.
 
@@ -140,7 +140,7 @@ She is Dracai.
 
 ## Betrayal
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/08-uprising/media/dromai-6.webp" alt="dromai-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/dromai-6.webp" alt="dromai-6" class="center">
 
 Dromai sits in the Oasis, her feet dangling in the cave's simmering lake. She watches luminous carp flit through the water, hunting flarefish that fall from the lava river.
 
@@ -158,7 +158,7 @@ It gave her no pleasure to kill Eun. That surprises her. Justice has been served
 
 Xathari is a different matter. For ten years, he was her mentor, her confidante and friend.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/08-uprising/media/dromai-7.webp" alt="dromai-7" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/dromai-7.webp" alt="dromai-7" class="center">
 
 He saved her from murderous rebels.
 
@@ -194,4 +194,4 @@ She will never belong to Ashvahan.
 
 Ashvahan will belong to her.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/08-uprising/media/dromai-8.webp" alt="dromai-8" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/dromai-8.webp" alt="dromai-8" class="center">

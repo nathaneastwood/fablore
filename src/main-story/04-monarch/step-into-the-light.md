@@ -8,7 +8,7 @@ The trade route wound between the rolling hills, a path of dirt and clay moulded
 
 [Boltyn](https://legendarystories.net/heroes-of-rathe/boltyn-about.html)'s gaze was locked firmly on the fields ahead, scanning the skyline for signs of any other travellers. Behind him, the rest of his party strode forward, their hands resting on their weapons, eyes flicking from side to side as they scoured the gloomy landscape for potential threats. Months of hunting down cultists in the Northern Realms had left each of them changed by the weight of duty; their shoulders were taut with silent tension, their weapons at the ready, their gazes ever-moving, constantly checking their surroundings for the slightest trace of shadow aether.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/step-1.webp" alt="step-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/step-1.webp" alt="step-1" class="center">
 
 A plume of dark smoke rose from the skyline, rancid with the acrid stench of burning flesh. As they drew closer, Boltyn began to taste the sour-sweet coating of its soot on the back of his tongue, an almost tangible layer of fine ash carried by the evening breeze.
 
@@ -64,7 +64,7 @@ Boltyn's determination coursed through his veins. A blazing heat which felt both
 
 The shadows around him dissipated, and the arcane attacks dispersed into fine mist, shattered by the radiant shield which had formed around Boltyn. Rays of light burst forward from his blade, spearing the cultists' arcane attacks before they had a chance to fully form. The cultists, who had turned their attention to Leander, collapsed to the earth, their parasitic connection suddenly bursting with light. It had sent them to their knees, trembling from the force of the intangible blow.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/step-2.webp" alt="step-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/step-2.webp" alt="step-2" class="center">
 
 Seized by this unknown power, Boltyn charged at the semi-circle of cultists around him, striking each of them down one by one, his armour gleaming like the first light of dawn. He moved as if guided by some ancient, unknowable force, fighting with a preternatural speed and grace. As the last foe fell to the ground, Boltyn rose to his full height, slowly sheathing his sword.
 
@@ -88,7 +88,7 @@ At this hour, the Library was almost completely empty; most of its daily patrons
 
 As if summoned, [Prism](https://legendarystories.net/heroes-of-rathe/prism-about.html) suddenly emerged from one of the aisles ahead, turning towards him with a cheerful, unguarded smile.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/step-3.webp" alt="step-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/step-3.webp" alt="step-3" class="center">
 
 "Boltyn, wasn't it?" Her voice, while bright and filled with life, was still soft enough to avoid disturbing the still library, complimenting rather than breaking the heavy silence.
 
@@ -128,19 +128,19 @@ Prism broke into a wide grin, her gaze filled with a glaring focus Boltyn hadn't
 
 "Then let me start from the beginning." Prism cleared her throat, her face settling into a detached, peaceful expression, and Boltyn was suddenly hit by a sharp bolt of familiarity. For a moment, he saw his grandmother's face, felt the press of her arm around his small shoulders, pulling him close as she cleared her throat, preparing to tell him yet another story.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/step-4.webp" alt="step-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/step-4.webp" alt="step-4" class="center">
 
 "Solana has long existed in the land of Rathe. Our forefathers came to this land a long time ago, and were guided by Sol's grace to the earth on which we now stand. Here, they began to build the city of Solana. Our people have always been filled with a kind of curiosity, which drives us to understand the world in which we live. In time, as the village grew into a proper city, our people began to separate into different roles. Some of them became scholars, and as they were the most learned and devoted citizens of Solana, they eventually came to lead our people.
 
 "However, not all intelligent minds are made for leadership, and not all devotion is equal. One of our scholars, the very first to have led our people, abused his power. By day, he practiced his sacred duties to Solana, studied the teachings of Sol, and pursued the path of the Light. However, by night, he would disappear under the pretense of retiring to his bed, when in truth, he went to the room he had created as a hiding place for all of Rathe's secrets. In the darkness he followed the broken path: He studied the ways of Shadow.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/step-5.webp" alt="step-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/step-5.webp" alt="step-5" class="center">
 
 "In time, the Apostate's betrayal was revealed to the rest of the city, and the scholars of Solana sought to bring an end to his dangerous, heinous studies. Yet at the moment that they'd learned of his actions, the Apostate fled, hiding himself first from the Light, and then from all of Rathe. Eventually, we came to learn that he had built a new home for himself, one which was devoted to the most nightmarish studies known to humankind.
 
 "The Apostate, a scholar of Solana, was the one who founded the Demonastery. It was the ultimate betrayal, a perversion of everything that Solana has stood for. The Shadow is a path of untold power, but one which always demands a high price. The followers of the broken path are unafraid to sacrifice others in their quest for power, harming the innocent and casting aside all that is good in order to pursue their own selfish desires.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/step-6.webp" alt="step-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/step-6.webp" alt="step-6" class="center">
 
 "This is the truth of our fair city. Solana and the Demonastery will be forever linked through our history, and as we were the ones who created the Apostate, it is our duty to bring an end to the Demonastery. Sometimes, this fight creates great strife not only for our city, but for all of Rathe. In these times of struggle and sacrifice, Sol sometimes grants us gifts, so that we might fight back against the malicious intentions of the Demonastery. While that dark and devious place is filled with followers of the broken path, who devote themselves to pursuing the blighted magics of the Shadow, we Solanians are noble and pure of heart, devoting ourselves to the Light. With Sol's guidance, we dedicate ourselves to understanding the world around us. This knowledge, this devotion, sometimes blesses us with gifts that the rest of Rathe shall never know for themselves."
 
@@ -182,7 +182,7 @@ The Amphitheatre was flooded with wordless cries of determination, answering the
 
 For one single moment, in the pale light, Boltyn thought he glimpsed Bellona's figure, too; rising above the Solarium, her fiery wings painting the sky in brilliant shades of gold and amber.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/04-monarch/media/step-7.webp" alt="step-7" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/step-7.webp" alt="step-7" class="center">
 
 ---
 

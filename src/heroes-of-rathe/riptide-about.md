@@ -1,7 +1,7 @@
 # Riptide, Lurker of the Deep
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
-  <source src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/riptide-lurker-of-the-deep.mp4" type="video/mp4">
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/riptide-lurker-of-the-deep.mp4" type="video/mp4">
 </video>
 
 If you want something caught, Riptide is the one to catch it.
@@ -19,7 +19,7 @@ Predators of the Pits beware. It's the thrill of the hunt that keeps the Lurker 
 ## Hero Highlights
 
 <div class="hero-container">
-  <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/riptide-catch-of-the-day.webp" class="hero-icon" />
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/riptide-catch-of-the-day.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Catch of the Day</b><br>
     Waiting until the slightest movement catches his eye, Riptide launches a barbed harpoon into the murky water, hauling in his prize. Use your array of deadly arrows to snag your prey and drag them to their doom.
@@ -27,7 +27,7 @@ Predators of the Pits beware. It's the thrill of the hunt that keeps the Lurker 
 </div>
 
 <div class="hero-container">
-  <img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/riptide-treacherous-traps.webp" class="hero-icon" />
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/riptide-treacherous-traps.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Treacherous Traps</b><br>
     Clamp down on your opponents with Riptide's ingenious contraptions. With a specially designed trap for every scenario, all you need to do is set the bait and sit tight until a poor unsuspecting soul wanders straight into your clutches. Patience is key - you don't want to pull the trigger too early or too late and end up empty handed.

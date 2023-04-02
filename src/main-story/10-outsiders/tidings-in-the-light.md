@@ -12,7 +12,7 @@ The figure checks for onlookers before darting into the war-torn house. Safe fro
 
 [Shiyana](../../heroes-of-rathe/shiyana-about.md) steps from the crumpled cloak of the hideous old with a sigh of relief. She picks her way through the scattered bones of the home's inhabitants. Enough bones for a large family, scored with teeth marks, broken and sucked empty of their marrow. She looks through a shattered window at the [Solarium](../../world-of-rathe/solana/a-radiant-city.md#solarium) in the distance, elegant in its radiance, and the comforting boundary of the Great Gates. It is a welcome sight after the boiling harshness of [Volcor](../../world-of-rathe/volcor/volcor.md), after the raging fires of a land at war with itself.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/tidings-in-the-light-1.webp" alt="tidings-in-the-light-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/tidings-in-the-light-1.webp" alt="tidings-in-the-light-1" class="center">
 
 Against the corruption that besieges it, Solana remains graceful; a bastion of order and beauty. It feels good to be home again, once more basking in the glow of a lighthouse, safe from the intrigues and conflicts she has survived for duty and devotion.
 
@@ -30,7 +30,7 @@ She crosses the bare and bloodied soil to the Solanian battle line where the cit
 
 She can sense his pain, the longing for hope. For his son, Aios. For the righteous many. Anything to fill the void left by the death of his beloved. His Eirina.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/tidings-in-the-light-2.webp" alt="tidings-in-the-light-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/tidings-in-the-light-2.webp" alt="tidings-in-the-light-2" class="center">
 
 "Some." She hopes Sol will forgive her the lie. "For the [Magisters'](../../world-of-rathe/solana/the-order-of-the-light.md#magisters) ears only."
 
@@ -62,7 +62,7 @@ As she nears the [Amphitheatre](../../world-of-rathe/solana/a-radiant-city.md#th
 
 "We welcome the brightest and boldest of our Gemini," heralds The Librarian, "and give thanks to Sol for her safe return."
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/tidings-in-the-light-3.webp" alt="tidings-in-the-light-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/tidings-in-the-light-3.webp" alt="tidings-in-the-light-3" class="center">
 
 Shiyana raises her hand, her diamond spinning over her palm, and bows deeply, as is the custom. "I serve in the Light."
 
@@ -88,7 +88,7 @@ She expects a chorus of surprise at the mention of it. But the chamber remains s
 
 Like echoes to The Steadfast's cadence, Shiyana's words ring out of their own accord. She spins her summations, woven as they are from tenuous threads, unfolding a tapestry of tragedy. As a chambermaid, she witnessed the murderous rivalry between the [Ezu and Alshoni](https://legendarystories.net/world-of-rathe/volcor/fire-in-their-veins.html#factions); Dracai factions locked in a dynastic struggle. As a healer, she patched the wounds and listened to the stories of rebels under the banner of the Phoenix. As a scribe, she copied the words of Spymaster Xathari until his untimely demise. As General Riku's personal aide, she finally snagged a hole in this arras of silence. A symbol upon a seemingly banal parchment. A sign she recognized from a long ago mission in the depths of the [Pits](../../world-of-rathe/pits/pits.md).
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/tidings-in-the-light-4.webp" alt="tidings-in-the-light-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/tidings-in-the-light-4.webp" alt="tidings-in-the-light-4" class="center">
 
 [L'Apocalypta](../../world-of-rathe/pits/blackjacks-mercenary-group.md#lapocalypta).
 
@@ -114,7 +114,7 @@ The Librarian's verse renders Shiyana speechless. How blind she has been despite
 
 The Grand Magister's words shatter the silence like the sun breaking through a mantle of cloud. They turn to Shiyana, their blazing eyes searing through Shiyana's mind. Her petty ego scurries and squirms, trying to hide, trying to escape The Steadfast's ineluctable gaze. It cannot. One by one, her precious anxieties melt away, executed in iridescence. She is forged anew, impurities exorcized. A servant, an instrument, devoted to the glory of Sol.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/tidings-in-the-light-5.webp" alt="tidings-in-the-light-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/tidings-in-the-light-5.webp" alt="tidings-in-the-light-5" class="center">
 
 "In the shade of destiny, devious minds hatch deviant dreams," intones The Librarian, slow and stately as the rising sun. "The schemes they brew are poisoned with greed and malice. Bereft of true Light, their designs will be but a passing disease, cured and forgotten."
 
@@ -128,7 +128,7 @@ The Grand Magister turns and acknowledges The Librarian, who nods their agreemen
 
 The Grand Magister's voice is a sunlit sermon streaming over the morn, warming her after a long and frigid night.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/tidings-in-the-light-6.webp" alt="tidings-in-the-light-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/tidings-in-the-light-6.webp" alt="tidings-in-the-light-6" class="center">
 
 "In Sol we trust."
 

@@ -1,7 +1,7 @@
 # Lexi, Livewire
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
-  <source src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/lexi.mp4" type="video/mp4">
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/lexi.mp4" type="video/mp4">
 </video>
 
 Up the sides of mighty fjords that reach up into the heavens lies a domain brimming with the essence of Lightning and Ice. The people of [Aria](https://legendarystories.net/world-of-rathe/aria/aria.html) named this fantastical realm Enion, the Armory of Ancients, and the Training Ground of Champions.

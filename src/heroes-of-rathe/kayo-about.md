@@ -1,6 +1,6 @@
 # Kayo, Beserker Runt
 
-![kayo-beserker-runt](https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/kayo.webp)
+![kayo-beserker-runt](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/kayo.webp)
 
 On the outskirts of a vast jungle, where dense undergrowth gives way to the fiery, barren wastes, one brute marks his territory in blood and ash. Amid the cracked earth and sweltering heat, Kayo fights off savage lava beasts and swarms of massive insects, trading blow for blow in vicious battles to the death.
 

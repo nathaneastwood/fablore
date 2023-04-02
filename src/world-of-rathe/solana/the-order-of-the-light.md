@@ -16,7 +16,7 @@ Once the first eight years of training are completed, seekers graduate and becom
 
 ## The Sacred Hierarchy of Solana
 
-![The Sacred Hierarchy of Solana](https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/world-of-rathe/solana/media/sacred-hierarchy.webp)
+![The Sacred Hierarchy of Solana](https://d2hl7maqck52px.cloudfront.net/world-of-rathe/solana/sacred-hierarchy.webp)
 
 ## The Light of Sol
 The Light of Sol is predominantly comprised of scholars, including acolytes, chancellors, archons and magisters. They are the spiritual lifeline of the kingdom, providing a variety of services to their people. The members of the Light of Sol are healers, academics, researchers, scribes, guides, confidantes, leaders and fighters, working to serve and defend their people in whichever role they are most needed. Many such scholars will journey beyond the city walls in their lifetime, fighting alongside the knights of the Hand of Sol, and joining their parties on expeditions and patrols. However, there are far more roles incorporated into the Light of Sol than only these examples.

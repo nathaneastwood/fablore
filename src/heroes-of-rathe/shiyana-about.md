@@ -1,6 +1,6 @@
 # Shiyana, Diamond Gemini
 
-![shiyana-diamond-gemini](https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/shiyana.webp)
+![shiyana-diamond-gemini](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/shiyana.webp)
 
 Where there is light, there is shadow. Amongst the people of [Solana](https://legendarystories.net/world-of-rathe/solana/solana.html), a rumour lingers, whispered behind closed doors; tales of those who blend into the crowd, hiding in plain sight, working day and night to preserve the peace.
 

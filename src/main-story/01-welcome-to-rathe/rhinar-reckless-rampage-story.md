@@ -6,7 +6,7 @@ _With creatures venturing further and further beyond the jungle's outer limits, 
 
 ## Hide
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/01-welcome-to-rathe/media/rhinar-1.webp" alt="rhinar-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/rhinar-1.webp" alt="rhinar-1" class="center">
 
 This is the harshest habitat in Rathe, a massive jungle filled with vicious predators and savage wildlife. Inside a small hollow, beneath the roots of a haldor, a small pup opens its eyes for the first time. This is a brute, one of the fiercest predators in the Savage Lands. Yet, as he crawls out of the pile of rotting carcasses, he is no more dangerous than a newborn jacara.
 
@@ -18,7 +18,7 @@ However, nearby, a pair of strix lurk within the dense undergrowth. They notice 
 
 After a successful hunt, the brute feasts upon his prey. However, the scent of blood often draws nearby creatures, who come searching for a free meal. Even when he bellows in an attempt to intimidate them, the young brute is rarely seen as a threat.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/01-welcome-to-rathe/media/rhinar-2.webp" alt="rhinar-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/rhinar-2.webp" alt="rhinar-2" class="center">
 
 Skera, peluda, ank'is, brawnhide; kings of the jungle, fighting tooth and nail in a primordial wilderness. There is no rest, no respite. From the first light of dawn, the predators begin to roam, and their prey must constantly be on the move if they wish to survive. Ensnaring vines and vibrant flowers entice their prey into drawing closer, their curiosity proving to be their downfall. Even after the sun sets, the predators continue to stalk through the darkness, searching for sleeping prey to feast upon.
 
@@ -42,7 +42,7 @@ The jungle has become far more complex. Beasts roam in massive packs, while sava
 
 Meanwhile, furless, leather-clad creatures gather to the East. With no talons or fangs to speak of, they wield pieces of metal, their large packs and sheer determination outweighing their weaknesses. Tracks and bones left in the earth speak of hunters wearing silver shells, trampling everything in their path. While the brute has yet to encounter these strange creatures, he prepares himself for a fight, keeping a wary eye out for the tracks they leave behind.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/01-welcome-to-rathe/media/rhinar-3.webp" alt="rhinar-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/rhinar-3.webp" alt="rhinar-3" class="center">
 
 For even the most experienced hunter, these are treacherous lands, and biding your time might well save your life. The brute lies in wait, skirting along the edges of a tall cliff face, avoiding the largest and fiercest beasts that would spell certain death. He avoids the barren wastelands and the strange lakes, the acrid scent of death in the air.
 
@@ -54,7 +54,7 @@ It does not last forever. The brute soon becomes a predator. [Rhinar](https://le
 
 Now fully grown, the fear and caution have given way to aggression, an overwhelming urge to carve out a territory for his own. Yet Rhinar grows ever larger, towering over the other predators of the jungle. He drives scraps of metal into his wooden club, the rashari branch he'd once scavenged from the forest floor; adds the jawbone of another brute and the tusk of a young brawnhide.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/01-welcome-to-rathe/media/rhinar-4.webp" alt="rhinar-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/rhinar-4.webp" alt="rhinar-4" class="center">
 
 Rhinar begins to hunt down predator and scavenger alike, any possible threat, any creature that consumes the prey that belongs to him. He fights tooth and nail, beating them down with his club and his fists. The first beast to challenge him pays dearly for it, a peluda that attempts to drive him away from its hunting grounds. He crushes its skull into the cold, hard rock, brain matter dripping onto the stony earth. The curve of his club sends skull fragments flying across the clearing, blood pooling onto the earth, strips of fur and hide hanging limply from the jagged wood. Rhinar tears into it with his bare hands, shoving mouthfuls of steaming viscera into his gaping maw.
 
@@ -86,7 +86,7 @@ A memory surfaced, taking him back to a warm, mid-autumn day; a young pup at the
 
 Rhinar charges forward, tugging himself free of the ropes, sustaining several gashes in the process. He bowled over one of the larger creatures, leaping toward one of the smallest members of the pack. Her fear was a sharp note in the air, the acrid scent stark against the fire of his bloodrage. A single blow to the side of her head sent her flying to the ground, and before she could struggle to rise, Rhinar leapt upon her. Tearing away her silver shell, he drove his fists into her, the loud crack of crushed bones echoing through the clearing.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/01-welcome-to-rathe/media/rhinar-5.webp" alt="rhinar-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/rhinar-5.webp" alt="rhinar-5" class="center">
 
 The rest of the pack faltered for a single heartbeat, and in that same instant, Rhinar charged at another, crushing the creature's skull between his hands. Another crashes into a tree with a sickening crack, while a third falls to their knees, screaming. The scent of blood drove him into a frenzy, tearing through the clearing in an unbridled rampage. The rest of the pack rallied, holding their weapons aloft as they charged. Their talons slashed through the air, one of them cutting Rhinar's tough hide, a trail of blood streaming down his shoulder.
 

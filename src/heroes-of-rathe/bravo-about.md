@@ -6,7 +6,7 @@ The playable variants of Bravo are:
 
 # Bravo, Showstopper
 
-![bravo-showstopper](https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/bravo.webp)
+![bravo-showstopper](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/bravo.webp)
 
 The star of the Everfest Carnival, leader of the Legendarium, performing stories and legends for cheering crowds. Bravo grew up listening to the tales of old, fascinated by past heroes and adventurers. When his destiny came knocking, with a curious quest and mysterious companions, Bravo jumped at the chance to become a true hero. Now, he has embraced the legend of the Guardians, and is ready to write his own story.
 
@@ -31,7 +31,7 @@ When Bravo takes the stage, his presence fills the room. Such is the aura of a g
 # Bravo, Star of the Show
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
-  <source src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/heroes-of-rathe/media/bravo-star-of-the-show.mp4" type="video/mp4">
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/bravo-star-of-the-show.mp4" type="video/mp4">
 </video>
 
 It's been years since the [skirmish at the Fractal Scar](../main-story/01-welcome-to-rathe/bravo-showstopper-story.md), and the call to arms you answered that fateful day. As the charismatic and handsome ringmaster of the Legendarium, your time (in-between shows) had been well spent honing your newfound power, the power of the Flow that now coursed within your veins!

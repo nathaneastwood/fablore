@@ -16,7 +16,7 @@ Another grandmaster raised his hand, waiting for silence before clearing his thr
 
 "The clan has been dealing with the Seikan for generations. If there was a cure to be found, it would have been discovered years ago. As head of the clan, you have duties here that you must attend to. You have a responsibility to your people."
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/01-welcome-to-rathe/media/katsu-1.webp" alt="katsu-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/katsu-1.webp" alt="katsu-1" class="center">
 
 "How can I be responsible for my people when they continue to wither and die from an illness that we do not understand? During my Jokyoku, I spent years travelling across Misteria and never once saw its like. Perhaps the way to a cure lies beyond these mountains..."
 
@@ -50,7 +50,7 @@ A well-worn map lay tucked into his shirt, marking the paths from village to vil
 
 Two nights and two days passed in quick succession, sleeping in the warm sunlight, and travelling by the pale light of the moon. A peaceful silence hovered over the mountain ranges, a layer of mist coating the plants in glistening dew. The calm evening air brought a lightness to Katsu's chest as he traversed the cliffs, wandering along the faint mountain trails.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/01-welcome-to-rathe/media/katsu-2.webp" alt="katsu-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/katsu-2.webp" alt="katsu-2" class="center">
 
 It had been many years since his return to the Mugenshi Gorge to take over as the head of the clan, and in the time since, he had almost forgotten how it felt to travel in this way. While a part of him longed for those peaceful days, taking his time as he journeyed from village to village, he remembered his purpose for leaving, and the duty he had to his clan.
 
@@ -122,7 +122,7 @@ A pause stretched between them, silence reigning as Katsu sized up the man befor
 
 "My clan has suffered from an illness for generations. It is a curse, and we have yet to find its source or why it continues to afflict them. I wish to search for some way to help, perhaps even cure the illness altogether."
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/01-welcome-to-rathe/media/katsu-3.webp" alt="katsu-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/katsu-3.webp" alt="katsu-3" class="center">
 
 After a long moment, the man nodded, looking thoughtful.
 
@@ -188,7 +188,7 @@ The rebel leader sighed heavily, pointing to the pedestal.
 
 Yet before any of them could take a single step, Katsu held out a hand, halting the group. He turned his head slightly, looking over his shoulder at the air behind him.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/01-welcome-to-rathe/media/katsu-4.webp" alt="katsu-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/katsu-4.webp" alt="katsu-4" class="center">
 
 "I have felt the wind stirring for some time now. If you are so determined to keep an eye on me, you might as well join us."
 
@@ -222,7 +222,7 @@ Katsu turned to inspect the contents of the jade tray, slowly unfurling the topm
 
 Adjusting his bundle, Katsu turned to lead the way back home, leaping from the cliff face and disappearing into the mists below.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/01-welcome-to-rathe/media/katsu-5.webp" alt="katsu-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/katsu-5.webp" alt="katsu-5" class="center">
 
 ---
 

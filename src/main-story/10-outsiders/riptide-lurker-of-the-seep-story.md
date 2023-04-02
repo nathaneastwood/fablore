@@ -8,7 +8,7 @@ A barge chugs by laden with tenatan ore, bound for uplift to [Metrix](../../worl
 
 The stricken gangster tries to haul the jaws apart with his bare hands. They budge, only to snap back and pinch even tighter, bloodying his fingers in the process. Riptide sighs. Just another thug with brutality for brains. A good screamer though.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/riptide-1.webp" alt="riptide-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/riptide-1.webp" alt="riptide-1" class="center">
 
 As the [Boss](../../heroes-of-rathe/uzuri-about.md) predicted, the man's pitiful cries awaken the inhabitants of the casino. Lanterns are lit. The main door opens. Bleary-eyed henchmen spill out onto the street, fresh from whatever sack they drunkenly slumped into last night. Bald heads gleam in the lamplight. Snarling mouths reveal teeth filed to points. Tattooed hands brandish blacktek pistols. Most are bare chested, showing off the scale and fin symbols of their Piranha affiliation. They're angry from the rude awakening, ready to rumble. Easy pickings for the trap Riptide has set for them.
 
@@ -16,7 +16,7 @@ With the street so strewn with rubbish, and their brains still fuggy with grog, 
 
 The first Piranhas trip his wires as they move in to help their stricken comrade. Even from across the channel, he can hear the click and swoosh of his traps being triggered. A circular saw blade flies out of the shadows and takes the lead gangster's head clean off. It's with no small pride that Riptide notes the exactness of that decapitation. He pats the preserved heads that hang from his belt. Clean removal is the trick with trophies. Can't be marring the merchandise with sloppy workmanship.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/riptide-2.webp" alt="riptide-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/riptide-2.webp" alt="riptide-2" class="center">
 
 The next three Piranhas lose their noggins in a similar fashion. One blade flies a little high, a bit too slow, cutting through the victim's upper lip, grinding to a quivering halt just below his earlobes. Riptide 'tut tuts' himself for that one. Should've triple-checked the tensions.
 
@@ -28,7 +28,7 @@ And like clockwork, the rear door of the casino opens and out pops a gun-toting 
 
 Riptide picks up his bow, flexes his metallic hand, and lines up the farthest of the two bodyguards. The heavy arrow skewers the man like a harpoon through a blubbery blindseal. To his credit, the surviving meat shield does his job, covering his employer with his fleshy bulk. It makes for a tricky shot. Wouldn't do to puncture the prize. So Riptide waits until the target has moved his bald mug, just so. The arrow punches through the man's face, popping his head like one of Riptide's bulbous sores.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/riptide-3.webp" alt="riptide-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/riptide-3.webp" alt="riptide-3" class="center">
 
 The bean counter stands there for a gormless, gore-smeared moment, before a lean, long-coated figure steps up behind him and drives a syringe through his white collar. He flinches and flops as the sedative takes hold, toppling him like a carcass on a killing room floor. Other figures appear out of the closest alleyway, pushing a tumbrel between them. They haul the suited gentleman onto the tray and carry him off into the half light.
 
@@ -38,7 +38,7 @@ The slightest smile twists his mutilated face as he watches her stride off into 
 
 He sets down his bow, takes up his oar, and paddles across the channel. Blades to retrieve. Trophies to claim. Traps to tweak. No point in waiting about.
 
-<img src="https://media.githubusercontent.com/media/nathaneastwood/fablore/main/src/main-story/10-outsiders/media/riptide-4.webp" alt="riptide-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/riptide-4.webp" alt="riptide-4" class="center">
 
 ---
 
