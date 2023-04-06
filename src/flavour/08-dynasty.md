@@ -40,7 +40,7 @@ The body is but a vessel that contains your Qi. Let go, unleash the power that l
 It is said that the Imperial Forge of Volcor produces the sturdiest armor in all of Rathe.
 
 #### Skull Crack - (DYN008)
-Like most fruits of the forest, the good part’s inside the shell.
+Like most fruits of the forest, the good part's inside the shell.
 
 #### Spirit of Eirina - (DYN066)
 "Her spirit inside me, always." - [Boltyn](../heroes-of-rathe/boltyn-about.html)

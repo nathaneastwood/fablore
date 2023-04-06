@@ -33,7 +33,7 @@ This also happens to be on the back of cards under the words "Flesh and Blood".
 On the mentor card, Lady Barthimont there is a book in the background which states:
 
 > "With the rising of the blood, so too does my power wa_ full."<br>
-> “My will as iron, my words as law, I call unto thee”.
+> "My will as iron, my words as law, I call unto thee".
 
 <img src="https://d2hl7maqck52px.cloudfront.net/languages/lady-barthimont-book.webp" alt="lady-barthimont-book" class="center">
 
