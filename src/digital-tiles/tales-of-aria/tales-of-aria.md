@@ -129,3 +129,7 @@ All of Aria will soon celebrate the Ollin's return!
 Ice glistens gently. Softly. But for those able to see through more than the surface it tells a story of those that came before.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/winters-grasp.webp" alt="winters-grasp" class="center" />
+
+---
+
+_Source: [https://fabtcg.com/resources/digital-assets/tales-aria/tales-aria-digital-tile-reveals/](https://fabtcg.com/resources/digital-assets/tales-aria/tales-aria-digital-tile-reveals/)_
