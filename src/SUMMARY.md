@@ -173,6 +173,7 @@
 
 - [Digital Tiles](digital-tiles/README.md)
     - [Crucible of War](digital-tiles/crucible-of-war/crucible-of-war.md)
+    - [Tales of Aria](digital-tiles/tales-of-aria/tales-of-aria.md)
 
 - [Data](data/data.md)
     - [Characters](data/characters.md)
