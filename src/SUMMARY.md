@@ -137,6 +137,15 @@
     - [Arakni, Solitary Confinement](main-story/10-outsiders/arakni-solitary-confinement-story.md)
     - [Riptide, Lurker of the Deep](main-story/10-outsiders/riptide-lurker-of-the-seep-story.md)
 
+- [Short Stories](short-stories/README.md)
+    - [Outsiders](short-stories/outsiders/README.md)
+        - [A Thousand Cuts](short-stories/outsiders/a-thousand-cuts.md)
+        - [Aiming High](short-stories/outsiders/aiming-high.md)
+        - [Bait and Switch](short-stories/outsiders/bait-and-switch.md)
+        - [Cornering Your Prey](short-stories/outsiders/cornering-your-prey.md)
+        - [It's a Trap!](short-stories/outsiders/its-a-trap.md)
+        - [Surging to Success](short-stories/outsiders/surging-to-success.md)
+
 - [Languages](languages/intro.md)
     - [Arcane](languages/01-arcane.md)
     - [Solanian](languages/02-solanian.md)
