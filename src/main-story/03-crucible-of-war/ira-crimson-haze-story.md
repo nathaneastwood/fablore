@@ -53,3 +53,7 @@ _Jing._
 ---
 
 Crumpling the note, Ira dropped it onto the ground, crushing the paper beneath her heel. A short call drew her outside of her tent, stopping to speak to a messenger. While her brother searched in vain for 'another path', she would continue to search, and bring her clan to justice.
+
+---
+
+_Source: [https://fabtcg.com/heroes/ira-crimson-haze/?stories=True](https://fabtcg.com/heroes/ira-crimson-haze/?stories=True)_

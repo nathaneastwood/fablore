@@ -2,7 +2,7 @@
 
 Aether is one of the quintessential building blocks of Rathe. It is aether which fuels our world, giving life to all beings, giving power to all spellwork. Few truly understand the nature of this arcane force, and no one can yet explain its relationship to the physical world.
 
-Some humans possess a unique gift, one which cannot be obtained through other means. Aether affinity is the ability to manipulate aether, and thus affect the world around oneself through the use of spells. Aether is the basis of all arcane arts, and thus, only those with this gift can practice magic. Someone born without an affinity to aether will never be able to practice even the simplest spell. Humans have yet to understand this aether affinity. It would seem that blood is somewhat related, as there exist many bloodlines in whom the affinity runs strong. The scholars of [Solana](https://legendarystories.net/world-of-rathe/solana/solana.html) are an excellent example, as are the Dracai of [Volcor](https://legendarystories.net/world-of-rathe/volcor/volcor.html). However, this is not a given.
+Some humans possess a unique gift, one which cannot be obtained through other means. Aether affinity is the ability to manipulate aether, and thus affect the world around oneself through the use of spells. Aether is the basis of all arcane arts, and thus, only those with this gift can practice magic. Someone born without an affinity to aether will never be able to practice even the simplest spell. Humans have yet to understand this aether affinity. It would seem that blood is somewhat related, as there exist many bloodlines in whom the affinity runs strong. The scholars of [Solana](../../world-of-rathe/solana/solana.html) are an excellent example, as are the Dracai of [Volcor](../../world-of-rathe/volcor/volcor.html). However, this is not a given.
 
 There are some families in whom the affinity runs strong, and yet their children can be born without it. Likewise, there are some who are born with aether affinity, despite none of their ancestors ever possessing it.
 
@@ -28,6 +28,6 @@ Perfect. He is already responding well to the initial runework, I suspect that h
 
 From his armour, I suspect he may originally come from Volcor, though I'm not certain how he survived the seas. Perhaps he was meant for this, a survivor in the truest sense.
 
-I think that I shall name him [Viserai](https://legendarystories.net/heroes-of-rathe/viserai-about.html) - it feels fitting, and every weapon must have a name. I have faith that this subject may survive the Arknight system. Only time shall tell whether Viserai can become the Arknight, or whether he shall become one more failed test. Either way, I am certain to learn much more about the process, as he has survived more of the process than any other subject thus far.
+I think that I shall name him [Viserai](../../heroes-of-rathe/viserai-about.html) - it feels fitting, and every weapon must have a name. I have faith that this subject may survive the Arknight system. Only time shall tell whether Viserai can become the Arknight, or whether he shall become one more failed test. Either way, I am certain to learn much more about the process, as he has survived more of the process than any other subject thus far.
 
 I am eager to see the results.

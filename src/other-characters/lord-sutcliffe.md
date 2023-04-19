@@ -9,3 +9,10 @@ In time, Sutcliffe's research evolved into the Arknight project: he sought to cr
 Preserved with layers of runework, and bound by intricate spells, Sutcliffe is trapped within his own mind, carried around like a common trophy. The Disciples of Pain quickly came to possess his skull, and now bother him constantly with their inane questions, forcing him to suffer through their unending chatter about duty and sacrifice. While the odd researcher attempts to steal him for their own purposes, Lord Sutcliffe cares little about what may become of him—as a disembodied voice trapped within a skull, his life is an unending torment of infuriating half-wits and idle conversation.
 
 Unable to escape, subjected to the whims of others with no recourse, Lord Sutcliffe can only dream of the day he enacts his revenge on the one who brought him to this dark fate; eventually, one way or another, he will find the means to make Viserai pay for his disobedience.
+
+---
+
+_Source: [https://fabtcg.com/articles/lord-sutcliffe/](https://fabtcg.com/articles/lord-sutcliffe/)_<br>
+_Written by Nicola Price_<br>
+_Edited by [Tarryn Thomas](https://tarrynlisathomas.wordpress.com/)_<br>
+_Illustration by [bimawithpencil](https://www.artstation.com/bimawithpencil)_

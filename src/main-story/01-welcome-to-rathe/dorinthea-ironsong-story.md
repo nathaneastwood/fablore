@@ -161,4 +161,5 @@ Despite the prestige of her accomplishment, promoted to lieutenant at just twent
 ---
 
 _Source: [https://fabtcg.com/heroes/dorinthea-ironsong/?stories=True](https://fabtcg.com/heroes/dorinthea-ironsong/?stories=True)_<br>
-_Illustrations by MJ Fetesio, colour by Sindy Wo, story by Nicola Price._
+_Story by Nicola Price._<br>
+_Illustrations by MJ Fetesio, colour by Sindy Wo_

@@ -227,4 +227,5 @@ Adjusting his bundle, Katsu turned to lead the way back home, leaping from the c
 ---
 
 _Source: [https://fabtcg.com/heroes/katsu-the-wanderer/?stories=True](https://fabtcg.com/heroes/katsu-the-wanderer/?stories=True)_<br>
-_Illustrations by MJ Fetesio, colour by Sindy Wo, story by Nicola Price._
+_Story by Nicola Price._<br>
+_Illustrations by MJ Fetesio, colour by Sindy Wo._

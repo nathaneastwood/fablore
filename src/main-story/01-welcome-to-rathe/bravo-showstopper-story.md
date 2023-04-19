@@ -143,4 +143,5 @@ As Bravo greeted his companions, following them into the sea of tents with a bro
 ---
 
 _Source: [https://fabtcg.com/heroes/bravo-showstopper/?stories=True](https://fabtcg.com/heroes/bravo-showstopper/?stories=True)_<br>
-_Illustrations by MJ Fetesio, colour by Sindy Wo, story by Nicola Price._
+_Story by Nicola Price._<br>
+_Illustrations by MJ Fetesio, colour by Sindy Wo._

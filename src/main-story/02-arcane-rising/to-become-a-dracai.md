@@ -402,4 +402,6 @@ In his hands, the staff appeared to awaken, firelight dancing between the obsidi
 
 ---
 
-_Sources: [To Become a Dracai](https://fabtcg.com/heroes/kano/?stories=True), [Playing With Fire](https://fabtcg.com/heroes/kano/playing-fire/), [Smoke and Mirrors](https://fabtcg.com/heroes/kano/smoke-and-mirrors/), [From the Ashes](https://fabtcg.com/heroes/kano/rise-ashes/)_
+_Sources: [To Become a Dracai](https://fabtcg.com/heroes/kano/?stories=True), [Playing With Fire](https://fabtcg.com/heroes/kano/playing-fire/), [Smoke and Mirrors](https://fabtcg.com/heroes/kano/smoke-and-mirrors/), [From the Ashes](https://fabtcg.com/heroes/kano/rise-ashes/)_<br>
+_Story by Nicola Price._
+_Illustrations by MJ Fetesio._<br>

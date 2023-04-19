@@ -329,3 +329,5 @@ She shrugged in response.
 ---
 
 _Sources: [The Jaws of Death](https://fabtcg.com/heroes/azalea/?stories=True), [Slings and Arrows](https://fabtcg.com/heroes/azalea/slings-and-arrows/), [Cards on the Table](https://fabtcg.com/heroes/azalea/cards-on-the-table/), [A Bird in the Hand](https://fabtcg.com/heroes/azalea/a-bird-in-the-hand/)_
+_Story by Nicola Price._<br>
+_Featuring illustrations by [Daniel Jiménez](https://www.artstation.com/danieljimenez)._ 

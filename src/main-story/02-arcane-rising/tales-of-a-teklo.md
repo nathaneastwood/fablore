@@ -483,4 +483,5 @@ Ducking between the stalls, they hurried off, turning their backs on the twisted
 ---
 
 _Sources: [Tales of a Teklo](https://fabtcg.com/heroes/dash/?stories=True), [Stroke of Genius](https://fabtcg.com/heroes/dash/stroke-of-genius/), [Needle in a Haystack](https://fabtcg.com/heroes/dash/needle-in-a-haystack/), [Full Steam Ahead](https://fabtcg.com/heroes/dash/full-steam-ahead/)_<br>
+_Story by Nicola Price._<br>
 _Illustrated by Sam Yang_

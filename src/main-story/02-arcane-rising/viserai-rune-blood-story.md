@@ -301,4 +301,5 @@ Turning away from the frame, Viserai looked out over the small crowd which had g
 ---
 
 _Sources: [https://fabtcg.com/heroes/viserai/?stories=True](https://fabtcg.com/heroes/viserai/?stories=True), [Return of the Shadow](https://fabtcg.com/articles/return-shadow/)_<br>
-_Featuring illustrations by MJ Fetesio and Nikolay Moskvin. Story by Nicola Price._
+_ Story by Nicola Price._<br>
+_Illustrations by MJ Fetesio and Nikolay Moskvin._

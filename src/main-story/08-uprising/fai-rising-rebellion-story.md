@@ -254,6 +254,12 @@ No longer will the Volcai be ground into the dirt. It is time for the Phoenix to
 
 ---
 
+_Stories written by Edwin McRae and Rachel Rees._<br>
+_Directed by Robbie._<br>
+_Illustrated by Sam Yang, Nikolay Moskvin._
+
+---
+
 ### The Phoenix and the Dragon, Narrated by [Peranine](https://www.youtube.com/@Peranine)
 
 <p>
@@ -261,9 +267,3 @@ No longer will the Volcai be ground into the dirt. It is time for the Phoenix to
 </p>
 
 <div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/Cak-19PYp8E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-
----
-
-_Stories written by Edwin McRae and Rachel Rees._<br>
-_Directed by Robbie._<br>
-_Illustrated by Sam Yang, Nikolay Moskvin._
