@@ -76,7 +76,7 @@ A plant known for its small, glowing red berries and thorny black leaves. While 
 
 Ingesting just one of these tiny berries can kill an adult human within minutes.
 
-### Bloodrot Moss
+### Bloodroot Moss
 
 A seemingly delicate violet plant, with small, soft leaves. However, this invaise species seeks out living creatures rather than soil, absorbing nutrients and glucose from their blood.
 
