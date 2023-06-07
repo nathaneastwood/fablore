@@ -66,7 +66,7 @@ Only a few of us remain after what happened this morning. Yet another beast atta
 
 One of the Savage Lands' most skilled predators, they are almost completely nocturnal, relying on the darkness to help mask their movements while stalking prey. Their four eyes are likely to help it see in the dark, in order to hunt its prey.
 
-Avoid their poisonous spokes at all costs.
+Avoid their poisonous spikes at all costs.
 
 The barb at the end of its tail is also highly toxic.
 
