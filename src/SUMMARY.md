@@ -40,6 +40,8 @@
         - [The Primal Way](world-of-rathe/savage-lands/the-primal-way.md)
         - [Call of Adventure](world-of-rathe/savage-lands/call-of-adventure.md)
         - [Legends and Fools](world-of-rathe/savage-lands/legends-and-fools.md)
+        - [Bestiary of Scarborough](world-of-rathe/savage-lands/bestiary-of-scarborough.md)
+        - [Botanical Compendium](world-of-rathe/savage-lands/botanical-compendium.md)
     - [Solana](world-of-rathe/solana/solana.md)
         - [A Kingdom of Illumination](world-of-rathe/solana/kingdom-of-illumination.md)
         - [The Golden City](world-of-rathe/solana/the-golden-city.md)
