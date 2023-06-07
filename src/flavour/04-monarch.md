@@ -42,6 +42,9 @@ Avalon, messenger of the dawn, whose light rejuvenates the land.
 #### Illuminate - (MON072)
 "Sometimes, a hands-on lesson is the best approach." - Instructor Merlen Rivera
 
+#### Mark of the Beast - (MON124)
+"Borne of Soaejn, marked by corruption; the more I learn about them, the louder its call becomes..." - Lord Sutcliffe
+
 #### Memorial Ground - (MON303)
 Memories fade, but their names remain.
 
