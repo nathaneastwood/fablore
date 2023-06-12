@@ -152,6 +152,7 @@
     - [Arcane](languages/01-arcane.md)
     - [Solanian](languages/02-solanian.md)
     - [Seers](languages/03-seers.md)
+    - [Imperial](languages/04-imperial.md)
 
 - [Weapons](weapons/README.md)
     - [Cintari Saber](weapons/cintari-saber.md)

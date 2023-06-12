@@ -1,0 +1,38 @@
+# Imperial Language
+
+The language dubbed by the community as the "Imperial" language, as of Outsiders, is known to be as follows.
+
+<img src="https://d2hl7maqck52px.cloudfront.net/languages/volcor-lexicon.png" alt="upr089" class="center" style="background-color:white"/>
+
+Some examples of the language can be seen below.
+
+## Tome of Firebrand
+
+"Forgotten Dynasties"
+
+<img src="https://d2hl7maqck52px.cloudfront.net/languages/upr089.webp" alt="upr089" class="center" width="450">
+
+## Crouching Tiger
+
+"Tiger within unleash"
+
+<img src="https://d2hl7maqck52px.cloudfront.net/languages/dyn065.webp" alt="dyn065" class="center" width="450">
+
+"Feast on the flesh of kings"
+
+<img src="https://d2hl7maqck52px.cloudfront.net/languages/dyn065-marvel.webp" alt="dyn065-marvel" class="center" width="450">
+
+## Freewheeling Renegades
+
+"Drugs"
+
+<img src="https://d2hl7maqck52px.cloudfront.net/languages/out210.webp" alt="out210" class="center" width="450">
+
+## Proclamation of Requisition
+
+This one is trickier, from right to left it would say something like:
+
+"Themselves nor to inrich themselves nor to inform rivalries and not allow those to strengthen their wills and knowledge without ......"
+
+<img src="https://d2hl7maqck52px.cloudfront.net/languages/jdg004.webp" alt="jdg004" class="center" width="450">
+
