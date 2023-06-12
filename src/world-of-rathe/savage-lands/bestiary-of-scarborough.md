@@ -12,6 +12,8 @@ A large creature, the Peluda moves surprisingly quickly given its size, with a t
 
 Its muscular tail is capable of sweeping any animal off of its feet, leaving it vulnerable to the peluda's deadly hooked claws. While the tail appears to have a stinger, further tests have shown that the barb does not contain any form of toxin.
 
+<img src="https://d2hl7maqck52px.cloudfront.net/world-of-rathe/savage-lands/peluda.webp" alt="peluda" class="center">
+
 ## Journal Entry No. 8 Day 11
 
 We first spotted this massive creature battling with a much larger, furred beast. While we attempted to avoid catching its eye, it appeared to have followed us. Fire seemed to do the trick for warding it away, and all of the men survived. However, as the creature disappeared, I am left with questions, and no specimen.
@@ -23,6 +25,8 @@ A swift and deadly creature, the Rek'vas has brightly patterned scales that are 
 Its large fangs and claws are retractable, used not only to attack prey, but to help it tear through the tougher skin of creatures such as the [brawnhide](#brawnhide). In addition to the toxic coating covering its scales, its teeth can inject a deadly posison into its prey.
 
 We retrieved this tooth from the remains of a rek'vas Unfortunately, we could not risk staying near the carcass long enough to retrieve any samples from the creature. It would seem that the toxin coating its scales also makes the flesh decay at a rapid pace, and the smell was attracting predators.
+
+<img src="https://d2hl7maqck52px.cloudfront.net/world-of-rathe/savage-lands/rekvas.webp" alt="rek'vas" class="center">
 
 ## Journal Entry No. 11 Day 18
 
@@ -36,6 +40,8 @@ Feathers cover the majority of a strix's body but their soft bellies are protect
 
 The diet of a strix is primarily carnivorous, scavenging carcasses of prey left behind by the larger predators. Their sharp, hooked beaks allow the to tear even the smallest remnants of flesh and muscle away from carcasses. A highly acidic stomach allows them to digest small bone fragments swallowed whole.
 
+<img src="https://d2hl7maqck52px.cloudfront.net/world-of-rathe/savage-lands/strix.webp" alt="strix" class="center">
+
 ## Journal Entry No. 16 Day 23
 
 Several men died before we had a chance to realise that the creature was upon us. Its hide was smooth and clear, almost appearing crystalline, with sharp teeth that appeared to be made of the same substance. It appeared to have no interest in us, instead directing its attention to the strixes I had been dissecting. Before the men had a chance to fight it off, it snatched one of the corpses in its mouth, climbed straight up the side of a cliff and disappeared.
@@ -45,6 +51,8 @@ Several men died before we had a chance to realise that the creature was upon us
 The crystalline creature does not bleed. It shatters. Its teeth are harder than stone, with serrated edges and a needle-like tip to tear through flesh.
 
 Its limbs are long and thin, with sharp points to allow it to grip onto most surfaces, and scale the difficult terrain of the Savage Lands.
+
+<img src="https://d2hl7maqck52px.cloudfront.net/world-of-rathe/savage-lands/ankis.webp" alt="ank'is" class="center">
 
 ## Journal Entry No. 19 Day 28
 
@@ -57,6 +65,8 @@ A giant, furred beast with long, thick canines, and small, dark eyes. Its long f
 Their canines are almost impossible to break, both thick and incredibly strong.
 
 The brawnhide has a set of claws at the base of their feet, though their feet are far too large and their legs too short for the claws to be of any use.
+
+<img src="https://d2hl7maqck52px.cloudfront.net/world-of-rathe/savage-lands/brawnhide.webp" alt="brawnhide" class="center">
 
 ## Journal Entry No. 23 Day 32
 
@@ -71,3 +81,5 @@ Avoid their poisonous spikes at all costs.
 The barb at the end of its tail is also highly toxic.
 
 Large, muscular creatures with two pairs of eyes, and long, curved claws similar to talons. Skera are covered in a mixture of fur and spikes, patterned with dark, irregular spots. While the spikes do not appear to be poisonous, they do make it rather difficult to dissect.
+
+<img src="https://d2hl7maqck52px.cloudfront.net/world-of-rathe/savage-lands/skera.webp" alt="skera" class="center">
