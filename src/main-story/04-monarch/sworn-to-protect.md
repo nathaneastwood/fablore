@@ -1,4 +1,4 @@
-# Boltyn, Break of Dawn
+# Sworn to Protect
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/boltyn-1.webp" alt="boltyn-1" class="center">
 

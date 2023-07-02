@@ -37,7 +37,7 @@ On the mentor card, Lady Barthimont there is a book in the background which stat
 
 <img src="https://d2hl7maqck52px.cloudfront.net/languages/lady-barthimont-book.webp" alt="lady-barthimont-book" class="center">
 
-In the art for the article [Harbinger of the Abyss](../main-story/04-monarch/levia-shadowborn-abomination-story.md#harbinger-of-the-abyss) we see:
+In the art for the article [Harbinger of the Abyss](../main-story/04-monarch/destroy-and-consume.md#harbinger-of-the-abyss) we see:
 
 > Rune is to sto_ _es  blood is to bone sacrificed on the...
 > Altar of divinity Erudition lies forgotten
