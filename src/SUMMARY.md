@@ -138,6 +138,8 @@
     - [Uzuri, Switchblade](main-story/10-outsiders/uzuri-switchblade-story.md)
     - [Arakni, Solitary Confinement](main-story/10-outsiders/arakni-solitary-confinement-story.md)
     - [Riptide, Lurker of the Deep](main-story/10-outsiders/riptide-lurker-of-the-seep-story.md)
+    - [Unity In Light](main-story/11-dusk-till-dawn/unity-in-light.md)
+    - [Falling In Darkness](main-story/11-dusk-till-dawn/falling-in-darkness.md)
 
 - [Short Stories](short-stories/README.md)
     - [Outsiders](short-stories/outsiders/README.md)
