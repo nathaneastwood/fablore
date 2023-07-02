@@ -9,3 +9,9 @@ A story of legend is said to be told; The dawn of a new age a sight to behold; F
 #### Raging Onslaught - (BVO024)
 
 With a deafening roar, he slaughtered the beast, mighty ax easily tearing through flesh and bone. A spray of blood coated his breastplate in dark crimson, staining the dusty earth at his feet.
+
+## Prototype PVE deck showcased as a side event at Calling Auckland in 2020
+
+#### Ding! - (DEMO A-004)
+
+That's certainly going to affect resale value.
