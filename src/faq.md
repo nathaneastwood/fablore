@@ -33,7 +33,7 @@ Currently my understanding is that Solana is not all it is cut out to be, as the
 * [_Hecklers_](world-of-rathe/savage-lands/call-of-adventure.md#hecklers) are ruthless, violent and feral humanoids. See the card "Wounded Bull".
 * _Gnomes_ are speculated to exist due to the merchant stall named "The Golden Gnome" on the Knick Knack Bric-a-Brac Spoiler Tile.
 * _Humans_
-* _Nymphs_ are [described](fablore/src/flavour/07-uprising.md#arctic-incarceration---upr144) in tales.
+* _Nymphs_ are [described](flavour/07-uprising.md#arctic-incarceration---upr144) in tales.
 * _Rosetta_ are described in several places including [Briar's Origin Story](main-story/05-tales-of-aria/briar-warden-of-thorns-story.md) and [Briar's About Page](heroes-of-rathe/briar-about.md).
 * _Tiefling_ seem to appear in the card art, "Runic Reaping".
 
@@ -71,25 +71,25 @@ We don't know. [Her story](main-story/03-crucible-of-war/ira-crimson-haze-story.
 
 ### What do we know about Jackdaw?
 
-Not much, he is mentioned in some flavour text such as [Pitfall Trap](./flavour.md#pitfall-trap---cru127), [Out Muscle](./flavour.md#out-muscle---mon248) and [Pay Day](./flavour.md#pay-day---dyn123). We also read about him in [The Jaws of Death](main-story/02-arcane-rising/the-jaws-of-death.md) where he is standing outside [Blackjack's Tavern](world-of-rathe/pits/blackjacks-mercenary-group.md#blackjacks-mercenary-group).
+Not much, he is mentioned in some flavour text such as [Pitfall Trap](flavour/03-crucible-of-war.md#pitfall-trap---cru127), [Out Muscle](flavour/04-monarch.md#out-muscle---mon248) and [Pay Day](flavour/08-dynasty.md#pay-day---dyn123). We also read about him in [The Jaws of Death](main-story/02-arcane-rising/the-jaws-of-death.md) where he is standing outside [Blackjack's Tavern](world-of-rathe/pits/blackjacks-mercenary-group.md#blackjacks-mercenary-group).
 
 ### What do we know about Jarl?
 
-Jarl Vetreidi is the character shown on [Mangle](flavour.md#mangle---cru026) and Pulverize. He's an Ollin. The Ollin were guardians from Aria, an Order of them, which got frozen by an ancient to protect them thousands of years ago.
+Jarl Vetreidi is the character shown on [Mangle](flavour/03-crucible-of-war.md#mangle---cru026) and Pulverize. He's an Ollin. The Ollin were guardians from Aria, an Order of them, which got frozen by an ancient to protect them thousands of years ago.
 
 ### What do we know about Fyendal?
 
-We don't know much about Fyendal yet, however we do know that Fyendal is according to [flavour text](flavour.md#heart-of-fyendal---wtr000):
+We don't know much about Fyendal yet, however we do know that Fyendal is according to [flavour text](flavour/01-welcome-to-rathe.md#heart-of-fyendal---wtr000):
 
 > The ruler of the jungle deep, a predator without equal, is lost in slumber... yet its heart still beats, somewhere amongst the undergrowth, echoing the endless cycle of life and death."
 
 ### What do we know about Ophidia?
 
-Not much beyond what is written on the [flavour text](flavour.md#eye-of-ophidia---arc000).
+Not much beyond what is written on the [flavour text](flavour/02-arcane-rising.md#eye-of-ophidia---arc000).
 
 ### What do we know about Elias Edgecomb?
 
-They are mentioned on the flavour text of [Throttle](flavour.md#throttle---arc023) and they seem to appear in the artwork of other cards too.
+They are mentioned on the flavour text of [Throttle](flavour/02-arcane-rising.md#throttle---arc023) and they seem to appear in the artwork of other cards too.
 
 ## Story Arc
 
