@@ -5,3 +5,7 @@ Drawing in deep, ragged breaths, [Oldhim](../../heroes-of-rathe/oldhim-about.md)
 He sat upon a rock and gazed out at the frozen landscape as snowflakes played with his speckled beard. The Old Ones wouldn’t stay quiet for long, that much he knew. But he was so very tired. His aching muscles yearned for release.
 
 Perhaps he would rest, even just for a brief moment, gather his strength for the battles to come. Oldhim allowed his heavy eyelids to droop shut as he leaned against the frost-coated rock. All was quiet, save for the howling of the wind.
+
+---
+
+[Source](https://fabtcg.com/articles/roll-honor-oldhim/)

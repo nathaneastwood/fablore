@@ -11,3 +11,7 @@ The frosty giant could sense restlessness in the air. The faint stench of the Ol
 He had raised his trusty hammer and mighty shield time and time again, but Oldhim could sense his strength dissolving piece by piece like flecks of snow in the early spring. The steadfast Guardian had stood his ground for as long as he could remember, but now eternity seemed fleeting. Oldhim knew the path forward was to sow the seeds of tomorrow among this new generation of heroes, imparting the centuries of wisdom he had accumulated, so that they would one day be ready.
 
 It was all up to them now, the fate of the world rested heavy upon their shoulders.
+
+---
+
+[Source](https://fabtcg.com/articles/roll-of-honor-oldhim-grandfather-of-eternity/)
