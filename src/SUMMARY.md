@@ -152,6 +152,10 @@
         - [Cornering Your Prey](short-stories/outsiders/cornering-your-prey.md)
         - [It's a Trap!](short-stories/outsiders/its-a-trap.md)
         - [Surging to Success](short-stories/outsiders/surging-to-success.md)
+    - [Roll of Honour](short-stories/roll-of-honour/README.md)
+      - [Iyslander](short-stories/roll-of-honour/roll-of-honor-iyslander.md)
+      - [Oldhim](short-stories/roll-of-honour/roll-of-honor-oldhim.md)
+      - [Oldhim, Grandfather of Eternity](short-stories/roll-of-honour/roll-of-honor-oldhim-grandfather-of-eternity.md)
 
 - [Languages](languages/intro.md)
     - [Arcane](languages/01-arcane.md)
