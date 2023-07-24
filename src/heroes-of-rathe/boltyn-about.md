@@ -4,22 +4,40 @@
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/boltyn.mp4" type="video/mp4">
 </video>
 
-Boltyn was born into the nobility of the Northern Realms, growing up immersed in his grandmother's tales of a golden kingdom, a city which brought light and knowledge to all. When he had at last taken his father's place as lord, a party of knights passed through his lands. They brought news of the golden city he'd heard so much about, and their words of light brought such joy and inspiration to him that he immediately embarked on a pilgrimage to [Solana](https://legendarystories.net/world-of-rathe/solana/solana.html), leaving his lands and titles behind in the hope of starting a new life.
+With light in his heart and sword in his hand, Boltyn will carve the corruption from this land.
 
-Embraced by the Hand of Sol, Boltyn spent many years training and honing his skills, travelling with his fellow knights, and spreading knowledge of the Light. Amidst their ranks he met a cleric named Eirina, whose kindness and grace enchanted him from their very first meeting. Promoted to the role of Inquisitor, Boltyn dedicated himself to Eirina, their son Aios, and the people of their beloved city, as he sought to uphold the principles and teaching of the Light. However, he was unprepared for the shadows which spread across the land; a dark magic assaulted the city, and upon his return from a mission in the golden fields, Boltyn was confronted with the news that Eirina had perished in the attack.
+The former Baron of Redmoor, Boltyn grew up in the Northern Realms. At an early age, he was inspired by his grandmother’s bedtime stories of a great city of light and knowledge. When the time came for him to accept his inheritance, Boltyn relinquished his title and estate to his honorable cousin, Fyanna Redmoor, and set out on a pilgrimage to [Solana](../world-of-rathe/solana/solana.md).
 
-Struggling in the depths of his grief, Boltyn found solace in the legends of Bellona, one of Sol's radiant Heralds, who brought him a renewed sense of purpose. He swore to protect not only his own son, but all of Solana, from the Shadows which were creeping across all of Rathe.
+Embraced by the [Hand of Sol](../world-of-rathe/solana/the-order-of-the-light.md#the-hand-of-sol), Boltyn spent years in grueling training and dangerous duty. Amidst the Hand’s ranks, he met a cleric named Eirina, whose grace enchanted him from their first meeting. After a blissful romance, they married, and soon after, Eirina gave birth to a baby boy they named Aios. But a few short years later, disaster struck.
+
+While Boltyn was patrolling the Golden Fields, shadowy forces assaulted Solana. Eirina perished in the attack while bravely defending the [Solarium](../world-of-rathe/solana/a-radiant-city.md#solarium).
+
+Bellona Wartune visited the grieving Boltyn in a vision. She showed him a bleak premonition of the Lands of Light grown dark and desolate under the yoke of Shadow. His faith thus renewed, he vowed to fight for a future where his son could grow into a man under the blessed [Light of Sol](../world-of-rathe/solana/the-order-of-the-light.md#the-light-of-sol).
+
+At [Minerva](../other-characters/minerva-themis.md)’s behest, Boltyn accepted a commission as an inquisitor. After placing Aios in the care of the Sisters of Octothesia, he ventured across Solana and the Northern Realms with his loyal knights. Together they rooted out the occultists of the [Demonastery](../world-of-rathe/demonastery/demonastery.md), putting their enclaves to the sword and the torch. The servants of Shadow now tremble in fear at the mere mention of the Breaker of Dawn, for he is the physician who cuts the infection from the flesh of Solana, and cauterizes its weeping wounds. Relentless as he is incisive, Boltyn will not rest until his beloved Solana is restored to its righteous glory.
 
 ## Hero Highlights
 
-#### Charge!
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/charge.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Charge!</b><br>
+    Ser Boltyn leads Solana's vanguard into battle, his radiant soul lighting the way for those who follow. Lead out by charging your soul, so when the time comes, you can light up the battlefield with a dazzling display of steel and soul.
+  </div>
+</div>
 
-Ser Boltyn leads Solana's vanguard into battle, his radiant soul lighting the way for those who follow. Lead out by charging your soul, so when the time comes, you can light up the battlefield with a dazzling display of steel and soul.
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/point-of-engagement.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Point of Engagement</b><br>
+    Warriors are in their prime at the point of engagement. Boltyn's valiant strength shines brightest when he's engaged by a defending hero.
+  </div>
+</div>
 
-#### Point of Engagement
-
-Warriors are in their prime at the point of engagement. Boltyn's valiant strength shines brightest when he's engaged by a defending hero.
-
-#### Mind, Body, Soul
-
-A great warrior must have more than a sharp mind and strength of steel. They must have a soul of purpose. With these 3 qualities in harmony, a true hero is forged. Outsmart your opponent with combat tricks that buff your attacks, then unleash your soul to lead the way to victory!
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/mind-body-soul.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Mind, Body, Soul</b><br>
+    A great warrior must have more than a sharp mind and strength of steel. They must have a soul of purpose. With these 3 qualities in harmony, a true hero is forged. Outsmart your opponent with combat tricks that buff your attacks, then unleash your soul to lead the way to victory!
+  </div>
+</div>
