@@ -1,4 +1,4 @@
-# Lexi, Livewire
+# Wonders of the Wayfarer
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/lexi-1.webp" alt="lexi-1" class="center">
 

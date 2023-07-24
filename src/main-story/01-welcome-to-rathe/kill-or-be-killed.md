@@ -1,4 +1,4 @@
-# Rhinar, Reckless Rampage
+# Kill or be Killed
 
 _A vast, primordial jungle, the [Savage Lands](https://legendarystories.net/world-of-rathe/savage-lands/savage-lands.html) are uncharted by any map, and its true size remains unknown. Ancient trees tower above the crowded canopy, casting shadows on saplings struggling toward the light. The dense vegetation casts a heavy blanket of silence over the jungle, broken only by the sounds of massive beasts crashing through the undergrowth. Deep within the jungle, savage predators prowl through the shadows, while vicious scavengers fight to the death over scraps of meat. All those that call this place home, from the smallest insect to the largest tree, must fight tooth and nail for their continued survival._
 

@@ -1,4 +1,4 @@
-# Katsu, The Wanderer
+# Wanderings in the Mists
 
 _Amongst the isolated, peaceful quiet of the mountain ranges, long-forgotten clans hide themselves beneath a blanket of mist. They remain a secret to the other villages of [Misteria](https://legendarystories.net/world-of-rathe/misteria/misteria.html), their names struck from every record, their continued existence a testament to the determination of their ancestors. Yet some of these clans would emerge once more, and reveal the secrets of Misteria's history._
 
