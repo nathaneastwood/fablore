@@ -160,6 +160,6 @@ In his hands, the staff appeared to awaken, firelight dancing between the obsidi
 
 ---
 
-_Source: [From the Ashes](https://fabtcg.com/heroes/kano/rise-ashes/)_<br>
+_Source: [https://fabtcg.com/heroes/kano/rise-ashes/](https://fabtcg.com/heroes/kano/rise-ashes/)_<br>
 _Story by Nicola Price._
 _Illustrations by MJ Fetesio._<br>

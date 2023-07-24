@@ -135,3 +135,7 @@ Like the village of her childhood, her past has been burned away. No longer is s
 She is where she belongs, where her dragon blood has burned to be for thirty years.
 
 She is Dracai.
+
+---
+
+_Source: [https://fabtcg.com/heroes/dromai/dragons-empire/](https://fabtcg.com/heroes/dromai/dragons-empire/)_

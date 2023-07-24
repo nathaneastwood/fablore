@@ -162,7 +162,7 @@ The name is a slap to Fai's face. His scars burn hot in his flesh. "You know whe
 
 ---
 
-_Source: https://fabtcg.com/heroes/fai/fires-rebellion/_<br>
+_Source: [https://fabtcg.com/heroes/fai/fires-rebellion/](https://fabtcg.com/heroes/fai/fires-rebellion/)_<br>
 _Story written by Edwin McRae and Rachel Rees._<br>
 _Directed by Robbie._<br>
 _Illustrated by Sam Yang, Nikolay Moskvin._

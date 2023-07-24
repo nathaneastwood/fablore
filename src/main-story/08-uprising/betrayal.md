@@ -55,3 +55,7 @@ She will never belong to Ashvahan.
 Ashvahan will belong to her.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/dromai-8.webp" alt="dromai-8" class="center">
+
+---
+
+_Source: [https://fabtcg.com/heroes/dromai/betrayal/](https://fabtcg.com/heroes/dromai/betrayal/)_
