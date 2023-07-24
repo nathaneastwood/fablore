@@ -92,6 +92,7 @@
     - [Uzuri](heroes-of-rathe/uzuri-about.md)
     - [Valda](heroes-of-rathe/valda-about.md)
     - [Viserai](heroes-of-rathe/viserai-about.md)
+    - [Vynnset](heroes-of-rathe/vynnset-about.md)
     - [Yoji](heroes-of-rathe/yoji-about.md)
     - [Others](heroes-of-rathe/other.md)
 
@@ -143,6 +144,7 @@
     - [Riptide, Lurker of the Deep](main-story/10-outsiders/riptide-lurker-of-the-seep-story.md)
     - [Unity In Light](main-story/11-dusk-till-dawn/unity-in-light.md)
     - [Falling In Darkness](main-story/11-dusk-till-dawn/falling-in-darkness.md)
+    - [Anointed In Shadow](main-story/11-dusk-till-dawn/anointed-in-shadow.md)
 
 - [Short Stories](short-stories/README.md)
     - [Outsiders](short-stories/outsiders/README.md)

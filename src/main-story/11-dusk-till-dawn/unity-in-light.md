@@ -1,5 +1,7 @@
 # Unity In Light
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/87vFA78v0wc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 _Darkness, the canvas of the universe. Light, the brushstroke of creation. Each mark setting life into motion. Each line connecting us to our history. And it is through these histories, whether legend or myth, remembered, rewritten, that we journey forward, hoping to free ourselves from the past. Light is the path we paint through the Shadow._
 
 It was [Prism](../../heroes-of-rathe/prism-about.md) who taught me that, among many a scripture and saga with which she graced this humble bard. Yes, that same Prism who turned to her books when the horizon turned to Shadow, who searched the lore of distant millennia for a glimpse of salvation. The tenacious Prism who studied day and night, a warrior of words no less brave, no less stalwart, than the knights fighting in [Solana](../../world-of-rathe/solana/solana.md)'s fields.
