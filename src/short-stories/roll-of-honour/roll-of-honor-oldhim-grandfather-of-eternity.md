@@ -14,4 +14,4 @@ It was all up to them now, the fate of the world rested heavy upon their shoulde
 
 ---
 
-[Source](https://fabtcg.com/articles/roll-of-honor-oldhim-grandfather-of-eternity/)
+_Source: [https://fabtcg.com/articles/roll-of-honor-oldhim-grandfather-of-eternity/](https://fabtcg.com/articles/roll-of-honor-oldhim-grandfather-of-eternity/)_

@@ -8,4 +8,4 @@ Perhaps he would rest, even just for a brief moment, gather his strength for the
 
 ---
 
-[Source](https://fabtcg.com/articles/roll-honor-oldhim/)
+_Source: [https://fabtcg.com/articles/roll-honor-oldhim/](https://fabtcg.com/articles/roll-honor-oldhim/)_

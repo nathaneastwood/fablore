@@ -10,4 +10,4 @@ No, now was not the time for regrets. Now was the time to recover, replenish her
 
 ---
 
-[Source](https://fabtcg.com/articles/roll-honor-iyslander/)
+_Source: [https://fabtcg.com/articles/roll-honor-iyslander/](https://fabtcg.com/articles/roll-honor-iyslander/)_
