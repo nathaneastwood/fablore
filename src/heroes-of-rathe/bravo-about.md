@@ -1,9 +1,3 @@
-# Bravo
-
-The playable variants of Bravo are:
-- [Bravo, Showstopper](#bravo-showstopper)
-- [Bravo, Star of the Show](#bravo-star-of-the-show)
-
 # Bravo, Showstopper
 
 ![bravo-showstopper](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/bravo.webp)

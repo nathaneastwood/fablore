@@ -1,9 +1,3 @@
-# Arakni
-
-The playable variants of Arakni are:
-- [Arakni, Huntsman](#arakni-huntsman)
-- [Arakni, Solitary Confinement](#arakni-solitary-confinement)
-
 # Arakni, Huntsman
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
@@ -31,6 +25,8 @@ Death is Arakni's only concern. Assassination, their singular delight.
     Scour every nook and cranny from top to bottom, as you hunt the mark and claim your bounty. Use Arakni's hero ability to hunt for the target of your contract, and exterminate them to claim your pay day.
   </div>
 </div>
+
+---
 
 # Arakni, Solitary Confinement
 
