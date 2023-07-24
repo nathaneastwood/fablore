@@ -4,24 +4,46 @@
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/levia.mp4" type="video/mp4">
 </video>
 
-Levia was born into extreme poverty, her mother forced to sell both herself and her child into the service of the Barthimont estate in order to survive. But after both of her parents disappeared under mysterious circumstances, Levia was left to spend her life serving Lady Barthimont. Although she was haunted by her mother's final warning, to escape the Barthimonts by any means necessary, Levia chose instead to stay, determined to uncover the secrets of the Lord and Lady.
+You bleed, the Redeemed feeds. Levia has an appetite for destruction and you're welcome to the feast.
 
-Then, one terrifying night, Levia finally uncovered the truth of Lady Barthimont's dark games, witnessing the bloody horrors which took place within the Lady's private rooms. At first she was gripped by paralysing fear, but Levia soon felt it transform into an intense, burning rage. She painstakingly recreated the Lady's dark rituals, spilling blood in the dark of night, searching for the power she needed to take back control. Unfortunately, it was not long before her actions were discovered.
+Levia was born into extreme poverty, her mother forced to sell both herself and her child into the service of the cruel [Lady Barthimont](../other-characters/lady-bartimont.md) in order to survive.
 
-Levia was easily subdued, and soon found herself in the Barthimonts' great banquet hall, surrounded by gawking nobles and bloodied servants. Recognising the grisly fate which awaited her unless she fought back, Levia attacked and devoured those around her in an act of sheer desperation, seized by the will to survive. Reborn, an unfamiliar presence whispering in her ears, she cleaved Lady Barthimont's head from her shoulders, claiming her blood in one final act of defiance.
+Soon after, Levia's parents vanished under mysterious circumstances. Although haunted by her mother's desire to escape the Barthimonts by any means necessary, Levia chose to stay, to uncover the secrets of the Barthimont estate.
 
-With this newfound power, Levia could finally take charge of her own fate, determined to never again let anyone else take control of her.
+She spied on the horrific rites the Lady practiced in her blood-drenched chambers and, out of desperation, learned to harness those occult powers for herself. Trapped, her life in peril, she had no other choice but to use the dark ritual against the Lady and her cult, rising as a Shadow reborn to slaughter her sadistic captors.
+
+Possessed by a longing that would not rest, Levia's growing hunger led her to the [Demonastery](../world-of-rathe/demonastery/demonastery.md) and beyond into íArathael. There she hunted the creatures of nightmare, enriching her evolving flesh with their bloody essence. Deeper she delved into the Bellows of Hell where, at last, she met a voracity to rival her own.
+
+Perched upon Doomsday Peak, Blasmophet regarded her with a mighty greed. Yet as she stared back, down the maw of that beast, Levia felt only the cravings of the famished.
+
+Levia ripped and tore at old Blasmophet, bite by bite, until she had consumed the Embra, body and tortured soul. Yet as the last wet morsel slid down her throat, Levia realized the deadly bargain she had unwittingly struck. The Embra stirred within her gut, reforming, remembering, ravening. She knew at that moment that she would need to hunt forever; to gorge herself on ever greater banquets or let herself be utterly consumed by Blasmophet.
+
+Upon her return to the Demonastery, the assembly of scholars shivered in fear at what Levia had become. The baying hordes they had summoned grew quiet and compliant in her presence.
+
+She drank in their fearful vows, then looked to the horizon as the sun cast its first rays upon the millions so shining and succulent. Here was the sustenance she needed - here was a grand feast that might satisfy even the Harvester of Souls.
 
 ## Hero Highlights
 
-#### Hunger for Power
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/hunger-for-power.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Hunger for Power</b><br>
+    The hunger that possesses Levia will only be satisfied when everything has been devoured, including existence itself. Manage your graveyard carefully to gorge upon, else you may find your Shadow consuming you!
+  </div>
+</div>
 
-The hunger that possesses Levia will only be satisfied when everything has been devoured, including existence itself. Manage your graveyard carefully to gorge upon, else you may find your Shadow consuming you!
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/pay-your-debt.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Pay Your Debt</b><br>
+    There's no such thing as a free lunch, and in íArathael the currency is power or blood. Be sure to include many cards with 6 or more power in your deck, and plenty of ways to send them to the banished zone to keep your inner demons at bay.
+  </div>
+</div>
 
-#### Pay Your Debt
-
-There's no such thing as a free lunch, and in íArathael the currency is power or blood. Be sure to include many cards with 6 or more power in your deck, and plenty of ways to send them to the banished zone to keep your inner demons at bay.
-
-#### Doomsday Scenario
-
-From farmhand to Shadowborn Abomination, Levia's transformation isn't by chance. A willing pawn in the [Demonastery](https://legendarystories.net/world-of-rathe/demonastery/demonastery.html)'s plan, Levia is a dimenxxional gateway for the Shadow embra Blasmophet to descend upon Rathe.
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/doomsday-scenario.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Doomsday Scenario</b><br>
+    From farmhand to Shadowborn Abomination, Levia's transformation isn't by chance. A willing pawn in the [Demonastery](../world-of-rathe/demonastery/demonastery.md)'s plan, Levia is a dimenxxional gateway for the Shadow embra Blasmophet to descend upon Rathe.
+  </div>
+</div>
