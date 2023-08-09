@@ -10,7 +10,7 @@ As he is forced to rise once again and defend his long-forsaken tomb, he longs f
 "This is going to hurt your wallet more than your arm." - Doctor Mortimer, 'The Fixer'
 
 #### Blazing Aether - (ARC118)
-"Oh, you thought you were going to win?" - [Kano](https://legendarystories.net/heroes-of-rathe/kano-about.html)
+"Oh, you thought you were going to win?" - [Kano](../heroes-of-rathe/kano-about.md)
 
 #### Come to Fight - (ARC203)
 Graham the Gallant strode among the trees, tracking a band of notorious thieves.
@@ -26,7 +26,7 @@ Beyond the turbulent waters of Death's Knell, the ocean stretches as far as the 
 "Should you wish to see the future, know this... what has been seen cannot be unseen." - Vera
 
 #### High Octane - (ARC006)
-"Now that's what I call blowing off steam!" - [Dash](https://legendarystories.net/heroes-of-rathe/dash-about.html)
+"Now that's what I call blowing off steam!" - [Dash](../heroes-of-rathe/dash-about.md)
 
 #### Index - (ARC135)
 "They banished me from their radiant kingdom, fearful in the face of true knowledge." - Xaine, Runescribe
@@ -50,7 +50,7 @@ With each step, the tide draws in, drowning the world in shadow.
 Ancient runes guard its dusty windows, its darkened halls where the Shadows sleep.
 
 #### Spark of Genius - (ARC009)
-"So if I grab... and then connect... That's it!" - [Dash](https://legendarystories.net/heroes-of-rathe/dash-about.html)
+"So if I grab... and then connect... That's it!" - [Dash](../heroes-of-rathe/dash-about.md)
 
 #### Sun Kiss - (ARC212)
 Separated by a power greater than their own, they chased each other across the sky, wishing for nothing more than to reunite.
@@ -59,7 +59,7 @@ Separated by a power greater than their own, they chased each other across the s
 In the [Pits](../world-of-rathe/pits/pits.md), every nook, cranny, or demolition debris serves as worthy refuge when it's time to take cover.
 
 #### Three of a Kind - (ARC044)
-"Finally. Time to take out the trash." - [Azalea](https://legendarystories.net/heroes-of-rathe/azalea-about.html)
+"Finally. Time to take out the trash." - [Azalea](../heroes-of-rathe/azalea-about.md)
 
 #### Throttle - (ARC023)
 "Why, my steam-propelled hammer could increase mining efficiency by up to 38%!" - Elias Edgecombe

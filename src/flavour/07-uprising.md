@@ -16,7 +16,7 @@ Push hard enough, and even the weakest Volcai might find within their heart the 
 On both sides of the battlefield, brotherhood is a catalyst of courage, conviction, and most importantly, hope.
 
 #### Burn Away - (UPR094)
-"I will set your lies aflame, and reveal the ugly heart of this Uprising. Sometimes, walking away isn't nearly enough..." - [Dromai](../heroes-of-rathe/dromai-about.html)
+"I will set your lies aflame, and reveal the ugly heart of this Uprising. Sometimes, walking away isn't nearly enough..." - [Dromai](../heroes-of-rathe/dromai-about.md)
 
 #### Cinderskin Devotion - (UPR063)
 Through famine, oppression, and the horrors of war, the Volcai's oath to their fallen bretheren shall never be broken.

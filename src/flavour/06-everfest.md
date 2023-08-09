@@ -40,13 +40,13 @@ The latest in Teklo Industries armament. Guaranteed to leave a dent in your enem
 Victory is oft found before the first shot is fired.
 
 #### Runic Reclamation - (EVR104)
-A morbid union; [Viserai](https://legendarystories.net/heroes-of-rathe/viserai-about.html)'s hunger for revenge, and his Master's hunger for power.
+A morbid union; [Viserai](../heroes-of-rathe/viserai-about.md)'s hunger for revenge, and his Master's hunger for power.
 
 #### Seismic Stir - (EVR030)
 The Ollin stand guard over the land of [Aria](../world-of-rathe/aria/aria.md), and the land in turn shall answer their call.
 
 #### Steadfast - (EVR033)
-"Be it sword or sorcery, we defend, we defeat, or we die." - [Oldhim, Grandfather of Eternity](https://legendarystories.net/heroes-of-rathe/oldhim-about.html)
+"Be it sword or sorcery, we defend, we defeat, or we die." - [Oldhim, Grandfather of Eternity](../heroes-of-rathe/oldhim-about.md)
 
 #### Swing Big - (EVR002)
 [Savage Lands](../world-of-rathe/savage-lands/savage-lands.md) politics is simple; those with the biggest swing, have the biggest sway.

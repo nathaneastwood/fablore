@@ -16,7 +16,7 @@
 If you know how to flaunt it, you barely need to use it.
 
 #### Celestial Cataclysm - (MON062)
-"Legends grow larger and bolder from one generation to the next. What began as a brave warrior with a spear becomes a deity of virtue, raining down thunder upon tyrants." - [Prism](https://legendarystories.net/heroes-of-rathe/prism-about.html)
+"Legends grow larger and bolder from one generation to the next. What began as a brave warrior with a spear becomes a deity of virtue, raining down thunder upon tyrants." - [Prism](../heroes-of-rathe/prism-about.md)
 
 #### Enigma Chimera - (MON098)
 "If you don't think it's real, try petting it." - Amira Surana

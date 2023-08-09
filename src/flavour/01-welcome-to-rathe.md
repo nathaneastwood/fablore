@@ -10,7 +10,7 @@ They called to him from beyond the Mists. "It's time to come home."
 "Sometimes you gotta roll with the punches."
 
 #### Cranial Crush - (WTR045)
-"Leave now, or a hangover will be the least of your worries." - [Valda Brightaxe](https://legendarystories.net/heroes-of-rathe/valda-about.html)
+"Leave now, or a hangover will be the least of your worries." - [Valda Brightaxe](../heroes-of-rathe/valda-about.md)
 
 #### Debilitate - (WTR066)
 ...and at that moment, Flannigan knew failure was close at hand.
@@ -22,7 +22,7 @@ They called to him from beyond the Mists. "It's time to come home."
 Side effects may include agitation, confusion, aggression, tachycardia, fever and delirium.
 
 #### Flic Flak - (WTR092)
-Silver flashes under the pale moonlight, blades slicing through air as [Ira](../heroes-of-rathe/ira-about.html) twisted and turned, narrowly avoiding their ambush.
+Silver flashes under the pale moonlight, blades slicing through air as [Ira](../heroes-of-rathe/ira-about.md) twisted and turned, narrowly avoiding their ambush.
 
 #### Heart of Fyendal - (WTR000)
 Deep within the wilderness, a tree falls, succumbing to the passage of time. As the wood rots, its essence flows into the earth, fuelling the new life which blossoms amongst the moss and stone. The ruler of the jungle deep, a predator without equal, is lost in slumber... yet its heart still beats, somewhere amongst the undergrowth, echoing the endless cycle of life and death.
