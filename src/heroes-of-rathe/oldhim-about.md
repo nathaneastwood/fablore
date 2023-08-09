@@ -8,7 +8,7 @@ Oldhim is a mighty Shieldbearer of the Ollin; powerful defenders that stood alon
 
 At the end of the Third Age, amidst one of the most heated of battles, an unknown calamity struck the land of Rathe. Oldhim and his brothers and sisters in arms were spared, frozen within the ice of the Ancients. They remained this way for thousands of years, even as the Old Ones and the Ancients faded into obscurity, and the world around them changed.
 
-Now, Oldhim must venture into an unfamiliar [Aria](https://legendarystories.net/world-of-rathe/aria/aria.html) in search of his old allies, and a way to release his people from their deep slumber within Isenloft. For it's clear to him that his reawakening is just a sign of what is to come; he can feel it within his tired old bones, that soon the Old Ones will rise once again.
+Now, Oldhim must venture into an unfamiliar [Aria](../world-of-rathe/aria/aria.md) in search of his old allies, and a way to release his people from their deep slumber within Isenloft. For it's clear to him that his reawakening is just a sign of what is to come; he can feel it within his tired old bones, that soon the Old Ones will rise once again.
 
 ## Hero Highlights
 

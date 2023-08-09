@@ -8,7 +8,7 @@ The blood of the dragon boils in Dromai's veins.
 
 The ancient dragons have awoken.
 
-Once mere memories, forgotten notes scratched into dusty tomes, they now soar across [Volcor](https://legendarystories.net/world-of-rathe/volcor/volcor.html)'s smoking skies. With ferocity and flame, they sear a path through Dromai's enemies, a road that she alone dares to walk.
+Once mere memories, forgotten notes scratched into dusty tomes, they now soar across [Volcor](../world-of-rathe/volcor/volcor.md)'s smoking skies. With ferocity and flame, they sear a path through Dromai's enemies, a road that she alone dares to walk.
 
 Once manipulated from the shadows, the puppet has severed her strings. She will not bow to the lies of her past. Neither will she bow to the false promises of others' grand futures. Dromai has her dragons. That is all she needs, and the singular will to use them to fulfill her own burning desires.
 

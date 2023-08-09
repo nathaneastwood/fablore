@@ -1,4 +1,4 @@
-Beneath [Iyslander](https://legendarystories.net/heroes-of-rathe/iyslander-about.html)'s icy facade there beats a heart that is warm and full of longing. Her isolation has taught her much. How to survive. How to strive and thrive in a harsh land. Yet Iyslander knows she still has so much more to learn.
+Beneath [Iyslander](../../heroes-of-rathe/iyslander-about.md)'s icy facade there beats a heart that is warm and full of longing. Her isolation has taught her much. How to survive. How to strive and thrive in a harsh land. Yet Iyslander knows she still has so much more to learn.
 
 First Iyslander must thaw the walls that have sealed her away from her own history, from the full potential of her power. She must extinguish the burning pain of her past if she is to harness her arcane future.
 
@@ -30,7 +30,7 @@ Spirits spoke to me in words of cooling compassion, teaching me to harness the w
 
 I step from the melting snow into a lush field of wildflowers. A kaie'o bounds into the meadow from a copse of white-dusted beech, and eyes me with curiosity. I see the glint of spirit behind the fox's gaze. My icekin have sent a guide.
 
-I follow my companion through the verdant countryside of [Aria](https://legendarystories.net/world-of-rathe/aria/aria.html). We skirt the lively towns, the trundling tinker caravans and the roving bands of raucous entertainers. We travel at night, in the cool of the dark. Although Aria is beautiful, I am glad when we reach the Great Tree of Korshem. My answers lie beyond this cosseted land, and its Flow will send me on my way. My kaie'o guide fares me well with a lick of my fingertips, and with a flick of its tail, it is gone. A breeze rustles the canopy of this mighty tree and l fall like a leaf from its branches.
+I follow my companion through the verdant countryside of [Aria](../../world-of-rathe/aria/aria.md). We skirt the lively towns, the trundling tinker caravans and the roving bands of raucous entertainers. We travel at night, in the cool of the dark. Although Aria is beautiful, I am glad when we reach the Great Tree of Korshem. My answers lie beyond this cosseted land, and its Flow will send me on my way. My kaie'o guide fares me well with a lick of my fingertips, and with a flick of its tail, it is gone. A breeze rustles the canopy of this mighty tree and l fall like a leaf from its branches.
 
 ---
 
@@ -44,9 +44,9 @@ A dark-skinned warrior leads his metal-clad army against creatures so grotesque 
 
 I wipe sweat from my forehead, the first time I can recall doing so. My heart pounds, fast and hot. I am so far from my icekin that this one incantation has sapped my will. And through a crack in my weary mind, a recollection wriggles free. A feeling. Slick and coiling within my chest. Fear.
 
-I flee this valley of violence, chased by the roars of the monstrous, the screams of the dying. Anxiety tugs at my heart, drawing me southward, through the scorched remains of [Solana](https://legendarystories.net/world-of-rathe/solana/solana.html)'s strife, up into blackened mountains with smoking peaks and fissures that spew sulfur and ash.
+I flee this valley of violence, chased by the roars of the monstrous, the screams of the dying. Anxiety tugs at my heart, drawing me southward, through the scorched remains of [Solana](../../world-of-rathe/solana/solana.md)'s strife, up into blackened mountains with smoking peaks and fissures that spew sulfur and ash.
 
-At an archway in a rugged pass, I remember a name. [Volcor](https://legendarystories.net/world-of-rathe/volcor/volcor.html).
+At an archway in a rugged pass, I remember a name. [Volcor](../../world-of-rathe/volcor/volcor.md).
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-6.webp" alt="iyslander-6" class="center">
 

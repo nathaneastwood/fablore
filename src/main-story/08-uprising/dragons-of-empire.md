@@ -1,4 +1,4 @@
-[Dromai](https://legendarystories.net/heroes-of-rathe/dromai-about.html) barely remembers her parents, Torvai the Dracai, and Sani of the Sandfolk. Murdered before she had even learned to walk. Min of the Forest of Flames found her, raised her in a humble village amongst the struggle and strife of Volcai life. A hatchling dragon in the nest of the phoenix.
+[Dromai](../../heroes-of-rathe/dromai-about.md) barely remembers her parents, Torvai the Dracai, and Sani of the Sandfolk. Murdered before she had even learned to walk. Min of the Forest of Flames found her, raised her in a humble village amongst the struggle and strife of Volcai life. A hatchling dragon in the nest of the phoenix.
 
 She and Min's son became as thick as thieves. Dromai was the mastermind, deceiving and dismaying with wit and illusion. Her adoptive brother was her minion, liberating sweets and toys from childish rivals. Yet Dromai did not plan these capers for the simple fun of it. She planned them for the practice. For the preparation. She felt different, a pretender among the peasants. Deep in her heart, Dromai knew she was destined for greater things.
 
@@ -70,7 +70,7 @@ On the thirtieth day, Xathari visits her chambers; a modest room at the rear of 
 
 "There has been an insurrection," begins Xathari.
 
-"You have spoken with the [Emperor](https://legendarystories.net/heroes-of-rathe/emperor-about.html)?"
+"You have spoken with the [Emperor](../../heroes-of-rathe/emperor-about.md)?"
 
 He raises his hand, silencing her. "The rebels have captured General Riku."
 
@@ -114,7 +114,7 @@ To Dromai's surprise, Silverhair struggles to her feet. With shouts and curses, 
 
 Riding a stolen cavalry horse, he scoops the woman up. For a moment Dromai sees his scarred face. Ten years have turned his boyish features into those of a battle-hardened man.
 
-[Fai](https://legendarystories.net/heroes-of-rathe/fai-about.html) of the Forest of Flames. Son of Min the murderer.
+[Fai](../../heroes-of-rathe/fai-about.md) of the Forest of Flames. Son of Min the murderer.
 
 Her false sibling gallops down the hillside with the silver-haired rebel slung over the neck of his horse. Dromai lets him go. She has more pressing matters to attend to. She lands Tomeltai next to Riku, protecting her prize, and then frees him from his bonds.
 

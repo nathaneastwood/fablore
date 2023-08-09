@@ -1,6 +1,6 @@
 # Birth of the Arknight
 
-For hundreds of years, the [Demonastery](https://legendarystories.net/world-of-rathe/demonastery/demonastery.html) lurked beyond the shores of Rathe, surrounded by a wall of thick sea fog. Stormy seas kept ships from ever reaching its shores, surging waves tossing would-be intruders onto the sharp rocks. An eerie silence blanketed the grounds, stifling the distant sounds of the ocean. T'was a place that is neither here nor there, a dark sanctuary free from the bounds of morality.
+For hundreds of years, the [Demonastery](../../world-of-rathe/demonastery/demonastery.md) lurked beyond the shores of Rathe, surrounded by a wall of thick sea fog. Stormy seas kept ships from ever reaching its shores, surging waves tossing would-be intruders onto the sharp rocks. An eerie silence blanketed the grounds, stifling the distant sounds of the ocean. T'was a place that is neither here nor there, a dark sanctuary free from the bounds of morality.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-1.webp" alt="viserai-1" class="center">
 
@@ -14,7 +14,7 @@ As he continued down the hall, his head slowly turned to one side; the practiced
 
 Only the dust collecting on the edges of his torn cloak suggested the passage of time, as the Arknight searched the depths of the Demonastery. No stone left unturned, no room left untouched, he scoured the ancient mansion from floor to ceiling. Yet so far, his quarry eluded him, a creature just as nebulous and evasive as himself. In this, they were alike, numbering among the strange and frightening entities that haunted the residents of the Demonastery.
 
-However, unlike the creature he now hunted, [Viserai](https://legendarystories.net/heroes-of-rathe/viserai-about.html)'s existence was explained. [Lord Sutcliffe](https://legendarystories.net/other-characters/lord-sutcliffe.html) was his creator, his master, without whom he would not exist. The Arknight remembered little of the ritual that gave him new life, left only with fragments of memories shattered by blinding pain. This other creature was far older, presumably one of many borne from ill-fated experiments, whose creator had long since passed. The other creature was an accident, while Viserai was designed, a success in every sense of the word.
+However, unlike the creature he now hunted, [Viserai](../../heroes-of-rathe/viserai-about.md)'s existence was explained. [Lord Sutcliffe](../../other-characters/lord-sutcliffe.md) was his creator, his master, without whom he would not exist. The Arknight remembered little of the ritual that gave him new life, left only with fragments of memories shattered by blinding pain. This other creature was far older, presumably one of many borne from ill-fated experiments, whose creator had long since passed. The other creature was an accident, while Viserai was designed, a success in every sense of the word.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-2.webp" alt="viserai-2" class="center">
 

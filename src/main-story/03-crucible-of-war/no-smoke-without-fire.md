@@ -4,7 +4,7 @@
 (<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)
 </p>
 
-The blade whistled faintly as it soared past her cheekbone, her head ducked as she sidestepped the raiders attack. With a sharp exhale, she swept past his follow-up attack, sword glancing off her crossed blades with a loud clang. [Kassai](https://legendarystories.net/heroes-of-rathe/kassai-about.html) scowled as she sprung backwards, narrowly avoiding a third slash. Out of the corner of her eye, she noted her fellow Cintari, scattered throughout the ruined village.
+The blade whistled faintly as it soared past her cheekbone, her head ducked as she sidestepped the raiders attack. With a sharp exhale, she swept past his follow-up attack, sword glancing off her crossed blades with a loud clang. [Kassai](../../heroes-of-rathe/kassai-about.md) scowled as she sprung backwards, narrowly avoiding a third slash. Out of the corner of her eye, she noted her fellow Cintari, scattered throughout the ruined village.
 
 Her feet dragged in the ashen sand, eight inches of fine powder clinging to her every move. With a flick of her wrist, Kassai deflected a second raider's attack, his dagger sailing as it flew into the remains of a nearby building. A split-second glance showed the dagger embedded in a half-collapsed wall, a fingers-breadth from the pale face of one terrified ex-villager. Clicking her tongue, Kassai swept one leg out from underneath her first opponent, pressing the advantage before he could regain his footing.
 
@@ -46,11 +46,11 @@ Kassai turned her face toward the sun's silhouette, drawing her hood up with one
 
 ---
 
-The warm light of the morning sun cast the city streets in gold, illuminating the embroidered banners hanging above. A figure strolled down the ivory pavement, her hair a flaxen gold, silversteel armour gleaming, polished to a brilliant shine. The crimson cloak fluttered in the light breeze, the symbol of [Solana](https://legendarystories.net/world-of-rathe/solana/solana.html) embossed onto her chestplate. Exchanging a bright smile with one of the merchants, the lieutenant bowed her head in greeting, gaze sweeping across the crowds.
+The warm light of the morning sun cast the city streets in gold, illuminating the embroidered banners hanging above. A figure strolled down the ivory pavement, her hair a flaxen gold, silversteel armour gleaming, polished to a brilliant shine. The crimson cloak fluttered in the light breeze, the symbol of [Solana](../../world-of-rathe/solana/solana.md) embossed onto her chestplate. Exchanging a bright smile with one of the merchants, the lieutenant bowed her head in greeting, gaze sweeping across the crowds.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/03-crucible-of-war/no-smoke-3.webp" alt="no-smoke-3" class="center">
 
-As she passed beneath one of the stone archways of the plaza, [Dorinthea](https://legendarystories.net/heroes-of-rathe/dorinthea-about.html) glanced at the crowd around her, listening to the hum of the nearby marketplace. Buildings lined the path ahead of her, the ivory spires of the Solarium stretching above the rooftops.
+As she passed beneath one of the stone archways of the plaza, [Dorinthea](../../heroes-of-rathe/dorinthea-about.md) glanced at the crowd around her, listening to the hum of the nearby marketplace. Buildings lined the path ahead of her, the ivory spires of the Solarium stretching above the rooftops.
 
 Like a shadow passing in front of the sun, cold seeped down her spine, a sudden feeling of dread making her skin prickle with gooseflesh. Frozen, Thea wrapped her fingers around the hilt of her sword, standing perfectly still amongst the bustling crowds. From one second to the next, the city abruptly fell quiet, the day's vibrant buzz plunging into the dead silence of night.
 

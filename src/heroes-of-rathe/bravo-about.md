@@ -46,7 +46,7 @@ Coming soon!
 
 #### Elemental Confluence
 
-Is Bravo the chosen one? The first hero for an eon to embody the Flow and with it the 3 primary elements that course through the land of [Aria](https://legendarystories.net/world-of-rathe/aria/aria.html). Awaken the elements of Earth, Ice, and Lightning, to unleash Bravo's most spectacular performance yet!
+Is Bravo the chosen one? The first hero for an eon to embody the Flow and with it the 3 primary elements that course through the land of [Aria](../world-of-rathe/aria/aria.md). Awaken the elements of Earth, Ice, and Lightning, to unleash Bravo's most spectacular performance yet!
 
 #### Take Center Stage
 

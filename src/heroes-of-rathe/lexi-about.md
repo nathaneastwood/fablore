@@ -4,7 +4,7 @@
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/lexi.mp4" type="video/mp4">
 </video>
 
-Up the sides of mighty fjords that reach up into the heavens lies a domain brimming with the essence of Lightning and Ice. The people of [Aria](https://legendarystories.net/world-of-rathe/aria/aria.html) named this fantastical realm Enion, the Armory of Ancients, and the Training Ground of Champions.
+Up the sides of mighty fjords that reach up into the heavens lies a domain brimming with the essence of Lightning and Ice. The people of [Aria](../world-of-rathe/aria/aria.md) named this fantastical realm Enion, the Armory of Ancients, and the Training Ground of Champions.
 
 Lexi grew up in Volthaven, a village that drifted slowly as it navigated the treacherous skies of Enion. Her childhood was spent in wide-eyed wonder, under the soft embrace of the Aurora, as she marveled at the majestic sights that lay beyond her windows. As she grew, she fell in love with the sense of freedom found in the environment all around her, and resolved to explore its beauty and secrets by becoming the greatest Wayfarer in all of Rathe! She was daring, talented, and quick on her feet, and soon became the darling of Volthaven, and a most renowned adventurer recognized throughout the thousand isles of Enion.
 

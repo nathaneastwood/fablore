@@ -22,7 +22,7 @@ The closest fiend shrieks with manic glee and swings its ax at the leader. The w
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-2.webp" alt="morlock-hill-2" class="center">
 
-[Dorinthea](https://legendarystories.net/heroes-of-rathe/dorinthea-about.html) spits blood and braces herself for the next attack. The creature barges forward, but this time Dorinthea slides low, passing beneath the ax's arc. She leaps to her feet, and as the fiend turns to face her, she sweeps her Dawnblade through its thick neck. The horned head thuds into the dirt, souring the earth with its blood.
+[Dorinthea](../../heroes-of-rathe/dorinthea-about.md) spits blood and braces herself for the next attack. The creature barges forward, but this time Dorinthea slides low, passing beneath the ax's arc. She leaps to her feet, and as the fiend turns to face her, she sweeps her Dawnblade through its thick neck. The horned head thuds into the dirt, souring the earth with its blood.
 
 Her victory is fleeting. Dorinthea spins to meet her next foe, and the blood drains from her face at the sight of three looming demons, larger again than the fiend she has felled.
 
@@ -32,13 +32,13 @@ Hope falters, guttering like a candle in the wind.
 
 ---
 
-[Solana](https://legendarystories.net/world-of-rathe/solana/solana.html), plunged into shadow by the endless hordes brought forth by the [Demonastery](https://legendarystories.net/world-of-rathe/demonastery/demonastery.html).
+[Solana](../../world-of-rathe/solana/solana.md), plunged into shadow by the endless hordes brought forth by the [Demonastery](../../world-of-rathe/demonastery/demonastery.md).
 
 Fardreyas was the first village to be consumed. Then Sunvale, Audra, and Hazeltown. Solana's farmlands and crops burned to ash, animals slaughtered.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-4.webp" alt="morlock-hill-4" class="center">
 
-So far [Ser Boltyn](https://legendarystories.net/heroes-of-rathe/boltyn-about.html) and his vanguard have held the walls of the city itself, but not without dire losses. Unlike the Demonastery's soulless army, Solana's people are not expendable. Every soldier, farmer, scholar, and child killed is a name remembered. A family broken.
+So far [Ser Boltyn](../../heroes-of-rathe/boltyn-about.md) and his vanguard have held the walls of the city itself, but not without dire losses. Unlike the Demonastery's soulless army, Solana's people are not expendable. Every soldier, farmer, scholar, and child killed is a name remembered. A family broken.
 
 ---
 
@@ -50,7 +50,7 @@ As the first giant raises its sword, something flashes between them. Weapons cra
 
 "I cannot leave you alone for one moment, can I?"
 
-[Minerva](https://legendarystories.net/other-characters/minerva-themis.html)'s scarlet hair flows over her shoulders, brighter than the demon blood she flicks from her twin blades. Her expression is grim and determined, weathered by violent experience.
+[Minerva](../../other-characters/minerva-themis.md)'s scarlet hair flows over her shoulders, brighter than the demon blood she flicks from her twin blades. Her expression is grim and determined, weathered by violent experience.
 
 A smile cracks through the drying blood on Dorinthea's face. "What kept you?"
 

@@ -6,7 +6,7 @@
 
 The trade route wound between the rolling hills, a path of dirt and clay moulded by the passage of the centuries. Dark shadows enfolded the dim landscape, and the beaten path was cast in shades of violet and listless green as the sun sank behind the horizon, relinquishing the stage to a foreboding twilight. Golden armour gleamed faintly in the last few traces of sunlight, quietly announcing the arrival of a small party of knights, marching along the trail to the north.
 
-[Boltyn](https://legendarystories.net/heroes-of-rathe/boltyn-about.html)'s gaze was locked firmly on the fields ahead, scanning the skyline for signs of any other travellers. Behind him, the rest of his party strode forward, their hands resting on their weapons, eyes flicking from side to side as they scoured the gloomy landscape for potential threats. Months of hunting down cultists in the Northern Realms had left each of them changed by the weight of duty; their shoulders were taut with silent tension, their weapons at the ready, their gazes ever-moving, constantly checking their surroundings for the slightest trace of shadow aether.
+[Boltyn](../../heroes-of-rathe/boltyn-about.md)'s gaze was locked firmly on the fields ahead, scanning the skyline for signs of any other travellers. Behind him, the rest of his party strode forward, their hands resting on their weapons, eyes flicking from side to side as they scoured the gloomy landscape for potential threats. Months of hunting down cultists in the Northern Realms had left each of them changed by the weight of duty; their shoulders were taut with silent tension, their weapons at the ready, their gazes ever-moving, constantly checking their surroundings for the slightest trace of shadow aether.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/step-1.webp" alt="step-1" class="center">
 
@@ -58,7 +58,7 @@ Behind him, Boltyn heard the sharp clatter of metal against the ground, and turn
 
 While Leander grew weaker, fighting against the pull of unconsciousness, their foes only seemed to grow stronger, their attacks coming faster and faster.
 
-Standing alone, outnumbered, outmatched, and overwhelmed, Boltyn steeled himself, turning aside the dread which pooled in the pit of his stomach. He filled his mind with the memory of Aios, so young, and yet fearless even amidst the devastation of the attack on [Solana](https://legendarystories.net/world-of-rathe/solana/solana.html).
+Standing alone, outnumbered, outmatched, and overwhelmed, Boltyn steeled himself, turning aside the dread which pooled in the pit of his stomach. He filled his mind with the memory of Aios, so young, and yet fearless even amidst the devastation of the attack on [Solana](../../world-of-rathe/solana/solana.md).
 
 Boltyn's determination coursed through his veins. A blazing heat which felt both fiercely protective and achingly familiar, as gentle and welcoming as a patch of warm sunlight in the dead of winter, it was yet as powerful and untamed as a forest fire. Bellona's light washed over him, and for a moment Boltyn saw nothing but the shape of her wings, flaring in the dark.
 
@@ -86,7 +86,7 @@ As much as he wished to return home and greet Aios, his mind refused to be at ea
 
 At this hour, the Library was almost completely empty; most of its daily patrons having been chased away by the lengthening shadows of dusk. The usual hushed whispers had given way to a heavy blanket of silence, betraying the age of the tomes which lined the library's shelves. As Boltyn moved down the hallway, he made a concerted effort to quiet his footsteps, conscious of the armoured travelling boots he had yet to remove.
 
-As if summoned, [Prism](https://legendarystories.net/heroes-of-rathe/prism-about.html) suddenly emerged from one of the aisles ahead, turning towards him with a cheerful, unguarded smile.
+As if summoned, [Prism](../../heroes-of-rathe/prism-about.md) suddenly emerged from one of the aisles ahead, turning towards him with a cheerful, unguarded smile.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/step-3.webp" alt="step-3" class="center">
 
@@ -122,7 +122,7 @@ As he'd expected, Prism's gaze immediately snapped back to meet his, her express
 
 Prism broke into a wide grin, her gaze filled with a glaring focus Boltyn hadn't seen before.
 
-"I believe I know exactly what happened. Tell me, how much do you know about Solana and the [Demonastery](https://legendarystories.net/world-of-rathe/demonastery/demonastery.html)?" She led him toward the back of the Library, directing him toward a stained glass window that Boltyn had never taken note of before. The stained glass appeared as though it were made of gold and amber, trapping the light of the sun in a prismatic form. Within the swirls and patterns, Boltyn could make out the markings of the Heralds, somehow recognising them despite never having seen them before. His gaze was immediately drawn to Bellona's; a blade of blazing light which filled his soul with warmth.
+"I believe I know exactly what happened. Tell me, how much do you know about Solana and the [Demonastery](../../world-of-rathe/demonastery/demonastery.md)?" She led him toward the back of the Library, directing him toward a stained glass window that Boltyn had never taken note of before. The stained glass appeared as though it were made of gold and amber, trapping the light of the sun in a prismatic form. Within the swirls and patterns, Boltyn could make out the markings of the Heralds, somehow recognising them despite never having seen them before. His gaze was immediately drawn to Bellona's; a blade of blazing light which filled his soul with warmth.
 
 "Only a little. I'm not sure what you teach young Solanians who aren't chosen for the Light of Sol, but I don't know much of the city's history."
 
@@ -162,7 +162,7 @@ Boltyn looked from Prism to the image of Bellona, her bronze mask moulded into a
 
 "How did you learn to wield it? Did it always come naturally to you?"
 
-"A little. It usually just feels like something that you know you've done before, but you haven't done it in a long time. I began to learn pretty quickly, once I started practicing." At her weighted pause, Boltyn looked over to see Prism staring thoughtfully at Suraya's serene, inscrutable countenance. "[The Librarian](https://legendarystories.net/other-characters/the-librarian.html) said that it's not uncommon for the Light talent to start emerging when Solana enters a time of war. I'm not sure if it is Sol, or the heralds, or just simply born of our own determination. Maybe we all hold the potential, and a struggle just makes us remember."
+"A little. It usually just feels like something that you know you've done before, but you haven't done it in a long time. I began to learn pretty quickly, once I started practicing." At her weighted pause, Boltyn looked over to see Prism staring thoughtfully at Suraya's serene, inscrutable countenance. "[The Librarian](../../other-characters/the-librarian.md) said that it's not uncommon for the Light talent to start emerging when Solana enters a time of war. I'm not sure if it is Sol, or the heralds, or just simply born of our own determination. Maybe we all hold the potential, and a struggle just makes us remember."
 
 "I think that if anyone could figure out what the Light talent is, and why it emerges, it would be you."
 

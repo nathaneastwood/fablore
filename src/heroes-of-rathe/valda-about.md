@@ -24,4 +24,4 @@ There's been stirrings in the Flow, and recently, nervous chatters of ancient en
 
 #### Seismic Smackdown
 
-Patrons of [Aria](https://legendarystories.net/world-of-rathe/aria/aria.html)'s alehouses who disrespect the ladies are left with a hangover of seismic proportions when Valda's around.
+Patrons of [Aria](../world-of-rathe/aria/aria.md)'s alehouses who disrespect the ladies are left with a hangover of seismic proportions when Valda's around.

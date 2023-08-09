@@ -6,7 +6,7 @@
 
 Arakni is the blade that strikes in the dead of night.
 
-Having crawled out from the most wretched recesses of [The Pits](https://legendarystories.net/world-of-rathe/pits/pits.html), Arakni has shed their past like a slurry scorpion sheds its carapace. A dagger unsheathed of morality and conscience, a weapon of sharpened mind and polished purpose.
+Having crawled out from the most wretched recesses of [The Pits](../world-of-rathe/pits/pits.md), Arakni has shed their past like a slurry scorpion sheds its carapace. A dagger unsheathed of morality and conscience, a weapon of sharpened mind and polished purpose.
 
 Arakni cares nothing for the petty squabbles infecting the minds of [Rathe](../world-of-rathe/world-of-rathe.md)'s denizens, nor the sweaty dealings of contract and coin. The work is their life and their life is the work.
 

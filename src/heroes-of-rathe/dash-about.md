@@ -6,7 +6,7 @@
 
 A young mechanologist from the city's elite caste, Dash is a brilliant inventor full of wild ideas and the spark of genius. Born into the city of tomorrow to scientists of Teklo Industries, she grew up surrounded by some of the greatest minds in all of Rathe. And as she explored the world around her, she fell in love with the city, all the goods and bads that lay within.
 
-Stubborn and rebellious, Dash's energetic nature often gets her into trouble. Once she has an idea, it's nigh impossible to dissuade her. And even though the Teklo name has allowed her to follow her whims, she despises the rigid dullness of [Metrix](https://legendarystories.net/world-of-rathe/metrix/metrix.html)'s upper class, and would do anything to avoid becoming just like them.
+Stubborn and rebellious, Dash's energetic nature often gets her into trouble. Once she has an idea, it's nigh impossible to dissuade her. And even though the Teklo name has allowed her to follow her whims, she despises the rigid dullness of [Metrix](../world-of-rathe/metrix/metrix.md)'s upper class, and would do anything to avoid becoming just like them.
 
 ## Hero Highlights
 

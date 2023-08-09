@@ -1,6 +1,6 @@
 # Kill or be Killed
 
-_A vast, primordial jungle, the [Savage Lands](https://legendarystories.net/world-of-rathe/savage-lands/savage-lands.html) are uncharted by any map, and its true size remains unknown. Ancient trees tower above the crowded canopy, casting shadows on saplings struggling toward the light. The dense vegetation casts a heavy blanket of silence over the jungle, broken only by the sounds of massive beasts crashing through the undergrowth. Deep within the jungle, savage predators prowl through the shadows, while vicious scavengers fight to the death over scraps of meat. All those that call this place home, from the smallest insect to the largest tree, must fight tooth and nail for their continued survival._
+_A vast, primordial jungle, the [Savage Lands](../../world-of-rathe/savage-lands/savage-lands.md) are uncharted by any map, and its true size remains unknown. Ancient trees tower above the crowded canopy, casting shadows on saplings struggling toward the light. The dense vegetation casts a heavy blanket of silence over the jungle, broken only by the sounds of massive beasts crashing through the undergrowth. Deep within the jungle, savage predators prowl through the shadows, while vicious scavengers fight to the death over scraps of meat. All those that call this place home, from the smallest insect to the largest tree, must fight tooth and nail for their continued survival._
 
 _With creatures venturing further and further beyond the jungle's outer limits, wandering into golden fields and attacking villages, the townsfolk have sought out the help of their great protector. Shining knights march into the jungles, hacking down anything that crosses their path. The beasts of the Savage Lands seek out the intruders, preying on any warrior who leaves themselves open to attack. As tensions begin to rise, the jungle itself seems to be stirring, preparing to eliminate any human that steps within its bounds._
 
@@ -50,7 +50,7 @@ After all, it is not only beasts that spell danger in the Savage Lands. Some are
 
 ## Never Back Down
 
-It does not last forever. The brute soon becomes a predator. [Rhinar](https://legendarystories.net/heroes-of-rathe/rhinar-about.html) marks a place for himself amongst some of the most dangerous beasts in the Savage Lands. This is his territory, his kingdom, and any creature who dares to step foot within his land will die for it.
+It does not last forever. The brute soon becomes a predator. [Rhinar](../../heroes-of-rathe/rhinar-about.md) marks a place for himself amongst some of the most dangerous beasts in the Savage Lands. This is his territory, his kingdom, and any creature who dares to step foot within his land will die for it.
 
 Now fully grown, the fear and caution have given way to aggression, an overwhelming urge to carve out a territory for his own. Yet Rhinar grows ever larger, towering over the other predators of the jungle. He drives scraps of metal into his wooden club, the rashari branch he'd once scavenged from the forest floor; adds the jawbone of another brute and the tusk of a young brawnhide.
 

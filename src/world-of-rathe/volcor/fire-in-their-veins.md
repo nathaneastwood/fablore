@@ -1,6 +1,6 @@
 # Fire in their Veins
 
-Every wizard in Volcor is a descendant of the first emperor, drawing power from their ancestral bloodline. They fulfill a variety of roles, both inside and outside of the royal court; from military positions to entertainment, political aides and ambassadorial work, bringing wayward generals into line and maintaining the hierarchy of power in Volcor. Due to their inherent power, they are closely watched, as the [Emperor](https://legendarystories.net/heroes-of-rathe/emperor-about.html) works to maintain his sway over the court.
+Every wizard in Volcor is a descendant of the first emperor, drawing power from their ancestral bloodline. They fulfill a variety of roles, both inside and outside of the royal court; from military positions to entertainment, political aides and ambassadorial work, bringing wayward generals into line and maintaining the hierarchy of power in Volcor. Due to their inherent power, they are closely watched, as the [Emperor](../../heroes-of-rathe/emperor-about.md) works to maintain his sway over the court.
 
 Unlike the scholars of Solana, who draw upon knowledge for their arcane power, for the wizards of Volcor, the ability to cast fire is innate. Their arcane gifts usually manifest in childhood, and training begins the moment that their aether affinity is revealed.
 

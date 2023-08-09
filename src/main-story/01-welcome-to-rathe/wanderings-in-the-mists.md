@@ -1,12 +1,12 @@
 # Wanderings in the Mists
 
-_Amongst the isolated, peaceful quiet of the mountain ranges, long-forgotten clans hide themselves beneath a blanket of mist. They remain a secret to the other villages of [Misteria](https://legendarystories.net/world-of-rathe/misteria/misteria.html), their names struck from every record, their continued existence a testament to the determination of their ancestors. Yet some of these clans would emerge once more, and reveal the secrets of Misteria's history._
+_Amongst the isolated, peaceful quiet of the mountain ranges, long-forgotten clans hide themselves beneath a blanket of mist. They remain a secret to the other villages of [Misteria](../../world-of-rathe/misteria/misteria.md), their names struck from every record, their continued existence a testament to the determination of their ancestors. Yet some of these clans would emerge once more, and reveal the secrets of Misteria's history._
 
 _The Mugenshi clan, having secluded themselves long ago, remain afflicted by an ancient curse that continues to take lives long after their self-imposed isolation. Each year, a number of their clan waste away, their physical and mental wellbeing deteriorating as they descend into despair. While many believe that a cure is all but impossible, some wonder whether the possibility of a cure is worth risking the mountains beyond their ancestral home._
 
 ## Stalemate
 
-Silence. The last of [Katsu](https://legendarystories.net/heroes-of-rathe/katsu-about.html)'s words echoed through the room as he watched the grandmasters turn their faces toward him, expressions cool and unaffected, as still as a lake in the midst of winter.
+Silence. The last of [Katsu](../../heroes-of-rathe/katsu-about.md)'s words echoed through the room as he watched the grandmasters turn their faces toward him, expressions cool and unaffected, as still as a lake in the midst of winter.
 
 "It is not yet time." Master Takumi spoke, his voice a counterpoint to the stillness of the room. "There are things that have to be taken into consideration. Autumn is already upon us, and you know well that the winds are more active at this time of year. That aside, the clan is not prepared for such a journey."
 

@@ -12,7 +12,7 @@ This is Enion, the Armory of Ancients, and Training Ground of Champions. A place
 
 And all manner of wonders and dangers lie hidden here, to this day, within these isles that hover high above the clouds.
 
-[Lexi](https://legendarystories.net/heroes-of-rathe/lexi-about.html) was born in Volthaven, a village that drifted slowly as it navigated the treacherous skies of Enion. Her childhood was spent in wide-eyed wonder, under the soft embrace of the Aurora, as she marveled at the majestic sights that lie beyond her windows.
+[Lexi](../../heroes-of-rathe/lexi-about.md) was born in Volthaven, a village that drifted slowly as it navigated the treacherous skies of Enion. Her childhood was spent in wide-eyed wonder, under the soft embrace of the Aurora, as she marveled at the majestic sights that lie beyond her windows.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/lexi-3.webp" alt="lexi-3" class="center">
 
@@ -30,7 +30,7 @@ On the coldest of winters when the sky freezes over, and even Yvor's mighty thun
 
 They spoke of Yvor and its mighty lightning, and its enemies whose names had long been forgotten. The secrets of the Ancients, they said, lie deep in the heart of Enion. And should Lexi follow in the footsteps of the great Wayfarers, the elements will guide her wherever she needed to be.
 
-To be a Wayfarer of Volthaven, one must make peace with the essence of Lightning and Ice that permeated Enion. Now a young woman, Lexi ventured near and far with her mentors; the best, most skilled Wayfarers in all of [Aria](https://legendarystories.net/world-of-rathe/aria/aria.html). She felt the constant coat of frost upon her hood, and arcs of static brushing upon her skin, and an incredible sense of freedom as she embraced the vastness in this land above the clouds.
+To be a Wayfarer of Volthaven, one must make peace with the essence of Lightning and Ice that permeated Enion. Now a young woman, Lexi ventured near and far with her mentors; the best, most skilled Wayfarers in all of [Aria](../../world-of-rathe/aria/aria.md). She felt the constant coat of frost upon her hood, and arcs of static brushing upon her skin, and an incredible sense of freedom as she embraced the vastness in this land above the clouds.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/lexi-6.webp" alt="lexi-6" class="center">
 

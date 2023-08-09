@@ -1,6 +1,6 @@
 # Amongst the Brambles
 
-The heartlands of [Aria](https://legendarystories.net/world-of-rathe/aria/aria.html) are painted with vast swaths of forests. Crystalline trees glimmer under the rainbow glow of the Flow, as beautiful Cesari and all manner of wondrous creatures dance amongst the trees. These woods had borne witness to countless stories and legends throughout the Ages, as the once arid badlands was transformed into the sanctuary that it is today by the remnants of the Ancients' power.
+The heartlands of [Aria](../../world-of-rathe/aria/aria.md) are painted with vast swaths of forests. Crystalline trees glimmer under the rainbow glow of the Flow, as beautiful Cesari and all manner of wondrous creatures dance amongst the trees. These woods had borne witness to countless stories and legends throughout the Ages, as the once arid badlands was transformed into the sanctuary that it is today by the remnants of the Ancients' power.
 
 It is within these woods that the enclave of Candlehold lay hidden, surrounded by the thick walls of bramble and thorn that separated it from the rest of Aria. And it is here that the Queen of Candlehold drifted in and out of her timeless slumber, as her dreams took her back to the Third Age, and the horrors that befell her people.
 
@@ -44,7 +44,7 @@ Until at long last it was her turn to bloom.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/briar-7.webp" alt="briar-7" class="center">
 
-She took the name of [Briar](https://legendarystories.net/heroes-of-rathe/briar-about.html), the wild rose that sprung forth from amongst the bramble. And all of Candlehold rejoiced, as the last of their sisters returned to them.
+She took the name of [Briar](../../heroes-of-rathe/briar-about.md), the wild rose that sprung forth from amongst the bramble. And all of Candlehold rejoiced, as the last of their sisters returned to them.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/briar-8.webp" alt="briar-8" class="center">
 

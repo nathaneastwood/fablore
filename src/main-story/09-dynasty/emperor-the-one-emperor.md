@@ -2,7 +2,7 @@
 
 # The One Emperor
 
-The [Emperor](https://legendarystories.net/heroes-of-rathe/emperor-about.html) stands before the ancient altar. His eyes take in the rough-hewn base and its pyroglyphic symbols, carved by the first emperor at the dawn of [Volcor](https://legendarystories.net/world-of-rathe/volcor/volcor.html). The symbols roam from raw rock to wrought iron and glass, replaced during his reign by the dynasty's finest metallurgists and glaziers. His gaze follows the sinuous lines of the bracing dragons, the gentle curvature of the glass, to the vision that burns within. A blazing apparition. A spark, cast here from a fire beyond reach, beyond understanding.
+The [Emperor](../../heroes-of-rathe/emperor-about.md) stands before the ancient altar. His eyes take in the rough-hewn base and its pyroglyphic symbols, carved by the first emperor at the dawn of [Volcor](../../world-of-rathe/volcor/volcor.md). The symbols roam from raw rock to wrought iron and glass, replaced during his reign by the dynasty's finest metallurgists and glaziers. His gaze follows the sinuous lines of the bracing dragons, the gentle curvature of the glass, to the vision that burns within. A blazing apparition. A spark, cast here from a fire beyond reach, beyond understanding.
 
 Muffled whispers scratch at the glass. The Emperor is all too familiar with those insidious promises. They are the sovereign's blessing, and his curse. He has listened to them since he was a young man, long before he took the throne from his father. Today he wishes they would be silent.
 
@@ -16,7 +16,7 @@ Without a strong emperor to guide them, the people of Volcor had turned against 
 
 To vale and plain, city and citadel, they restored the peace that his father let slip through his trembling fingers.
 
-He surrounded himself with individuals of power and vision. With a click of his fingers, he could light every torch in the city so that Xathari, his fireseer, might peer into every corner of Ashvahan. So that [Yoji](https://legendarystories.net/heroes-of-rathe/yoji-about.html), his captain of the Imperial Guard, might exact justice upon the dishonorable.
+He surrounded himself with individuals of power and vision. With a click of his fingers, he could light every torch in the city so that Xathari, his fireseer, might peer into every corner of Ashvahan. So that [Yoji](../../heroes-of-rathe/yoji-about.md), his captain of the Imperial Guard, might exact justice upon the dishonorable.
 
 These were people he could use, but never wholly trust. While their ambitions aligned with his, they remained his loyal servants. He expected nothing more nor anything less.
 

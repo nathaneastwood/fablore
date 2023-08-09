@@ -6,13 +6,13 @@
 
 Viserai is the first of his kind; an Arknight, gifted with both arcane power and physical prowess. Forced to serve the will of the master, he has long since forgotten his past, and the person that he once was. Wielding blade and aether alike, he is the perfect weapon.
 
-As his creator searches for a way to bind Viserai to his will, the secrets of the [Demonastery](https://legendarystories.net/world-of-rathe/demonastery/demonastery.html) threaten to spill forth, as the ancient powers within stir once more. Viserai must find a way to break free before it is too late...
+As his creator searches for a way to bind Viserai to his will, the secrets of the [Demonastery](../world-of-rathe/demonastery/demonastery.md) threaten to spill forth, as the ancient powers within stir once more. Viserai must find a way to break free before it is too late...
 
 ## Hero Highlights
 
 #### The Arknight
 
-From decorated warrior of [Volcor](https://legendarystories.net/world-of-rathe/volcor/volcor.html), to washed up carcass on the shores of the Demonastery. [Lord Sutcliffe](https://legendarystories.net/other-characters/lord-sutcliffe.html) had at last found a vassal with enough strength to bear the agonizing procedure he sought to prove possible. Opening the chest cavity, he replaced viscera with an Arknight Shard, carved channels in bone to feed the arcane energy into runic vents etched into skin, and the first Arknight was born.
+From decorated warrior of [Volcor](../world-of-rathe/volcor/volcor.md), to washed up carcass on the shores of the Demonastery. [Lord Sutcliffe](../other-characters/lord-sutcliffe.md) had at last found a vassal with enough strength to bear the agonizing procedure he sought to prove possible. Opening the chest cavity, he replaced viscera with an Arknight Shard, carved channels in bone to feed the arcane energy into runic vents etched into skin, and the first Arknight was born.
 
 #### Sword & Sorcery
 

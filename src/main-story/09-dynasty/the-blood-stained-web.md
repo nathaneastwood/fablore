@@ -40,12 +40,12 @@ I close the guard-room door, lock it, and retrieve my daggers. Before me is a na
 
 Dusty steps lead me to a long balcony, the latter stifling with the heat of the throne room. A Dracai and his bodyguards stand at the railing, a wizard too lowly to join the ranks of the lords below. I knife the guards in their necks, slit the Dracai's throat, and use his soft-robed corpse to dampen the sound as the others fall. I work my way along the balcony, killing quietly. Each hit is a mere taste of the bliss that awaits me.
 
-Only when I have the balcony to myself do I appraise my ultimate prize. There he is, the [Emperor](https://legendarystories.net/heroes-of-rathe/emperor-about.html), surrounded by his sycophants.
+Only when I have the balcony to myself do I appraise my ultimate prize. There he is, the [Emperor](../../heroes-of-rathe/emperor-about.md), surrounded by his sycophants.
 
 I take my allotted position and weave the course of carnage in my mind as a host of hooded associates gather around me from dark corners and lofty rafters.
 
 We are the blood-red threads that will criss and cross this throne room.<br>
-We are the [Spider](https://legendarystories.net/world-of-rathe/pits/blackjacks-mercenary-group.html#the-spider)'s spinnerets-a latticework of slaughter sent to end a dynasty.
+We are the [Spider](../../world-of-rathe/pits/blackjacks-mercenary-group.md#the-spider)'s spinnerets-a latticework of slaughter sent to end a dynasty.
 
 I dance to my delight, knowing the red rain is about to fall.
 
