@@ -133,5 +133,7 @@ Vynnset draws a curved blade from her belt.
 ---
 
 _Source: [https://fabtcg.com/heroes/vynnset/anointed-in-shadow/](https://fabtcg.com/heroes/vynnset/anointed-in-shadow/)_<br>
+_Written by Edwin McRae and Rachel Rees._<br>
+_Directed by Robbie Wen. Illus. by Henrique Lindner._
 
 ---
