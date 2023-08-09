@@ -16,7 +16,7 @@ def create_flavour_md(set_id: str, card_flattened_path: str, out_file: str):
     """
     df = pd.read_json(card_flattened_path)
     df = df[["set_id", "id", "name", "flavor_text"]]
-    df = df.query(f"set_id in {set_id}")
+    df = df.query("set_id in '{set_id}'".format(set_id=set_id))
     df = df.replace("", np.nan).dropna(axis=0)
     df = df.sort_values("name")
     df = df.drop_duplicates(subset=["flavor_text"])
@@ -25,7 +25,7 @@ def create_flavour_md(set_id: str, card_flattened_path: str, out_file: str):
     f = open(out_file, "w")
     for index, row in df.iterrows():
         f.write("#### " + row["name"] + " - (" + row["id"] + ")\n")
-        f.write(row["flavor_text_plain"] + "\n\n")
+        f.write(row["flavor_text"] + "\n\n")
     f.close()
 
     return df

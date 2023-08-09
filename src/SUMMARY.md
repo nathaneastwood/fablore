@@ -226,6 +226,7 @@
     - [Uprising](flavour/07-uprising.md)
     - [Dynasty](flavour/08-dynasty.md)
     - [Outsiders](flavour/09-outsiders.md)
+    - [Dusk Till Dawn](flavour/10-dusk-till-dawn.md)
     - [Non-Set Cards](flavour/00-non-set-cards.md)
 
 - [FAQ](faq.md)
