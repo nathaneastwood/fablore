@@ -13,8 +13,8 @@ Renewable, stable, and readily available, steam became the key source of fuel fo
 ### Teklo Industries
 A newer addition to the steamtech industry, Teklo Industries have been praised for their imaginative, innovative approach to their products. Their research and development team is always experimenting with new and exciting materials, producing a revolving selection of innovative devices in sleek designs.
 
-### Voxx
+### Mendacity
 A corporation that maintains control of the media, funding almost every radio station and newspaper in the city. The rare outlier who refuses to fall under their control faces dire consequences, usually disappearing under mysterious circumstances.
 
 ## The Foundry
-An independent radio station, one of the few in Metrix that remains free of Voxx control. Run by a single operator, known only as "Gambit", its broadcasts include music, gossip from around the city, comments on locals, and improvised speeches.
+An independent radio station, one of the few in Metrix that remains free of Mendacity control. Run by a single operator, known only as "Gambit", its broadcasts include music, gossip from around the city, comments on locals, and improvised speeches.
