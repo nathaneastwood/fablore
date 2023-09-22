@@ -168,6 +168,7 @@
     - [Living on a Prayer](short-stories/11-dusk-till-dawn/living-on-a-prayer.md)
     - [No Pain No Gain](short-stories/11-dusk-till-dawn/no-pain-no-gain.md)
     - [Roll of Honour](short-stories/roll-of-honour/README.md)
+        - [Briar, Warden of Thorns](short-stories/roll-of-honour/roll-of-honor-briar-warden-of-thorns.md)
         - [Iyslander](short-stories/roll-of-honour/roll-of-honor-iyslander.md)
         - [Oldhim](short-stories/roll-of-honour/roll-of-honor-oldhim.md)
         - [Oldhim, Grandfather of Eternity](short-stories/roll-of-honour/roll-of-honor-oldhim-grandfather-of-eternity.md)
