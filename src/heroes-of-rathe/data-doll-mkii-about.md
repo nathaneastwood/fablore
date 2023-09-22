@@ -22,6 +22,10 @@ When her network of contacts suggest that dark days are on the horizon for Metri
 
 ## Hero Highlights
 
-#### Ghost in the Shell
-
-From concept to creation. Whatever technology passes through Data Doll's processor can be reverse engineered, and replicated by this advanced automaton. Construct a deck with plenty of boost cards to get the Furnace Heart working overtime, and you'll soon see the latest mech tech rolling off the production line.
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/data-doll-ghost-in-the-shell.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Ghost in the Shell</b><br>
+    From concept to creation. Whatever technology passes through Data Doll's processor can be reverse engineered, and replicated by this advanced automaton. Construct a deck with plenty of boost cards to get the Furnace Heart working overtime, and you'll soon see the latest mech tech rolling off the production line.
+  </div>
+</div>
