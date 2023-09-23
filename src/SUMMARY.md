@@ -213,6 +213,7 @@
     - [Crucible of War](digital-tiles/crucible-of-war/crucible-of-war.md)
     - [Tales of Aria](digital-tiles/tales-of-aria/tales-of-aria.md)
     - [Uprising](digital-tiles/uprising/uprising.md)
+    - [Bright Lights](digital-tiles/bright-lights/bright-lights.md)
 
 - [Data](data/data.md)
     - [Characters](data/characters.md)
