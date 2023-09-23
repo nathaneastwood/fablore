@@ -156,6 +156,7 @@
     - [Unity In Light](main-story/11-dusk-till-dawn/unity-in-light.md)
     - [Falling In Darkness](main-story/11-dusk-till-dawn/falling-in-darkness.md)
     - [Anointed In Shadow](main-story/11-dusk-till-dawn/anointed-in-shadow.md)
+    - [The Dynamic Man](main-story/12-bright-lights/the-dynamic-man.md)
 
 - [Short Stories](short-stories/README.md)
     - [A Thousand Cuts](short-stories/10-outsiders/a-thousand-cuts.md)
