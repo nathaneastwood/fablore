@@ -14,7 +14,7 @@ Stubborn and rebellious, Dash's energetic nature often gets her into trouble. On
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dash-inventor-extraordinaire.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Inventor Extraordinaire</b><br>
-    As the daughter of Teklo Industries top scientists, Dash has access to the latest technology and tools to be found in Metrix. Despite the wealth of resources at her disposal, Dash finds inspiration from experimentation with odds and ends she comes across in the Midtown Markets and junkyards beyond the city limits.
+    As the daughter of Teklo Industries top scientists, Dash has access to the latest technology and tools to be found in Metrix. Despite the wealth of resources at her disposal, Dash finds inspiration from experimentation with odds and ends she comes across in the [Midtown Markets](../world-of-rathe/metrix/a-sprawling-metropolis.md#midtown-markets) and junkyards beyond the city limits.
   </div>
 </div>
 
