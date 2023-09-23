@@ -39,7 +39,7 @@ A city without its technology?<br>
 No strobe in the night,<br>
 Or Pavloads to strike.<br>
 No Teklo Industries.<br>
--No Pulsewave or lammer<br>
+No Pulsewave or Jammer<br>
 Or Plating or Breaker.<br>
 Not even the Iron Assembly.<br>
 A future, shutdown<br>
