@@ -22,6 +22,12 @@ In Metrix, an immaculate amalgam of minerals and metals forms the foundation for
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/meganetic-lockwave.webp" alt="meganetic-lockwave" class="center" />
 
+### Moonshot
+
+Forget a grand entrance. Go for the destructive departure. The explosive exit. See me blast outta eighth and past [Lowlake](../../world-of-rathe/metrix/a-sprawling-metropolis.md#lowlake) with the nitro on full throttle. I may not know where I'm going, but you'll definitely know where I've been. Just look up! Watch for Powder Kegs in the moonlight.
+
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/moonshot.webp" alt="moonshot" class="center" />
+
 ### Steel Street Enforcement
 
 Without law and order, there can be no peace, no prosperity. The [Iron Assembly](../../world-of-rathe/metrix/a-better-tomorrow.md#iron-assembly) safeguards the wellbeing of every citizen in Metrix. Security ensures stability. Therefore, unstable elements must be realigned. Do we make
