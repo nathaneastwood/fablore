@@ -1,8 +1,28 @@
+### Backup Protocol: RED
+
+The future waits for no one, does it?
+
+The science is robust. Anomalies detected and resolved. Analysis filters are in place. KPIs attuned. Protocol 103 is on standby. All impossibility eliminated. Sixty seconds out and counting. Fifty-nine, fifty-eight, fifty-seven...
+
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/backup-protocol-red.webp" alt="backup-protocol-red" class="center" />
+
+### Cogwerx Base Head
+
+We all have to start somewhere! Take your first step into the world of industry and wealth with raw materials from steam central. No need to save up. These enhancements come at rock-bottom prices. When it's time to stand and be counted, you can count on [Cogwerx](../../world-of-rathe/metrix/a-better-tomorrow.md#cogwerx-conglomerate)!.
+
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/cogwerx-base-head.webp" alt="cogwerx-base-head" class="center" />
+
 ### Evo Command Center
 
-When the going gets tough, the tough suit up! Battle-hardened, with a track record as old as [Metrix](../../world-of-rathe/metrix/metrix.md), this steam-powered - coverall will see you through the rough and tumble of any situation. You can count on [Cogwerx](../../world-of-rathe/metrix/a-better-tomorrow.md#cogwerx-conglomerate)!
+When the going gets tough, the tough suit up! Battle-hardened, with a track record as old as [Metrix](../../world-of-rathe/metrix/metrix.md), this steam-powered - coverall will see you through the rough and tumble of any situation. You can count on Cogwerx!
 
-<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/evo-command-center.webp" alt="evo-command-center" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/evo-command-center-clean.webp" alt="evo-command-center" class="center" />
+
+### Evo Data Mine
+
+Smarter, sharper, more perceptive. At ease. Sleeping well. That's how you weather the waves of variance. Kit yourself out like you're prepared for anything and you will be. Survey your surroundings with Data, by Teklo Industries.
+
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/evo-data-mine.webp" alt="evo-data-mine" class="center" />
 
 ### Fabricate
 
@@ -34,6 +54,12 @@ Without law and order, there can be no peace, no prosperity. The [Iron Assembly]
 ourselves clear? - Steelstreet Enforcers
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/steel-street-enforcement.webp" alt="steel-street-enforcement" class="center" />
+
+### Steel Street Hoons
+
+Those who own the game make the rules. The Iron Assembly didn't ask our opinion They just told us to play. Well, we've got news for them. This is our city, our game. We'll write our own damned rules!
+
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/steel-street-hoons.webp" alt="steel-street-hoons" class="center" />
 
 ### System Failure
 
