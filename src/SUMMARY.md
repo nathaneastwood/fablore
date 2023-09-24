@@ -214,6 +214,7 @@
 
 - [Digital Tiles](digital-tiles/README.md)
     - [Crucible of War](digital-tiles/crucible-of-war/crucible-of-war.md)
+    - [Monarch](digital-tiles/monarch/monarch.md)
     - [Tales of Aria](digital-tiles/tales-of-aria/tales-of-aria.md)
     - [Everfest](digital-tiles/everfest/everfest.md)
     - [Uprising](digital-tiles/uprising/uprising.md)
