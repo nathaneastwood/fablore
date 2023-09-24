@@ -50,7 +50,7 @@ Her thin frame relaxes at the answer only she can hear. Not the prayers, not the
 
 As cool as the night she slips through, her bare feet padding softly on the polished floor. Years of waiting, and of failed attempts at escape. In that time, she has emerged from childhood into womanhood.
 
-The senior matrons rush to an ‘accident', leaving their duties to a few inexperienced acolytes. After being watched for so long, the space is palpable; the matron's domineering eyeballs cast elsewhere.
+The senior matrons rush to an 'accident', leaving their duties to a few inexperienced acolytes. After being watched for so long, the space is palpable; the matron's domineering eyeballs cast elsewhere.
 
 She freezes at a corner, concealed in shadow, as a pair of gossiping novitiates rustle down the corridor ahead.
 
