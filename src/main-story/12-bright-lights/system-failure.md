@@ -28,7 +28,7 @@ While the other six-year-olds were making mud pies in that open sewer they calle
 
 At age seven, I took an interest in circuitry. I isolated and activated the extinguisher system over the staff quarters, ruining several thousand tallics' worth of furniture in one night. Put an orderly in the hospital too. Asphyxiation, they said. Must have been quite the snorer.
 
-I kept a low profile after that. Minor pranks. Lights flashing on and off by themselves. Magnetic doors locking and trapping the unwary for a few minutes. Random blasts of music over the intercom. Two staffers left because they were sure the place was haunted. Phantom Maxx, at your service.
+I kept a low profile after that. Minor pranks. Lights flashing on and off by themselves. Magnetic doors locking and trapping the unwary for a few minutes. Random blasts of music over the intercom. Two staffers left because they were sure the place was haunted. Phantom [Maxx](../../heroes-of-rathe/maxx-about.md), at your service.
 
 For my eighth birthday, I threw myself a party, complete with entertainment. Hacked the internal surveillance system and watched a sweet romance blossom between the orphanage manager and a maintenance attendant. Against company policy, of course. When they finally got it on in the boiler room, I pointed every security camera within earshot onto the suckers, uploaded the footage, and shared it to every screen within the orphanage's parent company, the renowned Rosario Hills Institute. Manager and attendant were sacked the next day. By the end of the week, I found myself in new digs-my very own room in the exclusive Rosario Chateaux.
 
@@ -60,7 +60,7 @@ Through the antechamber's window I can see other enforcers in the station's main
 
 I pick off two bots and a humaniform who've dodged the stampede, winging the latter out of respect for fellow organics. I even order some auto-ambulances for the wounded and whining humaniforms staggering out the shattered front door.
 
-It's clear outside. Lovely evening. Even the smog's been carried off by some gusty breeze. Nothing to block my view of [Teklo Industries](../../world-of-rathe/metrix/a-better-tomorrow.md#teklo-industries)' big, beautiful [Needle](../../world-of-rathe/metrix/a-sprawling-metropolis.md#the-needle). I sight my stolen Barrel Shot at the holographic face of Jules Teklovossen. He smirks at me from a dynamic billboard perched halfway up the tower. I empty the plasma mag into his smug expression. The shots fall well short of the five-kilometer distance between me and Teklo HQ, but hey, it's the thought that counts.
+It's clear outside. Lovely evening. Even the smog's been carried off by some gusty breeze. Nothing to block my view of [Teklo Industries](../../world-of-rathe/metrix/a-better-tomorrow.md#teklo-industries)' big, beautiful [Needle](../../world-of-rathe/metrix/a-sprawling-metropolis.md#the-needle). I sight my stolen Barrel Shot at the holographic face of [Jules Teklovossen](../../heroes-of-rathe/teklovossen.md). He smirks at me from a dynamic billboard perched halfway up the tower. I empty the plasma mag into his smug expression. The shots fall well short of the five-kilometer distance between me and Teklo HQ, but hey, it's the thought that counts.
 
 I toss the empty gun aside and flip Teklovossen my middle finger. Yes, I'm one to hold a grudge. They're all I have these days. Grudges with those on high, and grudges with the systems that keep them there.
 

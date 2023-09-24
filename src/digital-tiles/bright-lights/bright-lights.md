@@ -6,7 +6,7 @@ When the going gets tough, the tough suit up! Battle-hardened, with a track reco
 
 ### Fabricate
 
-Node connects to node with circuits dynamic. Forming patterns. Forming pictures. Billions of ones and zeros, meeting and making in a mindscape of automation. A tallic for your thoughts, little one. - Jules Teklovossen
+Node connects to node with circuits dynamic. Forming patterns. Forming pictures. Billions of ones and zeros, meeting and making in a mindscape of automation. A tallic for your thoughts, little one. - [Jules Teklovossen](../../heroes-of-rathe/teklovossen.md)
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/fabricate.webp" alt="fabricate" class="center" />
 

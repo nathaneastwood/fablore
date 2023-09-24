@@ -9,7 +9,7 @@
 _Become more than you are._<br>
 _Become more than human!_
 
-One young man understood these promises better than most. Yes, it is true what they say about Jules Teklovossen. He was obsessed with power, but not the paltry, petty power of politics. He was driven by the power of energy. For he knew that, with enough energy, one can do anything that the human mind can conceive of. One can even remake the world.
+One young man understood these promises better than most. Yes, it is true what they say about [Jules Teklovossen](../../heroes-of-rathe/teklovossen.md). He was obsessed with power, but not the paltry, petty power of politics. He was driven by the power of energy. For he knew that, with enough energy, one can do anything that the human mind can conceive of. One can even remake the world.
 
 It was in a mothballed corner of the corroding Plumvex Pipes factory, Jules Teklovossen created the elegant coils and squat battery that would forever change the course of Metrix history. The potency hissed and spat between those coils, writhing like a netted serpent striving to reach the great blue sea. But Teklovossen would not let it free. Instead, he shackled that titanic beast in a two-by-two box. A little treasure chest bursting with enough power to vitalize hundreds of homes, shops and factories.
 

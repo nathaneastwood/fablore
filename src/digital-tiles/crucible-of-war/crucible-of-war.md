@@ -209,7 +209,7 @@ Despite the thick coating of dust, the blade holds a certain majesty about it; t
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/talishar-the-lost-prince.webp" alt="talishar-the-lost-prince" class="center" />
 
-### Teklovossen's Workshop
+### [Teklovossen](../../heroes-of-rathe/teklovossen.md)'s Workshop
 
 The Greatest minds of [Metrix](../../world-of-rathe/metrix/metrix.md) are held in high esteem, their workshops put on display for future generations; a source of inspiration for those who seek to follow in their footsteps.
 
