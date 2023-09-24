@@ -237,3 +237,5 @@
     - [Non-Set Cards](flavour/00-non-set-cards.md)
 
 - [FAQ](faq.md)
+
+- [Spoilers](spoiler/bright-lights/bright-lights.md)
