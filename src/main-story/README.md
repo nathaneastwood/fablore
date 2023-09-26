@@ -8,7 +8,7 @@ To aid this instruction set, we will use the Squeaker's Christmas story, which w
 * Save any images for the story to the `10-outsiders/media`. Images should be converted to `.webp` format. File names should have the story's name followed by a number which follows the order they appear in the story, i.e. `squeakers-christmas-1.webp`.
 * At the bottom of the file, add any source(s) for the story (e.g. the fabtcg.com link) as well as any information about the writer(s), director(s) and illustrator(s) in italics.
 * If available, add the narrated YouTube video to the very bottom of the file.
-* Replace any non-standard ligatures such as `“`, `”`, `’`, `—`, `…` with the standard ones `"`, `"`, `'`, `-` and `...`.
+* Replace any non-standard ligatures such as `“`, `”`, `‘`, `’`, `—`, `…` with the standard ones `"`, `"`, `'`, `'`, `-` and `...`.
 * Replace any horizontal bars with `---` which creates a horizontal bar using markdown.
 * Add links to the first mention of each unique hero, character or location.
 * Add any mentions of new characters, heroes or locations to the [data files](../data).

@@ -160,6 +160,7 @@
     - [Anointed In Shadow](main-story/11-dusk-till-dawn/anointed-in-shadow.md)
     - [The Dynamic Man](main-story/12-bright-lights/the-dynamic-man.md)
     - [System Failure](main-story/12-bright-lights/system-failure.md)
+    - [Synthetic Futures](main-story/12-bright-lights/synthetic-futures.md)
 
 - [Short Stories](short-stories/README.md)
     - [A Thousand Cuts](short-stories/10-outsiders/a-thousand-cuts.md)

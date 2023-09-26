@@ -29,7 +29,7 @@ The [Needle](../../world-of-rathe/metrix/a-sprawling-metropolis.md#the-needle) t
 
 Jules Teklovossen stands at the epicenter, the Evos he wears automatically steadying his swaying frame as another dizzy spell catches him off-guard.
 
-"That thing will give anyone vertigo," says the Assembly Inspector as he enters the site. "Joking aside though, are you alright, Professor?" The man sounds genuinely concerned, but Teklovossen can tell from the official's body language that it's feigned.
+"That thing will give anyone vertigo," says the [Assembly](../../world-of-rathe/metrix/a-better-tomorrow.md#iron-assembly) Inspector as he enters the site. "Joking aside though, are you alright, Professor?" The man sounds genuinely concerned, but Teklovossen can tell from the official's body language that it's feigned.
 
 "The sight of it makes me giddy," he covers. Maybe his bad habits are catching up with him. Over three decades of long hours in the laboratory, of living only for the work. No family. No recreation. Barely enough time spared to sleep and eat. A life devoted to the founding and building of Teklo Industries. A passion committed to progress.
 
