@@ -239,6 +239,7 @@
     - [Dusk Till Dawn](flavour/10-dusk-till-dawn.md)
     - [Non-Set Cards](flavour/00-non-set-cards.md)
 
-- [FAQ](faq.md)
+- [Spoilers](spoilers/README.md)
+    - [Bright Lights](spoilers/bright-lights.md)
 
-- [Spoilers](spoiler/bright-lights/bright-lights.md)
+- [FAQ](faq.md)

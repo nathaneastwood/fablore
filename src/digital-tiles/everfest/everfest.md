@@ -228,8 +228,6 @@ Safeguard your most prized treasures, adventurer, as you experience the carnival
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/smashing-good-time.webp" alt="smashing-good-time" class="center" />
 
-<img src="https://d2hl7maqck52px.cloudfront.net/spoiler/mhz-script-tile.webp" alt="mhz-script-tile" class="center" />
-
 ### Spring Tidings
 
 Another year has come and gone, as the spring brings new tidings for you and me. The memories of your past weigh upon your youthful frame, but your Sensei's wisdom does guide your step, and your own blood and sweat give bloom to your martial prowess.

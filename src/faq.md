@@ -43,9 +43,6 @@ Currently my understanding is that Solana is not all it is cut out to be, as the
 * [Kai'eo](world-of-rathe/aria/creatures.md#kaieo)
 * [Na'shari](world-of-rathe/aria/creatures.md#nashari)
 * [Meep](world-of-rathe/aria/creatures.md#meep)
-
-<img src="https://d2hl7maqck52px.cloudfront.net/spoiler/overload-script-tile.webp" alt="overload-script-tile" class="center" />
-
 * [Fianna](world-of-rathe/aria/creatures.md#fianna)
 * [Vuurlin](world-of-rathe/volcor/wildlife.md#vuurlin)
 * [Longma](world-of-rathe/volcor/wildlife.md#longma)

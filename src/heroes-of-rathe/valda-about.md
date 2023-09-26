@@ -8,8 +8,6 @@ The Everfest Carnival, what a sight to behold! Slowly making its way through the
 
 Every day is full of exciting adventures, and every night... well, there's always an afterparty to attend! Here in the most popular of taverns, Might n' Mead, it's difficult for patrons to not get too worked up after all the crazy excitements of the day. Throw in some crazy concoctions dreamt up by the mischievous Braumeisters, and we have on our hands a mighty big problem.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/spoiler/autosave-script-tile.webp" alt="autosave-script-tile" class="center" />
-
 But even the most rowdy of patrons fall silent, the most daring of adventurers cower, when they catch a glimpse of the mighty Valda heading their way.
 
 'Twas said that she showed up at the doors of the tavern one hot afternoon, another lost and wayward child that had stumbled upon Korshem (as so many do) through some strange turn of events. She had naught but the clothes on her back, and a small tag upon her personnage inscribed with indiscernible characters and a symbol that vaguely resembled an axe. With nowhere to go, she was taken in by the aging Innkeeper, and raised as his own. He tried to teach her the way of the Braumeisters, but she wasn't much interested. She's too impatient, her temper too fiery to bother with all the delicate processes that lead to the richest of flavours.
