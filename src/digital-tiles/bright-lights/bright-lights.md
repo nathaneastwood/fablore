@@ -12,6 +12,24 @@ We all have to start somewhere! Take your first step into the world of industry 
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/cogwerx-base-head.webp" alt="cogwerx-base-head" class="center" />
 
+### [Dash I/O](../../heroes-of-rathe/dash-about.md)
+
+You've got to stay curious. Ask questions. Push the envelope. Challenge your mind to think bigger, better. Brighter! I'm never who I was yesterday. I'm always two steps ahead of myself, thinking about tomorrow, inventing it as I go along!
+
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/dash-io.webp" alt="dash-io" class="center" />
+
+### Data Link
+
+Reality getting you down? Worn down by grit and grime, the gall and the grind? Then Eidolon is the flight of fancy you've been waiting for. Take the holiday of a lifetime without ever leaving home. Go on. You've earned it!
+
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/data-link.webp" alt="data-link" class="center" />
+
+### Dive Through Data
+
+Eidolon, the realm of data made manifest. Rumors whispered from the stacks. Gossip giggled through the graphs. Lurid! lies dangling from topical trees. It's all there, the story of an entire city, peeking through the ones and the zeros.
+
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/dive-through-data.webp" alt="dive-through-data" class="center" />
+
 ### Evo Command Center
 
 When the going gets tough, the tough suit up! Battle-hardened, with a track record as old as [Metrix](../../world-of-rathe/metrix/metrix.md), this steam-powered - coverall will see you through the rough and tumble of any situation. You can count on Cogwerx!
