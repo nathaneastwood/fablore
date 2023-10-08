@@ -237,6 +237,7 @@
     - [Dynasty](flavour/08-dynasty.md)
     - [Outsiders](flavour/09-outsiders.md)
     - [Dusk Till Dawn](flavour/10-dusk-till-dawn.md)
+    - [Bright Lights](flavour/11-bright-lights.md)
     - [Non-Set Cards](flavour/00-non-set-cards.md)
 
 - [Spoilers](spoilers/README.md)
