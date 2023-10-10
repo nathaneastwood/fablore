@@ -39,25 +39,7 @@ Currently my understanding is that Solana is not all it is cut out to be, as the
 
 ### What animals/non-humanoids exist within Rathe?
 
-* [Vitr'eo](world-of-rathe/aria/creatures.md#vitreo)
-* [Kai'eo](world-of-rathe/aria/creatures.md#kaieo)
-* [Na'shari](world-of-rathe/aria/creatures.md#nashari)
-* [Meep](world-of-rathe/aria/creatures.md#meep)
-* [Fianna](world-of-rathe/aria/creatures.md#fianna)
-* [Vuurlin](world-of-rathe/volcor/wildlife.md#vuurlin)
-* [Longma](world-of-rathe/volcor/wildlife.md#longma)
-* [Ryoki](world-of-rathe/volcor/wildlife.md#ryoki)
-* [Morrows](world-of-rathe/volcor/wildlife.md#morrows)
-* [Apophis](world-of-rathe/volcor/wildlife.md#apophis)
-* [Cesari](world-of-rathe/aria/a-true-sanctuary.md#cesari)
-* [Azeri](digital-tiles/crucible-of-war/crucible-of-war.md#skullhorn)
-* [Rek'vas](weapons/talishar-lost-prince.md)
-* [Skera](main-story/01-welcome-to-rathe/rhinar-reckless-rampage-story.md#kill-or-be-killed)
-* [Peluda](main-story/01-welcome-to-rathe/rhinar-reckless-rampage-story.md#kill-or-be-killed)
-* [Ank'is](main-story/01-welcome-to-rathe/rhinar-reckless-rampage-story.md#kill-or-be-killed)
-* [Brawnhide](main-story/01-welcome-to-rathe/rhinar-reckless-rampage-story.md#kill-or-be-killed)
-* [Blindseal](main-story/10-outsiders/uzuri-switchblade-story.md)
-* [Bloatfin](main-story/10-outsiders/uzuri-switchblade-story.md)
+You can see the full list of animals on the data page [here](data/animals.md).
 
 ### What powers/forces exist within Rathe?
 

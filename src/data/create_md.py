@@ -14,5 +14,6 @@ def create_md_file(file: str, sort: str):
     f.close()
 
 
+create_md_file("./src/data/animals.csv", "Name")
 create_md_file("./src/data/characters.csv", "Name")
 create_md_file("./src/data/locations.csv", "Name")

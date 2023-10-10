@@ -223,6 +223,7 @@
     - [Bright Lights](digital-tiles/bright-lights/bright-lights.md)
 
 - [Data](data/data.md)
+    - [Animals](data/animals.md)
     - [Characters](data/characters.md)
     - [Locations](data/locations.md)
 
