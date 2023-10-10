@@ -244,3 +244,5 @@
     - [Bright Lights](spoilers/bright-lights.md)
 
 - [FAQ](faq.md)
+
+- [About](about.md)
