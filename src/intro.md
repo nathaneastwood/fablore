@@ -2,6 +2,8 @@
 
 This book contains the Flesh and Blood lore. All content belongs to © Legend Story Studios.
 
+Pressing the search icon (🔍) in the menu bar, or pressing the S key on the keyboard will open an input box for entering search terms. Typing some terms will show matching chapters and sections in real time.
+
 If you like the work that I am doing then please consider to...
 
 <a href="https://www.buymeacoffee.com/nathaneastwood"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a beer&emoji=🍺&slug=nathaneastwood&button_colour=ef60a3&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=FFDD00" /></a>
