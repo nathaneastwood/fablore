@@ -15,7 +15,7 @@ As the generals grow increasingly aggressive in their quest for power, Kassai se
 ## Hero Highlights
 
 <div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/leader-of-the-cintari.webp" class="hero-icon" />
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/the-price-of-war.webp" class="hero-icon" />
   <div class="hero-content">
     <b>The Price of War</b><br>
     Word of war is welcome respite for a sellsword; for where there's war, there's work. The promise of copper to feed herself is enough for this nomadic warrior to put her life on the line, and her mind at ease.
