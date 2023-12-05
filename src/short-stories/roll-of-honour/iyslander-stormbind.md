@@ -1,0 +1,11 @@
+# Roll of Honor: Iyslander, Stormbind
+
+It hadn't taken very long for [Volcor](../../world-of-rathe/volcor/volcor.md) to rip apart at the seams.
+
+Like shreds of parchment in a furnace, centuries of order, dominion, and tradition - all consumed in flames with the single precise flick of a dagger. To be fair, [Iyslander](../../heroes-of-rathe/iyslander-about.md) hadn't known what exactly to expect when she returned to the realm of the [Dracai](../../world-of-rathe/volcor/welcome-to-volcor.md), but she certainly hadn't anticipated the sudden fall of the empire. Volcor had been reduced to a playground for squabbling factions who tore at each other's throats, desperately scrambling to seize control of the crumbling royal estate. It only meant more pain and hardship for innocent civilians unlucky enough to be caught in the crossfire.
+
+Iyslander wasn't one to take sides, but she had extended an icy palm wherever she encountered injustice. The stranger's mask had only granted so much anonymity before her interference had built a notorious reputation - on both sides of the conflict. She couldn't fight the urge to stem the tide of cruelty, betrayal, and bloodshed. It made her sad, it made her angry, but most of all - it made her realise the truth. There were larger forces at play. She could taste in the air something terrible and all-encompassing, and if Volcor was to stand a chance at surviving it would need to stand united with fire in its heart, not ruptured and smouldering as it was now.
+
+She could do it - she could just wipe away the warring factions with a flick of her wrist. Her power had evolved immensely since her youth, to the point where she could easily extinguish everything with the unbridled wrath of Winter itself. But coming back here had taught her a valuable lesson. Hers was not the role of raw destruction - it was one of renewal. Just as the frost consumed Rathe, so too would it thaw out and nurture new life. Volcor's fate was not branded in cinders, it was simply obscured by the smoke of an ancient dynasty. She would eventually guide them down the right path, but first the last choking embers of the old power needed to drift away for new flames to rise from the ashes.
+
+Until then, she would wait...
