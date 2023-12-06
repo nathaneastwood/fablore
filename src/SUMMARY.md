@@ -180,6 +180,7 @@
         - [Oldhim, Grandfather of Eternity](short-stories/roll-of-honour/oldhim-grandfather-of-eternity.md)
         - [Lexi, Livewire](short-stories/roll-of-honour/lexi-livewire.md)
         - [Iyslander, Stormbind](short-stories/roll-of-honour/iyslander-stormbind.md)
+        - [Chane](short-stories/roll-of-honour/chane.md)
 
 - [Languages](languages/intro.md)
     - [Arcane](languages/01-arcane.md)
