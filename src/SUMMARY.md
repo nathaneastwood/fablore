@@ -181,6 +181,7 @@
         - [Lexi, Livewire](short-stories/roll-of-honour/lexi-livewire.md)
         - [Iyslander, Stormbind](short-stories/roll-of-honour/iyslander-stormbind.md)
         - [Chane](short-stories/roll-of-honour/chane.md)
+        - [Ira, Crimson Haze](short-stories/roll-of-honour/ira-crimson-haze.md)
 
 - [Languages](languages/intro.md)
     - [Arcane](languages/01-arcane.md)
