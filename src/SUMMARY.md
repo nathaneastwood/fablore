@@ -64,6 +64,7 @@
     - [Arakni](heroes-of-rathe/arakni-about.md)
     - [Azaela](heroes-of-rathe/azalea-about.md)
     - [Benji](heroes-of-rathe/benji-about.md)
+    - [Betsy](heroes-of-rathe/betsy-about.md)
     - [Boltyn](heroes-of-rathe/boltyn-about.md)
     - [Bravo](heroes-of-rathe/bravo-about.md)
     - [Briar](heroes-of-rathe/briar-about.md)
