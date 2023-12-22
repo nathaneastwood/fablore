@@ -87,6 +87,7 @@
     - [Lexi](heroes-of-rathe/lexi-about.md)
     - [Maxx](heroes-of-rathe/maxx-about.md)
     - [Oldhim](heroes-of-rathe/oldhim-about.md)
+    - [Olympia](heroes-of-rathe/olympia-about.md)
     - [Prism](heroes-of-rathe/prism-about.md)
     - [Rhinar](heroes-of-rathe/rhinar-about.md)
     - [Riptide](heroes-of-rathe/riptide-about.md)
