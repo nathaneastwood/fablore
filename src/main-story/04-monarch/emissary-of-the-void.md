@@ -20,7 +20,7 @@ Time was a cruel mistress, and Chane could only watch as his reflection became e
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/chane-4.webp" alt="chane-4" class="center">
 
-A seed of doubt began to bloom, deep within his chest—that is, until a whisper reached him through the halls of the Demonastery.
+A seed of doubt began to bloom, deep within his chest-that is, until a whisper reached him through the halls of the Demonastery.
 
 A scheme came to fruition, and word passed quickly between residents and researchers, spreading through the Disciples of Pain like a fire. All of the Demonastery rose to the unspoken challenge, prepared to take on Solana after their centuries of hibernation. When the final pieces of the puzzle had fallen into place, and a dark figure shattered the veil between the worlds, the gateway to íArathael, the eternal realm of the ancients, finally lay open.
 
@@ -30,7 +30,7 @@ Now, at long last, they finally had the opportunity they had been waiting for. A
 
 As the Disciples ventured into the unknown world, Chane took careful note of the reports which came back, piecing together information on the ever-changing realm. The Disciples had been studying for many years, learning about the old ones, and as Chane studied their records he quickly identified one possible source of power for his order. Armed with the reports of his fellow Disciples, and with a team at his side, he grimly volunteered to venture into íArathael and locate the Embra, ancient creatures whose raw power would lead them to the victory they so desired.
 
-When they had passed through the gateway, an unfamiliar, ethereal realm lay before them—a vivid landscape seemingly torn asunder. Rolling, verdant plains met bloodstained wastelands; iridescent wisps transformed themselves into ashen wraiths; vibrant refrains clashed with dissonant screams. The land altered itself around them with every breath; landmarks flickered in and out of existence like a mirage, as if reality itself were rippling like the surface of a lake.
+When they had passed through the gateway, an unfamiliar, ethereal realm lay before them-a vivid landscape seemingly torn asunder. Rolling, verdant plains met bloodstained wastelands; iridescent wisps transformed themselves into ashen wraiths; vibrant refrains clashed with dissonant screams. The land altered itself around them with every breath; landmarks flickered in and out of existence like a mirage, as if reality itself were rippling like the surface of a lake.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/chane-6.webp" alt="chane-6" class="center">
 

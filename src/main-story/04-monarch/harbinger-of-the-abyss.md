@@ -10,11 +10,11 @@ For the first time she could remember, the Barthimont estate lay completely sile
 
 A slight, pale man rounded the corner, his gaunt face a study in sharp angles and leaden skies. As his steely-grey eyes met Levia's gaze, his expression turned dour, lips twisting into a grimace.
 
-You." The stranger sighed, tone dripping with distaste. "I had plans for her, but you—this changes our strategy entirely. No matter; far too late to change that now. You are powerful, in your own way... Perhaps we might use you, instead." He extended one hand towards her, something clasped within his palm, foolishly ignoring the rage which rippled across Levia's countenance. When her gaze settled on his outstretched hand, something burned at the corners of her vision, the singe of shadow aether a familiar assault on her senses.
+You." The stranger sighed, tone dripping with distaste. "I had plans for her, but you-this changes our strategy entirely. No matter; far too late to change that now. You are powerful, in your own way... Perhaps we might use you, instead." He extended one hand towards her, something clasped within his palm, foolishly ignoring the rage which rippled across Levia's countenance. When her gaze settled on his outstretched hand, something burned at the corners of her vision, the singe of shadow aether a familiar assault on her senses.
 
 _Here_ was the same power, the same dark influence that she'd come to know so well. Levia could almost hear the Lady's laughter, could almost taste the black blood on the back of her tongue.
 
-"Come with me," the man continued, dark gaze falling to Levia's curled talons. "I can offer you power, make you even stronger. The power you laid claim to today is but a fraction of—"
+"Come with me," the man continued, dark gaze falling to Levia's curled talons. "I can offer you power, make you even stronger. The power you laid claim to today is but a fraction of-"
 
 Snarling, Levia lunged towards the strange visitor, slamming him against the nearest wall. Her clawed fingers cut easily into his flesh, shreds of fabric hanging from his battered skin as Levia drove her hand into his chest, elbow-deep in the man's ribcage. She felt the staccato rhythm beat against her palm, his muscles seizing as blood vessels burst beneath her pointed talons, and then she tore the stranger's heart from his chest.
 
@@ -146,7 +146,7 @@ The third class of Blasmophet's creatures took was well-mutated, picking up seve
 
 The fourth of Blasmophet's creatures was an abomination, with great, bulbous bodies, multitudes of limbs armed with prodigious claws, sprouting extra bodies from their backs or sporting layers of toxic flesh. Their mouths were lined with hundreds of teeth, ready to devour their prey; they were killing machines fuelled by the need to consume. Levia attacked them mercilessly, using her speed and strength to her advantage, bludgeoning them and mutilating their limbs until they could no longer move, and she could bring them to their knees. Some attempted to consume her, but Levia persisted, tearing them apart from the inside out.
 
-The fifth and final class of Blasmophet's creatures were the beasts of old, colossal and unyielding—yet Levia used their size against them, climbing their amorphous forms and ripping out great chunks of flesh, devouring them piece by piece, claiming their power one mouthful at a time. Yet still she hungered, consuming more and more until she finally had the strength she needed to face Blasmophet's Harbinger.
+The fifth and final class of Blasmophet's creatures were the beasts of old, colossal and unyielding-yet Levia used their size against them, climbing their amorphous forms and ripping out great chunks of flesh, devouring them piece by piece, claiming their power one mouthful at a time. Yet still she hungered, consuming more and more until she finally had the strength she needed to face Blasmophet's Harbinger.
 
 Devoratum lingered at the centre of Blasphema, watching over the empty throne. Almost four times her height, the colossal fiend towered above her, its grey, fleshy body twisted and misshapen. Dozens of eyes sprouted from the top of its body, reddened and glistening in the light, their dilated pupils locked onto Levia. Multitudes of slender, frog-like limbs supported its immense weight, allowing it to scuttle along the earth like a centipede. A gash in the front of its body constituted a kind of mouth, opening to reveal a great, gaping chasm lined with hundreds of razor-sharp fangs, its dozens of tentacle-like tongues covered in a corrosive saliva.
 
@@ -168,7 +168,7 @@ In an instant, Levia recognised the voice, felt the sharp sting of anger as she 
 
 _You. I killed you. You should be dead._
 
-_You should know better than that. People like you and I, we do not die so easily_. His reverberating laughter stoked the tight burn of her rage into a firestorm, and distantly, Levia felt their—felt her hand curl into a fist, talons biting into their palm sharply enough to draw blood. _Now, surrender to me, and I might just let you remain._
+_You should know better than that. People like you and I, we do not die so easily_. His reverberating laughter stoked the tight burn of her rage into a firestorm, and distantly, Levia felt their-felt her hand curl into a fist, talons biting into their palm sharply enough to draw blood. _Now, surrender to me, and I might just let you remain._
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-15.webp" alt="levia-15" class="center">
 
@@ -180,7 +180,7 @@ Distantly, they both heard the scuttle of half-formed footsteps echoing througho
 
 _You... What are they? What are you?_
 
-_My creations— **our** creations, I suppose. Though they will not recognise me in this form_. Despite not being able to see his expressions, Levia could sense the wry amusement, could almost glimpse his irritating smirk. _Give me control, or they will attack_.
+_My creations- **our** creations, I suppose. Though they will not recognise me in this form_. Despite not being able to see his expressions, Levia could sense the wry amusement, could almost glimpse his irritating smirk. _Give me control, or they will attack_.
 
 _No. Give me back my body._
 
@@ -214,7 +214,7 @@ He chuckled darkly, and for an instant, she glimpsed the presence which lingered
 
 He grinned, gesturing to the other residents who now milled behind him, watching their interaction with thinly veiled interest.
 
-"We seek to strike at [Solana](../../world-of-rathe/solana/solana.md)—the city would practically be a banquet for a power like yours. Even Sutcliffe desires to take a power like theirs." Chane gestured to the head at her hip, hands outstretched. "Join us, Levia, and devour the Light."
+"We seek to strike at [Solana](../../world-of-rathe/solana/solana.md)-the city would practically be a banquet for a power like yours. Even Sutcliffe desires to take a power like theirs." Chane gestured to the head at her hip, hands outstretched. "Join us, Levia, and devour the Light."
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-16.webp" alt="levia-16" class="center">
 

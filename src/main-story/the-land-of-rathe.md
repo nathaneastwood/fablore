@@ -12,7 +12,7 @@ Isolated from the rest of Rathe, the people of [Misteria](../../world-of-rathe/m
 
 Yet others are not content with pursuing peace and harmony. Vicious creatures fight to the death in vast, unforgiving jungles, while constant warfare plagues the volcanic plains of the south. A sprawling, technological city is the perfect breeding ground for rivalry and corruption, while depraved and twisted individuals lurk in the caverns underneath.
 
-Welcome to Rathe… Pick up your sword and prepare for battle; for no matter where you run, war will find you.
+Welcome to Rathe... Pick up your sword and prepare for battle; for no matter where you run, war will find you.
 
 ---
 

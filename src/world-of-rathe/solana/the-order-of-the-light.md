@@ -27,7 +27,7 @@ These operatives work to defend Solana from its enemies by walking the fine line
 
 #### Illusionists
 
-In Solana, illusionists are hailed as revered emissaries, bringing the light of Sol beyond the grand gates of the city. Illusionists are unique in that they draw their power from a keen understanding of the world around them, an ability which allows them to bring the stories and word of Sol to life by creating breathtaking spectacles—powerful, tangible illusions which are almost indistinguishable from reality. They are often dispatched with parties of knights to travel to foreign lands, creating visions of the radiant city for outsiders to behold.
+In Solana, illusionists are hailed as revered emissaries, bringing the light of Sol beyond the grand gates of the city. Illusionists are unique in that they draw their power from a keen understanding of the world around them, an ability which allows them to bring the stories and word of Sol to life by creating breathtaking spectacles-powerful, tangible illusions which are almost indistinguishable from reality. They are often dispatched with parties of knights to travel to foreign lands, creating visions of the radiant city for outsiders to behold.
 
 #### Magisters
 

@@ -10,7 +10,7 @@ Whitetail stretches out his arms to encompass the kinetic clamor of the street. 
 
 She walks with him through hawkers and hustlers, harlots and hucksters, all working on their next score. If the Pits is a brew, it's one that gets you drunk on hope, then drops you in the gutter with the roaches and rats. Uzuri's not been here that long, but the runaway learned fast not to drink too deeply of the Pits' dubious delights.
 
-They round a corner of precariously stacked shanties. Whitetail points out a busy marketplace where fishermen sell anything from blindseal to bloatfin—monsters of the Seethe hauled ashore for the desperate digestion of the Pits' hungering inhabitants.
+They round a corner of precariously stacked shanties. Whitetail points out a busy marketplace where fishermen sell anything from blindseal to bloatfin-monsters of the Seethe hauled ashore for the desperate digestion of the Pits' hungering inhabitants.
 
 "That's where I took Baron the Butcher." Whitetail's smug smile takes on a wicked edge. "Disemboweled the big bastard with his own gutting knife. And up there..." He points to a looming chimney spewing noxious smoke. "I dropped Madam Rouge into a smelting furnace."
 
@@ -160,7 +160,7 @@ Out of desperation, Uzuri musters her ability, imagining a different weapon. The
 
 Using her glass-cutting tool, she accesses a window on the third floor, stalking through the quiet corridors until she finds the master bedroom. Crichton is a plump parcel wrapped in sheets, boxed in by his four-poster bed. A gift for Uzuri to rip open.
 
-She hesitates, dirk in hand, having killed no one in cold blood before. In self-defense, as vengeance, yes. But this man—he's done nothing to her. She grits her teeth, clamping down on that pang of guilt. Coin is the Spider's only currency. This is the business.
+She hesitates, dirk in hand, having killed no one in cold blood before. In self-defense, as vengeance, yes. But this man-he's done nothing to her. She grits her teeth, clamping down on that pang of guilt. Coin is the Spider's only currency. This is the business.
 
 The dirk is gone, replaced with a straight razor. She places her hand on Crichton's forehead like a mother checking the temperature of a feverish child. He stirs, but doesn't wake until Uzuri draws the razor across his throat. His eyes snap open. He gasps for breath but sucks in nothing but blood. Uzuri leans hard on his forehead, pinning him to the bed as he struggles in vain. Blood soaks the sheets, seeps into the mattress, as Crichton's movements weaken and finally stop. Uzuri takes her hand from his forehead, brushes his eyelids closed with her fingertips, and wipes the razor on his pillow. By the time the blade is clean, the razor has become her dirk once more.
 
@@ -172,7 +172,7 @@ An exit presents itself as a bronze maiden and a lead-light window. She hefts th
 
 From the walls, the archers adorn her path with explosions, their incendiaries erupting to either side, spraying her with dirt. She weaves as best she can, making herself a tough target until she reaches the mine shaft marked on Jemjang's map. It's boarded shut, planks nailed down so tight that it'll take precious minutes to pry them loose.
 
-Uzuri takes a throwing knife from her belt and lays it flat on the wood. As she moves her hand away, the knife disappears, replaced by a stick of dynamite. She waits. Moments later, an incendiary arcs down towards her—an admirable feat of marksmanship by a ranger on the wall. Uzuri rolls away, settling into a crouch close by. Too close. Her ability isn't an exact science, unable to predict the potency of nitroglycerin. The incendiary arrow ignites the dynamite on impact. The explosion is deafening. Shrapnel peppers Uzuri, shards of metal and splinters of wood tearing through her clothes, lacerating her skin. She shields her face, winces through the pain, then looks with weeping eyes at the smoking hole left behind. She dives in, but not before gifting the archers an obscene gesture.
+Uzuri takes a throwing knife from her belt and lays it flat on the wood. As she moves her hand away, the knife disappears, replaced by a stick of dynamite. She waits. Moments later, an incendiary arcs down towards her-an admirable feat of marksmanship by a ranger on the wall. Uzuri rolls away, settling into a crouch close by. Too close. Her ability isn't an exact science, unable to predict the potency of nitroglycerin. The incendiary arrow ignites the dynamite on impact. The explosion is deafening. Shrapnel peppers Uzuri, shards of metal and splinters of wood tearing through her clothes, lacerating her skin. She shields her face, winces through the pain, then looks with weeping eyes at the smoking hole left behind. She dives in, but not before gifting the archers an obscene gesture.
 
 The next evening, bathed and bandaged, Uzuri finds Whitetail at a bar called The Drop. While he makes a good fist of hiding his surprise, Uzuri can tell that her appearance has put a dent in his composure.
 

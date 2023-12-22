@@ -4,7 +4,7 @@
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/olympia-prized-fighter.mp4" type="video/mp4">
 </video>
 
-_As the applause of the crowd ended, Cox's voice rang out "Listen, good people, to the story of Olympia—the enigmatic fighter who rose from obscurity to become one of our time's greatest fighters."_
+_As the applause of the crowd ended, Cox's voice rang out "Listen, good people, to the story of Olympia-the enigmatic fighter who rose from obscurity to become one of our time's greatest fighters."_
 
 Olympia spent his early years as a beggar, surviving on scraps, in the Moat of the Deathmatch Arena. However, destiny had other plans for him, as he would rise from the littered streets to become the 'Undefeated Deathmatch Champion'. His journey has been a gruesome spectacle from his bloody first fight to his relentless streak of title defenses, earning him nicknames like the 'The Eternal' and 'Prized Fighter'.
 

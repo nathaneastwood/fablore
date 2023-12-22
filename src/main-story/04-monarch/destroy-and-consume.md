@@ -14,7 +14,7 @@ As Levia grew older and more determined, the Barthimont estate descended ever de
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-3.webp" alt="levia-3" class="center">
 
-On one of Levia's late-night walks through the mansion, she heard a shrill, piercing scream, distant and muffled; the sound of pure, unadulterated horror. Resolute, she wandered in the direction of the sound, searching for answers—and later, a part of her would wish that she had never found them.
+On one of Levia's late-night walks through the mansion, she heard a shrill, piercing scream, distant and muffled; the sound of pure, unadulterated horror. Resolute, she wandered in the direction of the sound, searching for answers-and later, a part of her would wish that she had never found them.
 
 Through the keyhole of a solid oaken door, Levia glimpsed the walls of a room, painted a deep, dark, congealing crimson. The stained rugs were littered with scraps of parchment, and a pale, wizened hand grasped at a woman's immaculately pressed skirts. Lady Barthimont's laughter was clearly audible through the wood as a faint glow crept through the chamber, illuminating the indecipherable symbols carved into the floor at her feet.
 
@@ -22,7 +22,7 @@ Even through the door Levia could feel the swell of energy in the room, humming 
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-4.webp" alt="levia-4" class="center">
 
-Fear seized Levia's lungs in an icy grip, squeezing the breath from her chest—but as she stumbled back, she felt the fierce burning of a deep rage course through her veins. While the sight of the servants' mangled, butchered corpses had disgusted Levia, a part of her cried out in hunger. This was perhaps her one and only path to power; her only opportunity to take charge of her own fate, lest she end up like them.
+Fear seized Levia's lungs in an icy grip, squeezing the breath from her chest-but as she stumbled back, she felt the fierce burning of a deep rage course through her veins. While the sight of the servants' mangled, butchered corpses had disgusted Levia, a part of her cried out in hunger. This was perhaps her one and only path to power; her only opportunity to take charge of her own fate, lest she end up like them.
 
 The following months found her back at Lady Barthimont's doors, closely studying the dark rituals that were taking place within. She steeled her stomach against the helpless cries, the glistening of viscera in the low light, the gleeful expression on her mistress's face as she slaughtered Levia's fellow servants. Her focus narrowed to a razor's edge, Levia looked upon the rituals and learned.
 

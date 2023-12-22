@@ -90,7 +90,7 @@ Knowledge is power. May your devotion to Sol guide you in your quest to end this
 
 ### Tome of Torment
 
-You would be wise not to leave this book unattended for too long, for this is not the kind of tome to gather dust…… The Tome of Torment will haunt your nightmares for years to come, rising from the shadows no matter how many times you might try to banish it from your memory. Find a way to harness its power, and you may just be spared from its curse.
+You would be wise not to leave this book unattended for too long, for this is not the kind of tome to gather dust... The Tome of Torment will haunt your nightmares for years to come, rising from the shadows no matter how many times you might try to banish it from your memory. Find a way to harness its power, and you may just be spared from its curse.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/tome-of-torment.webp" alt="tome-of-torment" class="center" />
 

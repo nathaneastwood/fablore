@@ -14,7 +14,7 @@
 
 Azalea glowers at the grubby bottle. "Honest? I spent two days bent over a barrel after your last concoction."
 
-Lena Belle shrugs. "Bacteria, booze—the boundary is fuzzy. Besides, you needed time off."
+Lena Belle shrugs. "Bacteria, booze-the boundary is fuzzy. Besides, you needed time off."
 
 "Give it here then." Azalea takes a swig of the caramel liquid and smacks her lips like a toff. "Not bad," she admits as she passes the bottle back. "From what is it brewed?"
 
@@ -90,7 +90,7 @@ The alchemist blushes, "You're welcome", then looks at Arakni perched nearby. It
 
 "It's an animal from Aria, apparently. A snowfawn. Do you like it?"
 
-Arakni nods, either in approval or bemusement—it's impossible to define it. Azalea hasn't seen Lena Belle this happy since she poisoned the [Blackjack](../../world-of-rathe/pits/blackjacks-mercenary-group.md#blackjacks-mercenary-group) guards. The party was a success, squeakers scampering in from all corners, arm in arm. Dash laid on a magnificent feast, clocked to her expense account at Centennial Foods. And Arakni put on a pantomime, though its frightful finale dampened the festive mood. The entire event almost brought a drunken tear to the self-serving ranger's eye. A moment of weakness wiped hastily away. Mercenaries don't cry, they survive. She does, however, give in to childish excitement when a present is passed her way. Azalea tears the parcel open. Yellow with purple, blue _and_ red hearts.
+Arakni nods, either in approval or bemusement-it's impossible to define it. Azalea hasn't seen Lena Belle this happy since she poisoned the [Blackjack](../../world-of-rathe/pits/blackjacks-mercenary-group.md#blackjacks-mercenary-group) guards. The party was a success, squeakers scampering in from all corners, arm in arm. Dash laid on a magnificent feast, clocked to her expense account at Centennial Foods. And Arakni put on a pantomime, though its frightful finale dampened the festive mood. The entire event almost brought a drunken tear to the self-serving ranger's eye. A moment of weakness wiped hastily away. Mercenaries don't cry, they survive. She does, however, give in to childish excitement when a present is passed her way. Azalea tears the parcel open. Yellow with purple, blue _and_ red hearts.
 
 "Socks. Again?!"
 

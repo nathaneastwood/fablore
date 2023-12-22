@@ -12,7 +12,7 @@ The trade route wound between the rolling hills, a path of dirt and clay moulded
 
 A plume of dark smoke rose from the skyline, rancid with the acrid stench of burning flesh. As they drew closer, Boltyn began to taste the sour-sweet coating of its soot on the back of his tongue, an almost tangible layer of fine ash carried by the evening breeze.
 
-"Boltyn—"
+"Boltyn-"
 
 "I see it."
 
@@ -42,7 +42,7 @@ Runes burst to life above their heads with a bright flare of energy, blazing bri
 
 "Go," Boltyn barked over his shoulder, swinging at the nearest cultist with his blade, tearing through the man's shoulder. "Get out of here and help the others."
 
-"You can't fight them alone," Leander shot back, and while Boltyn couldn't see his face, he could practically sense his friend's expression—teeth gritted, eyes narrowed to slits.
+"You can't fight them alone," Leander shot back, and while Boltyn couldn't see his face, he could practically sense his friend's expression-teeth gritted, eyes narrowed to slits.
 
 "We can't fight them off together, either!"
 
@@ -102,7 +102,7 @@ Prism's expression visibly brightened, curiosity washing over her face.
 
 "Yes." He wasn't entirely sure whether or not that had been an educated guess on her part, as Boltyn's only real conversation with her had been about the Heralds. But perhaps the young scholar had somehow seen the answer within his mind. For some reason, the latter explanation didn't seem so far-fetched. "Something... strange... happened while I was outside Solana."
 
-"You were sent outside the city gates? You have become an Inquisitor, right? Oh, I'd love it if you could tell me about your journeys—what you've seen, the things you've done..."
+"You were sent outside the city gates? You have become an Inquisitor, right? Oh, I'd love it if you could tell me about your journeys-what you've seen, the things you've done..."
 
 "Well - I believe I may have seen Bellona."
 
@@ -110,11 +110,11 @@ As he'd expected, Prism's gaze immediately snapped back to meet his, her express
 
 "My party fought a group of cultists in the Northern realms. They'd captured some nearby villagers to sacrifice as part of a ritual, and once we had freed them from their bindings, I told the rest of my party to get them to safety. My second-in-command and I remained to fight off the cultists, and hopefully to give the others time to escape." Boltyn paused for a moment, eyebrows furrowed as he drew the memories to the surface.
 
-"All of the cultists had aether affinity, and could cast runes and spells. Some of them were using the Shadow aether in order to drain energy from my second, Leander, who quickly became too weak to fight and collapsed to the ground. I remember standing between him and the cultists, trying to find a way to prevent them from killing him, or chasing after our party and the villagers they were leading to freedom. And then, just as I thought I was going to die in that circle—"
+"All of the cultists had aether affinity, and could cast runes and spells. Some of them were using the Shadow aether in order to drain energy from my second, Leander, who quickly became too weak to fight and collapsed to the ground. I remember standing between him and the cultists, trying to find a way to prevent them from killing him, or chasing after our party and the villagers they were leading to freedom. And then, just as I thought I was going to die in that circle-"
 
 "You saw Bellona," Prism guessed, a quiet, unshakeable certainty ringing through her soft voice.
 
-"I felt determined, and then very warm—as if I were standing in front of an open fire. It was familiar, but also simultaneously the strangest feeling I've ever experienced. I felt as though I had recognised an old friend, someone whom I had not seen in a very long time, and yet reconnected with almost instantly. And then—suddenly everything seemed so much brighter. My sword turned white-hot in my hands, light burst forth from the blade, and the unnatural shadows began to dissipate. Their arcane attacks just glanced off my armour, and then vanished altogether. The moment that their spells began to fail, I just charged forward and immediately went on the offensive. I've never felt like that before, but at the time, it felt so natural. Like I'd done it before."
+"I felt determined, and then very warm-as if I were standing in front of an open fire. It was familiar, but also simultaneously the strangest feeling I've ever experienced. I felt as though I had recognised an old friend, someone whom I had not seen in a very long time, and yet reconnected with almost instantly. And then-suddenly everything seemed so much brighter. My sword turned white-hot in my hands, light burst forth from the blade, and the unnatural shadows began to dissipate. Their arcane attacks just glanced off my armour, and then vanished altogether. The moment that their spells began to fail, I just charged forward and immediately went on the offensive. I've never felt like that before, but at the time, it felt so natural. Like I'd done it before."
 
 "As if you somehow just knew, deep inside your soul, what to do. You called the light, and it answered so quickly and readily that you thought you must have done it before."
 
@@ -156,7 +156,7 @@ With a wave of her hand, Prism created two shining visions in the air before the
 
 "Why me? Why would Bellona or Sol choose to bless me with the Light?"
 
-"You said that you faced a group of cultists, is that correct? That every one of them was a follower of Shadow, that they all had aether affinity, and were casting some of the more powerful and darkest spells known to Rathe." Prism smiled, shrugging one shoulder. "I cannot say for certain, but if I had to guess, I would say that that is your answer. You stood against the cultists, even though you knew that you would likely lose your life. You were prepared to sacrifice yourself for Leander, for your party, and for the villagers whom you had been fighting to save. Your selflessness, your leadership, your courage, your compassion, your devotion to the virtues of the Light—this is why you were chosen, Boltyn. This is why your talents awakened."
+"You said that you faced a group of cultists, is that correct? That every one of them was a follower of Shadow, that they all had aether affinity, and were casting some of the more powerful and darkest spells known to Rathe." Prism smiled, shrugging one shoulder. "I cannot say for certain, but if I had to guess, I would say that that is your answer. You stood against the cultists, even though you knew that you would likely lose your life. You were prepared to sacrifice yourself for Leander, for your party, and for the villagers whom you had been fighting to save. Your selflessness, your leadership, your courage, your compassion, your devotion to the virtues of the Light-this is why you were chosen, Boltyn. This is why your talents awakened."
 
 Boltyn looked from Prism to the image of Bellona, her bronze mask moulded into an expression of fierce determination, blazing with the light of the sun.
 

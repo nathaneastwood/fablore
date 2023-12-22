@@ -17,7 +17,7 @@ A witch who was blinded many years ago, when her twin brother lashed out at her 
 
 #### Corva
 
-She had studied necromancy, biomancy and blood magic. After clashing with the Arknight, [Viserai](../../heroes-of-rathe/viserai-about.md), she was disembowelled, and her corpse went missing shortly afterwards. Viserai is known to have taken a grimoire from her corpse which contained all of her research and personal notes, but the tome disappeared shortly afterward, and its whereabouts—and contents—remain unknown.
+She had studied necromancy, biomancy and blood magic. After clashing with the Arknight, [Viserai](../../heroes-of-rathe/viserai-about.md), she was disembowelled, and her corpse went missing shortly afterwards. Viserai is known to have taken a grimoire from her corpse which contained all of her research and personal notes, but the tome disappeared shortly afterward, and its whereabouts-and contents-remain unknown.
 
 #### Jerome
 
@@ -25,7 +25,7 @@ A scientist who takes apart the corpses of various creatures, and stitches toget
 
 #### Ivor
 
-When his wife was killed during an experiment gone awry, Ivor was driven mad by his loss and the guilt of having caused her death, and became determined to make it right. At first, he thought there might be no way to bring her back; the arcane energies had reduced her corpse to dust, and so there was no body within which he could revive her. However, Ivor was nothing if not resourceful. It began with a pair of kind, deep brown eyes, accompanied by a polite smile, passing him by on the street. Then her flaxen gold hair, shining softly in the sun; her gentle, dainty hands; her high cheekbones; her dimples. Piece by piece, Ivor began to rebuild his wife, determined to bring her back. When the other townsfolk began to question him, demanding answers as to the loss of their kin, Ivor was forced to relocate to the Demonastery—a place where no one would stand between him and his beloved.
+When his wife was killed during an experiment gone awry, Ivor was driven mad by his loss and the guilt of having caused her death, and became determined to make it right. At first, he thought there might be no way to bring her back; the arcane energies had reduced her corpse to dust, and so there was no body within which he could revive her. However, Ivor was nothing if not resourceful. It began with a pair of kind, deep brown eyes, accompanied by a polite smile, passing him by on the street. Then her flaxen gold hair, shining softly in the sun; her gentle, dainty hands; her high cheekbones; her dimples. Piece by piece, Ivor began to rebuild his wife, determined to bring her back. When the other townsfolk began to question him, demanding answers as to the loss of their kin, Ivor was forced to relocate to the Demonastery-a place where no one would stand between him and his beloved.
 
 #### Leone
 
@@ -33,11 +33,11 @@ A short, stocky metalsmith, with an obsession for massive metal constructs, Leon
 
 #### Maeve
 
-The exact nature of Maeve's studies is unknown—perhaps even to Maeve herself. Once a talented alchemist selling her wares in Metrix, Maeve had to flee the city after 'accidentally' poisoning one of the Cogwerx Conglomerate's top scientists. Within the relative safety of her rooms, she is free to experiment with all manner of potions, poisons and elixirs. Occasionally, she trades some of her rarer mixtures with other residents of the Demonastery, in order to procure a new batch of ingredients for her mysterious projects.
+The exact nature of Maeve's studies is unknown-perhaps even to Maeve herself. Once a talented alchemist selling her wares in Metrix, Maeve had to flee the city after 'accidentally' poisoning one of the Cogwerx Conglomerate's top scientists. Within the relative safety of her rooms, she is free to experiment with all manner of potions, poisons and elixirs. Occasionally, she trades some of her rarer mixtures with other residents of the Demonastery, in order to procure a new batch of ingredients for her mysterious projects.
 
 #### Niall
 
-An arcanist researching the formation of arcane armour, Niall works to create a set of armour which can be worn by a wizard, and charged with aether in order to form a kind of barrier against both physical and arcane attacks. This armour would theoretically work in tandem with the wearer's own aether affinity. Unfortunately, he can't quite seem to make any of his creations fireproof, and willing test subjects were rather hard to come by in his village. Luckily, the Demonastery has no shortage of volunteers—every other week, someone arrives on his doorstep, begging to enter his laboratory... although, on reflection, this may be the result of his visitors trying to escape the cannibal who lives two doors down.
+An arcanist researching the formation of arcane armour, Niall works to create a set of armour which can be worn by a wizard, and charged with aether in order to form a kind of barrier against both physical and arcane attacks. This armour would theoretically work in tandem with the wearer's own aether affinity. Unfortunately, he can't quite seem to make any of his creations fireproof, and willing test subjects were rather hard to come by in his village. Luckily, the Demonastery has no shortage of volunteers-every other week, someone arrives on his doorstep, begging to enter his laboratory... although, on reflection, this may be the result of his visitors trying to escape the cannibal who lives two doors down.
 
 #### Steve
 
