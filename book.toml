@@ -5,9 +5,13 @@ multilingual = false
 src = "src"
 title = "Flesh and Blood Lore"
 
+[languages]
+en = "./en"
+es = "./es"
+
 [output.html]
-additional-css = ["style.css", "hero.css", "image.css"]
-additional-js = ["sidebar.js"]
+additional-css = ["sidebar.css", "hero.css", "image.css", "tab.css"]
+additional-js = ["sidebar.js", "tab.js"]
 default-theme = "light"
 preferred-dark-theme = "navy"
 git-repository-url = "https://github.com/nathaneastwood/fablore"
