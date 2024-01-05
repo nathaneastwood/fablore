@@ -2,3 +2,4 @@
 |   Name   | Type|
 |----------|-----|
 |Amygdazzla|Drink|
+| Nutrislug| Food|
