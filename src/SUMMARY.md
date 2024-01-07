@@ -95,6 +95,7 @@
     - [Teklovossen](heroes-of-rathe/teklovossen.md)
     - [Uzuri](heroes-of-rathe/uzuri-about.md)
     - [Valda](heroes-of-rathe/valda-about.md)
+    - [Victor Goldmane](heroes-of-rathe/victor-goldmane-about.md)
     - [Viserai](heroes-of-rathe/viserai-about.md)
     - [Vynnset](heroes-of-rathe/vynnset-about.md)
     - [Yoji](heroes-of-rathe/yoji-about.md)
