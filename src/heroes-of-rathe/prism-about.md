@@ -12,8 +12,6 @@ In developing her skills, Prism's talents were made clear for all to see. After 
 
 As shadows begin to darken the horizon, and the bells of war toll across the city, Prism invokes Solana's legendary beings, sending her creations to guard her beloved ones and smite her foes.
 
-## Hero Highlights
-
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/heralds-of-sol.webp" class="hero-icon" />
   <div class="hero-content">
@@ -55,8 +53,6 @@ The hands that had touched that otherworldly door now held an orb of pure arclig
 Prism's passion for knowledge and talent for story drove her to become the city's leading scholar. The shining bookworm trained in the arts of illumination and inspired the Solanian people with spectacles of history and their glorious Aesir, Sol. Yet only when the haunting questions of her past led her to the Tomes of the Heralds did Prism feel the true potency of her potential. Prism studied those books with the intensity of a savant and quickly learned how to incarnate the heralds in manifest arclight.
 
 When Solana was struck by tragedy, when fiendish creatures materialized beneath a sunless sky, Prism took up the mantle of Illusionist in defense of her cherished civilization.
-
-## Hero Highlights
 
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/archangels-of-light.webp" class="hero-icon" />

@@ -10,8 +10,10 @@ Of his past, little is known; some say he's a swindler who peddles mullock to th
 
 So ready your Silvers as you shout his name; Genis' got what chu need!
 
-## Hero Highlights
-
-#### Your Wish is My Command
-
-What you need young hero, could be as close at hand as a simple silver. Power? Life? Resources beyond your wildest imagination... the roaming bazaar that is Genis, always has what you need.
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/your-wish-is-my-command.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Your Wish is My Command</b><br>
+    What you need young hero, could be as close at hand as a simple silver. Power? Life? Resources beyond your wildest imagination...the roaming bazaar that is Genis, always has what you need.
+  </div>
+</div>

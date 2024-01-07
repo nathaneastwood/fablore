@@ -10,16 +10,26 @@ At the end of the Third Age, amidst one of the most heated of battles, an unknow
 
 Now, Oldhim must venture into an unfamiliar [Aria](../world-of-rathe/aria/aria.md) in search of his old allies, and a way to release his people from their deep slumber within Isenloft. For it's clear to him that his reawakening is just a sign of what is to come; he can feel it within his tired old bones, that soon the Old Ones will rise once again.
 
-## Hero Highlights
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/shield-up.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Shield Up</b><br>
+    Oldhim has stood the test of time, as old as the Eternity itself. He has endured many a grim battle with the aide of his legendary shield, Stalagmite, Bastion of Isenloft.
+  </div>
+</div>
 
-#### Shield Up
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/oldhim-essence-of-ice.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Essence of Ice</b><br>
+    In ice's merciless grip, time stands still, history preserved. Oldhim channel's the essence of Ice to slow the pace of battle, sapping the enemies resources over time, for Oldhim is well equipped to fight a battle that lasts an eternity.
+  </div>
+</div>
 
-Oldhim has stood the test of time, as old as the Eternity itself. He has endured many a grim battle with the aide of his legendary shield, Stalagmite, Bastion of Isenloft.
-
-#### Essence of Ice
-
-In ice's merciless grip, time stands still, history preserved. Oldhim channel's the essence of Ice to slow the pace of battle, sapping the enemies resources over time, for Oldhim is well equipped to fight a battle that lasts an eternity.
-
-#### Essence of Earth
-
-Endure. The mightiest sequoia towers over the forest because it endured. Oldhim channels the essence of Earth to stand tall and stand the test of time.
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/oldhim-essence-of-earth.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Essence of Earth</b><br>
+    Endure. The mightiest sequoia towers over the forest because it endured. Oldhim channels the essence of Earth to stand tall and stand the test of time.
+  </div>
+</div>

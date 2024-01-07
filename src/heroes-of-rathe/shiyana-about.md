@@ -12,8 +12,10 @@ When dusk falls, and the sun sets on the city of Solana, Shiyana slips into the 
 
 While peace may reign within Solana, something has disturbed the waters, casting ripples across Rathe. Even in a time of peace, they must remain vigilant, listening for any whispers of disquiet. As rumours begin to reach the people of Solana, Shiyana must keep a close eye on her beloved city, disguising her presence as she works to expose this unknown threat.
 
-## Hero Highlights
-
-#### A Familiar Face
-
-Shiyana is a master of diplomacy, a welcomed guest of the royal courts and power brokers of Rathe. Wherever she travels, keys turn, doors open, and secrets slip, as one would expect for a familiar face. Shiyana's power only increases as her reach spreads across Rathe. Shiyana is designed primarily for Ultimate Pit Fight (multi-player), where she can wield her influence and politics far and wide.
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/a-familiar-face.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>A Familiar Face</b><br>
+    Shiyana is a master of diplomacy, a welcomed guest of the royal courts and power brokers of Rathe. Wherever she travels, keys turn, doors open, and secrets slip, as one would expect for a familiar face. Shiyana's power only increases as her reach spreads across Rathe. Shiyana is designed primarily for Ultimate Pit Fight (multi-player), where she can wield her influence and politics far and wide.
+  </div>
+</div>

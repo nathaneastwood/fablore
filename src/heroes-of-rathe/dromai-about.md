@@ -14,8 +14,6 @@ Once manipulated from the shadows, the puppet has severed her strings. She will 
 
 The artist's destiny is painted in ash and blood. Dromai will create her masterpiece for all to behold, and this time, no-one will stand in her way.
 
-## Hero Highlights
-
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dromai-ash-artistry.webp" class="hero-icon" />
   <div class="hero-content">

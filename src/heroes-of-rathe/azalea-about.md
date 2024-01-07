@@ -8,8 +8,6 @@ Azalea is an obsessive, self-serving contract killer from the depths of the [Pit
 
 A life on the streets has made Azalea cynical and restless. In the Pits, anarchy reigns supreme, and a single mistake can mean the difference between life and death. Even though she has come a long way, Azalea has yet to realise that she is just one small cog in the giant, decrepit machine of the Pits...
 
-## Hero Highlights
-
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/azalea-icon-bow-arrow.webp" class="hero-icon" />
   <div class="hero-content">

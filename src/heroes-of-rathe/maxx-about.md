@@ -8,8 +8,6 @@ You want to create a scene? Blow some corporate shit up? Maxx Nitro, at your ser
 
 If this kind of thing makes you edgy, there's the door. Got no time for second guesses and even less for tattletales. The bloody corps and their systems are what's wrong with this city. Chokepoints. Strangleholds. Us anarchists: we're kicking holes in their corruption. Steam or tek, I don't care. We'll break anything they own into tiny pieces and watch the pretty confetti fall.
 
-## Hero Highlights
-
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/drive-the-hype.webp" class="hero-icon" />
   <div class="hero-content">

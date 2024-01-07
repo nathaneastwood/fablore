@@ -12,8 +12,6 @@ Between the dangerous lava beasts, wandering ronin, and rampant highwaymen, ther
 
 As the generals grow increasingly aggressive in their quest for power, Kassai senses an opportunity to raise an army, overthrow the traitor lieutenant, and free her family from his clutches. At long last, Kassai might finally have the opportunity to reclaim what is rightfully hers.
 
-## Hero Highlights
-
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/the-price-of-war.webp" class="hero-icon" />
   <div class="hero-content">
@@ -40,7 +38,6 @@ Every severed head adds another coin to the pile, and Kassai craves not just wea
 
 A sandstorm is brewing - carrying whispers of retribution, and at its heart, Kassai stands poised to unleash a fury that will reshape the very landscape of her existence. The sands that bore witness to her fall, will behold her merciless retribution.
 
-## Hero Highlights
 
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/leader-of-the-cintari.webp" class="hero-icon" />

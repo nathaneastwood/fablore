@@ -8,8 +8,6 @@ A woman reborn of ice and snow, Iyslander's past is a dull ache of distant pain.
 
 Iyslander's arcane talent speaks to the frigid forces of Rathe's most isolated and hostile environment. Even though her memories remain clouded, her will is as hard and clear as a frosty morning. No matter where she goes, Iyslander carries the fierce beauty of the frozen north with her. The ice has been her shelter. The ice is now her strength.
 
-## Hero Highlights
-
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/iyslander-essence-of-ice.webp" class="hero-icon" />
   <div class="hero-content">

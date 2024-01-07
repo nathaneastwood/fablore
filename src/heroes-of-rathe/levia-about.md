@@ -22,8 +22,6 @@ Upon her return to the Demonastery, the assembly of scholars shivered in fear at
 
 She drank in their fearful vows, then looked to the horizon as the sun cast its first rays upon the millions so shining and succulent. Here was the sustenance she needed - here was a grand feast that might satisfy even the Harvester of Souls.
 
-## Hero Highlights
-
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/hunger-for-power.webp" class="hero-icon" />
   <div class="hero-content">

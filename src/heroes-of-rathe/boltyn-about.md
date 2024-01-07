@@ -16,8 +16,6 @@ Bellona Wartune visited the grieving Boltyn in a vision. She showed him a bleak 
 
 At [Minerva](../other-characters/minerva-themis.md)’s behest, Boltyn accepted a commission as an inquisitor. After placing Aios in the care of the Sisters of Octothesia, he ventured across Solana and the Northern Realms with his loyal knights. Together they rooted out the occultists of the [Demonastery](../world-of-rathe/demonastery/demonastery.md), putting their enclaves to the sword and the torch. The servants of Shadow now tremble in fear at the mere mention of the Breaker of Dawn, for he is the physician who cuts the infection from the flesh of Solana, and cauterizes its weeping wounds. Relentless as he is incisive, Boltyn will not rest until his beloved Solana is restored to its righteous glory.
 
-## Hero Highlights
-
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/charge.webp" class="hero-icon" />
   <div class="hero-content">

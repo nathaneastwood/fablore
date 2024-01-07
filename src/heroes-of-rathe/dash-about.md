@@ -8,8 +8,6 @@ A young mechanologist from the city's elite caste, Dash is a brilliant inventor 
 
 Stubborn and rebellious, Dash's energetic nature often gets her into trouble. Once she has an idea, it's nigh impossible to dissuade her. And even though the Teklo name has allowed her to follow her whims, she despises the rigid dullness of [Metrix](../world-of-rathe/metrix/metrix.md)'s upper class, and would do anything to avoid becoming just like them.
 
-## Hero Highlights
-
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dash-inventor-extraordinaire.webp" class="hero-icon" />
   <div class="hero-content">
@@ -57,8 +55,6 @@ The longer she spends with the anarchists, the deeper into conspiracy she falls.
 But what?
 
 Dash is equipped and ready to find out.
-
-## Hero Highlights
 
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/data-doll-ghost-in-the-shell.webp" class="hero-icon" />

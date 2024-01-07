@@ -14,8 +14,6 @@ Vynnset carries the pain of persecution in her sinews and in her bones. Yet hers
 
 The Iron Maiden has transformed suffering into devotion. She has sacrificed so much, given sight and service to the Shadow. Now, it is others she will sacrifice, and through their suffering, Vynnset will know freedom
 
-## Hero Highlights
-
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/runegate.webp" class="hero-icon" />
   <div class="hero-content">

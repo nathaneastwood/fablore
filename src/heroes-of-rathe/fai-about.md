@@ -10,8 +10,6 @@ The first man he killed was a young soldier, one of many guarding a caravan lade
 
 Guided by his mother's wisdom, Fai brings bloody justice to the selfish and the cruel. He strikes with the blistering speed of the phoenix and burns his cause into the hearts of friend and foe alike. A cause that will see Volcai and Dracai stand together instead of tearing each other apart.
 
-## Hero Highlights
-
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/fai-phoenix-rising.webp" class="hero-icon" />
   <div class="hero-content">

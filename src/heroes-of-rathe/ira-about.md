@@ -6,8 +6,10 @@ Ira was born in the idyllic Valley of Blossoms, the youngest child of the leader
 
 Consumed by the need for vengeance, Ira founded the Crimson Haze Rebels, a vigilante group of survivors and sympathisers from across [Misteria](../world-of-rathe/misteria/misteria.md). Once a playful child, Ira has transformed into a hardened and ruthless warrior, loyal only to her fellow Rebels, and relentless in her quest for retribution.
 
-## Hero Highlights
-
-#### Relentless Retribution
-
-On a mission to avenge the ransacking of her ancestral village, Ira relentlessly pursues those who may lead her to the culprits. Punish those who stand in the way of the truth with a torrent of go again attacks and devastating chain-enders.
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/relentless-retribution.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Relentless Retribution</b><br>
+    On a mission to avenge the ransacking of her ancestral village, Ira relentlessly pursues those who may lead her to the culprits. Punish those who stand in the way of the truth with a torrent of go again attacks and devastating chain-enders.
+  </div>
+</div>

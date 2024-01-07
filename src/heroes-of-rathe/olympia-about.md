@@ -12,8 +12,6 @@ Olympia has captivated audiences with his violent showmanship, each clash balanc
 
 The very arena that molded him is now the house that he built. His name, once barely a whisper amongst beggars, now roars amidst the thunderous applause of the crowd. Olympia stands as the powerhouse of the Arena, his legend embodying the strength of the Deathmatch.
 
-## Hero Highlights
-
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/the-ultimate-prized-fighter.webp" class="hero-icon" />
   <div class="hero-content">

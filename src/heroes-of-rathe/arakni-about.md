@@ -16,8 +16,6 @@ Like a stone dropped into a stygian pool, Arakni causes ripples they will never 
 
 Death is Arakni's only concern. Assassination, their singular delight.
 
-## Hero Highlights
-
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/arakni-contact-killer.webp" class="hero-icon" />
   <div class="hero-content">
@@ -49,8 +47,6 @@ Their instincts revived and rewired, they have become a weapon of sharpened mind
 Like a stone dropped into a stygian pool, Arakni causes ripples they will never witness nor reflect. Arakni carries no malice for those they take, has no reason to dance upon any man's grave.
 
 Death is Arakni's only concern. Assassination, their singular delight.
-
-## Hero Highlights
 
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/stealth.webp" class="hero-icon" />

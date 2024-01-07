@@ -10,16 +10,26 @@ Raised within the Disciples, Chane is a gifted caster and researcher, who has wh
 
 It was when the gateway to íArathael was opened, and he and his brethren ventured through to the other side, that Chane finally found the very power he had been searching for. A dark, ominous presence now conceals itself within his shadow, whispering in his ear, tempting him with greater power and the allure of forbidden knowledge. Even as he races to make this power his own, feeding and placating Ursur with the souls of the Light, he walks a razor-thin line on the very edge of the Void. One wrong move, and Chane's soul shall be lost forever.
 
-## Hero Highlights
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/bound-by-shadow.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Bound by Shadow</b><br>
+    Delving into the dark arts of Arcana, Chane found and became bound to the fiendish Ursur, who bestowed upon him great power in exchange for a caveat over his soul. Chane now finds himself shackled to his Shadow pact; Use the dark arts or die.
+  </div>
+</div>
 
-#### Bound by Shadow
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/eclipse-existence.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Eclipse Existence</b><br>
+    Chane is able to traverse the dimenxxional rift, harnessing power from beyond the world of matter. He seeks to restore existence to its base state, an empty canvas, devoid of everything, so the art of creation may begin anew, in the image of the Demonastery.
+  </div>
+</div>
 
-Delving into the dark arts of Arcana, Chane found and became bound to the fiendish Ursur, who bestowed upon him great power in exchange for a caveat over his soul. Chane now finds himself shackled to his Shadow pact; Use the dark arts or die.
-
-#### Eclipse Existence
-
-Chane is able to traverse the dimenxxional rift, harnessing power from beyond the world of matter. He seeks to restore existence to its base state, an empty canvas, devoid of everything, so the art of creation may begin anew, in the image of the Demonastery.
-
-#### Sword & Sorcery
-
-Chane possesses the classic traits of a Runeblade, a hybrid fighter wielding equal parts magic and melee. A potent Runeblade is able to exploit whatever vulnerabilities the enemy has, by attacking from multiple angles with damage sources split between melee and arcane.
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/chane-sword-and-sorcery.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Sword & Sorcery</b><br>
+    Chane possesses the classic traits of a Runeblade, a hybrid fighter wielding equal parts magic and melee. A potent Runeblade is able to exploit whatever vulnerabilities the enemy has, by attacking from multiple angles with damage sources split between melee and arcane.
+  </div>
+</div>

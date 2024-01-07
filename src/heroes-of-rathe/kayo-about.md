@@ -8,8 +8,6 @@ As a cub, Kayo was born small and slow; a death sentence within the jungles of t
 
 In the badlands, Kayo fights for every inch of territory, staving off both savage jungle predators and virulent lava beasts. No matter the creature, no matter the battle, he throws himself into every fight without fear, driven by the will to survive. However, as unrest creeps across the land, he may soon find himself battling far stranger creatures than the ones he's faced before.
 
-## Hero Highlights
-
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/knockout.webp" class="hero-icon" />
   <div class="hero-content">
@@ -31,8 +29,6 @@ Kayo's journey has spiraled into a whirlwind of madness and brutal chaos. Each l
 Hunting a formidable creature in the Badlands, Kayo found himself on the brink of death after a fierce clash with the prized prey. The Deathmatch Arena, seizing the opportunity, took him captive. Now, from within the confinements of the arena's cages, Kayo has emerged-a crazed, savage force unleashed to challenge and test the mettle of the Arena's fighters.
 
 In every deadly contest, Kayo exhibits the fierce tenacity of a bloodthirsty feral animal. Despite being repeatedly on the back foot, he rises from defeat, each setback fueling his crazed savagery and rendering him even more dangerous. Kayo has become the Underdog of the Arena, a fighter perpetually at a disadvantage, yet one who refuses to surrender, forever embracing the chaos and the brutal unpredictability of his existence.
-
-## Hero Highlights
 
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/wounded-but-not-weakened.webp" class="hero-icon" />

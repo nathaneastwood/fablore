@@ -12,16 +12,26 @@ While her brothers and sisters were seeded in friendly pastures, Briar landed am
 
 Though her brothers and sisters had become content within their slice of paradise, Briar was filled with a desire to spread her roots far and wide. She would be the first of the Rosetta to set foot outside Candlehold since the time of the Ancients, bringing with her the tidings of her people, and the start of a brand new adventure.
 
-## Hero Highlights
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/briar-sword-and-sorcery.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Sword and Sorcery</b><br>
+    Runeblades are the only class truly able to wield equal parts magic and might. Split arcane and melee damage types allow Briar to attack from multiple angles, preying on whatever vulnerabilities the enemy may have. Include a mix of attack action cards and 'non-attack' action cards in your deck to make the most of her Runeblade class type.
+  </div>
+</div>
 
-#### Sword and Sorcery
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/essence-of-earth.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Essence of Earth</b><br>
+    From the Earth we grow, and to the Earth we return, in an endless cycle of renewal that endures all. Briar harnesses both tenets of Earth, but none more so than growth, with her many effects that grow the power and defense of her cards.
+  </div>
+</div>
 
-Runeblades are the only class truly able to wield equal parts magic and might. Split arcane and melee damage types allow Briar to attack from multiple angles, preying on whatever vulnerabilities the enemy may have. Include a mix of attack action cards and 'non-attack' action cards in your deck to make the most of her Runeblade class type.
-
-#### Essence of Earth
-
-From the Earth we grow, and to the Earth we return, in an endless cycle of renewal that endures all. Briar harnesses both tenets of Earth, but none more so than growth, with her many effects that grow the power and defense of her cards.
-
-#### Essence of Lightning
-
-Like a stinging nettle, there is more to Briar's thorns than meet the eye. She draws upon the essence of Lightning to strike fast and with shocking intensity.
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/essence-of-lightning.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Essence of Lightning</b><br>
+    Like a stinging nettle, there is more to Briar's thorns than meet the eye. She draws upon the essence of Lightning to strike fast and with shocking intensity.
+  </div>
+</div>

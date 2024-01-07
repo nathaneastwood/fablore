@@ -12,8 +12,6 @@ Then one fateful evening, an inferno broke out in the old Plumvex Pipes factory,
 
 There are some visionaries whose perceptions are so far-reaching they exceed the limits of mortal mechanics. It was agreed that Teklovossen be immortalized as a techno-deity and projected on every billboard and media screen in Metrix. These days, his holographic visage serves as a reminder of the city's progress, his gentle encouragement motivating us to become more than we are. More than human.
 
-## Hero Highlights
-
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/suit-up-throw-down.webp" class="hero-icon" />
   <div class="hero-content">

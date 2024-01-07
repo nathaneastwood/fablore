@@ -16,12 +16,18 @@ But what she was good at, was brawlin'... and here in Might n' Mead there sure a
 
 There's been stirrings in the Flow, and recently, nervous chatters of ancient enemies and the ancients' return have cast a somber wrinkle over the lively taverns of the Everfest. But that no matter to Valda Brightaxe; just don't mess around in the tavern, or she'll treat you to a proper smackdown, on the house!
 
-## Hero Highlights
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/cocky-are-we.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Cocky, Are We?</b><br>
+    "So you're the hot shit are ya? Running ya mouth and thinking ya got a fist full of fire..." Cocky patrons with bad manners set Valda off, and inevitably end up with the ale house shaking in her seismic wake!
+  </div>
+</div>
 
-#### Cocky, Are We?
-
-"So you're the hot shit are ya? Running ya mouth and thinking ya got a fist full of fire..." Cocky patrons with bad manners set Valda off, and inevitably end up with the ale house shaking in her seismic wake!
-
-#### Seismic Smackdown
-
-Patrons of [Aria](../world-of-rathe/aria/aria.md)'s alehouses who disrespect the ladies are left with a hangover of seismic proportions when Valda's around.
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/seismic-smackdown.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Seismic Smackdown</b><br>
+    Patrons of <a href="https://legendarystories.net/world-of-rathe/aria/aria.html">Aria</a>'s alehouses who disrespect the ladies are left with a hangover of seismic proportions when Valda's around.
+  </div>
+</div>

@@ -16,8 +16,6 @@ Now a Ranger-for-hire contracted to "[the Boss](uzuri-about.md)", Riptide has be
 
 Predators of the Pits beware. It's the thrill of the hunt that keeps the Lurker anchored. The longer he has to wait, the worse your agonizing end shall be.
 
-## Hero Highlights
-
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/riptide-catch-of-the-day.webp" class="hero-icon" />
   <div class="hero-content">

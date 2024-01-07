@@ -20,8 +20,6 @@ Now, Data Doll discovers new questions every day, and aggregates data from agent
 
 When her network of contacts suggest that dark days are on the horizon for Metrix, Data Doll sees an opportunity to gather new data and ask new questions. Patiently, she observes from afar and prepares for the chaos to come...
 
-## Hero Highlights
-
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/data-doll-ghost-in-the-shell.webp" class="hero-icon" />
   <div class="hero-content">

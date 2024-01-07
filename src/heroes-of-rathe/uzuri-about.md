@@ -22,8 +22,6 @@ Uzuri understands that information is the foundation upon which any good strateg
 
 She's at the top of her game, and no-one will ever play it better.
 
-## Hero Highlights
-
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/uzuri-switchblade.webp" class="hero-icon" />
   <div class="hero-content">

@@ -10,8 +10,6 @@ Betsy is a head-smashing wrecking ball in the Deathmatch Arena. She thrives in t
 
 The coin she earns never sticks around long, quickly becoming the ticket to extravagant bets and premium drinks. In these raw streets, Betsy savors every moment, aware that life remains simple as long as she's the one standing at the end of a match. Amid the pandemonium, Betsy is living her best life.
 
-## Hero Highlights
-
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/born-to-bet.webp" class="hero-icon" />
   <div class="hero-content">

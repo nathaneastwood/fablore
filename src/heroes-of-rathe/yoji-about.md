@@ -12,8 +12,6 @@ When bandits sought to capture and ransom Lord Wizard Chiyo, he was there to gut
 
 Just as there is no rest for the wicked, Yoji knows that there is no rest for the true. Danger may threaten, but the dynasty's Royal Protector is ready to meet it.
 
-## Hero Highlights
-
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/yoji-bodyguard.webp" class="hero-icon" />
   <div class="hero-content">

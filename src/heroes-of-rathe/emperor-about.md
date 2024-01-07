@@ -14,8 +14,6 @@ The Emperor stands between law and chaos. For the sake of his people, he must de
 
 For He is the dynasty, and the dynasty shall prevail.
 
-## Hero Highlights
-
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/emperor-royal.webp" class="hero-icon" />
   <div class="hero-content">

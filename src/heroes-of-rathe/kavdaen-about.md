@@ -8,8 +8,10 @@ While Kavdaen may present himself as a salesman, his true passion lies in the ar
 
 The atmosphere of paranoia and dread that plagues the underground is Kavdaen's bread and butter, providing the perfect environment to prey upon the weak. However, in recent times, strange new creatures have been sighted in the underground tunnels, encroaching on the outskirts of the Maw. Their appearance has rattled the denizens of the Pits, causing a new breed of fear to spread through the squalid streets. As more and more desperate people look for a way out, Kavdaen is there with a crooked smile, selling the illusion of hope...and business is booming.
 
-## Hero Highlights
-
-#### Skin in the Game
-
-When in need, Kavdaen is always willing to lend a ear or a helping hand...all he asks is 2 in return. A curious fascination for skin, has seen this charismatic merchant cut out a niche for himself in the underbelly of Rathe. Never one to take advantage of those less fortunate, oh no no, Kavdaen always recompenses in equal, pound for pound; copper to flesh.
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/skin-in-the-game.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Skin in the Game</b><br>
+    When in need, Kavdaen is always willing to lend a ear or a helping hand...all he asks is 2 in return. A curious fascination for skin, has seen this charismatic merchant cut out a niche for himself in the underbelly of Rathe. Never one to take advantage of those less fortunate, oh no no, Kavdaen always recompenses in equal, pound for pound; copper to flesh.
+  </div>
+</div>
