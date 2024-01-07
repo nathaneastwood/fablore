@@ -4,7 +4,7 @@ Rathe had changed.
 
 A daring Rosetta... An energetic wayfarer... A fearless soldier... A charismatic showman... A charming diplomat... A curious Illusionist... A beacon of victory...
 
-[Oldhim](../../heroes-of-rathe/oldhim-about.md#oldhim-grandfather-of-eternity) had encountered many adventurous heroes since thawing out from his icy slumber, and he had found himself fighting alongside these new allies with a refreshed vigor he hadn’t felt for thousands of years. He admired their courage, their resolve, their unwavering passion to stand up for what was right. But none of them were prepared for what was to come.
+[Oldhim](../../heroes-of-rathe/oldhim-about.md#oldhim-grandfather-of-eternity) had encountered many adventurous heroes since thawing out from his icy slumber, and he had found himself fighting alongside these new allies with a refreshed vigor he hadn't felt for thousands of years. He admired their courage, their resolve, their unwavering passion to stand up for what was right. But none of them were prepared for what was to come.
 
 The frosty giant could sense restlessness in the air. The faint stench of the Old Ones lingering on every breath of wind, glimpses of archaic power in every ripple of water, whispers of ancient prophecy rustling with every leaf. The rising tide of darkness churning through their lands was only the beginning.
 

@@ -51,6 +51,6 @@ A sandstorm is brewing - carrying whispers of retribution, and at its heart, Kas
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/something-from-nothing.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Something From Nothing</b><br>
-    Kassai’s long years in the deserts of Volcor only served to harden her resolve and make her even more resourceful. Seizing every opportunity to load up her coffers, Kassai knows how to turn her efforts in battle into solid gold rewards, and is able to do so while spending fewer resources than the typical Warrior.
+    Kassai's long years in the deserts of Volcor only served to harden her resolve and make her even more resourceful. Seizing every opportunity to load up her coffers, Kassai knows how to turn her efforts in battle into solid gold rewards, and is able to do so while spending fewer resources than the typical Warrior.
   </div>
 </div>

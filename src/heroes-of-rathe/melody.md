@@ -22,6 +22,6 @@ Asking for nothing but a few coppers to sustain her travels, Melody continues to
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/doesnt-work-for-exposure.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Doesn't Work for Exposure</b><br>
-    Melody is always ready to brighten the mood with one of her finest tunes, but you can be absolutely sure she’s collecting copper for her efforts. It’s best you respect her when she’s on stage, she's been known to smash her lute across the head of heckling audience members.
+    Melody is always ready to brighten the mood with one of her finest tunes, but you can be absolutely sure she's collecting copper for her efforts. It's best you respect her when she's on stage, she's been known to smash her lute across the head of heckling audience members.
   </div>
 </div>

@@ -6,7 +6,7 @@ It was unlike any beast she had seen before. Scorched skin rippling with dark ma
 
 Soaring through the sky towards the gargantuan charging monster, Prism felt her hope sink. There was no way she would reach it in time. She closed her eyes, heart thumping with adrenaline, and whispered a desperate prayer. Sekem answered her call.
 
-The heavens parted with an ear shattering boom, as the Archangel of Ravages descended upon the unworldly horror, sword blazing with blinding light. The demon halted dead in its tracks, cowering before the almighty slayer of shadows. As Sekem swooped down and plunged her searing blade into the foul creature’s heart, Prism could have sworn she glimpsed a wry smile cross the Archangel’s lips.
+The heavens parted with an ear shattering boom, as the Archangel of Ravages descended upon the unworldly horror, sword blazing with blinding light. The demon halted dead in its tracks, cowering before the almighty slayer of shadows. As Sekem swooped down and plunged her searing blade into the foul creature's heart, Prism could have sworn she glimpsed a wry smile cross the Archangel's lips.
 
 ---
 

@@ -6,11 +6,11 @@
 
 She will not bend. She will not break. Vynnset is the Iron Maiden.
 
-Anointed in Shadow, Vynnset sees everything under the sheen of the black moon. Within the [Demonastery](../world-of-rathe/demonastery/demonastery.md)’s ritual chambers, she paints her runes in Solanian blood, intoning their dark portents in the language of the beyond.
+Anointed in Shadow, Vynnset sees everything under the sheen of the black moon. Within the [Demonastery](../world-of-rathe/demonastery/demonastery.md)'s ritual chambers, she paints her runes in Solanian blood, intoning their dark portents in the language of the beyond.
 
 Born in the Light, her heart wrapped in Shadow, Vynnset remembers what the faithful inflicted upon her in the name of Sol. Most of all, she remembers the loneliness of being a solitary shade in the blazing dawn.
 
-Vynnset carries the pain of persecution in her sinews and in her bones. Yet hers is an immaculate agony that has steeled her mind and tempered her spirit. From the valley of sorrow, she summons the minions of Nasreth, the Soul Harrower, and sends them to plow Solana’s fields with death and destruction.
+Vynnset carries the pain of persecution in her sinews and in her bones. Yet hers is an immaculate agony that has steeled her mind and tempered her spirit. From the valley of sorrow, she summons the minions of Nasreth, the Soul Harrower, and sends them to plow Solana's fields with death and destruction.
 
 The Iron Maiden has transformed suffering into devotion. She has sacrificed so much, given sight and service to the Shadow. Now, it is others she will sacrifice, and through their suffering, Vynnset will know freedom
 
