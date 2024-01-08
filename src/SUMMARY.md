@@ -167,8 +167,6 @@
     - [System Failure](main-story/12-bright-lights/system-failure.md)
     - [Synthetic Futures](main-story/12-bright-lights/synthetic-futures.md)
     - [P̸͍̬̭̭̺͉̣̌̐̾̌͆̚r̴͔͍͐ȯ̴̤̰͠t̵̰̘͑õ̶͍͇c̶̟͒o̶̪̳͋l̶̗̑ ̴̮̓͘A̴̞̗͆ṗ̷̢͕̈́ē̵͍̿ŕ̶̩́ḭ̴̧͐͂o̸͙̖̐͘n̴̞̺͋](main-story/12-bright-lights/P̸͍̬̭̭̺͉̣̌̐̾̌͆̚r̴͔͍͐ȯ̴̤̰͠t̵̰̘͑õ̶͍͇c̶̟͒o̶̪̳͋l̶̗̑%20̴̮̓͘A̴̞̗͆ṗ̷̢͕̈́ē̵͍̿ŕ̶̩́ḭ̴̧͐͂o̸͙̖̐͘n̴̞̺͋.md)
-    - [Melody, Sing-along](main-story/13-round-the-table/melody-sing-along.md)
-    - [Brevant, Civic Protector](main-story/13-round-the-table/brevant-civic-protector.md)
 
 - [Short Stories](short-stories/README.md)
     - [A Thousand Cuts](short-stories/10-outsiders/a-thousand-cuts.md)
@@ -184,6 +182,8 @@
     - [More Than Human](short-stories/12-bright-lights/more-than-human.md)
     - [Maxx-imum Hype](short-stories/12-bright-lights/maxx-imum-hype.md)
     - [Dash Through Data](short-stories/12-bright-lights/dash-through-data.md)
+    - [Melody, Sing-along](short-stories/13-round-the-table/melody-sing-along.md)
+    - [Brevant, Civic Protector](short-stories/13-round-the-table/brevant-civic-protector.md)
     - [Roll of Honour](short-stories/roll-of-honour/README.md)
         - [Briar, Warden of Thorns](short-stories/roll-of-honour/briar-warden-of-thorns.md)
         - [Iyslander](short-stories/roll-of-honour/iyslander.md)
