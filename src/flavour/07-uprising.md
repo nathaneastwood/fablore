@@ -88,7 +88,7 @@ For some Volcai, honour is nothing compared to the sweet taste of vengeance.
 The illusionists of the Ash Plains can quickly turn home ground to their advantage.
 
 #### That All You Got? - (UPR189)
-"If only they were all as pathetic as you." - Victor Goldmane
+"If only they were all as pathetic as you." - [Victor Goldmane](../heroes-of-rathe/victor-goldmane-about.md)
 
 #### Tome of Duplicity - (UPR168)
 What intent lies beneath the pages?
