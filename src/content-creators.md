@@ -8,3 +8,4 @@ Below you will find lore specific content creators. You may need to search their
 * Faboratorium: [YouTube](https://www.youtube.com/playlist?list=PL0pdsMK3ZOH0CLC8zuWAh6oeAbmnsrZ87)
 * loreseeker: [YouTube](https://youtube.com/playlist?list=PLLXhMh_xmYjvrBCtKoVzNgnXx8l7i-DWz&si=GlzW-YTIbh17vn7R)
 * FABLorian: [YouTube](https://www.youtube.com/@fablorian)
+* MrE of Rathe: [YouTube](https://youtube.com/@MrEofRathe?si=65JKq-m1L7dawW5Z)
