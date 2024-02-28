@@ -8,7 +8,7 @@ Prepare yourselves for a spectacle of excellence, [Olympia](../../heroes-of-rath
 
 ## Betsy
 She's the unmovable juggernaut of the ring, and our head-smashing spectacle<br>
-Unfazed by glory or wealth, watch as she dances through the chaos, spending her winnings on wild bets and the finest booze<br>
+Unfazed by wealth or glory, watch as she dances through the chaos, spending her winnings on wild bets and the finest booze<br>
 She thrives in the Deathmatch Arena, knowing victory is her everlasting companion...<br>
 She's got skin in the game, it's [Betsy](../../heroes-of-rathe/betsy-about.md#betsy-skin-in-the-game)!<br>
 
@@ -35,5 +35,5 @@ Behold, the Golden Son, [Victor Goldmane](../../heroes-of-rathe/victor-goldmane-
 ## Kassai
 A crimson storm rises from the sands, not just a fighter, but a terror!<br>
 With a mind as sharp as her sabres, she paints the arena in blood<br>
-Quick, lethal, and utterly merciless, she's here to collect her coin<br>
+Quick, lethal, and utterly merciless, she's just here to collect her coin<br>
 With a purpose known only to the gods, "The Terror of the Golden Sand" [Kassai](../../heroes-of-rathe/kassai-about.md#kassai-of-the-golden-sand)!<br>
