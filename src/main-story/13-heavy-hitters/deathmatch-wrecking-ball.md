@@ -1,0 +1,13 @@
+# Deathmatch Wrecking Ball
+
+_The desert's heat is whipped into the Arena as a sandstorm buffets the city. Patrons huddle under the roof of the Grinning Boar Cantina, gathering the courage to venture into the storm and head home. Suddenly, a towering logger from the [Forward Camps](../../world-of-rathe/savage-lands/legends-and-fools.md#forward-camps) crashes head-first into the bar's floorboards._
+
+_"I told you, Hank, don't mess with [Betsy](../../heroes-of-rathe/betsy-about.md)," sighs Ebba, the owner. The logger looks up at the woman who had thrown him to the ground—a towering titan of bone and muscle mass. As he collects his teeth, she hoists him up by his collar with one hand and sets him back on his feet. A big smile widens across her flushed face as she laughs at how hard he had hit the floor after she'd headbutted him. Slamming her fist into the bar and guffawing, Betsy yells, "Now that's done, how about a drink?"_
+
+A renowned gladiator, Betsy has become a major contender in the Arena. The decade she'd spent on the streets after being thrown out by her drunken father and deadbeat mother has seen her accumulate a dozen battle scars and a reputation for excess. Unfazed by the hand she'd been dealt as a teenager, Betsy grew up alongside the other abandoned youths of the Arena, in constant running clashes with Arena Guards and tavern owners.
+
+The event that had propelled Betsy to fame occurred during a fierce match against the notorious opponent Marcus 'Mauler' Monroe. In a stunning display of skill she'd turned the tide, landing devastating blows that had left Mauler reeling. When Marcus had attempted to cheat to win, Betsy had defeated him with an onslaught of heavy strikes, securing her victory. The audience had erupted in cheers, solidifying Betsy's status as a legend in the Deathmatch Arena.
+
+These days, she is often seen bursting through the front doors of various city taverns. Fresh from an Arena victory, she orders everything until the bar is dry and her purse is empty, having drank and gambled on everything from arm wrestling to card games. In this hurricane of hedonism, Betsy can sometimes be found leaning against the bar, sipping on a keg, and speaking to the pendant she carries around her neck. Carved on the side of it are the words "LitTle TerRoRs," and anyone that would dare touch or even look at it usually finds themselves flying out a tavern window.
+
+Betsy spends her days reveling in the city's many pleasures, with each moment of indulgence fuelling her next big win. From the turbulence and uncertainty of her arrival in this city, she's found a home in these brief instances of joy and extravagance. She has made a vow to live by the ethos that defines her: Live Fast, Fight Hard and Raise Hell.

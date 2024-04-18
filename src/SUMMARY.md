@@ -160,6 +160,7 @@
     - [It's Just Business](main-story/10-outsiders/its-just-business.md)
     - [The Iconoclast Trials](main-story/10-outsiders/the-iconoclast-trials.md)
     - [Catch of the Day](main-story/10-outsiders/catch-of-the-day.md)
+    - [Prism, Awakener of Sol](main-story/11-dusk-till-dawn/prism-awakener-of-sol.md)
     - [Unity In Light](main-story/11-dusk-till-dawn/unity-in-light.md)
     - [Falling In Darkness](main-story/11-dusk-till-dawn/falling-in-darkness.md)
     - [Anointed In Shadow](main-story/11-dusk-till-dawn/anointed-in-shadow.md)
@@ -168,6 +169,10 @@
     - [Synthetic Futures](main-story/12-bright-lights/synthetic-futures.md)
     - [P̸͍̬̭̭̺͉̣̌̐̾̌͆̚r̴͔͍͐ȯ̴̤̰͠t̵̰̘͑õ̶͍͇c̶̟͒o̶̪̳͋l̶̗̑ ̴̮̓͘A̴̞̗͆ṗ̷̢͕̈́ē̵͍̿ŕ̶̩́ḭ̴̧͐͂o̸͙̖̐͘n̴̞̺͋](main-story/12-bright-lights/P̸͍̬̭̭̺͉̣̌̐̾̌͆̚r̴͔͍͐ȯ̴̤̰͠t̵̰̘͑õ̶͍͇c̶̟͒o̶̪̳͋l̶̗̑%20̴̮̓͘A̴̞̗͆ṗ̷̢͕̈́ē̵͍̿ŕ̶̩́ḭ̴̧͐͂o̸͙̖̐͘n̴̞̺͋.md)
     - [Arena Announcements](main-story/13-heavy-hitters/arena-announcements.md)
+    - [Deathmatch Wrecking Ball](main-story/13-heavy-hitters/deathmatch-wrecking-ball.md)
+    - [Thirst For Revenge](main-story/13-heavy-hitters/thirst-for-revenge.md)
+    - [Untamed and Unbroken](main-story/13-heavy-hitters/untamed-and-unbroken.md)
+    - [Another Day, Another Title](main-story/13-heavy-hitters/another-day-another-title.md)
 
 - [Short Stories](short-stories/README.md)
     - [A Thousand Cuts](short-stories/10-outsiders/a-thousand-cuts.md)
