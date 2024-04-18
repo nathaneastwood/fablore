@@ -53,6 +53,7 @@
         - [The Grand Council](world-of-rathe/solana/the-grand-council.md)
         - [The Solstice of Laurels](world-of-rathe/solana/solstice-of-laurels.md)
         - [The Battle Against the Shadow](world-of-rathe/solana/the-battle-against-the-shadow.md)
+        - [Days of the Week](world-of-rathe/solana/days-of-the-week.md)
     - [Volcor](world-of-rathe/volcor/volcor.md)
         - [Welcome to Volcor](world-of-rathe/volcor/welcome-to-volcor.md)
         - [A Volatile Kingdom](world-of-rathe/volcor/a-volatile-kingdom.md)
