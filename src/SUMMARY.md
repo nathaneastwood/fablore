@@ -277,6 +277,7 @@
     - [Dusk Till Dawn](flavour/10-dusk-till-dawn.md)
     - [Bright Lights](flavour/11-bright-lights.md)
     - [Heavy Hitters](flavour/12-heavy-hitters.md)
+    - [Part the Mistveil](flavour/15-part-the-mistveil.md)
     - [Non-Set Cards](flavour/00-non-set-cards.md)
 
 - [Spoilers](spoilers/README.md)
