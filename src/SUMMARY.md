@@ -76,6 +76,7 @@
     - [Dorinthea](heroes-of-rathe/dorinthea-about.md)
     - [Dromai](heroes-of-rathe/dromai-about.md)
     - [Emperor](heroes-of-rathe/emperor-about.md)
+    - [Enigma](heroes-of-rathe/enigma-about.md)
     - [Fai](heroes-of-rathe/fai-about.md)
     - [Genis](heroes-of-rathe/genis-about.md)
     - [Ira](heroes-of-rathe/ira-about.md)
@@ -89,6 +90,7 @@
     - [Lexi](heroes-of-rathe/lexi-about.md)
     - [Maxx](heroes-of-rathe/maxx-about.md)
     - [Melody](heroes-of-rathe/melody.md)
+    - [Nuu](heroes-of-rathe/nuu.md)
     - [Oldhim](heroes-of-rathe/oldhim-about.md)
     - [Olympia](heroes-of-rathe/olympia-about.md)
     - [Prism](heroes-of-rathe/prism-about.md)
@@ -102,6 +104,7 @@
     - [Viserai](heroes-of-rathe/viserai-about.md)
     - [Vynnset](heroes-of-rathe/vynnset-about.md)
     - [Yoji](heroes-of-rathe/yoji-about.md)
+    - [Zen](heroes-of-rathe/zen-about.md)
     - [Others](heroes-of-rathe/other.md)
 
 - [Other Characters](other-characters/README.md)
