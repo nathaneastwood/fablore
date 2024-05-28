@@ -33,7 +33,7 @@ Currently my understanding is that Solana is not all it is cut out to be, as the
 * [_Hecklers_](world-of-rathe/savage-lands/call-of-adventure.md#hecklers) are ruthless, violent and feral humanoids. See the card "Wounded Bull".
 * _Gnomes_ are speculated to exist due to the merchant stall named "The Golden Gnome" on the [Knick Knack Bric-a-Brac Spoiler Tile](./digital-tiles/everfest/everfest.md#knick-knack-bric-a-brac).
 * _Humans_
-* _Nymphs_ are [described](flavour/07-uprising.md#arctic-incarceration---upr144) in tales.
+* _Nymphs_ are [described](flavour/08-uprising.md#arctic-incarceration---upr144) in tales.
 * _Rosetta_ are described in several places including [Briar's Origin Story](main-story/05-tales-of-aria/briar-warden-of-thorns-story.md) and [Briar's About Page](heroes-of-rathe/briar-about.md).
 * _Tiefling_ seem to appear in the card art, "Runic Reaping".
 
@@ -53,7 +53,7 @@ We don't know. [Her story](main-story/03-crucible-of-war/ira-crimson-haze-story.
 
 ### What do we know about Jackdaw?
 
-Not much, he is mentioned in some flavour text such as [Pitfall Trap](flavour/03-crucible-of-war.md#pitfall-trap---cru127), [Out Muscle](flavour/04-monarch.md#out-muscle---mon248) and [Pay Day](flavour/08-dynasty.md#pay-day---dyn123). We also read about him in [The Jaws of Death](main-story/02-arcane-rising/the-jaws-of-death.md) where he is standing outside [Blackjack's Tavern](world-of-rathe/pits/blackjacks-mercenary-group.md#blackjacks-mercenary-group).
+Not much, he is mentioned in some flavour text such as [Pitfall Trap](flavour/03-crucible-of-war.md#pitfall-trap---cru127), [Out Muscle](flavour/04-monarch.md#out-muscle---mon248) and [Pay Day](flavour/09-dynasty.md#pay-day---dyn123). We also read about him in [The Jaws of Death](main-story/02-arcane-rising/the-jaws-of-death.md) where he is standing outside [Blackjack's Tavern](world-of-rathe/pits/blackjacks-mercenary-group.md#blackjacks-mercenary-group).
 
 ### What do we know about Jarl?
 
