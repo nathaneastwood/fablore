@@ -20,6 +20,6 @@ Grueling drills forged my once-tender arms into cords of steel. Spars and duels 
 
 We won the day, our instruction, our discipline, overcoming the ragged ferocity of those barbaric invaders. Yes, some of us perished in the line of duty, but that is the sacrifice we make, the price we pay for peace. We, the Hand of Sol, risk our lives so the people of Solana may sleep soundly in their beds.
 
-Who among you, young ladies and gentleman, thinks they have what it takes? Who is ready to train? Who is ready to fight? I, [Brevant](../../heroes-of-rathe/brevant.md), was once like you. Full of youth and hope, bursting with an untested lust for adventure. Now I am a knight, a protector, and by Sol it was the Hand that made me the man I am today.
+Who among you, young ladies and gentleman, thinks they have what it takes? Who is ready to train? Who is ready to fight? I, [Brevant](../../heroes-of-rathe/brevant-about.md), was once like you. Full of youth and hope, bursting with an untested lust for adventure. Now I am a knight, a protector, and by Sol it was the Hand that made me the man I am today.
 
 Join us! Train hard, and who knows? One day it'll be you out there, defending the innocent, protecting what is right. In service, may you find purpose. In service, may you find glory!

@@ -96,7 +96,7 @@ She rips the mask from her face and takes in a gulp of fresh air. Well, as fresh
 
 Dash is about to reply when Maxx raises his chin to the sky, releasing an almighty howl into the technicolor cityscape. Then he bends forward, laughing into his knees like a [Pits](../../world-of-rathe/pits/pits.md) hound until the last of his breath is exhaled.
 
-With his nervous energy expelled, Maxx mounts a pink and green motorbike and waves for Dash to jump on. She obliges, gripping his waist for balance as they roar off into an evening of neon and noise. Overhead, the wise eyes of [Jules Teklovossen](../../heroes-of-rathe/teklovossen.md) watch them from a flickering billboard as his mustached mouth carefully enunciates Teklo's latest slogan, "Better than before. Better than human."
+With his nervous energy expelled, Maxx mounts a pink and green motorbike and waves for Dash to jump on. She obliges, gripping his waist for balance as they roar off into an evening of neon and noise. Overhead, the wise eyes of [Jules Teklovossen](../../heroes-of-rathe/teklovossen-about.md) watch them from a flickering billboard as his mustached mouth carefully enunciates Teklo's latest slogan, "Better than before. Better than human."
 
 Dash looks over her shoulder at the smoking building, at the enforcers, both metal and meat, pouring out onto the street. Deep down, she knows why she's here and not back in [West Rise](../../world-of-rathe/metrix/a-sprawling-metropolis.md#west-rise). One hour spent with these rebels is more fun than any time spent with Teklo whitecoats. She laughs into Maxx's shoulder, a maniacal release of adrenaline and tension, as they leave the law far behind them. _Damn, freedom feels good._
 

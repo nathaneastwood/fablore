@@ -4,7 +4,7 @@ It was a peaceful day in the [East Rise](../../world-of-rathe/metrix/a-sprawling
 
 A throng of delinquents wielding looping gauntlets, boom grenades, and illegally acquired steam-propelled hammers emerged from the bustling crowds, bee-lining for one particularly esteemed magnate.
 
-"Sir, get behind me!" yelled [Teklovossen](../../heroes-of-rathe/teklovossen.md)'s security detail, as if it would have made the slightest difference.
+"Sir, get behind me!" yelled [Teklovossen](../../heroes-of-rathe/teklovossen-about.md)'s security detail, as if it would have made the slightest difference.
 
 Teklovossen sighed. This was exactly why he never bothered going outdoors anymore.
 

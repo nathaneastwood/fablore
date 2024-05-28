@@ -1,7 +1,7 @@
 ## Dynasty
 
 #### Blessing of Ingenuity - (DYN098)
-"Take care of your work, that one day it may take care of you." - [Teklovossen](../heroes-of-rathe/teklovossen.md)
+"Take care of your work, that one day it may take care of you." - [Teklovossen](../heroes-of-rathe/teklovossen-about.md)
 
 #### Blessing of Occult - (DYN179)
 Borrowed power comes with debt unpaid. One day the Shadows will come to play.

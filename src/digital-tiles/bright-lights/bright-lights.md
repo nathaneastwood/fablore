@@ -44,7 +44,7 @@ Smarter, sharper, more perceptive. At ease. Sleeping well. That's how you weathe
 
 ### Fabricate
 
-Node connects to node with circuits dynamic. Forming patterns. Forming pictures. Billions of ones and zeros, meeting and making in a mindscape of automation. A tallic for your thoughts, little one. - [Jules Teklovossen](../../heroes-of-rathe/teklovossen.md)
+Node connects to node with circuits dynamic. Forming patterns. Forming pictures. Billions of ones and zeros, meeting and making in a mindscape of automation. A tallic for your thoughts, little one. - [Jules Teklovossen](../../heroes-of-rathe/teklovossen-about.md)
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/fabricate.webp" alt="fabricate" class="center" />
 

@@ -49,7 +49,7 @@ When word of war reached the Rek'vas Bloodboars, they were struck with fear... f
 "Nobody says that about my Mama." - Thuk
 
 #### Teklovossen's Workshop - (CRU115)
-"The process of invention is not linear. Sometimes there's mistakes, other times, happy accidents!" - [Teklovossen](../heroes-of-rathe/teklovossen.md)
+"The process of invention is not linear. Sometimes there's mistakes, other times, happy accidents!" - [Teklovossen](../heroes-of-rathe/teklovossen-about.md)
 
 #### Tripwire Trap - (CRU126)
 "A crossbow bolt 'aint gonna make a dent in that thing." - Spokes
