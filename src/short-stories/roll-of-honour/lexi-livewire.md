@@ -8,7 +8,7 @@
 
 It was a total lie, but if Yorick suspected anything he certainly didn't show it. The reality was that Lexi was struggling with overwhelming uncertainty, a feeling she was not used to, nor ready to talk about. Her one solace was the single thing she was completely certain about - there had to be a reason.
 
-There had to be a damn good reason for that [Rosetta](../../main-story/05-tales-of-aria/briar-warden-of-thorns-story.md) to slink away without granting them the courtesy of an explanation, let alone a "goodbye Lexi", or a "farewell Lexi", or even a "thanks for saving me from being ambushed several times Lexi, you're the greatest friend and companion I've ever had, and the cleanest shot in all of Rathe, and you have cool hair, and..."
+There had to be a damn good reason for that [Rosetta](../../main-story/05-tales-of-aria/amongst-the-brambles.md) to slink away without granting them the courtesy of an explanation, let alone a "goodbye Lexi", or a "farewell Lexi", or even a "thanks for saving me from being ambushed several times Lexi, you're the greatest friend and companion I've ever had, and the cleanest shot in all of Rathe, and you have cool hair, and..."
 
 Whatever. She waved to a forlorn Yorick as she set off alone on foot in the direction [Briar](../../heroes-of-rathe/briar-about.md) had last been seen wandering. She ignored the gnawing anxiety in her stomach that was desperately trying to pull her back to her friends, her home, the mysteries of [Enion](../../main-story/05-tales-of-aria/wonders-of-the-wayfarer.md)... Was it the right thing to do, striking out solo like this? Was she doing it purely out of curiosity, or because the two of them had grown so close during their adventures?
 

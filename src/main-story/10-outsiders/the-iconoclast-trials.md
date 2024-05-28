@@ -1,4 +1,4 @@
-# Arakni, Solitary Confinement
+# The Iconoclast Trials
 
 [Patient 1413](../../heroes-of-rathe/arakni-about.md#arakni-solitary-confinement) came into my care after an 'incident' at Shuntswitch Railway Station. From what I could gather from eyewitness accounts, the youth appeared in the aftermath of an attack by alchemical mutants-those post-people colloquially known as [dregs](../../world-of-rathe/pits/blackjacks-mercenary-group.md#dregs).
 

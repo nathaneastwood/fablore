@@ -16,7 +16,7 @@ Legendary Stories is created with ❤️ by Nathan Millwood. A Data Scientist / 
 
 ## Missing Lore 📖
 
-If you find any missing lore, please feel free to contact Nathan on [X](https://twitter.com/JumpForRoy) or [Discord](http://discordapp.com/users/jumpforroy), or raise an issue on [GitHub](https://github.com/nathaneastwood/fablore/issues).
+If you find any missing lore, please feel free to contact Nathan on [X](https://twitter.com/JumpForRoy) or [Discord](https://discordapp.com/users/jumpforroy), or raise an issue on [GitHub](https://github.com/nathaneastwood/fablore/issues).
 
 ## Support 😍
 

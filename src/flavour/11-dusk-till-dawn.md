@@ -73,7 +73,7 @@ And so they prevailed, Light and Hand, and slew the Shadow that lie in wait.
 "Ey'z beheaded, tooth, the DeathMatch?" - Bam Bam
 
 #### Shaden Swing - (DTD126)
-"Fear not this carven flesh, for tonight we feast with Blasphomet." - [Lady Barthimont](../other-characters/lady-barthimont.md)
+"Fear not this carven flesh, for tonight we feast with Blasphomet." - [Lady Bartimont](../other-characters/lady-bartimont.md)
 
 #### Tear Through the Portal - (DTD190)
 "Obsessed, they call me. Rabid over-reacher. I merely grasp what begs to be possessed." - [Lord Sutcliffe](../other-characters/lord-sutcliffe.md)

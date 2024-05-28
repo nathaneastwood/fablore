@@ -16,7 +16,7 @@ The rules of the Arena extend beyond its cavea. Strength, valor, and the occasio
 #### Goblet of Bloodrun Wine - (HVY133)
 "Blood, sweat, and tears of anguish. Such a sanguine feast of sensations, as intoxicating as the finest bloodrun wine..." - Countess Camilla
 
-#### Nasty Suprise - (HVY207)
+#### Nasty Surprise - (HVY207)
 "I ain't reading no bloody warni-" - Last words of Beezy the Brash
 
 #### Pint of Strong and Stout - (HVY089)

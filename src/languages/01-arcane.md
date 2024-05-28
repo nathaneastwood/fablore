@@ -35,7 +35,7 @@ On the mentor card, Lady Barthimont there is a book in the background which stat
 > "With the rising of the blood, so too does my power wa_ full."<br>
 > "My will as iron, my words as law, I call unto thee".
 
-<img src="https://d2hl7maqck52px.cloudfront.net/languages/lady-barthimont-book.webp" alt="lady-barthimont-book" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/languages/lady-barthimont-book.webp" alt="lady-bartimont-book" class="center">
 
 In the art for the article [Harbinger of the Abyss](../main-story/04-monarch/destroy-and-consume.md#harbinger-of-the-abyss) we see:
 

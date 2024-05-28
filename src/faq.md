@@ -34,7 +34,7 @@ Currently my understanding is that Solana is not all it is cut out to be, as the
 * _Gnomes_ are speculated to exist due to the merchant stall named "The Golden Gnome" on the [Knick Knack Bric-a-Brac Spoiler Tile](./digital-tiles/everfest/everfest.md#knick-knack-bric-a-brac).
 * _Humans_
 * _Nymphs_ are [described](flavour/08-uprising.md#arctic-incarceration---upr144) in tales.
-* _Rosetta_ are described in several places including [Briar's Origin Story](main-story/05-tales-of-aria/briar-warden-of-thorns-story.md) and [Briar's About Page](heroes-of-rathe/briar-about.md).
+* _Rosetta_ are described in several places including [Briar's Origin Story](main-story/05-tales-of-aria/amongst-the-brambles.md) and [Briar's About Page](heroes-of-rathe/briar-about.md).
 * _Tiefling_ seem to appear in the card art, "Runic Reaping".
 
 ### What animals/non-humanoids exist within Rathe?
