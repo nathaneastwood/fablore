@@ -57,6 +57,9 @@ The mistresses of Clan Nasu-ka weave pleasure with hand and limb, painting a vis
 #### Tide Chakra - (MST011)
 "Finger's trace the tide's sway, My chi ignites with desire, Passion within." - Miku
 
+#### Unravel Aggression - (MST078)
+"Wrapped in the mantle of my lineage, the echoes of my ancestors protect me from harm." - Reina, Spirit Caller
+
 #### Untamed - (MST187)
 "Two paths beckon: one, disciplined under the seething sun; the other, unleashed fury, a beast unchained." - Zen
 
