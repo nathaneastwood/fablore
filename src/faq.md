@@ -36,6 +36,7 @@ Currently my understanding is that Solana is not all it is cut out to be, as the
 * _Nymphs_ are [described](flavour/08-uprising.md#arctic-incarceration---upr144) in tales.
 * _Rosetta_ are described in several places including [Briar's Origin Story](main-story/05-tales-of-aria/amongst-the-brambles.md) and [Briar's About Page](heroes-of-rathe/briar-about.md).
 * _Tiefling_ seem to appear in the card art, "Runic Reaping".
+* _Imps_ appear within [Part 2: The Tapestry Unfolds](main-story/15-part-the-mistveil/part-2-the-tapestry-unfolds.md), here referred to as Gentua.
 
 ### What animals/non-humanoids exist within Rathe?
 
