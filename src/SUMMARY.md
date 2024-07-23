@@ -177,6 +177,7 @@
     - [Thirst For Revenge](main-story/14-heavy-hitters/thirst-for-revenge.md)
     - [Untamed and Unbroken](main-story/14-heavy-hitters/untamed-and-unbroken.md)
     - [Another Day, Another Title](main-story/14-heavy-hitters/another-day-another-title.md)
+    - [Part 1: The Tiger in the Mist](main-story/15-part-the-mistveil/part-1-the-tiger-in-the-mist.md)
 
 - [Short Stories](short-stories/README.md)
     - [A Thousand Cuts](short-stories/10-outsiders/a-thousand-cuts.md)
