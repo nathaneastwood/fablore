@@ -30,7 +30,7 @@ Florian turned to Verdance, her shining emerald eyes almost blinding in the twil
 
 Verdance watched with concern as the rot crept closer, inch by inch, threatening to blemish her home.
 
-"Careful now, sunkissed," Florian taunted, noticing her alarm. "The Rotwood grows, just like your precious flowers."
+"Careful now, _sunkissed_," Florian taunted, noticing her alarm. "The Rotwood grows, just like your precious flowers."
 
 "How can you let this happen?" Verdance demanded, her hands clenched at her sides. "You speak of renewal, but all I see is death."
 
@@ -60,6 +60,8 @@ The stag let out a final restful sigh before its eyes dimmed and its form collap
 
 Her chest tight with conflicting emotions, Verdance tried yet again to heal the glade—as much an act of defiance against the stag's passing as an effort in protection.
 
+---
+
 Earlier that day, Verdance had sought counsel with Ozrim, a member of the [Rosetta](../../main-story/05-tales-of-aria/amongst-the-brambles.md), Candlehold's ancient council. She had found him seated in quiet contemplation, his presence as still and unchanging as the ivy-clad columns that surrounded him.
 
 "Ozrim," Verdance had begun, "Florian's actions are drawing creatures from Candlehold to the Rotwood, leading them to decay. We need to intervene."
@@ -73,6 +75,8 @@ Ozrim had sighed deeply, his expression placid, untouched by the concerns Verdan
 Frustration had welled up in Verdance, a hot, simmering anger beneath her composed exterior. "If we do nothing, we risk losing everything that makes Candlehold what it is."
 
 Ozrim's gaze had drifted past her, as if looking at something far away or long forgotten. Verdance had stood there, momentarily stunned by the depth of Ozrim's apathy.
+
+---
 
 Verdance refocused, the budding flowers that sprang from her magic blossoming. This land would not fall to rot while she was around.
 
@@ -134,7 +138,7 @@ Desperate, Verdance knelt beside the Queen, her hands glowing as she summoned he
 
 "In soil anew, the roots of change..." she intoned, her voice growing fainter with each word.
 
-"In the essence of decay...Davnir."
+"In the essence of decay..._Davnir_."
 
 "In the seeds of renewal...belonging."
 

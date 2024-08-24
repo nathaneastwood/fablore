@@ -187,6 +187,7 @@
     - [The Serpent's Strike](main-story/15-part-the-mistveil/part-3-the-serpents-strike.md)
     - [The Hare and the Snake](main-story/15-part-the-mistveil/part-4-the-hare-and-the-snake.md)
     - [Roots of Change](main-story/16-rosetta/roots-of-change.md)
+    - [Essence of Decay](main-story/16-rosetta/essence-of-decay.md)
 
 - [Short Stories](short-stories/README.md)
     - [A Thousand Cuts](short-stories/10-outsiders/a-thousand-cuts.md)
