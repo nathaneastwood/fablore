@@ -22,7 +22,7 @@ There could be ancient artifacts in it for you. Or some musty books. Maybe some 
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/aurora-here-in-an-instant.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Here in an Instant</b><br>
-    Aurora wants to attack, attack, and attack some more, using powerful pumps to increase her power out of nowhere. Blink and you’ll miss her!
+    Aurora wants to attack, attack, and attack some more, using powerful pumps to increase her power out of nowhere. Blink and you'll miss her!
   </div>
 </div>
 
