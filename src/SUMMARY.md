@@ -274,6 +274,8 @@
     - [Everfest](digital-tiles/everfest/everfest.md)
     - [Uprising](digital-tiles/uprising/uprising.md)
     - [Bright Lights](digital-tiles/bright-lights/bright-lights.md)
+    - [Heavy Hitters](digital-tiles/heavy-hitters/heavy-hitters.md)
+    - [Part the Mistveil](digital-tiles/part-the-mistveil/part-the-mistveil.md)
     - [Rosetta](digital-tiles/rosetta/rosetta.md)
 
 - [Data](data/data.md)
