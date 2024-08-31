@@ -28,7 +28,7 @@ I look back at the frozen lands that have been my home for many years. While my 
 
 Spirits spoke to me in words of cooling compassion, teaching me to harness the winter within. Kindred kindness of frost and time that raised me into the woman I am now.
 
-I step from the melting snow into a lush field of wildflowers. A kaie'o bounds into the meadow from a copse of white-dusted beech, and eyes me with curiosity. I see the glint of spirit behind the fox's gaze. My icekin have sent a guide.
+I step from the melting snow into a lush field of wildflowers. A [kaie'o](../../world-of-rathe/aria/creatures.md#kaieo) bounds into the meadow from a copse of white-dusted beech, and eyes me with curiosity. I see the glint of spirit behind the fox's gaze. My icekin have sent a guide.
 
 I follow my companion through the verdant countryside of [Aria](../../world-of-rathe/aria/aria.md). We skirt the lively towns, the trundling tinker caravans and the roving bands of raucous entertainers. We travel at night, in the cool of the dark. Although Aria is beautiful, I am glad when we reach the Great Tree of Korshem. My answers lie beyond this cosseted land, and its Flow will send me on my way. My kaie'o guide fares me well with a lick of my fingertips, and with a flick of its tail, it is gone. A breeze rustles the canopy of this mighty tree and l fall like a leaf from its branches.
 

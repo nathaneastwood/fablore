@@ -189,6 +189,7 @@
     - [Roots of Change](main-story/16-rosetta/roots-of-change.md)
     - [Essence of Decay](main-story/16-rosetta/essence-of-decay.md)
     - [Seeds of Renewal](main-story/16-rosetta/seeds-of-renewal.md)
+    - [Secret of the Aetherscribes](main-story/16-rosetta/secret-of-the-aetherscribes.md)
 
 - [Short Stories](short-stories/README.md)
     - [A Thousand Cuts](short-stories/10-outsiders/a-thousand-cuts.md)
