@@ -16,7 +16,7 @@ With nuanced gestures and gentle incantations, Enigma confronts the subtle distu
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/moonlight-made-manifest.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Moonlight Made Manifest</b><br>
-    Should your eyes catch the angle of a moonbeam just right, you might be lucky enough to glimpse your demise before it comes for you. Enigma’s reverence for the past gives rise to powerful beings in the present, all ready to spend their existence either protecting Enigma or attacking on her behalf.
+    Should your eyes catch the angle of a moonbeam just right, you might be lucky enough to glimpse your demise before it comes for you. Enigma's reverence for the past gives rise to powerful beings in the present, all ready to spend their existence either protecting Enigma or attacking on her behalf.
   </div>
 </div>
 

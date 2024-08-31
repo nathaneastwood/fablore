@@ -18,13 +18,13 @@ There is beauty in every wilted petal, poetry in every fallen branch. Here, the 
 
 Let them bask in their illusion of eternal summer. We know the power of the soil beneath us. Fear not the rot, for it is the prelude to rebirth. As long as the leaves fall and the roots drink deep, there will always be a place for those who seek the true face of nature.
 
-Welcome to the Rotwood. May your ending nurture another’s beginning.
+Welcome to the Rotwood. May your ending nurture another's beginning.
 
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/florian-germination-ritual.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Germination Ritual</b><br>
-    Decompose the remains of the fallen to nourish the blossoms of tomorrow. Use decompose cards to reach Florian’s hero ability threshold, then reap the harvest as your Runechant and Embodiment of Earth aura tokens bloom aplenty.
+    Decompose the remains of the fallen to nourish the blossoms of tomorrow. Use decompose cards to reach Florian's hero ability threshold, then reap the harvest as your Runechant and Embodiment of Earth aura tokens bloom aplenty.
   </div>
 </div>
 

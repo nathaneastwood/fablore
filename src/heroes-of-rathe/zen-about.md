@@ -24,6 +24,6 @@ As the shadows of uncertainty loom across [Rathe](../world-of-rathe/world-of-rat
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/cat-like-reflexes.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Cat-like Reflexes</b><br>
-    Zen can be as elusive as he is deadly. Powerful defense reactions and blocks, as well as the tranquility needed to enter into a defensive Zen State, will surely have Zen’s opponents chasing their tail as they try to pin him down.
+    Zen can be as elusive as he is deadly. Powerful defense reactions and blocks, as well as the tranquility needed to enter into a defensive Zen State, will surely have Zen's opponents chasing their tail as they try to pin him down.
   </div>
 </div>
