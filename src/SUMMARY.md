@@ -274,6 +274,7 @@
     - [Everfest](digital-tiles/everfest/everfest.md)
     - [Uprising](digital-tiles/uprising/uprising.md)
     - [Bright Lights](digital-tiles/bright-lights/bright-lights.md)
+    - [Rosetta](digital-tiles/rosetta/rosetta.md)
 
 - [Data](data/data.md)
     - [Animals](data/animals.md)
