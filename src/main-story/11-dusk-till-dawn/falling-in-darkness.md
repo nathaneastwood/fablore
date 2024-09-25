@@ -86,7 +86,7 @@ Sentinels tried to block them on the steps. The thirteen scattered their chalky 
 
 Once the slaughter was done, the thirteen formed a half circle on the alure. They clasped hands and recited the rite that their lord and master, the Apostate, had taught them so many years ago. In that moment, those thirteen disciples, raised anew in stolen flesh, made their final vow to the woman who watched them from the battlefield below.
 
-Levia the Redeemed answered with a roar. As she surrendered her body to Blasphomet, the thirteen surrendered their souls to the Apostate. Shadow spewed forth, emptying their borrowed vessels. It poured down onto the wall, corroding the stones, drowning their hallowed runes in corruption. It swept from battlement to base like a wave of decay.
+Levia the Redeemed answered with a roar. As she surrendered her body to Blasmophet, the thirteen surrendered their souls to the Apostate. Shadow spewed forth, emptying their borrowed vessels. It poured down onto the wall, corroding the stones, drowning their hallowed runes in corruption. It swept from battlement to base like a wave of decay.
 
 "A moment, fleeting at best."
 

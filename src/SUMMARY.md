@@ -284,6 +284,7 @@
 - [Data](data/data.md)
     - [Animals](data/animals.md)
     - [Characters](data/characters.md)
+    - [Character Groups](data/character-groups.md)
     - [Food and Drink](data/food-and-drink.md)
     - [Locations](data/locations.md)
 
