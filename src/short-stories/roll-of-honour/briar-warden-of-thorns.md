@@ -1,4 +1,4 @@
-# Roll of Honor - Briar, Warden of Thorns
+# Roll of Honor: Briar, Warden of Thorns
 
 The moment she noticed it, like pinpricks toying with her spine, she knew there was no way to avoid it.
 

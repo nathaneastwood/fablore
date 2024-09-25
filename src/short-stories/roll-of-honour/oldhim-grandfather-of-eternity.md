@@ -1,4 +1,4 @@
-# Roll of Honor - Oldhim, Grandfather of Eternity
+# Roll of Honor: Oldhim, Grandfather of Eternity
 
 Rathe had changed.
 

@@ -1,4 +1,4 @@
-# Roll of Honor - Iyslander
+# Roll of Honor: Iyslander
 
 A trail of bodies encased in ice lay behind, each a monument to her icy wrath. Before her lay the edge of the [Bleak Expanse](../../world-of-rathe/aria/a-true-sanctuary.md#the-bleak-expanse), whipping and whirling, teasing and beckoning.
 

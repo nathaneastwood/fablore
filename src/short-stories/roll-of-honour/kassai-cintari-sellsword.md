@@ -1,4 +1,4 @@
-# Roll of Honor - Kassai, Cintari Sellsword
+# Roll of Honor: Kassai, Cintari Sellsword
 
 She walked alone.
 

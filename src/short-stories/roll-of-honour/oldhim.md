@@ -1,4 +1,4 @@
-# Roll of Honor - Oldhim
+# Roll of Honor: Oldhim
 
 Drawing in deep, ragged breaths, [Oldhim](../../heroes-of-rathe/oldhim-about.md) surveyed the bloodied battlescape. Countless days and nights of fighting had left him weary, and yet, he couldn't falter. Dragging Winter's Wail and Stalagmite behind him, he stumbled through the sea of corpses, climbing the rocky cliffside, until he reached an outcropping near the peak of [Isenloft](../../world-of-rathe/aria/the-land-of-legends.md#isenloft).
 
