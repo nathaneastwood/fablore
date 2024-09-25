@@ -1,5 +1,9 @@
 # Roots of Change
 
+<p>
+(<a href="#narrated-video-by-deadsummer-art">Jump to Narrated Video</a>)
+</p>
+
 At the threshold of [Candlehold](../../world-of-rathe/aria/the-land-of-legends.md#candlehold) and the Rotwood, two worlds met but never mingled.
 
 Candlehold basked in perpetual sunlight, a realm of eternal summer where flowers bloomed endlessly, and time seemed suspended.
@@ -159,3 +163,13 @@ A cool breeze whispered through the glade, causing Verdance to shiver with the s
 Verdance picked it up and stood, speechless.
 
 Candlehold was changing; the Seed of Tomorrow in her hands a burden she had not asked to carry.
+
+---
+
+### Narrated Video by [DeadSummer Art](https://www.youtube.com/@DeadSummerArt/)
+
+<p>
+(<a href="#roots-of-change">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/ikuBbNvdIxk?si=U-DCHvN6NbcOtp2s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
