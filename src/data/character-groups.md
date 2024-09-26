@@ -41,6 +41,7 @@
 |       Name |           Epithets |
 | ---------- | ------------------ |
 | Blasmophet | The Soul Harvester |
+|    Nasreth |  The Soul Harrower |
 |      Ursur |    The Soul Reaper |
 
 ## Grand Magisters
@@ -55,13 +56,13 @@
 
 ## Heralds
 
-|     Name |                                           Epithets |
-| -------- | -------------------------------------------------- |
-|    Aegis |       The Shield of Light, Archangel of Protection |
-|   Avalon |        Messenger of the Dawn, Archangel of Rebirth |
-|  Bellona |               The Wartune Herald, Archangel of War |
-|    Metis |                              Archangel of Tenacity |
-|    Sekem |                               Archangel of Ravages |
-|   Suraya |     Archangel of Knowledge, Archangel of Erudition |
-|   Themis |        Keeper of the Scales, Archangel of Judgment |
-| Victoria |                               Archangel of Triumph |
+|     Name |                                                      Epithets |
+| -------- | ------------------------------------------------------------- |
+|    Aegis |                  The Shield of Light, Archangel of Protection |
+|   Avalon |                   Messenger of the Dawn, Archangel of Rebirth |
+|  Bellona |                          The Wartune Herald, Archangel of War |
+|    Metis |                                         Archangel of Tenacity |
+|    Sekem |                                          Archangel of Ravages |
+|   Suraya | Archangel of Knowledge, Archangel of Erudition, Arcane Herald |
+|   Themis |                   Keeper of the Scales, Archangel of Judgment |
+| Victoria |                                          Archangel of Triumph |
