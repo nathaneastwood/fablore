@@ -233,6 +233,7 @@
         - [Lexi, Livewire](short-stories/roll-of-honour/lexi-livewire.md)
         - [Oldhim](short-stories/roll-of-honour/oldhim.md)
         - [Oldhim, Grandfather of Eternity](short-stories/roll-of-honour/oldhim-grandfather-of-eternity.md)
+        - [Rhinar](short-stories/roll-of-honour/rhinar.md)
         - [Zen](short-stories/roll-of-honour/zen.md)
 
 - [Languages](languages/intro.md)
