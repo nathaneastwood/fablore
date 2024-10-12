@@ -101,6 +101,7 @@
     - [Riptide](heroes-of-rathe/riptide-about.md)
     - [Shiyana](heroes-of-rathe/shiyana-about.md)
     - [Teklovossen](heroes-of-rathe/teklovossen-about.md)
+    - [Terra](heroes-of-rathe/terra-about.md)
     - [Uzuri](heroes-of-rathe/uzuri-about.md)
     - [Valda](heroes-of-rathe/valda-about.md)
     - [Verdance](heroes-of-rathe/verdance-about.md)
