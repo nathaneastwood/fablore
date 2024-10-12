@@ -290,6 +290,7 @@
     - [Character Groups](data/character-groups.md)
     - [Food and Drink](data/food-and-drink.md)
     - [Locations](data/locations.md)
+    - [Monsters](data/monsters.md)
 
 - [Flavour Text](flavour/intro.md)
     - [Welcome to Rathe](flavour/01-welcome-to-rathe.md)
