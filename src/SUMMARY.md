@@ -190,6 +190,7 @@
     - [Essence of Decay](main-story/16-rosetta/essence-of-decay.md)
     - [Seeds of Renewal](main-story/16-rosetta/seeds-of-renewal.md)
     - [Secret of the Aetherscribes](main-story/16-rosetta/secret-of-the-aetherscribes.md)
+    - [To Halt the Dark](main-story/16-rosetta/to-halt-the-dark.md)
 
 - [Short Stories](short-stories/README.md)
     - [A Thousand Cuts](short-stories/10-outsiders/a-thousand-cuts.md)
