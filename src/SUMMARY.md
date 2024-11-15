@@ -83,6 +83,7 @@
     - [Genis](heroes-of-rathe/genis-about.md)
     - [Ira](heroes-of-rathe/ira-about.md)
     - [Iyslander](heroes-of-rathe/iyslander-about.md)
+    - [Jarl](heroes-of-rathe/jarl-about.md)
     - [Kano](heroes-of-rathe/kano-about.md)
     - [Kassai](heroes-of-rathe/kassai-about.md)
     - [Katsu](heroes-of-rathe/katsu-about.md)
