@@ -56,10 +56,6 @@ We don't know. [Her story](main-story/03-crucible-of-war/ira-crimson-haze-story.
 
 Not much, he is mentioned in some flavour text such as [Pitfall Trap](flavour/03-crucible-of-war.md#pitfall-trap---cru127), [Out Muscle](flavour/04-monarch.md#out-muscle---mon248) and [Pay Day](flavour/09-dynasty.md#pay-day---dyn123). We also read about him in [The Jaws of Death](main-story/02-arcane-rising/the-jaws-of-death.md) where he is standing outside [Blackjack's Tavern](world-of-rathe/pits/blackjacks-mercenary-group.md#blackjacks-mercenary-group).
 
-### What do we know about Jarl?
-
-Jarl Vetreidi is the character shown on [Mangle](flavour/03-crucible-of-war.md#mangle---cru026) and Pulverize. He's an Ollin. The Ollin were guardians from Aria, an Order of them, which got frozen by an ancient to protect them thousands of years ago.
-
 ### What do we know about Fyendal?
 
 We don't know much about Fyendal yet, however we do know that Fyendal is according to [flavour text](flavour/01-welcome-to-rathe.md#heart-of-fyendal---wtr000):

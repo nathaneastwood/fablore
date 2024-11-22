@@ -15,6 +15,7 @@
 | Davnir | Ancient of Earth and Lightning |
 |   Isen |       Ancient of Earth and Ice |
 |   Yvor |   Ancient of Lightning and Ice |
+| Galcia |                                |
 
 ## Dragons
 
