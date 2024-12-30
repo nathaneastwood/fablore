@@ -10,3 +10,4 @@ Below you will find lore specific content creators. You may need to search their
 * FABLorian: [YouTube](https://www.youtube.com/@fablorian)
 * MrE of Rathe: [YouTube](https://youtube.com/@MrEofRathe?si=65JKq-m1L7dawW5Z)
 * FaB Balanced Gaming: [Site](https://fabbalancedgaming.wordpress.com/)
+* St_Havoc: [YouTube](https://www.youtube.com/@St_Havock)
