@@ -55,3 +55,7 @@ Death is Arakni's only concern. Assassination, their singular delight.
     Stealth is a deadly tool in the right hands, and Arakni knows how to keep their targets in the dark. With their ability to play multiple cards with stealth in a turn, you never know what's hiding around the corner...
   </div>
 </div>
+
+---
+
+# Arakni, Marionette
