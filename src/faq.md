@@ -40,7 +40,7 @@ Currently my understanding is that Solana is not all it is cut out to be, as the
 
 ### What animals/non-humanoids exist within Rathe?
 
-You can see the full list of animals on the data page [here](data/animals.md).
+You can see the full list of animals on the data page [here](data/fauna.md).
 
 ### What powers/forces exist within Rathe?
 
