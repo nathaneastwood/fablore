@@ -54,7 +54,7 @@ By this time, my former cell mates are waking up to the fact that there's a brea
 
 "Close your eyes and cover your ears!" I tell them. They're smart enough to oblige before the counter hits zero. The explosion blows the metal door clean off its hinges and sends it hurtling into the startled enforcers beyond.
 
-I parade through the smoldering doorway and snatch up the nice [Plasma Barrel Shot](../../digital-tiles/crucible-of-war/crucible-of-war.md#plasma-barrel-shot) an enforcer humaniform has left on the floor for me. How kind. The owner is unconscious, knocked out by the exploding door. Her bot companion tries to get up on its one remaining leg, but a blast of hot plasma ends that.
+I parade through the smoldering doorway and snatch up the nice [Plasma Barrel Shot](../../digital-tiles/03-crucible-of-war/crucible-of-war.md#plasma-barrel-shot) an enforcer humaniform has left on the floor for me. How kind. The owner is unconscious, knocked out by the exploding door. Her bot companion tries to get up on its one remaining leg, but a blast of hot plasma ends that.
 
 Through the antechamber's window I can see other enforcers in the station's main office, both human and robot, scrambling for their weapons. I shoot out the glass and step to one side as my fellow prisoners charge out of the holding wing and take the shortest path to freedom. Through the window and over the enforcers.
 

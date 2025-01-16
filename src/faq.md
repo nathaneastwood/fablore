@@ -29,9 +29,9 @@ Currently my understanding is that Solana is not all it is cut out to be, as the
 * _Brutes_ are confirmed to be a race in [Call of Adventure](world-of-rathe/savage-lands/call-of-adventure.md#brutes).
 * _Demons_ are mentioned in [Morlock Hill](main-story/07-interlude/morlock-hill.md).
 * _Dwarves_ are referenced in [A Grand Adventure](main-story/06-everfest/a-grand-adventure.md) by the line "gruff dwarven blacksmith Thawne". Some art to look out for are the cards "Belittle" and "Minnowism".
-* _Elves_ are explicitly mentioned in the [Wild Ride digital tile](./digital-tiles/everfest/everfest.md#wild-ride). Other art to look out for are the main image for [Aria](world-of-rathe/aria/aria.md), "Crown of Seeds" and "Sheltered Cove".
+* _Elves_ are explicitly mentioned in the [Wild Ride digital tile](./digital-tiles/06-everfest/everfest.md#wild-ride). Other art to look out for are the main image for [Aria](world-of-rathe/aria/aria.md), "Crown of Seeds" and "Sheltered Cove".
 * [_Hecklers_](world-of-rathe/savage-lands/call-of-adventure.md#hecklers) are ruthless, violent and feral humanoids. See the card "Wounded Bull".
-* _Gnomes_ are speculated to exist due to the merchant stall named "The Golden Gnome" on the [Knick Knack Bric-a-Brac Spoiler Tile](./digital-tiles/everfest/everfest.md#knick-knack-bric-a-brac).
+* _Gnomes_ are speculated to exist due to the merchant stall named "The Golden Gnome" on the [Knick Knack Bric-a-Brac Spoiler Tile](./digital-tiles/06-everfest/everfest.md#knick-knack-bric-a-brac).
 * _Humans_
 * _Nymphs_ are [described](flavour/08-uprising.md#arctic-incarceration---upr144) in tales.
 * _Rosetta_ are described in several places including [Briar's Origin Story](main-story/05-tales-of-aria/amongst-the-brambles.md) and [Briar's About Page](heroes-of-rathe/briar-about.md).
