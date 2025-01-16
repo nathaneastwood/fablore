@@ -288,6 +288,7 @@
     - [Heavy Hitters](digital-tiles/14-heavy-hitters/heavy-hitters.md)
     - [Part the Mistveil](digital-tiles/15-part-the-mistveil/part-the-mistveil.md)
     - [Rosetta](digital-tiles/16-rosetta/rosetta.md)
+    - [The Hunted](digital-tiles/17-the-hunted/the-hunted.md)
 
 - [Data](data/data.md)
     - [Animals](data/animals.md)
