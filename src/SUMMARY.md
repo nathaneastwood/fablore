@@ -291,9 +291,10 @@
     - [The Hunted](digital-tiles/17-the-hunted/the-hunted.md)
 
 - [Data](data/data.md)
-    - [Animals](data/animals.md)
     - [Characters](data/characters.md)
     - [Character Groups](data/character-groups.md)
+    - [Fauna](data/fauna.md)
+    - [Flora](data/flora.md)
     - [Food and Drink](data/food-and-drink.md)
     - [Locations](data/locations.md)
     - [Monsters](data/monsters.md)
