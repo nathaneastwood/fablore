@@ -10,13 +10,14 @@ en = "./en"
 es = "./es"
 
 [output.html]
-additional-css = ["sidebar.css", "hero.css", "image.css", "tab.css"]
-additional-js = ["sidebar.js", "tab.js"]
+additional-css = ["hero.css", "image.css", "tab.css", "theme/pagetoc.css"]
+additional-js = ["tab.js", "theme/pagetoc.js"]
 default-theme = "light"
-preferred-dark-theme = "navy"
+preferred-dark-theme = "ayu"
 git-repository-url = "https://github.com/nathaneastwood/fablore"
 git-repository-icon = "fa-github"
 cname = "legendarystories.net"
+sidebar = true
 
 [output.html.fold]
 enable = true
