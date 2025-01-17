@@ -10,8 +10,8 @@ en = "./en"
 es = "./es"
 
 [output.html]
-additional-css = ["hero.css", "image.css", "tab.css", "theme/pagetoc.css"]
-additional-js = ["tab.js", "theme/pagetoc.js"]
+additional-css = ["hero.css", "image.css", "tab.css", "theme/pagetoc.css", "theme/hints.css"]
+additional-js = ["tab.js", "theme/pagetoc.js", "theme/hints.js"]
 default-theme = "light"
 preferred-dark-theme = "ayu"
 git-repository-url = "https://github.com/nathaneastwood/fablore"
@@ -22,3 +22,5 @@ sidebar = true
 [output.html.fold]
 enable = true
 level = 0
+
+[preprocessor.hints]

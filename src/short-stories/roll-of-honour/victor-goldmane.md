@@ -20,7 +20,7 @@ Victor leaned in closer, his voice dropping to a low whisper.
 
 "This is your legacy now. A broken hall and a dead bird."
 
-"You think the Redmoors will bear this offense?" Drexen spat, his voice shaking with fury. "You are no conqueror, Goldmane. You are a spoiled child playing with your father's tools."
+"You think the [Redmoor](~Redmoor)s will bear this offense?" Drexen spat, his voice shaking with fury. "You are no conqueror, Goldmane. You are a spoiled child playing with your father's tools."
 
 Victor chuckled, the sound low and cutting. "And yet, here you are, kneeling before me. And my father is nowhere to be seen."
 
