@@ -197,6 +197,7 @@
     - [Mark of a Traitor](main-story/17-the-hunted/mark-of-a-traitor.md)
     - [Cleanse the Corruption](main-story/17-the-hunted/cleanse-the-corruption.md)
     - [Hunter and Hunted Both](main-story/17-the-hunted/hunter-and-hunted-both.md)
+    - [Children of Chaos](main-story/17-the-hunted/children-of-chaos.md)
 
 - [Short Stories](short-stories/README.md)
     - [A Thousand Cuts](short-stories/10-outsiders/a-thousand-cuts.md)
