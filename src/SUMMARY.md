@@ -242,6 +242,7 @@
         - [Oldhim](short-stories/roll-of-honour/oldhim.md)
         - [Oldhim, Grandfather of Eternity](short-stories/roll-of-honour/oldhim-grandfather-of-eternity.md)
         - [Rhinar](short-stories/roll-of-honour/rhinar.md)
+        - [Victor](short-stories/roll-of-honour/victor-goldmane.md)
         - [Zen](short-stories/roll-of-honour/zen.md)
 
 - [Languages](languages/intro.md)
