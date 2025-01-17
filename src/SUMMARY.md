@@ -96,7 +96,7 @@
     - [Nuu](heroes-of-rathe/nuu-about.md)
     - [Oldhim](heroes-of-rathe/oldhim-about.md)
     - [Olympia](heroes-of-rathe/olympia-about.md)
-    - [Oscilio](heroes-of-rather/oscilio-about.md)
+    - [Oscilio](heroes-of-rathe/oscilio-about.md)
     - [Prism](heroes-of-rathe/prism-about.md)
     - [Rhinar](heroes-of-rathe/rhinar-about.md)
     - [Riptide](heroes-of-rathe/riptide-about.md)
