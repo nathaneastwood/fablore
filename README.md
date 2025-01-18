@@ -40,6 +40,38 @@ for file in path/to/file/*; do cwebp -q 70 $file -o ${file%.*}.webp; done
 
 Note, to install webp on your machine, please consult the [downloads page](https://developers.google.com/speed/webp/download) or [build instructions](https://chromium.googlesource.com/webm/libwebp/+/HEAD/doc/building.md).
 
+## Extensions
+
+This project makes use of the extensions and so you should:
+
+* Copy the latest [index.hbs](https://github.com/rust-lang/mdBook/blob/master/src/theme/index.hbs) file
+
+Such that you can:
+
+* Include [mdbook-hints](https://github.com/caukub/mdbook-hints) with
+    ```hbs
+    <!-- Here -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+
+    <!-- Custom JS scripts -->
+    ```
+* Include [mdbook-pagetoc](https://github.com/slowsage/mdbook-pagetoc) by replacing
+    ```hbs
+    <main>
+       {{{ content }}}
+    </main>
+    ```
+
+    with:
+
+
+    ```hbs
+    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+        {{{ content }}}
+    </main>
+    ```
+
 ## License
 
 All code in this repository is licensed under **_MIT_**, for more information take a look at the [LICENSE](https://github.com/nathaneastwood/fablore/blob/main/LICENSE) file. All content in the book is © Legend Story Studios.
