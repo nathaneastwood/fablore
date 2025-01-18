@@ -1,8 +1,8 @@
 # Cleanse the Corruption
 
-[Cindra](../../heroes-of-rathe/cindra-about.md) marched past the ranks of soldiers positioned beyond the reach of Savai's archers. Her army surrounded the high walls of the Lord Merchant's fortress home, awaiting the order to attack.
+[Cindra](../../heroes-of-rathe/cindra-about.md) marched past the ranks of soldiers positioned beyond the reach of [Savai](~Savai)'s archers. Her army surrounded the high walls of the Lord Merchant's fortress home, awaiting the order to attack.
 
-She pointed at Kayat, his corpse lying in the back of a wagon, barely recognizable after Lord Tetzuo's interrogation. "String the traitor up. Let Savai see the fate that awaits all conspirators."
+She pointed at [Kayat](~Kayat), his corpse lying in the back of a wagon, barely recognizable after Lord Tetzuo's interrogation. "String the traitor up. Let Savai see the fate that awaits all conspirators."
 
 Soldiers rushed to obey, hauling the body up high by rope and pulley to hang like a repulsive flag.
 
@@ -10,7 +10,7 @@ Cindra and [Fang](../../heroes-of-rathe/fang-about.md) had tracked him through D
 
 By fleeing to Savai's home, Kayat had marked it as the heart of treachery. Cindra was unsurprised. As Lord Merchant of an immense city, Savai had the resources required to stage a coup and the wiles to do so by cloak and dagger. The man ruled Deshvahan, but that had not been enough. Now, he ruled only a city of flame, fires raging across all districts, their orange glow bleeding into the night sky.
 
-Cindra ascended the steps of an obsidian tower, a lookout confiscated from a merchant and converted into a mobile headquarters. Here, her Sayashi collated reports from across the city while General Yamatoka plotted the details of the impending battle.
+Cindra ascended the steps of an obsidian tower, a lookout confiscated from a merchant and converted into a mobile headquarters. Here, her [Sayashi](~Sayashi) collated reports from across the city while General Yamatoka plotted the details of the impending battle.
 
 The general looked up at her from the map he'd spread across the former merchant's banquet table. "Where are the rest of my troops?" he demanded.
 
@@ -54,7 +54,7 @@ Fang used the moment to raise his daggers high, a signal for the soldiers to pul
 
 For a long moment, the only sounds Cindra heard were of battle; of steel clashing with steel. Then a mighty explosion ruptured the gate from within. Through the smoke, Cindra could just make out Fang at the head of her troops clearing the gateway of defenders, flames reflected in their swords, war cries vicious on their tongues.
 
-Cindra charged through the razed remains of Savai's gates, the rest of her army pouring into the fortress behind her. Soon, they breached the mansion itself, spilling in through doorways delicately carved with swimming [ryoki](../../world-of-rathe/volcor/wildlife.md#ryoki).
+Cindra charged through the razed remains of Savai's gates, the rest of her army pouring into the fortress behind her. Soon, they breached the mansion itself, spilling in through doorways delicately carved with swimming [ryoki](~Ryoki).
 
 As they advanced through the smoke and screams of the dying, something whimpered beside her - one of Savai's servants, terribly burned. She flung a dagger, piercing the woman's heart. She was not without mercy. She recalled the blade, but instead of disappearing into the folds of her clothes, it circled her, its tip stained with blood gleaming black beneath the scant starlight, its red ribbon fluttering softly.
 
@@ -120,9 +120,9 @@ Cindra knelt down as close to Jemjang as she could. The woman was dressed in fin
 
 "Just a name. That is all I need."
 
-"Lord Wizard Chiyo," she stated plainly. "I do not know if she is the head of this endeavor, but she is certainly closer to it. The Spider took her coin as readily as Savai's."
+"[Lord Wizard Chiyo](~Chiyo)," she stated plainly. "I do not know if she is the head of this endeavor, but she is certainly closer to it. The Spider took her coin as readily as Savai's."
 
-"You give me the name of an Alshoni loyalist and you expect me to believe it?"
+"You give me the name of an [Alshoni](~Alshoni) loyalist and you expect me to believe it?"
 
 "My sense of self-preservation is too well-honed for pointless lies."
 
@@ -134,4 +134,4 @@ Cindra turned to Fang. "Gather our most loyal troops," she ordered. "And send wo
 
 "Right away, Commander," Fang replied. "Ready the horses?"
 
-"Immediately. [Volcai](../../world-of-rathe/volcor/welcome-to-volcor.md) whispers echo a hundred miles. We must reach that traitor before the whispers do.​"
+"Immediately. [Volcai](~Volcai) whispers echo a hundred miles. We must reach that traitor before the whispers do.​"

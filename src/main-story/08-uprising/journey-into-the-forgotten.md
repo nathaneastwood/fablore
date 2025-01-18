@@ -78,13 +78,13 @@ I sneak away while all eyes are turned to the commotion. From then on I avoid th
 
 I lose count of the days as I continue on my journey, until at long last, the burning heart of Volcor laid out before me. Sprawling cities spread across glassy plains of tephra. At the center of this mess of humanity, a tamed volcano simmers and broods, its flank adorned with towers and halls that belittle all others in their grandeur.
 
-I recall a name, Ashvahan. To me, that city within cities is a locked chest, hiding heirlooms of forgotten import.
+I recall a name, [Ashvahan](~Ashvahan). To me, that city within cities is a locked chest, hiding heirlooms of forgotten import.
 
 I follow the road I am on to an outer-city gate where a steady tide of citizens swells and ebbs. Hard-eyed officers examine every soul that passes through, their papers scrutinized and stamped.
 
 "You will not get in looking like that."
 
-A storm of ice builds in my palm. After a long game of cat and mouse with the raven general's troops, they have caught me at last. I turn to fight my captor, but the stranger takes my arm, arresting my spell with a firm yet gentle hand. She looks like a Volcai. Caramel skin. Jet-black hair. Clean and well-kept, though modest. A servant, perhaps, of a wealthy household. But I sense that not all is as it seems with this one.
+A storm of ice builds in my palm. After a long game of cat and mouse with the raven general's troops, they have caught me at last. I turn to fight my captor, but the stranger takes my arm, arresting my spell with a firm yet gentle hand. She looks like a [Volcai](~Volcai). Caramel skin. Jet-black hair. Clean and well-kept, though modest. A servant, perhaps, of a wealthy household. But I sense that not all is as it seems with this one.
 
 I let her guide me into a humble house, a bolthole away from prying eyes where she can reveal her true self.
 

@@ -1,4 +1,4 @@
-[Dromai](../../heroes-of-rathe/dromai-about.md) barely remembers her parents, Torvai the Dracai, and Sani of the Sandfolk. Murdered before she had even learned to walk. Min of the Forest of Flames found her, raised her in a humble village amongst the struggle and strife of Volcai life. A hatchling dragon in the nest of the phoenix.
+[Dromai](../../heroes-of-rathe/dromai-about.md) barely remembers her parents, Torvai the [Dracai](~Dracai), and Sani of the Sandfolk. Murdered before she had even learned to walk. Min of the Forest of Flames found her, raised her in a humble village amongst the struggle and strife of [Volcai](~Volcai) life. A hatchling dragon in the nest of the phoenix.
 
 She and Min's son became as thick as thieves. Dromai was the mastermind, deceiving and dismaying with wit and illusion. Her adoptive brother was her minion, liberating sweets and toys from childish rivals. Yet Dromai did not plan these capers for the simple fun of it. She planned them for the practice. For the preparation. She felt different, a pretender among the peasants. Deep in her heart, Dromai knew she was destined for greater things.
 
@@ -64,7 +64,7 @@ Dromai forces herself to watch the army's withdrawal, to sear this failure into 
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/dromai-2.webp" alt="dromai-2" class="center">
 
-Back in Ashvahan, the restless days crawl by as Dromai bides her time. Every day, she pores over the tomes of The Twelve Dragons. Every day, she practices her art, driving herself to exhaustion so that her sleep is empty of shameful dreams. Every day, she petitions Xathari for another mission. Another chance to prove herself.
+Back in [Ashvahan](~Ashvahan), the restless days crawl by as Dromai bides her time. Every day, she pores over the tomes of The Twelve Dragons. Every day, she practices her art, driving herself to exhaustion so that her sleep is empty of shameful dreams. Every day, she petitions Xathari for another mission. Another chance to prove herself.
 
 On the thirtieth day, Xathari visits her chambers; a modest room at the rear of the palace. Little better than a soldier's quarters.
 

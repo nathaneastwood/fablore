@@ -6,7 +6,7 @@ He was the first volunteer through the breach at Tchankem Castle, one of the blo
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/vow-of-vigilence-1.webp" alt="vow-of-vigilence-1" class="center">
 
-A valiant Volcai, sworn to protect what he believes to be good and just. The eyes and ears of vigilance. The raised voice of alarm, and the clenched fists of retribution.
+A valiant [Volcai](~Volcai), sworn to protect what he believes to be good and just. The eyes and ears of vigilance. The raised voice of alarm, and the clenched fists of retribution.
 
 But what if his fervor were to blind him to the true nature of his people? We are equal parts fair and foul, and misfortune is the weight that tips the balance.
 
@@ -18,7 +18,7 @@ Yoji wished to follow his [Emperor](../../heroes-of-rathe/emperor-about.md) into
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/vow-of-vigilence-2.webp" alt="vow-of-vigilence-2" class="center">
 
-Chancellor Yama, leader of the Ezu Dracai faction, would not allow it. Why waste a loyal subject, even one so blinded by the Alshoni faction and their deluded devotion to a dying dynasty?
+Chancellor Yama, leader of the Ezu [Dracai](~Dracai) faction, would not allow it. Why waste a loyal subject, even one so blinded by the [Alshoni](~Alshoni) faction and their deluded devotion to a dying dynasty?
 
 Better that he live as a condemned man, serving his sentence with halberd in hand. Better that he learn to live in dishonor, and view the world through the eyes of those who would most threaten it.
 

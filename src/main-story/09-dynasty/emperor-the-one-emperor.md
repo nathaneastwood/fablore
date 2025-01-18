@@ -6,17 +6,17 @@ The [Emperor](../../heroes-of-rathe/emperor-about.md) stands before the ancient 
 
 Muffled whispers scratch at the glass. The Emperor is all too familiar with those insidious promises. They are the sovereign's blessing, and his curse. He has listened to them since he was a young man, long before he took the throne from his father. Today he wishes they would be silent.
 
-With a supreme act of will, he turns his back on the altar and empties his mind of those susurrant temptations. He crosses the chamber to where the Imperial Crown lies in its bed of velvet, and remembers how it felt, that first time, when Chancellor Yama placed it upon his brow.
+With a supreme act of will, he turns his back on the altar and empties his mind of those susurrant temptations. He crosses the chamber to where the Imperial Crown lies in its bed of velvet, and remembers how it felt, that first time, when [Chancellor Yama](~Yama) placed it upon his brow.
 
 The coronation crowd was the largest in living memory, an ocean of red as far as his eyes could see. His subjects flooded the streets, as numerous as blades of drake whisker grass upon the western plains. His most loyal servants lined the steps, an avenue of acolytes that he tended like a gardener might nurture a patch of rare and delicate dragon flowers.
 
 The lord wizards grew and blossomed in the warmth of his wisdom. They became true artisans of the aether. Their fireborn talents tested and tempered in the forges of war.
 
-Without a strong emperor to guide them, the people of Volcor had turned against each other. Dracai and Volcai, their talents and efforts wasted on fear and fancy. He gathered them to the blazing beacon of royalty, made them so much greater than the sum of themselves. Together, they tore down the tawdry banners. They dismembered the personal armies and reduced the petty holdfasts to ash.
+Without a strong emperor to guide them, the people of Volcor had turned against each other. [Dracai](~Dracai) and [Volcai](~Volcai), their talents and efforts wasted on fear and fancy. He gathered them to the blazing beacon of royalty, made them so much greater than the sum of themselves. Together, they tore down the tawdry banners. They dismembered the personal armies and reduced the petty holdfasts to ash.
 
 To vale and plain, city and citadel, they restored the peace that his father let slip through his trembling fingers.
 
-He surrounded himself with individuals of power and vision. With a click of his fingers, he could light every torch in the city so that Xathari, his fireseer, might peer into every corner of Ashvahan. So that [Yoji](../../heroes-of-rathe/yoji-about.md), his captain of the Imperial Guard, might exact justice upon the dishonorable.
+He surrounded himself with individuals of power and vision. With a click of his fingers, he could light every torch in the city so that Xathari, his fireseer, might peer into every corner of [Ashvahan](~Ashvahan). So that [Yoji](../../heroes-of-rathe/yoji-about.md), his captain of the Imperial Guard, might exact justice upon the dishonorable.
 
 These were people he could use, but never wholly trust. While their ambitions aligned with his, they remained his loyal servants. He expected nothing more nor anything less.
 

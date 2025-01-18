@@ -17,6 +17,17 @@
 |   Yvor |   Ancient of Lightning and Ice |
 | Galcia |                                |
 
+## Dracai
+
+| Name                  | Character |
+| --------------------- | --------- |
+| Dracai of Aesir       |   Emperor |
+| Dracai of Aether      |      Kano |
+| Dracai of Ceremonies  |           |
+| Dracai of Judgement   |  Taipanis |
+| Dracai of Retribution |    Cindra |
+| Dracai of War         |           |
+
 ## Dragons
 
 | Male Dragons    | Pronounciation          | Phonetic            |

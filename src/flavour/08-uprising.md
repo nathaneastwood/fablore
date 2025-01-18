@@ -4,10 +4,10 @@
 Tales be told, the kiss of an ice nymph draws the last breath from a soul lost to the [Bleak Expanse](../world-of-rathe/aria/a-true-sanctuary.md#the-bleak-expanse).
 
 #### Blaze Headlong - (UPR092)
-The [Volcai](../world-of-rathe/volcor/welcome-to-volcor.md) army of vigilantes, renegades, and outlaws, is like a tinderbox looking for a spark.
+The [Volcai](~Volcai) army of vigilantes, renegades, and outlaws, is like a tinderbox looking for a spark.
 
 #### Brand with Cinderclaw - (UPR060)
-To the [Dracai](../world-of-rathe/volcor/welcome-to-volcor.md), it's a mark of shame. To the Volcai, it's a sign of brotherhood.
+To the [Dracai](~Dracai), it's a mark of shame. To the Volcai, it's a sign of brotherhood.
 
 #### Breaking Point - (UPR093)
 Push hard enough, and even the weakest Volcai might find within their heart the courage, to stand against mightiest of dragons.

@@ -26,7 +26,7 @@ The artist's destiny is painted in ash and blood. Dromai will create her masterp
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dromai-dragons-of-volcor.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Dragons of Volcor</b><br>
-    Fables say that a Draconic Aesir slumbers within the cradle of Mt Volcor, its heart pulsing molten through the lava veins that span the Volcor landscape. Servants of the Draconic Aesir, Dracona Optimai, Tomeltai, and Dominia, and servants of these servants, dominated the skies of Rathe during the First Age. They may be lost to time in the flesh and blood, but Dromai is able to wield their essence as powerful weapons of destruction using the arcana of Ash Artistry.
+    Fables say that a Draconic Aesir slumbers within the cradle of Mt. Volcor, its heart pulsing molten through the lava veins that span the Volcor landscape. Servants of the Draconic Aesir, Dracona Optimai, Tomeltai, and Dominia, and servants of these servants, dominated the skies of Rathe during the First Age. They may be lost to time in the flesh and blood, but Dromai is able to wield their essence as powerful weapons of destruction using the arcana of Ash Artistry.
   </div>
 </div>
 

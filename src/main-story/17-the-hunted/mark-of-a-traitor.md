@@ -1,6 +1,6 @@
 # Mark of a Traitor
 
-[Fang](../../heroes-of-rathe/fang-about.md) led his troops through the Sand Glass District toward the largest glassworks in all Deshvahan. They were fearsome in armor of burnished steel and brass, red sash tied at their waists to evoke the blood that bonds all [Dracai](../../world-of-rathe/volcor/welcome-to-volcor.md), and another around the upper arm in remembrance of their fallen [Emperor](../../heroes-of-rathe/emperor-about.md).
+[Fang](../../heroes-of-rathe/fang-about.md) led his troops through the Sand Glass District toward the largest glassworks in all Deshvahan. They were fearsome in armor of burnished steel and brass, red sash tied at their waists to evoke the blood that bonds all [Dracai](~Dracai), and another around the upper arm in remembrance of their fallen [Emperor](../../heroes-of-rathe/emperor-about.md).
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/mark-of-a-traitor-1.webp" alt="mark-of-a-traitor-1" class="center" />
 

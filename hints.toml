@@ -1,3 +1,29 @@
 # hints.toml
+[Alshoni]
+hint = "A faction founded by a particular branch of the Royal Bloodline, a clan brought together by blood ties, headed up by Lord Wizard Chiyo, cousin to the Emperor."
+[Ashvahan]
+hint = "The Capital of Volcor"
+[Chiyo]
+hint = "Lord Wizard, Head of the Alshoni faction and cousin to the Emperor"
+[Dracai]
+hint = "The Dracai are bestowed names that are free of any restrictions, conventions or stigma, granted positions in the Royal Court of Volcor by the Emperor."
+[Ezu]
+hint = "A faction headed up by Chancellor Yama"
+[fai-mother]
+hint = "Min of the Forest of Flames"
+[Kayat]
+hint = "An illusionist, boss of the Dust Runners"
+[Min]
+hint = "Fai's Mother"
 [Redmoor]
-hint = "The Redmoors are Boltyn's cousins"
+hint = "The Redmoors are Boltyn's cousins."
+[Ryoki]
+hint = "These are small creatures, similar in appearance to fish, that inhabit the lava streams and rivers of Volcor. Despite the immense heat, these creatures thrive in the extreme conditions, lurking beneath the glowing surface of the magma. While their scales are almost black, their 'fins' catch alight when they break the surface of the lava, leaping from stream to stream."
+[Savai]
+hint = "Lord Merchant of Deshvahan"
+[Sayashi]
+hint = "Special force of loyal ninjas dedicated to hunting those responsible for the Emperor's death."
+[Volcai]
+hint = "The Volcai are the more limited social class of Volcor; their names are homogeneous, ending in _ai_ as a mark of their Volcai origin status."
+[Yama]
+hint = "Lord Chancellor and Head of the Ezu faction"

@@ -4,7 +4,7 @@
 (<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)
 </p>
 
-_Your Imperial Majesty, forgive this impertinence, but these are desperate times. Our workers have turned rabid, infected by rebellious lies. They steal from our caravans. They plunder our warehouses. We petitioned our Lord Wizard for aid. He burned our messengers and fled the Red Desert-a disgrace to your glorious dragon blood. You are the greatest of the Dracai. Your flame is the brightest of all. Punish these upstarts. Sear their treacherous hopes from their dim minds. We beseech you, our mighty [Emperor](../../heroes-of-rathe/emperor-about.md). Please, help us._
+_Your Imperial Majesty, forgive this impertinence, but these are desperate times. Our workers have turned rabid, infected by rebellious lies. They steal from our caravans. They plunder our warehouses. We petitioned our Lord Wizard for aid. He burned our messengers and fled the Red Desert-a disgrace to your glorious dragon blood. You are the greatest of the [Dracai](~Dracai). Your flame is the brightest of all. Punish these upstarts. Sear their treacherous hopes from their dim minds. We beseech you, our mighty [Emperor](../../heroes-of-rathe/emperor-about.md). Please, help us._
 
 _Your humble servant,_
 
@@ -62,9 +62,9 @@ A Solanian spy lurks about the palace, an agent so elusive that even a fireseer 
 
 Sandfolk fury continues to fester, as Xathari hoped it would. Their attack was a lance, puncturing a boil. In time, the infection will be drawn out into the open.
 
-The scheming [Ezu and loyal Alshoni](../../world-of-rathe/volcor/fire-in-their-veins.md#factions)-two great Dracai houses locked in a deadly game of power and usurpation. The Alshoni defending stability and dynasty against dangerous Ezu aspirations. A trail of missives exchanged through the [Pits](../../world-of-rathe/pits/pits.md). Prices paid in coin and blood.
+The scheming [Ezu](~Ezu) and loyal [Alshoni](~Alshoni)-two great Dracai houses locked in a deadly game of power and usurpation. The Alshoni defending stability and dynasty against dangerous Ezu aspirations. A trail of missives exchanged through the [Pits](../../world-of-rathe/pits/pits.md). Prices paid in coin and blood.
 
-[Fai](../../heroes-of-rathe/fai-about.md) and his foolish Volcai, their filthy hands tearing the empire apart. Enemies in every scullery and stable. Vermin that might yet overrun the entire palace.
+[Fai](../../heroes-of-rathe/fai-about.md) and his foolish [Volcai](~Volcai), their filthy hands tearing the empire apart. Enemies in every scullery and stable. Vermin that might yet overrun the entire palace.
 
 Dromai follows the threads, weaving a tapestry of treachery in her mind. Yet try as she might, she can see neither the pattern nor the weaver. They are as elusive as that vile visage glimpsed and then gone into tortured darkness.
 
@@ -72,13 +72,13 @@ An unfamiliar fear grips her. She has nothing to condemn. The killer left no foo
 
 Stone trembles beneath her feet. A roar drives her to her knees. She presses her hands to her ears, yet the rageful sound comes not from without. It resonates from her flesh, reverberates through her skull. She knows that voice, has heard it uttered from the throats of her apparitions, has sensed its whispers since the day she set foot in the palace.
 
-The roar subsides, its echoes carried through the molten veins of Volcor, shaking and sundering. Ravines open in the earth, engulfing streets and shelters across Ashvahan. Grand waterways, twinkling with blue lanterns and flame lotus flowers, rupture their shores and sweep away people, pageantry and parade. An eruption so violent and anguished that it touches the farthest reaches of Volcor. A sharing of loss that all must embrace.
+The roar subsides, its echoes carried through the molten veins of Volcor, shaking and sundering. Ravines open in the earth, engulfing streets and shelters across [Ashvahan](~Ashvahan). Grand waterways, twinkling with blue lanterns and flame lotus flowers, rupture their shores and sweep away people, pageantry and parade. An eruption so violent and anguished that it touches the farthest reaches of Volcor. A sharing of loss that all must embrace.
 
-As the last aftershock rumbles through the palace, Dromai finds Chiyo in the remains of her chambers. The Lord Wizard is white with dust. Her skin grows even whiter at the news of the Emperor's death.
+As the last aftershock rumbles through the palace, Dromai finds [Chiyo](~Chiyo) in the remains of her chambers. The Lord Wizard is white with dust. Her skin grows even whiter at the news of the Emperor's death.
 
 "Why come to me?" she asks.
 
-"Chancellor Yama doesn't need me," answers Dromai. "You do."
+"[Chancellor Yama](~Yama) doesn't need me," answers Dromai. "You do."
 
 In vulnerability, there is opportunity. Without the Emperor, the Alshoni faction is severely weakened. Until now, Ezu and Alshoni have played by the rules, the Emperor's own mandates laid down to prevent civil war. But those rules have changed, and so Dromai will play the cards that fate has dealt her.
 

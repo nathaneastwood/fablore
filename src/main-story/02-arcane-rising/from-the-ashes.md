@@ -1,6 +1,6 @@
 # From the Ashes
 
-The imperial guards ushered him into the room, the Lord Wizard Chiyo close behind. As she stepped in front of him, the members of the Chamber of the Dragon all turned, looking down at the scene before them. Clearing her throat, the Lord Wizard turned her gaze to the Lord Chancellor himself.
+The imperial guards ushered him into the room, the [Lord Wizard Chiyo](~Chiyo) close behind. As she stepped in front of him, the members of the Chamber of the Dragon all turned, looking down at the scene before them. Clearing her throat, the Lord Wizard turned her gaze to the Lord Chancellor himself.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-8.webp" alt="kano-8" class="center">
 
@@ -8,11 +8,11 @@ The imperial guards ushered him into the room, the Lord Wizard Chiyo close behin
 
 A low murmur rolled through the room as every member of the Chamber began to speak at once, turning to quietly address their neighbours. The Lord Chancellor held up one hand, immediately silencing all those present.
 
-The Lord Chancellor was dressed in the elaborate garb of the Chamber of the Dragon, adorned in clothes of black and gold. His snow-white hair was drawn up into a metal hairpiece, depicting three ryoki leaping in and out of a stream of lava. Framed by prominent cheekbones, his eyes were startlingly bright for his age, a keen gaze landing on the young wizard before him.
+The Lord Chancellor was dressed in the elaborate garb of the Chamber of the Dragon, adorned in clothes of black and gold. His snow-white hair was drawn up into a metal hairpiece, depicting three [ryoki](~Ryoki) leaping in and out of a stream of lava. Framed by prominent cheekbones, his eyes were startlingly bright for his age, a keen gaze landing on the young wizard before him.
 
 "What is your name?"
 
-"Kano. Lord Chancellor-"
+"[Kano](../../heroes-of-rathe/kano-about.md). Lord Chancellor-"
 
 "You were found standing over the corpse of your former mentor. Is that correct?"
 
@@ -132,13 +132,13 @@ The guard led him into a hidden room, its doorway masked by the panels decoratin
 
 The seconds stretched into minutes, time crawling slowly by as Kano waited. Based solely on the man who came to collect him, and the location of the room they were in now, he suspected he was meeting a member of the immediate imperial family. The better question was why a member of the imperial family would want to speak to him.
 
-Finally, the panel slid open, revealing two more guards from the imperial family's personal retinue. They parted to reveal the head of the Alshoni faction, Lord Wizard and cousin to the Emperor, accompanied by the Lord Chancellor. As she took a seat, he motioned for Kano to do the same. A long moment passed as she remained silent, her gaze fixed on the younger wizard, something thoughtful lingering in her expression.
+Finally, the panel slid open, revealing two more guards from the imperial family's personal retinue. They parted to reveal the head of the [Alshoni](~Alshoni) faction, Lord Wizard and cousin to the Emperor, accompanied by the Lord Chancellor. As she took a seat, he motioned for Kano to do the same. A long moment passed as she remained silent, her gaze fixed on the younger wizard, something thoughtful lingering in her expression.
 
-"Almost a year ago, the Chamber of the Dragon discovered that one of the lord generals had been - for lack of a better word - possessed. Several of the lord wizards studied his corpse and found that an unknown creature had taken control of his body, and that its presence caused a number of issues, including tissue death. They uncovered several more of these creatures inside the royal court, and removed each of them. The lord wizards have continued to monitor the court since then, and after a time, these creatures stopped appearing." The Lord Wizard Yama paused, motioning to the Lord Chancellor at her side.
+"Almost a year ago, the Chamber of the Dragon discovered that one of the lord generals had been - for lack of a better word - possessed. Several of the lord wizards studied his corpse and found that an unknown creature had taken control of his body, and that its presence caused a number of issues, including tissue death. They uncovered several more of these creatures inside the royal court, and removed each of them. The lord wizards have continued to monitor the court since then, and after a time, these creatures stopped appearing." The Lord Wizard Chiyo paused, motioning to the Lord Chancellor at her side.
 
 "The Lord Chancellor reported that the creatures had been eradicated, and while we hadn't uncovered where the creatures came from, we decided to put our focus onto the matter of aether. The Lord Chancellor mentioned that you expressed concerns about aether stability, so I assume you've also noticed a change in the aether across Volcor?"
 
-"Yes," Kano replied, looking between the Lord Chancellor and the Lord Wizard. "I noticed that the aether across Volcor has been more unstable in the last few years. When I saw that some wizards were struggling to control their fire magic, I suspected that the two might be related." Yama nodded.
+"Yes," Kano replied, looking between the Lord Chancellor and the Lord Wizard. "I noticed that the aether across Volcor has been more unstable in the last few years. When I saw that some wizards were struggling to control their fire magic, I suspected that the two might be related." [Yama](~Yama) nodded.
 
 "The cause is an aetheric imbalance, which has been disturbing aetheric spells in Volcor for almost a decade. However, more recently, it has also been causing problems with basic fire magic - which should be unaffected by aether. We decided to put our focus into solving the issue, not realising that the creatures we discovered had begun to mutate, and found new ways to go unnoticed. Thanks to your encounter with Lord Wizard Akihiko, we have uncovered more of these impostors, and are training others in a spell to detect their presence.
 
@@ -152,7 +152,7 @@ Taking the staff from the guard, she stood, hands outstretched, offering the sta
 
 "This is the Crucible of Aetherweave, an heirloom which was once gifted to your ancestor by the past Emperor. Accept this, and you accept your role as the Dracai of Aether."
 
-Rising from his seat, Kano stared down at the staff before him, looking over the carved obsidian scales. He could feel the enchanted crystal even at a distance, an eternal flame dancing within. After a long moment, he grinned, reaching out to accept the staff from the Lord Wizard Yama.
+Rising from his seat, Kano stared down at the staff before him, looking over the carved obsidian scales. He could feel the enchanted crystal even at a distance, an eternal flame dancing within. After a long moment, he grinned, reaching out to accept the staff from the Lord Wizard Chiyo.
 
 In his hands, the staff appeared to awaken, firelight dancing between the obsidian scales. He felt the aether around him in stir in response, arcane energy channeling through the core of the staff. With a laugh, he nodded, straightening.
 

@@ -8,9 +8,9 @@ A trap laid for a spymaster and his Ash Artist accomplice. Eun as the bait that 
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/fai-7.webp" alt="fai-7" class="center">
 
-Eun's plan was cunning. Fai had to give her that. Since the massacre at Golden Orchard, Eun had been obsessed with ridding Volcor of 'that scheming snake'. With Xathari and his firesight extinguished, it would be easier to infiltrate the Imperial Palace, to tear the Dracai down from within.
+Eun's plan was cunning. Fai had to give her that. Since the massacre at Golden Orchard, Eun had been obsessed with ridding Volcor of 'that scheming snake'. With Xathari and his firesight extinguished, it would be easier to infiltrate the Imperial Palace, to tear the [Dracai](~Dracai) down from within.
 
-The Lord Wizards were growing desperate. Inspired by the fallen rebels of Golden Orchard, Volcai were taking up arms all across Volcor. The many feathers of the Phoenix were burning bright. Naturally, the snake would seek to bite off the phoenix's head. And so Eun would stick out her own neck. Would make herself an irresistible delicacy to the serpent's fangs.
+The Lord Wizards were growing desperate. Inspired by the fallen rebels of Golden Orchard, [Volcai](~Volcai) were taking up arms all across Volcor. The many feathers of the Phoenix were burning bright. Naturally, the snake would seek to bite off the phoenix's head. And so Eun would stick out her own neck. Would make herself an irresistible delicacy to the serpent's fangs.
 
 In Fai's mind, it should have worked.
 
@@ -26,7 +26,7 @@ Behind Dromai, Xathari leans on his staff, the spymaster's right hand pressed to
 
 Fai levels his sword at Dromai. "Please, sister. Don't."
 
-"Min didn't spare my mother's life," snaps Dromai. "She didn't think twice about murdering my father. What makes this life any more worthy than theirs?"
+"[Min](~Min) didn't spare my mother's life," snaps Dromai. "She didn't think twice about murdering my father. What makes this life any more worthy than theirs?"
 
 "Murdered your father?" Shock chokes the words in his throat. "Min–She could never–Why–"
 

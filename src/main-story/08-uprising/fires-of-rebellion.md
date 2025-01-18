@@ -1,6 +1,6 @@
 Life was never easy in the Forest of Flames. Farmers and foresters eked out a meager living from the land, barely making enough to feed their families once the [Emperor](../../heroes-of-rathe/emperor-about.md)'s tax collectors had taken their due.
 
-[Fai](../../heroes-of-rathe/fai-about.md)'s mother, Min, spoke of a better time, when Volcai and Dracai would walk the roads of [Volcor](../../world-of-rathe/volcor/volcor.md) hand in hand, ruling the empire as equals. Fai didn't listen. He was too busy playing minion to his sister's mastermind. While [Dromai](../../heroes-of-rathe/dromai-about.md) drew the eye with monsters and wonders of ash and soot, Fai applied his swift hands and feet to the delights of petty larceny. No trove of childish treats was safe from this devious duo. Of course, she would scold him when he gave half their haul away to the poorest children of the village. But what else could he do? Min had taught him that life was never fair by nature, only by practice.
+[Fai](../../heroes-of-rathe/fai-about.md)'s mother, Min, spoke of a better time, when [Volcai](~Volcai) and [Dracai](~Dracai) would walk the roads of [Volcor](../../world-of-rathe/volcor/volcor.md) hand in hand, ruling the empire as equals. Fai didn't listen. He was too busy playing minion to his sister's mastermind. While [Dromai](../../heroes-of-rathe/dromai-about.md) drew the eye with monsters and wonders of ash and soot, Fai applied his swift hands and feet to the delights of petty larceny. No trove of childish treats was safe from this devious duo. Of course, she would scold him when he gave half their haul away to the poorest children of the village. But what else could he do? Min had taught him that life was never fair by nature, only by practice.
 
 Then the Dracai brought his soldiers and burned their village, forcing Fai and Min to flee into the forest with their kith and kin. They lost many good people that day, his sister among them. Apparently, life really wasn't fair.
 
@@ -78,7 +78,7 @@ She shrugs. "Hope he's bringing some Dracai with him. Did you know Dragon blood 
 
 There is more she's not telling him, but Fai figures now is not the time to pry. "If there are Dracai, we take them alive. They must see how we live, how we suffer, with their own eyes. Torvai changed. So can they."
 
-Eun turns away from him; sizes up the approaching army. "Torvai was a dangerous fool." She carves a lazy figure eight in the air, working and warming her wrists. "There are many roads to Ashvahan, Fai. The trick is not to die before you get there."
+Eun turns away from him; sizes up the approaching army. "Torvai was a dangerous fool." She carves a lazy figure eight in the air, working and warming her wrists. "There are many roads to [Ashvahan](~Ashvahan), Fai. The trick is not to die before you get there."
 
 "Wasn't planning to, Eun."
 

@@ -110,7 +110,7 @@ After a long moment, Kano allowed the fire to extinguish, cautiously approaching
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-7.webp" alt="kano-7" class="center">
 
-The sound of thunderous footsteps startled Kano out of his confusion, whipping around in time to see a host of armored imperial guards racing around the corner. As they came into view, Kano recognised the Lord Wizard at the front of the group, her alarmed gaze meeting his. As he watched, the Lord Wizard Chiyo's gaze fell to the body at his feet, shock rippling across her expression at the sight of Akihiko's corpse.
+The sound of thunderous footsteps startled Kano out of his confusion, whipping around in time to see a host of armored imperial guards racing around the corner. As they came into view, Kano recognised the Lord Wizard at the front of the group, her alarmed gaze meeting his. As he watched, the [Lord Wizard Chiyo](~Chiyo)'s gaze fell to the body at his feet, shock rippling across her expression at the sight of Akihiko's corpse.
 
 _Well, shit._
 

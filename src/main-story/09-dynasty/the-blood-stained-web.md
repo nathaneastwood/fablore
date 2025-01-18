@@ -4,7 +4,7 @@ I perch in the rafters where the air is thick with whispers. Servants gossip in 
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/bloodstained-web-1.webp" alt="bloodstained-web-1" class="center">
 
-Laughter breaks out as a punchline is hit. Something about a Dracai, a chamber pot, and tea ceremony. I vault from rafter to rafter while their eyes are blinded by mirth. I drop out of hiding and stalk into the passage beyond, none of them the wiser. If only they knew Death had passed so close, their jokes would stiffen like the lips on a corpse-their sleepless nights would stretch and twist with sweats and shivers.
+Laughter breaks out as a punchline is hit. Something about a [Dracai](~Dracai), a chamber pot, and tea ceremony. I vault from rafter to rafter while their eyes are blinded by mirth. I drop out of hiding and stalk into the passage beyond, none of them the wiser. If only they knew Death had passed so close, their jokes would stiffen like the lips on a corpse-their sleepless nights would stretch and twist with sweats and shivers.
 
 On I go, choosing moments I am not contracted to own. Blades far sharper than mine have carved out this path. Hide and wait here, said the boss, for nine rings of the gong behind the tapestry of the Jade Empress. The soldiers will disperse, said the boss. Like Metrixian clockwork, on the tenth ring, a patrol of soldiers rushes past, called to some urgent duty elsewhere. The plan is working.
 

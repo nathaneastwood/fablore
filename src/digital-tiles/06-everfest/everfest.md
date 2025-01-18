@@ -1,6 +1,6 @@
 ### Aether Wildfire
 
-The royal bloodline runs hot through the veins of every Dracai of [Volcor](../../world-of-rathe/volcor/volcor.md); the flames bow at their every whim, and pushes the force of their spells to extraordinary heights.
+The royal bloodline runs hot through the veins of every [Dracai](~Dracai) of [Volcor](../../world-of-rathe/volcor/volcor.md); the flames bow at their every whim, and pushes the force of their spells to extraordinary heights.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/aether-wildfire.webp" alt="aether-wildfire" class="center" />
 

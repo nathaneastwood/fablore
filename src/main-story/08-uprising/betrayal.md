@@ -6,11 +6,11 @@ Dromai sits in the Oasis, her feet dangling in the cave's simmering lake. She wa
 
 The water comes from [Misteria](../../world-of-rathe/misteria/misteria.md). The lava comes from Mount Volcor. Here water and lava meet, a union of opposing forces, just like her.
 
-She delivered General Riku to Ashvahan. The Royal Court gave her the mantle of Dracai in return. For a time there, she even allowed herself to celebrate, to luxuriate in the trappings of palace life.
+She delivered General Riku to [Ashvahan](~Ashvahan). The Royal Court gave her the mantle of [Dracai](~Dracai) in return. For a time there, she even allowed herself to celebrate, to luxuriate in the trappings of palace life.
 
 Then came the messenger in the night, from Xathari. "I have found Eun. Time is of the essence." In fact, time was their enemy.
 
-Eagerness for the future, that is what drove them into Fai's trap. Shame at the past, that is what unleashed her fury. Dromai spent years convincing herself of Min's guilt. Against her fond memories. Against her better instincts. She recited her foster mother's crime each and every night. Yet when blame was recast in truth, reforged in the blood and fire of the battlefield, she needed no persuasion. Only execution.
+Eagerness for the future, that is what drove them into Fai's trap. Shame at the past, that is what unleashed her fury. Dromai spent years convincing herself of [Min](~Min)'s guilt. Against her fond memories. Against her better instincts. She recited her foster mother's crime each and every night. Yet when blame was recast in truth, reforged in the blood and fire of the battlefield, she needed no persuasion. Only execution.
 
 Dromai has sought solace in the Oasis before. The ways are hidden, but she is more perceptive than most. She found her way through the mist and winding tunnels. It is a place of refuge. A place of clarity, where she can see through life as easily as she can see through the pristine waters.
 
@@ -34,7 +34,7 @@ All lies.
 
 Part of her wants to hate herself for being so naive, so stupid. But there is no shame in being deceived. Min told her that. The shame lies with the deceiver.
 
-Another part of her wants to find Fai, to aid him in his grand cause. But then she would be deceiving herself. She has no desire to be ruled by the people. The Volcai are not a power she respects.
+Another part of her wants to find Fai, to aid him in his grand cause. But then she would be deceiving herself. She has no desire to be ruled by the people. The [Volcai](~Volcai) are not a power she respects.
 
 Like lava transformed to stone by cooling waters, Dromai feels her pain turn to resolve.
 

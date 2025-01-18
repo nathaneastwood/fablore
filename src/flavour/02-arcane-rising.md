@@ -1,7 +1,7 @@
 ## Arcane Rising
 
 #### Absorb in Aether - (ARC123)
-The power of the [Dracai](../world-of-rathe/volcor/welcome-to-volcor.md) burn in their veins, as they call upon the raging flames to guard their liege.
+The power of the [Dracai](~Dracai) burn in their veins, as they call upon the raging flames to guard their liege.
 
 #### Amplify the Arknight - (ARC094)
 As he is forced to rise once again and defend his long-forsaken tomb, he longs for the sweet release of death's embrace.

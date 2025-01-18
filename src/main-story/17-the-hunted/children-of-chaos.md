@@ -1,6 +1,6 @@
 # Children of Chaos
 
-Lord Wizard Chiyo's citadel towered above [Cindra](../../heroes-of-rathe/cindra-about.md) and [Fang](../../heroes-of-rathe/fang-about.md), the fortress marred by obscenely twisted spires that punctured its once elegant architecture. Built high atop a cliff, it overlooked the southern sea, waves crashing against the cliffs below, the repetitive susurrus filling Fang's mind like a voice spilling spine-chilling whispers.
+[Lord Wizard Chiyo](~Chiyo)'s citadel towered above [Cindra](../../heroes-of-rathe/cindra-about.md) and [Fang](../../heroes-of-rathe/fang-about.md), the fortress marred by obscenely twisted spires that punctured its once elegant architecture. Built high atop a cliff, it overlooked the southern sea, waves crashing against the cliffs below, the repetitive susurrus filling Fang's mind like a voice spilling spine-chilling whispers.
 
 "We go in, now," Cindra said. Her eyes were hollowed with exhaustion, but she remained tall, two of her daggers circling in defensive formation.
 
@@ -158,11 +158,11 @@ They emerged from the rafters, the alcoves, from the draperies hung around the e
 
 Some retained their human-like qualities - the white-haired female Fang had barely escaped in Deshvahan, and another with long steel talons on each of her fingers. Others defied logic - one was a mass of limbs and steel, each of its many hands clasping a deadly sword. Another scuttled on insectile legs, hunched beneath a huge red parasol hanging with blades. The ground trembled as another stepped forward, arms encased in huge steel forelegs. They drew closer, Yamada's killer the boldest, ducking beneath one of Chiyo's broad wings to stand before them, parasol swaying, blades chiming a demented melody.
 
-Realization dawned on them both. Kayat, the razing of Deshvahan, Lord Wizard Chiyo. This entire investigation had been designed to lure them to this place.
+Realization dawned on them both. [Kayat](~Kayat), the razing of Deshvahan, Lord Wizard Chiyo. This entire investigation had been designed to lure them to this place.
 
 A place beyond retribution, beyond even the Spider's sticky web.
 
-They heard an explosion that sent a shockwave up to greet them. Chiyo's audience chamber looked down over the entire citadel. They looked down through its imposing windows to see a huge firestorm engulfing the gates. An army gathered outside, led by mounted wizards resplendent in courtly robes. Word had reached the southern [Dracai](../../world-of-rathe/volcor/welcome-to-volcor.md) and roused them to honor their blood with fealty and fire.
+They heard an explosion that sent a shockwave up to greet them. Chiyo's audience chamber looked down over the entire citadel. They looked down through its imposing windows to see a huge firestorm engulfing the gates. An army gathered outside, led by mounted wizards resplendent in courtly robes. Word had reached the southern [Dracai](~Dracai) and roused them to honor their blood with fealty and fire.
 
 "We both walk out of here, Fang," Cindra said. "The dynasty demands it." Her daggers burned and hovered before her, primed to attack. "Kindle your fires."
 

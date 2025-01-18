@@ -1,10 +1,10 @@
 # Calm Before the Storm
 
-With the stranger's mask in place, I am but one of thousands in the sweltering city of Ashvahan.
+With the stranger's mask in place, I am but one of thousands in the sweltering city of [Ashvahan](~Ashvahan).
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-11.webp" alt="iyslander-11" class="center">
 
-The Volcai that dwell here honor the rumbling heart of Mount Volcor. Their ritual offerings of rice, silks and ceramics line the waterways. Incense burns from bronze ashtrays. Prayers float skyward to the mountain's crater, all in the hopes of appeasing this turbulent deity and its callous Dracai. Their struggle is as palpable as the heat which assaults my body and my will.
+The [Volcai](~Volcai) that dwell here honor the rumbling heart of Mount Volcor. Their ritual offerings of rice, silks and ceramics line the waterways. Incense burns from bronze ashtrays. Prayers float skyward to the mountain's crater, all in the hopes of appeasing this turbulent deity and its callous [Dracai](~Dracai). Their struggle is as palpable as the heat which assaults my body and my will.
 
 And yet, I am comforted by their persistence, grateful for their presence. I have concealed myself in the crowd, though I fear it is only a matter of time before the Dracai unmask my deception. They have come close, too close. And without the full strength of my powers, I am vulnerable. For now, I keep to the waterways where no Dracai deigns to walk. I remain one with the Volcai, learning their stories as I hope to learn mine.
 
@@ -22,7 +22,7 @@ His name is Kova.
 
 ---
 
-I am among the chaos of wild children, smeared with ash and soot as we hook ryoki from a mountain lava stream.
+I am among the chaos of wild children, smeared with ash and soot as we hook [ryoki](~Ryoki) from a mountain lava stream.
 
 I am alone, singled out by a Dracai, a young wizard with sparks in his hands and flint in his eyes. My mother weeps my name, "Lyra", as I am bought and paid for with tokens of jade.
 

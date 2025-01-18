@@ -8,7 +8,7 @@ The Obsidian Coast beckoned and they continued on, covering ground faster on fre
 
 In the far distance, after hours on horseback, they noticed huge spikes jutting from the earth, their shadows scraping across the landscape. Cindra and Fang slowed their horses, Lieutenant Yamada at their back, motioning to the troops to match their pace.
 
-Native to Ashvahan, they scanned their surroundings for threats but missed the most glaring one: the spires that burst from the ground were of no natural formation. Sharp stone teeth bit at the sky, and twisted crystalline spears throbbed with a sickly purple light.
+Native to [Ashvahan](~Ashvahan), they scanned their surroundings for threats but missed the most glaring one: the spires that burst from the ground were of no natural formation. Sharp stone teeth bit at the sky, and twisted crystalline spears throbbed with a sickly purple light.
 
 "Why do we slow, Captain?" Yamada asked Fang.
 
@@ -40,9 +40,9 @@ Cindra shook her head. "Too risky. There is a village built up around the fort."
 
 Fang dipped his head. "Commander."
 
-Cindra walked to the end of the pasture, her body aching from hours in the saddle. She needed to walk, to stretch, to consider the meaning behind Lord Wizard Chiyo's betrayal.
+Cindra walked to the end of the pasture, her body aching from hours in the saddle. She needed to walk, to stretch, to consider the meaning behind [Lord Wizard Chiyo](~Chiyo)'s betrayal.
 
-She leaned against the ramshackle fence, her mind racing now that her body was still. If Chiyo was involved, then she was as corrupted as these lands. A traitor to the Alshoni, to all [Dracai](../../world-of-rathe/volcor/welcome-to-volcor.md). And she had hidden it, the consummate pretender, despite years of investigation. Cindra couldn't tell if it was animosity or admiration she felt for the treasonist.
+She leaned against the ramshackle fence, her mind racing now that her body was still. If Chiyo was involved, then she was as corrupted as these lands. A traitor to the [Alshoni](~Alshoni), to all [Dracai](~Dracai). And she had hidden it, the consummate pretender, despite years of investigation. Cindra couldn't tell if it was animosity or admiration she felt for the treasonist.
 
 She wiped the thought from her mind and replaced it with the rage that spiked her heart whenever she thought of the man that was taken from her, from all of them. To the rivers of blood that flowed through their Dracai veins, he was the source. The dragon made flesh.
 
@@ -54,7 +54,7 @@ A boy, maybe fifteen, darted between trees.
 
 Cindra hesitated for only a moment - word of their hunt could not reach Chiyo.
 
-She let the dagger go, watched it coil through the air and strike the youth down. She recalled the dagger and started back toward the farmhouse, pausing near the horse pen to wipe the weapon clean of blood before sheathing it. Black blood, same as Savai and his servants.
+She let the dagger go, watched it coil through the air and strike the youth down. She recalled the dagger and started back toward the farmhouse, pausing near the horse pen to wipe the weapon clean of blood before sheathing it. Black blood, same as [Savai](~Savai) and his servants.
 
 The horses spooked, one beside her rearing up, others running inside the fence line, rocking their heads. Beyond the horses, past the fence, Cindra saw another local, a woman with long matted hair, dragging her feet as she staggered through the forest away from the farm.
 

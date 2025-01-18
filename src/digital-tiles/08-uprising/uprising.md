@@ -24,7 +24,7 @@ Call forth the Dragons of Legend from the annals of history, and unleash their w
 
 ### Fai, Rising Rebellion
 
-The Volcai look to you in these darkest of days, as famine and unrest sweep across the land. With the heart of the phoenix, you must overcome adversity, and lead your people to rise up against this oppressive Dynasty. But heed thee, for the world out there is not as it seems. Treachery abound amongst both friends and foes, and many a sacrifice must be made on the path to victory.
+The [Volcai](~Volcai) look to you in these darkest of days, as famine and unrest sweep across the land. With the heart of the phoenix, you must overcome adversity, and lead your people to rise up against this oppressive Dynasty. But heed thee, for the world out there is not as it seems. Treachery abound amongst both friends and foes, and many a sacrifice must be made on the path to victory.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/fai.webp" alt="fai" class="center" />
 
@@ -42,7 +42,7 @@ A rising star within the Imperial Court, you have much to prove. Reclaim your bi
 
 ### Rise from the Ashes
 
-The hidden clans shall rise from amongst the ashes, and answer the phoenix's call. As the blood of the Dracai stain this battered land, the great cycle of the Dynasties will churn once more.
+The hidden clans shall rise from amongst the ashes, and answer the phoenix's call. As the blood of the [Dracai](~Dracai) stain this battered land, the great cycle of the Dynasties will churn once more.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/rise-from-the-ashes.webp" alt="rise-from-the-ashes" class="center" />
 

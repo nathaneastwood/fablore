@@ -6,7 +6,7 @@ I will gain my audience with the [Emperor](../../heroes-of-rathe/emperor-about.m
 
 A secret passageway leads from the Chamber of the Dragon into the bowels of Mount Volcor. Hidden in those molten depths is the emperor's private residence, a sanctum secure against the slights and schemes of his lessers.
 
-Assassination has become virulent among these Dracai, this arcane nobility. The ruling houses fight fire with fire as they struggle for dominance over this already fractured land. I had expected Volcor's politics to be heated. I did not expect to see a Dracai melted into a puddle of scorched fat in her own chambers.
+Assassination has become virulent among these [Dracai](~Dracai), this arcane nobility. The ruling houses fight fire with fire as they struggle for dominance over this already fractured land. I had expected Volcor's politics to be heated. I did not expect to see a Dracai melted into a puddle of scorched fat in her own chambers.
 
 They care for nothing but their arrogant ambitions. Yet without allies, the [Demonastery](../../world-of-rathe/demonastery/demonastery.md)'s hordes will consume our blessed [Solana](../../world-of-rathe/solana/solana.md), and Volcor will be next. The emperor must see that.
 

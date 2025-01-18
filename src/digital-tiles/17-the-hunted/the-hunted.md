@@ -24,18 +24,18 @@ This imposing helm, worn solely by the officers of the royal hosts, has been a s
 
 ### Oath of Loyalty
 
-The loyalist forces are aided by powerful wizards of the imperial court, these nobles paving the way with torrents of fire and infernal conjurations. Though the [Dracai](../../world-of-rathe/volcor/welcome-to-volcor.md) lords of [Volcor](../../world-of-rathe/volcor/volcor.md) are famously capricious, many swore fealty to the Emperor, considering him the mightiest mage of them all.
+The loyalist forces are aided by powerful wizards of the imperial court, these nobles paving the way with torrents of fire and infernal conjurations. Though the [Dracai](~Dracai) lords of [Volcor](../../world-of-rathe/volcor/volcor.md) are famously capricious, many swore fealty to the Emperor, considering him the mightiest mage of them all.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/oath-of-loyalty.webp" alt="oath-of-loyalty" class="center" />
 
 ### Under the Trap-Door
 
-Reality is not always as the Dracai presume. Aether contains a myriad of natures. Even in the heart of Ashvahan, in the most sacred and secure chamber in Volcor, stones and fire may be told to part ways, to welcome the touch of chaos.
+Reality is not always as the Dracai presume. Aether contains a myriad of natures. Even in the heart of [Ashvahan](~Ashvahan), in the most sacred and secure chamber in Volcor, stones and fire may be told to part ways, to welcome the touch of chaos.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/under-the-trap-door.webp" alt="under-the-trap-door" class="center" />
 
 ### Wrath of Retribution
 
-[Cindra](../../heroes-of-rathe/cindra-about.md) rose above the anarchy surrounding her and harnessed the power of the Sayashi. Out they flew. Eight kunai to carve a fiery path of retribution across the obsidian chamber. Eight daggers to blind the creatures of corruption. Eight lacerations to make them see.
+[Cindra](../../heroes-of-rathe/cindra-about.md) rose above the anarchy surrounding her and harnessed the power of the [Sayashi](~Sayashi). Out they flew. Eight kunai to carve a fiery path of retribution across the obsidian chamber. Eight daggers to blind the creatures of corruption. Eight lacerations to make them see.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/wrath-of-retribution.webp" alt="wrath-of-retribution" class="center" />

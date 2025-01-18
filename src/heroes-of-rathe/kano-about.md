@@ -6,7 +6,7 @@
 
 Descended from nobility, Kano was born with the power of the dragon's fire within his veins, able to shape the flames from the instant he drew his first breath. A cunning trickster yet undeniably gifted with a connection to aether, he is both admired and scorned by the other Lord Wizards of the Court.
 
-As a member of the royal court, Kano must inevitably take on his duty, and accept his place amongst the Dracai. But Kano, he'd rather focus on exploring age-old tomes in the deepest recess of the libraries, or hidden within ancient catacombs, for spells and tricks to control and amplify his flame.
+As a member of the royal court, Kano must inevitably take on his duty, and accept his place amongst the [Dracai](~Dracai). But Kano, he'd rather focus on exploring age-old tomes in the deepest recess of the libraries, or hidden within ancient catacombs, for spells and tricks to control and amplify his flame.
 
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/aether-to-arcane.webp" class="hero-icon" />

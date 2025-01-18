@@ -79,5 +79,5 @@ The Kaigomo deploy their vigilant ronin across Misteria, to ensure that peace pr
 "Whispers of tempest, Swift currents of boundless force, Unleashed upon the world." - Hirei
 
 #### Wounding Blow - (MST216)
-Farmhands, villagers, and slaves - the [Volcai](../world-of-rathe/volcor/welcome-to-volcor.md) have long suffered at the hand of their masters.
+Farmhands, villagers, and slaves - the [Volcai](~Volcai) have long suffered at the hand of their masters.
 
