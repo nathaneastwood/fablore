@@ -198,7 +198,7 @@ Here in the badlands, every encounter could be your last. There's no turning bac
 
 ### Revel in Runeblood
 
-It starts with a buzz, a hum deep in your mind that you can't control. An idea, like a seed, that begins to take root. A madness, pure madness that grows and grows. Then in an instant, a grand, euphoric release... Eureka! - Sutcliffe
+It starts with a buzz, a hum deep in your mind that you can't control. An idea, like a seed, that begins to take root. A madness, pure madness that grows and grows. Then in an instant, a grand, euphoric release... Eureka! - [Sutcliffe](~Sutcliffe)
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/revel-in-runeblood.webp" alt="revel-in-runeblood" class="center" />
 

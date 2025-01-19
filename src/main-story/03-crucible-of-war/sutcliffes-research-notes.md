@@ -1,4 +1,4 @@
-# Sutcliffe's Research Notes
+# [Sutcliffe](~Sutcliffe)'s Research Notes
 
 Aether is one of the quintessential building blocks of [Rathe](../../world-of-rathe/world-of-rathe.md). It is aether which fuels our world, giving life to all beings, giving power to all spellwork. Few truly understand the nature of this arcane force, and no one can yet explain its relationship to the physical world.
 

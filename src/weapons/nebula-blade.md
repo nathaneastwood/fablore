@@ -16,7 +16,7 @@ It is said that when Lady Vera finally passed away from this world, the Blade of
 
 ## Nebula Blade
 
-When [Lord Sutcliffe](../other-characters/lord-sutcliffe.md) left his family's estate for the [Demonastery](../world-of-rathe/demonastery/demonastery.md), he took few personal effects, save for a few research items, the Arknight shard, and a family heirloom. Once known as the Blade of Eridani, the sword was broken long ago, kept only as a decoration. While creating the Arknight, Lord Sutcliffe decided to give the sword a new life.
+When [Lord [Sutcliffe](~Sutcliffe)](../other-characters/lord-sutcliffe.md) left his family's estate for the [Demonastery](../world-of-rathe/demonastery/demonastery.md), he took few personal effects, save for a few research items, the Arknight shard, and a family heirloom. Once known as the Blade of Eridani, the sword was broken long ago, kept only as a decoration. While creating the Arknight, Lord Sutcliffe decided to give the sword a new life.
 
 Renamed the Nebula Blade, Lord Sutcliffe engraved the blade with conductive and focusing runes, which allow the Arknight to channel power through the shaft to form a blade of pure aether. The runes have corrupted the blade's original purpose, and as [Viserai](../heroes-of-rathe/viserai-about.md) learned to wield the Nebula Blade, the power of the Arknight shard seeped into the crystal embedded in the pommel, staining it a deep, dark purple.
 

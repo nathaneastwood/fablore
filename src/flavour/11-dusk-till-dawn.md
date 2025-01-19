@@ -76,5 +76,5 @@ And so they prevailed, Light and Hand, and slew the Shadow that lie in wait.
 "Fear not this carven flesh, for tonight we feast with Blasmophet." - [Lady Bartimont](../other-characters/lady-bartimont.md)
 
 #### Tear Through the Portal - (DTD190)
-"Obsessed, they call me. Rabid over-reacher. I merely grasp what begs to be possessed." - [Lord Sutcliffe](../other-characters/lord-sutcliffe.md)
+"Obsessed, they call me. Rabid over-reacher. I merely grasp what begs to be possessed." - [Lord [Sutcliffe](~Sutcliffe)](../other-characters/lord-sutcliffe.md)
 

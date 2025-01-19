@@ -3,6 +3,8 @@
 hint = "A faction founded by a particular branch of the Royal Bloodline, a clan brought together by blood ties, headed up by Lord Wizard Chiyo, cousin to the Emperor."
 [Ashvahan]
 hint = "The Capital of Volcor"
+[Cintari]
+hint = "A group of bloodthirsty brigands who seek the thrill of battle."
 [Chiyo]
 hint = "Lord Wizard, Head of the Alshoni faction and cousin to the Emperor"
 [Dracai]
@@ -11,6 +13,10 @@ hint = "The Dracai are bestowed names that are free of any restrictions, convent
 hint = "A faction headed up by Chancellor Yama"
 [fai-mother]
 hint = "Min of the Forest of Flames"
+[Ikaru]
+hint = "One of the prestigious houses of Misteria; the House of Blossoms"
+[Jing]
+hint = "Xilin and Ira's brother"
 [Kayat]
 hint = "An illusionist, boss of the Dust Runners"
 [Min]
@@ -23,7 +29,11 @@ hint = "These are small creatures, similar in appearance to fish, that inhabit t
 hint = "Lord Merchant of Deshvahan"
 [Sayashi]
 hint = "Special force of loyal ninjas dedicated to hunting those responsible for the Emperor's death."
+[Sutcliffe]
+hint = "Lord Sutcliffe, once a nobleman, abandoned his title to pursue arcane knowledge despite lacking natural aether affinity. His research led to the creation of the Arknight project, which sought to unlock magical abilities in those without aether affinity. However, his creation, Viserai, turned against him, leading to Sutcliffe's death and his consciousness being preserved in a skull. Now trapped and tormented by the Disciples of Pain, he endures a life of servitude and dreams of exacting revenge on Viserai for his betrayal."
 [Volcai]
 hint = "The Volcai are the more limited social class of Volcor; their names are homogeneous, ending in _ai_ as a mark of their Volcai origin status."
+[Xilin]
+hint = "Ira and Jing's brother"
 [Yama]
 hint = "Lord Chancellor and Head of the Ezu faction"

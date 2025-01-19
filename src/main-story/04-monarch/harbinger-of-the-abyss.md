@@ -214,7 +214,7 @@ He chuckled darkly, and for an instant, she glimpsed the presence which lingered
 
 He grinned, gesturing to the other residents who now milled behind him, watching their interaction with thinly veiled interest.
 
-"We seek to strike at [Solana](../../world-of-rathe/solana/solana.md)-the city would practically be a banquet for a power like yours. Even Sutcliffe desires to take a power like theirs." Chane gestured to the head at her hip, hands outstretched. "Join us, Levia, and devour the Light."
+"We seek to strike at [Solana](../../world-of-rathe/solana/solana.md)-the city would practically be a banquet for a power like yours. Even [Sutcliffe](~Sutcliffe) desires to take a power like theirs." Chane gestured to the head at her hip, hands outstretched. "Join us, Levia, and devour the Light."
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-16.webp" alt="levia-16" class="center">
 

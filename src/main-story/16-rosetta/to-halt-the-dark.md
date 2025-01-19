@@ -44,7 +44,7 @@ Ira bent down and picked up the skull, one finger through each of its eye socket
 
 ---
 
-Ira wiped a rag along Edge of Autumn's full length, cleaning dried gore from the blade. The sword had been in the [Ikaru](../../world-of-rathe/misteria/prestigious-households.md) for generations, brought with them from across the sea. Some said it was a sliver of devastation. That it splintered away from the cataclysm that took their homeland. The sacred okana, written upon her bandages by the [Blind Ferryman of Skylark Peak](../../world-of-rathe/misteria/the-grandmasters-guild.md#xi-the-blind-ferryman), acted as wards against the weapon's withering ways. Anyone touched by Autumn seldom saw another season.
+Ira wiped a rag along Edge of Autumn's full length, cleaning dried gore from the blade. The sword had been in the [Ikaru](~Ikaru) for generations, brought with them from across the sea. Some said it was a sliver of devastation. That it splintered away from the cataclysm that took their homeland. The sacred okana, written upon her bandages by the [Blind Ferryman of Skylark Peak](../../world-of-rathe/misteria/the-grandmasters-guild.md#xi-the-blind-ferryman), acted as wards against the weapon's withering ways. Anyone touched by Autumn seldom saw another season.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/to-halt-the-dark-2.webp" alt="to-halt-the-dark-2" class="center" />
 
@@ -68,7 +68,7 @@ Ira nodded. She sheathed her sword and rested it across her knees, running her f
 
 Ira glanced across the fire at him, his eyes heavy with concern and compassion. He was the oldest of the Crimson Haze, his face etched with fine wrinkles, but he was as capable as any in the group. He was also her second, the one she trusted most.
 
-"People are screaming all around me, fires burn across the village, and shapeless monsters stalk the shadows, killing everyone they catch. I'm there with Jing. I don't know where Xilin is. Perhaps he is already dead? Jing and I are adults in the dream, but nothing else is different. We're still overwhelmed, still powerless."
+"People are screaming all around me, fires burn across the village, and shapeless monsters stalk the shadows, killing everyone they catch. I'm there with [Jing](~Jing). I don't know where [Xilin](~Xilin) is. Perhaps he is already dead? Jing and I are adults in the dream, but nothing else is different. We're still overwhelmed, still powerless."
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/to-halt-the-dark-3.webp" alt="to-halt-the-dark-3" class="center" />
 

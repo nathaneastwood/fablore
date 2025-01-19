@@ -199,7 +199,7 @@ The Ollin once swore an unbreakable oath; they would plunge into the depths of t
 
 ### Sutcliffe's Research Notes
 
-"...it comes from beyond, a conduit for something far older. This is the price of true power - an equivalent exchange, and the cost not always known; not until it is far too late to change your fate. There must always be a source, whether from some order being, or from the artefacts that they left behind. The Arknight shard is, of course..." - excerpt from [Lord Sutcliffe](../../other-characters/lord-sutcliffe.md)'s personal research
+"...it comes from beyond, a conduit for something far older. This is the price of true power - an equivalent exchange, and the cost not always known; not until it is far too late to change your fate. There must always be a source, whether from some order being, or from the artefacts that they left behind. The Arknight shard is, of course..." - excerpt from [Lord [Sutcliffe](~Sutcliffe)](../../other-characters/lord-sutcliffe.md)'s personal research
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/sutcliffes-research-notes.webp" alt="sutcliffes-research-notes" class="center" />
 

@@ -10,7 +10,7 @@ The Apostate found refuge on a desolate island in the south seas of Rathe. There
 
 The Demonastery now floats in a liminal space between Rathe and íArathael, sustained and animated by its founder's unholy essence. In every brick and rune, corridor and cell, the Apostate waits with immortal patience for the coming of Dusk and Shadow's ultimate victory over the Light.
 
-Many centuries have passed. In that time, the Demonastery has continued to attract wild thinkers and rebellious heretics from all over Rathe. Some by choice, some by circumstance. [Viserai](../heroes-of-rathe/viserai-about.md), [enslaved and transformed](../main-story/02-arcane-rising/birth-of-the-arknight.md) by the mad fancies of [Lord Sutcliffe](../other-characters/lord-sutcliffe.md).
+Many centuries have passed. In that time, the Demonastery has continued to attract wild thinkers and rebellious heretics from all over Rathe. Some by choice, some by circumstance. [Viserai](../heroes-of-rathe/viserai-about.md), [enslaved and transformed](../main-story/02-arcane-rising/birth-of-the-arknight.md) by the mad fancies of [Lord [Sutcliffe](~Sutcliffe)](../other-characters/lord-sutcliffe.md).
 
 [Chane](../heroes-of-rathe/chane-about.md) and the Disciples of Pain, [hungry to harness the power of Ursur the Soul Reaper](../main-story/04-monarch/emissary-of-the-void.md).
 

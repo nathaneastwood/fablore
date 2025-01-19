@@ -36,7 +36,7 @@ Zen lowers his head, sweeps his open hand into his chest and concentrates all of
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/zen-story-2.webp" alt="zen-story-2" class="center">
 
-The sun transforms the mist into a glistening haze over the Ikaru gardens. Zen treks into the dell, bowing as he passes the statue of [Mistress Ikaru](../../world-of-rathe/misteria/the-legend-of-mistress-ikaru.md). He settles into a cross-legged position near a trickling spring where he hears the rustling of raciki scavenging for food.
+The sun transforms the mist into a glistening haze over the [Ikaru](~Ikaru) gardens. Zen treks into the dell, bowing as he passes the statue of [Mistress Ikaru](../../world-of-rathe/misteria/the-legend-of-mistress-ikaru.md). He settles into a cross-legged position near a trickling spring where he hears the rustling of raciki scavenging for food.
 
 He watches as one of the fluffy canines sidles up to the spring, eyeing rowbugs as they scuttle across the surface. It dives into the water with a muffled plunk, harnessing its chi upon instinct, its fur hardening into scales, its paws spreading into fins until the shapeshifting dog has become a hunting carp.
 
