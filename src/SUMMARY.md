@@ -72,6 +72,7 @@
     - [Brevant](heroes-of-rathe/brevant-about.md)
     - [Briar](heroes-of-rathe/briar-about.md)
     - [Chane](heroes-of-rathe/chane-about.md)
+    - [Cindra](heroes-of-rathe/cindra-about.md)
     - [Dash](heroes-of-rathe/dash-about.md)
     - [Data Doll](heroes-of-rathe/data-doll-mkii-about.md)
     - [Dorinthea](heroes-of-rathe/dorinthea-about.md)
