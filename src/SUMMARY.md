@@ -80,6 +80,7 @@
     - [Emperor](heroes-of-rathe/emperor-about.md)
     - [Enigma](heroes-of-rathe/enigma-about.md)
     - [Fai](heroes-of-rathe/fai-about.md)
+    - [Fang](heroes-of-rathe/fang-about.md)
     - [Florian](heroes-of-rathe/florian-about.md)
     - [Genis](heroes-of-rathe/genis-about.md)
     - [Ira](heroes-of-rathe/ira-about.md)
