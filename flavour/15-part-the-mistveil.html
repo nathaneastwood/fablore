@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Part the Mistveil - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../hero.css">
+        <link rel="stylesheet" href="../image.css">
+        <link rel="stylesheet" href="../tab.css">
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <link rel="stylesheet" href="../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h4 id="attune-with-cosmic-vibrations---mst075"><a class="header" href="#attune-with-cosmic-vibrations---mst075">Attune with Cosmic Vibrations - (MST075)</a></h4>
+<p>"The essence of life resonates with cosmic vibrations, a universal chorus found within every soul." - <a href="../heroes-of-rathe/zen-about.html">Zen</a></p>
+<h4 id="big-blue-sky---mst086"><a class="header" href="#big-blue-sky---mst086">Big Blue Sky - (MST086)</a></h4>
+<p>"To traverse the bridge between the Ryōsōzan Peaks was a sacred rite, a pilgrimage seeking enlightenment." - Zen</p>
+<h4 id="deep-blue-sea---mst084"><a class="header" href="#deep-blue-sea---mst084">Deep Blue Sea - (MST084)</a></h4>
+<p>"As my memories start to fade, the moonlight carries me home.</p>
+<p>To a place where sky meets water, where the cycle begins anew." - <a href="../heroes-of-rathe/enigma-about.html">Enigma</a></p>
+<h4 id="emissary-of-moon---mst197"><a class="header" href="#emissary-of-moon---mst197">Emissary of Moon - (MST197)</a></h4>
+<p>"Our future extends beyond <a href="../world-of-rathe/misteria/misteria.html">Misteria</a>. The wisdom of the Moon should be shared with the world." - Ning, Kotori Moonseeker</p>
+<h4 id="emissary-of-tides---mst198"><a class="header" href="#emissary-of-tides---mst198">Emissary of Tides - (MST198)</a></h4>
+<p>"In the depths of the ocean, a world unseen awaits, where the songs of the tides reveal secrets of a forgotten age!" - Anhe, Kotori Wavebender</p>
+<h4 id="emissary-of-wind---mst199"><a class="header" href="#emissary-of-wind---mst199">Emissary of Wind - (MST199)</a></h4>
+<p>"I must confer with the guardians of these lands. The encroaching darkness is but a prelude; the wind dares not murmur of what follows." - Dan Lu, Kotori Galewarden</p>
+<h4 id="fang-strike---mst023"><a class="header" href="#fang-strike---mst023">Fang Strike - (MST023)</a></h4>
+<p>"The Art of the Viper is a lethal tradition that strikes when the prey is most vulnerable." - <a href="../heroes-of-rathe/nuu-about.html">Nuu</a></p>
+<h4 id="first-tenet-of-chi-moon---mst092"><a class="header" href="#first-tenet-of-chi-moon---mst092">First Tenet of Chi: Moon - (MST092)</a></h4>
+<p>"The moon unveils hidden truths within the darkness of night, illuminating the unseen mysteries of the world." - Kouki</p>
+<h4 id="first-tenet-of-chi-tide---mst093"><a class="header" href="#first-tenet-of-chi-tide---mst093">First Tenet of Chi: Tide - (MST093)</a></h4>
+<p>"Harmonize with the cosmic tide, channel its serene flow, and guide it to stillness within." - Shio</p>
+<h4 id="first-tenet-of-chi-wind---mst094"><a class="header" href="#first-tenet-of-chi-wind---mst094">First Tenet of Chi: Wind - (MST094)</a></h4>
+<p>"In the breath's gentle sway, find the harmony that unveils the essence of boundless freedom." - Sumire</p>
+<h4 id="hiss---mst016"><a class="header" href="#hiss---mst016">Hiss - (MST016)</a></h4>
+<p>The mistresses of Clan Nasu-ka weave pleasure with hand and limb, painting a vision of desire across their scarlet tapestries.</p>
+<h4 id="moon-chakra---mst034"><a class="header" href="#moon-chakra---mst034">Moon Chakra - (MST034)</a></h4>
+<p>"Moon's ancient whisper, Chakra aglow in night's dance, Awakens the mind's eye." - Soren</p>
+<h4 id="orihon-of-mystic-tenets---mst080"><a class="header" href="#orihon-of-mystic-tenets---mst080">Orihon of Mystic Tenets - (MST080)</a></h4>
+<p>"Each page, a life once lived, memories of a lesson well-learned." - Tohiro, Eternal Scribe</p>
+<h4 id="second-tenet-of-chi-moon---mst081"><a class="header" href="#second-tenet-of-chi-moon---mst081">Second Tenet of Chi: Moon - (MST081)</a></h4>
+<p>"Even without her light, we forge on through the darkness. The memories of her wisdom guide us in our unwavering pilgrimage." - Kouki</p>
+<h4 id="second-tenet-of-chi-tide---mst082"><a class="header" href="#second-tenet-of-chi-tide---mst082">Second Tenet of Chi: Tide - (MST082)</a></h4>
+<p>"Awaken the tempest within, let chaos reign, and ride the wild tide of your unleashed spirit." - Shio</p>
+<h4 id="second-tenet-of-chi-wind---mst083"><a class="header" href="#second-tenet-of-chi-wind---mst083">Second Tenet of Chi: Wind - (MST083)</a></h4>
+<p>"In the swirling tempest, seek the serene eye, where chaos and harmony intertwine in the dance of the winds." - Sumire</p>
+<h4 id="sirens-call---mst009"><a class="header" href="#sirens-call---mst009">Siren's Call - (MST009)</a></h4>
+<p>"Beyond their warm embraces and silvery laughter, there is a cunning in the eyes of the Vipressa that is easily missed." - Gudo, Mistward Pilgrim</p>
+<h4 id="slither---mst024"><a class="header" href="#slither---mst024">Slither - (MST024)</a></h4>
+<p>"With each velvet touch, and whispered smile, the tapestry of fate weaves an epic of woe and anguish." - Nuu, Alluring Desire</p>
+<h4 id="tide-chakra---mst011"><a class="header" href="#tide-chakra---mst011">Tide Chakra - (MST011)</a></h4>
+<p>"Finger's trace the tide's sway, My chi ignites with desire, Passion within." - Miku</p>
+<h4 id="unravel-aggression---mst078"><a class="header" href="#unravel-aggression---mst078">Unravel Aggression - (MST078)</a></h4>
+<p>"Wrapped in the mantle of my lineage, the echoes of my ancestors protect me from harm." - Reina, Spirit Caller</p>
+<h4 id="untamed---mst187"><a class="header" href="#untamed---mst187">Untamed - (MST187)</a></h4>
+<p>"Two paths beckon: one, disciplined under the seething sun; the other, unleashed fury, a beast unchained." - Zen</p>
+<h4 id="venomous-bite---mst020"><a class="header" href="#venomous-bite---mst020">Venomous Bite - (MST020)</a></h4>
+<p>To merely gaze upon the Vipressa invites peril - they are born of The Siren's song, their kiss a sweet poison that seduces the soul.</p>
+<h4 id="water-the-seeds---mst214"><a class="header" href="#water-the-seeds---mst214">Water the Seeds - (MST214)</a></h4>
+<p>"The roots are set with discipline, the branches grown with practice. Master these, and bear the fruits of your knowledge." - Master Morita</p>
+<h4 id="waxing-specter---mst043"><a class="header" href="#waxing-specter---mst043">Waxing Specter - (MST043)</a></h4>
+<p>The New Moon watches over the reverent pilgrims, oft sending Wakuro to grant them her celestial blessings.</p>
+<h4 id="wide-blue-yonder---mst085"><a class="header" href="#wide-blue-yonder---mst085">Wide Blue Yonder - (MST085)</a></h4>
+<p>The Kaigomo deploy their vigilant ronin across Misteria, to ensure that peace prevails amidst these hidden valleys.</p>
+<h4 id="wind-chakra---mst054"><a class="header" href="#wind-chakra---mst054">Wind Chakra - (MST054)</a></h4>
+<p>"Whispers of tempest, Swift currents of boundless force, Unleashed upon the world." - Hirei</p>
+<h4 id="wounding-blow---mst216"><a class="header" href="#wounding-blow---mst216">Wounding Blow - (MST216)</a></h4>
+<p>Farmhands, villagers, and slaves - the <span class="hint" hint="Volcai">Volcai</span> have long suffered at the hand of their masters.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../flavour/14-heavy-hitters.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../flavour/16-rosetta.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../flavour/14-heavy-hitters.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../flavour/16-rosetta.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../tab.js"></script>
+        <script src="../theme/pagetoc.js"></script>
+        <script src="../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Oddities and Failed Experiments - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <p># Oddities and Failed Experiments</p>
+<p>Over the centuries, the residents of the Demonastery have delved into many long-forgotten areas of study, most of which are forbidden in the outside world. Sometimes, experiments in these sciences can result in the foulest of abominations, created by toxic tinctures and the darkest types of biomancy. Other times, a creation is intentionally brought to life, summoned into existence by the spellcasters who inhabit the Demonastery's halls. Some of the entities which now exist within the mansion remain a mystery to even the oldest residents, their origins unknown to all but the very edifice itself.</p>
+<h4 id="apophos"><a class="header" href="#apophos">Apophos</a></h4>
+<p>A dark, nebulous mass, it keeps to the darkest corners of the mansion's halls, slinking silently through the inky blackness. If exposed to the light, it immediately begins to smoke, emitting a shrill screech which can easily shatter eardrums; the burning flesh emits an audible hissing sound, and should it not retreat quickly enough, the resultant wounds often leave permanent scars.</p>
+<h4 id="diaphenes"><a class="header" href="#diaphenes">Diaphenes</a></h4>
+<p>A creature coated in a thick, translucent layer of protective slime, it has beneath its body a great number of pale, wriggling larvae, biding their time until hatching. Its long, spindly limbs are capable of carrying this fell beast across the ground faster than any other creature known to man; it can even climb up solid walls and across ceilings, its countless limbs scuttling against the stonework.</p>
+<h4 id="endon"><a class="header" href="#endon">Endon</a></h4>
+<p>A small, dark creature, black as a moonless night and iridescent as an oil slick. The size of a man's hand, and half as long as his forearm, this hideous little beast preys upon the residents of the Demonastery. It slips into their mouths while they sleep, crawling down into their lungs, where it devours the person from the inside out.</p>
+<h4 id="erebos"><a class="header" href="#erebos">Erebos</a></h4>
+<p>The result of a botched experiment, wherein a researcher attempted to create artificial life, Erebos's body is stitched together from various materials, including hides, strips of leather, and human skin. Beneath his makeshift flesh lies a modified version of a human skeleton, incorporating both biomancy and alchemy. One of the older creatures to be found within the Demonastery, he can usually be found roaming the halls, seeking to take revenge on any researcher he comes across.</p>
+<h4 id="lysagenes"><a class="header" href="#lysagenes">Lysagenes</a></h4>
+<p>At first, Lysagenes almost appears to be human, but the longer you look at it, the more monstrous it becomes. Its skin is as smooth and malleable as taffy, white as milk, with glassy black eyes, limbs which are a touch too long for comfort, and a mouth which separates into two distinct mandibles. Few have seen this creature and escaped with their lives, and fewer still will acknowledge its existence.</p>
+<h4 id="mani"><a class="header" href="#mani">Mani</a></h4>
+<p>Occasionally, one of the resident researchers will catch a glimpse of the Demonastery's most elusive inhabitant. Those who have seen her describe a small, doll-like creature, with a crooked grin as unsightly as a gaping wound. With her large eyes, sharp teeth, and claw-like fingers, Mani is an eerie sight within the halls, and the being even appears to enjoy the effect she has on those who come across her. While she remains a mystery to most of the inhabitants, the scholars have come to understand that Mani's presence is always indicative of something larger happening within the Demonastery's halls, and her plots are always certain to have disastrous consequences for any who fall into her clutches.</p>
+<h4 id="mortis"><a class="header" href="#mortis">Mortis</a></h4>
+<p>A horrifying, disturbing creature with five heads, Mortis is all but immortal, a twisted nightmare which haunts the inhabitants of the Demonastery. It can appear anywhere, at any time, forming from the very shadows and seeping through cracks in the walls. Violent and completely unhinged, it is drawn to fear and dread, descending on its emotional victims and devouring them whole. All attempts to kill or destroy this monster have failed, for Mortis always manages to return, reforming from the trace remnants of its previous body.</p>
+<h4 id="ocutis"><a class="header" href="#ocutis">Ocutis</a></h4>
+<p>A great, amorphous shape, covered in half-formed faces, it has thousands of eyes and sharp teeth lining its 'body'. Despite seeming to have a lack of visible limbs, it has no problem moving around the corridors, almost silently scuttling across the marble floors as if by magic.</p>
+<h4 id="pallas"><a class="header" href="#pallas">Pallas</a></h4>
+<p>These foreboding birds are half the height of the average human, with wingspans three times that of their body length. Pure black in colour, pallasi have pale yellow eyes, and big, hooked, black beaks. Their large, oval faces are framed by a border of pale grey feathers, which extend out below their round eyes. As far as anyone can tell, these birds have been living on the island for as long as the Demonastery has existed. Some researchers have attempted to study these birds, but struggle to withstand the piercing weight of their cold, menacing stares, which appear to trigger some kind of instinctual flight or fight response in even the most unfeeling residents of the mansion.</p>
+<h4 id="scaphus"><a class="header" href="#scaphus">Scaphus</a></h4>
+<p>An amalgam of bone and steel, it is fuelled by a dark, arcane magic which should never have seen the light of day. A pair of hollows are situated where its eyes might have been, lit by a dull, eerie, pale-violet glow. Despite its immense size and the composition of its body, it moves almost silently, the only audible sound a low, vibrating hum, which originates from somewhere within its chest cavity.</p>
+<h4 id="scythia"><a class="header" href="#scythia">Scythia</a></h4>
+<p>The beast's torso is small, hidden behind dozens of long, spindly, razor-sharp limbs. There are no visible eyes on this creature; it appears instead to use three sets of long, spiked feelers on the top of its body to sense changes in its surrounding environment. A single, feather-light touch from one of its serrated limbs is capable of cutting through bone.</p>
+<h4 id="typhon"><a class="header" href="#typhon">Typhon</a></h4>
+<p>The result of a decade of research, focused on death and the creation of life, Typhon was created from an amalgam of flesh, discarded organs, magical elixirs, and pure alchemy. A massive, writhing mass, with a stained mask for a face, its body is covered in a thin, dark membrane, just barely translucent, revealing hints of the bone and muscle beneath. It possesses the ability to form a massive, gaping maw, lined with hundreds of rows of needle-like teeth.</p>
+<h4 id="vidus"><a class="header" href="#vidus">Vidus</a></h4>
+<p>These small, grotesque constructs can be spotted often, in many places around the Demonastery. They work quietly in the shadows to maintain the mansion and its many rooms, while avoiding contact with any of the residents and researchers. No resident of the manor has ever discovered what these creatures truly are, or how they originally came to exist.</p>
+<h4 id="whisper"><a class="header" href="#whisper">Whisper</a></h4>
+<p>For as long as anyone can remember, a stained-glass window has stood in the entrance hall of the Demonastery, depicting a wraith-like girl looking down on whoever came through the great doors. Residents occasionally have heard her whisperings, echoes of her sweet, lilting voice ringing through their mind, inaudible to anyone but the recipient of her call. These words of wisdom have been a double-edged sword, equally likely to lead someone to a breakthrough in their research as to their downfall. However, when the gateway to íArathael was opened, the stained-glass window serving as her home was shattered, and Whisper has not been seen nor heard from since.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../world-of-rathe/demonastery/patrons-of-the-forbidden.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../world-of-rathe/demonastery/the-gateway-to-iarathael.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../world-of-rathe/demonastery/patrons-of-the-forbidden.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../world-of-rathe/demonastery/the-gateway-to-iarathael.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Bestiary of Scarborough - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="bestiary-of-scarborough"><a class="header" href="#bestiary-of-scarborough">Bestiary Of Scarborough</a></h1>
+<p>Theodore Hamilton Scarborough was a Prominent researcher who spent his life studying the creatures of the Savage Lands. He was fascinated by the primal instincts of the beasts within the jungles and sought to understand what made these creatures so deadly.</p>
+<h2 id="journal-entry-no-6-day-9"><a class="header" href="#journal-entry-no-6-day-9">Journal Entry No. 6 Day 9</a></h2>
+<p>One of the men died this morning fighting off a rather large beast. It moved deathly quick, covered in some for of fur. It nearly decapitated one of the men with its claws. Whilst it did move quickly, I managed to catch a glimpse of its curved beak, and of its large, barbed tail, which appeared to have a sort of stinger at the end. Sadly, it seems to have disappeared further into the jungle...I do hope that we can manage to find another.</p>
+<h3 id="peluda"><a class="header" href="#peluda">Peluda</a></h3>
+<p>A large creature, the Peluda moves surprisingly quickly given its size, with a thick fur coat interspersed with sharp spikes. Its muscular legs are the source of its apparent speed.</p>
+<p>Its muscular tail is capable of sweeping any animal off of its feet, leaving it vulnerable to the peluda's deadly hooked claws. While the tail appears to have a stinger, further tests have shown that the barb does not contain any form of toxin.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/world-of-rathe/savage-lands/peluda.webp" alt="peluda" class="center">
+<h2 id="journal-entry-no-8-day-11"><a class="header" href="#journal-entry-no-8-day-11">Journal Entry No. 8 Day 11</a></h2>
+<p>We first spotted this massive creature battling with a much larger, furred beast. While we attempted to avoid catching its eye, it appeared to have followed us. Fire seemed to do the trick for warding it away, and all of the men survived. However, as the creature disappeared, I am left with questions, and no specimen.</p>
+<h3 id="rekvas"><a class="header" href="#rekvas">Rek'vas</a></h3>
+<p>A swift and deadly creature, the Rek'vas has brightly patterned scales that are highly toxic. Its massive head is framed by some form of hood, brightly coloured skin that flares from either side of its neck.</p>
+<p>Its large fangs and claws are retractable, used not only to attack prey, but to help it tear through the tougher skin of creatures such as the <a href="#brawnhide">brawnhide</a>. In addition to the toxic coating covering its scales, its teeth can inject a deadly posison into its prey.</p>
+<p>We retrieved this tooth from the remains of a rek'vas Unfortunately, we could not risk staying near the carcass long enough to retrieve any samples from the creature. It would seem that the toxin coating its scales also makes the flesh decay at a rapid pace, and the smell was attracting predators.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/world-of-rathe/savage-lands/rekvas.webp" alt="rek'vas" class="center">
+<h2 id="journal-entry-no-11-day-18"><a class="header" href="#journal-entry-no-11-day-18">Journal Entry No. 11 Day 18</a></h2>
+<p>Today, we encountered a small group of long-legged feathered creatures. Horrid little things. They didn't seem afraid of us, but did not attempt to attack either. They seemed to have recognised our swords as some form of talon. We weren't sure what they were doing, at first, but one of the men got close enough to see the corpse they were tearing apart with their beaks. I shall see if I can obtain one of these creatures at a later date for dissection.</p>
+<h3 id="strix"><a class="header" href="#strix">Strix</a></h3>
+<p>A relatively weak creature built for speed rather than strength. Strix travel in groups to ensure the safety of the herd. Their long legs allow them to reach incredibly high speeds, their primary form of defense against the jungle's many predators.</p>
+<p>Feathers cover the majority of a strix's body but their soft bellies are protected by a layer of tiny scales.</p>
+<p>The diet of a strix is primarily carnivorous, scavenging carcasses of prey left behind by the larger predators. Their sharp, hooked beaks allow the to tear even the smallest remnants of flesh and muscle away from carcasses. A highly acidic stomach allows them to digest small bone fragments swallowed whole.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/world-of-rathe/savage-lands/strix.webp" alt="strix" class="center">
+<h2 id="journal-entry-no-16-day-23"><a class="header" href="#journal-entry-no-16-day-23">Journal Entry No. 16 Day 23</a></h2>
+<p>Several men died before we had a chance to realise that the creature was upon us. Its hide was smooth and clear, almost appearing crystalline, with sharp teeth that appeared to be made of the same substance. It appeared to have no interest in us, instead directing its attention to the strixes I had been dissecting. Before the men had a chance to fight it off, it snatched one of the corpses in its mouth, climbed straight up the side of a cliff and disappeared.</p>
+<h3 id="ankis"><a class="header" href="#ankis">Ank'is</a></h3>
+<p>The crystalline creature does not bleed. It shatters. Its teeth are harder than stone, with serrated edges and a needle-like tip to tear through flesh.</p>
+<p>Its limbs are long and thin, with sharp points to allow it to grip onto most surfaces, and scale the difficult terrain of the Savage Lands.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/world-of-rathe/savage-lands/ankis.webp" alt="ank'is" class="center">
+<h2 id="journal-entry-no-19-day-28"><a class="header" href="#journal-entry-no-19-day-28">Journal Entry No. 19 Day 28</a></h2>
+<p>We almost walked straight into one of these. The beast was massive, the height of a man and half again. Its thick hide was covered in fur, two great canines protruding from its mouth, both thick as a man's arm. With great difficulty, we hid in the trees, waiting for hours until the beast finally left. Luckily, it appears to be rather short-sighted.</p>
+<h3 id="brawnhide"><a class="header" href="#brawnhide">Brawnhide</a></h3>
+<p>A giant, furred beast with long, thick canines, and small, dark eyes. Its long fur protects most of its body, dark grey in colour, fading to an off-white at the tips. It appears to make up for its poor sight through its incredibly powerful sense of small - I have witnessed it track prey through the jungle by scent alone.</p>
+<p>Their canines are almost impossible to break, both thick and incredibly strong.</p>
+<p>The brawnhide has a set of claws at the base of their feet, though their feet are far too large and their legs too short for the claws to be of any use.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/world-of-rathe/savage-lands/brawnhide.webp" alt="brawnhide" class="center">
+<h2 id="journal-entry-no-23-day-32"><a class="header" href="#journal-entry-no-23-day-32">Journal Entry No. 23 Day 32</a></h2>
+<p>Only a few of us remain after what happened this morning. Yet another beast attacked us, a ghastly amalgamation of fur and scales. Its four eyes were staring straight at me, blood dripping from its curved fangs, when Thomas had the idea to throw his torch at it. The fire caught immediately. The scent of its burning flesh was very distinctive - it must contain some kind of acidic compound. A toxin, most likely.</p>
+<h3 id="skera"><a class="header" href="#skera">Skera</a></h3>
+<p>One of the Savage Lands' most skilled predators, they are almost completely nocturnal, relying on the darkness to help mask their movements while stalking prey. Their four eyes are likely to help it see in the dark, in order to hunt its prey.</p>
+<p>Avoid their poisonous spikes at all costs.</p>
+<p>The barb at the end of its tail is also highly toxic.</p>
+<p>Large, muscular creatures with two pairs of eyes, and long, curved claws similar to talons. Skera are covered in a mixture of fur and spikes, patterned with dark, irregular spots. While the spikes do not appear to be poisonous, they do make it rather difficult to dissect.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/world-of-rathe/savage-lands/skera.webp" alt="skera" class="center">
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../world-of-rathe/savage-lands/legends-and-fools.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../world-of-rathe/savage-lands/botanical-compendium.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../world-of-rathe/savage-lands/legends-and-fools.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../world-of-rathe/savage-lands/botanical-compendium.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>
