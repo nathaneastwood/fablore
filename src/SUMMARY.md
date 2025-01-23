@@ -318,6 +318,7 @@
     - [Heavy Hitters](flavour/14-heavy-hitters.md)
     - [Part the Mistveil](flavour/15-part-the-mistveil.md)
     - [Rosetta](flavour/16-rosetta.md)
+    - [The Hunted](flavour/17-the-hunted.md)
     - [Non-Set Cards](flavour/00-non-set-cards.md)
 
 - [Spoilers](spoilers/README.md)
