@@ -26,6 +26,8 @@ My thanks go to [Mara Faris](https://bsky.app/profile/blackwingstudio.ascent-gam
 
 ## Freewheeling Renegades
 
+The sign in the foreground reads "Drugs".
+
 The sign on the right says "Orig-"  Presumably "Original"
 
 The ad on the left side behind "Drugs" says "Best street food in here, dude".
