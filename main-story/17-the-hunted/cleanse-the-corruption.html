@@ -1,0 +1,298 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Cleanse the Corruption - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="cleanse-the-corruption"><a class="header" href="#cleanse-the-corruption">Cleanse the Corruption</a></h1>
+<p><a href="../../heroes-of-rathe/cindra-about.html">Cindra</a> marched past the ranks of soldiers positioned beyond the reach of <span class="hint" hint="Savai">Savai</span>'s archers. Her army surrounded the high walls of the Lord Merchant's fortress home, awaiting the order to attack.</p>
+<p>She pointed at <span class="hint" hint="Kayat">Kayat</span>, his corpse lying in the back of a wagon, barely recognizable after Lord Tetzuo's interrogation. "String the traitor up. Let Savai see the fate that awaits all conspirators."</p>
+<p>Soldiers rushed to obey, hauling the body up high by rope and pulley to hang like a repulsive flag.</p>
+<p>Cindra and <a href="../../heroes-of-rathe/fang-about.html">Fang</a> had tracked him through Deshvahan, their senses honed in on the mark seared into the traitor's skin. They found him beating his fists against these very gates, panic etched into his sweat-soaked face.</p>
+<p>By fleeing to Savai's home, Kayat had marked it as the heart of treachery. Cindra was unsurprised. As Lord Merchant of an immense city, Savai had the resources required to stage a coup and the wiles to do so by cloak and dagger. The man ruled Deshvahan, but that had not been enough. Now, he ruled only a city of flame, fires raging across all districts, their orange glow bleeding into the night sky.</p>
+<p>Cindra ascended the steps of an obsidian tower, a lookout confiscated from a merchant and converted into a mobile headquarters. Here, her <span class="hint" hint="Sayashi">Sayashi</span> collated reports from across the city while General Yamatoka plotted the details of the impending battle.</p>
+<p>The general looked up at her from the map he'd spread across the former merchant's banquet table. "Where are the rest of my troops?" he demanded.</p>
+<p>"We have received reports of an entire battalion slaughtered," Cindra replied calmly. "Those that survived the poisoned rations were slain by gucai, like the one Captain Fang faced in the glassworks."</p>
+<p>Fang stood at attention nearby. He had been insistent despite the ludicrous nature of his claims. The Children of the Dragon had acted as quickly as they were able, but not quickly enough. Already the corruption he spoke of had spread. Formalities aside, Cindra trusted Fang. If he had evidence to suggest so, she would act.</p>
+<p>Her forces had emerged from their hold beneath the city primed to hunt. Anyone linked to Kayat and this supposed corruption was executed, swiftly and unceremoniously, even those with only tenuous links to the <a href="../../heroes-of-rathe/emperor-about.html">Emperor</a>'s death. Homes had been reduced to cinder, blood stained the streets, and billowing towers of smoke blotted out the stars. The razing of Deshvahan was the only way to protect the dynasty from further ruin. Such was Cindra's retribution.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/cleanse-the-corruption-1.webp" alt="cleanse-the-corruption-1" class="center" />
+<p>The general shot a piercing look at the captain, sizing him up. "Captain Fang?"</p>
+<p>Fang snapped even more sharply to attention, almost ringing like a sword drawn from a scabbard. "Yes, General!"</p>
+<p>"You will lead the assault on the fortress."</p>
+<p>Fang bowed deeply and briskly left to take up his command.</p>
+<p>"Lord <a href="../../heroes-of-rathe/other.html#taipanis-dracai-of-judgement">Taipanis</a>?"</p>
+<p>The lord wizard didn't deign to look away from his view of the burning city, and his imperious tone reminded all present that he was at no one's beck and call.</p>
+<p>"Yes, Yamatoka?"</p>
+<p>"If you would be so kind as to burn anyone that stands in our way."</p>
+<p>Taipanis gave the general the slightest nod of acknowledgement, then took his leave to prepare his fellow wizards.</p>
+<p>Cindra needed no orders. She bowed to Yamatoka, as precisely as protocol dictated and not a fraction more, then took one last look over the burning city, feeling the grim satisfaction of duty fulfilled. Never again would Deshvahan conspire against the throne.</p>
+<p>"To me!" she urged. Her Sayashi fell in behind her as she descended into the battlefield.</p>
+<p>At Fang's command, drums beat the rhythms of war and the Children of the Dragon advanced as one body, one mind. As they moved within range, arrows and bolts fell from the wall like monsoonal rain. Soldiers raised their shields in defense and hauled falcon carts to the walls, the long blades hooking to the parapets.</p>
+<p>Taipanis and his cadre of wizards raised their arms, golden aether flowing through bodies and into open palms. They unleashed balls of fire that tore through the smoke-blackened sky, engulfing the battlements. Savai's archers screamed as they burned. Others jumped, the conflagration burning brighter still so that Cindra couldn't look without squinting.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/cleanse-the-corruption-2.webp" alt="cleanse-the-corruption-2" class="center" />
+<p>Fang used the moment to raise his daggers high, a signal for the soldiers to pull on the ropes using the full force of their strength. As portions of the walls toppled under the dragging pressure, the soldiers regrouped behind the cloud ladders and pushed them forward. By the dozen, the devices unfolded. Fang was the first to climb one of the extended ladders, followed by hundreds of soldiers who clambered through the breaches to cut Savai's defenders down.</p>
+<p>For a long moment, the only sounds Cindra heard were of battle; of steel clashing with steel. Then a mighty explosion ruptured the gate from within. Through the smoke, Cindra could just make out Fang at the head of her troops clearing the gateway of defenders, flames reflected in their swords, war cries vicious on their tongues.</p>
+<p>Cindra charged through the razed remains of Savai's gates, the rest of her army pouring into the fortress behind her. Soon, they breached the mansion itself, spilling in through doorways delicately carved with swimming <span class="hint" hint="Ryoki">ryoki</span>.</p>
+<p>As they advanced through the smoke and screams of the dying, something whimpered beside her - one of Savai's servants, terribly burned. She flung a dagger, piercing the woman's heart. She was not without mercy. She recalled the blade, but instead of disappearing into the folds of her clothes, it circled her, its tip stained with blood gleaming black beneath the scant starlight, its red ribbon fluttering softly.</p>
+<p>Cindra brought the blade to a stop, letting it hover over her hand. It turned like the needle of a compass, pointing ahead. She followed its guidance into the mansion as her Sayashi flanked her, methodically slaying Savai's household staff. The dagger pointed to a simple room, bare but for a large prayer mat, and candles melted to the floor beside an altar.</p>
+<p>The dagger tilted downward and Cindra smirked. More smugglers tunnels.</p>
+<p>She lifted the mat to reveal a hidden hatch and climbed down the stairs into a gloom that filled her with inexplicable dread. She steeled herself and surveyed the space, taking in walls that undulated like breathing flesh, symbols so grotesque that her eyes felt smeared with their filth. The altar and candles mirrored the shrine above in placement, but not in nature. The altar was a ragged man on all fours, hands, feet and head gone. The twisted candles reeked of human tallow. She made her way across the sticky floor and inspected the frame of the room's only doorway. Bones and sinew wove together like ornate woodwork, threaded with veins through which blood still pulsed. She listened at the sweating door.</p>
+<p>Footsteps. Voices.</p>
+<p>She considered calling upon her Sayashi, then dismissed the notion. The quarry might escape if she delayed any further. Cindra suppressed a shudder and gave chase to the voices, her own steps silent. When she caught up to them, she was surprised to see not only Savai, but an older woman, escorted through the tunnel by a nest of <a href="../../world-of-rathe/pits/blackjacks-mercenary-group.html#the-spider">Spider assassins</a>.</p>
+<p>"Halt in the Emperor's name!"</p>
+<p>Savai twitched as he glanced back at Cindra, his body hunched, his face a distorted mockery of the one she had seen in her files. His elongated finger stabbed into the woman's shoulder. "This is where you earn your keep, Jemjang."</p>
+<p>"Whoever kills her gets a bonus," Jemjang shouted.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/cleanse-the-corruption-3.webp" alt="cleanse-the-corruption-3" class="center" />
+<p>The assassins were a motley bunch, dressed in the varied and garish fashions of the <a href="../../world-of-rathe/pits/pits.html">Pits</a>, each clutching a weapon: a stiletto, a hammer, an axe, and three varieties of sword. None would fight for the other, nor would they have trained for it. Cindra stood her ground, letting them come closer - closer than she needed. She hurled a dagger, striking Stiletto in the eye, dropping her immediately. Cindra spun to dodge a sword strike and slammed a dagger into the man's neck, then leaped high, stepping off the walls and over the remaining assassins, throwing two daggers before she touched the ground. Each found its target, straight to the heart.</p>
+<p>Cindra flung another dagger. It flew through Hammer's neck, the crimson ribbon emerging bloodier on the other side. She ducked easily beneath the final assassin's swing and his axe bit into the stone wall, the man vulnerable for a split-second as he struggled to pull it free. All the time she needed. The dagger sliced across his belly, his intestines spilling as he stared in horror.</p>
+<p>"Do not make me chase you!" Cindra warned as she turned, her voice echoing in the tunnel's tight confines.</p>
+<p>Jemjang stopped, but Savai ran. Cindra threw a dagger forward. It passed the merchant, then wrapped its long ribbon around his throat three times. She willed the dagger's return and Savai was jerked off his feet. The dagger dragged him back, the man kicking, screaming, and choking, falling silent only when he was laid at Cindra's feet.</p>
+<p>The two conspirators kneeled before Cindra inside the demolished gates of Savai's fallen fortress, hands tied behind their backs.</p>
+<p>"Let me boil their treasonist blood, Commander," Taipanis seethed. "The truth will bubble up soon enough."</p>
+<p>"Later," Cindra replied.</p>
+<p>Fang joined them, armor coated with blood, blades afire. "Savai's forces have been destroyed, Commander. Dead to the last."</p>
+<p>Cindra nodded her approval. "The fallen dragon commends you..."</p>
+<p>She turned to Savai and lifted his chin with one of her daggers so the merchant was forced to look her in the eye. "You. The fallen dragon condemns you. Reveal the names of your co-conspirators, or in his name, you will die."</p>
+<p>"Kill me and you will never get your answers," Savai warned.</p>
+<p>"You are quite the letter writer, Lord Merchant. Like a soot goose, you honk at nothing just to be heard. Here is your chance to tell us something useful."</p>
+<p>Savai turned his head away, Cindra's blade nicking his chin. "There are worse fates than death."</p>
+<p>Before Cindra could respond, Savai convulsed on the floor. He rolled onto his back, foam bubbling from his mouth, bloodshot eyes bulging out of his deformed face. His chest burst open with a sharp crack and a spray of viscera. Cindra spun away, narrowly avoiding the shower of corrupted blood. She watched, fascinated, as Savai's ribs unfurled like a flower in bloom, exposing a beating heart as black as obsidian.</p>
+<p>"Worse things," Savai hissed, heart thumping one final time before dissolving into an ooze of sable tar.</p>
+<p>Jemjang gagged as she shuffled away from the pooling remains of the former merchant. Cindra seized the moment, staring directly at Jemjang while addressing the wizard at her side.</p>
+<p>"Burn it, Taipanis. Before it spreads." The wizard bowed and with a flick of his wrist he scorched the traitor's remains away.</p>
+<p>Cindra knelt down as close to Jemjang as she could. The woman was dressed in fine but simple clothing, gray hair cropped short, a large spider tattooed on her neck. She seemed whole and healthy, unlike Savai.</p>
+<p>"I will tell you everything I know," Jemjang said.</p>
+<p>"The Spider is afraid of its own kind?" Cindra taunted.</p>
+<p>"I am but a visiting consultant, and after what I have seen here today, I expect my client's days are numbered."</p>
+<p>"Just a name. That is all I need."</p>
+<p>"<span class="hint" hint="Chiyo">Lord Wizard Chiyo</span>," she stated plainly. "I do not know if she is the head of this endeavor, but she is certainly closer to it. The Spider took her coin as readily as Savai's."</p>
+<p>"You give me the name of an <span class="hint" hint="Alshoni">Alshoni</span> loyalist and you expect me to believe it?"</p>
+<p>"My sense of self-preservation is too well-honed for pointless lies."</p>
+<p>"Very well, then. Taipanis, take her in for further questioning. She has been very forthcoming, so do not boil her blood just yet. And keep Lord Tetzuo away from her."</p>
+<p>"I appreciate your generosity, Commander," Jemjang offered with seeming sincerity as a soldier hauled her up from the ground and took her away.</p>
+<p>Cindra turned to Fang. "Gather our most loyal troops," she ordered. "And send word to General Riku. I think he would like to meet Lord Chiyo again."</p>
+<p>"Right away, Commander," Fang replied. "Ready the horses?"</p>
+<p>"Immediately. <span class="hint" hint="Volcai">Volcai</span> whispers echo a hundred miles. We must reach that traitor before the whispers do.​"</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/17-the-hunted/mark-of-a-traitor.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/17-the-hunted/hunter-and-hunted-both.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/17-the-hunted/mark-of-a-traitor.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/17-the-hunted/hunter-and-hunted-both.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

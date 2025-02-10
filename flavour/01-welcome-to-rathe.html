@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Welcome to Rathe - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../hero.css">
+        <link rel="stylesheet" href="../image.css">
+        <link rel="stylesheet" href="../tab.css">
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <link rel="stylesheet" href="../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h2 id="welcome-to-rathe"><a class="header" href="#welcome-to-rathe">Welcome to Rathe</a></h2>
+<h4 id="ancestral-empowerment---wtr082"><a class="header" href="#ancestral-empowerment---wtr082">Ancestral Empowerment - (WTR082)</a></h4>
+<p>They called to him from beyond the Mists. "It's time to come home."</p>
+<h4 id="blackout-kick---wtr089"><a class="header" href="#blackout-kick---wtr089">Blackout Kick - (WTR089)</a></h4>
+<p>"Just a little off the top."</p>
+<h4 id="bone-head-barrier---wtr010"><a class="header" href="#bone-head-barrier---wtr010">Bone Head Barrier - (WTR010)</a></h4>
+<p>"Sometimes you gotta roll with the punches."</p>
+<h4 id="cranial-crush---wtr045"><a class="header" href="#cranial-crush---wtr045">Cranial Crush - (WTR045)</a></h4>
+<p>"Leave now, or a hangover will be the least of your worries." - <a href="../heroes-of-rathe/valda-about.html">Valda Brightaxe</a></p>
+<h4 id="debilitate---wtr066"><a class="header" href="#debilitate---wtr066">Debilitate - (WTR066)</a></h4>
+<p>...and at that moment, Flannigan knew failure was close at hand.</p>
+<h4 id="driving-blade---wtr144"><a class="header" href="#driving-blade---wtr144">Driving Blade - (WTR144)</a></h4>
+<p>"Our arms protect the great city, and all who live within." - Lieutenant Timaeus</p>
+<h4 id="energy-potion---wtr170"><a class="header" href="#energy-potion---wtr170">Energy Potion - (WTR170)</a></h4>
+<p>Side effects may include agitation, confusion, aggression, tachycardia, fever and delirium.</p>
+<h4 id="flic-flak---wtr092"><a class="header" href="#flic-flak---wtr092">Flic Flak - (WTR092)</a></h4>
+<p>Silver flashes under the pale moonlight, blades slicing through air as <a href="../heroes-of-rathe/ira-about.html">Ira</a> twisted and turned, narrowly avoiding their ambush.</p>
+<h4 id="heart-of-fyendal---wtr000"><a class="header" href="#heart-of-fyendal---wtr000">Heart of Fyendal - (WTR000)</a></h4>
+<p>Deep within the wilderness, a tree falls, succumbing to the passage of time. As the wood rots, its essence flows into the earth, fuelling the new life which blossoms amongst the moss and stone. The ruler of the jungle deep, a predator without equal, is lost in slumber... yet its heart still beats, somewhere amongst the undergrowth, echoing the endless cycle of life and death.</p>
+<h4 id="ironsong-determination---wtr122"><a class="header" href="#ironsong-determination---wtr122">Ironsong Determination - (WTR122)</a></h4>
+<p>"The <a href="../world-of-rathe/solana/the-order-of-the-light.html">light of Sol</a> will dispel the darkness, and guide us unto the path of righteousness."</p>
+<h4 id="ironsong-response---wtr132"><a class="header" href="#ironsong-response---wtr132">Ironsong Response - (WTR132)</a></h4>
+<p>The song of a smith rings true, heard with every strike of steel on steel.</p>
+<h4 id="last-ditch-effort---wtr161"><a class="header" href="#last-ditch-effort---wtr161">Last Ditch Effort - (WTR161)</a></h4>
+<p>For creatures that feed on fear, the moment of death is a veritable feast.</p>
+<h4 id="pack-hunt---wtr023"><a class="header" href="#pack-hunt---wtr023">Pack Hunt - (WTR023)</a></h4>
+<p>Horrific beasts lurk within the shadows, their gaping maws dripping with blood.</p>
+<h4 id="potion-of-strength---wtr171"><a class="header" href="#potion-of-strength---wtr171">Potion of Strength - (WTR171)</a></h4>
+<p>"There's something odd about Mabon's drinking horn."</p>
+<h4 id="raging-onslaught---wtr188"><a class="header" href="#raging-onslaught---wtr188">Raging Onslaught - (WTR188)</a></h4>
+<p>Bartrand the Bloody hunted anything that crossed his path, slaying ruthless bandits and savage beasts. They say that his mighty greataxe was forged from the ashes of his enemies, and tempered with their blood.</p>
+<h4 id="rising-knee-thrust---wtr104"><a class="header" href="#rising-knee-thrust---wtr104">Rising Knee Thrust - (WTR104)</a></h4>
+<p>To master the <a href="../world-of-rathe/misteria/the-seven-arts.html#sparrow">Art of the Sparrow</a> is to master one's own body, and possess the agility of a bird in flight.</p>
+<h4 id="savage-swing---wtr020"><a class="header" href="#savage-swing---wtr020">Savage Swing - (WTR020)</a></h4>
+<p>"I should have listened – no amount of money is worth coming to this wretched place."</p>
+<h4 id="sink-below---wtr215"><a class="header" href="#sink-below---wtr215">Sink Below - (WTR215)</a></h4>
+<p>Those blessed with Aether have an incredible gift – the power to shape the fabric of reality.</p>
+<h4 id="smash-instinct---wtr026"><a class="header" href="#smash-instinct---wtr026">Smash Instinct - (WTR026)</a></h4>
+<p>Following one's instinct may be ill advised.</p>
+<h4 id="staunch-response---wtr051"><a class="header" href="#staunch-response---wtr051">Staunch Response - (WTR051)</a></h4>
+<p>"Whatever comes, we must not falter." - Ragnar Frosthelm</p>
+<h4 id="steelblade-shunt---wtr126"><a class="header" href="#steelblade-shunt---wtr126">Steelblade Shunt - (WTR126)</a></h4>
+<p>A warrior of the <a href="../world-of-rathe/solana/the-order-of-the-light.html">Hand of Sol</a> is trained to turn the enemies' advances to his advantage.</p>
+<h4 id="timesnap-potion---wtr172"><a class="header" href="#timesnap-potion---wtr172">Timesnap Potion - (WTR172)</a></h4>
+<p>"...and only a slight chance of temporal dissociation!" - Lena-Belle</p>
+<h4 id="tome-of-fyendal---wtr160"><a class="header" href="#tome-of-fyendal---wtr160">Tome of Fyendal - (WTR160)</a></h4>
+<p>Even the simplest recollection of the Old Ones holds immense power...</p>
+<h4 id="warriors-valor---wtr129"><a class="header" href="#warriors-valor---wtr129">Warrior's Valor - (WTR129)</a></h4>
+<p>The <a href="../world-of-rathe/solana/the-order-of-the-light.html#magisters">Magister</a>'s voice filled the departure halls, as the <a href="../world-of-rathe/solana/a-radiant-city.html#the-blessing-of-sol">blessing of Sol</a> washed over them.</p>
+<h4 id="wounded-bull---wtr200"><a class="header" href="#wounded-bull---wtr200">Wounded Bull - (WTR200)</a></h4>
+<p>In the <a href="../world-of-rathe/savage-lands/savage-lands.html">Savage Lands</a>, humans, like animals, are more dangerous when they bleed.</p>
+<h4 id="wounding-blow---wtr203"><a class="header" href="#wounding-blow---wtr203">Wounding Blow - (WTR203)</a></h4>
+<p>Farmhands, villagers, and slaves – easily replaceable wretches that must be taught the joys of obedience.</p>
+<h4 id="wrecker-romp---wtr029"><a class="header" href="#wrecker-romp---wtr029">Wrecker Romp - (WTR029)</a></h4>
+<p>The savage rule of the jungle; only the strong survive.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../flavour/intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../flavour/02-arcane-rising.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../flavour/intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../flavour/02-arcane-rising.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../tab.js"></script>
+        <script src="../theme/pagetoc.js"></script>
+        <script src="../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

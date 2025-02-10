@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>No Smoke without Fire - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="no-smoke-without-fire"><a class="header" href="#no-smoke-without-fire">No Smoke Without Fire</a></h1>
+<p>
+(<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)
+</p>
+<p>The blade whistled faintly as it soared past her cheekbone, her head ducked as she sidestepped the raiders attack. With a sharp exhale, she swept past his follow-up attack, sword glancing off her crossed blades with a loud clang. <a href="../../heroes-of-rathe/kassai-about.html">Kassai</a> scowled as she sprung backwards, narrowly avoiding a third slash. Out of the corner of her eye, she noted her fellow <span class="hint" hint="Cintari">Cintari</span>, scattered throughout the ruined village.</p>
+<p>Her feet dragged in the ashen sand, eight inches of fine powder clinging to her every move. With a flick of her wrist, Kassai deflected a second raider's attack, his dagger sailing as it flew into the remains of a nearby building. A split-second glance showed the dagger embedded in a half-collapsed wall, a fingers-breadth from the pale face of one terrified ex-villager. Clicking her tongue, Kassai swept one leg out from underneath her first opponent, pressing the advantage before he could regain his footing.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/03-crucible-of-war/no-smoke-1.webp" alt="no-smoke-1" class="center">
+<p>All around her, shouts and the clang of metal on metal filled the air, the unmistakable clamour of battle echoing through the ruined buildings. The villagers they'd accompanied cowered behind broken walls and torched furniture, watching with wide eyes as the Cintari got down to business. Looking around her for the raider's leader, she caught a glimpse of him amidst the chaos, a wide grin splitting his face from ear to ear as he cut down one of her men. With a hissed curse, she whistled sharply between her teeth, attempting to gather the group around her.</p>
+<p>Suddenly, a flash of lightning flared above them, lighting the entire southern sky a bright, brilliant shade of violet. It hung in the air for several seconds, illuminating a wall of dust flying toward them. The thunderclap hit them with the force of an earthquake, rumbling through the earth at their feet. Kassai felt her teeth chatter, all sound muting for a heartbeat until her ears released a loud pop.</p>
+<p>As the violet light faded from the skies above, an inky darkness crept across the icy blue, flowing directly in front of the sun. The shadow spread rapidly, blocking out the light and casting the world around them into crimson shade.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/03-crucible-of-war/no-smoke-2.webp" alt="no-smoke-2" class="center">
+<p>A sharp cry reached her ears as one of the villagers collapsed to his knees, pressing his forehead against the earth. He curled his hands in the air before him, stretched out toward the faint silhouette of Mt. Volcor.</p>
+<p>"The dragon! It awakens!" "Great dragon!" "The dragon has returned!"</p>
+<p>All at once, the villagers around her fell to the ground, trembling, wide eyes bright within their pale faces.</p>
+<p>"She has returned to us!" "The dragon!"</p>
+<p>The raiders froze, a darkness crossing their expressions as they glanced at one another uncertainly, hesitating for one long second. Darting forward, Kassai raised her twin swords above her head, slashing the man before her from shoulder to hip. With a wet gurgle, he collapsed, blood spilling onto the ashen sands.</p>
+<p>Blades flashed in the darkness as the Cintari leapt into action, striking down the raiders without hesitation. As his brothers-in-arms fell, one man attempted to make a run for it, throwing himself into the path of Kassai's blade. With a gesture, she summoned the man toward her, encircling the last few raiders.</p>
+<p>Once the last raider had dropped to the ground, Kassai marched over to the group's leader, immediately identifiable by his armour. Loosening the straps of his chestplate, she pried it free, turning it over in her hands. Despite his haphazard attempt at erasing the mark, the charred general's signet was still immediately recognisable. With a wide grin, Kassai removed her knife from its pouch, prying the signet free.</p>
+<p>"Oi." Taka stood on the edge of her peripheral vision, face impassive as he gazed down at her. "Find what you were looking for?"</p>
+<p>Rising to her feet, Kassai tucked the signet into one of her pouches, shaking the sand from her hair.</p>
+<p>"Yeah, we're good. You?"</p>
+<p>In answer, he raised a bulky sack of goods, nodding to the villagers behind him.</p>
+<p>"Don't even care, too busy staring at the sky to worry 'bout us."</p>
+<p>Kassai turned her face toward the sun's silhouette, drawing her hood up with one hand as she stared into the distance.</p>
+<hr />
+<p>The warm light of the morning sun cast the city streets in gold, illuminating the embroidered banners hanging above. A figure strolled down the ivory pavement, her hair a flaxen gold, silversteel armour gleaming, polished to a brilliant shine. The crimson cloak fluttered in the light breeze, the symbol of <a href="../../world-of-rathe/solana/solana.html">Solana</a> embossed onto her chestplate. Exchanging a bright smile with one of the merchants, the lieutenant bowed her head in greeting, gaze sweeping across the crowds.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/03-crucible-of-war/no-smoke-3.webp" alt="no-smoke-3" class="center">
+<p>As she passed beneath one of the stone archways of the plaza, <a href="../../heroes-of-rathe/dorinthea-about.html">Dorinthea</a> glanced at the crowd around her, listening to the hum of the nearby marketplace. Buildings lined the path ahead of her, the ivory spires of the <a href="../../world-of-rathe/solana/a-radiant-city.html#solarium">Solarium</a> stretching above the rooftops.</p>
+<p>Like a shadow passing in front of the sun, cold seeped down her spine, a sudden feeling of dread making her skin prickle with gooseflesh. Frozen, Thea wrapped her fingers around the hilt of her sword, standing perfectly still amongst the bustling crowds. From one second to the next, the city abruptly fell quiet, the day's vibrant buzz plunging into the dead silence of night.</p>
+<p>A blinding pain hit her with the force of a lighting bolt, driving her to her knees. Thea clutched her skull with both hands, grimacing, vision marred by black spots as she struggled against the pain reverberating inside her head. Distantly, she thought she heard a scream, echoing around her as if she were at the other end of a very long tunnel.</p>
+<p>After a seemingly endless stretch of time, the pain finally began to ease. Forcing her eyes open, Thea squinted, trying to take in the scene around her. The crowd had parted before her, allowing her to glimpse a scholar kneeling on the other side of the courtyard, his face white as sun-bleached bone. Exhaling sharply through gritted teeth, Thea turned her gaze to the ground between them, noting the dust trembling atop the paved stone.</p>
+<p>Abruptly, the unsettling quiet shattered, voices all around her crying out in alarm. Shade seeped across the courtyard, and when Thea looked up, she realised why. Above them, a darkness blotted out the sun, leaving the world around them blanketed in shadow. Dark stormclouds began to form in the sky, seemingly materialising from thin air.</p>
+<p>In the distance, the silhouette of Solana's southwest gate shuddered, and as everyone turned as one to look in its direction, it toppled with an audible groan. Even at a distance, Thea could feel the tremble in the ground as it collapsed inward, exposing shadowed figures standing just beyond the city walls.</p>
+<p>A deafening screech filled the courtyard as something streaked through the air, and a nearby building exploded in a cloud of dust, showering the crowds with chunks of rubble and ash. A massive, twisted creature clambered out of the ruins, releasing another hair-raising shriek as it staggered to its feet, turning dozens of dark, lightless eyes onto the people gathered in the city streets.</p>
+<p>The window of the tower above shattered, the glass bursting outward in a shower of broken glass. From the emptied frame, a creature slowly emerged into the dim light, its towering form eerily pale, translucent skin torn open by networks of ink-black veins. With an ear-splitting screech, it began to climb through, joining its brethren on the street below.</p>
+<p>The ice-cold sensation of dread gave way to a flood of panic, setting her veins alight. Her heart grew heavy within her chest, blood pounding in her ears as Thea drew her blade, forcing herself to her feet. She almost choked on the wave of nausea that swept over her, pausing for a split-second as she struggled to draw breath into her lungs. Looking up, she caught the scholar's eye, watching as he conjured a shimmering veil of light over the crowd.</p>
+<p>'Beloved people of Solana.' The voice echoed deep within her chest, a rumble of thunder on the horizon. It took Thea a long moment to recognise the voice for what it was, coming to an abrupt halt. All around her, people froze, awe dawning on their faces in spite of the chaos that surrounded them. 'Do not cower in fear. Look to the Light of Sol. Gather in the plazas, and listen to your chancellors. They shall guide you now, as always.'</p>
+<p>Dorinthea stood guard as the crowds began to move, following the decree of the Grand Magister. As if changing in volume, the voice dimmed, this time the quiet brush of a whisper.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/03-crucible-of-war/no-smoke-4.webp" alt="no-smoke-4" class="center">
+<p><em>'Come to the Solarium, noble knights, and ready your blades... the Shadow has emerged once more.'</em></p>
+<hr />
+<p><em>Source: <a href="https://fabtcg.com/articles/no-smoke-without-fire/">https://fabtcg.com/articles/no-smoke-without-fire/</a></em><br>
+<em>Illustrated by Nikolay Moskvin featuring art of Bramasta Aji.</em></p>
+<hr />
+<h3 id="narrated-video-by-peranine"><a class="header" href="#narrated-video-by-peranine">Narrated Video by <a href="https://www.youtube.com/@Peranine">Peranine</a></a></h3>
+<p>
+(<a href="#no-smoke-without-fire">Jump to the Top</a>)
+</p>
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/KIcOgSfh8kw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/03-crucible-of-war/sutcliffes-research-notes.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/04-monarch/destroy-and-consume.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/03-crucible-of-war/sutcliffes-research-notes.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/04-monarch/destroy-and-consume.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>
