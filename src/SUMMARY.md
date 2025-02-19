@@ -224,6 +224,7 @@
     - [March 2024 Armoury Kit](short-stories/14-heavy-hitters/march-armoury-kit.md)
     - [Rhinar](short-stories/14-heavy-hitters/rhinar.md)
     - [Victor Goldmane](short-stories/14-heavy-hitters/victor.md)
+    - [Kassai's Diary](short-stories/14-heavy-hitters/kassais-diary.md)
     - [Part the Mistveil: Set Announcement](short-stories/15-part-the-mistveil/set-announcement.md)
     - [Part the Mistveil: Set Spoilers](short-stories/15-part-the-mistveil/set-spoilers.md)
     - [Aurora](short-stories/16-rosetta/aurora-shooting-star.md)

@@ -14,7 +14,7 @@ The tournament was beneath her-a locus for violent degenerates, gamblers, and th
 
 The announcer's voice boomed across the arena: "Both warriors can bleed, but only one can win! Fighters, are you ready?"
 
-Kayo howled from within his cage and pointed at Kassai with both gore-coated prongs of his [mandible claw](../../weapons/mandible-claw.md). Kassai glanced to her right to where Sada stood on the other side of the forged iron entry gate leading from the Undercroft. The woman gave Kassai a single, solemn nod. They had talked tactics and contingency plans well into the night; there was nothing more to say.
+Kayo howled from within his cage and pointed at Kassai with both gore-coated prongs of his [mandible claw](../../weapons/mandible-claw.md). Kassai glanced to her right to where [Sada](~Sada) stood on the other side of the forged iron entry gate leading from the Undercroft. The woman gave Kassai a single, solemn nod. They had talked tactics and contingency plans well into the night; there was nothing more to say.
 
 Nothing more to do but win.
 

@@ -1,32 +1,44 @@
 # hints.toml
+[Alif]
+hint = "A member of the Cintari, Kassai's close friend."
 [Alshoni]
 hint = "A faction founded by a particular branch of the Royal Bloodline, a clan brought together by blood ties, headed up by Lord Wizard Chiyo, cousin to the Emperor."
 [Ashvahan]
-hint = "The Capital of Volcor"
+hint = "The Capital of Volcor."
+[Brawnhide]
+hint = "A giant, furred beast with long, thick canines, and small, dark eyes."
 [Cintari]
 hint = "A group of bloodthirsty brigands who seek the thrill of battle."
 [Chiyo]
-hint = "Lord Wizard, Head of the Alshoni faction and cousin to the Emperor"
+hint = "Lord Wizard, Head of the Alshoni faction and cousin to the Emperor."
+[Chul]
+hint = "General who betrayed Kassai's family."
+[Deshvahan]
+hint = "A city in Volcor."
 [Dracai]
 hint = "The Dracai are bestowed names that are free of any restrictions, conventions or stigma, granted positions in the Royal Court of Volcor by the Emperor."
 [Ezu]
-hint = "A faction headed up by Chancellor Yama"
+hint = "A faction headed up by Chancellor Yama."
 [fai-mother]
-hint = "Min of the Forest of Flames"
+hint = "Min of the Forest of Flames."
+[Fayyad]
+hint = "A member of the Cintari, Kassai's close friend."
 [Ikaru]
-hint = "One of the prestigious houses of Misteria; the House of Blossoms"
+hint = "One of the prestigious houses of Misteria; the House of Blossoms."
 [Jing]
-hint = "Xilin and Ira's brother"
+hint = "Xilin and Ira's brother."
 [Kayat]
-hint = "An illusionist, boss of the Dust Runners"
+hint = "An illusionist, boss of the Dust Runners."
 [Min]
-hint = "Fai's Mother"
+hint = "Fai's Mother."
+[Sada]
+hint = "Kassai's sorceress friend and member of the Cintari."
 [Redmoor]
 hint = "The Redmoors are Boltyn's cousins."
 [Ryoki]
 hint = "These are small creatures, similar in appearance to fish, that inhabit the lava streams and rivers of Volcor. Despite the immense heat, these creatures thrive in the extreme conditions, lurking beneath the glowing surface of the magma. While their scales are almost black, their 'fins' catch alight when they break the surface of the lava, leaping from stream to stream."
 [Savai]
-hint = "Lord Merchant of Deshvahan"
+hint = "Lord Merchant of Deshvahan."
 [Sayashi]
 hint = "Special force of loyal ninjas dedicated to hunting those responsible for the Emperor's death."
 [Sutcliffe]
@@ -34,6 +46,6 @@ hint = "Lord Sutcliffe pursued arcane knowledge despite lacking aether affinity,
 [Volcai]
 hint = "The Volcai are the more limited social class of Volcor; their names are homogeneous, ending in _ai_ as a mark of their Volcai origin status."
 [Xilin]
-hint = "Ira and Jing's brother"
+hint = "Ira and Jing's brother."
 [Yama]
-hint = "Lord Chancellor and Head of the Ezu faction"
+hint = "Lord Chancellor and Head of the Ezu faction."

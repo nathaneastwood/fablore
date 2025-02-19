@@ -1,0 +1,1 @@
+# Kassai's Diary

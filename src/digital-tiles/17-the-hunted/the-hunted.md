@@ -6,7 +6,7 @@ Some of the [Emperor](../../heroes-of-rathe/emperor-about.md)'s most trusted ser
 
 ### Fire and Brimstone
 
-"Deshavan, vile den of traitors and usurpers, I sentence you to the flames! Let those who plot against the dragon burn with you, and all who conspire against our dynasty perish in the fires! You shall burn to the ground, a meager pyre for our mighty Emperor!" - [Taipanis](../../heroes-of-rathe/other.md#taipanis-dracai-of-judgement)
+"Deshvahan, vile den of traitors and usurpers, I sentence you to the flames! Let those who plot against the dragon burn with you, and all who conspire against our dynasty perish in the fires! You shall burn to the ground, a meager pyre for our mighty Emperor!" - [Taipanis](../../heroes-of-rathe/other.md#taipanis-dracai-of-judgement)
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/fire-and-brimstone.webp" alt="fire-and-brimstone" class="center" />
 
