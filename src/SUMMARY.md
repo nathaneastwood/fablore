@@ -63,6 +63,7 @@
 
 - [Heroes of Rathe](heroes-of-rathe/professions-of-rathe.md)
     - [Arakni](heroes-of-rathe/arakni-about.md)
+    - [Arakni, Marionette](heroes-of-rathe/arakni-marionette.md)
     - [Aurora](heroes-of-rathe/aurora-about.md)
     - [Azaela](heroes-of-rathe/azalea-about.md)
     - [Benji](heroes-of-rathe/benji-about.md)
