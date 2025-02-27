@@ -1,0 +1,325 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Mark of a Traitor - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="mark-of-a-traitor"><a class="header" href="#mark-of-a-traitor">Mark of a Traitor</a></h1>
+<p><a href="../../heroes-of-rathe/fang-about.html">Fang</a> led his troops through the Sand Glass District toward the largest glassworks in all Deshvahan. They were fearsome in armor of burnished steel and brass, red sash tied at their waists to evoke the blood that bonds all <span class="hint" hint="Dracai">Dracai</span>, and another around the upper arm in remembrance of their fallen <a href="../../heroes-of-rathe/emperor-about.html">Emperor</a>.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/mark-of-a-traitor-1.webp" alt="mark-of-a-traitor-1" class="center" />
+<p>The chorus of footfalls echoed sharply through the backstreets, residents retreating to their homes, closing doors and shuttering windows as they passed. Everyone in Deshvahan knew that where the Children of the Dragon went, retribution followed.</p>
+<p>They rounded a corner, the massive glassworks before them lighting the street like a balefire in the night. But was it a beacon of betrayal? Fang would find out. He signaled for two soldiers to break ahead. They rushed toward the glassworks doors, ready to open them at the troops' approach.</p>
+<p>"Captain, there are no sentries," said Lieutenant Li, marching by Fang's side.</p>
+<p>Fang nodded. He had noticed. No sentries, no anything, the space silent but for their footsteps.</p>
+<p>"The coward wears a blindfold of secrecy."</p>
+<p>The glassworks was a front for the smuggling operations of the Dust Runners. Normally the group would be beneath notice, but in the years since the Emperor's assassination, his most loyal ninjas - a special force known as the Sayashi - had dedicated themselves to finding those responsible. Now, they had gathered enough evidence to confirm the Dust Runners' involvement. The order was given. The Children of the Dragon would deliver.</p>
+<p>They reached the glassworks entrance and Fang nodded to his soldiers, drawing his twin daggers. The men strained at the heavy wooden doors which creaked as they swung open. Fang entered first, flanked by Li. Except none awaited their arrival; all was still and silent. Materials lay scattered on workbenches as though abandoned. The air was thick with the scent of sulfur and other foul compounds.</p>
+<p>"Days in the planning and when we attack, they are gone?" Li huffed. "There is no spy in our ranks."</p>
+<p>Every soldier had been tested. Those that failed were killed. There was no place for weakness or doubt in those dedicated to the dynasty.</p>
+<p>"The clever fox has many dens," Fang replied. "But this is something else." He felt eyes watching, but the shadows emptied each time he turned his head.</p>
+<p>"They use the ash to deceive us?" Li asked.</p>
+<p>Their target, the Dust Runner boss Kayat, was a masterful illusionist. Such a man should be killed on sight, but their orders were to bring him in alive for interrogation. Every other soul in the place was forfeit, the building itself to be razed.</p>
+<p>"With only the traitor to maintain it? Foolish, but possible."</p>
+<p>He moved through a warren of workshops and stockrooms, boots crunching over fine granules of sand, his troops following close behind. They navigated a broad passage toward the fiery glow of the smelter, the way lined with shelves of lamps and glass ornaments. A large, red glass lamp twitched as Fang watched. He stepped closer. It swelled then contracted, beating like a heart. Beside it, a fine glass horse reared back on hind legs, sharp tendrils stabbing from its exposed belly. Fang grunted with disgust, put his shoulder to the heavy steel shelves, and pushed. The shelves toppled, glass curios tumbling to the floor where they shattered, joining the grit of sand underfoot.</p>
+<p>"Captain?" Li asked.</p>
+<p>Fang ignored her.</p>
+<p>He pointed to two soldiers. "Search the storehouse. The rest of you, with me."</p>
+<p>Fang's soldiers took formation. He stepped ahead and they matched his stride, moving as one, searching for threats - for traitors to extinguish.</p>
+<p>The smelter itself was a wide expanse, lit a warm orange by the kilns lining both sides. It was quiet but for the hiss and crackle of the fires within the kilns, still burning despite the absence of glass blowers. The heat drew sweat to Fang's skin. It beaded on his forehead and rolled into his eyes. He blinked, cursing under his breath, then peered ahead, vision blurred.</p>
+<p>Tall glass sculptures stood in the center of the space, blackened and twisted. He moved toward them, the kilns on either side flaring bright as dragon's breath. The closer he approached, the more Fang had to squint to make sense of what he was seeing. Behind him, a crescendo of gasps rang out from his soldiers as the objects before them came into stark reality.</p>
+<p>Not statues. People.</p>
+<p>The bodies were stretched and broken, their flesh and bones manipulated like molten glass. One headless, on all fours, broken bones jutting from its back like quills. Another had huge glass butterfly wings melted into its flesh, their face twisted in agony. Each body was marked with hideous insignia, drawn with molten glass since cooled, seared into the skin, glinting darkly. The smell of cooked flesh, blood, and soiled clothing was a thick and heady aroma.</p>
+<p>Behind Fang, one of his soldiers vomited.</p>
+<p>"Captain, this is the work of gucai," another said.</p>
+<p>"We should leave," Li urged. "Return with more soldiers."</p>
+<p>"Quiet!" Fang shouted.</p>
+<p>He had been born into nobility, his family killed in some pointless rebellion. After, it was the Emperor who ensured the upstart peasants saw justice. It was the Emperor who gave Fang a life - a chance to become one of the Royal Guard. He would not abandon his mission, not for this terror or any other.</p>
+<p>He pointed the jagged tip of his dagger at the nearest voice of dissent.</p>
+<p>"Do we run at the first sign of trouble?" Fang growled. "No. The dragon's blood purifies many little gucai. Any who flee will die a traitor to that blood."</p>
+<p>The soldier visibly swallowed, then dropped to one knee, head bowed deeply. "Forgive me, Captain!"</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/mark-of-a-traitor-2.webp" alt="mark-of-a-traitor-2" class="center" />
+<p>The others did the same.</p>
+<p>"Sacrifice for the Dragon," began Fang.</p>
+<p>"Service for the Dracai," finished his soldiers.</p>
+<p>"Good. Keep searching."</p>
+<p>They rose to their feet and continued along the main thoroughfare, wary but devoted. Fang lifted his eyes toward the rafters, the massive wooden beams glinting as though threaded with glass. They curved impossibly around each other, the roof an unimaginable distance beyond, dread eyes staring out.</p>
+<p>Screams brought his attention back to ground level. Two soldiers fought against an encroaching darkness, furiously batting the air with their swords as if menaced by a murder of crows. Before he could order them to fall back, their bodies were sundered, dismembered parts drifting through the air as though made of smoke. Wisps of them floated away, still connected by pulsing red tendrils to a pair of immaculate glass hearts.</p>
+<p>One soldier dropped his sword and ran.</p>
+<p>"Lieutenant!" Fang shouted.</p>
+<p>Li stepped into the soldier's path and drove the point of her sword through his throat. He collapsed to the floor, coughing as he drowned in his own blood. The soldiers were right to fear this unknown magic, but if it kept them focused, Fang would have them fear his wrath more.</p>
+<p>"Avoid this trap," he ordered, "and beware any others. Toss sand or glass ahead before you move."</p>
+<p>The troops sent to check the storehouse still hadn't returned. Fang decided it best to investigate and trailed their footprints to the storeroom. Piles of refined sand glinted under lamplight, watched over by the two soldiers. They hung from the rafters, their stripped torsos carved deep with strange symbols, their blood spun like silk into a crimson red spider's web.</p>
+<p>Fang turned, found Li looking up at the bodies, the color drained from her face. He pushed the lieutenant out of the storeroom and closed the door before the others could see the carnage.</p>
+<p>"What is that noise?" Li asked, struggling to keep her voice steady.</p>
+<p>Fang heard it too - a chorus of whispering voices - too soft for their words to be deciphered. Something skittered behind him and Fang turned. He saw nothing, but heard its unseen movement retreating into shadow.</p>
+<p>"We have to find the traitor," Fang said, Li and the five remaining soldiers gathered around him. "We must act without hesitation."</p>
+<p>They scoured the surrounding workshops, throwing sand and works of glass before them, marking traps that churned with floating sigils which sullied the mind to see.</p>
+<p>"Captain!"</p>
+<p>Li stood resting her hand against a kiln. It was cold. Fang rushed to the lieutenant's side and checked over the device. He worked the bellows connected at the side and heard a metallic thunk. He nodded to Li, who knelt and lifted the heavy shell of the kiln, revealing a hidden entrance. Stairs descended to a tunnel, lit softly with flame glass. At the end of the tunnel was a door. Fang signaled for his soldiers to make ready, then charged. He slammed into the door, breaking it off its hinges and knocking it to the ground.</p>
+<p>A room of Dust Runners looked up from their work, most shirtless and marked with bold black tattoos across shoulder and arm. They were in the middle of a rapid evacuation by the looks of it. Illicit goods half-packed. Coins gathered and cached in traveling chests.</p>
+<p>Kayat stood from his desk at the far end of the room, a portly man wearing fine clothing, his hair standing tall in the latest Deshvahan style.</p>
+<p>"Kill them!" he screeched.</p>
+<p>The smugglers took up their weapons and swarmed forward. Fang's soldiers needed no orders. They rushed ahead of him, meeting the Runners with a clash of steel. They were outnumbered almost five to one, but they had superior steel, rigorous training, and the blood of the dragon surging through their veins.</p>
+<p>Fang turned into the saber swing of an attacker, stopping it dead with his armor, then stabbed his obsidian dagger into the man's chest, impaling his heart. He pulled the dagger free and used the momentum to spin and slash his next assailant across the belly with his second blade. Fang didn't wait around for the resulting spill of blood and entrails. He was already on the move, carving up one enemy after another, fighting his way across the melee, cutting an inexorable course to Kayat until he faced the leader across his parchment-strewn desk. Fang noticed scrawling on those pages out of the corner of his eye, the ink still wet, the sordid impressions slithering away from any attempt to read them.</p>
+<p>He shut them out, focused on the more tangible traitor before him. He expected to see fear. At most, defiance. Instead Kayat grinned. His fingers began to twitch and out of the aether came an illusion. Bones, tendons, muscles, then skin stitched together from nothing. The creature took form - a six-legged hyena, its two heads howling, black ichor dripping from too many teeth. It leaped at Fang before he could raise his daggers, massive paws tipped with vicious claws. The beast knocked him to the ground, two legs pinning his shoulders, the middle two slashing at his belly, scratching deep grooves into his armor.</p>
+<p>Fang roared into the nightmare's malformed face, then twisted away as slavering jaws snapped at his head. He rolled to one side and ripped a dagger blade down the beast's flank. The thing didn't even flinch. Instead, it rounded on him to bite down on his steel-clad arm. It dragged Fang to his feet, its grip vice-like, even as the warrior used his free arm to stab at the creature's neck.</p>
+<p>Around him, his soldiers fought with feverish devotion, their fervor slicing through the desperation of their foes. Three succumbed to the many flashing blades of the smugglers. Three souls given in service. As the last Dust Runner fell, the rest of Fang's troop rushed to their captain's aid. Their swords hacked at the giant hyena, cutting away the fabric of its tenuous reality until its jaws went slack and it melted back into the aether.</p>
+<p>Fang ignored the throbbing pain in his bruised arm as rage propelled him toward Kayat. He grasped the man's throat and pinned him to the wall. The wrath of his blood flowed through his hand, branding Kayat's flesh with the Mark of the Dragon, the intricate design glowing bright, fading only with the man's screams.</p>
+<p>Then came the noises again, louder now. Sharp sound like steel scratching glass. Coming closer. So close it scraped at the inside of Fang's skull.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/mark-of-a-traitor-3.webp" alt="mark-of-a-traitor-3" class="center" />
+<p>A warped figure seeped from the shadows, long white hair spattered with blood, cunning eyes gleaming out from a monstrous mask, vicious teeth jutting from a leering mouth. Her blade cut the air between Fang and his quarry, forcing him back. He drew his second dagger just in time to block the next attack. A sequence of blows followed inhumanly fast. It took every ounce of Fang's fury and training to stop her.</p>
+<p>Kayat took the opportunity and ran, staggering toward a rear exit, hand clutching his marked throat. Fang's soldiers chose loyalty over duty, hurrying to aid their captain. Only Fang moved to intercept the traitor. He dodged left, away from the assassin, but she was too quick. The tainted steel of the assassin's blade pierced Fang's armor and flesh. He gritted his teeth against the stabbing agony and swung his daggers, slicing through air now suddenly empty.</p>
+<p>Li and his remaining soldiers moved to defend him. "Buy me some time!" he bellowed. He knew what he was asking, and to her credit, Li nodded without hesitation.</p>
+<p>"Soldiers. Lure the gucai!" Li barked.</p>
+<p>Fang didn't look back. The Sayashi must hear of this day. So he ran, along the corridor, back up to the glassworks. He slammed the kiln-opening closed and stomped on the lever hidden inside the bellows, jamming the mechanism. He staggered away, stripped off his armor, and let it drop to the floor with a clang. He lifted his shirt, the wound festering with black, bubbling pus. Without hesitation, he ignited his blade with dragon fire, the obsidian glowing red hot, and pressed it against the wound, growling through clenched teeth as the heat cauterized his flesh.</p>
+<p>Fang limped through the city streets. He followed the signs of the Sayashi: branded door frames, walls splashed with red paint, traitors hung at crossroads.</p>
+<p>He reached the steelworks, passage ignored by the night workers. The empire never slept and neither could its industry. The air was thick and hot, the facility fed by massive veins of molten lava used to smelt ore into steel.</p>
+<p>Fang entered the elevator at the back of the building and closed the ornately decorated door. He pressed his hand to the dragon-embossed panel beneath the lever and the elevator jerked to life, its mechanisms unheard beneath the heavy metal din.</p>
+<p>Fang stood tall to see if he could, hissing at the pain in his side.</p>
+<p>The elevator descended through the bowels of the steelworks and further still, past its foundations, coming to a stop deep underground.</p>
+<p>Fang stepped out. Ahead was a massive gate, like those that led into Deshvahan, intricately carved with an image of their fallen Emperor.</p>
+<p>"Captain Fang, reporting!" he shouted, his name repeated on the far side of the gate until finally it opened.</p>
+<p>Fang stepped through into a massive converted underground cavern. To one side, a legion of soldiers trained. On the other, the Sayashi pored over reports from across <a href="../../world-of-rathe/volcor/volcor.html">Volcor</a>. An imposing woman moved among the Sayashi, checking scrolls of intelligence here, whispering instructions there. He recognized her by reputation more than familiarity. <a href="../../heroes-of-rathe/cindra-about.html">Cindra</a>, the fearsome Dracai of Retribution.</p>
+<p>Ahead, captains of the Royal Guard kneeled before a row of seated generals, a grim assemblage that formed the military leadership of the Children of the Dragon. Each captain shared their report with the generals whose expressions grew less impressed with every utterance.</p>
+<p>"Silence!" barked General Yamatoka. Stout and grizzled, he sat like a weathered cornerstone in the center of the assembly. "You bring us nothing but disappointment. Must I remind you what is at stake here?"</p>
+<p>He looked over at Fang, pointed a knobbly finger at the blood stain on his shirt.</p>
+<p>"I hope you brought us more than a wound," growled Yamatoka. "Everyone else is dismissed."</p>
+<p>The captains stood and bowed deeply, uttering apologies and promises to do better.</p>
+<p>Out of the corner of his eye, Fang saw Cindra move to stand to one side of the generals, the honored position of a valued advisor. He kept his gaze fixed on Yamatoka, yet he could feel Cindra watching him closely.</p>
+<p>Fang approached the row. "Honorable General, do you mind if I stand while I give my report?"</p>
+<p>Yamatoka waved a hand in assent.</p>
+<p>Fang recounted the events of the evening, aware of how mad he must sound.</p>
+<p>"You let the traitor escape?" Cindra's quiet voice sliced through the surrounding clamor like a flying dagger. The generals remained silent, for this was a matter both subtle and troubling, and best handled by the Sayashi.</p>
+<p>He bit his tongue. There was no use arguing. "I marked him. He will not get far."</p>
+<p>A sharp smile flickered across Cindra's face as she turned to General Yamatoka. "With your permission, General, I will track the traitor down at first light."</p>
+<p>Yamatoka nodded his assent and Cindra turned her smoldering eyes upon Fang. "You, captain, will accompany me. If you are up to it?"</p>
+<p>Fang gritted his teeth and bowed as low as his wound would allow.</p>
+<p>Cindra stood and ribboned daggers rose about her in deadly anticipation.</p>
+<p>"Soldiers!"</p>
+<p>In their hundreds, the Children of the Dragon stopped their training and stood at attention, spears and swords drawn, chins up.</p>
+<p>"Sayashi!"</p>
+<p>Dozens of Cindra's best ninjas lined up in formation, pressing palm to fist as a sign of readiness.</p>
+<p>"Tomorrow, we hunt!"</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/16-rosetta/battle-of-isenloft.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/17-the-hunted/cleanse-the-corruption.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/16-rosetta/battle-of-isenloft.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/17-the-hunted/cleanse-the-corruption.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

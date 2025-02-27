@@ -1,0 +1,327 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Needle in a Haystack - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="needle-in-a-haystack"><a class="header" href="#needle-in-a-haystack">Needle in a Haystack</a></h1>
+<p>From her seat on the edge of the rooftop, Dash looked down upon the rooftops of Coppertown, through to the thick layer of smog that separated the Sprawl from the rest of Metrix. In the distance, the automatons of Zinnia Park moved and shifted on their pedestals, dancing against the faint light of the Gigadrill Elevator. Dash watched as a ball of molten plasma dropped from the top of the elevator, plummeting to the mining pits far below.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-5.webp" alt="dash-5" class="center">
+<p>"Oi. You listenin', or wot?" Ricky's eyebrows furrowed, nose wrinkling as Dash finally looked in his direction.</p>
+<p>"Uh. Kinda? Not really."</p>
+<p>"I'm tryin' to tell ya," he drawled, rolling his eyes, "we gotta good 'un. Pulled off a big heist a couple o' days ago, gonna keep us all in food f'r a week, easy."</p>
+<p>"Smug ol' trout din't een see us comin'!" One of the other boys passing by cut in with a laugh, tossing Ricky a bruised apple. Ricky caught it in one hand, ruffling the boy's bright ginger hair with the other.</p>
+<p>"I'm tellin' ya, you shoul' join us fer the next one. I got a tip-" Ricky stopped when Dash immediately groaned, shaking her head.</p>
+<p>"If I had a copper for every time you've said that-"</p>
+<p>"No, really, just hear me out. I got a tip," he continued, blatantly ignoring Dash pulling a face at him, "about the guards on this load from Cogwerx, righ'? Big load, big cash. Bunch'a tenatan stuff, just waitin' to go out to some privat' merc company. We don' even need to steal all o' it. We get a sack full o' the stuff and run, an' we'll be well minted."</p>
+<p>Dash blinked, raising an eyebrow.</p>
+<p>"Ricky, you know how many guards they put on anything made with tenatan ore. Everyone's trying to get their hands on it."</p>
+<p>"But I gotta tip- been a delay, not gonna be able to get them all o' it for another coupl'a weeks. We got a plan."</p>
+<p>"No way. Besides, what happens if you get caught? Your luck can't hold out forever."</p>
+<p>"Can' blame me for tryin', 'teks." Ricky shrugged. "'Sides, it's better 'an starvin'."</p>
+<p>"You always say that. You could make stuff, you know - you'd be good at it!" Dash tossed back her hair, grinning. "I made fifteen credits a couple days ago. Sold one of my gadgets in the Markets."</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-6.webp" alt="dash-6" class="center">
+<p>Ricky chuckled, shaking his head.</p>
+<p>"Sure, red, an' how much you spend makin' it?"</p>
+<p>"It was made out of scrap!"</p>
+<p>"Oh, so that's why your suit looks like that."</p>
+<p>"Like what?"</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-7.webp" alt="dash-7" class="center">
+<p>"Your suit looks like summat you found in a junkyard."</p>
+<p>"It's called the D.R.E.S.S.," Dash hissed, crossing her arms. "It's a state-of-the-art prototype."</p>
+<p>Grinning, Ricky pointed at a loose wire poking out of her chestplate.</p>
+<p>"I told you, it's a prototype!" She quickly tucked the wire back behind the metal, glaring at him. "I've still got more changes to implement."</p>
+<p>"Clearly." He dodged her swipe with a laugh, nudging her side. "'Lax, 'teks. Look, you stick to makin' ya gadgets, and I'll stick t' wot I do best."</p>
+<p>"Being a pain? Loitering? Throwing rocks at Zinnia automatons?"</p>
+<p>"Ha. Ha." Ricky patted his chest. "Being the Bandit King, 'course!" He shouted the last part, grinning when all the street kids on the rooftop leapt to their feet, whooping loudly. The oldest among them, a guy with a hooked nose and dark eyes, whistled sharply through his teeth.</p>
+<p>"Thanks, Beak." Ricky turned back to Dash with a wink, biting into the bruised apple with a sharp crunch.</p>
+<p>"You're gonna get caught sooner or later, you know."</p>
+<p>"Nah." Ricky spit out an apple seed, wiping his mouth with the back of his hand. "You know I always land on my feet." He startled when Dash suddenly shot up, jumping to her feet.</p>
+<p>"Land on your feet! You're a genius!" Leaping off the crates, she flew toward the edge of the roof, heading for the ladder. "Later, rat boy!"</p>
+<p>"See ya, 'teks," Ricky called after her, shaking his head.</p>
+<hr />
+<p>If there was one thing that Dash had inherited from her parents, it was their single-minded focus when inspired by a new idea. Where her parents were both scientists studying in the field of alchemy, spending weeks on the study of a new chemical compound or metal, Dash had found her passion in the area of mechanology. In the grip of invention, she quickly lost track of time, barely sleeping until she had finally given life to the latest prototype.</p>
+<p>Dash laced up the boots, attaching the metal components one by one and checking the fit. Once everything was inserted and calibrated, she stood, testing the weight.</p>
+<p>"Oh, oh yes." Putting her weight onto her toes, she felt the boots accommodate the shift in balance, quickly adjusting to stabilise her weight distribution. With a grin, Dash quickly put on the remaining components of the D.R.E.S.S., dashing outside the moment she had secured the last buckle.</p>
+<p>In record time, she'd made it to the Midtown Markets and clambered up onto the levels above, climbing the ladder to the street gang's hideout. Yet as she stepped onto the rooftop, she came to a halt, frowning. The kids seemed agitated, checking their surroundings, talking quietly amongst themselves. She looked around, expecting to see Ricky perched on the crates as per usual, but he was nowhere to be seen.</p>
+<p>"Dude, where the hell-" "Cleaners, man!" "-guys, guys."</p>
+<p>As she approached one of the groups, they quieted, turning towards her with matching frowns. Beak straightened, his expression dark as he met her eyes.</p>
+<p>"Hey, 'teks." Mite greeted her quietly, eyes a bright blue against his sooty cheeks."</p>
+<p>"Hi, Dash." "'lo 'teks." "Hey Dash."</p>
+<p>"Hey, guys. Any of you seen Ricky?" The boys looked at each other, hesitating. Finally, Beak spoke up.</p>
+<p>"'S not good, 'teks."</p>
+<p>"What do you mean?" Dash frowned.</p>
+<p>"Hasn't been 'ere in about a week."</p>
+<p>"And you have no idea where he might be?" When all of them immediately shook their heads, Dash groaned, running a hand through her hair. "The hell has he gotten himself into this time?"</p>
+<p>"Dunno. Tried lookin' in the usual spots, but he's gone."</p>
+<p>"Prob'ly dead."</p>
+<p>"Mite," one of them hissed, but a few others nodded along.</p>
+<p>"'S true! 'S been gone a week an' a 'alf!" "Ain't never been gone this long before." "Yeah, he's dead." "We gotta go, they're onto us-" "Yeah, cleaners 're probly on their way now!"</p>
+<p>"Guys," Dash cut in, shaking her head. "This is Ricky we're talking about. Remember that time he spent two days hiding under a Market stall because the enforcers were trying to find him? Or the time he stole a miner's hat and convinced the chargehand he was taking over for the night? Or when he snuck into Natalya's and stole a whole satchel of their prototypes?"</p>
+<p>While a couple of the kids nodded hesitantly, muttering to themselves, Beak just shook his head.</p>
+<p>"Y' don't geddit, 'teks. We been looking for 'im f'ra week, and he's just. Gone. Look, some of the boys already left, gone to lie low for a bit. We gotta keep movin', or it's us next." With a nod, he got up and walked over to one of the other groups, crouching to talk to a younger boy with ginger hair.</p>
+<p>"The hell have you gotten yourself into now, rat boy?"</p>
+<hr />
+<p>In the main reception of the Registry, Dash stood in line, waiting to reach the main desk. Next to her, a newcomer to the city sat on one of the benches, looking over some papers with a small frown. The couple ahead of her were in a quiet, heated discussion, while a man stood on her other side, reading a Voxx-issued newspaper.</p>
+<p>While Dash had been here only once, it was exactly where she remembered. Even the staff looked as if they hadn't changed, and Dash half-expected one of them to see her and run over, asking what she'd blown up this time. Thought to be fair, she hadn't known the scientist was running contagion tests on those rats.</p>
+<p>"Next." The couple moved along, revealing the receptionist sitting behind the desk. Her dark brown hair was tied into a neat bun, not a hair out of place; her mile revealing two rows of perfectly white teeth. "Hello, welcome to the Registry. How can I help you today?"</p>
+<p>"I need information on someone?"</p>
+<p>"Of course." The receptionist nodded, fingers poised over the keys of her typographer. "Your name, please."</p>
+<p>"Uh. Dash Teklo."</p>
+<p>The woman stilled, gaze flicking up to stare at Dash's face. Her expression cracked into a nervous smile, face several shades paler than it had been previously.</p>
+<p>"Miss Teklo! It's a pleasure to have you in the Registry. Please, if you wouldn't mind, I just need a name to begin my search. That is, if you have one?"</p>
+<p>"Ricky Royce."</p>
+<p>"Thank you, Miss Teklo." Her fingers flew across the keys, eyes tracking across whatever results came up on her screen. "Uh- I mean, I'm very sorry to say this, Miss Teklo - but there doesn't appear to be a Mister Royce at the Academy, and I'm afraid that I don't have the clearance to access Teklo Corporation records. Of course-"</p>
+<p>"No-! No, he's not. He isn't a member of the Academy, or Teklo. He's a street kid."</p>
+<p>"Oh, I... see. Allow me to check our records, Miss Teklo." A second later, she nodded. "My apologies, but there are no records of anyone with that name. Do you have an ID number for him, perhaps?"</p>
+<p>"Look, just-" Dash leant over the counter, eyebrows raised. "Let me have a look at the records, yeah? I've got this device in my bag that can charge your typographer," she began, ignoring the dawning look of sheer panic on the receptionist's face, "it'll make it easier to access your records. I know how slow those things, go, so just let me-"</p>
+<p>"Miss Teklo, my sincerest apologies, but you are not authorised to-!"</p>
+<p>"-it'll make searching all of your records so much faster, there's gotta be information on him somewhere-"</p>
+<p>"-I must insist that you refrain from tampering with Registry property-"</p>
+<p>"-couldn't possibly have searched your entire database-"</p>
+<p>"-please, Miss Teklo-!"</p>
+<p>"-just let me-" Dash leant over and tried to grab the technographer from the desk, a connection socket emerging from her gauntlet. A second later, a hand grabbed her by the collar, hauling her away from the device. "Let me go! I only need a second-!"</p>
+<p>In answer, the security guard carried her out the door, placing her firmly on her feet just outside. The receptionist came rushing out a moment later, grasping Dash's hand with a fixed smile.</p>
+<p>"Please, allow me to apologize on behalf of the Registry for this disturbance. We'd like to gift you these tokens for your next visit, and I do hope that you continue to use the Registry's services in the future."</p>
+<p>"But I only need to-!"</p>
+<p>"My sincerest apologies, Miss Teklo." The receptionist smiled wanly as she stepped backward, ducking behind the looming figure of the security guard. He glowered down at her, face set with determination.</p>
+<p>With a sigh, Dash stuffed the tokens into one of the pouches on her belt, watching the receptionist hurry back inside. The security guard stared her down as she turned away, stowing the connection port back inside her gauntlet.</p>
+<hr />
+<p>With the number of agencies, organisations, and private investigators available in Metrix, Dash had expected that at least one would be able to help her. But no matter where she went, the answer was always the same.</p>
+<p>From Beacon to Zesca's, the Teklo database to Voxx press, nobody seemed to have information on Ricky Royce, let alone any hint of a location. Still, Dash pressed on, determined to find something, anything.</p>
+<p>That night, over dinner, her parents argued about a Teklo scientist's investigation into the boundary layer effect, and their development of a bladeless turbine.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-8.webp" alt="dash-8" class="center">
+<p>"Everyone knows mechanical vapor recompression is much more efficient," Dash muttered, picking idly at her dinner with a frown. Finally, her parents turned to look at her, her father raising an eyebrow. Before they could launch into further discussion of the matter, she cleared her throat.</p>
+<p>"I, uh- I wanted to ask you about something." When she was sure she had at least part of their attention, she continued, telling them about her search for Ricky Royce, and how she'd failed to find any information on him - even when checking the Teklo database. (Neither were particularly surprised to hear that she'd snuck into the complex and accessed the database without permission.)</p>
+<p>"Well, no, there wouldn't be anything. In most cases, there would be little reason for the Teklo database to keep information on scuttlers. Statistically, it's likely that your friend is long gone by now." Taking a sip of her wine, her mother blinked. "Oh, yes, how has your testing been going? Any luck with the latest prototype?"</p>
+<p>Dash half-heartedly responded with something about last week's experiment, barely paying attention as she stared blankly at her dinner. As expected, her parents soon turned the conversation back to their own work, leaving her to stab her Centennial-produced cutlet in relative peace.</p>
+<p>"Knew it was a long-shot, but I had to try." Dash glared at the fake meat, poking it idly. "They're like ghosts. How am I supposed to find someone who barely even exists?" Pausing, she sat upright, gesturing with her fork. "Unless... I'm looking for the wrong thing. If I can't find the person, maybe I can track the thing, instead."</p>
+<p>"What was that, dear?" Dash looked up to see her parents staring at her, and grinned.</p>
+<p>"Hey, how can I get information on a Cogwerx shipment of devices made with tenatan ore?"</p>
+<hr />
+<p><em>Source: <a href="https://fabtcg.com/heroes/dash/needle-in-a-haystack/">https://fabtcg.com/heroes/dash/needle-in-a-haystack/</a></em><br>
+<em>Story by Nicola Price.</em><br>
+<em>Illustrated by Sam Yang</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/02-arcane-rising/stroke-of-genius.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/02-arcane-rising/full-steam-ahead.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/02-arcane-rising/stroke-of-genius.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/02-arcane-rising/full-steam-ahead.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

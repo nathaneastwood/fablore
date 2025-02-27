@@ -1,0 +1,292 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Stroke of Genius - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <p>A mechanologist from the city of <a href="../../world-of-rathe/metrix/metrix.html">Metrix</a>, <a href="../../heroes-of-rathe/dash-about.html">Dash</a> is a brilliant inventor with a creative mind and a spark of genius. Born into the city of tomorrow, she grew up surrounded by some of the greatest minds in Metrix, playing in the laboratories and workshops of Teklo Industries scientists. Brimming with enthusiasm, she learned to explore the world around her, wanting to experience everything that life has to offer.</p>
+<p>Dash is stubborn and rebellious. Her energetic nature often gets her into trouble, and once she gets an idea in her head, it's difficult to dissuade her. However, the Teklo family name has allowed her to follow her whims and crazy ideas, providing both funding and protection from the law. Dash despises the rigidity and dullness of Metrix's upper class, and will do anything to avoid becoming just like them.</p>
+<h1 id="stroke-of-genius"><a class="header" href="#stroke-of-genius">Stroke of Genius</a></h1>
+<p>Amidst the clamor of the marketplace, a woman pushed her way through the crowds, clutching a parcel to her chest. Her long brown hair was drawn back into a neat braid, several copper cogs flashing in the light as she ducked under a metalworker's load. In one hand, she held an instructional booklet, glancing down at it with a frown. Her expression seemed troubled as she stared down at one of the diagrams, turning the page with her thumb.</p>
+<p>"Devices! Trinkets! One'uva kind inventions! Get ya steamtech here!"</p>
+<p>As the flow of the crowd shoved her out to the sides of the thoroughfare, she stumbled into a merchant's stall, drawing his attention. He reached out with one plump, gloved hand to steady her.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-1.webp" alt="dash-1" class="center">
+<p>Behind a single table adorned with a crudely painted sign, the merchant peered out from beneath his bushy eyebrows, curled lips revealing a toothy grin. His entire head was covered by a mass of messy white hair and a giant hat, his figure obscured by layers upon layers of cloth, leather and fur.</p>
+<p>"Y' alright, lady? Look like yer having some trouble. Maybe one of these devices is just whatcha need..." The woman looked down at the array of devices scattered across the table, each one formed from mismatched metal, some with the remnants of labels or other logos still half-etched into the surface.</p>
+<p>"Oh, uh- I'm fine, thanks. I don't need anything."</p>
+<p>"Yer a research assistant, right?" He smiled, winking when the woman stared at him in surprise. "I know'un when I see one. What'cha got there?"</p>
+<p>"A focal plane, actually."</p>
+<p>"Oh? Fer a laser device?" When the woman nodded, he merely sighed in response, scratching at the thick edges of his long, shaggy beard. "They don't make those like they used to. I wish ye luck, lass. Sounds like you'll need it."</p>
+<p>"What?" She tilted her head, squinting. "What do you mean?"</p>
+<p>"Oh, the lasers these days aren't nearly as powerful as they used to be. Nobody makes 'em like that anymore. When I was a lad, you could carve furniture with a laser; now ye'd be lucky to cut a Centennial loaf. 'Course, there's always the induction chamber."</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-2.webp" alt="dash-2" class="center">
+<p>"What's an induction chamber?" The research assistant frowned, clutching the package tightly. "Why would that help?"</p>
+<p>"Well, you see, it can give any device an extra boost of steam energy. No matter how new or old your steam laser is, an induction chamber'll fix it right up. Have it runnin' like the Gigadrill Elevator at sunrise." He held up a large cylinder emphatically, clearing his throat.</p>
+<p>"It's simply the best investment for a discerning researcher such as yourself. I'll even lower the price! Just for you, this here device is a mere fifteen credits. It's handmade, one of a kind, invented by yours truly. You won't find a better deal at the markets than this!"</p>
+<p>"You made it?" She looked the merchant up and down, frowning.</p>
+<p>"Designed it from scratch and built it myself. There's nothing else like it! I'll even install it directly into the focal plane."</p>
+<p>The woman looked back and forth between the induction chamber and the focal plane, biting her lip.</p>
+<p>"Well, I only have six credits..."</p>
+<p>"Deal!" The merchant nodded, extending a hand across the table. When she placed the focal plane into his palm, he twirled it, raising it to the sky to peer through the lens. It spun back and forth between his hands as he produced a driver, seemingly out of nowhere, undoing the bolts and tossing them to one side.</p>
+<p>The woman watched him closely as he worked on the device, eyes darting from side to side as she struggled to keep up with his flashy motions. One second, the induction chamber was sitting on the corner of the table, and the next it was in his hand. She caught a flash of copper as it disappeared into the unit, somehow managing to fit despite the difference in size and shape. With a flourish, he reconnected all of the bolts, revealing the completed unit.</p>
+<p>"Here you are! Six credits." She peered down at the unit in his hands, eyebrows furrowed.</p>
+<p>"But it looks exactly the same."</p>
+<p>"Six credits."</p>
+<p>"How'd you even fit-"</p>
+<p>"Six credits."</p>
+<p>As the credits ticked over into his account, the woman looked up at him, eyes narrowed.</p>
+<p>"Hey, if this doesn't work, I will come back for my credits." The merchant shrugged, tucking the device into her arms.</p>
+<p>"Take care!" He watched quietly as she immediately turned and disappeared into the crowds, giving a little wave.</p>
+<hr />
+<p>In the light of midday, the plumes of white around the city were cast a pale gold, parted by the bright blue glow of the Gigadrill Elevator in the distance. As shadows crept across the concrete, the merchant remained at his stall, hands cupped around his mouth as he shouted his wares to passersby. Yet, as the afternoon dragged on, he slowly began to sag, shoulders hunched and back curved. Every would-be customer kept walking straight past the man, despite his best efforts to catch their attention.</p>
+<p>"Ugh. Okay, I'm out," the merchant groaned, reaching into one sleeve to retrieve a small key. "Time to check up on that researcher from earlier." He ducked behind his stall, unlocking a false panel in the back of the stand.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-3.webp" alt="dash-3" class="center">
+<p>Glancing from side to side, he pulled off his wig, revealing a head of bright copper hair. Removing several layers of clothing, the gleam of burnished metal flashed in the sun as the merchant stashed the disguise beneath the market stall. A petite, spry young girl stepped out of her platform shoes, a shower of freckles scattered across her face.</p>
+<p>"Now," Dash chirped, producing a tracking device with a grin, "let's see where you got to."</p>
+<p>Slipping out from behind her stall, Dash squeezed past a group of street kids attempting to avoid the attention of an enforcer. She began to make her way through the crowds, gaze flicking back to the display unit attached to her wrist. Leaving the commotion of the markets behind, she traipsed through the Midtown Markets toward the West Rise, travelling further and further into the maze of laboratories.</p>
+<p>"Not RND, then," she murmured as she passed beneath the shadow of Centennial Consumables' head office. "And you're too far from the center of the Rise to be at Cogwerx HQ. Weird."</p>
+<p>Dash stalked past the cluster of Cogwerx Conglomerate buildings as she continued onward, tapping intermittently at her tracker.</p>
+<p>"Ugh, come on." Slowly, a great ivory tower came into view, stretching toward the sky. The Teklo Industries center of operations gleamed in the light of day, a shining beacon amongst the sea of darkened copper.</p>
+<p>"The Needle?" After a moment, Dash groaned loudly, hissing through her teeth. "Shit, not again. I hope they haven't started already." She broke into a run, pushing her way past a group of couriers.</p>
+<p>Dash ran up to the entrance, banging on the door. Inside, the receptionist turned to glare at her, pausing when she saw her face. After a moment, she picked up the receiver of her teleunit, slamming her hand on a button and talking quickly to the person on the other hand.</p>
+<p>Grimacing, Dash held up her hands and backed away, quickly ducking around to head toward the east side of the building. Looking up at the ivory surface of the tower, she began latching her gear onto the sleek surface.</p>
+<p>"You'd think they'd have learned how to stop me by now, Dash muttered to herself as she slowly began to scale the side of the building. "'Specially after last time." She spared a glance at the tracking device. "I really hope that my calibrations were correct."</p>
+<p>As she drew closer to the 47th floor, she felt the metal begin to vibrate underneath her palms. Slowly, Dash peeked over the edge of the window frame, peering into the laboratory within. The walls were lined with shelves displaying different kinds of ore, metals and minerals, each carefully labelled, along with a collection of analytical tools and geological devices.</p>
+<p>A scientist rushed past her, heading in the direction of the elevator. As he passed, he revealed the massive laser standing in the center of the room, pointed directly at a large chunk of tenatan ore, its magnified beam growing stronger with each passing second.</p>
+<p>"Who was responsible for this?" The lead scientist roared, spittle flying from his lips as he whipped around to stare at the research assistant from the marketplace. Clad in his monogrammed Teklo coat, Wyverstone glared at her with steel-grey eyes, staring down the length of his hooked nose. "Clara!"</p>
+<p>"I didn't- I swear, this isn't-" Clara stuttered, raising her hands in front of her. Behind her, the chunk of tenatan ore seemed to almost shiver, shifting slightly on the metal surface.</p>
+<p>With a great, shuddering boom, the room exploded in a cloud of bright blue dust. A small tenatan fragment flew toward the window, bouncing off the glass with a sharp ping. Wyverstone stared blankly at his surroundings, face pale, one eye twitching. Every individual in the room looked down to find themselves coated in a layer of bright blue, almost completely concealing the clothing beneath.</p>
+<p>For a moment, all was silent.</p>
+<p>Then, a peal of laughter shattered the tentative quiet. As one, the group of scientists turned toward the window, greeted with the sight of the small mechanologist's face pressed up against the glass. Beneath the fine layer of bright blue, Wyverstone's face darkened, turning an unhealthy shade of purple.</p>
+<p>"You!" He withdrew a laser pistol from one of the drawers, raising it to fire at Dash. Throwing a hand over her mouth, she frantically shook her head.</p>
+<p>"Hang on a second! I swear, it wasn't intentional this time!"</p>
+<p>"Wasn't intentional," Wyverstone roared, firing in Dash's direction. "Someone bring me that brat right now! Somebody call Thiroux and tell her to control her daughter! No, call Teklo- Call the Iron Council! Bring me my phone this instant...!"</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-4.webp" alt="dash-4" class="center">
+<p>Dash grimaced as the man continued raving, waving her fingers sheepishly at the occupants of the room as she ducked out of view, beginning to descend down the face of the Needle. Her feet touched the ground just as the front doors burst open, revealing Wyverstone standing in the entranceway, several staff members standing just behind him. Turning on her heel, Dash made for the nearest aperture, ducking down into the city level below.</p>
+<hr />
+<p><em>Source: <a href="https://fabtcg.com/heroes/dash/stroke-of-genius/">https://fabtcg.com/heroes/dash/stroke-of-genius/</a></em><br>
+<em>Story by Nicola Price.</em><br>
+<em>Illustrated by Sam Yang</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/02-arcane-rising/a-bird-in-the-hand.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/02-arcane-rising/needle-in-a-haystack.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/02-arcane-rising/a-bird-in-the-hand.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/02-arcane-rising/needle-in-a-haystack.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>
