@@ -1,7 +1,6 @@
 [book]
 authors = ["nathaneastwood"]
 language = "en"
-multilingual = false
 src = "src"
 title = "Flesh and Blood Lore"
 
