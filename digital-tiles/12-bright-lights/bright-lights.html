@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Bright Lights - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h3 id="backup-protocol-red"><a class="header" href="#backup-protocol-red">Backup Protocol: RED</a></h3>
+<p>The future waits for no one, does it?</p>
+<p>The science is robust. Anomalies detected and resolved. Analysis filters are in place. KPIs attuned. Protocol 103 is on standby. All impossibility eliminated. Sixty seconds out and counting. Fifty-nine, fifty-eight, fifty-seven...</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/backup-protocol-red.webp" alt="backup-protocol-red" class="center" />
+<h3 id="cogwerx-base-head"><a class="header" href="#cogwerx-base-head">Cogwerx Base Head</a></h3>
+<p>We all have to start somewhere! Take your first step into the world of industry and wealth with raw materials from steam central. No need to save up. These enhancements come at rock-bottom prices. When it's time to stand and be counted, you can count on <a href="../../world-of-rathe/metrix/a-better-tomorrow.html#cogwerx-conglomerate">Cogwerx</a>!.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/cogwerx-base-head.webp" alt="cogwerx-base-head" class="center" />
+<h3 id="dash-io"><a class="header" href="#dash-io"><a href="../../heroes-of-rathe/dash-about.html">Dash I/O</a></a></h3>
+<p>You've got to stay curious. Ask questions. Push the envelope. Challenge your mind to think bigger, better. Brighter! I'm never who I was yesterday. I'm always two steps ahead of myself, thinking about tomorrow, inventing it as I go along!</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/dash-io.webp" alt="dash-io" class="center" />
+<h3 id="data-link"><a class="header" href="#data-link">Data Link</a></h3>
+<p>Reality getting you down? Worn down by grit and grime, the gall and the grind? Then Eidolon is the flight of fancy you've been waiting for. Take the holiday of a lifetime without ever leaving home. Go on. You've earned it!</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/data-link.webp" alt="data-link" class="center" />
+<h3 id="dive-through-data"><a class="header" href="#dive-through-data">Dive Through Data</a></h3>
+<p>Eidolon, the realm of data made manifest. Rumors whispered from the stacks. Gossip giggled through the graphs. Lurid! lies dangling from topical trees. It's all there, the story of an entire city, peeking through the ones and the zeros.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/dive-through-data.webp" alt="dive-through-data" class="center" />
+<h3 id="evo-command-center"><a class="header" href="#evo-command-center">Evo Command Center</a></h3>
+<p>When the going gets tough, the tough suit up! Battle-hardened, with a track record as old as <a href="../../world-of-rathe/metrix/metrix.html">Metrix</a>, this steam-powered - coverall will see you through the rough and tumble of any situation. You can count on Cogwerx!</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/evo-command-center-clean.webp" alt="evo-command-center" class="center" />
+<h3 id="evo-data-mine"><a class="header" href="#evo-data-mine">Evo Data Mine</a></h3>
+<p>Smarter, sharper, more perceptive. At ease. Sleeping well. That's how you weather the waves of variance. Kit yourself out like you're prepared for anything and you will be. Survey your surroundings with Data, by Teklo Industries.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/evo-data-mine.webp" alt="evo-data-mine" class="center" />
+<h3 id="fabricate"><a class="header" href="#fabricate">Fabricate</a></h3>
+<p>Node connects to node with circuits dynamic. Forming patterns. Forming pictures. Billions of ones and zeros, meeting and making in a mindscape of automation. A tallic for your thoughts, little one. - <a href="../../heroes-of-rathe/teklovossen-about.html">Jules Teklovossen</a></p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/fabricate.webp" alt="fabricate" class="center" />
+<h3 id="hyper-scrapper"><a class="header" href="#hyper-scrapper">Hyper Scrapper</a></h3>
+<p>Out with the old and in with the new. The skyline of Metrix isn't a static image. It's no painting to hang on the wall. It's a live show, a dynamic animation. Change is the only constant in the city of progress, wonder, and light.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/hyper-scrapper.webp" alt="hyper-scrapper" class="center" />
+<h3 id="meganetic-lockwave"><a class="header" href="#meganetic-lockwave">Meganetic Lockwave</a></h3>
+<p>In Metrix, an immaculate amalgam of minerals and metals forms the foundation for the technology you see. Gravity, electromagnetism, the dance of force and form. Energy, matter and mass-opposites meeting in beautiful collisions, driving the future forward.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/meganetic-lockwave.webp" alt="meganetic-lockwave" class="center" />
+<h3 id="moonshot"><a class="header" href="#moonshot">Moonshot</a></h3>
+<p>Forget a grand entrance. Go for the destructive departure. The explosive exit. See me blast outta eighth and past <a href="../../world-of-rathe/metrix/a-sprawling-metropolis.html#lowlake">Lowlake</a> with the nitro on full throttle. I may not know where I'm going, but you'll definitely know where I've been. Just look up! Watch for Powder Kegs in the moonlight.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/moonshot.webp" alt="moonshot" class="center" />
+<h3 id="steel-street-enforcement"><a class="header" href="#steel-street-enforcement">Steel Street Enforcement</a></h3>
+<p>Without law and order, there can be no peace, no prosperity. The <a href="../../world-of-rathe/metrix/a-better-tomorrow.html#iron-assembly">Iron Assembly</a> safeguards the wellbeing of every citizen in Metrix. Security ensures stability. Therefore, unstable elements must be realigned. Do we make
+ourselves clear? - Steelstreet Enforcers</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/steel-street-enforcement.webp" alt="steel-street-enforcement" class="center" />
+<h3 id="steel-street-hoons"><a class="header" href="#steel-street-hoons">Steel Street Hoons</a></h3>
+<p>Those who own the game make the rules. The Iron Assembly didn't ask our opinion They just told us to play. Well, we've got news for them. This is our city, our game. We'll write our own damned rules!</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/steel-street-hoons.webp" alt="steel-street-hoons" class="center" />
+<h3 id="system-failure"><a class="header" href="#system-failure">System Failure</a></h3>
+<p><em>Warning! System malfunctioning...</em><br></p>
+<p>Who could imagine,<br>
+A Metrix without mechanization.<br>
+A city without its technology?<br>
+No strobe in the night,<br>
+Or Pavloads to strike.<br>
+No Teklo Industries.<br>
+No Pulsewave or Jammer<br>
+Or Plating or Breaker.<br>
+Not even the Iron Assembly.<br>
+A future, shutdown<br>
+From overloaded systems<br></p>
+<p>No Data for minds to perceive. - ?!Q(&gt;!!</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/system-failure.webp" alt="system-failure" class="center" />
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../digital-tiles/08-uprising/uprising.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../digital-tiles/14-heavy-hitters/heavy-hitters.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../digital-tiles/08-uprising/uprising.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../digital-tiles/14-heavy-hitters/heavy-hitters.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

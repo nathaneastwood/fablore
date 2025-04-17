@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Maw - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="the-maw"><a class="header" href="#the-maw">The Maw</a></h1>
+<p>The main entrance to the Pits, the Maw is known to the people of Metrix as Pit 2. Once the site of a massive strip-mine operation, Pit 2 is now abandoned, its entrance shrouded beneath the district of Coppertown. The denizens of the Pits use the Maw as a gateway to the world above, using an old mine cage to travel between the underground and the city of Metrix.</p>
+<h2 id="skulduggery"><a class="header" href="#skulduggery">Skulduggery</a></h2>
+<p>In the Pits, there are no laws, no enforcers, and no protection from the criminal underworld. Despite being several steps removed from the city above, the dubious connection between the two regions ensures that '<span class="hint" hint="tallics">tallics</span> continue to be used as a form of currency - even in the Pits. While the Midtown Markets may provide all different kinds of wonders for sale, in the Pits, you can find anything for the right price.</p>
+<h3 id="smuggler"><a class="header" href="#smuggler">Smuggler</a></h3>
+<p>Metrix has banned a number of substances, devices and materials, too dangerous to be allowed free reign within the city. In the Pits, however, no such rules exist. Anyone who wishes to get their hands on the banned or taboo can go to the smugglers of the Pits, who can source anything from lethal poisons, to potent drugs, to human test subjects. The demand for volatile explosives, unstable reagents, and deadly gadgets ensure that the smugglers of the Pits are always in business.</p>
+<h3 id="mercenary"><a class="header" href="#mercenary">Mercenary</a></h3>
+<p>While most in the Pits are workers-for-hire, offering to complete any job for the right price, mercenaries are well-known for their power and brute force. The mercenaries of the Pits usually work within a company, operating as part of a larger team. They are versatile freelance fighters who can fulfill a variety of roles, from guards to contract killers, intimidation to extortion. The most famous of these companies is the Blackjack's Mercenary Corporation, which provides an intermediary between contractors and mercenaries.</p>
+<h3 id="assassin"><a class="header" href="#assassin">Assassin</a></h3>
+<p>While both assassins and mercenaries can be hired to kill, assassins are specialists, having honed their skills to a fine edge. They are quick, quiet and discreet, eliminating their target with deadly efficiency, often disguising the assassination to avoid rousing suspicion. Assassins are most often hired by citizens of Metrix, sent to dispatch an enemy or opponent without drawing the attention of the Iron Assembly.</p>
+<h3 id="information-trader"><a class="header" href="#information-trader">Information Trader</a></h3>
+<p>Similarly to the detectives of Metrix, information traders will seek out intel on behalf of their clients by any means necessary. While detectives have some semblance of a moral code, nothing will get in the way of an information trader gaining the intel they desire. Extortion, kidnapping, torture and murder are all perfectly reasonable ways of extracting information.</p>
+<p>Information traders are usually incredibly private and reclusive. Their line of work earns them plenty of enemies, some of whom number among the most powerful players in the Pits. As a result, many information traders border on paranoid, working through a proxy and refusing to reveal their face to clients.</p>
+<h3 id="apothecary"><a class="header" href="#apothecary">Apothecary</a></h3>
+<p>Apothecaries are individuals with some amount of training in alchemy and potion-making, selling their wares to the denizens of the Pits, which range from healing tonics and poultices to poisons and drugs. Ill from the mining fumes and lack of sunlight, weak to disease and infection, the denizens of the Pits have little choice but to rely on the work of apothecaries, however questionable their intentions might be.</p>
+<p>Apothecaries are, of course, not the only ones to be using the people of the Pits for their experiments. It is not uncommon for the scientists and doctors of Metrix to seek test subjects, and the Pits provides an endless supply, free of charge.</p>
+<h2 id="gangs"><a class="header" href="#gangs">Gangs</a></h2>
+<p>The gangs of the Pits dominate the underground, taking control of entire tunnel networks or, in some cases, areas of the Maw itself. To cross any one of the gangs is to sign your own death warrant, and many of those foolish enough to make this mistake are dead within the hour.</p>
+<h3 id="freakshow"><a class="header" href="#freakshow">Freakshow</a></h3>
+<p>Members of the Freakshow have an odd fixation with dregs, the mutated creatures of the Pits; even going so far as to mutilate themselves in an attempt to resemble them. Freakshow territory is found in a much deeper area of the Pits, comprising multiple abandoned mineshafts. They have been known to protect their territory with dregs kept on chains, unable to escape, but capable of attacking anyone who comes within range.</p>
+<h3 id="torched"><a class="header" href="#torched">Torched</a></h3>
+<p>A gang of pyromaniacs with a penchant for setting everything on fire, and a love for explosives. Its members have an extensive collection of burn scars, thanks to their complete disregard for fire safety. Their territory is marked with trigger-sensitive flamethrowers, fire traps, lava pits, and plenty of explosives. Any trespassers in Torched territory are quickly reduced to piles of ash and charred flesh.</p>
+<h3 id="numbskulls"><a class="header" href="#numbskulls">Numbskulls</a></h3>
+<p>Known for their unusual fixation with bones. Numbskulls can be easily identified by the skullcaps they wear, carved from the bones of their victims. Their armour usually combines metal and bone fragments. The cave network claimed by the Numbskulls closely resembles a catacomb; the walls are lined with bone, skull fragments littered across the floor, the stone streaked with a greasy coating of bone marrow and brain matter.</p>
+<h3 id="jawbreakers"><a class="header" href="#jawbreakers">Jawbreakers</a></h3>
+<p>Members of this gang tend to wield a number of explosive devices, though their name comes specifically from their habit of stuffing grenades into the open mouths of their enemies. Their favourite method of torture is using a crowbar to remove the bottom jaw, however much this might affect their ability to gather information. Jawbreakers are scattered throughout the Maw, with no official territory save a group of houses near the water.</p>
+<h3 id="blockheads"><a class="header" href="#blockheads">Blockheads</a></h3>
+<p>The Blockheads favour melee weapons, using clubs, bats and hammers to crush their opponents. They're obsessed with brute force, and all members of this gang are tall, broad-shouldered, and built like a tank. Almost ten years ago they took control of an entire sector of the Maw, eliminating a number of smaller gangs to claim their territory. They've controlled the sector with an iron fist ever since.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../world-of-rathe/pits/the-underworld.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../world-of-rathe/pits/blackjacks-mercenary-group.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../world-of-rathe/pits/the-underworld.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../world-of-rathe/pits/blackjacks-mercenary-group.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>War of the Monarch, Part 1 - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../hero.css">
+        <link rel="stylesheet" href="../image.css">
+        <link rel="stylesheet" href="../tab.css">
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <link rel="stylesheet" href="../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="war-of-the-monarch-part-1"><a class="header" href="#war-of-the-monarch-part-1">War of the Monarch, Part 1</a></h1>
+<p>War ravages the heart of Rathe as the forces of Light and Shadow battle for firmament and future. The seed of this lingering conflict began in a fracture between faith and freedom.</p>
+<p>Thousands of years ago, <a href="../world-of-rathe/solana/the-grand-council.html#first-grand-magister">The Devout, First Grand Magister</a> and architect of holy <a href="../world-of-rathe/solana/solana.html">Solana</a>, denounced Sol and humanity's growing subservience to the Aesir of Light. In this act of divine defiance, <a href="../world-of-rathe/solana/the-battle-against-the-shadow.html#the-battle-against-the-shadow">The Devout became the Apostate</a>.</p>
+<p>The <a href="../world-of-rathe/solana/the-order-of-the-light.html">Order of the Light</a> condemned the Apostate's heresy. They executed the architect's thirteen most devoted disciples and cast the former Grand Magister out of Solana.</p>
+<p>The Apostate found refuge on a desolate island in the south seas of Rathe. There the architect built another edifice, one to rival and surpass even the city of Solana, and named it the <a href="../world-of-rathe/demonastery/demonastery.html">Demonastery</a>. The Apostate studied and toiled, delving into the secrets of Rathe and its mirror world, <a href="../world-of-rathe/demonastery/the-gateway-to-iarathael.html">íArathael</a>. Over time, others found the Demonastery, heretics and iconoclasts, the brilliant and the obsessed. The Demonastery's inhabitants grew to such a number, their work of such power, that the Apostate once again incited the wrath of Solana. The <a href="../world-of-rathe/solana/the-order-of-the-light.html#the-hand-of-sol">Hand of Sol</a> laid siege to the sanctuary of blasphemy, forcing its architect into a desperate act. Relinquishing flesh and blood, the Apostate infused their life force into the masonry and mortar of their most beloved creation, and in doing so, ripped the island from the tethers of reality.</p>
+<p>The Demonastery now floats in a liminal space between Rathe and íArathael, sustained and animated by its founder's unholy essence. In every brick and rune, corridor and cell, the Apostate waits with immortal patience for the coming of Dusk and Shadow's ultimate victory over the Light.</p>
+<p>Many centuries have passed. In that time, the Demonastery has continued to attract wild thinkers and rebellious heretics from all over Rathe. Some by choice, some by circumstance. <a href="../heroes-of-rathe/viserai-about.html">Viserai</a>, <a href="../main-story/02-arcane-rising/birth-of-the-arknight.html">enslaved and transformed</a> by the mad fancies of <span class="hint" hint="Sutcliffe">Lord <a href="../other-characters/lord-sutcliffe.html">Sutcliffe</span></a>.</p>
+<p><a href="../heroes-of-rathe/chane-about.html">Chane</a> and the Disciples of Pain, <a href="../main-story/04-monarch/emissary-of-the-void.html">hungry to harness the power of Ursur the Soul Reaper</a>.</p>
+<p><a href="../heroes-of-rathe/levia-about.html">Levia</a>, driven by <a href="../other-characters/lady-bartimont.html">Lady Barthimont</a> into the <a href="../main-story/04-monarch/destroy-and-consume.html">ravening embrace of Blasmophet the Soul Harvester</a>.</p>
+<p>Vynnset, lured into the shadows by the longings of Nasreth the Soul Harrower. And so many more, led by visions and nightmares to the gates of The Demonastery and the beshadowed Embra domains of íArathael beyond.</p>
+<p>Seeing Sol as their opposition to true freedom in Rathe, the denizens of The Demonastery have <a href="../main-story/03-crucible-of-war/no-smoke-without-fire.html">launched previous attacks against Solana</a>. Divided in purpose and dogma, these attacks have all fallen short. Yet learning is prized above all else in The Demonastery, every failure studied and dissected. Building upon the sinister works of Lord Sutcliffe and Chane, this dark assembly has harnessed The Dimenxxional Gateway and unleashed a Shadow-born horde upon Solana's lands of Light.</p>
+<p>Against this ineluctable onslaught, Solana's Heroes have fought and suffered.</p>
+<p><a href="../heroes-of-rathe/prism-about.html">Prism</a> has exhausted every history, every tale in the <a href="../world-of-rathe/solana/a-radiant-city.html#the-library-of-illumination">Great Library</a>. <a href="../main-story/04-monarch/stories-of-illumination.html">She has consulted with the Magisters and communed with the Heralds</a>. She has prayed to Sol for enlightenment and received her answer; her calling. Guided by Suraya, Herald of Knowledge, she looks with yearning eyes beyond Solana's horizons for the dawn of hope.</p>
+<p><a href="../heroes-of-rathe/boltyn-about.html#boltyn-breaker-of-dawn">Ser Boltyn, Breaker of Dawn</a>, has <a href="../main-story/04-monarch/sworn-to-protect.html">lost his beloved Eirina to the monsters of Shadow</a>. As an Inquisitor, <a href="../main-story/04-monarch/step-into-the-light.html">watched over by Bellona the Wartune Herald</a>, he now scours the lands, battlegrounds and villages surrounding Solana for the signs and servants of Shadow. He does this for his people, but in his heart, he fights for the survival of his only son.</p>
+<p><a href="../heroes-of-rathe/dorinthea-about.html">Dorinthea Ironsong</a> <a href="../main-story/07-interlude/morlock-hill.html">has seen dear friends consumed by this conflict</a>. Her mentor, Minerva Themis, was the latest in a long line of sacrifices for Sol.</p>
+<p><a href="../heroes-of-rathe/shiyana-about.html">Shiyana</a> has <a href="../main-story/08-uprising/in-flames.html">traversed treachery and tragedy to gain aid for her besieged home</a>, <a href="../main-story/10-outsiders/tidings-in-the-light.html">only to be thwarted by assassination and civil war</a> in <a href="../world-of-rathe/volcor/volcor.html">Volcor</a>.</p>
+<p>For the first time since the turning of The Apostate, Solana fears for its future. As the mirrored worlds draw ever closer together, as the progeny of Embra fight the servants of an Aesir, the fate of humanity teeters on the brink.</p>
+<p>Who shall prevail, the Shadow or the Light?</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/prism-6.webp" alt="prism-6" class="center">
+<p>Only one thing is certain. Whatever the victory, Rathe shall feel its effects for aeons to come...</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/w94n5MrfVZU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../summaries/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../main-story/the-land-of-rathe.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../summaries/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../main-story/the-land-of-rathe.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../tab.js"></script>
+        <script src="../theme/pagetoc.js"></script>
+        <script src="../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>
