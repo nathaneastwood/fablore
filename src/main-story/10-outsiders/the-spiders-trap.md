@@ -125,7 +125,7 @@ Uzuri turns to Arakni, her smile as thin and sharp as a knife blade.
 
 Melten Wick squints up at the window that encircles the cavern's entrance. This is the place the squeaker spoke of, her voice all a-trembling as she described the masked monster hiding within.
 
-A tip-off worth a few tallics to the squeaker, but a hundred thousand to the crew who serves up Arakni's head on a platter to Whitetail. Wick doesn't know what the assassin did wrong, and doesn't much care. He's got mouths to feed.
+A tip-off worth a few [tallics](~tallics) to the squeaker, but a hundred thousand to the crew who serves up Arakni's head on a platter to Whitetail. Wick doesn't know what the assassin did wrong, and doesn't much care. He's got mouths to feed.
 
 He beckons for his gang to follow as he passes under the dusty, broken panes. In the wan light, the scarred leader looks like a half-cooked sausage returned to the oven for extra crisp. It's the price he's paid for his love affair with the flame. A cost he'll happily suffer, over and over, for the warming blaze and sweet scent of roasting flesh.
 

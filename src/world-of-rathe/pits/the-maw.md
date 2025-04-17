@@ -3,7 +3,7 @@
 The main entrance to the Pits, the Maw is known to the people of Metrix as Pit 2. Once the site of a massive strip-mine operation, Pit 2 is now abandoned, its entrance shrouded beneath the district of Coppertown. The denizens of the Pits use the Maw as a gateway to the world above, using an old mine cage to travel between the underground and the city of Metrix.
 
 ## Skulduggery
-In the Pits, there are no laws, no enforcers, and no protection from the criminal underworld. Despite being several steps removed from the city above, the dubious connection between the two regions ensures that 'tallics continue to be used as a form of currency - even in the Pits. While the Midtown Markets may provide all different kinds of wonders for sale, in the Pits, you can find anything for the right price.
+In the Pits, there are no laws, no enforcers, and no protection from the criminal underworld. Despite being several steps removed from the city above, the dubious connection between the two regions ensures that '[tallics](~tallics) continue to be used as a form of currency - even in the Pits. While the Midtown Markets may provide all different kinds of wonders for sale, in the Pits, you can find anything for the right price.
 
 ### Smuggler
 Metrix has banned a number of substances, devices and materials, too dangerous to be allowed free reign within the city. In the Pits, however, no such rules exist. Anyone who wishes to get their hands on the banned or taboo can go to the smugglers of the Pits, who can source anything from lethal poisons, to potent drugs, to human test subjects. The demand for volatile explosives, unstable reagents, and deadly gadgets ensure that the smugglers of the Pits are always in business.

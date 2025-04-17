@@ -10,7 +10,7 @@ Sucks to be betrayed by the ones you trust.
 
 There's eight people in this little cell. Standing room only. You'd think the [Iron Assembly](../../world-of-rathe/metrix/a-better-tomorrow.md#iron-assembly) could afford more space for its 'valued customers'. And air-conditioning. Stinks like the [Sprawl](../../world-of-rathe/metrix/a-sprawling-metropolis.md#the-sprawl) in midsummer. But that's typical of the bloody corporations. Common decency hurts their bottom line. Hurts them to do anything but make more dirty money.
 
-Drives me bonkers to think of [Dash](../../heroes-of-rathe/dash-about.md) and all the tallics she'll make from her new 'friend'. Can't think of any other reason she'd stitch me up like that? Money talks and all. Law of the concrete jungle.
+Drives me bonkers to think of [Dash](../../heroes-of-rathe/dash-about.md) and all the [tallics](~tallics) she'll make from her new 'friend'. Can't think of any other reason she'd stitch me up like that? Money talks and all. Law of the concrete jungle.
 
 That can't be it, though? She was born privileged. That's why I'm here and she's-
 

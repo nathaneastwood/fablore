@@ -36,7 +36,7 @@ A boy in Misteria. Did he deserve it? Uzuri still isn't sure. She's killed worse
 
 "Only when they get in my way."
 
-"Well, this one stands between us and a tidy payout." Whitetail passes her a sketch and a purse of tallics. "Overseer Crichton. [Blackjack](../../world-of-rathe/pits/blackjacks-mercenary-group.md)'s Mining."
+"Well, this one stands between us and a tidy payout." Whitetail passes her a sketch and a purse of [tallics](~tallics). "Overseer Crichton. [Blackjack](../../world-of-rathe/pits/blackjacks-mercenary-group.md)'s Mining."
 
 Uzuri covers her surprise; makes a show of hooking the purse to her belt. Suspicion follows. A Blackjack's overseer is a big hit, too big to entrust to an unknown like her. Whitetail should have contracted one of his experienced nestlings. Uzuri wonders why he hasn't?
 

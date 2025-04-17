@@ -13,7 +13,7 @@ One young man understood these promises better than most. Yes, it is true what t
 
 It was in a mothballed corner of the corroding Plumvex Pipes factory, Jules Teklovossen created the elegant coils and squat battery that would forever change the course of Metrix history. The potency hissed and spat between those coils, writhing like a netted serpent striving to reach the great blue sea. But Teklovossen would not let it free. Instead, he shackled that titanic beast in a two-by-two box. A little treasure chest bursting with enough power to vitalize hundreds of homes, shops and factories.
 
-What did we call this breakthrough invention? "Teklatic Dynamism," after the boy genius who cracked the secret of the coils.
+What did we call this breakthrough invention? "[Teklatic-dynamism](~TeklaticDynamism)," after the boy genius who cracked the secret of the coils.
 
 And do you know what Teklovossen said once he had doffed his protective eyeglasses? Once he looked upon his creation, this wonder that promised to lift us from the obscuring steam of our industrialist past?
 

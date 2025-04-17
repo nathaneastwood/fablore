@@ -2,7 +2,7 @@
 
 Walking into the tavern, Azalea was greeted by the familiar sound of a high-pitched cackle. She looked over to see the green-haired girl seated at her usual corner, giggling over several vials of questionable substance. Shaking her head, she walked towards the counter, placing her contract card onto the countertop.
 
-Greenbird turned toward her, acknowledging her with a nod. He placed a pouch of 'tallics on top of the card, then slid a different contract card onto the counter alongside it.
+Greenbird turned toward her, acknowledging her with a nod. He placed a pouch of '[tallics](~tallics) on top of the card, then slid a different contract card onto the counter alongside it.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-6.webp" alt="azalea-6" class="center">
 

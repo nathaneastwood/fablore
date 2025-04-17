@@ -13,10 +13,16 @@ hint = "A group of bloodthirsty brigands who seek the thrill of battle."
 hint = "Lord Wizard, Head of the Alshoni faction and cousin to the Emperor."
 [Chul]
 hint = "General who betrayed Kassai's family."
+[Cogwerx]
+hint = "Cogwerx, credited with inventing steam technology and revolutionising Metrix through steam compression for energy, is largely responsible for the city's success and development."
+[Coppertown]
+hint = "Coppertown, a southern district of Metrix nestled between vast strip mines, is a working-class community with a large population."
 [Deshvahan]
 hint = "A city in Volcor."
 [Dracai]
 hint = "The Dracai are bestowed names that are free of any restrictions, conventions or stigma, granted positions in the Royal Court of Volcor by the Emperor."
+[EastRise]
+hint = "The majority of this Metrix sector is devoted to parks and entertainment complexes"
 [Ezu]
 hint = "A faction headed up by Chancellor Yama."
 [fai-mother]
@@ -37,6 +43,8 @@ hint = "An illusionist, boss of the Dust Runners."
 hint = "A massive tree at the heart of Aria that shelters all who live amongst its leaves."
 [Meep]
 hint = "Tiny, mischievous creatures are recognised by their long limbs and tails, and colourful feather crests."
+[Mendacity]
+hint = "A corporation that maintains control of the media, funding almost every radio station and newspaper in the city."
 [Min]
 hint = "Fai's Mother."
 [MountHeroic]
@@ -45,6 +53,8 @@ hint = "A mountain which towers above the forests of eastern Aria"
 hint = "A region of Solana"
 [Sada]
 hint = "Kassai's sorceress friend and member of the Cintari."
+[SyntheaTeklo]
+hint = "Teklo Industries CEO"
 [Redmoor]
 hint = "The Redmoors are Boltyn's cousins."
 [Ryoki]
@@ -55,6 +65,16 @@ hint = "Lord Merchant of Deshvahan."
 hint = "Special force of loyal ninjas dedicated to hunting those responsible for the Emperor's death."
 [Sutcliffe]
 hint = "Lord Sutcliffe pursued arcane knowledge despite lacking aether affinity, creating the Arknight project to unlock magical abilities. Betrayed by his creation, Viserai, he was killed and now exists trapped in a skull, tormented and longing for revenge."
+[tallics]
+hint = "The Metrix currency"
+[TeklaticDynamism]
+hint = "Energy source invented by Professor Teklovossen"
+[TekloIndustries]
+hint = "Teklo Industries, a recent entrant to the steamtech industry, is acclaimed for its innovative products and cutting-edge designs driven by a constantly experimenting R&D team."
+[TheFoundry]
+hint = "An independent radio station, one of the few in Metrix that remains free of Mendacity control."
+[Thiroux]
+hint = "Dash's mother"
 [Volcai]
 hint = "The Volcai are the more limited social class of Volcor; their names are homogeneous, ending in _ai_ as a mark of their Volcai origin status."
 [Xilin]

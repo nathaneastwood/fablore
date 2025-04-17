@@ -18,7 +18,7 @@ Azalea gathered herself, coin pressed into the palm of her hand, and approached 
 
 In response, Azalea held out her hand, revealing the copper coin. It glistened faintly in the lamplight, coated in a deep, dark red.
 
-"I've got the 'tallics. Just wanna buy some fodder."
+"I've got the '[tallics](~tallics). Just wanna buy some fodder."
 
 The men burst into laughter, one of them wiping at his eyes while the other pointed at her.
 

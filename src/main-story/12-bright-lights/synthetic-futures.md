@@ -280,7 +280,7 @@ After taking a deep breath to steady her nerves, Dash heads for the toilets. Fin
 
 Maxx kills the call. Dash collects her briefcase and leaves the toilets, losing herself in the throng of conference-goers as they file into the Iron Hall's main auditorium.
 
-The keynote helps pass the time. It's a rousing speech by CEO Synthea Teklo about the latest advances in teklatic-dynamism. In Dash's opinion, she makes a strong case for how Teklovossen's invention can be further rolled out to cure Metrix of its threatening energy crisis, to sustain the city's bright lights forever.
+The keynote helps pass the time. It's a rousing speech by CEO Synthea Teklo about the latest advances in [teklatic-dynamism](~TeklaticDynamism). In Dash's opinion, she makes a strong case for how Teklovossen's invention can be further rolled out to cure Metrix of its threatening energy crisis, to sustain the city's bright lights forever.
 
 Cogwerx representatives fire a barrage of defensive and deconstructive questions at Synthea while Dash peels off from the end of her row and discretely exits the auditorium. Moments later she's poised behind a large pot-plant, watching a pair of enforcer humaniforms through the plant's rubbery leaves. She doesn't have to wait long. The guards' earpieces crackle with orders, a callout to assist with an escapee from Eighth Precinct Station. With the coast clear, Dash crosses the empty hallway and takes the stairs down into the Iron Hall's lower reaches.
 
