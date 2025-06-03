@@ -1,4 +1,6 @@
 # hints.toml
+[Absolon's Dream]
+hint = "Kuraghan flagship"
 [Alif]
 hint = "A member of the Cintari, Kassai's close friend."
 [Alshoni]
@@ -35,6 +37,8 @@ hint = "A member of the Cintari, Kassai's close friend."
 hint = "Tall creature, with long flowing tails, tough skin, and massive antlers crowning the top of their head."
 [TheFlow]
 hint = "A wild, unpredictable force of nature in Aria, the Flow shapes the landscape around it as it ebbs and flows."
+[Golden Goose]
+hint = "A sleek airship"
 [Ikaru]
 hint = "One of the prestigious houses of Misteria; the House of Blossoms."
 [Jing]
@@ -51,6 +55,8 @@ hint = "A corporation that maintains control of the media, funding almost every 
 hint = "Fai's Mother."
 [MountHeroic]
 hint = "A mountain which towers above the forests of eastern Aria"
+[Nocetes]
+hint = "Dhani death god"
 [NorthernRealms]
 hint = "A region of Solana"
 [Sada]

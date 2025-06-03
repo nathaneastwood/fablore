@@ -204,6 +204,7 @@
     - [Children of Chaos](main-story/17-the-hunted/children-of-chaos.md)
     - [Splinter Soul](main-story/17-the-hunted/splinter-soul.md)
     - [Boom Town Boom](main-story/17-the-hunted/boom-town-boom.md)
+    - [Captain Bones and the City of Gold](main-story/18-high-seas/captain-bones-and-the-city-of-gold.md)
 
 - [Short Stories](short-stories/README.md)
     - [A Thousand Cuts](short-stories/10-outsiders/a-thousand-cuts.md)
@@ -257,6 +258,7 @@
     - [Solanian](languages/02-solanian.md)
     - [Seers](languages/03-seers.md)
     - [Imperial](languages/04-imperial.md)
+    - [Ancient Dhani](languages/05-ancient-dhani.md)
 
 - [Weapons](weapons/README.md)
     - [Cintari Saber](weapons/cintari-saber.md)
