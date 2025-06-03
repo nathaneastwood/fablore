@@ -84,6 +84,7 @@
     - [Fang](heroes-of-rathe/fang-about.md)
     - [Florian](heroes-of-rathe/florian-about.md)
     - [Genis](heroes-of-rathe/genis-about.md)
+    - [Gravy Bones](heroes-of-rathe/gravy-about.md)
     - [Ira](heroes-of-rathe/ira-about.md)
     - [Iyslander](heroes-of-rathe/iyslander-about.md)
     - [Jarl](heroes-of-rathe/jarl-about.md)
