@@ -130,7 +130,7 @@ Above him in the now reddish sky, he notices another vuurlin. This one wild; hun
 
 ---
 
-_Source: [https://fabtcg.com/articles/ember-ash/](https://fabtcg.com/articles/ember-ash/_)_<br>
+_Source: [https://fabtcg.com/articles/ember-ash/](https://fabtcg.com/articles/ember-ash/)_<br>
 _Written by Edwin McRae and Rachel Rees._<br>
 _Directed by Robbie._<br>
 _Illustrated by Sam Yang._

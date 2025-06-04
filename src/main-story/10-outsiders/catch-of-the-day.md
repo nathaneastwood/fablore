@@ -42,7 +42,7 @@ He sets down his bow, takes up his oar, and paddles across the channel. Blades t
 
 ---
 
-_Source: [https://fabtcg.com/heroes/riptide/?stories=True](https://fabtcg.com/heroes/riptide/?stories=True)_<br>
+_Source: [https://fabtcg.com/en/heroes/riptide-lurker-of-the-deep/?stories=True](https://fabtcg.com/en/heroes/riptide-lurker-of-the-deep/?stories=True)_<br>
 _Written by Edwin McRae and Rachel Rees._<br>
 _Directed by Robbie Wen. Illus. by Henrique Lindner._
 
