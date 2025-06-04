@@ -2,7 +2,7 @@
 
 The [Dreadnought](~Dreadnought) rose from the depths to split the waves like a shark's fin. It glistened in the silver light of a full moon, making good its ambush as shouts of alarm erupted from the Kuraghan ship in its path.
 
-"Avast ye deathly layabouts!" Captain Gravy Bones hollered at his cadaverous crew. "Make ready to broadside and board!"
+"Avast ye deathly layabouts!" [Captain Gravy Bones](../../heroes-of-rathe/gravy-about.md) hollered at his cadaverous crew. "Make ready to broadside and board!"
 
 "Begging yer pardon, Cap'n," Chum asked, his grave grin a little dulled with concern. "You sure this be them?"
 
@@ -96,7 +96,7 @@ Not long after dawn, Riggermortis raised the alarm from the crow's nest. "The Ku
 
 As the Dreadnought moved out of the cave, a great clamor arose from the Penitentiary. Klaxons sounded and people ran along ramparts in a seeming panic.
 
-A sleek airship, marked as the Golden Goose, rose from the prison's inner courtyard. Two more airships took to the air behind it, Gravy watching through his spyglass as the colorfully clad captain blew her pursuers out of the sky with some sort of rifle. He'd seen her before, hovering over ruins on the outskirts of Dreadfall Reach.
+A sleek airship, marked as the [Golden Goose](~GoldenGoose), rose from the prison's inner courtyard. Two more airships took to the air behind it, Gravy watching through his spyglass as the colorfully clad captain blew her pursuers out of the sky with some sort of rifle. He'd seen her before, hovering over ruins on the outskirts of Dreadfall Reach.
 
 "Submerge!" he ordered, and the Dreadnought slipped beneath the waves as the Kuraghan flagship, Absolon's Dream, put out to sea. Through the rippling water, he watched the Golden Goose fly off in an eastward direction. Flying freebooters chilled the cockles of his rotten heart. He'd take the embrace of the water over the wanton winds on any deadened day.
 
