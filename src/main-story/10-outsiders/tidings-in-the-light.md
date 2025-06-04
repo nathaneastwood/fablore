@@ -72,7 +72,7 @@ Shiyana raises her hand, her diamond spinning over her palm, and bows deeply, as
 
 "Neither for us nor against us, your Grace. Their-"
 
-She pauses to order her thoughts. Should she burden the council with the convictions of the [Phoenix](../08-uprising/fai-rising-rebellion-story.md)? The rebel leader has vowed to fight on until Volcor is remade. What of [Lady Dromai](../../heroes-of-rathe/dromai-about.md) and the [Royal Court](../../world-of-rathe/volcor/the-royal-court.md), fighting amongst themselves while their land burns?
+She pauses to order her thoughts. Should she burden the council with the convictions of the [Phoenix](../08-uprising/fires-of-rebellion.md)? The rebel leader has vowed to fight on until Volcor is remade. What of [Lady Dromai](../../heroes-of-rathe/dromai-about.md) and the [Royal Court](../../world-of-rathe/volcor/the-royal-court.md), fighting amongst themselves while their land burns?
 
 "Their concerns are their own, your Grace."
 

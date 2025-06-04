@@ -1,4 +1,4 @@
-# Riptide, Lurker of the Deep
+# Catch of the Day
 
 [Riptide](../../heroes-of-rathe/riptide-about.md) breaks the tension by squeezing the sore on his shoulder between thumb and forefinger. The pain shoots up his neck and into his skull, offering a momentary distraction. The sore gives with a satisfying pop, erupting ichor that streams down his bulky bicep and drips onto the corroded iron of his forearm. The pain recedes as Riptide wipes meat and mechanics clean with a cloth drenched in alcohol. He takes a swig from the bottle for good measure, relishing the pungent warmth as it passes down his throat.
 

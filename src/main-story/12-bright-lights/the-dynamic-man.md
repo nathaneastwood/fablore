@@ -4,7 +4,7 @@
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/the-dynamic-man-1.webp" alt="the-dynamic-man-1" class="center">
 
-[Metrix](../../world-of-rathe/metrix/). A metropolis of imagination. A place where ambition meets innovation and lives are reinvented every single day. In our pioneering past, we welcomed those ready to flee the traditions and oppressions of arcane Rathe. Together we built a city where fortunes could be made from the sweat of one's brow and the steam of one's machinery. Metrix has come a long way from those boilerplate beginnings. Technology has advanced in leaps and bounds, drawing a new generation of hopefuls to its bright lights, to promises writ large in glaring neon:
+[Metrix](../../world-of-rathe/metrix/metrix.md). A metropolis of imagination. A place where ambition meets innovation and lives are reinvented every single day. In our pioneering past, we welcomed those ready to flee the traditions and oppressions of arcane Rathe. Together we built a city where fortunes could be made from the sweat of one's brow and the steam of one's machinery. Metrix has come a long way from those boilerplate beginnings. Technology has advanced in leaps and bounds, drawing a new generation of hopefuls to its bright lights, to promises writ large in glaring neon:
 
 _Become more than you are._<br>
 _Become more than human!_

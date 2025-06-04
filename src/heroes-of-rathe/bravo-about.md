@@ -38,7 +38,7 @@ Confident, charming and theatrical, Bravo treats battle like a performance. Set 
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/bravo-star-of-the-show.mp4" type="video/mp4">
 </video>
 
-It's been years since the [skirmish at the Fractal Scar](../main-story/01-welcome-to-rathe/bravo-showstopper-story.md), and the call to arms you answered that fateful day. As the charismatic and handsome ringmaster of the Legendarium, your time (in-between shows) had been well spent honing your newfound power, the power of the Flow that now coursed within your veins!
+It's been years since the [skirmish at the Fractal Scar](../main-story/01-welcome-to-rathe/a-rising-star.md), and the call to arms you answered that fateful day. As the charismatic and handsome ringmaster of the Legendarium, your time (in-between shows) had been well spent honing your newfound power, the power of the Flow that now coursed within your veins!
 
 But everywhere you looked, the Everfest was rocking, and the patrons were having a blast! The shadows of that day, it seemed, had melted away.
 

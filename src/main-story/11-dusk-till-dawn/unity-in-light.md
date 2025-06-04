@@ -77,7 +77,7 @@ _Terrors they felled, nightmares they slew,_<br>
 _Until Aria awoke to the break of a dawn,_<br>
 _In a realm made free, a land reborn."_
 
-"I can't speak for Aria," answered Bravo, "but this is the calling I've been waiting for. From that day in the [Fractal Scar](../main-story/01-welcome-to-rathe/bravo-showstopper-story.md), when I absorbed the Flow, I have felt the strife in this world. I have yearned to help Rathe however I can." He knelt before Prism and offered Anothos up with outstretched arms. "I will aid Solana in its time of need, just as I know Solana will aid us in ours."
+"I can't speak for Aria," answered Bravo, "but this is the calling I've been waiting for. From that day in the [Fractal Scar](../main-story/01-welcome-to-rathe/a-rising-star.md), when I absorbed the Flow, I have felt the strife in this world. I have yearned to help Rathe however I can." He knelt before Prism and offered Anothos up with outstretched arms. "I will aid Solana in its time of need, just as I know Solana will aid us in ours."
 
 "When the terrors return, so must the Ollin," agreed Oldhim. "A new Ollin for a new age." He rested a gnarled hand on Bravo's shoulder. "With a new champion to lead us."
 

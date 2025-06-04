@@ -42,7 +42,7 @@ Stubborn and rebellious, Dash's energetic nature often gets her into trouble. On
 
 No one epitomizes the [City of Wonder](../world-of-rathe/metrix/metrix.md) like Dash Teklo.
 
-She is the kind of citizen [Teklovossen](./teklovossen.md) himself counted on: intelligent, innovative, and able to see potential at every turn. Even as a young inventor full of wild ideas, Dash stood apart from her mechanologist peers.
+She is the kind of citizen [Teklovossen](./teklovossen-about.md) himself counted on: intelligent, innovative, and able to see potential at every turn. Even as a young inventor full of wild ideas, Dash stood apart from her mechanologist peers.
 
 Born to scientists from [Teklo Industries](../world-of-rathe/metrix/a-better-tomorrow.md#teklo-industries), Dash grew up surrounded by some of the greatest minds in all of Rathe. Many view her as a whizbang in an otherwise stable system, her exploits and energetic nature often getting her into trouble. No matter how hard these Teklo elites try, they cannot get her to toe the industry line. And understandably so! An optimistic outlier, Dash is bored by the rigid dullness of [Metrix](../world-of-rathe/metrix/metrix.md)'s scientific class, and will do anything to avoid becoming just another pencil-pushing whitecoat.
 

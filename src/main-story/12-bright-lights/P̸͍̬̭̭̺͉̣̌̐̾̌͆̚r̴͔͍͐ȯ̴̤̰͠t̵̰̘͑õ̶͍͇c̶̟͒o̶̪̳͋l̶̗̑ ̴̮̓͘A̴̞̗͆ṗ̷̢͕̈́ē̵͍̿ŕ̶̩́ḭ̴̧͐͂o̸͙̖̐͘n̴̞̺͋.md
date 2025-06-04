@@ -18,7 +18,7 @@ The occupant's eyelids open, exposing dilated pupils that haven't been used in h
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/protocol-aperion-2.webp" alt="protocol-aperion-2" class="center" />
 
-"Rigo," croaks [Teklovossen](../../heroes-of-rathe/teklovossen.md) from clogged vocal cords. "Report."
+"Rigo," croaks [Teklovossen](../../heroes-of-rathe/teklovossen-about.md) from clogged vocal cords. "Report."
 
 The bot suspends a screen over Teklovossen's face. The inventor's eyes flick across the contents, narrowing with every page. Life Expectancy: 68.3 years. Clean energy adoption: 7%. Territorial expansion: 11%. Wealth distribution: polarized.
 

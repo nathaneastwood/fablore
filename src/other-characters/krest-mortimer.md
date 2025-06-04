@@ -7,7 +7,7 @@
 ## In Theory<sup>*</sup>
 
 <p>
-(<a href="#narrated-video-by-deadsummerart">Jump to Narrated Video</a>)
+(<a href="narrated-video-by-deadsummer-art">Jump to Narrated Video</a>)
 </p>
 
 Cultist - "Raven! Grant me the strength to endure your rewards...for the glory of mankind..."

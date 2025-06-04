@@ -10,7 +10,7 @@ The "[Land of Legends](world-of-rathe/aria/the-land-of-legends.md)" article says
 
 > "The War of the Monarchs rages on; Aesirs and their Embras stir in their slumber, their influence seeping from íArathael into the realm of man..."
 
-And [Oldhim's backstory](main-story/05-tales-of-aria/oldhim-grandfather-of-eternity-story.md) says:
+And [Oldhim's backstory](main-story/05-tales-of-aria/the-broken-covenant.md) says:
 
 > "Sometimes his dreams took him to his formative years, when the vassals of Embras advanced, forcing them to the north..."
 
@@ -50,11 +50,11 @@ You can see the full list of animals on the data page [here](data/fauna.md).
 ## Characters
 ### Is Ira dead?
 
-We don't know. [Her story](main-story/03-crucible-of-war/ira-crimson-haze-story.md) takes place hundreds of years before the current main story timeline, that's all we know. There is nothing written that outright states she is dead, however she is human...
+We don't know. [Her story](main-story/03-crucible-of-war/edge-of-autumn.md) takes place hundreds of years before the current main story timeline, that's all we know. There is nothing written that outright states she is dead, however she is human...
 
 ### What do we know about Jackdaw?
 
-Not much, he is mentioned in some flavour text such as [Pitfall Trap](flavour/03-crucible-of-war.md#pitfall-trap---cru127), [Out Muscle](flavour/04-monarch.md#out-muscle---mon248) and [Pay Day](flavour/09-dynasty.md#pay-day---dyn123). We also read about him in [The Jaws of Death](main-story/02-arcane-rising/the-jaws-of-death.md) where he is standing outside [Blackjack's Tavern](world-of-rathe/pits/blackjacks-mercenary-group.md#blackjacks-mercenary-group).
+Not much, he is mentioned in some flavour text such as [Pitfall Trap](flavour/03-crucible-of-war.md#pitfall-trap---cru127), [Out Muscle](flavour/04-monarch.md#out-muscle---mon248) and [Pay Day](flavour/09-dynasty.md#pay-day---dyn123). We also read about him in [A Bird in the Hand](main-story/02-arcane-rising/a-bird-in-the-hand.md) where he is standing outside [Blackjack's Tavern](world-of-rathe/pits/blackjacks-mercenary-group.md#blackjacks-mercenary-group).
 
 ### What do we know about Fyendal?
 

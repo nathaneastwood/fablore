@@ -75,7 +75,7 @@ With a clatter of running chains, steel jaws drop from the ceiling and snap up h
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/the-spiders-trap-3.webp" alt="the-spiders-trap-3" class="center">
 
-Blood showers down, the only rain the Pits ever sees. A bulky shadow looms in the broken window. Glinting eyes look up at the entrapped and dying. "Wriggle little fishes," rasps [Riptide](../../heroes-of-rathe/riptide.md), his voice harsh as a falling guillotine.
+Blood showers down, the only rain the Pits ever sees. A bulky shadow looms in the broken window. Glinting eyes look up at the entrapped and dying. "Wriggle little fishes," rasps [Riptide](../../heroes-of-rathe/riptide-about.md), his voice harsh as a falling guillotine.
 
 Uzuri nods her approval, waits until Riptide has faded back into the shadows, then gets to some butchery of her own.
 
