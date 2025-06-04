@@ -206,7 +206,7 @@
     - [Splinter Soul](main-story/17-the-hunted/splinter-soul.md)
     - [Boom Town Boom](main-story/17-the-hunted/boom-town-boom.md)
     - [Captain Bones and the City of Gold](main-story/18-high-seas/captain-bones-and-the-city-of-gold.md)
-    - [The Lost Treasure of Blackwater Strait](main-story/the-lost-treasure-of-blackwater-strait.md)
+    - [The Lost Treasure of Blackwater Strait](main-story/18-high-seas/the-lost-treasure-of-blackwater-strait.md)
 
 - [Short Stories](short-stories/README.md)
     - [A Thousand Cuts](short-stories/10-outsiders/a-thousand-cuts.md)
