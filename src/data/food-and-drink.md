@@ -2,5 +2,6 @@
 |     Name    | Type|
 |-------------|-----|
 |  Amygdazzla |Drink|
+| Goldkiss Rum|Drink|
 |  Nutrislug  | Food|
 |Sepulchre Rum|Drink|

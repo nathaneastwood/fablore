@@ -95,6 +95,7 @@
     - [Kayo](heroes-of-rathe/kayo-about.md)
     - [Levia](heroes-of-rathe/levia-about.md)
     - [Lexi](heroes-of-rathe/lexi-about.md)
+    - [Marlynn](heroes-of-rathe/marlynn-about.md)
     - [Maxx](heroes-of-rathe/maxx-about.md)
     - [Melody](heroes-of-rathe/melody-about.md)
     - [Nuu](heroes-of-rathe/nuu-about.md)
@@ -207,6 +208,7 @@
     - [Boom Town Boom](main-story/17-the-hunted/boom-town-boom.md)
     - [Captain Bones and the City of Gold](main-story/18-high-seas/captain-bones-and-the-city-of-gold.md)
     - [The Lost Treasure of Blackwater Strait](main-story/18-high-seas/the-lost-treasure-of-blackwater-strait.md)
+    - [A Kraken Good Tale](main-story/18-high-seas/a-kraken-good-tale.md)
 
 - [Short Stories](short-stories/README.md)
     - [A Thousand Cuts](short-stories/10-outsiders/a-thousand-cuts.md)
