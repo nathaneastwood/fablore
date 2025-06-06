@@ -1,0 +1,315 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Children of Chaos - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="children-of-chaos"><a class="header" href="#children-of-chaos">Children of Chaos</a></h1>
+<p><span class="hint" hint="Chiyo">Lord Wizard Chiyo</span>'s citadel towered above <a href="../../heroes-of-rathe/cindra-about.html">Cindra</a> and <a href="../../heroes-of-rathe/fang-about.html">Fang</a>, the fortress marred by obscenely twisted spires that punctured its once elegant architecture. Built high atop a cliff, it overlooked the southern sea, waves crashing against the cliffs below, the repetitive susurrus filling Fang's mind like a voice spilling spine-chilling whispers.</p>
+<p>"We go in, now," Cindra said. Her eyes were hollowed with exhaustion, but she remained tall, two of her daggers circling in defensive formation.</p>
+<p>"Yes, Commander."</p>
+<p>She rested a hand on Fang's shoulder, between the sharp barbs of his pauldron. "It's just you and me now, Fang. There is no need to stand on ceremony."</p>
+<p>"Yes, Co... Thank you, Cindra."</p>
+<p>"Come, then. It is our blades and our wits against whatever Chiyo has waiting for us."</p>
+<p>Fang drew one of his daggers. "Nothing will save her from the <a href="../../heroes-of-rathe/emperor-about.html">Emperor</a>'s vengeance."</p>
+<p>They approached the open citadel gates, passing gigantic shards of obsidian that emerged from the ground like shattered teeth through bleeding gum. His haggard reflection stared out from one of those glinting black crystals. As he marched past, Fang was certain he saw it shake its head, as though urging him to turn back.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/children-of-chaos-1.webp" alt="children-of-chaos-1" class="center" />
+<p>They entered the citadel. The rising sun drew deep shadows between buildings, the darkness itself seeming to breathe. Overhead, the sky pulsed and swam, rippling with a scintilla of refracted light. It hurt Fang's eyes to look at, and he shuddered at the thought that even the firmament itself could be twisted by this strange sickness. He wished only to face something solid, something he could stab, or at least comprehend.</p>
+<p>A leaden silence blanketed the citadel as they moved further from the sea. No voices, no noise of any sort from the blacksmith, the stables, or the barracks they passed.</p>
+<p>"The emptiness of this place... it is all too familiar," Fang ventured.</p>
+<p>"Could be worse," Cindra dismissed.</p>
+<p>Fang nodded, thinking back to the garrison and village consumed by corruption. A citadel similarly swarming with corrupted bodies would be too much for them alone.</p>
+<p>They continued on, footsteps echoing in the silence. To their right, a grand temple of <a href="../../world-of-rathe/volcor/welcome-to-volcor.html">Vynserakai</a> loomed over tightly packed storehouses, an immense spike bursting through the temple roof. Strange symbols marked every building they passed, scrawled in blood and feces. The sigils squirmed inside his skull - whispers that tasted like black ash on his tongue. He gritted his teeth and shunned them once more.</p>
+<p>"This way," Cindra said, eyes fixed on a tall stone stairway. It led up toward Chiyo's manse where crooked obsidian curled around the building like ribs around a heart.</p>
+<p>Fang's own heart beat hard in his chest as they scaled the steps to the next landing. Warily, he spun around to check the gates below. The citadel gates stood open. Then, with a loud creak, they slowly swung closed of their own volition, slamming shut with a booming thud.</p>
+<p>"Fang," Cindra cautioned.</p>
+<p>Fang ignored her. He marched down the stone steps and slammed the pommel of his dagger against the gate's hard wooden surface.</p>
+<p>"Fang!" Cindra shouted.</p>
+<p>He stopped and lowered his dagger, chest heaving.</p>
+<p>"Fear will burn before the flame is even lit."</p>
+<p>He nodded and drew his second dagger. He felt certain of eyes staring out from every dark shadow and took each step carefully, ears pricked for the slightest sound, boots held fast to the stone beneath to ensure the ground wouldn't somehow shift beneath him.</p>
+<p>They reached the top landing, arriving in a sprawling garden courtyard. Chiyo's mansion loomed at the far end, past trees, topiaries, and flower gardens, all showing signs of profane change, covered in strange growths, colors bleeding and churning within their vision.</p>
+<p>"Look," Cindra said, pointing to a plum blossom tree.</p>
+<p>A face was visible in the trunk, skin striated in the same texture as the bark. The face was gaunt, cheekbones sharp, sunken eyes closed. The tree was covered in sickly flower buds ready to bloom. As they stepped closer, the petals unfurled, revealing crazed eyes that looked first at Cindra, then to Fang.</p>
+<p>Fang staggered back, but Cindra seemed unperturbed. She placed her hand against the trunk and burned the mark of the dragon into the gnarled face, wisps of smoke curling around her fingers.</p>
+<p>"We should burn this entire garden to ash," Fang grunted.</p>
+<p>"We have more pressing concerns for the moment," Cindra said, "but we will raze the citadel and everything within its confines before we leave."</p>
+<p>Each tree they passed held the shadow of a person - branches for arms, blossoming flowers for fingers, pale trunks for legs, ankles submerged in the dirt.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/children-of-chaos-2.webp" alt="children-of-chaos-2" class="center" />
+<p>As they passed a fountain, its surface marred with an iridescent sheen, something unseen moved beneath the water. Cindra summoned her daggers, but nothing emerged. She backed away, then turned. To her surprise, she noticed eyes upon her. Voices hissed from the trees, familiar somehow, speaking to Cindra across a vastness of years. A series of images. Blood-red threads crossing the throne room. Blood-stained steps lined with fallen soldiers. The Emperor, dead in a pool of blood, the figure of a creature looming over him, blood-tipped dagger in its gauntleted hands.</p>
+<p>"Emperor?"</p>
+<p>Cindra staggered to the topiary and dropped to her knees, her head bowed.</p>
+<p>"Emperor, forgive me. I could not protect you."</p>
+<p>Someone called her name from far away, but she blocked it out. The Emperor opened his arms, a gesture Cindra had wished for desperately as a student.</p>
+<p>"Cindra!" Fang shouted in her ear.</p>
+<p>His daggers cut rapidly through the branches of the topiary that engulfed her, shredding leaves and twigs, the tree's consuming embrace beginning to falter. With a growl, he sliced through the trunk, felling the corrupted tree.</p>
+<p>"What happened?" Fang asked as he helped Cindra to her feet.</p>
+<p>She clenched her fists, shame burning her insides. "I lost myself for a moment. It will not happen again."</p>
+<p>"Of course, Commander," he said, using her rank again as a solemn gesture.</p>
+<p>She motioned toward the entrance into Chiyo's mansion. They stalked down the path, both of them suppressing the voices that hissed and spat. The building was expansive, but still dwarfed by the spires that engulfed it. From their vantage, the spires resembled an eight-fingered hand, ready to close around the structure, but to crush or protect it, neither could say.</p>
+<p>They crept up the stone steps to the doorway. Cindra flung it open, her daggers spilling into the space, prepared to strike.</p>
+<p>Silence.</p>
+<p>Fang followed Cindra into a wide laboratory. Sunlight streamed through windows of Deshvahan glass, illuminating drifting motes of dust and gleaming off the silver tools and glassware atop every flat surface. The air was thick with a mix of alchemical scents, each an insult to the nose. At one end stood a row of large tanks with warped shapes floating within.</p>
+<p>Cindra walked toward them, moving between workbenches and surgical slabs, her investigator's eye scanning over every strange implement and tool. Fang didn't know what she was searching for, but he followed her carefully, stopping to inspect a mantra scrawled on the wall in large letters. It was surrounded by complicated formulae, many containing the symbols that had plagued Fang since Deshvahan, but these words appeared to have grown in place, written with - or by - an unnatural fungus, glowing pink and purple, loosing spores into the air.</p>
+<p>Inoculate yourself with this merciful madness, that you may survive the horrors to come.</p>
+<p>He had seen too much to believe this 'merciful madness' was anything more than a traitor's lie.</p>
+<p>"Fang, over here." Cindra motioned to the last of the chemical tanks, her expression one of intrigue as she stared into the murky green fluid at a tall, bloated figure.</p>
+<p>Closer now to the row of tanks, Fang could better discern the forms within - men, women, even children, twisted into foul and dangerous beasts out of a nightmare. Fang approached Cindra, bile rising in his throat at the sight of the thing inside the tank.</p>
+<p>It was still vaguely human, though the body was deformed almost beyond recognition. Four additional arms emerged from its back and curled limply around its torso, the limbs malformed. All the creature's hands and both of its feet were clawed, and a rash of eyes spread across its torso, open, staring blankly. Only its face retained some small resemblance of the man that was.</p>
+<p>"General Riku?!" Fang exclaimed. "So much for our reinforcements."</p>
+<p>"The guilty are condemned by their own actions." Cindra turned away from the tank. "Chiyo must be close."</p>
+<p>They exited the laboratory and crept through the mansion until they found a wide staircase leading to the upper levels. They ascended, coming to a broad corridor with two large doors at the end.</p>
+<p>"An audience chamber befitting her arrogance," Cindra said, nodding ahead.</p>
+<p>Fang tightened his grip on the dagger sheathed at his side. "I will lead the way, draw her with fire, while you flank and incapacitate." Then he remembered himself, and who he was talking to. "If that is acceptable to you, Cindra?"</p>
+<p>"Of course."</p>
+<p>Fang rushed down the corridor, Cindra close behind. He kicked the doors apart and stepped into the chamber, drawing his blades. Both froze at sight of the tableaux before them.</p>
+<p>The dead Lord Wizard had been made the centerpiece of a macabre artwork. She sat in the middle of her audience chamber, cross-legged with her head in her lap, gaping mouth stuffed with fungus. Fruiting bodies grew from the stump of her neck, their spores spiraling toward the ceiling.</p>
+<p>She wasn't alone.</p>
+<p>Chiyo sat atop a mound of flesh made from the dismembered bodies of her servants and soldiers. Flesh merged with flesh, delineations lost between bodies, not all of them dead. Faces moaned in pain and fear, jutting limbs reaching and twitching.</p>
+<p>Massive membranous wings emerged from Chiyo's back. Made of stretched and scarred human skin, they spread across the full width of the grand audience chamber, cut deeply with sigils. The giant wings flapped weakly, pulled by long bright red tendrils.</p>
+<p>Fang skirted around the corpsework so he could trace the tendrils to their source. The creature sat slumped against a mass of pulsating flesh, head hung low, face hidden behind a vicious barbed mask. It wore armor of jagged steel plating and a cloak of murderous eyes. Fang saw now that the tendrils grew out of this cloak, linking the creature to the fleshmound.</p>
+<p>The creature's head twitched and it turned jerkily to face Fang. He couldn't see the eyes behind the mask, but he could feel its gaze burn through him; distilled death and hatred. It pulled taut the gross tendrils and the corpsework seemed to come alive, moving at the creature's will.</p>
+<p>Without hesitation, Cindra cast a levitating dagger at the creature's head. A grotesque, distended arm jolted from the writhing mass of flesh and grabbed the dagger by the blade. Blood dripped slow and thick from the wound. It lashed out with a length of flesh like a tail, dead and dying faces within the swollen skin. Cindra leaped over it and the tail slammed into a support column, shaking the floor.</p>
+<p>"Cut the veins!" Cindra shouted. She tossed her daggers in rapid sequence, each slicing clean through one tendril before returning to her.</p>
+<p>"Blade to blood!" Fang yelled, charging up the mound, the malleable flesh sickeningly soft underfoot. Limbs spilled out to kick and grab at Fang, impervious in his plated armor. He cut through the cords in a rage while Cindra's daggers fluttered around the chamber, carving through the connections Fang could not reach.</p>
+<p>A tentacle-like mass rose out of the corpsework, rib bones piercing through the skin like claws. Cindra didn't see it flicking towards her, busy guiding her daggers across the expansive room. With a roar, Fang leaped from the mound and brought his daggers down on the tentacle to tear it through.</p>
+<p>The tentacle flopped to the ground and Cindra turned. "That is why I trust you, Fang. Just do not falter. We are both walking out of here."</p>
+<p>With a flick of her wrist she sent two daggers curving through the air to sever the final cords. The creature fell limp once more, its armor clattering as the creature seemed to fold in on itself.</p>
+<p>"I do not like this," Cindra said, surveying the room.</p>
+<p>Fang nodded. "Now can we burn it?"</p>
+<p>Cindra raised a dagger and ran the flat of her palm over the blade. "It's like you read my mind."</p>
+<p>Fang clanged his daggers together, letting the dragon fire ignite them, flames licking hungrily at the steel.</p>
+<p>With a jolt, the creature sat up. It drew a vicious blade, glowing red with mysterious symbols, and plunged the weapon into the flesh beside it for leverage, standing tall beside its terrifying work of art and death.</p>
+<p>Cindra gathered her daggers, each aflame, hovering near her, their points aimed at the threat. But past the profane corpsework, Fang saw movement in the recesses of the massive room. A hissing sound scraped at his ears, louder and louder, horror approaching from unseeable angles. Whispering voices spoke through the noise, unintelligible words that made Fang's stomach churn and his mouth flood with hot saliva.</p>
+<p>They emerged from the rafters, the alcoves, from the draperies hung around the edges of the audience chamber. Six more creatures, each warped and horrific, broken and rebuilt.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/children-of-chaos-3.webp" alt="children-of-chaos-3" class="center" />
+<p>Some retained their human-like qualities - the white-haired female Fang had barely escaped in Deshvahan, and another with long steel talons on each of her fingers. Others defied logic - one was a mass of limbs and steel, each of its many hands clasping a deadly sword. Another scuttled on insectile legs, hunched beneath a huge red parasol hanging with blades. The ground trembled as another stepped forward, arms encased in huge steel forelegs. They drew closer, Yamada's killer the boldest, ducking beneath one of Chiyo's broad wings to stand before them, parasol swaying, blades chiming a demented melody.</p>
+<p>Realization dawned on them both. <span class="hint" hint="Kayat">Kayat</span>, the razing of Deshvahan, Lord Wizard Chiyo. This entire investigation had been designed to lure them to this place.</p>
+<p>A place beyond retribution, beyond even the Spider's sticky web.</p>
+<p>They heard an explosion that sent a shockwave up to greet them. Chiyo's audience chamber looked down over the entire citadel. They looked down through its imposing windows to see a huge firestorm engulfing the gates. An army gathered outside, led by mounted wizards resplendent in courtly robes. Word had reached the southern <span class="hint" hint="Dracai">Dracai</span> and roused them to honor their blood with fealty and fire.</p>
+<p>"We both walk out of here, Fang," Cindra said. "The dynasty demands it." Her daggers burned and hovered before her, primed to attack. "Kindle your fires."</p>
+<p>Fang struck his daggers together, dragging blade across blade to hone them. "Sharpen your claws," he growled.</p>
+<p>They turned to meet their fate - the Children of the Dragon facing the Children of Chaos within this twisted apocalypse at the edge of the world.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/17-the-hunted/hunter-and-hunted-both.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/17-the-hunted/splinter-soul.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/17-the-hunted/hunter-and-hunted-both.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/17-the-hunted/splinter-soul.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>
