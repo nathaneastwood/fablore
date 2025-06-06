@@ -8,7 +8,7 @@
 
 Scurv was once a pirate captain to be reckoned with, a rising star in the constellation of corsairs. Unfortunately, his regular rum habit clouded his judgement and he was stabbed in the back, both figuratively and literally, by his own first mate. He survived, but was fished out of the sea by the Piper's Pier Coast Guard, found guilty of piracy, and sentenced to incarceration at Graystone Penitentiary.
 
-Though prison life was tough for a couple of years, Scurv made life easier by organiZing a rum smuggling ring to keep himself and some of the most dangerous inmates merrily sozzled. This he achieved with the help of a strangely intelligent octopus, Sticky Fingers, who Scurv met while careening one of the prison's barges. The two established a larcenous trade where Scurv pickpocketed trinkets from the guards and privileged prisoners, trading them for the rum Sticky could swipe from the incoming supply ships.
+Though prison life was tough for a couple of years, Scurv made life easier by organizing a rum smuggling ring to keep himself and some of the most dangerous inmates merrily sozzled. This he achieved with the help of a strangely intelligent octopus, Sticky Fingers, who Scurv met while careening one of the prison's barges. The two established a larcenous trade where Scurv pickpocketed trinkets from the guards and privileged prisoners, trading them for the rum Sticky could swipe from the incoming supply ships.
 
 Eventually, the two put their cross-species noggins together and orchestrated Scurv's escape. After a crafty plan involving the warden's bloomers collection, a bad-crab sandwich, and a pufferfish, Scurv was free to roam with his bestest cephalopod pal.
 
