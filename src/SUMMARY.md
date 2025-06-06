@@ -106,6 +106,7 @@
     - [Puffin](heroes-of-rathe/puffin-about.md)
     - [Rhinar](heroes-of-rathe/rhinar-about.md)
     - [Riptide](heroes-of-rathe/riptide-about.md)
+    - [Scurv](heroes-of-rathe/scurv-about.md)
     - [Shiyana](heroes-of-rathe/shiyana-about.md)
     - [Teklovossen](heroes-of-rathe/teklovossen-about.md)
     - [Terra](heroes-of-rathe/terra-about.md)
