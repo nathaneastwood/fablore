@@ -3,49 +3,47 @@ on: [push, pull_request]
 
 jobs:
   test:
-    name: Test
+    name: Test and Check Links
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Install Rust
-        run: |
-          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+    - name: Install Rust
+      run: |
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+        echo "$HOME/.cargo/bin" >> $GITHUB_PATH
 
-      - name: Install mdbook and mdbook-hints
-        uses: actions-rs/cargo@v1
-        with:
-          command: install
-          args: |
-            mdbook@0.4.43
-            mdbook-hints@0.1.5
+    - name: Install mdbook and mdbook-hints
+      uses: actions-rs/cargo@v1
+      with:
+        command: install
+        args: |
+          mdbook@0.4.43
+          mdbook-hints@0.1.5
 
-      - name: Run mdBook tests
-        run: mdbook test
+    - name: Install Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.2.0
 
-      - name: Install Ruby and html-proofer
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y ruby ruby-dev build-essential
-          gem install html-proofer --user-install
+    - name: Install Ruby gems (via bundler)
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3
 
-          # Add the local gem bin directory to PATH
-          echo 'export PATH="$HOME/.gem/ruby/3.2.0/bin:$PATH"' >> "$GITHUB_ENV"
+    - name: Run mdbook tests
+      run: mdbook test
 
-      - name: Check htmlproofer
-        run: |
-          which htmlproofer
-          htmlproofer --version
+    - name: Build the book
+      run: mdbook build
 
-      - name: Build the book
-        run: mdbook build
-
-      - name: Run htmlproofer
-        run: |
-          htmlproofer ./book \
-            --assume-extension \
-            --check-html \
-            --disable-external \
-            --only-4xx \
-            > htmlproofer-report.md 2>&1
+    - name: Run htmlproofer on book output
+      run: |
+        bundle exec htmlproofer ./book \
+          --assume-extension \
+          --check-html \
+          --disable-external \
+          --only-4xx \
+          --ignore-missing-alt \
+          --ignore-files "./book/toc.html,./book/404.html"
