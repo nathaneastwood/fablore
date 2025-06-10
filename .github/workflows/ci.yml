@@ -6,20 +6,38 @@ jobs:
     name: Test
     runs-on: ubuntu-24.04
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Install Rust
-      run: |
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-        echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+      - name: Install Rust
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
 
-    - name: Install mdbook and mdbook-hints
-      uses: actions-rs/cargo@v1
-      with:
-        command: install
-        args: |
-          mdbook@0.4.43
-          mdbook-hints@0.1.5
+      - name: Install mdbook and mdbook-hints
+        uses: actions-rs/cargo@v1
+        with:
+          command: install
+          args: |
+            mdbook@0.4.43
+            mdbook-hints@0.1.5
 
-    - name: Run tests
-      run: mdbook test
+      - name: Run mdBook tests
+        run: mdbook test
+
+      - name: Install Ruby and html-proofer
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ruby ruby-dev build-essential
+          gem install html-proofer
+
+      - name: Build the book
+        run: mdbook build
+
+      - name: Run htmlproofer
+        run: |
+          htmlproofer ./book \
+            --assume-extension \
+            --check-html \
+            --disable-external \
+            --only-4xx \
+            > htmlproofer-report.md 2>&1
