@@ -2,80 +2,107 @@
 
 # fablore
 
-<a href="https://www.buymeacoffee.com/nathaneastwood"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a beer&emoji=🍺&slug=nathaneastwood&button_colour=ef60a3&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=FFDD00" /></a>
+[![Build Status](https://github.com/nathaneastwood/fablore/actions/workflows/ci.yml/badge.svg)](https://github.com/nathaneastwood/fablore/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Flegendarystories.net)](https://legendarystories.net)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-%E2%98%95-ef61a3.svg)](https://www.buymeacoffee.com/nathaneastwood)
 
-This repository contains the source of the [fablore](https://nathaneastwood.github.io/fablore/) book. This is a web book aiming to contain all known official Flesh and Blood lore. The book is built using [mdBook](https://github.com/rust-lang/mdBook).
+**fablore** is the source repository for [Legendary Stories](https://legendarystories.net/), a community-curated digital archive of all known official *Flesh and Blood* lore. The site is built using [mdBook](https://github.com/rust-lang/mdBook).
 
-<p align="right">
-(<a href="#readme-top">back to top</a>)
-</p>
+## 🚀 Getting Started
 
-## Building the Book
+### Prerequisites
 
-To build the book for yourself, make sure you have installed mdBook and then:
+* Install [mdBook](https://github.com/rust-lang/mdBook)
+* Clone the repository:
 
-```
+```bash
 git clone https://github.com/nathaneastwood/fablore.git
 cd fablore
+```
+
+### Build the Book
+
+```bash
 mdbook build
 ```
 
-To host your local version you can run
+### Serve Locally
 
-```
+```bash
 mdbook serve --open
 ```
 
-<p align="right">
-(<a href="#readme-top">back to top</a>)
-</p>
+<p align="right"><a href="#readme-top">Back to top</a></p>
 
-## Images
+## 🖼️ Images
 
-When adding images to the book, be sure to convert them to [webp](https://chromium.googlesource.com/webm/libwebp) format using the `cwebp` tool.
+Images should be optimised and converted to [WebP](https://chromium.googlesource.com/webm/libwebp) format before use.
 
+Convert a directory of images like so:
+
+```bash
+for file in path/to/files/*; do cwebp "$file" -o "${file%.*}.webp"; done
 ```
-for file in path/to/file/*; do cwebp -q 70 $file -o ${file%.*}.webp; done
+
+Install `cwebp` using your system package manager, or refer to the [official installation guide](https://developers.google.com/speed/webp/download).
+
+<p align="right"><a href="#readme-top">Back to top</a></p>
+
+## 🧩 Extensions
+
+This project makes use of several mdBook extensions:
+
+### `mdbook-hints`
+
+Enable tooltips by adding the following to your `index.hbs`:
+
+```html
+<!-- Required by mdbook-hints -->
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
 ```
 
-Note, to install webp on your machine, please consult the [downloads page](https://developers.google.com/speed/webp/download) or [build instructions](https://chromium.googlesource.com/webm/libwebp/+/HEAD/doc/building.md).
+### `mdbook-pagetoc`
 
-## Extensions
+Enable per-page table of contents by modifying:
 
-This project makes use of the extensions and so you should:
+```hbs
+<main>
+   {{{ content }}}
+</main>
+```
 
-* Copy the latest [index.hbs](https://github.com/rust-lang/mdBook/blob/master/src/theme/index.hbs) file
+to:
 
-Such that you can:
+```hbs
+<main>
+  <div class="sidetoc">
+    <nav class="pagetoc"></nav>
+  </div>
+  {{{ content }}}
+</main>
+```
 
-* Include [mdbook-hints](https://github.com/caukub/mdbook-hints) with
-    ```hbs
-    <!-- Here -->
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://unpkg.com/tippy.js@6"></script>
+Ensure you're using a custom theme and have copied the latest [`index.hbs`](https://github.com/rust-lang/mdBook/blob/master/src/theme/index.hbs) as a starting point.
 
-    <!-- Custom JS scripts -->
-    ```
-* Include [mdbook-pagetoc](https://github.com/slowsage/mdbook-pagetoc) by replacing
-    ```hbs
-    <main>
-       {{{ content }}}
-    </main>
-    ```
+<p align="right"><a href="#readme-top">Back to top</a></p>
 
-    with:
+## 🔍 Link Checking with `html-proofer`
 
+To ensure all internal and external links in the built site are valid, run [`html-proofer`](https://github.com/gjtorikian/html-proofer):
 
-    ```hbs
-    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
-        {{{ content }}}
-    </main>
-    ```
+```bash
+gem install html-proofer
+htmlproofer book/ --check-html --allow-hash-href
+```
 
-## License
+This will scan the `book/` output directory after building to catch broken links, missing anchors, and malformed HTML.
 
-All code in this repository is licensed under **_MIT_**, for more information take a look at the [LICENSE](https://github.com/nathaneastwood/fablore/blob/main/LICENSE) file. All content in the book is © Legend Story Studios.
+<p align="right"><a href="#readme-top">Back to top</a></p>
 
-<p align="right">
-(<a href="#readme-top">back to top</a>)
-</p>
+## 📜 License
+
+Code in this repository is licensed under the **MIT License**. All lore content is © Legend Story Studios. See [LICENSE](./LICENSE) for details.
+
+<p align="right"><a href="#readme-top">Back to top</a></p>
