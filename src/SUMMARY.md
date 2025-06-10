@@ -305,6 +305,7 @@
     - [Part the Mistveil](digital-tiles/15-part-the-mistveil/part-the-mistveil.md)
     - [Rosetta](digital-tiles/16-rosetta/rosetta.md)
     - [The Hunted](digital-tiles/17-the-hunted/the-hunted.md)
+    - [High Seas](digital-tiles/18-high-seas/high-seas.md)
 
 - [Data](data/data.md)
     - [Characters](data/characters.md)
