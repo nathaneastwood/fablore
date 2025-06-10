@@ -28,7 +28,15 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ruby ruby-dev build-essential
-          gem install html-proofer
+          gem install html-proofer --user-install
+
+          # Add the local gem bin directory to PATH
+          echo 'export PATH="$HOME/.gem/ruby/3.2.0/bin:$PATH"' >> "$GITHUB_ENV"
+
+      - name: Check htmlproofer
+        run: |
+          which htmlproofer
+          htmlproofer --version
 
       - name: Build the book
         run: mdbook build
