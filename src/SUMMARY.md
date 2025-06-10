@@ -342,3 +342,5 @@
 - [FAQ](faq.md)
 
 - [About](about.md)
+
+- [Support the Site](support.md)

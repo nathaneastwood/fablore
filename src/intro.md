@@ -1,19 +1,25 @@
-# Introduction
+# 🧭 Welcome to Legendary Stories
 
-This book contains the Flesh and Blood lore. All content belongs to © Legend Story Studios.
+*LegendaryStories.net* is a fan-curated archive of all official **Flesh and Blood** lore, lovingly maintained for those who want to explore the world of Rathe through its characters and stories.
 
-Pressing the search icon (🔍) in the menu bar, or pressing the S key on the keyboard will open an input box for entering search terms. Typing some terms will show matching chapters and sections in real time.
+Whether you're hunting krakens with Marlynn, plotting assassinations with Arakni, or diving into the mysteries of Solana with Prism — it's all here, organised and beautifully formatted.
 
-If you like the work that I am doing then please consider to...
+## ✨ What you'll find:
+- 📚 Every lore article published by LSS
+- 🔎 Easy navigation by hero, region, or theme (try pressing S on your keyboard!)
+- 🗃️ Highlights for deprecated/canonical stories
+- ⚡ Updated fast — often the same day as release!
 
-<a href="https://www.buymeacoffee.com/nathaneastwood"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a beer&emoji=🍺&slug=nathaneastwood&button_colour=ef60a3&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=FFDD00" /></a>
+## 🔗 Stay connected:
+- [X (formerly Twitter)](https://x.com/JumpForRoy)
+- [BlueSky](https://bsky.app/profile/legendarystories.net)
 
-## Overview
+## ☕ Like the site?
 
-For a brilliant overview of the world of Rathe, consider checking out the following video by [DeadSummer Art](https://twitter.com/DeadSummerArt?s=20):
+If you enjoy Legendary Stories and want to support the work that goes into maintaining it, you can [buy me a coffee](https://coff.ee/nathaneastwood). It helps keep the stories flowing and the lore alive.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/J-3I92wt7Ys" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<a href="https://www.buymeacoffee.com/nathaneastwood"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=nathaneastwood&button_colour=ef61a3&font_colour=000000&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" /></a>
 
-## Feedback
+---
 
-If you discover any issues with the content; find any content is missing; or have general feedback about the structure of the book, please feel free to [submit an issue](https://github.com/nathaneastwood/fablore/issues).
+©️ All content belongs to Legend Story Studios.

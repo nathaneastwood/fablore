@@ -9,3 +9,9 @@ Now, this era of peace threatens to descend into chaos once more. The people of 
 # Map of Rathe
 
 ![map-of-rathe](https://d2hl7maqck52px.cloudfront.net/world-of-rathe/map-of-rathe.webp)
+
+## Overview of Rathe
+
+For a brilliant overview of the world of Rathe, consider checking out the following video by [DeadSummer Art](https://twitter.com/DeadSummerArt?s=20):
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/J-3I92wt7Ys" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

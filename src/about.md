@@ -6,7 +6,7 @@ Legendary Stories aims to be the complete source for all Flesh and Blood lore. T
 
 ## The Developer 👨🏼‍💻
 
-Legendary Stories is created with ❤️ by Nathan Millwood. A Data Scientist / Data Engineer by trade, Nathan has been playing Flesh and Blood since August 2021.
+Legendary Stories is created with ❤️ by Nathan Eastwood. A Data Engineer by trade, Nathan has been playing Flesh and Blood since August 2021.
 
 ## Special Thanks 🙏
 
@@ -20,4 +20,4 @@ If you find any missing lore, please feel free to contact Nathan on [X](https://
 
 ## Support 😍
 
-I work hard to ensure all lore is added to the site as quickly as I can once it drops. I want Legendary Stories to be the one stop shop for finding out about your favourite heroes or locations as easily as possible. If you'd like to support the ongoing hosting costs for the site or just buy me a booster, feel free to do so [here](https://www.buymeacoffee.com/nathaneastwood). Each and every contribution is deeply appreciated and inspires me to keep the site updated.
+I work hard to ensure all lore is added to the site as quickly as I can once it drops. I want Legendary Stories to be the one stop shop for finding out about your favourite heroes or locations as easily as possible. If you'd like to support the ongoing hosting costs for the site or just buy me a booster, feel free to do so [here](https://coff.ee/nathaneastwood). Each and every contribution is deeply appreciated and inspires me to keep the site updated.
