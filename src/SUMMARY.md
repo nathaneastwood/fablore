@@ -331,6 +331,7 @@
     - [Part the Mistveil](flavour/15-part-the-mistveil.md)
     - [Rosetta](flavour/16-rosetta.md)
     - [The Hunted](flavour/17-the-hunted.md)
+    - [High Seas](flavour/18-high-seas.md)
     - [Non-Set Cards](flavour/00-non-set-cards.md)
 
 - [Spoilers](spoilers/README.md)
