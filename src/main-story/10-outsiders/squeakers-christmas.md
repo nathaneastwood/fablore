@@ -30,7 +30,7 @@ Azalea's retort is stopped short by the opening of the Tekla Toy Factory from th
 
 "Arakni's doing this for the kids?" asks Azalea with a grimace.
 
-"[Squeakers](../main-story/02-arcane-rising/slings-and-arrows.md) support squeakers," answers Lena Belle. "Besides, it's Christmas."
+"[Squeakers](../../main-story/02-arcane-rising/slings-and-arrows.md) support squeakers," answers Lena Belle. "Besides, it's Christmas."
 
 She gives the ranger a merry wink. "I still remember those socks you gave me when I was barely ten."
 

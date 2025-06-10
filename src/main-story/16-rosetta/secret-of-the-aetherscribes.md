@@ -1,6 +1,6 @@
 # Secret of the Aetherscribes
 
-The village alarms blared out a warning that sent the Voltfolk skittering for shelter like frightened [kaie'o](../../world-of-rathe/aria/creatures.md#kaieo). While thunderstorms were common enough in [Enion](../world-of-rathe/aria/the-land-of-legends.md#volthaven), a storm this wild hadn't been seen for centuries. Yet one person dared to charge away from the safety of [Volthaven](../../world-of-rathe/aria/the-land-of-legends.md#volthaven). She had better things to do than hide from some rain.
+The village alarms blared out a warning that sent the Voltfolk skittering for shelter like frightened [kaie'o](../../world-of-rathe/aria/creatures.md#kaieo). While thunderstorms were common enough in [Enion](../../world-of-rathe/aria/the-land-of-legends.md#volthaven), a storm this wild hadn't been seen for centuries. Yet one person dared to charge away from the safety of [Volthaven](../../world-of-rathe/aria/the-land-of-legends.md#volthaven). She had better things to do than hide from some rain.
 
 [Aurora](../../heroes-of-rathe/aurora-about.md) sailed over the rooftops, leaving a trail of lightning and laughter crackling in her wake.
 
@@ -86,7 +86,7 @@ No other obvious pattern emerged. Definitely a trap. She turned right and found 
 
 She opened the door and emerged back into the Boulderhead—Arcturos—whatever vault. An ornate door stood before her, and after that dizzying sequence, the last thing Aurora expected from it was a simple passage.
 
-A grid of symbols lit up when she approached, above them an inscription: "We honor the many cycles of the moon in which [Yvor](../world-of-rathe/aria/the-land-of-legends.md#volthaven) defended Enion against the Old Ones."
+A grid of symbols lit up when she approached, above them an inscription: "We honor the many cycles of the moon in which [Yvor](../../world-of-rathe/aria/the-land-of-legends.md#volthaven) defended Enion against the Old Ones."
 
 "Just like in the old stories." Aurora slid the symbols for 90 into place and cackled as the door opened. "Works for me!"
 
