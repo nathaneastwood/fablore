@@ -1,6 +1,6 @@
 # A Thousand Cuts
 
-"Not from around here, are ya kid?" The [Jawbreaker](../../continents/rathe/pits/the-maw.md#jawbreakers) goon sneered down, as his four cohorts shuffled closer to corner the young Ninja in the alleyway.
+"Not from around here, are ya kid?" The [Jawbreaker](../../regions/rathe/pits/the-maw.md#jawbreakers) goon sneered down, as his four cohorts shuffled closer to corner the young Ninja in the alleyway.
 
 [Benji](../../heroes-of-rathe/benji-about.md) stood his ground, calm as the breeze.
 

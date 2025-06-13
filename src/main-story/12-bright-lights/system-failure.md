@@ -8,7 +8,7 @@ They're all the same... even _her_.
 
 Sucks to be betrayed by the ones you trust.
 
-There's eight people in this little cell. Standing room only. You'd think the [Iron Assembly](../../continents/rathe/metrix/a-better-tomorrow.md#iron-assembly) could afford more space for its 'valued customers'. And air-conditioning. Stinks like the [Sprawl](../../continents/rathe/metrix/a-sprawling-metropolis.md#the-sprawl) in midsummer. But that's typical of the bloody corporations. Common decency hurts their bottom line. Hurts them to do anything but make more dirty money.
+There's eight people in this little cell. Standing room only. You'd think the [Iron Assembly](../../regions/rathe/metrix/a-better-tomorrow.md#iron-assembly) could afford more space for its 'valued customers'. And air-conditioning. Stinks like the [Sprawl](../../regions/rathe/metrix/a-sprawling-metropolis.md#the-sprawl) in midsummer. But that's typical of the bloody corporations. Common decency hurts their bottom line. Hurts them to do anything but make more dirty money.
 
 Drives me bonkers to think of [Dash](../../heroes-of-rathe/dash-about.md) and all the [tallics](~tallics) she'll make from her new 'friend'. Can't think of any other reason she'd stitch me up like that? Money talks and all. Law of the concrete jungle.
 
@@ -16,7 +16,7 @@ That can't be it, though? She was born privileged. That's why I'm here and she's
 
 A couple of enforcers turn up with lunch: a plain Nutrislug and a bottle of water to wash the slime down. Guess that's why it's called life imprisonment. Enforcers don't want you dying on them. Messes with their business model.
 
-There's a kid curled up in the corner. Ragged thing, only ten years old. A bruiser from [Coppertown](../../continents/rathe/metrix/a-sprawling-metropolis.md#coppertown) tries to swipe her lunch. I back him off with a head butt to the kisser. Can't be having behavior like that here. It's undignified.
+There's a kid curled up in the corner. Ragged thing, only ten years old. A bruiser from [Coppertown](../../regions/rathe/metrix/a-sprawling-metropolis.md#coppertown) tries to swipe her lunch. I back him off with a head butt to the kisser. Can't be having behavior like that here. It's undignified.
 
 The kid nods her thanks and guzzles her food and water before anyone else has a go. I know what that feels like; always on edge, just waiting for life to give you another kick. Learned it when I was young too, long before I met Princess Teklo.
 
@@ -40,7 +40,7 @@ At least I found some other kids on my wavelength. Ricky Royce was one. Nothing 
 
 We hung out for a bit, making ends meet from what we could beg or steal, until we found ourselves a 'helper'. Dash Teklo and her fancy gadgets to our rescue. A whole bag of tricks and a cozy little place to stash them. I split soon after. Never been one to take charity, especially the silver spoon princess type.
 
-I haven't seen much of the Rosario Kids since. Ricky and the others have a hideout somewhere in [Zinnia Park](../../continents/rathe/metrix/a-sprawling-metropolis.md#zinnia-park). Lena-Belle pedals her poisonous wares down in [The Pits](../../continents/rathe/pits/pits.md). Less chance of the Institute tracking us down if we keep our distance. Best left to our own devices.
+I haven't seen much of the Rosario Kids since. Ricky and the others have a hideout somewhere in [Zinnia Park](../../regions/rathe/metrix/a-sprawling-metropolis.md#zinnia-park). Lena-Belle pedals her poisonous wares down in [The Pits](../../regions/rathe/pits/pits.md). Less chance of the Institute tracking us down if we keep our distance. Best left to our own devices.
 
 Speaking of devices.
 
@@ -60,7 +60,7 @@ Through the antechamber's window I can see other enforcers in the station's main
 
 I pick off two bots and a humaniform who've dodged the stampede, winging the latter out of respect for fellow organics. I even order some auto-ambulances for the wounded and whining humaniforms staggering out the shattered front door.
 
-It's clear outside. Lovely evening. Even the smog's been carried off by some gusty breeze. Nothing to block my view of [Teklo Industries](../../continents/rathe/metrix/a-better-tomorrow.md#teklo-industries)' big, beautiful [Needle](../../continents/rathe/metrix/a-sprawling-metropolis.md#the-needle). I sight my stolen Barrel Shot at the holographic face of [Jules Teklovossen](../../heroes-of-rathe/teklovossen-about.md). He smirks at me from a dynamic billboard perched halfway up the tower. I empty the plasma mag into his smug expression. The shots fall well short of the five-kilometer distance between me and Teklo HQ, but hey, it's the thought that counts.
+It's clear outside. Lovely evening. Even the smog's been carried off by some gusty breeze. Nothing to block my view of [Teklo Industries](../../regions/rathe/metrix/a-better-tomorrow.md#teklo-industries)' big, beautiful [Needle](../../regions/rathe/metrix/a-sprawling-metropolis.md#the-needle). I sight my stolen Barrel Shot at the holographic face of [Jules Teklovossen](../../heroes-of-rathe/teklovossen-about.md). He smirks at me from a dynamic billboard perched halfway up the tower. I empty the plasma mag into his smug expression. The shots fall well short of the five-kilometer distance between me and Teklo HQ, but hey, it's the thought that counts.
 
 I toss the empty gun aside and flip Teklovossen my middle finger. Yes, I'm one to hold a grudge. They're all I have these days. Grudges with those on high, and grudges with the systems that keep them there.
 

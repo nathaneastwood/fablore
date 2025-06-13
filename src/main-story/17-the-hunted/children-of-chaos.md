@@ -28,7 +28,7 @@ A leaden silence blanketed the citadel as they moved further from the sea. No vo
 
 Fang nodded, thinking back to the garrison and village consumed by corruption. A citadel similarly swarming with corrupted bodies would be too much for them alone.
 
-They continued on, footsteps echoing in the silence. To their right, a grand temple of [Vynserakai](../../continents/rathe/volcor/welcome-to-volcor.md) loomed over tightly packed storehouses, an immense spike bursting through the temple roof. Strange symbols marked every building they passed, scrawled in blood and feces. The sigils squirmed inside his skull - whispers that tasted like black ash on his tongue. He gritted his teeth and shunned them once more.
+They continued on, footsteps echoing in the silence. To their right, a grand temple of [Vynserakai](../../regions/rathe/volcor/welcome-to-volcor.md) loomed over tightly packed storehouses, an immense spike bursting through the temple roof. Strange symbols marked every building they passed, scrawled in blood and feces. The sigils squirmed inside his skull - whispers that tasted like black ash on his tongue. He gritted his teeth and shunned them once more.
 
 "This way," Cindra said, eyes fixed on a tall stone stairway. It led up toward Chiyo's manse where crooked obsidian curled around the building like ribs around a heart.
 

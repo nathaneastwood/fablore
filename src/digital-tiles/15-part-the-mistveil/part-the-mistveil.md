@@ -27,13 +27,13 @@ Many have observed Shio, perched at the brink of the incoming tide, their gaze f
 
 ### First Tenet Of Chi Wind
 
-The ranges of [Misteria](../../continents/rathe/misteria/misteria.md), born from the clash of Ancients, stand as enduring witnesses to the scars etched upon this world. They have beckoned many to seek solace amidst their windswept peaks, offering moments of reflection and meditation.
+The ranges of [Misteria](../../regions/rathe/misteria/misteria.md), born from the clash of Ancients, stand as enduring witnesses to the scars etched upon this world. They have beckoned many to seek solace amidst their windswept peaks, offering moments of reflection and meditation.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/first-tenet-of-chi-wind.webp" alt="first-tenet-of-chi-wind" class="center" />
 
 ### Just A Nick
 
-Amidst the shroud of [Mistcloak Gully](../../continents/rathe/misteria/among-the-mists.md#mistcloak-gully) and across the expanse of the Misterian Ranges, Aui's Scales orchestrates the fate of Misteria from the veiled depths, deftly manipulating the intricate threads of destiny with each precise Maneuver to cut.
+Amidst the shroud of [Mistcloak Gully](../../regions/rathe/misteria/among-the-mists.md#mistcloak-gully) and across the expanse of the Misterian Ranges, Aui's Scales orchestrates the fate of Misteria from the veiled depths, deftly manipulating the intricate threads of destiny with each precise Maneuver to cut.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/just-a-nick.webp" alt="just-a-nick" class="center" />
 

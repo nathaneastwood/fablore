@@ -12,7 +12,7 @@ Before voyaging into undeath, Gravy Bones built his pirate name through wild bol
 
 Yet, there is one thing that even Gravy Bones couldn't frighten into submission. Time.
 
-The pirate's life takes its toll, even on those who love it so dearly, and Captain Bones foresaw his imminent end in the ebbing tides of his aging heart. So he set sail for Dreadfall Reach and a little-known necropolis harboring morbid secrets.
+The pirate's life takes its toll, even on those who love it so dearly, and Captain Bones foresaw his imminent end in the ebbing tides of his aging heart. So he set sail for [Dreadfall Reach](../regions/high-seas/dreadfall-reach/dreadfall-reach.md) and a little-known necropolis harboring morbid secrets.
 
 The terror of the sea sank beneath the surf, only to rise once more. Yet, where would a necromantic captain be without his ship and his crew? One by one, dying such deaths that only a pirate would dare, Bones' loyal mateys became his zombie horde. Even the Dreadnought herself followed suit, the ship going down with her captain.
 

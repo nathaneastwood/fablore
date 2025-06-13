@@ -16,7 +16,7 @@ In seconds, Kayo's cage is trundling along the crude railway system of the Under
 
 "I've seen this one out on the sands before—how on earth did the Arena catch him?" a fresh faced Handler asks.
 
-"Not much catching was done, to be honest. We were supposed to have an [Apophis](../../continents/rathe/volcor/wildlife.md#apophis), a big lava worm from the desert. Tracked the bloody thing for close to a week and when we found the big bastard, this mutt had gone and killed it and nearly offed himself in the process."
+"Not much catching was done, to be honest. We were supposed to have an [Apophis](../../regions/rathe/volcor/wildlife.md#apophis), a big lava worm from the desert. Tracked the bloody thing for close to a week and when we found the big bastard, this mutt had gone and killed it and nearly offed himself in the process."
 
 The young handler stares into the cage. Kayo is covered in a lifetime of scars from defending his territory, but most noticeably there are terrible burns covering sections of his limbs, where fire had engulfed the flesh beneath his armored right arm and the stump of his missing left arm. The young man accidentally meets Kayo's gaze for a brief moment, causing the creature to bellow at him in warning. The handler snaps his gaze to the floor and continues to push.
 

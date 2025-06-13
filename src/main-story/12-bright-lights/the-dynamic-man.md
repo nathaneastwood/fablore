@@ -4,7 +4,7 @@
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/the-dynamic-man-1.webp" alt="the-dynamic-man-1" class="center">
 
-[Metrix](../../continents/rathe/metrix/metrix.md). A metropolis of imagination. A place where ambition meets innovation and lives are reinvented every single day. In our pioneering past, we welcomed those ready to flee the traditions and oppressions of arcane Rathe. Together we built a city where fortunes could be made from the sweat of one's brow and the steam of one's machinery. Metrix has come a long way from those boilerplate beginnings. Technology has advanced in leaps and bounds, drawing a new generation of hopefuls to its bright lights, to promises writ large in glaring neon:
+[Metrix](../../regions/rathe/metrix/metrix.md). A metropolis of imagination. A place where ambition meets innovation and lives are reinvented every single day. In our pioneering past, we welcomed those ready to flee the traditions and oppressions of arcane Rathe. Together we built a city where fortunes could be made from the sweat of one's brow and the steam of one's machinery. Metrix has come a long way from those boilerplate beginnings. Technology has advanced in leaps and bounds, drawing a new generation of hopefuls to its bright lights, to promises writ large in glaring neon:
 
 _Become more than you are._<br>
 _Become more than human!_
@@ -17,19 +17,19 @@ What did we call this breakthrough invention? "[Teklatic-dynamism](~TeklaticDyna
 
 And do you know what Teklovossen said once he had doffed his protective eyeglasses? Once he looked upon his creation, this wonder that promised to lift us from the obscuring steam of our industrialist past?
 
-"Eat your clockwork heart out, [Cogwerx](../../continents/rathe/metrix/a-better-tomorrow.md#cogwerx-conglomerate). There's a new power in town."
+"Eat your clockwork heart out, [Cogwerx](../../regions/rathe/metrix/a-better-tomorrow.md#cogwerx-conglomerate). There's a new power in town."
 
 Excerpt from: _The Dynamic Man_
 
 ## Age of Dynamism
 
-Suspended trams slice through the steam fog on teklatic rails overhead. A few blocks away, currents of dynamism transmute helium into plasma at an unprecedented speed, fueling the great [Gigadrill Elevator](../../continents/rathe/metrix/a-sprawling-metropolis.md#gigadrill-elevator) as it pounds out [tenatan](../../continents/rathe/metrix/advent-of-science-and-technology.md#tenatan-ore) for the miners who scurry up and down the sheer cliffs of Pit 3.
+Suspended trams slice through the steam fog on teklatic rails overhead. A few blocks away, currents of dynamism transmute helium into plasma at an unprecedented speed, fueling the great [Gigadrill Elevator](../../regions/rathe/metrix/a-sprawling-metropolis.md#gigadrill-elevator) as it pounds out [tenatan](../../regions/rathe/metrix/advent-of-science-and-technology.md#tenatan-ore) for the miners who scurry up and down the sheer cliffs of Pit 3.
 
-The [Needle](../../continents/rathe/metrix/a-sprawling-metropolis.md#the-needle) towers over the site office, jagged and patchworked in its unfinished form. It reaches for the clouds with aspiring grace, as if to pin the Teklo Industries brand upon the very fabric of history. A new headquarters to usher in a fresh era for Metrix.
+The [Needle](../../regions/rathe/metrix/a-sprawling-metropolis.md#the-needle) towers over the site office, jagged and patchworked in its unfinished form. It reaches for the clouds with aspiring grace, as if to pin the Teklo Industries brand upon the very fabric of history. A new headquarters to usher in a fresh era for Metrix.
 
 Jules Teklovossen stands at the epicenter, the Evos he wears automatically steadying his swaying frame as another dizzy spell catches him off-guard.
 
-"That thing will give anyone vertigo," says the [Assembly](../../continents/rathe/metrix/a-better-tomorrow.md#iron-assembly) Inspector as he enters the site. "Joking aside though, are you alright, Professor?" The man sounds genuinely concerned, but Teklovossen can tell from the official's body language that it's feigned.
+"That thing will give anyone vertigo," says the [Assembly](../../regions/rathe/metrix/a-better-tomorrow.md#iron-assembly) Inspector as he enters the site. "Joking aside though, are you alright, Professor?" The man sounds genuinely concerned, but Teklovossen can tell from the official's body language that it's feigned.
 
 "The sight of it makes me giddy," he covers. Maybe his bad habits are catching up with him. Over three decades of long hours in the laboratory, of living only for the work. No family. No recreation. Barely enough time spared to sleep and eat. A life devoted to the founding and building of Teklo Industries. A passion committed to progress.
 

@@ -2,15 +2,15 @@
 
 Few bards can draw a crowd like the glamorous [Melody](../../heroes-of-rathe/melody-about.md). Her scintillating songs are exotic and enthralling. With her trusty four-string slung over her dusty travel cloak, this minstrel has traveled to hundreds of places, been greeted by thousands of faces, and left her musical mark on them all.
 
-The stroke of her bow upon the strings is like the touch of a long-awaited lover. Her fingers flutter upon the board like butterflies among the flowers of [Fensalir](../../continents/rathe/aria/a-true-sanctuary.md#fensalir). Even the ephemeral [Cesari](../../continents/rathe/aria/a-true-sanctuary.md#cesari) are attracted to her beautiful tunes. They decorate her dance floors with glittering wisps, soar overhead like twin-tailed comets. When Melody plays her violin, it is as if the [Flow](../../continents/rathe/aria/a-true-sanctuary.md#the-flow) itself has taken to song.
+The stroke of her bow upon the strings is like the touch of a long-awaited lover. Her fingers flutter upon the board like butterflies among the flowers of [Fensalir](../../regions/rathe/aria/a-true-sanctuary.md#fensalir). Even the ephemeral [Cesari](../../regions/rathe/aria/a-true-sanctuary.md#cesari) are attracted to her beautiful tunes. They decorate her dance floors with glittering wisps, soar overhead like twin-tailed comets. When Melody plays her violin, it is as if the [Flow](../../regions/rathe/aria/a-true-sanctuary.md#the-flow) itself has taken to song.
 
-In her restless journeys, Melody has seen [Aria](../../continents/rathe/aria/aria.md) suffer changes both mysterious and troubling. Hideous beasts rise from the ruptured earth. Mountain peaks are split asunder to reveal secrets both ancient and terrifying. Invaders creep through cracks in Aria's arcane defenses to pillage and plunder. And all the while, from farmer to wayfarer, rogue to [Rosetta](../../main-story/05-tales-of-aria/amongst-the-brambles.md), insidious nightmares seep into the dreams of the day.
+In her restless journeys, Melody has seen [Aria](../../regions/rathe/aria/aria.md) suffer changes both mysterious and troubling. Hideous beasts rise from the ruptured earth. Mountain peaks are split asunder to reveal secrets both ancient and terrifying. Invaders creep through cracks in Aria's arcane defenses to pillage and plunder. And all the while, from farmer to wayfarer, rogue to [Rosetta](../../main-story/05-tales-of-aria/amongst-the-brambles.md), insidious nightmares seep into the dreams of the day.
 
 Driven to restore harmony to her discordant home, Melody now seeks out Aria's most ancient anthems, those most venerable verses that have been sung since the dawn of time. Songs of shining knights and wandering minds, of yesteryears and jacks-be-quick. Her searches take her wherever strife scars the land and scares the folk. For such is the Proverb of the Bards: "The muse cares not if it is wanted. The muse comes only to those in need."
 
-From a besieged southern town, raided by ronin, Melody drew a bold refrain to bewitch and banish the bandits back to [Misteria](../../continents/rathe/misteria/misteria.md).
+From a besieged southern town, raided by ronin, Melody drew a bold refrain to bewitch and banish the bandits back to [Misteria](../../regions/rathe/misteria/misteria.md).
 
-From the throat of a howling snowstorm, Melody plucked an ayre that would bring down an avalanche upon the machine-mounted mercenaries of [Metrix](../../continents/rathe/metrix/metrix.md).
+From the throat of a howling snowstorm, Melody plucked an ayre that would bring down an avalanche upon the machine-mounted mercenaries of [Metrix](../../regions/rathe/metrix/metrix.md).
 
 Amongst the wraith-draped trees of Askraweld, Melody dueled with the phantoms, fiddle to fiddle, soul to soul, and wrested an immortal refrain from their long-dead hands.
 

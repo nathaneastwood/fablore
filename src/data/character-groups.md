@@ -66,6 +66,13 @@
 |        4 |    The Beloved |
 |        5 |  The Steadfast |
 
+## Gods
+
+|    Name |               Culture |              Epithets |
+| ------- | --------------------- | --------------------- |
+| Absolon | [Dhani](~DhaniEmpire) | God of the great deep |
+| Nocetes |                 Dhani |          God of death |
+
 ## Heralds
 
 |     Name |                                                      Epithets |

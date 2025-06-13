@@ -6,7 +6,7 @@
 
 "You just never know with these savages."
 
-"We trained the [Brute](../../continents/rathe/savage-lands/call-of-adventure.md#brutes) well, your Majesty. You have my word that it will stay down."
+"We trained the [Brute](../../regions/rathe/savage-lands/call-of-adventure.md#brutes) well, your Majesty. You have my word that it will stay down."
 
 "Good, because if the filthy animal so much as blinks at me in the second, it'll be you in the ring next, understand?"
 

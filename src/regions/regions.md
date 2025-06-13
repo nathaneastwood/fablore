@@ -1,0 +1,3 @@
+# Regions
+
+In this section, you will find details about the regions of Rathe - the vast and varied lands that shape the world of *Flesh and Blood*. Learn about the diverse peoples who call these regions home, their cultures, histories, and the forces - both mystical and mundane - that influence their way of life. Whether you're curious about the frozen reaches of [Isenloft](./rathe/aria/the-land-of-legends.md#isenloft), the deserts of [Volcor](./rathe/volcor/volcor.md), or the bustling cities of [Metrix](./rathe/metrix/metrix.md), this section offers a gateway into the rich tapestry of the world of Rathe.

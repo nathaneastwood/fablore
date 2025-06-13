@@ -4,7 +4,7 @@
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/chane.mp4" type="video/mp4">
 </video>
 
-Deep within the [Demonastery](../continents/rathe/demonastery/demonastery.md), the Disciples of Pain work to unlock the true bounds of human potential; their goal, to free all of Rathe from the oppression of [Solana](../continents/rathe/solana/solana.md). Through embracing pain, they are able to reach a higher state of being, and surpass their own mortality.
+Deep within the [Demonastery](../regions/rathe/demonastery/demonastery.md), the Disciples of Pain work to unlock the true bounds of human potential; their goal, to free all of Rathe from the oppression of [Solana](../regions/rathe/solana/solana.md). Through embracing pain, they are able to reach a higher state of being, and surpass their own mortality.
 
 Raised within the Disciples, Chane is a gifted caster and researcher, who has wholeheartedly devoted himself to the pursuit of knowledge. Having become an apostle of the order, Chane is burdened with duty, unified with his brothers in their noble quest to protect humanity from the return of the Aesir, whose vast, arcane power would quickly overwhelm the land of Rathe. After spending many, many months researching and reading, he finally found the key; a whisper of powerful beings who could stand against the Aesir. Thus, he and his fellow disciples have sought a way to weaken the old ones and harness their arcane energy to their own ends.
 

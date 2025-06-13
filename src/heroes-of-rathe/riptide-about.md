@@ -6,7 +6,7 @@
 
 If you want something caught, Riptide is the one to catch it.
 
-From his workshop at the Seetheside docks, Riptide devises the most cunning traps in the [Pits](../continents/rathe/pits/pits.md). Beast or being, big or small, Riptide has something to ensnare them all.
+From his workshop at the Seetheside docks, Riptide devises the most cunning traps in the [Pits](../regions/rathe/pits/pits.md). Beast or being, big or small, Riptide has something to ensnare them all.
 
 A hunter of big game and lost treasures since childhood, Riptide now plies the Pits' diluvian depths, stalking the maze of swamped tunnels and sunken caves for exotic creatures and salvageable riches.
 

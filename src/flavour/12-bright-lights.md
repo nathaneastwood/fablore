@@ -14,10 +14,10 @@
 The Chrome Caverns at the desert's edge, where steel-laced winds whisper of forgotten secrets.
 
 #### Infuse Titanium - (EVO123)
-"Waddaja mean junk? There's riches here in the [Sprawl](../continents/rathe/metrix/a-sprawling-metropolis.md#the-sprawl), if ja willing to get yer hands dirty" - Kyle
+"Waddaja mean junk? There's riches here in the [Sprawl](../regions/rathe/metrix/a-sprawling-metropolis.md#the-sprawl), if ja willing to get yer hands dirty" - Kyle
 
 #### Liquid-Cooled Mayhem - (EVO065)
-"Ramp up scuttler deployment. We need more [Tenatan](../continents/rathe/metrix/advent-of-science-and-technology.md#tenatan-ore) NOW!" - Taskmaster Pyrion
+"Ramp up scuttler deployment. We need more [Tenatan](../regions/rathe/metrix/advent-of-science-and-technology.md#tenatan-ore) NOW!" - Taskmaster Pyrion
 
 #### Mechanical Strength - (EVO067)
 "We are the apex predators here. Is it not the law of nature that we should devour the weak?" - Executive Smyte, Centennial Consumables
@@ -26,7 +26,7 @@ The Chrome Caverns at the desert's edge, where steel-laced winds whisper of forg
 "It's quick or be dead in the ole Rust and Dust." - Sandy Shoo
 
 #### Quicken - (EVO250)
-[Metrix](../continents/rathe/metrix/metrix.md). City of Industry. Where the streets are paved with opportunity, and progress waits for no one!
+[Metrix](../regions/rathe/metrix/metrix.md). City of Industry. Where the streets are paved with opportunity, and progress waits for no one!
 
 #### Ratchet Up - (EVO107)
 "Rest under the shade wrought by our wise Founders, that you may venture deeper into the great Unknown." - Professor Min
@@ -35,7 +35,7 @@ The Chrome Caverns at the desert's edge, where steel-laced winds whisper of forg
 "What, this? It's the Sprawl. Don't worry bout it! T's a small price to pay for prosperity!" - Prospector Cogmire
 
 #### Scrap Prospector - (EVO137)
-What goes up must come down... to [Coppertown](../continents/rathe/metrix/a-sprawling-metropolis.md#coppertown).
+What goes up must come down... to [Coppertown](../regions/rathe/metrix/a-sprawling-metropolis.md#coppertown).
 
 #### Slay - (EVO248)
 When Light is made flesh, Light too shall bleed. - [Vynnset, the Iron Maiden](../heroes-of-rathe/vynnset-about.md)

@@ -1,12 +1,12 @@
 ### Aetherize
 
-The wizards of [Volcor](../../continents/rathe/volcor/volcor.md) draw their power from within, an innate connection to aether inherited from their distant ancestors. Only those born with this gift can utilise the fire magics of the [Dracai](~Dracai).
+The wizards of [Volcor](../../regions/rathe/volcor/volcor.md) draw their power from within, an innate connection to aether inherited from their distant ancestors. Only those born with this gift can utilise the fire magics of the [Dracai](~Dracai).
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/aetherize.webp" alt="aetherize" class="center" />
 
 ### Argh... Smash!
 
-Unfamiliar faces now frequent the jungle, a mysterious threat encroaching on the [Savage Lands](../../continents/rathe/savage-lands/savage-lands.md). These strange fiends roam between the trees, filling the air with the stench of rot and decay, a plague which seeps further into brute territory with each passing day.
+Unfamiliar faces now frequent the jungle, a mysterious threat encroaching on the [Savage Lands](../../regions/rathe/savage-lands/savage-lands.md). These strange fiends roam between the trees, filling the air with the stench of rot and decay, a plague which seeps further into brute territory with each passing day.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/argh-smash.webp" alt="argh-smash" class="center" />
 
@@ -43,7 +43,7 @@ Money ain't mean nothing to a dead man. Spend up, stock up, and prepare to fight
 
 ### Cindering Foresight
 
-Never stand against the [Emperor](../../heroes-of-rathe/emperor-about.md). Those who dare to cross the [Royal Court](../../continents/rathe/volcor/the-royal-court.md) of [Volcor](../../continents/rathe/volcor/volcor.md) will quickly find themselves in the firing line, decimated by the power of the Dracai.
+Never stand against the [Emperor](../../heroes-of-rathe/emperor-about.md). Those who dare to cross the [Royal Court](../../regions/rathe/volcor/the-royal-court.md) of [Volcor](../../regions/rathe/volcor/volcor.md) will quickly find themselves in the firing line, decimated by the power of the Dracai.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/cindering-foresight.webp" alt="cindering-foresight" class="center" />
 
@@ -67,7 +67,7 @@ As she dons her new armour, the lieutenant [Dorinthea](../../heroes-of-rathe/dor
 
 ### Coax a Commotion
 
-Sensing a change in the tides of [the Flow](../../continents/rathe/aria/a-true-sanctuary.md#the-flow), wayfarers, defenders, and heroes gather in local taverns, 'preparing' for the battle ahead.
+Sensing a change in the tides of [the Flow](../../regions/rathe/aria/a-true-sanctuary.md#the-flow), wayfarers, defenders, and heroes gather in local taverns, 'preparing' for the battle ahead.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/coax-a-commotion.webp" alt="coax-a-commotion" class="center" />
 
@@ -79,7 +79,7 @@ While the guardians of old have long since departed this world, their armour rem
 
 ### Dread Triptych
 
-[íArathael](../../continents/rathe/demonastery/the-gateway-to-iarathael.md) lies within our reach; a realm ripe for the picking, teeming with arcane power. You think you've seen real power? You haven't seen anything yet.
+[íArathael](../../regions/rathe/demonastery/the-gateway-to-iarathael.md) lies within our reach; a realm ripe for the picking, teeming with arcane power. You think you've seen real power? You haven't seen anything yet.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/dread-triptych.webp" alt="dread-triptych" class="center" />
 
@@ -91,7 +91,7 @@ In the Broken Chariot, where even the slightest advantage can change your fate, 
 
 ### Gaze the Ages
 
-Within the [Demonastery](../../continents/rathe/demonastery/demonastery.md), a small group of wizards devote themselves to the study of the beyond, a hidden realm which lies just out of reach. They would sacrifice their lives for just one, fleeting glimpse of what lies behind the veil.
+Within the [Demonastery](../../regions/rathe/demonastery/demonastery.md), a small group of wizards devote themselves to the study of the beyond, a hidden realm which lies just out of reach. They would sacrifice their lives for just one, fleeting glimpse of what lies behind the veil.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/gaze-the-ages.webp" alt="gaze-the-ages" class="center" />
 
@@ -175,19 +175,19 @@ A thousand years of fury awakened by a change in the Flow ready to be unleashed 
 
 ### Skullhorn
 
-"The Azeri are elusive and mysterious, lingering in the innermost depths of the [Savage Lands](../../continents/rathe/savage-lands/savage-lands.md). Despite my best efforts, I can find little evidence of their existence, save for those previous few artefacts which they leave behind." - T.H. Scarborough
+"The Azeri are elusive and mysterious, lingering in the innermost depths of the [Savage Lands](../../regions/rathe/savage-lands/savage-lands.md). Despite my best efforts, I can find little evidence of their existence, save for those previous few artefacts which they leave behind." - T.H. Scarborough
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/skullhorn.webp" alt="skullhorn" class="center" />
 
 ### Sledge of Anvilheim
 
-After centuries of slumber, horns echo throughout the valleys and the plains, calling on the people to take up arms and defend their beloved home. For the first time in generations, [Aria](../../continents/rathe/aria/aria.md) prepares for war.
+After centuries of slumber, horns echo throughout the valleys and the plains, calling on the people to take up arms and defend their beloved home. For the first time in generations, [Aria](../../regions/rathe/aria/aria.md) prepares for war.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/sledge-of-anvilheim.webp" alt="sledge-of-anvilheim" class="center" />
 
 ### Spoils of War
 
-General Ekoda watches as his men descend upon the village like a rain of fire, the embodiment of the Phoenix Cycle which commands all of [Volcor](../../continents/rathe/volcor/volcor.md). In purging the weak, only the strong will remain. Once his men finish looting their supplied, the farmland will be burned to the ground, leaving Lord Sabuto with no choice but to submit.
+General Ekoda watches as his men descend upon the village like a rain of fire, the embodiment of the Phoenix Cycle which commands all of [Volcor](../../regions/rathe/volcor/volcor.md). In purging the weak, only the strong will remain. Once his men finish looting their supplied, the farmland will be burned to the ground, leaving Lord Sabuto with no choice but to submit.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/spoils-of-war.webp" alt="spoils-of-war" class="center" />
 
@@ -211,19 +211,19 @@ Despite the thick coating of dust, the blade holds a certain majesty about it; t
 
 ### [Teklovossen](../../heroes-of-rathe/teklovossen-about.md)'s Workshop
 
-The Greatest minds of [Metrix](../../continents/rathe/metrix/metrix.md) are held in high esteem, their workshops put on display for future generations; a source of inspiration for those who seek to follow in their footsteps.
+The Greatest minds of [Metrix](../../regions/rathe/metrix/metrix.md) are held in high esteem, their workshops put on display for future generations; a source of inspiration for those who seek to follow in their footsteps.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/teklovossens-workshop.webp" alt="teklovossens-workshop" class="center" />
 
 ### Towering Titan
 
-This ancient guardian stands watch over the entrance into [Aria](../../continents/rathe/aria/aria.md), a tribute to those who came before.
+This ancient guardian stands watch over the entrance into [Aria](../../regions/rathe/aria/aria.md), a tribute to those who came before.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/towering-titan.webp" alt="towering-titan" class="center" />
 
 ### Tripwire Trap
 
-The denizens of the [Pits](../../continents/rathe/pits/pits.md) are used to the harsh realities of survival. This is just one more horror to endure.
+The denizens of the [Pits](../../regions/rathe/pits/pits.md) are used to the harsh realities of survival. This is just one more horror to endure.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/tripwire-trap.webp" alt="tripwire-trap" class="center" />
 

@@ -6,7 +6,7 @@ Kraken ragout, kulpie terrine, sawmaw soufflé - there was nary an ingredient [G
 
 ### Dead Threads
 
-Discovered among the possessions of the Dhani death-mage Thanuella, this grim relic casts doubt on the true nature and purpose of the necrophage. Was the curse of Dreadfall Reach no mistake? If its creators were prepared to resist it, then why were they undone by it?
+Discovered among the possessions of the [Dhani](~DhaniEmpire) death-mage Thanuella, this grim relic casts doubt on the true nature and purpose of the necrophage. Was the curse of [Dreadfall Reach](../../regions/high-seas/dreadfall-reach/dreadfall-reach.md) no mistake? If its creators were prepared to resist it, then why were they undone by it?
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/dead-threads.webp" alt="dead-threads" class="center" />
 

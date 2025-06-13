@@ -1,8 +1,8 @@
 # The Iconoclast Trials
 
-[Patient 1413](../../heroes-of-rathe/arakni-about.md#arakni-solitary-confinement) came into my care after an 'incident' at Shuntswitch Railway Station. From what I could gather from eyewitness accounts, the youth appeared in the aftermath of an attack by alchemical mutants-those post-people colloquially known as [dregs](../../continents/rathe/pits/blackjacks-mercenary-group.md#dregs).
+[Patient 1413](../../heroes-of-rathe/arakni-about.md#arakni-solitary-confinement) came into my care after an 'incident' at Shuntswitch Railway Station. From what I could gather from eyewitness accounts, the youth appeared in the aftermath of an attack by alchemical mutants-those post-people colloquially known as [dregs](../../regions/rathe/pits/blackjacks-mercenary-group.md#dregs).
 
-A sortie of said specimens emerged from the tunnels of the Skein and assaulted the shroom farmers who use the Shuntswitch line for supply and distribution. Armed with only hammers and sickles, the rail workers and farmers dispatched a baker's dozen of the wretches before the rest fled back into the depths of the [Pits](../../continents/rathe/pits/pits.md).
+A sortie of said specimens emerged from the tunnels of the Skein and assaulted the shroom farmers who use the Shuntswitch line for supply and distribution. Armed with only hammers and sickles, the rail workers and farmers dispatched a baker's dozen of the wretches before the rest fled back into the depths of the [Pits](../../regions/rathe/pits/pits.md).
 
 A train driver found the youth soon after, clinging like a rust spider to one of the loading cranes. After quite the fracas, and no small number of minor injuries, the youth was subdued and brought to Southmaw Asylum where I took them into custody for study and treatment.
 
@@ -49,7 +49,7 @@ Shrewd eyes look them up and down. Balanced on the roof's ridge, the figure's st
 
 She turns, pauses, then looks back over her shoulder. Her smile is like a cold flash of steel in the hot and heavy night. "Come on, then."
 
-Without question, 1413 follows her over the rooftops of [The Maw](../../continents/rathe/pits/the-maw.md), trailing her downward into the Pits. It's a homecoming, of sorts. The familiar tunnels oozing with fresh promise. 1413 doesn't know where they're going, but it can't be worse than where they've been.
+Without question, 1413 follows her over the rooftops of [The Maw](../../regions/rathe/pits/the-maw.md), trailing her downward into the Pits. It's a homecoming, of sorts. The familiar tunnels oozing with fresh promise. 1413 doesn't know where they're going, but it can't be worse than where they've been.
 
 ---
 

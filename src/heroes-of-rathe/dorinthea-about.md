@@ -4,7 +4,7 @@
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dorinthea.mp4" type="video/mp4">
 </video>
 
-A young lieutenant in the Hand of Sol, Dorinthea Ironsong has dedicated her life to defending the people of [Solana](../continents/rathe/solana/solana.md). Once, her kind heart and natural curiosity lead her to question her elders, forgoing the orders of her superiors in favour of following her heart. Yet her brash actions put the party in danger, and her fellow knights paid for her mistake with their lives. Thea has since learned to follow the wisdom of Sol in all aspects of her life, vowing to honour the memory of those that were lost that fateful day.
+A young lieutenant in the Hand of Sol, Dorinthea Ironsong has dedicated her life to defending the people of [Solana](../regions/rathe/solana/solana.md). Once, her kind heart and natural curiosity lead her to question her elders, forgoing the orders of her superiors in favour of following her heart. Yet her brash actions put the party in danger, and her fellow knights paid for her mistake with their lives. Thea has since learned to follow the wisdom of Sol in all aspects of her life, vowing to honour the memory of those that were lost that fateful day.
 
 Thea is a formidable opponent on the battlefield, a prodigy swordswoman who uses both skill and strategy to her advantage. Wielding the Dawnblade, she is graceful and nimble, darting past her opponent's defenses to make every attack count.
 

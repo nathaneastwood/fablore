@@ -4,13 +4,13 @@
 "Perfect strands of red drawn out by a perfectly angled blade. It's an art form few can appreciate." - [Arakni](../heroes-of-rathe/arakni-about.md), Huntsman
 
 #### Bloodrot Pox - (OUT234)
-"We are trumpeters of Their return, that even the deaf can hear Their footsteps drawing near." - book of the raven, [l'Apocalypta](../continents/rathe/pits/blackjacks-mercenary-group.md#lapocalypta)
+"We are trumpeters of Their return, that even the deaf can hear Their footsteps drawing near." - book of the raven, [l'Apocalypta](../regions/rathe/pits/blackjacks-mercenary-group.md#lapocalypta)
 
 #### Concealed Blade - (OUT143)
 "Always pack the right tools for the job" - Akuo, Spider Operative
 
 #### Death Touch - (OUT164)
-"Inoculate yourself with this merciful madness, that you may survive the horrors to come..." - book of the raven, [l'Apocalypta](../continents/rathe/pits/blackjacks-mercenary-group.md#lapocalypta)
+"Inoculate yourself with this merciful madness, that you may survive the horrors to come..." - book of the raven, [l'Apocalypta](../regions/rathe/pits/blackjacks-mercenary-group.md#lapocalypta)
 
 #### Destructive Deliberation - (OUT206)
 Dis will blow your MIND!" - Suraj the Oracle

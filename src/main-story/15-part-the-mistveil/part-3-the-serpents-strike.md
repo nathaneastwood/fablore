@@ -16,13 +16,13 @@ She taps the spent tobacco into a porcelain bowl, places the slender pipe on the
 
 Satsuki's face becomes a mask of calm confidence. She found her way to the teahouse in another time, another place. Skin and bones, filthy and ragged, shivering upon the doorstep.
 
-Nuu took her in immediately, Sutsuki's sorrow a reflection of Nuu's own. [Misteria](../../continents/rathe/misteria/misteria.md) is a land of plenty, yet it is not always kind. As with all of her Vipressa, her assassins of seduction, life taught Satsuki to bear pain. Nuu taught her how to control it.
+Nuu took her in immediately, Sutsuki's sorrow a reflection of Nuu's own. [Misteria](../../regions/rathe/misteria/misteria.md) is a land of plenty, yet it is not always kind. As with all of her Vipressa, her assassins of seduction, life taught Satsuki to bear pain. Nuu taught her how to control it.
 
 "Before tending to your suitors, pass the word that my guest must be bathed and perfumed. While our master tailor has sullied his cloth, there is no need for me to suffer his mistakes."
 
 The Vipressa stands and bows, then sweeps out of the room.
 
-Nuu stretches luxuriously before moving to the large window that looks out over [Mistcloak Gully](../../continents/rathe/misteria/among-the-mists.md#mistcloak-gully). She hisses gently to herself, venting a little of the anxiety she hides so deftly from her servants and patrons.
+Nuu stretches luxuriously before moving to the large window that looks out over [Mistcloak Gully](../../regions/rathe/misteria/among-the-mists.md#mistcloak-gully). She hisses gently to herself, venting a little of the anxiety she hides so deftly from her servants and patrons.
 
 Of all the places it might appear in Misteria, why has the teahouse brought her back here?
 

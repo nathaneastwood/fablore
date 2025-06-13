@@ -6,7 +6,7 @@
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-1.webp" alt="synthetic-futures-1" class="center" />
 
-So excited is Maxx by this notion of wanton destruction that he slops his Amygdazzla onto the already sticky floor of his [Lowlake](../../continents/rathe/metrix/a-sprawling-metropolis.md#lowlake) hideout.
+So excited is Maxx by this notion of wanton destruction that he slops his Amygdazzla onto the already sticky floor of his [Lowlake](../../regions/rathe/metrix/a-sprawling-metropolis.md#lowlake) hideout.
 
 The half-circle of rainbow-haired, kitsch-garbed anarchists snarl their collective agreement and add more slopped fizz to the growing puddle.
 
@@ -36,7 +36,7 @@ The mere mention of the e-word makes the anarchists twitchy. Particularly Maxx. 
 
 "Riiiiiight," she says, deeply skeptical. "That explains the venue. Last place _anyone_ would want to look."
 
-Circuit Breaker, a sour-synth band from [The Sprawl](../../continents/rathe/metrix/a-sprawling-metropolis.md#the-sprawl), starts up another sullen lullaby to urban disaffection from a low stage in the corner. Their off-tone notes suit the off-color walls and pungently off odor.
+Circuit Breaker, a sour-synth band from [The Sprawl](../../regions/rathe/metrix/a-sprawling-metropolis.md#the-sprawl), starts up another sullen lullaby to urban disaffection from a low stage in the corner. Their off-tone notes suit the off-color walls and pungently off odor.
 
 "Too right," agrees Maxx, missing the sarcasm. "Got to adapt. They're getting smarter, you know."
 
@@ -56,9 +56,9 @@ The other anarchists look at each other, suddenly shifty as rats in a refuse sta
 
 "Where would _you_ start?" Maxx throws back at her.
 
-Dash thinks it over. Although the last ten years have seen a rapid increase in [Teklo Industries](../../continents/rathe/metrix/a-better-tomorrow.md#teklo-industries)' share of the energy and apparatus markets, they're still just a drop in the bucket compared to the city's oldest and most gargantuan corporation.
+Dash thinks it over. Although the last ten years have seen a rapid increase in [Teklo Industries](../../regions/rathe/metrix/a-better-tomorrow.md#teklo-industries)' share of the energy and apparatus markets, they're still just a drop in the bucket compared to the city's oldest and most gargantuan corporation.
 
-"[Cogwerx](../../continents/rathe/metrix/a-better-tomorrow.md#cogwerx-conglomerate)," she concludes.
+"[Cogwerx](../../regions/rathe/metrix/a-better-tomorrow.md#cogwerx-conglomerate)," she concludes.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-3.webp" alt="synthetic-futures-3" class="center" />
 
@@ -90,15 +90,15 @@ She gets Maxx is out of his tinpot mind. Dash opens her mouth to say as much, bu
 
 Through thickening smoke, Dash follows Maxx to a corrugated iron wall. She covers their retreat with her pistol while he gives the barrier a solid kick. A pre-cut section of iron crashes to the ground, and Maxx drags Dash outside.
 
-She rips the mask from her face and takes in a gulp of fresh air. Well, as fresh as funky [Lowlake](../../continents/rathe/metrix/a-sprawling-metropolis.md#lowlake) ever gets.
+She rips the mask from her face and takes in a gulp of fresh air. Well, as fresh as funky [Lowlake](../../regions/rathe/metrix/a-sprawling-metropolis.md#lowlake) ever gets.
 
 "See!" stresses Maxx, his own mask now dangling around his neck. "Told you they're watching."
 
-Dash is about to reply when Maxx raises his chin to the sky, releasing an almighty howl into the technicolor cityscape. Then he bends forward, laughing into his knees like a [Pits](../../continents/rathe/pits/pits.md) hound until the last of his breath is exhaled.
+Dash is about to reply when Maxx raises his chin to the sky, releasing an almighty howl into the technicolor cityscape. Then he bends forward, laughing into his knees like a [Pits](../../regions/rathe/pits/pits.md) hound until the last of his breath is exhaled.
 
 With his nervous energy expelled, Maxx mounts a pink and green motorbike and waves for Dash to jump on. She obliges, gripping his waist for balance as they roar off into an evening of neon and noise. Overhead, the wise eyes of [Jules Teklovossen](../../heroes-of-rathe/teklovossen-about.md) watch them from a flickering billboard as his mustached mouth carefully enunciates Teklo's latest slogan, "Better than before. Better than human."
 
-Dash looks over her shoulder at the smoking building, at the enforcers, both metal and meat, pouring out onto the street. Deep down, she knows why she's here and not back in [West Rise](../../continents/rathe/metrix/a-sprawling-metropolis.md#west-rise). One hour spent with these rebels is more fun than any time spent with Teklo whitecoats. She laughs into Maxx's shoulder, a maniacal release of adrenaline and tension, as they leave the law far behind them. _Damn, freedom feels good._
+Dash looks over her shoulder at the smoking building, at the enforcers, both metal and meat, pouring out onto the street. Deep down, she knows why she's here and not back in [West Rise](../../regions/rathe/metrix/a-sprawling-metropolis.md#west-rise). One hour spent with these rebels is more fun than any time spent with Teklo whitecoats. She laughs into Maxx's shoulder, a maniacal release of adrenaline and tension, as they leave the law far behind them. _Damn, freedom feels good._
 
 ---
 
@@ -108,7 +108,7 @@ Dash yawns so hard that her ears pop.
 
 "Sorry, Mom. Rough night's sleep," Dash covers. "Must've been nervous about today."
 
-"Understandable, I suppose." Her mother passes Dash a clipboard with the day's schedule typed out in Teklo Standard. "Twenty-one [Mechanology](../../continents/rathe/metrix/advent-of-science-and-technology.md#mechanology) projects for you to survey. Don't spend more than a half hour on each one unless you want to lose even more sleep."
+"Understandable, I suppose." Her mother passes Dash a clipboard with the day's schedule typed out in Teklo Standard. "Twenty-one [Mechanology](../../regions/rathe/metrix/advent-of-science-and-technology.md#mechanology) projects for you to survey. Don't spend more than a half hour on each one unless you want to lose even more sleep."
 
 _Always the whitecoat, never the parent_. Dash's shoulders sag under the weight of all that responsibility. Her parents might relish their status as senior researchers, but damned if Dash is following in their one-trick footsteps. If only she could hop onto a motorbike and ride off into-
 
@@ -128,7 +128,7 @@ The researchers stare at her blankly, then at her clipboard with mounting appreh
 
 "Never mind," she sighs, and ticks the box.
 
-Six sanitation drones later and she's ready to flush herself down the nearest toilet. But just when she's reaching for the chain, Wyverstone opens the door to a section of [The Needle](../../continents/rathe/metrix/a-sprawling-metropolis.md#the-needle) she didn't know existed.
+Six sanitation drones later and she's ready to flush herself down the nearest toilet. But just when she's reaching for the chain, Wyverstone opens the door to a section of [The Needle](../../regions/rathe/metrix/a-sprawling-metropolis.md#the-needle) she didn't know existed.
 
 "Our secret mechrolab," states Wyverstone, like Dash couldn't work that out for herself. "The cutting edge of human-machine evolution."
 
@@ -172,7 +172,7 @@ The hologram smiles blithely. "You have a restful evening, Dash."
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-7.webp" alt="synthetic-futures-7" class="center" />
 
-At home, with her sore feet up, the setting sun painting her [East Rise](../../continents/rathe/metrix/a-sprawling-metropolis.md#east-rise) apartment in warming pink, she tries to forget about work. Yet try as she might, she can't shake those mechro-mods from her mind. Though fascinating, they just don't sit well with her. The secrecy makes sense, considering how intrusive the technology is. To her, Evos are meant to enhance the human body, not replace it. Why the tangent? Who ordered it?
+At home, with her sore feet up, the setting sun painting her [East Rise](../../regions/rathe/metrix/a-sprawling-metropolis.md#east-rise) apartment in warming pink, she tries to forget about work. Yet try as she might, she can't shake those mechro-mods from her mind. Though fascinating, they just don't sit well with her. The secrecy makes sense, considering how intrusive the technology is. To her, Evos are meant to enhance the human body, not replace it. Why the tangent? Who ordered it?
 
 She limps over to her terminal, logs into the Teklo network, and enters a few codes she's not meant to have. The sun gives way to bright city lights as she digs up a name.
 
@@ -184,7 +184,7 @@ Piecing together what she can from the patchy records, Dash finds Teklovossen as
 
 None of which syncs with the friendly mustached faux-man that greets her every morning at The Needle, nor with his glowing reputation for gentle genius and wholesome scientific endeavor. From everything she's heard about the man, Teklovossen wouldn't have okayed her Teklo Pistol, let alone surgical wetware.
 
-She codes a system-worm to impersonate Wyverstone and burrows deeper into Teklo's classified dataforts. Teklovossen covered his tracks well, leaving only a single notification, received belatedly from the [Iron Assembly](../../continents/rathe/metrix/a-better-tomorrow.md#iron-assembly), two days after Teklovossen's death.
+She codes a system-worm to impersonate Wyverstone and burrows deeper into Teklo's classified dataforts. Teklovossen covered his tracks well, leaving only a single notification, received belatedly from the [Iron Assembly](../../regions/rathe/metrix/a-better-tomorrow.md#iron-assembly), two days after Teklovossen's death.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-8.webp" alt="synthetic-futures-8" class="center" />
 
@@ -202,7 +202,7 @@ She taps out a comms number and holds her breath as it connects.
 
 "What?" crackles the voice, distorted by multiple filters and relays.
 
-"Underdog Cafe, [Coppertown](../../continents/rathe/metrix/a-sprawling-metropolis.md#coppertown). One hour. I might know how they found you."
+"Underdog Cafe, [Coppertown](../../regions/rathe/metrix/a-sprawling-metropolis.md#coppertown). One hour. I might know how they found you."
 
 ---
 

@@ -38,7 +38,7 @@ _An invitation awaits thee._<br>
 
 Another gargoyle, carved of stone, sat before her. Its expression was one of mischief, its cold, unyielding features curled into something almost resembling a smirk. As the pendant came into contact with its outstretched palm, the wall behind it began to shudder and shake, solid stone crumbling before her eyes, revealing a sliver of darkness amidst the blazing light of the rising sun. In an instant, the pendant simply disappeared, leaving only a tiny plume of white smoke.
 
-Levia inspected the opening with a small frown and, with one last glance at her surroundings, stepped through the revealed archway. The grounds of the [Demonastery](../../continents/rathe/demonastery/demonastery.md) stretched out before her, the earth concealed beneath a thick layer of fog. In the middle-distance, a great, wrought-iron gate stretched toward the sky, formed from the crossed blades of two large, grand winged statues, locked in eternal combat.
+Levia inspected the opening with a small frown and, with one last glance at her surroundings, stepped through the revealed archway. The grounds of the [Demonastery](../../regions/rathe/demonastery/demonastery.md) stretched out before her, the earth concealed beneath a thick layer of fog. In the middle-distance, a great, wrought-iron gate stretched toward the sky, formed from the crossed blades of two large, grand winged statues, locked in eternal combat.
 
 As she passed beneath the shadow of the two warring beings, Levia felt the curl of raw aether in the air; she could almost taste the sweet, cloying energies of ancient spellwork on the back of her tongue. To the left of the gate lay a small guardhouse, abandoned, and some deep, unspoken instinct at the back of her mind shuddered at the sight of the decrepit shack.
 
@@ -214,7 +214,7 @@ He chuckled darkly, and for an instant, she glimpsed the presence which lingered
 
 He grinned, gesturing to the other residents who now milled behind him, watching their interaction with thinly veiled interest.
 
-"We seek to strike at [Solana](../../continents/rathe/solana/solana.md)-the city would practically be a banquet for a power like yours. Even [Sutcliffe](~Sutcliffe) desires to take a power like theirs." Chane gestured to the head at her hip, hands outstretched. "Join us, Levia, and devour the Light."
+"We seek to strike at [Solana](../../regions/rathe/solana/solana.md)-the city would practically be a banquet for a power like yours. Even [Sutcliffe](~Sutcliffe) desires to take a power like theirs." Chane gestured to the head at her hip, hands outstretched. "Join us, Levia, and devour the Light."
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-16.webp" alt="levia-16" class="center">
 

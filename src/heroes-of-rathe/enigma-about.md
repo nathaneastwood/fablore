@@ -10,7 +10,7 @@ From the revered halls of the Immortal Lunar Shrine to the rugged peaks of the M
 
 As a custodian of the delicate equilibrium between dream and reality, Enigma ensures that harmony prevails within the realm. Beyond the scrutiny of the public eye, she attends to wayward spirits and safeguards the balance between the ethereal and the tangible, fulfilling her eternal duty as the steward of the Ledger of Ancestry.
 
-With nuanced gestures and gentle incantations, Enigma confronts the subtle disturbances that threaten to disrupt the cosmic balance, wielding her knowledge with a quiet grace and precision. Though her origins remain veiled in the mists of time, her steadfast commitment to preserving the delicate harmony of [Misteria](../continents/rathe/misteria/misteria.md) remains unwavering, her enigmatic presence serving as a subtle shield against an encroaching uncertainty.
+With nuanced gestures and gentle incantations, Enigma confronts the subtle disturbances that threaten to disrupt the cosmic balance, wielding her knowledge with a quiet grace and precision. Though her origins remain veiled in the mists of time, her steadfast commitment to preserving the delicate harmony of [Misteria](../regions/rathe/misteria/misteria.md) remains unwavering, her enigmatic presence serving as a subtle shield against an encroaching uncertainty.
 
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/moonlight-made-manifest.webp" class="hero-icon" />

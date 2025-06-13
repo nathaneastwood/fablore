@@ -1,6 +1,6 @@
 # Roll of Honor: Iyslander, Stormbind
 
-It hadn't taken very long for [Volcor](../../continents/rathe/volcor/volcor.md) to rip apart at the seams.
+It hadn't taken very long for [Volcor](../../regions/rathe/volcor/volcor.md) to rip apart at the seams.
 
 Like shreds of parchment in a furnace, centuries of order, dominion, and tradition - all consumed in flames with the single precise flick of a dagger. To be fair, [Iyslander](../../heroes-of-rathe/iyslander-about.md) hadn't known what exactly to expect when she returned to the realm of the [Dracai](~Dracai), but she certainly hadn't anticipated the sudden fall of the empire. Volcor had been reduced to a playground for squabbling factions who tore at each other's throats, desperately scrambling to seize control of the crumbling royal estate. It only meant more pain and hardship for innocent civilians unlucky enough to be caught in the crossfire.
 

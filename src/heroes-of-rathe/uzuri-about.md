@@ -8,13 +8,13 @@ Few dare challenge the Boss.
 
 Unless they want a contract on their head.
 
-Unless they want to be slaughtered by her nestlings, their dismembered body left out for the [dregs](../continents/rathe/pits/blackjacks-mercenary-group.md#dregs) in a cavern down below.
+Unless they want to be slaughtered by her nestlings, their dismembered body left out for the [dregs](../regions/rathe/pits/blackjacks-mercenary-group.md#dregs) in a cavern down below.
 
 The daughter of a merchant mother and gangster father, Uzuri grew up with one foot in each world, her mind armed with the tricks of both trades.
 
-With her history torn between [Metrix](../continents/rathe/metrix/metrix.md) and [Misteria](../continents/rathe/misteria/misteria.md), Uzuri chose the path less traditional into the gangland underbelly of the [Pits](../continents/rathe/pits/pits.md), where chaos and order collude over organized crimes.
+With her history torn between [Metrix](../regions/rathe/metrix/metrix.md) and [Misteria](../regions/rathe/misteria/misteria.md), Uzuri chose the path less traditional into the gangland underbelly of the [Pits](../regions/rathe/pits/pits.md), where chaos and order collude over organized crimes.
 
-Her only allegiance lies with the mysterious [Spider](../continents/rathe/pits/blackjacks-mercenary-group.md#the-spider) and its interlacing web of contract killers. For the right price, Uzuri is the mastermind; an assassin of remarkable skill who makes the mark and secures their demise. Tidy is how she likes it. No loose ends.
+Her only allegiance lies with the mysterious [Spider](../regions/rathe/pits/blackjacks-mercenary-group.md#the-spider) and its interlacing web of contract killers. For the right price, Uzuri is the mastermind; an assassin of remarkable skill who makes the mark and secures their demise. Tidy is how she likes it. No loose ends.
 
 Uzuri's tactics are always one step ahead, and her weapons easily supplanted for another in the blink of an eye. She pictures every pathway, predicts every consequence, and uses this ability to weave the threads-like a boss.
 

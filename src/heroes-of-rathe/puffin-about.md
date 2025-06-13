@@ -10,7 +10,7 @@ An explorer and treasure hunter with an insatiable curiosity, this airfaring fre
 
 Before throwing caution and conformity to the wind, Puffin toiled as an airship mechanic for the family firm in Piper's Pier, a dirty and dangerous job that cost her a leg. Yet she'd always dreamed of clear skies and far horizons, so when her larcenous parrot, Polly, stole a promising treasure map, she traded in her socket wrench for a spyglass and answered the call to adventure!
 
-Puffin purchased her first rickety airship, the Golden Goose, and launched her maiden voyage. With a cunning plan and plenty of cogent jury-rigging on the mechanologist's part, Puffin and Polly swiped Captain Rue's treasure chest from the very ghouls that slew him in Dreadfall Reach. Though Polly was injured during the daring caper, requiring a new wing of Puffin's fashioning, Rue's gold enabled them to expand their operation and hire a hearty crew.
+Puffin purchased her first rickety airship, the Golden Goose, and launched her maiden voyage. With a cunning plan and plenty of cogent jury-rigging on the mechanologist's part, Puffin and Polly swiped Captain Rue's treasure chest from the very ghouls that slew him in [Dreadfall Reach](../regions/high-seas/dreadfall-reach/dreadfall-reach.md). Though Polly was injured during the daring caper, requiring a new wing of Puffin's fashioning, Rue's gold enabled them to expand their operation and hire a hearty crew.
 
 She and Polly have the combined smarts and nous to waylay both merchants and marauders, though Puffin favors hit-and-run tactics over pitched battles. She's motivated by neither carnage nor conquest. It's curiosity that drives Puffin, and gold that fuels her forays.
 

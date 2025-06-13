@@ -1,6 +1,6 @@
 # Wings of Wisdom
 
-It was unlike any beast she had seen before. Scorched skin rippling with dark magic, meat-flecked battleaxe swinging haphazardly, flaming crimson eyes beneath a giant set of cruel horns. And it was heading straight for the gates of [Solana](../../continents/rathe/solana/solana.md)...
+It was unlike any beast she had seen before. Scorched skin rippling with dark magic, meat-flecked battleaxe swinging haphazardly, flaming crimson eyes beneath a giant set of cruel horns. And it was heading straight for the gates of [Solana](../../regions/rathe/solana/solana.md)...
 
 [Prism](../../heroes-of-rathe/prism-about.md) leaped into the air as her gleaming wings unfurled, and rocketed towards the beast like a thunderbolt. A flock of winged creatures attempted to intercept her, but with a flick of her wrist she blanketed herself within the shimmering folds of an Arc Light Sentinel. The golden illusions dissipated as quickly as they had appeared, leaving the flying menaces disoriented and confused.
 

@@ -6,9 +6,9 @@
 
 Arakni is the blade that strikes in the dead of night.
 
-Having crawled out from the most wretched recesses of [The Pits](../continents/rathe/pits/pits.md), Arakni has shed their past like a slurry scorpion sheds its carapace. A dagger unsheathed of morality and conscience, a weapon of sharpened mind and polished purpose.
+Having crawled out from the most wretched recesses of [The Pits](../regions/rathe/pits/pits.md), Arakni has shed their past like a slurry scorpion sheds its carapace. A dagger unsheathed of morality and conscience, a weapon of sharpened mind and polished purpose.
 
-Arakni cares nothing for the petty squabbles infecting the minds of [Rathe](../continents/rathe/rathe.md)'s denizens, nor the sweaty dealings of contract and coin. The work is their life and their life is the work.
+Arakni cares nothing for the petty squabbles infecting the minds of [Rathe](../regions/rathe/rathe.md)'s denizens, nor the sweaty dealings of contract and coin. The work is their life and their life is the work.
 
 To the murderous wannabes straining for attention in Arakni's wake, their slayings are peerless. The most notorious include a captain of industry, fed to the cogs of his grinding machines, and an artist of deadly grace, lost to the reddened morning mists of her mountainous refuge. Yet the most astonishing of those witnessed or attributed remains the head of a primal warlord mounted amongst their own skullish trophies. Fatalities unnatural and inexplicable-to the uninitiated. Killings both admired and analyzed by their fellow dealers in death.
 

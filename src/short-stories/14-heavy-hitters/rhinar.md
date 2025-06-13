@@ -2,7 +2,7 @@
 
 Fightmaster Kox set down the scroll and calmly clasped his hands together.
 
-"More than 80 [Solanian](../../continents/rathe/solana/solana.md) soldiers... and only one [Brute](../../continents/rathe/savage-lands/call-of-adventure.md#brutes)?"
+"More than 80 [Solanian](../../regions/rathe/solana/solana.md) soldiers... and only one [Brute](../../regions/rathe/savage-lands/call-of-adventure.md#brutes)?"
 
 "That's right." Replied the merchant. "We witnessed the massacre from afar as we were passing through the west range."
 
@@ -10,7 +10,7 @@ Fightmaster Kox set down the scroll and calmly clasped his hands together.
 
 "With a caravan of booze? Of course we bloody didn't!" The merchant grimaced. "Besides... anyone could see the squadron was a lost cause."
 
-"Good call." Kox stroked his chin thoughtfully. "What in [Rathe](../../continents/rathe/rathe.md) is a monster like that doing this far out of the [Savage Lands](../../continents/rathe/savage-lands/savage-lands.md)? What does it want?"
+"Good call." Kox stroked his chin thoughtfully. "What in [Rathe](../../regions/rathe/rathe.md) is a monster like that doing this far out of the [Savage Lands](../../regions/rathe/savage-lands/savage-lands.md)? What does it want?"
 
 "What drives a beast like that is beyond my understanding." The merchant sighed, pouring them both a horn of ale. "But that's why I came to see you. It was dead quiet when we picked up our cargo in Thistlefold. Folk were spooked by sightings of a terrifying creature. We didn't think much of it at the time."
 

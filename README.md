@@ -101,6 +101,10 @@ This will scan the `book/` output directory after building to catch broken links
 
 <p align="right"><a href="#readme-top">Back to top</a></p>
 
+## 📏 Linking Rules
+
+Heroes and documented places will have links to their respective pages. Characters, animals, plants, food, drink, etc. will have a hover over tooltip generated using [`mdbook-hints`](#mdbook-hints).
+
 ## 📜 License
 
 Code in this repository is licensed under the **MIT License**. All lore content is © Legend Story Studios. See [LICENSE](./LICENSE) for details.

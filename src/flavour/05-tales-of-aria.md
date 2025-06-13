@@ -1,7 +1,7 @@
 ## Tales of Aria
 
 #### Arcanic Shockwave - (ELE073)
-After centuries of seclusion, the Rosetta have learned to harness [Strale](../continents/rathe/aria/the-land-of-legends.md#candlehold); the power that resonates throughout their beloved forest.
+After centuries of seclusion, the Rosetta have learned to harness [Strale](../regions/rathe/aria/the-land-of-legends.md#candlehold); the power that resonates throughout their beloved forest.
 
 #### Autumn's Touch - (ELE128)
 The hand of autumn sweeps the land, guiding life towards rebirth.
@@ -10,16 +10,16 @@ The hand of autumn sweeps the land, guiding life towards rebirth.
 "Better to fight and fall than to live without hope." - Valgard Hoarfrost
 
 #### Blizzard - (ELE147)
-Between the blinding snow and biting cold, the [Bleak Expanse](../continents/rathe/aria/a-true-sanctuary.md#the-bleak-expanse) can quickly prove fatal to anyone foolish enough to traverse it.
+Between the blinding snow and biting cold, the [Bleak Expanse](../regions/rathe/aria/a-true-sanctuary.md#the-bleak-expanse) can quickly prove fatal to anyone foolish enough to traverse it.
 
 #### Break Ground - (ELE131)
-The ancient defenders of [Aria](../continents/rathe/aria/aria.md) were unyielding, crushing any threat to their home without hesitation.
+The ancient defenders of [Aria](../regions/rathe/aria/aria.md) were unyielding, crushing any threat to their home without hesitation.
 
 #### Burgeoning - (ELE134)
 Burgeon or bludgeon, the Rosetta do what they must to protect the forest.
 
 #### Earthlore Surge - (ELE137)
-Currents of earth energy rush through [Candlehold](../continents/rathe/aria/the-land-of-legends.md#candlehold) forest, swelling like the rapids of a mighty river.
+Currents of earth energy rush through [Candlehold](../regions/rathe/aria/the-land-of-legends.md#candlehold) forest, swelling like the rapids of a mighty river.
 
 #### Evergreen - (ELE119)
 "Evergreen, everlasting." - Old Aria proverb, to endure
@@ -53,13 +53,13 @@ Wherever you tread, you will feel thorns.
 He stood, unyielding, as their blood turned to ice.
 
 #### Summerwood Shelter - (ELE125)
-Those who understand the [Flow](../continents/rathe/aria/a-true-sanctuary.md#the-flow), will always find shelter in the forests of Aria.
+Those who understand the [Flow](../regions/rathe/aria/a-true-sanctuary.md#the-flow), will always find shelter in the forests of Aria.
 
 #### Tear Asunder - (ELE205)
 Heavens old, eternal cold; the Ollin's return, the Fates foretold.
 
 #### Turn Timber - (ELE010)
-The ancient [Guardians](../continents/rathe/aria/tides-of-change.md#legend-of-the-guardians) embody the elements of Aria, drawing upon the land itself.
+The ancient [Guardians](../regions/rathe/aria/tides-of-change.md#legend-of-the-guardians) embody the elements of Aria, drawing upon the land itself.
 
 #### Vela Flash - (ELE076)
 A flash amidst the darkness; a surprising spark of life.

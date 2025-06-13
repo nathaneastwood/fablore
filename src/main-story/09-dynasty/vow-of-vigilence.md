@@ -2,7 +2,7 @@
 
 No sovereign could ask for a guardian more loyal, more devoted to his duty.
 
-He was the first volunteer through the breach at Tchankem Castle, one of the bloodiest battles in [Volcor](../../continents/rathe/volcor/volcor.md)'s visceral history. The soldier who pulled his wounded commander through Serpent's Crescent on a makeshift sand skiff. The protector who shielded his lord wizard from a rival's attack, an arcane assault of such ferocity that it almost claimed his life.
+He was the first volunteer through the breach at Tchankem Castle, one of the bloodiest battles in [Volcor](../../regions/rathe/volcor/volcor.md)'s visceral history. The soldier who pulled his wounded commander through Serpent's Crescent on a makeshift sand skiff. The protector who shielded his lord wizard from a rival's attack, an arcane assault of such ferocity that it almost claimed his life.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/vow-of-vigilence-1.webp" alt="vow-of-vigilence-1" class="center">
 

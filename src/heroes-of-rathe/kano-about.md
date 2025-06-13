@@ -28,6 +28,6 @@ As a member of the royal court, Kano must inevitably take on his duty, and accep
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dragonblood.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Dragonblood</b><br>
-    Only those with the blood of the dragon can hold a position of Dracai in the royal court of <a href="https://legendarystories.net/continents/rathe/volcor/volcor.html">Volcor</a>. Being a Dracai of Aether is one part training and one lineage, and with it Kano expands on the general knowledge base of Aether to learn the arcane specialization of Draconic magic.
+    Only those with the blood of the dragon can hold a position of Dracai in the royal court of <a href="https://legendarystories.net/regions/rathe/volcor/volcor.html">Volcor</a>. Being a Dracai of Aether is one part training and one lineage, and with it Kano expands on the general knowledge base of Aether to learn the arcane specialization of Draconic magic.
   </div>
 </div>

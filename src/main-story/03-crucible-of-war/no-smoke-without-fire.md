@@ -46,11 +46,11 @@ Kassai turned her face toward the sun's silhouette, drawing her hood up with one
 
 ---
 
-The warm light of the morning sun cast the city streets in gold, illuminating the embroidered banners hanging above. A figure strolled down the ivory pavement, her hair a flaxen gold, silversteel armour gleaming, polished to a brilliant shine. The crimson cloak fluttered in the light breeze, the symbol of [Solana](../../continents/rathe/solana/solana.md) embossed onto her chestplate. Exchanging a bright smile with one of the merchants, the lieutenant bowed her head in greeting, gaze sweeping across the crowds.
+The warm light of the morning sun cast the city streets in gold, illuminating the embroidered banners hanging above. A figure strolled down the ivory pavement, her hair a flaxen gold, silversteel armour gleaming, polished to a brilliant shine. The crimson cloak fluttered in the light breeze, the symbol of [Solana](../../regions/rathe/solana/solana.md) embossed onto her chestplate. Exchanging a bright smile with one of the merchants, the lieutenant bowed her head in greeting, gaze sweeping across the crowds.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/03-crucible-of-war/no-smoke-3.webp" alt="no-smoke-3" class="center">
 
-As she passed beneath one of the stone archways of the plaza, [Dorinthea](../../heroes-of-rathe/dorinthea-about.md) glanced at the crowd around her, listening to the hum of the nearby marketplace. Buildings lined the path ahead of her, the ivory spires of the [Solarium](../../continents/rathe/solana/a-radiant-city.md#solarium) stretching above the rooftops.
+As she passed beneath one of the stone archways of the plaza, [Dorinthea](../../heroes-of-rathe/dorinthea-about.md) glanced at the crowd around her, listening to the hum of the nearby marketplace. Buildings lined the path ahead of her, the ivory spires of the [Solarium](../../regions/rathe/solana/a-radiant-city.md#solarium) stretching above the rooftops.
 
 Like a shadow passing in front of the sun, cold seeped down her spine, a sudden feeling of dread making her skin prickle with gooseflesh. Frozen, Thea wrapped her fingers around the hilt of her sword, standing perfectly still amongst the bustling crowds. From one second to the next, the city abruptly fell quiet, the day's vibrant buzz plunging into the dead silence of night.
 

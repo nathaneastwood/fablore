@@ -1,4 +1,4 @@
-A distant descendant of the first Emperor, [Kano](../../heroes-of-rathe/kano-about.md) was born with the raw power of the dragon's fire within his veins, able to summon flames as easily as breathing. As a court wizard, he lives within the royal palace, enjoying comforts unknown to the masses of [Volcor](../../continents/rathe/volcor/volcor.md).
+A distant descendant of the first Emperor, [Kano](../../heroes-of-rathe/kano-about.md) was born with the raw power of the dragon's fire within his veins, able to summon flames as easily as breathing. As a court wizard, he lives within the royal palace, enjoying comforts unknown to the masses of [Volcor](../../regions/rathe/volcor/volcor.md).
 
 In recent years, something has been stirring, slow and insidious, disrupting the flow of aether within Volcor. Wizards throughout the court have been struggling to control their innate magic, finding difficulty in casting even the simplest aetheric spell. When Kano stumbles upon a mysterious being dwelling within the body of his former mentor, he uncovers a secret that threatens to overwhelm the innermost circles of the royal court.
 

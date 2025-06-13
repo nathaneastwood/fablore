@@ -30,7 +30,7 @@ The old woman looks up at Enigma from the sketch. "If I do not play it, who will
 
 The words have even greater meaning for the Ledger of Ancestry. She has lived so many lives, yet each time she is reborn without recollection. She is Enigma now, but who was she before?
 
-"Your presence in [Misteria](../../continents/rathe/misteria/misteria.md) disrupts the balance of chi," she continues. "It is my sacred duty to return you."
+"Your presence in [Misteria](../../regions/rathe/misteria/misteria.md) disrupts the balance of chi," she continues. "It is my sacred duty to return you."
 
 Enigma draws moon glyphs in the air with the tip of her finger, writing the story of a mourning woman who finds peace at last. The mystic parchments fall into the circle like autumn leaves.
 
@@ -66,7 +66,7 @@ Cosmo shudders as if with silent laughter. Enigma, on the other hand, is not one
 
 She rests her hand on the note, reading the energy held within, then tucks it into her robes, readying herself for the unruly spirit she will soon return to the cosmos.
 
-They descend the rest of the way to [Mistcloak Gully](../../continents/rathe/misteria/among-the-mists.md#mistcloak-gully) and seek out the marauding sandals.
+They descend the rest of the way to [Mistcloak Gully](../../regions/rathe/misteria/among-the-mists.md#mistcloak-gully) and seek out the marauding sandals.
 
 After a merry chase through the paddy-field terraces below the village, Enigma corrals the frolicking footwear with a spectral shield and Cosmo absorbs the spirit from them with many a kick received while at it.
 

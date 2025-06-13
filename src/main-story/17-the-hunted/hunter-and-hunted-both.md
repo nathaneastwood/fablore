@@ -1,6 +1,6 @@
 # Hunter and Hunted Both
 
-[Cindra](../../heroes-of-rathe/cindra-about.md), [Fang](../../heroes-of-rathe/fang-about.md), and their hunting party were well clear of Deshvahan when the sun rose, the city an immense pillar of smoke at their backs. They rode hard across southern [Volcor](../../continents/rathe/volcor/volcor.md), imperial banners whipping in the wind. The troop stopped only once, trading their failing horses at an outpost garrisoned by loyalist soldiers.
+[Cindra](../../heroes-of-rathe/cindra-about.md), [Fang](../../heroes-of-rathe/fang-about.md), and their hunting party were well clear of Deshvahan when the sun rose, the city an immense pillar of smoke at their backs. They rode hard across southern [Volcor](../../regions/rathe/volcor/volcor.md), imperial banners whipping in the wind. The troop stopped only once, trading their failing horses at an outpost garrisoned by loyalist soldiers.
 
 The Obsidian Coast beckoned and they continued on, covering ground faster on fresh steeds. They skirted jagged mountains and crossed broad barren plains pocked with the hardy flora and fauna that eked out an existence in Volcor's harsh climate. These lands were known to crack open and swallow entire towns, known for veins of lava bursting forth to create new hills and mountains where none had been. To inhabit Volcor one had to be decisive, for the volatile kingdom never rested.
 
@@ -102,7 +102,7 @@ Cindra approached the gate and touched a finger to the blood.
 
 "They did this while we slept. Why not kill us all?" Yamada questioned.
 
-_And who is ‘they'?_ Cindra thought. Her eyes met Fang's, and a grim understanding passed between them.
+_And who is 'they'?_ Cindra thought. Her eyes met Fang's, and a grim understanding passed between them.
 
 "They are toying with us," Cindra said. "We are now hunter and hunted both."
 

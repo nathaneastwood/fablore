@@ -1,6 +1,6 @@
 A life on the streets has hardened [Azalea](../../heroes-of-rathe/azalea-about.md), leaving her cynical and callous. Fighting to survive, she taught herself to hunt and kill, honing her skills to a fine edge.
 
-Working out of the Blackjack's Tavern, Azalea has carved out a reputation for herself as one of the best mercenaries in the [Pits](../../continents/rathe/pits/pits.md). In contrast to the anarchy and disorder that surrounds her, Azalea carefully selects each contract, going to great lengths to secure a flawless execution.
+Working out of the Blackjack's Tavern, Azalea has carved out a reputation for herself as one of the best mercenaries in the [Pits](../../regions/rathe/pits/pits.md). In contrast to the anarchy and disorder that surrounds her, Azalea carefully selects each contract, going to great lengths to secure a flawless execution.
 
 While Azalea has come a long way, she has yet to realise that she is just one small cog in the giant, decrepit machine of the Pits...
 
@@ -22,7 +22,7 @@ Surrounded by the dead and dying, she watched as other children succumbed to the
 
 She tried to learn from everything she found, poking at the remains of those around her. Don't steal from the taverns. Don't go near the mercenaries. Never remain in the open. Avoid the brain and the organs. Never drink from the river. Don't go in the water. Don't go near the dregs. Avoid the travelling merchants. Don't ever get caught.
 
-She learned to bury herself in dust and dirt before sleeping, digging a sleeping space for herself beneath foundations. She learned to climb onto rooftops and travel above, where she could watch without being seen. She learned to create makeshift daggers from broken glass, how to avoid being noticed, which dumpsites from [Metrix](../../continents/rathe/metrix/metrix.md) weren't monitored. When she found the bow, she learned how to carve new handholds in the wood, spent weeks firing at a makeshift target. She tied cord to her arrows and went down to the water, spending hours attempting to spear a fish.
+She learned to bury herself in dust and dirt before sleeping, digging a sleeping space for herself beneath foundations. She learned to climb onto rooftops and travel above, where she could watch without being seen. She learned to create makeshift daggers from broken glass, how to avoid being noticed, which dumpsites from [Metrix](../../regions/rathe/metrix/metrix.md) weren't monitored. When she found the bow, she learned how to carve new handholds in the wood, spent weeks firing at a makeshift target. She tied cord to her arrows and went down to the water, spending hours attempting to spear a fish.
 
 It was not luck alone that kept her alive. She learned from the mistakes of others, taught herself new skills, studied the adults to find out what separated her from them. Where they got their coin, what they spent it on, their habits and routines and equipment. What allowed them to survive? She studied the mercenaries that emerged from the taverns, bearing pouches of '[tallics](~tallics), their weapons always at hand. Some became stronger, bigger, more powerful, bearing the mark of a spade and three daggers.
 

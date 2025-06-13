@@ -7,7 +7,7 @@
 _(Warning: story features content that may be upsetting to certain readers.<br>
 Viewer discretion is advised.)_
 
-[Uzuri](../../heroes-of-rathe/uzuri-about.md) savors her whisky as she stares out over the sprawling cess that is the [Pits](../../continents/rathe/pits/pits.md).
+[Uzuri](../../heroes-of-rathe/uzuri-about.md) savors her whisky as she stares out over the sprawling cess that is the [Pits](../../regions/rathe/pits/pits.md).
 
 From the balcony of The Drop, a bar she owns under an assumed name, Uzuri lets her thoughts drift with the vapors that rise from the sunless streets. She can afford this momentary luxury, for everything is in its place. Timed and measured to the nth degree.
 
@@ -27,7 +27,7 @@ Arakni climbs down from the railing and approaches Uzuri's table.
 
 They produce a scroll from under their tattered cloak and place it on the table. Uzuri raises a manicured eyebrow.
 
-"The [Emperor](../../heroes-of-rathe/emperor-about.md) of [Volcor](../../continents/rathe/volcor/volcor.md)? You didn't think to question it?"
+"The [Emperor](../../heroes-of-rathe/emperor-about.md) of [Volcor](../../regions/rathe/volcor/volcor.md)? You didn't think to question it?"
 
 Quicker than thought, Arakni stabs a knife into the parchment, right through Uzuri's signature.
 
@@ -49,7 +49,7 @@ The leading cutthroat tugs down his kerchief, revealing a cruelly handsome face.
 
 "I don't answer to you anymore," sneers Whitetail, his condescending laugh echoed by Blave and Carva. Two more of Uzuri's spider's nest turned traitor. No loss. The siblings share a lack of imagination that has oft tested Uzuri's patience.
 
-"So, who do you answer to now? Can't be the [Spider](../../continents/rathe/pits/blackjacks-mercenary-group.md#the-spider). Last time I checked, we don't pick sides." She taps the contract. "Nice forgery, by the way."
+"So, who do you answer to now? Can't be the [Spider](../../regions/rathe/pits/blackjacks-mercenary-group.md#the-spider). Last time I checked, we don't pick sides." She taps the contract. "Nice forgery, by the way."
 
 Whitetail shrugs the compliment off. "There are finer currencies than cash. What's money without power?"
 
@@ -129,21 +129,21 @@ A tip-off worth a few [tallics](~tallics) to the squeaker, but a hundred thousan
 
 He beckons for his gang to follow as he passes under the dusty, broken panes. In the wan light, the scarred leader looks like a half-cooked sausage returned to the oven for extra crisp. It's the price he's paid for his love affair with the flame. A cost he'll happily suffer, over and over, for the warming blaze and sweet scent of roasting flesh.
 
-Wick lets his eyes adjust to the gloom, the vast chamber lit only by a few green phosphor lanterns-[Metrix](../../continents/rathe/metrix/metrix.md) issue-stolen from a Blackjack's Mining compound.
+Wick lets his eyes adjust to the gloom, the vast chamber lit only by a few green phosphor lanterns-[Metrix](../../regions/rathe/metrix/metrix.md) issue-stolen from a Blackjack's Mining compound.
 
-There, tucked into a makeshift shelter of fallen detritus, a misshapen figure lies dormant, the occasional twitch a sign of sleep. Wick presses his scarred finger to the skinned surface where lips once existed-a request for discretion from his fellow [Torched](../../continents/rathe/pits/the-maw.md#torched)-then gestures for the gang to surround the prey. Arakni's reputation precedes them, but Wick doubts they'll last long against his lot. Too many, even for the Huntsman.
+There, tucked into a makeshift shelter of fallen detritus, a misshapen figure lies dormant, the occasional twitch a sign of sleep. Wick presses his scarred finger to the skinned surface where lips once existed-a request for discretion from his fellow [Torched](../../regions/rathe/pits/the-maw.md#torched)-then gestures for the gang to surround the prey. Arakni's reputation precedes them, but Wick doubts they'll last long against his lot. Too many, even for the Huntsman.
 
 He raises the spout of his flamethrower, ignites it with a spark from the starter, and shoots a gout of fire into the air. Arakni leaps off the heap, pouncing like his namesake upon one of the Torched as they rush in. The assassin's knives make swift and bloody work of the hapless ganger, but the victory is short-lived. Hemmed in by firebrands and bursts from flamethrowers, they soon lose any chance of attacking or escape. Two of Wick's bravest get close enough to hurl a net over them, bearing the quarry to the ground.
 
 A grin cracks the smooth cast of Wick's melted face. Too easy. Perhaps the Huntsman's reputation is mere speculation. Perhaps-
 
-A guttural roar derails his train of thought. From a side tunnel enters a hunched figure clad in skins and chain. With her sinewy arms, Cager hauls on a pair of leashes, restraining a brace of slavering dregs. Behind her, the rest of the [Freakshow](../../continents/rathe/pits/the-maw.md#freakshow) spills into the cave.
+A guttural roar derails his train of thought. From a side tunnel enters a hunched figure clad in skins and chain. With her sinewy arms, Cager hauls on a pair of leashes, restraining a brace of slavering dregs. Behind her, the rest of the [Freakshow](../../regions/rathe/pits/the-maw.md#freakshow) spills into the cave.
 
-As if in answer, Wick hears a belch from the other side of the cave. Hands on hips, pale gut a sweaty avalanche, Slab glowers at the Torched. His hulking [Blockheads](../../continents/rathe/pits/the-maw.md#blockheads) spread out, readying for the charge.
+As if in answer, Wick hears a belch from the other side of the cave. Hands on hips, pale gut a sweaty avalanche, Slab glowers at the Torched. His hulking [Blockheads](../../regions/rathe/pits/the-maw.md#blockheads) spread out, readying for the charge.
 
-Through the shattered glassway clatters another deplorable mob. Their bone bodyware makes a rattling racket as the [Numbskulls](../../continents/rathe/pits/the-maw.md#numbskulls) take up fighting positions. Their skeletal overseer, Marrow, raises his scimitar as if to make one of his obscene pronouncements. Whatever depravity he intended to declare drowns under the weight of an explosion to the rear of the cavern.
+Through the shattered glassway clatters another deplorable mob. Their bone bodyware makes a rattling racket as the [Numbskulls](../../regions/rathe/pits/the-maw.md#numbskulls) take up fighting positions. Their skeletal overseer, Marrow, raises his scimitar as if to make one of his obscene pronouncements. Whatever depravity he intended to declare drowns under the weight of an explosion to the rear of the cavern.
 
-The diminutive Madame Fuse dances in through the dust, followed through the fresh-blown entrance by the marching boots of her [Jawbreakers](../../continents/rathe/pits/the-maw.md#jawbreakers).
+The diminutive Madame Fuse dances in through the dust, followed through the fresh-blown entrance by the marching boots of her [Jawbreakers](../../regions/rathe/pits/the-maw.md#jawbreakers).
 
 It would seem that the squeakers have told tales to all and sundry, squeezing as many tallics from this bounty as possible. He'd threatened to slow-roast that girl over a barrel fire if she shared her news with anyone else, but who could know how many of her fellow street roaches she'd told first?
 

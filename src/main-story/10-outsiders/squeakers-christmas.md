@@ -54,7 +54,7 @@ Azalea winces for the second time that night before cautioning Dash with an urge
 
 "Trust me," assures Dash. "I have just the apparatus."
 
-She produces a clunky brass controller, draws out the antenna and taps some buttons. With a bleep and a blop, an automaton crawls out of the wagon. Before Azalea can say, "[Dregs](../../continents/rathe/pits/blackjacks-mercenary-group.md#dregs)-dammit! Enforcers," the wagon is runners-full of toys. Stolen for the squeakers, courtesy of the Expanse's most ungrateful girls and boys.
+She produces a clunky brass controller, draws out the antenna and taps some buttons. With a bleep and a blop, an automaton crawls out of the wagon. Before Azalea can say, "[Dregs](../../regions/rathe/pits/blackjacks-mercenary-group.md#dregs)-dammit! Enforcers," the wagon is runners-full of toys. Stolen for the squeakers, courtesy of the Expanse's most ungrateful girls and boys.
 
 "All aboard!" yells Dash over the approaching sirens.
 
@@ -66,7 +66,7 @@ And it _almost_ works.
 
 To the screeching of brakes, the wagon comes to a shuddering stop.
 
-"The jig is up!" Squawks a pursuing [Metrix](../../continents/rathe/metrix/metrix.md) cop. "Throw out your weapons and keep your hands in the air!"
+"The jig is up!" Squawks a pursuing [Metrix](../../regions/rathe/metrix/metrix.md) cop. "Throw out your weapons and keep your hands in the air!"
 
 Azalea shoots Lena Belle a baleful glare. "This is why I should never listen to your ideas."
 
@@ -90,7 +90,7 @@ The alchemist blushes, "You're welcome", then looks at Arakni perched nearby. It
 
 "It's an animal from Aria, apparently. A snowfawn. Do you like it?"
 
-Arakni nods, either in approval or bemusement-it's impossible to define it. Azalea hasn't seen Lena Belle this happy since she poisoned the [Blackjack](../../continents/rathe/pits/blackjacks-mercenary-group.md#blackjacks-mercenary-group) guards. The party was a success, squeakers scampering in from all corners, arm in arm. Dash laid on a magnificent feast, clocked to her expense account at Centennial Foods. And Arakni put on a pantomime, though its frightful finale dampened the festive mood. The entire event almost brought a drunken tear to the self-serving ranger's eye. A moment of weakness wiped hastily away. Mercenaries don't cry, they survive. She does, however, give in to childish excitement when a present is passed her way. Azalea tears the parcel open. Yellow with purple, blue _and_ red hearts.
+Arakni nods, either in approval or bemusement-it's impossible to define it. Azalea hasn't seen Lena Belle this happy since she poisoned the [Blackjack](../../regions/rathe/pits/blackjacks-mercenary-group.md#blackjacks-mercenary-group) guards. The party was a success, squeakers scampering in from all corners, arm in arm. Dash laid on a magnificent feast, clocked to her expense account at Centennial Foods. And Arakni put on a pantomime, though its frightful finale dampened the festive mood. The entire event almost brought a drunken tear to the self-serving ranger's eye. A moment of weakness wiped hastily away. Mercenaries don't cry, they survive. She does, however, give in to childish excitement when a present is passed her way. Azalea tears the parcel open. Yellow with purple, blue _and_ red hearts.
 
 "Socks. Again?!"
 

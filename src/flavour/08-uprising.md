@@ -1,7 +1,7 @@
 ## Uprising
 
 #### Arctic Incarceration - (UPR144)
-Tales be told, the kiss of an ice nymph draws the last breath from a soul lost to the [Bleak Expanse](../continents/rathe/aria/a-true-sanctuary.md#the-bleak-expanse).
+Tales be told, the kiss of an ice nymph draws the last breath from a soul lost to the [Bleak Expanse](../regions/rathe/aria/a-true-sanctuary.md#the-bleak-expanse).
 
 #### Blaze Headlong - (UPR092)
 The [Volcai](~Volcai) army of vigilantes, renegades, and outlaws, is like a tinderbox looking for a spark.
@@ -34,7 +34,7 @@ The old ways are not forgotten.
 The dragon of choice, said to guard the crossroads of Sandikai.
 
 #### Invoke Cromai - (UPR010)
-The dragon of engineering, said to soar over the [Metrix](../continents/rathe/metrix/metrix.md) rust belt.
+The dragon of engineering, said to soar over the [Metrix](../regions/rathe/metrix/metrix.md) rust belt.
 
 #### Invoke Dominia - (UPR008)
 The dragon of dominion, said to oppress the Volcai.
@@ -43,19 +43,19 @@ The dragon of dominion, said to oppress the Volcai.
 The dragon of devastation, said to serve only the Aesir of Flames.
 
 #### Invoke Kyloria - (UPR011)
-The dragon of greed, said to dwell in her lair deep beneath the [Pits](../continents/rathe/pits/pits.md).
+The dragon of greed, said to dwell in her lair deep beneath the [Pits](../regions/rathe/pits/pits.md).
 
 #### Invoke Miragai - (UPR012)
-The dragon of tactics, said to be adrift within the ash sprays of the [Misterian](../continents/rathe/misteria/misteria.md) coast.
+The dragon of tactics, said to be adrift within the ash sprays of the [Misterian](../regions/rathe/misteria/misteria.md) coast.
 
 #### Invoke Nekria - (UPR013)
-The dragon of decay, said to roam the crypts of the [Demonastery](../continents/rathe/demonastery/demonastery.md).
+The dragon of decay, said to roam the crypts of the [Demonastery](../regions/rathe/demonastery/demonastery.md).
 
 #### Invoke Ouvia - (UPR014)
-The dragon of fertility, said to roost within the lush caverns of [Aria](../continents/rathe/aria/aria.md).
+The dragon of fertility, said to roost within the lush caverns of [Aria](../regions/rathe/aria/aria.md).
 
 #### Invoke Themai - (UPR015)
-The dragon of law, said to watch over the golden plains of [Solana](../continents/rathe/solana/solana.md).
+The dragon of law, said to watch over the golden plains of [Solana](../regions/rathe/solana/solana.md).
 
 #### Invoke Tomeltai - (UPR007)
 The dragon of metallurgy, said to power the Imperial Furnace.
@@ -64,7 +64,7 @@ The dragon of metallurgy, said to power the Imperial Furnace.
 The dragon of aggression, said to prowl the Red Desert.
 
 #### Invoke Yendurai - (UPR017)
-The dragon of endurance, said to be rooted deep within the [Savage Lands](../continents/rathe/savage-lands/savage-lands.md).
+The dragon of endurance, said to be rooted deep within the [Savage Lands](../regions/rathe/savage-lands/savage-lands.md).
 
 #### Lava Burst - (UPR098)
 As the insurgency reached a boiling point, even the Volcai monks let their temper flare.

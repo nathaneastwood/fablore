@@ -1,6 +1,6 @@
 ### Aether Wildfire
 
-The royal bloodline runs hot through the veins of every [Dracai](~Dracai) of [Volcor](../../continents/rathe/volcor/volcor.md); the flames bow at their every whim, and pushes the force of their spells to extraordinary heights.
+The royal bloodline runs hot through the veins of every [Dracai](~Dracai) of [Volcor](../../regions/rathe/volcor/volcor.md); the flames bow at their every whim, and pushes the force of their spells to extraordinary heights.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/aether-wildfire.webp" alt="aether-wildfire" class="center" />
 
@@ -36,7 +36,7 @@ Those poor fools, lost to the Arcane and corrupted by its power. We must find th
 
 ### Bingo
 
-There she goes; fast as the wind, and juggling a thousand things! Watch your head and guard your step, for all manner of absurd shananigans may take place within the [Everfest](../../continents/rathe/aria/people-of-aria.md#the-everfest-carnival).
+There she goes; fast as the wind, and juggling a thousand things! Watch your head and guard your step, for all manner of absurd shananigans may take place within the [Everfest](../../regions/rathe/aria/people-of-aria.md#the-everfest-carnival).
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/bingo.webp" alt="bingo" class="center" />
 
@@ -62,13 +62,13 @@ It's oft a fickle line that separates reality from fantasy; a simple mirror, or 
 
 ### Dissolution Sphere
 
-A breakthrough innovation, [Cogwerx](../../continents/rathe/metrix/a-better-tomorrow.md#cogwerx-conglomerate)'s Dissolution Sphere unleashes a powerful EM field that is sure to keep the masses at bay... so that you can focus on all of the important things in life!
+A breakthrough innovation, [Cogwerx](../../regions/rathe/metrix/a-better-tomorrow.md#cogwerx-conglomerate)'s Dissolution Sphere unleashes a powerful EM field that is sure to keep the masses at bay... so that you can focus on all of the important things in life!
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/dissolution-sphere.webp" alt="dissolution-sphere" class="center" />
 
 ### Dreadbore
 
-Why even the playing field when you can play dirty!? This crude contraption from the [Pits](../../continents/rathe/pits/pits.md) will force your foes to scramble for safety. Each arrow let loose dwindles their hopes, and draws closer the realization of their fate. Cornered. Pinned down. Nothing more than target practice.
+Why even the playing field when you can play dirty!? This crude contraption from the [Pits](../../regions/rathe/pits/pits.md) will force your foes to scramble for safety. Each arrow let loose dwindles their hopes, and draws closer the realization of their fate. Cornered. Pinned down. Nothing more than target practice.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/dreadbore.webp" alt="dreadbore" class="center" />
 
@@ -82,7 +82,7 @@ Your fortitude will grow with every swing, your stamina and endurance unyielding
 
 ### Even Bigger Than That
 
-The midnight taverns are filled with the thunderous roars of many a drunken adventurer telling tall tales. What was a fish, became the Ebon Serpent, what was a cuddly [Kai'eo](../../continents/rathe/aria/creatures.md#kaieo), now a ferocious Kumiho. Though. perchance. these stories will live on to form fantastical legends, and inspire the heroes of tomorrow?
+The midnight taverns are filled with the thunderous roars of many a drunken adventurer telling tall tales. What was a fish, became the Ebon Serpent, what was a cuddly [Kai'eo](../../regions/rathe/aria/creatures.md#kaieo), now a ferocious Kumiho. Though. perchance. these stories will live on to form fantastical legends, and inspire the heroes of tomorrow?
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/even-bigger-than-that.webp" alt="even-bigger-than-that" class="center" />
 
@@ -140,7 +140,7 @@ The roar of the crowd as you flex and tussle, the admiring ooh's and aah's of ma
 
 ### Mask of the Pouncing Lynx
 
-While the [Rite of Passing](../../continents/rathe/misteria/among-the-mists.md#rite-of-passing) honors ancestors from the bygone days of old, the New Year's springtime mist leads the seven clans in the celebration of life anew. Don the Mask of the Pouncing Lynx and cause some mischief! Tis the season for fun, underneath the lazy sun.
+While the [Rite of Passing](../../regions/rathe/misteria/among-the-mists.md#rite-of-passing) honors ancestors from the bygone days of old, the New Year's springtime mist leads the seven clans in the celebration of life anew. Don the Mask of the Pouncing Lynx and cause some mischief! Tis the season for fun, underneath the lazy sun.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/mask-of-the-pouncing-lynx.webp" alt="mask-of-the-pouncing-lynx" class="center" />
 
@@ -180,7 +180,7 @@ She beckons to the fates that reside in tea leaves, and whispers of good fortune
 
 ### Potion of Déjà Vu
 
-The [Braumeisters of Aria](../../continents/rathe/aria/people-of-aria.md#braumeister) cook up all manners of strange and fanciful concoctions. Those amongst you brave enough to delve into this rainbow river, may discover for yourself the secrets of a brand new world that feels strangely familiar...
+The [Braumeisters of Aria](../../regions/rathe/aria/people-of-aria.md#braumeister) cook up all manners of strange and fanciful concoctions. Those amongst you brave enough to delve into this rainbow river, may discover for yourself the secrets of a brand new world that feels strangely familiar...
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/potion-of-deja-vu.webp" alt="potion-of-deja-vu" class="center" />
 
@@ -242,13 +242,13 @@ They called themselves the Shieldbearers; those that laughed in the face of dang
 
 ### Swarming Gloomveil
 
-The cursed grounds of the [Demonastery](../../continents/rathe/demonastery/demonastery.md) are swarming with all manner of powerful beings, pulled forth from the bowels of i'Arathael. Any assaults would be futile, without an overwhelming force of our own. - [Boltyn](../../heroes-of-rathe/boltyn-about.md)
+The cursed grounds of the [Demonastery](../../regions/rathe/demonastery/demonastery.md) are swarming with all manner of powerful beings, pulled forth from the bowels of i'Arathael. Any assaults would be futile, without an overwhelming force of our own. - [Boltyn](../../heroes-of-rathe/boltyn-about.md)
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/swarming-gloomveil.webp" alt="swarming-gloomveil" class="center" />
 
 ### Swing Big
 
-Here in the [Savage Lands](../../continents/rathe/savage-lands/savage-lands.md), one must put their all into every single swing. There's no telling whether or not you'll get another chance to overcome your prey!
+Here in the [Savage Lands](../../regions/rathe/savage-lands/savage-lands.md), one must put their all into every single swing. There's no telling whether or not you'll get another chance to overcome your prey!
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/swing-big.webp" alt="swing-big" class="center" />
 
@@ -272,7 +272,7 @@ Glory and peace to those that have come and gone, to our brethren that have fall
 
 ### Talisman of Featherfoot
 
-Soar high above your opponents with this talisman from [Skylark Peak](../../continents/rathe/misteria/the-grandmasters-guild.md#xi-the-blind-ferryman), where the transcendent monks of [Misteria](../../continents/rathe/misteria/misteria.md) sit amongst the willow cranes, as their spirits drift amongst the clouds.
+Soar high above your opponents with this talisman from [Skylark Peak](../../regions/rathe/misteria/the-grandmasters-guild.md#xi-the-blind-ferryman), where the transcendent monks of [Misteria](../../regions/rathe/misteria/misteria.md) sit amongst the willow cranes, as their spirits drift amongst the clouds.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/talisman-of-featherfoot.webp" alt="talisman-of-featherfoot" class="center" />
 
@@ -302,6 +302,6 @@ Everyone who knows how to have a blast can try their luck, so pick your favorite
 
 The memories of the past can seem so fragile in these most turbulent of times.
 
-Another wanderer, another calling from within the [Mists](../../continents/rathe/misteria/among-the-mists.md#among-the-mists), another ode of loss and vengeance, of love and hatred... when will this terrible cycle come to an end?
+Another wanderer, another calling from within the [Mists](../../regions/rathe/misteria/among-the-mists.md#among-the-mists), another ode of loss and vengeance, of love and hatred... when will this terrible cycle come to an end?
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/winds-of-eternity.webp" alt="winds-of-eternity" class="center" />

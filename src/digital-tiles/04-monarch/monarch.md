@@ -12,7 +12,7 @@ The Harvester's domain is a sea of gluttonous waste; consumption incarnate, a hu
 
 ### Deep Rooted Evil
 
-The realm of [íArathael](../../continents/rathe/demonastery/the-gateway-to-iarathael.md#the-gateway-to-íarathael) is ancient, timeless, once filled with wonders beyond mortal comprehension, yet as an undue influence seeps through the Tear, the very fabric of this realm is becoming distorted; corrupted by malice and blight.
+The realm of [íArathael](../../regions/rathe/demonastery/the-gateway-to-iarathael.md#the-gateway-to-íarathael) is ancient, timeless, once filled with wonders beyond mortal comprehension, yet as an undue influence seeps through the Tear, the very fabric of this realm is becoming distorted; corrupted by malice and blight.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/deep-rooted-evil.webp" alt="deep-rooted-evil" class="center" />
 
@@ -42,7 +42,7 @@ Forged from the darkness of the deepest night, this blade is as cold as ice, a c
 
 ### Impenetrable Belief
 
-When disaster is on your doorstep, you must keep faith that you are able to turn it aside. That is the difference between those who fall and that who stay standing. [Solana](../../continents/rathe/solana/solana.md) shall persevere!
+When disaster is on your doorstep, you must keep faith that you are able to turn it aside. That is the difference between those who fall and that who stay standing. [Solana](../../regions/rathe/solana/solana.md) shall persevere!
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/impenetrable-belief.webp" alt="impenetrable-belief" class="center" />
 

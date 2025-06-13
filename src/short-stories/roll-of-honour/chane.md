@@ -4,11 +4,11 @@ It wasn't enough.
 
 Years of research, suffering, and sacrifice... and it still wasn't enough. [Chane](../../heroes-of-rathe/chane-about.md) flung the stack of notes from his desk, showering the dark laboratory with faintly glowing leaves of parchment. He had failed. Again.
 
-[Solana](../../continents/rathe/solana/solana.md) still reigned unopposed, blinding the feeble minded with pious nonsense so they would never see the ugly truth. Chane slumped forward, rubbing his aching temples. There had to be another way, it couldn't all be for nothing. It was unacceptable.
+[Solana](../../regions/rathe/solana/solana.md) still reigned unopposed, blinding the feeble minded with pious nonsense so they would never see the ugly truth. Chane slumped forward, rubbing his aching temples. There had to be another way, it couldn't all be for nothing. It was unacceptable.
 
 "..."
 
-He froze, ears pricking at the sound. The laboratory was as silent as the grave, save for muffled shrieks emanating from some dark corridor elsewhere in the [Demonastery](../../continents/rathe/demonastery/demonastery.md). He didn't dare move a muscle, straining to hear that ominous rasp again.
+He froze, ears pricking at the sound. The laboratory was as silent as the grave, save for muffled shrieks emanating from some dark corridor elsewhere in the [Demonastery](../../regions/rathe/demonastery/demonastery.md). He didn't dare move a muscle, straining to hear that ominous rasp again.
 
 "...hhH."
 
