@@ -1,5 +1,7 @@
 # High Seas
 
+![metrix](https://d2hl7maqck52px.cloudfront.net/high-seas/high-seas.webp)
+
 Far from the continent of [Rathe](../rathe/rathe.md), the High Seas beckons the seaworthy and skyworthy. Vast and unpredictable, the waters and islands here offer peril aplenty for even the sturdiest of ships and crew.
 
 The cultures here were built upon the ruins of a long-dead Dhani Empire. Adepts of aether, the Dhani civilization was as wondrous as Rathe during the height of its Third Age. However, the Dhani grew too ambitious and destroyed their own empire in a quick succession of arcane calamities.
