@@ -1,6 +1,6 @@
 # Captain Bones and the City of Gold
 
-The [Dreadnought](~Dreadnought) rose from the depths to split the waves like a shark's fin. It glistened in the silver light of a full moon, making good its ambush as shouts of alarm erupted from the Kuraghan ship in its path.
+The [Dreadnought](~Dreadnought) rose from the depths to split the waves like a shark's fin. It glistened in the silver light of a full moon, making good its ambush as shouts of alarm erupted from the [Kuraghan](~Kuraghan) ship in its path.
 
 "Avast ye deathly layabouts!" [Captain Gravy Bones](../../heroes-of-rathe/gravy-about.md) hollered at his cadaverous crew. "Make ready to broadside and board!"
 
@@ -98,7 +98,7 @@ As the Dreadnought moved out of the cave, a great clamor arose from the Penitent
 
 A sleek airship, marked as the [Golden Goose](~GoldenGoose), rose from the prison's inner courtyard. Two more airships took to the air behind it, Gravy watching through his spyglass as the colorfully clad captain blew her pursuers out of the sky with some sort of rifle. He'd seen her before, hovering over ruins on the outskirts of [Dreadfall Reach](../../regions/high-seas/dreadfall-reach/dreadfall-reach.md).
 
-"Submerge!" he ordered, and the Dreadnought slipped beneath the waves as the Kuraghan flagship, Absolon's Dream, put out to sea. Through the rippling water, he watched the Golden Goose fly off in an eastward direction. Flying freebooters chilled the cockles of his rotten heart. He'd take the embrace of the water over the wanton winds on any deadened day.
+"Submerge!" he ordered, and the Dreadnought slipped beneath the waves as the Kuraghan flagship, [Absolon](~Absolon)'s Dream, put out to sea. Through the rippling water, he watched the Golden Goose fly off in an eastward direction. Flying freebooters chilled the cockles of his rotten heart. He'd take the embrace of the water over the wanton winds on any deadened day.
 
 Gravy charted their course as they traveled past the islets of [Port Conniver](../../regions/high-seas/port-conniver/port-conniver.md), the hours ticking over as a storm blew in from the farthest reaches of the Triangle; it rocked Absolon's Dream, while the Dreadnought enjoyed calm below the turbulent waves, though nothing with the reach of Teramundr's curse could ever be described as peaceful.
 

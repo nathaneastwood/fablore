@@ -1,4 +1,6 @@
 # hints.toml
+[Absolon]
+hint = "Dhani god of the great deep"
 [AbsolonsDream]
 hint = "Kuraghan flagship"
 [Aeronauts]
@@ -57,6 +59,8 @@ hint = "Xilin and Ira's brother."
 hint = "An illusionist, boss of the Dust Runners."
 [Korshem]
 hint = "A massive tree at the heart of Aria that shelters all who live amongst its leaves."
+[Kuraghan]
+hint = "A fanatical pirate cult formed from reconditioned convicts, the Kuraghan worship the sea god Absolon and believe dying in battle earns them an afterlife of endless pleasure."
 [Meep]
 hint = "Tiny, mischievous creatures are recognised by their long limbs and tails, and colourful feather crests."
 [Mendacity]
