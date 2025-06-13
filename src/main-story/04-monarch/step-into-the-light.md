@@ -58,7 +58,7 @@ Behind him, Boltyn heard the sharp clatter of metal against the ground, and turn
 
 While Leander grew weaker, fighting against the pull of unconsciousness, their foes only seemed to grow stronger, their attacks coming faster and faster.
 
-Standing alone, outnumbered, outmatched, and overwhelmed, Boltyn steeled himself, turning aside the dread which pooled in the pit of his stomach. He filled his mind with the memory of Aios, so young, and yet fearless even amidst the devastation of the attack on [Solana](../../world-of-rathe/solana/solana.md).
+Standing alone, outnumbered, outmatched, and overwhelmed, Boltyn steeled himself, turning aside the dread which pooled in the pit of his stomach. He filled his mind with the memory of Aios, so young, and yet fearless even amidst the devastation of the attack on [Solana](../../continents/rathe/solana/solana.md).
 
 Boltyn's determination coursed through his veins. A blazing heat which felt both fiercely protective and achingly familiar, as gentle and welcoming as a patch of warm sunlight in the dead of winter, it was yet as powerful and untamed as a forest fire. Bellona's light washed over him, and for a moment Boltyn saw nothing but the shape of her wings, flaring in the dark.
 
@@ -122,7 +122,7 @@ As he'd expected, Prism's gaze immediately snapped back to meet his, her express
 
 Prism broke into a wide grin, her gaze filled with a glaring focus Boltyn hadn't seen before.
 
-"I believe I know exactly what happened. Tell me, how much do you know about Solana and the [Demonastery](../../world-of-rathe/demonastery/demonastery.md)?" She led him toward the back of the Library, directing him toward a stained glass window that Boltyn had never taken note of before. The stained glass appeared as though it were made of gold and amber, trapping the light of the sun in a prismatic form. Within the swirls and patterns, Boltyn could make out the markings of the Heralds, somehow recognising them despite never having seen them before. His gaze was immediately drawn to Bellona's; a blade of blazing light which filled his soul with warmth.
+"I believe I know exactly what happened. Tell me, how much do you know about Solana and the [Demonastery](../../continents/rathe/demonastery/demonastery.md)?" She led him toward the back of the Library, directing him toward a stained glass window that Boltyn had never taken note of before. The stained glass appeared as though it were made of gold and amber, trapping the light of the sun in a prismatic form. Within the swirls and patterns, Boltyn could make out the markings of the Heralds, somehow recognising them despite never having seen them before. His gaze was immediately drawn to Bellona's; a blade of blazing light which filled his soul with warmth.
 
 "Only a little. I'm not sure what you teach young Solanians who aren't chosen for the Light of Sol, but I don't know much of the city's history."
 

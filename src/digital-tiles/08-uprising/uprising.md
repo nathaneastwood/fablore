@@ -36,7 +36,7 @@ Like a fallen phoenix that is reborn once more, the heart of the Volcai burns wi
 
 ### Red Hot
 
-A rising star within the Imperial Court, you have much to prove. Reclaim your birthright and gain the [Emperor](../../heroes-of-rathe/emperor-about.md)'s favor, and one day all of [Volcor](../../world-of-rathe/volcor/volcor.md) will tremble beneath your feet.
+A rising star within the Imperial Court, you have much to prove. Reclaim your birthright and gain the [Emperor](../../heroes-of-rathe/emperor-about.md)'s favor, and one day all of [Volcor](../../continents/rathe/volcor/volcor.md) will tremble beneath your feet.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/red-hot.webp" alt="red-hot" class="center" />
 

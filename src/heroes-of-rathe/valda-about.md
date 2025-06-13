@@ -28,6 +28,6 @@ There's been stirrings in the Flow, and recently, nervous chatters of ancient en
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/seismic-smackdown.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Seismic Smackdown</b><br>
-    Patrons of <a href="https://legendarystories.net/world-of-rathe/aria/aria.html">Aria</a>'s alehouses who disrespect the ladies are left with a hangover of seismic proportions when Valda's around.
+    Patrons of <a href="https://legendarystories.net/continents/rathe/aria/aria.html">Aria</a>'s alehouses who disrespect the ladies are left with a hangover of seismic proportions when Valda's around.
   </div>
 </div>

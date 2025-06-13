@@ -4,7 +4,7 @@
 (<a href="#narrated-video-by-deadsummer-art">Jump to Narrated Video</a>)
 </p>
 
-At the threshold of [Candlehold](../../world-of-rathe/aria/the-land-of-legends.md#candlehold) and the Rotwood, two worlds met but never mingled.
+At the threshold of [Candlehold](../../continents/rathe/aria/the-land-of-legends.md#candlehold) and the Rotwood, two worlds met but never mingled.
 
 Candlehold basked in perpetual sunlight, a realm of eternal summer where flowers bloomed endlessly, and time seemed suspended.
 
@@ -30,7 +30,7 @@ The beast nuzzled his hands, its face forming small cracks. As the stag withdrew
 
 Florian turned to Verdance, her shining emerald eyes almost blinding in the twilight. His lips curled into a mocking grin.
 
-"Ah, the [Queen](../../world-of-rathe/aria/the-land-of-legends.md)'s chosen rose deigns to grace the weeds with her presence. How fortunate we are."
+"Ah, the [Queen](../../continents/rathe/aria/the-land-of-legends.md)'s chosen rose deigns to grace the weeds with her presence. How fortunate we are."
 
 Verdance watched with concern as the rot crept closer, inch by inch, threatening to blemish her home.
 

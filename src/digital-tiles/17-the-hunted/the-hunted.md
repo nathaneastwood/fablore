@@ -24,7 +24,7 @@ This imposing helm, worn solely by the officers of the royal hosts, has been a s
 
 ### Oath of Loyalty
 
-The loyalist forces are aided by powerful wizards of the imperial court, these nobles paving the way with torrents of fire and infernal conjurations. Though the [Dracai](~Dracai) lords of [Volcor](../../world-of-rathe/volcor/volcor.md) are famously capricious, many swore fealty to the Emperor, considering him the mightiest mage of them all.
+The loyalist forces are aided by powerful wizards of the imperial court, these nobles paving the way with torrents of fire and infernal conjurations. Though the [Dracai](~Dracai) lords of [Volcor](../../continents/rathe/volcor/volcor.md) are famously capricious, many swore fealty to the Emperor, considering him the mightiest mage of them all.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/oath-of-loyalty.webp" alt="oath-of-loyalty" class="center" />
 

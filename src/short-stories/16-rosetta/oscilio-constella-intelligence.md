@@ -1,6 +1,6 @@
 # Oscilio, Constella Intelligence
 
-The [Queen of Candlehold](../../world-of-rathe/aria/the-land-of-legends.md) is dead, and [Aria](../../world-of-rathe/aria/aria.md) has experienced a dramatic surge in [The Flow](../../world-of-rathe/aria/a-true-sanctuary.md#the-flow).
+The [Queen of Candlehold](../../continents/rathe/aria/the-land-of-legends.md) is dead, and [Aria](../../continents/rathe/aria/aria.md) has experienced a dramatic surge in [The Flow](../../continents/rathe/aria/a-true-sanctuary.md#the-flow).
 
 This shift has awoken [Oscilio](../../heroes-of-rathe/oscilio-about.md), a wizard made by the hands and minds of the Aetherscribes. Embedded in the ancient vault of Arcturos, sealed away in the Third Age, Oscilio now finds himself navigating a strange new world.
 
@@ -8,6 +8,6 @@ All that Oscilio once knew is gone. He is a newcomer to the cultures and everyda
 
 Unbeknownst to all, Oscilio is more than a scholar. In Oscilio, the Aetherscribes created a weapon forged to defend against forgotten evils—the wisdom contained within, a blueprint for survival.
 
-Though Oscilio bears his creators' intellect, he is not humbled by the errors that led to their deaths. Oscilio stands at the nexus of history and prophecy, a sage who will help [Rathe](../../world-of-rathe/world-of-rathe.md) prepare for the return of the malevolent entities that lie in wait.
+Though Oscilio bears his creators' intellect, he is not humbled by the errors that led to their deaths. Oscilio stands at the nexus of history and prophecy, a sage who will help [Rathe](../../continents/rathe/rathe.md) prepare for the return of the malevolent entities that lie in wait.
 
 But first, Oscilio must face his greatest challenge since his awakening. A social engagement full of sorrow and celebration, the likes of which Aria has not seen in thousands of years.

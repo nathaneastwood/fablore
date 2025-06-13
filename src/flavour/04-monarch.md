@@ -4,7 +4,7 @@
 "Cut off the skera's head, and it shall still find the strength to bite." - Sanni
 
 #### Battlefield Blitz - (MON036)
-"[Solana](../world-of-rathe/solana/solana.md) shall never succumb to the Shadows!" - Aurea, Champion of the Dawn
+"[Solana](../continents/rathe/solana/solana.md) shall never succumb to the Shadows!" - Aurea, Champion of the Dawn
 
 #### Blood Tribute - (MON215)
 "With the blood of the Ancients, all of humanity shall be reborn!" - Ersebet
@@ -25,7 +25,7 @@ If you know how to flaunt it, you barely need to use it.
 "Mighty Bellona, lend me your wings!" - Chiara Suncrest
 
 #### Great Library of Solana - (MON000)
-Those seeking knowledge travel to Solana for the sole purpose of visiting the [Library of Illumination](../world-of-rathe/solana/a-radiant-city.md#the-library-of-illumination), a vast library located at the base of the Solarium. A grand sight, the floor is constructed from lustrous marble, with floor-to-ceiling shelves containing thousands of tomes and volumes, as well as bound parchments authored by the scholars of Solana. Solanians and travelers alike can enter and soak in the knowledge gathered from all across Rathe, though it is said that countless hidden sections and levels are privy only to the magisters and select scholars from the [Light of Sol](../world-of-rathe/solana/the-order-of-the-light.md#the-light-of-sol).
+Those seeking knowledge travel to Solana for the sole purpose of visiting the [Library of Illumination](../continents/rathe/solana/a-radiant-city.md#the-library-of-illumination), a vast library located at the base of the Solarium. A grand sight, the floor is constructed from lustrous marble, with floor-to-ceiling shelves containing thousands of tomes and volumes, as well as bound parchments authored by the scholars of Solana. Solanians and travelers alike can enter and soak in the knowledge gathered from all across Rathe, though it is said that countless hidden sections and levels are privy only to the magisters and select scholars from the [Light of Sol](../continents/rathe/solana/the-order-of-the-light.md#the-light-of-sol).
 
 #### Herald of Erudition - (MON004)
 Suraya, keeper of knowledge, who enlightens the minds of Rathe.

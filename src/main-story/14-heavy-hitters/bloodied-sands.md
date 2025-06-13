@@ -68,7 +68,7 @@ It would have been the end of the "Undisputed Champion" if Kox's arena hands had
 
 Afterwards, Olympia made a show of bestowing Kassai with his favor. She figured it was some sort of publicity play, more about him saving face than any faith he held in her. But she took it nonetheless. The better her reputation, the more chances she got at the top spot.
 
-Studying [Rhinar](../../heroes-of-rathe/rhinar-about.md) taught her a thing or two about fighting [Brutes](../../world-of-rathe/savage-lands/call-of-adventure.md#brutes).
+Studying [Rhinar](../../heroes-of-rathe/rhinar-about.md) taught her a thing or two about fighting [Brutes](../../continents/rathe/savage-lands/call-of-adventure.md#brutes).
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/14-heavy-hitters/bloodied-sands-4.webp" alt="bloodied-sands-4" class="center" />
 
@@ -88,7 +88,7 @@ Business before pleasure.
 
 Every bout, she thought of her father, Amir, and what he would have wanted. "Honor is not in the killing," he told her. "Honor is in the choice."
 
-His weapon masters had trained her to fight, but in the evenings, she would sit with Amir and discuss everything from troop formations for various scenarios to how to keep the people under one's command content-to earn their loyalty through noble action rather than extracting it through fear. Not the [Volcoran](../../world-of-rathe/volcor/volcor.md) way, and that's what made him dangerous.
+His weapon masters had trained her to fight, but in the evenings, she would sit with Amir and discuss everything from troop formations for various scenarios to how to keep the people under one's command content-to earn their loyalty through noble action rather than extracting it through fear. Not the [Volcoran](../../continents/rathe/volcor/volcor.md) way, and that's what made him dangerous.
 
 And now he was sands only knew where; maybe trapped in Chul's dungeon as a warning to anyone that might seek to overthrow him the way he usurped Amir's generalship. Or perhaps he was already dead, and she would have to drown the general in his own blood to set things right.
 

@@ -1,6 +1,6 @@
 # Amongst the Brambles
 
-The heartlands of [Aria](../../world-of-rathe/aria/aria.md) are painted with vast swaths of forests. Crystalline trees glimmer under the rainbow glow of the Flow, as beautiful Cesari and all manner of wondrous creatures dance amongst the trees. These woods had borne witness to countless stories and legends throughout the Ages, as the once arid badlands was transformed into the sanctuary that it is today by the remnants of the Ancients' power.
+The heartlands of [Aria](../../continents/rathe/aria/aria.md) are painted with vast swaths of forests. Crystalline trees glimmer under the rainbow glow of the Flow, as beautiful Cesari and all manner of wondrous creatures dance amongst the trees. These woods had borne witness to countless stories and legends throughout the Ages, as the once arid badlands was transformed into the sanctuary that it is today by the remnants of the Ancients' power.
 
 It is within these woods that the enclave of Candlehold lay hidden, surrounded by the thick walls of bramble and thorn that separated it from the rest of Aria. And it is here that the Queen of Candlehold drifted in and out of her timeless slumber, as her dreams took her back to the Third Age, and the horrors that befell her people.
 

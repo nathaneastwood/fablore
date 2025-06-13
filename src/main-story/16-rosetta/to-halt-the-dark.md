@@ -12,7 +12,7 @@ She looked to Shiro and nodded ahead, where the tracks they followed were swallo
 
 Shiro nodded with a grunt.
 
-Ira entered, the Crimson Haze following close as her shadow, footfalls silent over stone worn smooth by monsoon floods. Either side, the walls were stone tendrils like ribs curling from a spine, the sky above visible, as though chewed through by a giant moth. Stranger beasts than that lived here in East [Volcor](../../world-of-rathe/volcor/volcor.md).
+Ira entered, the Crimson Haze following close as her shadow, footfalls silent over stone worn smooth by monsoon floods. Either side, the walls were stone tendrils like ribs curling from a spine, the sky above visible, as though chewed through by a giant moth. Stranger beasts than that lived here in East [Volcor](../../continents/rathe/volcor/volcor.md).
 
 Ira drew her blade, the engraving along the length of [Edge of Autumn](../../main-story/03-crucible-of-war/edge-of-autumn.md) glowing golden in the low light.
 
@@ -24,7 +24,7 @@ Ira spun, the voice behind her. A towering figure emerged from the shadows. Stan
 
 One of her ninjas had crept up the wall like a beetle, hoping to flank their foe. Now she leapt from her perch, Kodachi poised to strike. Runes flared along the enemy's sword as its wielder pivoted with inhuman speed to cleave the woman from the air.
 
-The Crimson Haze reacted in unison, flowing forward to press the attack. [Arcane](../../world-of-rathe/demonastery/patrons-of-the-forbidden.md#the-arcane-arts) energy burst from the monster's body, forming runes in the air that blocked the assailants' blows. Between those swirling shields, the claymore struck out, slicing, disemboweling, until four more ninjas lay bleeding upon the stone.
+The Crimson Haze reacted in unison, flowing forward to press the attack. [Arcane](../../continents/rathe/demonastery/patrons-of-the-forbidden.md#the-arcane-arts) energy burst from the monster's body, forming runes in the air that blocked the assailants' blows. Between those swirling shields, the claymore struck out, slicing, disemboweling, until four more ninjas lay bleeding upon the stone.
 
 Ira and Shiro shared a resolute glance before leaping into the fray. Shiro ducked between the runes and rained short, sharp strikes against the creature's sword. Ira sprinted across the cave and ran straight up the wall, following a rib of stone that curved up over the monster's head. The remaining ninjas used Shiro's distraction to hit and run, carving deep wounds in their enemy's foul flesh.
 
@@ -44,7 +44,7 @@ Ira bent down and picked up the skull, one finger through each of its eye socket
 
 ---
 
-Ira wiped a rag along Edge of Autumn's full length, cleaning dried gore from the blade. The sword had been in the [Ikaru](~Ikaru) for generations, brought with them from across the sea. Some said it was a sliver of devastation. That it splintered away from the cataclysm that took their homeland. The sacred okana, written upon her bandages by the [Blind Ferryman of Skylark Peak](../../world-of-rathe/misteria/the-grandmasters-guild.md#xi-the-blind-ferryman), acted as wards against the weapon's withering ways. Anyone touched by Autumn seldom saw another season.
+Ira wiped a rag along Edge of Autumn's full length, cleaning dried gore from the blade. The sword had been in the [Ikaru](~Ikaru) for generations, brought with them from across the sea. Some said it was a sliver of devastation. That it splintered away from the cataclysm that took their homeland. The sacred okana, written upon her bandages by the [Blind Ferryman of Skylark Peak](../../continents/rathe/misteria/the-grandmasters-guild.md#xi-the-blind-ferryman), acted as wards against the weapon's withering ways. Anyone touched by Autumn seldom saw another season.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/to-halt-the-dark-2.webp" alt="to-halt-the-dark-2" class="center" />
 
@@ -72,13 +72,13 @@ Ira glanced across the fire at him, his eyes heavy with concern and compassion. 
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/to-halt-the-dark-3.webp" alt="to-halt-the-dark-3" class="center" />
 
-She had seen Jing only once in recent years, the lower half of his face hidden behind the mask of the [Aui's Scales](../../world-of-rathe/misteria/the-grandmasters-guild.md#auis-scales). But she would recognize those eyes anywhere. The same eyes as their father. [She grimaced thinking of him and his betrayal](../03-crucible-of-war/edge-of-autumn.md).
+She had seen Jing only once in recent years, the lower half of his face hidden behind the mask of the [Aui's Scales](../../continents/rathe/misteria/the-grandmasters-guild.md#auis-scales). But she would recognize those eyes anywhere. The same eyes as their father. [She grimaced thinking of him and his betrayal](../03-crucible-of-war/edge-of-autumn.md).
 
 "What does it mean?" Shiro asked.
 
 Ira's head hung low, eyes stuck to her sword, remembering the shrine it had laid in, the shrine that Xilin died in.
 
-She knew exactly what the dream meant. The [House of Blossoms](../../world-of-rathe/misteria/prestigious-households.md) called to her and it would not stop until she returned.
+She knew exactly what the dream meant. The [House of Blossoms](../../continents/rathe/misteria/prestigious-households.md) called to her and it would not stop until she returned.
 
 "Nothing," she said instead. "It's just a dream."
 
@@ -92,7 +92,7 @@ And she would face it alone.
 
 ---
 
-Ira stole away from camp before dawn, taking a [longma](../../world-of-rathe/volcor/wildlife.md#longma) for the arduous journey from Volcor to [Misteria](../../world-of-rathe/misteria/misteria.md). Her heart swelled when in the distance she saw sunlight shining through the mists, villages and mountain peaks hidden within.
+Ira stole away from camp before dawn, taking a [longma](../../continents/rathe/volcor/wildlife.md#longma) for the arduous journey from Volcor to [Misteria](../../continents/rathe/misteria/misteria.md). Her heart swelled when in the distance she saw sunlight shining through the mists, villages and mountain peaks hidden within.
 
 She was almost home.
 
@@ -106,7 +106,7 @@ Soon they found themselves on the same path the monsters had taken, the remains 
 
 Animals startled at their approach, the only life left in these once vibrant communities. It wasn't just her family's house that had been destroyed that night, but their very name; the respect they had cultivated over generations wiped out in a single night, along with almost all who had needed their protection.
 
-Finally, Ira and her longma reached the outskirts of the [Ikaru](../../world-of-rathe/misteria/prestigious-households.md) estate as the sun hung low.
+Finally, Ira and her longma reached the outskirts of the [Ikaru](../../continents/rathe/misteria/prestigious-households.md) estate as the sun hung low.
 
 "Woah, girl," Ira said, patting the thick dark fur on the longma's snout, the beast exhaling wisps of smoke. She tied it to a tree on a long rope so it could forage while she was gone, then took her saddlebag from its flank. She checked the skull was still inside, and slung it over her shoulder.
 
@@ -214,7 +214,7 @@ The father leaned forward to peer at the sigil on Jing's tunic. He laughed, as i
 
 "You must not know the history of the symbol you wear," accused their mother.
 
-"The sign of betrayal," said their father. "A tribe that bargained with Shadow and allowed passage through Misteria to [Solana](../../world-of-rathe/solana/solana.md)."
+"The sign of betrayal," said their father. "A tribe that bargained with Shadow and allowed passage through Misteria to [Solana](../../continents/rathe/solana/solana.md)."
 
 "We protect Misteria," Jing stammered.
 

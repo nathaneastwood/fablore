@@ -2,7 +2,7 @@
 
 [Maxx](../../heroes-of-rathe/maxx-about.md) moves along with the crowd, a rarity for an anarchist punk like him, but necessary in the strictly monitored [East Rise](~EastRise). He's on a recon mission, sussing out an opportunity to stick it to [Teklo Industries][~TekloIndustries].
 
-This particular throng of [Metrix](../../world-of-rathe/metrix/metrix.md) citizenry is made up of success stories. There are office and lab workers, dressed neatly for conformity. There are executive types in power casual wear, and elegantly dressed elitists from the intelligentsia. They're all here for the distracting delights of Metrix's dazzling entertainment quarter.
+This particular throng of [Metrix](../../continents/rathe/metrix/metrix.md) citizenry is made up of success stories. There are office and lab workers, dressed neatly for conformity. There are executive types in power casual wear, and elegantly dressed elitists from the intelligentsia. They're all here for the distracting delights of Metrix's dazzling entertainment quarter.
 
 He can smell the atmosphere of privilege by its air quality, fresh and crisp in his nostrils, clean like a line of uncut trixie dust. He inhales deep and wonders if enjoying it should feel like a betrayal of [Coppertown](~Coppertown) and its homely smells of oil, tightly packed human bodies, and desperation. But Maxx figures air like this shouldn't be reserved for "paying customers only".
 
@@ -122,7 +122,7 @@ Maxx hits the button again. Still nothing.
 
 He unscrews the bottom and sees the problem. No batteries. "Juice!" he growls through the winder. "You had one job!"
 
-The guilty punk looks like he wants [the Pits](../../world-of-rathe/pits/pits.md) to swallow him up.
+The guilty punk looks like he wants [the Pits](../../continents/rathe/pits/pits.md) to swallow him up.
 
 The enforcer bikers are bearing down on them, fast. The robot troops are forming a cordon around the power station, their artificial eyes fixed on Maxx and his crew.
 

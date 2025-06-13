@@ -1,6 +1,6 @@
 # Deathmatch Wrecking Ball
 
-_The desert's heat is whipped into the Arena as a sandstorm buffets the city. Patrons huddle under the roof of the Grinning Boar Cantina, gathering the courage to venture into the storm and head home. Suddenly, a towering logger from the [Forward Camps](../../world-of-rathe/savage-lands/legends-and-fools.md#forward-camps) crashes head-first into the bar's floorboards._
+_The desert's heat is whipped into the Arena as a sandstorm buffets the city. Patrons huddle under the roof of the Grinning Boar Cantina, gathering the courage to venture into the storm and head home. Suddenly, a towering logger from the [Forward Camps](../../continents/rathe/savage-lands/legends-and-fools.md#forward-camps) crashes head-first into the bar's floorboards._
 
 _"I told you, Hank, don't mess with [Betsy](../../heroes-of-rathe/betsy-about.md)," sighs Ebba, the owner. The logger looks up at the woman who had thrown him to the ground—a towering titan of bone and muscle mass. As he collects his teeth, she hoists him up by his collar with one hand and sets him back on his feet. A big smile widens across her flushed face as she laughs at how hard he had hit the floor after she'd headbutted him. Slamming her fist into the bar and guffawing, Betsy yells, "Now that's done, how about a drink?"_
 

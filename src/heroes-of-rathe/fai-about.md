@@ -6,7 +6,7 @@
 
 For too long, Fai witnessed the suffering of the [Volcai](~Volcai). He heard the lash of whips against prostrate backs. He felt the ache in his belly from days without food. He smelled the sickly sweetness of smoldering corpses.
 
-The first man he killed was a young soldier, one of many guarding a caravan laden with silk bound for the [Royal Court](../world-of-rathe/volcor/the-royal-court.md#the-royal-court) of [Ashvahan](~Ashvahan). To the raid leader, Eun, he proved himself to be the fastest and fiercest ninja on the field of battle. And once the silk was sold to the Merchants of the Red Deserts, that single raid saved Fai's village from starvation.
+The first man he killed was a young soldier, one of many guarding a caravan laden with silk bound for the [Royal Court](../continents/rathe/volcor/the-royal-court.md#the-royal-court) of [Ashvahan](~Ashvahan). To the raid leader, Eun, he proved himself to be the fastest and fiercest ninja on the field of battle. And once the silk was sold to the Merchants of the Red Deserts, that single raid saved Fai's village from starvation.
 
 Guided by [his mother](~fai-mother)'s wisdom, Fai brings bloody justice to the selfish and the cruel. He strikes with the blistering speed of the phoenix and burns his cause into the hearts of friend and foe alike. A cause that will see Volcai and [Dracai](~Dracai) stand together instead of tearing each other apart.
 

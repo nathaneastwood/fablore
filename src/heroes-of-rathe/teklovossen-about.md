@@ -4,9 +4,9 @@
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/teklovossen-esteemed-magnate.mp4" type="video/mp4">
 </video>
 
-Jules Teklovossen. A name synonymous with brilliance. A man that propelled [Metrix](../world-of-rathe/metrix/metrix.md) from a past of steam and iron into a future of light and data.
+Jules Teklovossen. A name synonymous with brilliance. A man that propelled [Metrix](../continents/rathe/metrix/metrix.md) from a past of steam and iron into a future of light and data.
 
-Born into the middling ranks of the [Cogwerx](../world-of-rathe/metrix/a-better-tomorrow.md#cogwerx-conglomerate) steam empire, Teklovossen broke free from the old corporation's mechanical monotony to found his own enterprise. Driven by his relentless optimism and peculiar imagination, [Teklo Industries](../world-of-rathe/metrix/a-better-tomorrow.md#teklo-industries) rose to be the city's brightest beacon of innovation. His greatest breakthrough, teklatic-dynamism, made our lives better, Teklovossen becoming one of the most prominent members of our city's governing body, the [Iron Assembly](../world-of-rathe/metrix/a-better-tomorrow.md#iron-assembly).
+Born into the middling ranks of the [Cogwerx](../continents/rathe/metrix/a-better-tomorrow.md#cogwerx-conglomerate) steam empire, Teklovossen broke free from the old corporation's mechanical monotony to found his own enterprise. Driven by his relentless optimism and peculiar imagination, [Teklo Industries](../continents/rathe/metrix/a-better-tomorrow.md#teklo-industries) rose to be the city's brightest beacon of innovation. His greatest breakthrough, teklatic-dynamism, made our lives better, Teklovossen becoming one of the most prominent members of our city's governing body, the [Iron Assembly](../continents/rathe/metrix/a-better-tomorrow.md#iron-assembly).
 
 Then one fateful evening, an inferno broke out in the old Plumvex Pipes factory, engulfing everything, including the inventor who toiled within. Under the astute leadership of Teklovossen's successors, Teklo Industries has maintained its position in the vanguard of innovation. Of the founder himself, well...
 

@@ -1,6 +1,6 @@
 # Splinter Soul
 
-Each tree was a chorus of birdsong and the undergrowth chittered with tiny creatures. [Terra](../../heroes-of-rathe/terra-about.md) heard it all, could feel even the animals in their burrows and tunnels underfoot, could sense the insects in the soil amongst the tangled roots and mycelial threads. Indeed, he could sense the vast web of life stretching across all of [Aria](../../world-of-rathe/aria/aria.md).
+Each tree was a chorus of birdsong and the undergrowth chittered with tiny creatures. [Terra](../../heroes-of-rathe/terra-about.md) heard it all, could feel even the animals in their burrows and tunnels underfoot, could sense the insects in the soil amongst the tangled roots and mycelial threads. Indeed, he could sense the vast web of life stretching across all of [Aria](../../continents/rathe/aria/aria.md).
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/splinter-soul-1.webp" alt="splinter-soul-1" class="center" />
 
@@ -26,7 +26,7 @@ Sidriz sighed. "I don't expect you to understand, but I have a plan for Aria, of
 
 Terra craned his neck as a flock of birds passed high above, tiny black silhouettes forming a 'V'. When he brought his eyes back down to the horizon, Hyrinth was staring at him with a look she normally reserved for particularly brilliant displays of light in the sky marking the Flow's passage.
 
-"Terra came from the [Korshem](../../world-of-rathe/aria/a-true-sanctuary.md#the-korshem)?" she asked. "Why didn't you say?"
+"Terra came from the [Korshem](../../continents/rathe/aria/a-true-sanctuary.md#the-korshem)?" she asked. "Why didn't you say?"
 
 "I just did," Sidriz sneered. "See, I found myself deposited beneath the Korshem's grand boughs. It saved me, as it saves many, for what is a wizard without purpose? Wasted power, wasted time."
 
@@ -40,7 +40,7 @@ Terra smiled, already enjoying this woman's company far more than he had ever en
 
 "Aria is a beautiful land," Sidriz continued. Terra was starting to wonder how anything Sidriz said related to his original question. But he held his tongue. "There is nature in abundance, beasts that I have never come across in all my travels, and easy-going peoples with little to fear, but also little to strive toward."
 
-Sidriz threw his hands wide. "The performances I have seen played out in thatch-roofed taverns would awe royalty in their courts, yet the bards and thespians that traipse around these lands do not care for coin - which is grand because the audience has none to give! And the spirits, liqueurs, and brews are first rate across all of [Rathe](../../world-of-rathe/world-of-rathe.md)...and let me tell you," Sidriz said, giving Hyrinth a wink, "I would know."
+Sidriz threw his hands wide. "The performances I have seen played out in thatch-roofed taverns would awe royalty in their courts, yet the bards and thespians that traipse around these lands do not care for coin - which is grand because the audience has none to give! And the spirits, liqueurs, and brews are first rate across all of [Rathe](../../continents/rathe/rathe.md)...and let me tell you," Sidriz said, giving Hyrinth a wink, "I would know."
 
 Those evenings were amongst the few Terra enjoyed spending with Sidriz. While the wizard got increasingly drunk ‘sampling' various brews, Terra could quietly stand guard and listen to the songs of the bards, revel in the stories of the charismatic vagabonds, and lose himself in all variety of breathtaking performances. In these taverns and open-air theaters, Terra's heart warmed in the same way it did when he was allowed time to spend wandering the forest, surrounded by kin. These stories and performances were life itself in another form, and it too was precious. Not that Sidriz appreciated them, or indeed Terra's thoughts on the matter at the end of the night, as he escorted the drunkenly belligerent wizard to his abode.
 

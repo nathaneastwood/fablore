@@ -58,7 +58,7 @@ Puffin twirled her rifle and slammed the stock on the deck with a flourish. "The
 
 Meldrick stood, dumbfounded. _All this trouble for a map?_
 
-"I'd just sailed in from [Metrix](../../world-of-rathe/metrix/metrix.md), and your suitcase swapping hijinks ruined everything. Those blasted bots you planted cost me my job. I suppose this map is worth ruining a man's life?"
+"I'd just sailed in from [Metrix](../../continents/rathe/metrix/metrix.md), and your suitcase swapping hijinks ruined everything. Those blasted bots you planted cost me my job. I suppose this map is worth ruining a man's life?"
 
 "I wouldn't say ruined," Puffin said as she unfurled the parchment. "Besides, this map will lead us to the find of a lifetime!"
 

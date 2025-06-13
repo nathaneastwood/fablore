@@ -4,9 +4,9 @@
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/prism.mp4" type="video/mp4">
 </video>
 
-The [Library of Illumination](../world-of-rathe/solana/a-radiant-city.md#the-library-of-illumination)'s innermost sanctum contains a strange secret. Once, a Magister came across a young child, small and silent, her hair almost glowing in the lamplight, an orb shining softly in the palm of her hand. This unfamiliar child was unable to remember anything of her past, or her origins. Her only possession was the glowing sphere, which contained a single, pristine drop of rare arclight; a gift which would quickly reveal her talent for the Light.
+The [Library of Illumination](../continents/rathe/solana/a-radiant-city.md#the-library-of-illumination)'s innermost sanctum contains a strange secret. Once, a Magister came across a young child, small and silent, her hair almost glowing in the lamplight, an orb shining softly in the palm of her hand. This unfamiliar child was unable to remember anything of her past, or her origins. Her only possession was the glowing sphere, which contained a single, pristine drop of rare arclight; a gift which would quickly reveal her talent for the Light.
 
-Quick, curious and incredibly intelligent, Prism adapted to her new life with ease. She read as much as she could about [Solana](../world-of-rathe/solana/solana.md) and the world beyond its walls, sailing through the vast ocean of knowledge within the grand library, with the Magister as her guide. Prism soon discovered the legends of the Heralds, Sol's golden emissaries, who watched over the people of Solana. Before long, her aether affinity and inquisitive nature led her to the Light of Sol, where she took up the mantle of an illusionist.
+Quick, curious and incredibly intelligent, Prism adapted to her new life with ease. She read as much as she could about [Solana](../continents/rathe/solana/solana.md) and the world beyond its walls, sailing through the vast ocean of knowledge within the grand library, with the Magister as her guide. Prism soon discovered the legends of the Heralds, Sol's golden emissaries, who watched over the people of Solana. Before long, her aether affinity and inquisitive nature led her to the Light of Sol, where she took up the mantle of an illusionist.
 
 In developing her skills, Prism's talents were made clear for all to see. After years of careful study, she came to intimately understand the Heralds, lending more and more detail to her knowledge of these legendary beings. After capturing their very essence, Prism learned to give shape to their forms, conjuring their likenesses for the first time in living memory.
 
@@ -46,7 +46,7 @@ As shadows begin to darken the horizon, and the bells of war toll across the cit
 
 Prism rises on wings of wisdom to embrace the promised dawn.
 
-Her origins are a mystery, even to herself. A child's dream filled with soaring architecture and figures of grace, of a radiant spectrum upon which she floated to a glowing door. She reached out, brushed that portal with her fingertips. As it opened, so did her eyes, and she beheld the [Library of Illumination](../world-of-rathe/solana/a-radiant-city.md#the-library-of-illumination) for the first time.
+Her origins are a mystery, even to herself. A child's dream filled with soaring architecture and figures of grace, of a radiant spectrum upon which she floated to a glowing door. She reached out, brushed that portal with her fingertips. As it opened, so did her eyes, and she beheld the [Library of Illumination](../continents/rathe/solana/a-radiant-city.md#the-library-of-illumination) for the first time.
 
 The hands that had touched that otherworldly door now held an orb of pure arclight, the very essence of Sol. When the [Librarian](../other-characters/the-librarian.md) found this little girl in the heart of the Great Library, when they saw the radiant array within her soul, they called her "Prism", for no other name would suffice. From that miracle moment, Prism became the Magister's protégé and the library's most beloved servant.
 

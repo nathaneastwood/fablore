@@ -8,13 +8,13 @@ However, in their suffering, they came to discover a greater power. The pain bro
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/chane-2.webp" alt="chane-2" class="center">
 
-[Chane](../../heroes-of-rathe/chane-about.md) was raised within the order of the Disciples of Pain. He was taught the history of humanity, the gravitas of the old ones, and the true nature of [Solana](../../world-of-rathe/solana/solana.md). Like his brethren, he sought to harness the suffering of humanity, to welcome the bloodletting, sanctified torture, and self-flagellation which littered his own initiations into the Disciples. As his pain threshold grew higher, Chane felt his connection to the Shadow grow stronger, allowing him to see the true nature of Rathe for the very first time. In that moment of transcendence, he felt the true weight of his duty to humanity.
+[Chane](../../heroes-of-rathe/chane-about.md) was raised within the order of the Disciples of Pain. He was taught the history of humanity, the gravitas of the old ones, and the true nature of [Solana](../../continents/rathe/solana/solana.md). Like his brethren, he sought to harness the suffering of humanity, to welcome the bloodletting, sanctified torture, and self-flagellation which littered his own initiations into the Disciples. As his pain threshold grew higher, Chane felt his connection to the Shadow grow stronger, allowing him to see the true nature of Rathe for the very first time. In that moment of transcendence, he felt the true weight of his duty to humanity.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/chane-3.webp" alt="chane-3" class="center">
 
 After his many years of study and sacrifice, Chane's unwavering dedication was finally rewarded. Anointed an apostle of the Disciples of Pain, he had become a gifted caster and researcher, finding much solace and comradery with his fellow Disciples; together, they formed a family unified by their noble quest to free all of humanity.
 
-Delving into all the documents of his order, Chane read through the notes of his predecessors, searching for something which would help them turn the tide. He scoured the records and tomes of the Scriptorium, a collection centuries in the making, reading the works of not only the Disciples, but all the former residents of the [Demonastery](../../world-of-rathe/demonastery/demonastery.md).
+Delving into all the documents of his order, Chane read through the notes of his predecessors, searching for something which would help them turn the tide. He scoured the records and tomes of the Scriptorium, a collection centuries in the making, reading the works of not only the Disciples, but all the former residents of the [Demonastery](../../continents/rathe/demonastery/demonastery.md).
 
 Time was a cruel mistress, and Chane could only watch as his reflection became ever more ashen, his failures exposed in every wrinkle. With each passing year, his quest only seemed more and more futile. His order had been searching for an answer for many years, and still lacked the answers they sought - what could Chane possibly hope to find?
 

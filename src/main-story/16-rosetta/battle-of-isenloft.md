@@ -1,6 +1,6 @@
 # Battle of Isenloft
 
-_In the Third Age, the Old Ones spread across the land, an invasion beyond understanding, beyond the reality of those who called [Rathe](../../world-of-rathe/world-of-rathe.md) home. Cities fell, civilizations were consumed. Beleaguered refugees gathered to the remaining Ancients, elemental titans of the natural order. And at three of humanity's remaining bastions, the brave held their ground. Aldengrove to sustain them, Valahai to empower them, and fierce [Isenloft](../../world-of-rathe/aria/the-land-of-legends.md#isenloft) to guard them all._
+_In the Third Age, the Old Ones spread across the land, an invasion beyond understanding, beyond the reality of those who called [Rathe](../../continents/rathe/rathe.md) home. Cities fell, civilizations were consumed. Beleaguered refugees gathered to the remaining Ancients, elemental titans of the natural order. And at three of humanity's remaining bastions, the brave held their ground. Aldengrove to sustain them, Valahai to empower them, and fierce [Isenloft](../../continents/rathe/aria/the-land-of-legends.md#isenloft) to guard them all._
 
 ---
 
@@ -16,7 +16,7 @@ Their commander, Kalsharpe, shouted at them to keep firing. The order spurred th
 
 An enemy head appeared atop the parapet. Jarl reached over and wrapped his gauntleted hand around its mottled scalp. The creature squealed and wriggled, but Jarl held tight and squeezed until the skull gave way and the thrashing stopped. He let the carcass drop into the seething mass of enemies below and deemed this section of the wall 'under control', for now.
 
-He strode on, seeking the next trouble spot. Wayfarers, wizards, [Rosetta](../../main-story/05-tales-of-aria/amongst-the-brambles.md), and guardians shrank out of his way. Whether Isenloft veterans or fresh-faced trainees from [Enion](../../world-of-rathe/aria/the-land-of-legends.md#volthaven), all knew the reputation of Jarl Vetreiđi.
+He strode on, seeking the next trouble spot. Wayfarers, wizards, [Rosetta](../../main-story/05-tales-of-aria/amongst-the-brambles.md), and guardians shrank out of his way. Whether Isenloft veterans or fresh-faced trainees from [Enion](../../continents/rathe/aria/the-land-of-legends.md#volthaven), all knew the reputation of Jarl Vetreiđi.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/battle-of-isenloft-1.webp" alt="battle-of-isenloft-1" class="center" />
 

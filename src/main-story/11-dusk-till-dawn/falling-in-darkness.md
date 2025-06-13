@@ -4,9 +4,9 @@ _Creation and destruction, an endless cycle of hope and despair. One cannot exis
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/11-dusk-till-dawn/into-the-darkness-1.webp" alt="into-the-darkness-1" class="center">
 
-The fighters of [Solana](../../world-of-rathe/solana/solana.md) and [Aria](../../world-of-rathe/aria/aria.md) threw back the demon horde with unified defiance, slaughtering the monstrosities until carcasses piled high across the Golden Fields. Yet still, the [Demonastery](../../world-of-rathe/demonastery/demonastery.md) spewed out an endless flow of aberration.
+The fighters of [Solana](../../continents/rathe/solana/solana.md) and [Aria](../../continents/rathe/aria/aria.md) threw back the demon horde with unified defiance, slaughtering the monstrosities until carcasses piled high across the Golden Fields. Yet still, the [Demonastery](../../continents/rathe/demonastery/demonastery.md) spewed out an endless flow of aberration.
 
-Days of courageous defense stretched into weeks of desperate withdrawal. Despite the struggle and sacrifice, the remaining towns fell. [Dorinthea](../../heroes-of-rathe/dorinthea-about.md) held the road, her knights giving their all-and their ultimate-to protect the last refugees of Solana's once proud sovereignty. As the final straggler limped through the gateway, Ironsong ordered the retreat. Lightning-tipped arrows rained down from the ramparts, [Lexi](../../heroes-of-rathe/lexi-about.md)'s rangers forming a bulwark of elemental mortality. They held the foe at bay as the remaining Rosetta, Ollin, and [Hand of Sol](../../world-of-rathe/solana/the-order-of-the-light.md#the-hand-of-sol) fled behind the safety of Solana's walls.
+Days of courageous defense stretched into weeks of desperate withdrawal. Despite the struggle and sacrifice, the remaining towns fell. [Dorinthea](../../heroes-of-rathe/dorinthea-about.md) held the road, her knights giving their all-and their ultimate-to protect the last refugees of Solana's once proud sovereignty. As the final straggler limped through the gateway, Ironsong ordered the retreat. Lightning-tipped arrows rained down from the ramparts, [Lexi](../../heroes-of-rathe/lexi-about.md)'s rangers forming a bulwark of elemental mortality. They held the foe at bay as the remaining Rosetta, Ollin, and [Hand of Sol](../../continents/rathe/solana/the-order-of-the-light.md#the-hand-of-sol) fled behind the safety of Solana's walls.
 
 The last of the eight great gates swung closed with monumental grace. Its sealing kiss forged such a resounding peal of metal on metal that it rang like a temple bell across the city. Dorinthea looked at the people she had saved, the blood-smeared faces of parents clutching ragged children, too shocked, too exhausted to cry. Dorinthea clenched her teeth against the acid guilt that rose like bile in her throat. The Hand of Sol had vowed to protect these people, a promise in their Aesir's name, a just reward for years of worship and service. Now livelihoods were gone, homes burned, loved ones killed and consumed. They had failed. Dorinthea had failed - again.
 
@@ -32,9 +32,9 @@ In the days to come, Solana's faith proved out as the city's runic ramparts thwa
 
 At dusk on the sixth day of the siege, the attacks suddenly abated. Perhaps even the Demonastery's wanton appetite had soured over the waste of monstrous meat.
 
-That very evening, within the bright heart of the [Great Library](../../world-of-rathe/solana/a-radiant-city.md#the-library-of-illumination), the allies drew their plans against the besieging horde. For even the gardens of Octogria could not feed so many for long. Solana had to strike back with a mortal blow, or suffer the slow death of starvation.
+That very evening, within the bright heart of the [Great Library](../../continents/rathe/solana/a-radiant-city.md#the-library-of-illumination), the allies drew their plans against the besieging horde. For even the gardens of Octogria could not feed so many for long. Solana had to strike back with a mortal blow, or suffer the slow death of starvation.
 
-[Shiyana](../../heroes-of-rathe/shiyana-about.md)'s clear voice rang out through the Scholars Assembly as she spoke of the Dimenxxional Gateway - the Demonastery's only bridge to the infinite malice of the Embra's [íArathael](../../world-of-rathe/demonastery/the-gateway-to-iarathael.md). Through substantial cost to their order, the Gemini had discovered a path to the portal and the faces of those few Shadow scholars able to control it.
+[Shiyana](../../heroes-of-rathe/shiyana-about.md)'s clear voice rang out through the Scholars Assembly as she spoke of the Dimenxxional Gateway - the Demonastery's only bridge to the infinite malice of the Embra's [íArathael](../../continents/rathe/demonastery/the-gateway-to-iarathael.md). Through substantial cost to their order, the Gemini had discovered a path to the portal and the faces of those few Shadow scholars able to control it.
 
 "Our brave Gemini emissaries have brought us a gift beyond anything we might have hoped for," implored Shiyana. "A way to end this war once and for all."
 
@@ -64,7 +64,7 @@ Vynnset looked to the trembling man at her feet, plucked from his knightly armor
 
 Vynnset pressed the curved blade to his throat, gripping his filthy blond hair with her free hand. She whispered, sharp enough for Levia to hear over the blood sack's whimpering.
 
-"[Apostate](../../world-of-rathe/solana/the-battle-against-the-shadow.md) of the Ages," she intoned. "That which you have sewn, I shall reap. Thirteen, I give you, to honor the lives given so long ago. We remember your disciples, our Magister of Shadow, as we remember you."
+"[Apostate](../../continents/rathe/solana/the-battle-against-the-shadow.md) of the Ages," she intoned. "That which you have sewn, I shall reap. Thirteen, I give you, to honor the lives given so long ago. We remember your disciples, our Magister of Shadow, as we remember you."
 
 A howl echoed through the rafters above them as if from a gust of wind, though they were fathoms underground. The obsidian floor warmed, becoming as pliable as living ebony skin.
 
@@ -96,13 +96,13 @@ Even as the wall gleamed around the darkened stain; even as light burned at the 
 
 Lexi rushed out onto the barrack roof. Her breath caught in her throat as she took in the clouds of dust and smoke. Briar joined her moments later.
 
-"[Flow](../../world-of-rathe/aria/a-true-sanctuary.md#the-flow) save us," she whispered as the clouds parted.
+"[Flow](../../continents/rathe/aria/a-true-sanctuary.md#the-flow) save us," she whispered as the clouds parted.
 
 Dorinthea and Boltyn rallied a vanguard of those closest at hand, warriors and illusionists of Solana rushing into the fray with the wizards and runeblades of Aria. They led them against the creatures that surged into the city around the towering Consumed. They cut through the Demonastery's slavering shock troops, buying precious moments for fleeing citizens. Yet they were too few to hold back the tide for long. Half their number fell in the first charge, more as their formation buckled under the sheer weight of the onslaught.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/11-dusk-till-dawn/into-the-darkness-6.webp" alt="into-the-darkness-6" class="center">
 
-"To the [Solarium](../../world-of-rathe/solana/a-radiant-city.md#solarium)!" ordered Boltyn, the Wartune's blessings ringing in his ears. With Dorinthea at his side, Boltyn held the line until the last of the surviving allies had broken free.
+"To the [Solarium](../../continents/rathe/solana/a-radiant-city.md#solarium)!" ordered Boltyn, the Wartune's blessings ringing in his ears. With Dorinthea at his side, Boltyn held the line until the last of the surviving allies had broken free.
 
 Oldhim and Bravo mustered their guardians, leading them toward the column of char-black dust. With shields raised, they strode against a flood of panic, terrified city-folk and bloodied fighters washing around them.
 

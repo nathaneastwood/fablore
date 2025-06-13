@@ -4,7 +4,7 @@ The ship creaked gently upon the black waters of the pier as its crew slumbered.
 
 Pinwheel pressed a finger to his lips to silence his partner in crime as they carefully rolled a barrel down the gangway and onto the dock, where several other barrels rested on a waiting cart.
 
-"This is some premium grog - [Blockheads](../../world-of-rathe/pits/the-maw.md#blockheads)'ll pay us a fortune." chortled Bazz gleefully, before Pinwheel yanked him close.
+"This is some premium grog - [Blockheads](../../continents/rathe/pits/the-maw.md#blockheads)'ll pay us a fortune." chortled Bazz gleefully, before Pinwheel yanked him close.
 
 "We don't want that old tavern owner gettin' wind that we was here," Pinwheel hissed into his ear. "Help me lift the last of this grog and let's hightail - quietly."
 

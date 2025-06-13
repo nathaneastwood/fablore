@@ -148,7 +148,7 @@ Fang stepped out. Ahead was a massive gate, like those that led into Deshvahan, 
 
 "Captain Fang, reporting!" he shouted, his name repeated on the far side of the gate until finally it opened.
 
-Fang stepped through into a massive converted underground cavern. To one side, a legion of soldiers trained. On the other, the Sayashi pored over reports from across [Volcor](../../world-of-rathe/volcor/volcor.md). An imposing woman moved among the Sayashi, checking scrolls of intelligence here, whispering instructions there. He recognized her by reputation more than familiarity. [Cindra](../../heroes-of-rathe/cindra-about.md), the fearsome Dracai of Retribution.
+Fang stepped through into a massive converted underground cavern. To one side, a legion of soldiers trained. On the other, the Sayashi pored over reports from across [Volcor](../../continents/rathe/volcor/volcor.md). An imposing woman moved among the Sayashi, checking scrolls of intelligence here, whispering instructions there. He recognized her by reputation more than familiarity. [Cindra](../../heroes-of-rathe/cindra-about.md), the fearsome Dracai of Retribution.
 
 Ahead, captains of the Royal Guard kneeled before a row of seated generals, a grim assemblage that formed the military leadership of the Children of the Dragon. Each captain shared their report with the generals whose expressions grew less impressed with every utterance.
 

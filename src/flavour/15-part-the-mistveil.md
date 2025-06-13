@@ -10,7 +10,7 @@
 To a place where sky meets water, where the cycle begins anew." - [Enigma](../heroes-of-rathe/enigma-about.md)
 
 #### Emissary of Moon - (MST197)
-"Our future extends beyond [Misteria](../world-of-rathe/misteria/misteria.md). The wisdom of the Moon should be shared with the world." - Ning, Kotori Moonseeker
+"Our future extends beyond [Misteria](../continents/rathe/misteria/misteria.md). The wisdom of the Moon should be shared with the world." - Ning, Kotori Moonseeker
 
 #### Emissary of Tides - (MST198)
 "In the depths of the ocean, a world unseen awaits, where the songs of the tides reveal secrets of a forgotten age!" - Anhe, Kotori Wavebender

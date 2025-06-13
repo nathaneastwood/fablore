@@ -2,9 +2,9 @@
 
 ![melody-sing-along](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/melody-sing-along.webp)
 
-Melody searches through aged ruins and primal vaults, listening for songs that might soothe the growing dissonance in her beloved [Aria](../world-of-rathe/aria/aria.md).
+Melody searches through aged ruins and primal vaults, listening for songs that might soothe the growing dissonance in her beloved [Aria](../continents/rathe/aria/aria.md).
 
-Ever the restless minstrel, she travels far and wide, following the fractures of strife that she hears in the [Flow](../world-of-rathe/aria/a-true-sanctuary.md#the-flow). Along these acoustic trails, Melody tracks down the most ancient of tunes so that she might share her growing collection with those who need them most.
+Ever the restless minstrel, she travels far and wide, following the fractures of strife that she hears in the [Flow](../continents/rathe/aria/a-true-sanctuary.md#the-flow). Along these acoustic trails, Melody tracks down the most ancient of tunes so that she might share her growing collection with those who need them most.
 
 In concert, Melody is a delight to behold. Her nimble fingers dance across the board, capable of both tender touch and blurring speed. With string and bow, she draws forth the most sonorous notes and stirring tones. Her audiences are lifted beyond their worries and woes, harmonized in body and mind, flesh and soul. Her venerable songs transport them to happier times-when Aria was safe and sound.
 

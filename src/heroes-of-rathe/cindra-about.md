@@ -4,7 +4,7 @@
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/cindra-dracai-of-retribution.mp4" type="video/mp4">
 </video>
 
-Cindra, a name whispered with a cold edge of fear in the royal court of [Volcor](../world-of-rathe/volcor/volcor.md). Her smoldering eyes burn through the veils of lies. Her daggers are poised, ready to fly forth and deliver the penalty of death to the guilty.
+Cindra, a name whispered with a cold edge of fear in the royal court of [Volcor](../continents/rathe/volcor/volcor.md). Her smoldering eyes burn through the veils of lies. Her daggers are poised, ready to fly forth and deliver the penalty of death to the guilty.
 
 This elite ninja has spent her entire life in the service of the dynasty. Her stringent training, overseen by the [Emperor](./emperor-about.md) himself, scorched the innocence from her mind and the compassion from her soul. An enigmatic member of the Emperor's [Sayashi](~Sayashi), Cindra and her cohort of death-dealers have struck down many traitorous warmongers and would-be usurpers behind enemy lines. They have sliced open secret cabals of conspirators and rooted out treachery across the empire. Soldiers may fight and die under the blazing sun, but the Sayashi bring silent justice in the sweltering night.
 

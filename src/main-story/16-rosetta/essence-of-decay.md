@@ -1,6 +1,6 @@
 # Essence of Decay
 
-The [Rosetta](../../main-story/05-tales-of-aria/amongst-the-brambles.md) gathered to their [Queen](../../world-of-rathe/aria/the-land-of-legends.md), their trunks bowed in despair, awaiting a wellspring of emotion that had long since dried away in the endless summer.
+The [Rosetta](../../main-story/05-tales-of-aria/amongst-the-brambles.md) gathered to their [Queen](../../continents/rathe/aria/the-land-of-legends.md), their trunks bowed in despair, awaiting a wellspring of emotion that had long since dried away in the endless summer.
 
 Only [Verdance](../../heroes-of-rathe/verdance-about.md) wept, her tears falling to the leaf-littered ground. The seed she had placed on the empty throne. This kernel of dormant life was all that remained of their creator, their once-immortal matriarch. From great Davnir's death, the Queen had nurtured their survival. From the war-torn spirits of the dead, she seeded a civilization-one that would live in perpetual peace.
 
@@ -10,7 +10,7 @@ With a groan of protesting Oakwood, Elder Ozrim moved to her side. From his stif
 
 "Of this our Queen spoke to me when I was but a sapling. We come from the seed. We return to the seed."
 
-"How?" rasped Verdance, choking back her turmoil to allow the words free passage. "[Candlehold](../../world-of-rathe/aria/the-land-of-legends.md#candlehold) is forever. She..." Her hand trembled as she pointed at the seed. "She made it so."
+"How?" rasped Verdance, choking back her turmoil to allow the words free passage. "[Candlehold](../../continents/rathe/aria/the-land-of-legends.md#candlehold) is forever. She..." Her hand trembled as she pointed at the seed. "She made it so."
 
 "And she will again. Within that grain awaits time immemorial. Should we wish it, we need only plant it within the soil of Candlehold. We do this and the forest shall continue, the summer shall live on and on and..."
 
@@ -134,7 +134,7 @@ _Taste it_, murmured the rustling leaves as they shifted in the wind. _Davnir's 
 
 Verdance placed the grape in her mouth, bit down and let the juice flow across her tongue.
 
-She experienced flavors she had no words for; flavors the immortal Rosetta had no use for. Hunger had been banished when the Queen had wrapped Davnir's essence around the forest, sealing them off from the rest of [Aria](../../world-of-rathe/aria/aria.md).
+She experienced flavors she had no words for; flavors the immortal Rosetta had no use for. Hunger had been banished when the Queen had wrapped Davnir's essence around the forest, sealing them off from the rest of [Aria](../../continents/rathe/aria/aria.md).
 
 And yet, deep in her belly, a feeling stirred.
 

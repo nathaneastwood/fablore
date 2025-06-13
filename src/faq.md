@@ -6,7 +6,7 @@
 
 The Old Ones have a proper name for their race; Aesir. Chane and the Disciples of Pain are determined to prevent the Aesir/Old Ones from re-invading Rathe, which on a surface level is a noble and benevolent cause. However, he specifically teams up with an Embra (Ursur), and Embra seem to be the leaders or superiors to the regular Aesir we see.
 
-The "[Land of Legends](world-of-rathe/aria/the-land-of-legends.md)" article says this quote at the bottom:
+The "[Land of Legends](continents/rathe/aria/the-land-of-legends.md)" article says this quote at the bottom:
 
 > "The War of the Monarchs rages on; Aesirs and their Embras stir in their slumber, their influence seeping from íArathael into the realm of man..."
 
@@ -26,11 +26,11 @@ Currently my understanding is that Solana is not all it is cut out to be, as the
 
 ### What are the races of Rathe?
 
-* _Brutes_ are confirmed to be a race in [Call of Adventure](world-of-rathe/savage-lands/call-of-adventure.md#brutes).
+* _Brutes_ are confirmed to be a race in [Call of Adventure](continents/rathe/savage-lands/call-of-adventure.md#brutes).
 * _Demons_ are mentioned in [Morlock Hill](main-story/07-interlude/morlock-hill.md).
 * _Dwarves_ are referenced in [A Grand Adventure](main-story/06-everfest/a-grand-adventure.md) by the line "gruff dwarven blacksmith Thawne". Some art to look out for are the cards "Belittle" and "Minnowism".
-* _Elves_ are explicitly mentioned in the [Wild Ride digital tile](./digital-tiles/06-everfest/everfest.md#wild-ride). Other art to look out for are the main image for [Aria](world-of-rathe/aria/aria.md), "Crown of Seeds" and "Sheltered Cove".
-* [_Hecklers_](world-of-rathe/savage-lands/call-of-adventure.md#hecklers) are ruthless, violent and feral humanoids. See the card "Wounded Bull".
+* _Elves_ are explicitly mentioned in the [Wild Ride digital tile](./digital-tiles/06-everfest/everfest.md#wild-ride). Other art to look out for are the main image for [Aria](continents/rathe/aria/aria.md), "Crown of Seeds" and "Sheltered Cove".
+* [_Hecklers_](continents/rathe/savage-lands/call-of-adventure.md#hecklers) are ruthless, violent and feral humanoids. See the card "Wounded Bull".
 * _Gnomes_ are speculated to exist due to the merchant stall named "The Golden Gnome" on the [Knick Knack Bric-a-Brac Spoiler Tile](./digital-tiles/06-everfest/everfest.md#knick-knack-bric-a-brac).
 * _Humans_
 * _Nymphs_ are [described](flavour/08-uprising.md#arctic-incarceration---upr144) in tales.
@@ -44,8 +44,8 @@ You can see the full list of animals on the data page [here](data/fauna.md).
 
 ### What powers/forces exist within Rathe?
 
-* [The Flow](world-of-rathe/aria/a-true-sanctuary.md#the-flow) is a wild, unpredictable force of nature in Aria, the Flow shapes the landscape around it as it ebbs and flows.
-* [Strale](world-of-rathe/aria/the-land-of-legends.md#candlehold) is the elemental energy and power that resonates throughout the Candlehold.
+* [The Flow](continents/rathe/aria/a-true-sanctuary.md#the-flow) is a wild, unpredictable force of nature in Aria, the Flow shapes the landscape around it as it ebbs and flows.
+* [Strale](continents/rathe/aria/the-land-of-legends.md#candlehold) is the elemental energy and power that resonates throughout the Candlehold.
 
 ## Characters
 ### Is Ira dead?
@@ -54,7 +54,7 @@ We don't know. [Her story](main-story/03-crucible-of-war/edge-of-autumn.md) take
 
 ### What do we know about Jackdaw?
 
-Not much, he is mentioned in some flavour text such as [Pitfall Trap](flavour/03-crucible-of-war.md#pitfall-trap---cru127), [Out Muscle](flavour/04-monarch.md#out-muscle---mon248) and [Pay Day](flavour/09-dynasty.md#pay-day---dyn123). We also read about him in [A Bird in the Hand](main-story/02-arcane-rising/a-bird-in-the-hand.md) where he is standing outside [Blackjack's Tavern](world-of-rathe/pits/blackjacks-mercenary-group.md#blackjacks-mercenary-group).
+Not much, he is mentioned in some flavour text such as [Pitfall Trap](flavour/03-crucible-of-war.md#pitfall-trap---cru127), [Out Muscle](flavour/04-monarch.md#out-muscle---mon248) and [Pay Day](flavour/09-dynasty.md#pay-day---dyn123). We also read about him in [A Bird in the Hand](main-story/02-arcane-rising/a-bird-in-the-hand.md) where he is standing outside [Blackjack's Tavern](continents/rathe/pits/blackjacks-mercenary-group.md#blackjacks-mercenary-group).
 
 ### What do we know about Fyendal?
 

@@ -45,7 +45,7 @@ Only when I have the balcony to myself do I appraise my ultimate prize. There he
 I take my allotted position and weave the course of carnage in my mind as a host of hooded associates gather around me from dark corners and lofty rafters.
 
 We are the blood-red threads that will criss and cross this throne room.<br>
-We are the [Spider](../../world-of-rathe/pits/blackjacks-mercenary-group.md#the-spider)'s spinnerets-a latticework of slaughter sent to end a dynasty.
+We are the [Spider](../../continents/rathe/pits/blackjacks-mercenary-group.md#the-spider)'s spinnerets-a latticework of slaughter sent to end a dynasty.
 
 I dance to my delight, knowing the red rain is about to fall.
 
