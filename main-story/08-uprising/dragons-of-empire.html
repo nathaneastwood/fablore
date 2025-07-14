@@ -1,0 +1,300 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Dragons of Empire - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <p><a href="../../heroes-of-rathe/dromai-about.html">Dromai</a> barely remembers her parents, Torvai the <span class="hint" hint="Dracai">Dracai</span>, and Sani of the Sandfolk. Murdered before she had even learned to walk. Min of the Forest of Flames found her, raised her in a humble village amongst the struggle and strife of <span class="hint" hint="Volcai">Volcai</span> life. A hatchling dragon in the nest of the phoenix.</p>
+<p>She and Min's son became as thick as thieves. Dromai was the mastermind, deceiving and dismaying with wit and illusion. Her adoptive brother was her minion, liberating sweets and toys from childish rivals. Yet Dromai did not plan these capers for the simple fun of it. She planned them for the practice. For the preparation. She felt different, a pretender among the peasants. Deep in her heart, Dromai knew she was destined for greater things.</p>
+<p>When the Dracai led her away from that burning village, she did not weep. She did not even look back. She had never belonged there. Hers was the Way of the Dracai. Where power awaited beyond her imagining?</p>
+<p>No. Dromai's imagination is as boundless as her ambition. She is an ash artist, and her visions will strike terror into the hearts of all who behold them.</p>
+<h1 id="dragons-of-empire"><a class="header" href="#dragons-of-empire">Dragons of Empire</a></h1>
+<p>"Vynserakai!" calls Dromai.</p>
+<p>"Azvolai! Nekria!"</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/dromai-1.webp" alt="dromai-1" class="center">
+<p>Vynserakai bursts from a fire-gutted house, raw and red with fury.</p>
+<p>Azvolai's crystal scales glisten in the desert sun as she rises from the ashes of a temple.</p>
+<p>Nekria shakes free of a charred corpse pile; a lithe monstrosity hatching from a loathsome cocoon.</p>
+<p>The imperial soldiers look up in awe as the dragons attack the towering wall of sandstone. They have seen their comrades die on that wall for months on end. They have suffered the blistering sun and the water rations, the scathing sand storms and haunting desert nights. These defenses have protected the Sandfolk for centuries, and still they hold strong.</p>
+<p>Though never have they faced a woman like Dromai.</p>
+<p>Vynserakai smashes through sandstone like a boulder propelled from a volcano. Nekria melts mortar and bricks with billows of noxious gas. Azvolai darts through the holes to bite and tear at the enemy illusionists beyond. Red paints the white sands as the first illusionist loses his head to Azvolai's snapping jaws. Another rushes forward to repair the wall, only to be bisected by the crystal dragon's sharp tail.</p>
+<p>The wall is a figment of the Sandfolk's imagination, made manifest in the minds of the men who stand before it. Dromai's dragons fly the same thin line between dream and reality. Yet, when an illusion is powerful enough, seeing truly is believing. Semblance becomes stone. Fancy becomes flesh.</p>
+<p>"We should have brought you here from the beginning," says Xathari. "You honor your father's memory."</p>
+<p>"Torvai was betrayed by love," answers Dromai. "I have no such weakness."</p>
+<p>As the wall crumbles, the remaining illusionists drive Azvolai back with spinning tornados of sand. Dromai dances her dragons between the dust devils with the graceful motion of her hands. Nekria douses a pair of illusionists with foul fumes from her skeletal maw. The women scream as the flesh runs in rivulets from their bones.</p>
+<p>"No sentiment for your mother's own people?" wonders the Dracai spymaster.</p>
+<p>"The woman who left me with traitors? Never."</p>
+<p>As if her thought is a summons, Sani shimmers into existence before Dromai's startled eyes. She was a babe in arms when her mother was murdered, yet Dromai recognizes the sandalwood scent, soft and comforting.</p>
+<p>"Is something wrong?" Xathari's voice is distant, barely discernible.</p>
+<p>"Don't you see her?"</p>
+<p>"See who?"</p>
+<p>Harsh reality snaps back into place as Vynserakai is torn limb from limb by a tornado. Sani vanishes, a mirage summoned by the enemy to distract Dromai. She tries to rein in her remaining dragons, but it's too late. A twister leaves Azvolai limp and broken. Another swallows Nekria, bone by bone.</p>
+<p>"I spoke too soon." Xathari's voice is flat, inscrutable. "Perhaps you are the pathetic half-blood they say you are?"</p>
+<p>The fire of anger flickers beneath her weariness. Though her mind reels from the sight of her Sandfolk mother and the loss of her dragons, she lifts her chin, facing Xathari's disappointment with dignity.</p>
+<p>"I will try again."</p>
+<p>"You are dead on your feet."</p>
+<p>"All I need is rest."</p>
+<p>"No." He gestures at the great wall that grows once more from the sand, already towering over his army. "Surprise broke this siege, if only for a moment. It will not work for a second time. Our supplies are low and morale is even lower." He turns to look at the distant silhouette of Mount Volcor. "We are done here."</p>
+<p>Dromai forces herself to watch the army's withdrawal, to sear this failure into her memory with a white-hot brand. If she is to become a Dracai, she must never turn from shame. She must never forget.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/dromai-2.webp" alt="dromai-2" class="center">
+<p>Back in <span class="hint" hint="Ashvahan">Ashvahan</span>, the restless days crawl by as Dromai bides her time. Every day, she pores over the tomes of The Twelve Dragons. Every day, she practices her art, driving herself to exhaustion so that her sleep is empty of shameful dreams. Every day, she petitions Xathari for another mission. Another chance to prove herself.</p>
+<p>On the thirtieth day, Xathari visits her chambers; a modest room at the rear of the palace. Little better than a soldier's quarters.</p>
+<p>"There has been an insurrection," begins Xathari.</p>
+<p>"You have spoken with the <a href="../../heroes-of-rathe/emperor-about.html">Emperor</a>?"</p>
+<p>He raises his hand, silencing her. "The rebels have captured General Riku."</p>
+<p>She has not heard that name for ten years. Not since Xathari came to her village. Not since Riku's soldiers drove her murderous foster mother into the forest. Not since Min's lies were burned away by the Dracai's truth about her real parents.</p>
+<p>"If you bring him to the palace, alive and well," continues Xathari, "we will declare you Dracai."</p>
+<p>The stain of her Volcai blood washed clean. Dromai hides her excitement behind a mask of determination.</p>
+<p>"When do we leave?"</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/dromai-3.webp" alt="dromai-3" class="center">
+<p>They ride out at first light with a thousand hussars at their backs. At dusk of the second day, they reach the mangled outer fields of Golden Orchard Estate. The air is thick with the meaty sweetness of funeral pyres. Peasants pick over the corpses of imperial soldiers, heaping their plunder onto carts.</p>
+<p>"Find Riku," growls Xathari.</p>
+<p>Dromai rides for the hill overlooking the estate. Campfires line the slopes, and at its summit a bonfire burns bright, brazen against the gathering gloom. The cavalry thunders behind her, crushing under hoof any scavenger who fails to reach shelter.</p>
+<p>Thousands of hoofbeats echo the thousands of dreambeats that heralded the Emperor's rare appearance that day, ten years ago. Her first visit to the throne room. All of her fire and courage, her calm and poise, fled her in an instant. Never had she witnessed such power. A power to bow to. A power to aspire to.</p>
+<p>Dromai chants as she rides. When she hits the edge of the rebel encampment, Tomeltai lifts off from the skeleton of a burned out barn. His hide is as hard as petrified lava and his bared teeth drip with fresh magma.</p>
+<p>Rebels try to muster, raising stolen halberds and spears; bracing them as a pointed barricade against the approaching cavalry. Tomeltai's jagged tail sweeps them aside.</p>
+<p>Dromai rides over their broken bodies and urges her steed up the hill. Rebels spill from their tents. Tomeltai greets them with dragonfire.</p>
+<p>Behind her, Xathari directs his hussars through the confusion. His firesight allows him to read the flames like a map. That is how he knew of Riku's capture. The fires told him. Just as they told him, all those years ago, where to find Dromai, the orphan.</p>
+<p>At the crown of the hill, Dromai dismounts and takes cover behind a broken tree. Ahead of her, a silver-haired woman stands over a finely dressed corpse. Next to the dead woman, bound and gagged, lies her prize. General Riku. Bloodied and cowed, but alive.</p>
+<p>Silverhair barks orders to the fighters who are holding the high ground against Xathari's cavalry. One such fighter, a young man in a ragged red cloak, knocks a rider from her saddle with a magnificent flying kick. Dromai can't make out his face through the smoke and dust, but she can tell by his predatory grace that he's a man to be wary of.</p>
+<p>Though not for long.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/dromai-4.webp" alt="dromai-4" class="center">
+<p>She brings Tomeltai soaring into view. Riku is too close to the rebels to risk dragonfire. Instead, she whips Silverhair off her feet with the dragon's tail, then charges Tomeltai into the fray to rend and tear the traitors apart.</p>
+<p>To Dromai's surprise, Silverhair struggles to her feet. With shouts and curses, she rallies the few survivors. Dromai spins Tomeltai to finish her, but the ragged-cloaked man gets there first.</p>
+<p>Riding a stolen cavalry horse, he scoops the woman up. For a moment Dromai sees his scarred face. Ten years have turned his boyish features into those of a battle-hardened man.</p>
+<p><a href="../../heroes-of-rathe/fai-about.html">Fai</a> of the Forest of Flames. Son of Min the murderer.</p>
+<p>Her false sibling gallops down the hillside with the silver-haired rebel slung over the neck of his horse. Dromai lets him go. She has more pressing matters to attend to. She lands Tomeltai next to Riku, protecting her prize, and then frees him from his bonds.</p>
+<p>"Thank you," rasps the general.</p>
+<p>Dromai smiles, but not for Riku's sake. His gratitude is meaningless. It is the Emperor's thanks she keenly awaits.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/dromai-5.webp" alt="dromai-5" class="center">
+<p>She looks up as Xathari rides over the crest of the hill. His sharp eyes take in the scene. His smile mirrors hers.</p>
+<p>"Now the Emperor will see what I see in you."</p>
+<p>She bows her head, accepting the praise and the honor that accompanies it.</p>
+<p>Like the village of her childhood, her past has been burned away. No longer is she the little girl raised by rebels. No longer the daughter of shame. No longer 'Dromai the Half-blood'.</p>
+<p>She is where she belongs, where her dragon blood has burned to be for thirty years.</p>
+<p>She is Dracai.</p>
+<hr />
+<p><em>Source: <a href="https://fabtcg.com/heroes/dromai/dragons-empire/">https://fabtcg.com/heroes/dromai/dragons-empire/</a></em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/08-uprising/in-flames.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/08-uprising/betrayal.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/08-uprising/in-flames.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/08-uprising/betrayal.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>
