@@ -2,28 +2,6 @@
 
 ## Species
 
-### What's the difference between the Ancients, the Old Ones, the Aesir and the Embra?
-
-The Old Ones have a proper name for their race; Aesir. Chane and the Disciples of Pain are determined to prevent the Aesir/Old Ones from re-invading Rathe, which on a surface level is a noble and benevolent cause. However, he specifically teams up with an Embra (Ursur), and Embra seem to be the leaders or superiors to the regular Aesir we see.
-
-The "[Land of Legends](regions/rathe/aria/the-land-of-legends.md)" article says this quote at the bottom:
-
-> "The War of the Monarchs rages on; Aesirs and their Embras stir in their slumber, their influence seeping from íArathael into the realm of man..."
-
-And [Oldhim's backstory](main-story/05-tales-of-aria/the-broken-covenant.md) says:
-
-> "Sometimes his dreams took him to his formative years, when the vassals of Embras advanced, forcing them to the north..."
-
-So why would Chane and Co. team up with the things they are specifically trying to destroy? Unless they are planning to use the power and influence of the Embra to re-direct the Aesir, it doesn't seem to make sense.
-
-> "Having become an apostle of the order, Chane is burdened with duty, unified with his brothers in their noble quest to protect humanity from the return of the Aesir, whose vast, arcane power would quickly overwhelm the land of Rathe. After spending many, many months researching and reading, he finally found the key; a whisper of powerful beings who could stand against the Aesir. Thus, he and his fellow disciples have sought a way to weaken the old ones and harness their arcane energy to their own ends."
-
-So it seems like they are trying to turn the Aesir on themselves, but why would they attack Solana if they wish to protect Rathe?
-
-Currently my understanding is that Solana is not all it is cut out to be, as the magisters declared anyone heretics who would question contradictions in the old tomes. Perhaps "Sol" is some form of Embra? Perhaps their devout worship of an Embra or god-like being is what is attracting the Aesir in the first place to Rathe?
-
-[Credit](https://discord.com/channels/625953788343091200/743050420363984898/921433017430470666)
-
 ### What are the races of Rathe?
 
 * _Brutes_ are confirmed to be a race in [Call of Adventure](regions/rathe/savage-lands/call-of-adventure.md#brutes).
