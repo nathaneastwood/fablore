@@ -2,13 +2,13 @@
 
 *LegendaryStories.net* is a fan-curated archive of all official **Flesh and Blood** lore, lovingly maintained for those who want to explore the world of Rathe through its characters and stories.
 
-Whether you're hunting krakens with Marlynn, plotting assassinations with Arakni, or diving into the mysteries of Solana with Prism — it's all here, organised and beautifully formatted.
+Whether you're hunting krakens with Marlynn, plotting assassinations with Arakni, or diving into the mysteries of Solana with Prism - it's all here, organised and beautifully formatted.
 
 ## ✨ What you'll find:
 - 📚 Every lore article published by LSS
 - 🔎 Easy navigation by hero, region, or theme (try pressing S on your keyboard!)
 - 🗃️ Highlights for deprecated/canonical stories
-- ⚡ Updated fast — often the same day as release!
+- ⚡ Updated fast - often the same day as release!
 
 ## 🔗 Stay connected:
 - [X (formerly Twitter)](https://x.com/JumpForRoy)

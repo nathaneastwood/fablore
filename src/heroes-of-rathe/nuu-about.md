@@ -8,9 +8,9 @@ Amidst the ethereal ambiance of [Mistcloak Gully](../regions/rathe/misteria/amon
 
 Nuu's origins are shrouded in mist, her past a labyrinth of secrets and shadows. With every sway of her hips and arch of her brow, she whispers tales of seduction and intrigue, a siren beckoning sailors into the depths of her mystery. Beneath her beguiling exterior lies a tempest of emotions, fueled by the echoes of past betrayals and the ache of sorrows unspoken.
 
-In the realm of her teahouse, Nuu is both hostess and seductress, her presence suffused with an otherworldly allure that beckons guests to lose themselves in the intoxicating embrace of her sanctum. Behind the infamous luster of her teahouse, Nuu still remains a mystery to all folk in Mistcloak Gully — a fleeting silhouette behind sliding doors and the mask of aromatic steam.
+In the realm of her teahouse, Nuu is both hostess and seductress, her presence suffused with an otherworldly allure that beckons guests to lose themselves in the intoxicating embrace of her sanctum. Behind the infamous luster of her teahouse, Nuu still remains a mystery to all folk in Mistcloak Gully - a fleeting silhouette behind sliding doors and the mask of aromatic steam.
 
-With each sip of tea and every flicker of candlelight, Nuu's legacy unfolds, a tale of resourcefulness in the face of adversity and the timeless mystique of the unknown. But beware, for beneath her seductive facade lies a danger as seductive as it is deadly — she is beauty and disaster, both flirtatious and dangerous, luring her victims into the snake's fangs before striking with vicious precision.
+With each sip of tea and every flicker of candlelight, Nuu's legacy unfolds, a tale of resourcefulness in the face of adversity and the timeless mystique of the unknown. But beware, for beneath her seductive facade lies a danger as seductive as it is deadly - she is beauty and disaster, both flirtatious and dangerous, luring her victims into the snake's fangs before striking with vicious precision.
 
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/self-destruction-driven-by-seduction.webp" class="hero-icon" />

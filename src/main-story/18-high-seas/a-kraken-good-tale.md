@@ -28,7 +28,7 @@ _The sea roiled around us as the serpent gobbled them guts. I readied me harpoon
 
 ![a-kraken-good-tale-2](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/a-kraken-good-tale-2.webp)
 
-_"Batten down the hatches!" I hollered. "We be following this one home!" I tethered the harpoon to the ship and fired into the serpent's side. It didn't take kindly to that, hissing and howling like a...a—_
+_"Batten down the hatches!" I hollered. "We be following this one home!" I tethered the harpoon to the ship and fired into the serpent's side. It didn't take kindly to that, hissing and howling like a...a-_
 
 "A netted catfish, Cap'n?" Slinger chimed in.
 
@@ -46,9 +46,9 @@ _Now here's something that'll shiver yer timbers: a ghastly ship appeared on the
 
 _The damn serpent dragged us deeper into murky territory. Aether rose off the sea like steam as the water turned from red to blue to black. Unseen monsters howled their nightmarish calls into the broken world. Lesser beings would've cut the tether and tacked to escape, but it's not every day ye wrangle an escort through the churning seas of [Teramundr's Triangle](../../regions/high-seas/teramundrs-triangle/teramundrs-triangle.md)._
 
-_A walled island threatened to wreck our ship to smithereens as the serpent charged toward it. The more impatient among me crew begged me to cut the tether, but I wouldn't until I was sure this was our final stop. The bowsprit dipped hard into the water, which was all the proof I needed: it were diving into its cave. One swing of me cutlass unbound us from the creature and sent the ship springing back to the—_
+_A walled island threatened to wreck our ship to smithereens as the serpent charged toward it. The more impatient among me crew begged me to cut the tether, but I wouldn't until I was sure this was our final stop. The bowsprit dipped hard into the water, which was all the proof I needed: it were diving into its cave. One swing of me cutlass unbound us from the creature and sent the ship springing back to the-_
 
-"Tell 'em about the ancient ruin, Cap'n!" Quarrel blurted, his face ruddy with remembrance and rum. "It must've been a thousand years—"
+"Tell 'em about the ancient ruin, Cap'n!" Quarrel blurted, his face ruddy with remembrance and rum. "It must've been a thousand years-"
 
 "Stow that bilge in yer fastened gob, Quarrel!" Marlynn roared. "By the Kraken's beak, would ye have me going off half-cocked here?"
 
@@ -78,7 +78,7 @@ _"Raise the mainsail!" I yelled to Wheeler. "Sail to half-mast!" he ordered the 
 
 ![a-kraken-good-tale-3](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/a-kraken-good-tale-3.webp)
 
-_Of course, we weren't alone out there. A blockade of buccaneers sailed out to greet the creature, but every pirate worth their salt knows luck is fickle. One ship capsized in the leviathan's bow wave and two more were thrust against the rocks. They were already sinking by the time the other ships began firing. Couldn't see a damn thing through the gunpowder cloud, but I could hear enough. The leviathan roared, wood splintered, pirates wailed. The smoke cleared just as we got within range, and all that was left of that skull-flying fleet was the sea monster squashing the last ship like a grape. Not a bloomin' scratch on it. Better not to waste good iron on a creature that would pay it no—_
+_Of course, we weren't alone out there. A blockade of buccaneers sailed out to greet the creature, but every pirate worth their salt knows luck is fickle. One ship capsized in the leviathan's bow wave and two more were thrust against the rocks. They were already sinking by the time the other ships began firing. Couldn't see a damn thing through the gunpowder cloud, but I could hear enough. The leviathan roared, wood splintered, pirates wailed. The smoke cleared just as we got within range, and all that was left of that skull-flying fleet was the sea monster squashing the last ship like a grape. Not a bloomin' scratch on it. Better not to waste good iron on a creature that would pay it no-_
 
 "How did ye kill it, Cap'n Marlynn?!" piped a shrill voice from the audience's packed front ranks.
 

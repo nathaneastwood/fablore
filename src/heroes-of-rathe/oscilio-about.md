@@ -10,7 +10,7 @@ Together, the scribes imbued Oscilio with their wisdom; shaped him to withstand 
 
 And now, Oscilio has awoken, and he has a warning for all of [Rathe](../regions/rathe/rathe.md).
 
-He will share the knowledge of the Aetherscribes with those who would use it to rebuild the strength of [Enion](../main-story/05-tales-of-aria/wonders-of-the-wayfarer.md). He will seek the signs of the Old Ones' return, ever observant of the subtle disturbances and echoes that might signal their resurgence. He will ensure that Rathe is ready to face its uncertain future.
+He will share the knowledge of the Aetherscribes with those who would use it to rebuild the strength of [Enion](~Enion). He will seek the signs of the Old Ones' return, ever observant of the subtle disturbances and echoes that might signal their resurgence. He will ensure that Rathe is ready to face its uncertain future.
 
 But first, Oscilio must move with a purpose as ancient as the stones beneath his feet whilst navigating the eccentricities of [Aria](../regions/rathe/aria/aria.md)'s diverse inhabitants.
 

@@ -118,7 +118,7 @@ It is not the battle that holds her tongue.
 
 An elegant madame looks down upon the melee from the teahouse's stage, a small smile on her perfect lips. As if sensing Enigma, the woman looks up. Their eyes meet and Enigma is struck still with astonishment.
 
-The madame is most certainly a spirit—one of the most conflicted Enigma has ever felt—but there's more to this spirit than Enigma can fathom. Across the churning chi is a mystical resonance, raw and long-standing, that binds them.
+The madame is most certainly a spirit - one of the most conflicted Enigma has ever felt - but there's more to this spirit than Enigma can fathom. Across the churning chi is a mystical resonance, raw and long-standing, that binds them.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/enigma-story-5.webp" alt="enigma-story-5" class="center">
 

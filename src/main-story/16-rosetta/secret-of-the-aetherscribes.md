@@ -1,6 +1,6 @@
 # Secret of the Aetherscribes
 
-The village alarms blared out a warning that sent the Voltfolk skittering for shelter like frightened [kaie'o](../../regions/rathe/aria/creatures.md#kaieo). While thunderstorms were common enough in [Enion](../../regions/rathe/aria/the-land-of-legends.md#volthaven), a storm this wild hadn't been seen for centuries. Yet one person dared to charge away from the safety of [Volthaven](../../regions/rathe/aria/the-land-of-legends.md#volthaven). She had better things to do than hide from some rain.
+The village alarms blared out a warning that sent the Voltfolk skittering for shelter like frightened [kaie'o](../../regions/rathe/aria/creatures.md#kaieo). While thunderstorms were common enough in [Enion](~Enion), a storm this wild hadn't been seen for centuries. Yet one person dared to charge away from the safety of [Volthaven](../../regions/rathe/aria/the-land-of-legends.md#volthaven). She had better things to do than hide from some rain.
 
 [Aurora](../../heroes-of-rathe/aurora-about.md) sailed over the rooftops, leaving a trail of lightning and laughter crackling in her wake.
 
@@ -40,9 +40,9 @@ Aurora sprinted toward the golem and slid between its legs to dodge its massive 
 
 It lunged for her. Her well-honed reflexes reacting faster than fear, Aurora ran up along its outstretched arm, wrapped herself around its craggy shoulders, and plunged her blade into its neck joint. Surely that would do it!
 
-Or not. The golem reared back with an ear-splitting screech. Aurora had two choices: throw herself off or let the angry creature do it for her. She chose the former, barely evading its grasp at the cost of an unfortunate meeting between her skull and the ground. Her vision cleared just in time to roll away from the golem's rain of blows. She scrambled to her feet; reached for her sword—
+Or not. The golem reared back with an ear-splitting screech. Aurora had two choices: throw herself off or let the angry creature do it for her. She chose the former, barely evading its grasp at the cost of an unfortunate meeting between her skull and the ground. Her vision cleared just in time to roll away from the golem's rain of blows. She scrambled to her feet; reached for her sword-
 
-—but it was still lodged in the golem's neck. She could work with that. Aurora looked up at the sky and silently willed the lightning to strike twice.
+-but it was still lodged in the golem's neck. She could work with that. Aurora looked up at the sky and silently willed the lightning to strike twice.
 
 "Come on, you can do better than that!" she taunted her foe.
 
@@ -84,15 +84,15 @@ To trust or not to trust their creepy fingers?
 
 No other obvious pattern emerged. Definitely a trap. She turned right and found a lone closed door tucked discreetly away. When in doubt, be the odd one out.
 
-She opened the door and emerged back into the Boulderhead—Arcturos—whatever vault. An ornate door stood before her, and after that dizzying sequence, the last thing Aurora expected from it was a simple passage.
+She opened the door and emerged back into the Boulderhead - Arcturos - whatever vault. An ornate door stood before her, and after that dizzying sequence, the last thing Aurora expected from it was a simple passage.
 
-A grid of symbols lit up when she approached, above them an inscription: "We honor the many cycles of the moon in which [Yvor](../../regions/rathe/aria/the-land-of-legends.md#volthaven) defended Enion against the Old Ones."
+A grid of symbols lit up when she approached, above them an inscription: "We honor the many cycles of the moon in which [Yvor](~Yvor) defended Enion against the Old Ones."
 
 "Just like in the old stories." Aurora slid the symbols for 90 into place and cackled as the door opened. "Works for me!"
 
 Unlike the rest of the vault, this chamber was trapped in time, untouched for who knows how long until today. A glowing orb in an elaborate metal cage illuminated the massive chamber. Despite its size, the room didn't seem to hold anything of value.
 
-Aurora had barely taken two steps into the cavernous space before ominous whirring noises started up. They grew to deafening volumes as dozens of metal golems flew at her on silver wings. A lone golem was one thing, but five, ten—thirty or more of them with wings?! If she survived, [Melody](../../heroes-of-rathe/melody-about.md) should write a song about her.
+Aurora had barely taken two steps into the cavernous space before ominous whirring noises started up. They grew to deafening volumes as dozens of metal golems flew at her on silver wings. A lone golem was one thing, but five, ten - thirty or more of them with wings?! If she survived, [Melody](../../heroes-of-rathe/melody-about.md) should write a song about her.
 
 A pair of golems collided in an explosion of sparks as Aurora dodged their two-sided attack. Another golem glanced off her quick-drawn blade. The next, she impaled through the chest and used its body as a sledgehammer to destroy two more.
 
@@ -168,7 +168,7 @@ Aurora had a gray vision of droning lectures in a dusty hall. She shuddered.
 
 "I cannot fathom any more intense excitation than the pursuit of knowledge."
 
-Aurora thought of all the other vaults hiding among the islands, waiting to be explored by some enterprising wayfarer. If only someone knew where those vaults were and, even better, how to open them. Oscilio was her ticket to the wonders of the Third Age. She could pick his brain—or whatever he had—and learn Enion's tastiest secrets.
+Aurora thought of all the other vaults hiding among the islands, waiting to be explored by some enterprising wayfarer. If only someone knew where those vaults were and, even better, how to open them. Oscilio was her ticket to the wonders of the Third Age. She could pick his brain - or whatever he had - and learn Enion's tastiest secrets.
 
 "I could be up for some learning. But I've got a certain subject in mind."
 

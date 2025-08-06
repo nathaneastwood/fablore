@@ -2,7 +2,7 @@
 
 Rathe had changed.
 
-A daring Rosetta... An energetic wayfarer... A fearless soldier... A charismatic showman... A charming diplomat... A curious Illusionist... A beacon of victory...
+A daring [Rosetta](~Rosetta)... An energetic wayfarer... A fearless soldier... A charismatic showman... A charming diplomat... A curious Illusionist... A beacon of victory...
 
 [Oldhim](../../heroes-of-rathe/oldhim-about.md#oldhim-grandfather-of-eternity) had encountered many adventurous heroes since thawing out from his icy slumber, and he had found himself fighting alongside these new allies with a refreshed vigor he hadn't felt for thousands of years. He admired their courage, their resolve, their unwavering passion to stand up for what was right. But none of them were prepared for what was to come.
 

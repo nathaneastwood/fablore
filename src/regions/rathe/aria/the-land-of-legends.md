@@ -32,7 +32,7 @@ The people of Volthaven wandered here by accident, not too long ago, and fell in
 
 Deep within the woods, to the east of Korshem, lie the secretive grove of Candlehold. The essence of Earth and Lightning is strong here, converging into a potent elemental energy called the Strale which is aggressive and volatile, unlike the soft and gentle Flow that permeates the rest of Aria.
 
-The Queen of Candlehold sits atop a throne of elderwood as her mind wanders to the time of the Ancients. Her people, once mighty defenders, has fallen from grace after the fall of the Ancient Davnir, father of the Earth. They've been trapped within this beautiful grove for eons, bound and melded with the Strale, but a recent shift in the Flow promises new hopes and challenges, as the spell that binds them to their beloved grove begins to weaken, and the electric thorns and brambles that surround Candlehold begin to thin.
+The Queen of Candlehold sits atop a throne of elderwood as her mind wanders to the time of the Ancients. Her people, once mighty defenders, has fallen from grace after the fall of the Ancient [Davnir](~Davnir), father of the Earth. They've been trapped within this beautiful grove for eons, bound and melded with the Strale, but a recent shift in the Flow promises new hopes and challenges, as the spell that binds them to their beloved grove begins to weaken, and the electric thorns and brambles that surround Candlehold begin to thin.
 
 ---
 

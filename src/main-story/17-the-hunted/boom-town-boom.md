@@ -10,7 +10,7 @@ Maxx follows the current of corporate lackeys, letting it take him to the big ev
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/boom-town-boom-1.webp" alt="Security Script" class="center" />
 
-His hands itch at the sight of them, always eager for a fight, but he left his shock-wrench at home — a little too showy for a stroll out in public. Maxx pulls his cap down low, careful not to dislodge the hologuise projector attached to the brim, sighing in relief when he passes the security checkpoint without incident. His face scans as Dudley Broon, low-level Teklo stooge.
+His hands itch at the sight of them, always eager for a fight, but he left his shock-wrench at home - a little too showy for a stroll out in public. Maxx pulls his cap down low, careful not to dislodge the hologuise projector attached to the brim, sighing in relief when he passes the security checkpoint without incident. His face scans as Dudley Broon, low-level Teklo stooge.
 
 Maxx pushes through the crowd until he can see the small stage set up for the night, with shimmering rainbow-slick balloons on either side and a glowing banner hung across the front building that reads, 'The Future of Energy is Here!'
 

@@ -18,7 +18,7 @@ Ira drew her blade, the engraving along the length of [Edge of Autumn](../../mai
 
 At this, a guttural laugh emanated from deeper in the cavern. "So, you have chosen to die in darkness."
 
-Ira spun, the voice behind her. A towering figure emerged from the shadows. Standing several feet taller than Ira's biggest ninja, the creature held an ornate claymore in its corpse-gray hands. Upon its head, a mass of tendrils writhed like maggots on rotting meat, framing a rictus death mask—eyes as black as a grave.
+Ira spun, the voice behind her. A towering figure emerged from the shadows. Standing several feet taller than Ira's biggest ninja, the creature held an ornate claymore in its corpse-gray hands. Upon its head, a mass of tendrils writhed like maggots on rotting meat, framing a rictus death mask - eyes as black as a grave.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/to-halt-the-dark-1.webp" alt="to-halt-the-dark-1" class="center" />
 
@@ -100,9 +100,9 @@ She was almost home.
 
 Ropes criss-crossed the mountains and valleys, connecting the region and its people, even those of the hidden villages. She could find a quicker route to the House of Blossoms along rope and path, but it seemed important she follow the trail of that dark tide which had swept through Misteria all those years ago.
 
-The longma slowed as they ascended toward the mountaintops and into Misteria proper, unaccustomed to the cooler climes. The locals openly stared at the woman atop the strange and massive steed. They passed through villages, past farms and rice fields—places spared from the violence of that terrible night.
+The longma slowed as they ascended toward the mountaintops and into Misteria proper, unaccustomed to the cooler climes. The locals openly stared at the woman atop the strange and massive steed. They passed through villages, past farms and rice fields - places spared from the violence of that terrible night.
 
-Soon they found themselves on the same path the monsters had taken, the remains of destroyed homes, teahouses, and shrines barely visible beneath the sprawling, tangled foliage — time and nature seeking to purge these lost places from the land, and from the memory of its people.
+Soon they found themselves on the same path the monsters had taken, the remains of destroyed homes, teahouses, and shrines barely visible beneath the sprawling, tangled foliage - time and nature seeking to purge these lost places from the land, and from the memory of its people.
 
 Animals startled at their approach, the only life left in these once vibrant communities. It wasn't just her family's house that had been destroyed that night, but their very name; the respect they had cultivated over generations wiped out in a single night, along with almost all who had needed their protection.
 
@@ -158,13 +158,13 @@ Ira faltered and pulled her sword back, dropping awkwardly to the ground. Xilin 
 
 "You did, little sister. You ran. I protected you. And what did you do?" His face hovered before hers, his eyes weeping black tears, his blue lips twisted with grief. "You left me."
 
-"I—"
+"I-"
 
 Skeletal fingers choked the words from her throat. Pain drove the false memories from her mind. Too late she tried to raise Edge of Autumn, only to find her wrists trapped in vices of bone.
 
 Xilin drew back towards the monster's mouth, the cadaverous form dragging Ira with him. She struggled, to no avail, as the creature's jaws widened to receive her.
 
-"Welcome home, Ira," Xilin hissed. "We shall be a family—"
+"Welcome home, Ira," Xilin hissed. "We shall be a family-"
 
 A whistle of steel cut through air. A blade punched into Xilin's face, splitting the skull between his eyes. The effigy didn't scream, but behind him the Puppeteer did. Its claws released her and Ira scurried back, her mind now fully clear, her brother just a fleshy apparition, hanging dead on the end of the Puppeteer's appendage.
 
@@ -242,7 +242,7 @@ Shiro raced into the room, the Crimson Haze behind him. They threw themselves in
 
 Freed, Ira howled in wordless fury and charged at the Puppeteer. In her path, the creature disgorged one more body. A girl, hands raised, as if in surrender. It was herself, delicate as a blossom, the tender age she had been on the Night of the Dark Tide.
 
-"The Shadow shall return," the girl intoned. "In the dying Light, all will be—"
+"The Shadow shall return," the girl intoned. "In the dying Light, all will be-"
 
 Ira stepped past her younger self and brought her sword down, severing the Puppeteer's gross appendage, ichor leaking from the cut as it flopped on the floor. Her childhood self wilted and died like a cut flower.
 

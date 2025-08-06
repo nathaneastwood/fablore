@@ -6,7 +6,7 @@
 
 Creatures of [Candlehold](../regions/rathe/aria/the-land-of-legends.md#candlehold), have you heard the news? Death comes to us all, in the end.
 
-They call me the Harbinger, a blight or a blessing, depending on the season. One who walks among the withered and the fallen to remind our reposed [Rosetta](../main-story/05-tales-of-aria/amongst-the-brambles.md) of the truth.
+They call me the Harbinger, a blight or a blessing, depending on the season. One who walks among the withered and the fallen to remind our reposed [Rosetta](~Rosetta) of the truth.
 
 Those who dwell in the endless summer fear mortality. They fear rot and ruin.
 

@@ -16,7 +16,7 @@ Their commander, Kalsharpe, shouted at them to keep firing. The order spurred th
 
 An enemy head appeared atop the parapet. Jarl reached over and wrapped his gauntleted hand around its mottled scalp. The creature squealed and wriggled, but Jarl held tight and squeezed until the skull gave way and the thrashing stopped. He let the carcass drop into the seething mass of enemies below and deemed this section of the wall 'under control', for now.
 
-He strode on, seeking the next trouble spot. Wayfarers, wizards, [Rosetta](../../main-story/05-tales-of-aria/amongst-the-brambles.md), and guardians shrank out of his way. Whether Isenloft veterans or fresh-faced trainees from [Enion](../../regions/rathe/aria/the-land-of-legends.md#volthaven), all knew the reputation of Jarl Vetreiđi.
+He strode on, seeking the next trouble spot. Wayfarers, wizards, [Rosetta](~Rosetta), and guardians shrank out of his way. Whether Isenloft veterans or fresh-faced trainees from [Enion](~Enion), all knew the reputation of Jarl Vetreiđi.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/battle-of-isenloft-1.webp" alt="battle-of-isenloft-1" class="center" />
 
@@ -94,7 +94,7 @@ The thunder followed, first from the east, sharp as shattering rock, then from t
 
 Jarl felt it in the ground beneath his feet, resonating up through his bones, the realization touching even his ice-locked heart.
 
-Yvor. Davnir. They were gone.
+[Yvor](~Yvor). [Davnir](~Davnir). They were gone.
 
 He looked to Galcia, saw the white-cold that now shone through the smothering blanket of ravenirs. Raw, elemental power, contained for an eon, releasing at last.
 

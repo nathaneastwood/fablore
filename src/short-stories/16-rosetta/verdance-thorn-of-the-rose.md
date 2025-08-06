@@ -2,7 +2,7 @@
 
 The eternal bloom of [Candlehold](../../regions/rathe/aria/the-land-of-legends.md#candlehold) prepared [Verdance](../../heroes-of-rathe/verdance-about.md) for a life untouched by decay.
 
-She grew up under summer's dependable gaze with an affinity for the flora and fauna of the glade, and developed her skills as a wizard in accordance with the natural laws set by the [Rosetta](../../main-story/05-tales-of-aria/amongst-the-brambles.md).
+She grew up under summer's dependable gaze with an affinity for the flora and fauna of the glade, and developed her skills as a wizard in accordance with the natural laws set by the [Rosetta](~Rosetta).
 
 For Verdance, Candlehold is as beautiful and free as the wildflowers that adorn her gown.
 

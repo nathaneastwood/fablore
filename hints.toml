@@ -23,6 +23,8 @@ hint = "General who betrayed Kassai's family."
 hint = "Cogwerx, credited with inventing steam technology and revolutionising Metrix through steam compression for energy, is largely responsible for the city's success and development."
 [Coppertown]
 hint = "Coppertown, a southern district of Metrix nestled between vast strip mines, is a working-class community with a large population."
+[Davnir]
+hint = "Ancient of Earth and Lightning"
 [Deshvahan]
 hint = "A city in Volcor."
 [DhaniEmpire]
@@ -33,6 +35,8 @@ hint = "The Dracai are bestowed names that are free of any restrictions, convent
 hint = "Gravy Bones' ship"
 [EastRise]
 hint = "The majority of this Metrix sector is devoted to parks and entertainment complexes"
+[Enion]
+hint = "The Armory of Ancients, and Training Ground of Champions"
 [Ezu]
 hint = "A faction headed up by Chancellor Yama."
 [fai-mother]
@@ -79,6 +83,8 @@ hint = "Kassai's sorceress friend and member of the Cintari."
 hint = "Teklo Industries CEO"
 [Redmoor]
 hint = "The Redmoors are Boltyn's cousins."
+[Rosetta]
+hint = "An Order of powerful spell weavers that once stood alongside the likes of the Ollin and the Seers."
 [Ryoki]
 hint = "These are small creatures, similar in appearance to fish, that inhabit the lava streams and rivers of Volcor. Despite the immense heat, these creatures thrive in the extreme conditions, lurking beneath the glowing surface of the magma. While their scales are almost black, their 'fins' catch alight when they break the surface of the lava, leaping from stream to stream."
 [Savai]
@@ -107,3 +113,5 @@ hint = "The Volcai are the more limited social class of Volcor; their names are 
 hint = "Ira and Jing's brother."
 [Yama]
 hint = "Lord Chancellor and Head of the Ezu faction."
+[Yvor]
+hint = "Ancient of Lightning and Ice"

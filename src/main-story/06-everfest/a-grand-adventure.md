@@ -2,7 +2,7 @@
 
 _Lightning...Ice...Earth..._<br>
 _The elements are entwined in turmoil._<br>
-_A seething storm rages throughout Enion, threatening to destroy Volthaven and its people._<br>
+_A seething storm rages throughout [Enion](~Enion), threatening to destroy Volthaven and its people._<br>
 _The very land itself is twisting and turning, as if awakening from a dark slumber, and unearthing ancient mysteries thought to be lost to the ages._<br>
 _The starry-eyed wayfarer [Lexi](../../heroes-of-rathe/lexi-about.md) has been tasked with leading a troupe of adventurers into the heart of Enion, to uncover the origin of this elemental frenzy._<br>
 _She is joined by the traveling bard [Yorick](../../heroes-of-rathe/other.md#yorick-weaver-of-tales) - always searching for new stories, the gruff dwarven blacksmith Thawne - with a keen eye for craftsmanship, and the aspiring magician Māra - who has a flair for the dramatic._
@@ -20,7 +20,7 @@ Yorick noticed her concern, which was unusual for the adventure-thirsty wayfarer
 
 Lexi sighed. "Something just isn't right. I don't know what it is, but I am afraid for the people of Volthaven."
 
-He nodded. "Hopefully the answer lies at the very centre - Yvor's Peak."
+He nodded. "Hopefully the answer lies at the very centre - [Yvor](~Yvor)'s Peak."
 
 _But what will we find there...she wondered to herself._
 
@@ -238,7 +238,7 @@ Neither would make an interesting character in his next play, Yorick decided.
 
 Lexi exhaled in frustration. Oldhim stepped closer, scanning the queen's restful face.
 
-"My memory is...clouded," he muttered. "But the Rosetta...The Ollin..."
+"My memory is...clouded," he muttered. "But the [Rosetta](~Rosetta)...The Ollin..."
 
 If the queen was surprised by his presence, she showed no signs of it.
 

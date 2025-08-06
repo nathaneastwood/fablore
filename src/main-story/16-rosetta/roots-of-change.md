@@ -8,7 +8,7 @@ At the threshold of [Candlehold](../../regions/rathe/aria/the-land-of-legends.md
 
 Candlehold basked in perpetual sunlight, a realm of eternal summer where flowers bloomed endlessly, and time seemed suspended.
 
-Across this boundary, the Rotwood festered—a dark and withdrawn thicket where life and decay entwined.
+Across this boundary, the Rotwood festered - a dark and withdrawn thicket where life and decay entwined.
 
 Though small and suffocated, the Rotwood strained against its borders, yearning to claim more of Candlehold's vibrant land. Through fallen leaves and ancient bones, it whispered of long-forgotten battles and heroes who had returned to the earth. Visages of the venerable dead peered out from the fading foliage, offering silent guidance and comfort to travelers, as if the spirits of the fallen still watched over the land.
 
@@ -56,17 +56,17 @@ He knelt beside the beast and began the last rites, his voice carried softly thr
 
 "As the leaves fall, so too shall new life spring forth, nourished by what came before."
 
-With a quiet resolve, he gently traced a sigil into the earth. The Sigil of Deadwood; a sacred mark of twisted roots and ancient wisdom—a symbol of the natural order he revered. As he completed the drawing, Florian placed his hand upon the stag, its body now a mere husk of its former self.
+With a quiet resolve, he gently traced a sigil into the earth. The Sigil of Deadwood; a sacred mark of twisted roots and ancient wisdom - a symbol of the natural order he revered. As he completed the drawing, Florian placed his hand upon the stag, its body now a mere husk of its former self.
 
 Florian stood vigil, his eyes closed in a silent prayer, acknowledging the stag's return to the earth. The bark of the wooden beast cracked and from within it, the green light that carried its soul poured out and spilled across the forest floor, blanching the leaves and bramble.
 
 The stag let out a final restful sigh before its eyes dimmed and its form collapsed to the ground. The ritual was complete. The beast returned.
 
-Her chest tight with conflicting emotions, Verdance tried yet again to heal the glade—as much an act of defiance against the stag's passing as an effort in protection.
+Her chest tight with conflicting emotions, Verdance tried yet again to heal the glade - as much an act of defiance against the stag's passing as an effort in protection.
 
 ---
 
-Earlier that day, Verdance had sought counsel with Ozrim, a member of the [Rosetta](../../main-story/05-tales-of-aria/amongst-the-brambles.md), Candlehold's ancient council. She had found him seated in quiet contemplation, his presence as still and unchanging as the ivy-clad columns that surrounded him.
+Earlier that day, Verdance had sought counsel with Ozrim, a member of the [Rosetta](~Rosetta), Candlehold's ancient council. She had found him seated in quiet contemplation, his presence as still and unchanging as the ivy-clad columns that surrounded him.
 
 "Ozrim," Verdance had begun, "Florian's actions are drawing creatures from Candlehold to the Rotwood, leading them to decay. We need to intervene."
 
@@ -114,7 +114,7 @@ The Queen, a figure of timeless grace, reclined on her throne. Her eyes, once br
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/roots-of-change-3.webp" alt="roots-of-change-3" class="center" />
 
-"Your Majesty, Candlehold is in danger. The Rotwood is spreading at Florian's will and—"
+"Your Majesty, Candlehold is in danger. The Rotwood is spreading at Florian's will and - "
 
 "Quiet, my dear," the Queen interrupted, her voice soft and distant. "I am dreaming..."
 
@@ -142,7 +142,7 @@ Desperate, Verdance knelt beside the Queen, her hands glowing as she summoned he
 
 "In soil anew, the roots of change..." she intoned, her voice growing fainter with each word.
 
-"In the essence of decay..._Davnir_."
+"In the essence of decay..._[Davnir](~Davnir)_."
 
 "In the seeds of renewal...belonging."
 

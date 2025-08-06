@@ -38,7 +38,7 @@ She led the way down the hillside, her companion turning many a head as they ent
 
 Aurora gave an exasperated sigh. "Scili has yet to learn the art of chitchat."
 
-"Still, one of the lost relics of [Enion](../../main-story/05-tales-of-aria/wonders-of-the-wayfarer.md)?" wondered Melody. "How did you know to come?"
+"Still, one of the lost relics of [Enion](~Enion)?" wondered Melody. "How did you know to come?"
 
 "I sensed a surge in the [Flow](../../regions/rathe/aria/a-true-sanctuary.md#the-flow)," answered Oscilio. "An event of great magnitude has occurred here."
 
@@ -66,7 +66,7 @@ A hush settled upon the tent city as a figure emerged from the forest. A seeming
 
 Behind her, a procession followed, a stately parade of beings gnarled yet magnificent. Women, men, and animals of timber and root, flower and fungus, walked together, heads bowed. At the rear, a noticeable distance from the rest, trailed a man clad in armor and autumn leaves. He alone looked out upon the gathering of Aria, acknowledging their attendance at this funereal affair.
 
-[Florian](../../heroes-of-rathe/florian-about.md) skirted his fellow [Rosetta](../../main-story/05-tales-of-aria/amongst-the-brambles.md), careful not to mar them with his trail of rot. He approached [Verdance](../../heroes-of-rathe/verdance-about.md) warily. Though it had been some time since their fracas before the throne, he still did not entirely trust her change of heart.
+[Florian](../../heroes-of-rathe/florian-about.md) skirted his fellow [Rosetta](~Rosetta), careful not to mar them with his trail of rot. He approached [Verdance](../../heroes-of-rathe/verdance-about.md) warily. Though it had been some time since their fracas before the throne, he still did not entirely trust her change of heart.
 
 In timeless Candlehold, months passed as minutes to the Rosetta. While every spore of his being wanted to believe that this was happening, he had lived too long with disappointment to assume the best.
 
@@ -104,7 +104,7 @@ She faltered then, her leaf-green eyes glistening with emotion. She looked to Fl
 
 He nodded in what he hoped was an encouraging way and turned to address the crowd.
 
-"People of Aria, we welcome you into our sacred grove. Join us in mourning our beloved monarch, the only mother we have ever known. Feast with us, drink with us, make new memories with us. Share with us the beauties and wonders of Aria. For forest and land embrace. The essence of great Davnir flows through us all."
+"People of Aria, we welcome you into our sacred grove. Join us in mourning our beloved monarch, the only mother we have ever known. Feast with us, drink with us, make new memories with us. Share with us the beauties and wonders of Aria. For forest and land embrace. The essence of great [Davnir](~Davnir) flows through us all."
 
 And so the Rosetta led the folk of Aria into Candlehold for the first time in an age and an age again. Melody accompanied the solemn march with a soulful dirge, blending an ancient rhythm with freshly plucked riffs. Together they dined upon the bounty of autumn, drank ciders freshly brewed from fruits and berries, danced to the music of Aria, and reminisced over great deeds and the trials of eternity.
 

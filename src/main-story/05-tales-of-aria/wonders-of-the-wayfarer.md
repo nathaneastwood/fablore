@@ -4,7 +4,7 @@
 
 To the North of Korshem, far beyond Lake Frigid and the endless plains of ice and snow. Up the sides of mighty fjords that reach up into the heavens, lies a realm that floated amongst the long white clouds.
 
-This is Enion, the Armory of Ancients, and Training Ground of Champions. A place oft told in old wives' tales, or the singsong of the wandering bard, as the battlefield where Yvor, the mighty Ancient of Thunder and Ice, held back the legions of the Old Ones for ninety long cycles of the moon.
+This is Enion, the Armory of Ancients, and Training Ground of Champions. A place oft told in old wives' tales, or the singsong of the wandering bard, as the battlefield where [Yvor](~Yvor), the mighty Ancient of Thunder and Ice, held back the legions of the Old Ones for ninety long cycles of the moon.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/lexi-2.webp" alt="lexi-2" class="center">
 

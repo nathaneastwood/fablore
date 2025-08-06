@@ -12,7 +12,7 @@ But seriously, life is a wild ride that I'm determined to enjoy to the fullest. 
 
 For anyone who sees only the hurdles, I'll show them how to zap their worries on the free fall-if they're brave enough to take the leap. No-one's snapped back from adversity like I have. That's what sets me apart from the more 'celebrated' wayfarers around here. Where they shoot high, I vault for the sky.
 
-Speaking of vaults. [Enion](../regions/rathe/aria/the-land-of-legends.md#volthaven) is a treasure trove of them, created back in [Yvor](../regions/rathe/aria/the-land-of-legends.md#volthaven)'s day. They're scattered all across these floating isles. I've heard the stories, learned the old tricks, and now I've made it my mission to open every single one.
+Speaking of vaults. [Enion](~Enion) is a treasure trove of them, created back in [Yvor](~Yvor)'s day. They're scattered all across these floating isles. I've heard the stories, learned the old tricks, and now I've made it my mission to open every single one.
 
 Ready to join the expedition?
 

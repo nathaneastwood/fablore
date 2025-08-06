@@ -63,7 +63,7 @@ A void left by the broken Covenant.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/oldhim-10.webp" alt="oldhim-10" class="center">
 
-"I need answers," he thought, as he set off into an unfamiliar realm. He would seek out his old allies; perhaps the Seers, or the Rosetta.
+"I need answers," he thought, as he set off into an unfamiliar realm. He would seek out his old allies; perhaps the Seers, or the [Rosetta](~Rosetta).
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/oldhim-11.webp" alt="oldhim-11" class="center">
 

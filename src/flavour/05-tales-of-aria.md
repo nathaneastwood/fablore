@@ -1,7 +1,7 @@
 ## Tales of Aria
 
 #### Arcanic Shockwave - (ELE073)
-After centuries of seclusion, the Rosetta have learned to harness [Strale](../regions/rathe/aria/the-land-of-legends.md#candlehold); the power that resonates throughout their beloved forest.
+After centuries of seclusion, the [Rosetta](~Rosetta) have learned to harness [Strale](../regions/rathe/aria/the-land-of-legends.md#candlehold); the power that resonates throughout their beloved forest.
 
 #### Autumn's Touch - (ELE128)
 The hand of autumn sweeps the land, guiding life towards rebirth.

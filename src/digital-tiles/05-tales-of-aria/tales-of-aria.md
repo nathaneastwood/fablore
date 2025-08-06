@@ -84,7 +84,7 @@ The Ollin were the staunch front line in the war of the Ancients, many aeons ago
 
 ### Pulse of Candlehold
 
-The essence of Davnir cycles through the meadows of Candlehold, trapped by the Queen's ancient magics.
+The essence of [Davnir](~Davnir) cycles through the meadows of Candlehold, trapped by the Queen's ancient magics.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/pulse-of-candlehold.webp" alt="pulse-of-candlehold" class="center" />
 
@@ -96,7 +96,7 @@ This citadel stood for centuries atop Mt. Isen, frozen in stasis by the ice of t
 
 ### Pulse of Volthaven
 
-The mighty lightning of Yvor thunders through the skies of Volthaven, as the winter snow coats it in a gown of white.
+The mighty lightning of [Yvor](~Yvor) thunders through the skies of Volthaven, as the winter snow coats it in a gown of white.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/pulse-of-volthaven.webp" alt="pulse-of-volthaven" class="center" />
 
