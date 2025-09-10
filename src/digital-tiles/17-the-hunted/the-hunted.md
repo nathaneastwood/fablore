@@ -1,3 +1,39 @@
+### Arakni, Funnel Web
+
+Eight claws reaching, eight blades to cleave,<br>
+They hide behind trap doors of gossamer weave,<br>
+And when they smell the blood of the [Dracai](~Dracai),<br>
+Agent 342 dissects the dragon, limb to torso to eye.
+
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/arakni-funnel-web.webp" alt="arakni-funnel-web" class="center" />
+
+### Arakni, Orb Weaver
+
+With predatory prowess, this huntress slays,<br>
+Spinning her orbs to paralyze prey,<br>
+She is Agent 573, weaver of despair,<br>
+Children of the Dragon, be still or beware.
+
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/arakni-orb-weaver.webp" alt="arakni-orb-weaver" class="center" />
+
+### Arakni, Redback
+
+Lurking in the tundra of [Volcor](../../regions/rathe/volcor/volcor.md)'s red plains,<br>
+A creation of cruelty stalks night and day,<br>
+'Tis murder it loves, the bloodier the better,<br>
+Agent 444 is the agony dispenser.
+
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/arakni-redback.webp" alt="arakni-redback" class="center" />
+
+### Arakni, Tarantula
+
+A dreg of the Skein, tainted from above,<br>
+Twisted to thirst for royal dragon blood,<br>
+Agent 045 of origins grim,<br>
+Rotten before the deigned to remake him.
+
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/arakni-tarantula.webp" alt="arakni-tarantula" class="center" />
+
 ### Dragonscaler Flight Path
 
 Some of the [Emperor](../../heroes-of-rathe/emperor-about.md)'s most trusted servants see in his murder an opportunity for glory. To them, there is no greater sign of devotion than to hunt his enemies, no grander display of honor than to exact vengeance with fire, again and again, until the dynasty is reborn.
@@ -10,11 +46,23 @@ Some of the [Emperor](../../heroes-of-rathe/emperor-about.md)'s most trusted ser
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/fire-and-brimstone.webp" alt="fire-and-brimstone" class="center" />
 
+### Graphene Chelicera
+
+The chitinous predators that stalk the [Pits](../../regions/rathe/pits/pits.md) can kill with a single bite, and so the blades forged in that place are crafted to the same standard. To draw blood with such a weapon is to sentence death-if but given the chance.
+
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/graphene-chelicera.webp" alt="graphene-chelicera" class="center" />
+
 ### Kabuto of Imperial Authority
 
 This imposing helm, worn solely by the officers of the royal hosts, has been a symbol of fealty since the time of the first emperors. Those who don it now do so with a renewed vow: To hunt down the enemies of the dynasty and avenge their fallen liege.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/kabuto-of-imperial-authority.webp" alt="kabuto-of-imperial-authority" class="center" />
+
+### Mark of the Huntsman
+
+A trail of bloody corpses was not the only mark left by the Huntsman. How this dagger disappeared so soon after its discovery remains unknown, but its origin is clear to all. Wrought by the bladesmiths of the Pits, is this exquisite dagger a calling card or a bluff?
+
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/mark-of-the-huntsman.webp" alt="mark-of-the-huntsman" class="center" />
 
 ### Mask of Deceit
 
@@ -24,7 +72,7 @@ This imposing helm, worn solely by the officers of the royal hosts, has been a s
 
 ### Oath of Loyalty
 
-The loyalist forces are aided by powerful wizards of the imperial court, these nobles paving the way with torrents of fire and infernal conjurations. Though the [Dracai](~Dracai) lords of [Volcor](../../regions/rathe/volcor/volcor.md) are famously capricious, many swore fealty to the Emperor, considering him the mightiest mage of them all.
+The loyalist forces are aided by powerful wizards of the imperial court, these nobles paving the way with torrents of fire and infernal conjurations. Though the Dracai lords of Volcor are famously capricious, many swore fealty to the Emperor, considering him the mightiest mage of them all.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/oath-of-loyalty.webp" alt="oath-of-loyalty" class="center" />
 
