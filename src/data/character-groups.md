@@ -85,3 +85,33 @@
 |   Suraya | Archangel of Knowledge, Archangel of Erudition, Arcane Herald |
 |   Themis |                   Keeper of the Scales, Archangel of Judgment |
 | Victoria |                                          Archangel of Triumph |
+
+## Deathmatch Super Slam Guilds
+
+### Speakeasy's Guilds
+
+|                                                      Name |
+| --------------------------------------------------------- |
+|                                                Mythmakers |
+|                                      Glorytown Gladiators |
+|                                                Fury Fists |
+|                                                  Boulders |
+| Heavy Metals (mentioned in rivalry, but tied to her side) |
+|                                              Wild Wonders |
+|                                     Champions of Chivalry |
+
+### Batbiter's Guilds
+
+|                  Name |
+| --------------------- |
+|           Big Boppers |
+|         Baleful Horde |
+|             Gorelords |
+|              Prowlers |
+| Chanek Jungle Slayers |
+
+### Moloca's Guilds
+
+|                                                                                                                         Name |
+| ---------------------------------------------------------------------------------------------------------------------------- |
+| [Savage Land](../regions/rathe/savage-lands/savage-lands.md) beasts (unnamed, but implied as a competing force in the arena) |

@@ -21,6 +21,8 @@
             - [Tides of Change](regions/rathe/aria/tides-of-change.md)
             - [A Lost Tome](regions/rathe/aria/a-lost-tome.md)
             - [Creatures](regions/rathe/aria/creatures.md)
+        - [Deathmatch](regions/rathe/deathmatch/destination-deathmatch.md)
+            - [Super Slam Season Is Here](regions/rathe/deathmatch/super-slam-season-is-here.md)
         - [Demonastery](regions/rathe/demonastery/demonastery.md)
             - [Realm of the Forbidden](regions/rathe/demonastery/realm-of-the-forbidden.md)
             - [A History of Persecution](regions/rathe/demonastery/a-history-of-persecution.md)
@@ -221,6 +223,7 @@
     - [The Lost Treasure of Blackwater Strait](main-story/18-high-seas/the-lost-treasure-of-blackwater-strait.md)
     - [A Kraken Good Tale](main-story/18-high-seas/a-kraken-good-tale.md)
     - [Trouble in Larinkmorth](main-story/18-high-seas/trouble-in-larinkmorth.md)
+    - [Feudmasters](main-story/19-super-slam/feudmasters.md)
 
 - [Short Stories](short-stories/README.md)
     - [A Thousand Cuts](short-stories/10-outsiders/a-thousand-cuts.md)
