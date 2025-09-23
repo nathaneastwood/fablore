@@ -32,21 +32,13 @@ Death is Arakni's only concern. Assassination, their singular delight.
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/arakni-solitary-confinement.mp4" type="video/mp4">
 </video>
 
-No-one escapes Southmaw. No-one except Patient 1413.
+Southmaw Asylum is a laboratory of horrors where the orphaned and discarded of the Pits beneath [Metrix](../regions/rathe/metrix/metrix.md) are subjected to nightmarish experiments, but for Patient 1131 it was home.
 
-The feral orphan, taken and tormented to the point of no return. The silent prodigy transformed into an expression of graceful violence.
+No one remembers the person that entered Southmaw, soon rendered unrecognizable by the surgeries and tests conducted by the monstrous [Dr. Mortimer](../other-characters/krest-mortimer.md).
 
-Having crawled out from the most wretched recesses of the Pits, and again from the test tube of teknocratic greed, Patient 1413 has shed their past like a slurry scorpion sheds its carapace.
+Now an assassin of the [Spider](../regions/rathe/pits/blackjacks-mercenary-group.md#the-spider), this Arakni takes the jobs that give even the other Arakni pause. Its chaotic aberrations enable it to slip into target locations deemed impregnable, and it relishes those jobs that border on suicide. For if Southmaw couldn’t kill it, nothing could.
 
-No longer the lab rat for the Iconoclast Trials, subjected to the poisonous experiments of a mad scientist. No longer the puppet on Metrixian strings.
-
-Serving the nest as Arakni and regarded throughout the Pits as the Huntsman, they care nothing for the petty squabbles infecting the minds of Rathe's denizens, nor the sweaty dealings of contract and coin. The work is their life and their life is the work.
-
-Their instincts revived and rewired, they have become a weapon of sharpened mind and polished purpose, unsheathed of morality or conscience.
-
-Like a stone dropped into a stygian pool, Arakni causes ripples they will never witness nor reflect. Arakni carries no malice for those they take, has no reason to dance upon any man's grave.
-
-Death is Arakni's only concern. Assassination, their singular delight.
+Rumors say it steals into Southmaw in the dead of night, never seen nor heard. The only evidence of its passage being the blood-stained surgical tools and empty bottles of alchemical elixir left in its wake. Some might disregard the rumors, but know this: however much Patient 1131 has been transformed by the deathly pressures of Southmaw, it is still in the process of becoming.
 
 <div class="hero-container">
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/stealth.webp" class="hero-icon" />

@@ -4,7 +4,7 @@
 
 A sortie of said specimens emerged from the tunnels of the Skein and assaulted the shroom farmers who use the Shuntswitch line for supply and distribution. Armed with only hammers and sickles, the rail workers and farmers dispatched a baker's dozen of the wretches before the rest fled back into the depths of the [Pits](../../regions/rathe/pits/pits.md).
 
-A train driver found the youth soon after, clinging like a rust spider to one of the loading cranes. After quite the fracas, and no small number of minor injuries, the youth was subdued and brought to Southmaw Asylum where I took them into custody for study and treatment.
+A train driver found the youth soon after, clinging like a rust spider to one of the loading cranes. After quite the fracas, and no small number of minor injuries, the youth was subdued and brought to [Southmaw Asylum](~Southmaw) where I took them into custody for study and treatment.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/arakni-1.webp" alt="arakni-1" class="center">
 
