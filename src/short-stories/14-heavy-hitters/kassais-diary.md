@@ -39,7 +39,7 @@ Today, my mind is a whirlwind, filled with more thoughts than I have ink to scri
 
 ---
 
-Six days across the scorched, parched terrain of the Red Desert under the relentless sun. And now, at last, we have arrived at the border of Gougemoor. It is an oasis of another kind for refugees - man and beast alike - worn down by the relentless desecration of their former territories. An opportunity, too, for the scum of [Rathe](../../regions/rathe/rathe.md) to settle in and seize whatever they can get their hands on. Lawless and wild. I am told Gougemoor smashes up against the [Savage Lands](../../regions/rathe/savage-lands/savage-lands.md) and out of that friction the Moat has risen, home of the Deathmatch. We head there tomorrow, sands willing.
+Six days across the scorched, parched terrain of the Red Desert under the relentless sun. And now, at last, we have arrived at the border of [Gougemoor](~Gougemoor). It is an oasis of another kind for refugees - man and beast alike - worn down by the relentless desecration of their former territories. An opportunity, too, for the scum of [Rathe](../../regions/rathe/rathe.md) to settle in and seize whatever they can get their hands on. Lawless and wild. I am told Gougemoor smashes up against the [Savage Lands](../../regions/rathe/savage-lands/savage-lands.md) and out of that friction the Moat has risen, home of the Deathmatch. We head there tomorrow, sands willing.
 
 ---
 

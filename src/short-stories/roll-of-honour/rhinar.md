@@ -2,7 +2,7 @@
 
 A risky excursion in the wilds. That's what those coined-up hedonists deemed pleasurable, and that's what they got. In the Moat, they were voyeurs. In the [Savage Lands](../../regions/rathe/savage-lands/savage-lands.md), they could take part.
 
-After an afternoon stalking [brawnhide](../../regions/rathe/savage-lands/bestiary-of-scarborough.md#brawnhide) and scarbit, we set up camp in the far north-east reach, Togark the Wrangler rousing the Gougemoor elite with ale and tall tales, promising them another crack at a brawnhide, maybe a [Big Horn](../../flavour/03-crucible-of-war.md#barraging-big-horn---cru010). As night fell, our bonfire grew, their banal revelries intensifying.
+After an afternoon stalking [brawnhide](../../regions/rathe/savage-lands/bestiary-of-scarborough.md#brawnhide) and scarbit, we set up camp in the far north-east reach, Togark the Wrangler rousing the [Gougemoor](~Gougemoor) elite with ale and tall tales, promising them another crack at a brawnhide, maybe a [Big Horn](../../flavour/03-crucible-of-war.md#barraging-big-horn---cru010). As night fell, our bonfire grew, their banal revelries intensifying.
 
 Eager to distance myself from the rowdiness, I went behind the bushes for a leak. Stood in a pile of dung, the stench pungent. Now, when I think back, any predator could have attacked us, the jungle air so still our voices would have travelled for miles, our scent further.
 

@@ -55,6 +55,8 @@ hint = "A wild, unpredictable force of nature in Aria, the Flow shapes the lands
 hint = "A sleek airship"
 [GoldkissRum]
 hint = "Bright with a rich golden flavor, this is the most popular drink served at the Kraken's Barrel."
+[Gougemoor]
+hint = "The edge of the Savage Lands, home to the Deathmatch arena."
 [Hoikers]
 hint = "Giant, acid-spitting scallops"
 [Ikaru]
@@ -85,7 +87,8 @@ hint = "Kassai's sorceress friend and member of the Cintari."
 hint = "Southmaw Asylum is a laboratory of horrors where the orphaned and discarded of the Pits beneath Metrix are subjected to nightmarish experiments."
 [SyntheaTeklo]
 hint = "Teklo Industries CEO"
-[Redmoor]
+[SuperSlam]
+hint = "A deadly combat tournament where fighters battle in the Deathmatch Arena for glory and bloodsport."
 hint = "The Redmoors are Boltyn's cousins."
 [Rosetta]
 hint = "An Order of powerful spell weavers that once stood alongside the likes of the Ollin and the Seers."
