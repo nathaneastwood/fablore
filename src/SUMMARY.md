@@ -276,6 +276,7 @@
         - [Zen](short-stories/roll-of-honour/zen.md)
       - [Armory Decks](short-stories/armory-decks/armory-decks.md)
         - [Gravy Bones](short-stories/armory-decks/gravy-bones.md)
+        - [Pleiades](short-stories/armory-decks/pleiades.md)
 
 - [Languages](languages/intro.md)
     - [Arcane](languages/01-arcane.md)
