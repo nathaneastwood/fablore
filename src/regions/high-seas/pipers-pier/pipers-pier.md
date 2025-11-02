@@ -22,7 +22,7 @@ Airborne raiders gather to share secrets and broker deals at the Mechaneer's Bou
 
 ## Governors and Guards
 
-After Piper's Pier wrest its independence from Metrix in the brief Clockwork War, a governor has been elected every five years from the most prominent and prosperous merchants. Despite Piper's Pier running mostly on private enterprise, the Governor's Chambers manages the thermal infrastructure, docks, and Coast Guard. It's the governor's job to keep the pipes clear and the populace safe from pirates and other marine menaces.
+After Piper's Pier wrest its independence from Metrix in the brief Salt and Steam War, a governor has been elected every five years from the most prominent and prosperous merchants. Despite Piper's Pier running mostly on private enterprise, the Governor's Chambers manages the thermal infrastructure, docks, and Coast Guard. It's the governor's job to keep the pipes clear and the populace safe from pirates and other marine menaces.
 
 Governor Practiss has dominated Pier politics for over a decade. Though her last election was stained with scandal and accusations of corruption, Practiss has maintained a copperplate grip on the city by expanding the Coast Guard and filling her office with handpicked cronies.
 
@@ -30,6 +30,6 @@ Suspicion is that Practiss has a clandestine alliance with the crime boss, Cirru
 
 ## Corporate Interests
 
-While most companies of Metrix origin were ousted during the Clockwork War, the [Cogwerx Conglomerate](~Cogwerx) still maintains a foothold in the Pier. Under contract to the Governor's Chambers, they run some of the infrastructure, and build and repair the skywardens.
+While most companies of Metrix origin were ousted during the Salt and Steam War, the [Cogwerx Conglomerate](~Cogwerx) still maintains a foothold in the Pier. Under contract to the Governor's Chambers, they run some of the infrastructure, and build and repair the skywardens.
 
 The only company permitted by the governor to own its own docks, Cogwerx receives sailing ships and airships filled with cogs and immigrants from Metrix, and sends them back, packed to the gunnels with raw resources, especially gold.
