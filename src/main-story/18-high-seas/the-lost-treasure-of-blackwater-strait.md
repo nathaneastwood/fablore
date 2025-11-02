@@ -58,7 +58,7 @@ Puffin twirled her rifle and slammed the stock on the deck with a flourish. "The
 
 Meldrick stood, dumbfounded. _All this trouble for a map?_
 
-"I'd just sailed in from [Metrix](../../regions/rathe/metrix/metrix.md), and your suitcase swapping hijinks ruined everything. Those blasted bots you planted cost me my job. I suppose this map is worth ruining a man's life?"
+"I'd just sailed in from [Coppertown](~Coppertown), and your suitcase swapping hijinks ruined everything. Those blasted bots you planted cost me my job. I suppose this map is worth ruining a man's life?"
 
 "I wouldn't say ruined," Puffin said as she unfurled the parchment. "Besides, this map will lead us to the find of a lifetime!"
 
@@ -208,7 +208,7 @@ They scoured the decks and cabins first and after finding nothing but death and 
 
 "I don't, but you'd be a fool not to believe in necromancy." She kicked over a couple of barrels to reveal a hatch and hauled it open.
 
-"There it is," Puffin said, her voice hushed in awe. Meldrick looked down into the smuggler's hold to see a big, golden disk resting on a mound of coins and jewels. The captain reached down and touched the plate reverently, her fingers caressing the edges. She was fixated on it, and it was easy to see why: otherworldly arrows, glyphs, and stars were inscribed on its shimmering surface. To Meldrick's valuing eyes, it was a genius work of calligraphy and iconography that would fetch an executive's ransom back in Metrix. Upon closer inspection, Meldrick noted the arrows converged upon a seven-pointed star.
+"There it is," Puffin said, her voice hushed in awe. Meldrick looked down into the smuggler's hold to see a big, golden disk resting on a mound of coins and jewels. The captain reached down and touched the plate reverently, her fingers caressing the edges. She was fixated on it, and it was easy to see why: otherworldly arrows, glyphs, and stars were inscribed on its shimmering surface. To Meldrick's valuing eyes, it was a genius work of calligraphy and iconography that would fetch an executive's ransom back in Coppertown. Upon closer inspection, Meldrick noted the arrows converged upon a seven-pointed star.
 
 Polly rose to the broken rafters, singing badly. "Shiver me timbers, ye found the booty! Three cheers fer Cap'n Puffin!"
 
