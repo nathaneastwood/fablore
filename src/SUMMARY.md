@@ -274,9 +274,9 @@
         - [Rhinar](short-stories/roll-of-honour/rhinar.md)
         - [Victor](short-stories/roll-of-honour/victor-goldmane.md)
         - [Zen](short-stories/roll-of-honour/zen.md)
-      - [Armory Decks](short-stories/armory-decks/armory-decks.md)
-        - [Gravy Bones](short-stories/armory-decks/gravy-bones.md)
-        - [Pleiades](short-stories/armory-decks/pleiades.md)
+    - [Armory Decks](short-stories/armory-decks/armory-decks.md)
+      - [Gravy Bones](short-stories/armory-decks/gravy-bones.md)
+      - [Pleiades](short-stories/armory-decks/pleiades.md)
 
 - [Languages](languages/intro.md)
     - [Arcane](languages/01-arcane.md)
