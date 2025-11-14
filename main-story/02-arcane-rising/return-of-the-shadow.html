@@ -1,0 +1,274 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Return of the Shadow - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="return-of-the-shadow"><a class="header" href="#return-of-the-shadow">Return of the Shadow</a></h1>
+<p>Amidst the darkness, the faint glow of the Arknight shard glimmered, a pale violet against the shadow. The first thing he became aware of was the stone floor, a faint chill seeping through his thick runic armour. The tips of his gauntleted fingers scraped against the stone as he pulled his hand closer to his face.</p>
+<p>Slowly, Viserai opened his eyes.</p>
+<p>His body was slow to respond as he forced himself into a sitting position, reaching toward the dim, flickering light of the Nebula Blade, lying nearby. Mind warped from years of his master's experimentation, he was accustomed to the disoriented confusion that came with memory loss, and began to carefully sort through his fragmented memories.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-6.webp" alt="viserai-6" class="center">
+<p><em>Driving his blade into the solid earth... an oath. The entrance hall. An army. The creatures. Whisper... a... bargain?</em></p>
+<p><em>A dark deal with... something.</em></p>
+<p>Viserai could vaguely recall swearing an oath, but when he reached for the memory, a wall of searing pain greeted him. With a grimace, he curled his fingers, testing his aching limbs one by one.</p>
+<p>A sudden, wet squelch drew his gaze down, landing on the creature crushed beneath his heel. Missing its head and limbs, it thrashed aimlessly on the floor, blindly lashing out at the air around it. A deep gash allowed its blood to seep out onto the stone beneath it, pooling out around the thrashing corpse.</p>
+<p>At the sight, something within his chest flared to life. His muscles seized, arcane energy coursing through his veins as the blood called to him, stained a deep, inky black by the low light.</p>
+<p>The sharp fingertips of his gauntlet tore through its flesh with ease, shredding the sallow skin in seconds. Blood spattered across the surface of his armour, coating the dark metal in a shining layer of bright red blood. All around him, the lights of the entrance hall flared to life, revealing the army still standing around him, a horde of creatures waiting to be let loose.</p>
+<p><em>Feast.</em></p>
+<p>One by one, they fell before him, mutated flesh parting beneath his touch, blood pouring onto the stone floor. The ground vibrated beneath his feet, as if echoing the all-consuming hunger coursing through his veins.</p>
+<p><em>Awaken.</em></p>
+<p>The Arknight shard flared brighter and brighter as he tore through the hall, bones cracking under the force of his blows. In the corners of the room, faces appeared, gazes fixed on the scene before them.</p>
+<p><em>Unleash.</em></p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-7.webp" alt="viserai-7" class="center">
+<p>Blood pooled about his feet, collecting in shallow channels carved into the stone floor. As it circulated through the room, a series of sigils began to illuminate, one by one, spellwork activating beneath his feet. Aether began to rise, the air almost seeming to vibrate as arcane energy flooded through the room. Viserai's knees buckled beneath him as the shard reacted to the aether in the air, activating the runework carved into his skin.</p>
+<p>Raising his head, Viserai opened his eyes, gaze landing on Whisper. The stained glass window warped before his eyes, metal framework bending and moving as the girl depicted in the window raised her head, taking a step forward. As she approached the edge of the frame, the moon above her head began to expand, crescent waxing into a full moon. Between one moment and the next, the girl disappeared, and the moon flared a bright, brilliant scarlet.</p>
+<p>The remaining creatures exploded in a shower of blood, as an ear-splitting shriek burst through the night air. Placing his hands over his ears, Viserai grimaced, his feet carrying him closer and closer to the stained glass.</p>
+<p><em>Sacrifice.</em></p>
+<p>Collapsing to his knees, Viserai watched through slitted eyes as the last few sigils flared with a white light, completing the concentric circles carved into the stone floor. One by one, the windows lining the walls shattered, glass exploding as the shockwave neared the largest of them. The silvered glass rippled like water; reflections distorted by the pale violet shimmer of aether.</p>
+<p>Chains shot out from the floor, wrapping tightly around Viserai's wrists, coiling up his arms and locking him into place. The metal of his armour groaned beneath the tight grasp of the chains, runework flaring along the surface of his arcane restraints. Viserai could feel his muscles weaken, artificial heartbeat slowing, his vision going dark as the sigils beneath him sapped at the energy of the Arknight shard.</p>
+<p>Faces emerged from the shadows around him, each bearing an eerie, twisted grin. They drew closer, the light revealing the unnatural pallor to their skin, marred by darker patches of rot and decay. The acrid tang of necrosis flooded the room, mingling with the overwhelming metallic scent of fresh blood.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-8.webp" alt="viserai-8" class="center">
+<p>Viserai turned his head slightly toward them, struggling to regain control as the ritual chipped away at his will. Nine graying faces stared back at him, their expressions drawn and tense in the pale light. As he began to struggle, he saw their eyes widen, their hushed voices rising in a panicked crescendo.</p>
+<p>The tight burn of the Arknight shard erupted into an all-consuming fire, setting his nerves alight with searing pain. The runework flared violently, violet light staining the room around him, air shimmering with the promise of arcane energy. Blinded by pain, ears ringing from the deafening shrieks which filled the room, he struggled in vain against his silversteel restraints, buckling beneath the flood of aether. Viserai looked up at the stained glass before him and felt the whole world shift.</p>
+<p>All at once, his senses were overwhelmed, as if there were a thousand voices shouting at once. He was acutely aware of reality bending and shifting, time itself twisting, tearing at the seams. Just out of reach, Viserai could sense something vast, ageless. A barrage of images flashed before his eyes; glimpses of beings enveloped by the world around them, an unfamiliar landscape stretching far into the distance; the threads of aether which made up the tapestry of their world.</p>
+<p>The world tilted beneath him, equilibrium shifting to accommodate the sudden influx of energy. Bowed beneath the strain, Viserai felt the acute burn of his arcane bonds, lances of pain piercing through to his very bones. The Arknight was no stranger to pain. Refocusing, he pushed past it, ignoring the icy bite of aether. With one great heave, Viserai pulled at his connection to the arcane, calling on the power of the Arknight shard, calling on the energy flowing through to him from beyond... and broke free.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-9.webp" alt="viserai-9" class="center">
+<p>As the metal shards fell to the ground, Viserai surged to his feet, flinging out one arm to catch the nearest cultist by the throat. The man never had a chance to react, throat bared to the sharp edges of Viserai's gauntlet. With the aether flowing through his veins, Viserai barely needed to flex his fingers; the cultist was decapitated with startling efficiency, his head rolling to a stop at the Arknight's feet.</p>
+<p>Tearing the spine from the cultist's fresh corpse, Viserai tapped into the newfound connection, drawing on the images playing out in his mind's eye. He cracked the sinewy structure like a whip, channeling aether along its length, watching with morbid fascination as dark material sprouted from the remnants of the cultist's spine. Arcane energy flared from between the vertebrae, forming the basis of a new blade; one of Viserai's own making. Fresh blood dripped from its honed edge, an arcane core gleaming through the marred, inky flesh which formed the body of the blade, gleaming a deep amethyst in the unnatural light.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-10.webp" alt="viserai-10" class="center">
+<p>The cultists skittered backward, their wide-eyed gazes fixed firmly on Viserai. Turning toward the silhouette of the window-frame, he raised one hand toward the rippling surface of the glass, and reached for the thread of aether he could sense trickling through.</p>
+<p>His raspy, grating voice broke through the shocked silence.</p>
+<p>"No more masters."</p>
+<p>The glass shattered, exploding, a deafening boom reverberating throughout the hall. Shards of glass flew outward in a great arc, illuminated by the arcane light. The whole room - the very air around them shuddered, rippled, like the surface of a lake disturbed by a great amount of force.</p>
+<p>Just beyond the frame, through the opened gateway, Viserai could see the shifting, writhing shadows that lay just out of reach. One form came into view, drawing closer to the surface; its towering form was eerily pail, translucent skin torn open by networks of ink-black veins. It moved like water, drifting gracefully toward the frame on spindly, barbed limbs, tapered to a fine point.</p>
+<p>Turning away from the frame, Viserai looked out over the small crowd which had gathered. The cultists stood just out of reach, their faces split by broad, twisted grins. Many of the Demonastery's residents had emerged into the hall, researchers and scientists and wizards all gathering to watch the realisation of their long-awaited plans. As the creature emerged from the portal behind him, Viserai felt the Arknight shard flare with energy.</p>
+<p><strong><em>The doorway is opened. Behold, íArathael.</em></strong></p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-11.webp" alt="viserai-11" class="center">
+<hr />
+<p><em>Source: <a href="https://fabtcg.com/articles/return-shadow/">https://fabtcg.com/articles/return-shadow/</a></em><br>
+_ Story by Nicola Price._<br>
+<em>Illustrations by MJ Fetesio and Nikolay Moskvin.</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/02-arcane-rising/birth-of-the-arknight.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/03-crucible-of-war/sutcliffes-research-notes.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/02-arcane-rising/birth-of-the-arknight.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/03-crucible-of-war/sutcliffes-research-notes.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>
