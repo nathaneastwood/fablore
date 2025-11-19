@@ -277,6 +277,7 @@
         - [Zen](short-stories/roll-of-honour/zen.md)
     - [Armory Decks](short-stories/armory-decks/armory-decks.md)
       - [Gravy Bones](short-stories/armory-decks/gravy-bones.md)
+      - [Hala](short-stories/armory-decks/hala.md)
       - [Pleiades](short-stories/armory-decks/pleiades.md)
       - [Rhinar](short-stories/armory-decks/rhinar.md)
 
