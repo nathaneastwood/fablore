@@ -95,6 +95,7 @@
     - [Fai](heroes-of-rathe/fai-about.md)
     - [Fang](heroes-of-rathe/fang-about.md)
     - [Florian](heroes-of-rathe/florian-about.md)
+    - [Frankie](heroes-of-rathe/frankie-about.md)
     - [Genis](heroes-of-rathe/genis-about.md)
     - [Gravy Bones](heroes-of-rathe/gravy-about.md)
     - [Ira](heroes-of-rathe/ira-about.md)
