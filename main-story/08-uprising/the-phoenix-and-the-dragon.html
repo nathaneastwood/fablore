@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Phoenix and the Dragon - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="the-phoenix-and-the-dragon"><a class="header" href="#the-phoenix-and-the-dragon">The Phoenix and the Dragon</a></h1>
+<p>
+(<a href="#the-phoenix-and-the-dragon-narrated-by-peranine">Jump to Narrated Video</a>)
+</p>
+<p>A trap laid for a spymaster and his Ash Artist accomplice. Eun as the bait that Xathari would be compelled to take. Hundreds of ninjas waiting in ambush. Swords drawn for the soldiers. Nets and spears readied for Dromai's dragons.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/fai-7.webp" alt="fai-7" class="center">
+<p>Eun's plan was cunning. Fai had to give her that. Since the massacre at Golden Orchard, Eun had been obsessed with ridding Volcor of 'that scheming snake'. With Xathari and his firesight extinguished, it would be easier to infiltrate the Imperial Palace, to tear the <span class="hint" hint="Dracai">Dracai</span> down from within.</p>
+<p>The Lord Wizards were growing desperate. Inspired by the fallen rebels of Golden Orchard, <span class="hint" hint="Volcai">Volcai</span> were taking up arms all across Volcor. The many feathers of the Phoenix were burning bright. Naturally, the snake would seek to bite off the phoenix's head. And so Eun would stick out her own neck. Would make herself an irresistible delicacy to the serpent's fangs.</p>
+<p>In Fai's mind, it should have worked.</p>
+<hr />
+<p>He slides beneath the dragon's exposed underbelly. His sword cuts deep and his momentum drags the blade down the full length of the creature's abdomen. He expects a cascade of guts. Instead, the dragon's white flanks shiver, rippling like water, and then the beast is gone. No carcass. No blood. Nothing to mark that it ever existed. Nothing but the mutilated corpses of his comrades.</p>
+<p>Fai looks to Eun, who now kneels before Dromai. The rebel leader's left arm is missing. Her shoulder is a mangled stump. Yet still she grins up at his sister, her eyes wild.</p>
+<p>Behind Dromai, Xathari leans on his staff, the spymaster's right hand pressed to a wound in his flank. Blood bubbles between his fingers and soaks his robes. He coughs, a wet rasp, as blood trickles from the corner of his mouth.</p>
+<p>"Kill her," he wheezes.</p>
+<p>Fai levels his sword at Dromai. "Please, sister. Don't."</p>
+<p>"<span class="hint" hint="Min">Min</span> didn't spare my mother's life," snaps Dromai. "She didn't think twice about murdering my father. What makes this life any more worthy than theirs?"</p>
+<p>"Murdered your father?" Shock chokes the words in his throat. "Min–She could never–Why–"</p>
+<p>Eun's laughter cuts him off, a hacking cackle that sends a spasm through her crippled body.</p>
+<p>"You believe that?" she manages, tears running down her face. "The truth is much more fun."</p>
+<p>Xathari steps towards Eun, flames guttering in his palm. Fai notices the weakness in his fire, the exhaustion in his face. He raises his sword, ready to throw it if he has to. Xathari freezes. The flames die away.</p>
+<p>"Min didn't kill your parents," sneers Eun. "I did. And who told me where to find them?" She raises her trembling hand and points at Xathari.</p>
+<p>Xathari stares back, his eyes full of hatred.</p>
+<p>"Torvai walked among the Volcai," says Eun. "He faltered and fumbled, loved and lost. He ate, slept and shat in a bucket, just like the rest of us."</p>
+<p>"He was an embarrassment," hisses Xathari.</p>
+<p>"And would have drowned our cause in words," continues Eun. "Endless talk that changes nothing."</p>
+<p>"What about Sani?" Dromai's voice is taut, a humming wire about to break.</p>
+<p>Eun shrugs, then winces from the pain of it. "She must have loved Torvai more than she loved you."</p>
+<p>Dromai smiles, an expression so bleak, so distant, that it almost breaks Fai's heart. Then she whispers something, a single word, and the ground answers her.</p>
+<p>Jaws burst through the rock with such force that the tremor knocks Fai off his feet. Those jaws close around Eun. She is gone in an instant, consumed. The great purple dragon hauls itself out of the crater, shakes off rubble and ash, and turns to Fai.</p>
+<p>"Not him," commands Dromai. She points at Xathari.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/fai-8.webp" alt="fai-8" class="center">
+<p>The Dracai shrieks with fear, tries to run. Flames billow around him as teeth close shut on his limping form. The dragon tosses him into the air, and with a snap of its great jaws, it swallows the wriggling man down.</p>
+<p>Fai struggles to his feet, his heart pounding, sword held in a white-knuckled grip. Knowing not what else he can do, he takes a step towards Dromai.</p>
+<p>"Go home, Fai. Tell Min that I am sorry."</p>
+<p>She climbs up onto her dragon, and with a beat of the creature's mighty wings, takes to the air. Fai watches her slip away through the haze of swirling dust. He looks to the bloodstained dirt where Eun kneeled but moments before, and then to the scorched earth where the spymaster was taken. No more lies. No more secrets.</p>
+<p>The Emperor is blind. His dragons are turning against him.</p>
+<p>Fai thrusts his sword into the ash and earth, planting his fury in the firmament of his beloved Volcor.</p>
+<p>No longer will the Volcai be ground into the dirt. It is time for the Phoenix to rise.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/fai-9.webp" alt="fai-9" class="center">
+<hr />
+<p><em>Source: <a href="https://fabtcg.com/heroes/fai/phoenix-and-dragon/">https://fabtcg.com/heroes/fai/phoenix-and-dragon/</a></em><br>
+<em>Story written by Edwin McRae and Rachel Rees.</em><br>
+<em>Directed by Robbie.</em><br>
+<em>Illustrated by Sam Yang, Nikolay Moskvin.</em></p>
+<hr />
+<h3 id="the-phoenix-and-the-dragon-narrated-by-peranine"><a class="header" href="#the-phoenix-and-the-dragon-narrated-by-peranine">The Phoenix and the Dragon, Narrated by <a href="https://www.youtube.com/@Peranine">Peranine</a></a></h3>
+<p>
+(<a href="#the-phoenix-and-the-dragon">Jump to the Top</a>)
+</p>
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/Cak-19PYp8E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/08-uprising/fires-of-rebellion.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/09-dynasty/emperor-the-one-emperor.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/08-uprising/fires-of-rebellion.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/09-dynasty/emperor-the-one-emperor.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>
