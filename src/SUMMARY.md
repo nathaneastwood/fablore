@@ -278,6 +278,7 @@
         - [Victor](short-stories/roll-of-honour/victor-goldmane.md)
         - [Zen](short-stories/roll-of-honour/zen.md)
     - [Armory Decks](short-stories/armory-decks/armory-decks.md)
+      - [Arakni, 5l!p3d 7hru 7h3 Cr4x](short-stories/armory-decks/arakni-5l!p3d-7hru-7h3-cr4x.md)
       - [Gravy Bones](short-stories/armory-decks/gravy-bones.md)
       - [Hala](short-stories/armory-decks/hala.md)
       - [Pleiades](short-stories/armory-decks/pleiades.md)
