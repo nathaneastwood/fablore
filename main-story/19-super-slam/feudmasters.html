@@ -1,0 +1,264 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Feudmasters - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="feudmasters"><a class="header" href="#feudmasters">Feudmasters</a></h1>
+<p><strong>Super Slam's renowned pre-season guild-off, hosted by Fightmaster Rusty</strong></p>
+<p>Rusty bashes his stein of ale on the table like a judge's gavel, frothy liquid sloshing out. "Shut it, ya blethers!" the dwarven fightmaster shouts.</p>
+<p>Slowly, the chatter dies down in the tightly packed tavern.</p>
+<p>"First, thanks are in order." Rusty gestures to the red-haired barmaid seated next to her most respected regular, <a href="../../heroes-of-rathe/betsy-about.html">Betsy</a>. "To Morga and the folk of this fine establishment for hosting our panel."</p>
+<p>Betsy 'whoops' loudly and nudges Morga, almost spilling the barmaid and her tankard of ale onto the floor. 'Get on with it!' hollers Slapstick Sal from the back corner of the Grinning Boar Cantina.</p>
+<p>"Aye, keep your britches on," Rusty says. "Now. You've likely heard about the new arenas planned for Super Slam, but what good is a spectacle this magnificent with no one to perform in it?"</p>
+<p>"Could've had me!" Betsy blurts, before weeping into her ale. Those around her wince in sympathy. "Today," Rusty continues, "we're here to introduce you to our esteemed fighting guilds! With me, I have former champion, Speakeasy, fronting some cracking good guilds. Beside her is Batbiter, here to tell us about the guilds you'll either love to hate or hate that you love. And to my right, we have Moloca. Em. Why are you here?"</p>
+<p>"For my beasts," she stresses. "To find out what sort of meat they can look forward to consuming over the coming weeks."
+Rusty opens his mouth to continue, but Speakeasy interrupts.</p>
+<p>"Thank you for the rousing introduction, Rusty." Speakeasy stands to address the room. "You came for excitement, did you not? Well, have I got the fighters for you! Suspend your disbelief as you witness the Mythmakers' stunning feats of strength and prowess! The Glorytown Gladiators will fight bravely, or die gloriously; either way, it'll be a grand show!
+The Fury Fists have traveled from afar to astound the audience with their powerful martial techniques. And the Boulders! Our battle-hardened dwarves dedicated to the old wa—"</p>
+<p>"They all sound so boring," Batbiter yawns loudly, cutting her off.</p>
+<p>"You find them boring because they fight with honor," Speakeasy retorts. "Isn't it true, Batbiter, the last time the Heavy Metals fought, they exploded part of the stadium, then ripped their opponent apart with maces while their own cutmen tended to the wounded?"</p>
+<p>Batbiter's laugh scrapes out from beneath his helm. "An accident caused the stand to collapse, and the dwarves were cunning enough to take advantage of the situation."</p>
+<p>"Lying git," Speakeasy mutters, then sits down. Rusty continues loudly, in an obvious attempt to get the panel back on track.</p>
+<p>"We also have the Wild Wonders among Speakeasy's guilds, a team made up of Chanek and our more amiable Brutes. What do you make of that, Moloca?"</p>
+<p>"I don't like Chanek."</p>
+<p>"Perhaps you think the arena is no place for their pranks?"</p>
+<p>Moloca shrugs. "Their little bones stick in the throats of my babies. It's very dangerous."</p>
+<p>Rusty turns back to Batbiter, his bushy brow furrowed, frustration growing. "What of your other guilds?"</p>
+<p>"I'm glad you asked," Batbiter hisses. "The Big Boppers are a flashy lot. They'll put down their opponents without mercy and look good doing it! The Baleful Horde are wily and opportunistic fighters. Stick your neck out and they'll take your head.""Aye to that," Rusty agrees. "That Fugger Grimes is devious with a capital D!" "The Gorelords are some of the most brutal bruisers you'll ever see. And the Prowlers are vicious fighters, expert at ambush, so Speakeasy's poseurs better watch themselves in the Moat."</p>
+<p>"So you admit your guilds aren't above using foul play?" Speakeasy shouts as she leaps to her feet.</p>
+<p>A murmur passes through the gathered throng.</p>
+<p>Speakeasy continues: "Just last night, a pack of your Chanek Jungle Slayers jumped Emeviere while she was walking home from training. Nearly ruptured her spleen!"</p>
+<p>Batbiter shrugs. "It was dark, wasn't it? That could have been any Chanek, or even skinny dwarves."</p>
+<p>"The Champions of Chivalry are honorable warriors," Speakeasy says. "They will see this indignity answered in the arena."</p>
+<p>Batbiter groans theatrically. "You're so desperate to claim some sort of moral high ground before the event has begun." He stands and holds his arms out, gesturing to the crowd. "Speakeasy knows my guilds are going to trounce hers in the arena, and she's trying to save face by spreading these lies!"</p>
+<p>Batbiter turns and points a finger at Speakeasy, the tip of it uncomfortably close to her face.</p>
+<p>"Hide behind your bluster and your so-called honor, but my fighters will be victorious!"</p>
+<p>"Now, now," Rusty says calmly as he stands to bring order back to the panel.</p>
+<p>Speakeasy doesn't speak. She grabs Batbiter's pointing finger and wrestles him to the ground. Moloca pushes her seat back and watches them fight, sipping her ale and smiling.</p>
+<p>"Eejits," Rusty murmurs as he raises his stein in the air. "How bout we toast to our fighters!"</p>
+<p>The gathered audience cheer their approval, just loud enough to drown Batbiter's scream as Speakeasy breaks his finger.</p>
+<p>"What did I tell ya? Super Slam's a spectacle you don't want to miss. See you 'round the arena!"</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/18-high-seas/trouble-in-larinkmorth.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../short-stories/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/18-high-seas/trouble-in-larinkmorth.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../short-stories/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>
