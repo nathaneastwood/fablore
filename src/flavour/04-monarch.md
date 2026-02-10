@@ -22,7 +22,7 @@ If you know how to flaunt it, you barely need to use it.
 "If you don't think it's real, try petting it." - Amira Surana
 
 #### Express Lightning - (MON051)
-"Mighty Bellona, lend me your wings!" - Chiara Suncrest
+"Mighty [Bellona](~Bellona), lend me your wings!" - Chiara Suncrest
 
 #### Great Library of Solana - (MON000)
 Those seeking knowledge travel to Solana for the sole purpose of visiting the [Library of Illumination](../regions/rathe/solana/a-radiant-city.md#the-library-of-illumination), a vast library located at the base of the Solarium. A grand sight, the floor is constructed from lustrous marble, with floor-to-ceiling shelves containing thousands of tomes and volumes, as well as bound parchments authored by the scholars of Solana. Solanians and travelers alike can enter and soak in the knowledge gathered from all across Rathe, though it is said that countless hidden sections and levels are privy only to the magisters and select scholars from the [Light of Sol](../regions/rathe/solana/the-order-of-the-light.md#the-light-of-sol).

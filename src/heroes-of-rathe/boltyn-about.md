@@ -12,7 +12,7 @@ Embraced by the [Hand of Sol](../regions/rathe/solana/the-order-of-the-light.md#
 
 While Boltyn was patrolling the Golden Fields, shadowy forces assaulted Solana. Eirina perished in the attack while bravely defending the [Solarium](../regions/rathe/solana/a-radiant-city.md#solarium).
 
-Bellona Wartune visited the grieving Boltyn in a vision. She showed him a bleak premonition of the Lands of Light grown dark and desolate under the yoke of Shadow. His faith thus renewed, he vowed to fight for a future where his son could grow into a man under the blessed [Light of Sol](../regions/rathe/solana/the-order-of-the-light.md#the-light-of-sol).
+[Bellona](~Bellona) Wartune visited the grieving Boltyn in a vision. She showed him a bleak premonition of the Lands of Light grown dark and desolate under the yoke of Shadow. His faith thus renewed, he vowed to fight for a future where his son could grow into a man under the blessed [Light of Sol](../regions/rathe/solana/the-order-of-the-light.md#the-light-of-sol).
 
 At [Minerva](../other-characters/minerva-themis.md)'s behest, Boltyn accepted a commission as an inquisitor. After placing Aios in the care of the Sisters of Octothesia, he ventured across Solana and the Northern Realms with his loyal knights. Together they rooted out the occultists of the [Demonastery](../regions/rathe/demonastery/demonastery.md), putting their enclaves to the sword and the torch. The servants of Shadow now tremble in fear at the mere mention of the Breaker of Dawn, for he is the physician who cuts the infection from the flesh of Solana, and cauterizes its weeping wounds. Relentless as he is incisive, Boltyn will not rest until his beloved Solana is restored to its righteous glory.
 

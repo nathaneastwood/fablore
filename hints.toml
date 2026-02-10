@@ -13,6 +13,8 @@ hint = "A faction founded by a particular branch of the Royal Bloodline, a clan 
 hint = "The crystalline creature does not bleed. It shatters. Its teeth are harder than stone, with serrated edges and a needle-like tip to tear through flesh. Its limbs are long and thin, with sharp points to allow it to grip onto most surfaces, and scale the difficult terrain of the Savage Lands."
 [Ashvahan]
 hint = "The Capital of Volcor."
+[Bellona]
+hint = "The Wartune Herald"
 [Braumeister]
 hint = "Elite brewers of Aria making spirits which possess unique effects"
 [Brawnhide]
@@ -63,6 +65,8 @@ hint = "The edge of the Savage Lands, home to the Deathmatch arena."
 hint = "Giant, acid-spitting scallops"
 [Ikaru]
 hint = "One of the prestigious houses of Misteria; the House of Blossoms."
+[Infernai]
+hint = "Aesir of Flames"
 [Jing]
 hint = "Xilin and Ira's brother."
 [Kayat]
@@ -87,12 +91,16 @@ hint = "Dhani death god"
 hint = "A region of Solana"
 [Sada]
 hint = "Kassai's sorceress friend and member of the Cintari."
+[Sol]
+hint = "Aesir of Light"
 [Southmaw]
 hint = "Southmaw Asylum is a laboratory of horrors where the orphaned and discarded of the Pits beneath Metrix are subjected to nightmarish experiments."
 [SyntheaTeklo]
 hint = "Teklo Industries CEO"
 [SuperSlam]
 hint = "A deadly combat tournament where fighters battle in the Deathmatch Arena for glory and bloodsport."
+[Raven]
+hint = "Aesir of Chaos"
 [Redmoor]
 hint = "The Redmoors are Boltyn's cousins."
 [Rosetta]

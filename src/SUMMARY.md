@@ -339,6 +339,7 @@
     - [Rosetta](digital-tiles/16-rosetta/rosetta.md)
     - [The Hunted](digital-tiles/17-the-hunted/the-hunted.md)
     - [High Seas](digital-tiles/18-high-seas/high-seas.md)
+    - [Compendium of Rathe](digital-tiles/19-compendium-of-rathe.md)
 
 - [Data](data/data.md)
     - [Characters](data/characters.md)

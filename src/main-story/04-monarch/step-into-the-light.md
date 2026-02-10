@@ -60,7 +60,7 @@ While Leander grew weaker, fighting against the pull of unconsciousness, their f
 
 Standing alone, outnumbered, outmatched, and overwhelmed, Boltyn steeled himself, turning aside the dread which pooled in the pit of his stomach. He filled his mind with the memory of Aios, so young, and yet fearless even amidst the devastation of the attack on [Solana](../../regions/rathe/solana/solana.md).
 
-Boltyn's determination coursed through his veins. A blazing heat which felt both fiercely protective and achingly familiar, as gentle and welcoming as a patch of warm sunlight in the dead of winter, it was yet as powerful and untamed as a forest fire. Bellona's light washed over him, and for a moment Boltyn saw nothing but the shape of her wings, flaring in the dark.
+Boltyn's determination coursed through his veins. A blazing heat which felt both fiercely protective and achingly familiar, as gentle and welcoming as a patch of warm sunlight in the dead of winter, it was yet as powerful and untamed as a forest fire. [Bellona](~Bellona)'s light washed over him, and for a moment Boltyn saw nothing but the shape of her wings, flaring in the dark.
 
 The shadows around him dissipated, and the arcane attacks dispersed into fine mist, shattered by the radiant shield which had formed around Boltyn. Rays of light burst forward from his blade, spearing the cultists' arcane attacks before they had a chance to fully form. The cultists, who had turned their attention to Leander, collapsed to the earth, their parasitic connection suddenly bursting with light. It had sent them to their knees, trembling from the force of the intangible blow.
 

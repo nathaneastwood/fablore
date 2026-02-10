@@ -10,7 +10,7 @@
 (<a href="#narrated-video-by-deadsummer-art">Jump to Narrated Video</a>)
 </p>
 
-Cultist - "Raven! Grant me the strength to endure your rewards...for the glory of mankind..."
+Cultist - "[Raven](~Raven)! Grant me the strength to endure your rewards...for the glory of mankind..."
 
 _screams of pain_
 

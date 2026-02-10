@@ -5,7 +5,7 @@
 |       Name |           Epithets |
 | ---------- | ------------------ |
 |      Raven |     Aesir of Chaos |
-|          ? |    Aesir of Flames |
+|   Infernai |    Aesir of Flames |
 |        Sol |     Aesir of Light |
 
 ## Ancients
