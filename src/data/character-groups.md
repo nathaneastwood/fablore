@@ -8,6 +8,12 @@
 |   Infernai |    Aesir of Flames |
 |        Sol |     Aesir of Light |
 
+### Anarchs of L'Apocalypta
+
+| Name |                      Epithet |
+| ---- | ---------------------------- |
+| Zeir | First Anarch of L'Apocalypta |
+
 ## Ancients
 
 |   Name |                       Epithets |
