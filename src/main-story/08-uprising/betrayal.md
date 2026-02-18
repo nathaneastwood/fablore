@@ -4,7 +4,7 @@
 
 Dromai sits in the Oasis, her feet dangling in the cave's simmering lake. She watches luminous carp flit through the water, hunting flarefish that fall from the lava river.
 
-The water comes from [Misteria](../../regions/rathe/misteria/misteria.md). The lava comes from Mount Volcor. Here water and lava meet, a union of opposing forces, just like her.
+The water comes from [Misteria](../../world-of-rathe/misteria/misteria.md). The lava comes from Mount Volcor. Here water and lava meet, a union of opposing forces, just like her.
 
 She delivered General Riku to [Ashvahan](~Ashvahan). The Royal Court gave her the mantle of [Dracai](~Dracai) in return. For a time there, she even allowed herself to celebrate, to luxuriate in the trappings of palace life.
 

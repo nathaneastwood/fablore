@@ -18,13 +18,13 @@ Much is written of the sun-blessed daughter of blacksmiths who, during her [Awak
 
 ### Boo, Resident Spook
 
-Upon the storm-wracked [High Seas](../../regions/high-seas/high-seas.md), you'll find no cheerier phantom than cabin boy Boo. With a Yoo, Hoo, Hoo, and a bottle of booze, he brings good scare to his undead crews. He'll swab the decks in rain or rogue waves, for nothing to Boo feels daunting. And when his captain's rum-reading to raise some heck, Boo's right by their side for the haunting.
+Upon the storm-wracked [High Seas](../../world-of-rathe/high-seas/high-seas.md), you'll find no cheerier phantom than cabin boy Boo. With a Yoo, Hoo, Hoo, and a bottle of booze, he brings good scare to his undead crews. He'll swab the decks in rain or rogue waves, for nothing to Boo feels daunting. And when his captain's rum-reading to raise some heck, Boo's right by their side for the haunting.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/boo-resident-spook.webp" alt="boo-resident-spook" class="center" />
 
 ### Embalm
 
-The darkest arts demand the highest price. Power for blood. Within the Necropolis, the [Demonastery](../../regions/rathe/demonastery/demonastery.md)'s finest morticians turn sepulchral preservation to self-preservation. Within the trappings of death lurk the secrets of capturing life, such rituals that can save a little animus, a drop or two of the sacred sanguine, from the thirsting throat of the beyond.
+The darkest arts demand the highest price. Power for blood. Within the Necropolis, the [Demonastery](../../world-of-rathe/demonastery/demonastery.md)'s finest morticians turn sepulchral preservation to self-preservation. Within the trappings of death lurk the secrets of capturing life, such rituals that can save a little animus, a drop or two of the sacred sanguine, from the thirsting throat of the beyond.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/embalm.webp" alt="embalm" class="center" />
 

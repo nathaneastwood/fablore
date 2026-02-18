@@ -74,7 +74,7 @@ For a thrilling moment, recognition beckoned, a figure darting through the fog t
 
 Suspicion replaced reminiscence. Experience conquered hope.
 
-Spirits did all they could to remain in [Misteria](../../regions/rathe/misteria/misteria.md). They ran, they fought, they distracted and they deceived.
+Spirits did all they could to remain in [Misteria](../../world-of-rathe/misteria/misteria.md). They ran, they fought, they distracted and they deceived.
 
 [Enigma](../../heroes-of-rathe/enigma-about.md) saw through the facade.
 
@@ -130,7 +130,7 @@ She felt a tingle under her eye, raised her hand to her face, and caught the tea
 
 She stared at her fingertip in wonder.
 
-Then, the Ledger of Ancestry turned and walked away, leaving the concerns of [Mistcloak](../../regions/rathe/misteria/among-the-mists.md#mistcloak-gully) behind her. Together, she and her scroll ascended the path that would return them to the Eternal Lunar Temple.
+Then, the Ledger of Ancestry turned and walked away, leaving the concerns of [Mistcloak](../../world-of-rathe/misteria/among-the-mists.md#mistcloak-gully) behind her. Together, she and her scroll ascended the path that would return them to the Eternal Lunar Temple.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/mst-story-3.webp" alt="mst-story-3" class="center">
 

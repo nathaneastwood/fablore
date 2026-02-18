@@ -1,6 +1,6 @@
 # Kayo
 
-There's only one rule if you ever come across a [Brute](../../regions/rathe/savage-lands/call-of-adventure.md#brutes) in a cage.
+There's only one rule if you ever come across a [Brute](../../world-of-rathe/savage-lands/call-of-adventure.md#brutes) in a cage.
 
 Don't stick your hands through the bars.
 

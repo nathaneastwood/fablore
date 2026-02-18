@@ -22,7 +22,7 @@ Another day in the desert, another head on the sand, another coin in the pouch. 
 
 ---
 
-Best recipe for spiced cactus blossom tea. Boil water in a large copper kettle. Infuse a hefty handful or two of cactus blossom and tea leaves grown in rich volcanic soil on the northern ridges of [Volcor](../../regions/rathe/volcor/volcor.md). Add enough Cintari spice for a peppery punch together with half a pannikin of date palm syrup. Stir with a palm sapling to bring out the flavor until the tea is declared made. In these climes, the Cintari take their tea without milk. It is much preferred to the weak, cream-topped tea taken in the imperious obsidian halls within [Ashvahan](~Ashvahan). And the aftertaste is...enlightening...The Cintari are not wrong in saying "one sip is a meeting with stars and sand".
+Best recipe for spiced cactus blossom tea. Boil water in a large copper kettle. Infuse a hefty handful or two of cactus blossom and tea leaves grown in rich volcanic soil on the northern ridges of [Volcor](../../world-of-rathe/volcor/volcor.md). Add enough Cintari spice for a peppery punch together with half a pannikin of date palm syrup. Stir with a palm sapling to bring out the flavor until the tea is declared made. In these climes, the Cintari take their tea without milk. It is much preferred to the weak, cream-topped tea taken in the imperious obsidian halls within [Ashvahan](~Ashvahan). And the aftertaste is...enlightening...The Cintari are not wrong in saying "one sip is a meeting with stars and sand".
 
 ---
 
@@ -35,11 +35,11 @@ It is how I will claim my fortune and seek my revenge.
 
 ---
 
-Today, my mind is a whirlwind, filled with more thoughts than I have ink to scribe them. In a settlement far from Ashvahan, I encountered a rebel. [The Royal Court](../../regions/rathe/volcor/the-royal-court.md) is fractured, and the rebellion stands at a stalemate. Then, I heard whispers from the fleeing rebels about Deathmatch - a brutal arena where fortunes are made. Why did General Chul take my family? Power, I am sure, but perhaps... Are my parents somehow involved in the uprising? How can I even believe them alive after all this time? I am met with nothing but silence, nothing to pin a hope on. Deathmatch is my path. The price of my pain will be coin, mountains of it, and an army so great the desert itself will quiver.
+Today, my mind is a whirlwind, filled with more thoughts than I have ink to scribe them. In a settlement far from Ashvahan, I encountered a rebel. [The Royal Court](../../world-of-rathe/volcor/the-royal-court.md) is fractured, and the rebellion stands at a stalemate. Then, I heard whispers from the fleeing rebels about Deathmatch - a brutal arena where fortunes are made. Why did General Chul take my family? Power, I am sure, but perhaps... Are my parents somehow involved in the uprising? How can I even believe them alive after all this time? I am met with nothing but silence, nothing to pin a hope on. Deathmatch is my path. The price of my pain will be coin, mountains of it, and an army so great the desert itself will quiver.
 
 ---
 
-Six days across the scorched, parched terrain of the Red Desert under the relentless sun. And now, at last, we have arrived at the border of [Gougemoor](~Gougemoor). It is an oasis of another kind for refugees - man and beast alike - worn down by the relentless desecration of their former territories. An opportunity, too, for the scum of [Rathe](../../regions/rathe/rathe.md) to settle in and seize whatever they can get their hands on. Lawless and wild. I am told Gougemoor smashes up against the [Savage Lands](../../regions/rathe/savage-lands/savage-lands.md) and out of that friction the Moat has risen, home of the Deathmatch. We head there tomorrow, sands willing.
+Six days across the scorched, parched terrain of the [Red Desert](../../world-of-rathe/volcor/the-red-desert.md) under the relentless sun. And now, at last, we have arrived at the border of [Gougemoor](~Gougemoor). It is an oasis of another kind for refugees - man and beast alike - worn down by the relentless desecration of their former territories. An opportunity, too, for the scum of [Rathe](../../world-of-rathe/rathe.md) to settle in and seize whatever they can get their hands on. Lawless and wild. I am told Gougemoor smashes up against the [Savage Lands](../../world-of-rathe/savage-lands/savage-lands.md) and out of that friction the Moat has risen, home of the Deathmatch. We head there tomorrow, sands willing.
 
 ---
 

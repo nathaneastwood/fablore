@@ -34,6 +34,16 @@ Deep within the woods, to the east of Korshem, lie the secretive grove of Candle
 
 The Queen of Candlehold sits atop a throne of elderwood as her mind wanders to the time of the Ancients. Her people, once mighty defenders, has fallen from grace after the fall of the Ancient [Davnir](~Davnir), father of the Earth. They've been trapped within this beautiful grove for eons, bound and melded with the Strale, but a recent shift in the Flow promises new hopes and challenges, as the spell that binds them to their beloved grove begins to weaken, and the electric thorns and brambles that surround Candlehold begin to thin.
 
+### Skybreaker
+
+Even in a land of huge and ancient trees, Skybreaker stands apart. Its gnarled trunk climbs high into the air, its tallest boughs reaching into the clouds. Like the cherished [Korshem](~Korshem), it too represents a concentrated reservoir for the [Flow](~TheFlow), with that elemental energy feeding Skybreaker and enabling its impossible growth.
+
+The towering tree has long been a breeding ground for the welkin, a wyvern species native to Aria. At first glance, the welkin resembles large, winged lizards. They have a leathery skin that, like the chameleon, changes color with variations in the Flow. They dwell among Skybreaker's canopy, flying beyond it only to hunt, or riding along it only if tamed. They lay their eggs within the cavernous hollows of Skybreaker's trunk. Once hatched, fledglings fly or face one of the most precipitous drops in Aria.
+
+It was within the canopy that the first of the skymavens was born, when a rider known only as Alosyn bonded with the welkin she called Narakir. Many have since followed her skypath, and today, the Highloft Inn acts as a gathering place for both mounts and riders, with skymavens swapping stories of their high-flying escapades over mugs of Breakernut Ale.
+
+For those without a flying mount to take them into Skybreaker's heights, a gondola runs up to the Highloft Inn, powered by the tireless efforts of fianna on the ground. On windy days, the gondola attracts thrill seekers. To date, none have fallen to their death. Juvenile welkin take part in the fun, diving and catching anyone that spills from the gondola. They say you should scream the whole way down: it makes it easier for the welkin to track your fall!
+
 ---
 
 In recent years, the barriers that once concealed and protected Aria is beginning to wane. The War of the Monarchs rages on; Aesirs and their Embras stir in their slumber, their influence seeping from i'Arathael into the realm of man, as the ancient defenders that lay dormant within Aria are roused by the presence of these ancient enemies, and begin to awaken and gather once more.

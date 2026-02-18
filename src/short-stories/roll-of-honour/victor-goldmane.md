@@ -28,4 +28,4 @@ Straightening, he turned his back on the chained nobles, raising his hammer high
 
 "Men! Look around you! Today, I took the lion's share. Tomorrow, that share will be even greater. I do not bow. The world bows to me!"
 
-Cheers erupted, raw and feverish, shaking the very stones of Cliffhold. Victor mounted Aurelius in one fluid motion, his armor rattling against the saddle. He spared one last glance at the fountain, the felled hawk lost in its bloody waters, before leading his men out of the ransacked manor. Behind him, the defeated Drexens bore witness to the birth of a legend - the Golden Son had risen, and all the Northern Realms would hear his roar.
+Cheers erupted, raw and feverish, shaking the very stones of Cliffhold. Victor mounted Aurelius in one fluid motion, his armor rattling against the saddle. He spared one last glance at the fountain, the felled hawk lost in its bloody waters, before leading his men out of the ransacked manor. Behind him, the defeated Drexens bore witness to the birth of a legend - the Golden Son had risen, and all the [Northern Realms](../../world-of-rathe/solana/the-northern-realms.md) would hear his roar.

@@ -12,7 +12,7 @@ Soon after, Levia's parents vanished under mysterious circumstances. Although ha
 
 She spied on the horrific rites the Lady practiced in her blood-drenched chambers and, out of desperation, learned to harness those occult powers for herself. Trapped, her life in peril, she had no other choice but to use the dark ritual against the Lady and her cult, rising as a Shadow reborn to slaughter her sadistic captors.
 
-Possessed by a longing that would not rest, Levia's growing hunger led her to the [Demonastery](../regions/rathe/demonastery/demonastery.md) and beyond into íArathael. There she hunted the creatures of nightmare, enriching her evolving flesh with their bloody essence. Deeper she delved into the Bellows of Hell where, at last, she met a voracity to rival her own.
+Possessed by a longing that would not rest, Levia's growing hunger led her to the [Demonastery](../world-of-rathe/demonastery/demonastery.md) and beyond into íArathael. There she hunted the creatures of nightmare, enriching her evolving flesh with their bloody essence. Deeper she delved into the Bellows of Hell where, at last, she met a voracity to rival her own.
 
 Perched upon Doomsday Peak, Blasmophet regarded her with a mighty greed. Yet as she stared back, down the maw of that beast, Levia felt only the cravings of the famished.
 
@@ -42,6 +42,6 @@ She drank in their fearful vows, then looked to the horizon as the sun cast its 
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/doomsday-scenario.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Doomsday Scenario</b><br>
-    From farmhand to Shadowborn Abomination, Levia's transformation isn't by chance. A willing pawn in the [Demonastery](../regions/rathe/demonastery/demonastery.md)'s plan, Levia is a dimenxxional gateway for the Shadow embra Blasmophet to descend upon Rathe.
+    From farmhand to Shadowborn Abomination, Levia's transformation isn't by chance. A willing pawn in the [Demonastery](../world-of-rathe/demonastery/demonastery.md)'s plan, Levia is a dimenxxional gateway for the Shadow embra Blasmophet to descend upon Rathe.
   </div>
 </div>

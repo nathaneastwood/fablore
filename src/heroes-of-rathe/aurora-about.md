@@ -4,7 +4,7 @@
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/aurora-shooting-star.mp4" type="video/mp4">
 </video>
 
-In [Volthaven](../regions/rathe/aria/the-land-of-legends.md#volthaven), they say I'm quick to bolt...hard to trace...
+In [Volthaven](../world-of-rathe/aria/the-land-of-legends.md#volthaven), they say I'm quick to bolt...hard to trace...
 
 It's true, I am lightning fast and full of spark. But foremost, my parents named me Aurora, Shooting Star, because of my shocking good looks and innate brilliance.
 

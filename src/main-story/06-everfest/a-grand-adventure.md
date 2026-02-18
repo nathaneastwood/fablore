@@ -64,7 +64,7 @@ Lexi felt herself drawn to the centre, where a huge pedestal lay. Deep grooves r
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-3.webp" alt="grand-3" class="center">
 
-Yorick called them over to the walls of the chamber, which were sprawling with painted murals. Some of the pictures were intricate and beautiful, such as a blue crystalline maiden weaving ice and snow throughout what looked like [Aria](../../regions/rathe/aria/aria.md). Others were strange and outlandish, such as an enormous squid-like creature lurking within sunken ruins. And even more had a threatening and sinister feel, such as a blood-red dragon perched atop a mountain of skulls, surrounded by hellfire.
+Yorick called them over to the walls of the chamber, which were sprawling with painted murals. Some of the pictures were intricate and beautiful, such as a blue crystalline maiden weaving ice and snow throughout what looked like [Aria](../../world-of-rathe/aria/aria.md). Others were strange and outlandish, such as an enormous squid-like creature lurking within sunken ruins. And even more had a threatening and sinister feel, such as a blood-red dragon perched atop a mountain of skulls, surrounded by hellfire.
 
 Underneath each of the scenes was the same odd text. Lexi ran her palm over the wall.
 

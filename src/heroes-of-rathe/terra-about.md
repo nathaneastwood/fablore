@@ -6,7 +6,7 @@
 
 Welcome, traveler. Plant your feet in the soil. Feel the arable earth that nourishes these forests.
 
-The name's Terra, guardian of these sacred lands, born from the heart of [Korshem](../regions/rathe/aria/a-true-sanctuary.md#the-korshem) to tend to and protect all that grows in [Aria](../regions/rathe/aria/aria.md). These woods, nestled into Mount Heroic, are my chosen domain - each tree, each blade of grass, every creature here is like kin to me.
+The name's Terra, guardian of these sacred lands, born from the heart of [Korshem](../world-of-rathe/aria/a-true-sanctuary.md#the-korshem) to tend to and protect all that grows in [Aria](../world-of-rathe/aria/aria.md). These woods, nestled into Mount Heroic, are my chosen domain - each tree, each blade of grass, every creature here is like kin to me.
 
 The earth and I, we have an understanding. It speaks to me in its own way, in the groan of old roots and the shift of stones, and I listen. Always.
 
@@ -18,7 +18,7 @@ So, if ever you need a place to rest your bones, know that the earth will welcom
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/earths-might.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Earth's Might</b><br>
-    Through reverence for the land, Terra finds the strength to be [Rathe](../regions/rathe/rathe.md)'s guardian. His Earth Bond empowers mighty attacks, designed to leave opponents incapable of harming Rathe or any of its inhabitants.
+    Through reverence for the land, Terra finds the strength to be [Rathe](../world-of-rathe/rathe.md)'s guardian. His Earth Bond empowers mighty attacks, designed to leave opponents incapable of harming Rathe or any of its inhabitants.
   </div>
 </div>
 

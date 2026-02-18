@@ -1,5 +1,5 @@
 #### Colors of Aria - (PEN206)
-The Ancients' sacrifice, made centuries ago, still manifests in [Aria](../regions/rathe/aria/aria.md)'s lush landscapes and abundant harvests. The [Flow](../regions/rathe/aria/a-true-sanctuary.md#the-flow) is their legacy.
+The Ancients' sacrifice, made centuries ago, still manifests in [Aria](../world-of-rathe/aria/aria.md)'s lush landscapes and abundant harvests. The [Flow](../world-of-rathe/aria/a-true-sanctuary.md#the-flow) is their legacy.
 
 #### Depths of Despair - (PEN195)
 The Disciple of Pain sought dominion, but in desperance he languished.
@@ -8,10 +8,10 @@ The Disciple of Pain sought dominion, but in desperance he languished.
 "The chaotic mind is a rich mine of dangerous ideas." - [Dr Mortimer](../other-characters/krest-mortimer.md)
 
 #### Doubling Season - (PEN218)
-When [Candlehold](../regions/rathe/aria/the-land-of-legends.md#candlehold) rejoined the Flow, the effects were felt as far as Mount Heroic.
+When [Candlehold](../world-of-rathe/aria/the-land-of-legends.md#candlehold) rejoined the Flow, the effects were felt as far as Mount Heroic.
 
 #### Drag Down - (PEN331)
-"Drink yer sorrows where the grog runs free, in the sunken realm of Coralysi." - Pirate's Dirge
+"Drink yer sorrows where the grog runs free, in the sunken realm of [Coralysi](../world-of-rathe/high-seas/coralysi.md)." - Pirate's Dirge
 
 #### Duty Bound Blitz - (PEN185)
 What our Gemini find in the Shadows, our Inquisitors must drag into the Light.

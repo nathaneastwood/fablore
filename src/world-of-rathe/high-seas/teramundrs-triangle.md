@@ -12,7 +12,7 @@ In hadal zones beyond name or measure, primordial leviathans of tectonic might s
 
 Even so, the mega-krakens, multi-hydras, and other residents of the Triangle are often known as Teramundr's Brood. They were all born within the borders of the Triangle, for surely no other place on the High Seas could breed such carnivorous behemoths.
 
-The amateur biomancers of [Piper's Pier](../pipers-pier/pipers-pier.md) speculate the ancient [Dhani](~DhaniEmpire) played a role in their creation, a theory contradicted by the notable Swiller Saltbeard, who argues that the legendary war of the Triangle was fought not by humans, but by great tribes of prehistoric leviathans.
+The amateur biomancers of [Piper's Pier](./pipers-pier.md) speculate the ancient [Dhani](~DhaniEmpire) played a role in their creation, a theory contradicted by the notable Swiller Saltbeard, who argues that the legendary war of the Triangle was fought not by humans, but by great tribes of prehistoric leviathans.
 
 Whatever their true origin, the danger posed by Teramundr's Brood remains the same. It is a small mercy that not even the most foolhardy explorer could hope to venture deep enough to witness the full scale of these dread sea beasts.
 

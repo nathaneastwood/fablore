@@ -1,12 +1,12 @@
 # Roll of Honor: Dash
 
-"That incident with the [Gigadril](../../regions/rathe/metrix/a-sprawling-metropolis.md#gigadrill-elevator) got you into this," shrugged Thiroux, "this is your way out. You have three hours to pack."
+"That incident with the [Gigadril](../../world-of-rathe/metrix/a-sprawling-metropolis.md#gigadrill-elevator) got you into this," shrugged Thiroux, "this is your way out. You have three hours to pack."
 
-[Dash](../../heroes-of-rathe/dash-about.md) stomped down the hall, slamming the door to her bedroom behind her, the force knocking her latest prototype off the nightstand. She felt ashamedly childish, but the situation was so unfair. As she packed, she calculated the distance between [Terracette](../../regions/rathe/metrix/a-sprawling-metropolis.md#terracette-path-academy) and [Zinnia Park](../../regions/rathe/metrix/a-sprawling-metropolis.md#zinnia-park). She'd escape and head there; join Ricky Royce and the others. She zipped up her bag and grabbed the prototype. Who needs parents anyway?
+[Dash](../../heroes-of-rathe/dash-about.md) stomped down the hall, slamming the door to her bedroom behind her, the force knocking her latest prototype off the nightstand. She felt ashamedly childish, but the situation was so unfair. As she packed, she calculated the distance between [Terracette](../../world-of-rathe/metrix/a-sprawling-metropolis.md#terracette-path-academy) and [Zinnia Park](../../world-of-rathe/metrix/a-sprawling-metropolis.md#zinnia-park). She'd escape and head there; join Ricky Royce and the others. She zipped up her bag and grabbed the prototype. Who needs parents anyway?
 
 Not a single word was exchanged between daughter and mother the entire drive. But as Thiroux turned the steering wheel a hard right onto a long and austere driveway, both of them gasped.
 
-Terracette Pathway Academy, established by [Teklo Industries](../../regions/rathe/metrix/a-better-tomorrow.md#teklo-industries), stood looming, the entire perimeter fenced off. Terracette Prison, more like it. It wouldn't be a simple escape.
+Terracette Pathway Academy, established by [Teklo Industries](../../world-of-rathe/metrix/a-better-tomorrow.md#teklo-industries), stood looming, the entire perimeter fenced off. Terracette Prison, more like it. It wouldn't be a simple escape.
 
 They ascended the steps to the front entrance and knocked. Dash expected a stuffy superintendent to appear. Instead, a woman of similar age to Dash opened the door. She was dressed neck to toe in protective leather and gadgets.
 

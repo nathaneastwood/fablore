@@ -1,8 +1,8 @@
-The Blade of Eridani was once commissioned by the Grand Magister, the Radiant, and gifted to a templar named Aelius, as part of a ceremony to thank Aelius for his many great deeds for the people of [Solana](../regions/rathe/solana/solana.md). A two-handed greatsword, it was forged from pure silversteel, with a gilded hilt engraved with a blessing from the Grand Magister himself. An enchanted crystal was embedded into the sword's pommel, which imbued the blade with a fragment of Sol's light.
+The Blade of Eridani was once commissioned by the Grand Magister, the Radiant, and gifted to a templar named Aelius, as part of a ceremony to thank Aelius for his many great deeds for the people of [Solana](../world-of-rathe/solana/solana.md). A two-handed greatsword, it was forged from pure silversteel, with a gilded hilt engraved with a blessing from the Grand Magister himself. An enchanted crystal was embedded into the sword's pommel, which imbued the blade with a fragment of Sol's light.
 
 On his deathbed, Aelius gifted the Blade of Eridani to his eldest son, who in turn gifted it to his eldest daughter. The Blade of Eridani passed down the generations, until it was one day inherited by Leto, a templar in the Hand of Sol.
 
-Leto's party was most often assigned to the golden fields beyond Solana, tasked with keeping the rounds clear of bandits, and protecting traveling merchants. One day, Leto and his party were accompanying a trade caravan, escorting it to the borders of [Metrix](../regions/rathe/metrix/metrix.md). The caravan was carrying precious metals and rare alchemical components, and so became the target of a mercenary company.
+Leto's party was most often assigned to the golden fields beyond Solana, tasked with keeping the rounds clear of bandits, and protecting traveling merchants. One day, Leto and his party were accompanying a trade caravan, escorting it to the borders of [Metrix](../world-of-rathe/metrix/metrix.md). The caravan was carrying precious metals and rare alchemical components, and so became the target of a mercenary company.
 
 By the time the caravan reached Metrix, Leto and his party had lost their scholar, and were themselves wounded as a result of the frequent, violent attacks. On their way back to Solana, Leto's party was ambushed in the dead of night by bandits. Caught off guard and heavily outnumbered, he and his fellow knights fell, succumbing to their injuries.
 
@@ -16,7 +16,7 @@ It is said that when Lady Vera finally passed away from this world, the Blade of
 
 ## Nebula Blade
 
-When [Lord [Sutcliffe](~Sutcliffe)](../other-characters/lord-sutcliffe.md) left his family's estate for the [Demonastery](../regions/rathe/demonastery/demonastery.md), he took few personal effects, save for a few research items, the Arknight shard, and a family heirloom. Once known as the Blade of Eridani, the sword was broken long ago, kept only as a decoration. While creating the Arknight, Lord Sutcliffe decided to give the sword a new life.
+When [Lord [Sutcliffe](~Sutcliffe)](../other-characters/lord-sutcliffe.md) left his family's estate for the [Demonastery](../world-of-rathe/demonastery/demonastery.md), he took few personal effects, save for a few research items, the Arknight shard, and a family heirloom. Once known as the Blade of Eridani, the sword was broken long ago, kept only as a decoration. While creating the Arknight, Lord Sutcliffe decided to give the sword a new life.
 
 Renamed the Nebula Blade, Lord Sutcliffe engraved the blade with conductive and focusing runes, which allow the Arknight to channel power through the shaft to form a blade of pure aether. The runes have corrupted the blade's original purpose, and as [Viserai](../heroes-of-rathe/viserai-about.md) learned to wield the Nebula Blade, the power of the Arknight shard seeped into the crystal embedded in the pommel, staining it a deep, dark purple.
 

@@ -1,6 +1,6 @@
 # More Than Human
 
-It was a peaceful day in the [East Rise](../../regions/rathe/metrix/a-sprawling-metropolis.md#east-rise) until the attack.
+It was a peaceful day in the [East Rise](../../world-of-rathe/metrix/a-sprawling-metropolis.md#east-rise) until the attack.
 
 A throng of delinquents wielding looping gauntlets, boom grenades, and illegally acquired steam-propelled hammers emerged from the bustling crowds, bee-lining for one particularly esteemed magnate.
 

@@ -1,6 +1,6 @@
 # Florian, Rotwood Harbinger
 
-To the people of [Candlehold](../../regions/rathe/aria/the-land-of-legends.md#candlehold), [Florian](../../heroes-of-rathe/florian-about.md) may seem like a harbinger of doom. His very presence transforms the green of the glade into yellowing blight. Flowers fade and fall at his touch. Vines wither and decay. Time itself returns to grind what was forever into dust upon the earth.
+To the people of [Candlehold](../../world-of-rathe/aria/the-land-of-legends.md#candlehold), [Florian](../../heroes-of-rathe/florian-about.md) may seem like a harbinger of doom. His very presence transforms the green of the glade into yellowing blight. Flowers fade and fall at his touch. Vines wither and decay. Time itself returns to grind what was forever into dust upon the earth.
 
 But to those few elders who understand, Florian is the embodiment of nature's true essence - a reminder that every end brings the promise of new beginnings.
 

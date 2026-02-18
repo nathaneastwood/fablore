@@ -1,6 +1,6 @@
 # Battle of Isenloft
 
-_In the Third Age, the Old Ones spread across the land, an invasion beyond understanding, beyond the reality of those who called [Rathe](../../regions/rathe/rathe.md) home. Cities fell, civilizations were consumed. Beleaguered refugees gathered to the remaining Ancients, elemental titans of the natural order. And at three of humanity's remaining bastions, the brave held their ground. Aldengrove to sustain them, Valahai to empower them, and fierce [Isenloft](../../regions/rathe/aria/the-land-of-legends.md#isenloft) to guard them all._
+_In the Third Age, the Old Ones spread across the land, an invasion beyond understanding, beyond the reality of those who called [Rathe](../../world-of-rathe/rathe.md) home. Cities fell, civilizations were consumed. Beleaguered refugees gathered to the remaining Ancients, elemental titans of the natural order. And at three of humanity's remaining bastions, the brave held their ground. Aldengrove to sustain them, Valahai to empower them, and fierce [Isenloft](../../world-of-rathe/aria/the-land-of-legends.md#isenloft) to guard them all._
 
 ---
 

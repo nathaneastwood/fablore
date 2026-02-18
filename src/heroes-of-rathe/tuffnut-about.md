@@ -4,7 +4,7 @@
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/tuffnut-bumbling-hulkster.mp4" type="video/mp4">
 </video>
 
-His immense strength and towering toughness enabled Tuffnut to rise to be a Gorelord of a small tribe, but he was too trusting to hold the position for long. Overthrown by a more cunning and vicious rival, Tuffnut was driven out of his tribal territory. Too much of a pack animal to go it alone, Tuffnut found himself drawn to the hubbub of [Deathmatch](../regions/rathe/deathmatch/destination-deathmatch.md) and became a willing contestant.
+His immense strength and towering toughness enabled Tuffnut to rise to be a Gorelord of a small tribe, but he was too trusting to hold the position for long. Overthrown by a more cunning and vicious rival, Tuffnut was driven out of his tribal territory. Too much of a pack animal to go it alone, Tuffnut found himself drawn to the hubbub of [Deathmatch](../world-of-rathe/deathmatch/destination-deathmatch.md) and became a willing contestant.
 
 Due to the unusually high number of herdish herbivores in his 'birth midden', Tuffnut is a rare Brute who loves to be loved. He 'thinks' of every battle as a play fight, where new friends visit for fun sessions of rough and tumble. And the audience has become Tuffnut's pack. He will do anything for his fans.
 

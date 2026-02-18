@@ -2,7 +2,7 @@
 
 The noose around his neck smelled of sweat and piss, yet Meldrick Sudds wore it like the finest garland of flowers. _Jasmine_, he thought. _Ah, lovely jasmine_. He'd miss that.
 
-He certainly wouldn't miss the rat-eaten hardtack and infamous pilchard porridge of [Graystone Penitentiary](../../regions/high-seas/graystone-penitentiary/graystone-penitentiary.md). Compared to that, the smelly, soggy noose seemed like a reward. Perhaps the rations were 'flavored' to make prisoners more compliant, relieved even, when it came time to face the gallows.
+He certainly wouldn't miss the rat-eaten hardtack and infamous pilchard porridge of [Graystone Penitentiary](../../world-of-rathe/high-seas/graystone-penitentiary.md). Compared to that, the smelly, soggy noose seemed like a reward. Perhaps the rations were 'flavored' to make prisoners more compliant, relieved even, when it came time to face the gallows.
 
 "Move along, freebooter!" the hangman growled. Technically, Meldrick had only been accused of _consorting_ with pirates, but there was no point correcting him. The penalty was the same.
 
@@ -88,7 +88,7 @@ The Golden Goose was a fine but fickle ship. Though it flew smoothly enough, Puf
 
 And when she wasn't hightailing it, Puffin stood next to Pelorus, her navigator and helmsman, both of them gazing at the map. Their destination was supposed to be the final resting place of Captain Moody's ship, the HMS Seahawk. A shipwreck full of [Dhani](~DhaniEmpire) treasure.
 
-"We be approaching [Blackwater Strait](../../regions/high-seas/blackwater-strait/blackwater-strait.md), Cap'n," Pelorus said, one eye squinting as the other peered out through his monocle. He let it drop on its chain and grabbed a spyglass from the bandolier around his waist, adjusting the focus. "Whole place be a ship graveyard. We best be careful in those waters," he warned.
+"We be approaching [Blackwater Strait](../../world-of-rathe/high-seas/blackwater-strait.md), Cap'n," Pelorus said, one eye squinting as the other peered out through his monocle. He let it drop on its chain and grabbed a spyglass from the bandolier around his waist, adjusting the focus. "Whole place be a ship graveyard. We best be careful in those waters," he warned.
 
 Puffin had nothing but respect for the former airship captain. He'd charted more of the High Seas than anyone else, she'd told Meldrick, and was like a human compass when it came to finding his bearings, despite needing multiple optics for his failing eyes.
 

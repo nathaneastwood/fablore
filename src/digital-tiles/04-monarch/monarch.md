@@ -12,7 +12,7 @@ The Harvester's domain is a sea of gluttonous waste; consumption incarnate, a hu
 
 ### Deep Rooted Evil
 
-The realm of [íArathael](../../regions/rathe/demonastery/the-gateway-to-iarathael.md#the-gateway-to-íarathael) is ancient, timeless, once filled with wonders beyond mortal comprehension, yet as an undue influence seeps through the Tear, the very fabric of this realm is becoming distorted; corrupted by malice and blight.
+The realm of [íArathael](../../world-of-rathe/demonastery/the-gateway-to-iarathael.md#the-gateway-to-íarathael) is ancient, timeless, once filled with wonders beyond mortal comprehension, yet as an undue influence seeps through the Tear, the very fabric of this realm is becoming distorted; corrupted by malice and blight.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/deep-rooted-evil.webp" alt="deep-rooted-evil" class="center" />
 
@@ -42,7 +42,7 @@ Forged from the darkness of the deepest night, this blade is as cold as ice, a c
 
 ### Impenetrable Belief
 
-When disaster is on your doorstep, you must keep faith that you are able to turn it aside. That is the difference between those who fall and that who stay standing. [Solana](../../regions/rathe/solana/solana.md) shall persevere!
+When disaster is on your doorstep, you must keep faith that you are able to turn it aside. That is the difference between those who fall and that who stay standing. [Solana](../../world-of-rathe/solana/solana.md) shall persevere!
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/impenetrable-belief.webp" alt="impenetrable-belief" class="center" />
 
@@ -60,7 +60,7 @@ Those who remain faithful to Sol's radiance know the true strength of the Light;
 
 ### Seek Enlightenment
 
-For generations, the Vidalis bloodline has resided in the Northern Realms, passing down tales of their origins in the golden city. [Boltyn](../../heroes-of-rathe/boltyn-about.md) now walks the path of illumination, following in the footsteps of his ancestors, and building a new legacy for his family.
+For generations, the Vidalis bloodline has resided in the [Northern Realms](../../world-of-rathe/solana/the-northern-realms.md), passing down tales of their origins in the golden city. [Boltyn](../../heroes-of-rathe/boltyn-about.md) now walks the path of illumination, following in the footsteps of his ancestors, and building a new legacy for his family.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/seek-enlightenment.webp" alt="seek-enlightenment" class="center" />
 

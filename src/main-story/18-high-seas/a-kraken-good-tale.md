@@ -6,7 +6,7 @@
 
 "Evening, Pearl," the captain replied. "Yer more spirited than usual."
 
-"And for good reason. It's not every day you stare death in the face!" Marlynn glanced back at her crew, all smirking and snickering behind her. Pearl clicked her tongue. "Well, not us barkeeps, anyway. On behalf of the [Kraken's Barrel](../../regions/high-seas/port-conniver/port-conniver.md#krakens-barrel), thank you for saving us from the leviathans that inspired this fine establishment's namesake. Tonight, we drink to life!"
+"And for good reason. It's not every day you stare death in the face!" Marlynn glanced back at her crew, all smirking and snickering behind her. Pearl clicked her tongue. "Well, not us barkeeps, anyway. On behalf of the [Kraken's Barrel](../../world-of-rathe/high-seas/port-conniver.md#krakens-barrel), thank you for saving us from the leviathans that inspired this fine establishment's namesake. Tonight, we drink to life!"
 
 "To life!"
 
@@ -22,7 +22,7 @@ Marlynn snatched the bottle off the counter. "Twist me arm, why don't ye!"
 
 She and her crew eyed up a table that was immediately evacuated for them. Pearl squeezed through the eager onlookers, brews stacked high. Once all had been served and the patrons could wait no longer, Marlynn swilled the sweetly aromatic rum and began her tale.
 
-_It started with Piper's Pier. A sea serpent was having its way with the supply ships bound for [Graystone Penitentiary](../../regions/high-seas/graystone-penitentiary/graystone-penitentiary.md), so Governor Practiss hired me to get rid of it. The slop they feed the wretched souls is made from fish innards, just the thing to whet a beast's appetite. We commandeered a few barrels and chummed the waters off the coast. The stench was worse than a pirate's armpits!_
+_It started with Piper's Pier. A sea serpent was having its way with the supply ships bound for [Graystone Penitentiary](../../world-of-rathe/high-seas/graystone-penitentiary.md), so Governor Practiss hired me to get rid of it. The slop they feed the wretched souls is made from fish innards, just the thing to whet a beast's appetite. We commandeered a few barrels and chummed the waters off the coast. The stench was worse than a pirate's armpits!_
 
 _The sea roiled around us as the serpent gobbled them guts. I readied me harpoon, but when the beastie reared above the water and I saw its golden choppers, I realized this weren't yer average sea snake, but a rare Cyanatu._
 
@@ -44,7 +44,7 @@ _Bless me helmsman and his keen hearing, or the beast might have sent both him a
 
 _Now here's something that'll shiver yer timbers: a ghastly ship appeared on the horizon. At first, I thought the sea spray made me eyes go wonky, but one hard look was enough to know the [Dreadnought](~Dreadnought), bound south for Graystone. Good thing the Cyanatu didn't slow, or we might have been the newest additions to ole [Gravy Bones](../../heroes-of-rathe/gravy-about.md)' zombie horde._
 
-_The damn serpent dragged us deeper into murky territory. Aether rose off the sea like steam as the water turned from red to blue to black. Unseen monsters howled their nightmarish calls into the broken world. Lesser beings would've cut the tether and tacked to escape, but it's not every day ye wrangle an escort through the churning seas of [Teramundr's Triangle](../../regions/high-seas/teramundrs-triangle/teramundrs-triangle.md)._
+_The damn serpent dragged us deeper into murky territory. Aether rose off the sea like steam as the water turned from red to blue to black. Unseen monsters howled their nightmarish calls into the broken world. Lesser beings would've cut the tether and tacked to escape, but it's not every day ye wrangle an escort through the churning seas of [Teramundr's Triangle](../../world-of-rathe/high-seas/teramundrs-triangle.md)._
 
 _A walled island threatened to wreck our ship to smithereens as the serpent charged toward it. The more impatient among me crew begged me to cut the tether, but I wouldn't until I was sure this was our final stop. The bowsprit dipped hard into the water, which was all the proof I needed: it were diving into its cave. One swing of me cutlass unbound us from the creature and sent the ship springing back to the-_
 
@@ -68,7 +68,7 @@ _Alas, the ancient dead can be a tad touchy about their treasures. We'd hardly s
 
 _More emerged from the shadows, crawling over the rubble and out of the walls until we were surrounded. I ordered me crew to give no quarter, and none was given. We lopped off their stingers, crushed their claws, and cleaved their human heads from their beastly bodies. When at last we'd carved a path through them, we bolted back to the longboats._
 
-_It was clear skies and strong winds all the way home, or so we hoped. As we counted our losses in blood and our gains in gold, a huge swell rocked the ship. Jagged spikes broke through the waves off the starboard bow; the dorsal spines of a titanic sea monster, and it was heading straight for [Port Conniver](../../regions/high-seas/port-conniver/port-conniver.md)!_
+_It was clear skies and strong winds all the way home, or so we hoped. As we counted our losses in blood and our gains in gold, a huge swell rocked the ship. Jagged spikes broke through the waves off the starboard bow; the dorsal spines of a titanic sea monster, and it was heading straight for [Port Conniver](../../world-of-rathe/high-seas/port-conniver.md)!_
 
 _Me crew was in dire need of rum and respite, but I had enough fight left in me for us all. Besides, where would we get our rum if the beast made landfall?_
 

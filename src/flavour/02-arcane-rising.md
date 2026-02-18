@@ -56,7 +56,7 @@ Ancient runes guard its dusty windows, its darkened halls where the Shadows slee
 Separated by a power greater than their own, they chased each other across the sky, wishing for nothing more than to reunite.
 
 #### Take Cover - (ARC048)
-In the [Pits](../regions/rathe/pits/pits.md), every nook, cranny, or demolition debris serves as worthy refuge when it's time to take cover.
+In the [Pits](../world-of-rathe/pits/pits.md), every nook, cranny, or demolition debris serves as worthy refuge when it's time to take cover.
 
 #### Three of a Kind - (ARC044)
 "Finally. Time to take out the trash." - [Azalea](../heroes-of-rathe/azalea-about.md)

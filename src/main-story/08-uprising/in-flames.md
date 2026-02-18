@@ -2,13 +2,13 @@
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/in-flames-1.webp" alt="in-flames-1" class="center">
 
-I will gain my audience with the [Emperor](../../heroes-of-rathe/emperor-about.md) of [Volcor](../../regions/rathe/volcor/volcor.md). Though my attempts thus far have been met with near fatal disappointment, I now hold the key to our alliance in the palm of my hand.
+I will gain my audience with the [Emperor](../../heroes-of-rathe/emperor-about.md) of [Volcor](../../world-of-rathe/volcor/volcor.md). Though my attempts thus far have been met with near fatal disappointment, I now hold the key to our alliance in the palm of my hand.
 
 A secret passageway leads from the Chamber of the Dragon into the bowels of Mount Volcor. Hidden in those molten depths is the emperor's private residence, a sanctum secure against the slights and schemes of his lessers.
 
 Assassination has become virulent among these [Dracai](~Dracai), this arcane nobility. The ruling houses fight fire with fire as they struggle for dominance over this already fractured land. I had expected Volcor's politics to be heated. I did not expect to see a Dracai melted into a puddle of scorched fat in her own chambers.
 
-They care for nothing but their arrogant ambitions. Yet without allies, the [Demonastery](../../regions/rathe/demonastery/demonastery.md)'s hordes will consume our blessed [Solana](../../regions/rathe/solana/solana.md), and Volcor will be next. The emperor must see that.
+They care for nothing but their arrogant ambitions. Yet without allies, the [Demonastery](../../world-of-rathe/demonastery/demonastery.md)'s hordes will consume our blessed [Solana](../../world-of-rathe/solana/solana.md), and Volcor will be next. The emperor must see that.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/in-flames-2.webp" alt="in-flames-2" class="center">
 

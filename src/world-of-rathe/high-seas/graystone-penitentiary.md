@@ -2,7 +2,7 @@
 
 Upon a desolate island, Graystone Penitentiary stands as a warning to all: sail the straight and narrow, or be imprisoned where not even hope can escape.
 
-The penal colony of Graystone was founded by the first settlers of [Piper's Pier](../pipers-pier/pipers-pier.md), and continues to receive a steady stream of captured pirates, despairing debtors, and Governor Practiss's political opponents.
+The penal colony of Graystone was founded by the first settlers of [Piper's Pier](./pipers-pier.md), and continues to receive a steady stream of captured pirates, despairing debtors, and Governor Practiss's political opponents.
 
 The Penitentiary is organized in levels. Seven floors above ground, and seven underneath, each comprising a cell block and a common area. For prisoners, their suffering is determined by which level they are consigned to.
 

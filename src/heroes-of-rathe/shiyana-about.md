@@ -2,7 +2,7 @@
 
 ![shiyana-diamond-gemini](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/shiyana.webp)
 
-Where there is light, there is shadow. Amongst the people of [Solana](../regions/rathe/solana/solana.md), a rumour lingers, whispered behind closed doors; tales of those who blend into the crowd, hiding in plain sight, working day and night to preserve the peace.
+Where there is light, there is shadow. Amongst the people of [Solana](../world-of-rathe/solana/solana.md), a rumour lingers, whispered behind closed doors; tales of those who blend into the crowd, hiding in plain sight, working day and night to preserve the peace.
 
 Shiyana was born to two chancellors, raised with an intimate knowledge of the Light. For countless generations, her bloodline has served Solana in the Light of Sol, guarding their beloved city through centuries of war. Yet, when the time for her Awakening arrived, Shiyana was chosen for a slightly different role.
 

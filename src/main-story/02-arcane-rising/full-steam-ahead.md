@@ -58,7 +58,7 @@ Light travelled along the surface as the device came to life, drawing on the pow
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-10.webp" alt="dash-10" class="center">
 
-Choosing a direction at random, she began to walk toward the outline of [Zinnia Park](../../regions/rathe/metrix/a-sprawling-metropolis.md#zinnia-park), listening carefully. In a day, she could cover the whole of the [Midtown Markets](../../regions/rathe/metrix/a-sprawling-metropolis.md#midtown-markets), and a part of [Lowlake](../../regions/rathe/metrix/a-sprawling-metropolis.md#lowlake). The next led her down into [Coppertown](../../regions/rathe/metrix/a-sprawling-metropolis.md#coppertown), scouring every street for the slightest signal from her device. However, it continued to stay silent.
+Choosing a direction at random, she began to walk toward the outline of [Zinnia Park](../../world-of-rathe/metrix/a-sprawling-metropolis.md#zinnia-park), listening carefully. In a day, she could cover the whole of the [Midtown Markets](../../world-of-rathe/metrix/a-sprawling-metropolis.md#midtown-markets), and a part of [Lowlake](../../world-of-rathe/metrix/a-sprawling-metropolis.md#lowlake). The next led her down into [Coppertown](../../world-of-rathe/metrix/a-sprawling-metropolis.md#coppertown), scouring every street for the slightest signal from her device. However, it continued to stay silent.
 
 Every time Dash booted up the device, it would release a series of high-pitched beeps, confirming that it had calibrated correctly. Yet after weeks of searching Metrix sector by sector, Dash was beginning to wonder if perhaps the device hadn't calibrated correctly after all, or if there was an issue with the connection to the induction chamber.
 

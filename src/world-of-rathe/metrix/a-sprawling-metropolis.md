@@ -21,6 +21,14 @@ Coppertown's entertainment district, the southern portion of Coppertown is infam
 The largest and lowest level of Metrix, the buildings of the Sprawl stand on solid ground, overshadowed by the city above. The Sprawl's population is predominantly immigrants and paupers, those who struggle to find work and make ends meet. The Sprawl is ignored by the rest of Metrix, and as a result, has developed a culture and identity unique to the district.
 
 ## Landmarks
+#### Cogmire's Salvage Emporium And Workshoppe
+
+Rumor has it that [Jules Teklovossen](../../heroes-of-rathe/teklovossen-about.md) once frequented Cogmire's Salvage Emporium and Workshoppe at the southern edge of the Sprawl. Some swear he spent hours there collecting materials to build his earliest creations, when junk and scrap were all the young inventor could afford. When pressed for confirmation, the proprietor, Prospector Cogmire, said only that, "I find those glowing holophoto effigies to be in poor taste. That man gave us so much already; can't we now let him rest?"
+
+Cogmire's is the oldest junkyard in all of Metrix offering anything and everything a scrap trader or tinkerer could need. The man himself has been proprietor for as long as anyone can remember, with his trusty (and rusty) pet junkyard dogg Charlotte never far from his side. She's mean in the eyes and knows the difference between a customer and a thief. So does Cogmire. The dogg is just faster.
+
+The yard isn't laid out like a proper shop. It's a maze of chain-slung heaps and riveted wreckage, where processors, induction chambers, gears, and cogs get swallowed for years before turning up again under somebody's boot. Need a clamp press that hasn't been made since before your grandparents learned to swear? Might be here. Need an Evo cut to fit a frame that was "standard" for about five minutes before some bright mind changed the pattern? Could be buried under a hopper carcass and three bad decisions. Need a single copper screw with a plasma-resistant thread? You'll find it. Eventually.
+
 #### Midtown Markets
 A place where anything and everything can be found for the right price. Nestled in the remains of a worn-out strip mine in the centre of the city, the Midtown Markets are notorious not only for its wares, but for the amount of crime that takes place in the area. The Iron Assembly has stationed a permanent brigade of officers in the area, in an attempt to control the market's more nefarious locals. Many of the merchants remain at odds with the brigade, arguing that their presence deters the presence of some of their more wealthy clientele.
 

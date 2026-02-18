@@ -1,6 +1,6 @@
 # Secret of the Aetherscribes
 
-The village alarms blared out a warning that sent the Voltfolk skittering for shelter like frightened [kaie'o](../../regions/rathe/aria/creatures.md#kaieo). While thunderstorms were common enough in [Enion](~Enion), a storm this wild hadn't been seen for centuries. Yet one person dared to charge away from the safety of [Volthaven](../../regions/rathe/aria/the-land-of-legends.md#volthaven). She had better things to do than hide from some rain.
+The village alarms blared out a warning that sent the Voltfolk skittering for shelter like frightened [kaie'o](../../world-of-rathe/aria/creatures.md#kaieo). While thunderstorms were common enough in [Enion](~Enion), a storm this wild hadn't been seen for centuries. Yet one person dared to charge away from the safety of [Volthaven](../../world-of-rathe/aria/the-land-of-legends.md#volthaven). She had better things to do than hide from some rain.
 
 [Aurora](../../heroes-of-rathe/aurora-about.md) sailed over the rooftops, leaving a trail of lightning and laughter crackling in her wake.
 
@@ -74,7 +74,7 @@ The next obstacle was a little more tricky and a lot more fun. She opened a door
 
 She didn't risk eating any of the suspiciously tasty-looking fruit and drink options laid out for her as a "Welcome to Arcturos". But she couldn't resist another temptation.
 
-"Here, na'shi na'shi!" Aurora bent down and held her hand out to a juvenile [na'shari](../../regions/rathe/aria/creatures.md#nashari) as it wandered out from a door where a giant hand waved from the upside down sky. The beastling gave her a tentative sniff and a gentle headbutt.
+"Here, na'shi na'shi!" Aurora bent down and held her hand out to a juvenile [na'shari](../../world-of-rathe/aria/creatures.md#nashari) as it wandered out from a door where a giant hand waved from the upside down sky. The beastling gave her a tentative sniff and a gentle headbutt.
 
 "Aw, you little reality-defying cutie."
 
@@ -138,7 +138,7 @@ Aurora retrieved her blade and stood. She wasn't sure whether to look at the orb
 
 "Was fighting the sentinel outside not enough?"
 
-"I cannot see beyond Arcturos. But my aetheric receptors indicate an unusual fluctuation in [The Flow](../../regions/rathe/aria/a-true-sanctuary.md#the-flow)."
+"I cannot see beyond Arcturos. But my aetheric receptors indicate an unusual fluctuation in [The Flow](../../world-of-rathe/aria/a-true-sanctuary.md#the-flow)."
 
 Aurora tentatively lowered her weapon. "What kind of fluctuation?"
 

@@ -4,7 +4,7 @@
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/azalea.mp4" type="video/mp4">
 </video>
 
-Azalea is an obsessive, self-serving contract killer from the depths of the [Pits](../regions/rathe/pits/pits.md). Working out of the Blackjack Tavern, she carefully selects each contract, going to great lengths to coordinate a flawless execution. Azalea has carved out a reputation for herself as one of the best contract killers, determined to stay one step ahead of the competition.
+Azalea is an obsessive, self-serving contract killer from the depths of the [Pits](../world-of-rathe/pits/pits.md). Working out of the Blackjack Tavern, she carefully selects each contract, going to great lengths to coordinate a flawless execution. Azalea has carved out a reputation for herself as one of the best contract killers, determined to stay one step ahead of the competition.
 
 A life on the streets has made Azalea cynical and restless. In the Pits, anarchy reigns supreme, and a single mistake can mean the difference between life and death. Even though she has come a long way, Azalea has yet to realise that she is just one small cog in the giant, decrepit machine of the Pits...
 

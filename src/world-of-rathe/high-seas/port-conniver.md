@@ -2,7 +2,7 @@
 
 What good is pirate booty without a place to squander it? What good is a grand tale of the High Seas if no one is moored long enough to marvel at it? Whether a pirate's peddling stolen goods or salty stories, the island of Port Conniver is their harbor of choice. Not so much a single place as it is a great sprawl of hideouts and hideaways, Port Conniver stretches around a craggy island in the southern parts of the High Seas.
 
-The promenade is where pirates spend their hard-stolen gold, with taverns, gambling dens, and brothels as far as the eye can see, all settled on the sandy beach or built into the mouths of caves. Sure, it isn't as fancy as some of the swanky saloons in [Golden Port](../golden-port/golden-port.md). And the streets and alleys of [Piper's Pier](../pipers-pier/pipers-pier.md) are probably safer for walking along. But for a true pirate, one with a real thirst for adventure, there is no better place to fill your boots.
+The promenade is where pirates spend their hard-stolen gold, with taverns, gambling dens, and brothels as far as the eye can see, all settled on the sandy beach or built into the mouths of caves. Sure, it isn't as fancy as some of the swanky saloons in [Golden Port](./golden-port.md). And the streets and alleys of [Piper's Pier](./pipers-pier.md) are probably safer for walking along. But for a true pirate, one with a real thirst for adventure, there is no better place to fill your boots.
 
 When looking to get rid of something, or someone, pirates head deeper inland. That's where they find what the landlubbers call black markets, but hark, a real pirate hasn't seen a white one. All pirates know to keep a peeper on the clientele there and, if they still have both, another on their pouch.
 

@@ -1,6 +1,6 @@
 # Part 1: The Tiger in the Mist
 
-[Zen](../../heroes-of-rathe/zen-about.md) winds his way uphill, discerning the invisible patterns of chi in the landscape, waiting for ripples of discordance to appear from the gullies throughout [Mistcloak](../../regions/rathe/misteria/among-the-mists.md#mistcloak-gully).
+[Zen](../../heroes-of-rathe/zen-about.md) winds his way uphill, discerning the invisible patterns of chi in the landscape, waiting for ripples of discordance to appear from the gullies throughout [Mistcloak](../../world-of-rathe/misteria/among-the-mists.md#mistcloak-gully).
 
 He was drawn to the gully by the changing tides of chi and has made the long journey to learn what destiny might be unveiling.
 
@@ -14,7 +14,7 @@ He pauses to admire a trio of weavers winding threads of silk along a wooden loo
 
 He watches in awe as a farmer balances a carrying pole laden with produce across a suspended tightrope, the man's strength and confidence a testament to his practiced ability.
 
-He hears laughter from elders and the young as they guide one another around narrow cobblestone paths, their closeness a reminder of the traditions that have maintained harmony within [Misteria](../../regions/rathe/misteria/misteria.md) for centuries.
+He hears laughter from elders and the young as they guide one another around narrow cobblestone paths, their closeness a reminder of the traditions that have maintained harmony within [Misteria](../../world-of-rathe/misteria/misteria.md) for centuries.
 
 There is a saying written in the tenets: The still pool must be disturbed by the spring melt else tranquility shall decay into stagnation. The ripples tell where the surface has been broken.
 
@@ -36,7 +36,7 @@ Zen lowers his head, sweeps his open hand into his chest and concentrates all of
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/zen-story-2.webp" alt="zen-story-2" class="center">
 
-The sun transforms the mist into a glistening haze over the [Ikaru](~Ikaru) gardens. Zen treks into the dell, bowing as he passes the statue of [Mistress Ikaru](../../regions/rathe/misteria/the-legend-of-mistress-ikaru.md). He settles into a cross-legged position near a trickling spring where he hears the rustling of raciki scavenging for food.
+The sun transforms the mist into a glistening haze over the [Ikaru](~Ikaru) gardens. Zen treks into the dell, bowing as he passes the statue of [Mistress Ikaru](../../world-of-rathe/misteria/the-legend-of-mistress-ikaru.md). He settles into a cross-legged position near a trickling spring where he hears the rustling of raciki scavenging for food.
 
 He watches as one of the fluffy canines sidles up to the spring, eyeing rowbugs as they scuttle across the surface. It dives into the water with a muffled plunk, harnessing its chi upon instinct, its fur hardening into scales, its paws spreading into fins until the shapeshifting dog has become a hunting carp.
 
@@ -56,7 +56,7 @@ The man's scowl deepens as a cold breeze claws at his blood-stained robe. The mi
 
 Zen feels the chi urging him onwards. "You are weighed down by the life that you took, but a true villain would not wear it as a cloak of shame. With what name may I honor you?"
 
-"Seto." The name is bitter with disgust, a sign of how far the man feels he has fallen. "Of House [Miharu](../../regions/rathe/misteria/prestigious-households.md)."
+"Seto." The name is bitter with disgust, a sign of how far the man feels he has fallen. "Of House [Miharu](../../world-of-rathe/misteria/prestigious-households.md)."
 
 Zen bows low to reflect the prestige of the man's house. Seto offers a shallow bow, out of obligation more than respect.
 
@@ -102,7 +102,7 @@ The young woman smiles, calm as the dragonfly that dries its wings upon the lotu
 
 The endearment reddens Seto's visage with bloody murder. "Where were you at sunrise? We were to leave-"
 
-"Yet here I am," Satsuki finishes for him. "And Toroja of [Ishigaki](../../regions/rathe/misteria/prestigious-households.md) is not. I wanted his head and you took it. You have nothing left to give."
+"Yet here I am," Satsuki finishes for him. "And Toroja of [Ishigaki](../../world-of-rathe/misteria/prestigious-households.md) is not. I wanted his head and you took it. You have nothing left to give."
 
 Seto reaches for his tantō. "I have this."
 

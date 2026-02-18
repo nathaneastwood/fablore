@@ -1,12 +1,12 @@
 ### Amulet of Ice
 
-Forged from the purest ice from deep within [Mt. Isen](../../regions/rathe/aria/the-land-of-legends.md#isenloft), this amulet's a favorite amongst those of [Isenloft](../../regions/rathe/aria/the-land-of-legends.md#isenloft) as a reminder of their home.
+Forged from the purest ice from deep within [Mt. Isen](../../world-of-rathe/aria/the-land-of-legends.md#isenloft), this amulet's a favorite amongst those of [Isenloft](../../world-of-rathe/aria/the-land-of-legends.md#isenloft) as a reminder of their home.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/amulet-of-ice.webp" alt="amulet-of-ice" class="center" />
 
 ### Amulet of Lightning
 
-A piece of the electric isles of [Volthaven](../../regions/rathe/aria/the-land-of-legends.md#volthaven).
+A piece of the electric isles of [Volthaven](../../world-of-rathe/aria/the-land-of-legends.md#volthaven).
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/amulet-of-lightning.webp" alt="amulet-of-lightning" class="center" />
 
@@ -18,13 +18,13 @@ The sun on the gentle glen. The rustle of the copper leaves. The touch of autumn
 
 ### Bramble Spark
 
-The Wardens were seeded all across [Candlehold](../../regions/rathe/aria/the-land-of-legends.md#candlehold). With love and care they tended their grove, as the forest around them flourished!
+The Wardens were seeded all across [Candlehold](../../world-of-rathe/aria/the-land-of-legends.md#candlehold). With love and care they tended their grove, as the forest around them flourished!
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/bramble-spark.webp" alt="bramble-spark" class="center" />
 
 ### Channel Mount Heroic
 
-None of your adventures had prepared you for this breathtaking vista, as it towers above the forests of eastern [Aria](../../regions/rathe/aria/aria.md)!
+None of your adventures had prepared you for this breathtaking vista, as it towers above the forests of eastern [Aria](../../world-of-rathe/aria/aria.md)!
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/channel-mount-heroic.webp" alt="channel-mount-heroic" class="center" />
 
@@ -108,7 +108,7 @@ The power of Lightning courses through the inhabitants of Volthaven.
 
 ### Tear Asunder
 
-Legends tell of [Guardians](../../regions/rathe/aria/tides-of-change.md#legend-of-the-guardians) that tore open the heavens with their bare hands. Exaggeration? Maybe. But it's no question that the Guardians were as deadly as they come, and protected humanity in the early Ages.
+Legends tell of [Guardians](../../world-of-rathe/aria/tides-of-change.md#legend-of-the-guardians) that tore open the heavens with their bare hands. Exaggeration? Maybe. But it's no question that the Guardians were as deadly as they come, and protected humanity in the early Ages.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/tear-asunder.webp" alt="tear-asunder" class="center" />
 

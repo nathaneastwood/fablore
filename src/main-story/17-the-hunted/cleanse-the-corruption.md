@@ -66,7 +66,7 @@ She lifted the mat to reveal a hidden hatch and climbed down the stairs into a g
 
 Footsteps. Voices.
 
-She considered calling upon her Sayashi, then dismissed the notion. The quarry might escape if she delayed any further. Cindra suppressed a shudder and gave chase to the voices, her own steps silent. When she caught up to them, she was surprised to see not only Savai, but an older woman, escorted through the tunnel by a nest of [Spider assassins](../../regions/rathe/pits/blackjacks-mercenary-group.md#the-spider).
+She considered calling upon her Sayashi, then dismissed the notion. The quarry might escape if she delayed any further. Cindra suppressed a shudder and gave chase to the voices, her own steps silent. When she caught up to them, she was surprised to see not only Savai, but an older woman, escorted through the tunnel by a nest of [Spider assassins](../../world-of-rathe/pits/blackjacks-mercenary-group.md#the-spider).
 
 "Halt in the Emperor's name!"
 
@@ -76,7 +76,7 @@ Savai twitched as he glanced back at Cindra, his body hunched, his face a distor
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/cleanse-the-corruption-3.webp" alt="cleanse-the-corruption-3" class="center" />
 
-The assassins were a motley bunch, dressed in the varied and garish fashions of the [Pits](../../regions/rathe/pits/pits.md), each clutching a weapon: a stiletto, a hammer, an axe, and three varieties of sword. None would fight for the other, nor would they have trained for it. Cindra stood her ground, letting them come closer - closer than she needed. She hurled a dagger, striking Stiletto in the eye, dropping her immediately. Cindra spun to dodge a sword strike and slammed a dagger into the man's neck, then leaped high, stepping off the walls and over the remaining assassins, throwing two daggers before she touched the ground. Each found its target, straight to the heart.
+The assassins were a motley bunch, dressed in the varied and garish fashions of the [Pits](../../world-of-rathe/pits/pits.md), each clutching a weapon: a stiletto, a hammer, an axe, and three varieties of sword. None would fight for the other, nor would they have trained for it. Cindra stood her ground, letting them come closer - closer than she needed. She hurled a dagger, striking Stiletto in the eye, dropping her immediately. Cindra spun to dodge a sword strike and slammed a dagger into the man's neck, then leaped high, stepping off the walls and over the remaining assassins, throwing two daggers before she touched the ground. Each found its target, straight to the heart.
 
 Cindra flung another dagger. It flew through Hammer's neck, the crimson ribbon emerging bloodier on the other side. She ducked easily beneath the final assassin's swing and his axe bit into the stone wall, the man vulnerable for a split-second as he struggled to pull it free. All the time she needed. The dagger sliced across his belly, his intestines spilling as he stared in horror.
 

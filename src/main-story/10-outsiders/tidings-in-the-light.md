@@ -4,13 +4,13 @@
 (<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)
 </p>
 
-Rays of golden sun kiss the once golden fields of [Solana](../../regions/rathe/solana/solana.md).
+Rays of golden sun kiss the once golden fields of [Solana](../../world-of-rathe/solana/solana.md).
 
-A cloaked figure pauses at the doorway of a ruined homestead, eyes lost in shadow as it looks across the embattled earth. The clamoring horde of the [Demonastery](../../regions/rathe/demonastery/demonastery.md) is a chorus of rumbles and howls, like a foul storm brooding in the distance.
+A cloaked figure pauses at the doorway of a ruined homestead, eyes lost in shadow as it looks across the embattled earth. The clamoring horde of the [Demonastery](../../world-of-rathe/demonastery/demonastery.md) is a chorus of rumbles and howls, like a foul storm brooding in the distance.
 
 The figure checks for onlookers before darting into the war-torn house. Safe from prying eyes, it removes its fiendish mask. Its looming stature shrinks, its claws retract and soften, and its lean sinews contract and reform, sculpting an elegant new body sheathed in gold and pearl.
 
-[Shiyana](../../heroes-of-rathe/shiyana-about.md) steps from the crumpled cloak of the hideous old with a sigh of relief. She picks her way through the scattered bones of the home's inhabitants. Enough bones for a large family, scored with teeth marks, broken and sucked empty of their marrow. She looks through a shattered window at the [Solarium](../../regions/rathe/solana/a-radiant-city.md#solarium) in the distance, elegant in its radiance, and the comforting boundary of the Great Gates. It is a welcome sight after the boiling harshness of [Volcor](../../regions/rathe/volcor/volcor.md), after the raging fires of a land at war with itself.
+[Shiyana](../../heroes-of-rathe/shiyana-about.md) steps from the crumpled cloak of the hideous old with a sigh of relief. She picks her way through the scattered bones of the home's inhabitants. Enough bones for a large family, scored with teeth marks, broken and sucked empty of their marrow. She looks through a shattered window at the [Solarium](../../world-of-rathe/solana/a-radiant-city.md#solarium) in the distance, elegant in its radiance, and the comforting boundary of the Great Gates. It is a welcome sight after the boiling harshness of [Volcor](../../world-of-rathe/volcor/volcor.md), after the raging fires of a land at war with itself.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/tidings-in-the-light-1.webp" alt="tidings-in-the-light-1" class="center">
 
@@ -18,7 +18,7 @@ Against the corruption that besieges it, Solana remains graceful; a bastion of o
 
 She crosses the bare and bloodied soil to the Solanian battle line where the city's surviving warriors defend the remaining farms and villages. Hands raised, she addresses the sentries, requesting they present her to their commander. Suspicious, swords at the ready, the warriors lead her into a stately marquee of cream canvas, golden banners fluttering from its whitewashed poles. The commander looks up from the map he has spread across a long table. His eyes are bloodshot with exhaustion, his normally shining armor scratched and smeared with gore.
 
-"[Gemini](../../regions/rathe/solana/the-order-of-the-light.md#the-gemini) Shiyana," he greets her with a weary smile. "You are as welcome as the dawn."
+"[Gemini](../../world-of-rathe/solana/the-order-of-the-light.md#the-gemini) Shiyana," he greets her with a weary smile. "You are as welcome as the dawn."
 
 "[Boltyn](../../heroes-of-rathe/boltyn-about.md), it is good to see you."
 
@@ -32,7 +32,7 @@ She can sense his pain, the longing for hope. For his son, Aios. For the righteo
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/tidings-in-the-light-2.webp" alt="tidings-in-the-light-2" class="center">
 
-"Some." She hopes Sol will forgive her the lie. "For the [Magisters'](../../regions/rathe/solana/the-order-of-the-light.md#magisters) ears only."
+"Some." She hopes Sol will forgive her the lie. "For the [Magisters'](../../world-of-rathe/solana/the-order-of-the-light.md#magisters) ears only."
 
 "I'll arrange an honor guard."
 
@@ -42,23 +42,23 @@ Boltyn dismisses the guards with a wave of his hand. Shiyana places her mask on 
 
 "They are in the Council Chamber?" she asks.
 
-"Indeed. The Magisters sit to decide the fate of this year's [Solstice of Laurels](../../regions/rathe/solana/solstice-of-laurels.md). Our knights rightly deserve the [Blessing of Sol](../../regions/rathe/solana/a-radiant-city.md#the-blessing-of-sol), but some view the ceremony as an extravagance in these times."
+"Indeed. The Magisters sit to decide the fate of this year's [Solstice of Laurels](../../world-of-rathe/solana/solstice-of-laurels.md). Our knights rightly deserve the [Blessing of Sol](../../world-of-rathe/solana/a-radiant-city.md#the-blessing-of-sol), but some view the ceremony as an extravagance in these times."
 
 Shiyana respectfully takes her leave before Bolton has a chance to grasp at the unrest she holds at bay. She joins the ragged procession of refugees entering the city through the southern gate, weaving through the crowd of the wounded and the homeless lying prone along the city's grand walkway. She expects to see despair. Instead, she witnesses kindness, bravery-people who continue to give when all has been taken from them. Their benevolence touches her, Sol's divine light growing the closer she gets to the Solarium.
 
-In a vacant entryway she removes her mask, thus returning to her natural form. She whispers a poem as she steps from sandstone to solid marble, into the [Great Hall of the Solarium](../../regions/rathe/solana/a-radiant-city.md#solarium), the cadence of her footsteps matching syllables from the refrain.
+In a vacant entryway she removes her mask, thus returning to her natural form. She whispers a poem as she steps from sandstone to solid marble, into the [Great Hall of the Solarium](../../world-of-rathe/solana/a-radiant-city.md#solarium), the cadence of her footsteps matching syllables from the refrain.
 
 "Before the light of Sol, we stand,<br>
 The one true guide, illumined in our hearts,<br>
 Blessings of hope eternal against this unholy world,<br>
-We are yours, [Children of the Light](../../regions/rathe/solana/children-of-the-light.md),<br>
+We are yours, [Children of the Light](../../world-of-rathe/solana/children-of-the-light.md),<br>
 And in your glory, we shall prevail."
 
 "Sol will prevail," she chants to herself, the strength of her voice ringing from the arches of marble and gold above.
 
-As she nears the [Amphitheatre](../../regions/rathe/solana/a-radiant-city.md#the-amphitheatre), she has to shield her eyes against the brightness of the [Grand Council](../../regions/rathe/solana/the-grand-council.md) chamber and the congregation of Magisters seated at its center. It seems like an age since these paragons last received her, radiant in their magnificent masks and mantles. In their presence, her anxiety recedes. Their light anoints her with hope.
+As she nears the [Amphitheatre](../../world-of-rathe/solana/a-radiant-city.md#the-amphitheatre), she has to shield her eyes against the brightness of the [Grand Council](../../world-of-rathe/solana/the-grand-council.md) chamber and the congregation of Magisters seated at its center. It seems like an age since these paragons last received her, radiant in their magnificent masks and mantles. In their presence, her anxiety recedes. Their light anoints her with hope.
 
-[The Librarian](../../other-characters/the-librarian.md)-Magister of History-is the first to notice her arrival. They turn to [The Steadfast](../../regions/rathe/solana/the-order-of-the-light.md#grand-magister)-the fifth and wisest Grand Magister to lead and guide Solana-and await permission to announce Shiyana's return. Shiyana shivers as The Steadfast's gaze passes over her, every fiber of her being drawn to them like a flower that follows the arc of the sun. The Steadfast nods their approval and The Librarian beckons Shiyana forward.
+[The Librarian](../../other-characters/the-librarian.md)-Magister of History-is the first to notice her arrival. They turn to [The Steadfast](../../world-of-rathe/solana/the-order-of-the-light.md#grand-magister)-the fifth and wisest Grand Magister to lead and guide Solana-and await permission to announce Shiyana's return. Shiyana shivers as The Steadfast's gaze passes over her, every fiber of her being drawn to them like a flower that follows the arc of the sun. The Steadfast nods their approval and The Librarian beckons Shiyana forward.
 
 "We welcome the brightest and boldest of our Gemini," heralds The Librarian, "and give thanks to Sol for her safe return."
 
@@ -72,7 +72,7 @@ Shiyana raises her hand, her diamond spinning over her palm, and bows deeply, as
 
 "Neither for us nor against us, your Grace. Their-"
 
-She pauses to order her thoughts. Should she burden the council with the convictions of the [Phoenix](../08-uprising/fires-of-rebellion.md)? The rebel leader has vowed to fight on until Volcor is remade. What of [Lady Dromai](../../heroes-of-rathe/dromai-about.md) and the [Royal Court](../../regions/rathe/volcor/the-royal-court.md), fighting amongst themselves while their land burns?
+She pauses to order her thoughts. Should she burden the council with the convictions of the [Phoenix](../08-uprising/fires-of-rebellion.md)? The rebel leader has vowed to fight on until Volcor is remade. What of [Lady Dromai](../../heroes-of-rathe/dromai-about.md) and the [Royal Court](../../world-of-rathe/volcor/the-royal-court.md), fighting amongst themselves while their land burns?
 
 "Their concerns are their own, your Grace."
 
@@ -86,11 +86,11 @@ She expects a chorus of surprise at the mention of it. But the chamber remains s
 
 "Continue," speaks The Steadfast, a mere whisper that fills the Amphitheatre, ringing through the stone beneath Shiyana's feet, as if that lone word had resonated up from the deep foundations of Solana itself.
 
-Like echoes to The Steadfast's cadence, Shiyana's words ring out of their own accord. She spins her summations, woven as they are from tenuous threads, unfolding a tapestry of tragedy. As a chambermaid, she witnessed the murderous rivalry between the [Ezu](~Ezu) and [Alshoni](~Alshoni); [Dracai](~Dracai) factions locked in a dynastic struggle. As a healer, she patched the wounds and listened to the stories of rebels under the banner of the Phoenix. As a scribe, she copied the words of Spymaster Xathari until his untimely demise. As General Riku's personal aide, she finally snagged a hole in this arras of silence. A symbol upon a seemingly banal parchment. A sign she recognized from a long ago mission in the depths of the [Pits](../../regions/rathe/pits/pits.md).
+Like echoes to The Steadfast's cadence, Shiyana's words ring out of their own accord. She spins her summations, woven as they are from tenuous threads, unfolding a tapestry of tragedy. As a chambermaid, she witnessed the murderous rivalry between the [Ezu](~Ezu) and [Alshoni](~Alshoni); [Dracai](~Dracai) factions locked in a dynastic struggle. As a healer, she patched the wounds and listened to the stories of rebels under the banner of the Phoenix. As a scribe, she copied the words of Spymaster Xathari until his untimely demise. As General Riku's personal aide, she finally snagged a hole in this arras of silence. A symbol upon a seemingly banal parchment. A sign she recognized from a long ago mission in the depths of the [Pits](../../world-of-rathe/pits/pits.md).
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/tidings-in-the-light-4.webp" alt="tidings-in-the-light-4" class="center">
 
-[L'Apocalypta](../../regions/rathe/pits/blackjacks-mercenary-group.md#lapocalypta).
+[L'Apocalypta](../../world-of-rathe/pits/blackjacks-mercenary-group.md#lapocalypta).
 
 A cult sworn to unspeakable acts for unknowable reasons.
 
@@ -118,7 +118,7 @@ The Grand Magister's words shatter the silence like the sun breaking through a m
 
 "In the shade of destiny, devious minds hatch deviant dreams," intones The Librarian, slow and stately as the rising sun. "The schemes they brew are poisoned with greed and malice. Bereft of true Light, their designs will be but a passing disease, cured and forgotten."
 
-In an act of luminous certainty, The Grand Magister stands and reaches outward with their hands as if gathering Shiyana, the Grand Council, Solana and all of [Rathe](../../regions/rathe/rathe.md) in their embrace.
+In an act of luminous certainty, The Grand Magister stands and reaches outward with their hands as if gathering Shiyana, the Grand Council, Solana and all of [Rathe](../../world-of-rathe/rathe.md) in their embrace.
 
 "There are others," assures The Grand Magister. "Allies worthy and courageous, who look beyond their fearful walls. Those who will strive with us for Rathe's brightest future."
 

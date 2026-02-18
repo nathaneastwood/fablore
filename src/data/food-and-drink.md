@@ -2,6 +2,7 @@
 |       Name       | Type|
 |------------------|-----|
 |    Amygdazzla    |Drink|
+|  Breakernut Ale  |Drink|
 |Deathmatch Draught|Drink|
 |   Goldkiss Rum   |Drink|
 |     Nutrislug    | Food|

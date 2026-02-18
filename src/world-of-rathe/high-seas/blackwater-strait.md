@@ -1,6 +1,6 @@
 # Blackwater Strait
 
-Many a ship has met its end within Blackwater Strait, a labyrinth of islands and ruins between [Azuro Keys](../azuro-keys/azuro-keys.md) and [Golden Port](../golden-port/golden-port.md). Due to the prevailing winds near [Teramundr's Triangle](../teramundrs-triangle/teramundrs-triangle.md), the strait's twisting channels can take weeks off a profitable journey. Yet, its capricious currents can smash a vessel in the blink of an unwary captain's eye.
+Many a ship has met its end within Blackwater Strait, a labyrinth of islands and ruins between [Azuro Keys](./azuro-keys.md) and [Golden Port](./golden-port.md). Due to the prevailing winds near [Teramundr's Triangle](./teramundrs-triangle.md), the strait's twisting channels can take weeks off a profitable journey. Yet, its capricious currents can smash a vessel in the blink of an unwary captain's eye.
 
 Then there are the wreckers who light false beacons or riddle the causeways with chain-snares and mines. Or the Hoikers: giant, acid-spitting scallops that scuttle out of the crumbling [Dhani](~DhaniEmpire) ruins to shoot down seabirds and [aeronauts](~Aeronauts).
 

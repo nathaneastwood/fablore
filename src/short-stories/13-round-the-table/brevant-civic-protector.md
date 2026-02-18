@@ -1,14 +1,14 @@
 # Brevant, Civic Protector
 
-What is it like to be part of the [Hand of Sol](../../regions/rathe/solana/the-order-of-the-light.md#the-hand-of-sol)? I can think of no greater honor.
+What is it like to be part of the [Hand of Sol](../../world-of-rathe/solana/the-order-of-the-light.md#the-hand-of-sol)? I can think of no greater honor.
 
-That is not to diminish our tireless farmers and enlightening scholars, our ingenious builders and inspiring musicians. We are all precious in the regard of Sol, all toiling faithfully for the radiant future of [Solana](../../regions/rathe/solana/solana.md).
+That is not to diminish our tireless farmers and enlightening scholars, our ingenious builders and inspiring musicians. We are all precious in the regard of Sol, all toiling faithfully for the radiant future of [Solana](../../world-of-rathe/solana/solana.md).
 
 We all find our place, don't we? We serve in the manner that excites our minds and fills our hearts. We find our purpose.
 
 See this hammer? It is my pitchfork and quill, trowel and instrument. This is my tool and my trade, my pride and my joy.
 
-I still remember the first time I swung it in battle. I was but a squire, some years before Thebasto placed the laurel of a knight upon my brow. We were protecting our settlers in the foothills of the Charred Range, those smoldering mountains that separate us from [Volcor](../../regions/rathe/volcor/volcor.md). They came at us through the sulfurous vapors, highland raiders painted red like hot coals, intent on slaughtering the villagers, stealing their children into slavery.
+I still remember the first time I swung it in battle. I was but a squire, some years before Thebasto placed the laurel of a knight upon my brow. We were protecting our settlers in the foothills of the Charred Range, those smoldering mountains that separate us from [Volcor](../../world-of-rathe/volcor/volcor.md). They came at us through the sulfurous vapors, highland raiders painted red like hot coals, intent on slaughtering the villagers, stealing their children into slavery.
 
 Was I afraid? Of course I was. I am not some statue of stone and ire. Like you, I am a person of tender flesh and feeling. I trembled, mouth dry as those Volcoran hills. Why, if not for my training, I'd have soiled my armor. Worst yet, I'd have died with a burning spear through my bowels.
 

@@ -2,7 +2,7 @@
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/boltyn-1.webp" alt="boltyn-1" class="center">
 
-Far beyond the borders of [Solana](../../regions/rathe/solana/solana.md) lie the Northern Realms, a large expanse of land divided amongst ancient families, who rule under the watchful, detached gaze of the City of Light. [Boltyn](../../heroes-of-rathe/boltyn-about.md) was born to nobility, raised with the knowledge that he would inherit his father's lands. Despite his exalted status, the young Boltyn was more interested in his grandmother's tales of Solana, with their noble knights, shining streets, and great library of knowledge.
+Far beyond the borders of [Solana](../../world-of-rathe/solana/solana.md) lie the [Northern Realms](../../world-of-rathe/solana/the-northern-realms.md), a large expanse of land divided amongst ancient families, who rule under the watchful, detached gaze of the City of Light. [Boltyn](../../heroes-of-rathe/boltyn-about.md) was born to nobility, raised with the knowledge that he would inherit his father's lands. Despite his exalted status, the young Boltyn was more interested in his grandmother's tales of Solana, with their noble knights, shining streets, and great library of knowledge.
 
 The small, earnest boy in time became a steadfast young man, disillusioned with the egotistical, power-hungry nobles who ruled the surrounding lands. While they were ensnared by the Shadow, delighting in their dark, vicious games, Boltyn looked upon their narcissistic obsessions and despaired. On his accession, Boltyn reluctantly took up his father's mantle, but was determined to forge a new path.
 

@@ -2,7 +2,7 @@
 
 ![bravo-showstopper](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/bravo.webp)
 
-The star of the [Everfest Carnival](../regions/rathe/aria/people-of-aria.md#the-everfest-carnival), leader of the Legendarium, performing stories and legends for cheering crowds. Bravo grew up listening to the tales of old, fascinated by past heroes and adventurers. When his destiny came knocking, with a curious quest and mysterious companions, Bravo jumped at the chance to become a true hero. Now, he has embraced the legend of the Guardians, and is ready to write his own story.
+The star of the [Everfest Carnival](../world-of-rathe/aria/people-of-aria.md#the-everfest-carnival), leader of the Legendarium, performing stories and legends for cheering crowds. Bravo grew up listening to the tales of old, fascinated by past heroes and adventurers. When his destiny came knocking, with a curious quest and mysterious companions, Bravo jumped at the chance to become a true hero. Now, he has embraced the legend of the Guardians, and is ready to write his own story.
 
 Confident, charming and theatrical, Bravo treats battle like a performance. Set the stage, build the anticipation, and prepare for the grand finale, for once he's ready to strike, nothing can stand in the way of his powerful attacks.
 
@@ -56,7 +56,7 @@ Coming soon!
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/elemental-confluence.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Elemental Confluence</b><br>
-    Is Bravo the chosen one? The first hero for an eon to embody the Flow and with it the 3 primary elements that course through the land of <a href="https://legendarystories.net/regions/rathe/aria/aria.html">Aria</a>. Awaken the elements of Earth, Ice, and Lightning, to unleash Bravo's most spectacular performance yet!
+    Is Bravo the chosen one? The first hero for an eon to embody the Flow and with it the 3 primary elements that course through the land of <a href="https://legendarystories.net/world-of-rathe/aria/aria.html">Aria</a>. Awaken the elements of Earth, Ice, and Lightning, to unleash Bravo's most spectacular performance yet!
   </div>
 </div>
 

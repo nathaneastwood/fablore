@@ -1,6 +1,6 @@
 # Piper's Pier
 
-This port city sits like a clockwork crown upon the atoll of a slumbering volcano. Decades ago, ingenious pioneers from [Metrix](../../rathe/metrix/metrix.md) tapped into the caldera's reservoirs of heat-pressured water and natural gas, building the network of boilers and pipes that gave the place its name.
+This port city sits like a clockwork crown upon the atoll of a slumbering volcano. Decades ago, ingenious pioneers from [Metrix](../metrix/metrix.md) tapped into the caldera's reservoirs of heat-pressured water and natural gas, building the network of boilers and pipes that gave the place its name.
 
 Thus thermally powered, Piper's Pier grew rapidly into a bustling hub of mercantile endeavor and transport ingenuity. While the port's many wharfs are packed to the gills with sailing ships, it's the cloud-piercing moorings and launch pads that serve the most elevated entrepreneurs and explorers.
 

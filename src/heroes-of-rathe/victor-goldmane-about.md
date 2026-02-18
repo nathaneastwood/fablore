@@ -6,7 +6,7 @@
 
 "_Bow before my unmatched prowess, for your futile struggles in the arena are nothing more than the feeble floundering of an insect in the face of my brilliance._"
 
-Behold the audacious Victor, a grandiose figure hailing from the shadowy recesses of the esteemed Northern Kingdoms, where cultists and deviants thrive beyond the discerning gaze of [Solana](../regions/rathe/solana/solana.md). A brash bully, he flaunts his Solanian vigor with unwavering arrogance, fueled by wealth given to him from his parents. Victor strides into the Deathmatch Arena not merely to compete but to enforce his blinding radiance upon these savage lands and rebuild them in his own image.
+Behold the audacious Victor, a grandiose figure hailing from the shadowy recesses of the esteemed Northern Kingdoms, where cultists and deviants thrive beyond the discerning gaze of [Solana](../world-of-rathe/solana/solana.md). A brash bully, he flaunts his Solanian vigor with unwavering arrogance, fueled by wealth given to him from his parents. Victor strides into the Deathmatch Arena not merely to compete but to enforce his blinding radiance upon these savage lands and rebuild them in his own image.
 
 Driven by an ego inflated beyond reason, Victor's presence aims not just to contend but to dominate. Under the burning sun of his opulence and self-proclaimed virtue, he will ensure that the mere mortals surrounding him will bask in the brilliance of his radiant victory and the arena will tremble under the weight of his divine right.
 

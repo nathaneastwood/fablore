@@ -5,7 +5,7 @@ We obey the [Emperor](../heroes-of-rathe/emperor-about.md). With blood and blade
 "My heart for the Emperor. My blood for his Dynasty." - Alshoni Mantra
 
 #### Den of the Spider - (HNT214)
-"Our [Dracai](~Dracai) overlords have overlooked the [Pits](../regions/rathe/pits/pits.md) for too long." - Vail the Vagrant
+"Our [Dracai](~Dracai) overlords have overlooked the [Pits](../world-of-rathe/pits/pits.md) for too long." - Vail the Vagrant
 
 #### Display Loyalty - (HNT060)
 "Whether with hidden dagger or drawn sword, the battle is the same." - Captain Juka
@@ -20,7 +20,7 @@ We obey the [Emperor](../heroes-of-rathe/emperor-about.md). With blood and blade
 "To serve the Dracai is to honor the blood of the dragon." - Sayashi Cara
 
 #### For the Emperor - (HNT159)
-"To serve our Emperor is to fear him. And in fear the people of [Volcor](../regions/rathe/volcor/volcor.md) shall obey." - [Chiyo](~Chiyo)
+"To serve our Emperor is to fear him. And in fear the people of [Volcor](../world-of-rathe/volcor/volcor.md) shall obey." - [Chiyo](~Chiyo)
 
 #### For the Realm - (HNT160)
 "To serve the Alshoni is to serve the dynasty, our only hope for peace in Volcor." - Magistrate Chen

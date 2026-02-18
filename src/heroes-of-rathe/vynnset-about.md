@@ -6,7 +6,7 @@
 
 She will not bend. She will not break. Vynnset is the Iron Maiden.
 
-Anointed in Shadow, Vynnset sees everything under the sheen of the black moon. Within the [Demonastery](../regions/rathe/demonastery/demonastery.md)'s ritual chambers, she paints her runes in Solanian blood, intoning their dark portents in the language of the beyond.
+Anointed in Shadow, Vynnset sees everything under the sheen of the black moon. Within the [Demonastery](../world-of-rathe/demonastery/demonastery.md)'s ritual chambers, she paints her runes in Solanian blood, intoning their dark portents in the language of the beyond.
 
 Born in the Light, her heart wrapped in Shadow, Vynnset remembers what the faithful inflicted upon her in the name of Sol. Most of all, she remembers the loneliness of being a solitary shade in the blazing dawn.
 

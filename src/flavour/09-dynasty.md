@@ -10,7 +10,7 @@ Borrowed power comes with debt unpaid. One day the Shadows will come to play.
 "Seek calm even as your enemies gather, for patience begets victory in the theater of war." - General Nakami
 
 #### Blessing of Savagery - (DYN013)
-The blood of the enemy is worn as a reminder that strength rules all, here in the [Savage Lands](../regions/rathe/savage-lands/savage-lands.md).
+The blood of the enemy is worn as a reminder that strength rules all, here in the [Savage Lands](../world-of-rathe/savage-lands/savage-lands.md).
 
 #### Blessing of Steel - (DYN073)
 "Not merely a sword, nor steel. It is our resolve that makes us strong." - Hala Goldenhelm
@@ -19,13 +19,13 @@ The blood of the enemy is worn as a reminder that strength rules all, here in th
 "I will watch over this Dynasty till my very last breath. Its power, riches, and enemies, I take as my own." - [Emperor, Dracai of Aesir](../heroes-of-rathe/emperor-about.md)
 
 #### Dust from the Golden Plains - (DYN002)
-The Golden Plains of [Solana](../regions/rathe/solana/solana.md), where the barley stands guard.
+The Golden Plains of [Solana](../world-of-rathe/solana/solana.md), where the barley stands guard.
 
 #### Dust from the Red Desert - (DYN003)
-The Red Desert of [Volcor](../regions/rathe/volcor/volcor.md), where the burning sands prowl.
+The [Red Desert](../world-of-rathe/volcor/the-red-desert.md) of Volcor, where the burning sands prowl.
 
 #### Dust from the Shadow Crypts - (DYN004)
-The Shadow Crypts of the [Demonastery](../regions/rathe/demonastery/demonastery.md), where flesh finds new form.
+The [Shadow Crypts](../world-of-rathe/demonastery/the-shadow.md#the-shadow-crypts) of the Demonastery, where flesh finds new form.
 
 #### Mindstate of Tiger - (DYN048)
 "First you must believe, then see, and finally, become." - Grandmaster Li

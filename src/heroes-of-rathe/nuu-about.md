@@ -4,7 +4,7 @@
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/nuu-alluring-desire.mp4" type="video/mp4">
 </video>
 
-Amidst the ethereal ambiance of [Mistcloak Gully](../regions/rathe/misteria/among-the-mists.md#mistcloak-gully), there exists a figure of captivating allure and enigmatic grace: Madame Nuu, the proprietor of the Mistcloak Teahouse. With a delicate yet commanding presence, she weaves human souls with her fingertips and tantalizes with her power over mortals, enchanting patrons who are drawn to the whispers of her Vipressa.
+Amidst the ethereal ambiance of [Mistcloak Gully](../world-of-rathe/misteria/among-the-mists.md#mistcloak-gully), there exists a figure of captivating allure and enigmatic grace: Madame Nuu, the proprietor of the Mistcloak Teahouse. With a delicate yet commanding presence, she weaves human souls with her fingertips and tantalizes with her power over mortals, enchanting patrons who are drawn to the whispers of her Vipressa.
 
 Nuu's origins are shrouded in mist, her past a labyrinth of secrets and shadows. With every sway of her hips and arch of her brow, she whispers tales of seduction and intrigue, a siren beckoning sailors into the depths of her mystery. Beneath her beguiling exterior lies a tempest of emotions, fueled by the echoes of past betrayals and the ache of sorrows unspoken.
 

@@ -7,7 +7,7 @@
 "I may look frail, but my mind will CRUSH you!" - Efaris Brittlebone
 
 #### Firebreathing - (EVR157)
-It's always show time at the spectacular, stupendous, sensational extravaganza that is the [Everfest Carnival](../regions/rathe/aria/people-of-aria.md#the-everfest-carnival).
+It's always show time at the spectacular, stupendous, sensational extravaganza that is the [Everfest Carnival](../world-of-rathe/aria/people-of-aria.md#the-everfest-carnival).
 
 #### Healing Potion - (EVR183)
 "Guaranteed to heal everything but a broken heart." - Jezabelle, Everfest Healer and Allsorts
@@ -43,13 +43,13 @@ Victory is oft found before the first shot is fired.
 A morbid union; [Viserai](../heroes-of-rathe/viserai-about.md)'s hunger for revenge, and his Master's hunger for power.
 
 #### Seismic Stir - (EVR030)
-The Ollin stand guard over the land of [Aria](../regions/rathe/aria/aria.md), and the land in turn shall answer their call.
+The Ollin stand guard over the land of [Aria](../world-of-rathe/aria/aria.md), and the land in turn shall answer their call.
 
 #### Steadfast - (EVR033)
 "Be it sword or sorcery, we defend, we defeat, or we die." - [Oldhim, Grandfather of Eternity](../heroes-of-rathe/oldhim-about.md)
 
 #### Swing Big - (EVR002)
-[Savage Lands](../regions/rathe/savage-lands/savage-lands.md) politics is simple; those with the biggest swing, have the biggest sway.
+[Savage Lands](../world-of-rathe/savage-lands/savage-lands.md) politics is simple; those with the biggest swing, have the biggest sway.
 
 #### Talisman of Warfare - (EVR193)
 It's said that wherever the Dracai of War planted this talisman, the lava was soon to flow.

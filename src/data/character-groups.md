@@ -120,4 +120,4 @@
 
 |                                                                                                                         Name |
 | ---------------------------------------------------------------------------------------------------------------------------- |
-| [Savage Land](../regions/rathe/savage-lands/savage-lands.md) beasts (unnamed, but implied as a competing force in the arena) |
+| [Savage Land](../world-of-rathe/savage-lands/savage-lands.md) beasts (unnamed, but implied as a competing force in the arena) |

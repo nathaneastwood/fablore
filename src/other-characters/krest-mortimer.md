@@ -2,7 +2,7 @@
 
 ## Overview
 
-"Dr. Mortimer is a scientist from an undisclosed institute in [Metrix](../regions/rathe/metrix/metrix.md). He was cast out because his experiments became too extreme, and now conducts experiments within the [Pits](../regions/rathe/pits/pits.md) instead (hints of Metrix corporate influence). Nowadays, he's the lead psychologist and director of "[Southmaw](~Southmaw)", a hospital / asylum within the Pits.
+"Dr. Mortimer is a scientist from an undisclosed institute in [Metrix](../world-of-rathe/metrix/metrix.md). He was cast out because his experiments became too extreme, and now conducts experiments within the [Pits](../world-of-rathe/pits/pits.md) instead (hints of Metrix corporate influence). Nowadays, he's the lead psychologist and director of "[Southmaw](~Southmaw)", a hospital / asylum within the Pits.
 
 ## In Theory<sup>*</sup>
 
@@ -26,7 +26,7 @@ Our..."hospital" of sorts is a haven in these tunnels. Nowhere else can you find
 
 Speaking of which, I've come across some most wonderful discoveries. My recent studies have brought me face-to-face with some of the most interesting characters the Pits has to offer. Cultists, alchemists, gangers...none of these individuals are off limits to me. The stories they've told me are as profound as they are enlightening.
 
-[L'Apocalypta](../regions/rathe/pits/blackjacks-mercenary-group.md#lapocalypta) are responsible for the Bloodrot Pox. The Metrix chemists are so convinced it was a natural mutation...ha! Like many in the Pits, the cult has ties across all of Rathe, more specifically within the [Demonastery](../regions/rathe/demonastery/demonastery.md) and here.
+[L'Apocalypta](../world-of-rathe/pits/blackjacks-mercenary-group.md#lapocalypta) are responsible for the Bloodrot Pox. The Metrix chemists are so convinced it was a natural mutation...ha! Like many in the Pits, the cult has ties across all of Rathe, more specifically within the [Demonastery](../world-of-rathe/demonastery/demonastery.md) and here.
 
 Their goal? As far as I have deduced they worship an entity known as the Raven, the Aesir of Chaos. They believe that by causing pain and suffering to the world that it will toughen it against future ruin. I find myself inclined to agree with their goals, if not their methods. A typical Metrix dandy wouldn't last a day down here with these fine people.
 

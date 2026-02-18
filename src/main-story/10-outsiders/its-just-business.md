@@ -1,6 +1,6 @@
 # It's Just Business
 
-"This is like no other place in [Rathe](../../regions/rathe/rathe.md). Life here isn't some wheel that turns from sun to moon, work to sleep. Life in the [Pits](../../regions/rathe/pits/pits.md) ferments, humanity's scraps foaming and frothing into a heady brew."
+"This is like no other place in [Rathe](../../world-of-rathe/rathe.md). Life here isn't some wheel that turns from sun to moon, work to sleep. Life in the [Pits](../../world-of-rathe/pits/pits.md) ferments, humanity's scraps foaming and frothing into a heady brew."
 
 Whitetail stretches out his arms to encompass the kinetic clamor of the street. "Intoxicating, isn't it?"
 
@@ -16,13 +16,13 @@ They round a corner of precariously stacked shanties. Whitetail points out a bus
 
 He places his hand on Uzuri's shoulder, much to her displeasure. He only gets to keep that hand because she needs the work. Needs it bad.
 
-"Cross the wrong people and you get your name on a contract," continues Whitetail. "That's [the Spider's](../../regions/rathe/pits/blackjacks-mercenary-group.md#the-spider) business."
+"Cross the wrong people and you get your name on a contract," continues Whitetail. "That's [the Spider's](../../world-of-rathe/pits/blackjacks-mercenary-group.md#the-spider) business."
 
 Her business too, if this deal goes well. "Where'd you hear about me?" she asks, masking her eagerness with nonchalance.
 
 Whitetail removes his hand and waves it dismissively at no one in particular. "From the same people you made sure to inform of your exploits."
 
-Uzuri covers a twinge of pride with a casual shrug. Her mother always said that spreading words is like sowing seeds. As a merchant on the [Metrix](../../regions/rathe/metrix/metrix.md) to [Misteria](../../regions/rathe/misteria/misteria.md) trail, her silver tongue touted her tantalizing tek to any ear within hearing.
+Uzuri covers a twinge of pride with a casual shrug. Her mother always said that spreading words is like sowing seeds. As a merchant on the [Metrix](../../world-of-rathe/metrix/metrix.md) to [Misteria](../../world-of-rathe/misteria/misteria.md) trail, her silver tongue touted her tantalizing tek to any ear within hearing.
 
 "You're highly spoken of, kid, by some very low down people," continues Whitetail.
 
@@ -36,7 +36,7 @@ A boy in Misteria. Did he deserve it? Uzuri still isn't sure. She's killed worse
 
 "Only when they get in my way."
 
-"Well, this one stands between us and a tidy payout." Whitetail passes her a sketch and a purse of [tallics](~tallics). "Overseer Crichton. [Blackjack](../../regions/rathe/pits/blackjacks-mercenary-group.md)'s Mining."
+"Well, this one stands between us and a tidy payout." Whitetail passes her a sketch and a purse of [tallics](~tallics). "Overseer Crichton. [Blackjack](../../world-of-rathe/pits/blackjacks-mercenary-group.md)'s Mining."
 
 Uzuri covers her surprise; makes a show of hooking the purse to her belt. Suspicion follows. A Blackjack's overseer is a big hit, too big to entrust to an unknown like her. Whitetail should have contracted one of his experienced nestlings. Uzuri wonders why he hasn't?
 
@@ -72,7 +72,7 @@ Uzuri plays along. "Got people doing your spying for you?"
 
 The offer sets her heart a-racing. But she plays it cool, shooting him a sharp look aimed to puncture his swollen head. "And I might consider accepting."
 
-Uzuri turns her back on Whitetail and heads for The Leaf House. She can feel him watching her like a [dreg](../../regions/rathe/pits/blackjacks-mercenary-group.md#dregs) eyeing a sewer chicken. Doesn't matter. Whatever game Whitetail is playing, she's going to win it. She'll prove herself worthy of the Spider.
+Uzuri turns her back on Whitetail and heads for The Leaf House. She can feel him watching her like a [dreg](../../world-of-rathe/pits/blackjacks-mercenary-group.md#dregs) eyeing a sewer chicken. Doesn't matter. Whatever game Whitetail is playing, she's going to win it. She'll prove herself worthy of the Spider.
 
 The Leaf House is busy when Uzuri gets there, humming with conversation, clinking with porcelain pots and cups. The wait staff sweep between the packed tables, graceful in their embroidered gowns and elegant, jade-pinned hair.
 

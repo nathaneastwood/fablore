@@ -1,6 +1,6 @@
 # Anointed in Shadow
 
-_The uninitiated cannot see the black moon rise over the [Demonastery](../../regions/rathe/demonastery/demonastery.md). It mirrors the nighttide, pulsing starward with its invisible light, witnessed only by those anointed in Shadow. Those like [Vynnset, the Iron Maiden](../../heroes-of-rathe/vynnset-about.md)._
+_The uninitiated cannot see the black moon rise over the [Demonastery](../../world-of-rathe/demonastery/demonastery.md). It mirrors the nighttide, pulsing starward with its invisible light, witnessed only by those anointed in Shadow. Those like [Vynnset, the Iron Maiden](../../heroes-of-rathe/vynnset-about.md)._
 
 ---
 
@@ -38,7 +38,7 @@ Strong hands grasp the girl's arms. The lady of means bows her head.
 
 The lady moves her lips in silent prayer, deaf to her daughter's pleas.
 
-Robed matrons carry the girl through a marble archway; Sisters of Octothesia taking the poor wretch into their sanctified care. Only they can cleanse her mind and purify her soul in the [Light of Sol](../../regions/rathe/solana/the-order-of-the-light.md#the-light-of-sol).
+Robed matrons carry the girl through a marble archway; Sisters of Octothesia taking the poor wretch into their sanctified care. Only they can cleanse her mind and purify her soul in the [Light of Sol](../../world-of-rathe/solana/the-order-of-the-light.md#the-light-of-sol).
 
 Her shaved head lolls in the blazing sun, scalp shining with sweat. Her skin is red and blistered, her lips shriveled with dehydration. She lies spread eagle, hands and wrists tethered to stakes that are driven deep into the bare earth.
 
@@ -58,7 +58,7 @@ She freezes at a corner, concealed in shadow, as a pair of gossiping novitiates 
 
 She uses a stolen key to unlock a side door, and flits like a ghost down the alley to a moonlit courtyard. As hoped, the guards at the wagon are too busy tying down their load to notice the young woman. She squeezes into a gap between stacked breast plates, turns to smile at a shade sitting beside her, identical in size and shape, as the wagon rolls out of Solana.
 
-The wagon stops in a clearing where axes have hewn the ancient trees to stumps. The guards eye the surrounding forest with suspicion. This is the [Savage Lands](../../regions/rathe/savage-lands/savage-lands.md). Where death is but a tooth or claw away.
+The wagon stops in a clearing where axes have hewn the ancient trees to stumps. The guards eye the surrounding forest with suspicion. This is the [Savage Lands](../../world-of-rathe/savage-lands/savage-lands.md). Where death is but a tooth or claw away.
 
 A knight pulls up the cover to check the cargo and is startled to find a stowaway where he expected only greaves and helms.
 

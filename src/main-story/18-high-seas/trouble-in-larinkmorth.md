@@ -12,15 +12,15 @@ Einar spun toward Tomass, who lay spread-eagle, then back toward the bouncer who
 
 Her words reached Einar through his drunken haze. He took a short step back to help Tomass to his feet. "Come, brother, mother will be waiting."
 
-Valda watched them hobble off just long enough to ensure they didn't wander towards the cliff, then cast her gaze across the peaceful mountainside village of [Larinkmorth](../../regions/rathe/aria/a-true-sanctuary.md#larinkmorth).
+Valda watched them hobble off just long enough to ensure they didn't wander towards the cliff, then cast her gaze across the peaceful mountainside village of [Larinkmorth](../../world-of-rathe/aria/a-true-sanctuary.md#larinkmorth).
 
 ![trouble-in-larinkmorth-1](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/trouble-in-larinkmorth-1.webp)
 
-Home to the folk who worked at the [Isenri Sake](../../regions/rathe/aria/a-true-sanctuary.md#isens-peak) Brewery, Valda had found her people in Larinkmorth, a good people who had the tendency to get a little rowdy when consuming the liquor they produced. They'd shown the truth of their hearts in accepting her and Balen into their community. Ensuring their new tavern was a safe place to kick back and relax was her own way of showing gratitude.
+Home to the folk who worked at the [Isenri Sake](../../world-of-rathe/aria/a-true-sanctuary.md#isens-peak) Brewery, Valda had found her people in Larinkmorth, a good people who had the tendency to get a little rowdy when consuming the liquor they produced. They'd shown the truth of their hearts in accepting her and Balen into their community. Ensuring their new tavern was a safe place to kick back and relax was her own way of showing gratitude.
 
 Valda noticed a solitary figure heading towards the tavern at a steady, if frail, pace up the main cobblestone road leading down the slope. Her lips broke into a smile as she recognized the new arrival.
 
-"Kaysin!" she said, as she stepped down from the tavern doorway. "We weren't expecting [Everfest](../../regions/rathe/aria/people-of-aria.md#the-everfest-carnival) for months."
+"Kaysin!" she said, as she stepped down from the tavern doorway. "We weren't expecting [Everfest](../../world-of-rathe/aria/people-of-aria.md#the-everfest-carnival) for months."
 
 "It's good to see you too, Valda."
 
@@ -34,9 +34,9 @@ Valda guided the seer to a stool at the bar, then opened the bridge and stepped 
 
 "It's not so dangerous a trip if you follow the signs." Kaysin hoisted herself onto the stool. "I could use some hot tea, however."
 
-Kaysin's arrival had Valda concerned. The seer would have traveled some distance from Everfest, which meant she had a matter of grave importance to discuss, but in typical [Aria](../../regions/rathe/aria/aria.md) fashion, was taking her time getting to the point.
+Kaysin's arrival had Valda concerned. The seer would have traveled some distance from Everfest, which meant she had a matter of grave importance to discuss, but in typical [Aria](../../world-of-rathe/aria/aria.md) fashion, was taking her time getting to the point.
 
-"[Bravo](../../heroes-of-rathe/bravo-about.md) left the [Carnival](../../regions/rathe/aria/people-of-aria.md#the-everfest-carnival), did you hear?"
+"[Bravo](../../heroes-of-rathe/bravo-about.md) left the [Carnival](../../world-of-rathe/aria/people-of-aria.md#the-everfest-carnival), did you hear?"
 
 "Oh, I've heard." Valda rolled her eyes. "Bravo's headache enough when his troupe brings him here. I've no desire to burden myself with his antics when he's not."
 
@@ -44,7 +44,7 @@ Kaysin's eyes were fixed on Valda as she sipped her tea. "[Oldhim](../../heroes-
 
 Valda smirked. "The two-bit showman's found himself a larger audience."
 
-Kaysin put her tea cup down. "That _two-bit showman's_ fighting for Aria in [Solana](../../regions/rathe/solana/solana.md)."
+Kaysin put her tea cup down. "That _two-bit showman's_ fighting for Aria in [Solana](../../world-of-rathe/solana/solana.md)."
 
 Valda bristled, but there was no recrimination hiding in Kaysin's words, only a question. "More power to him... I'm happy in Larinkmorth. I've no grander ambition."
 
@@ -124,7 +124,7 @@ Before the monster could reach her, Jarl slid into the street between them, inte
 
 Almost immediately, Valda could see white veins of frost running along its hide, a deadly cold emanating from the armored figure itself.
 
-Of course she'd heard the stories of the indomitable Fury of the Frostlands and his last stand at [Isenloft](../../regions/rathe/aria/the-land-of-legends.md#isenloft). Traveling bards couldn't shut up about it. And here he was, in the flesh, and as hostile as he'd been the first time they'd crossed paths at [Candlehold](../../regions/rathe/aria/the-land-of-legends.md#candlehold).
+Of course she'd heard the stories of the indomitable Fury of the Frostlands and his last stand at [Isenloft](../../world-of-rathe/aria/the-land-of-legends.md#isenloft). Traveling bards couldn't shut up about it. And here he was, in the flesh, and as hostile as he'd been the first time they'd crossed paths at [Candlehold](../../world-of-rathe/aria/the-land-of-legends.md#candlehold).
 
 Jarl's companion ran down the slope towards them. "You should get off the streets," he warned Valda. "That thing's a ravenir!"
 

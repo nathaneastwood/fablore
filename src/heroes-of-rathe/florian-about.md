@@ -4,7 +4,7 @@
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/florian-rotwood-harbinger.mp4" type="video/mp4">
 </video>
 
-Creatures of [Candlehold](../regions/rathe/aria/the-land-of-legends.md#candlehold), have you heard the news? Death comes to us all, in the end.
+Creatures of [Candlehold](../world-of-rathe/aria/the-land-of-legends.md#candlehold), have you heard the news? Death comes to us all, in the end.
 
 They call me the Harbinger, a blight or a blessing, depending on the season. One who walks among the withered and the fallen to remind our reposed [Rosetta](~Rosetta) of the truth.
 

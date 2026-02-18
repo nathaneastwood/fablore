@@ -1,0 +1,9 @@
+# Coralysi
+
+Sink beneath the waves, past schools of fish that glitter like gold, drifting down until the water cools and quiets. There you will find Coralysi: an underwater trench where marble courts rise from the sea ridges and gardens of kelp sway with the gentle currents.
+
+Before it became Coralysi, home of the merfolk, this place was Fedhari, a Dhani city of marble and magic. It is also known to pirates of all creeds as Fiddler's Green, where the promise of eternal bliss lures, baits, and hooks foolhardy sailors. The cataclysm came, and like a grip on the back of the neck, forced Fedhari and all its souls under in a single breath. In the long quiet after, merfolk gravitated to its remains, grafting reef to stone until Coralysi grew into their sanctuary.
+
+Reached only through a shifting maze of coral, Coralysi serves as the merfolk's seat of power. Here they keep the peace between their tribal schools, tend to their undersea farms and gardens, and let the surface's troubles break far away. Yet, not all of the merfolk embrace Coralysi's peaceful attractions. They mock the trench as "the Aquarium," swimming far across the High Seas, forgoing peace to become the sirens of sailor's dirges.
+
+Even so, some return to Coralysi for spawning seasons, and are welcomed as long-lost kin. Their young learn the laid routes of tide and sea star, and revel in festivals that keep history and custom alive. The largest festival is the Queen Semkasi Tide, when clans compete to lure the fullest ship to the outer rim of the coral reefs. In Semkasi's honor, in the name of peace between Coralysi and the human coves, the sailors aboard are not only spared but fed, entertained, and sent on their merry way. In their wake, human-shaped effigies of tuna are fashioned and consumed, a gentle reminder that merfolk and siren are two sides of the same fin.

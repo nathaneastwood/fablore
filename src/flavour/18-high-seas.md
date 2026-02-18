@@ -10,13 +10,13 @@
 #### Cogwerx Workshop - (SEA014)
 "[Cogwerx](~Cogwerx) gave me a solid grounding, but it took imagination to truly fly." - Puffin
 
-#### Expedition to [Azuro Keys](../regions/high-seas/azuro-keys/azuro-keys.md) - (SEA155)
+#### Expedition to [Azuro Keys](../world-of-rathe/high-seas/azuro-keys.md) - (SEA155)
 "Sparkling water and fine fishing. What better place to put yer barnacled feet up and swill yer stealings?" - Ray Stingeye
 
-#### Expedition to [Blackwater Strait](../regions/high-seas/blackwater-strait/blackwater-strait.md) - (SEA156)
+#### Expedition to [Blackwater Strait](../world-of-rathe/high-seas/blackwater-strait.md) - (SEA156)
 "Aye, it be a shortcut. A shortcut to the grave!" - Swiller Saltbeard
 
-#### Expedition to [Dreadfall Reach](../regions/high-seas/dreadfall-reach/dreadfall-reach.md) - (SEA157)
+#### Expedition to [Dreadfall Reach](../world-of-rathe/high-seas/dreadfall-reach.md) - (SEA157)
 The curse of Dreadfall hungers for the greedy and the careless.
 
 #### Expedition to Horizon's Mantle - (SEA158)
@@ -29,7 +29,7 @@ In the floating gardens of Coralysi, time has lost its way.
 The Dreadfall plague offered no mercy to the living and no rest for the dead.
 
 #### Gold Hunter Ketch - (SEA165)
-"The sight of [Port Conniver](../regions/high-seas/port-conniver/port-conniver.md) gives ballast to a corsair's listing hopes." - Captain Grit Jabir
+"The sight of [Port Conniver](../world-of-rathe/high-seas/port-conniver.md) gives ballast to a corsair's listing hopes." - Captain Grit Jabir
 
 #### Gold Hunter Lightsail - (SEA162)
 "Gonna hook me some shiny wares for the markets of Sellshore Coast." - Ray Stingeye
@@ -38,10 +38,10 @@ The Dreadfall plague offered no mercy to the living and no rest for the dead.
 "Plenty of maps for purchase in Port Conniver, but what's been buried? Truth or treasure?" - Captain Klow
 
 #### Gold Hunter Marauder - (SEA164)
-"The shipwrights of [Dagger Docks](../regions/high-seas/port-conniver/port-conniver.md#dagger-docks) build'em sleek and mean." - Nailbit Nari
+"The shipwrights of [Dagger Docks](../world-of-rathe/high-seas/port-conniver.md#dagger-docks) build'em sleek and mean." - Nailbit Nari
 
 #### Golden Tipple - (SEA159)
-The [Kraken's Barrel](../regions/high-seas/port-conniver/port-conniver.md#krakens-barrel) serves every flavor of swashbuckling bravado.
+The [Kraken's Barrel](../world-of-rathe/high-seas/port-conniver.md#krakens-barrel) serves every flavor of swashbuckling bravado.
 
 #### Goldwing Turbine - (SEA036)
 "Forecast for Piper's Pier: cloudy with a chance of falling debris." - Cogwerx Chronicle
@@ -80,7 +80,7 @@ The search for Trōpal-Dhani be as old as piracy.
 "With our rum in yer belly, yer always at sea!" - Kraken's Barrel slogan
 
 #### Sirens of Safe Harbor - (SEA226)
-The [sirens of Lost Lagoon](../regions/high-seas/blackwater-strait/blackwater-strait.md#sirens-of-lost-lagoon) will have their tribute, be it in cargo or crew.
+The [sirens of Lost Lagoon](../world-of-rathe/high-seas/blackwater-strait.md#sirens-of-lost-lagoon) will have their tribute, be it in cargo or crew.
 
 #### Sky Skimmer - (SEA027)
 To the ambitious artificers of Piper's Pier, the sky's the limit.
@@ -92,4 +92,4 @@ The Dhani Empire might be gone, but its legacy still gleams in forgotten places.
 "Faster, ye lazy limpits! A lash on yer backs for each bell we're late!" - Captain Cooder
 
 #### Walk the Plank - (SEA235)
-"You says the [Triangle](../regions/high-seas/teramundrs-triangle/teramundrs-triangle.md)'s a picnic, Cap'n. Why don't ye stay fer lunch?" - Mutinous Maggie
+"You says the [Triangle](../world-of-rathe/high-seas/teramundrs-triangle.md)'s a picnic, Cap'n. Why don't ye stay fer lunch?" - Mutinous Maggie

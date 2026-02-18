@@ -44,7 +44,7 @@ The captain spat blood onto Gravy's boots.
 
 With the _pluck pluck_ of tentacle suckers on wood, Moray joined them, a worn leather journal in her hands. Gravy accepted the book and flipped it open.
 
-"Ship's log," Gravy noted. "And looky here." He tapped the page with a pallid finger. "Orders to escort a Kuraghan flagship, leaving soon on a voyage from [Graystone](../../regions/high-seas/graystone-penitentiary/graystone-penitentiary.md) to the [Triangle](../../regions/high-seas/teramundrs-triangle/teramundrs-triangle.md)." He turned away. "Swabbie. Kill the caitiff."
+"Ship's log," Gravy noted. "And looky here." He tapped the page with a pallid finger. "Orders to escort a Kuraghan flagship, leaving soon on a voyage from [Graystone](../../world-of-rathe/high-seas/graystone-penitentiary.md) to the [Triangle](../../world-of-rathe/high-seas/teramundrs-triangle.md)." He turned away. "Swabbie. Kill the caitiff."
 
 To the pounding of hammer and nails, and the Kuraghan's gurgling screams, Gravy muttered an ode to [Nocetes](~Nocetes) and raised his fallen crew, one by one. With all skulls accounted for, they set a course for Graystone, trimming the sails only once so Gravy could assess a ship on the horizon.
 
@@ -52,7 +52,7 @@ To the pounding of hammer and nails, and the Kuraghan's gurgling screams, Gravy 
 
 Through his long glass, he noted that the sleek ship cut the waves at great speed, towed by a sea serpent tethered by a well-aimed harpoon. At the helm was a fierce-looking corsair with a magnificent hat. On any other day, Gravy would chase down such fascinating prey. Bold pirates often led to bountiful treasures. But this day, he was after much bigger fish.
 
-By the evening of the following day, the Dreadnought sat snug in a coastal cave, close but concealed from the [Kuraghan](../../regions/high-seas/graystone-penitentiary/graystone-penitentiary.md#the-kuraghan) safe port of Grayhollow, where atop the towering cliffs stood Graystone Penitentiary.
+By the evening of the following day, the Dreadnought sat snug in a coastal cave, close but concealed from the [Kuraghan](../../world-of-rathe/high-seas/graystone-penitentiary.md#the-kuraghan) safe port of Grayhollow, where atop the towering cliffs stood Graystone Penitentiary.
 
 ---
 
@@ -96,11 +96,11 @@ Not long after dawn, Riggermortis raised the alarm from the crow's nest. "The Ku
 
 As the Dreadnought moved out of the cave, a great clamor arose from the Penitentiary. Klaxons sounded and people ran along ramparts in a seeming panic.
 
-A sleek airship, marked as the [Golden Goose](~GoldenGoose), rose from the prison's inner courtyard. Two more airships took to the air behind it, Gravy watching through his spyglass as the colorfully clad captain blew her pursuers out of the sky with some sort of rifle. He'd seen her before, hovering over ruins on the outskirts of [Dreadfall Reach](../../regions/high-seas/dreadfall-reach/dreadfall-reach.md).
+A sleek airship, marked as the [Golden Goose](~GoldenGoose), rose from the prison's inner courtyard. Two more airships took to the air behind it, Gravy watching through his spyglass as the colorfully clad captain blew her pursuers out of the sky with some sort of rifle. He'd seen her before, hovering over ruins on the outskirts of [Dreadfall Reach](../../world-of-rathe/high-seas/dreadfall-reach.md).
 
 "Submerge!" he ordered, and the Dreadnought slipped beneath the waves as the Kuraghan flagship, [Absolon](~Absolon)'s Dream, put out to sea. Through the rippling water, he watched the Golden Goose fly off in an eastward direction. Flying freebooters chilled the cockles of his rotten heart. He'd take the embrace of the water over the wanton winds on any deadened day.
 
-Gravy charted their course as they traveled past the islets of [Port Conniver](../../regions/high-seas/port-conniver/port-conniver.md), the hours ticking over as a storm blew in from the farthest reaches of the Triangle; it rocked Absolon's Dream, while the Dreadnought enjoyed calm below the turbulent waves, though nothing with the reach of Teramundr's curse could ever be described as peaceful.
+Gravy charted their course as they traveled past the islets of [Port Conniver](../../world-of-rathe/high-seas/port-conniver.md), the hours ticking over as a storm blew in from the farthest reaches of the Triangle; it rocked Absolon's Dream, while the Dreadnought enjoyed calm below the turbulent waves, though nothing with the reach of Teramundr's curse could ever be described as peaceful.
 
 On the second day, they tacked out of the path of a hunting hydra, its boat-sized flippers pushing its body through the waters, perhaps as large as three whales, end on end. One of its three heads snapped up a giant basking shark as easily as a dolphin might chomp a cod.
 

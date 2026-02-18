@@ -1,14 +1,14 @@
 # Seeds of Renewal
 
-With a crackle of lightning and a boom of thunder, [Aurora](../../heroes-of-rathe/aurora-about.md) and [Oscilio](../../heroes-of-rathe/oscilio-about.md) landed upon a hilltop overlooking [Candlehold](../../regions/rathe/aria/the-land-of-legends.md#candlehold).
+With a crackle of lightning and a boom of thunder, [Aurora](../../heroes-of-rathe/aurora-about.md) and [Oscilio](../../heroes-of-rathe/oscilio-about.md) landed upon a hilltop overlooking [Candlehold](../../world-of-rathe/aria/the-land-of-legends.md#candlehold).
 
 "Whoop!" exclaimed Aurora. "What a rush!"
 
-She stretched up onto her tiptoes, arms outflung, and surveyed the scene below with wide, sky-blue eyes. "Woah! I haven't seen this many people since [Everfest](../../regions/rathe/aria/people-of-aria.md#the-everfest-carnival)."
+She stretched up onto her tiptoes, arms outflung, and surveyed the scene below with wide, sky-blue eyes. "Woah! I haven't seen this many people since [Everfest](../../world-of-rathe/aria/people-of-aria.md#the-everfest-carnival)."
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/seeds-of-renewal-1.webp" alt="seeds-of-renewal-1" class="center" />
 
-The towering golem hovered to her side. Below them, a sprawling campsite had been pitched upon the rolling grasslands. From all parts of [Aria](../../regions/rathe/aria/aria.md), all walks of life, the mottle of colors and shapes spread around the edges of Candlehold like a vast meadow of wildflowers.
+The towering golem hovered to her side. Below them, a sprawling campsite had been pitched upon the rolling grasslands. From all parts of [Aria](../../world-of-rathe/aria/aria.md), all walks of life, the mottle of colors and shapes spread around the edges of Candlehold like a vast meadow of wildflowers.
 
 "I have never seen this many people at all," stated Oscilio flatly.
 
@@ -40,13 +40,13 @@ Aurora gave an exasperated sigh. "Scili has yet to learn the art of chitchat."
 
 "Still, one of the lost relics of [Enion](~Enion)?" wondered Melody. "How did you know to come?"
 
-"I sensed a surge in the [Flow](../../regions/rathe/aria/a-true-sanctuary.md#the-flow)," answered Oscilio. "An event of great magnitude has occurred here."
+"I sensed a surge in the [Flow](../../world-of-rathe/aria/a-true-sanctuary.md#the-flow)," answered Oscilio. "An event of great magnitude has occurred here."
 
-"Sadly, yes, it has," agreed Melody. "The [Queen of Candlehold](../../regions/rathe/aria/the-land-of-legends.md) is dead. The seers sensed as you did. Same with just about every scholar, soothsayer, and seeker from [Korshem](../../regions/rathe/aria/a-true-sanctuary.md#the-korshem) to [Larinkmorth](../../regions/rathe/aria/a-true-sanctuary.md#larinkmorth)."
+"Sadly, yes, it has," agreed Melody. "The [Queen of Candlehold](../../world-of-rathe/aria/the-land-of-legends.md) is dead. The seers sensed as you did. Same with just about every scholar, soothsayer, and seeker from [Korshem](../../world-of-rathe/aria/a-true-sanctuary.md#the-korshem) to [Larinkmorth](../../world-of-rathe/aria/a-true-sanctuary.md#larinkmorth)."
 
 Melody jerked her head in the direction of a huddle of elders, their intricately stitched robes denoting them as Seers of Everfest.
 
-[Maela](../../regions/rathe/aria/people-of-aria.md) One-eye stood among them, her white hair wild and windswept, her emphatic gestures as sharp as her tongue as she lectured her colleagues on the mysteries of Candlehold. Though Aurora strained to hear the seer's words, the hubbub of the transient town about them all but drowned them out.
+[Maela](../../world-of-rathe/aria/people-of-aria.md) One-eye stood among them, her white hair wild and windswept, her emphatic gestures as sharp as her tongue as she lectured her colleagues on the mysteries of Candlehold. Though Aurora strained to hear the seer's words, the hubbub of the transient town about them all but drowned them out.
 
 "But no one's ever been inside Candlehold," complained Aurora. "Anyone come out?"
 

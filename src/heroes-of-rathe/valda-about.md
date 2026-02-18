@@ -4,7 +4,7 @@
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/valda.mp4" type="video/mp4">
 </video>
 
-The [Everfest Carnival](../regions/rathe/aria/people-of-aria.md#the-everfest-carnival), what a sight to behold! Slowly making its way through the idyllic landscape, the Carnival brings joy and cheer to the most remote of locations, and draws forth massive crowds that fawn and gawk at the spectacles that lie within.
+The [Everfest Carnival](../world-of-rathe/aria/people-of-aria.md#the-everfest-carnival), what a sight to behold! Slowly making its way through the idyllic landscape, the Carnival brings joy and cheer to the most remote of locations, and draws forth massive crowds that fawn and gawk at the spectacles that lie within.
 
 Every day is full of exciting adventures, and every night... well, there's always an afterparty to attend! Here in the most popular of taverns, Might n' Mead, it's difficult for patrons to not get too worked up after all the crazy excitements of the day. Throw in some crazy concoctions dreamt up by the mischievous [Braumeisters](~Braumeister), and we have on our hands a mighty big problem.
 
@@ -28,7 +28,7 @@ There's been stirrings in the [Flow](~TheFlow), and recently, nervous chatters o
   <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/seismic-smackdown.webp" class="hero-icon" />
   <div class="hero-content">
     <b>Seismic Smackdown</b><br>
-    Patrons of <a href="https://legendarystories.net/regions/rathe/aria/aria.html">Aria</a>'s alehouses who disrespect the ladies are left with a hangover of seismic proportions when Valda's around.
+    Patrons of <a href="https://legendarystories.net/world-of-rathe/aria/aria.html">Aria</a>'s alehouses who disrespect the ladies are left with a hangover of seismic proportions when Valda's around.
   </div>
 </div>
 
@@ -42,7 +42,7 @@ There's been stirrings in the [Flow](~TheFlow), and recently, nervous chatters o
 
 After growing up in the Might n' Mead in Everfest, a tavern is the only place that feels like home to Valda. So when Braumeister Balen suggested a new venture up north, Valda didn't hesitate. After all, where else would she go?
 
-Inside their [Larinkmorth](../regions/rathe/aria/a-true-sanctuary.md#larinkmorth) tavern, she and Balen provide warm shelter, hot food, and palate-inspiring brews for visitors and locals alike.
+Inside their [Larinkmorth](../world-of-rathe/aria/a-true-sanctuary.md#larinkmorth) tavern, she and Balen provide warm shelter, hot food, and palate-inspiring brews for visitors and locals alike.
 
 While the inn has been met with an avalanche of praise and patronage, Valda has been caught off-guard by the mountains themselves. Still steeped in the ancient power that raised them from the earth, the ranges remain a potent causeway for the Flow. And Valda, more sensitive to the Flow than many, has had some ground-breaking revelations: literally. In the pugilism of the pub, Valda has to pull her punches. For if she _really_ lets fly, the impact is seismic in proportion. She could bring the mountain down on their heads if she's not careful.
 

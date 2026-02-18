@@ -4,7 +4,7 @@
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/maxx-the-hype-nitro.mp4" type="video/mp4">
 </video>
 
-You want to create a scene? Blow some corporate shit up? Maxx Nitro, at your service. I'm known on the streets as a 'specialist'. Slick-as smash and grab, the odd high-octane heist. The other day, me and the crew reverse engineered an EnfoMech and busted up a [Cogwerx](../regions/rathe/metrix/a-better-tomorrow.md#cogwerx-conglomerate) boiler monopoly. Booyah! [Tallics](~tallics) for your Tinker Tea. Keep this on the down-low though. They're listening. Always listening.
+You want to create a scene? Blow some corporate shit up? Maxx Nitro, at your service. I'm known on the streets as a 'specialist'. Slick-as smash and grab, the odd high-octane heist. The other day, me and the crew reverse engineered an EnfoMech and busted up a [Cogwerx](../world-of-rathe/metrix/a-better-tomorrow.md#cogwerx-conglomerate) boiler monopoly. Booyah! [Tallics](~tallics) for your Tinker Tea. Keep this on the down-low though. They're listening. Always listening.
 
 If this kind of thing makes you edgy, there's the door. Got no time for second guesses and even less for tattletales. The bloody corps and their systems are what's wrong with this city. Chokepoints. Strangleholds. Us anarchists: we're kicking holes in their corruption. Steam or tek, I don't care. We'll break anything they own into tiny pieces and watch the pretty confetti fall.
 

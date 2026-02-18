@@ -4,7 +4,7 @@
 
 On the outskirts of a vast jungle, where dense undergrowth gives way to the fiery, barren wastes, one brute marks his territory in blood and ash. Amid the cracked earth and sweltering heat, Kayo fights off savage lava beasts and swarms of massive insects, trading blow for blow in vicious battles to the death.
 
-As a cub, Kayo was born small and slow; a death sentence within the jungles of the [Savage Lands](../regions/rathe/savage-lands/savage-lands.md). In his struggle to survive, he wandered further and further to the east, trying in vain to escape the predators that stalked him through the trees. However, as time passed, instinct took over, bloodlust driving him to challenge beasts three times his size. What Kayo lacks in size and strength, he makes up for with sheer ferocity, tearing his prey apart piece by bloody piece.
+As a cub, Kayo was born small and slow; a death sentence within the jungles of the [Savage Lands](../world-of-rathe/savage-lands/savage-lands.md). In his struggle to survive, he wandered further and further to the east, trying in vain to escape the predators that stalked him through the trees. However, as time passed, instinct took over, bloodlust driving him to challenge beasts three times his size. What Kayo lacks in size and strength, he makes up for with sheer ferocity, tearing his prey apart piece by bloody piece.
 
 In the badlands, Kayo fights for every inch of territory, staving off both savage jungle predators and virulent lava beasts. No matter the creature, no matter the battle, he throws himself into every fight without fear, driven by the will to survive. However, as unrest creeps across the land, he may soon find himself battling far stranger creatures than the ones he's faced before.
 
@@ -52,7 +52,7 @@ In every deadly contest, Kayo exhibits the fierce tenacity of a bloodthirsty fer
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/kayo-underhanded-cheat.mp4" type="video/mp4">
 </video>
 
-Home is not something Kayo has considered in the past. Territory, yes, but never somewhere he felt he belonged. [Deathmatch](../regions/rathe/deathmatch/destination-deathmatch.md) changed all of that, transforming the solitary beast into a fighter that loves the limelight almost as much as he craves the violence. He has no wish to return to the jungle.
+Home is not something Kayo has considered in the past. Territory, yes, but never somewhere he felt he belonged. [Deathmatch](../world-of-rathe/deathmatch/destination-deathmatch.md) changed all of that, transforming the solitary beast into a fighter that loves the limelight almost as much as he craves the violence. He has no wish to return to the jungle.
 
 And his defeat by [Kassai](./kassai-about.md) taught him two things. One, the concept of mercy, and how humans have a soft spot for it. Two, he needed to smarten up. Since that turning point, Kayo has not only picked up the rudiments of the Common tongue, but has become a leading member of the Prowlers, a group of ex-tribal Brutes who choose to pool their strength rather than go it alone. He has come to understand the concepts of subterfuge and terror, and how much more powerful they can be than raw strength.
 

@@ -18,7 +18,7 @@ During the War of the Old Ones, the Aetherscribes attuned their keen intellects 
 
 ### Earth's Embrace
 
-Our [Rosetta](~Rosetta) languish like trees that have not borne fruit in centuries. They are mere buds dozing dormant in the endless summer. But the sweet scent of harvest now wafts through [Candlehold](../../regions/rathe/aria/the-land-of-legends.md#candlehold). To sticky-sweet hands the promise of abundance returns.
+Our [Rosetta](~Rosetta) languish like trees that have not borne fruit in centuries. They are mere buds dozing dormant in the endless summer. But the sweet scent of harvest now wafts through [Candlehold](../../world-of-rathe/aria/the-land-of-legends.md#candlehold). To sticky-sweet hands the promise of abundance returns.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/earths-embrace.webp" alt="earths-embrace" class="center" />
 
@@ -75,7 +75,7 @@ Florian plunged a lifeless branch into the mephitic altar and drew forth an embo
 
 ### Sanctuary of Aria
 
-"In [Aria](../../regions/rathe/aria/aria.md), every step is a journey through a living song; every breath taken is a draft of pure music. It is a land where nature and enchantment are harmonized; a sanctuary for all who seek the wonder of waking dreams." - [Melody, Sing-along](../../heroes-of-rathe/melody-about.md)
+"In [Aria](../../world-of-rathe/aria/aria.md), every step is a journey through a living song; every breath taken is a draft of pure music. It is a land where nature and enchantment are harmonized; a sanctuary for all who seek the wonder of waking dreams." - [Melody, Sing-along](../../heroes-of-rathe/melody-about.md)
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/sanctuary-of-aria.webp" alt="sanctuary-of-aria" class="center" />
 

@@ -27,9 +27,20 @@ Marks are contract cards, given to a mercenary when they take up a contract. The
 An order of assassins, the Spider operates in total secrecy, its services available only to those who know of its existence. Its assassins are raised from youth, taken from the streets and from orphanages, their skills honed to forge them into the ultimate weapon. While there are rumours speculating which deaths they may have been involved in, no assassination carried out by a spider has ever been witnessed or proven.
 
 ## L'Apocalypta
-A mysterious cult found within the depths of the Pits, members of L'Apocalypta can be found throughout Rathe. L'Apocalypta believes that the end times are coming, an event which will awaken the latent powers of Rathe and split the world asunder, throwing all into chaos and destroying humanity in the process. They believe that they are helping to prepare humanity for the coming apocalypse, by creating small amounts of the chaos that humans will face, thus training them for what is to come.
 
-Wars, disease outbreaks, man-made disasters, revolutions and full-scale invasions; many of the darkest events in Rathe's history can be attributed to L'Apocalypta. Despite their influence, and the suffering they have caused, the cult remains incredibly secretive, and very few are aware of its existence.
+"The world may end, yet we shall endure." — Mantra of Chaos
+
+Operating in the darkest corners of Rathe, L'Apocalypta is a cult of Chaos orchestrating catastrophes in service of its apocalyptic doctrine.
+
+Entire revolutions have been ushered into existence by their agents, and powers toppled by their unseen hand. Famines that have crippled cities, plagues that have torn through lands, many bear their mark.
+
+L'Apocalypta believes the coming devastation is inevitable: an upheaval that will wipe civilization from existence. They believe the people of Rathe must learn to navigate the cataclysmic change to come. Their purpose is not to prevent it, but to prepare humanity to survive it.
+
+So it was written by the great prophet, Anarch Zeir, who journeyed deeper into the Pits than any before, and returned to pen a most disturbed discourse. Feverishly inked beside a ravine, it was bound in fungus-leather and sealed against damp with pitch-black bile drawn from the prophet's own baptismal pool. It was meant for the faithful who had waited for Zeir's return. It became a terrifying tool for spreading dissent.
+
+Other tomes followed, for the first devolved into maddened scratchings in its latter pages. Zeir's mind broke under the strain of anarchic exegesis before he could fully capture his visions from the deep. One book became many as successive anarchs, drawn to the same pilgrimage, returned from the depths with new insights. And each wrote themselves into insanity, their coherence dripping away, minds hemorrhaging like ink from a tumbled pot. The tomes accumulated, each raving author insisting it had reached deeper, seen clearer, suffered more truth. With every new anarch, the narrative grew more unhinged. The books became their own kind of Pits: layered, lightless, alive with echoing voices.
+
+And now that Rathe is listening, what will the bedlam chorus of L'Apocalypta portend next?
 
 ## Dregs
 The Pits is plagued by toxic sludge and chemical runoff from the city above. It runs through the rivers, seeping into the soil and working its way through the underground. While every denizen of the Pits is exposed to the toxic environment on a daily basis, some are unfortunate enough to be exposed to a larger dose. A collapsed tunnel, a mining accident, steamtech failure or simple human error can cause all kinds of dangerous chemicals to overflow into the Pits, damning everyone they touch to the same dark fate.

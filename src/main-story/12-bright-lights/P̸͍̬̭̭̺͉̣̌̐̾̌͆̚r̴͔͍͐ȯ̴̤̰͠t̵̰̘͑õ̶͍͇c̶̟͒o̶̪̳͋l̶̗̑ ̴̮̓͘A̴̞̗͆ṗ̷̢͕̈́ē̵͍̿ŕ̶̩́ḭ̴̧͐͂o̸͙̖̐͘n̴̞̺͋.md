@@ -1,6 +1,6 @@
 # P̸͍̬̭̭̺͉̣̌̐̾̌͆̚r̴͔͍͐ȯ̴̤̰͠t̵̰̘͑õ̶͍͇c̶̟͒o̶̪̳͋l̶̗̑ ̴̮̓͘A̴̞̗͆ṗ̷̢͕̈́ē̵͍̿ŕ̶̩́ḭ̴̧͐͂o̸͙̖̐͘n̴̞̺͋
 
-Deep beneath [The Needle](../../regions/rathe/metrix/a-sprawling-metropolis.md#the-needle), in a hermetically sealed chamber under the lowest boiler-room floor, a single console screen lights up with a faint, green hue.
+Deep beneath [The Needle](../../world-of-rathe/metrix/a-sprawling-metropolis.md#the-needle), in a hermetically sealed chamber under the lowest boiler-room floor, a single console screen lights up with a faint, green hue.
 
 A̵̼̥͒͆̒͗n̵̳̼̟̺͒̑̚͝o̸͍͖̞̊̿m̴̜̞̤͑á̸̻̙̲̽̿̇l̷̡̘̰͔̐̀y̶͖̘͖͐ detected in the greater Eidolon network. Indicator achieved.
 
@@ -38,7 +38,7 @@ The bot obliges, running quickly through each implant's status and capabilities.
 
 "Good. Initiate Protocol 103 and prep me for surgery."
 
-He closes his eyes, imagining [Metrix](../../regions/rathe/metrix/metrix.md) as it should be. How it will be.
+He closes his eyes, imagining [Metrix](../../world-of-rathe/metrix/metrix.md) as it should be. How it will be.
 
 "If you want anything said, ask the bureaucrats. If you want something done, ask a dying man."
 
