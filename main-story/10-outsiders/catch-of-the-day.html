@@ -1,0 +1,255 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Catch of the Day - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="catch-of-the-day"><a class="header" href="#catch-of-the-day">Catch of the Day</a></h1>
+<p><a href="../../heroes-of-rathe/riptide-about.html">Riptide</a> breaks the tension by squeezing the sore on his shoulder between thumb and forefinger. The pain shoots up his neck and into his skull, offering a momentary distraction. The sore gives with a satisfying pop, erupting ichor that streams down his bulky bicep and drips onto the corroded iron of his forearm. The pain recedes as Riptide wipes meat and mechanics clean with a cloth drenched in alcohol. He takes a swig from the bottle for good measure, relishing the pungent warmth as it passes down his throat.</p>
+<p>The waiting is always the hardest bit. After the concentration of design, the busywork of the build, the waiting stretches out, unbroken, like algae on the waters of the Seethe. The anticipation gnaws at his guts. Impatience bites at his stiff back. He wishes the bloody prey would hurry and get caught. Then he can get moving again. On to the next project. Whether sailing or hunting, salvaging or inventing, Riptide is not a man who likes to sit still for long.</p>
+<p>A barge chugs by laden with tenatan ore, bound for uplift to <a href="../../world-of-rathe/metrix/metrix.html">Metrix</a>. His boat bobs in its wake, jerking at its mooring like an excited dog. Riptide's parked across the channel from his trap, in the shadow of a looming brick warehouse. On the other bank, outside a seedy casino, his bait wakes with a start. It only takes a moment for the pain to kick in, for the injured man to wail like a newborn in the wee hours. Riptide can almost sympathize. Getting your leg caught in the jaws of a <a href="../../world-of-rathe/pits/blackjacks-mercenary-group.html#dregs">dreg</a> trap would sting a bit.</p>
+<p>The stricken gangster tries to haul the jaws apart with his bare hands. They budge, only to snap back and pinch even tighter, bloodying his fingers in the process. Riptide sighs. Just another thug with brutality for brains. A good screamer though.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/riptide-1.webp" alt="riptide-1" class="center">
+<p>As the <a href="../../heroes-of-rathe/uzuri-about.html">Boss</a> predicted, the man's pitiful cries awaken the inhabitants of the casino. Lanterns are lit. The main door opens. Bleary-eyed henchmen spill out onto the street, fresh from whatever sack they drunkenly slumped into last night. Bald heads gleam in the lamplight. Snarling mouths reveal teeth filed to points. Tattooed hands brandish blacktek pistols. Most are bare chested, showing off the scale and fin symbols of their Piranha affiliation. They're angry from the rude awakening, ready to rumble. Easy pickings for the trap Riptide has set for them.</p>
+<p>With the street so strewn with rubbish, and their brains still fuggy with grog, the Piranhas fail to notice the latticework of pins and tripwires Riptide laid out under the cover of darkness. With all the salvaging he's done in the dimmest reaches of the Seethe, he can see fine in the gloom. Like the rest of him, his peepers have adjusted to life in the <a href="../../world-of-rathe/pits/pits.html">Pits</a>, for better or worse. Amongst the filth and ferocity, he's made a home away from home. He sometimes dreams of the open sea, of his time on the Kraken. Trawling through those waves, plundering whatever the winds brought across their bow. Chasing leviathans through the glittering icebergs of Tempest Straits. Watching pirate hunters burn on <a href="../../world-of-rathe/high-seas/blackwater-strait.html#griefers-reef">Griefers Reef</a>. It was a fine life, while it lasted.</p>
+<p>The first Piranhas trip his wires as they move in to help their stricken comrade. Even from across the channel, he can hear the click and swoosh of his traps being triggered. A circular saw blade flies out of the shadows and takes the lead gangster's head clean off. It's with no small pride that Riptide notes the exactness of that decapitation. He pats the preserved heads that hang from his belt. Clean removal is the trick with trophies. Can't be marring the merchandise with sloppy workmanship.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/riptide-2.webp" alt="riptide-2" class="center">
+<p>The next three Piranhas lose their noggins in a similar fashion. One blade flies a little high, a bit too slow, cutting through the victim's upper lip, grinding to a quivering halt just below his earlobes. Riptide 'tut tuts' himself for that one. Should've triple-checked the tensions.</p>
+<p>The remaining gangsters spread out in a panic, hoping to make harder targets of themselves. But there's no targeting involved. That would've required Metrixian tek - a load of fancy - smartass automation Riptide has neither the coin nor the patience for. He likes his devices simple and fashioned from everyday junk. Letting machines think for you? That there's a recipe for breeding stupidity.</p>
+<p>Blades fly out at the Piranhas from all directions as they blunder through his perimeter wires. To his amusement, a single blade slices through two lined up gangsters, parting legs from torsos with razor sharp ease. A few are quick enough on their feet to get winged rather than bisected, their screams joining with the agonized hollering of Riptide's original bait. A melodious barbershop of bothers. Just what the Boss ordered. The louder it gets out front, the more attractive it becomes for her quarry to slip out the back.</p>
+<p>And like clockwork, the rear door of the casino opens and out pops a gun-toting gangster, then another, followed by a fine-suited man, proprietor and bean counter, the gent that the Boss wants a quiet word with about takings and percentages.</p>
+<p>Riptide picks up his bow, flexes his metallic hand, and lines up the farthest of the two bodyguards. The heavy arrow skewers the man like a harpoon through a blubbery blindseal. To his credit, the surviving meat shield does his job, covering his employer with his fleshy bulk. It makes for a tricky shot. Wouldn't do to puncture the prize. So Riptide waits until the target has moved his bald mug, just so. The arrow punches through the man's face, popping his head like one of Riptide's bulbous sores.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/riptide-3.webp" alt="riptide-3" class="center">
+<p>The bean counter stands there for a gormless, gore-smeared moment, before a lean, long-coated figure steps up behind him and drives a syringe through his white collar. He flinches and flops as the sedative takes hold, toppling him like a carcass on a killing room floor. Other figures appear out of the closest alleyway, pushing a tumbrel between them. They haul the suited gentleman onto the tray and carry him off into the half light.</p>
+<p>The Boss tucks her syringe into one of the many pockets in her coat, looks across the water at Riptide, and gives him a nod. Shrewd woman, that. Would've had her people watching him the whole time, to make sure he fulfilled his contract. He'd never dream of reneging on a deal, not with this boss. Every job challenges his ingenuity, and the weapons she asks him to design are as delightful to make as they are deadly to wield. Nor does he mind the air of mistrust. Part of him appreciates the attention.</p>
+<p>The slightest smile twists his mutilated face as he watches her stride off into the awakening morn. A productive start to what will be a rewarding day for all concerned.</p>
+<p>He sets down his bow, takes up his oar, and paddles across the channel. Blades to retrieve. Trophies to claim. Traps to tweak. No point in waiting about.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/riptide-4.webp" alt="riptide-4" class="center">
+<hr />
+<p><em>Source: <a href="https://fabtcg.com/en/heroes/riptide-lurker-of-the-deep/?stories=True">https://fabtcg.com/en/heroes/riptide-lurker-of-the-deep/?stories=True</a></em><br>
+<em>Written by Edwin McRae and Rachel Rees.</em><br>
+<em>Directed by Robbie Wen. Illus. by Henrique Lindner.</em></p>
+<hr />
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/10-outsiders/the-iconoclast-trials.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/11-dusk-till-dawn/prism-awakener-of-sol.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/10-outsiders/the-iconoclast-trials.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/11-dusk-till-dawn/prism-awakener-of-sol.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

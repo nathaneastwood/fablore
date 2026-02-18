@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Botanical Compendium - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="botanical-compendium"><a class="header" href="#botanical-compendium">Botanical Compendium</a></h1>
+<p>Here is the section of Scarborough's notes regarding botanical studies. Despite our best efforts, some of the journal entries have been lost in our attempts to compile his works.</p>
+<h2 id="journal-entry-no-4-day-6"><a class="header" href="#journal-entry-no-4-day-6">Journal Entry No. 4 Day 6</a></h2>
+<p>These brightly coloured bushes are found all over the jungle, notable for their thick, glossy red leaves. I took some samples and crushed the leaves into a fine paste, which I then added to one man's gruel. He was dead within minutes, the poor fellow, without even a chance to finish dinner.</p>
+<h3 id="visura"><a class="header" href="#visura">Vis'ura</a></h3>
+<p>A short, dense bush with thick roots. The leaves of the Vis'ura are poisonous to humans, but most creatures in the Savage Lands are immune to the toxins found within. Its roots, however, are a potent energy source, and safe to eat. One must be absolutely certain to remove every trace of leaves before boiling the root, as the toxins will release into the water and contaminate the entire batch.</p>
+<h3 id="pata"><a class="header" href="#pata">Pata</a></h3>
+<p>A vibrant red fungus found within the Savage Lands, it grows in large, flat, parallel formations, somewhat resembling a series of shelves. Its brightly coloured surface is covered in a thin layer of a deadly neurotoxin, which can cause seizures and death within minutes of skin contact.</p>
+<p>Using the fungi in any form proves difficult - crushing it will cause its toxic spores to release into the air, burning the pata releases toxic smoke, boiling it contaminates the water. Any alchemist who wishes to use the pata as a poison will struggle to do so without killing themselves.</p>
+<h2 id="journal-entry-no-5-day-6"><a class="header" href="#journal-entry-no-5-day-6">Journal Entry No. 5 Day 6</a></h2>
+<p>After the last incident, I did not seek to test this on any of my men - I only have so many, after all. However, Drew was determined to prove that it was edible. It's only a mushroom, he said. Toward the end, he began to ramble nonsensically, and while I took notes on what he said, I cannot seem to make sense of them. One of the men then tossed the remained of the fungi into the dire without my knowledge, after which we all experienced vivid hallucinations.</p>
+<h3 id="occhi"><a class="header" href="#occhi">Occhi</a></h3>
+<p>A small fungus, characterised by its shiny jet-black top, protecting the delicate white lace beneath. The lace structure is dangerous when consumed, causing fever, delerium and, eventually, death. When the occhi is burned, it releases a smoke with hallucinogenic and psychoactive properties.</p>
+<h3 id="hilen"><a class="header" href="#hilen">Hilen</a></h3>
+<p>Found near the base of large trees, hilen is a small, feathery plant that ranges from pale lilac to a bright violet in colour. Perfectly harmless until digested, after which point it will slowly begin to work its way through the body, causing intense pain as the body begins to shut down. Its root system is equally toxic.</p>
+<p>The hilen spreads through the release of tiny seed pods, which hang from a light, delicate flower. This flower allows the seed pods to be caught by the breeze, allowing them to travel great distances with a single breath of wind.</p>
+<h2 id="journal-entry-no-10-day-17"><a class="header" href="#journal-entry-no-10-day-17">Journal Entry No. 10 Day 17</a></h2>
+<p>We lost another of the men this morning. He was walking just in front of me, and suddenly tripped over a wayward vine. Quick as lightning, some large leaf snapped out of the shadows and engulfed him, his legs hanging out of its gaping mouth. He immediately began to scream, and we soon realised why - some kind of substance began dripping from the creature's smooth mouth, and when a few drops hit his leg, the began to dissolve straight through his armour. We managed to escape the area without encountering any more of the plants, though I also failed to gather any specimens.</p>
+<h3 id="snapjaw"><a class="header" href="#snapjaw">Snapjaw</a></h3>
+<p>A carnivorous plant with sharp teeth, the leaves of a Snapjaw resemble a mouth, lying open in wait until its prey attempts to walk across, triggering its trap. Snapjaw leaves range in size from the length of a hand, to near the height of a human.</p>
+<p>The leaf snaps closed around the creature and begins to excrete a corrosive substance that breaks down the prey, allowing the plant to digest it.</p>
+<p>Snapjaw plants move incredibly quick once triggered, trapping prey within their barbed leaves.</p>
+<h2 id="journal-entry-no-12-day-19"><a class="header" href="#journal-entry-no-12-day-19">Journal Entry No. 12 Day 19</a></h2>
+<p>Simply marvellous. We discovered a cluster of pale blue flowers, with thin, blade-like petals. For the longest time, I failed to discover any properties whatsoever. Harold has become quite ill of late, likely the result of losing his hand. With the man on his deathbed, I decided to feed him some petals, as willing subjects were in short supply, and at worst, it could only put an end to the man's agony. Yet before my eyes, the most remarkable thing happened. Within hours, Harold was walking around the campsite as if he has never been ill at all. I shall have to conduct further studies, to test the limits of the plant's apparent healing properties.</p>
+<h3 id="wintergold"><a class="header" href="#wintergold">Wintergold</a></h3>
+<p>An extremely rare flower with medicinal properties, found in the depths of the Savage Lands. It grows in large clusters near the base of trees, with thin, blade-like leaves. The flowers only bloom for two weeks in the middle of winter, with pale blue petals and small orange centres.</p>
+<p>I have struggled to retain any samples of the wintergold. Even removing the plant whole and carrying it in a basket of soil has proven futile, as the plant begins to wither within a matter of hours, and was dead two days later. I attempted to dry the flowers, preserve them in alcohol, press them, all to no avail.</p>
+<p>In a moment of desperation, I purchased some lower-grade alchemical equipment from a merchant, and attempted to create a potion from the flower on-site. That, too, failed.</p>
+<p>The flowers of the Wintergold are incredibly delicate, and wither very quickly upon removal from the plant. If there is a way to successfully preserve them, I have yet to discover it.</p>
+<h2 id="journal-entry-no-15-day-22"><a class="header" href="#journal-entry-no-15-day-22">Journal Entry No. 15 Day 22</a></h2>
+<p>We stumbled upon some strange form of plant today. It appeared to be some thin, climbing plant that had taken the shape of a tree. I believe these may once have been smaller vines that grew up the side of a host tree, retaining its shape once the host died. However, even when the tree itself had rotted away, the vines remain, seemingly no worse for wear. I shall search for a smaller sample of this plant, so that I might study its full growth cycle.</p>
+<h3 id="thieves-ladder"><a class="header" href="#thieves-ladder">Thieves' Ladder</a></h3>
+<p>These vines start out small and thin, taking root at the base of a large tree. The plant then begins to climb upward, setting down roots that slowly work their way through the tree bark. Just yesterday, I found a <a href="./bestiary-of-scarborough.html#brawnhide">brawnhide</a> skull with one of these vines attached, and the root system had burrowed its way through solid bone.</p>
+<p>Once established, the thieves ladder roots then seek out nutrients and water within the host tree, as the vines climb up the surface of the tree, weakening the host. Once the host dies, the Thieves Ladder is left behind, a shell relying on its own root system to provide water from the soil. One has to wonder, then, if it eventually suffers a similar fate at the hands of another Thieves Ladder.</p>
+<h2 id="journal-entry-no-18-day-27"><a class="header" href="#journal-entry-no-18-day-27">Journal Entry No. 18 Day 27</a></h2>
+<p>After the success of the <a href="#wintergold">Wintergold</a> flower with Harold, one of my men demanded to use it as well. Copper has been suffering from some form of respiratory illness as of late. I refused to allow him access to my Wintergold samples, and so he decided to consume the glowing berries that we found. I barely had time to realise what he had done before he died. Needless to say, the men will hesitate before disobeying my direct orders again.</p>
+<h3 id="kindleweed"><a class="header" href="#kindleweed">Kindleweed</a></h3>
+<p>A plant known for its small, glowing red berries and thorny black leaves. While its colourful berries may appear to be a welcome source of energy, the Kindleweed is among some of the most poisonous plants in Rathe.</p>
+<p>Ingesting just one of these tiny berries can kill an adult human within minutes.</p>
+<h3 id="bloodroot-moss"><a class="header" href="#bloodroot-moss">Bloodroot Moss</a></h3>
+<p>A seemingly delicate violet plant, with small, soft leaves. However, this invaise species seeks out living creatures rather than soil, absorbing nutrients and glucose from their blood.</p>
+<p>Adult plants produce an abundance of fine, airborne seeds, which are easily carried on the wind. Once they land in a creature's fur or skin, they will sprout thin roots, which work their way through the creature's skin in search of blood. The plant will then begin to spread very rapidly, coating the animal in moss.</p>
+<h2 id="journal-entry-no-20-day-29"><a class="header" href="#journal-entry-no-20-day-29">Journal Entry No. 20 Day 29</a></h2>
+<p>The trees of this jungle are far more hardy than those found anywhere else in Rathe, putting down large roots to aid survival. Many of the jungle's fiercest predators lurk within their branches, watching their prey from above, waiting for the perfect opportunity to strike. They have dense wood which, although difficult to light, can burn for hours at a time once properly stoked. One fire exceeded temperatures found in any forge or factory I have visited to date.</p>
+<h3 id="druden"><a class="header" href="#druden">Druden</a></h3>
+<p>The wood of this tree is incredibly dense, making it one of the strongest and most viable trees in the Savage Lands. Their branches grow in unusual, twisted shapes, with broad leaves to soak up any available sunlight. The leaves, while bitter, are non-posionous.</p>
+<h3 id="haldor"><a class="header" href="#haldor">Haldor</a></h3>
+<p>A large, slow-growing tree, with an incredibly thick trunk. The favoured nesting ground of multiple species of birds, haldor trees can survive for hundreds of years, and are often used as shelters due to their roots lifting off the ground once they begin to mature.</p>
+<h3 id="stoneberry-tree"><a class="header" href="#stoneberry-tree">Stoneberry Tree</a></h3>
+<p>With long, thin trunks and massive leaves, the stoneberry tree is somewhat of an oddity. Its berries are very large and hard as stone. Falling stoneberries are more than capable of crushing bone, and have decapitated more than one unsuspecting adventurer.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../world-of-rathe/savage-lands/bestiary-of-scarborough.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../world-of-rathe/savage-lands/the-boneyard.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../world-of-rathe/savage-lands/bestiary-of-scarborough.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../world-of-rathe/savage-lands/the-boneyard.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

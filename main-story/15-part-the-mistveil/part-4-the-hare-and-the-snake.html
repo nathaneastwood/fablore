@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Hare and the Snake - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="part-4-the-hare-and-the-snake"><a class="header" href="#part-4-the-hare-and-the-snake">Part 4: The Hare and the Snake</a></h1>
+<p>The full moon turned the water of the mountain tarn to molten silver.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/mst-story-1.webp" alt="mst-story-1" class="center">
+<p><a href="../../heroes-of-rathe/nuu-about.html">Nuu</a> laughed as her perfectly reflected mouth sprouted buck teeth, and rabbit ears sprang up from the top of her head.</p>
+<p>"A definite improvement," concluded Fumei with mock solemnity.</p>
+<p>Nuu begged to differ by slapping her hand across the surface of the water, disrupting the illusion and splashing her friend.</p>
+<p>"Hey!" Fumei jumped back from the tarn, wiped droplets from her simple smock, and fixed Nuu with an exaggerated scowl. "Try that again, if you can!"</p>
+<p>One Fumei suddenly became two, then four, then eight. The troupe of blue-haired girls danced around Nuu, taking turns to poke their tongues out.</p>
+<p>"That's a new one," remarked Nuu. "Did Kouki teach you that today?"</p>
+<p>"Master Kouki," corrected all eight Fumei at once.</p>
+<p>"Always the proper Ledger of Ancestry," groaned Nuu. "Teacher's pet."</p>
+<p>The collective Fumei surrounded Nuu. "Then why is the Master always tougher on me?"</p>
+<p>"That's in your imagination." Nuu picked up a pebble. "Just like these eight silly girls."</p>
+<p>"Sev-" The real Fumei's response was broken by the pebble that bounced off her forehead. "Ouch!"</p>
+<p>"Painful memories stick faster," stated Nuu, quoting one of their sensei's favorite sayings.</p>
+<p>Fumei rubbed the spot above her eyebrow where the thrown pebble had left a small, red mark. "How did you know it was me?"</p>
+<p>Nuu sauntered up to her friend, gently grabbed her by the ears and planted a kiss on her forehead. Fumei giggled.</p>
+<p>"I'll always know my real sister," said Nuu, starting their shared mantra.</p>
+<p>"Anytime, anywhere," finished Fumei, before wrapping Nuu in a tight hug.</p>
+<p>They stayed that way for a long moment, enjoying their adopted sisterhood, their togetherness. Two lost girls who had found family in one another. Only the ring of the gong forced them to part.</p>
+<p>"Not another lesson," groaned Nuu.</p>
+<p>"Hope so!" enthused Fumei.</p>
+<p>Nuu sighed and repeated, "Teacher's pet," before sprinting for the temple. "Last one back makes the tea!" she shouted over her shoulder.</p>
+<p>Fumei answered with the slap of her sandals against the path as she rushed to catch up. Together, the girls raced around the mountaintop, arriving at the temple breathless and joyful. However, the laughing trailed off at the sight of Master Kouki's stormy expression.</p>
+<p>"Sit," he instructed Fumei. She obeyed, plopping down onto a bamboo mat.</p>
+<p>Nuu moved to do the same, but Kouki halted her with a thunderous, "Not you!"</p>
+<p>The sisters exchanged shocked looks, but Kouki continued to glare only at Nuu.</p>
+<p>"You leave here. Tonight."</p>
+<p>"But Master Kouki..." began Fumei. The sensei silenced her with a raised finger.</p>
+<p>"The moon will light your path for the last time. Your destiny is now your own."</p>
+<p>"Why?" pleaded Nuu. "Please, I've studied my lessons, completed my chores, done everything you've asked of me."</p>
+<p>"For you, the verses will never be enough. For your kind, the red mist will always veil the moon." His words were like a lightning bolt to Nuu's heart, stopping it dead.</p>
+<p>Beside her sensei, her friend sat still as a statue, face frozen in dismay. Her entire world falling away beneath her feet, Nuu reached out to the only family she had ever known.</p>
+<p>"Fumei?"</p>
+<hr />
+<p>The Ledger of Ancestry stared into the eyes of Alluring Desire, searching for that which was lost.</p>
+<p>For a thrilling moment, recognition beckoned, a figure darting through the fog that separated this life from those that had come before. Then it was gone, sinking back into obscurity like a pebble settling to the bottom of a mountain tarn.</p>
+<p>Suspicion replaced reminiscence. Experience conquered hope.</p>
+<p>Spirits did all they could to remain in <a href="../../world-of-rathe/misteria/misteria.html">Misteria</a>. They ran, they fought, they distracted and they deceived.</p>
+<p><a href="../../heroes-of-rathe/enigma-about.html">Enigma</a> saw through the facade.</p>
+<p>She knew the teahouse for what it was, a mere reflection upon a lake of chi, a delusion of earthly delights hiding a creature of otherworldly essence.</p>
+<p>"I do not know that name," Enigma said at last. "Nor do I know you." She snapped her fingers and her scroll flew to her side. "But I know what you are."</p>
+<p>Nuu took a step back, then another.</p>
+<p>Her eyes flicked with acrimony.</p>
+<p>Her hair shed its combs and pins, rising on an upwelling of chi, locks twisted and arching like riled cobras.</p>
+<p>The cacophony of combat between tiger and Vipressa forced its way back into her consciousness, a fitting accompaniment to the conflict now roiling within her.</p>
+<p>"What am I to you?" rasped Nuu through clenched teeth.</p>
+<p>Enigma made herself as still and centered as the moon, just as she would do with any vengeful apparition. "A lost spirit, disturbing the flow as it tries to swim against the current."</p>
+<p>The scroll began to unfurl. Nuu understood what that meant, and what it would take to prevent it.</p>
+<p>"Fumei!" The hateful name rattled in her taut throat. "You will remember me."</p>
+<p>The Ledger of Ancestry shook her head as she raised her hands and drew sigils of moonlight in the air.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/mst-story-2.webp" alt="mst-story-2" class="center">
+<p>"All that I was, I gave to the moon. I need to remember but one thing," she answered. "My duty."</p>
+<p>The sigils swirled around Nuu, hemming her in. The scroll crept forward, its open vellum ready to receive even her long and twisting tale.</p>
+<p>Nuu released her pent-up rancor, spinning through the sigils, scattering them around the four corners of the room. Then she dropped to the floor and planted her hands on the boards.</p>
+<p>The entire teahouse shuddered, throwing cowering patrons and fighting Vipressa off their feet, discharging them from its rooms. Only Enigma and <a href="../../heroes-of-rathe/zen-about.html">Zen</a> remained standing, their spiritual balance holding them as time, space and matter shifted beneath them.</p>
+<p>Curtains, wall panels, windows and chattels bent like paper.</p>
+<p>Nuu's surviving Vipressa scrambled onto the stage to be wrapped up like rice in sheets of seaweed.</p>
+<p>The teahouse shuddered again before turning inward, fold after fold until it was small enough for Nuu to hold in her palm.</p>
+<p>"Today I spare you my venom," she hissed, "for guilt is a far more potent poison."</p>
+<p>Before Enigma could move, before Cosmo could close on its quarry, Nuu's robes dropped away and a viper uncoiled from the resulting nest.</p>
+<p>Its jaws widened, engulfing the paper ornament, swallowing it down into the serpent's belly. Then off slithered the snake into mist.</p>
+<p>Purged from the teahouse and left standing in mud, Enigma looked from her scroll to the monk who watched her with calm curiosity.</p>
+<p>She opened her mouth to speak but no words would come.</p>
+<p>She felt a tingle under her eye, raised her hand to her face, and caught the tear before it could roll down her cheek.</p>
+<p>She stared at her fingertip in wonder.</p>
+<p>Then, the Ledger of Ancestry turned and walked away, leaving the concerns of <a href="../../world-of-rathe/misteria/among-the-mists.html#mistcloak-gully">Mistcloak</a> behind her. Together, she and her scroll ascended the path that would return them to the Eternal Lunar Temple.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/mst-story-3.webp" alt="mst-story-3" class="center">
+<p>There, she would regain her solace.</p>
+<p>There, she would remember, if the moon willed it.</p>
+<hr />
+<p>Zen watched the sun set behind the mountains as the last villagers left the cemetery.</p>
+<p>After seeing Seto to a healer, he had helped the local folk gather up the Vipressa dead and the desiccated corpse of the former master tailor.</p>
+<p>Not being beloved by Mistcloak for his shrewd business practices, the tailor's funeral occupied only part of the afternoon. The rest had been taken with preparing and interring the fallen servants of the teahouse.</p>
+<p>Situated on a ledge overlooking Mistcloak Gully, the cemetery allowed Zen the quiet needed to reflect on his strange encounter with Nuu, and the surprise appearance of the Ledger of Ancestry.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/mst-story-4.webp" alt="mst-story-4" class="center">
+<p>Though his teachers had spoken of this mystical figure, he had never seen her for himself. Nor would he have expected her to allow such a troublesome spirit as Nuu to escape, yet the encounter reminded him of an old folktale, told by his most venerable sensei to Zen before he departed the grounds for good.</p>
+<p>High in the mountain ranges of Misteria, a hermit sought to transcend his troubled past. One evening, sitting in his cave, a roaring fire warming his feet, a hare bounded into his campsite. It looked at him with wide, frightened eyes, its long ears sticking straight up in the air.</p>
+<p>Hermit and hare regarded each other until they were joined by another creature, a slender serpent with flicking tongue.</p>
+<p>The old man leapt up to protect the defenseless hare, brandishing a walking staff, for he had long ago foregone his weapons of war.</p>
+<p>Yet the hare did not run.</p>
+<p>Instead, it rose on its back legs and looked out of the cave, exposing its furry belly to the hunting reptile.</p>
+<p>The hermit was sure the serpent would strike and knew his aged body would be too slow to prevent it.</p>
+<p>But the snake did not even bare its fangs. Instead, it coiled up by his fire and went to sleep.</p>
+<p>Lightning flashed in the darkening sky and thunder boomed overhead.</p>
+<p>The torrent that followed pounded the ground like the man's fists had once pummeled his enemies. The slope below the cave became a waterfall, one that would have washed both hare and snake off the mountain, tumbling them to their deaths in the valley below.</p>
+<p>The hare had led the snake to the cave, and the snake had shown its gratitude. Together they had hidden from their mutual foe, the great and terrible storm, their ancient game of predator and prey set aside for one peaceful night.</p>
+<p>Though Zen could not know what storm had driven Nuu and the Ledger of Ancestry together, he could feel that a balance had been struck in its passing.</p>
+<p>The chi's natural flow was returning to Mistcloak Gully; piety within kin and community restored.</p>
+<p>What had been his purpose in this meeting of myths?</p>
+<p>He dare not flatter himself by thinking he was the hermit of the tale. More likely he was the simple fire, a common interest where immortals might share a fleeting moment as they weathered the eternal tempests of fate.</p>
+<p>With the fog rolling over the ridgeline at his back, Zen descended into Mistcloak Gully.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/mst-story-5.webp" alt="mst-story-5" class="center">
+<p>He would rest there for the night, then at the break of a new day, would go wherever the chi might summon him.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/15-part-the-mistveil/part-3-the-serpents-strike.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/16-rosetta/roots-of-change.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/15-part-the-mistveil/part-3-the-serpents-strike.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/16-rosetta/roots-of-change.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

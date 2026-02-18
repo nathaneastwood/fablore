@@ -1,0 +1,294 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Smoke and Mirrors - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="smoke-and-mirrors"><a class="header" href="#smoke-and-mirrors">Smoke and Mirrors</a></h1>
+<p>Across the rolling hills of Volcor, the earth was stained black with soot and ash, lava rivers a smear of colour against the dark landscape. Villages lay tucked between the rocky slopes, ruled by generals, their fate determined by the ebb and flow of battle. Step into any one of Volcor's villages and you'll find a hardy people, determined and headstrong, forged by the inhospitable environment they call home.</p>
+<p>Beyond them, the silhouette of Mt. Volcor rises above the rocky slopes, a massive active volcano which can be seen from the furthest borders of the region. A plume of toxic smoke and poisonous gases rises into the air, painting the sky in shades of grey and blocking out the sun for months at a time.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-5.webp" alt="kano-5" class="center">
+<p>A path cut into the slope of the volcano leads to the imperial palace, an imposing structure carved from obsidian and stone. The palace extends deep below the earth, a massive network of underground halls providing a home for every member of the royal court. It stands apart from the villages far below, equal parts magnificent and formidable, separated from the rest of Volcor by a series of stone walls and grand gates.</p>
+<p>Within the palace walls, the hallways were bustling as servants began to prepare for the evening meal, young wizards making their way to and from various training exercises. Lengths of scarlet fabric hung from the ceiling, adding a vibrant splash of colour to the stone halls, carved from the volcanic rock found throughout Volcor. The golden-pink of rhyolite was streaked through the dark stone, revealed through cracks and fissures in the rock. In some places, the rock had been chiseled away to reveal pockets of pure rhyolite, providing a clear space for a sigil to be inscribed into the soft pink stone.</p>
+<p>Great golden lanterns illuminated the halls, casting everything they touched in a soft, warm glow. Crystals formed from molten magma radiated the warmth of the midday sun, chasing away the chill of the shadows. Soft woven mats lay underfoot, a sharp contrast to the unyielding stone beneath. Doorways were marked with finely painted screens, depicting scenes of Volcor's history, the Emperors that came before, and the legendary dragon that gave life to the fires of Volcor.</p>
+<p>A court wizard strolled down one such hallway, his crimson robes a splash of colour against the pale mats and dark stone walls. The crimson fabric was bordered in fine gold embroidery, set against the jet-black skirt of his robes. In one hand, he held a staff carved from pure obsidian, gold detailing running along its length. His hair was drawn up into a high ponytail, decorated with a large, blood-red feather plume, which was held in place by an intricate golden hairpin.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-6.webp" alt="kano-6" class="center">
+<p>As he strode down the hall, Kano came to a stop near one of the sigils embedded in the wall, weaving a spell into the air with his free hand. Most of the court's wizards weren't required to perform such menial tasks, but most wizards had already received a title and become a true member of the royal court. Kano, still awaiting a title, was still included within the group of young wizards that worked to maintain the spells around the palace.</p>
+<p>When he checked, the sigil was in the first stages of unravelling, showing faint signs of aetheric disturbance. Sighing, he began the process of casting the sigil once more, knitting together the wisps of aether. While tedious, repairing sigils wasn't the worst of Kano's menial tasks - that dubious honour belonged to the water seals. To someone with the blood of the dragon running through his veins, performing water magic felt inherently wrong, like having your body flipped inside out.</p>
+<p>As he approached one of the seals that maintained the palace's water system, he shuddered involuntarily, expression morphing into one of distaste. Drawing on the aether around him, Kano tapped into the magic of the arcane seal, grimacing as the impression of cool, running water washed over him. Reweaving the seal as quickly as possible, he bound the spell with a shiver.</p>
+<p>Just as he released the flow of aether, Kano heard a large, shuddering boom echo down the hall, the very air around him vibrating with a release of arcane energy. The door to one of the training rooms burst open, as one of the young wizards collapsed through the doorway, screaming in agony. Flames raced up the side of his robes, covering his writhing body in a blanket of fire.</p>
+<p>Another wizard immediately followed him, lowering herself to the ground at his side. Minako's face was set with determination, teeth grit tightly as she quickly worked to draw the fire away from her student. Kano could feel the pull from across the room, as the fire clung to the young wizard's body, refusing to budge. Minako gave one last tug, and the fire flew into her waiting hands. With a flourish, she stifled it between her palms, skin untouched by the heat of the flames.</p>
+<p>Next to her, the apprentice gave a strangled groan. In spite of her best efforts, the fire had burned through parts of his clothing, leaving the skin beneath a bright, searing red. Even at this distance, Kano could see that the edges of his burns were already beginning to peel.</p>
+<p>Two of the servants walking nearby immediately ran over, already hurrying to obey Minako's rapid-fire orders. As he watched, several more students emerged from the room, rushing to help their mentor.</p>
+<p>"Third one this week." Kano turned to find the Lord Wizard Akihiko standing next to him, his expression unreadable. "This is the second from among Minako's students."</p>
+<p>"This has happened twice already?"</p>
+<p>Akihiko nodded, jaw clenched.</p>
+<p>"I don't recall anything like that happening in our class."</p>
+<p>"It's been more frequent, recently." As one of the servants rushed past them, a large bowl of water clutched close to her chest, the Lord Wizard turned to look at Kano with a sigh. "Walk with me."</p>
+<p>As they walked, Kano occasionally stopped to check another of the sigils, repairing and reweaving the spell with a wave of his hand. For the most part, the Lord Wizard Akihiko remained unusually silent.</p>
+<p>"So, Kano. How did you pass the Trial of Embers, again?"</p>
+<p>Kano shook his head, chuckling at the familiar subject.</p>
+<p>"I told you, Lord Wizard Akihiko, it was just a stroke of good luck. A happy accident. A moment of genius. I couldn't possibly explain it."</p>
+<p>The Lord Wizard merely sighed in response, his expression strained. Expecting some kind of quip in return, Kano waited, surprised when nothing else followed. The Lord Wizard Akihiko remained quiet, allowing the silence to stretch between them.</p>
+<p>After a long moment, Kano cleared his throat.</p>
+<p>"Well, I guess it has been ten years now." The Lord Wizard's head swivelled toward him, an eyebrow raised in question. "It was an incantation I found in an old tome, to strengthen a person's connection to the arcane."</p>
+<p>The Lord Wizard's expression went completely blank, his gaze appearing to stare straight through Kano, rather than looking at him.</p>
+<p>"You used an incantation to modify your connection to the arcane?"</p>
+<p>"Yes."</p>
+<p>The Lord Wizard shook his head, muttering to himself.</p>
+<p>"That doesn't make any sense. The wards should have prevented... What kind of an incantation was this?"</p>
+<p>"Aetheric."</p>
+<p>"That's not possible," he hissed, mouth curling into the beginnings of a snarl. Then, abruptly, the Lord Wizard paused. "You gave the same incantation to the other students, didn't you?"</p>
+<p>"Yes. It didn't work as well for them, though."</p>
+<p>Kano watched as the Lord Wizard's face almost seemed to clear, mouth curling into a crooked smile, a chuckle escaping him.</p>
+<p>"How very interesting." With another laugh, he continued strolling forward, seemingly oblivious to Kano's look of confusion. "Do you often use aether spells and incantations?"</p>
+<p>"Yes... I enjoy casting fire, but using aether in spellwork is more interesting. I found some spells in an old tome, so I started teaching myself how to cast them, and then learned how to magnify my fire magic with aether spells."</p>
+<p>"Was it difficult?"</p>
+<p>"At first, yes." Kano hesitated, gesturing vaguely in the direction they'd come from, to the student who had collapsed to the ground in flames. "I haven't told anyone this, but I've noticed something happening to the aether, recently. It feels wrong, somehow. Warped. I don't know how to explain it; I just can't shake this feeling that something big is going to happen."</p>
+<p>That strange smile was still tugging at the Lord Wizard's lips, transforming what may have been intended as an encouraging nod into something vaguely menacing.</p>
+<p>"I understand, Kano. I've been getting that same exact feeling, recently." The Lord Wizard paused, staring into the middle-distance. "We should go speak to the Chamber of the Dragon. They should hear this."</p>
+<p>Without waiting to hear Kano's reply, the Lord Wizard Akihiko began walking down the hallway, pausing only for long enough to check that Kano was following. The Lord Wizard led him down several levels, descending into the innermost levels of the palace. As one of the younger members of the court, and titleless at that, Kano had never had the opportunity to explore this area of the palace. The innermost sector was reserved primarily for the immediate family of the Emperor, and ministers from among the Chamber of the Dragon.</p>
+<p>As they descended, the carved stone walls gave way to gilded panels, great crystals mounted just behind, enchanted so that their fiery light moved like free-flowing magma. The panels cast a warm glow through the halls, illuminating the finely-woven mats that lay underfoot. They descended further still, and Kano took note of the silence that surrounded them as they moved further and further away from the palace's other inhabitants.</p>
+<p>Kano followed Akihiko, mouth pulled into a small frown. The more that he thought about it, the more strange all of this seemed. While he'd never stepped foot inside this part of the palace, he had assumed it would be busy; filled with servants rushing to obey their masters, and ministers and lord wizards making their way to and from various engagements. Yet ever since he stepped foot in this part of the palace, he hadn't seen so much as a simple servant.</p>
+<p>"I didn't realise the chamber's halls were this deep," Kano remarked casually.</p>
+<p>The Lord Wizard stayed silent, his face hidden from view as the man walked two steps ahead of him. Kano quickened his pace slightly, turning his head to look at Akihiko's expression. His former mentor was completely unreadable, his grey eyes cold as steel.</p>
+<p>Kano frowned, noticing the stir of aether in the air, the telltale sign of a wizard preparing to cast a spell. His gaze flicked down to see a ripple of energy over the palms of Akihiko's hands, like the heat waves that rippled above Volcor's pools of molten magma. With a flick of the wrist, Kano caught the fireball thrown at him, allowing the heat to dissipate into the air. He caught the following wave of fire in the palms of his hands, allowing it to spin around him before whipping it back at the Lord Wizard.</p>
+<p>As he sidestepped another fireball, Kano began to draw on the aether around him, hands weaving a spell into being. The arcane energy began to build, and as Kano ducked to one side, he slashed a hand through the air, sending the burgeoning spell flying at Lord Wizard Akihiko. It connected with his energy, visibly dissipating as it smothered the Lord Wizard's arcane connection.</p>
+<p>Akihiko immediately froze, going completely still. Wide eyes stared back at Kano, his pupils constricted, the whites of his eyes showing around the iris. Startled, Kano took a step back, one hand forming an arcane barrier in front of him - and then very abruptly stopped. Even as he watched, the Lord Wizard's skin was taking on a grey pallor, irises and pupils fading to milky-white, branches of violet-green veins showing through his pale skin.</p>
+<p>Slowly, Akihiko's lips drew back into a snarl, teeth bared, his hands curling into fists. The sound that he released was inhuman, an ear-splitting shriek that echoed down the length of the hall. Without warning, the man leapt at him, hands outstretched, clawing at Kano like a rabid animal. Reflexively, he tossed a fireball at his former mentor, who failed to dodge the flames heading straight toward him.</p>
+<p>The fireball immediately collided head-on. With another shrill, deafening shriek, the Lord Wizard collapsed to the ground, writhing in agony. Just as Kano stepped forward, unsure, smoke began to pour from the man's ears and nose, plumes of black smoke that flooded the hall with the smell of sulfur.</p>
+<p>Even as Kano drew the fire away, holding it at the ready, Akihiko continued to writhe on the floor, now eerily silent. With one final shudder, the Lord Wizard Akihiko went still, the last of the smoke escaping from his nostrils.</p>
+<p>After a long moment, Kano allowed the fire to extinguish, cautiously approaching the still form of his former mentor. Now that he lay still, Kano could suddenly see the Lord Wizard's sunken cheeks, the bluish pallor to his skin, the dark rings that circled his eyes. The skin on his hands was wrinkled and dry, his lips cracked, unseeing milky-white eyes staring blankly into the middle distance.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-7.webp" alt="kano-7" class="center">
+<p>The sound of thunderous footsteps startled Kano out of his confusion, whipping around in time to see a host of armored imperial guards racing around the corner. As they came into view, Kano recognised the Lord Wizard at the front of the group, her alarmed gaze meeting his. As he watched, the <span class="hint" hint="Chiyo">Lord Wizard Chiyo</span>'s gaze fell to the body at his feet, shock rippling across her expression at the sight of Akihiko's corpse.</p>
+<p><em>Well, shit.</em></p>
+<p>"This isn't what it looks like."</p>
+<p>The Lord Wizard Chiyo looked back up at Kano, jaw set, her expression shifting into one of horror.</p>
+<p>"Take him to the Chamber of the Dragon."</p>
+<hr />
+<p><em>Source: <a href="https://fabtcg.com/heroes/kano/smoke-and-mirrors/">https://fabtcg.com/heroes/kano/smoke-and-mirrors/</a></em><br>
+<em>Story by Nicola Price.</em>
+<em>Illustrations by MJ Fetesio.</em><br></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/02-arcane-rising/playing-with-fire.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/02-arcane-rising/from-the-ashes.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/02-arcane-rising/playing-with-fire.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/02-arcane-rising/from-the-ashes.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

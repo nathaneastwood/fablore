@@ -1,0 +1,267 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Kassai - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../hero.css">
+        <link rel="stylesheet" href="../image.css">
+        <link rel="stylesheet" href="../tab.css">
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <link rel="stylesheet" href="../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="kassai-cintari-sellsword"><a class="header" href="#kassai-cintari-sellsword">Kassai, Cintari Sellsword</a></h1>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/kassai.webp" alt="kassai-cintari-sellsword" /></p>
+<p>Across the scorched wastes of <a href="../world-of-rathe/volcor/volcor.html">Volcor</a>, generals clash in their quest for power. While the generals are trapped in endless warfare, not every fight is won on the battlefield; sometimes, the greatest threats come from within.</p>
+<p>Kassai was once the daughter of a powerful general, well-versed in the language of war. As the eldest child, she was the heir to her father's legacy, her childhood lost to years of training, preparing for the day that she would take the reins...but that day never came. In a cruel twist of fate, Kassai lost everything in a single night, as her father was overthrown by his own lieutenant. While she escaped with her life, she was forced to leave her family behind.</p>
+<p>As she wandered the deserts, searching for food and water, Kassai stumbled across the Cintari, a group of bloodthirsty brigands who sought the thrill of battle. Recognising her skill with the blade, they inducted Kassai into their ranks. With them, she could lie low and bide her time, gathering wealth and power as she waits for her chance to strike.</p>
+<p>Between the dangerous lava beasts, wandering ronin, and rampant highwaymen, there are plenty of targets for a fight. However, in recent times, word has spread of unrest within the royal court; rumours of wizards struggling to control their abilities.</p>
+<p>As the generals grow increasingly aggressive in their quest for power, Kassai senses an opportunity to raise an army, overthrow the traitor lieutenant, and free her family from his clutches. At long last, Kassai might finally have the opportunity to reclaim what is rightfully hers.</p>
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/the-price-of-war.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>The Price of War</b><br>
+    Word of war is welcome respite for a sellsword; for where there's war, there's work. The promise of copper to feed herself is enough for this nomadic warrior to put her life on the line, and her mind at ease.
+  </div>
+</div>
+<hr />
+<h1 id="kassai-of-the-golden-sand"><a class="header" href="#kassai-of-the-golden-sand">Kassai of the Golden Sand</a></h1>
+<video width="100%" height="100%" controls autoplay muted loop playsinline>
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/kassai-of-the-golden-sand.mp4" type="video/mp4">
+</video>
+<p>A decade of relentless conflict has etched deep scars into Kassai's spirit.</p>
+<p>In Volcor's scorched wastelands, the Cintari taught her how to survive. Now, Kassai walks the merciless path of a battle-hardened warrior, each step leaving the sand stained with the blood of her enemies as she fights to reclaim the life torn from her.</p>
+<p>The days of training to take her father's place are long gone; now she is 'The Terror of the Golden Sands', the most lethal of contestants in the Deathmatch Arena, where life is measured in the brutal clash of blades. The echoes of slashed throats and snapped necks fill her days, drowned out only by the roars of the crowd. Yet the bloodthirsty cheers fall upon deaf ears, for Kassai harbours one singular purpose.</p>
+<p>Every severed head adds another coin to the pile, and Kassai craves not just wealth, but a mountain of it. In this arena, she relentlessly pursues the means to raise an army, a force to topple the usurper who shattered her world. As Kassai faces each adversary, her gaze lingers on the far horizon, anticipating the imminent tempest-when the golden sands of the arena will be swallowed by the sweeping tide of her unbridled vengeance.</p>
+<p>A sandstorm is brewing - carrying whispers of retribution, and at its heart, Kassai stands poised to unleash a fury that will reshape the very landscape of her existence. The sands that bore witness to her fall, will behold her merciless retribution.</p>
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/leader-of-the-cintari.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Leader of the Cintari</b><br>
+    Kassai's life in exile had one driving purpose-to seek revenge on the man who brutally ended her father's reign as a powerful General of Volcor. With her fortune made and the loyalty of the Cintari fully bought and paid for, she is finally ready to lead her raised army into battle.
+  </div>
+</div>
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/something-from-nothing.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Something From Nothing</b><br>
+    Kassai's long years in the deserts of Volcor only served to harden her resolve and make her even more resourceful. Seizing every opportunity to load up her coffers, Kassai knows how to turn her efforts in battle into solid gold rewards, and is able to do so while spending fewer resources than the typical Warrior.
+  </div>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../heroes-of-rathe/kano-about.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../heroes-of-rathe/katsu-about.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../heroes-of-rathe/kano-about.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../heroes-of-rathe/katsu-about.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../tab.js"></script>
+        <script src="../theme/pagetoc.js"></script>
+        <script src="../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

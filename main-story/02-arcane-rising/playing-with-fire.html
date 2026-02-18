@@ -1,0 +1,292 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Playing with Fire - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <p>A distant descendant of the first Emperor, <a href="../../heroes-of-rathe/kano-about.html">Kano</a> was born with the raw power of the dragon's fire within his veins, able to summon flames as easily as breathing. As a court wizard, he lives within the royal palace, enjoying comforts unknown to the masses of <a href="../../world-of-rathe/volcor/volcor.html">Volcor</a>.</p>
+<p>In recent years, something has been stirring, slow and insidious, disrupting the flow of aether within Volcor. Wizards throughout the court have been struggling to control their innate magic, finding difficulty in casting even the simplest aetheric spell. When Kano stumbles upon a mysterious being dwelling within the body of his former mentor, he uncovers a secret that threatens to overwhelm the innermost circles of the royal court.</p>
+<p>In exposing the threat before the Chamber of the Dragon, Kano manages to gain the gratitude of the <a href="../../heroes-of-rathe/emperor-about.html">Emperor</a> himself. Wielding his unique aether affinity, Kano is gifted the title of 'Dracai of Aether'; sent to uncover the truth and correct the imbalance of aether, before every wizard in Volcor is left powerless.</p>
+<h1 id="playing-with-fire"><a class="header" href="#playing-with-fire">Playing with Fire</a></h1>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-1.webp" alt="kano-1" class="center">
+<p>The combined nervous chatter of fourty young wizards was almost deafening, bouncing off the walls in a way that made his ears ring. Ryo looked around the room, gazing at the tense expressions of the other students gathered nearby. One of the youngest in the room looked as if she was going to pass out, her face pale with anxiety, small hands trembling as she teased a flame into existence between her fingers.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-2.webp" alt="kano-2" class="center">
+<p>Ryo ran a hand over his already immaculate robes, straightening the fabric with a small frown. Despite his age, he was already wearing the apophis hairpin that marked him as the Hideshi heir, its obsidian scales gleaming in the firelight. Noting the curious stare of a couple of older students, Ryo dipped his head in greeting, watching as their gaze landed on the hairpin. One of them turned slightly to whisper in the other's ear, hiding the movement of his lips behind one hand.</p>
+<p>Finally, the Lord Wizard Akihiko strode into the room, instantly gathering everyone's attention. The crimson fabric pooled around his feet as he came to a halt, raising one hand.</p>
+<p>"I need each of you to find a brazier and stand next to it." He paused, blinking slowly. "Now, if you please."</p>
+<p>The students burst into a flurry of movement as each one rushed to find a brazier. Ryo stepped behind the nearest brazier, looking down at the golden glow seeping out onto the polished stone tiles.</p>
+<p>"I believe most of you will have already heard about the Trial of Embers before, but for those of you who haven't, I will start from the beginning." Clearing his throat, the Lord Wizard Akihiko gestured to the nearest brazier. "The rules are simple. What you see before you is lava harvested from the crater of Mt. Volcor.</p>
+<p>"Your task is to draw it from the brazier. This may seem simple, but lava is much harder to manipulate than fire or aether. This trial is designed to determine your innate abilities, and your potential as the future wizards of Volcor. The most successful among you may be chosen by one of the Lord Wizards as a deshi, and assume the responsibilities of..."</p>
+<p>Ryo noted several of the students beginning to zone out, their eyes glazing over as they stared off into the distance. If their overseer took any notice, he didn't show it. The Lord Wizard's footsteps echoed through the room, the click-clack of his shoes against the stone tiles rebounding off the walls. Ryo's gaze followed the Lord Wizard as he paced down the line of students, staring ahead with his chin held high.</p>
+<p>"...of course, there are still rules that must be obeyed. This is a test of aptitude and natural ability, and so the use of any arcane item is prohibited. Each of you has descended from the first Emperor of Volcor, gifted with the blood of the Dracai. As members of the royal bloodline, you are blessed with an affinity for fire aether..."</p>
+<p>The student next to Ryo had his head bowed, staring intently at something in the palm of his hand. His long, jet-black hair was pulled up into a high ponytail, only decorated with a single vuurlin feather. The other boy wore his dark grey robes with pride, his dark eyes gleaming with a keen intelligence, expression alight with mischief. He looked slightly older than Ryo, perhaps fifteen, at most.</p>
+<p>Ryo startled at the feeling of something hitting his ankle, glancing over to the student to find him grinning, balancing his weight on one foot as he prepared to kick again. Ryo pointedly ignored him, lips thinning as he continued to stare at the Lord Wizard Akihiko.</p>
+<p>"...more than welcome to observe others, or otherwise prepare for your trial, but do not converse with other students. This is a test of natural ability, and giving another student advice or information is strictly prohibited. Of course..."</p>
+<p>Just as Ryo thought the other boy had given up, he felt a hand slide into his pocket .The boy withdrew, quietly leaning back into his usual spot. After a moment, Ryo reached into his pocket with one hand, withdrawing a small slip of parchment. Slowly, he turned to look over his shoulder, glancing at the other student.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-3.webp" alt="kano-3" class="center">
+<p>"Read it." The whisper was just barely audible, but even watching the boy's face, Ryo wasn't sure he hadn't seen his lips move.</p>
+<p>Ryo lifted one eyebrow before looking down at the note in his hand, fingers cupped to hide it from view. He could see the script faintly shimmering on its surface, just barely visible in the light. Turning silently, he glared at the other boy, gesturing silently to the note.</p>
+<p>"What is this?" Ryo hissed under his breath, gaze flicking to the Lord Wizard, watching him heading back toward them.</p>
+<p>"An incantation." The boy shrugged. "A few of us have got 'em. It'll help with your magic."</p>
+<p>"...now," the Lord Wizard Akihiko suddenly boomed, his voice rising as he came to a halt in the dead centre of the room. "Your trial begins. Show me what you can do."</p>
+<p>Ryo glanced back at the other boy, who was watching him with one eyebrow raised.</p>
+<p>"The Lord Wizard said-"</p>
+<p>"It's just a simple incantation. It's not that different to the ones we've covered before."</p>
+<p>Ryo looked over the symbols with a small frown, recognising only a few of the words.</p>
+<p>"All the wizards use it for this trial. It helps with concentration."</p>
+<p>They both paused at the sound of a distressed cry, turning to look at one of the wizards across the hall. The same girl that Ryo had noticed earlier was standing over her brazier, tears in her eyes, as the molten lava melted the remains of the metal, pouring out onto the stone tiles. The Lord Wizard, standing nearby, shook his head as he moved onto the next student.</p>
+<p>"You only get one shot. You really want to end up like her?" The boy looked back at Ryo with a shrug. "Your choice, I guess."</p>
+<p>As the other student turned back to his own brazier, Ryo frowned, looking down at the note in his hand. With a small sigh, he nodded to himself. Straightening, he stretched his free hand towards the brazier, palm facing the lava pooled within. Ryo muttered the incantation under his breath, and with a gesture, began to draw the lava up into the air.</p>
+<p>The lava answered sluggishly, pushing back against Ryo's control. He could feel its resistance, as if he were trying to force it through a wall of solid stone, and even with all of his concentration, he could barely command it to move. It rose painfully slowly, almost solid as it moved up through the air, obstinate despite Ryo's best efforts. A vein twitched in his forehead, his face flushing with the sheer effort of commanding the lava to move.</p>
+<p>As a bright flare lit the opposite end of the hall, his tentative focus shattered, and his control over the lava snapped. It fell back into the brazier with a strange, hollow sound, not unlike the strike of metal on metal. What splashed over the sides quickly cooled against the stone tiles, solidifying before Ryo could think to remove it.</p>
+<p>The Lord Wizard Akihiko was silent as he passed, gaze fixed on the pool of lava splashed across the stone tiles. With a gesture, he allowed the remainder to extinguish, and Ryo watched silently as the brazier's contents cooled to a dull grey.</p>
+<p>Ryo glanced around the hall to find several others in the same position as himself, their heads bowed. Some had braziers that appeared to be one solid mass of rapidly cooling rock, others had accidentally reduced theirs to a puddle of molten metal and lava. The Lord Wizard Akihiko looked between them all with a dark expression, silently stalking past those among them who had failed. Just as he opened his mouth in preparation to speak, a bright flare of light caught everyone's attention</p>
+<p>The boy to Ryo's left, the same one that had passed him the note, was weaving his lava through the air with a bright grin, his face alight with a crimson glow. Its movements were almost serpentine as it danced around him, glowing brighter with every second. The molten rock became thinner and thinner as the lava superheated, transforming into a vibrant golden orange.</p>
+<p>The lava curled outward, cooling into a mass of scales, whiskers sprouting from the head of the serpentine form. A pair of horns formed from the top of its head, a mouth seperating to reveal a series of sharp teeth, the tongue lolling out as it opened its mouth and roared. With a burst of flame, the lava took the shape of a dragon, burning brighter with each passing second.</p>
+<p>The dragon circled him in one massive loop, weaving through the air, illuminating the wizard's triumphant grin. With a gesture, he sent the dragon flying toward the ceiling, brushing just shy of the rafters before diving back down into the brazier, releasing a shower of molten rock. They paused just before they hit the floor, reversing their trajectory to land back inside the brazier, and the mass of lava coalesced back into one molten pool once more.</p>
+<p>Ryo heard several of the other students gasp behind him, and turned slightly to see the Lord Wizard drawing closer, something unreadable barely visible within his carefully blank expression.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-4.webp" alt="kano-4" class="center">
+<p>"Well done, Kano. Good work." After a long moment, the Lord Wizard finally gave Kano a simple nod before turning back to the other students, continuing on to inspect those remaining.</p>
+<p>Over the glow of his brazier, Kano grinned, winking at Ryo.</p>
+<p>"What was the incantation you gave me?" He asked, watching the other wizard with a small frown.</p>
+<p>"I found it in a tome in the palace library.."</p>
+<p>"...You didn't know what was going to happen?"</p>
+<p>"It worked when I used it. I don't know what went wrong when you tried." Kano met his gaze with a blink, shrugging. "Hey, it could have helped. I didn't know it would backfire. Anyway, you're not the only one."</p>
+<p>Ryo turned slightly to look at some of the other students who had failed, staring at the state of their braziers.</p>
+<p>"You do realise that the Lord Wizard will find out, right? Everybody's going to know you cheated."</p>
+<p>Kano shrugged. "Worth it."</p>
+<p>As the other students began to filter out of the room, Kano followed suit, giving Ryo a little wave as he left through the main door. The few of them that had used Kano's incantation were kept behind, subjected to a long lecture from the Lord Wizard and questioned about the results of their trial. Mysteriously, all of them realised that Kano's notes had disintegrated into fine, powdery ash, erasing the only evidence of the incantation.</p>
+<p>Deep within the royal palace, the seventy-eight members of the Chamber of the Dragon were gathered in the great hall. The gold leaf panel at the back of the room almost seemed to shimmer in the lantern light, disguising a passage leading to the innermost section of the palace.</p>
+<p>"The Trial of Embers took place this morning. Of the twenty-eight students that were tested, nineteen successfully completed the trial." The Lord Wizard Akihiko hesitated, clearing his throat. "One of these students displayed the aptitude of Caldera."</p>
+<p>A low murmur rippled through the room as the Chancellor frowned, dipping his chin to stare at Akihiko.</p>
+<p>"That's impossible for a wizard of his age."</p>
+<p>"We couldn't find any runestones or charged crystals, the brazier was unmarked, and we did not find evidence of a sigil. I cast the aetheric ward myself, and its efficacy was tested by three senior wizards. The boy should not have been able to cast or draw aether."</p>
+<p>The Lord Chancellor frowned, rubbing his chin thoughtfully.</p>
+<p>"Interesting. Keep a close eye on him, Lord Wizard Akihiko. If he truly did use an aetheric spell, in spite of your wards, this student of yours may prove useful."</p>
+<hr />
+<p><em>Source: <a href="https://fabtcg.com/heroes/kano/playing-fire/">https://fabtcg.com/heroes/kano/playing-fire/</a></em><br>
+<em>Story by Nicola Price.</em>
+<em>Illustrations by MJ Fetesio.</em><br></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/02-arcane-rising/full-steam-ahead.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/02-arcane-rising/smoke-and-mirrors.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/02-arcane-rising/full-steam-ahead.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/02-arcane-rising/smoke-and-mirrors.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

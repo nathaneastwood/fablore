@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Slings and Arrows - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <p>A life on the streets has hardened <a href="../../heroes-of-rathe/azalea-about.html">Azalea</a>, leaving her cynical and callous. Fighting to survive, she taught herself to hunt and kill, honing her skills to a fine edge.</p>
+<p>Working out of the Blackjack's Tavern, Azalea has carved out a reputation for herself as one of the best mercenaries in the <a href="../../world-of-rathe/pits/pits.html">Pits</a>. In contrast to the anarchy and disorder that surrounds her, Azalea carefully selects each contract, going to great lengths to secure a flawless execution.</p>
+<p>While Azalea has come a long way, she has yet to realise that she is just one small cog in the giant, decrepit machine of the Pits...</p>
+<h1 id="slings-and-arrows"><a class="header" href="#slings-and-arrows">Slings and Arrows</a></h1>
+<p>It was always cold and damp in the Pits, the underground caverns hidden well away from the reach of sunlight. Industrial waste tainted the water an inky green, coating the cavern walls in a layer of oily copper residue.</p>
+<p>Left to the mercy of the Pits, abandoned children lurked around every corner, scurrying through the shadows like rats. Tiny, skeletal figures hiding in alleyways, dangerously desperate, clutching makeshift weapons in their shaking hands. The squeakers fought like the vermin they were, teeth bared, ripping into flesh with knife and tooth and nail, clawing out eyes and tearing away skin. While feral and vicious, they are still little more than pests to the denizens of the Pits, an insignificant speck in a sea of anarchy.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-1.webp" alt="azalea-1" class="center">
+<p>Hiding in alleyways and beneath buildings, a nameless girl shivered in the shadows, her nights passing in a haze of fever dreams and stiff limbs. The chill never left, cold set deep into her bones, ragged clothing doing little to protect her from the damp, diseased air. Shaking hands and blue lips were a close companion of every squeaker.</p>
+<p>While others died around her, the tiniest scraps of luck allowed her to survive, saving her fate for another day. A sickness that finally loosened its grip, a scrap of food dropped near the edge of the alleyway, a tattered coat peeled from an abandoned corpse. The smell of death, fetid and threadbare, clung to her every pore, both a warning and a promise.</p>
+<p>Surrounded by the dead and dying, she watched as other children succumbed to the dangers of the Pits. Hollow cheeks and bloated stomachs, lying still within the shadows. Beaten and bloodied, fallen next to the corpse they'd been fighting over, their hands still curled into fists. Slumped against a wall on the main streets, eyes staring blankly, ignored by anyone who walked by. Sometimes, she came across the remains of a small skeleton, stripped of even their flesh by the desperate and the dying.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-2.webp" alt="azalea-2" class="center">
+<p>She tried to learn from everything she found, poking at the remains of those around her. Don't steal from the taverns. Don't go near the mercenaries. Never remain in the open. Avoid the brain and the organs. Never drink from the river. Don't go in the water. Don't go near the dregs. Avoid the travelling merchants. Don't ever get caught.</p>
+<p>She learned to bury herself in dust and dirt before sleeping, digging a sleeping space for herself beneath foundations. She learned to climb onto rooftops and travel above, where she could watch without being seen. She learned to create makeshift daggers from broken glass, how to avoid being noticed, which dumpsites from <a href="../../world-of-rathe/metrix/metrix.html">Metrix</a> weren't monitored. When she found the bow, she learned how to carve new handholds in the wood, spent weeks firing at a makeshift target. She tied cord to her arrows and went down to the water, spending hours attempting to spear a fish.</p>
+<p>It was not luck alone that kept her alive. She learned from the mistakes of others, taught herself new skills, studied the adults to find out what separated her from them. Where they got their coin, what they spent it on, their habits and routines and equipment. What allowed them to survive? She studied the mercenaries that emerged from the taverns, bearing pouches of '<span class="hint" hint="tallics">tallics</span>, their weapons always at hand. Some became stronger, bigger, more powerful, bearing the mark of a spade and three daggers.</p>
+<p>She followed one back to his main hideout, looking up at the sign of the tavern. She watched everyone who visited the building, taking note of which ones seemed to be the most powerful. Where gangs rose and fell, where other mercenaries died, these were the ones that continued to come back. And so, she set her sights on Blackjack's.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-3.webp" alt="azalea-3" class="center">
+<hr />
+<p><em>Source: <a href="https://fabtcg.com/heroes/azalea/slings-and-arrows/">https://fabtcg.com/heroes/azalea/slings-and-arrows/</a></em>
+<em>Story by Nicola Price.</em><br>
+<em>Featuring illustrations by <a href="https://www.artstation.com/danieljimenez">Daniel Jiménez</a>.</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/01-welcome-to-rathe/wanderings-in-the-mists.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/02-arcane-rising/cards-on-the-table.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/01-welcome-to-rathe/wanderings-in-the-mists.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/02-arcane-rising/cards-on-the-table.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

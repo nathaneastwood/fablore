@@ -1,0 +1,306 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>A Rising Star - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <p><em>Once a land of fables, <a href="../../world-of-rathe/aria/aria.html">Aria</a> was disconnected from the rest of Rathe, protected from the conflicts and troubles that plagued the rest of the world. Its people were well-cared for by a plentiful land, nurtured by the energy of the Flow. As the landscape changed, shaped by the passage of the Flow, the transformations shaped the people of Aria as well. Its cheerful and carefree people have cultivated a culture rich in music, entertainment and celebration.</em></p>
+<p><em>However, in recent times the Flow has become increasingly unstable, and a growing number of outsiders are entering Aria. The volatile energy of the Flow is changing the landscape of Aria faster than ever before, bringing a sense of unease and confusion to its people. Amongst the uncertainty and disquiet, the traditions and festivals of Aria have become more important than ever, bringing a measure of peace to the hearts of the people.</em></p>
+<h1 id="a-rising-star"><a class="header" href="#a-rising-star">A Rising Star</a></h1>
+<p>Even amongst the many taverns, festivals and celebrations of Aria, nothing could possibly compare to the excitement of the Everfest Carnival. A massive, moving circus, the Everfest travels throughout Aria, a sea of brightly coloured big-tops boasting the biggest collection of performances in all of Rathe. Yet of all its acts, none were so famous or beloved as <a href="../../heroes-of-rathe/bravo-about.html">Bravo</a>'s Legendarium.</p>
+<p>Bravo was raised amongst the strongmen and animal acts of the Valdur, growing up alongside great, majestic cesari, and tiny meeps that darted from stall to stall. Many of his closest friends were members of the Maela; oracles, bards, skalds, enchanters and fortune-tellers, all breezing about the Everfest in loose silks and layers of golden jewellery.</p>
+<p>One of the Maela elders, a woman with fine white hair and a single eye, always made time for the young boy. She often spent time sharing the tales of Aria with him, spinning both fantastical tales and old legends. Bravo listened to tales of powerful enchanters and mysterious shamans, of magical artefacts and hidden wonders. It sparked a hunger for stories untold, and even as an adult, Bravo continued to seek out more.</p>
+<p>One day, when he was eighteen years old, Bravo decided to perform one of the old legends within the Carnival, bringing it to life upon the stage. Joined by a bard, two strongmen and an enchantress, he recreated one of Aria's most beloved tales; the legend of Magnus the Vigilant.</p>
+<p>The performances quickly became a staple of the Everfest, transforming into the Legendarium. As the act's popularity continued to grow, so did the size of Bravo's troupe. By the age of twenty-six, Bravo had amassed a troupe of over thirty performers and stagehands, with an act that was beloved by audiences across Aria.</p>
+<p>While the troupe had their fair share of followers, it was Bravo who often found himself at the centre of attention. He quickly found himself overrun by avid fans, his charisma and confidence earning him admirers everywhere he went. Yet even as he enjoyed performing, there was a part of him that still longed for more.</p>
+<h1 id="call-to-adventure"><a class="header" href="#call-to-adventure">Call to Adventure</a></h1>
+<p>During a life travelling with the Everfest Carnival, Bravo had visited every village in Aria - yet no matter how many he travelled to, Aldevyr remained one of his favourites. A sprawling village, its buildings were scattered across the plains, flowers and herbs growing in rolling meadows. In the midst of summer, the Everfest made its way to Aldevyr once more, greeted with the sight of lush, dense meadows overrun with flowers.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/bravo-1.webp" alt="bravo-1" class="center">
+<p>With the Legendarium on hiatus, many of the troupe members had scattered across Aria, taking their time to visit other villages and explore. After spending the previous day helping to set up the many tents and stalls of the Everfest, Bravo was looking forward to spending his morning in the company of a nice, tall glass of alder cider inside the local tavern.</p>
+<p>However, just as he was fastening the buttons on his favourite crimson coat, he heard someone clear their throat. In the open doorway of his tent, Gawain and Morgan stood, imposing even in the light of the morning sun.</p>
+<p>Bravo had met the duo many moons ago, when they first arrived within the Everfest. Seeing their broad shoulders and muscles, their old-world appearance, and their stalwart natures, Bravo had approached and asked the pair to join his troupe. Reserved and taciturn, they were excellent at supportive roles, and quickly became staple members of the Legendarium.</p>
+<p>With the act currently on break, it was hardly surprising to see the pair with packs and travelling gear. However, when Bravo asked about their plans, they stared at him blankly.</p>
+<p>"The wayfinders have summoned us." Morgan was the slightly more talkative of the pair, his deep timbre echoing in the small space. "We leave for the Fractal Scar."</p>
+<p>Bravo looked from their grim expressions, to the packs upon their shoulders, to the weapons clasped at their sides. While Gawain and Morgan originally arrived at the Everfest with a pair of finely crafted greataxes, Bravo rarely saw the weapons. To see the greataxes once more, in the same moment that Gawain and Morgan were departing for the Fractal Scar at the request of a wayfarer...</p>
+<p>It reminded Bravo of the tales that they performed, of noble defenders leaving on a quest; an adventure that would take them across Aria in the pursuit of protecting the innocent. Gawain and Morgan, leaving on some grand journey; clad in armour and furs, wielding their greataxes with pride. Travelling for months, perhaps years; a journey taking them from village to village in search of their target, helping townsfolk and rescuing fair maidens from harm. At last, when they arrive at their destination, a great evil would appear before them, one that they are destined to defeat...</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/bravo-2.webp" alt="bravo-2" class="center">
+<p><em>Gawain and Morgan stood toe to toe with an ancient creature, something long forgotten by the people of Aria. Covered in scales, it raised its head with a bellowing roar and launched itself toward them. They fought valiantly, taking blow after blow as they worked together to defeat the beast. At last, Morgan got close enough to the creature to find an opening in its defenses. With a single swing of his greataxe, he beheaded the great beast, silencing it once more. They return to the townsfolk with the creature's head, arriving to the sound of cheering. The townsfolk hold a festival in their honour, a token of thanks for their valiant heroes...</em></p>
+<p>Bravo clapped once, decisively, nodding his head.</p>
+<p>"I'm coming with you."</p>
+<p>Gawain and Morgan looked to one another, the taller of the pair silently raising an eyebrow. After a long moment, they turned back toward him. To anyone else, Gawain's expression would have looked exactly the same, but Bravo had known him long enough to glimpse an air of resignation in his fixed stare.</p>
+<p>Morgan shrugged. "We leave at noon."</p>
+<p>It didn't take long for Bravo to gather his things, his pack still mostly untouched from arriving in Aldevyr the previous day. The last thing he gathered was his beloved mallet, Anothos, forged from polished wood and finely hammered silversteel. He stopped to visit his companions amongst the Maela, and those of his troupe who had stayed within Aldevyr. Once he had said his goodbyes, he left to meet Gawain and Morgan just beyond the outermost circle of tents.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/bravo-3.webp" alt="bravo-3" class="center">
+<h1 id="the-heros-journey"><a class="header" href="#the-heros-journey">The Hero's Journey</a></h1>
+<p>The trio began their journey across Aria, making their way toward the massive crystalline cliffs of the Fractal Scar. The long days and balmy evenings of midsummer allowed them to spend more hours travelling during the day, spending their nights sleeping beneath the gentle light of the stars. The towns they passed through were more than happy to give them a place to rest, gifting them fruit, bottles of ale, and loaves of fresh bread for them to take on their journey.</p>
+<p>While travellers were common across Aria, the trio encountered more travellers than usual heading in the same direction as themselves, mysterious individuals that seemed out of place amongst the quiet, peaceful villages. An enchantress garbed in fine, iridescent silks; a strongman wearing simple stage armour; a wayfarer dressed in verdant broadcloth and worn brown leathers; a young woman with pale hair dressed entirely in <a href="../../world-of-rathe/aria/creatures.html#kaieo">kaie'o</a> fur; a giant of a man wearing a massive horned helm; and all of them travelling toward the Fractal Scar.</p>
+<p>However, as they grew closer to their destination, the atmosphere began to change. The towns and villages they visited seemed a little quieter. Despite the bright sunshine and balmy warmth of midsummer, there was no birdsong, no kaie'o darting across the fields, no fianna roaming the landscape. It seemed as if there were no animals to be found at all, and none of the towns they visited seemed to know why all the creatures had disappeared. Each person they spoke to only described the feeling of waking up one morning to an unusual silence and venturing outside to find the plains empty.</p>
+<p>The three men began to feel an increasing sense of urgency. Every wayfarer they passed on their journey seemed to fly across the earth, racing past with their dowsing discs aglow. Some travelled on foot, traversing the rolling fields with surprising speed; others rode on the backs of fianna and <span class="hint" hint="Vitreo">vitr'eo</span>, their long braids streaming behind them as they sped past, in the opposite direction to the Fractal Scar.</p>
+<p>One night, they stopped in a village close to their destination, arriving to find the buildings dark and quiet. The townsfolk were nowhere to be found, their belongings left behind, plates still set on tables, mugs of cider and mulled wine still sitting out, half-empty.</p>
+<p>While Gawain and Morgan scouted out the rest of the village, Bravo searched the local tavern, looking for some sign of the people that had abandoned their homes. All of the casks were intact, chairs left sitting at their tables, the beds upstairs half-made. Some of the rooms still had packs in them, though none revealed any clues about their missing owners.</p>
+<p>As Bravo began to make his way downstairs, he heard a quiet chitter. Anyone who visited the Everfest Carnival knew to keep an eye out for the mischievous meeps. Growing up within the Everfest, Bravo had developed a keen awareness for the sound of a meep making its move, the only warning one might get before the creatures ran off with one's purse.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/bravo-4.webp" alt="bravo-4" class="center">
+<p>Sure enough, Bravo turned to find a meep sitting on the balustrade, its beady little gaze fixed pointedly on one of Bravo's golden earrings. It was incredibly rare to find a meep outside of the Everfest Carnival, the perfect environment for the tiny thieves. Yet here one was, and in a deserted village no less.</p>
+<p>Several minutes later, Bravo descended to find Gawain and Morgan waiting for him, leaning against the tavern's counter. As they turned toward him, he watched their gaze flick to his missing earring, and then to the meep sitting happily on his shoulder, a single gold ring strung onto its tail. In response to their confused looks, the meep chittered happily, waving its prize in the air.</p>
+<h1 id="transformation"><a class="header" href="#transformation">Transformation</a></h1>
+<p>According to Morgan, the wayfarers had set up camp near the Fractal Scar, rallying those who came to offer their aide. Marbles, drawn to the flash of sunlight reflected by the dowsing discs, led them from wayfarer to wayfarer, all making their way to the Fractal Scar. They were soon pointed in the right direction, and without Marbles' help, it may have taken them weeks to find their way through the icy plains.</p>
+<p>However, when they finally arrived at the village, the scene before them sent a chill down their spines. Unlike the gentle, rolling meadows of Aldevyr, the village that lay before them was an ashen husk of its former self. Houses lay abandoned, open doors swinging in the wind, blood smeared against the charred wood.</p>
+<p>The wayfarers had claimed a small section of land at the edge of the village, making use of the blacksmith's forge as a meeting place. Bravo approached one of them, a slender young man in the process of restringing his bow. Like many of the other wayfarers, he sat with his shoulders slumped, dark circles hanging beneath his eyes, skin sallow, eyes drooping closed with every other breath. Clearing his throat, Bravo politely greeted the young man, receiving a small, tired smile in response. Both stared silently for a moment, speech faltering, before Bravo finally gestured to the village around them.</p>
+<p>"What happened?"</p>
+<p>With a sigh, the young man began to share a report from one of the older wayfarers. Many years ago, a group of wayfarers had come across a massive sinkhole to the south of Aria, where the earth had suddenly caved in. Assuming that it was the work of the Flow, they filled in the sinkhole with the help of some local townsfolk and thought nothing more of it.</p>
+<p>Then, several months ago, in the early hours before dawn, a deep, rolling rumble woke several villages from their slumber. The ground quaked as people emerged from their homes, searching for the source of the sound - but found nothing. No changes had affected the land around their town, no shimmer in the air to show the influence of the Flow; it seemed as if the earth itself had mysteriously risen from a deep slumber.</p>
+<p>Some of the townsfolk set out to check the surrounding area, only to stumble across the cause by accident. They witnessed the surface of the earth begin to crack apart, and before anyone could think to get to safety, a swarm of creatures burst out of the sinkhole, clawing their way through the pile of loose dirt.</p>
+<p>The swarm descended upon the town and any villages near the Fractal Scar in a mindless rampage, slaughtering anything that crossed their path. The wayfarer called them dregs, humanoid figures with bloated, rotting bodies; their faces were a mass of melted, discoloured skin, dripping the length of their bony, twisted limbs. When they attacked, the air was heavy with the smell of burning flesh, bile and decay, steam rising from their open wounds.</p>
+<p>After giving Bravo, Gawain and Morgan some advice on how to kill the creatures, he told them where to go next; a village heavily hit by the attacks, where their help was desperately needed.</p>
+<p>For months, they travelled along the edges of the Fractal Scar, hunting down dregs and helping others who had stepped up to the task. Some of the villages that they came across were still occupied, their townsfolk carefully guarded by defenders in makeshift armour. Other villages lay abandoned, left vacant by fleeing townspeople, destroyed by the swarm of dregs following in their wake.</p>
+<p>Marbles helped in his own way, darting onto Bravo's shoulder to chitter at drained defenders and anxious townsfolk. His tiny, expressive face often brought a smile to people's faces, bringing some amount of levity to the tension hanging in the air.</p>
+<p>Even as his heart grew weary, Bravo began to grow accustomed to this new way of life, learning to use Anothos for true battle. Hunting dregs alongside Gawain and Morgan, Bravo developed skills necessary to keep himself alive, and eliminate the creatures that threatened his home.</p>
+<h1 id="final-battle"><a class="header" href="#final-battle">Final Battle</a></h1>
+<p>The trio were making their way back to the wayfarer's base, seeking another quest, when they received word of a large swarm of dregs travelling further into Aria. A call went out to anyone within range, asking them to gather at a nearby valley. The trio immediately changed course and made their way to the meeting point, arriving to find a small crowd preparing themselves for battle.</p>
+<p>Even to one who had grown up in the Everfest Carnival, the collection of people gathered in the valley were mysterious and unfamiliar. Makeshift armour, worn leathers, faded silks and mended linens were worn alongside ancient helmets and layers of golden jewellery. Some looked as if they had stepped straight out of an act in the Everfest, others as if they'd just emerged from the tavern for the first time in months.</p>
+<p>Yet all of them were prepared to fight, weapons at the ready, from bows to greataxes, hammers to daggers, enchantments to potions and poisons. The defender at the head of the valley, a towering man dressed in a patchwork collection of various pieces of armour, called everyone to arms. Those gathered leapt into action, following him over the hill and toward the village to face the swarm.</p>
+<p>A massive group of dregs milled about the buildings, eerily silent as they moved. Some of them dragged chains behind them, still attached to manacles around their neck. Others had scraps of torn fabric hanging from their skin or clutched at pieces of armour and leather. One had a human hand clasped in its claws, still wearing a strange metallic gauntlet on what remained of its forearm.</p>
+<p>As a battle cry went up, the swarm turned towards the commotion. The dregs were faster than Bravo had expected, moving quickly despite their bent and twisted limbs. The pungent smell of decay filled the air, thick and cloying, building at the back of his throat until it burned. Swinging Anothos overhead, he slammed the hammer into a dreg's skull, sending it colliding into the earth. Turning on his heel, he caught another in the temple before it could sink its claws into him.</p>
+<p>One of the larger dregs towered over him, a snarl escaping from somewhere behind the mass of melted skin covering its face. As it lunged toward him, he stumbled, and couldn't raise Anothos in time to stop it from tearing into his arm. Out of the corner of his eye, he caught a glimpse of another dreg advancing, its mouth hanging partially open as it threw itself forward.</p>
+<p>In that instant, Bravo suddenly felt the world tilt sideways, and a number of things happened in quick succession. A sharp pain burst to life behind his eyes, almost blinding him. The world took on a bright, hazy glare, an unnatural heat coursing through his veins. For just a moment, he could have sworn that he saw a spectral shape in the air before him, curling through the light in the same way that a cesari moves through the air. That same iridescent light coiled up his arm, charging through the polished wood of Anothos. The hammer shimmered, and a rainbow of colours burst forth, radiant and shining.</p>
+<p>Instinctually, he swung Anothos in a wide arc, and the mallet collided with the bottom of the dreg's jaw. Its skull immediately exploded, fragments of bone dropping to the grass at its feet. Bravo charged at the other dreg on his left, taking its head off its shoulders with a single swing, and a sickening, liquid crunch. Gawain and Morgan appeared in the midst of the fray, joining him on either side, their greataxes a flash of silver in his peripheral vision.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/bravo-5.webp" alt="bravo-5" class="center">
+<p>Dreg after dreg collapsed to the ground, bodies dropping to encircle Bravo as he made short work of the creatures around him. Every swing sent another dreg slamming into the earth, bones cracking beneath the force of every hammer strike. Before long, the last dreg fell, leaving the village silent as every person present slowly turned to look at their surroundings.</p>
+<p>A cheer sounded through the valley, ringing between the buildings as everyone gathered themselves, pleased to see their companions still standing. Gawain and Morgan turned toward Bravo, mostly unharmed, relief and pride colouring their usual deadpan expressions.</p>
+<p>In the coming days, they helped to search the hills for any remaining dregs, but with the majority of the force dealt with, it seemed as if peace would reign once more. Some of the townsfolk even began to return to their original homes, as defenders helped to set up protective measures and begin repairs.</p>
+<p>Bravo spent most of his time with the villagers, talking with the townsfolk and putting on short performances alongside Gawain and Morgan. Many of those present recognised from the Everfest Carnival, and he soon found himself the star of the show once more.</p>
+<p>While the villages had only just begun the long road to recovery, they put on a festival to celebrate their victory, making Bravo one of their honoured guests. He stopped to talk to each person that wanted to offer their gratitude, accepting their kind words with a smile and wink.</p>
+<p>After many months away from their home, Bravo and his companions finally decided to return to the Everfest Carnival. Saying their goodbyes, they began to make their way north, Marbles in tow.</p>
+<h1 id="homecoming"><a class="header" href="#homecoming">Homecoming</a></h1>
+<p>The entire troupe was waiting for them when they arrived, welcoming them home with wide smiles and no small amount of celebration. The Legendarium's bard, Mikael, was bursting with new ideas, launching into a report of all the new stories he'd learned while in the Milesian Ranges. Meanwhile, Marbles emerged from Bravo's pack, greeting the troupe with an excited chitter.</p>
+<p>While he was happy to see his family and friends once more, it felt strange to return to the Everfest after spending so many months away. Even as he greeted his troupe, his mind drifted back to the battles and the creatures they faced, the happiness expressed by each villager as they finally returned home.</p>
+<p>He had heard wayfarers speak of unusual changes in the Flow, and one had hinted that the dregs were not the only threat to Aria. Change was coming rapidly, and the events at the Fractal Scar were only the beginning. Bravo would not lose the Everfest to creatures like the dregs, and he would not let it be destroyed, like the barren villages that they had come across in their travels. He vowed to find a way to protect the Everfest Carnival, and all the other villages and towns that they visited across Aria.</p>
+<p>As Bravo greeted his companions, following them into the sea of tents with a broad grin, a single figure remained near the edge of the tents. An old woman, dressed in the loose silks and woven fabrics of the oracles, her golden jewellery marking her as one of the Maela. Her single eye gleamed as she watched Bravo leave, a small smile tugging at the corners of her lips.</p>
+<p>"At last, it is time. The Guardians shall return once more."</p>
+<hr />
+<p><em>Source: <a href="https://fabtcg.com/heroes/bravo-showstopper/?stories=True">https://fabtcg.com/heroes/bravo-showstopper/?stories=True</a></em><br>
+<em>Story by Nicola Price.</em><br>
+<em>Illustrations by MJ Fetesio, colour by Sindy Wo.</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/03-crucible-of-war/edge-of-autumn.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/01-welcome-to-rathe/pride-of-the-ironsongs.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/03-crucible-of-war/edge-of-autumn.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/01-welcome-to-rathe/pride-of-the-ironsongs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

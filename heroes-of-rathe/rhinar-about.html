@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Rhinar - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../hero.css">
+        <link rel="stylesheet" href="../image.css">
+        <link rel="stylesheet" href="../tab.css">
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <link rel="stylesheet" href="../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="rhinar-reckless-rampage"><a class="header" href="#rhinar-reckless-rampage">Rhinar, Reckless Rampage</a></h1>
+<video width="100%" height="100%" controls autoplay muted loop playsinline>
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/rhinar.mp4" type="video/mp4">
+</video>
+<div class="tab-container">
+    <div class="tab active-tab" onclick="openTab('wtr')">Welcome to Rathe</div>
+    <div class="tab" onclick="openTab('hvy')">Heavy Hitters</div>
+</div>
+<div id="wtr" class="tab-content active-content">
+    <p>In the depths of the <a href="https://legendarystories.net/world-of-rathe/savage-lands/savage-lands.html">Savage Lands</a>, a lone brute has carved out his territory in blood and bone. Abandoned to the mercy of the jungle as a cub, he fought to survive, fending off vicious beasts and scavengers. Yet this struggle has forged an alpha predator, relentless and unflinching, tearing through anything that gets in his way.</p>
+    <p>Reckless, savage and uncontrollable, Rhinar is driven by his bloodlust and base instincts. When he fights, he enters a bloody frenzy. Everything around him becomes a threat, the ground turning slick with blood as he blindly butchers everything in his path.</p>
+    <div class="hero-container">
+      <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/intimidate.webp" class="hero-icon" />
+      <div class="hero-content">
+        <b>Intimidate</b><br>
+        Fear. A weapon more powerful than tooth, claw, or club. Rhinar showcases his status as an apex predator with his ability to intimidate the enemy, immobilizing their defenses with his terrifying bellows.
+      </div>
+    </div>
+    <div class="hero-container">
+      <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/roll-the-dice.webp" class="hero-icon" />
+      <div class="hero-content">
+        <b>Roll the Dice</b><br>
+        Recklessly unpredictable. When a brute succumbs to instinct, anything can happen. To be an alpha brute, you'll have to throw caution to wind and roll the dice!
+      </div>
+    </div>
+    <div class="hero-container">
+      <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/strong-survive.webp" class="hero-icon" />
+      <div class="hero-content">
+        <b>Strong Survive</b><br>
+        The rule of the Savage Lands is simple; The Strong Survive. "Strength matters" is shown by the many brute cards and effects that are turned on by attacks with 6 or more power.
+      </div>
+    </div>
+</div>
+<div id="hvy" class="tab-content">
+    <p>From the heart of the <a href="https://legendarystories.net/world-of-rathe/savage-lands/savage-lands.html">Savage Lands</a>, Rhinar hungers for the savage thrill of the hunt. Fueled by a relentless bloodrage, he has wandered the untamed wilderness, seeking something mighty enough to quench his primal thirst. However, his instincts have pulled him North-guiding him to a new battleground, the Deathmatch Arena.</p>
+    <p>To Rhinar, the arena is an extension of his savage dominion. Here, he confronts Rathe's mightiest creatures, tearing them apart with a lethal blend of raw power and cunning. The arena-masters, stunned by his ferocity, have thrust him into the limelight as their spectacle of unbridled brutality. Yet, fame means nothing to Rhinar; he craves only the satisfaction of sating his insatiable bloodlust and solidifying his reign as Rathe's apex predator.</p>
+    <p>Feared by foes and celebrated by crowds, Rhinar pays no mind to the adoration or disdain swirling around him. Indifferent to the roars of spectators, he heeds only his primal instincts. With reckless abandon, he unleashes his reckless rampage on any fool who crosses his path, etching his name as an unstoppable force in the Deathmatch Arena.</p>
+    <div class="hero-container">
+      <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/an-intimidating-display.webp" class="hero-icon" />
+      <div class="hero-content">
+        <b>An Intimidating Display</b><br>
+        Already capable of reducing the bravest warriors to quivering mush, Rhinar has become even more terrifying in his displays of ferocity. By brazenly and boldly beating his chest, Rhinar is now able to empower actions throughout his turn.
+      </div>
+    </div>
+    <div class="hero-container">
+      <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/seize-on-the-fear.webp" class="hero-icon" />
+      <div class="hero-content">
+        <b>Seize on the Fear</b><br>
+        More than ever, Rhinar is ready to capitalise on the terror he sows, with a host of new effects designed to increase the pain and punishment for an opponent that succumbs to his intimidation.
+      </div>
+    </div>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../heroes-of-rathe/puffin-about.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../heroes-of-rathe/riptide-about.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../heroes-of-rathe/puffin-about.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../heroes-of-rathe/riptide-about.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../tab.js"></script>
+        <script src="../theme/pagetoc.js"></script>
+        <script src="../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

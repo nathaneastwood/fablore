@@ -1,0 +1,254 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Lands of Legends - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="the-land-of-legends"><a class="header" href="#the-land-of-legends">The Land of Legends</a></h1>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/world-of-rathe/aria/korshem.webp" alt="korshem" /></p>
+<p>For eons, the realm of Aria has remained untouched by the passage of time. Far removed from the chaos and struggles that enveloped the rest of Rathe, its beautiful flora and fauna are as vibrant and welcoming as the diverse people that live here. Great mountain ranges glitter with ice and snow, as fast forests of green and gold stretch out far into the distance, teeming with life.</p>
+<p>But it wasn't always this way.</p>
+<p>There's few that can recall the horrors of the Third Age, before this Age of Man. A time when humanity stood alongside mighty Ancients against the Aesirs to defend this shattered world, locked in great wars that had raged since the beginning of time.</p>
+<p>These tales had been lost throughout the ages, left only in whispers of fables and legends, but the touch of the defenders and their allies can still be felt throughout Aria. Their essence and their power linger to this day; from imposing fortresses and breath-taking vistas, to the strands of the Flow comprised of the Ancients' elemental essence, to the natural and magical defences that shield Aria from the outside world, the grandeur and history of the defenders and their allies live on.</p>
+<h3 id="isenloft"><a class="header" href="#isenloft">Isenloft</a></h3>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/world-of-rathe/aria/isenloft.webp" alt="isenloft" /></p>
+<p>A mighty citadel that overlooks the only passage into Aria, Isenloft stands proudly amidst the Isen Ranges that separate western Aria from the rest of Rathe. Once the stronghold of the Order of Ollin, Isenloft was the first line of defence against the legions of the void. The element of Ice and Earth converge here in a breath-taking spectacle, as the mighty mountains stretch up into the heavens against the harsh gales at the heart of Mt. Isen.</p>
+<p>At the end of the Third Age, Isenloft was frozen by a tremendous burst of Elemental energy. Its existence has since been forgotten by the people of Aria, until recent times when the ice that had enveloped it for centuries begins to melt, and the Ollin awaken once more.</p>
+<h3 id="volthaven"><a class="header" href="#volthaven">Volthaven</a></h3>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/world-of-rathe/aria/volthaven.webp" alt="volthaven" /></p>
+<p>It's said that when the Ancient of Lightning and Ice, Yvor, fell in the defence of its people, its body drifted up into the heavens and formed the isles of Enion. Floating high above the skies to the north of Isenloft, powerful streaks of Lightning flow through its skies, as the essence of Lightning and Ice converge here in a violent fashion.</p>
+<p>The people of Volthaven wandered here by accident, not too long ago, and fell in love with its breath-taking views and the boundless energy that dances through its skies. They founded Volthaven upon one of these isles, and with the help of skilled wayfarers and wise shamans, carefully guide their beloved island home as they drift slowly through Enion.</p>
+<h3 id="candlehold"><a class="header" href="#candlehold">Candlehold</a></h3>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/world-of-rathe/aria/candlehold.webp" alt="candlehold" /></p>
+<p>Deep within the woods, to the east of Korshem, lie the secretive grove of Candlehold. The essence of Earth and Lightning is strong here, converging into a potent elemental energy called the Strale which is aggressive and volatile, unlike the soft and gentle Flow that permeates the rest of Aria.</p>
+<p>The Queen of Candlehold sits atop a throne of elderwood as her mind wanders to the time of the Ancients. Her people, once mighty defenders, has fallen from grace after the fall of the Ancient <span class="hint" hint="Davnir">Davnir</span>, father of the Earth. They've been trapped within this beautiful grove for eons, bound and melded with the Strale, but a recent shift in the Flow promises new hopes and challenges, as the spell that binds them to their beloved grove begins to weaken, and the electric thorns and brambles that surround Candlehold begin to thin.</p>
+<h3 id="skybreaker"><a class="header" href="#skybreaker">Skybreaker</a></h3>
+<p>Even in a land of huge and ancient trees, Skybreaker stands apart. Its gnarled trunk climbs high into the air, its tallest boughs reaching into the clouds. Like the cherished <span class="hint" hint="Korshem">Korshem</span>, it too represents a concentrated reservoir for the <span class="hint" hint="TheFlow">Flow</span>, with that elemental energy feeding Skybreaker and enabling its impossible growth.</p>
+<p>The towering tree has long been a breeding ground for the welkin, a wyvern species native to Aria. At first glance, the welkin resembles large, winged lizards. They have a leathery skin that, like the chameleon, changes color with variations in the Flow. They dwell among Skybreaker's canopy, flying beyond it only to hunt, or riding along it only if tamed. They lay their eggs within the cavernous hollows of Skybreaker's trunk. Once hatched, fledglings fly or face one of the most precipitous drops in Aria.</p>
+<p>It was within the canopy that the first of the skymavens was born, when a rider known only as Alosyn bonded with the welkin she called Narakir. Many have since followed her skypath, and today, the Highloft Inn acts as a gathering place for both mounts and riders, with skymavens swapping stories of their high-flying escapades over mugs of Breakernut Ale.</p>
+<p>For those without a flying mount to take them into Skybreaker's heights, a gondola runs up to the Highloft Inn, powered by the tireless efforts of fianna on the ground. On windy days, the gondola attracts thrill seekers. To date, none have fallen to their death. Juvenile welkin take part in the fun, diving and catching anyone that spills from the gondola. They say you should scream the whole way down: it makes it easier for the welkin to track your fall!</p>
+<hr />
+<p>In recent years, the barriers that once concealed and protected Aria is beginning to wane. The War of the Monarchs rages on; Aesirs and their Embras stir in their slumber, their influence seeping from i'Arathael into the realm of man, as the ancient defenders that lay dormant within Aria are roused by the presence of these ancient enemies, and begin to awaken and gather once more.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../world-of-rathe/aria/aria.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../world-of-rathe/aria/a-mythical-sanctuary.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../world-of-rathe/aria/aria.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../world-of-rathe/aria/a-mythical-sanctuary.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

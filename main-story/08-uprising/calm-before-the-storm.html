@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Calm Before the Storm - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="calm-before-the-storm"><a class="header" href="#calm-before-the-storm">Calm Before the Storm</a></h1>
+<p>With the stranger's mask in place, I am but one of thousands in the sweltering city of <span class="hint" hint="Ashvahan">Ashvahan</span>.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-11.webp" alt="iyslander-11" class="center">
+<p>The <span class="hint" hint="Volcai">Volcai</span> that dwell here honor the rumbling heart of Mount Volcor. Their ritual offerings of rice, silks and ceramics line the waterways. Incense burns from bronze ashtrays. Prayers float skyward to the mountain's crater, all in the hopes of appeasing this turbulent deity and its callous <span class="hint" hint="Dracai">Dracai</span>. Their struggle is as palpable as the heat which assaults my body and my will.</p>
+<p>And yet, I am comforted by their persistence, grateful for their presence. I have concealed myself in the crowd, though I fear it is only a matter of time before the Dracai unmask my deception. They have come close, too close. And without the full strength of my powers, I am vulnerable. For now, I keep to the waterways where no Dracai deigns to walk. I remain one with the Volcai, learning their stories as I hope to learn mine.</p>
+<p>It is from one of these tales, told to me through the rasps and coughs of a dust-lunged bookbinder, that I am drawn to a hulking building of basalt and obsidian. Robed figures come and go, their arms loaded with books and scrolls. I can smell the brooding intent within those tomes, embers of potential, smoking and sulfurous.</p>
+<p>As dusk gathers, as the scholarly crowds dwindle, I approach this vault of simmering secrets. My modest attire is unlikely to pass for the finely dressed folk who have crossed its grand threshold, so I look instead to the beshadowed alley alongside. The bookbinder spoke of a humble servants' entrance that is often left unlocked.</p>
+<p>I barely reach the obscuring darkness when a squad of soldiers marches out through the main doors and secures the upper steps. Their horned armor is polished to perfection. Their plumes are long and luscious. Their clear eyes miss nothing as they scrutinize the street.</p>
+<p>A robed man follows, more resplendent than any other I have seen. I know the cruel lines of his face, and in his arrogant eyes, I see my former life writ large.</p>
+<p>His name is Kova.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-12.webp" alt="iyslander-12" class="center">
+<hr />
+<p>I am among the chaos of wild children, smeared with ash and soot as we hook <span class="hint" hint="Ryoki">ryoki</span> from a mountain lava stream.</p>
+<p>I am alone, singled out by a Dracai, a young wizard with sparks in his hands and flint in his eyes. My mother weeps my name, "Lyra", as I am bought and paid for with tokens of jade.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-13.webp" alt="iyslander-13" class="center">
+<p>I fetch and I carry. I falter and I cower.</p>
+<p>Kova is a harsh master, yet there is kindness in his household. Deng takes me under his withered wing. The old butler blunts his lord's tempers while sharpening my thoughts with page and ink in the quiet moments between chores.</p>
+<p>I take solace in Kova's books, in stealing his secrets from his library. The words form promises in my mind, speak to the potency of my blood. I learn of aether and how I might use it, control it.</p>
+<p>Wind rushes through my fingers. Stone trembles at my touch. Morrows dance in the kitchen fires to the rhythm I drum upon the table. These are my delights in the darkness.</p>
+<p>If only they had remained unnoticed.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-14.webp" alt="iyslander-14" class="center">
+<p>Once again, I am singled out. Kova wishes to possess my fledgling power. The price is no longer jade. The price is pain.</p>
+<p>I scream at the deaf walls of his laboratory as he melts the talent from my flesh, drop by glistening drop. When the suffering becomes so fierce that I feel it will burn through my mind, I flee into the cooling climes of my imagination. In my delirium, I dream of another land. A place far from the scorching clutches of greed.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-15.webp" alt="iyslander-15" class="center">
+<p>I awake in a cave clad in white. At first I take it for ash. I believe I have been extinguished and discarded. Buried.</p>
+<p>Then I am aware of the creatures surrounding me. Their warmth wards off the cold. Their comfort wards off the fear.</p>
+<p>They become my companions and carers. My body heals, my strength returns, and yet my mind remains empty.</p>
+<p>I do not know where I have come from, nor how I came to be here. I have no name, so I am gifted one by the whispers of ice and snow, the spirits of a frozen wilderness.</p>
+<p>I listen and I watch. I play and I practice.</p>
+<p>Ice is my clay. Ice is my craft.</p>
+<p>I am Iyslander.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-16.webp" alt="iyslander-16" class="center">
+<hr />
+<p>The aether surges in my blood, threatening to boil over into furious action.</p>
+<p>Tyranny.</p>
+<p>Theft.</p>
+<p>Torture.</p>
+<p>These are Kova's crimes. Yet just as I am one of thousands in this city, one of millions in Volcor, he is one of hundreds who feed upon our suffering.</p>
+<p>In Solana, demons consume the flesh of the living.</p>
+<p>In Volcor, life is measured in jade pieces and strokes of the whip.</p>
+<p>Is the voracity of the demon really that different from the appetites of the Dracai?</p>
+<p>I do not think so.</p>
+<p>In my heart, I know why Lyra had to die. Why Iyslander had to live.</p>
+<p>Why Kova must live... for now.</p>
+<p>To freeze the blood in his veins. That would be sweet vengeance. But what then?</p>
+<p>Is my strength enough to face the swords of his men? Can I face every blade and arrow in this city?</p>
+<p>How will I help those who live in fear along the waterways if my blood runs through the cracks of these cobblestones?</p>
+<p>No. Kova will have his time, and so will the rest.</p>
+<p>I turn my back on vengeance and slip into the library. Within this hall of knowledge, I will find the words to temper my talent and harness the aether like never before.</p>
+<p>Rathe needs my help. Iyslander's help.</p>
+<p>When the time comes, I will be ready.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-17.webp" alt="iyslander-17" class="center">
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/08-uprising/journey-into-the-forgotten.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/08-uprising/in-flames.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/08-uprising/journey-into-the-forgotten.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/08-uprising/in-flames.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Welcome to Volcor - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="welcome-to-volcor"><a class="header" href="#welcome-to-volcor">Welcome to Volcor</a></h1>
+<p>The people of Volcor (VOHL-cawr) are divided between the Dracai (DRAH-kai) and the Volcai (VOHL-kai). The Dracai are bestowed names that are free of any restrictions, conventions or stigma, granted positions in the Royal Court of Volcor by the Emperor. The Volcai, however, are more limited, and their names are homogeneous, ending in <em>ai</em> as a mark of their Volcai origin status. (Names ending in <em>ai</em> rhyme with <em>lie</em>, <em>my</em>, <em>bye</em>.)</p>
+<div class="table-wrapper"><table><thead><tr><th>Male Dracai</th><th>Pronunciation</th><th>Phonetic</th><th>Female Dracai</th><th>Pronunciation</th><th>Phonetic</th></tr></thead><tbody>
+<tr><td>Kano</td><td>KAY-noh</td><td>ˈkeɪ: nəʊ</td><td>None yet</td><td>--</td><td>--</td></tr>
+<tr><td>Taipanis</td><td>TIE-pan-iss</td><td>taɪpænɪs</td><td></td><td></td><td></td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>Male Volcai</th><th>Pronunciation</th><th>Phonetic</th><th>Female Volcai</th><th>Pronunciation</th><th>Phonetic</th></tr></thead><tbody>
+<tr><td>Viserai</td><td>VI-si-RAI</td><td>ˈvə: sə:‿ɹaɪ</td><td>Kassai</td><td>CASS-ai</td><td>kæsˈaɪ</td></tr>
+<tr><td>Fai</td><td>FAI</td><td>faɪ</td><td>Dromai</td><td>DROH-mai</td><td>drəʊmaɪ</td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p>*the 'oh' rhymes with 'crow' or 'flow', not the o sound in 'cow', 'now', 'done' or 'stop'</p>
+</blockquote>
+<p>The dragons of Volcor invoked by Dromai in Uprising have a similar naming convention. Male dragon names end in ai, while female dragon names end in <em>ia</em>. (Names ending in <em>ia</em> rhyme with India, or Sylvia - within the world of Flesh and Blood, they rhyme with <em>Ophidia</em>, <em>Azalea</em>, <em>Aria</em> and <em>Misteria</em>, but not <em>Levia</em>, which is closer to rhyming with <em>Fai</em>.)</p>
+<div class="table-wrapper"><table><thead><tr><th>Male Dragons</th><th>Pronounciation</th><th>Phonetic</th></tr></thead><tbody>
+<tr><td>Dracona Optimai</td><td>DRAH-coh-NAH Op-TEE-mai</td><td>ˈdrækəʊnɑː ˈɑptɪmaɪ</td></tr>
+<tr><td>Tomeltai</td><td>TOM-el-TAI</td><td>tɒmˈɛltaɪ</td></tr>
+<tr><td>Azvolai</td><td>AZ-voh-LAI</td><td>a.zvəʊlaɪ</td></tr>
+<tr><td>Cromai</td><td>CROH-mai</td><td>kɹəʊmaɪ</td></tr>
+<tr><td>Miragai</td><td>MIR-RAR-gai</td><td>ˈmiɹ.ɚgaɪ</td></tr>
+<tr><td>Vynserakai</td><td>VIN-seh-ra-kai</td><td>vɪnˈsɪhɾakaɪ</td></tr>
+<tr><td>Yendurai</td><td>YEN-dur-rai</td><td>jɛnˈdʊɹaɪ</td></tr>
+<tr><td>Themai</td><td>THEE-mai</td><td>ðiːmaɪ</td></tr>
+</tbody></table>
+</div><div class="table-wrapper"><table><thead><tr><th>Female Dragons</th><th>Pronounciation</th><th>Phonetic</th></tr></thead><tbody>
+<tr><td>Dominia</td><td>DOH-min-EE-ah</td><td>dəˈmɪniə</td></tr>
+<tr><td>Kyloria</td><td>KAI-lor-REE-ah</td><td>kaɪlɔɹiə</td></tr>
+<tr><td>Nekria</td><td>Nek-KREE-ah</td><td>nɛkɹiə</td></tr>
+<tr><td>Ouvia</td><td>Oh-VEE-ah</td><td>əʊviə</td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p>*the 'oh' rhymes with 'crow' or 'flow', not the o sound in 'cow', 'now', 'done' or 'stop'</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../world-of-rathe/volcor/volcor.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../world-of-rathe/volcor/a-volatile-kingdom.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../world-of-rathe/volcor/volcor.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../world-of-rathe/volcor/a-volatile-kingdom.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

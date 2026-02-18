@@ -1,0 +1,312 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Dynamic Man - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="the-dynamic-man"><a class="header" href="#the-dynamic-man">The Dynamic Man</a></h1>
+<h2 id="age-of-steam"><a class="header" href="#age-of-steam">Age of Steam</a></h2>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/the-dynamic-man-1.webp" alt="the-dynamic-man-1" class="center">
+<p><a href="../../world-of-rathe/metrix/metrix.html">Metrix</a>. A metropolis of imagination. A place where ambition meets innovation and lives are reinvented every single day. In our pioneering past, we welcomed those ready to flee the traditions and oppressions of arcane Rathe. Together we built a city where fortunes could be made from the sweat of one's brow and the steam of one's machinery. Metrix has come a long way from those boilerplate beginnings. Technology has advanced in leaps and bounds, drawing a new generation of hopefuls to its bright lights, to promises writ large in glaring neon:</p>
+<p><em>Become more than you are.</em><br>
+<em>Become more than human!</em></p>
+<p>One young man understood these promises better than most. Yes, it is true what they say about <a href="../../heroes-of-rathe/teklovossen-about.html">Jules Teklovossen</a>. He was obsessed with power, but not the paltry, petty power of politics. He was driven by the power of energy. For he knew that, with enough energy, one can do anything that the human mind can conceive of. One can even remake the world.</p>
+<p>It was in a mothballed corner of the corroding Plumvex Pipes factory, Jules Teklovossen created the elegant coils and squat battery that would forever change the course of Metrix history. The potency hissed and spat between those coils, writhing like a netted serpent striving to reach the great blue sea. But Teklovossen would not let it free. Instead, he shackled that titanic beast in a two-by-two box. A little treasure chest bursting with enough power to vitalize hundreds of homes, shops and factories.</p>
+<p>What did we call this breakthrough invention? "<span class="hint" hint="TeklaticDynamism">Teklatic-dynamism</span>," after the boy genius who cracked the secret of the coils.</p>
+<p>And do you know what Teklovossen said once he had doffed his protective eyeglasses? Once he looked upon his creation, this wonder that promised to lift us from the obscuring steam of our industrialist past?</p>
+<p>"Eat your clockwork heart out, <a href="../../world-of-rathe/metrix/a-better-tomorrow.html#cogwerx-conglomerate">Cogwerx</a>. There's a new power in town."</p>
+<p>Excerpt from: <em>The Dynamic Man</em></p>
+<h2 id="age-of-dynamism"><a class="header" href="#age-of-dynamism">Age of Dynamism</a></h2>
+<p>Suspended trams slice through the steam fog on teklatic rails overhead. A few blocks away, currents of dynamism transmute helium into plasma at an unprecedented speed, fueling the great <a href="../../world-of-rathe/metrix/a-sprawling-metropolis.html#gigadrill-elevator">Gigadrill Elevator</a> as it pounds out <a href="../../world-of-rathe/metrix/advent-of-science-and-technology.html#tenatan-ore">tenatan</a> for the miners who scurry up and down the sheer cliffs of Pit 3.</p>
+<p>The <a href="../../world-of-rathe/metrix/a-sprawling-metropolis.html#the-needle">Needle</a> towers over the site office, jagged and patchworked in its unfinished form. It reaches for the clouds with aspiring grace, as if to pin the Teklo Industries brand upon the very fabric of history. A new headquarters to usher in a fresh era for Metrix.</p>
+<p>Jules Teklovossen stands at the epicenter, the Evos he wears automatically steadying his swaying frame as another dizzy spell catches him off-guard.</p>
+<p>"That thing will give anyone vertigo," says the <a href="../../world-of-rathe/metrix/a-better-tomorrow.html#iron-assembly">Assembly</a> Inspector as he enters the site. "Joking aside though, are you alright, Professor?" The man sounds genuinely concerned, but Teklovossen can tell from the official's body language that it's feigned.</p>
+<p>"The sight of it makes me giddy," he covers. Maybe his bad habits are catching up with him. Over three decades of long hours in the laboratory, of living only for the work. No family. No recreation. Barely enough time spared to sleep and eat. A life devoted to the founding and building of Teklo Industries. A passion committed to progress.</p>
+<p>The Assembly Inspector grins in response, another feigned gesture, then turns on his heels to scan the construction. "I need to sign off on your amendments to the upper floor plans," he says in an appraising tone.</p>
+<p>"Of course." Teklovossen directs his voice to the prefab office nearby. "Rigo?"</p>
+<p>The spider-bot assistant scuttles out of the prefab office with Teklovossen's blueprints clutched in its claws. Teklovossen takes the proffered plans and spreads them on the workbench. The inspector eyes the bot warily, taking in its many articulated legs and swiveling eye cameras; the bulbous micro-processor bracketed to its back.</p>
+<p>"Quite the antique you have there," he remarks.</p>
+<p>Teklovossen absently pats the bot on its spherical appendage, like a father might pat his son on the head. "Rigo's been with me since the very beginning."</p>
+<p>"It was there when you invented teklatic-dynamism?"</p>
+<p>"Yes, among others that I built for the purpose."</p>
+<p>The inspector peers more closely at Rigo. "Clockwork and compressed steam? Thought that was more Cogwerx's style."</p>
+<p>"If it works, it works. I'm not one to shun technology that has survived the tests of time."</p>
+<p>"That explains the boilers in your basement." He raises a bushy eyebrow. "Forgive me for saying so, but doesn't that send the wrong message?"</p>
+<p>Teklovossen manages an indulgent smile. "Teklatic-dynamism is potential incarnate, yet energies of this world fluctuate, attenuate, constellate, in patterns far beyond our mundane comprehension."</p>
+<p>The inspector looks at him, uncomprehending.</p>
+<p>"It never hurts to have a reliable backup."</p>
+<p>"Can't argue with that, Professor."</p>
+<p>The inspector returns to the building plans before him, trying his bureaucratic best to poke holes in Teklovossen's dream.</p>
+<p>"Theoretically sound," he reluctantly concedes. "I have no idea how you're actually managing it." He points at Rigo. "More of these?"</p>
+<p>"After a fashion."</p>
+<p>The inspector's brown eyes take on an almost lustful gleam. "I really would like to meet your builders."</p>
+<p>Teklovossen rubs the pad of his thumb across his mustache and smiles at Rigo. The spider-bot nods his misshapen head in agreement.</p>
+<p>"Quite impossible, Inspector," answers Teklovossen, "for what is creativity without a little mystery?"</p>
+<h2 id="end-of-an-era"><a class="header" href="#end-of-an-era">End of an Era</a></h2>
+<p>The sphere spins between his metallic palms, its galvanic potential reflected off the polished carapaces and chassis of the dismembered dolls that litter the old Plumvex workshop.</p>
+<p>"You'll do," admires Teklovossen.</p>
+<p>He glances across the limbs, busts and heads of humanoid automatons towards rows of spheres, each of a similar likeness, arranged along padded shelves. Every egg contains a yolk of intelligence, each more golden than the last. Brighter minds than most humans he has met. Yet all have fallen short. Too specialized. Brilliant at some things, dull at others. And not an ounce of invention among them. Brains for clever bots of brass and bolts, nothing more.</p>
+<p>With his free hand, he presses at the temple of a copper cranium on his bench. The back of its skull opens to reveal a concave socket of glowing contacts. He places the sphere gently inside.</p>
+<p>This one is different. A wild experiment. Possibilities unknown, packed into this perfect micro-processor.</p>
+<p>"You'll do rather nicely."</p>
+<p>He heaves a shuddering sigh of relief. Already he can feel the thought-choking fog rolling in, the emptying exhaustion that will leave him bedridden for the rest of the day. Perhaps the week.</p>
+<p>A tumor, inoperable. Nestled like a fat leech against his cortex, sucking away his vitality, his genius. So much to do, yet so little time remaining to him. His intellect has never failed him. His ideas will live on, undying, while there are minds to remember them.</p>
+<p>But will he live to see those ideas come to fruition? Teklovossen can predict many things, but not that.</p>
+<p>"See that the Iron Assembly installs it properly, Rigo?"</p>
+<p>Rigo whirs and bleeps. Its enthusiasm is echoed by another bot that scuttles out from behind a pile of brass mannequin parts. And other, lowering itself from the rafters by a high tensile wire. The chorus continues as bots of all shapes and sizes, intents and purposes, crawl, roll, scuttle and slide out of the workshop's nooks and crannies to witness Teklovossen's crowning invention.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/the-dynamic-man-2.webp" alt="the-dynamic-man-2" class="center">
+<p>The ailing scientist manages a sickly smile for his automaton audience as he cups the skull in his hands and presses its temples with his thumbs. The cranium closes smoothly, concealing the sphere within.</p>
+<p>"It will be the brains of their operation. Their sensory network. Their nervous system."</p>
+<p>He holds the skull up to his face. Glass eyes stare back. Its strangely coiffed pate gives it a jaunty appearance.</p>
+<p>"All that this city lives and feels shall be parsed and interpreted in elegant autometry."</p>
+<p>Rigo scuttles forward and gently takes the copper head from Teklovossen's hands.</p>
+<p>"Thank you, Rigo. May their gratitude to Teklo Industries survive the company's founder."</p>
+<p>He turns to his console, taps out a code and hits the execute key. Symbols spray across the screen. He reads quickly, despite the bleary film coating his stinging eyes.</p>
+<p>"The Biochic hardware appears to have done the trick. Much better than that Medreach rubbish. The teklatic generator has achieved perpetuity and the thermal readings are within sustainable parameters, although the variance might take time to stabilize. A good thing I had those backup boilers serviced. Wouldn't you all agree?"</p>
+<p>His bots answer with an ensemble of synthesized amity. Music to Teklovossen's ears. He looks out through the workshop window at The Needle glowing gold in the afternoon light. Bright and beautiful-a tribute to ideas made manifest.</p>
+<p>He turns back to his console and stumbles through a series of short commands. The execute key echoes with a hollow finality.</p>
+<p>"Analysis filters are in place and attuned to key performance indicators. You'll check on them from time to time, won't you, Rigo?"</p>
+<p>His oldest and most faithful creation bobs its head in abject acknowledgement.</p>
+<p>"Good. Metrix produces a boggling amount of inconsequential data. Yet if distilled correctly, patiently, the key performance indicators should emerge from the dross."</p>
+<p>He lets out a world-weary sigh. "The city has a long way to go, but it might yet prove itself worthy. In fact..."</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/the-dynamic-man-3.webp" alt="the-dynamic-man-3" class="center">
+<p>A gleaming metropolis enters his mind's eye. Towers and tramways shining with teklatic-dynamism. Prosperous people strolling along clean streets, no matter their walk of life. They breathe pristine air, chat about creativity and philosophy while bots do their work and Evos sustain their bodies. A Metrix happy in its achievements. A utopia just out of reach.</p>
+<p>"...I'm counting on it."</p>
+<p>He yawns, then winces at the sharp pain the movement induces behind his eyes.</p>
+<p>"Go now, Rigo. Give this brain unto its body corporate. Head straight to your charging station, and most importantly, don't worry about me."</p>
+<p>He smiles at his automatons, his gaze lingering upon his lifelong companion.</p>
+<p>"I'm just going to have a little lie down."</p>
+<h2 id="present-day"><a class="header" href="#present-day">Present Day</a></h2>
+<p>Metrix, a city of imagination. A city where one can become more than human.</p>
+<p>Such is the case of Jules Teklovossen.</p>
+<p>No one knows what caused the explosion. Fire crews worked through the night to douse the inferno, yet still the old Plumvex Pipes factory was utterly consumed. No one could have survived that blaze, not even the building's owner and sole living occupant.</p>
+<p>An effigy has now been installed upon the site: a bold and brilliant likeness cast in holographic bronze.</p>
+<p>Teklovossen, the man, might have left Metrix for good. But Teklovossen, the legend, will remain with us forever, instructing and inspiring the brightest minds to come.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/the-dynamic-man-4.webp" alt="the-dynamic-man-4" class="center">
+<p>Excerpt from: <em>The Dynamic Man</em></p>
+<hr />
+<p><em>Source: <a href="https://fabtcg.com/articles/the-dynamic-man/">https://fabtcg.com/articles/the-dynamic-man/</a></em></p>
+<hr />
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/11-dusk-till-dawn/anointed-in-shadow.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/12-bright-lights/system-failure.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/11-dusk-till-dawn/anointed-in-shadow.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/12-bright-lights/system-failure.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

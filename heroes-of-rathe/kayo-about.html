@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Kayo - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../hero.css">
+        <link rel="stylesheet" href="../image.css">
+        <link rel="stylesheet" href="../tab.css">
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <link rel="stylesheet" href="../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="kayo-beserker-runt"><a class="header" href="#kayo-beserker-runt">Kayo, Beserker Runt</a></h1>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/kayo.webp" alt="kayo-beserker-runt" /></p>
+<p>On the outskirts of a vast jungle, where dense undergrowth gives way to the fiery, barren wastes, one brute marks his territory in blood and ash. Amid the cracked earth and sweltering heat, Kayo fights off savage lava beasts and swarms of massive insects, trading blow for blow in vicious battles to the death.</p>
+<p>As a cub, Kayo was born small and slow; a death sentence within the jungles of the <a href="../world-of-rathe/savage-lands/savage-lands.html">Savage Lands</a>. In his struggle to survive, he wandered further and further to the east, trying in vain to escape the predators that stalked him through the trees. However, as time passed, instinct took over, bloodlust driving him to challenge beasts three times his size. What Kayo lacks in size and strength, he makes up for with sheer ferocity, tearing his prey apart piece by bloody piece.</p>
+<p>In the badlands, Kayo fights for every inch of territory, staving off both savage jungle predators and virulent lava beasts. No matter the creature, no matter the battle, he throws himself into every fight without fear, driven by the will to survive. However, as unrest creeps across the land, he may soon find himself battling far stranger creatures than the ones he's faced before.</p>
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/knockout.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Knock Out!</b><br>
+    Kayo is a dangerous little mongrel; a product of survival in the Savage Lands. All it takes is one big hit to land to lay an opponent out for the count. Brutes have some of the biggest hits in the game, so when Kayo's got his roll on, he's packing a KO punch!
+  </div>
+</div>
+<hr />
+<h1 id="kayo-armed-and-dangerous"><a class="header" href="#kayo-armed-and-dangerous">Kayo, Armed and Dangerous</a></h1>
+<video width="100%" height="100%" controls autoplay muted loop playsinline>
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/kayo-armed-and-dangerous.mp4" type="video/mp4">
+</video>
+<p>Kayo's journey has spiraled into a whirlwind of madness and brutal chaos. Each life-or-death confrontation has taken its toll, stripping away both flesh and bone, forging him into an wild, unrelenting beast.</p>
+<p>Hunting a formidable creature in the Badlands, Kayo found himself on the brink of death after a fierce clash with the prized prey. The Deathmatch Arena, seizing the opportunity, took him captive. Now, from within the confinements of the arena's cages, Kayo has emerged-a crazed, savage force unleashed to challenge and test the mettle of the Arena's fighters.</p>
+<p>In every deadly contest, Kayo exhibits the fierce tenacity of a bloodthirsty feral animal. Despite being repeatedly on the back foot, he rises from defeat, each setback fueling his crazed savagery and rendering him even more dangerous. Kayo has become the Underdog of the Arena, a fighter perpetually at a disadvantage, yet one who refuses to surrender, forever embracing the chaos and the brutal unpredictability of his existence.</p>
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/wounded-but-not-weakened.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Wounded, But Not Weakened</b><br>
+    The Savage Lands are a brutal, inhospitable home, and Kayo is arriving at the Deathmatch Arena one arm lighter than the last time we saw him. However, the loss of something as inconsequential as an arm hasn't slowed down Kayo's savagery in the slightest-in fact, many of his attacks are stronger than they've ever been.
+  </div>
+</div>
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/keep-it-rolling.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Keep It Rolling</b><br>
+    Kayo may have some new tricks up his sleeve, but he remains as wild and unpredictable as ever. When his back is against the wall, he still trusts in his raw animal instincts and a potentially lucky roll of the dice.
+  </div>
+</div>
+<h1 id="kayo-underhanded-cheat"><a class="header" href="#kayo-underhanded-cheat">Kayo, Underhanded Cheat</a></h1>
+<video width="100%" height="100%" controls autoplay muted loop playsinline>
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/kayo-underhanded-cheat.mp4" type="video/mp4">
+</video>
+<p>Home is not something Kayo has considered in the past. Territory, yes, but never somewhere he felt he belonged. <a href="../world-of-rathe/deathmatch/destination-deathmatch.html">Deathmatch</a> changed all of that, transforming the solitary beast into a fighter that loves the limelight almost as much as he craves the violence. He has no wish to return to the jungle.</p>
+<p>And his defeat by <a href="./kassai-about.html">Kassai</a> taught him two things. One, the concept of mercy, and how humans have a soft spot for it. Two, he needed to smarten up. Since that turning point, Kayo has not only picked up the rudiments of the Common tongue, but has become a leading member of the Prowlers, a group of ex-tribal Brutes who choose to pool their strength rather than go it alone. He has come to understand the concepts of subterfuge and terror, and how much more powerful they can be than raw strength.</p>
+<p>No longer the caged animal, consumed by his own wild urges, Kayo uses his innate cunning in and out of the ring. He's learned to bide his time, toy with his prey like a cat with a mouse, and unleash the beast within when it's least expected.</p>
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/feint-ferocity.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Feint Ferocity</b><br>
+    Only a fool would think the arena has tamed the one-armed Brute. Cunning Kayo has been practicing his sleight of hand. With a deft feint, Kayo draws his opponent in, only to let rip with unfettered ferocity.
+  </div>
+</div>
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/roar-of-the-wild.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Roar of the Wild</b><br>
+    Once the lone hunter, Kayo now runs with a pack that numbers in the thousands. Their jeers are wild jungle calls to his ears. Their outrage is a great beast's roar, filling him with the lust for violence.
+  </div>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../heroes-of-rathe/kavdaen-about.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../heroes-of-rathe/levia-about.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../heroes-of-rathe/kavdaen-about.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../heroes-of-rathe/levia-about.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../tab.js"></script>
+        <script src="../theme/pagetoc.js"></script>
+        <script src="../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

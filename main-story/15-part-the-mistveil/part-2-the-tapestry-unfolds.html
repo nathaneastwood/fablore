@@ -1,0 +1,292 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Tapestry Unfolds - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="part-2-the-tapestry-unfolds"><a class="header" href="#part-2-the-tapestry-unfolds">Part 2: The Tapestry Unfolds</a></h1>
+<p>The moon gilts the <a href="../../world-of-rathe/misteria/immortal-lunar-temple.html">Immortal Lunar Temple</a> in silver. Delicate astral etchings glisten with chi in the engraved limestone walls.</p>
+<p><a href="../../heroes-of-rathe/enigma-about.html">Enigma</a> pauses to watch a pair of graceful cranes fly across the heavenly orb above, then continues her solemn task. She wields the torch with a deft hand as she lights the braziers that surround the sacred circle. The earth-sweet scent of sandalwood fills the cool predawn air.</p>
+<p>"The moon unveils hidden truths within the twilight..." she recites, quoting the wisdom of Master Kouki. "Illuminating the unseen mysteries of the world."</p>
+<p>As if in answer, an ancient tapestry unfolds from the moonlight, shimmering into material presence before her.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/enigma-story-1.webp" alt="enigma-story-1" class="center">
+<p>"Hello, Cosmo." Enigma smiles. "Shall we begin?"</p>
+<p>The spectral vellum susurrates with a thousand kept secrets as the scroll unfurls, flapping around her like an excited bird.</p>
+<p>"Be calm now, Cosmo. This spirit is timid. We don't want to frighten it."</p>
+<p>Cosmo bows in apology and settles into the center of the sacred circle. A drawing emerges upon the open scroll as if inked by an invisible hand. It shows an old woman playing a harp on the edge of a lake. Beside her sits a pair of small stone cairns, modest memorials to loved ones lost.</p>
+<p>As the Ledger of Ancestry, Enigma can see into this spirit's memories, can hear the laughter of her grandchildren, can feel her anguish as they sink into the deep water.</p>
+<p>The old woman looks up at Enigma from the sketch. "If I do not play it, who will remember their song?" she whispers.</p>
+<p>"Your lament haunts the people of the lake. They weep in their sleep and awake in sadness."</p>
+<p>"My little ones... they must not forget them."</p>
+<p>"They have remembered enough."</p>
+<p>The words have even greater meaning for the Ledger of Ancestry. She has lived so many lives, yet each time she is reborn without recollection. She is Enigma now, but who was she before?</p>
+<p>"Your presence in <a href="../../world-of-rathe/misteria/misteria.html">Misteria</a> disrupts the balance of chi," she continues. "It is my sacred duty to return you."</p>
+<p>Enigma draws moon glyphs in the air with the tip of her finger, writing the story of a mourning woman who finds peace at last. The mystic parchments fall into the circle like autumn leaves.</p>
+<p>"May the harmonic resonance guide you, spirit, back to the eternal embrace of the Cosmic Chi."</p>
+<p>The picture shimmers, lifting from Cosmo, coalescing to form an orb of blue light. The spirit soars upwards, following the beams of the moon until it disappears into the twilight.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/enigma-story-2.webp" alt="enigma-story-2" class="center">
+<p>Cosmo rises from the circle and nudges her side, seeking attention. She rolls her eyes, though there is a faint smile on her lips.</p>
+<p>"Must we? It's such a still morning, perfect for quiet contemplation."</p>
+<p>The scroll flies out of the temple towards the sliver of sun now peeking over the mountains, leaving Enigma to her thoughts.</p>
+<p>No pause for the Ledger, she reminds herself. The Ledger has a duty and devotedly it is fulfilled.</p>
+<p>Enigma knows better than to abandon her role in maintaining the Cosmic balance. What, after all, is Misteria without it?</p>
+<hr />
+<p>Enigma eyes the notes people have left at Kouki's shrine. Behind her, a towering statue guards the mountain path that winds up to the Immortal Lunar Temple.</p>
+<p>A stone-faced Master Kouki looks down at her, his stern expression reminding her to abide by his lessons and the Tenet of the Moon. In the stillness of the moment, the echoes of Enigma's ancestors speak to her, their wisdom a guide and a burden.</p>
+<p>"What are we hunting today?" she asks Cosmo.</p>
+<p>The scroll gathers up three notes and deposits them before her. After skimming the first, she raises an eyebrow.</p>
+<p>"Help me, great Ledger," Enigma reads aloud. "A spirit has possessed my husband's sandals and they traipse mud all over my nice, clean floors."</p>
+<p>Cosmo shudders as if with silent laughter. Enigma, on the other hand, is not one to downplay the visitations of spirits, be they serious or naïve.</p>
+<p>She rests her hand on the note, reading the energy held within, then tucks it into her robes, readying herself for the unruly spirit she will soon return to the cosmos.</p>
+<p>They descend the rest of the way to <a href="../../world-of-rathe/misteria/among-the-mists.html#mistcloak-gully">Mistcloak Gully</a> and seek out the marauding sandals.</p>
+<p>After a merry chase through the paddy-field terraces below the village, Enigma corrals the frolicking footwear with a spectral shield and Cosmo absorbs the spirit from them with many a kick received while at it.</p>
+<p>The second quarry proves more troublesome; a flock of winged, nimble-clawed gentua plundering Mistcloak's hanging pear orchards. To make matters worse, the mischievous gentua can make themselves invisible to the mortal eye.</p>
+<p>After some quiet meditation to harness her moon chakra, Enigma uses her awakened perception to pull the fleeting thieves from the sky with deftly aimed moon sigils. Cosmo mops the stunned imps up from the ground before they can recover and escape.</p>
+<p>The last task is the most difficult, and most dangerous. Vengeance is a force that seeps into the cracks of the revenger's life, staining the chi even after the life has ended.</p>
+<p>Calling upon the essence of her ancestral duty to protect her, Enigma faces the specter in an abandoned house that others fear entering.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/enigma-story-3.webp" alt="enigma-story-3" class="center">
+<p>The old building groans and trembles, straining to contain the spirit's fury. The air howls around Enigma, clutching at her robes, scratching at her skin with stones and splinters.</p>
+<p>With unwavering resolve, she weathers the spirit's rage while Cosmo sneaks in the back and pounces on it from behind. A short tussle later and the vengeful remnant is safely wrapped up and stowed away.</p>
+<p>The old house lets out a sigh of abject relief, and with light-footed ease, Enigma departs as the structure collapses behind her.</p>
+<p>She then heads for the edge of town with Cosmo in tow, intending to return with her captures to the Lunar Temple. Yet, as she crosses the outermost rope-bridge, suspended over a precipitous waterfall, a vivid vision stops her in her tracks.</p>
+<p>Hissing snakes surround a growling tiger. As one, the serpents raise their heads, wet fangs bared, ready to strike.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/enigma-story-4.webp" alt="enigma-story-4" class="center">
+<p>Enigma spins about so fast that Cosmo bumps into her.</p>
+<p>"We have to turn back. Something is very wrong." She stills her body to allow space for the vision to grow. "It's like nothing I've felt in a long time."</p>
+<p>Back among the houses, Enigma takes to the rooftops as if lifted upon strings of fate. She leaps from roof to roof, leaving no more trace than a wind that might whistle in the rafters. Even Cosmo has difficulty keeping up with its fast-moving mistress.</p>
+<p>A murder of three-legged crows takes fright from this lofty interloper and flaps away, cawing in harsh protest at the disturbance. Enigma pays them no mind. Near the archway trailing downhill to Mistcloak Lake, she feels the pressure of blocked chi at her temples and knows she is close.</p>
+<p>She drops to the street with only the merest rustle of her robes. The scroll obediently follows as Enigma walks under the archway, stopping at the top of some steps.</p>
+<p>Not downhill, she thinks, waiting for the mist to drift.</p>
+<p>As it parts, she sees the outline of a building so small it could be a child's toy. Yet with the silver of moonlit chakra in her eyes, Enigma sees through the veil to the true structure beyond.</p>
+<p>Folds upon folds of scaly paper open to reveal a large door that beckons her inside. She enters into what feels like another world, the interior transforming before her, voluptuous curtains of succulent red and opulent gold decorating the hallway. She smells incense, its perfume designed to intoxicate. She hears shouting and the clamor of deadly conflict.</p>
+<p>As she rounds the corner, Enigma is met with a calamitous scene. Folk of Mistcloak from all walks of life cower around the edges of a vast room, their eyes fixed on the battle that rages over upturned furniture and broken bodies.</p>
+<p>The servants of the teahouse spin and dance like decorative fans around a man of powerful build and predatory grace. They slash at him with blades of jade. He retaliates with claws of shimmering chi.</p>
+<p>Before Enigma can take another step, another servant falls, her serpentine tattoos torn through by the tiger-fast claws of the man. And as Cosmo reaches her side, she finds herself unable to command it, to even speak a word.</p>
+<p>It is not the battle that holds her tongue.</p>
+<p>An elegant madame looks down upon the melee from the teahouse's stage, a small smile on her perfect lips. As if sensing Enigma, the woman looks up. Their eyes meet and Enigma is struck still with astonishment.</p>
+<p>The madame is most certainly a spirit - one of the most conflicted Enigma has ever felt - but there's more to this spirit than Enigma can fathom. Across the churning chi is a mystical resonance, raw and long-standing, that binds them.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/enigma-story-5.webp" alt="enigma-story-5" class="center">
+<p>Enigma stares, fixated, into the parting mists of time.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/15-part-the-mistveil/part-1-the-tiger-in-the-mist.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/15-part-the-mistveil/part-3-the-serpents-strike.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/15-part-the-mistveil/part-1-the-tiger-in-the-mist.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/15-part-the-mistveil/part-3-the-serpents-strike.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

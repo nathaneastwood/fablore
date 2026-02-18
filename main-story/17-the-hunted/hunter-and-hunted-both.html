@@ -1,0 +1,324 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Hunter and Hunted Both - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="hunter-and-hunted-both"><a class="header" href="#hunter-and-hunted-both">Hunter and Hunted Both</a></h1>
+<p><a href="../../heroes-of-rathe/cindra-about.html">Cindra</a>, <a href="../../heroes-of-rathe/fang-about.html">Fang</a>, and their hunting party were well clear of Deshvahan when the sun rose, the city an immense pillar of smoke at their backs. They rode hard across southern <a href="../../world-of-rathe/volcor/volcor.html">Volcor</a>, imperial banners whipping in the wind. The troop stopped only once, trading their failing horses at an outpost garrisoned by loyalist soldiers.</p>
+<p>The Obsidian Coast beckoned and they continued on, covering ground faster on fresh steeds. They skirted jagged mountains and crossed broad barren plains pocked with the hardy flora and fauna that eked out an existence in Volcor's harsh climate. These lands were known to crack open and swallow entire towns, known for veins of lava bursting forth to create new hills and mountains where none had been. To inhabit Volcor one had to be decisive, for the volatile kingdom never rested.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/hunter-and-hunted-both-1.webp" alt="hunter-and-hunted-both-1" class="center" />
+<p>In the far distance, after hours on horseback, they noticed huge spikes jutting from the earth, their shadows scraping across the landscape. Cindra and Fang slowed their horses, Lieutenant Yamada at their back, motioning to the troops to match their pace.</p>
+<p>Native to <span class="hint" hint="Ashvahan">Ashvahan</span>, they scanned their surroundings for threats but missed the most glaring one: the spires that burst from the ground were of no natural formation. Sharp stone teeth bit at the sky, and twisted crystalline spears throbbed with a sickly purple light.</p>
+<p>"Why do we slow, Captain?" Yamada asked Fang.</p>
+<p>"Have you been this far south, Lieutenant?" Cindra interrupted.</p>
+<p>"No, Commander."</p>
+<p>"Tell me, then. What do you see?" she asked.</p>
+<p>Cindra steered the troop clear of the diseased obelisks, the long shadows barely touching their path. Flowers grew from cracks in the ground, petals black as midnight. A blooming jacaranda twitched, branches like insectile limbs, each adorned with the body of a firefinch, pierced through the heart. Blood dripped like slow rain. A desert fox fled at their approach, the creature's mouth warped by two large boar-like tusks, and nearby a flare deer stood fast, its scent glands swollen with massive oozing growths.</p>
+<p>"I see gucai misery," Yamada concluded.</p>
+<p>"What I see is the clever handiwork of traitors, orchestrated to deter us."</p>
+<p>As Cindra continued to counsel Yamada, Fang scanned the landscape. From what he had already witnessed and fought against, this was something more sinister - more hateful.</p>
+<hr />
+<p>Night fell as they reached an abandoned farmhouse, found for them by Fang's outriders, with enough room for them to bed down. It was set back against a forest of denuded trees, pale gray against the darkness, sap weeping down their trunks like thick black tears.</p>
+<p>Fang contemplated the farmhouse, doubt writ large in the lines on his forehead. "The outriders mentioned a nearby fort. We should camp there for the night."</p>
+<p>Cindra shook her head. "Too risky. There is a village built up around the fort."</p>
+<p>"Our troops would eat better than the stale rations we have."</p>
+<p>"The flytrap lures with nectar. You and Lieutenant Yamada see the soldiers get their horses squared away. I need a moment alone."</p>
+<p>Fang dipped his head. "Commander."</p>
+<p>Cindra walked to the end of the pasture, her body aching from hours in the saddle. She needed to walk, to stretch, to consider the meaning behind <span class="hint" hint="Chiyo">Lord Wizard Chiyo</span>'s betrayal.</p>
+<p>She leaned against the ramshackle fence, her mind racing now that her body was still. If Chiyo was involved, then she was as corrupted as these lands. A traitor to the <span class="hint" hint="Alshoni">Alshoni</span>, to all <span class="hint" hint="Dracai">Dracai</span>. And she had hidden it, the consummate pretender, despite years of investigation. Cindra couldn't tell if it was animosity or admiration she felt for the treasonist.</p>
+<p>She wiped the thought from her mind and replaced it with the rage that spiked her heart whenever she thought of the man that was taken from her, from all of them. To the rivers of blood that flowed through their Dracai veins, he was the source. The dragon made flesh.</p>
+<p>Something flickered in the corner of Cindra's eye.</p>
+<p>She turned quickly, dagger emerging from the folds of her clothing, ribbon rippling in anticipation.</p>
+<p>A boy, maybe fifteen, darted between trees.</p>
+<p>Cindra hesitated for only a moment - word of their hunt could not reach Chiyo.</p>
+<p>She let the dagger go, watched it coil through the air and strike the youth down. She recalled the dagger and started back toward the farmhouse, pausing near the horse pen to wipe the weapon clean of blood before sheathing it. Black blood, same as <span class="hint" hint="Savai">Savai</span> and his servants.</p>
+<p>The horses spooked, one beside her rearing up, others running inside the fence line, rocking their heads. Beyond the horses, past the fence, Cindra saw another local, a woman with long matted hair, dragging her feet as she staggered through the forest away from the farm.</p>
+<p>Cindra dodged between the horses and jumped over the fence, tossing a dagger at the woman. It chased her, closing the gap until an owl with three bulging eyes dived from an upper branch, intercepted the blade, and dropped it dead to the forest floor. A strange coincidence, surely. Cindra threw three more daggers in quick succession, this time aflame. Her breath caught in her throat as the forest itself shifted to protect the woman, branches like gnarled arms blocking and snuffing out each blade, one held by its ribbon between twig fingers, the fabric tearing as the smoldering dagger struggled to obey her will.</p>
+<p>Cindra recalled her daggers as the woman disappeared into the shadows, then ran for the farmhouse.</p>
+<p>"Fang! We leave now!"</p>
+<hr />
+<p>Cindra's muscles protested at being back in the saddle, but the pain could wait. The hunting party raced around the forest, Cindra too wary after what she'd seen to risk a direct chase.</p>
+<p>They reached the road and followed it into a small village, homes and other structures built around the high wall of the area's garrison. Cindra spotted the woman from the forest, standing in a circle with other women and girls from the village. Not spreading word of their passage, no; this was something worse.</p>
+<p>Their hair stretched and spun like the silk of a spiderweb, strands reaching out, weaving each woman to the other. All at once they turned to face the troop, a cunning darkness in their eyes, accursed symbols carved into cheeks and chests.</p>
+<p>Other villagers loitered outside, swollen with pulsating cankers, limbs bent at unnatural angles as they staggered forward.</p>
+<p>"Lieutenant, find the captain of the garrison," Fang said to Yamada.</p>
+<p>"Do not bother," Cindra said, nodding toward a cadre of soldiers exiting through the garrison gate. "They will not be of much assistance."</p>
+<p>The soldiers were on horseback, connected not by saddle but by flesh, their legs split into vein-like tendrils that intertwined with growths emerging from the horses' flanks. The line between man and beast blurred - it was impossible to tell where one ended and the other began.</p>
+<p>"Kill everyone," Cindra ordered. "They are beyond the dragon's mercy."</p>
+<p>Yamada and the troop did not hesitate. Soon, every villager and soldier was dead, the latter no match for Fang's hand-picked warriors. Outriders scouted the surrounding area to ensure none had escaped.</p>
+<p>The bodies were piled outside the garrison gates and set alight. Acrid smoke drifted into Cindra's face as she stared deep into the flames, her nostrils burning at the smell of roasting meat.</p>
+<p>"What are your orders, Commander?" Fang asked.</p>
+<p>"We camp in the fort overnight. Assign four sentries, relieved at two-hour intervals. There is no shame in fear when it fuels our vigilance."</p>
+<hr />
+<p>Fang woke from a fitful sleep, dreams plagued by visions of the sickness spreading across his body, his flesh twitching in pain as the deformities swelled and burst.</p>
+<p>"Captain," Yamada said, voice quiet but urgent. "The sentries."</p>
+<p>Cindra roused and followed Fang and Yamada outside toward the garrison gates. They had ordered them to be sealed, but now they sat open, the four sentries gutted and strung up, hanging from the gate's upper beam by their own intestines. They had been skinned, fat and muscle glistening in the early morning light, empty eye sockets staring blankly. The gates themselves were daubed with strange sigils painted in blood.</p>
+<p>Cindra approached the gate and touched a finger to the blood.</p>
+<p>"They did this while we slept. Why not kill us all?" Yamada questioned.</p>
+<p><em>And who is 'they'?</em> Cindra thought. Her eyes met Fang's, and a grim understanding passed between them.</p>
+<p>"They are toying with us," Cindra said. "We are now hunter and hunted both."</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/hunter-and-hunted-both-2.webp" alt="hunter-and-hunted-both-2" class="center" />
+<hr />
+<p>Yamada cut down the disfigured bodies and added them to the smoldering pyre while Fang roused the troop. Within minutes the Children of the Dragon were back on their mounts, a palpable sense of unease taught within their ranks.</p>
+<p>Fear would keep them sharp, Cindra knew, but only if Fang kept them on a tight rein.</p>
+<p>"You do not need to know what we face," barked the captain, as if sensing Cindra's thoughts. "You need only remember your training, and your oath."</p>
+<p>They lit the fort's signal fire, a beacon for loyalists near and far, then rode hard out of the fort, journeying further south. Corruption tainted the land on all sides, animals too deformed to recognize, sickly plants blanketing the ground, rippling in an unfelt breeze. At nightfall, even the stars mocked reality, those pinpoints of light bleeding outward, quivering, multiplying.</p>
+<p>"Have the outriders found a site for us to camp?" Cindra shouted to Fang over the sound of hoofbeats.</p>
+<p>"The outriders have not reported in," he replied. "Shall I send riders to search for them?"</p>
+<p>"No. They are already dead." Cindra knew it to be true. "We shall ride through the night. If they wish to come for us, let them come while our eyes are open and our blades are ready."</p>
+<p>The air was stifling, their steeds breathing hard, spit foaming around their polished bits.</p>
+<p>A scream echoed into silence behind them and Cindra turned in her saddle to look. The horse ran on without its rider, then drifted away from the pack, receding into darkness.</p>
+<p>"Eyes sharp!" Fang yelled, drawing one of his daggers, his other hand gripping tight to the reins.</p>
+<p>A dark blur flashed across Cindra's sight, a Dracai warrior's scream cut short, her throat slit to the bone, her head falling back before her body toppled from its horse.</p>
+<p>"Commander!" Fang shouted. "The bridge, up ahead!"</p>
+<p>Cindra turned forward in her saddle. A wide rope bridge crossed an inlet from the sea - one of the few paths leading to Chiyo's citadel. The stone cliffs on each side were stacked and scaled like hexagonal tile, formed from hardened lava and flecked with the obsidian that gave the coast its name.</p>
+<p>Another cry. Arms torn away at the shoulders, the soldier's face pale and shocked. He fell forward, trampled beneath the hooves of his mount.</p>
+<p>"Strike the ground ahead," Cindra ordered. "Give us some light!"</p>
+<p>The soldiers drew their swords. They galloped ahead, hanging low from their saddles, their flaming swords striking the earth like matchsticks, lines of orange lighting the way.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/hunter-and-hunted-both-3.webp" alt="hunter-and-hunted-both-3" class="center" />
+<p>"Show yourselves!" Fang shouted through the passage of flame.</p>
+<p>Cindra clenched her jaw, eyes flitting between shadows, searching for something to kill but seeing only malformed silhouettes, too grotesque to be real. How they kept up with galloping horses, Cindra would never know, these assassins as mysterious as they were vicious.</p>
+<p>The scant remainder of the hunting party drew closer together, close enough that Cindra could see the dread written in the whites of their eyes.</p>
+<p>"Ride ahead, Commander," Fang urged. "We will buy you time to escape."</p>
+<p>"Not you," Cindra insisted. "You are with me."</p>
+<p>Lieutenant Yamada raised his sword high. "Let us lay down our lives in your service, Commander."</p>
+<p>This was the only way forward. The sworn path of all Dracai, written into the Alshoni Mantras. She nodded to Yamada.</p>
+<p>"Soldiers," he roared. "Kindle your fires. For the <a href="../../heroes-of-rathe/emperor-about.html">Emperor</a>. For the blood of the dragon!"</p>
+<p>The remaining Children of the Dragon lifted their weapons and cheered, their bravery renewed by fealty.</p>
+<p>Yamada ordered the soldiers to fan out, and as Cindra and Fang reached the rope bridge, they turned their horses back to face the unseen death lurking in the shadows.</p>
+<p>Hooves clattered over wooden slats, the rope bridge creaking at their passage. They reached the end and brought their horses to a stop. Cindra jumped clear and stood by the lengths of sturdy rope that anchored the bridge to the cliffside. Across the other side, they heard a high-pitched shriek pierce the air, and another, then the strike of steel on steel, followed by a strangled scream.</p>
+<p>They watched as a grotesque silhouette lifted the lieutenant off his feet. Its blade flashed beneath the moonlight, rending Yamada from crotch to shoulder. One half dropped to the ground. The assassin tossed the other over the edge of the cliff where it tumbled out of sight toward the water.</p>
+<p>It looked their way. Cindra couldn't see its eyes, but she knew it looked at her. She could make out a rope necklace of eyeballs worn over its gore-smeared cloak. Its torso was canted at an impossible angle, insectile legs clinging to the dirt. The flesh of its arm writhed and bulged, the limb distended, the hand resembling a savage claw.</p>
+<p>Cindra cut through one anchor rope as Fang severed the other. The bridge fell, slowly at first, before gathering speed until it swung to smash against the rock face, the wood cracking and splintering.</p>
+<p>On the far side, the assassin scuttled back and forth, then flitted back into the darkness.</p>
+<p>"We should go," Fang said as they stared across the expanse.</p>
+<p>"Chiyo will pay for this," Cindra said through gritted teeth. "Every traitor will burn."</p>
+<p>They rode through the night, vengeance the only thing staving off Cindra's exhaustion.</p>
+<p>At the outskirts of Chiyo's citadel, Cindra's horse collapsed beneath her. It heaved a final breath, blood foaming at its mouth. Fang stroked his horse's snout, trying to calm the distressed animal. He covered its eyes and killed the horse with a single strike of his dagger.</p>
+<p>They shared a knowing look. Their horses deserved better than to be ridden to death. Yamada deserved better, too.</p>
+<p>The sun began to rise, painting the sky blood-red. An omen perhaps, but for good or ill, neither could be sure.</p>
+<p>Either way, retribution would be served this day.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/17-the-hunted/cleanse-the-corruption.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/17-the-hunted/children-of-chaos.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/17-the-hunted/cleanse-the-corruption.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/17-the-hunted/children-of-chaos.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

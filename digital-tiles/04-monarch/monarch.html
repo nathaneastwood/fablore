@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Monarch - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h3 id="aether-ironweave"><a class="header" href="#aether-ironweave">Aether Ironweave</a></h3>
+<p>Forbidden knowledge is simply information, a truth too harsh for weaker minds to comprehend. Knowledge is not bad or good, it simply is. This untapped potential can allow you to harness the very fabric of this world, and draw upon a power greater than your own.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/aether-ironweave.webp" alt="aether-ironweave" class="center" />
+<h3 id="blasmophet-the-soul-harvester"><a class="header" href="#blasmophet-the-soul-harvester">Blasmophet, the Soul Harvester</a></h3>
+<p>The Harvester's domain is a sea of gluttonous waste; consumption incarnate, a hunger for power only sated by devouring the bodies of friend and foe alike.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/blasmophet-the-soul-harvester.webp" alt="blasmophet-the-soul-harvester" class="center" />
+<h3 id="deep-rooted-evil"><a class="header" href="#deep-rooted-evil">Deep Rooted Evil</a></h3>
+<p>The realm of <a href="../../world-of-rathe/demonastery/the-gateway-to-iarathael.html#the-gateway-to-%C3%ADarathael">íArathael</a> is ancient, timeless, once filled with wonders beyond mortal comprehension, yet as an undue influence seeps through the Tear, the very fabric of this realm is becoming distorted; corrupted by malice and blight.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/deep-rooted-evil.webp" alt="deep-rooted-evil" class="center" />
+<h3 id="doomsday"><a class="header" href="#doomsday">Doomsday</a></h3>
+<p>When the throne stands empty, the mortal realm shall fall before the Harvester's bloodlust. After millennia trapped within a visceral wasteland, Blasmophet has been unleashed upon the world of Rathe.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/doomsday.webp" alt="doomsday" class="center" />
+<h3 id="eclipse"><a class="header" href="#eclipse">Eclipse</a></h3>
+<p>Beneath a plume of ashen mist, upon a carpet of rotting carcasses, the Reaper awaits. Summoned from beyond the veil, Ursur's silhouette has cast a shadow over Rathe.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/eclipse.webp" alt="eclipse" class="center" />
+<h3 id="frontline-scout"><a class="header" href="#frontline-scout">Frontline Scout</a></h3>
+<p>Hiding amidst the carnage, a sole witness watches in horror as the writhing beast rises from the remains of an army, silhouetted against a blood-drenched sky. One lonely scout remains, fervently searching for a way to emerge from the battlescape with her life intact.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/frontline-scout.webp" alt="frontline-scout" class="center" />
+<h3 id="galaxxi-black"><a class="header" href="#galaxxi-black">Galaxxi Black</a></h3>
+<p>Forged from the darkness of the deepest night, this blade is as cold as ice, a chill which seeps into your very bones. The meteoric iron seems as though it should be heavy, but it is light in your hands, moving fluidly as the segments of blade separate and form a chain whip, feeling as though you've wielded it all your life.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/galaxxi-black.webp" alt="galaxxi-black" class="center" />
+<h3 id="impenetrable-belief"><a class="header" href="#impenetrable-belief">Impenetrable Belief</a></h3>
+<p>When disaster is on your doorstep, you must keep faith that you are able to turn it aside. That is the difference between those who fall and that who stay standing. <a href="../../world-of-rathe/solana/solana.html">Solana</a> shall persevere!</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/impenetrable-belief.webp" alt="impenetrable-belief" class="center" />
+<h3 id="memorial-ground"><a class="header" href="#memorial-ground">Memorial Ground</a></h3>
+<p>In honour of those who fought for the Light, and fell in the battle against the Shadow; their names shall always be remembered.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/memorial-ground.webp" alt="memorial-ground" class="center" />
+<h3 id="ray-of-hope"><a class="header" href="#ray-of-hope">Ray of Hope</a></h3>
+<p>Those who remain faithful to Sol's radiance know the true strength of the Light; blessed with a Ray of Hope against the inexorable tide of the darkness. Rejuvenate your soul, and let your faith blaze through the Shadow.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/ray-of-hope.webp" alt="ray-of-hope" class="center" />
+<h3 id="seek-enlightenment"><a class="header" href="#seek-enlightenment">Seek Enlightenment</a></h3>
+<p>For generations, the Vidalis bloodline has resided in the <a href="../../world-of-rathe/solana/the-northern-realms.html">Northern Realms</a>, passing down tales of their origins in the golden city. <a href="../../heroes-of-rathe/boltyn-about.html">Boltyn</a> now walks the path of illumination, following in the footsteps of his ancestors, and building a new legacy for his family.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/seek-enlightenment.webp" alt="seek-enlightenment" class="center" />
+<h3 id="shadow-puppetry"><a class="header" href="#shadow-puppetry">Shadow Puppetry</a></h3>
+<p>The Old Ones are as impersonal and inhuman as nature itself. Some are more gentle by nature, their presence a mere ripple on the fate of humanity; others are drawn to the fleeting nature of human life, meddling in the affairs of mankind without reserve.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/shadow-puppetry.webp" alt="shadow-puppetry" class="center" />
+<h3 id="soul-shackle"><a class="header" href="#soul-shackle">Soul Shackle</a></h3>
+<p>Power does not come without a cost. For every 'blessing' offered by the Shadows, there is a debt which must be paid in blood; a high price which weighs heavily upon the soul. Ursur's covenant is binding, a shackle which pulls tighter and tighter until you can barely move. The more power you use, the more you will suffer for it. Be careful, lest you end up with a blood debt you cannot repay.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/soul-shackle.webp" alt="soul-shackle" class="center" />
+<h3 id="surging-militia"><a class="header" href="#surging-militia">Surging Militia</a></h3>
+<p>The villagers of the golden fields prove that you don't have to be a knight of Solana to have the strength to defend your land.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/surging-militia.webp" alt="surging-militia" class="center" />
+<h3 id="tome-of-divinity"><a class="header" href="#tome-of-divinity">Tome of Divinity</a></h3>
+<p>Knowledge is power. May your devotion to Sol guide you in your quest to end this blight, and reveal the solution you seek within the pages of this illustrious tome.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/tome-of-divinity.webp" alt="tome-of-divinity" class="center" />
+<h3 id="tome-of-torment"><a class="header" href="#tome-of-torment">Tome of Torment</a></h3>
+<p>You would be wise not to leave this book unattended for too long, for this is not the kind of tome to gather dust... The Tome of Torment will haunt your nightmares for years to come, rising from the shadows no matter how many times you might try to banish it from your memory. Find a way to harness its power, and you may just be spared from its curse.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/tome-of-torment.webp" alt="tome-of-torment" class="center" />
+<h3 id="ursur-the-soul-reaper"><a class="header" href="#ursur-the-soul-reaper">Ursur, the Soul Reaper</a></h3>
+<p>Amidst the impenetrable darkness, the Reaper radiated a faint, rippling light, like the bright afterimage which accompanies a wildfire; the wisp of smoke which rises from an extinguished flame.</p>
+<p>Ursur reaps the souls of the living and the dead, harnessing their raw energy to fuel its incessant assault.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/ursur-the-soul-reaper.webp" alt="ursur-the-soul-reaper" class="center" />
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../digital-tiles/03-crucible-of-war/crucible-of-war.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../digital-tiles/05-tales-of-aria/tales-of-aria.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../digital-tiles/03-crucible-of-war/crucible-of-war.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../digital-tiles/05-tales-of-aria/tales-of-aria.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

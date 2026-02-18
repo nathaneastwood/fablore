@@ -1,0 +1,31 @@
+/* The following is for the hero pages */
+.hero-container {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+}
+.hero-icon {
+    max-height: 150px;
+}
+.hero-content {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20px;
+}
+@media only screen and (max-width: 600px) {
+    .hero-container {
+        flex-direction: column;
+        justify-content: center!important;
+    }
+    .hero-icon {
+        max-width: 50%!important;
+        display: block;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-content {
+        margin: 0px;
+    }
+}

@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Compendium of Rathe - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h3 id="art-of-the-phoenix-war"><a class="header" href="#art-of-the-phoenix-war">Art of the Phoenix: War</a></h3>
+<p>The <span class="hint" hint="Volcai">Volcai</span> live within the tumultuous fires of the Phoenix Cycle. To them, it is the rhythm of life itself, a rotation marked by rebellion and restoration, collapse and coronation. Some farmfolk whisper that the cycle is no natural law but the work of Infernai, Aesir of Flames, turning the great wheel from a far-distant slumber. No matter the cause, one thing is certain: when the phoenix rises, war must follow.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/art-of-the-phoenix-war.webp" alt="art-of-the-phoenix-war" class="center" />
+<h3 id="blessing-of-bellona"><a class="header" href="#blessing-of-bellona">Blessing of Bellona</a></h3>
+<p><span class="hint" hint="Bellona">Bellona</span> rallied the faithful, for without an army ready to fight and die for <span class="hint" hint="Sol">Sol</span>'s promise, there would be no enlightenment. It is said, the Archangel cast a radiant blessing upon the soldiers and together archangels and mortals marched as one. To bear that light was the highest honor, for Light had battled Shadow since the age of blood and would not yield then nor now.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/blessing-of-bellona.webp" alt="blessing-of-bellona" class="center" />
+<h3 id="blunten"><a class="header" href="#blunten">Blunten</a></h3>
+<p>Much is written of the sun-blessed daughter of blacksmiths who, during her <a href="../../main-story/01-welcome-to-rathe/pride-of-the-ironsongs.html#the-awakening">Awakening ceremony</a>, reached for the smith's hammer but grasped instead the sword that would become Dawnblade. Yet few know of the day <a href="../../heroes-of-rathe/dorinthea-about.html">Dorinthea</a> bested all contenders on the sparring field and won with such grace that even the knights-in-training cheered her name. To all present, Dorinthea was a legend in the making.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/blunten.webp" alt="blunten" class="center" />
+<h3 id="boo-resident-spook"><a class="header" href="#boo-resident-spook">Boo, Resident Spook</a></h3>
+<p>Upon the storm-wracked <a href="../../world-of-rathe/high-seas/high-seas.html">High Seas</a>, you'll find no cheerier phantom than cabin boy Boo. With a Yoo, Hoo, Hoo, and a bottle of booze, he brings good scare to his undead crews. He'll swab the decks in rain or rogue waves, for nothing to Boo feels daunting. And when his captain's rum-reading to raise some heck, Boo's right by their side for the haunting.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/boo-resident-spook.webp" alt="boo-resident-spook" class="center" />
+<h3 id="embalm"><a class="header" href="#embalm">Embalm</a></h3>
+<p>The darkest arts demand the highest price. Power for blood. Within the Necropolis, the <a href="../../world-of-rathe/demonastery/demonastery.html">Demonastery</a>'s finest morticians turn sepulchral preservation to self-preservation. Within the trappings of death lurk the secrets of capturing life, such rituals that can save a little animus, a drop or two of the sacred sanguine, from the thirsting throat of the beyond.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/embalm.webp" alt="embalm" class="center" />
+<h3 id="lunar-mirage"><a class="header" href="#lunar-mirage">Lunar Mirage</a></h3>
+<p>Miragai called upon the spirits of the valley to cease their bewailing and help the dragon Embra bring harmony back to the Mistveil. By holding a mirror up to the actions of each, the spirits of Rain, Wind, River, and Mountain were shown that a simple offering of thanks made by the people of the valley was the only reward needed and that shallow admiration was simply a mirage.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/lunar-mirage.webp" alt="lunar-mirage" class="center" />
+<h3 id="sense-weakness"><a class="header" href="#sense-weakness">Sense Weakness</a></h3>
+<p>Snow learned a new color the day <a href="../../heroes-of-rathe/jarl-about.html">Jarl Vetreiđi</a> thawed from the ice. Returned in an age where most have forgotten the horrors of the past, indulged as they are in the glow of ale and song, Jarl simply shrugs and gets to work hunting the remnants of the Old Ones, his bloodthirsty appetite for war a warning to all, monsters and men alike. And though his last great kill lies far behind and today's enemies are fewer and smaller, Jarl remembers them as they were, like an itch that he will do anything to scratch.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/sense-weakness.webp" alt="sense-weakness" class="center" />
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../digital-tiles/18-high-seas/high-seas.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../data/data.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../digital-tiles/18-high-seas/high-seas.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../data/data.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

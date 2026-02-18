@@ -1,0 +1,398 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>A Grand Adventure - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="a-grand-adventure"><a class="header" href="#a-grand-adventure">A Grand Adventure</a></h1>
+<p><em>Lightning...Ice...Earth...</em><br>
+<em>The elements are entwined in turmoil.</em><br>
+<em>A seething storm rages throughout <span class="hint" hint="Enion">Enion</span>, threatening to destroy Volthaven and its people.</em><br>
+<em>The very land itself is twisting and turning, as if awakening from a dark slumber, and unearthing ancient mysteries thought to be lost to the ages.</em><br>
+<em>The starry-eyed wayfarer <a href="../../heroes-of-rathe/lexi-about.html">Lexi</a> has been tasked with leading a troupe of adventurers into the heart of Enion, to uncover the origin of this elemental frenzy.</em><br>
+<em>She is joined by the traveling bard <a href="../../heroes-of-rathe/other.html#yorick-weaver-of-tales">Yorick</a> - always searching for new stories, the gruff dwarven blacksmith Thawne - with a keen eye for craftsmanship, and the aspiring magician Māra - who has a flair for the dramatic.</em>
+<em>For weeks our heroes have braved the elements as they venture deeper into Enion, where secrets await them...</em><br></p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-1.webp" alt="grand-1" class="center">
+<p>Despite being used to the cold, Lexi couldn't help but feel a chill run up her spine as she gazed over the landscape. Floating mountains that had spent an eternity frozen solid had shaken off their frosty shell, projecting strange mechanical whirring sounds. The wind, normally brisk and flecked with snowflakes, had been whipped up into a frenzy of crackling energy. Seismic vibrations rattled throughout the region in an almost rhythmic pattern, emanating from the centre of the region.</p>
+<p>Enion was changing.</p>
+<p>Yorick noticed her concern, which was unusual for the adventure-thirsty wayfarer.</p>
+<p>"You okay?" he asked.</p>
+<p>Lexi sighed. "Something just isn't right. I don't know what it is, but I am afraid for the people of Volthaven."</p>
+<p>He nodded. "Hopefully the answer lies at the very centre - <span class="hint" hint="Yvor">Yvor</span>'s Peak."</p>
+<p><em>But what will we find there...she wondered to herself.</em></p>
+<p>The party gritted their teeth against hail and thunder as they trudged onward. The earth beneath their feet trembled, as patches of glowing symbols poked out of the soil.</p>
+<p>At last the shadow of Yvor's Peak loomed behind a wall of fog.</p>
+<p>"Can you feel that?" Māra whispered, shivering. The others halted as the air itself buzzed with static electricity, setting their nerves on end.</p>
+<p>"Curious," murmured Lexi, lifting Voltaire, the silvery bow that marked her as a Wayfarer. She drew an arrow from her quiver and aimed high. Voltaire's bowstring hummed with tension.</p>
+<p>Lexi released the arrow and it soared into the mist, flashing with lightning and leaving a glowing aurora trail in its wake.</p>
+<p>They gasped as the mist broke away and Yvor's Peak was revealed. The entire mountain had been separated down the middle, as if a giant had ripped it in twain.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-2.webp" alt="grand-2" class="center">
+<p>"So this must have been what was causing the quakes," Lexi exclaimed. "But what could possibly have enough strength to do this?"</p>
+<p>Thawne shook his head. "Look at the ridges. They're smooth. This mountain didn't just break apart. It was...built this way."</p>
+<p>Cautiously they ventured forth, avoiding whizzing boulders that orbited the mountain, propelled by the uncanny static aura. Coming closer they were able to gain a clearer view of the mountain's interior.</p>
+<p>The frosty layer that had once blanketed Yvor's Peak had now been dislodged, littering the ground with icy debris. Towering above it was a colossal stone statue - Lexi recognised it as the mythical Ancient of Thunder and Ice. The stone was pristine, having been encased within the mountain for thousands of years, hidden from the elements.</p>
+<p>"I don't understand..." Lexi said. "What is this place...and why has it revealed itself now?" She gazed up at the statue, and couldn't help but feel the weight of responsibility on her usually carefree shoulders.</p>
+<p>Thawne let out a whoop of joy, pointing at the base of Yvor's staff.</p>
+<p>"That's a lever mechanism if I ever saw one," he yelled, and heaved at it, stout muscles straining. The others joined to help, and eventually the stone pommel grinded back a few feet, followed by a click.</p>
+<p>A deep rumbling echoed throughout the mountain as Yvor's statue began to rise. The party ran for shelter and watched in awe as the base of the statue twisted upwards. Finally it came to a halt, revealing a massive door. Symbols were etched into the doors' surface from some dialect lost to the ages. It took all of their combined strength to push the door open, revealing steps leading into darkness.</p>
+<p>Māra clicked her fingers, producing a dancing rainbow flame, and lit the way. The walls were adorned with metal gears, valves, and pipes, and every few moments a faint ticking sound could be heard.</p>
+<p>Eventually they came to a gigantic round chamber. Lexi felt like an insect as she walked past huge pillars, each sporting enormous metal hooks to store various huge weapons.</p>
+<p>"It's some kind of armoury!" Thawne exclaimed, running to and fro like a child in a sweetshop.</p>
+<p>Lexi felt herself drawn to the centre, where a huge pedestal lay. Deep grooves ran down the pedestal, across the floor, and up the pillars, sparkling with a weak silvery glow. The pedestal itself contained a carved hole, perfect fit for a gem, coin, key, or some other small item. The hole was empty, and surrounded by the same strange text they had seen on the door.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-3.webp" alt="grand-3" class="center">
+<p>Yorick called them over to the walls of the chamber, which were sprawling with painted murals. Some of the pictures were intricate and beautiful, such as a blue crystalline maiden weaving ice and snow throughout what looked like <a href="../../world-of-rathe/aria/aria.html">Aria</a>. Others were strange and outlandish, such as an enormous squid-like creature lurking within sunken ruins. And even more had a threatening and sinister feel, such as a blood-red dragon perched atop a mountain of skulls, surrounded by hellfire.</p>
+<p>Underneath each of the scenes was the same odd text. Lexi ran her palm over the wall.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-4.webp" alt="grand-4" class="center">
+<p>"Do you recognise it?" she asked Yorick hopefully. He shook his head, and produced a small leather tome from his pack, copying the inscriptions as Māra held the hovering flame above.</p>
+<p>When Yorick was done, they took one last long look at the chamber, then headed back out into the fray above.</p>
+<hr />
+<p>Arriving back in Volthaven, Lexi watched as villagers frantically scurried to pack their belongings. Nobody had time to stop and chat, although they did send brief smiles her way. She noticed several homes crushed under the weight of an avalanche, or singed by lightning bolts.</p>
+<p>They made their way to the home of Isulvf, the oldest and wisest seer in the whole village. He ushered them into his hut out of the cold, and his eyes lit up when they told him what they had seen. Yorick handed him the leather tome.</p>
+<p>Isulvf scratched his head as he flicked through the pages, then sighed.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-5.webp" alt="grand-5" class="center">
+<p>"This writing...It's old. Possibly older than Volthaven itself. I do not know what it says."</p>
+<p>"Is there anyone who might know?" asked Lexi with a hint of desperation.</p>
+<p>He shook his head. "Not here in Volthaven, that's certain."</p>
+<p>"Then what do we do? Everything that's happening right now, it all seems to be connected to this writing."</p>
+<p>Isulvf hobbled over to the stovetop, pouring herbal tea for his guests.</p>
+<p>"There is a place far from here, where the elements converge, and fate behaves in a strange manner," he said, carrying the tray back to where they sat. "Many old mystics, even before my time, used to make pilgrimages there to seek spiritual guidance."</p>
+<p>Lexi accepted the warm mug gratefully.</p>
+<p>"Perhaps you should do the same."</p>
+<hr />
+<p><a href="../../heroes-of-rathe/oldhim-about.html">Oldhim</a> lumbered forwards like a relentless locomotive, completely ignoring the chaos around him.</p>
+<p><em>This road used to be quiet</em>...He contemplated, as a merchant's caravan swerved to the side to avoid him, spilling a cart of fruit. With each heavy step his bulky frame slowly inched a little further, oblivious to the bustling traffic around him who were trying to head in the other direction.</p>
+<p>The more impatient caravan drivers would curse out - but fell silent when they caught sight of Oldhim, meekly veering off the road to move out of his way. Those who tried to push past him were flung off their horses as the beasts reared and bucked.</p>
+<p>Of all the looks they gave him - fear, awe, anger - he noticed none.</p>
+<p>Deep in thought, Oldhim nearly stepped upon a small crying child. For the first time since leaving his frozen slumber deep within Isenloft, Oldhim halted. The child stopped sniffling, gazing up at the oaken one in total shock. Everyone watched with bated breath, as Oldhim slowly reached within his robes.</p>
+<p>A woman burst forth to grab the child, her face pale with terror as the massive guardian bent down, peering at them with icy blue eyes.</p>
+<p>He withdrew his gloved fist, and opened it, revealing a tiny hand-knitted cotton toy.</p>
+<p>The child reached out with trembling hands, and clutched it close to her chest.</p>
+<p>An audible sigh of relief was heard, as the mother scampered away with the now-giggling child.</p>
+<p>Oldhim straightened his back, feeling the unkindness of age, and resumed plowing forwards.</p>
+<p>"Excuse me?" said an eager voice, to which Oldhim did not grace with a response.</p>
+<p>"Hello?" The voice pestered again. Oldhim drowned it out by delving deep into ancient memories - war, bloodshed, the last desperate stand against the -</p>
+<p>"Hey!" The voice broke through with such conviction that Oldhim stopped dead in his tracks and blinked in surprise. He glared at the bright-haired woman who had interrupted him, then caught sight of her gleaming bow.</p>
+<p>"Wayfarer." He murmured.</p>
+<p>She bowed. "You must not be from around here," she said.</p>
+<p>Oldhim grunted. "Aria has changed." He said gruffly.</p>
+<p>"Changed? Do you remember a time when it was different?" She asked.</p>
+<p>Oldhim stayed silent.</p>
+<p>She beckoned to one of her companions, a bard, who passed her a leather tome. "Perhaps you recognise this?"</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-6.webp" alt="grand-6" class="center">
+<p>Oldhim scanned the pages. The markings were old. Something about them felt familiar, but he couldn't grasp it. He shook his head, and continued walking.</p>
+<p>The wayfarer continued to skip alongside him, and much to his annoyance, the bard began playing an irritating tune on his lute.</p>
+<p>"What brings you to the road to Korshem?" Asked the wayfarer.</p>
+<p>"Answers." He replied.</p>
+<p>"It appears we have similar goals. My name is Lexi, perhaps we can travel together?"</p>
+<p>Oldhim paused, then reached out and snatched the bard's lute. He hurled it through the air, where it shattered to splinters against a tree.</p>
+<p>"Now you may join me." He growled, and strode onwards.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-7.webp" alt="grand-7" class="center">
+<p>Lexi shrugged apologetically to Yorick, who grumbled and fell back to join the others. Lexi stayed at the frosty guardian's side, respectfully slowing herself to his pace.</p>
+<hr />
+<p>"For the last time, it was an accident!"</p>
+<p><a href="../../heroes-of-rathe/briar-about.html">Briar</a> boiled with anger as she danced out of the path of swinging fists. The red-faced merchant continued to splutter as he punched wildly.</p>
+<p>The two circled each other, as spurts of lager bursting from a nearby keg rained down on them.</p>
+<p>Briar felt a small twinge of regret at having caused the wreckage, but it was quickly replaced by fury when the man clipped her shoulder with a right hook.</p>
+<p>It wasn't her fault. Nature was wild and so was she. Briar glanced at the ruined keg, which had been busted open by her wayward vines, then back at the sopping wet man attempting to clobber her.</p>
+<p>"Keep this up and you'll wish the keg was the only thing broken," She hissed, drawing her Rosetta Thorn from its sheath.</p>
+<p>He continued to yell gibberish, and rushed at her. Red clouded Briar's judgment and she stepped back, splaying her palm. Roots burst from the earth, wrapping around the man's ankles, bringing him down like a felled tree.</p>
+<p>Briar rotated Rosetta Thorn, preparing to knock him out with its pommel, when an arrow whistled through the air, snaking between them, and thudding into the keg. A wave of cold spread from the arrows' tip, freezing the cracks, and reducing the torrent of lager to a foamy drizzle.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-8.webp" alt="grand-8" class="center">
+<p>Briar stepped back in surprise.</p>
+<p>The source of the arrow, a woman with snowy hair and electric eyes, ran towards them, followed by the oddest bunch of people Briar had ever seen - including an enormous figure with a winter-white beard.</p>
+<p>The innkeeper took one glance at the stranger's glistening bow and cooled off immediately. She handed him some coins, and he waddled off.</p>
+<p>The woman turned to Briar, who scowled.</p>
+<p>"If it's thanks you're expecting wayfarer, then you're out of luck."</p>
+<p>The wayfarer shook her head. "It was my pleasure. But I do want to know where such a unique flower like yourself sprang from."</p>
+<p>Briar grimaced at the use of the term flower. "I hail from Candlehold. I'm the first of my kind to venture beyond the thorns since we were sealed away by the essence of Davnir."</p>
+<p>"Love that for you," Said the wayfarer. "I've heard legends of the Ancients, Yvor, Davnir, Isen...Perhaps you may be able to help us after all."</p>
+<p>The wayfarer took a leather tome from one of her friends and showed it to her.</p>
+<p>Briar forced her temper into check and gazed at the pages. She did not recognise the markings, but there was something strange about them, like they were calling to her, drawing her in. She snapped the cover shut.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-9.webp" alt="grand-9" class="center">
+<p>"I have no idea."</p>
+<p>The wayfarer's face fell. Briar turned to leave but immediately bumped into the bearded giant, who searched her with his steely gaze for what felt like an eternity.</p>
+<p>"Rosetta," he finally mumbled.</p>
+<p>Briar turned back to the wayfarer. "I may not be able to help you, but the queen of Candlehold is the wisest person I know."</p>
+<p>Sparks of joy returned to the wayfarer's face. "Fantastic! Could you lead us there?"</p>
+<p>Briar marched off. "Fine. Keep up."</p>
+<p>The party followed Briar into the woods as dusk fell behind the branches of the legendary Korshem.</p>
+<hr />
+<p>Yorick couldn't decide who was less fun - stone cold Oldhim, or Candlehold's sleepy queen.</p>
+<p>She sat perfectly still upon her wooden throne, face marbled like the tree-bark that surrounded her. In fact, if you didn't look hard enough, you would have missed spotting her completely.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-10.webp" alt="grand-10" class="center">
+<p>Oldhim stood further back within the shade, as solemn as the grave.</p>
+<p>Neither would make an interesting character in his next play, Yorick decided.</p>
+<p>"Please, your majesty," begged Lexi. "We need to learn what the markings mean!"</p>
+<p>"Hmm?" The queen rasped, without moving even an inch to look at her. "Apologies dear, I must have dozed off again."</p>
+<p>"Our people's safety depends on it - all of Aria could depend on it!"</p>
+<p>"Like one blade of grass in a meadow..." The queen trailed off, not bothering to finish her sentence.</p>
+<p>Lexi exhaled in frustration. Oldhim stepped closer, scanning the queen's restful face.</p>
+<p>"My memory is...clouded," he muttered. "But the <span class="hint" hint="Rosetta">Rosetta</span>...The Ollin..."</p>
+<p>If the queen was surprised by his presence, she showed no signs of it.</p>
+<p>"Ollin..." She murmured. "You've been gone a long time."</p>
+<p>Oldhim's brow creased as he tried to recall what had been lost to the passage of time.</p>
+<p>"The Covenant...what happened?"</p>
+<p>A long silence filled the room. When the queen finally spoke, her voice was soft, but with a hint of sadness.</p>
+<p>"...I do not have the answers you seek."</p>
+<p>The queen idly waved a hand, signalling for them to leave.</p>
+<p>Briar hurled a bolt of lightning at her.</p>
+<p>Jolted awake, the queen blinked as Briar stomped towards the throne.</p>
+<p>"The trees rustle as if nervous. Animals are abandoning their homes. Something is coming, and I fear Candlehold will not be able to remain hidden. There's a reason the wayfarer and I crossed paths, I can feel the Strale calling."</p>
+<p>There was a creaking sound as the queen tilted her head to look at Briar directly. Though her face was wizened and hardened, her eyes were kind.</p>
+<p>"I will try..." she croaked, gently rubbing her eyes.</p>
+<p>Lexi handed her the leather tome, and they waited impatiently as the queen turned each page with a deliberate slowness.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-11.webp" alt="grand-11" class="center">
+<p>At last the queen glanced up, and closed the tome.</p>
+<p>"This dialect is of the Seers."</p>
+<p>Oldhim's ears pricked up.</p>
+<p>Handing the tome back to Lexi, the queen leaned back in her throne, yawning.</p>
+<p>"What do you mean?" Lexi frowned in confusion. "We have seers in Volthaven, but they were not able to decipher it."</p>
+<p>The queen chuckled, a sound similar to that of a snoring toad.</p>
+<p>"Not those seers...the Seers...of old.</p>
+<p>"I don't understand, who were the old Seers?"</p>
+<p>"Hidden allies...Bearers of the Indigo Eye...Find them...If they still exist."</p>
+<p>"Any idea where we might start looking?" asked Lexi.</p>
+<p>The queen closed her eyes, and exhaled deeply, sinking further into the wood.</p>
+<hr />
+<p>Back under Korshem's sprawling canopy, the heroes washed their worries away at a nearby tavern.</p>
+<p>Yorick tuned his new lute, keeping well away from Oldhim, and began strumming an enchanting melody.</p>
+<p>Thawne and Briar were locked in an arm-wrestle, beads of sweat rolling down the dwarf's forehead as he strained to out-muscle her.</p>
+<p>Māra performed a magic trick for Oldhim, producing a dove from her sleeve. With an extravagant wave of her hand she transformed it into a dazzling rainbow aether flare.</p>
+<p>The oaken one did not crack even the slightest of grins.</p>
+<p>Lexi wandered away from the party, her mind racing with questions. Where were the Seers? Why was there an armoury in the heart of Enion? What did it all mean?</p>
+<p>Her eyes were drawn to a poster tacked on a nearby wall.</p>
+<p><em>Challenge the Showstopper to a test of might!</em><br>
+<em>Experience crazy brews from Aria's finest Braumeister!</em><br>
+<em>Have your fate foreseen by the whimsical seers!</em><br>
+<em>All this and many more wonders - see it all at Everfest!</em><br></p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-12.webp" alt="grand-12" class="center">
+<p>She snatched the poster and returned to the group, slapping it on the table.</p>
+<p>"Look!" she pointed.</p>
+<p>Yorick rolled his eyes. "Yes, because an ancient secret organisation just happens to be conveniently advertising their location on a carnival poster."</p>
+<p>"Any better ideas?"</p>
+<p>Nobody responded except Briar, who just shrugged and went back to crushing Thawne's arm.</p>
+<p>Lexi lifted her mug. "Then drink up, friends! Tomorrow we set foot for <em>Everfest</em>!"</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-13.webp" alt="grand-13" class="center">
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/05-tales-of-aria/amongst-the-brambles.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/07-interlude/morlock-hill.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/05-tales-of-aria/amongst-the-brambles.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/07-interlude/morlock-hill.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

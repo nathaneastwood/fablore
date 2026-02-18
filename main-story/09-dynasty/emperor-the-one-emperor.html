@@ -1,0 +1,266 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The One Emperor - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/emporer-1.webp" alt="emporer-1" class="center">
+<h1 id="the-one-emperor"><a class="header" href="#the-one-emperor">The One Emperor</a></h1>
+<p>The <a href="../../heroes-of-rathe/emperor-about.html">Emperor</a> stands before the ancient altar. His eyes take in the rough-hewn base and its pyroglyphic symbols, carved by the first emperor at the dawn of <a href="../../world-of-rathe/volcor/volcor.html">Volcor</a>. The symbols roam from raw rock to wrought iron and glass, replaced during his reign by the dynasty's finest metallurgists and glaziers. His gaze follows the sinuous lines of the bracing dragons, the gentle curvature of the glass, to the vision that burns within. A blazing apparition. A spark, cast here from a fire beyond reach, beyond understanding.</p>
+<p>Muffled whispers scratch at the glass. The Emperor is all too familiar with those insidious promises. They are the sovereign's blessing, and his curse. He has listened to them since he was a young man, long before he took the throne from his father. Today he wishes they would be silent.</p>
+<p>With a supreme act of will, he turns his back on the altar and empties his mind of those susurrant temptations. He crosses the chamber to where the Imperial Crown lies in its bed of velvet, and remembers how it felt, that first time, when <span class="hint" hint="Yama">Chancellor Yama</span> placed it upon his brow.</p>
+<p>The coronation crowd was the largest in living memory, an ocean of red as far as his eyes could see. His subjects flooded the streets, as numerous as blades of drake whisker grass upon the western plains. His most loyal servants lined the steps, an avenue of acolytes that he tended like a gardener might nurture a patch of rare and delicate dragon flowers.</p>
+<p>The lord wizards grew and blossomed in the warmth of his wisdom. They became true artisans of the aether. Their fireborn talents tested and tempered in the forges of war.</p>
+<p>Without a strong emperor to guide them, the people of Volcor had turned against each other. <span class="hint" hint="Dracai">Dracai</span> and <span class="hint" hint="Volcai">Volcai</span>, their talents and efforts wasted on fear and fancy. He gathered them to the blazing beacon of royalty, made them so much greater than the sum of themselves. Together, they tore down the tawdry banners. They dismembered the personal armies and reduced the petty holdfasts to ash.</p>
+<p>To vale and plain, city and citadel, they restored the peace that his father let slip through his trembling fingers.</p>
+<p>He surrounded himself with individuals of power and vision. With a click of his fingers, he could light every torch in the city so that Xathari, his fireseer, might peer into every corner of <span class="hint" hint="Ashvahan">Ashvahan</span>. So that <a href="../../heroes-of-rathe/yoji-about.html">Yoji</a>, his captain of the Imperial Guard, might exact justice upon the dishonorable.</p>
+<p>These were people he could use, but never wholly trust. While their ambitions aligned with his, they remained his loyal servants. He expected nothing more nor anything less.</p>
+<p>The memory melts away as the Emperor takes up his sword, his fingertips brushing the golden tassels of magma lion fur dangling by silver threads from its pommel. He was merely a prince when he last raised this blade in battle.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/emporer-2.webp" alt="emporer-2" class="center">
+<p>The sky burned and fire rained down upon the town that day. Warriors lurched and screamed as the conflagration spread and consumed. It was a simple matter to pry into the mind of the town's self-appointed general, to pluck the positions of his men and armaments from his drunken mind. Then the guilty melted like candles while the innocent cowered in awe. Their prince was nothing if not merciful.</p>
+<p>He ordered his entourage forward, through the scorched remains of the town gate. Though they strained beneath the weight of his palanquin, the bearers did so without complaint or consideration. Just as his soldiers fought the remaining defenders without fear. Just as his acolytes drew upon the fire in their blood to cleanse the corruption from the wayward settlement.</p>
+<p>They knew their place, as all knew their place in this dynasty of his making. Selfish ambitions were charred black by his conquests. Singular lives snuffed out. The few suffered so the many would know peace. He was a farmer, burning the fields to destroy the weeds, to allow the crop to thrive.</p>
+<p>For he was once like the Volcai, a boy of imposed aspiration, his mind caged by the fears of his father. Until the moment he listened to the lava and heard its seething song.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/emporer-3.webp" alt="emporer-3" class="center">
+<p>Through the tunnels they labored, a reckless princeling and his chosen few, determined to discover what secret an emperor might keep from his only son.</p>
+<p>One by one, they fell to the mountain's malevolence. The ideals of youth proved no match for the terrors of wild nature. The princeling did his best to protect his fellow students. He was stronger than the rest, but not strong enough to save them. Not then. He saw the creatures of the deepening darkness catch and consume them. An apophis took his last remaining friend. It leapt from the magma and crushed his companion in its serpentine embrace before the princeling could summon the aether to slay it.</p>
+<p>Alone, he tumbled into a monster's silken snare, felt its hot fangs kiss his neck before he could burn himself free. The venom should have stopped his frail human heart. Mount Volcor should have become his mausoleum. Yet his draconic blood refused to be stilled. His flame refused to be extinguished.</p>
+<p>He rose from his knees and stumbled towards the pounding thunder of the Aesir's song. From the buried beyond, it called to him. His heart marked time with its cadence. His mind filled with its mesmerizing rhythms.</p>
+<p>He felt the heat as he breached the cavern, a wonder of diamond elegance blinding his bleary eyes. He stumbled to the molten fissure and drank of its power. From lips to throat to blood, lava burned the poison from his veins and filled his eyes with searing aether.</p>
+<p>In that moment, he saw it all. Volcor stretched out before him. One land. One people. One Emperor.</p>
+<hr />
+<p>He adjusts the crown upon his head. His back itches as if brushed by hot fingers. His ears burn with the hiss of boiling whispers. He grits his teeth against the urge to turn, to gaze into the apparition, to allow it to carry him down into the fissure once more. To succumb to that which he has served for so long.</p>
+<p>The Emperor has heard the cries rise up beyond the walls of his capitol. He has felt the rifts of rebellion like wounds in his own flesh. While he communed with the Aesir, the empire beyond tore itself apart.</p>
+<p>In spite of everything, he has become his father's son.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/emporer-4.webp" alt="emporer-4" class="center">
+<p>His will cools and crystallizes like lava after an eruption. Aether flickers in his palms, ready to serve, ready to smite at his command. He is the forge that will mend this broken land, with fire and brimstone if he must. Once again, the few will suffer so the many may thrive.</p>
+<p>One land.</p>
+<p>One people.</p>
+<p>One Emperor.</p>
+<hr />
+<p><em>Source: <a href="https://fabtcg.com/heroes/emperor-dracai-aesir/?stories=True">https://fabtcg.com/heroes/emperor-dracai-aesir/?stories=True</a></em><br>
+<em>Written by Edwin McRae and Rachel Rees.</em><br>
+<em>Directed by Robbie. Illus. by Sam Yang.</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/08-uprising/the-phoenix-and-the-dragon.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/09-dynasty/ember-in-the-ash.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/08-uprising/the-phoenix-and-the-dragon.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/09-dynasty/ember-in-the-ash.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

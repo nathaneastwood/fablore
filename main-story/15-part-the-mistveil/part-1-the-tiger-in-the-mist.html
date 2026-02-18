@@ -1,0 +1,298 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Tiger in the Mist - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="part-1-the-tiger-in-the-mist"><a class="header" href="#part-1-the-tiger-in-the-mist">Part 1: The Tiger in the Mist</a></h1>
+<p><a href="../../heroes-of-rathe/zen-about.html">Zen</a> winds his way uphill, discerning the invisible patterns of chi in the landscape, waiting for ripples of discordance to appear from the gullies throughout <a href="../../world-of-rathe/misteria/among-the-mists.html#mistcloak-gully">Mistcloak</a>.</p>
+<p>He was drawn to the gully by the changing tides of chi and has made the long journey to learn what destiny might be unveiling.</p>
+<p>To the wanderer, every moment offers purpose and each step affirms an enduring commitment made to the cosmos: all who summon the chi must allow the chi to summon them.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/zen-story-1.webp" alt="zen-story-1" class="center">
+<p>Villagers bow as he strolls past them, then return to their revered daily routines - every sweep of the broom effected with grace; the day's harvests washed and prepared with care and consideration.</p>
+<p>He pauses to admire a trio of weavers winding threads of silk along a wooden loom, their babes cradled in blankets on the grass beside them.</p>
+<p>He watches in awe as a farmer balances a carrying pole laden with produce across a suspended tightrope, the man's strength and confidence a testament to his practiced ability.</p>
+<p>He hears laughter from elders and the young as they guide one another around narrow cobblestone paths, their closeness a reminder of the traditions that have maintained harmony within <a href="../../world-of-rathe/misteria/misteria.html">Misteria</a> for centuries.</p>
+<p>There is a saying written in the tenets: The still pool must be disturbed by the spring melt else tranquility shall decay into stagnation. The ripples tell where the surface has been broken.</p>
+<p>Zen wonders why he was called to Mistcloak on this day. All seems in balance, the surface unbroken, the natural order and way of life here in alignment.</p>
+<p>Yet, as he wends his way downhill onto a neighboring street, he feels the energy shift around him.</p>
+<p>A group of villagers huddle together around the body of a man. A drawn katana rests in his limp right hand. His decapitated head sits upon his unbreathing chest.</p>
+<p>A villager recognizes Zen as a monk, bows and rushes over. She implores Zen to rid their town of the disgrace brought upon them by this violent act. One by one the others join in, their collective shame churning the chi around Zen.</p>
+<p>"I promise to remove this stain," he assures them. "This violence will end and peace will be restored."</p>
+<p>The villagers thank Zen for his calming words and busy themselves with the duties of removing the man's body.</p>
+<p>But where to find this mysterious killer?</p>
+<p>Zen lowers his head, sweeps his open hand into his chest and concentrates all of his energy towards his center, channeling his inner power, seeking direction.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/zen-story-2.webp" alt="zen-story-2" class="center">
+<p>The sun transforms the mist into a glistening haze over the <span class="hint" hint="Ikaru">Ikaru</span> gardens. Zen treks into the dell, bowing as he passes the statue of <a href="../../world-of-rathe/misteria/the-legend-of-mistress-ikaru.html">Mistress Ikaru</a>. He settles into a cross-legged position near a trickling spring where he hears the rustling of raciki scavenging for food.</p>
+<p>He watches as one of the fluffy canines sidles up to the spring, eyeing rowbugs as they scuttle across the surface. It dives into the water with a muffled plunk, harnessing its chi upon instinct, its fur hardening into scales, its paws spreading into fins until the shapeshifting dog has become a hunting carp.</p>
+<p>Zen marvels at the ease at which the creature can change its form. While he can summon his chi to manifest the features of the crouching tiger, he is yet to transcend into the tiger itself.</p>
+<p>A silhouette enters the garden, a limping figure, hunched and weary. The man's dark hair is tied up in a rough topknot. His unshaven face is haggard, his eyes bleary and brooding. His hands are clenched in anger, as if still clutching the handle of his katana. His discordance drips like wine from a spilled cup.</p>
+<p>Images unfurl in Zen's mind like a painted scroll: a beautiful servant with sorrowful eyes, a love unrequited, and a heart that bleeds with anger.</p>
+<p>The vision shifts, becoming fluid and dreamlike. A man, consumed by jealousy, slaying his lover's suitor in a contrived contest of honor.</p>
+<p>Zen stands, his presence a calm counterpoint to the swordsman's turmoil. Sensing Zen's gaze, the man turns, his surprise fleeting, soon giving way to a grim suspicion that is etched into his weathered face.</p>
+<p>"You won a duel," observes Zen, "yet the victory has cut you deeply."</p>
+<p>The man's scowl deepens as a cold breeze claws at his blood-stained robe. The mist swirls in a vortex behind him, a well of despair that threatens to engulf him.</p>
+<p>Zen feels the chi urging him onwards. "You are weighed down by the life that you took, but a true villain would not wear it as a cloak of shame. With what name may I honor you?"</p>
+<p>"Seto." The name is bitter with disgust, a sign of how far the man feels he has fallen. "Of House <a href="../../world-of-rathe/misteria/prestigious-households.html">Miharu</a>."</p>
+<p>Zen bows low to reflect the prestige of the man's house. Seto offers a shallow bow, out of obligation more than respect.</p>
+<p>"May your journey carry you from strife into peace, Seto of Miharu."</p>
+<p>The swordsman grunts and limps off, heading back towards town. Zen waits a while so he can pursue in secret, then follows Seto's oily trail of guilt.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/zen-story-3.webp" alt="zen-story-3" class="center">
+<p>The teahouse seems insignificant, suspended as it is high above Mistcloak Lake between two jagged cliffs. "Nasu-ka" is the name Zen has gleaned from a passing water carrier, a title uttered with trepidation and disgust.</p>
+<p>The building is as delicate as paper, many folds deep, the entrance expanding like the maw of a yawning lizard as he steps inside.</p>
+<p>The interior is like nothing he has seen before. The cavernous venue is filled with patrons enjoying tea and so much more.</p>
+<p>Frantic wagers are made over dice, cards and tiles.</p>
+<p>A hundred varieties of fire water are imbibed with abandon, chased down by a thousand blends of herbal intoxication.</p>
+<p>Smoking pipes feed the air with heady aromas that barely cover the glandular scents of arousal.</p>
+<p>Delicate tones of harp and flute fill the room, each note drifting like cherry blossoms on a gentle breeze.</p>
+<p>In every open lounge and secluded corner, patrons gaze at beguiling servants who entertain in elegant attire. Silk gowns of intricate styles whisper against the polished floor. Hair, elaborately styled and adorned, framed faces of captivating beauty.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/zen-story-4.webp" alt="zen-story-4" class="center">
+<p>Upon a broad stage, the servants gather to dance, each step fluid and mesmerizing, drawing the patrons deeper into the spell they weave. The room seems to hold its breath, utterly entranced. The performers command effortlessly, their fans fluttering, delicate and delightful, like the first butterfly wings of spring.</p>
+<p>The flick of a shaggy topknot catches Zen's eye. It's followed by the alarmed bark of a patron shoved aside.</p>
+<p>There's Seto, plowing through this sea of sensation like a barge of war.</p>
+<p>Zen focuses on his quarry, sure that the troubled swordsman will lead him to the source of this town's spiritual disturbance.</p>
+<p>Weaving through the crowd, attuned to the path of least resistance, Zen closes in.</p>
+<p>He is almost at arm's length from the man when Seto drags a young woman off the lap of a young farmer. The swordsman pins her to a pillar with one hand and sends the customer wheezing to the ground with a backhanded chop to the throat.</p>
+<p>"Satsuki!" he growls into the woman's face.</p>
+<p>The young woman smiles, calm as the dragonfly that dries its wings upon the lotus. "Yes, my love?"</p>
+<p>The endearment reddens Seto's visage with bloody murder. "Where were you at sunrise? We were to leave-"</p>
+<p>"Yet here I am," Satsuki finishes for him. "And Toroja of <a href="../../world-of-rathe/misteria/prestigious-households.html">Ishigaki</a> is not. I wanted his head and you took it. You have nothing left to give."</p>
+<p>Seto reaches for his tantō. "I have this."</p>
+<p>To Zen, the man's chi forms strokes of jagged ink, a sharp calligraphy ready to cut and impale.</p>
+<p>He summons his own strength, feels the tingling in his hands as ephemeral claws sprout from his fingers.</p>
+<p>He moves to stay Seto's hand, but is stopped in his tracks by an impossible vision.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/zen-story-5.webp" alt="zen-story-5" class="center">
+<p>The dancers part to reveal a woman so beautiful, so enrapturing, that she catches even Zen's disciplined breath.</p>
+<p>The music stops and all heads turn to watch this lady's graceful sway as she struts down the catwalk.</p>
+<p>Every glance from her flashing eyes earns a blush.</p>
+<p>Every smile is paid back with interest.</p>
+<p>She stops near Seto and Satsuki, striking a pose that would leave Misteria's finest portrait artist weeping upon her canvas.</p>
+<p>Her exquisite garments are arranged just so, revealing yet tantalizing, the perfect balance of flesh and fancy.</p>
+<p>Yet behind the poise and the glamor, the presence and the charm, Zen sees coiling tendrils of murky chi slithering at the edges of plain sight. It is a spiritual nest of vipers that only his years of training and transcendence have allowed him to perceive.</p>
+<p>A besotted patron whispers a name. Zen breathes the name in and then grounds himself like the deep-rooted redwood that weathers the storm.</p>
+<p>For now, he knows from whence the ripples of strife have spread across this town.</p>
+<p>The Nasu-ka Teahouse is the stone, and it is from <a href="../../heroes-of-rathe/nuu-about.html">Nuu</a>'s delicate fingers that it was dropped.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/zen-story-6.webp" alt="zen-story-6" class="center">
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/14-heavy-hitters/bloodied-sands.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/15-part-the-mistveil/part-2-the-tapestry-unfolds.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/14-heavy-hitters/bloodied-sands.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/15-part-the-mistveil/part-2-the-tapestry-unfolds.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

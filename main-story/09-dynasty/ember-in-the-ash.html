@@ -1,0 +1,306 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Ember in the Ash - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="ember-in-the-ash"><a class="header" href="#ember-in-the-ash">Ember in the Ash</a></h1>
+<p>
+(<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)
+</p>
+<p><em>Your Imperial Majesty, forgive this impertinence, but these are desperate times. Our workers have turned rabid, infected by rebellious lies. They steal from our caravans. They plunder our warehouses. We petitioned our Lord Wizard for aid. He burned our messengers and fled the <a href="../../world-of-rathe/volcor/the-red-desert.html">Red Desert</a>-a disgrace to your glorious dragon blood. You are the greatest of the <span class="hint" hint="Dracai">Dracai</span>. Your flame is the brightest of all. Punish these upstarts. Sear their treacherous hopes from their dim minds. We beseech you, our mighty <a href="../../heroes-of-rathe/emperor-about.html">Emperor</a>. Please, help us.</em></p>
+<p><em>Your humble servant,</em></p>
+<p><em>Lord Merchant Savai of Deshvahan</em></p>
+<hr />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/ember-1.webp" alt="ember-in-the-ash-1" class="center">
+<p><a href="../../heroes-of-rathe/dromai-about.html">Dromai</a> looks about to make sure she is alone before expelling her excitement in a long, shuddering breath. This is what she has waited for, worked so hard for. She defeated the rebels in battle. She slew their most aggressive leader. And in a moment of inspiration, she erased Spymaster Xathari from the picture. Thus, she cleared the way for her most ambitious move-an audience with the Emperor and a chance to claim Xathari's position and power.</p>
+<p>No longer the "half-breed". No longer the traitor's spawn to be slighted or ignored. She is Dracai, and so much more. With Xathari's secrets at her fingertips, she will paint illusions such as <a href="../../world-of-rathe/volcor/volcor.html">Volcor</a> has never seen. Wizard and worker alike, the citizens of this empire will see only what she, the Ash Artist, <em>wants</em> them to see.</p>
+<p>She ascends the steps and looks up at the magnificent doors that dwarf her. Polished gold shimmers upon black iron and tempered steel. A gateway forged to withstand a thousand sieges, so strong, so thick, that even Dracona Optimai might barely scald its surface.</p>
+<p>Beyond those doors lie the consummation of her desires. She can feel the excitement welling inside her, soaking the tension from her muscles, quenching the thirst she has felt for so long. The wretched orphan, the half-blood, the suspected and scorned. She will wash it all away the moment she bathes in the Emperor's glory. At last, she is where she belongs, at the source of all-</p>
+<p>A flurry of sound rips her daydream open, muffled yet sharp as knives to her raw nerves. Shouts. The clash of steel.</p>
+<p>Tradition dictates that she wait. To lay a hand upon these doors is to bid that hand farewell. For a long, agonizing moment, she is torn between instinct and instruction.</p>
+<p>The quiet cacophony dies away, leaving a silence that is deafening. The doors remain shut until she knows, without a doubt, that something is very wrong.</p>
+<p>The door is hot, drying the sweat from her palm as she presses it to the metal. The prodigious mass swings open, made light by perfectly crafted balance. A man topples through the gap. His bloodied armor shatters the silence with its deadened weight.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/ember-2.webp" alt="ember-in-the-ash-2" class="center">
+<p>Dromai skirts the corpse and enters the throne room. Imperial guards lie strewn across the vast floor, their spears fallen from lifeless hands, armor torn and flesh cut to the bone. Wizards lie in crumpled piles, their robes stained and steaming with draconic blood.</p>
+<p>She picks her way through the carnage, drawing closer to the throne while her beleaguered mind struggles to understand what it cannot believe. A flicker of movement hooks her attention to the farthest of the hall's pillars. She squints to see a ghoulish figure cloaked in a funereal shroud that darts away in the blink of an eye.</p>
+<p>Any thoughts of a daring pursuit drown in the blood that wets the throneward steps. Tears boil in her eyes as they alight upon the man lain prone before the seat of Volcor's sovereignty. No, not a man. A deity. A fallen god.</p>
+<p>The Emperor is dead.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/ember-3.webp" alt="ember-in-the-ash-3" class="center">
+<hr />
+<p>Her lips are dry, her mouth parched, her throat raw from orders shouted then screamed into the dumbstruck faces of servants and soldiers.</p>
+<p>Lanterns lie abandoned and broken, the Dragon Festival trampled in tragedy. Panicked feet pound the stoneways and steps of the palace as Dromai's thoughts swirl like ash in their wake.</p>
+<p>Who was that man, that <em>creature</em>? How was it capable of committing the unthinkable, the <em>impossible</em>?</p>
+<p>If, of course, it acted alone.</p>
+<p>Her mind's eye recalls the litter of papers, inked in the dead hand of Spymaster Xathari. From the day she returned to the palace, she has pored over Xathari's notes, scripts of friend and foe forming a theater of intrigue.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/ember-4.webp" alt="ember-in-the-ash-4" class="center">
+<p>The <a href="../../world-of-rathe/demonastery/demonastery.html">Demonastery</a> sought to manipulate the Dracai so they would not find common cause with <a href="../../world-of-rathe/solana/solana.html">Solana</a>. Thus is their ignorance, their paranoia. Solana is nothing to Volcor.</p>
+<p>A Solanian spy lurks about the palace, an agent so elusive that even a fireseer cannot find them.</p>
+<p>Sandfolk fury continues to fester, as Xathari hoped it would. Their attack was a lance, puncturing a boil. In time, the infection will be drawn out into the open.</p>
+<p>The scheming <span class="hint" hint="Ezu">Ezu</span> and loyal <span class="hint" hint="Alshoni">Alshoni</span>-two great Dracai houses locked in a deadly game of power and usurpation. The Alshoni defending stability and dynasty against dangerous Ezu aspirations. A trail of missives exchanged through the <a href="../../world-of-rathe/pits/pits.html">Pits</a>. Prices paid in coin and blood.</p>
+<p><a href="../../heroes-of-rathe/fai-about.html">Fai</a> and his foolish <span class="hint" hint="Volcai">Volcai</span>, their filthy hands tearing the empire apart. Enemies in every scullery and stable. Vermin that might yet overrun the entire palace.</p>
+<p>Dromai follows the threads, weaving a tapestry of treachery in her mind. Yet try as she might, she can see neither the pattern nor the weaver. They are as elusive as that vile visage glimpsed and then gone into tortured darkness.</p>
+<p>An unfamiliar fear grips her. She has nothing to condemn. The killer left no footprint, no fragment to follow. All that remains is a shadow, vast and impenetrable, that threatens to eclipse them all. She grits her teeth against her mounting terror and takes one last look at the blood on the steps, cascading like lava from the wounded earth. She is about to turn away when a ripple disturbs the red river. A sinuous silhouette uncoils. Wings flex. A ragged maw yawns.</p>
+<p>Stone trembles beneath her feet. A roar drives her to her knees. She presses her hands to her ears, yet the rageful sound comes not from without. It resonates from her flesh, reverberates through her skull. She knows that voice, has heard it uttered from the throats of her apparitions, has sensed its whispers since the day she set foot in the palace.</p>
+<p>The roar subsides, its echoes carried through the molten veins of Volcor, shaking and sundering. Ravines open in the earth, engulfing streets and shelters across <span class="hint" hint="Ashvahan">Ashvahan</span>. Grand waterways, twinkling with blue lanterns and flame lotus flowers, rupture their shores and sweep away people, pageantry and parade. An eruption so violent and anguished that it touches the farthest reaches of Volcor. A sharing of loss that all must embrace.</p>
+<p>As the last aftershock rumbles through the palace, Dromai finds <span class="hint" hint="Chiyo">Chiyo</span> in the remains of her chambers. The Lord Wizard is white with dust. Her skin grows even whiter at the news of the Emperor's death.</p>
+<p>"Why come to me?" she asks.</p>
+<p>"<span class="hint" hint="Yama">Chancellor Yama</span> doesn't need me," answers Dromai. "You do."</p>
+<p>In vulnerability, there is opportunity. Without the Emperor, the Alshoni faction is severely weakened. Until now, Ezu and Alshoni have played by the rules, the Emperor's own mandates laid down to prevent civil war. But those rules have changed, and so Dromai will play the cards that fate has dealt her.</p>
+<p>"The palace will soon belong to the Ezu. Follow me," urges Dromai.</p>
+<p>She leads Chiyo and a bedraggled retinue of Alshoni through rubble-strewn passageways, but the escapees are soon stopped short.</p>
+<p>General Riku's soldiers have barred the archways, sealed the palace shut, as ordered by Chancellor Yama. A killer prowls the palace, the Chancellor has warned them. A monster with fangs more deadly than a flare snake, or so he's been told. To wander recklessly would be tantamount to suicide.</p>
+<p>Dromai approaches the general with her palms outstretched.</p>
+<p>"You owe me a life," she reminds him.</p>
+<p>"This is not the life I had in mind."</p>
+<p>"The lava cares not for our wants and wishes. It flows where it flows."</p>
+<p>Riku hesitates, struggling with himself, torn between honor and loyalty. At last he steps aside, and at his command, his soldiers lower their halberds.</p>
+<p>"We are even."</p>
+<p>"For now," allows Dromai.</p>
+<p>She turns to Chiyo, bows her head enough to signal respect, but not too low as to imply subordination.</p>
+<p>"Make your way to the southern estates. You will be safe there."</p>
+<p>"Come with us," insists Chiyo.</p>
+<p>"No. My place is here."</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/ember-5.webp" alt="ember-in-the-ash-5" class="center">
+<p>Dromai glances in the direction of the throne room, her mind fixed on the chambers beyond and the power secreted within.</p>
+<p>The legacy of the dragon. Awaiting one with the will to command it.</p>
+<hr />
+<p>Fai crests the wall and cuts down the first soldier who tries to repel him. His sword slices through armor and muscle as he clears the way for his compatriots. An archer on the tower looses an arrow at him. Fai plucks the missile from the air and drives it into a nearby soldier's fear-bulged eye. With a flick of his wrist, he sends a throwing star into the archer's throat. He watches the woman fall into the courtyard below, catches his breath as her blood runs red-a brushstroke of scarlet upon a canvas of ash.</p>
+<p>A horn sounds from the keep, but it's too late for its inhabitants. No-one is coming to their aid. Fai knows this, the message delivered to him in the claws of an imperial bird of prey, a flame-winged <a href="../../world-of-rathe/volcor/wildlife.html#vuurlin">vuurlin</a>, shot from the ashen sky by a rebel arrow. The Emperor is dead, slain by a <em>skeletal assassin as twisted as the spirits of Serpent's Crescent</em>, the missive read. He could not have hoped for better, the greatest threat to the rebellion removed from the field. Yet his exaltation is leaden with doubt. There is another force at play, shaping the fate of Volcor to its own ends. A force so powerful that its masked instrument struck down Volcor's mightiest wizard, unchallenged, beyond justice or retribution.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/ember-6.webp" alt="ember-in-the-ash-6" class="center">
+<p>Fai's ninjas swarm over the wall, compelling him to bury his dark thoughts. He has a rebellion to lead. Again he spearheads the assault, taking the keep floor by bloody floor. He reaches the Dracai's chambers first and uses the lord's own dining table to block the incoming fireball. He dances around the sparks and spells, closes in on the panicked wizard and drives his sword through the man's heart, thus tempering his blade in dragon blood. He then ascends the turret of the holdfast, the steel of his sword still burning with arcane fire.</p>
+<p>Above him in the now reddish sky, he notices another vuurlin. This one wild; hunting. Its fiery wingtips are a beacon. An omen. He turns to face the gathering crowd of soldiers below him and raises the Phoenix banner to a thousand cries of triumph. The wings of the phoenix flap lightly in the breeze as the sun bleeds out behind the distant mountains. Fai stays there for a moment, inhaling the victory deep into his chest, as ash begins to fall like snow, settling upon his scarred face.</p>
+<hr />
+<p><em>Source: <a href="https://fabtcg.com/articles/ember-ash/">https://fabtcg.com/articles/ember-ash/</a></em><br>
+<em>Written by Edwin McRae and Rachel Rees.</em><br>
+<em>Directed by Robbie.</em><br>
+<em>Illustrated by Sam Yang.</em></p>
+<hr />
+<h3 id="narrated-video-by-peranine"><a class="header" href="#narrated-video-by-peranine">Narrated Video by <a href="https://www.youtube.com/@Peranine">Peranine</a></a></h3>
+<p>
+(<a href="#ember-in-the-ash">Jump to the Top</a>)
+</p>
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/IxClHFIs8Gg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/09-dynasty/emperor-the-one-emperor.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/09-dynasty/the-blood-stained-web.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/09-dynasty/emperor-the-one-emperor.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/09-dynasty/the-blood-stained-web.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

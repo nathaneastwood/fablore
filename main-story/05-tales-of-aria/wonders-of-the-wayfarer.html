@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Wonders of the Wayfarer - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="wonders-of-the-wayfarer"><a class="header" href="#wonders-of-the-wayfarer">Wonders of the Wayfarer</a></h1>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/lexi-1.webp" alt="lexi-1" class="center">
+<p>To the North of Korshem, far beyond Lake Frigid and the endless plains of ice and snow. Up the sides of mighty fjords that reach up into the heavens, lies a realm that floated amongst the long white clouds.</p>
+<p>This is Enion, the Armory of Ancients, and Training Ground of Champions. A place oft told in old wives' tales, or the singsong of the wandering bard, as the battlefield where <span class="hint" hint="Yvor">Yvor</span>, the mighty Ancient of Thunder and Ice, held back the legions of the Old Ones for ninety long cycles of the moon.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/lexi-2.webp" alt="lexi-2" class="center">
+<p>'Tis said that as Yvor fell, his blood imbued these shattered rocks with an incredible energy that set them adrift towards the heavens. His abandoned weapons became mighty vaults of iron and stone. And his pulsing veins, that held his energy and his essence, became the trails of the Aurora that danced through the skies of Enion, enveloping all that lie within in a soft and beautiful glow.</p>
+<p>And all manner of wonders and dangers lie hidden here, to this day, within these isles that hover high above the clouds.</p>
+<p><a href="../../heroes-of-rathe/lexi-about.html">Lexi</a> was born in Volthaven, a village that drifted slowly as it navigated the treacherous skies of Enion. Her childhood was spent in wide-eyed wonder, under the soft embrace of the Aurora, as she marveled at the majestic sights that lie beyond her windows.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/lexi-3.webp" alt="lexi-3" class="center">
+<p>She loved the trails left by Yvor's mighty lightning, as they raced through the skies around Volthaven, and the silky road of glistening green that was sure to follow in its wake. She rejoiced at the first winter snow when it dusted her rooftop, and danced in the rain at the first sound of the thunder, which signaled the spring's return.</p>
+<p>She loved archery and sparring, and was quick on her feet! And from an early age she was captivated by stories of mighty Wayfarers that rode upon the Auroras to distant isles at the other ends of Rathe.</p>
+<p>One day, she vowed, she would be just like them!</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/lexi-4.webp" alt="lexi-4" class="center">
+<p>On the coldest of winters when the sky freezes over, and even Yvor's mighty thunder slowed to a sluggish crawl, the tales of Aria would fill the taverns of Volthaven as the entire village seemed to huddle around its massive hearth. These kind craftsman, seers, wayfarers and shamans were Lexi's mentors, her family, and they taught her of the world beyond their island. They spoke of the kindness of man, and their unspeakable evil. They spoke of the elements and their temperament, and the dangerous beasts hidden amongst the snowy mountaintops.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/lexi-5.webp" alt="lexi-5" class="center">
+<p>They spoke of Yvor and its mighty lightning, and its enemies whose names had long been forgotten. The secrets of the Ancients, they said, lie deep in the heart of Enion. And should Lexi follow in the footsteps of the great Wayfarers, the elements will guide her wherever she needed to be.</p>
+<p>To be a Wayfarer of Volthaven, one must make peace with the essence of Lightning and Ice that permeated Enion. Now a young woman, Lexi ventured near and far with her mentors; the best, most skilled Wayfarers in all of <a href="../../world-of-rathe/aria/aria.html">Aria</a>. She felt the constant coat of frost upon her hood, and arcs of static brushing upon her skin, and an incredible sense of freedom as she embraced the vastness in this land above the clouds.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/lexi-6.webp" alt="lexi-6" class="center">
+<p>They would spend long days climbing up tree-tops and racing along cliffs, scaling massive mountains that would reveal yet another beautiful vista. They spent long cold nights tucked away within igloos of ice, gazing through crystalline sheets at the twinkles in the night sky overhead. Together they surveyed the ever-changing isles, marking safe passage for craftsman and foragers, and warding away any dangers. For it was their duty to guard the safe passage of Volthaven as it navigated this shimmering sea, and see to the needs of their people.</p>
+<p>And by and by, Lexi's powers grew, until she could channel the power of Lightning and Ice all on her own. At long last, she too could ride upon the trails of the Aurora like the most seasoned of Wayfarers, as all of Volthaven and Enion lay beneath her feet.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/lexi-7.webp" alt="lexi-7" class="center">
+<p>With a flash of lightning behind her every springing step, Lexi ventured far from Volthaven. Her youth made her fearless, and her talents gave her strength. With practice and perseverance she became a master of the bow, and a most distinguished tracker, and her charm and stories earned her the love and respect of all but the most gruff of Elders. She was Volthaven's darling, the most daring of adventurers, and soon her fame rang out across the thousand isles of Enion.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/lexi-8.webp" alt="lexi-8" class="center">
+<p>'Twas like a dream, this peaceful life, but all dreams must come to an end. One night a mighty tremor shook all of Enion; it was as if Yvor had turned in its eternal sleep, and the entire world around Lexi trembled and shook. The Lightning that streaked through the sky turned violent, as they crashed into the isles with all their might. These isles that stood for eons began to crumble and break, as hanging gardens and clifftop forests froze and shattered under the mighty power of the elements.</p>
+<p>When the chaos subsided, Lexi gazed out into the land in shock and awe. While Volthaven remained largely intact, mighty gashes were carved into the isles around them, revealing hints of ancient, colossal structured buried within. The land around them began to hum a dull, low and ominous tone, as if Enion itself is about to awaken from a deep slumber.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/lexi-9.webp" alt="lexi-9" class="center">
+<p>The elements around Lexi were agitated now, buzzing with an urgent desperation. They tugged upon her hair and stung her arms, as if urging her onwards towards the north. What is happening? The seers did not know. But it was clear that the answers they needed lay deep within the heart of Enion.</p>
+<p>With the Elders' blessing the Wayfarers set off once more into a familiar, yet alien land, with Lexi at their helm. This would be a dangerous journey, as the elements are thrown into disarray and their beloved aurora ebbed and faded. They resolved to follow the call of the elements, as they set off on their greatest adventure yet. This would be the chance to pierce the veil of Enion's hidden secrets, and unbeknownst to them, the start of a tale that may change the future of Rathe.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/05-tales-of-aria/the-broken-covenant.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/05-tales-of-aria/amongst-the-brambles.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/05-tales-of-aria/the-broken-covenant.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/05-tales-of-aria/amongst-the-brambles.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Blackjack&#x27;s Mercenary Group - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="blackjacks-mercenary-group"><a class="header" href="#blackjacks-mercenary-group">Blackjack's Mercenary Group</a></h1>
+<p>The Blackjack's Tavern is well-known throughout the Pits, not only for the drinks they serve, but for the services that Blackjack's provide. The Tavern is the central hub of the Blackjack's Mercenary Group, the largest mercenary organisation in Rathe.</p>
+<p>Unlike other groups, Blackjack's do not hire mercenaries themselves, instead acting as an intermediary. Once they receive a contract, it is posted on the noticeboard for all to see. Anyone who wishes to take the contract speaks to the tavern's handler, Greenbird, for further details. The first to complete it and return with proof is paid in full.</p>
+<p>Blackjack's have a unique system for identifying the skill and talent of its mercenaries. Every mercenary who accepts a contract is given a card, identifying their level of skill within the organisation. Each consecutive card rank allows its owners more perks within the Tavern, with the most elite mercenaries possessing a one-of-a-kind individual card. Stealing cards from other mercenaries is allowed, if you can manage to pull it off.</p>
+<h3 id="greenbird"><a class="header" href="#greenbird">Greenbird</a></h3>
+<p>The mysterious head of the Blackjack's Tavern. Not much is known about Greenbird, though there are plenty of rumours to fill in the gaps. Greenbird has been running the Blackjack's Tavern for close to fifteen years, and thanks to his efforts, business is better than ever. He runs the tavern with an iron grip, keeping mercenaries in pay and contracts flowing. While the Blackjack's Mercenary could choose to replace him at any time, Greenbird's smooth operation of the tavern ensures that any replacement they could possibly find would pale in comparison.</p>
+<p>Greenbird maintains his power through intel, using both respect and fear to keep the tavern under his thumb. He is adept at gathering information, trading in intel to keep tabs on everyone who might cross his path. By keeping an eye on those around him, he has the ability to identify threats in advance, and stay one step ahead of the opposition.</p>
+<h3 id="calling-cards"><a class="header" href="#calling-cards">Calling Cards</a></h3>
+<p>As the largest mercenary group in the Pits, Blackjack's keeps tabs on all of their freelance mercenaries, inventing a unique system of identification to track each of the mercenaries working contracts on their behalf.</p>
+<h4 id="pins"><a class="header" href="#pins">Pins</a></h4>
+<p>At the top of the hierarchy are the Pins, twenty-two mercenaries possessing unique cards representing their position within Blackjack's. Usually, these are given to the mercenary by Greenbird himself, and retrieved upon their death - however, should someone manage to kill one of the Pins, they are allowed to take their card and claim their position. Only one of each Pin card can exist at any time.</p>
+<h4 id="stacks"><a class="header" href="#stacks">Stacks</a></h4>
+<p>The rest of the mercenaries in Blackjack's fall into this category, the stacks. The stacks are split into four 'types' - Jacks, Batters, Coppers and Cups. Anyone completing a contract for the first time will be given an ace of one of the four stacks, and then can move up through the stack as they establish themselves within Blackjack's.</p>
+<h4 id="marks"><a class="header" href="#marks">Marks</a></h4>
+<p>Marks are contract cards, given to a mercenary when they take up a contract. They act as an indicator of the difficulty or complexity of a job, a way to keep track of mercenaries working on the same contract, and are required in order to turn in a contract and receive the reward. Nobody knows exactly how many variants of marks exist, with each contract assigned an archetypal card to represent that job.</p>
+<h2 id="the-spider"><a class="header" href="#the-spider">The Spider</a></h2>
+<p>An order of assassins, the Spider operates in total secrecy, its services available only to those who know of its existence. Its assassins are raised from youth, taken from the streets and from orphanages, their skills honed to forge them into the ultimate weapon. While there are rumours speculating which deaths they may have been involved in, no assassination carried out by a spider has ever been witnessed or proven.</p>
+<h2 id="lapocalypta"><a class="header" href="#lapocalypta">L'Apocalypta</a></h2>
+<p>"The world may end, yet we shall endure." — Mantra of Chaos</p>
+<p>Operating in the darkest corners of Rathe, L'Apocalypta is a cult of Chaos orchestrating catastrophes in service of its apocalyptic doctrine.</p>
+<p>Entire revolutions have been ushered into existence by their agents, and powers toppled by their unseen hand. Famines that have crippled cities, plagues that have torn through lands, many bear their mark.</p>
+<p>L'Apocalypta believes the coming devastation is inevitable: an upheaval that will wipe civilization from existence. They believe the people of Rathe must learn to navigate the cataclysmic change to come. Their purpose is not to prevent it, but to prepare humanity to survive it.</p>
+<p>So it was written by the great prophet, Anarch Zeir, who journeyed deeper into the Pits than any before, and returned to pen a most disturbed discourse. Feverishly inked beside a ravine, it was bound in fungus-leather and sealed against damp with pitch-black bile drawn from the prophet's own baptismal pool. It was meant for the faithful who had waited for Zeir's return. It became a terrifying tool for spreading dissent.</p>
+<p>Other tomes followed, for the first devolved into maddened scratchings in its latter pages. Zeir's mind broke under the strain of anarchic exegesis before he could fully capture his visions from the deep. One book became many as successive anarchs, drawn to the same pilgrimage, returned from the depths with new insights. And each wrote themselves into insanity, their coherence dripping away, minds hemorrhaging like ink from a tumbled pot. The tomes accumulated, each raving author insisting it had reached deeper, seen clearer, suffered more truth. With every new anarch, the narrative grew more unhinged. The books became their own kind of Pits: layered, lightless, alive with echoing voices.</p>
+<p>And now that Rathe is listening, what will the bedlam chorus of L'Apocalypta portend next?</p>
+<h2 id="dregs"><a class="header" href="#dregs">Dregs</a></h2>
+<p>The Pits is plagued by toxic sludge and chemical runoff from the city above. It runs through the rivers, seeping into the soil and working its way through the underground. While every denizen of the Pits is exposed to the toxic environment on a daily basis, some are unfortunate enough to be exposed to a larger dose. A collapsed tunnel, a mining accident, steamtech failure or simple human error can cause all kinds of dangerous chemicals to overflow into the Pits, damning everyone they touch to the same dark fate.</p>
+<p>Dregs are the result of these accidents. Once human, they have mutated beyond recognition, irreparably damaged and transformed into something that barely resembles their former selves. They are mindless, soulless creatures, who operate on the sole purpose of survival, attacking anything in their vicinity and eating anything in order to stay 'alive'.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../world-of-rathe/pits/the-maw.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../world-of-rathe/savage-lands/savage-lands.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../world-of-rathe/pits/the-maw.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../world-of-rathe/savage-lands/savage-lands.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

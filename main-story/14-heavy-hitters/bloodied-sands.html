@@ -1,0 +1,345 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Bloodied Sands - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="bloodied-sands"><a class="header" href="#bloodied-sands">Bloodied Sands</a></h1>
+<p><a href="../../heroes-of-rathe/kassai-about.html">Kassai</a> flexed both hands tight around the grips of her twin <a href="../../weapons/cintari-saber.html">sabers</a>, gritting her teeth and watching the caged beast across the arena.</p>
+<p><a href="../../heroes-of-rathe/kayo-about.html">Kayo</a> bellowed, impatient with bloodlust, pacing from one iron wall of his cage to the other while the announcer riled up the crowd.</p>
+<p>The air smelled of sweat-soaked masses and spilled liquor with the metallic tang of blood. The arena sand was stained with it, but to Kassai, bloodied sand felt like home.</p>
+<p>A snatch of the announcer's voice cut through the roar of the crowd: "-Kassai, the Terror of the Sands!" A lesser warrior would preen for the bloodthirsty hordes, but Kassai wasn't here for them.</p>
+<p>She pushed the din of their shouting from her mind, focused instead on the rhythm of her blood pulsing through her veins. In it she heard the steady marching beat of the army she would raise; the army she would lead to retake her home.</p>
+<p>The tournament was beneath her-a locus for violent degenerates, gamblers, and the sly bastards who could profit from both. Kassai was only here to buy her vengeance; she had wagered every coin the Cintari had earned under her leadership. All she had to do now was claim her victory.</p>
+<p>The announcer's voice boomed across the arena: "Both warriors can bleed, but only one can win! Fighters, are you ready?"</p>
+<p>Kayo howled from within his cage and pointed at Kassai with both gore-coated prongs of his <a href="../../weapons/mandible-claw.html">mandible claw</a>. Kassai glanced to her right to where <span class="hint" hint="Sada">Sada</span> stood on the other side of the forged iron entry gate leading from the Undercroft. The woman gave Kassai a single, solemn nod. They had talked tactics and contingency plans well into the night; there was nothing more to say.</p>
+<p>Nothing more to do but win.</p>
+<p>Kassai raised one sword into the air, signaling her assent.</p>
+<p>"Now, fight!"</p>
+<p>The door to Kayo's cage dropped open, falling out of sight beneath the sand. The green-skinned beast charged forward, jagged gauntlet on his right arm gleaming beneath the harsh sun.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/14-heavy-hitters/bloodied-sands-1.webp" alt="bloodied-sands-1" class="center" />
+<p>Kassai held both sabers out to her sides and stalked ahead, studying Kayo's movements for those brief moments of calm.</p>
+<p>As he closed the distance, he reared his arm back, preparing to strike. Instead, he dropped low, letting his momentum put him into a skid, throwing a wave of sand into the air. Kassai rolled right and Kayo burst from the sand cloud, his vicious claw aimed at her chest. She crossed her blades to block, steel ringing sharply as they took the full force of the blow.</p>
+<p>Kassai's arms strained; a hiss of sand as her feet slid back. Kayo's red eyes glinted with fearsome animal cunning. If Kassai was at risk of underestimating him before, she would not make that mistake now.</p>
+<p>She growled from the back of her throat and broke free. She flipped backward, landed in a guard stance, then pressed the attack. Her swords flashed and sang, a rapid flurry of blows that drove Kayo back as he deflected them with his gauntlet.</p>
+<p>Kayo howled with fury and kicked out, but already Kassai was dodging backward. He let his kick flow into a stomp and followed it with a downward lunge. Kassai spun left, heard the jagged claw tear through her flowing red cloak, felt it shred the skin down her shoulder blade.</p>
+<p>She slashed at his unarmored belly, the saber biting flesh, wide but shallow. Kayo barked-in annoyance rather than pain-his flesh marred with thick white scars, tough as leather.</p>
+<p>He swung his claw, vicious and high.</p>
+<p>Kassai ducked beneath, moving right into the path of Kayo's other blow.</p>
+<p>He slammed the side of her head with the spiked iron cuff around his severed left arm, the powerful attack lifting Kassai off her feet and throwing her to one side. She struck the sand hard, left-hand saber tumbling from her grip.</p>
+<p>Her head swam, a sharp ringing in her ears silencing the thunderous crowd. She put a hand to the side of her head, touching first blood, then her dented bronze circlet. More ornament than armor, but it had just saved her life.</p>
+<p>Kassai pushed herself up onto all fours. She heard a low growl and turned just in time to see Kayo bearing down on her. He kicked her in the stomach and she rolled in the air; the breath knocked from her chest when she hit the ground.</p>
+<p>She coughed a spray of blood onto the sand. Everything hurt: her head, chest, shoulder, and gut. She inhaled and pain shot through her chest like an arrow.</p>
+<p>Kassai tried to stand, only managed to stagger and drop to her knees, held upright by her saber stabbed into the sand.</p>
+<p>Fear gripped her like a choking hand around her throat. It was a feeling the hardened warrior was unused to; she had known she could die here, but hadn't believed it-not truly.</p>
+<p>In the tournament's first round, she fought <a href="../../heroes-of-rathe/betsy-about.html">Betsy</a>.</p>
+<p>The massive woman was a storm of violent rage, but she merely fought to fund her life of excess. It was simple enough to force her to yield at blade's edge when death meant an end to her hedonism.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/14-heavy-hitters/bloodied-sands-2.webp" alt="bloodied-sands-2" class="center" />
+<p><a href="../../heroes-of-rathe/olympia-about.html">Olympia</a> lost to Kayo, an upset that shook Deathmatch to its bloody roots.</p>
+<p>It would have been the end of the "Undisputed Champion" if Kox's arena hands hadn't dropped Kayo with a volley of sleeping darts.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/14-heavy-hitters/bloodied-sands-3.webp" alt="bloodied-sands-3" class="center" />
+<p>Afterwards, Olympia made a show of bestowing Kassai with his favor. She figured it was some sort of publicity play, more about him saving face than any faith he held in her. But she took it nonetheless. The better her reputation, the more chances she got at the top spot.</p>
+<p>Studying <a href="../../heroes-of-rathe/rhinar-about.html">Rhinar</a> taught her a thing or two about fighting <a href="../../world-of-rathe/savage-lands/call-of-adventure.html#brutes">Brutes</a>.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/14-heavy-hitters/bloodied-sands-4.webp" alt="bloodied-sands-4" class="center" />
+<p>In the melee, she bled the big bastards. A nip here, a slice there, until they collapsed. But they all lacked the runt's agility and guile. Kayo wasn't going down that way.</p>
+<p>Then there was <a href="../../heroes-of-rathe/victor-goldmane-about.html">Victor Goldmane</a>.</p>
+<p>She'd been surprised to see him make it this far in the contest, a smarmy toff who looked like he'd be more at home bribing tourney officials. But he proved himself steady and sure in the arena.</p>
+<p>It took every trick the Cintari had taught her-and a few she made up on the spot-to drop him on the blood-stained sand. She'd have finished him with no small satisfaction, had he not bargained for his life.</p>
+<p>She took the long view and his coin.</p>
+<p>Business before pleasure.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/14-heavy-hitters/bloodied-sands-5.webp" alt="bloodied-sands-5" class="center" />
+<p>Every bout, she thought of her father, Amir, and what he would have wanted. "Honor is not in the killing," he told her. "Honor is in the choice."</p>
+<p>His weapon masters had trained her to fight, but in the evenings, she would sit with Amir and discuss everything from troop formations for various scenarios to how to keep the people under one's command content-to earn their loyalty through noble action rather than extracting it through fear. Not the <a href="../../world-of-rathe/volcor/volcor.html">Volcoran</a> way, and that's what made him dangerous.</p>
+<p>And now he was sands only knew where; maybe trapped in Chul's dungeon as a warning to anyone that might seek to overthrow him the way he usurped Amir's generalship. Or perhaps he was already dead, and she would have to drown the general in his own blood to set things right.</p>
+<p>She spat blood and wiped her mouth with the back of her hand. She leaned her weight on the hilt of her sword and pushed herself to her feet.</p>
+<p>Kassai would not die here. She refused to die until Chul was dead and her family's fate was known. She would set things right in Volcor, for her father, for her family, for herself.</p>
+<p>Kayo wheezed, loud enough for Kassai to hear it half-way across the arena. Her second sword rested in the sand between them. The Brute bellowed with rage, and Kassai screamed in defiance.</p>
+<p>Kayo's eyes grew wider, his mouth set in a snarl.</p>
+<p>In unison, they both rushed forward.</p>
+<p>As they neared, Kayo dropped his arm, mandible claw poised to run Kassai through. She slid beneath the attack and slashed his belly again as she passed, deepening the wound she had already cut. She kept moving, dropping into a roll to collect her fallen sword.</p>
+<p>She stopped just before Kayo's iron cage and spun to face the beast. She sheathed her swords, lifted her hood over her head, and stood with her arms wide. The thick air from the Undercroft below seeped through a gap in the floor, causing her cloak to flutter.</p>
+<p>Kayo ran his index finger gently over the neat cut across his belly. He daubed a line of blood down beneath each eye and roared. He charged forward, enraged, reckless, a ragged shout escaping his throat as he tore toward Kassai, leg muscles flexing hard with each step.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/14-heavy-hitters/bloodied-sands-6.webp" alt="bloodied-sands-6" class="center" />
+<p>Kassai watched intently.</p>
+<p>Her timing had to be perfect.</p>
+<p>Kayo was nearly on her, close enough for her to smell his rancid breath.</p>
+<p>Kassai flipped backward into a handstand on the roof of Kayo's cage and the Brute ripped through her hanging cloak and slammed headlong into the back wall. The iron rang like a bell as the beast's thick skull met with solid metal. Kayo staggered backwards; stumbled from the cage. He shook his head, trying to free it of the numbing concussion.</p>
+<p>Kassai dropped from the top of the cage; slammed the Brute to the ground. In one smooth action, she drew her blades, reversed her grips, and drove the swords through Kayo's shoulders. The Brute roared in agony and fury, tried to rise, but the swords pinned him to the ground like a beetle to a specimen board.</p>
+<p>Kassai stood over the bellowing beast. She could have killed him at that moment, drawn a dagger from her boot and slit his straining throat.</p>
+<p>Then she glanced at the cage.</p>
+<p>He had no choice.</p>
+<p>She did.</p>
+<p>Kox and his lot owned the Brute; would see to it that Kayo remained the celebrated 'captive for coin' for as long as Deathmatch continued.</p>
+<p>She chose this fight; would choose the next. And unlike Kayo, she had the freedom to finish it.</p>
+<p>Her way.</p>
+<p>With a kick to the jaw, she knocked him into painless oblivion.</p>
+<p>The arena was near silent.</p>
+<p>The only sounds Kassai could hear were the steady thud of her heart and Kayo's labored breath.</p>
+<p>"And the winner is... Kassai!"</p>
+<p>For the first time, she lifted her head and looked to the audience in the stands, crying out in shock, joy, adulation, and disappointment.</p>
+<p>She allowed herself a smile.</p>
+<p>It was over.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/14-heavy-hitters/bloodied-sands-7.webp" alt="bloodied-sands-7" class="center" />
+<p>Kassai sat up front of the wagon with Sada, rocking from side to side; her winnings clinked and rattled inside the chests at the rear, watched over by Fayyad and Alif, her brothers-in-arms.</p>
+<p>A bone-weary exhaustion came over her. Her body ached, and her shoulder wound itched beneath the poultice and bandages Sada had applied.</p>
+<p>"You should have killed the beast," Sada said.</p>
+<p>"Kayo was just doing what Kox demanded."</p>
+<p>"You risked too much."</p>
+<p>"I won, didn't I? Maybe next time, I'll kill Kox instead."</p>
+<p>"Next time," Sada huffed. "Perhaps next time I leave your wounds to fester."</p>
+<p>"We both know you couldn't leave me to suffer," Kassai said with a smirk.</p>
+<p>Sada shook her head but smiled. "I suppose you are right."</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/14-heavy-hitters/bloodied-sands-8.webp" alt="bloodied-sands-8" class="center" />
+<p>Kassai's people were camped outside the city walls-a safer option when the streets were lousy with crooks, thieves, and brigands of every stripe, and when everyone knew of the gold she now carried.</p>
+<p>The Cintari on watch spotted them and alerted the others with drunken catcalls fashioned to blend in with the raucous din of the surrounding taverns and hovels. Within seconds, Kassai's companions were rushing from their tents, swords drawn, ever ready. At this, Kassai grinned.</p>
+<p>Her people circled the wagon, thrusting their swords into the air with a cheer. Fayyad and Alif stood tall on either side of the hulking wooden chests that held Kassai's winnings.</p>
+<p>Kassai stood and raised both arms for quiet, biting down on the pain that arced up her left shoulder.</p>
+<p>"We came here for victory," she shouted. "We came here for gold. I have claimed both!"</p>
+<p>They cheered again.</p>
+<p>"Tonight, we celebrate," she said, more quietly, "for tomorrow, we ride. This was just the beginning. Soon, with you by my side, I will reclaim my birthright. I will set my family free."</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/14-heavy-hitters/bloodied-sands-9.webp" alt="bloodied-sands-9" class="center" />
+<p>The whip cracked and drew another slash across the back of the whimpering prisoner. The captain holding the whip grinned. The rebels would break under his punishment, or they would bleed out. He didn't care which. There was no mercy in General Chul's playbook.</p>
+<p>"Sir, sir!" A messenger approached the man.</p>
+<p>"What?" he spat.</p>
+<p>"The scouts report a sandstorm, coming in from the west. Whipped up from nowhere, they said."</p>
+<p>The captain shoved his whip into the other man's hands, its bloodied tip staining his tunic.</p>
+<p>"Clean this."</p>
+<p>The messenger's face was blank, but he nodded. "Yes, sir."</p>
+<p>The captain turned to his second. "Get these prisoners back inside and get the outpost locked down."</p>
+<p>He turned and made his way to the lookout post. It was a long climb to the top of the tower, but he made it gladly-none of his men should think themselves above him, literally or otherwise.</p>
+<p>"Report."</p>
+<p>The scout handed him a scratched bronze looking glass. "It's worse than I thought, sir."</p>
+<p>He raised the glass to his eye, aimed it in the direction of the sandstorm rolling across the desert toward them. They would be caught directly in its path, no doubt.</p>
+<p>"What am I looking-"</p>
+<p>He stopped when he saw it-a dark shape within the roiling maelstrom, something moving under its own strength.</p>
+<p>The looking glass fell from his hand, the lens cracking when it struck the wooden floor.</p>
+<p>"An army," he muttered. "Marching toward Volcor wearing a sandstorm as cloak and armor."</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/14-heavy-hitters/bloodied-sands-10.webp" alt="bloodied-sands-10" class="center" />
+<p>The wind whipped at Kassai's cloak, the last remnants of the sandstorm quickly dissipating. The outpost had been laid to waste, Chul's men slain, messengers captured and killed with warnings still sealed in their satchels.</p>
+<p>Her Cintari gathered behind her-her most loyal warriors, now the captains of her army.</p>
+<p>Behind them, grouped in tightly formed phalanxes, were the marching ranks at her command, blades as numerous as the stars in the clear desert sky.</p>
+<p>As the sand settled, the path ahead was clear. In the distance, the towers of her birthplace stood tall, proud, and corrupted.</p>
+<p>"Father, in your name, I have returned," Kassai said under her breath, "and before the day is done, the sands will run red."</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/14-heavy-hitters/another-day-another-title.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/15-part-the-mistveil/part-1-the-tiger-in-the-mist.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/14-heavy-hitters/another-day-another-title.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/15-part-the-mistveil/part-1-the-tiger-in-the-mist.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

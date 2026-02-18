@@ -1,0 +1,283 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Dash - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../hero.css">
+        <link rel="stylesheet" href="../image.css">
+        <link rel="stylesheet" href="../tab.css">
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <link rel="stylesheet" href="../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="dash-inventor-extraordinaire"><a class="header" href="#dash-inventor-extraordinaire">Dash, Inventor Extraordinaire</a></h1>
+<video width="100%" height="100%" controls autoplay muted loop playsinline>
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dash.mp4" type="video/mp4">
+</video>
+<p>A young mechanologist from the city's elite caste, Dash is a brilliant inventor full of wild ideas and the spark of genius. Born into the city of tomorrow to scientists of Teklo Industries, she grew up surrounded by some of the greatest minds in all of Rathe. And as she explored the world around her, she fell in love with the city, all the goods and bads that lay within.</p>
+<p>Stubborn and rebellious, Dash's energetic nature often gets her into trouble. Once she has an idea, it's nigh impossible to dissuade her. And even though the Teklo name has allowed her to follow her whims, she despises the rigid dullness of <a href="../world-of-rathe/metrix/metrix.html">Metrix</a>'s upper class, and would do anything to avoid becoming just like them.</p>
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dash-inventor-extraordinaire.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Inventor Extraordinaire</b><br>
+    As the daughter of Teklo Industries top scientists, Dash has access to the latest technology and tools to be found in Metrix. Despite the wealth of resources at her disposal, Dash finds inspiration from experimentation with odds and ends she comes across in the [Midtown Markets](../world-of-rathe/metrix/a-sprawling-metropolis.md#midtown-markets) and junkyards beyond the city limits.
+  </div>
+</div>
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dash-pedal-to-the-metal.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Pedal to the Metal</b><br>
+    While Dash's parents wished their daughter would enjoy the comfort and safety of the elitist life in the spires of Teklo Industries HQ, Dash would rather strap on her steam-powered exoskeleton rig, and run amok across the midtown markets. Boost your way to victory, but keep an eye on your tank (your deck), cos there's nothing more frustrating than running out of gas with the finish line in sight!
+  </div>
+</div>
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dash-power-of-steam.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Power of Steam</b><br>
+    Mechanologists are driven by the pursuit of alternative energy sources to take the city of Metrix to the reaches of tomorrow and beyond! Metrix is in the age of steam, which Dash uses to power many of the contraptions she invents and uses. Steam items are able to be charged up, converting energy to steam, which can be stored for efficient future outputs.
+  </div>
+</div>
+<hr />
+<h1 id="dash-io"><a class="header" href="#dash-io">Dash, I/O</a></h1>
+<video width="100%" height="100%" controls autoplay muted loop playsinline>
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dash-io.mp4" type="video/mp4">
+</video>
+<p>No one epitomizes the <a href="../world-of-rathe/metrix/metrix.html">City of Wonder</a> like Dash Teklo.</p>
+<p>She is the kind of citizen <a href="./teklovossen-about.html">Teklovossen</a> himself counted on: intelligent, innovative, and able to see potential at every turn. Even as a young inventor full of wild ideas, Dash stood apart from her mechanologist peers.</p>
+<p>Born to scientists from <a href="../world-of-rathe/metrix/a-better-tomorrow.html#teklo-industries">Teklo Industries</a>, Dash grew up surrounded by some of the greatest minds in all of Rathe. Many view her as a whizbang in an otherwise stable system, her exploits and energetic nature often getting her into trouble. No matter how hard these Teklo elites try, they cannot get her to toe the industry line. And understandably so! An optimistic outlier, Dash is bored by the rigid dullness of <a href="../world-of-rathe/metrix/metrix.html">Metrix</a>'s scientific class, and will do anything to avoid becoming just another pencil-pushing whitecoat.</p>
+<p>As she has grown and explored, Dash has fallen in love with the city, embracing all the goods and bads that lay within. Some of her fondest memories are of her anti-legal antics with the Rosario Hills kids, their devious fun and games spanning the skyscrapers of the <a href="../world-of-rathe/metrix/a-sprawling-metropolis.html#the-expanse">Expanse</a> and the dingy digs of <a href="../world-of-rathe/metrix/a-sprawling-metropolis.html#lowlake">Lowlake</a>.</p>
+<p>Perhaps that's why, against her better judgment, she still listens to <a href="./maxx-about.html">Maxx Nitro</a> and his hairbrained schemes?</p>
+<p>The longer she spends with the anarchists, the deeper into conspiracy she falls. And there's truth in their theories. More going on than the <a href="../world-of-rathe/metrix/a-better-tomorrow.html#iron-assembly">Iron Assembly</a> allows its citizens to know.</p>
+<p>But what?</p>
+<p>Dash is equipped and ready to find out.</p>
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/data-doll-ghost-in-the-shell.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Ghost in the Shell</b><br>
+    Long buried under the Iron Assembly, [Data Doll](./data-doll-mkii-about.md) has finally been cut free from her prison. Now she aids Dash on her adventures, learning and processing, experiencing what life has to offer outside the cold steel tomb she was once confined to.
+  </div>
+</div>
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/cracking-the-code.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Cracking the Code</b><br>
+    Data Doll's unmatched processing power is the perfect tool to compliment Dash's extraordinary ingenuity. Dash thinks up an invention and Data Doll provides the computations needed to construct it. Together they can produce groundbreaking technology in an instant!
+  </div>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../heroes-of-rathe/cindra-about.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../heroes-of-rathe/data-doll-mkii-about.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../heroes-of-rathe/cindra-about.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../heroes-of-rathe/data-doll-mkii-about.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../tab.js"></script>
+        <script src="../theme/pagetoc.js"></script>
+        <script src="../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

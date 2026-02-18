@@ -1,0 +1,277 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Valda - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../hero.css">
+        <link rel="stylesheet" href="../image.css">
+        <link rel="stylesheet" href="../tab.css">
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <link rel="stylesheet" href="../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="valda-brightaxe"><a class="header" href="#valda-brightaxe">Valda Brightaxe</a></h1>
+<video width="100%" height="100%" controls autoplay muted loop playsinline>
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/valda.mp4" type="video/mp4">
+</video>
+<p>The <a href="../world-of-rathe/aria/people-of-aria.html#the-everfest-carnival">Everfest Carnival</a>, what a sight to behold! Slowly making its way through the idyllic landscape, the Carnival brings joy and cheer to the most remote of locations, and draws forth massive crowds that fawn and gawk at the spectacles that lie within.</p>
+<p>Every day is full of exciting adventures, and every night... well, there's always an afterparty to attend! Here in the most popular of taverns, Might n' Mead, it's difficult for patrons to not get too worked up after all the crazy excitements of the day. Throw in some crazy concoctions dreamt up by the mischievous <span class="hint" hint="Braumeister">Braumeisters</span>, and we have on our hands a mighty big problem.</p>
+<p>But even the most rowdy of patrons fall silent, the most daring of adventurers cower, when they catch a glimpse of the mighty Valda heading their way.</p>
+<p>'Twas said that she showed up at the doors of the tavern one hot afternoon, another lost and wayward child that had stumbled upon <span class="hint" hint="Korshem">Korshem</span> (as so many do) through some strange turn of events. She had naught but the clothes on her back, and a small tag upon her personnage inscribed with indiscernible characters and a symbol that vaguely resembled an axe. With nowhere to go, she was taken in by the aging Innkeeper, and raised as his own. He tried to teach her the way of the Braumeisters, but she wasn't much interested. She's too impatient, her temper too fiery to bother with all the delicate processes that lead to the richest of flavours.</p>
+<p>But what she was good at, was brawlin'... and here in Might n' Mead there sure ain't any lack of that!</p>
+<p>There's been stirrings in the <span class="hint" hint="TheFlow">Flow</span>, and recently, nervous chatters of ancient enemies and the ancients' return have cast a somber wrinkle over the lively taverns of the Everfest. But that no matter to Valda Brightaxe; just don't mess around in the tavern, or she'll treat you to a proper smackdown, on the house!</p>
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/cocky-are-we.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Cocky, Are We?</b><br>
+    "So you're the hot shit are ya? Running ya mouth and thinking ya got a fist full of fire..." Cocky patrons with bad manners set Valda off, and inevitably end up with the ale house shaking in her seismic wake!
+  </div>
+</div>
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/seismic-smackdown.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Seismic Smackdown</b><br>
+    Patrons of <a href="https://legendarystories.net/world-of-rathe/aria/aria.html">Aria</a>'s alehouses who disrespect the ladies are left with a hangover of seismic proportions when Valda's around.
+  </div>
+</div>
+<h1 id="valda-seismic-impact"><a class="header" href="#valda-seismic-impact">Valda, Seismic Impact</a></h1>
+<video width="100%" height="100%" controls autoplay muted loop playsinline>
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/valda-seismic-impact.mp4" type="video/mp4">
+</video>
+<img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/valda-seismic-impact-hero-plaque.webp" alt="valda-seismic-impact-hero-plaque" class="center" />
+<p>After growing up in the Might n' Mead in Everfest, a tavern is the only place that feels like home to Valda. So when Braumeister Balen suggested a new venture up north, Valda didn't hesitate. After all, where else would she go?</p>
+<p>Inside their <a href="../world-of-rathe/aria/a-true-sanctuary.html#larinkmorth">Larinkmorth</a> tavern, she and Balen provide warm shelter, hot food, and palate-inspiring brews for visitors and locals alike.</p>
+<p>While the inn has been met with an avalanche of praise and patronage, Valda has been caught off-guard by the mountains themselves. Still steeped in the ancient power that raised them from the earth, the ranges remain a potent causeway for the Flow. And Valda, more sensitive to the Flow than many, has had some ground-breaking revelations: literally. In the pugilism of the pub, Valda has to pull her punches. For if she <em>really</em> lets fly, the impact is seismic in proportion. She could bring the mountain down on their heads if she's not careful.</p>
+<p>With great power comes great expectation, but Valda isn't having a bar of that. Ancient prophecies and epic adventurers can take a long jump off a short ledge, as far as she's concerned. She's happy to use her newfound strength to mind the tavern and the town it belongs to, and will do what she's always done: stop trouble at the door.</p>
+<p>And if it <em>insists</em> on disturbing the peace, Valda will kick it out of town.</p>
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/valda-read-the-room.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Read the Room</b><br>
+    Valda watches for trouble and then turns her opponent's advantage into mounting pressure. The more cards they draw, the harder the boards will tremble when they hit the floor.
+  </div>
+</div>
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/valda-closing-time.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Closing Time</b><br>
+    Valda punishes over-indulgence with seismic dominance. She's fair, though. Every punter gets three warnings. Then they're out the door with a crushing hangover.
+  </div>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../heroes-of-rathe/uzuri-about.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../heroes-of-rathe/verdance-about.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../heroes-of-rathe/uzuri-about.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../heroes-of-rathe/verdance-about.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../tab.js"></script>
+        <script src="../theme/pagetoc.js"></script>
+        <script src="../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

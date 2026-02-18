@@ -1,0 +1,375 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Lost Treasure of Blackwater Strait - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="the-lost-treasure-of-blackwater-strait"><a class="header" href="#the-lost-treasure-of-blackwater-strait">The Lost Treasure of Blackwater Strait</a></h1>
+<p>The noose around his neck smelled of sweat and piss, yet Meldrick Sudds wore it like the finest garland of flowers. <em>Jasmine</em>, he thought. <em>Ah, lovely jasmine</em>. He'd miss that.</p>
+<p>He certainly wouldn't miss the rat-eaten hardtack and infamous pilchard porridge of <a href="../../world-of-rathe/high-seas/graystone-penitentiary.html">Graystone Penitentiary</a>. Compared to that, the smelly, soggy noose seemed like a reward. Perhaps the rations were 'flavored' to make prisoners more compliant, relieved even, when it came time to face the gallows.</p>
+<p>"Move along, freebooter!" the hangman growled. Technically, Meldrick had only been accused of <em>consorting</em> with pirates, but there was no point correcting him. The penalty was the same.</p>
+<p><em>So, this is it</em>, Meldrick thought. <em>A hard yank. A brief, sharp pain. No bouncing around. It will be over.</em></p>
+<p>Meldrick closed his eyes.</p>
+<p>"Avast ye bilge sucking landlubbers!"</p>
+<p><em>Bilge sucking...?</em></p>
+<p>"Bloody bird, get off me!" the hangman yelped as he fended off an assault from a cutlass-wielding parrot.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/the-lost-treasure-of-blackwater-strait-1.webp" alt="the-lost-treasure-of-blackwater-strait-1" /></p>
+<p><em>Bloody bird indeed,</em> Meldrick thought. If it weren't for the avian's absent companion, Meldrick wouldn't be in this mess. As the hangman toppled off the platform and the parrot cut the noose, Meldrick decided the bird might be alright after all. At least better than his peg-legged pal. She was one hundred percent trouble.</p>
+<p>"Heave ho!" the parrot squawked as he fastened a hook to Meldrick's belt. The next thing he knew, he was yanked into the air. He hardly had time to scream; he flailed frantically as the skyhook dropped him unceremoniously onto the hard wooden deck of the <span class="hint" hint="GoldenGoose">Golden Goose</span>.</p>
+<p>"Morning, Sudds," a familiar voice said.</p>
+<p>Meldrick found himself back on his feet, his knees still knocking. The woman was as jaunty and filled with exuberance as their first meeting. Her eyes were bright as her piratical clothing, as fierce as the sun beating down on his neck.</p>
+<p>"Hello, Puff-" he started, interrupted by alarm klaxons splitting the sky with their loud wailing.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/the-lost-treasure-of-blackwater-strait-2.webp" alt="the-lost-treasure-of-blackwater-strait-2" /></p>
+<p>"Damn Graystone flighters," <a href="../../heroes-of-rathe/puffin-about.html">Puffin</a> muttered. "How nice of the skywardens to send the welcoming committee." She half-turned to her crew and shouted, "Evasive action, everyone!"</p>
+<p>There was a lot of running and yelling of incomprehensible aeronautical terms as Puffin's crew rushed to their stations.</p>
+<p>"Hope you've got your air legs," Puffin yelled at Meldrick. He stumbled to the railing and gripped it with white-knuckled fervor. Puffin leaped to port side, rifle in hand. How she could move about so effortlessly on this tossing and turning death trap was beyond him.</p>
+<p>"Steady," Puffin breathed as she settled the rifle into her shoulder. She aimed for the joint between two brass plates on the nearest airship's starboard side and squeezed the trigger. Steam canisters popped out with a loud smack and streamed towards the airship with unerring accuracy. There was a resounding bang followed by the shriek of tortured metal.</p>
+<p>"Stress fractures in the starboard ribbing due to torc under-compensation." She fired again, with the same result. "They really ought to fix that!" she proclaimed proudly to the cheers of her crew.</p>
+<p>"Arses for acumens!" agreed Polly.</p>
+<p>Peering out cautiously, Meldrick witnessed the smoking airships crashing towards the ocean, followed more sedately by wardens dangling from parachutes. As the Golden Goose resumed its flight, Puffin strode towards him, peg leg clicking across the wooden deck, rifle still steaming, a big smile on her face. The <em>fowl</em>-mouthed parrot perched on her shoulder bobbed his head and stretched his wings. One was a finely crafted metal contraption strapped to him with a tiny belt. Quite the motley pair, these two.</p>
+<p>"Can't say I've ever seen a rifle dispose of an airship," Meldrick admitted.</p>
+<p>Puffin twirled her rifle and slammed the stock on the deck with a flourish. "The right tool can do anything <em>if</em> you have the knack. Target a weak spot, apply the right pressure, and boom goes their elevated aspirations."</p>
+<p>"Speaking of aspirations, was framing me not enough?" he blurted. "Now you must abduct me?!"</p>
+<p>"Abduct you?" Puffin seemed rather taken aback. "I <em>saved</em> you from the gallows!"</p>
+<p>"The gallows I nearly hung from because you stitched me up!"</p>
+<p>"I didn't frame you." Puffin laughed. "I used you. Piper's brass did the framing, arrest quotes to maintain and all that. I did the rescuing. And... you're welcome!"</p>
+<p>Meldrick stood, dumbfounded. <em>All this trouble for a map?</em></p>
+<p>"I'd just sailed in from <span class="hint" hint="Coppertown">Coppertown</span>, and your suitcase swapping hijinks ruined everything. Those blasted bots you planted cost me my job. I suppose this map is worth ruining a man's life?"</p>
+<p>"I wouldn't say ruined," Puffin said as she unfurled the parchment. "Besides, this map will lead us to the find of a lifetime!"</p>
+<p>"Oh, good!" Meldrick yelled hysterically. "You get your treasure and all it cost you was some poor sap's career and reputation!"</p>
+<p>Puffin sighed. "I promise with all my heart to vouch for your innocence. You will return to Piper's Pier a free man, then you can while away your days behind a desk happily doing...what is it you do?"</p>
+<p>"I'm a coinage clerk," Meldrick said through gritted teeth.</p>
+<p>Puffin clapped him on the shoulder. "On my honor, after I find the Seahawk, you can clerk to your heart's content."</p>
+<p>"Or are ye a yellow-bellied clerking cur?" Polly squawked, much to Meldrick's disgust.</p>
+<p>He doubted the law of Piper's Pier would accept a character reference from a pirate, but Puffin's earnest smile was enough to make Meldrick concede the moment. "So, what now?"</p>
+<p>She handed Meldrick a pile of clothes, including a moth-eaten, double-breasted waistcoat with a copper pin attached. On its face, the Golden Goose sailed across a polished cloud.</p>
+<p>"Now, we look for treasure!"</p>
+<hr />
+<p>Each dawn, as clouds whizzed past under the keel, the seaway far below, Puffin's quartermaster, Knuckles, set the crew to their chores. Among them, Buttons was in charge of sail repairs, carpentry was Jigsaw's domain, and when he wasn't tending to the cannons, Magpie kept the deckhands swabbing. Meldrick was lumped with Grota, the ship's cook, who seemed to know more about engine oil than cooking oil.</p>
+<p>Their loyalty to both ship and captain was infectious. Despite himself and the airsickness, Meldrick began to enjoy life abroad, though he itched to look at Puffin's ledgers. He had seen the number of artifacts in her headroom and wondered at their origins and valuations.</p>
+<p>The Golden Goose was a fine but fickle ship. Though it flew smoothly enough, Puffin had to make several specialized repairs on their trip. If a gear shot off its valve, she was there with a spare. If a spar bent, she appeared out of thin air and scurried up the rigging to set it right.</p>
+<p>And when she wasn't hightailing it, Puffin stood next to Pelorus, her navigator and helmsman, both of them gazing at the map. Their destination was supposed to be the final resting place of Captain Moody's ship, the HMS Seahawk. A shipwreck full of <span class="hint" hint="DhaniEmpire">Dhani</span> treasure.</p>
+<p>"We be approaching <a href="../../world-of-rathe/high-seas/blackwater-strait.html">Blackwater Strait</a>, Cap'n," Pelorus said, one eye squinting as the other peered out through his monocle. He let it drop on its chain and grabbed a spyglass from the bandolier around his waist, adjusting the focus. "Whole place be a ship graveyard. We best be careful in those waters," he warned.</p>
+<p>Puffin had nothing but respect for the former airship captain. He'd charted more of the High Seas than anyone else, she'd told Meldrick, and was like a human compass when it came to finding his bearings, despite needing multiple optics for his failing eyes.</p>
+<p>"We're airborne, Pelorus! What's the worst that could happen?" Puffin claimed with a cavalier smile.</p>
+<p>In answer, the lookout rang the alarm bell. "Avast, Cap'n, storm ahead!"</p>
+<p>As if punched by some gigantic fist, the sky turned from clear blue to ominous black as they crossed into Blackwater Strait.</p>
+<p>Like Meldrick's stomach, the Golden Goose pitched and rolled through the treacherous air currents. Miraculously, Puffin's repairs held it together. "We need to go lower! The storm is too strong!" she shouted at her crew.</p>
+<p>"Heave ho, ye scurvy dogs!" Polly chimed in.</p>
+<p>As the ship dove toward the water, Meldrick hung onto the banister, praying for smooth sand dunes to cushion his inevitable fall. Then, through the blustering wind, he heard a sonorous sound. It lilted over the waves like the tinkle of coins and the ring of cash registers. Was he dreaming?</p>
+<p>"<span class="hint" hint="Sirens">Sirens</span>!" Buttons called from the lookout. "Cover yer ears!"</p>
+<p>Puffin turned to Meldrick and yelled at him. He couldn't hear what she was saying over the song, nor did he care. Coins or sirens, he needed to hear their silvery voices.</p>
+<p>He vaguely saw Puffin stuff something into her ears, then felt her grab his waist and pull. He refused to let go of the banister, desperately trying to spot the singing. He leaned dangerously over the rail, on the brink of toppling, and there they were: six alluring figures laying languid on the rocks, filling the air with glorious music. He wanted, no, <em>needed</em> to be with those wondrous merwomen.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/the-lost-treasure-of-blackwater-strait-3.webp" alt="the-lost-treasure-of-blackwater-strait-3" /></p>
+<p>He struggled against Puffin as he tried to climb over the banister. Beside them, Knuckles and two other crewmen jumped overboard and began swimming toward the creatures. How lucky they were!</p>
+<p>At Puffin's request, Pelorus blindsided Meldrick, tackling him to the deck.</p>
+<p>"Polly, do it now!" Puffin shouted as she crammed sea sponge into Meldrick's ears.</p>
+<p>The ship's loudhailer buzzed to life. The crew winced as Polly spread his metal wing and began tuning each copper-plated feather with his parrot-sized cutlass. He cleared his throat with a whistle and a chirp, then brought it all together, the sharp vibrato blasting out of the loudhailer like rusted nails scratching glass.</p>
+<p><em>OOOOHHHH, windward skies be calling, and yer wailing failing to arrest thee...</em></p>
+<p>The sirens hissed at the bird's awful crooning, their lovely visages morphing into ugly rage.</p>
+<p><em>Sirens be naught t' a crew full o' rum 'n frivolityyy...</em></p>
+<p>The sirens tried to compete, but in response Polly increased both speed and pitch to drown them out. One by one, they back flipped from their rocks with a splash to escape the torture.</p>
+<p>Puffin laughed uproariously as she pulled the sponge from her ears. "A fine rendition, Polly!" She slung an arm over Meldrick's shoulder as he took the sponge from his.</p>
+<p>Polly switched off the loudhailer, then flew down to Puffin's shoulder, too close to Meldrick for his liking. "I'll sing ye a shanty whene'er the mood strikes ye!"</p>
+<p>"I hope it never does," Meldrick muttered.</p>
+<p>"Almost lost you there," Puffin said. "Didn't think an upstanding coinage clerk like yourself would succumb to temptations of the flesh," she joked. "Knuckles, on the other hand..."</p>
+<p>A moment of somber silence descended over the ship.</p>
+<p>Meldrick blushed furiously. "I'm a music lover," he felt compelled to whisper, despite the funereal atmosphere. His weak defense broke the tension, sending a wave of relieved laughter through the remaining crew.</p>
+<p>Puffin patted him on the shoulder then left him to stew in his embarrassment. "Pelorus. How far to the Seahawk?"</p>
+<p>The helmsman pulled out another spyglass and searched the horizon. "Nearly there, Cap'n, but this may be as far as we get in the Goose." He tossed the spyglass to Puffin, who did her own survey of their surroundings.</p>
+<p>"What is it?" Meldrick asked as he joined them, hoping to restore some of his dignity.</p>
+<p>Puffin passed the spyglass along. "See for yourself."</p>
+<p>The Seahawk was wrecked inside a large cavern of craggy rocks high above the sea. Even if the Golden Goose gained altitude, it would be difficult to fit it through the mouth of the cave. How the Seahawk washed up there to begin with was anyone's guess.</p>
+<p>"I see." Meldrick felt a quiet surge of hope. "Nothing for it then. Back to Piper's Pier?"</p>
+<p>Puffin flipped a lever and several doors on the deck flew open. "Ever flown a skimmer?" she asked with a wink.</p>
+<p>"What's a-"</p>
+<p>Before Meldrick could finish, an array of brass and copper-plated contraptions rose from the hold, propelled by turbines, steam filling the air. The crew cheered as they jumped into the jangly aircrafts with practiced ease.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/the-lost-treasure-of-blackwater-strait-4.webp" alt="the-lost-treasure-of-blackwater-strait-4" /></p>
+<p>"Meldrick. With me!"</p>
+<p>"Please no-"</p>
+<p>Ocean spray salted their faces as they flew over the water, swerving through overzealous waves that threatened to smack them into the brine. The skimmer glided over the surf with the grace of a dancer, thanks to Puffin. Her effortless piloting among the rocks and waves in the growing darkness was nothing short of brilliant. With her at the helm, Meldrick didn't feel nearly as sick as he'd feared.</p>
+<p>Perched on Puffin's shoulder, Polly flapped his wings wildly, smacking Meldrick across the face repeatedly. "<span class="hint" hint="Hoikers">Hoikers</span>! Hhhooooikkers!" the bird screeched.</p>
+<p>Giant orange-red scallops scuttled up over the rocks. "Let's turn those shellfish into chowder!" Puffin barked in Meldrick's ear.</p>
+<p>"Duck!" she yelled, shoving Meldrick down as the nearest scallop opened its shell and expectorated a gob of green liquid that arced over the skimmer. "Hoikers spit acid to soften up their prey," Puffin explained. <em>How could she remain so calm?!</em></p>
+<p>"Stay down," she ordered. Meldrick eagerly complied.</p>
+<p>As the skimmer jerked around sharply, evading the sprays of acid, Meldrick heard the shouts of crewmen going down, the sound of sizzling acid eating into the metal of their skimmers and the flesh on their backs. His curiosity, and frankly, growing concern for Puffin and the crew got the better of him, and he peeked over the top of the skimmer.</p>
+<p>The pirates were fighting back, blasting the scallops into slimy pieces. Meldrick gasped as one turned its open maw towards them, but Puffin coolly shot it apart with the craft's mounted gun.</p>
+<p>"Screee!" Polly laughed. "Who's a clerking coward?!"</p>
+<p>Meldrick gave the parrot his best death stare, which only made Polly laugh harder.</p>
+<p>"No need to panic, Sudds," Puffin assured with a twinkle in her eyes as they sped ahead towards the wreck.</p>
+<p>The remaining aircrafts regrouped, landing on the rocky island. The Seahawk looked remarkably intact having met its end in such a harsh place. As if reading his thoughts, Polly began to recount the tale of the Seahawk. "'Tis said the Seahawk were marooned when a mighty tempest careened 'er."</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/the-lost-treasure-of-blackwater-strait-5.webp" alt="the-lost-treasure-of-blackwater-strait-5" /></p>
+<p>Puffin shook her head at the bird. "No cyclone could pluck a ship that size out of the sea."</p>
+<p>"Or," Polly smirked, "this 'ere island ran a rig on the scallywags and keelhauled 'em."</p>
+<p>"Speak plainly." Puffin groaned. "You know I can't understand you when you talk like that."</p>
+<p>"The island might be cursed," Polly squawked, taking no joy in plain speech.</p>
+<p>Puffin drew her cutlass. "I don't believe in curses."</p>
+<p>She waved to Meldrick and her crew to follow her into the remains of the shipwreck. The timber was well-rotted, with seaweed and moss growing in its nooks and crannies. Skeletons hung from the rigging and out of port holes, and the smell of rotten fish tainted the air. As they drew closer, their movements disturbed a few sea terns who had built their nests in the wreck.</p>
+<p>They scoured the decks and cabins first and after finding nothing but death and debris, headed down into the hold. There they found rusted cannons, shattered barrels, and more skeletons.</p>
+<p>"Watch those bones," Puffin instructed her boarding party, "in case they decide to walk about."</p>
+<p>"I thought you didn't believe in curses," Meldrick said nervously as he gave the closest dead sailor a wide berth.</p>
+<p>"I don't, but you'd be a fool not to believe in necromancy." She kicked over a couple of barrels to reveal a hatch and hauled it open.</p>
+<p>"There it is," Puffin said, her voice hushed in awe. Meldrick looked down into the smuggler's hold to see a big, golden disk resting on a mound of coins and jewels. The captain reached down and touched the plate reverently, her fingers caressing the edges. She was fixated on it, and it was easy to see why: otherworldly arrows, glyphs, and stars were inscribed on its shimmering surface. To Meldrick's valuing eyes, it was a genius work of calligraphy and iconography that would fetch an executive's ransom back in Coppertown. Upon closer inspection, Meldrick noted the arrows converged upon a seven-pointed star.</p>
+<p>Polly rose to the broken rafters, singing badly. "Shiver me timbers, ye found the booty! Three cheers fer Cap'n Puffin!"</p>
+<p>"Here, here!" her crew responded in ragged unison.</p>
+<p>Puffin posed proudly with her find while the crew applauded and Polly flew a victory lap of the hold. Even Meldrick had to admit it was a sweet moment.</p>
+<p>Their celebration was cut short when Polly's metal wing clipped a precariously positioned skull. The cranium tumbled down a mound of bones and knocked into an awkwardly angled powder keg. The keg toppled into a stack of cannonballs, dislodging one, which rolled towards another. The chain reaction ended in a pileup that shook the entire ship.</p>
+<p>Meldrick heard a muffled roar and felt the wreck shiver. The vibrations grew steadily until they reached earthquake proportions. Then, a deep, groaning sigh, like a brewing sea wind.</p>
+<p>A huge green shape emerged from the sea, visible through the ship's gunports.</p>
+<p>"Not cursed," Polly shrieked. "The island's bloomin' alive!"</p>
+<p>Their escapade had woken an immense rock turtle upon whose shell the shipwreck rested. It craned its neck towards them, drawing closer until the side of its beaked, reptilian face was pressed to the side of the Seahawk, immense eyeball glaring at the pests on its back.</p>
+<p>"It be a mountain-backed sea chicken!" Polly cried. "Abandon ship!"</p>
+<p>Puffin jumped down into the smuggler's hold to salvage the golden plate. The rest of the crew stumbled as quickly as they could towards their aircrafts.</p>
+<p>"Leave it, Puffin! We have to get out!" Meldrick called. Whether she couldn't hear him or was so single-minded in her pursuit of the plate that she chose to ignore him, Meldrick couldn't know. For the third time he was hoisted up against his will as Pelorus dragged him by the collar to his skimmer. They narrowly made it out of the cave before the turtle lumbered down the slope and submerged, hissing into the water, taking the wreck and Puffin with it.</p>
+<p>The crew hovered aloft and stared at the bubbling sea-foam where the turtle had disappeared. They'd escaped with their lives, but lost their captain.</p>
+<hr />
+<p>The crew's relief was weighted with loss by the time they were safely away from Blackwater Strait. Battered and bruised, their numbers sadly depleted, they dropped anchor at a small, sandy-beached island to regroup and properly mourn the dead.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/the-lost-treasure-of-blackwater-strait-6.webp" alt="the-lost-treasure-of-blackwater-strait-6" /></p>
+<p>Pelorus broke out the rum ration and all remaining hands sat on deck to drown their sorrows.</p>
+<p>"Ye were a brilliant mechanic and navigator, Cap'n Puffin. I was proud to know ye," Polly said softly, his tail feathers drooping.</p>
+<p>"Aye, she were the finest cap'n I ever sailed with," Magpie added.</p>
+<p>Jigsaw nodded in recognition. "A true trailblazer!"</p>
+<p>The men hung their sorry heads, including Meldrick. For all his complaining, Puffin had given him the most excitement he had ever experienced. It would be a lonely trip back to Piper's Pier. Back to his old life.</p>
+<p>They passed around their grog and sung shanties that rang out across the sea, yet on this occasion, Polly's renditions were more somber than spirited. Meldrick's heart felt heavy as he took in the maudlin scene. It was good ole Pelorus who broke the keening with one of Puffin's famous lines.</p>
+<p>"<em>Lost cities and hidden treasures?</em>"</p>
+<p>Without hesitation, the rest of the crew chimed in. "<em>The sky's the limit!"</em></p>
+<p>Out of the corner of his eye, Meldrick noticed a shadow upon the glassy surface of the sea. He walked to the gunwale for a better look.</p>
+<p>One by one, Polly and the crew caught on, tilting their heads to the skyline to see their beloved captain materialize above them, floating upside down, attached to a large air balloon by her peg leg. A sack of treasure hung from her belt and she clutched the large plate against her chest. Her grinning face shone even brighter than the polished gold.</p>
+<p>"Avast, me hearties!" Puffin shouted as she hoisted the plate towards the astonished crew. "I come bearing gifts!"</p>
+<p>Puffin, now right way up, stood on the deck before her crew. "Today was a triumph. At long last, we have the map to <span class="hint" hint="TropalDhani">Trōpal-Dhani</span>!"</p>
+<p>The crew cheered, though not nearly as heartily as when they'd first discovered the treasure.</p>
+<p>"Today was also a tragedy." She sighed. "We lost some good people." Certain voices choked up or cried out as Puffin recited the names of their comrades. "But that's a pirate's life, isn't it? There's no lot I'd rather win or lose with than this one."</p>
+<p>Puffin's usual smug smile turned sweeter, more earnest as she honored her crew. She raised the golden map above her head. "Lost cities and hidden treasures?"</p>
+<p>"The sky's the limit!"</p>
+<p>This time the grog flowed freely and the shanties were sung with raucous glee. Polly's renditions were the most spirited of all. Puffin sat next to Meldrick and picked a stray cobweb from his new coat. She presented it to him like it was a precious souvenir from the Seahawk.</p>
+<p>"Do you still want to return to the Pier?"</p>
+<p>Meldrick was taken aback. "I... I'm not sure."</p>
+<p>Suddenly, a desk job sounded <em>boring</em>, being confined to an office day after day while the wide world awaited Captain Puffin and her crew.</p>
+<p>"The Goose needs a quartermaster," she pointed out as she flicked the cobweb overboard. "Someone good with numbers to keep track of our inventories and our treasures. I imagine there will be plenty of work as we search for Trōpal-Dhani."</p>
+<p>"Quartermaster?" Meldrick's heart raced.</p>
+<p>Puffin smiled brightly. "The sky's the limit!"</p>
+<hr />
+<p><em>Story by Robbie Wen, Edwin McRae, Rachel Rees, Bonnie Harris-Lowe, Joyce Chng, Ryan McIntyre</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/18-high-seas/captain-bones-and-the-city-of-gold.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/18-high-seas/a-kraken-good-tale.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/18-high-seas/captain-bones-and-the-city-of-gold.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/18-high-seas/a-kraken-good-tale.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

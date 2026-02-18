@@ -1,0 +1,258 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>A Sprawling Metropolis - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="a-sprawling-metropolis"><a class="header" href="#a-sprawling-metropolis">A Sprawling Metropolis</a></h1>
+<p>The city of Metrix was built in layers, beginning with the areas now known as Old Metrix and the Sprawl. As the city has expanded and advanced, it has built upwards, constructing ever-higher districts that tower over the Sprawl far below. Currently, the highest section of the city is the Expanse, its tall buildings leaving some sectors of the West Rise in permanent shade.</p>
+<h3 id="east-rise"><a class="header" href="#east-rise">East Rise</a></h3>
+<p>In a bustling city filled with people, the East Rise is a welcome breath of fresh air. Only a few residential areas can be found within the East Rise, as the majority of the sector is devoted to parks and entertainment complexes.</p>
+<h3 id="west-rise"><a class="header" href="#west-rise">West Rise</a></h3>
+<p>Known for its suburban neighbourhoods and corporate offices, the West Rise is populated by middle-class families and emerging scientists alike. High above the turmoil and chaos of the lower levels, it is a popular choice for established laboratories and research centres, with most of Metrix's companies choosing to station their research and development teams in the district.</p>
+<h3 id="the-expanse"><a class="header" href="#the-expanse">The Expanse</a></h3>
+<p>The Expanse is the richest and highest level of Metrix. All of the greatest minds have earned their right to live here, through their many accomplishments and contributions to the city. All of the great laboratories and institutions of education are located here, and no matter the hour, the residents of the Expanse can be found within, pursuing their next great discovery.</p>
+<h3 id="coppertown"><a class="header" href="#coppertown">Coppertown</a></h3>
+<p>Located in the south of Metrix, Coppertown is home to working-class citizens, from laborers to factory workers, foremen to couriers. Nestled in between the city's massive strip mines, Coppertown boasts a large population of miners, and the standard of living is far better there than anywhere else on the first level.</p>
+<h3 id="lowlake"><a class="header" href="#lowlake">Lowlake</a></h3>
+<p>Coppertown's entertainment district, the southern portion of Coppertown is infamous for its brothels, casinos and seedy taverns. Lowlake's namesake, a small lake in the centre of the district, has become rank and foul with runoff chemicals, leaving the majority of Lowlake's workers ill from the toxic fumes.</p>
+<h3 id="the-sprawl"><a class="header" href="#the-sprawl">The Sprawl</a></h3>
+<p>The largest and lowest level of Metrix, the buildings of the Sprawl stand on solid ground, overshadowed by the city above. The Sprawl's population is predominantly immigrants and paupers, those who struggle to find work and make ends meet. The Sprawl is ignored by the rest of Metrix, and as a result, has developed a culture and identity unique to the district.</p>
+<h2 id="landmarks"><a class="header" href="#landmarks">Landmarks</a></h2>
+<h4 id="cogmires-salvage-emporium-and-workshoppe"><a class="header" href="#cogmires-salvage-emporium-and-workshoppe">Cogmire's Salvage Emporium And Workshoppe</a></h4>
+<p>Rumor has it that <a href="../../heroes-of-rathe/teklovossen-about.html">Jules Teklovossen</a> once frequented Cogmire's Salvage Emporium and Workshoppe at the southern edge of the Sprawl. Some swear he spent hours there collecting materials to build his earliest creations, when junk and scrap were all the young inventor could afford. When pressed for confirmation, the proprietor, Prospector Cogmire, said only that, "I find those glowing holophoto effigies to be in poor taste. That man gave us so much already; can't we now let him rest?"</p>
+<p>Cogmire's is the oldest junkyard in all of Metrix offering anything and everything a scrap trader or tinkerer could need. The man himself has been proprietor for as long as anyone can remember, with his trusty (and rusty) pet junkyard dogg Charlotte never far from his side. She's mean in the eyes and knows the difference between a customer and a thief. So does Cogmire. The dogg is just faster.</p>
+<p>The yard isn't laid out like a proper shop. It's a maze of chain-slung heaps and riveted wreckage, where processors, induction chambers, gears, and cogs get swallowed for years before turning up again under somebody's boot. Need a clamp press that hasn't been made since before your grandparents learned to swear? Might be here. Need an Evo cut to fit a frame that was "standard" for about five minutes before some bright mind changed the pattern? Could be buried under a hopper carcass and three bad decisions. Need a single copper screw with a plasma-resistant thread? You'll find it. Eventually.</p>
+<h4 id="midtown-markets"><a class="header" href="#midtown-markets">Midtown Markets</a></h4>
+<p>A place where anything and everything can be found for the right price. Nestled in the remains of a worn-out strip mine in the centre of the city, the Midtown Markets are notorious not only for its wares, but for the amount of crime that takes place in the area. The Iron Assembly has stationed a permanent brigade of officers in the area, in an attempt to control the market's more nefarious locals. Many of the merchants remain at odds with the brigade, arguing that their presence deters the presence of some of their more wealthy clientele.</p>
+<h4 id="zinnia-park"><a class="header" href="#zinnia-park">Zinnia Park</a></h4>
+<p>One of the stranger attractions in Metrix, the mechanical creatures of Zinnia Park are rumoured to have been made by a rich scientist with an unusual hobby. According to urban legend, she died unexpectedly after purchasing a plot of land, leaving behind instructions for her assistant to set up what is now known as Zinnia Park. Nobody knows who runs or maintains the park, as the Iron Assembly denies having anything to do with the park's continued existence.</p>
+<h4 id="the-needle"><a class="header" href="#the-needle">The Needle</a></h4>
+<p>The headquarters of Teklo Industries, the Needle is a marvel of engineering, an incredibly tall ivory tower that stretches high above the city of Metrix. The construction process behind building the Needle remains a closely-guarded secret.</p>
+<h4 id="gigadrill-elevator"><a class="header" href="#gigadrill-elevator">Gigadrill Elevator</a></h4>
+<p>Hovering over Pit 3, the largest active mining pit in Metrix, the Gigadrill Elevator transforms helium into plasma, which then falls down into Pit 3. The ball of plasma detonates when it reaches the bottom, destroying the thick bedrock beneath and making the pit deeper. Elevators run along the side of the structure, extending down into Pit 3, allowing miners and workers access to the different mining levels.</p>
+<h4 id="terracette-path-academy"><a class="header" href="#terracette-path-academy">Terracette Path Academy</a></h4>
+<p>Named for one of the founders of Metrix, the Academy provides education to anyone who can afford its steep tuition. Anyone who graduates from the Academy is almost guaranteed success within their field, and a future within the scientific community of Metrix.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../world-of-rathe/metrix/advent-of-science-and-technology.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../world-of-rathe/metrix/a-better-tomorrow.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../world-of-rathe/metrix/advent-of-science-and-technology.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../world-of-rathe/metrix/a-better-tomorrow.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

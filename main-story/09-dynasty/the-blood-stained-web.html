@@ -1,0 +1,260 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Blood Stained Web - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="the-blood-stained-web"><a class="header" href="#the-blood-stained-web">The Blood Stained Web</a></h1>
+<p>I perch in the rafters where the air is thick with whispers. Servants gossip in a cozy huddle below. I yearn to drop among them, to cut those wagging tongues from their gaping mouths, to bathe them in blood. But that is not in the plan.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/bloodstained-web-1.webp" alt="bloodstained-web-1" class="center">
+<p>Laughter breaks out as a punchline is hit. Something about a <span class="hint" hint="Dracai">Dracai</span>, a chamber pot, and tea ceremony. I vault from rafter to rafter while their eyes are blinded by mirth. I drop out of hiding and stalk into the passage beyond, none of them the wiser. If only they knew Death had passed so close, their jokes would stiffen like the lips on a corpse-their sleepless nights would stretch and twist with sweats and shivers.</p>
+<p>On I go, choosing moments I am not contracted to own. Blades far sharper than mine have carved out this path. Hide and wait here, said the boss, for nine rings of the gong behind the tapestry of the Jade Empress. The soldiers will disperse, said the boss. Like Metrixian clockwork, on the tenth ring, a patrol of soldiers rushes past, called to some urgent duty elsewhere. The plan is working.</p>
+<p>I scurry along corridors of distracted servants and driven soldiers. I am a passing fright in the bustle of the Imperial Palace, a shadow to be mistaken and dismissed. I reach a wooden door in a stone hallway and remove my gauntlet to press my hand to the warm wood. The vibrations fill my mind with bright patterns. I close my eyes, match sound with sensation, and picture my prey.</p>
+<p>Leather armor creaks as stone pieces click and slide on a tabletop. Two guards, seated along the left wall of the small guardroom, playing Karasita.</p>
+<p>Metal squeaks under the rub of a cloth. A lone guard to the right, polishing the blades of halberds with charpaste.</p>
+<p>A "puff, puff" followed by a slow exhale. A guard leaning against the far wall, smoking a pipe. It smells like dried crimson leaf from Golden Orchard. Scarce now since the rebellion torched the plantations.</p>
+<p>I slide my hand back into my gauntlet and savor the anticipation. The sweet red is about to flow.</p>
+<p>The door is unlocked and well greased. The scent of fat is fresh. It opens like an eyelid raised from sleep. I have seen that many times, my victim awakening, that fleeting moment of recognition, of terror, before I plunge them back into sleep eternal.</p>
+<p>I unfurl my little shinies faster than the guard facing me can even lift his eyebrows.</p>
+<p>My first shiny flies across the room to puncture the Karasita player's eye and his sluggish brain beyond.</p>
+<p>I step forward and plunge my second shiny into the back of the polisher's neck.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/bloodstained-web-2.webp" alt="bloodstained-web-2" class="center">
+<p>The third guard knocks the chair and Karasita board aside as he stands. It does him no good. My favorite shiny slices open his windpipe before his hand touches the hilt of his sword.</p>
+<p>The other two are gone, killed in the instant. This one gurgles, soaked hands clutched helplessly to his throat. I watch the light fade from his eyes and then turn to the smoker.</p>
+<p>He hides his fear by blowing a plume of smoke before tossing me his key. It's not for me to reckon the turning of his coat, but the terror in his eyes tells me he's not doing this for himself. A loved one, perhaps. Maybe a child.</p>
+<p>I pluck the key from the air and puncture the smoker's right side with a sharp jab between the straps of his breastplate, just shy of puncturing a lung. He wheezes. His pipe clatters on the floor. He looks at me, shock numbing his face as he slides down the wall. The boss said that he should live, but also that it should be convincing. Else he will hang for sure.</p>
+<p>I close the guard-room door, lock it, and retrieve my daggers. Before me is a narrow passageway lined with weapons and armor. I enter the last storeroom on the left, squeeze between shelves of helmets, and remove my gauntlet once more to feel the wall. All I need to do is feel for a secret panel and insert the accomplice's key into the waiting keyhole. And there it is, just as prepared. The mechanism unlocks with a soft click and the door swings silently open. I grin behind my mask. A deluge of death is but a room away.</p>
+<p>Dusty steps lead me to a long balcony, the latter stifling with the heat of the throne room. A Dracai and his bodyguards stand at the railing, a wizard too lowly to join the ranks of the lords below. I knife the guards in their necks, slit the Dracai's throat, and use his soft-robed corpse to dampen the sound as the others fall. I work my way along the balcony, killing quietly. Each hit is a mere taste of the bliss that awaits me.</p>
+<p>Only when I have the balcony to myself do I appraise my ultimate prize. There he is, the <a href="../../heroes-of-rathe/emperor-about.html">Emperor</a>, surrounded by his sycophants.</p>
+<p>I take my allotted position and weave the course of carnage in my mind as a host of hooded associates gather around me from dark corners and lofty rafters.</p>
+<p>We are the blood-red threads that will criss and cross this throne room.<br>
+We are the <a href="../../world-of-rathe/pits/blackjacks-mercenary-group.html#the-spider">Spider</a>'s spinnerets-a latticework of slaughter sent to end a dynasty.</p>
+<p>I dance to my delight, knowing the red rain is about to fall.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/bloodstained-web-3.webp" alt="bloodstained-web-3" class="center">
+<hr />
+<p><em>Source: <a href="https://fabtcg.com/heroes/arakni/?stories=True">The Blood Stained Web</a></em><br>
+<em>Written by Edwin McRae and Rachel Rees.</em><br>
+<em>Directed by Robbie. Illus. by Sam Yang.</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/09-dynasty/ember-in-the-ash.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/09-dynasty/vow-of-vigilence.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/09-dynasty/ember-in-the-ash.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/09-dynasty/vow-of-vigilence.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

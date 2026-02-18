@@ -1,0 +1,282 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Kill or be Killed - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="kill-or-be-killed"><a class="header" href="#kill-or-be-killed">Kill or be Killed</a></h1>
+<p><em>A vast, primordial jungle, the <a href="../../world-of-rathe/savage-lands/savage-lands.html">Savage Lands</a> are uncharted by any map, and its true size remains unknown. Ancient trees tower above the crowded canopy, casting shadows on saplings struggling toward the light. The dense vegetation casts a heavy blanket of silence over the jungle, broken only by the sounds of massive beasts crashing through the undergrowth. Deep within the jungle, savage predators prowl through the shadows, while vicious scavengers fight to the death over scraps of meat. All those that call this place home, from the smallest insect to the largest tree, must fight tooth and nail for their continued survival.</em></p>
+<p><em>With creatures venturing further and further beyond the jungle's outer limits, wandering into golden fields and attacking villages, the townsfolk have sought out the help of their great protector. Shining knights march into the jungles, hacking down anything that crosses their path. The beasts of the Savage Lands seek out the intruders, preying on any warrior who leaves themselves open to attack. As tensions begin to rise, the jungle itself seems to be stirring, preparing to eliminate any human that steps within its bounds.</em></p>
+<h2 id="hide"><a class="header" href="#hide">Hide</a></h2>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/rhinar-1.webp" alt="rhinar-1" class="center">
+<p>This is the harshest habitat in Rathe, a massive jungle filled with vicious predators and savage wildlife. Inside a small hollow, beneath the roots of a haldor, a small pup opens its eyes for the first time. This is a brute, one of the fiercest predators in the Savage Lands. Yet, as he crawls out of the pile of rotting carcasses, he is no more dangerous than a newborn jacara.</p>
+<p>Hunger drives him to leave the safety of his burrow, following the scent of fresh blood on the air. This will be his very first hunt - and may very well be his last. Small, weak and defenseless, the young brute is easy prey for anything that finds him.</p>
+<p>However, nearby, a pair of strix lurk within the dense undergrowth. They notice the brute immediately, lunging straight toward the helpless infant. With a wail, he tries to roll out of reach, struggling against the strix' iron grip. Even newborn brutes such as this one have incredibly sharp teeth, his canines tearing through one of their wings. Their panicked shrieks allow him just enough time to slip away, quickly fleeing back to the burrow. He curls up in his pile of bones once more, hungry, but alive. Perhaps later, he will have better luck in finding a meal.</p>
+<h2 id="kill-or-be-killed-1"><a class="header" href="#kill-or-be-killed-1">Kill or be Killed</a></h2>
+<p>After a successful hunt, the brute feasts upon his prey. However, the scent of blood often draws nearby creatures, who come searching for a free meal. Even when he bellows in an attempt to intimidate them, the young brute is rarely seen as a threat.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/rhinar-2.webp" alt="rhinar-2" class="center">
+<p>Skera, peluda, ank'is, brawnhide; kings of the jungle, fighting tooth and nail in a primordial wilderness. There is no rest, no respite. From the first light of dawn, the predators begin to roam, and their prey must constantly be on the move if they wish to survive. Ensnaring vines and vibrant flowers entice their prey into drawing closer, their curiosity proving to be their downfall. Even after the sun sets, the predators continue to stalk through the darkness, searching for sleeping prey to feast upon.</p>
+<p>This is a lesson repeated across the Savage Lands - you must always be ready for a fight. If you cannot defend yourself, you become another beasts' meal. If you cannot protect your own meal, you go hungry. The brute is up for the challenge, but these predators have sharp talons and massive tusks. Even with the brute's claws and strength, he struggles to hold his own. Yet while he often suffers injuries, he refuses to back down, either fending off the beast or escaping with some scrap of food.</p>
+<p>It is in this endless wilderness that the brute grew up, battered by the constant fight to survive. Some days, he is hunted, constantly on the run. Days would go by as he withered and wilted in starvation, hiding from a predator following his scent. Yet others would see him become the hunter, lounging within a secluded den with a full belly.</p>
+<p>As each season passes, the young brute grows. He becomes stronger, standing his ground against predators, no matter how large. The jungle sees him become a predator in his own right, marking out a place of his own within the Savage Lands.</p>
+<h2 id="bide-your-time"><a class="header" href="#bide-your-time">Bide Your Time</a></h2>
+<p>Straying further and further from his birthplace, the brute travels north, to lands filled with larger, more dangerous predators. While the prey is plentiful, the beasts here are massive, powerful masters of the hunt. Roars and howls echo through the trees, fragments of bone coating the earth, carcasses scattered across the jungle floor. Toxic fungi, poisonous berries, and meat-eating plants spread across the landscape, preying on the weak and the unaware.</p>
+<p>However, any creature can fall victim to their primal curiosity. The brute continues to investigate that which should be left alone. Abandoned camps, narrow caves, hollows and burrows and barren wastelands, even the rare trails leading to the outer reaches of the jungle.</p>
+<p>He finds all kinds of things - metal carapaces; large clubs of wood; handheld talons and massive canines; furs and leathers and hides; shards of metal; carcasses, skulls and bones from unfamiliar creatures. Some things he takes, making a protective hide for himself, and a massive, spiked club. He feasts on strange creatures, with crystalline hides and stone shells.</p>
+<p>Yet the further he travels, the more dangerous the land becomes, with ever more predators lurking in the shadows.</p>
+<p>The jungle has become far more complex. Beasts roam in massive packs, while savage predators stalk through the shadows. Venomous bites and toxic scales ensure a slow, painful death; scavengers roam the trees in packs, searching for easy prey. The injured, the ill, the young and old; in this part of the jungle, any sign of weakness will spell demise.</p>
+<p>Meanwhile, furless, leather-clad creatures gather to the East. With no talons or fangs to speak of, they wield pieces of metal, their large packs and sheer determination outweighing their weaknesses. Tracks and bones left in the earth speak of hunters wearing silver shells, trampling everything in their path. While the brute has yet to encounter these strange creatures, he prepares himself for a fight, keeping a wary eye out for the tracks they leave behind.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/rhinar-3.webp" alt="rhinar-3" class="center">
+<p>For even the most experienced hunter, these are treacherous lands, and biding your time might well save your life. The brute lies in wait, skirting along the edges of a tall cliff face, avoiding the largest and fiercest beasts that would spell certain death. He avoids the barren wastelands and the strange lakes, the acrid scent of death in the air.</p>
+<p>After all, it is not only beasts that spell danger in the Savage Lands. Some areas of the jungle are dangerous in their own right, unfamiliar territories that promise a slow death to any creature foolish enough to enter.</p>
+<h2 id="never-back-down"><a class="header" href="#never-back-down">Never Back Down</a></h2>
+<p>It does not last forever. The brute soon becomes a predator. <a href="../../heroes-of-rathe/rhinar-about.html">Rhinar</a> marks a place for himself amongst some of the most dangerous beasts in the Savage Lands. This is his territory, his kingdom, and any creature who dares to step foot within his land will die for it.</p>
+<p>Now fully grown, the fear and caution have given way to aggression, an overwhelming urge to carve out a territory for his own. Yet Rhinar grows ever larger, towering over the other predators of the jungle. He drives scraps of metal into his wooden club, the rashari branch he'd once scavenged from the forest floor; adds the jawbone of another brute and the tusk of a young brawnhide.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/rhinar-4.webp" alt="rhinar-4" class="center">
+<p>Rhinar begins to hunt down predator and scavenger alike, any possible threat, any creature that consumes the prey that belongs to him. He fights tooth and nail, beating them down with his club and his fists. The first beast to challenge him pays dearly for it, a peluda that attempts to drive him away from its hunting grounds. He crushes its skull into the cold, hard rock, brain matter dripping onto the stony earth. The curve of his club sends skull fragments flying across the clearing, blood pooling onto the earth, strips of fur and hide hanging limply from the jagged wood. Rhinar tears into it with his bare hands, shoving mouthfuls of steaming viscera into his gaping maw.</p>
+<p>One by one, he destroys any predator on his land, devouring them whole. Scale or fur, crystal shell or venomous fang, he hunts them all. The crack of bone echoes through the trees, creatures fleeing from the overwhelming stench of decay that hangs in the air. Rhinar grows ever stronger on the constant feasting, consuming flesh, cramming the fresh organs down his throat by the handful.</p>
+<p>The silver-shelled hunters still lingered near the edges of his kingdom, elusive, only leaving faint tracks or an unfamiliar scent to mark their passing. Even as he roamed further from his hunting grounds, he could not follow their scent for more than a moment. Despite the warnings he left behind, they failed to retreat, tramping through the jungle as if set on a predetermined path.</p>
+<p>The hunger drives him further still, beyond the boundaries of his territory. He hunts larger and larger beasts, crushing them into the earth, throwing himself into fights with reckless abandon. Rage overpowers any remaining instincts for self-preservation, abandoned in favour of the steaming entrails that he devours from fresh carcasses.</p>
+<p>Ripping tusks from skulls with a single swing, toxic scales torn clean from their hide; not even the venomous bite of a rek'vas can deter him from the overwhelming urge to destroy. His skin turns almost grey, covered in a slimy coating of marrow, blood streaked through his hair, viscera collecting beneath his nails. His rampage drives him ever further from his lands, seeking larger beasts and tougher fights. Rhinar's territory grows larger and larger, as he massacres more and more creatures in his endless need to consume and destroy.</p>
+<p>Bones and teeth form a chain around his throat, his body decorated in the trophies of his hunt. Rhinar's kingdom is silent, empty. Every remaining creature has fled; prey and predator, hunter and scavenger, all running from the beast that has carved out a home for himself in flesh and blood.</p>
+<h2 id="strength-rules-all"><a class="header" href="#strength-rules-all">Strength Rules All</a></h2>
+<p>Dusk is the most dangerous time within the Savage Lands. The darkening night would strike terror into even the most seasoned hunters, as vicious predators emerge from their dens to stalk through the shadows, hunting sleeping, defenseless prey. In the dim light, a hulking shape storms through the overgrowth, mindless of the racket that it was creating.</p>
+<p>Rhinar returns from a successful hunt, his hide streaked with blood, stomping through the shadows as if daring any nearby beast to challenge him. Yet as he drew closer to his lair, he caught an unfamiliar scent on the wind, faint tracks marking the earth. Something had entered his territory, a pack of creatures hunting on his lands. Despite their blatant disregard for all warning signs, entering his land without hesitation, a faint smell of fear lingered in the air.</p>
+<p>His clearing was filled with strange creatures, dressed in shells of silver and gold metal. The critters flocked around his hut, poking it and barking at one another. While they looked small and sickly, something about the creatures gave him pause. Rhinar released a bellow, the roar echoing through the trees like a thunderclap.</p>
+<p>With a sharp clatter, the nine creatures turned to face him. Immediately, they sprang into action, the pack barking at one another as they moved to surround Rhinar, wielding massive metal talons. One member of the pack, clothed entirely in fabric, threw open his arms, revealing a stream of sunlight that burst through the air. The bolt grazed his side, searing his thick hide.</p>
+<p>The pack began to close in, brandishing their weapons as they yelled, drawing closer and closer, leaving nowhere for Rhinar to escape. More bolts of pure light blasted through the air, white-hot and almost blinding. Two of the creatures revealed large, pointed sticks, attached to lengths of white rope. They threw the weapons at him, and as the sharp prongs flew through the air, they pulled the rope taut over the top of his body.</p>
+<p>Struggling against the restraints, Rhinar fails to dodge their attacks, silver talons slashing through his thick hide with ease. Blood streams from the open wounds, coating the earth in crimson. When he tries to strike out at them, pulling at the ropes, he finds that their silver shells are as hard as stone, a sharp, hollow clang ringing through the trees. Even his claws fail to rip through the shell, and his strongest blows only serve to knock them off balance. Slowly but surely, Rhinar began to grow weaker, the world dulling to a hazy, burning red.</p>
+<p>A memory surfaced, taking him back to a warm, mid-autumn day; a young pup at the mercy of the wilderness, overwhelmed by fear. The endless fear turned to rage, fuelling a fire that flooded through his veins, bringing with it an all-consuming bloodrage.</p>
+<p>Rhinar charges forward, tugging himself free of the ropes, sustaining several gashes in the process. He bowled over one of the larger creatures, leaping toward one of the smallest members of the pack. Her fear was a sharp note in the air, the acrid scent stark against the fire of his bloodrage. A single blow to the side of her head sent her flying to the ground, and before she could struggle to rise, Rhinar leapt upon her. Tearing away her silver shell, he drove his fists into her, the loud crack of crushed bones echoing through the clearing.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/rhinar-5.webp" alt="rhinar-5" class="center">
+<p>The rest of the pack faltered for a single heartbeat, and in that same instant, Rhinar charged at another, crushing the creature's skull between his hands. Another crashes into a tree with a sickening crack, while a third falls to their knees, screaming. The scent of blood drove him into a frenzy, tearing through the clearing in an unbridled rampage. The rest of the pack rallied, holding their weapons aloft as they charged. Their talons slashed through the air, one of them cutting Rhinar's tough hide, a trail of blood streaming down his shoulder.</p>
+<p>He stormed into the heart of the fray, ripping one creature's head clean off its shoulders, its corpse dropping to the earth with a dull thud. One by one, they began to fall, faltering, bones crushing easily beneath the might of his blows. Even as they tried to escape, Rhinar felled them one by one, crushing their bodies into the earth.</p>
+<p>Finally, all was still.</p>
+<p>Standing above the carnage, Rhinar bellows, a challenge to fall on empty ears, no surviving beast to hear his challenge. His bellow echoed through the trees, signalling the birth of an apex predator, an alpha unmatched by any other.</p>
+<hr />
+<p><em>Source: <a href="https://fabtcg.com/heroes/rhinar-reckless-rampage/?stories=True">https://fabtcg.com/heroes/rhinar-reckless-rampage/?stories=True</a></em><br>
+<em>Story by Nicola Price.</em><br>
+<em>Illustrated by MJ Fetesio</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/01-welcome-to-rathe/pride-of-the-ironsongs.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/01-welcome-to-rathe/wanderings-in-the-mists.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/01-welcome-to-rathe/pride-of-the-ironsongs.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/01-welcome-to-rathe/wanderings-in-the-mists.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

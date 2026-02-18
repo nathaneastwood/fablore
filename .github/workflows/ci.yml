@@ -1,0 +1,49 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  test:
+    name: Test and Check Links
+    runs-on: ubuntu-24.04
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install Rust
+      run: |
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+        echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+
+    - name: Install mdbook and mdbook-hints
+      uses: actions-rs/cargo@v1
+      with:
+        command: install
+        args: |
+          mdbook@0.4.43
+          mdbook-hints@0.1.5
+
+    - name: Install Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.2.0
+
+    - name: Install Ruby gems (via bundler)
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3
+
+    - name: Run mdbook tests
+      run: mdbook test
+
+    - name: Build the book
+      run: mdbook build
+
+    - name: Run htmlproofer on book output
+      run: |
+        bundle exec htmlproofer ./book \
+          --assume-extension \
+          --check-html \
+          --disable-external \
+          --only-4xx \
+          --ignore-missing-alt \
+          --ignore-files "./book/toc.html,./book/404.html"

@@ -1,0 +1,325 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Trouble in Larinkmorth - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="trouble-in-larinkmorth"><a class="header" href="#trouble-in-larinkmorth">Trouble in Larinkmorth</a></h1>
+<p><a href="../../heroes-of-rathe/valda-about.html">Valda</a> kicked the tavern door open and hurled one, then another drunken brawler out into the cold night air.</p>
+<p>The common room erupted into cheers of approval as the muscular guardian leaned against the doorway, adjusting her bracers as the louts struggled to extricate themselves from the snow.</p>
+<p>"You have something to say, Einar? This is the third time this week I've had to kick you out for scrapping with Tomass."</p>
+<p>Einar spun toward Tomass, who lay spread-eagle, then back toward the bouncer who'd thrown him like a bundle of laundry. "But Valda, he-"</p>
+<p>"I'll not hear it," she interrupted, eyes narrowed. "Get home, sober up. And if I have to break you two up tomorrow night, you're not coming back. Understand?"</p>
+<p>Her words reached Einar through his drunken haze. He took a short step back to help Tomass to his feet. "Come, brother, mother will be waiting."</p>
+<p>Valda watched them hobble off just long enough to ensure they didn't wander towards the cliff, then cast her gaze across the peaceful mountainside village of <a href="../../world-of-rathe/aria/a-true-sanctuary.html#larinkmorth">Larinkmorth</a>.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/trouble-in-larinkmorth-1.webp" alt="trouble-in-larinkmorth-1" /></p>
+<p>Home to the folk who worked at the <a href="../../world-of-rathe/aria/a-true-sanctuary.html#isens-peak">Isenri Sake</a> Brewery, Valda had found her people in Larinkmorth, a good people who had the tendency to get a little rowdy when consuming the liquor they produced. They'd shown the truth of their hearts in accepting her and Balen into their community. Ensuring their new tavern was a safe place to kick back and relax was her own way of showing gratitude.</p>
+<p>Valda noticed a solitary figure heading towards the tavern at a steady, if frail, pace up the main cobblestone road leading down the slope. Her lips broke into a smile as she recognized the new arrival.</p>
+<p>"Kaysin!" she said, as she stepped down from the tavern doorway. "We weren't expecting <a href="../../world-of-rathe/aria/people-of-aria.html#the-everfest-carnival">Everfest</a> for months."</p>
+<p>"It's good to see you too, Valda."</p>
+<p>The bouncer could tell there was something left unsaid, but pushed it aside for now - Kaysin would reveal her purpose in her own time. "Let's get you out of the cold."</p>
+<p>Inside, Braumeister Balen was wiping the bar down. On seeing Valda enter with Kaysin, the man who'd raised the bouncer gave a shout to the common room: "Last call."</p>
+<p>A few of Balen's patrons ordered a parting cup, but most slipped out the door, still in good cheer from the raucous festivities.</p>
+<p>Valda guided the seer to a stool at the bar, then opened the bridge and stepped through to put the kettle on. "Did you make the journey on your own?"</p>
+<p>"It's not so dangerous a trip if you follow the signs." Kaysin hoisted herself onto the stool. "I could use some hot tea, however."</p>
+<p>Kaysin's arrival had Valda concerned. The seer would have traveled some distance from Everfest, which meant she had a matter of grave importance to discuss, but in typical <a href="../../world-of-rathe/aria/aria.html">Aria</a> fashion, was taking her time getting to the point.</p>
+<p>"<a href="../../heroes-of-rathe/bravo-about.html">Bravo</a> left the <a href="../../world-of-rathe/aria/people-of-aria.html#the-everfest-carnival">Carnival</a>, did you hear?"</p>
+<p>"Oh, I've heard." Valda rolled her eyes. "Bravo's headache enough when his troupe brings him here. I've no desire to burden myself with his antics when he's not."</p>
+<p>Kaysin's eyes were fixed on Valda as she sipped her tea. "<a href="../../heroes-of-rathe/oldhim-about.html">Oldhim</a> named him leader of the new Ollin."</p>
+<p>Valda smirked. "The two-bit showman's found himself a larger audience."</p>
+<p>Kaysin put her tea cup down. "That <em>two-bit showman's</em> fighting for Aria in <a href="../../world-of-rathe/solana/solana.html">Solana</a>."</p>
+<p>Valda bristled, but there was no recrimination hiding in Kaysin's words, only a question. "More power to him... I'm happy in Larinkmorth. I've no grander ambition."</p>
+<p>The seer put a gentle hand on hers. "You cannot hide from the dangers our world faces, Valda. Sooner or later, they'll end up on your doorstep."</p>
+<p>Valda scoffed. "Let them come! If they behave themselves, they can have a drink. And if not..." She sighed. "These are my people, Kaysin. I keep them safe. Besides, Balen needs me."</p>
+<p>Valda glanced towards the Braumeister, who was stacking chairs, his forearms straining slightly with a task she could have handled with one hand. She remembered her arrival to Everfest only dimly, but her foster father's stories of the day burned bright in her mind:</p>
+<p><em>"You wandered into the Might 'n Mead, a lost babe finding their way to Everfest in the manner of so many before you, naught but a plain tunic and tiny boots."</em></p>
+<p>He'd always told the story the same way at her birthday each year:</p>
+<p><em>"Such small boots, such little feet. What could I do but take you in? And so I named you Valda, after my grandmother, and Brightaxe, on account of the symbol on each sole."</em></p>
+<p>She shook the past from her mind and turned back to the elderly seer. Kaysin's head hung low, and it took Valda a moment to realize the seer was looking into her cup, reading the leaves.</p>
+<p>"This is where I admit that this isn't a social visit, Valda. The tea's been speaking to me. I hoped I was wrong... but trouble is coming to Larinkmorth."</p>
+<p>Valda turned away, but caught the seer's reflection in the mirror behind the bar. "You know I don't believe in that."</p>
+<p>"Your choices remain your own." The seer's voice had softened but was no less distinct. "I do hope you will have the measure of the moment, even if you've turned your back on the mysteries of your lineage."</p>
+<p>"My lineage began when Balen took me in. And anyone bringing trouble will-"</p>
+<p>A blast of frigid air blew the door open. Valda pushed back from the counter, a frown tugging the corners of her lips. The wind felt like a knife's edge on Valda's face as she strode towards the door. Where the night had been calm with twinkling stars less than twenty minutes ago, a relentless blizzard raged, transforming the village into a tempest of swirling snow.</p>
+<p>"By the Ancients," Balen muttered, stepping to the side, away from the cold air, his words almost drowned out by the baleful droning of the village horn.</p>
+<p>Valda's breath clouded in the cold as she squinted her eyes against the dark and the blinding snow. She could barely see beyond the porch, the town a white tumult.</p>
+<p>"Shut the door, girl," Balen pleaded, stepping back towards the bar.</p>
+<p>Valda's eyes adjusted to the night. She could make out faces in the windows and bodies in the doorways of the homes flanking the now snow-covered lane that snaked between the sake brewery and their tavern, wondering as she did at the unnaturally sudden storm.</p>
+<p>She noticed movement on the slopes leading up to the peak, something big, heading down towards the town. Something about the way it darted reminded her of nothing so much as a snow hare running from a wolf. And then a flash of light from above the slope, bright enough to confirm the creature was no rabbit. Valda squinted as she stared into the flurries, hoping to pinpoint its form. She got the impression of something the size of a cave bear, but antlered like a <span class="hint" hint="Vitreo">vitr'eo</span>, with too many limbs and too many teeth.</p>
+<p>She turned towards the villagers, shouting to be heard over the whipping winds. "Get back! Back in your homes!"</p>
+<p>The beast was fast, leaping past her before she could turn back. She lunged aside just in time to avoid its pursuer, a massive figure in dark and dented plate armor crusted with frozen blood. He carried an enormous weapon, jagged like an icicle. <a href="../../heroes-of-rathe/jarl-about.html">Jarl Vetreiði</a>.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/trouble-in-larinkmorth-2.webp" alt="trouble-in-larinkmorth-2" /></p>
+<p>She was aware of another figure trailing him with a bow that crackled with lightning, but she could scarcely look away from their armored partner. Then Jarl was gone, leaving behind a cold that chilled Valda to the bone, in an indomitable pursuit that spared no concern for her home or its people. In his zeal to run down his quarry, he swung his massive weapon in an arc that clove stone and timber as easily as the frigid air, pulverizing the side of Widow Johana's cottage into rubble before brushing Lilja's oxcart aside like it was a cobweb.</p>
+<p>The world slowed as fragments of ice and shards of wood exploded past Valda, remnants of the homes and livelihoods of her townsfolk. All she could do was focus on the way Jarl's touch and footsteps left behind patches of hoarfrost that spread to freeze anything they came in contact with, causing barrels of sake to bust their bands, shattering glass panes, and cracking stone.</p>
+<p>A crackling arc of lightning and its accompanying thunderclap shook her free from her momentary awe as Jarl's companion fired a bolt towards the beast, narrowly missing it and setting a sake storehouse ablaze. Its owner, an elderly man named Kossen, came rushing out, hands clasped to his head as he watched his livelihood burn.</p>
+<p>A secondary explosion rocked the warehouse's upper storage. Superheated sake fumes surpassed their cask's ability to keep them contained, and several barrels hurtled out into the street.</p>
+<p>She sprinted downhill after the combatants, her powerful legs pumping faster than the barrels rolling ahead of her. A flash of color out of the corner of her eye spurred her to lunge to the side, tackling little Tiril to the snowbank just as a barrel bounded to crush her.</p>
+<p>"Thank you," the girl squeaked, before Valda was moving again, rolling to her feet before diving into a cottage just in time to stop a support beam from crushing Hildegun and her lout sons, Einar and Tomass.</p>
+<p>"V-Valda?" Einar's eyes were wide and red-rimmed.</p>
+<p>"Get. Out." Her muscles strained with exertion as she propped the entire weight of the beam on her back and shoulders. Hildegun, the only one with any sense in her family, swiftly nodded and ushered her drunken adult sons out the door.</p>
+<p>"We are clear, Valda."</p>
+<p>Valda groaned, straightened her back to shift her grip, then pivoted towards the door, making it outside just as the ceiling collapsed behind her.</p>
+<p>Taking a scant moment to compose herself, Valda rolled her shoulders and cast her gaze about for the beast and its pursuers. They had moved off the main road through Larinkmorth, but she could hear the jagged bellows of the beast itself.</p>
+<p>A white blur caught the corner of her eye, and Valda turned to see Biski, one of Farin the Porter's sled dogs, limping across the way. Another barrel came bounding down the lane, and before she realized what she was doing, she was moving, skidding across frozen cobblestones to scoop the canine up moments before the cask would have hit the poor thing. She smirked at the dog's confused face. "You almost ended up as sausage meat, stupid hound."</p>
+<p>Some canine instinct took over and Biski wriggled free from her grip to flee mere moments before the rampaging beast leaped over the tailor's shop and landed in the street just up the hill.</p>
+<p>"What is it?" Hildegun gasped.</p>
+<p>"Trouble," Valda said through clenched teeth. "And it's coming this way."</p>
+<p>As soon as the words left her lips, the creature shifted its weight and began loping in their direction, its cloven hooves sparking each time they struck the cobblestones below. She could hear Hildegun and Einar running behind her, and knew they'd never clear the way in time, so she braced herself to meet its charge.</p>
+<p>Before the monster could reach her, Jarl slid into the street between them, intercepting it with the haft of his polearm. The weapon flew aside, and the guardian wrapped his arms around the creature, taloned gauntlets gripping the edges of its crystal plates.</p>
+<p>Almost immediately, Valda could see white veins of frost running along its hide, a deadly cold emanating from the armored figure itself.</p>
+<p>Of course she'd heard the stories of the indomitable Fury of the Frostlands and his last stand at <a href="../../world-of-rathe/aria/the-land-of-legends.html#isenloft">Isenloft</a>. Traveling bards couldn't shut up about it. And here he was, in the flesh, and as hostile as he'd been the first time they'd crossed paths at <a href="../../world-of-rathe/aria/the-land-of-legends.html#candlehold">Candlehold</a>.</p>
+<p>Jarl's companion ran down the slope towards them. "You should get off the streets," he warned Valda. "That thing's a ravenir!"</p>
+<p>Before she could retort, the creature shook Jarl off, crystalline antler-tips raking gouges across the surface of his armor as it broke free from his grasp and streaked towards the brewery.</p>
+<p>The wayfarer grabbed her wrist before she could take more than a few steps after it. "Let us handle it! Your life is worth more than wood and stone."</p>
+<p>She flicked her arm, sending the wayfarer tumbling. "That wood and stone is our lives!"</p>
+<p>Jarl, meanwhile, had walked over to collect his weapon, and stood watching as the ravenir skirted past the brewery to lope along the side of the cliff. Valda could see the guardian's intent. Given the chance, he'd run right through the brewery in his determination to chase down his foe. She had to act.</p>
+<p>She felt the flutter of <span class="hint" hint="TheFlow">the Flow</span> in her chest, a faint tremor near her heart. Instinctively, she knew it was responding to Jarl and the ravenir. She'd felt it before when trouble beckoned, when she had to move a little faster, be a little stronger. The Flow needed her to act... right now.</p>
+<p>With a harsh cry, she drove the Flow into her hands, and clenched them until her knuckles turned white as the breath from her snarling mouth. Then she raised her fists and slammed them down onto the ground.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/trouble-in-larinkmorth-3.webp" alt="trouble-in-larinkmorth-3" /></p>
+<p>The resounding strike shook snow from the boughs of distant trees. A jagged crack split the cobblestones at the point of impact and spread faster than Jarl's heavy paces could carry him towards the ravenir. The widening rift reached the cliff's edge and crumbled the ground beneath the beast. The ravenir scrabbled for purchase on the icy stones as the landslide swept its legs out from under it. For a moment, the ravenir hung there in shocked suspension, then let out an unearthly howl as it tumbled to its death into the ravine below.</p>
+<p>A broad cheer rose up behind her, and Valda chanced a glance over her shoulder to see the villagers - those she'd saved and others - had braved the blizzard to watch the spectacle that had endangered their lives. She didn't even have the energy to chastise them for making themselves targets.</p>
+<p>Wiping the sweat from her brow, she marched up to Jarl. "What do you think you're doing?" She stood toe to toe with him, staring up at his helmet, her spittle freezing as it hit the cold steel of his armor. "There are people here! Children! Look what you've done!" She gestured wildly towards the wreckage: homes collapsed, carts smashed, an entire month's storage of sake ruined. "What's the use of fighting monsters if nobody's saved?"</p>
+<p>Jarl stood firm, then turned and walked away, each heavy footstep leaving a crackle of frost in his wake. The blizzard seemed to go with him, fading as his passage left the village behind.</p>
+<p>Her hands clenched into fists. Rage burned within her brow. He didn't care about the people who were hurt. He just didn't care. How could he not care?</p>
+<p>The wayfarer slung his bow. "Listen. We did what had to be done. That ravenir was from the time before, unfrozen with Jarl-"</p>
+<p>"Look here..." Valda interrupted.</p>
+<p>"Orien," he volunteered.</p>
+<p>She grabbed him by the shirt with a speed that belied her size, hoisting him into the air effortlessly. "Orien. <em>YOU</em> chased the ravenir here. <em>YOU</em> drove it through the center of town. <em>YOUR</em> attacks were the ones that wrecked these people's homes, hurt who knows how many, set a storehouse on fire."</p>
+<p>He gaped at her, mouth moving wordlessly, like any other troublemaker on any other day.</p>
+<p>"Larinkmorth is not some battlefield, and you are not welcome here." She tossed him to the ground. "Get out and take your excuses with you, before I send you over the cliff to make sure that beast is really dead."</p>
+<hr />
+<p>Soon after, the night air now clear save for drifting frost, Valda set about righting what she could, clearing away rubble and burned wood, guiding the injured and dispossessed to rest in the tavern. Balen joined her first, but it didn't take long for the others to lend their own hands: the brewers, their families, everyone. Larinkmorth taking care of itself - as it always had.</p>
+<p>"You did well," Kaysin told her, sweeping snow out of the common room while Valda replaced large casks that had fallen during the fight.</p>
+<p>"Nothing more than my job. I just hope that stunt I pulled didn't crack any foundations," she deflected.</p>
+<p>"Rousting drunks is your trade," the seer corrected. "Protecting the town... that's who you are."</p>
+<p>Valda snorted. "If you say so."</p>
+<p>"Larinkmorth is lucky to have you. The rest of Aria could use a little of that good fortune."</p>
+<p>Valda straightened and cracked her back. "The rest can take care of themselves." She soon realized the villagers were watching the exchange, making her the center of attention. She cleared her throat. "Look. It's just me. Valda. I'm no Ollin, but you know what I can do? If the world comes to our door someday, I promise you I'll meet them toe to toe." Her smile returned. "As for troublemakers like Jarl... I'll throw them on their arse if they get out of line!"</p>
+<p>Tomass hoisted his sake cup to her. "Nobody gets one over on our Valda."</p>
+<p>The others joined him in a cheer. "To Valda!"</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/trouble-in-larinkmorth-4.webp" alt="trouble-in-larinkmorth-4" /></p>
+<hr />
+<p><em>Story by Robbie Wen, Edwin McRae, Ryan McIntyre, Rachel Rees, Michael Coorlim, Melissa Ren</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/18-high-seas/a-kraken-good-tale.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/19-super-slam/feudmasters.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/18-high-seas/a-kraken-good-tale.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/19-super-slam/feudmasters.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Morlock Hill - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="morlock-hill"><a class="header" href="#morlock-hill">Morlock Hill</a></h1>
+<p>
+(<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)
+</p>
+<p>The setting sun casts Morlock Hill in a bloody hue.</p>
+<p>Soldiers hide amongst the wizened bushes, waiting with bated breath. Their leader, armor glinting in the fading light, points up at the hill's peak.</p>
+<p>Upon that ragged summit, a rift shimmers with foul radiance. Unworldly creatures spill forth from the portal like maggots from a rotting wound.</p>
+<p>The leader signals to their soldiers to hold. For several taught seconds, Morlock Hill is eerily quiet. The leader shatters that silence with a barked order that sends the soldiers charging up the hill. Their swords cleave through monster after monster, felling the first wave in moments.</p>
+<p>At the fore, armor splattered with gore, the leader catches their breath. It is the briefest respite.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-1.webp" alt="morlock-hill-1" class="center">
+<p>Through the seething mass of monstrosity comes a sight that sets the leader's heart hammering. A cluster of towering fiends thunder forwards, crushing lesser creatures under hoof. Their battle-axes burn with sigils and fire flares in their nostrils.</p>
+<p>The closest fiend shrieks with manic glee and swings its ax at the leader. The warrior rolls to the side, escaping the bisecting blow by a hair's breadth. Yet before they find their feet, the beast has wrenched their weapon from the ground and whipped it upwards, catching the leader's helm with the tip of its blade. The helm goes flying, unleashing a cascade of golden locks.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-2.webp" alt="morlock-hill-2" class="center">
+<p><a href="../../heroes-of-rathe/dorinthea-about.html">Dorinthea</a> spits blood and braces herself for the next attack. The creature barges forward, but this time Dorinthea slides low, passing beneath the ax's arc. She leaps to her feet, and as the fiend turns to face her, she sweeps her Dawnblade through its thick neck. The horned head thuds into the dirt, souring the earth with its blood.</p>
+<p>Her victory is fleeting. Dorinthea spins to meet her next foe, and the blood drains from her face at the sight of three looming demons, larger again than the fiend she has felled.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-3.webp" alt="morlock-hill-3" class="center">
+<p>Hope falters, guttering like a candle in the wind.</p>
+<hr />
+<p><a href="../../world-of-rathe/solana/solana.html">Solana</a>, plunged into shadow by the endless hordes brought forth by the <a href="../../world-of-rathe/demonastery/demonastery.html">Demonastery</a>.</p>
+<p>Fardreyas was the first village to be consumed. Then Sunvale, Audra, and Hazeltown. Solana's farmlands and crops burned to ash, animals slaughtered.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-4.webp" alt="morlock-hill-4" class="center">
+<p>So far <a href="../../heroes-of-rathe/boltyn-about.html">Ser Boltyn</a> and his vanguard have held the walls of the city itself, but not without dire losses. Unlike the Demonastery's soulless army, Solana's people are not expendable. Every soldier, farmer, scholar, and child killed is a name remembered. A family broken.</p>
+<hr />
+<p>Screams pierce Dorinthea's ears as creatures rend and devour her soldiers. She raises Dawnblade. Though her heart pounds with terror, her sword hands are steady. Though death looms over her, she will meet it with mettle.</p>
+<p>As the first giant raises its sword, something flashes between them. Weapons crash to the ground, still clutched by dismembered claws.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-5.webp" alt="morlock-hill-5" class="center">
+<p>"I cannot leave you alone for one moment, can I?"</p>
+<p><a href="../../other-characters/minerva-themis.html">Minerva</a>'s scarlet hair flows over her shoulders, brighter than the demon blood she flicks from her twin blades. Her expression is grim and determined, weathered by violent experience.</p>
+<p>A smile cracks through the drying blood on Dorinthea's face. "What kept you?"</p>
+<p>Together, they rush at the fiends. Minerva goes low, aiming for knees. Dorinthea strikes high, Dawnblade slicing through muscle like a knife through sun-softened butter.</p>
+<p>The giants topple to the ground, dead before their hulking carcasses hit the dirt. The pair blaze on through the horde, cutting a path, rallying their surviving soldiers.</p>
+<p>Dorinthea leads the onslaught, hope rekindled by the flame-haired warrior at her side. They advance with intent. To clear the battlefield, to capture the rift. To reach the Demonastery and destroy its illicit power, or die in the attempt.</p>
+<hr />
+<p>Solana's shrewdest scholars pored over their tomes and devices, its keenest scouts scoured the shadows, until at last they found the source of the Demonastery's abyssal army.</p>
+<p>The Vitiate Gateway, the last of nine portals linking Rathe to i'Arathael.</p>
+<p>During the Third Age, the Ancients believed they had destroyed the Gateways, forever banishing the realm of dreams. Hidden behind a veil of lies and illusion by an envoy of i'Arathael, the ninth portal remained intact and sealed. There it remained, closed and forgotten for thousands of years, until now.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-6.webp" alt="morlock-hill-6" class="center">
+<p>Able to slip through the fabric of space, the Demonastery carries the Vitiate Gateway with it, using rifts to disgorge their hordes wherever they please.</p>
+<p>Yet these rifts flow both ways. And with most of the Demonastery's legion focused on the breakpoint near Solana, other rifts lie neglected, guarded lightly by unwitting demons. What better defense than a courageous offense upon the enemy's own doorstep?</p>
+<hr />
+<p>The last horned head thumps into the blood-drenched earth. The hill is theirs, but for how long?</p>
+<p>"We need to fall back. More will come, and we cannot afford to lose anyone else."</p>
+<p>Dorinthea doesn't reply, instead fixing Minerva with a steely gaze that brooks no argument.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-7.webp" alt="morlock-hill-7" class="center">
+<p>Minerva levels her sword at the rift. "Look!" she pleads, as the next wave of horror spills out. "We need to regroup with Boltyn's vanguard, defend our people upon the walls of Solana."</p>
+<p>"We may never get another chance. We must push on."</p>
+<p>"Your stubbornness will get us killed." Minerva's eyes belie her frustration, for they shine with pride. "Fine. What is your plan?"</p>
+<p>"Form up!" Dorinthea orders her soldiers. "Flying wedge!"</p>
+<p>With Minerva at her side, her brave few at her back, Dorinthea pierces the mustering horde with her V formation. Blades flash, blood spills, demons howl and die, until the soldiers of Solana stand before the rift.</p>
+<p>A swirling chaos of dark energy and darker intent greets them from within. From that maelstrom steps a hooded figure, his skin ashen, his smile cruel. He brandishes his grimoire and draws grotesque symbols in the air with his skeletal hand. His voice is a graveyard whisper, his words ancient and forbidden.</p>
+<p>Solanian souls recoil as dismembered demons reform and rise. Bones crack back into place. Grevious wounds are sewn closed. An army is remade before their horrified eyes.</p>
+<p>Dorinthea charges forward, but before she can take but a few steps, the ground sprouts a forest of rotted arms that wrap around her legs, fixing her in place. Dawnblade is wrenched from her grasp and cast aside.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-8.webp" alt="morlock-hill-8" class="center">
+<p>While she struggles to free herself, teeth and tentacles tear her allies apart. Even Minerva struggles against the writhing mass.</p>
+<p>The hooded one bears down on Dorinthea, his gait a stiff and twitching union of magic and rigor mortis. His smiling mouth creaks open to speak his words of doom. Yet the only utterance is a rasp of surprise. As he swirls, Dorinthea can see Minerva's blade buried hilt-deep in his back.</p>
+<p>Minerva twirls her remaining sword, her will steeled against the many wounds she has suffered. With a growl, the figure wrenches the sword from his back and gestures for his creatures to keep their distance. His mouth opens, jaw cracking wider than living flesh could allow, and from that gaping maw pours a cloud of ephemeral corruption. Tendrils form, reaching and jabbing at the gaps in Minerva's armor. She carves through them with her sword, slicing her way closer, maneuvering for a killing blow.</p>
+<p>As she draws within striking distance, the hooded one's chest ruptures open. His ribs part and grow, extending out to trap the assailing warrior.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-9.webp" alt="morlock-hill-9" class="center">
+<p>Minerva doesn't struggle. Her escape is futile. Instead, she casts one last look at Dorinthea. There's no fear in her eyes. Only acceptance.</p>
+<p>The hooded one laughs, a sound like shattering bone, and tosses Minerva into the inky rift.</p>
+<p>Dorinthea's sorrow burns, her thoughts seared from her mind by white-hot fury. There's a flash like a lightning strike and her cadaverous restraints melt away. Her foes cower as she looks upon them, eyes now crackling and bright, hair shimmering with holy radiance. She reaches out with her sword hand and summons Dawnblade to her grasp.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-10.webp" alt="morlock-hill-10" class="center">
+<p>The hooded one reels from her splendor, croaking desperately for his creatures to attack. They obey, only to be destroyed by Dorinthea's incandescent rage. Bolts of foul energy leap from the hooded one's hands only to shatter harmlessly against Dorinthea's Bladehold armor. His reaching ribs snap like dry twigs beneath Dawnblade's blurring strikes.</p>
+<p>With nothing left standing between her and her quarry, Dorinthea roars as she thrusts her sword through the hooded one's silent heart.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-11.webp" alt="morlock-hill-11" class="center">
+<p>Dorinthea turns to the rift, bracing herself to enter. A guttural retching at her feet stops her. Corruption shrouds the body of the hooded one as it coughs the morbidity from its fetid lungs. With a rictus grin, it twitches and jerks across the torn earth and into the portal. The Vitiate Gateway shuts like a giant eye, then is gone.</p>
+<p>Dorinthea stands alone on Morlock Hill, her body drenched in blood, her soul wretched with loss. Minerva. Her soldiers.</p>
+<p>As the light departs, the weight of reality settles upon her weary shoulders. She is radiant no more. She is defeated.</p>
+<hr />
+<p>In the scorched woods, there lies a small encampment.</p>
+<p>Beyond that, once-golden wheat fields now blackened and bare, green meadows churned to mud and littered with bloated carcasses. In the distance, plumes of smoke climb the sky from their battered city.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-12.webp" alt="morlock-hill-12" class="center">
+<p>Dorinthea and Boltyn survey the dismal scene. Proud Solana has been brought to its knees.</p>
+<p>"Our flanks are safe for now. Rifts closed. The Demonastery is putting everything into its main horde."</p>
+<p>Dorinthea doesn't answer Boltyn, her words as scarred and trampled as the fields before her.</p>
+<p>"It is hard to see the light of Solana in these dark days. One of Blasmophet's followers... She ate most of my vanguard. We do not have the strength to withstand another onslaught."</p>
+<p>When she finally speaks, her voice is quiet, like a dagger to the gut.</p>
+<p>"We have to stop them."</p>
+<p>"We will. But not on our own. The Grand Magister has sent envoys to the far corners of Rathe. We need allies."</p>
+<p>"They will not help the helpless."</p>
+<p>"We might have been beaten, but we are far from helpless."</p>
+<p>"Then we muster what strength remains to us. If we wish the Kingdoms of old to rise, we must show that we are worthy."</p>
+<p>Dorinthea brushes back her silver hair and stands.</p>
+<p>"We shall be the rallying cry for all of Rathe, for only together can we survive."</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-13.webp" alt="morlock-hill-13" class="center">
+<hr />
+<p><em>Source: <a href="https://fabtcg.com/articles/morlock-hill/">https://fabtcg.com/articles/morlock-hill/</a></em><br>
+<em>Written by Kasharn Rao and Edwin McRae</em><br>
+<em>Illustrated by Nikolay Moskvin</em></p>
+<hr />
+<h3 id="narrated-video-by-peranine"><a class="header" href="#narrated-video-by-peranine">Narrated Video by <a href="https://www.youtube.com/@Peranine">Peranine</a></a></h3>
+<p>
+(<a href="#morlock-hill">Jump to the Top</a>)
+</p>
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/oGjk-wZhM3I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/06-everfest/a-grand-adventure.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/08-uprising/journey-into-the-forgotten.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/06-everfest/a-grand-adventure.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/08-uprising/journey-into-the-forgotten.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

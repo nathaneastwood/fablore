@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Broken Covenant - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="the-broken-covenant"><a class="header" href="#the-broken-covenant">The Broken Covenant</a></h1>
+<p>Ash and smoke filled our lungs, as the stench of death weigh upon our every step.</p>
+<p>And the Old ones, drew ever near.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/oldhim-1.webp" alt="oldhim-1" class="center">
+<p>We know not how this began, nor when.</p>
+<p>Time, fear, and the stench of death has smothered our senses, numbed our bodies, dulled our minds.</p>
+<p>All we knew was that we must not waver, for behind us lie our brethren and our broken dreams.</p>
+<p>Our home.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/oldhim-2.webp" alt="oldhim-2" class="center">
+<p>We are the Ollin, defenders of humanity, the last line of defence against these rotten vermin that had infested our world.</p>
+<p>They are endless, we are few.</p>
+<p>But we are strong where they are weak, and our allies stretch from the skies to the seas; powerful Ancients that rose from the forest and the plains, mighty Titans born from the land beneath our feet.</p>
+<p>The Ancients' powers were vast, but raw and untamed, and they brought with them many a terrible calamity.</p>
+<p>But with love they held us in the palm of their hands. And in time, formed a Covenant with the likes of Man.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/oldhim-3.webp" alt="oldhim-3" class="center">
+<p>With their power coursing through our veins, we held the line. As the days blended into weeks into the drone of eternity.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/oldhim-4.webp" alt="oldhim-4" class="center">
+<p>Until one day...</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/oldhim-5.webp" alt="oldhim-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/oldhim-6.webp" alt="oldhim-6" class="center">
+<p>... the world in front of my eyes, was painted blue.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/oldhim-7.webp" alt="oldhim-7" class="center">
+<hr />
+<p>Kingdoms rose and fell, as time waltzed along into the Age of Man. Mountains became valleys. Forests turned to deserts to flourishing plains once more, and the stories of the Third Age became but a distant memory.</p>
+<p>Yet as the pendulum of time swings, the tendrils of the Old Ones will envelop the land of Rathe once more.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/oldhim-8.webp" alt="oldhim-8" class="center">
+<p>Upon this lonely mountain pass that had remained unchanged for eons; a faint shuffle and a crack was heard, and then the scraping of metal on ice, as a mighty mountain of a man stirred from within his frozen slumber.</p>
+<p>His nightmares had kept him company throughout the Ages. He relived the badlands of his youth, scrambling to hide from the Old One's gaze. Sometimes his dreams took him to his formative years, when the vassals of Embras advanced, forcing them to the north as he took up arms for the very first time. Others sent him back to his days of glory as a mighty Shieldbearer, as the Ollin fought alongside the Ancients and held the line.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/oldhim-9.webp" alt="oldhim-9" class="center">
+<p>Yet as he stirred, the flames of war subsided, and the pure scent of the mountain filled his tired old lungs. Their fortress was in shambles, frozen beneath a thick layer of frost. His brethren, they were trapped beneath sheets of ice, still frozen by the power of the Ancients. But as he gazed out into the distance, he saw a breath-taking sight. A bountiful world full of life and beauty; the paradise of his childhood dreams.</p>
+<p>But even as a new, unfamiliar energy coursed through his veins, he felt an emptiness in his chest.</p>
+<p>A void left by the broken Covenant.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/oldhim-10.webp" alt="oldhim-10" class="center">
+<p>"I need answers," he thought, as he set off into an unfamiliar realm. He would seek out his old allies; perhaps the Seers, or the <span class="hint" hint="Rosetta">Rosetta</span>.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/oldhim-11.webp" alt="oldhim-11" class="center">
+<p>For if he was awake, the Old Ones won't be far behind.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/04-monarch/step-into-the-light.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/05-tales-of-aria/wonders-of-the-wayfarer.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/04-monarch/step-into-the-light.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/05-tales-of-aria/wonders-of-the-wayfarer.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

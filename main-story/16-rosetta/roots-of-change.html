@@ -1,0 +1,319 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Roots of Change - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="roots-of-change"><a class="header" href="#roots-of-change">Roots of Change</a></h1>
+<p>
+(<a href="#narrated-video-by-deadsummer-art">Jump to Narrated Video</a>)
+</p>
+<p>At the threshold of <a href="../../world-of-rathe/aria/the-land-of-legends.html#candlehold">Candlehold</a> and the Rotwood, two worlds met but never mingled.</p>
+<p>Candlehold basked in perpetual sunlight, a realm of eternal summer where flowers bloomed endlessly, and time seemed suspended.</p>
+<p>Across this boundary, the Rotwood festered - a dark and withdrawn thicket where life and decay entwined.</p>
+<p>Though small and suffocated, the Rotwood strained against its borders, yearning to claim more of Candlehold's vibrant land. Through fallen leaves and ancient bones, it whispered of long-forgotten battles and heroes who had returned to the earth. Visages of the venerable dead peered out from the fading foliage, offering silent guidance and comfort to travelers, as if the spirits of the fallen still watched over the land.</p>
+<p>From Candlehold's lush greenery, an ancient stag emerged, a majestic creature with a body of living wood and vine. Its antlers, twisted and adorned with budding flowers, glimmered faintly in the wan light. As the creature crossed into the depths of the Rotwood, its vibrant form wizened, each step pulling it deeper into decay.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/roots-of-change-1.webp" alt="roots-of-change-1" class="center" />
+<p>"Stop! Don't go there," <a href="../../heroes-of-rathe/verdance-about.html">Verdance</a> implored, her voice tinged with sorrow. "There is nothing in Rotwood for you. Return to Candlehold, where life sustains."</p>
+<p>The stag turned its gaze toward her, a quiet acknowledgment, before continuing. As it ventured further in, the creature's form decayed rapidly, its wooden flesh cracking and splitting.</p>
+<p>In the spiraling corridors of the dying woods, the trees parted. The sickening crunch of broken branches echoed around her as the thick wall of the Rotwood peeled open like a wound. The trees shook and trembled, spewing black ichor from their bark onto the ground, giving way to their master, the Harbinger of Rot.</p>
+<p>The stag stood still as <a href="../../heroes-of-rathe/florian-about.html">Florian</a> approached it, his hands gently cradling the beast's jaw and soothing its forehead.</p>
+<p>"Welcome, old oak," he whispered. "Here you shall be replanted amongst those who share your burden."</p>
+<p>The beast nuzzled his hands, its face forming small cracks. As the stag withdrew, the clear mark of Florian's fingertips was left on its neck and face, blackened with rot.</p>
+<p>Florian turned to Verdance, her shining emerald eyes almost blinding in the twilight. His lips curled into a mocking grin.</p>
+<p>"Ah, the <a href="../../world-of-rathe/aria/the-land-of-legends.html">Queen</a>'s chosen rose deigns to grace the weeds with her presence. How fortunate we are."</p>
+<p>Verdance watched with concern as the rot crept closer, inch by inch, threatening to blemish her home.</p>
+<p>"Careful now, <em>sunkissed</em>," Florian taunted, noticing her alarm. "The Rotwood grows, just like your precious flowers."</p>
+<p>"How can you let this happen?" Verdance demanded, her hands clenched at her sides. "You speak of renewal, but all I see is death."</p>
+<p>Florian met her gaze with a calm resolve. "Death is a part of the cycle."</p>
+<p>Verdance's brow furrowed as she fought back a rising tide of frustration. Her hands glowed softly as she tried to heal the spreading rot, but her magic seemed to falter.</p>
+<p>"Your so-called natural order brings nothing but sorrow to Candlehold. We won't accept this decay."</p>
+<p>Florian stepped closer, his movements deliberate, his eyes darkening with intensity. "Accept or not, it is not your choice to make. This decay is the natural order," he sneered, his voice unyielding.</p>
+<p>He held her gaze, drawing closer until Verdance could see the deep lines etched into his forehead. There was a depth of pain and a twisted kind of reverence he seemed bound to.</p>
+<p>With a final, piercing look, he turned away from her, his attention returning to the stag.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/roots-of-change-2.webp" alt="roots-of-change-2" class="center" />
+<p>He knelt beside the beast and began the last rites, his voice carried softly through the still air.</p>
+<p>"As the leaves fall, so too shall new life spring forth, nourished by what came before."</p>
+<p>With a quiet resolve, he gently traced a sigil into the earth. The Sigil of Deadwood; a sacred mark of twisted roots and ancient wisdom - a symbol of the natural order he revered. As he completed the drawing, Florian placed his hand upon the stag, its body now a mere husk of its former self.</p>
+<p>Florian stood vigil, his eyes closed in a silent prayer, acknowledging the stag's return to the earth. The bark of the wooden beast cracked and from within it, the green light that carried its soul poured out and spilled across the forest floor, blanching the leaves and bramble.</p>
+<p>The stag let out a final restful sigh before its eyes dimmed and its form collapsed to the ground. The ritual was complete. The beast returned.</p>
+<p>Her chest tight with conflicting emotions, Verdance tried yet again to heal the glade - as much an act of defiance against the stag's passing as an effort in protection.</p>
+<hr />
+<p>Earlier that day, Verdance had sought counsel with Ozrim, a member of the <span class="hint" hint="Rosetta">Rosetta</span>, Candlehold's ancient council. She had found him seated in quiet contemplation, his presence as still and unchanging as the ivy-clad columns that surrounded him.</p>
+<p>"Ozrim," Verdance had begun, "Florian's actions are drawing creatures from Candlehold to the Rotwood, leading them to decay. We need to intervene."</p>
+<p>Ozrim had lifted his gaze slowly, his eyes dull, a weariness that seemed to have settled into his very being. "Verdance," he had replied, his tone flat and distant, "the creatures of Candlehold follow their nature. To command them otherwise would be to interfere, something we are not meant to do."</p>
+<p>"But we are the protectors of Candlehold's harmony," Verdance had insisted, leaning forward with a sense of urgency. "Our duty is to preserve that balance, to protect our people and our home."</p>
+<p>Ozrim had sighed deeply, his expression placid, untouched by the concerns Verdance expressed. "We have lived too long in this eternal summer, and now we are as static as the world we sought to preserve."</p>
+<p>Frustration had welled up in Verdance, a hot, simmering anger beneath her composed exterior. "If we do nothing, we risk losing everything that makes Candlehold what it is."</p>
+<p>Ozrim's gaze had drifted past her, as if looking at something far away or long forgotten. Verdance had stood there, momentarily stunned by the depth of Ozrim's apathy.</p>
+<hr />
+<p>Verdance refocused, the budding flowers that sprang from her magic blossoming. This land would not fall to rot while she was around.</p>
+<p>As Florian drew even closer, she watched as the flowers around her withered and crumbled into the earth, the harbinger destroying even the most hardy of gifts she gave to the land.</p>
+<p>Then she felt his hand upon her shoulder. She recoiled and stood, summoning her staff from the surrounding land. Sticks and seeds formed into her weapon and she held it at his throat, the blossoming flowers at its end fighting to grow in proximity.</p>
+<p>"Do not touch me, Sorrowseed, or I will leave you to mold in this prison you call home."</p>
+<p>Florian was stunned by her display of aggression, but his astonishment slowly melted away into disappointment as he held his hands in front of him.</p>
+<p>"I meant no offense to the Rose. Comfort is something I have rarely enjoyed, but I sought to offer it to you."</p>
+<p>He paused, his voice softening.</p>
+<p>"I am not your enemy, just another who understands the pain of this endless summer."</p>
+<p>"You afford this land no comfort merely by existing. You are a plague that steps too far. The Queen should have dealt with you centuries ago."</p>
+<p>The tension grew as Verdance pressed the tip of her staff into Florian's throat. But with the back of his hand, Florian gently moved the staff away, plucking a flower from its haft and twirling it amongst his fingertips as its leaves turned black. His expression turned from pity to amusement. He almost chuckled at the irony, realizing how deeply Verdance misunderstood him.</p>
+<p>"Fear not, Verdance. Autumn is but the hand that guides summer to sleep."</p>
+<p>Florian sighed before retreating deep into the woods, the trees closing behind him like a shroud.</p>
+<p>His smugness sickened her. She wished to tear through the woods like medicine breaking a fever. Instead, she turned her attention back towards the towering glade of Candlehold. The Queen must know of this.</p>
+<p>Verdance entered the Throne Glade, where the lush canopy above allowed dappled sunlight to filter through. The air was thick with the scent of blooming flowers. Verdance's footsteps were almost silent on the moss-covered ground as she approached.</p>
+<p>The Queen, a figure of timeless grace, reclined on her throne. Her eyes, once bright and full of ancient wisdom, now seemed dim and unfocused.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/roots-of-change-3.webp" alt="roots-of-change-3" class="center" />
+<p>"Your Majesty, Candlehold is in danger. The Rotwood is spreading at Florian's will and - "</p>
+<p>"Quiet, my dear," the Queen interrupted, her voice soft and distant. "I am dreaming..."</p>
+<p>Verdance hesitated, then pressed on, her words quickening with concern. "I apologize for the intrusion, my Queen, but Florian's actions cause great harm to our people and our land."</p>
+<p>The Queen's lips moved, barely above a whisper. "Ah, he is reaching..."</p>
+<p>"Yes, and we must stop it," Verdance insisted. "You would allow this... this despoiler to taint our glade?"</p>
+<p>The Queen nestled deeper into her leafy cradle, her body sinking into the foliage as if seeking comfort. "In your eyes, harm," she replied.</p>
+<p>As she spoke, the color of her skin faded, replaced by a pallor that crept across her like the first frost of winter. The air around her grew colder, and a faint, ethereal mist rose from the ground. The flowers that adorned her throne wilted, their petals curling inward, turning brittle and brown.</p>
+<p>A chill ran down Verdance's spine. "Your Majesty, what is happening to you?"</p>
+<p>The Queen sighed. "Ah, Verdance," she whispered, "I am returning to the earth... as we all must, in time."</p>
+<p>She watched in horror as the Queen's form continued to change. "Your Majesty, no!" Verdance cried, reaching out as if to halt the process. "We need you. Candlehold needs you."</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/roots-of-change-4.webp" alt="roots-of-change-4" class="center" />
+<p>Desperate, Verdance knelt beside the Queen, her hands glowing as she summoned her healing magic.</p>
+<p>"Verdance," the Queen whispered, her hand coming to rest gently on Verdance's. "My beautiful Rose."</p>
+<p>"In soil anew, the roots of change..." she intoned, her voice growing fainter with each word.</p>
+<p>"In the essence of decay...<em><span class="hint" hint="Davnir">Davnir</span></em>."</p>
+<p>"In the seeds of renewal...belonging."</p>
+<p>The Queen lifted her hand to wipe a tear from Verdance's face, but the hand turned to dust before it could reach her cheek.</p>
+<p>Flower petals, once bright and fragrant, drifted down in a silent, sorrowful dance, joining the dust at Verdance's feet.</p>
+<p>Vines that had once cradled her throne cascaded like a mournful veil.</p>
+<p>The entire Throne Glade seemed to sigh, the perpetual green of summer giving way to vivid hues of red and yellow.</p>
+<p>The Queen was gone.</p>
+<p>A cool breeze whispered through the glade, causing Verdance to shiver with the sudden cold. It stirred the dust of the Queen's remains, revealing a perfectly formed seed that glowed like the first light of a summer's morning.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/roots-of-change-5.webp" alt="roots-of-change-5" class="center" />
+<p>Verdance picked it up and stood, speechless.</p>
+<p>Candlehold was changing; the Seed of Tomorrow in her hands a burden she had not asked to carry.</p>
+<hr />
+<h3 id="narrated-video-by-deadsummer-art"><a class="header" href="#narrated-video-by-deadsummer-art">Narrated Video by <a href="https://www.youtube.com/@DeadSummerArt/">DeadSummer Art</a></a></h3>
+<p>
+(<a href="#roots-of-change">Jump to the Top</a>)
+</p>
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/ikuBbNvdIxk?si=U-DCHvN6NbcOtp2s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/15-part-the-mistveil/part-4-the-hare-and-the-snake.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/16-rosetta/essence-of-decay.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/15-part-the-mistveil/part-4-the-hare-and-the-snake.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/16-rosetta/essence-of-decay.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Sutcliffe&#x27;s Research Notes - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="sutcliffes-research-notes"><a class="header" href="#sutcliffes-research-notes"><span class="hint" hint="Sutcliffe">Sutcliffe</span>'s Research Notes</a></h1>
+<p>Aether is one of the quintessential building blocks of <a href="../../world-of-rathe/rathe.html">Rathe</a>. It is aether which fuels our world, giving life to all beings, giving power to all spellwork. Few truly understand the nature of this arcane force, and no one can yet explain its relationship to the physical world.</p>
+<p>Some humans possess a unique gift, one which cannot be obtained through other means. Aether affinity is the ability to manipulate aether, and thus affect the world around oneself through the use of spells. Aether is the basis of all arcane arts, and thus, only those with this gift can practice magic. Someone born without an affinity to aether will never be able to practice even the simplest spell. Humans have yet to understand this aether affinity. It would seem that blood is somewhat related, as there exist many bloodlines in whom the affinity runs strong. The scholars of <a href="../../world-of-rathe/solana/solana.html">Solana</a> are an excellent example, as are the <span class="hint" hint="Dracai">Dracai</span> of <a href="../../world-of-rathe/volcor/volcor.html">Volcor</a>. However, this is not a given.</p>
+<p>There are some families in whom the affinity runs strong, and yet their children can be born without it. Likewise, there are some who are born with aether affinity, despite none of their ancestors ever possessing it.</p>
+<p>The question remains: what is aether affinity, and how does one obtain it?</p>
+<p>I have tried in vain to practice the arcane arts, despite my strong ancestral links. It would seem that I am the first in my family for generations to be born without the gift - so why?</p>
+<p>My experiments in runework have proven unsuccessful. Carving runes into the skin appears to create some kind of aetheric connection, however brief, but does not allow the subject to control aether. Many of my subjects fail to survive the initial runework, expiring before the connection can be formed. Those who do survive long enough for an aetheric connection to be established die rapidly. It would seem that the burst of arcane energy is too much for their bodies to withstand.</p>
+<p>However, I have had some success in using crystals to inhibit the initial burst of energy. I wonder if there might be some way to provide a resistance, so that the body can grow accustomed to the flow of aether.</p>
+<p>As of yet, I have had no success with the Arknight shard itself. I suspect that a biological connection will need to be formed, rather than embedding it externally, but I have yet to determine how this might be accomplished. If my subjects cannot withstand even the runes, I wonder how I might find one who can survive the installation of the Arknight shard.</p>
+<p>Some of my experiments have shown signs that a gradual process may have a higher chance of success. If the body grows overwhelmed by the introduction of aether, it may be possible to make a human body grow accustomed to the arcane force over time, increasing the dose as the body develops resistance. Eventually, I may be able to surgically embed the Arknight shard without the body failing, though I would need a particularly durable subject; preferably one who already had some amount of exposure to the arcane arts.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/03-crucible-of-war/runechant.webp" alt="runechant" class="center">
+<p>I have been conducting some experiments with sigils and runework, attempting to create layers which mimic spells. While I cannot practice the arcane arts myself, I do possess the theoretical knowledge required. I have had some success with creating runes in advance, which can then be charged by someone with the necessary affinity - Leona has proven somewhat useful in this respect, though I have had to sacrifice some minor research for her to cooperate. At the least, the information she asked for is not particularly important, and I doubt that she shall become a threat. I doubt that Leona is even aware of</p>
+<p><em>Several pages are missing - torn out?</em></p>
+<p>Perfect. He is already responding well to the initial runework, I suspect that he may possess some form of aetheric resistance already - perhaps a blood relative who has the affinity. This is exactly the subject I have been looking for.</p>
+<p>From his armour, I suspect he may originally come from Volcor, though I'm not certain how he survived the seas. Perhaps he was meant for this, a survivor in the truest sense.</p>
+<p>I think that I shall name him <a href="../../heroes-of-rathe/viserai-about.html">Viserai</a> - it feels fitting, and every weapon must have a name. I have faith that this subject may survive the Arknight system. Only time shall tell whether Viserai can become the Arknight, or whether he shall become one more failed test. Either way, I am certain to learn much more about the process, as he has survived more of the process than any other subject thus far.</p>
+<p>I am eager to see the results.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/02-arcane-rising/return-of-the-shadow.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/03-crucible-of-war/no-smoke-without-fire.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/02-arcane-rising/return-of-the-shadow.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/03-crucible-of-war/no-smoke-without-fire.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

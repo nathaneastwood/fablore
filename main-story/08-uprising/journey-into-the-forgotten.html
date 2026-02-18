@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Journey into the Forgotten - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <p>Beneath <a href="../../heroes-of-rathe/iyslander-about.html">Iyslander</a>'s icy facade there beats a heart that is warm and full of longing. Her isolation has taught her much. How to survive. How to strive and thrive in a harsh land. Yet Iyslander knows she still has so much more to learn.</p>
+<p>First Iyslander must thaw the walls that have sealed her away from her own history, from the full potential of her power. She must extinguish the burning pain of her past if she is to harness her arcane future.</p>
+<p>Voices echo across the Bleak Expanse, carried to her by the winds of change. She hears the screams of war. She listens to the whispers of suffering. She is ready to answer their call.</p>
+<p>From the frozen wastes into a fractured world, Iyslander's journey has begun, and she will be as unstoppable as the coming of winter.</p>
+<h1 id="journey-into-the-forgotten"><a class="header" href="#journey-into-the-forgotten">Journey into the Forgotten</a></h1>
+<p>The chilling air is sweet to my tastes. Wind that would cut the skin of another's caresses mine. It blows a shower of ice shavings from my snarling creation, its fury captured and frozen. Sinuous. Scaled and horned. It is a fleeting ghost from my past, those hot and hated memories locked away behind glacial walls in my mind. This is no creature of the Bleak Expanse.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-1.webp" alt="iyslander-1" class="center">
+<p>Where others cannot, I live in contentment. Alone in body yet accompanied by spirit. I have everything I need right now. So why do unbidden tears freeze upon my cheeks? Why must I yearn for what has been? Why must I know that which has been forgotten?</p>
+<p>The spell rises to answer my questions, a storm that rages from heart to throat to tongue. My fingers dance through the falling snowflakes as I make my demand to the ever-winter spirits. At first, their protests are gentle, mere murmurs of the breeze. Then adamant, a wind that stirs the snow, tugs at my dress. Then furious, tearing at my resolve with a gale of frustration.</p>
+<p>My statues, the mountain, the pale plain; I lose all in blinding white. Then it is over. The wind drops to an apologetic whisper. The air clears and my spell reveals the path that will lead me into the past.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-2.webp" alt="iyslander-2" class="center">
+<hr />
+<p>I look back at the frozen lands that have been my home for many years. While my past remains walled off, I can recall every day since with crystal clarity. A youthful girl, shivering in a field as blank and white as the memory of how I got there. A cave of snow, opening like a warm embrace.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-3.webp" alt="iyslander-3" class="center">
+<p>Spirits spoke to me in words of cooling compassion, teaching me to harness the winter within. Kindred kindness of frost and time that raised me into the woman I am now.</p>
+<p>I step from the melting snow into a lush field of wildflowers. A <a href="../../world-of-rathe/aria/creatures.html#kaieo">kaie'o</a> bounds into the meadow from a copse of white-dusted beech, and eyes me with curiosity. I see the glint of spirit behind the fox's gaze. My icekin have sent a guide.</p>
+<p>I follow my companion through the verdant countryside of <a href="../../world-of-rathe/aria/aria.html">Aria</a>. We skirt the lively towns, the trundling tinker caravans and the roving bands of raucous entertainers. We travel at night, in the cool of the dark. Although Aria is beautiful, I am glad when we reach the Great Tree of Korshem. My answers lie beyond this cosseted land, and its Flow will send me on my way. My kaie'o guide fares me well with a lick of my fingertips, and with a flick of its tail, it is gone. A breeze rustles the canopy of this mighty tree and l fall like a leaf from its branches.</p>
+<hr />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-4.webp" alt="iyslander-4" class="center">
+<p>Within the reddened Solanian dusk, I reel from a world at war. Long have I cherished the peace of ice, the slow settling of snow. Time passes with glacial calm in the Bleak Expanse. Now I witness the inferno of battle, the steaming heat of spilled blood.</p>
+<p>A dark-skinned warrior leads his metal-clad army against creatures so grotesque that my stomach churns. A fiend breaks away from its horde, smelling my presence even through the gore-soaked air. It charges, gibbering and slavering. Before it can lay its cruel claws upon me, I freeze the beast's blood in its veins.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-5.webp" alt="iyslander-5" class="center">
+<p>I wipe sweat from my forehead, the first time I can recall doing so. My heart pounds, fast and hot. I am so far from my icekin that this one incantation has sapped my will. And through a crack in my weary mind, a recollection wriggles free. A feeling. Slick and coiling within my chest. Fear.</p>
+<p>I flee this valley of violence, chased by the roars of the monstrous, the screams of the dying. Anxiety tugs at my heart, drawing me southward, through the scorched remains of <a href="../../world-of-rathe/solana/solana.html">Solana</a>'s strife, up into blackened mountains with smoking peaks and fissures that spew sulfur and ash.</p>
+<p>At an archway in a rugged pass, I remember a name. <a href="../../world-of-rathe/volcor/volcor.html">Volcor</a>.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-6.webp" alt="iyslander-6" class="center">
+<hr />
+<p>I follow a path, winding and rugged. It takes me above the pass, though the way is hard, treacherous. High in the mountains, I find the remains of a group of travelers, their bones scattered by predators, picked clean by scavengers. They were coming the opposite way, a desperate flight through dangerous country. In a weathered pack I find garments, rough and patched, and a cloak with hood. As I dress in their clothes, my heart is full of dread. What were these people running from?</p>
+<p>At last I descend into the foothills and stop to listen to the rumbling of wagons, their trays protesting under the weight of black, sooty rock. Ahead, men and women carve open a hill with picks and shovels. Armed warriors watch over them, scarves wrapped around their faces to ward off the dust. A woman in fine robes sits astride her horse, surveying the dismal scene with calculating eyes. Her manner scratches at the ice around my memories. Have I known someone like this?</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-7.webp" alt="iyslander-7" class="center">
+<p>She points at a worker who has stopped to rest. Warriors grab the hapless man, drag him before their mistress. She dismounts and draws a whip from her saddlebag. The crack of leather against flesh makes my skin burn with sympathy. My bones ache with frigid anger.</p>
+<p>I draw upon the woman's own sweat to encase her arm in ice. Her shocked eyes find me among the rocks. Her harsh voice barks an order. Warriors charge, sabers drawn and brandished. I throw my will against a stack of water barrels. They explode into splinters of ice and wood that cut through the warriors, leaving them reeling and bloody.</p>
+<p>The workers do not waste this opportunity. Some attack their former overseers with pick and shovel. Others flee, and I flee with them into the gathering dusk.</p>
+<hr />
+<p>I am hunted. The woman must have had influence to go with her riches. Soldiers patrol the roads, directed by a general whose armor is as black as his long, raven hair. The creak and clink of their scale mail sets my teeth on edge.</p>
+<p>Yet despite the risk, I am drawn to the edge of a walled town. I have glimpsed this town before, through the swirling snow storm that veils my history. I break open a side gate with a snap frost and steal into the narrow streets. Fleeting memories lead me to a handsome apothecary guarded by a pair of soldiers. In the window stands a man, his face concealed by shadow. He is richly dressed, much like the merchant at the quarry, and holds a pot of alchemical powder in his gloved hand. A girl sits outside on a wooden bench, her smock tattered and grubby, her feet bare, her fair hair cropped short and ragged.</p>
+<p>A shout from the street shatters the reflection. Man and girl fade back into the past as a sizzling ball smashes through the window. The apothecary explodes into flames.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-8.webp" alt="iyslander-8" class="center">
+<p>I sneak away while all eyes are turned to the commotion. From then on I avoid the fear-fortified settlements, the raven general's patrols, and the daily injustices that infest this troubled land.</p>
+<p>I lose count of the days as I continue on my journey, until at long last, the burning heart of Volcor laid out before me. Sprawling cities spread across glassy plains of tephra. At the center of this mess of humanity, a tamed volcano simmers and broods, its flank adorned with towers and halls that belittle all others in their grandeur.</p>
+<p>I recall a name, <span class="hint" hint="Ashvahan">Ashvahan</span>. To me, that city within cities is a locked chest, hiding heirlooms of forgotten import.</p>
+<p>I follow the road I am on to an outer-city gate where a steady tide of citizens swells and ebbs. Hard-eyed officers examine every soul that passes through, their papers scrutinized and stamped.</p>
+<p>"You will not get in looking like that."</p>
+<p>A storm of ice builds in my palm. After a long game of cat and mouse with the raven general's troops, they have caught me at last. I turn to fight my captor, but the stranger takes my arm, arresting my spell with a firm yet gentle hand. She looks like a <span class="hint" hint="Volcai">Volcai</span>. Caramel skin. Jet-black hair. Clean and well-kept, though modest. A servant, perhaps, of a wealthy household. But I sense that not all is as it seems with this one.</p>
+<p>I let her guide me into a humble house, a bolthole away from prying eyes where she can reveal her true self.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-9.webp" alt="iyslander-9" class="center">
+<p>"Who are you?"</p>
+<p>"The less you know, the safer we will both be."</p>
+<p>She places her mask beside another on the table and murmurs some arcane words that I cannot fathom. Before my astonished eyes, the second mask loses its blank, porcelain pallor. It becomes a face. Pleasant and practical. The humble features of the Volcai everywoman.</p>
+<p>"Wear this mask and your visage will become one of Volcor's many. Even your own mother will not recognize you."</p>
+<p>My fists clench of their own accord. I don't know who my mother is. Nor my father. I cover my pain with a question.</p>
+<p>"Why are you helping me?"</p>
+<p>The stranger's eyes see past the grime and dried blood into the depths of my icebound heart.</p>
+<p>"I saw what you did at the coal quarry, how you forged ice from torrid air. A favor from such as you would be a powerful boon. I'll remind you of that when the time comes."</p>
+<p>With a wave of her hand, her snow-white hair is gone. The face of the everywoman has returned. She leaves without a word, not even looking back as I collect my gifts from the table.</p>
+<hr />
+<p>I shuffle with the line, mimicking the others, their slumped shoulders, their downcast eyes. As I reach the guard booth, a familiar figure steps out from the tent behind it. His raven hair is pulled tightly back from his chiseled face. He watches as the gate guard takes and reads my parchment. I make myself as still as a glacier beneath the general's inscrutable gaze, freezing any thought of my imminent capture. The guard grunts, stamps my parchment with red, and motions for me to move on. The general turns away, his dark eyes trawling through the line of travelers behind me.</p>
+<p>I hurry on, eyes down, and only allow myself to look up when I am well beyond the gate. The city surrounds me, its heat pressing against my skin, so dry in my lungs that I fight for breath.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-10.webp" alt="iyslander-10" class="center">
+<p>Streams of melted ice pour from the frozen walls in my mind, pooling behind my eyes. Fleeting images slip through the widening cracks. A grand residence with snarling dragons at the gate. Within that home, a library of scrolls, and a young girl cowering in a beshadowed corner. She works a lock of blond hair between her bruised lips as her trembling fingers trace arcane words across a yellowed parchment. Her eyes are a glacial blue and reflect a longing I know only too well.</p>
+<p>Every fiber of my being yearns for the peace of my Bleak Expanse. I will return. To my icekin, I have thus promised. For now, I am here, facing the heat. A broken shard of ice in a land of fire, seeking to be made whole once more.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/07-interlude/morlock-hill.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/08-uprising/calm-before-the-storm.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/07-interlude/morlock-hill.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/08-uprising/calm-before-the-storm.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

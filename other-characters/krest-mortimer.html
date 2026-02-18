@@ -1,0 +1,261 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Dr. Krest Mortimer - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../hero.css">
+        <link rel="stylesheet" href="../image.css">
+        <link rel="stylesheet" href="../tab.css">
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <link rel="stylesheet" href="../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="dr-krest-mortimer-the-fixer"><a class="header" href="#dr-krest-mortimer-the-fixer">Dr. Krest Mortimer, 'The Fixer'</a></h1>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>"Dr. Mortimer is a scientist from an undisclosed institute in <a href="../world-of-rathe/metrix/metrix.html">Metrix</a>. He was cast out because his experiments became too extreme, and now conducts experiments within the <a href="../world-of-rathe/pits/pits.html">Pits</a> instead (hints of Metrix corporate influence). Nowadays, he's the lead psychologist and director of "<span class="hint" hint="Southmaw">Southmaw</span>", a hospital / asylum within the Pits.</p>
+<h2 id="in-theory"><a class="header" href="#in-theory">In Theory<sup>*</sup></a></h2>
+<p>
+(<a href="#narrated-video-by-deadsummer-art">Jump to Narrated Video</a>)
+</p>
+<p>Cultist - "<span class="hint" hint="Raven">Raven</span>! Grant me the strength to endure your rewards...for the glory of mankind..."</p>
+<p><em>screams of pain</em></p>
+<p>Mortimer - "You cultists are truly sadistic! Hahaha!"</p>
+<p><em>more pained screams</em></p>
+<p>Too extreme they said, yet look at where I am now! My former 'colleagues' refused the true pursuit of science. No genius puts morality before progress.</p>
+<p>But that is all you can ever find within Metrix institutes - red tape and regulations, mealy-mouthed platitudes about safety and the concern for people's wellbeing. Southmaw has none of that...well, nowhere in the Pits really does now does it? It's not as if my experiments are consistently lethal. Many would consider themselves lucky to be missing an arm than dead, no?</p>
+<p>Our..."hospital" of sorts is a haven in these tunnels. Nowhere else can you find treatment for some of the most grotesque and deadly diseases that plague Rathe. Not many find my methods amicable, but what do they know of the risks I take, coming face to face with some of the worst ailments known to man? They run from ailments, but not I. No, I walk right toward them with determination and curiosity.</p>
+<p>Speaking of which, I've come across some most wonderful discoveries. My recent studies have brought me face-to-face with some of the most interesting characters the Pits has to offer. Cultists, alchemists, gangers...none of these individuals are off limits to me. The stories they've told me are as profound as they are enlightening.</p>
+<p><a href="../world-of-rathe/pits/blackjacks-mercenary-group.html#lapocalypta">L'Apocalypta</a> are responsible for the Bloodrot Pox. The Metrix chemists are so convinced it was a natural mutation...ha! Like many in the Pits, the cult has ties across all of Rathe, more specifically within the <a href="../world-of-rathe/demonastery/demonastery.html">Demonastery</a> and here.</p>
+<p>Their goal? As far as I have deduced they worship an entity known as the Raven, the Aesir of Chaos. They believe that by causing pain and suffering to the world that it will toughen it against future ruin. I find myself inclined to agree with their goals, if not their methods. A typical Metrix dandy wouldn't last a day down here with these fine people.</p>
+<p>Where they went wrong however was in their experimentations. Being the novices they are, their studies into creating an alternative "evolutionary path" for humans led to many failures, one of which being the Bloodrot Pox. Not a mutation at all, but a deliberate experiment gone wrong - or right, depending on who you talk to. This masterful affliction causes large boils to form on a person's body that cause extreme pain, or so I'm told...</p>
+<p>Alchemists have a much better understanding of the sciences. One such alchemist responsible for many ongoings in the Pits is Achlys, the hag of Mojire. A savant they call her, though her body betrays her. A terrible congenital central nervous system disease plagues her with excruciating pain, but she seems to have at least temporarily cured her ailment in recent times.</p>
+<p>For reasons that still elude me, Achlys developed Frailty, a neurotoxic disease that began to spread throughout the underground. Perhaps as a way to inflict the pain she has dealt with to others? Who knows, but word on the street is that she has ties to Lena Belle. I'll need to have a word with her.</p>
+<p>But where my true passion lies in afflictions is that of Inertia. A poetic name, this substance is a novel radioactive material. Where the dangers of it come into play is its exposure to living beings. It slowly saps the strength and energy from those in proximity to it; similarities lie between it and radiation sickness. I'm most interested to see what contact does, and ingestion. I've heard of a woman known for her kidnapping skills, I'll need to explore that possibility further.</p>
+<p>Myself, along with others within Southmaw and those still belonging to various institutes operating in Metrix, continue to research a cure for this side effect of Inertia, as the substance could be of great use in various applications. But the ability to drain one's life force seems too good to pass up...</p>
+<p>More must be learnt about Inertia and its applications. Perhaps I'll make a trip to one of the gang's hideouts to put it to the test. That reminds me, Gavin still owes me a favor. Ooh, delicious. If I put a contract out for him I imagine I can stir up all kinds of mischief. I think it's time to make a trip to Tanner's...</p>
+<hr />
+<p>Power is the pursuit of the righteous and the reckless. Energies primordial, tapped and siphoned, Ancient forces channeled in petty desires. Ambitious mechanisms drain the vigor from this unwitting world, fuelling the selfish with suffering.</p>
+<hr />
+<h2 id="narrated-video-by-deadsummer-art"><a class="header" href="#narrated-video-by-deadsummer-art">Narrated Video by <a href="https://www.youtube.com/@DeadSummerArt">DeadSummer Art</a></a></h2>
+<p>
+(<a href="#in-theory">Jump to the Top</a>)
+</p>
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/9ZNQrwFFsl0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+<p><sup>*</sup>Note that this is not "canon" but is based on official insights provided to DeadSummer Art by LSS for their spoiler card Codex of Inertia during the Outsiders spoiler season. However it is so awesome, I decided to include it here.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../other-characters/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../other-characters/lord-sutcliffe.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../other-characters/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../other-characters/lord-sutcliffe.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../tab.js"></script>
+        <script src="../theme/pagetoc.js"></script>
+        <script src="../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

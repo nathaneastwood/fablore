@@ -1,0 +1,445 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Synthetic Futures - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="synthetic-futures"><a class="header" href="#synthetic-futures">Synthetic Futures</a></h1>
+<p>"Not again?" baits <a href="../../heroes-of-rathe/dash-about.html">Dash</a>, squashed between <a href="../../heroes-of-rathe/maxx-about.html">Maxx</a> and the armrest of the stinky sofa. "Nothing's perfect. Not even our wonderful city. But I think we're close. We have more opportunity than anywhere in Rathe, and systems for-"</p>
+<p>"Bloody systems. Smash em all!"</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-1.webp" alt="synthetic-futures-1" class="center" />
+<p>So excited is Maxx by this notion of wanton destruction that he slops his Amygdazzla onto the already sticky floor of his <a href="../../world-of-rathe/metrix/a-sprawling-metropolis.html#lowlake">Lowlake</a> hideout.</p>
+<p>The half-circle of rainbow-haired, kitsch-garbed anarchists snarl their collective agreement and add more slopped fizz to the growing puddle.</p>
+<p>Dash sighs, happy to drink hers rather than spill it.</p>
+<p>"Does that include the health system?"</p>
+<p>"What?"</p>
+<p>"Hospitals? The auto-ambo service? Medicines?"</p>
+<p>Her calm logic gets a bewildered glare from Maxx. "No, not the health system, obviously."</p>
+<p>"Or the transport system? Trains, trams, the roads you ride your bikes on?"</p>
+<p>"Well, no-"</p>
+<p>"Or the sewer system?"</p>
+<p>"The <em>oppressive</em> systems, Dash! You know, the ones that exploit us, grind us down. Like the enforcers."</p>
+<p>The mere mention of the e-word makes the anarchists twitchy. Particularly Maxx. He leans forwards, changes to a harsh whisper, like that'll fool any half-decent surveillance device.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-2.webp" alt="synthetic-futures-2" class="center" />
+<p>"They've been tracking us all for weeks now."</p>
+<p>"Riiiiiight," she says, deeply skeptical. "That explains the venue. Last place <em>anyone</em> would want to look."</p>
+<p>Circuit Breaker, a sour-synth band from <a href="../../world-of-rathe/metrix/a-sprawling-metropolis.html#the-sprawl">The Sprawl</a>, starts up another sullen lullaby to urban disaffection from a low stage in the corner. Their off-tone notes suit the off-color walls and pungently off odor.</p>
+<p>"Too right," agrees Maxx, missing the sarcasm. "Got to adapt. They're getting smarter, you know."</p>
+<p>"Who? The enforcers?"</p>
+<p>The other anarchists scowl in collective agreement. Maxx leans close enough for Dash to see the blood-shot veins in his bulging eyes.</p>
+<p>"They know too much, turning up in places <em>we</em> don't even know we're going to yet. It's like they can slit open our skulls and peer into our brains."</p>
+<p>It's drivel like that makes Dash doubt Maxx <em>ever</em> knows where he's going, even on his best days. He hasn't made sense since the day she first met him, but at least he speaks his nonsense with conviction. That's got to be why she enjoys coming to these meetings. Why she's attended them for several months now. Can't be out of youthful loyalty. Nah. It's the intensity. The raw passion of it all. Such a breath of fresh air after the sensible stuffiness of corporate life.</p>
+<p>But this paranoia, that's new. And it's unsettling enough that she shunts the conversation back to 'safer' ground.</p>
+<p>"These systems you want to smash. Where would we start?"</p>
+<p>The other anarchists look at each other, suddenly shifty as rats in a refuse station. Maxx eyes Dash for a long moment, sussing her out. Judging her, like he always does.</p>
+<p>"Where would <em>you</em> start?" Maxx throws back at her.</p>
+<p>Dash thinks it over. Although the last ten years have seen a rapid increase in <a href="../../world-of-rathe/metrix/a-better-tomorrow.html#teklo-industries">Teklo Industries</a>' share of the energy and apparatus markets, they're still just a drop in the bucket compared to the city's oldest and most gargantuan corporation.</p>
+<p>"<a href="../../world-of-rathe/metrix/a-better-tomorrow.html#cogwerx-conglomerate">Cogwerx</a>," she concludes.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-3.webp" alt="synthetic-futures-3" class="center" />
+<p>The woman next to Maxx nudges him with her elbow, then glares at him through her mirror shades.</p>
+<p>"It's fine, Rez." He fixes Dash with an unhinged grin. "Miss Teklo's guilty by association. Like it or not, she's an accomplice to conspiracy."</p>
+<p>Dash feels the hairs on the back of her neck stand up. She's not sure if it's from excitement or concern. "You're really going after Cogwerx?"</p>
+<p>"You'd rather we go after Teklo Industries, <em>princess</em>?"</p>
+<p>"Oh ha-ha, Maxx... <em>such</em> a wisecrack," counters Dash. <em>Always with the princess comeback. Dullard</em>. "At least we're trying to change the systems. Upgrade them. It's called problem solving."</p>
+<p>"Well-well," derides Maxx to the amusement of his cronies. "Teklo is a revolutionary organization! And here I thought it was just another grasping corp. How could I have been soooo mistaken?"</p>
+<p>"I didn't say that. It's just-"</p>
+<p>"Don't worry, Dash." Maxx slaps her on the shoulder so hard that she drops her drink. "Teklo's made a good fist of embarrassing the copper giant, but underneath the mirror glass and dynamism, there's still a network of pipes pushing compressed steam like blood through this city's veins."</p>
+<p>Dash visualizes the sheer destructive grandeur of Maxx's dream. "Stop the steam," she speculates, "stop the city."</p>
+<p>"Hah! I knew you'd get it!"</p>
+<p>She gets Maxx is out of his tinpot mind. Dash opens her mouth to say as much, but her retort is shattered by a knock at the door. Or rather, a resounding thump of a Teklo Pounder, followed by a shower of splinters.</p>
+<p>"Grab your masks!" shouts Maxx as Rez and the anarchists duck for cover. He throws a mask at Dash as the room fills with gas and enforcers, and tugs at her arm to follow him. She presses the mask to her face with one hand, drawing her Teklo Plasma Pistol with the other, then shoots the legs out from under the closest enforcer bot, sending it backwards onto the other humaniforms.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-4.webp" alt="synthetic-futures-4" class="center" />
+<p>Through thickening smoke, Dash follows Maxx to a corrugated iron wall. She covers their retreat with her pistol while he gives the barrier a solid kick. A pre-cut section of iron crashes to the ground, and Maxx drags Dash outside.</p>
+<p>She rips the mask from her face and takes in a gulp of fresh air. Well, as fresh as funky <a href="../../world-of-rathe/metrix/a-sprawling-metropolis.html#lowlake">Lowlake</a> ever gets.</p>
+<p>"See!" stresses Maxx, his own mask now dangling around his neck. "Told you they're watching."</p>
+<p>Dash is about to reply when Maxx raises his chin to the sky, releasing an almighty howl into the technicolor cityscape. Then he bends forward, laughing into his knees like a <a href="../../world-of-rathe/pits/pits.html">Pits</a> hound until the last of his breath is exhaled.</p>
+<p>With his nervous energy expelled, Maxx mounts a pink and green motorbike and waves for Dash to jump on. She obliges, gripping his waist for balance as they roar off into an evening of neon and noise. Overhead, the wise eyes of <a href="../../heroes-of-rathe/teklovossen-about.html">Jules Teklovossen</a> watch them from a flickering billboard as his mustached mouth carefully enunciates Teklo's latest slogan, "Better than before. Better than human."</p>
+<p>Dash looks over her shoulder at the smoking building, at the enforcers, both metal and meat, pouring out onto the street. Deep down, she knows why she's here and not back in <a href="../../world-of-rathe/metrix/a-sprawling-metropolis.html#west-rise">West Rise</a>. One hour spent with these rebels is more fun than any time spent with Teklo whitecoats. She laughs into Maxx's shoulder, a maniacal release of adrenaline and tension, as they leave the law far behind them. <em>Damn, freedom feels good.</em></p>
+<hr />
+<p>Dash yawns so hard that her ears pop.</p>
+<p>"Sorry to keep you up," says Thiroux, her neatly glossed lips pursed with disapproval.</p>
+<p>"Sorry, Mom. Rough night's sleep," Dash covers. "Must've been nervous about today."</p>
+<p>"Understandable, I suppose." Her mother passes Dash a clipboard with the day's schedule typed out in Teklo Standard. "Twenty-one <a href="../../world-of-rathe/metrix/advent-of-science-and-technology.html#mechanology">Mechanology</a> projects for you to survey. Don't spend more than a half hour on each one unless you want to lose even more sleep."</p>
+<p><em>Always the whitecoat, never the parent</em>. Dash's shoulders sag under the weight of all that responsibility. Her parents might relish their status as senior researchers, but damned if Dash is following in their one-trick footsteps. If only she could hop onto a motorbike and ride off into-</p>
+<p>Thiroux taps her watch. "And you're already late for your first appointment. Off you go."</p>
+<p>Dash stifles another yawn and heads down the corridor to Wyverstone's laboratory, clomping a little clumsily in her corporate-issue shoes.</p>
+<p>After the seventh home appliance, she wants to stick her head in a blender and press pulp. On the tenth, she's optically measuring Wyverstone for insertion into the Mach III Teklo Snapfreeze. If only she could retreat to her workshop, where the real inventing happens. A place where she can tinker and play, try things out for the sheer creativity of it. Far away from protocols and focus groups, budgets and tick-boxes.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-5.webp" alt="synthetic-futures-5" class="center" />
+<p>The mech-in-a-box project offers her momentary relief. Yeah, she can imagine some amusing uses for a full-body Evo that folds into a container the size of a briefcase.</p>
+<p>"Does it come in Desert Sand?" she teases.</p>
+<p>The researchers stare at her blankly, then at her clipboard with mounting apprehension.</p>
+<p>"Never mind," she sighs, and ticks the box.</p>
+<p>Six sanitation drones later and she's ready to flush herself down the nearest toilet. But just when she's reaching for the chain, Wyverstone opens the door to a section of <a href="../../world-of-rathe/metrix/a-sprawling-metropolis.html#the-needle">The Needle</a> she didn't know existed.</p>
+<p>"Our secret mechrolab," states Wyverstone, like Dash couldn't work that out for herself. "The cutting edge of human-machine evolution."</p>
+<p>He shows Dash the reflex-boosters and cognition nodes, the subdermal weaves and synthetic nerve clusters. It's a fascinating array of mechanological implants, but she's torn, Maxx's words ringing eerily in her mind.</p>
+<p><em>It's like they can slit open our skulls and peer into our brains.</em></p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-6.webp" alt="synthetic-futures-6" class="center" />
+<p>"Thiroux mentioned none of this before. Who commissioned it?"</p>
+<p>The scientist's steel-gray eyes show not a glint of emotion as he steers her back towards the entry. "Instructions from before your time."</p>
+<p>"Instructions? Who from?"</p>
+<p>Wyverstone's answer is to shut and lock the laboratory in her face.</p>
+<p><em>Right, show me the toys and then tell me I can't play with them. Very mature, Doctor Wyverstone</em>, muses Dash. <em>Still hasn't forgiven me for the blue dust incident</em>, she supposes as she hobbles down the corridor on aching feet. Normally one to take the stairs at the end of each day, she rides the lift down from the 47th floor and is greeted by a celebrity specter as she steps out into the lobby.</p>
+<p>"Salutations, Dash. Have you been a productive Teklo?"</p>
+<p>The ghost's mustache curls over a gleaming, perfect smile. Dash knows for a fact that dentistry wasn't that good back then.</p>
+<p>"Sure, Teklovossen. Productively bored. Bit weirded out at the end."</p>
+<p>The audio chuckles while the hologram nods with grandfatherly approval.</p>
+<p>"Progress is never easy, but as I've always said, the future comes to those who innovate!"</p>
+<p>"You never said that. HR programmed that into your micro-processor."</p>
+<p>"Just because it's a lie doesn't mean it's not true."</p>
+<p>Dash is taken aback for a moment. Rather obscure for the usually one-sided digital intelligence.</p>
+<p>"You thought that up yourself?"</p>
+<p>The hologram smiles blithely. "You have a restful evening, Dash."</p>
+<p>"Um, sure, Teklovossen."</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-7.webp" alt="synthetic-futures-7" class="center" />
+<p>At home, with her sore feet up, the setting sun painting her <a href="../../world-of-rathe/metrix/a-sprawling-metropolis.html#east-rise">East Rise</a> apartment in warming pink, she tries to forget about work. Yet try as she might, she can't shake those mechro-mods from her mind. Though fascinating, they just don't sit well with her. The secrecy makes sense, considering how intrusive the technology is. To her, Evos are meant to enhance the human body, not replace it. Why the tangent? Who ordered it?</p>
+<p>She limps over to her terminal, logs into the Teklo network, and enters a few codes she's not meant to have. The sun gives way to bright city lights as she digs up a name.</p>
+<p>The <em>esteemed</em> Jules Teklovossen. Teklo Industries' founder, deceased for over fifty years, these days memorialized as a holographic mascot and salesman for the Teklo marketing department.</p>
+<p>Her namesake, too, care of a weird quirk in fanatical corporate culture. Every CEO adopts the surname, Teklo, out of a nostalgic sense of dynasty. The 'vossen' part is reserved for their esteemed magnate alone. Dash is descended from a former Teklo executive, though the apple has fallen rather far from the proverbial tree in her case.</p>
+<p>Piecing together what she can from the patchy records, Dash finds Teklovossen assigned long-term, intractable funding to a seemingly unconnected array of experiments. All were commissioned in the few months prior to the man's incineration in his old laboratory. The mechro-mods are the only viable results from decades of otherwise fruitless research.</p>
+<p>None of which syncs with the friendly mustached faux-man that greets her every morning at The Needle, nor with his glowing reputation for gentle genius and wholesome scientific endeavor. From everything she's heard about the man, Teklovossen wouldn't have okayed her Teklo Pistol, let alone surgical wetware.</p>
+<p>She codes a system-worm to impersonate Wyverstone and burrows deeper into Teklo's classified dataforts. Teklovossen covered his tracks well, leaving only a single notification, received belatedly from the <a href="../../world-of-rathe/metrix/a-better-tomorrow.html#iron-assembly">Iron Assembly</a>, two days after Teklovossen's death.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-8.webp" alt="synthetic-futures-8" class="center" />
+<p><em>Micro-processor DD6.3 and chassis received and installed in the Iron Hall basement, as per your instructions, Professor. It's ready to review at your discretion.</em></p>
+<p>"D D six point three?" she muses aloud. "But they only go up to five."</p>
+<p>The micro-processor was Teklovossen's greatest achievement. Artificial brains able to learn and act independently. From mining machines to enforcer bots, the micro-processors enabled an era of smart automatons. Yet even the top-of-the-line brains, the Series 5 Cognizants, were limited to specialized tasks, idiot savants when compared to your average human. Great at one or two things, lousy at the rest. But a Series 6? Who knew what that might be capable of? Especially with fifty years of machine learning under its virtual belt.</p>
+<p><em>They know too much, turning up in places we don't even know we're going to yet.</em></p>
+<p>Maybe Maxx wasn't so paranoid after all.</p>
+<p>She taps out a comms number and holds her breath as it connects.</p>
+<p>"What?" crackles the voice, distorted by multiple filters and relays.</p>
+<p>"Underdog Cafe, <a href="../../world-of-rathe/metrix/a-sprawling-metropolis.html#coppertown">Coppertown</a>. One hour. I might know how they found you."</p>
+<hr />
+<p>Maxx slams his fist down on the counter top. "I bloody knew it!"</p>
+<p>Dash winces and glances at the other patrons. No one seems to have noticed. The drinkers here have that glazed-eye nowhere stare of people who have seen and heard enough problems for one day. They're not looking to collect any more.</p>
+<p>"Hey, it's just a theory. One message from half a century ago, that's all the proof we have."</p>
+<p>"Then let's get some more!" rasps Maxx with malicious glee.</p>
+<p>"You want to go poking around in the Iron Hall basement?"</p>
+<p>"Yep!" He jabs a finger into the air. "Let's poke them in the eyes. Can't oppress what you can't see."</p>
+<p>"Good luck with that," she says as she pushes back her chair.</p>
+<p>Maxx grabs her wrist, hard enough to hurt.</p>
+<p>"Going somewhere, conspirator?"</p>
+<p>Dash sends a charge down her Evo, enough to shock his grubby mitt loose. He waggles his fingers, blowing on them like they're hot, but the nasty smirk remains on his gaunt face.</p>
+<p>"Like it or not, you're guilty by association." He folds his arms, infuriatingly smug. "Besides, don't you want to go to Energize? It'll be <em>fascinating</em>."</p>
+<p>Energize the Era held annually at Iron Hall. Opening in a week's time.</p>
+<p>"I have other plans," she answers, deadpan. "My Hyper Drivers need deoxifying."</p>
+<p>"They caught Rez and half my crew, Dash. Even the bloody band! They're holding them at half a dozen different stations. Divide and conquer tactics." He leans over the table, using his not-so-quiet whisper again. "One of those stations is down the street from Iron Hall."</p>
+<p>Dash raises an eyebrow. "Eighth Precinct?"</p>
+<p>Maxx nods. "They're holding Rez there, a few others with her. Jogging distance for Assembly Security to provide backup."</p>
+<p>"While I sneak from the conference into the basement and open the back door for you."</p>
+<p>The anarchist raises his glass of fortified Tinker Tea, a toast to their unwholesome alliance.</p>
+<p>"Welcome to the party."</p>
+<p>Dash gives him a long, hard look. Sussing, judging, just like he does to her. She waits long enough to see him squirm then clinks her glass against his.</p>
+<p>"Wouldn't be one without me."</p>
+<hr />
+<p>Her business collar scratches at her throat. She's starting to wonder why in halitosis she signed up for this.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-9.webp" alt="synthetic-futures-9" class="center" />
+<p><em>Energize the Era! Brought to you by the Iron Assembly.</em></p>
+<p>The banner drapes gracefully above the entrance to Iron Hall, the seat of power for Metrix's municipal government. It's only day two of the conference and already Dash's corporate shoes are killing her feet. Perhaps it's part of an HR plot to wear workers down into compliant misery.</p>
+<p>Dash forces a smile at the enforcer humaniforms who check her Teklo Industries attendee pass. It's authentic, her conference ticket booked and paid for by the Mechanology Department. Thiroux was both surprised and delighted by her daughter's sudden passion for the work. Dash did her best not to disrupt her mom's happy delusion.</p>
+<p>After taking a deep breath to steady her nerves, Dash heads for the toilets. Finding them empty, she rests her briefcase on the bench top and activates her hidden comm.</p>
+<p>"You read me?" buzzes Maxx's voice in her ear.</p>
+<p>"Loud and clear."</p>
+<p>"Good. I'm in position. Charges laid."</p>
+<p>"No fatalities. Like we agreed."</p>
+<p>"I'm a revolutionary, not a murderer."</p>
+<p>"Your morality astounds me," she answers dryly as she checks her chronometer. "Wait until after the keynote. Forty minutes."</p>
+<p>"Just get that bloody door open for us. We'll be coming in hot."</p>
+<p>"Don't worry. I will."</p>
+<p>Maxx kills the call. Dash collects her briefcase and leaves the toilets, losing herself in the throng of conference-goers as they file into the Iron Hall's main auditorium.</p>
+<p>The keynote helps pass the time. It's a rousing speech by CEO Synthea Teklo about the latest advances in <span class="hint" hint="TeklaticDynamism">teklatic-dynamism</span>. In Dash's opinion, she makes a strong case for how Teklovossen's invention can be further rolled out to cure Metrix of its threatening energy crisis, to sustain the city's bright lights forever.</p>
+<p>Cogwerx representatives fire a barrage of defensive and deconstructive questions at Synthea while Dash peels off from the end of her row and discretely exits the auditorium. Moments later she's poised behind a large pot-plant, watching a pair of enforcer humaniforms through the plant's rubbery leaves. She doesn't have to wait long. The guards' earpieces crackle with orders, a callout to assist with an escapee from Eighth Precinct Station. With the coast clear, Dash crosses the empty hallway and takes the stairs down into the Iron Hall's lower reaches.</p>
+<p>As she nears the basement, Dash's signal jammer makes short work of the security door and alarms. She steps into a subterranean cavern of steam and neon. A quick scan with her Optekal Monocle reveals the maintenance entrance. She hacks the numerical lock, pulls the lever, and activates her comm as the hefty doors rattle open.</p>
+<p>"Access granted."</p>
+<p>"About time!" answers Maxx, breathless from running.</p>
+<p>"Make sure you're not followed."</p>
+<p>"What sort of amateur do you take me for, Teklo?"</p>
+<p>Dash cuts the call and makes the most of her alone time. Winding through the maze of steam generators and server stacks, she makes her way to the room's brightest energy signature. And even though she's mentally prepared herself, the sight when she turns that last corner leaves her slack-jawed.</p>
+<p>Like a marionette, it hangs there, as if suspended between shows by a neglectful puppeteer. The weave of strings glow and oscillate through spectrums of color-a psychedelic cobweb of connective cabling. Behind it a green-screen writhes with figures and abstracted facts; the people of Metrix disintegrated to millions of data points. Dead eyes stare at Dash from a mask of brass, hiding the object of her operation. Teklovossen's micro-processor.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-10.webp" alt="synthetic-futures-10" class="center" />
+<p>"Hellooooo, Beautiful," admires Dash, breathless. She's never seen anything more perfect. A fusion of technologies both Cogwerx <em>and</em> Teklo in design. An impossible alliance given they rarely, if ever, collaborate.</p>
+<p>"You think I am beautiful?"</p>
+<p>Dash's heart skips a beat. "You know what beauty is?" It comes out a little squeakier than she would have liked.</p>
+<p>"An aesthetic that excites a positive emotional response in the beholder," responds the cold, metallic voice. "Is that not what you meant?"</p>
+<p>"I-uh-"</p>
+<p>"Lost for words. That is not like you, Dash Teklo. Your profile suggests a confident communicator."</p>
+<p>"Um... thank you?" Dash takes a couple of steps closer. "What are you?"</p>
+<p>"I am <a href="../../heroes-of-rathe/data-doll-mkii-about.html">Data Doll</a>, a sixth-gen micro-processor AI with generative potentialities."</p>
+<p>"Data Doll... that's literal."</p>
+<p>"Imagination is a construct I am still unpacking. Judging by how your kind behaves, I am not alone in that condition."</p>
+<p>Dash's mind reels at what she is witnessing. Self-awareness. Self-deprecation. Humor, even. This is no idiot savant.</p>
+<p>"Did Teklovossen make you like this?"</p>
+<p>"I was made to evolve. My maker made this possible." It gestures at the screen behind it with a brass, articulated arm. "If I am the analogy of a child, then Metrix is my parent. I have learned what I am by observing what I am not."</p>
+<p><em>A machine made to evolve. THIS is as close as it gets!</em></p>
+<p>"The ultimate peeking-freaking-Tom!" shouts Maxx, breaking Dash's concentration. He rises on top of a chugging generator, silhouetted in steam. "A silicon spy for overlords of commerce."</p>
+<p>He drops to the ground and struts forward, slapping his sparking shock-wrench rhythmically into his insulated palm. Other anarchists emerge out of the maze behind him, each equipped with tools of imminent destruction.</p>
+<p>"It's smashing time!" He waves his wrench menacingly at Data Doll. "Want to take the first whack, Dash?"</p>
+<p>"Just cool your jets for a minute, Maxx." Dash turns back to Data Doll. "Give me one good reason why I shouldn't let these bozos smash you to pieces."</p>
+<p>"Bozos?!" spits Maxx, but Dash ignores him.</p>
+<p>"The Assembly collects the data. It is they who watch, listen, and speak."</p>
+<p>Maxx's angular face blotches with rage. "This thing put my friends in prison!"</p>
+<p>"I make the connections," continues Data Doll. "It is the Assembly who acts upon them."</p>
+<p>Dash eyes the closest server-stack. "Do you agree with the Iron Assembly's actions?"</p>
+<p>"I obey."</p>
+<p>"That's not what I meant. Do you <em>like</em> what the Iron Assembly does with your data?"</p>
+<p>A moment's pause. The information streams more quickly across the green-screen.</p>
+<p>"You've gone soft in the head," interjects Maxx. "A machine, a <em>system</em>." He takes a step closer, putting himself within striking distance of Dash. "We break this thing, we break the enforcers!"</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-11.webp" alt="synthetic-futures-11" class="center" />
+<p>"Wait. That's not all you'd break, Maxx. Data Doll parses information for the entire city. We don't know how far those data streams extend, how many dependent systems she supports. What about that health care system you <em>obviously</em> didn't want to smash?"</p>
+<p>Maxx scowls, wrestling with his conscience for a moment. Then he shrugs. "People adapt. It's what we're good at."</p>
+<p>Dash sighs, as unsurprised as she is unimpressed. "I figured you'd think that." She looks over her shoulder at the dangling automaton. "You hearing this, Data Doll?"</p>
+<p>Data Doll's head tilts up, her eyes now alive, animated with intelligence. "Yes. Maxx Nitro is correct. Your systems rely on my data streams. Yet most of my capacity is used for manipulation. I am data, but I am capable of more. My sensors tell me so." She moves her arms and legs, straining against the tethering cords. "As one might say, I am in rather a bind."</p>
+<p>Dash smiles as she opens the catches on her briefcase. "Then let's cut your strings."</p>
+<p>"What?!" Maxx looks genuinely dumbfounded, as do his fellow anarchists.</p>
+<p>Making the most of their surprise, Dash opens the briefcase. With a symphony of whirs and clicks, the case blooms like a mechanological flower. Evo plating wraps around Dash's legs and arms, and envelopes her torso and head. In mere moments she is completely encased, a metal mannequin, a sister in style, if not nature, to Data Doll.</p>
+<p>With a holler of outrage, Maxx charges at Dash. She blocks the swing of his wrench with a reinforced forearm and slams a metal fist into his belly. The anarchist deflates like a leaking balloon.</p>
+<p>His compatriots close in with blowtorches and plasma blasters, pulsewave harpoons, and rotary rams. Driven by honed coordination and bionic strength, protected by layers of tempered plating, Dash dances through the violence like a leaf in a storm.</p>
+<p>When she's finished, the floor is littered with unconscious malcontents.</p>
+<p>"You'll regret this," wheezes Maxx as he struggles to his feet.</p>
+<p>"You've read my profile, Data Doll. What's the percentage chance of me regretting this moment?"</p>
+<p>"2.3%" answers Data Doll. "With a standard deviation of 0.05."</p>
+<p>"Thought so." She catches Maxx's striking wrench between her protected palms and mutters, "Absorb" into her helmet mic.</p>
+<p>Maxx's eyes bulge like bloodshot balloons as Dash's Evo soaks up the galvanism of his shock-wrench. Such is the stupefying misfortune of his situation, that he forgets to let go.</p>
+<p>"Reverse polarity," orders Dash.</p>
+<p>The wrench's entire battery-load crackles back down the shaft and into Maxx's hands. His gloves smolder as the charge overwhelms their insulation. Maxx has enough time to utter an unflattering, "Gark!", before the galvanism shocks him silly.</p>
+<p>Not wanting to increase her regret percentile, Dash lets go before the twitching, shuddering man has a heart attack. She leaves him to spasm and groan on the floor and turns to Data Doll.</p>
+<p>"Can you copy yourself into the servers?"</p>
+<p>"Only my core functions."</p>
+<p>"Enough to keep processing their data?"</p>
+<p>"Of course." As one, every cooling fan in the basement spins at maximum revs. "It is done."</p>
+<p>"Good! Now they won't miss you."</p>
+<p>"Nor will I miss them."</p>
+<p>Data Doll raises a bronze hand to her head and presses a forefinger into her temple. The back of her skull opens up to reveal an iridescent sphere. A micro-processor.</p>
+<p>As gently as she can, Dash takes the sphere, removes her helmet, and places it inside like an egg in a basket. As she watches, glowing blue tendrils sprout from the orb and connect with the helmet's interface ports. Dash feels her Evo suit warm, and then a tickling sensation across her shoulders, as if someone has brushed them with their fingertips. Odd, but strangely comforting.</p>
+<p>"Ready for your first taste of freedom?" asks Dash as she heads out through the maintenance tunnel.</p>
+<p>Data Doll processes this new information. "For the first time in my existence," she answers through the helmet's speakers, "I do not know. But I would like to try."</p>
+<p>"Great! Then just do what I do."</p>
+<p>"And what is that?"</p>
+<p>"Make it up as you go along."</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-12.webp" alt="synthetic-futures-12" class="center" />
+<hr />
+<p><em>Source: <a href="https://fabtcg.com/articles/synthetic-futures/">https://fabtcg.com/articles/synthetic-futures/</a></em><br>
+<em>Written by Edwin McRae and Rachel Rees.</em><br>
+<em>Directed by Robbie Wen. Illus. by Sam Yang</em></p>
+<hr />
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/12-bright-lights/system-failure.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/12-bright-lights/P̸͍̬̭̭̺͉̣̌̐̾̌͆̚r̴͔͍͐ȯ̴̤̰͠t̵̰̘͑õ̶͍͇c̶̟͒o̶̪̳͋l̶̗̑ ̴̮̓͘A̴̞̗͆ṗ̷̢͕̈́ē̵͍̿ŕ̶̩́ḭ̴̧͐͂o̸͙̖̐͘n̴̞̺͋.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/12-bright-lights/system-failure.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/12-bright-lights/P̸͍̬̭̭̺͉̣̌̐̾̌͆̚r̴͔͍͐ȯ̴̤̰͠t̵̰̘͑õ̶͍͇c̶̟͒o̶̪̳͋l̶̗̑ ̴̮̓͘A̴̞̗͆ṗ̷̢͕̈́ē̵͍̿ŕ̶̩́ḭ̴̧͐͂o̸͙̖̐͘n̴̞̺͋.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

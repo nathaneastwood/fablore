@@ -1,0 +1,383 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Everfest - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h3 id="aether-wildfire"><a class="header" href="#aether-wildfire">Aether Wildfire</a></h3>
+<p>The royal bloodline runs hot through the veins of every <span class="hint" hint="Dracai">Dracai</span> of <a href="../../world-of-rathe/volcor/volcor.html">Volcor</a>; the flames bow at their every whim, and pushes the force of their spells to extraordinary heights.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/aether-wildfire.webp" alt="aether-wildfire" class="center" />
+<h3 id="amulet-of-assertiveness"><a class="header" href="#amulet-of-assertiveness">Amulet of Assertiveness</a></h3>
+<p>We are but puppets locked within this endless cycle. Blood begets blood; while dynasties may rise and fall, our rage and anguish remain. So, take upon you this amulet of war, and vanquish your enemies in the name of the empire that once was.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/amulet-of-assertiveness.webp" alt="amulet-of-assertiveness" class="center" />
+<h3 id="amulet-of-echoes"><a class="header" href="#amulet-of-echoes">Amulet of Echoes</a></h3>
+<p>An amulet inscribed with visions of a dying world, of beings that would see all of Rathe diminished, and this crazy buzz of life, return to silence.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/amulet-of-echoes.webp" alt="amulet-of-echoes" class="center" />
+<h3 id="amulet-of-havencall"><a class="header" href="#amulet-of-havencall">Amulet of Havencall</a></h3>
+<p>The Ancients may be gone, but their spirit remains; captured in stories around campfires, and hidden within relics of old. Heed thee, adventurer! This charm fashioned from the horn of the most ferocious of beasts, engraved with the blessings of old, could be your salvation at your darkest hour... for but a few silver apiece.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/amulet-of-havencall.webp" alt="amulet-of-havencall" class="center" />
+<h3 id="amulet-of-oblation"><a class="header" href="#amulet-of-oblation">Amulet of Oblation</a></h3>
+<p>What are we but beasts of burden, destined to toil until the end of our days? Even through these turbulent times, as luscious fields turn to ash and stone, we labor on. Yet with every seed planted, a promise is made; a wrinkle in the future, a sliver of hope for a magnificent harvest.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/amulet-of-oblation.webp" alt="amulet-of-oblation" class="center" />
+<h3 id="arcane-lantern"><a class="header" href="#arcane-lantern">Arcane-Lantern</a></h3>
+<p>Those poor fools, lost to the Arcane and corrupted by its power. We must find them, purify them, and save them from themselves. - The Grey</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/arcane-lantern.webp" alt="arcane-lantern" class="center" />
+<h3 id="bingo"><a class="header" href="#bingo">Bingo</a></h3>
+<p>There she goes; fast as the wind, and juggling a thousand things! Watch your head and guard your step, for all manner of absurd shananigans may take place within the <a href="../../world-of-rathe/aria/people-of-aria.html#the-everfest-carnival">Everfest</a>.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/bingo.webp" alt="bingo" class="center" />
+<h3 id="blood-on-her-hands"><a class="header" href="#blood-on-her-hands">Blood on Her Hands</a></h3>
+<p>Resentment breeds betrayal in this desolate land, as anger leads to rage, and rage to hate. This endless feud, from whence did it arise, and when will it see an end? Not while this dynasty stands. Not while there's still blood on her hands.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/blood-on-her-hands.webp" alt="blood-on-her-hands" class="center" />
+<h3 id="break-tide"><a class="header" href="#break-tide">Break Tide</a></h3>
+<p>A single droplet of rain, has turned into an unstoppable tide. Decades of practice, just to hone a single blade. These wounds that you carry, each scar a river racing down your back, cry out for release.</p>
+<p>So, let loose the torrent within; this time, nothing will stop you from discovering the truth of that night.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/break-tide.webp" alt="break-tide" class="center" />
+<h3 id="crown-of-reflection"><a class="header" href="#crown-of-reflection">Crown of Reflection</a></h3>
+<p>It's oft a fickle line that separates reality from fantasy; a simple mirror, or a body of water. Break through this thin membrane, I wonder what we will find on the other side...?</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/crown-of-reflection.webp" alt="crown-of-reflection" class="center" />
+<h3 id="dissolution-sphere"><a class="header" href="#dissolution-sphere">Dissolution Sphere</a></h3>
+<p>A breakthrough innovation, <a href="../../world-of-rathe/metrix/a-better-tomorrow.html#cogwerx-conglomerate">Cogwerx</a>'s Dissolution Sphere unleashes a powerful EM field that is sure to keep the masses at bay... so that you can focus on all of the important things in life!</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/dissolution-sphere.webp" alt="dissolution-sphere" class="center" />
+<h3 id="dreadbore"><a class="header" href="#dreadbore">Dreadbore</a></h3>
+<p>Why even the playing field when you can play dirty!? This crude contraption from the <a href="../../world-of-rathe/pits/pits.html">Pits</a> will force your foes to scramble for safety. Each arrow let loose dwindles their hopes, and draws closer the realization of their fate. Cornered. Pinned down. Nothing more than target practice.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/dreadbore.webp" alt="dreadbore" class="center" />
+<h3 id="earthlore-bounty"><a class="header" href="#earthlore-bounty">Earthlore Bounty</a></h3>
+<p>Champions of the Earth can draw forth its mighty energy, as mighty seismic stirrings announce your grand entrance.</p>
+<p>Your fortitude will grow with every swing, your stamina and endurance unyielding, as you hold the line.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/earthlore-bounty.webp" alt="earthlore-bounty" class="center" />
+<h3 id="even-bigger-than-that"><a class="header" href="#even-bigger-than-that">Even Bigger Than That</a></h3>
+<p>The midnight taverns are filled with the thunderous roars of many a drunken adventurer telling tall tales. What was a fish, became the Ebon Serpent, what was a cuddly <a href="../../world-of-rathe/aria/creatures.html#kaieo">Kai'eo</a>, now a ferocious Kumiho. Though. perchance. these stories will live on to form fantastical legends, and inspire the heroes of tomorrow?</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/even-bigger-than-that.webp" alt="even-bigger-than-that" class="center" />
+<h3 id="firebreathing"><a class="header" href="#firebreathing">Firebreathing</a></h3>
+<p>Pulling a stream of rolling flames from a keg of colourful brew is certainly an Everfest special! Stay away from the guard rails, for this performance is sure to singe and char the unprepared.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/firebreathing.webp" alt="firebreathing" class="center" />
+<h3 id="healing-potion"><a class="header" href="#healing-potion">Healing Potion</a></h3>
+<p>A rejuvenating oasis... in a bottle! A single swig of this incredible mead can heal your wounds, mend your bones, and make you twenty years younger in an instant! - Jezabelle, Everfest Healer</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/healing-potion.webp" alt="healing-potion" class="center" />
+<h3 id="helm-of-sharp-eye"><a class="header" href="#helm-of-sharp-eye">Helm of Sharp Eye</a></h3>
+<p>For years, twisted abominations had drowned out the Light, spewed poison out into the heavens above, tainting and destroying all they may. But not all hope is lost; our emissaries bring tidings of distant lands, of allies big and small. We look towards the horizon with hopeful optimism as we stand guard over our people, and steel ourselves for the onslaught that is soon to come.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/helm-of-sharp-eye.webp" alt="helm-of-sharp-eye" class="center" />
+<h3 id="high-striker"><a class="header" href="#high-striker">High Striker</a></h3>
+<p>Step right up, step right up! Roll up your sleeves you handsome chap, flex your muscles, and show us your strength! To the worthy, go the spoils; adulation, wealth, and a lifetime of brews at the local inn. To the rest, a grand ol' time with many a well muscle'd friend.</p>
+<p>So don't hesitate, come one... come all! The high striker is ready for you!</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/high-striker.webp" alt="high-striker" class="center" />
+<h3 id="hundred-winds"><a class="header" href="#hundred-winds">Hundred Winds</a></h3>
+<p>The hundred winds answer your call, as you engulf your opponent in an overwhelming cyclone.</p>
+<p>Press on, wanderer, and avenge your clan. Bring honour and peace to your ancestors, and lay this ancient feud to rest.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/hundred-winds.webp" alt="hundred-winds" class="center" />
+<h3 id="knick-knack-bric-a-brac"><a class="header" href="#knick-knack-bric-a-brac">Knick Knack Bric-a-brac</a></h3>
+<p>Come one, come all, to The Golden Gnome. The deals are riveting, the amulets are enchanting, and you'd never seen potions that looked quite this good! Bring along your treasure trove of Silver, Copper, and Gold, and snap up these goodies obtained from all over Rathe.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/knick-knack-bric-a-brac.webp" alt="knick-knack-bric-a-brac" class="center" />
+<h3 id="krakens-aethervein"><a class="header" href="#krakens-aethervein">Krakens Aethervein</a></h3>
+<p>It sleeps amongst the shifting tides, as the shadow of its tendrils looms over the turbulent seas. Those seeking knowledge may find enlightenment in its soft embrace, but beware, lest you lose yourself within its endless dream.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/krakens-aethervein.webp" alt="krakens-aethervein" class="center" />
+<h3 id="macho-grande"><a class="header" href="#macho-grande">Macho Grande</a></h3>
+<p>The roar of the crowd as you flex and tussle, the admiring ooh's and aah's of many a lad and damsel. If you value strength and brawn above all else, the "Strongest Man in Rathe" performance could be your chance to shine!</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/macho-grande.webp" alt="macho-grande" class="center" />
+<h3 id="mask-of-the-pouncing-lynx"><a class="header" href="#mask-of-the-pouncing-lynx">Mask of the Pouncing Lynx</a></h3>
+<p>While the <a href="../../world-of-rathe/misteria/among-the-mists.html#rite-of-passing">Rite of Passing</a> honors ancestors from the bygone days of old, the New Year's springtime mist leads the seven clans in the celebration of life anew. Don the Mask of the Pouncing Lynx and cause some mischief! Tis the season for fun, underneath the lazy sun.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/mask-of-the-pouncing-lynx.webp" alt="mask-of-the-pouncing-lynx" class="center" />
+<h3 id="micro-processor"><a class="header" href="#micro-processor">Micro-processor</a></h3>
+<p>Something stirs with a soft hum, deep within the underbelly of Metrix City. Thousands of matrices and lines of data converging, as it greedily laps up data from the outside world.</p>
+<p>What is this, a war on the horizon? A call for help from those self righteous meddlers?</p>
+<p>Interesting...</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/micro-processor.webp" alt="micro-processor" class="center" />
+<h3 id="miraging-metamorph"><a class="header" href="#miraging-metamorph">Miraging Metamorph</a></h3>
+<p>She weaves around herself a web of dreams, rivers of enchanting light that race through the heavens. Everything that could be, would be, should be... might be, if you'd just believe.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/miraging-metamorph.webp" alt="miraging-metamorph" class="center" />
+<h3 id="nerves-of-steel"><a class="header" href="#nerves-of-steel">Nerves of Steel</a></h3>
+<p>These Titans of the Third Age that had once held up the heavens, exist now only in myths and legends. But their great works remain to this day, and inspire many a hero to follow in their footsteps.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/nerves-of-steel.webp" alt="nerves-of-steel" class="center" />
+<h3 id="oath-of-steel"><a class="header" href="#oath-of-steel">Oath of Steel</a></h3>
+<p>In the darkest of days you answered our call, and took upon yourself the Oath of Steel; to walk forever the narrow path, to raise arm and sword for the future of us all. Though we may fall, we shall never be afraid; the light of Sol shines upon us this day.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/oath-of-steel.webp" alt="oath-of-steel" class="center" />
+<h3 id="pick-a-card-any-card"><a class="header" href="#pick-a-card-any-card">Pick a Card, Any Card</a></h3>
+<p>She beckons to the fates that reside in tea leaves, and whispers of good fortune hidden amongst the stars. Traveller, beware! There's many a swindler and crook here, but also fanciful beings that had existed throughout the ages, that quietly keep alive the traditions of a bygone world.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/pick-a-card-any-card.webp" alt="pick-a-card-any-card" class="center" />
+<h3 id="potion-of-déjà-vu"><a class="header" href="#potion-of-déjà-vu">Potion of Déjà Vu</a></h3>
+<p>The <a href="../../world-of-rathe/aria/people-of-aria.html#braumeister">Braumeisters of Aria</a> cook up all manners of strange and fanciful concoctions. Those amongst you brave enough to delve into this rainbow river, may discover for yourself the secrets of a brand new world that feels strangely familiar...</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/potion-of-deja-vu.webp" alt="potion-of-deja-vu" class="center" />
+<h3 id="potion-of-luck"><a class="header" href="#potion-of-luck">Potion of Luck</a></h3>
+<p>Victory is but one part planning, the rest is down to luck! So, count your lucky stars, adventurer, that brought you to my stall. What wonderful futures, I have in this here bottle, to sell to you today! - Jezabelle, Everfest Wisewoman</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/potion-of-luck.webp" alt="potion-of-luck" class="center" />
+<h3 id="ready-to-roll"><a class="header" href="#ready-to-roll">Ready to Roll</a></h3>
+<p>Here in the badlands, every encounter could be your last. There's no turning back, no backing down. It's do or die, kill or be killed... gotta risk it all, get ready to roll!!</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/ready-to-roll.webp" alt="ready-to-roll" class="center" />
+<h3 id="revel-in-runeblood"><a class="header" href="#revel-in-runeblood">Revel in Runeblood</a></h3>
+<p>It starts with a buzz, a hum deep in your mind that you can't control. An idea, like a seed, that begins to take root. A madness, pure madness that grows and grows. Then in an instant, a grand, euphoric release... Eureka! - <span class="hint" hint="Sutcliffe">Sutcliffe</span></p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/revel-in-runeblood.webp" alt="revel-in-runeblood" class="center" />
+<h3 id="scour"><a class="header" href="#scour">Scour</a></h3>
+<p>It's simple you see; a bit of pressure and a pinch of Aether, at the right spot will dissolve any illusion and purge any spell. Aether is, after all, the domain of Wizards. You can try all you may, but you'll never beat the real thing.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/scour.webp" alt="scour" class="center" />
+<h3 id="signal-jammer"><a class="header" href="#signal-jammer">Signal Jammer</a></h3>
+<p>Put a damper on the mood and a stop to all manner of distractions and drama. The latest in Teklo tech, the Signal Jammer, is perfect for party poopers and spoilsports alike that are after a moment of silence amongst the rabble.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/signal-jammer.webp" alt="signal-jammer" class="center" />
+<h3 id="slice-and-dice"><a class="header" href="#slice-and-dice">Slice and Dice</a></h3>
+<p>Through this bitter nightmare, we hold out hope; with our brethren behind us, we cannot afford to lose ground! Pick yourself up, soldier! Though every battle may prove to be our last, each bastard we take down draws the light of Sol, the dawn, and victory ever closer!</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/slice-and-dice.webp" alt="slice-and-dice" class="center" />
+<h3 id="smashing-good-time"><a class="header" href="#smashing-good-time">Smashing Good Time</a></h3>
+<p>They're cute but mean, they're furry and lanky. It's the meeps' close cousin, the mireoa, that hide in the shadows of Bigtops up and down the Everfest streets!</p>
+<p>Safeguard your most prized treasures, adventurer, as you experience the carnival's marvels... least they become the mireoa's tasty midnight snack!</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/smashing-good-time.webp" alt="smashing-good-time" class="center" />
+<h3 id="spring-tidings"><a class="header" href="#spring-tidings">Spring Tidings</a></h3>
+<p>Another year has come and gone, as the spring brings new tidings for you and me. The memories of your past weigh upon your youthful frame, but your Sensei's wisdom does guide your step, and your own blood and sweat give bloom to your martial prowess.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/spring-tidings.webp" alt="spring-tidings" class="center" />
+<h3 id="stalagmite-bastion-of-isenloft"><a class="header" href="#stalagmite-bastion-of-isenloft">Stalagmite, Bastion of Isenloft</a></h3>
+<p>They called themselves the Shieldbearers; those that laughed in the face of danger, and held back the darkness with their towering defenses. Not even the Old Ones could bury them within in the annals of history, as they awaken to face the Shadows and push back once more.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/stalagmite-bastion-of-isenloft.webp" alt="stalagmite-bastion-of-isenloft" class="center" />
+<h3 id="swarming-gloomveil"><a class="header" href="#swarming-gloomveil">Swarming Gloomveil</a></h3>
+<p>The cursed grounds of the <a href="../../world-of-rathe/demonastery/demonastery.html">Demonastery</a> are swarming with all manner of powerful beings, pulled forth from the bowels of i'Arathael. Any assaults would be futile, without an overwhelming force of our own. - <a href="../../heroes-of-rathe/boltyn-about.html">Boltyn</a></p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/swarming-gloomveil.webp" alt="swarming-gloomveil" class="center" />
+<h3 id="swing-big"><a class="header" href="#swing-big">Swing Big</a></h3>
+<p>Here in the <a href="../../world-of-rathe/savage-lands/savage-lands.html">Savage Lands</a>, one must put their all into every single swing. There's no telling whether or not you'll get another chance to overcome your prey!</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/swing-big.webp" alt="swing-big" class="center" />
+<h3 id="t-bone"><a class="header" href="#t-bone">T-Bone</a></h3>
+<p>You ain't a criminal if you've never been caught! Turn obstacles into targets with T-Bone as all eyes are on you crashing through the gates and riding away with the goods. You might even be fortunate enough to find a silk tunic caught in your wheels once the dust settles.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/t-bone.webp" alt="t-bone" class="center" />
+<h3 id="talisman-of-balance"><a class="header" href="#talisman-of-balance">Talisman of Balance</a></h3>
+<p>A statement piece for the homestead of those with a noble heart. Indeed, this talisman is a poignant reminder of egalitarian virtues, and the balance that exists in all things.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/talisman-of-balance.webp" alt="talisman-of-balance" class="center" />
+<h3 id="talisman-of-cremation"><a class="header" href="#talisman-of-cremation">Talisman of Cremation</a></h3>
+<p>Glory and peace to those that have come and gone, to our brethren that have fallen in this all consuming war. At ease, soldier - even as this dreadful Shadow claims your body, your spirit and valor shall dance with the heroes of old, as you transcend these mortal coils.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/talisman-of-cremation.webp" alt="talisman-of-cremation" class="center" />
+<h3 id="talisman-of-featherfoot"><a class="header" href="#talisman-of-featherfoot">Talisman of Featherfoot</a></h3>
+<p>Soar high above your opponents with this talisman from <a href="../../world-of-rathe/misteria/the-grandmasters-guild.html#xi-the-blind-ferryman">Skylark Peak</a>, where the transcendent monks of <a href="../../world-of-rathe/misteria/misteria.html">Misteria</a> sit amongst the willow cranes, as their spirits drift amongst the clouds.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/talisman-of-featherfoot.webp" alt="talisman-of-featherfoot" class="center" />
+<h3 id="tri-shot"><a class="header" href="#tri-shot">Tri-shot</a></h3>
+<p>Another day, another mark. Such is the life of a bounty huntress. Maybe this time they will put up a fight? It's been so long since I've seen some good sport. Crash the party in style with Tri-shot, as you unleash a flurry of arrows in an instant, before your opponent can even react!</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/tri-shot.webp" alt="tri-shot" class="center" />
+<h3 id="vexing-quillhand"><a class="header" href="#vexing-quillhand">Vexing Quillhand</a></h3>
+<p>Do you feel it, the words of the Monarch that muffle this world? As you scuttle like ants in this great machine, following its Will, its Light... its lies?</p>
+<p>Turn back and face the truth, child. Those who seek, will find. Those who hunger shall feast. Those that embrace the Shadow, shall be set free.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/vexing-quillhand.webp" alt="vexing-quillhand" class="center" />
+<h3 id="wild-ride"><a class="header" href="#wild-ride">Wild Ride</a></h3>
+<p>An Elf on an Elk? A Brute on a Boar? Tis but a small difference in the Belt-Buckle Derby.</p>
+<p>Everyone who knows how to have a blast can try their luck, so pick your favorite ride and get ready, set, GO!</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/wild-ride.webp" alt="wild-ride" class="center" />
+<h3 id="winds-of-eternity"><a class="header" href="#winds-of-eternity">Winds Of Eternity</a></h3>
+<p>The memories of the past can seem so fragile in these most turbulent of times.</p>
+<p>Another wanderer, another calling from within the <a href="../../world-of-rathe/misteria/among-the-mists.html#among-the-mists">Mists</a>, another ode of loss and vengeance, of love and hatred... when will this terrible cycle come to an end?</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/winds-of-eternity.webp" alt="winds-of-eternity" class="center" />
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../digital-tiles/05-tales-of-aria/tales-of-aria.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../digital-tiles/08-uprising/uprising.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../digital-tiles/05-tales-of-aria/tales-of-aria.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../digital-tiles/08-uprising/uprising.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

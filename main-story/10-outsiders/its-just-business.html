@@ -1,0 +1,339 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>It&#x27;s Just Business - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="its-just-business"><a class="header" href="#its-just-business">It's Just Business</a></h1>
+<p>"This is like no other place in <a href="../../world-of-rathe/rathe.html">Rathe</a>. Life here isn't some wheel that turns from sun to moon, work to sleep. Life in the <a href="../../world-of-rathe/pits/pits.html">Pits</a> ferments, humanity's scraps foaming and frothing into a heady brew."</p>
+<p>Whitetail stretches out his arms to encompass the kinetic clamor of the street. "Intoxicating, isn't it?"</p>
+<p>"Sure is," answers <a href="../../heroes-of-rathe/uzuri-about.html#uzuri-switchblade">Uzuri</a>, only sure of one thing: that Whitetail likes the sound of his own voice.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/uzuri-1.webp" alt="uzuri-1" class="center">
+<p>She walks with him through hawkers and hustlers, harlots and hucksters, all working on their next score. If the Pits is a brew, it's one that gets you drunk on hope, then drops you in the gutter with the roaches and rats. Uzuri's not been here that long, but the runaway learned fast not to drink too deeply of the Pits' dubious delights.</p>
+<p>They round a corner of precariously stacked shanties. Whitetail points out a busy marketplace where fishermen sell anything from blindseal to bloatfin-monsters of the Seethe hauled ashore for the desperate digestion of the Pits' hungering inhabitants.</p>
+<p>"That's where I took Baron the Butcher." Whitetail's smug smile takes on a wicked edge. "Disemboweled the big bastard with his own gutting knife. And up there..." He points to a looming chimney spewing noxious smoke. "I dropped Madam Rouge into a smelting furnace."</p>
+<p>He places his hand on Uzuri's shoulder, much to her displeasure. He only gets to keep that hand because she needs the work. Needs it bad.</p>
+<p>"Cross the wrong people and you get your name on a contract," continues Whitetail. "That's <a href="../../world-of-rathe/pits/blackjacks-mercenary-group.html#the-spider">the Spider's</a> business."</p>
+<p>Her business too, if this deal goes well. "Where'd you hear about me?" she asks, masking her eagerness with nonchalance.</p>
+<p>Whitetail removes his hand and waves it dismissively at no one in particular. "From the same people you made sure to inform of your exploits."</p>
+<p>Uzuri covers a twinge of pride with a casual shrug. Her mother always said that spreading words is like sowing seeds. As a merchant on the <a href="../../world-of-rathe/metrix/metrix.html">Metrix</a> to <a href="../../world-of-rathe/misteria/misteria.html">Misteria</a> trail, her silver tongue touted her tantalizing tek to any ear within hearing.</p>
+<p>"You're highly spoken of, kid, by some very low down people," continues Whitetail.</p>
+<p>She allows the 'kid' bit, for now. "Same could be said of you and your nest of killers."</p>
+<p>He breathes in the compliment, then exhales a peppermint-tinted question.</p>
+<p>"You killed anyone before?"</p>
+<p>A boy in Misteria. Did he deserve it? Uzuri still isn't sure. She's killed worse people since. But Whitetail reminds her of that big-mouthed youth.</p>
+<p>"Only when they get in my way."</p>
+<p>"Well, this one stands between us and a tidy payout." Whitetail passes her a sketch and a purse of <span class="hint" hint="tallics">tallics</span>. "Overseer Crichton. <a href="../../world-of-rathe/pits/blackjacks-mercenary-group.html">Blackjack</a>'s Mining."</p>
+<p>Uzuri covers her surprise; makes a show of hooking the purse to her belt. Suspicion follows. A Blackjack's overseer is a big hit, too big to entrust to an unknown like her. Whitetail should have contracted one of his experienced nestlings. Uzuri wonders why he hasn't?</p>
+<p>They pass under a woven bamboo archway into Ankomeido. Home to the misfits and malcontents of Misteria, Ankomeido is a claustrophobic quarter of teetering apartments and squirming side streets, connected to each other by a criss-cross of neon cables and steaming washing lines. Too similar to the cliffs and ropes of Misteria for Uzuri's liking. She's happy to visit this part of the Pits for payment, but doubts she'll ever visit for pleasure.</p>
+<p>"Why do you want him dead?"</p>
+<p>"No reason either of us needs to know."</p>
+<p>He stops near a noodle house, sniffs at the enticing aroma of fried chicken. Real chicken, by the smell of it. Not the usual 'sewer chicken'.</p>
+<p>"The Spider doesn't work for favors or influence," recites Whitetail, like he's reading from a rulebook. "Coin is the Spider's only currency."</p>
+<p>"My kinda philosophy."</p>
+<p>Uzuri tries to suppress her rising anxiety. The more she learns, the more she wants to work for the Spider. But is this the job to get her in the door? Or is it something else?</p>
+<p>"How do I find him?"</p>
+<p>"The Leaf House on Sori 16. You know it?"</p>
+<p>Uzuri nods, giving nothing away. She knows it, and she knows who runs it. This is an opportunity to learn more than Whitetail is telling her.</p>
+<p>"There'll be a package waiting for you at the front counter."</p>
+<p>Uzuri plays along. "Got people doing your spying for you?"</p>
+<p>"The Spider is nothing without its web," quotes Whitetail.</p>
+<p>"I'll keep that in mind." She turns to go.</p>
+<p>"Don't hold back on this job," advises Whitetail, the smugness in his tone making Uzuri's skin crawl. "Do this and I'll take you on full time."</p>
+<p>The offer sets her heart a-racing. But she plays it cool, shooting him a sharp look aimed to puncture his swollen head. "And I might consider accepting."</p>
+<p>Uzuri turns her back on Whitetail and heads for The Leaf House. She can feel him watching her like a <a href="../../world-of-rathe/pits/blackjacks-mercenary-group.html#dregs">dreg</a> eyeing a sewer chicken. Doesn't matter. Whatever game Whitetail is playing, she's going to win it. She'll prove herself worthy of the Spider.</p>
+<p>The Leaf House is busy when Uzuri gets there, humming with conversation, clinking with porcelain pots and cups. The wait staff sweep between the packed tables, graceful in their embroidered gowns and elegant, jade-pinned hair.</p>
+<p>A turned out waitress greets Uzuri with a professional smile.</p>
+<p>"Table for one?" she asks.</p>
+<p>"Package for one," answers Uzuri. "Whitetail sent me."</p>
+<p>The waitress bows and produces a small parcel from behind the counter, wrapped in red rice paper.</p>
+<p>"With compliments from Jemjang," offers the waitress as Uzuri takes the parcel from her manicured hands.</p>
+<p>Uzuri tears the paper apart. The documents inside confirm her suspicions: it's a suicide mission. No way Whitetail would've wasted one of his experienced nestlings on a contract like this.</p>
+<p>"I want to see her."</p>
+<p>The waitress meets her demand with a tolerant smile. "You may make any further information requests to me and I will be sure to pass them on."</p>
+<p>"Pass her this instead."</p>
+<p>Uzuri takes a coin from her pocket. Its golden sheen glints in the lantern light. Around the hole punched in its center, a striped tiger slumbers. She flips it into the waitress' waiting hands. Her painted eyes flicker with recognition. She bows deeply and hurries off through a side door, returning moments later without the coin.</p>
+<p>"Jemjang will see you now."</p>
+<p>The waitress shows Uzuri into a cluttered office and leaves, shutting the door with a soft clink. Uzuri pauses for a moment before turning to face the fixer. Jemjang's perched on a cushioned chair behind an elaborately carved desk, resplendent in a silk dress, her face painted to perfection, her graying hair coiffed with care. She appraises Uzuri through gold-rimmed spectacles, and doesn't seem to like what she sees.</p>
+<p>"Not what you expected?" snaps Uzuri.</p>
+<p>"You have your mother's eyes. How unfortunate."</p>
+<p>Uzuri bites back a retort, looking instead at a painting pinned to Jemjang's wall; a group portrait surrounded by the notes and observations of Jemjang's trade. A younger version of the fixer stands front and center, flanked by Uzuri's parents. Gathered behind them, tough and tattooed women and men pose for the painter, muscles flexed, eyes cold.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/uzuri-2.webp" alt="uzuri-2" class="center">
+<p>"I thought you might help me," states Uzuri, deadly calm. "For old times' sake."</p>
+<p>Uzuri's father told her all about the Running Tigers and their smuggling business. Weapons. The occasional narcotic. Njeri handled Metrix, Hisato looked after Misteria, and Jemjang kept the thoroughfares open between them. A smooth operation, until it wasn't.</p>
+<p>"Hisato betrayed me."</p>
+<p>"He just wanted out. New life."</p>
+<p>"Your mother's idea."</p>
+<p>"Doesn't change what you promised them."</p>
+<p>Jemjang nods, her jaw tight with grudging respect. "Your father's stubbornness. Your mother's wile."</p>
+<p>Uzuri shrugs. "I work with what I'm given."</p>
+<p>"What would you have me give you?"</p>
+<p>Uzuri tosses the documents onto her desk. "A way out. All I see here is a dead end."</p>
+<p>"You realize Whitetail isn't doing this one for the Spider. Gimlet Mining wants to muscle in on Blackjack's action. Crichton dies and Gimlet will owe Whitetail a substantial favor."</p>
+<p>Uzuri points at herself. "And one less mouth to blab about his side hustle."</p>
+<p>Jemjang drums her long, lacquered fingernails on the desk, weighing her options. At last she turns to the pigeonholes behind her, pulls out a scroll and passes it to Uzuri. Unfurled, it turns out to be a map, drafted by Blackjack's Mining Incorporated. Jemjang takes a brush from her desk, dips it in a well of red ink, and marks an X on the yellowed parchment.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/uzuri-3.webp" alt="uzuri-3" class="center">
+<p>"Where Crichton's mansion now stands," she explains. A second stroke of the brush marks a spot some hundred strides from the first. "Your way out. A mine shaft, covered and forgotten."</p>
+<p>Uzuri thrusts the map into her jacket pocket and retrieves the documents from Jemjang's desk.</p>
+<p>"Keep the coin. I've no further use for it."</p>
+<p>"Be sure to tell your father that we're even."</p>
+<p>"Of course, next time I'm in Misteria." Meaning, never.</p>
+<p>That night, Uzuri is delivered to Crichton's Maw estate in a stinking meat wagon. She waits in her cramped secret compartment until the overseer's servants carry the cured pork away, then sneaks into the shade of his towering mansion.</p>
+<p>Over the pounding of her heart, Uzuri hears the wagon rumble out of the grounds, tall iron gates clanging shut behind it. She's locked in now, behind brick walls patrolled by Blackjack's archers, their quivers bulky with incendiary arrows.</p>
+<p>The mansion itself is a magnificent display of ego. Stained-glass windows. Copper flashings. Bronze effigies of Blackjack's founding figures. All of it perched on a Northmaw ledge, positioned to catch that most rare of Pits commodities: sunlight from the pit mouth above.</p>
+<p>The ground patrols prove too frequent for her to climb the brickwork without being seen. She needs to make a gap. Uzuri steps out of the shadows in front of an armored hulk of a man. Startled, the merc opens his beard-rimmed mouth to raise the alarm. Her throwing knife hits him between the tonsils. Choking, blood gushing down his jaw, the guard yanks the knife free. Uzuri ducks in with her dirk, aiming to jam it into his jugular. He's quicker, less distracted than she'd hoped. He catches her wrist in a gauntleted hand, squeezes so hard that the chain links dig into her skin, drawing blood. With his free hand, he raises his mace, fixing to tenderize her like a steak.</p>
+<p>Out of desperation, Uzuri musters her ability, imagining a different weapon. The merc gurgles and chokes, impaled through the neck by the sword Uzuri now grips in her hand. He releases her and staggers as Uzuri pulls the sword free. She uses his own momentum to push the dying man behind a broad statue, then cleans and sheaths her weapon, a dirk once more. After retrieving her throwing knife, she climbs the mansion like a spider up a web.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/uzuri-4.webp" alt="uzuri-4" class="center">
+<p>Using her glass-cutting tool, she accesses a window on the third floor, stalking through the quiet corridors until she finds the master bedroom. Crichton is a plump parcel wrapped in sheets, boxed in by his four-poster bed. A gift for Uzuri to rip open.</p>
+<p>She hesitates, dirk in hand, having killed no one in cold blood before. In self-defense, as vengeance, yes. But this man-he's done nothing to her. She grits her teeth, clamping down on that pang of guilt. Coin is the Spider's only currency. This is the business.</p>
+<p>The dirk is gone, replaced with a straight razor. She places her hand on Crichton's forehead like a mother checking the temperature of a feverish child. He stirs, but doesn't wake until Uzuri draws the razor across his throat. His eyes snap open. He gasps for breath but sucks in nothing but blood. Uzuri leans hard on his forehead, pinning him to the bed as he struggles in vain. Blood soaks the sheets, seeps into the mattress, as Crichton's movements weaken and finally stop. Uzuri takes her hand from his forehead, brushes his eyelids closed with her fingertips, and wipes the razor on his pillow. By the time the blade is clean, the razor has become her dirk once more.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/uzuri-5.webp" alt="uzuri-5" class="center">
+<p>Outside, an alarm bell rings. The dead guard has been discovered. Uzuri saws off a couple of plump fingers for proof and pops them into an oilskin pouch. Then she's off at a sprint, rushing past the rousing servants, hurtling down stairs until she's stopped in her tracks by the thumping of hobnailed boots on carpet.</p>
+<p>An exit presents itself as a bronze maiden and a lead-light window. She hefts the nude, smashes the glass, and dives through. She hits the ground hard, despite her attempt to roll through the impact. Winded, lungs and guts burning, she stumbles to her feet, pressing on at a limping run.</p>
+<p>From the walls, the archers adorn her path with explosions, their incendiaries erupting to either side, spraying her with dirt. She weaves as best she can, making herself a tough target until she reaches the mine shaft marked on Jemjang's map. It's boarded shut, planks nailed down so tight that it'll take precious minutes to pry them loose.</p>
+<p>Uzuri takes a throwing knife from her belt and lays it flat on the wood. As she moves her hand away, the knife disappears, replaced by a stick of dynamite. She waits. Moments later, an incendiary arcs down towards her-an admirable feat of marksmanship by a ranger on the wall. Uzuri rolls away, settling into a crouch close by. Too close. Her ability isn't an exact science, unable to predict the potency of nitroglycerin. The incendiary arrow ignites the dynamite on impact. The explosion is deafening. Shrapnel peppers Uzuri, shards of metal and splinters of wood tearing through her clothes, lacerating her skin. She shields her face, winces through the pain, then looks with weeping eyes at the smoking hole left behind. She dives in, but not before gifting the archers an obscene gesture.</p>
+<p>The next evening, bathed and bandaged, Uzuri finds Whitetail at a bar called The Drop. While he makes a good fist of hiding his surprise, Uzuri can tell that her appearance has put a dent in his composure.</p>
+<p>She sits at his table and drops Crichton's fingers in his wine jug. Whitetail eyes them with distaste, and then her with even less pleasure.</p>
+<p>Uzuri rests her hand on the leather grip of her dirk and meets his baleful glare.</p>
+<p>"Coin is the Spider's only currency," she quotes, voice as smooth as silk.</p>
+<p>"You want more?"</p>
+<p>"I exceeded expectations, didn't I?"</p>
+<p>"How much of a bonus are we talking about?"</p>
+<p>"Depends how quiet you want me to be."</p>
+<p>Whitetail sighs, then takes a purse from his belt and pushes it across the table. She picks up the pouch, enjoys the heft of tallics inside.</p>
+<p>"Thanks. Almost enough."</p>
+<p>"Almost?" The arrogance is back, accessorized by a deadly glint in his blue eyes.</p>
+<p>"Nothing else you need to give me. In fact, it's something I want you to keep."</p>
+<p>"What is it?"</p>
+<p>"Your promise."</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/uzuri-6.webp" alt="uzuri-6" class="center">
+<p>Whitetail laughs, impressed. "Alright, kid. Guess you might as well learn from the best." He offers her his hand. "Welcome to the Spider."</p>
+<p>Uzuri takes his hand in hers. The other remains wrapped around the handle of her dirk.</p>
+<hr />
+<p><em>Source: <a href="https://fabtcg.com/heroes/uzuri-switchblade/?stories=True">https://fabtcg.com/heroes/uzuri-switchblade/?stories=True</a></em><br>
+<em>Written by Edwin McRae and Rachel Rees.</em><br>
+<em>Directed by Robbie Wen. Illus. by Nikolay Moskvin.</em></p>
+<hr />
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/10-outsiders/the-spiders-trap.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/10-outsiders/the-iconoclast-trials.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/10-outsiders/the-spiders-trap.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/10-outsiders/the-iconoclast-trials.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

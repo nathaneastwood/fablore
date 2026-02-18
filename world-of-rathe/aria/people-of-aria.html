@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>People of Aria - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="people-of-aria"><a class="header" href="#people-of-aria">People of Aria</a></h1>
+<p>The Flow fuels everything that grows within Aria. The plants here thrive - trees never stop producing fruit, plants grow at a rapid pace, and the creatures are docile and tame. As a result, the people of Aria are free to pursue a more relaxed lifestyle, becoming musicians, performers, entertainers or craftsmen. The people of Aria flock to the region's abundant taverns for drinks, stories, music and entertainment, taking advantage of any opportunity for celebration or festivity.</p>
+<p>While many people settle in villages, some choose a more nomadic lifestyle, travelling across the region. These nomads travel from village to village, pitching tents or sleeping beneath the stars. As they pass through villages, they offer help or entertainment, and the village provides for them in return.</p>
+<p>Aria has no form of currency, as its people function on a simple bartering system based on the idea of equivalent exchange. A peaceful region abundant with natural resources, its people feel no need to hoard wealth, food or goods, readily sharing their home with others.</p>
+<h2 id="the-everfest-carnival"><a class="header" href="#the-everfest-carnival">The Everfest Carnival</a></h2>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/world-of-rathe/aria/everfest.webp" alt="The Everfest Carnival" /></p>
+<p>The people of Aria are never more excited than when the Everfest Carnival is near. A giant, travelling circus, the Everfest Carnival is the size of a small town, boasting hundreds of tents and attractions. The Everfest has been a staple within Aria for centuries, travelling from village to village, growing larger with every passing decade. Some of the oldest families in Aria are part of the Everfest, their ancient traditions evolving to number among the most popular Carnival acts.</p>
+<p>One of the most well-known sectors of the Everfest is the Maela, a group of tents boasting fortune-tellers, seers, oracles, enchantresses and conjurers. Members of the Maela are known for their strange and wondrous talents, performing enchantments and acts of mystery for those with an open mind.</p>
+<p>Another sector of the Everfest Carnival is the Valdur, known for strongman acts and their work with animals. From massive Fianna to fierce Vitre'o, these creatures are well-trained, proudly performing before crowds to rousing applause. Some of these creatures also help to transport the Carnival, using their strength to pull carts and carry goods.</p>
+<p>Many other acts exist within the Everfest. Some, such as the Legendarium, are larger acts staged with the help of a team; others are smaller, the work of small families or individuals.</p>
+<h3 id="endless-entertainment"><a class="header" href="#endless-entertainment">Endless Entertainment</a></h3>
+<p>The magic of the Everfest Carnival comes from its people, those who have made a home with the travelling carnival. Some set up food stalls, weaving spools of spun sugar, making tiny handheld pastries, and hot toasted bannock; others run small bars providing unique, magical spirits and liqueurs. However, most of the Carnival belongs to its performers.</p>
+<p>Trapeze artists flying above the audience, silk dancers weaving their way through the air, escape artists freeing themselves from chains and barrels filled with water, stunt performers who set themselves on fire and throw themselves through a maze of razor-sharp blades. Animal trainers, strongmen, fire breathers, sword swallowers, jugglers, acrobats, contortionists, jesters, harlequins, hoop divers, knife throwers, and actors recreating the legends of old.</p>
+<p>Some stage their performances within the circus tents, whilst others perform underneath the sky, enchanting passers-by. Stilt-walkers wander through the crowds, while bards recount tales of old to enchanted audiences, and faint, ethereal music drifts through the air. Circles of tents provide a space for fortune-tellers and oracles to practice their secret arts, curtains drawn back to reveal the candlelit tables within. Illusions and displays of light weave their way through the air above, while below, the enchantresses and illusionists dance, their golden jewellery chiming with every movement.</p>
+<h2 id="crafts"><a class="header" href="#crafts">Crafts</a></h2>
+<p>Aria is home to a variety of unique skills, crafts and talents, unlike those anywhere else in Rathe.</p>
+<h4 id="braumeister"><a class="header" href="#braumeister">Braumeister</a></h4>
+<p>While taverns are not an uncommon sight in Aria, and many have tried their hand at brewing spirits and ale, Braumeisters are among the most elite of their trade. Spirits made by a Braumeister possess unique effects, depending on the kind of spirit, the ingredients used, and the person brewing it.</p>
+<h4 id="wayfarers"><a class="header" href="#wayfarers">Wayfarers</a></h4>
+<p>The first step of any wayfarer's training is the creation of a dowsing disc, a finely tuned instrument that allows wayfarers to read the changes in the land around them. In an ever-changing landscape, the help of a wayfarer is invaluable, as they map out new paths and discover new locations.</p>
+<h4 id="defenders"><a class="header" href="#defenders">Defenders</a></h4>
+<p>In an era of change, where the ancient barriers between Aria and the outside world are breaking down, defenders have risen to protect their home from outsiders. Those who break through and enter Aria with ill intentions, whether to steal or harm, will quickly find themselves at the mercy of patrolling defenders. Groups of defenders can be found travelling between villages, guarding their home and keeping an eye out for trouble.</p>
+<h4 id="diviners"><a class="header" href="#diviners">Diviners</a></h4>
+<p>While wayfarers can read the lay of the land, diviners learn to read the Flow itself. They can see the currents within the Flow and follow patterns to predict how the Flow will shape the world around it. Diviners are also able to follow these currents to discover where the Flow is strongest, and areas more susceptible to change.</p>
+<h4 id="shamans"><a class="header" href="#shamans">Shamans</a></h4>
+<p>Legend speaks of powerful shamans, capable of creating incredible spectres with a wave of their hand. Now, shamans are best known for their work within the Everfest, creating breathtaking displays by manipulating the Flow around them.</p>
+<h4 id="dreamers"><a class="header" href="#dreamers">Dreamers</a></h4>
+<p>A dreamer is a person with a natural-born gift - the waking sleep, a state in which dreamers can glimpse fragments of the past, present and future. For some, visions can even come to them when fully awake, catching glimpses of what might be, and echoes of those who came before.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../world-of-rathe/aria/a-true-sanctuary.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../world-of-rathe/aria/tides-of-change.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../world-of-rathe/aria/a-true-sanctuary.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../world-of-rathe/aria/tides-of-change.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>
