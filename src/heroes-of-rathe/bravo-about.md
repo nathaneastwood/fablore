@@ -67,3 +67,35 @@ Coming soon!
     Folk flock from all across Rathe to see the Star of the Show take center stage at the Everfest carnival. With the biggest acts and attacks in all of Flesh and Blood, Bravo never disappoints his fans.
   </div>
 </div>
+
+---
+
+# Bravo, Flattering Showman
+
+<video width="100%" height="100%" controls autoplay muted loop playsinline>
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/bravo-flattering-showman.mp4" type="video/mp4">
+</video>
+
+Give Bravo an ale-addled Everfest crowd, a Shadow-riddled battlefield, or a coliseum-sized stage, and he will command attention with the same effortless charm and impeccable presence.
+
+He is a showman, yes. Raised among dancers and magicians, surrounded by oracles and bards, Bravo learned early that a truly great performance is not only what you do, but how you make the world feel when you do it.
+
+Bravo delivers on both jaw dropping-hits and staunch defense. No matter where his story takes him or how fierce his antagonists, he'll rise to the challenge in force. A powerful Guardian who turns heads in more ways than one.
+
+And when the finale arrives, Bravo commits in full. One blow can knock an opponent off their feet, leaving onlookers stunned into silence. And then the applause soars, louder than before, the crowd certain they just witnessed something legendary.
+
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/crushing-celebrity.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Crushing Celebrity</b><br>
+    It only takes a smile from that famous face to get the crowd crushing on Bravo. His pride swells with every swoon, along with the power of his punch.
+  </div>
+</div>
+
+<div class="hero-container">
+  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dramatic-domination.webp" class="hero-icon" />
+  <div class="hero-content">
+    <b>Dramatic Domination</b><br>
+    When Bravo claims the spotlight, the crowd knows he’s about to dominate the show. At that point there's only one way out for his opponent: on a stretcher.
+  </div>
+</div>
