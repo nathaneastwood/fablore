@@ -1,0 +1,258 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Order of the Light - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="the-order-of-the-light"><a class="header" href="#the-order-of-the-light">The Order Of The Light</a></h1>
+<p>In ancient times, the light of Sol guided the city's founders onto the shores of Rathe; it showed them where to build their home, and was what protected their fledgling fortress from the Shadows. The Order of the Light was born of these ancestors, noble individuals who sought to spread Sol's blessings and watch over their people. The Light of Sol is mainly composed of scholars, those born with a connection to the aether, who study spells in order to embrace the Light, while the Hand of Sol are an order of knights, dedicated to protecting and watching over their people.</p>
+<h2 id="order-of-the-light"><a class="header" href="#order-of-the-light">Order Of The Light</a></h2>
+<p>The Light is the lifeblood of Solana, a radiant energy borne of Sol. It is knowledge, wisdom and integrity; it is valour and loyalty. The Light guided Solana's founders to the shores of Rathe, it showed them where to build their home; it is what protects the city from the Shadows. Solana is blessed by the splendour of Sol, a radiant figure that has guided Solana to become the shining example for all of Rathe to follow.</p>
+<p>The Order of the Light was borne of these ancestors, noble men and women who seek to spread Sol's blessings and watch over the people of Solana. The Light of Sol is comprised of scholars, those born with a connection to light magic, studying spells in order to help their fellow man. The Hand of Sol are Solana's warriors, dedicated to protecting and watching over their people.</p>
+<h2 id="seekers-and-scholars"><a class="header" href="#seekers-and-scholars">Seekers And Scholars</a></h2>
+<p>Every scholar first starts their training as a seeker, chosen by Sol to fulfil a divine purpose. Their affinity with the light gives them an incredible gift, a spark that can be cultivated into light magic, the very essence of Sol's blessings. A seeker's training begins with academia, studying the history of Solana and learning arithmetic.</p>
+<p>Once the first eight years of training are completed, seekers graduate and become acolytes, and begin working in the Library of IIlumination. In addition to clerical duties, organisation, and recording information, acolytes will study light magic, and begin the delicate process of developing and training their magical abilities. It can take up to twenty years for an acolyte to become a scholar, depending entirely on their talent, skill and dedication.</p>
+<h2 id="the-sacred-hierarchy-of-solana"><a class="header" href="#the-sacred-hierarchy-of-solana">The Sacred Hierarchy of Solana</a></h2>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/world-of-rathe/solana/sacred-hierarchy.webp" alt="The Sacred Hierarchy of Solana" /></p>
+<h2 id="the-light-of-sol"><a class="header" href="#the-light-of-sol">The Light of Sol</a></h2>
+<p>The Light of Sol is predominantly comprised of scholars, including acolytes, chancellors, archons and magisters. They are the spiritual lifeline of the kingdom, providing a variety of services to their people. The members of the Light of Sol are healers, academics, researchers, scribes, guides, confidantes, leaders and fighters, working to serve and defend their people in whichever role they are most needed. Many such scholars will journey beyond the city walls in their lifetime, fighting alongside the knights of the Hand of Sol, and joining their parties on expeditions and patrols. However, there are far more roles incorporated into the Light of Sol than only these examples.</p>
+<h4 id="the-gemini"><a class="header" href="#the-gemini">The Gemini</a></h4>
+<p>These operatives work to defend Solana from its enemies by walking the fine line between light and darkness. They blend seamlessly into their surroundings, hiding in plain sight; masters of disguise who remain vigilant in their mission to unearth the enemies of Solana. Across the lands of Rathe, the Gemini collect intelligence and send information to the Light of Sol, scrutinising any potential plots against the city.</p>
+<h4 id="illusionists"><a class="header" href="#illusionists">Illusionists</a></h4>
+<p>In Solana, illusionists are hailed as revered emissaries, bringing the light of Sol beyond the grand gates of the city. Illusionists are unique in that they draw their power from a keen understanding of the world around them, an ability which allows them to bring the stories and word of Sol to life by creating breathtaking spectacles-powerful, tangible illusions which are almost indistinguishable from reality. They are often dispatched with parties of knights to travel to foreign lands, creating visions of the radiant city for outsiders to behold.</p>
+<h4 id="magisters"><a class="header" href="#magisters">Magisters</a></h4>
+<p>The guiding light of Solana, Magisters are champions who are specially chosen to execute the will of Sol. There are eight Magisters in the city, each representing one of the eight sectors. Their ornate masks mark them as divine messengers, who have dedicated their lives to delivering the word of Sol. Each Magister is an accomplished scholar of the Light, and each is responsible for one of the city's landmarks, in addition to serving as a member of the Grand Council.</p>
+<h4 id="grand-magister"><a class="header" href="#grand-magister">Grand Magister</a></h4>
+<p>In the history of Solana, there have only been five Grand Magisters, each one serving the city as the highest representation of Sol, the embodiment of Sol made manifest in physical form. It is their sacred duty to ensure the wellbeing of the city through Sol's blessings, and guide their people toward a more beneficial future. They are not only the leaders of their people, but their caretakers, their heralds, and their mentors. The current Grand Magister, the Steadfast, is known for their firm, wise leadership, helping to guide Solana into an age of peace; perfectly calm as they steer their people through stormy seas.</p>
+<h2 id="the-hand-of-sol"><a class="header" href="#the-hand-of-sol">The Hand of Sol</a></h2>
+<p>The Hand of Sol is Solana's order of knights, who defend the city from outside threats. While all in the Hand of Sol call Solana their home, they frequently travel beyond the city's walls, scouting for dangers, watching over settlements, and defending the innocent from harm. Beyond the grand gates, these knights travel in parties, their numbers ranging anywhere from small adventuring squads to massive war brigades. Many of these companies are assigned a member of the Light of Sol, who not only provides healing and guidance to the knights, but helps them to spread word of the Light in their travels.</p>
+<p>While all knights of Solana come from the Hand of Sol, not all members of the Hand are knights. There are some who serve a more specific purpose, becoming a part of a more specialised team who are able to respond to unique threats.</p>
+<h4 id="inquisitor"><a class="header" href="#inquisitor">Inquisitor</a></h4>
+<p>Where the Gemini seek out information and uncover peril, it is Inquisitors who strike at potential menaces, and work to root out the evil which is sown across Rathe. They scour the Golden Fields and Northern Realms, hunting down cultists, heretics, and all those who jeopardise or sacrifice the innocent in their quest for power. The Inquisitors endeavour to eliminate threats to Solana before devious plots can come to fruition and endanger the lives of its citizens.</p>
+<h4 id="clerics"><a class="header" href="#clerics">Clerics</a></h4>
+<p>Aether affinity in members of the Hand of Sol is rare, but not unheard-of. There are some who not only display a talent for weapons and melee fighting, but also show a potential for magical abilities, and are taught to intertwine the two in their quest to defend Solana. Clerics possess both the strike of a warrior and the touch of a healer, fighting to protect the innocent, cure the sick, and mend the broken.</p>
+<h4 id="templars"><a class="header" href="#templars">Templars</a></h4>
+<p>The leaders of the Hand of Sol, Templars guide their parties to glory, oversee the training of all squires, and watch over those in their care. Many Templars number among the most talented and experienced fighters in Solana, and use their knowledge of the battlefield and the lands beyond to protect their home from evil.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../world-of-rathe/solana/to-be-a-solanian.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../world-of-rathe/solana/children-of-the-light.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../world-of-rathe/solana/to-be-a-solanian.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../world-of-rathe/solana/children-of-the-light.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

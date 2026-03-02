@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Kassai&#x27;s Diary - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="kassais-diary"><a class="header" href="#kassais-diary">Kassai's Diary</a></h1>
+<hr />
+<p>The desert eats. No. The desert <u>devours</u>. I need food. It's been five days since I found my last meal. The taproot of a shrub sucked dry in the heat. It looked like a living fossil. What I would not give for a juicy side of warthog... the tail of a horned drizard...one of those desert beetles even. I heard they suck water from fog, clever bastards. When I next meet that maggot, <span class="hint" hint="Chul">General Chul</span>, I will make him eat the sand. I will fill his gullet with it until he chokes. He will know how it feels to be eaten alive by the desert.</p>
+<hr />
+<p>This night, I am camped inside a sand trench. The raiders who dug it out were imperial deserters. They wore the cloth of a farmer, but fought like soldiers. Four of them, eyeing up a small settlement in the ruins near the fertile oasis of Urjiysa. Fools had started a fire so it was not hard to ambush them. Among some hessian, which I have wrapped around the wound on my arm, I have gained leather laces for my boots, a healthy purse of coins, water, and the brittle remains of their feast. Spiked sand croakers. Chewy if not cooked well, but these were charred black. Above me, an inky ocean of glittering stars. There is still beauty in this brutality, if only for a moment.</p>
+<hr />
+<p>I met with opportunity today, in the ruins near towering sand dunes. Granted, I almost died in the meeting by the blade of an especially mouthy bastard with a stitched socket for one eye. But I held my own. Took the head clean off his shoulders. Father would be proud. They call themselves <span class="hint" hint="Cintari">Cintari</span>. Infamous among traders for being the mercenaries of the desert lands. Took my coin, feral thieves, but not my life. <u>Why not kill me?</u> They seemed roused by my wielding of the saber. I hope that is all they are roused by. Have secured me in a caravan with enough light to write this pithy introspection. Out there, all deception. In here, my truth.</p>
+<hr />
+<p>We set out at twilight. Moved silently across the sands towards a lair of giant drift stingers. Thought this was a party assault, but no. As we approached their den, the Cintari stood back. Watched as I faced the swarm alone. The scorpions were swift, and their poison burned through my veins. Each strike brought me closer to the grave than I have ever been. Just as my vision blurred and body faltered, the Cintari swooped in to finish the last of the creatures. Poured a bitter concoction down my throat. As the antidote coursed through me, I felt life returning. <span class="hint" hint="Sada">Sada</span> said the sand spat me out and the stars bore witness to my trial. This was my <u>training</u>. Covered in bruises the color of plump Vahanian grapes and feel splendid!</p>
+<hr />
+<p>Another day in the desert, another head on the sand, another coin in the pouch. Spent all evening tending to each of my weapons. Vinegar and lemon to clean the curve of the cheek. A ball of spit on the whetstone to help sharpen and polish the edge. They are more than armament, they are my admission into the fold. The faces of my enemies must always be reflected in the glint of their steel.</p>
+<hr />
+<p>Best recipe for spiced cactus blossom tea. Boil water in a large copper kettle. Infuse a hefty handful or two of cactus blossom and tea leaves grown in rich volcanic soil on the northern ridges of <a href="../../world-of-rathe/volcor/volcor.html">Volcor</a>. Add enough Cintari spice for a peppery punch together with half a pannikin of date palm syrup. Stir with a palm sapling to bring out the flavor until the tea is declared made. In these climes, the Cintari take their tea without milk. It is much preferred to the weak, cream-topped tea taken in the imperious obsidian halls within <span class="hint" hint="Ashvahan">Ashvahan</span>. And the aftertaste is...enlightening...The Cintari are not wrong in saying "one sip is a meeting with stars and sand".</p>
+<hr />
+<p>I used to dream. I would climb the ashbrel tree, lie in a fork at the trunk, close my eyes and imagine the type of person I might one day become. A brave lieutenant in my own right, the pride of her father. A true leader, benevolent where others are cruel.<br>
+Where did that Kassai go?<br>
+All I see is blood on my hands. Wet blood. Dried blood. Blisters and gore.<br>
+I kill. I steal. Another head. Another piece.<br>
+But it is too late for regret and sorrow. This is who I need to be...what I'll be remembered for.<br>
+It is how I will claim my fortune and seek my revenge.</p>
+<hr />
+<p>Today, my mind is a whirlwind, filled with more thoughts than I have ink to scribe them. In a settlement far from Ashvahan, I encountered a rebel. <a href="../../world-of-rathe/volcor/the-royal-court.html">The Royal Court</a> is fractured, and the rebellion stands at a stalemate. Then, I heard whispers from the fleeing rebels about Deathmatch - a brutal arena where fortunes are made. Why did General Chul take my family? Power, I am sure, but perhaps... Are my parents somehow involved in the uprising? How can I even believe them alive after all this time? I am met with nothing but silence, nothing to pin a hope on. Deathmatch is my path. The price of my pain will be coin, mountains of it, and an army so great the desert itself will quiver.</p>
+<hr />
+<p>Six days across the scorched, parched terrain of the <a href="../../world-of-rathe/volcor/the-red-desert.html">Red Desert</a> under the relentless sun. And now, at last, we have arrived at the border of <span class="hint" hint="Gougemoor">Gougemoor</span>. It is an oasis of another kind for refugees - man and beast alike - worn down by the relentless desecration of their former territories. An opportunity, too, for the scum of <a href="../../world-of-rathe/rathe.html">Rathe</a> to settle in and seize whatever they can get their hands on. Lawless and wild. I am told Gougemoor smashes up against the <a href="../../world-of-rathe/savage-lands/savage-lands.html">Savage Lands</a> and out of that friction the Moat has risen, home of the Deathmatch. We head there tomorrow, sands willing.</p>
+<hr />
+<p>Hard to describe my feelings in looking out upon Deathmatch arena for the first time. It is upwards of fifty meters tall from pit level to the topmost stands! Many smaller arenas surround the main arena and the Moat squeezes it into shape like a corset on a full-bodied whore. Smells of every kind - a spicy stew of blood, sweat, vomit, piss, and perfume. And the noise. Arena masters shouting the coin value of the next fight, trainers inflaming their beasts with whips. I watched a hulking brute, <a href="../../heroes-of-rathe/rhinar-about.html">Rhinar</a>, tear a <span class="hint" hint="Brawnhide">brawnhide</span> apart. As I thought of the scale of opulence and combat within the arena's bloody embrace, I struggled to hold back tears. It is beautiful. Bloody beautiful.</p>
+<hr />
+<p>Looks like chaos when you first get here. Everyone doing their own thing. Touting their wares, shouting their brags and curses, swilling in the taverns, scrapping in the streets. Almost smells like freedom until your nose gets used to the place. Then you get a whiff of what's underneath, a hierarchy as set and strict as the imperial court. The Fightmasters rule the roost in the dens and battlefields. The Arena Masters oversee the business of things - tournament timings, safeguards, revelries. The Grandmaster of Combat oversees the big matches, the real coin-spinners. Then there's Kox (who, despite his stature, spits his superiority over all and sundry), the masters, the wranglers, the merchants, and us, the main attraction - the meat.</p>
+<hr />
+<p>One combatant is a cocky bastard, utterly full of himself. <a href="../../heroes-of-rathe/victor-goldmane-about.html">Victor Goldmane</a>. Mister high and mighty. We spit on his kind back home. Does not know the trials of war nor has he experienced true leadership in the face of defeat. Layered in so much armor and ego, he clinks like fool's gold in a chain-mail purse. Bastard scrutinized me... called me a slop-made desert swine. Took all of my resolve to not drop the piss-haired pissant then and there! We are matched to fight next week and I have been watching his patterns. His shield dips a fraction when he lunges. I can use that.</p>
+<hr />
+<p>A warm tavern at battle's end is for those who volunteered. <del>Everyone</del>...everything else? Caged beasts, all of them. Beasts like <a href="../../heroes-of-rathe/kayo-about.html">Kayo</a>. That one has murder in its eyes. Murder in its <del>fists</del> fist. Murder in its sleep, too, no doubt. I hear it... all of them... through their bars at night, sacked-out and snoring. As for the wellborn contestants... their indulgences make them weak. One backwater bastard fought bravely today. Farm-boy turned fighter with nothing to lose. But I was too much for him. Struck him over the skull so I wouldn't have to kill him. Idiot was too pigheaded to give in. At last, I drew my saber and stuck him in the gut. Too easy! Too bad. The crowd booed. Wait until tomorrow. The beasts will bring their best. We will give the audience something to cheer about!</p>
+<hr />
+<p>I saw <a href="../../heroes-of-rathe/betsy-about.html">Betsy</a> on my first night here. She likes her liquor and a lark, this much I can tell. In the arena today, she was a storm of rage. No strategy, her anger a weakness. But I must hand it to her. She is strong! When she swung her weapon, the ground beneath me rumbled. I deflected more than I struck, wearing her out gradually. Part of me wanted to let her win so I could enjoy that throaty laugh of hers in the taverns. But only fools let pleasure stand in the way. I brought my blade to her throat, forcing her to yield. The crowd wanted more, but she lay down her weapons. The look she gave me. Sands only knows what might happen if we cross paths at a tavern tonight.</p>
+<hr />
+<p>In <span class="hint" hint="Deshvahan">Deshvahan</span>, father taught me how to see and maneuver in battle. In the desert, the Cintari taught me how to listen and wait. How to find the unfindable. To seek, they said, a survivor must close their eyes to the desert's many mirages and instead hear all, smell all. Only then will the desert reveal the truth. This is how I know...I listen...tankards thumping, drunkards laughing, coins clinking, strings plucking, gamblers roaring, spit roast sizzling, urine seeping, sweat mingling, mud staining, aged timber creaking...wait for it...wait for the moment to strike.</p>
+<hr />
+<p>These so-called gladiators hack at me like I'm a side of beef and seem quite shocked when I meet their blunt force with sabers drawn. There is one here though that impressed me early on. <a href="../../heroes-of-rathe/olympia-about.html">Olympia</a>, The Eternal, they call him. The first to arrive and the last to leave. No sign of him in the taverns at night. Harder than all to predict in the arena. Until today, he was the undisputed champion. The look on his face when Kayo tore him down. The gasps were audible. Even I winced. Saved from certain death by Kox. But Kayo killed Olympia's chances and his reputation in one brutal smackdown.</p>
+<hr />
+<p>Woke to an announcement of a Blood Brawl. Urgency in the streets, people shouting bets, the prize value lifting at the rising inflection of Kox's criers. More gold than I had earned all week in the arena. Couldn't refuse. Entered the enclosure and what did I see? Beasts, brutes and bruisers alike - the odd gladiator like myself. Nothing fair about this, but it was too late. Sada refused to watch. Asked me, was I ready to die? Had to carve my way out in the end. Blood from hood to caligaes. Now, when I enter the arena, they chant "Terror, Terror, Terror". Finally, I have won them over.</p>
+<hr />
+<p>In the Moat, winning a coin has proven easier than holding onto it. I pity the bastards who traveled here without a party to secure a day's takings. My years with the Cintari are paying off. Turns out guarding gold is an art best left to the lords of the sands. They've had plenty of practice protecting caravans, and even more raiding them. Pays to know both sides of the coin. <span class="hint" hint="Alif">Alif</span> and <span class="hint" hint="Fayyad">Fayyad</span> found us a safe path to the outskirts, clear sightlines for most of the way. Easy to flush thieves out from the rest. Pinning a few severed ears to the side of the wagon helped. I sleep easy at night knowing my people and I share a mutual self-interest.</p>
+<hr />
+<p>Victor Goldmane thought himself invincible, but he did not know I had studied his every move. Big mistake, pissant. I knew every flaw going in. I danced around his attacks, and when the perfect moment came, I struck. The arena roared! Can you believe he begged for his life? Promised me gold, more than I could carry if I spared him. The crowd demanded blood, but I saw an opportunity. I am not here for senseless slaughter. He kept his word. As I write, my people tally the takings. He underestimated me, like many in this place. The Deathmatch may be harsh, but my resolve is harsher.</p>
+<hr />
+<p>Kayo was like nothing I have faced before. Every maneuver was a gamble (that Sada had bet on!). I saw her watching from the sidelines, showing no emotion even when the brute tore through my shoulder blade. Here I am, feeling victory slip through my fingers, naive to the fact that she had bet hard-won coin on my success. Finally, I exploited a tiny opening, barely escaping Kayo's grasp. After the fight, Sada collected the winnings, her smile far too large for my liking. I am lucky to have escaped with my life. But I admit it - luckier still to have such a cunning companion by my side.</p>
+<hr />
+<p>This victory is not mine alone. It is a result of every battle fought and every challenge overcome with my Cintari at my side. Tonight, we celebrate, not just for the victory, but for the path it has paved. The Golden Sands are ours, but the journey is far from over. Fighters from all over Rathe now flock to my banner, seeking to serve "The Terror". It's not just my gold they want. Like me, they came to Deathmatch to make a name for themselves. There is glory to be had. They can see it as I do. For this is only the beginning of what we might achieve.</p>
+<hr />
+<p>There are few who know the true value of gold. It is a noble metal. Pliable yet resistant to corrosion. Alone, it withstands the anger of heat and pressure. But when alloyed with metals such as copper and silver, it is transformed. Becomes stronger, more resilient. A single coin will survive the journey of a thousand hands. Today, I stand ready to lead an army of many into Volcor. These soldiers, these comrades-in-arms, are worth more than the sum of all the gold won in the Deathmatch. Together we are transformed - reforged. Every marching step brings us closer to reclaiming what was stolen from me. This is what I fought for. Risked my life for. I won the battles so that we might win the war.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../short-stories/14-heavy-hitters/victor.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../short-stories/15-part-the-mistveil/set-announcement.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../short-stories/14-heavy-hitters/victor.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../short-stories/15-part-the-mistveil/set-announcement.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

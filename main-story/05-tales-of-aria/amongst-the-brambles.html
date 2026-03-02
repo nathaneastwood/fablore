@@ -1,0 +1,259 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Amongst the Brambles - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="amongst-the-brambles"><a class="header" href="#amongst-the-brambles">Amongst the Brambles</a></h1>
+<p>The heartlands of <a href="../../world-of-rathe/aria/aria.html">Aria</a> are painted with vast swaths of forests. Crystalline trees glimmer under the rainbow glow of the Flow, as beautiful Cesari and all manner of wondrous creatures dance amongst the trees. These woods had borne witness to countless stories and legends throughout the Ages, as the once arid badlands was transformed into the sanctuary that it is today by the remnants of the Ancients' power.</p>
+<p>It is within these woods that the enclave of Candlehold lay hidden, surrounded by the thick walls of bramble and thorn that separated it from the rest of Aria. And it is here that the Queen of Candlehold drifted in and out of her timeless slumber, as her dreams took her back to the Third Age, and the horrors that befell her people.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/briar-1.webp" alt="briar-1" class="center">
+<p>At the height of battle, Davnir, Ancient of Earth and Lightning, was struck down in front of her very eyes. Her people were once powerful scholars that stood alongside the likes of the Ollin and the Seers, but their ranks quickly crumbled without Davnir by their side. As her brothers and sisters fell all around her, in a final act of desperation, she ignited the essence of their fallen protector, and unleashed its full potential in reckless abandon.</p>
+<p>The power of Earth and Lightning converged all around her in a violent storm, erupting in an overwhelming torrent as it ravaged the land, and transformed its inhabitants. Her people would be saved, but salvation had come at a hefty price... They had melded with the volatile energy of Davnir, a power borne from her own reckless spell.</p>
+<p>They had become one with these enchanting woods.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/briar-2.webp" alt="briar-2" class="center">
+<p>The days came and went in an endless stream, as time itself began to lose its meaning. An eternity passed before the Queen stirred from her slumber, and an eternity more, before she mustered up the strength to free herself free from her leafy "throne".</p>
+<p>She had become one with Candlehold; its charge, its carer, and its prisoner. But with an incredible force of will she tore herself out of its warm embrace, for her people needed her now more than ever.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/briar-3.webp" alt="briar-3" class="center">
+<p>Slowly, she gathered their drifting spirits, and infused them within the seeds that grew atop her mighty throne. With great patience and perseverance she weaved the essence of Davnir over them, and for many long seasons nurtured them with her mighty magic... until the day came when she would set them free, to begin their life anew.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/briar-4.webp" alt="briar-4" class="center">
+<p>And on that day the Queen spread her arms, and the quiet breeze scattered the seeds all over this peaceful enclave. They would land upon pristine pastures or amongst fields of flowers, and sprout and grow into mighty trees! And one by one her brothers and sisters returned; they had become Wardens of the grove where they laid down their roots. But they too were trapped here by the power of Davnir, and could do naught but chew over the days within this timeless paradise.</p>
+<hr />
+<p>In a dark, lonely corner, a little seed pulsed and throbbed amongst the thick bramble as it struggled to lay down its roots. She had drifted far upon gusts of wind, carried by creatures of the forest, and by some cruel twist of fate or perhaps great fortune, fell upon this most inhospitable of groves at the outer edges of Candlehold.</p>
+<p>The thick vines and brambles that grew here had protected Candlehold throughout the Ages, while the Queen lay drifting within her peaceful slumber. In time they covered the earth and the sky with their gnarly, twisting form, and warded off all that would encroach upon these lands.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/briar-5.webp" alt="briar-5" class="center">
+<p>They were the little seed's greatest foe as they greedily lapped up the energy of Davnir that flowed from the heart of Candlehold, leaving her to wither all on her lonesome. But she was resilient. She was tough. In the face of these giants she stood her ground. And in time, planted her roots deep into the earth.</p>
+<p>The days blended into weeks, and years, until an elder noticed her peeking out from within the overgrowth. The Queen, her heart broke for the poor child, and she sent her best shamans to aid it the best they could. They rained healing waters down upon her, and infused her with the essences of Earth and Lightning. With their help, she began to thrive.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/briar-6.webp" alt="briar-6" class="center">
+<p>Until at long last it was her turn to bloom.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/briar-7.webp" alt="briar-7" class="center">
+<p>She took the name of <a href="../../heroes-of-rathe/briar-about.html">Briar</a>, the wild rose that sprung forth from amongst the bramble. And all of Candlehold rejoiced, as the last of their sisters returned to them.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/briar-8.webp" alt="briar-8" class="center">
+<p>But Briar was unlike her brothers and sisters. She was tough and hardy like the brambles that blotted out the skies of her youth. And though they were kind to her and welcomed her as one of their own, she felt most at ease amongst the thorns and brambles of her grove. Her old nemesis, the vines, had become her greatest mentor and friend, as they sparred and tussled in the thick overgrowth. And from within the brambles' freshest heartwoods she drew forth her blade, that would cement her as a Warden of her grove.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/briar-9.webp" alt="briar-9" class="center">
+<p>As she took up her blade, an incredible yet foreign power coursed through her. Her grove was indeed unlike any throughout the rest of Candlehold, for these vines and bramble that protected Candlehold drew their power from both the essence of Davnir, and the Flow that permeated the rest of Aria. It was a perfect conduit out of the heartlands; she alone could break the grip of Davnir's mighty essence, and escape into the outside world.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/briar-10.webp" alt="briar-10" class="center">
+<p>Over the Ages, her brothers and sisters had become content within their slice of paradise. They would spend their days lounging about under the lazy sun, as they became more and more like the woods that surrounded them. But Briar was filled with a desire to move, to spread her roots far and wide. She would be the first of the <span class="hint" hint="Rosetta">Rosetta</span> to set foot outside Candlehold since the time of the Ancients, bringing with her the tidings of her people, and the start of a brand new adventure.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/05-tales-of-aria/wonders-of-the-wayfarer.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/06-everfest/a-grand-adventure.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/05-tales-of-aria/wonders-of-the-wayfarer.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/06-everfest/a-grand-adventure.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

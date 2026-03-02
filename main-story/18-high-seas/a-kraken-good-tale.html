@@ -1,0 +1,318 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>A Kraken Good Tale - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="a-kraken-good-tale"><a class="header" href="#a-kraken-good-tale">A Kraken Good Tale</a></h1>
+<p>"Who's thirsty, mateys?" <a href="../../heroes-of-rathe/marlynn-about.html">Marlynn</a>'s strong voice carried over the raucous cheers of the tavern's patrons. With her crew in tow, many still damp from the sea and bleeding through their bandages, she swept around the room shaking hands and tipping her tricorn to the admiring crowd.</p>
+<p>"Marlynn, you scallywag. Get over here," the barkeep beckoned with a flailing wave and a boisterous laugh.</p>
+<p>"Evening, Pearl," the captain replied. "Yer more spirited than usual."</p>
+<p>"And for good reason. It's not every day you stare death in the face!" Marlynn glanced back at her crew, all smirking and snickering behind her. Pearl clicked her tongue. "Well, not us barkeeps, anyway. On behalf of the <a href="../../world-of-rathe/high-seas/port-conniver.html#krakens-barrel">Kraken's Barrel</a>, thank you for saving us from the leviathans that inspired this fine establishment's namesake. Tonight, we drink to life!"</p>
+<p>"To life!"</p>
+<p>Pearl reached under the bar and produced an unopened bottle of <span class="hint" hint="GoldkissRum">Goldkiss Rum</span>. "For the lady of the hour and her daring crew."</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/a-kraken-good-tale-1.webp" alt="a-kraken-good-tale-1" /></p>
+<p>"Ye know me too well," Marlynn said as she grabbed her coin pouch.</p>
+<p>"You can keep your coin if..." Pearl turned to address the room, "you tell us how you slew the beast!" This time Marlynn's crew joined the cheering, excited at the prospect of free grog and their captain's famous storytelling.</p>
+<p>Marlynn snatched the bottle off the counter. "Twist me arm, why don't ye!"</p>
+<p>She and her crew eyed up a table that was immediately evacuated for them. Pearl squeezed through the eager onlookers, brews stacked high. Once all had been served and the patrons could wait no longer, Marlynn swilled the sweetly aromatic rum and began her tale.</p>
+<p><em>It started with Piper's Pier. A sea serpent was having its way with the supply ships bound for <a href="../../world-of-rathe/high-seas/graystone-penitentiary.html">Graystone Penitentiary</a>, so Governor Practiss hired me to get rid of it. The slop they feed the wretched souls is made from fish innards, just the thing to whet a beast's appetite. We commandeered a few barrels and chummed the waters off the coast. The stench was worse than a pirate's armpits!</em></p>
+<p><em>The sea roiled around us as the serpent gobbled them guts. I readied me harpoon, but when the beastie reared above the water and I saw its golden choppers, I realized this weren't yer average sea snake, but a rare Cyanatu.</em></p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/a-kraken-good-tale-2.webp" alt="a-kraken-good-tale-2" /></p>
+<p><em>"Batten down the hatches!" I hollered. "We be following this one home!" I tethered the harpoon to the ship and fired into the serpent's side. It didn't take kindly to that, hissing and howling like a...a-</em></p>
+<p>"A netted catfish, Cap'n?" Slinger chimed in.</p>
+<p>Marlynn snapped her head to face her enthusiastic cook. "Scupper that!" she growled, eyes narrowed. Any patron within earshot went silent and a few visibly winced.</p>
+<p>"Begging yer pardon, Cap'n," Slinger stammered, anticipating a 'pointed' telling off from the fierce captain. "Ye tell 'em tales with such power, Cap'n. I get captivated."</p>
+<p>Marlynn remained still, a deadpan expression on her face. "Even a thin-scaled catfish would've been braver!" she joked and slapped her knee. There was an audible sigh of relief throughout the tavern and a hearty cheer from her crew.</p>
+<p><em>Where was I? That's right. This serpent turned tail and ran, just as I'd hoped. "Wheeler," I says. "Loose the bloomin' helm!"</em></p>
+<p><em>Bless me helmsman and his keen hearing, or the beast might have sent both him and the wheel straight into the drink when it fled. It swam so fast it had our ship hauling wind and leaping over the waves!</em></p>
+<p><em>Now here's something that'll shiver yer timbers: a ghastly ship appeared on the horizon. At first, I thought the sea spray made me eyes go wonky, but one hard look was enough to know the <span class="hint" hint="Dreadnought">Dreadnought</span>, bound south for Graystone. Good thing the Cyanatu didn't slow, or we might have been the newest additions to ole <a href="../../heroes-of-rathe/gravy-about.html">Gravy Bones</a>' zombie horde.</em></p>
+<p><em>The damn serpent dragged us deeper into murky territory. Aether rose off the sea like steam as the water turned from red to blue to black. Unseen monsters howled their nightmarish calls into the broken world. Lesser beings would've cut the tether and tacked to escape, but it's not every day ye wrangle an escort through the churning seas of <a href="../../world-of-rathe/high-seas/teramundrs-triangle.html">Teramundr's Triangle</a>.</em></p>
+<p><em>A walled island threatened to wreck our ship to smithereens as the serpent charged toward it. The more impatient among me crew begged me to cut the tether, but I wouldn't until I was sure this was our final stop. The bowsprit dipped hard into the water, which was all the proof I needed: it were diving into its cave. One swing of me cutlass unbound us from the creature and sent the ship springing back to the-</em></p>
+<p>"Tell 'em about the ancient ruin, Cap'n!" Quarrel blurted, his face ruddy with remembrance and rum. "It must've been a thousand years-"</p>
+<p>"Stow that bilge in yer fastened gob, Quarrel!" Marlynn roared. "By the Kraken's beak, would ye have me going off half-cocked here?"</p>
+<p>"Nay, Cap'n!" yelped the chief gunner, then put his mug to his trembling lips to stop any more words from slipping out.</p>
+<p><em>So there we were, dropped on the doorstep of a <span class="hint" hint="DhaniEmpire">Dhani</span> stronghold! In the Triangle's mixed-up reality, we beheld its glory days and its ruination.</em></p>
+<p><em>Ever drank til ye saw spots and tried to walk home?</em></p>
+<p>Thus invited, Marlynn's audience gave a tentative yet unanimous, "Aye."</p>
+<p><em>Wandering through this place was ten times more treacherous. The solid floor turned to a chasm a moment later. But blimey, those Dhani were lavish fools! The war-era stronghold was painted beautiful shades that would make the finest moxy green with envy. Time had worn away its sheen, but there's always rooms that time can't touch.</em></p>
+<p><em>It took ten of us to pry the thick stone door open, but we found their hidden trove. Reality held steady here; all that glimmered were mountains of gold! Me crew grabbed as much as they could carry, but I was satisfied with a finely crafted harpoon to add to me armory and a pretty statuette to weigh down me maps.</em></p>
+<p><em>Alas, the ancient dead can be a tad touchy about their treasures. We'd hardly set foot outside the stronghold when monsters ambushed us. They struck down two of me men with their scorpion tails and stabbed them with their swords for good measure. The filigree on their weapons matched the engravings on our loot. These were cursed Dhani warriors, bound to this place and none too pleased to see their treasure in our hands.</em></p>
+<p><em>More emerged from the shadows, crawling over the rubble and out of the walls until we were surrounded. I ordered me crew to give no quarter, and none was given. We lopped off their stingers, crushed their claws, and cleaved their human heads from their beastly bodies. When at last we'd carved a path through them, we bolted back to the longboats.</em></p>
+<p><em>It was clear skies and strong winds all the way home, or so we hoped. As we counted our losses in blood and our gains in gold, a huge swell rocked the ship. Jagged spikes broke through the waves off the starboard bow; the dorsal spines of a titanic sea monster, and it was heading straight for <a href="../../world-of-rathe/high-seas/port-conniver.html">Port Conniver</a>!</em></p>
+<p><em>Me crew was in dire need of rum and respite, but I had enough fight left in me for us all. Besides, where would we get our rum if the beast made landfall?</em></p>
+<p>Pearl raised her mug in a toast to that, and all joined her for a celebratory swig, Marlynn included.</p>
+<p><em>"Raise the mainsail!" I yelled to Wheeler. "Sail to half-mast!" he ordered the crew. "Hard to starboard! Ready the cannons!" Not a moment after, the leviathan surfaced with the force of a monsoon. We were lucky not to get thrown back to the Triangle by the waves it made!</em></p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/a-kraken-good-tale-3.webp" alt="a-kraken-good-tale-3" /></p>
+<p><em>Of course, we weren't alone out there. A blockade of buccaneers sailed out to greet the creature, but every pirate worth their salt knows luck is fickle. One ship capsized in the leviathan's bow wave and two more were thrust against the rocks. They were already sinking by the time the other ships began firing. Couldn't see a damn thing through the gunpowder cloud, but I could hear enough. The leviathan roared, wood splintered, pirates wailed. The smoke cleared just as we got within range, and all that was left of that skull-flying fleet was the sea monster squashing the last ship like a grape. Not a bloomin' scratch on it. Better not to waste good iron on a creature that would pay it no-</em></p>
+<p>"How did ye kill it, Cap'n Marlynn?!" piped a shrill voice from the audience's packed front ranks.</p>
+<p>"That's it!" bellowed Marlynn as she whipped a pistol from her belt, cocked the hammer, and leveled it at the offending interrupter. Big brown eyes stared at Marlynn from a frame of thick black hair. A single tear of terror ran down the young girl's cheek. Molly the Mop, Pearl's resident urchin and dogsbody.</p>
+<p>"Arrr!" growled Marlynn as she raised her pistol and fired it into the rafters. "Had I ever encountered an invincible leviathan, Molly?"</p>
+<p>The urchin vigorously shook her head.</p>
+<p>"Smart girl!" she acknowledged with a laugh that drew a nervous chuckle from crew and patrons alike. "Would I turn tail and run?"</p>
+<p>"Nay!" answered the crowd.</p>
+<p>"Of course not! If it breathes, it can die. If it can die, I can kill it."</p>
+<p><em>I ordered Wheeler to steer the ship closer. Poor bloke likely thought I was mad, but he knows better than to ask questions, especially when we be facing down me favorite prey. I loaded the Dhani harpoon into me trusty ballista. Thanks to the blockade's fire, the leviathan hadn't noticed us sailing in from the rear, and its appetite for destruction was still set on Port Conniver. I wagered I'd have one shot to end its rampage. One shot to save the finest rum ever made.</em></p>
+<p><em>A whirlpool dragged us toward the leviathan, hard and fast. The ship's boards screamed with effort as me crew tacked the ship to and fro. Crashing into the beast wouldn't make for a very heroic ending, would it? We held just enough distance to skirt along its side, until its eye found us, and me harpoon found its eye. Dead center!</em></p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/a-kraken-good-tale-4.webp" alt="a-kraken-good-tale-4" /></p>
+<p><em>It roared like thunder, a storm unto itself, lashing its tentacles out in all directions. Golden blood spilled from its socket as it fell back into the ocean. I watched from the bow as it slipped beneath the surface to join its victims in the briny deep.</em></p>
+<p>"And that," Marlynn shouted from atop the table, "is how I saved yer sorry souls from lunching with a leviathan!"</p>
+<p>She bowed to the deafening cheers and hopped down to the floor. She accepted a refill of her glass from Pearl then swaggered back to her seat, drunk as the next soul in the tavern. Still, her face took on a sober expression that quieted the crowd as they listened for the plot twist.</p>
+<p>Marlynn swirled her rum, lost in brooding thought for a moment.</p>
+<p>"A toast!" she cried. "To the brave pirates who protected Port Conniver today. May the currents run with rum and the sun above be made of gold!"</p>
+<p>"Yarr!"</p>
+<p>Glasses clinked and the piano player started in on a boisterous shanty, firmly reinstating the celebratory mood.</p>
+<hr />
+<p>Hours later, many sheets to the wind, Marlynn lay back in a longboat, her feet propped on a pile of oilcloth, tricorn drawn over her face.</p>
+<p>"Good evening?" Wheeler asked.</p>
+<p>Marlynn lifted the brim to peek at the burly man, his bushy beard doing nothing to mask his curious expression. "What's got yer knickers in a twist, Wheeler?"</p>
+<p>The helmsman sighed. "Straight to the point, as always, Cap'n." His bright red coat strained over his muscles as he powered over a swell. "I was wondering how ye knew to use that fancy harpoon against the leviathan."</p>
+<p>"Harpoons are me weapon of choice," she deadpanned.</p>
+<p>"Reckless to use a new weapon in a fight like that, if ye ask me."</p>
+<p>"Did I ask?" Marlynn bit back.</p>
+<p>"...No, Cap'n. Apologies." Wheeler rowed faster as the ship loomed in the distance. If Marlynn wanted to say anything, now was the time.</p>
+<p>She sat up and gripped the oilcloth. "The truth is..." Pulling back the cover revealed the statuette from the Dhani stronghold. "...I saw it in me dreams, the same night we stowed our spoils."</p>
+<p>In all the years Wheeler had been crewing for Marlynn, he'd never seen her look so haunted.</p>
+<p>"Cursed voices been intruding on me sleep ever since." Her eyes were fixed on the figurine. She picked it up, and with one pointed finger she traced across the voluptuous form of the golden goddess only to stop at a large worn symbol engraved on its back. "Yer me helmsman. What do yer keen peepers see?"</p>
+<p>Wheeler's eyes widened in surprise. "This be what them Pier lot call an orrery, Cap'n. I trust me maps, but some charted their course by the celestial bodies."</p>
+<p>"Who looked up, also looked down..."</p>
+<p>"So, what ye be saying is..." He squinted in seeming recognition. "Nope. I ain't following, Cap'n."</p>
+<p>"This be proof of <span class="hint" hint="TropalDhani">Trōpal-Dhani</span>! Why else would the Dhani warriors summon a sea monster that size? It <em>was</em> my largest kill yet, was it not?"</p>
+<p>"Quite the trophy, Cap'n."</p>
+<p>"They were protecting something in the Triangle, something worth risking the wrath of the biggest beasties in the deep."</p>
+<p>"All I know is that thing in yer hand would fetch a high price in Golden Port," he offered.</p>
+<p>The captain smirked. "I'll sleep easier this way."</p>
+<p>In one fluid motion, she scooped up the statuette and tossed it behind her, smiling at the satisfying 'plop' it made in the water.</p>
+<p>"Sink me!" gasped Wheeler. "That might've kept the crew in rum and rations for months!"</p>
+<p>Marlynn reclined again, unperturbed. "Peace, Wheeler, we won't starve yet."</p>
+<p>"Right you are, Cap'n. I'll ready the crew for Piper's Pier soon as we board."</p>
+<p>Marlynn raised an eyebrow at the helmsman, her face full of mirth. Wheeler knew that look all too well.</p>
+<p>"We <em>are</em> going to collect our bounty, right Cap'n?"</p>
+<p>"Soon, Wheeler. On me mother's watery grave, I swear it."</p>
+<p>He sighed. "Chart a course for Teramundr's Triangle then, Cap'n?"</p>
+<p>There was no need for a reply. Marlynn lay back against the cloth and rested her hat across her face. She was snoring like an old sea dog within minutes. Wheeler chuckled to himself and got back to rowing, beating out a steady lullaby for his sleeping captain as lightning flashed and forked in the far distance, a gathering storm beckoning.</p>
+<hr />
+<p><em>Story by Robbie Wen, Edwin McRae, Rachel Rees, Bonnie Harris-Lowe</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/18-high-seas/the-lost-treasure-of-blackwater-strait.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/18-high-seas/trouble-in-larinkmorth.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/18-high-seas/the-lost-treasure-of-blackwater-strait.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/18-high-seas/trouble-in-larinkmorth.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

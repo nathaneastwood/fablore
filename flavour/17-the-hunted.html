@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Hunted - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../hero.css">
+        <link rel="stylesheet" href="../image.css">
+        <link rel="stylesheet" href="../tab.css">
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <link rel="stylesheet" href="../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h4 id="affirm-loyalty---hnt103"><a class="header" href="#affirm-loyalty---hnt103">Affirm Loyalty - (HNT103)</a></h4>
+<p>We obey the <a href="../heroes-of-rathe/emperor-about.html">Emperor</a>. With blood and blade we commit at his command." - <span class="hint" hint="Alshoni">Alshoni</span> Mantra</p>
+<h4 id="demonstrate-devotion---hnt059"><a class="header" href="#demonstrate-devotion---hnt059">Demonstrate Devotion - (HNT059)</a></h4>
+<p>"My heart for the Emperor. My blood for his Dynasty." - Alshoni Mantra</p>
+<h4 id="den-of-the-spider---hnt214"><a class="header" href="#den-of-the-spider---hnt214">Den of the Spider - (HNT214)</a></h4>
+<p>"Our <span class="hint" hint="Dracai">Dracai</span> overlords have overlooked the <a href="../world-of-rathe/pits/pits.html">Pits</a> for too long." - Vail the Vagrant</p>
+<h4 id="display-loyalty---hnt060"><a class="header" href="#display-loyalty---hnt060">Display Loyalty - (HNT060)</a></h4>
+<p>"Whether with hidden dagger or drawn sword, the battle is the same." - Captain Juka</p>
+<h4 id="dynastic-dedication---hnt108"><a class="header" href="#dynastic-dedication---hnt108">Dynastic Dedication - (HNT108)</a></h4>
+<p>"My reign is the wildfire. The dynasty is the eternal flame." - The Emperor</p>
+<h4 id="endear-devotion---hnt104"><a class="header" href="#endear-devotion---hnt104">Endear Devotion - (HNT104)</a></h4>
+<p>"Our sacrifice for the Dragon. Our service for the Dracai." - Alshoni Mantra</p>
+<h4 id="for-the-dracai---hnt158"><a class="header" href="#for-the-dracai---hnt158">For the Dracai - (HNT158)</a></h4>
+<p>"To serve the Dracai is to honor the blood of the dragon." - Sayashi Cara</p>
+<h4 id="for-the-emperor---hnt159"><a class="header" href="#for-the-emperor---hnt159">For the Emperor - (HNT159)</a></h4>
+<p>"To serve our Emperor is to fear him. And in fear the people of <a href="../world-of-rathe/volcor/volcor.html">Volcor</a> shall obey." - <span class="hint" hint="Chiyo">Chiyo</span></p>
+<h4 id="for-the-realm---hnt160"><a class="header" href="#for-the-realm---hnt160">For the Realm - (HNT160)</a></h4>
+<p>"To serve the Alshoni is to serve the dynasty, our only hope for peace in Volcor." - Magistrate Chen</p>
+<h4 id="hot-on-their-heels---hnt067"><a class="header" href="#hot-on-their-heels---hnt067">Hot on Their Heels - (HNT067)</a></h4>
+<p>"Dust Runners? Let's see if they're as fast as they claim." - Sayashi Cara</p>
+<h4 id="hunt-the-hunter---hnt161"><a class="header" href="#hunt-the-hunter---hnt161">Hunt the Hunter - (HNT161)</a></h4>
+<p>"To bait a spider you need an enticing fly." - <a href="../heroes-of-rathe/cindra-about.html">Cindra</a></p>
+<h4 id="hunts-end---hnt101"><a class="header" href="#hunts-end---hnt101">Hunt's End - (HNT101)</a></h4>
+<p>"It's the end of the road, traitor." - <a href="../heroes-of-rathe/fang-about.html">Fang</a></p>
+<h4 id="hunted-or-hunter---hnt052"><a class="header" href="#hunted-or-hunter---hnt052">Hunted or Hunter - (HNT052)</a></h4>
+<p>"Daily we sweep the streets, yet still the rats crawl up from the Pits." - <a href="../heroes-of-rathe/yoji-about.html">Yoji</a></p>
+<h4 id="imperial-intent---hnt109"><a class="header" href="#imperial-intent---hnt109">Imperial Intent - (HNT109)</a></h4>
+<p>"In secret, we built our strength, hidden from <span class="hint" hint="Ezu">Ezu</span> meddling. Now is the time for vengeance." - <a href="../heroes-of-rathe/other.html#taipanis-dracai-of-judgement">Taipanis</a></p>
+<h4 id="lair-of-the-spider---hnt191"><a class="header" href="#lair-of-the-spider---hnt191">Lair of the Spider - (HNT191)</a></h4>
+<p>"Fevered <span class="hint" hint="Volcai">Volcai</span>. Frightened Dracai. A great corruption has ensared the south." - General Nakami</p>
+<h4 id="loyalty-beyond-the-grave---hnt150"><a class="header" href="#loyalty-beyond-the-grave---hnt150">Loyalty Beyond the Grave - (HNT150)</a></h4>
+<p>"We burned with shame. Now the land shall burn with vengeance." - Emperor's Eulogy</p>
+<h4 id="march-of-loyalty---hnt153"><a class="header" href="#march-of-loyalty---hnt153">March of Loyalty - (HNT153)</a></h4>
+<p>"Whatever vermin we find on the Obsidian Coast, we'll grind under our heels." - Fang</p>
+<h4 id="mark-with-magma---hnt069"><a class="header" href="#mark-with-magma---hnt069">Mark with Magma - (HNT069)</a></h4>
+<p>"The Emperor named us his Sayashi. We hold fast for the hiss with each mark made." - Cindra</p>
+<h4 id="pledge-fealty---hnt164"><a class="header" href="#pledge-fealty---hnt164">Pledge Fealty - (HNT164)</a></h4>
+<p>"Children of the Dragon, today we hunt. Today we take back our empire from the traitors within." - Taipanis</p>
+<h4 id="proclaim-vengeance---hnt165"><a class="header" href="#proclaim-vengeance---hnt165">Proclaim Vengeance - (HNT165)</a></h4>
+<p>"Searing embers upon the page. The Ezu cannot ignore such Alshoni fury." - <a href="../heroes-of-rathe/dromai-about.html">Dromai</a></p>
+<h4 id="rake-over-the-coals---hnt156"><a class="header" href="#rake-over-the-coals---hnt156">Rake Over the Coals - (HNT156)</a></h4>
+<p>The Sayashi Enclave in Deshvahan, where Tetzuo tempers truth in torture.</p>
+<h4 id="sworn-vengeance---hnt140"><a class="header" href="#sworn-vengeance---hnt140">Sworn Vengeance - (HNT140)</a></h4>
+<p>"When they murdered my emperor, they killed my destiny." - Lieutenant Yamada</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../flavour/16-rosetta.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../flavour/18-high-seas.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../flavour/16-rosetta.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../flavour/18-high-seas.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../tab.js"></script>
+        <script src="../theme/pagetoc.js"></script>
+        <script src="../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

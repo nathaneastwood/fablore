@@ -1,0 +1,255 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Untamed and Unbroken - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="untamed-and-unbroken"><a class="header" href="#untamed-and-unbroken">Untamed and Unbroken</a></h1>
+<p><em>The Undercroft is enormous, as large as the Arena standing above it - an endless network of tunnels that stretches to the city limits and which is filled with beasts and spectacular exhibits procured for the audience's amusement. The snarling and baying of the brutes echoes endlessly throughout the subterranean system, deafening at first to anyone unfortunate enough to come down here.</em></p>
+<p>A group of newly hired Handlers stand with their tridents and torches, pointing both at the cage of <a href="../../heroes-of-rathe/kayo-about.html">Kayo</a>. An older figure with a large gray beard, the Master of Beasts, edges closer to the cage.</p>
+<p>"Here he is, lads, our pride and joy," the Master says, spitting a brown glob of mucus into the cage and smiling with mocking delight. "Up you get, ya stupid animal!"</p>
+<p>The Master of Beasts pulls his torch close to the bars of the cage, illuminating the inside. Rushing into view, Kayo lunges toward the bars and the group of handlers leaps backwards in fear, a few letting out cries of panic. The chain rattles taut and violently halts Kayo, strangling and tearing into the muscles of his neck. A trail of red trickles down his collar and the chain that connects him to the rusted floor of the iron cage. His long arm reaches through the bars, inches from the Master's face. Adorned in crude jagged iron, the limb reeks of rusted steel and bits of his past opponents stuck in the folds of metal.</p>
+<p>The Master flinches at the proximity of Kayo's grasp, his mind racing with the thought of what would have happened had he been even slightly closer.</p>
+<p>"All right boys, hurry up and get the cart 'n straps, this animal's got a match in 30 and Kox will have my hand if his pet is late," the Master barks, hoping no one saw him flinch.</p>
+<p>In seconds, Kayo's cage is trundling along the crude railway system of the Undercroft, a chaotic iron web that stretches like veins under the ground. The loud screeching of metal on metal echoes around them as Kayo paces the inside of his cage.</p>
+<p>"I've seen this one out on the sands before - how on earth did the Arena catch him?" a fresh faced Handler asks.</p>
+<p>"Not much catching was done, to be honest. We were supposed to have an <a href="../../world-of-rathe/volcor/wildlife.html#apophis">Apophis</a>, a big lava worm from the desert. Tracked the bloody thing for close to a week and when we found the big bastard, this mutt had gone and killed it and nearly offed himself in the process."</p>
+<p>The young handler stares into the cage. Kayo is covered in a lifetime of scars from defending his territory, but most noticeably there are terrible burns covering sections of his limbs, where fire had engulfed the flesh beneath his armored right arm and the stump of his missing left arm. The young man accidentally meets Kayo's gaze for a brief moment, causing the creature to bellow at him in warning. The handler snaps his gaze to the floor and continues to push.</p>
+<p>"Is - is that how he lost his arm?" the young man stammers.</p>
+<p>The Master laughs, startling the crew of new handlers who are pushing the cage towards the final corner before the arena ramp.</p>
+<p>"No, boy, the crazy bastard tore it off himself."</p>
+<p>The fresh faced crew stare at him in confusion.</p>
+<p>"After we got him here, the injured dog was nearly dead from the burns and cuts all over his body, and his left arm was nearly useless from a bite wound he'd taken to it. Kox thought he was a lost prospect so he threw him in with another pack of brutes to open the night. Thought the pack would have some fun throwing his carcass around before sending in the ol' Champ to finish things off. But this rabid mutt made mincemeat of the lot of them."</p>
+<p>The cage comes to a stop at the bottom of the ramp leading up to the Arena, filled with a crew of Arena Guards who are waiting to escort Kayo up onto the sands.</p>
+<p>"Cutting it close, Dervin," shouts one of the guards.</p>
+<p>"!@#$ you, Yarin. How about that?" the Master barks back at him sarcastically.</p>
+<p>The young crew begins securing the cage. It rocks and sways violently as Kayo paces and shakes with anticipation for the fight ahead of him. The Master of Beasts steps towards an equipment wall, pulling down a large crude weapon that resembles a pair of insect fangs strapped to a handle. Kayo goes still, staring at the small creature holding his trophy.</p>
+<p>"So ... he tears these two brutes to shreds in seconds with this thing..."</p>
+<p>The master begins reenacting the fight, swinging the claw around.</p>
+<p>"...and then the third grabs him. He's too big for the mutt to get away and so just as he's about to have his skull crushed, he tears off his knackered limb and drives the exposed bone through the other brute's nose."</p>
+<p>The Master's reenactment causes him to step a little too close to the cage, and Kayo's arm shoots out further than it should be able to at blinding speed. His huge hand dwarfs the mans forearm, and with a sickening crunch followed by the Master's screams of pain, Kayo takes his weapon from him. The guards burst into raucous laughter at the man's cries as he rolls around on the floor in pain.</p>
+<p>"I'll let Kox know that you've made your payment!" shouts the guard before they all step in to open the cage. Kayo slops the Master's arm onto the floor of his cell, a snack for later, before gripping the weapon firmly in his hand. The guards step closer to unlock the collar from around his neck, but Kayo shoots out of the cage towards the Arena, the chain dangling broken down from his throat.</p>
+<p>Kayo sprints towards the blinding daylight ahead of him, his mouth salivating at the prospect of combat. He may have lost his territory out in the Badlands, but for now the Arena will serve as this beast's hunting ground.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/14-heavy-hitters/thirst-for-revenge.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/14-heavy-hitters/another-day-another-title.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/14-heavy-hitters/thirst-for-revenge.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/14-heavy-hitters/another-day-another-title.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

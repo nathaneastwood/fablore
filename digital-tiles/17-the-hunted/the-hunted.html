@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Hunted - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h3 id="arakni-funnel-web"><a class="header" href="#arakni-funnel-web">Arakni, Funnel Web</a></h3>
+<p>Eight claws reaching, eight blades to cleave,<br>
+They hide behind trap doors of gossamer weave,<br>
+And when they smell the blood of the <span class="hint" hint="Dracai">Dracai</span>,<br>
+Agent 342 dissects the dragon, limb to torso to eye.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/arakni-funnel-web.webp" alt="arakni-funnel-web" class="center" />
+<h3 id="arakni-orb-weaver"><a class="header" href="#arakni-orb-weaver">Arakni, Orb Weaver</a></h3>
+<p>With predatory prowess, this huntress slays,<br>
+Spinning her orbs to paralyze prey,<br>
+She is Agent 573, weaver of despair,<br>
+Children of the Dragon, be still or beware.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/arakni-orb-weaver.webp" alt="arakni-orb-weaver" class="center" />
+<h3 id="arakni-redback"><a class="header" href="#arakni-redback">Arakni, Redback</a></h3>
+<p>Lurking in the tundra of <a href="../../world-of-rathe/volcor/volcor.html">Volcor</a>'s red plains,<br>
+A creation of cruelty stalks night and day,<br>
+'Tis murder it loves, the bloodier the better,<br>
+Agent 444 is the agony dispenser.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/arakni-redback.webp" alt="arakni-redback" class="center" />
+<h3 id="arakni-tarantula"><a class="header" href="#arakni-tarantula">Arakni, Tarantula</a></h3>
+<p>A dreg of the Skein, tainted from above,<br>
+Twisted to thirst for royal dragon blood,<br>
+Agent 045 of origins grim,<br>
+Rotten before the deigned to remake him.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/arakni-tarantula.webp" alt="arakni-tarantula" class="center" />
+<h3 id="dragonscaler-flight-path"><a class="header" href="#dragonscaler-flight-path">Dragonscaler Flight Path</a></h3>
+<p>Some of the <a href="../../heroes-of-rathe/emperor-about.html">Emperor</a>'s most trusted servants see in his murder an opportunity for glory. To them, there is no greater sign of devotion than to hunt his enemies, no grander display of honor than to exact vengeance with fire, again and again, until the dynasty is reborn.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/dragonscaler-flight-path.webp" alt="dragonscaler-flight-path" class="center" />
+<h3 id="fire-and-brimstone"><a class="header" href="#fire-and-brimstone">Fire and Brimstone</a></h3>
+<p>"Deshvahan, vile den of traitors and usurpers, I sentence you to the flames! Let those who plot against the dragon burn with you, and all who conspire against our dynasty perish in the fires! You shall burn to the ground, a meager pyre for our mighty Emperor!" - <a href="../../heroes-of-rathe/other.html#taipanis-dracai-of-judgement">Taipanis</a></p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/fire-and-brimstone.webp" alt="fire-and-brimstone" class="center" />
+<h3 id="graphene-chelicera"><a class="header" href="#graphene-chelicera">Graphene Chelicera</a></h3>
+<p>The chitinous predators that stalk the <a href="../../world-of-rathe/pits/pits.html">Pits</a> can kill with a single bite, and so the blades forged in that place are crafted to the same standard. To draw blood with such a weapon is to sentence death-if but given the chance.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/graphene-chelicera.webp" alt="graphene-chelicera" class="center" />
+<h3 id="kabuto-of-imperial-authority"><a class="header" href="#kabuto-of-imperial-authority">Kabuto of Imperial Authority</a></h3>
+<p>This imposing helm, worn solely by the officers of the royal hosts, has been a symbol of fealty since the time of the first emperors. Those who don it now do so with a renewed vow: To hunt down the enemies of the dynasty and avenge their fallen liege.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/kabuto-of-imperial-authority.webp" alt="kabuto-of-imperial-authority" class="center" />
+<h3 id="mark-of-the-huntsman"><a class="header" href="#mark-of-the-huntsman">Mark of the Huntsman</a></h3>
+<p>A trail of bloody corpses was not the only mark left by the Huntsman. How this dagger disappeared so soon after its discovery remains unknown, but its origin is clear to all. Wrought by the bladesmiths of the Pits, is this exquisite dagger a calling card or a bluff?</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/mark-of-the-huntsman.webp" alt="mark-of-the-huntsman" class="center" />
+<h3 id="mask-of-deceit"><a class="header" href="#mask-of-deceit">Mask of Deceit</a></h3>
+<p>"Every web is spun from just one thread. The first strike shapes the blade's point. Yet the perfect killer is not born from a single body trauma, but a lifetime of anguish, torture and a myriad of tiny cuts." - Doctor Krest Mortimer</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/mask-of-deceit.webp" alt="mask-of-deceit" class="center" />
+<h3 id="oath-of-loyalty"><a class="header" href="#oath-of-loyalty">Oath of Loyalty</a></h3>
+<p>The loyalist forces are aided by powerful wizards of the imperial court, these nobles paving the way with torrents of fire and infernal conjurations. Though the Dracai lords of Volcor are famously capricious, many swore fealty to the Emperor, considering him the mightiest mage of them all.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/oath-of-loyalty.webp" alt="oath-of-loyalty" class="center" />
+<h3 id="under-the-trap-door"><a class="header" href="#under-the-trap-door">Under the Trap-Door</a></h3>
+<p>Reality is not always as the Dracai presume. Aether contains a myriad of natures. Even in the heart of <span class="hint" hint="Ashvahan">Ashvahan</span>, in the most sacred and secure chamber in Volcor, stones and fire may be told to part ways, to welcome the touch of chaos.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/under-the-trap-door.webp" alt="under-the-trap-door" class="center" />
+<h3 id="wrath-of-retribution"><a class="header" href="#wrath-of-retribution">Wrath of Retribution</a></h3>
+<p><a href="../../heroes-of-rathe/cindra-about.html">Cindra</a> rose above the anarchy surrounding her and harnessed the power of the <span class="hint" hint="Sayashi">Sayashi</span>. Out they flew. Eight kunai to carve a fiery path of retribution across the obsidian chamber. Eight daggers to blind the creatures of corruption. Eight lacerations to make them see.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/wrath-of-retribution.webp" alt="wrath-of-retribution" class="center" />
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../digital-tiles/16-rosetta/rosetta.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../digital-tiles/18-high-seas/high-seas.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../digital-tiles/16-rosetta/rosetta.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../digital-tiles/18-high-seas/high-seas.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

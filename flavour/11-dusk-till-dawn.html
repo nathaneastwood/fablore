@@ -1,0 +1,282 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Dusk Till Dawn - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../hero.css">
+        <link rel="stylesheet" href="../image.css">
+        <link rel="stylesheet" href="../tab.css">
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <link rel="stylesheet" href="../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h2 id="dusk-till-dawn"><a class="header" href="#dusk-till-dawn">Dusk Till Dawn</a></h2>
+<h4 id="banneret-of-courage---dtd048"><a class="header" href="#banneret-of-courage---dtd048">Banneret of Courage - (DTD048)</a></h4>
+<p>"Fear is bred in the Shadow. Bravery is born of the Light." - <a href="../heroes-of-rathe/boltyn-about.html">Boltyn</a></p>
+<h4 id="banneret-of-gallantry---dtd049"><a class="header" href="#banneret-of-gallantry---dtd049">Banneret of Gallantry - (DTD049)</a></h4>
+<p>Upon that rise we understood that no fear could be worse than what we had imagined.</p>
+<h4 id="banneret-of-protection---dtd050"><a class="header" href="#banneret-of-protection---dtd050">Banneret of Protection - (DTD050)</a></h4>
+<p>We few must preserve that which is precious to all.</p>
+<h4 id="banneret-of-resilience---dtd054"><a class="header" href="#banneret-of-resilience---dtd054">Banneret of Resilience - (DTD054)</a></h4>
+<p>"Across seas unknown to lands only dreamed of, and so few left to witness it." - First Magister</p>
+<h4 id="banneret-of-salvation---dtd055"><a class="header" href="#banneret-of-salvation---dtd055">Banneret of Salvation - (DTD055)</a></h4>
+<p>"We stood in exaltation upon foundations laid in faith." - First Magister</p>
+<h4 id="banneret-of-vigor---dtd056"><a class="header" href="#banneret-of-vigor---dtd056">Banneret of Vigor - (DTD056)</a></h4>
+<p>It is our passion for peace that drives us into the horrors of war.</p>
+<h4 id="beseech-the-demigon---dtd189"><a class="header" href="#beseech-the-demigon---dtd189">Beseech the Demigon - (DTD189)</a></h4>
+<p>"At last I will show them what true knowledge looks like!" - Final words of Xaine, Runescribe</p>
+<h4 id="break-of-dawn---dtd102"><a class="header" href="#break-of-dawn---dtd102">Break of Dawn - (DTD102)</a></h4>
+<p>"Each and every soldier, a ray of light that completes the dawn." - Magister of Defense</p>
+<h4 id="celestial-reprimand---dtd038"><a class="header" href="#celestial-reprimand---dtd038">Celestial Reprimand - (DTD038)</a></h4>
+<p>"These degenerate shades cannot bear the scrutiny of true Light." - Magister of Justice</p>
+<h4 id="celestial-resolve---dtd043"><a class="header" href="#celestial-resolve---dtd043">Celestial Resolve - (DTD043)</a></h4>
+<p>Faith is the cloak that shall warm us against the chill of the night.</p>
+<h4 id="censor---dtd226"><a class="header" href="#censor---dtd226">Censor - (DTD226)</a></h4>
+<p>Still your flapping flesh; that rasping of sinuous cords. Those words were never meant for such as you.</p>
+<h4 id="charge-of-the-light-brigade---dtd074"><a class="header" href="#charge-of-the-light-brigade---dtd074">Charge of the Light Brigade - (DTD074)</a></h4>
+<p>"We give our lives this day for all the tomorrows to come." - Templar Timaerus</p>
+<h4 id="figment-of-erudition---dtd005"><a class="header" href="#figment-of-erudition---dtd005">Figment of Erudition - (DTD005)</a></h4>
+<p>"Light, Shadow, feature or fancy, knowledge lays bare the fallacies." - <a href="../heroes-of-rathe/prism-about.html">Prism</a></p>
+<h4 id="figment-of-judgment---dtd006"><a class="header" href="#figment-of-judgment---dtd006">Figment of Judgment - (DTD006)</a></h4>
+<p>The righteous shall vanquish the unholy, in Sol's name.</p>
+<h4 id="figment-of-protection---dtd007"><a class="header" href="#figment-of-protection---dtd007">Figment of Protection - (DTD007)</a></h4>
+<p>"Hold fast on to hope, for hope is life's vessel." - Boltyn</p>
+<h4 id="figment-of-ravages---dtd008"><a class="header" href="#figment-of-ravages---dtd008">Figment of Ravages - (DTD008)</a></h4>
+<p>Power, greed, duty, faith. Those who forget shall fall.</p>
+<h4 id="figment-of-rebirth---dtd009"><a class="header" href="#figment-of-rebirth---dtd009">Figment of Rebirth - (DTD009)</a></h4>
+<p>We each are born anew from another's struggle.</p>
+<h4 id="figment-of-tenacity---dtd010"><a class="header" href="#figment-of-tenacity---dtd010">Figment of Tenacity - (DTD010)</a></h4>
+<p>"Windstorm or whisper, nightmare or scripture, stories strengthen us all." - Prism</p>
+<h4 id="figment-of-triumph---dtd011"><a class="header" href="#figment-of-triumph---dtd011">Figment of Triumph - (DTD011)</a></h4>
+<p>And so they prevailed, Light and Hand, and slew the Shadow that lie in wait.</p>
+<h4 id="figment-of-war---dtd012"><a class="header" href="#figment-of-war---dtd012">Figment of War - (DTD012)</a></h4>
+<p>"Death by duty. 'Tis the ruling illusion in legends, old and new." - Prism</p>
+<h4 id="flicker-trick---dtd218"><a class="header" href="#flicker-trick---dtd218">Flicker Trick - (DTD218)</a></h4>
+<p>"So sure, and so very wrong." - Amira Surana</p>
+<h4 id="hold-the-line---dtd228"><a class="header" href="#hold-the-line---dtd228">Hold the Line - (DTD228)</a></h4>
+<p>"United we stand, divided we get our damned faces eaten off!" - Barus Boldstride</p>
+<h4 id="morlock-hill---dtd209"><a class="header" href="#morlock-hill---dtd209">Morlock Hill - (DTD209)</a></h4>
+<p>"No amount of retribution can allay the pain, the anguish, seared into the souls of those that remain." - <a href="../heroes-of-rathe/dorinthea-about.html">Dorinthea Ironsong</a></p>
+<h4 id="numbskull---dtd201"><a class="header" href="#numbskull---dtd201">Numbskull - (DTD201)</a></h4>
+<p>"Ey'z beheaded, tooth, the DeathMatch?" - Bam Bam</p>
+<h4 id="shaden-swing---dtd126"><a class="header" href="#shaden-swing---dtd126">Shaden Swing - (DTD126)</a></h4>
+<p>"Fear not this carven flesh, for tonight we feast with Blasmophet." - <a href="../other-characters/lady-bartimont.html">Lady Bartimont</a></p>
+<h4 id="tear-through-the-portal---dtd190"><a class="header" href="#tear-through-the-portal---dtd190">Tear Through the Portal - (DTD190)</a></h4>
+<p>"Obsessed, they call me. Rabid over-reacher. I merely grasp what begs to be possessed." - <span class="hint" hint="Sutcliffe">Lord <a href="../other-characters/lord-sutcliffe.html">Sutcliffe</span></a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../flavour/10-outsiders.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../flavour/12-bright-lights.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../flavour/10-outsiders.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../flavour/12-bright-lights.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../tab.js"></script>
+        <script src="../theme/pagetoc.js"></script>
+        <script src="../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

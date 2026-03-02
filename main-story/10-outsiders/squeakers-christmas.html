@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Squeakers&#x27; Christmas - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="squeakers-christmas"><a class="header" href="#squeakers-christmas">Squeakers' Christmas</a></h1>
+<p>
+(<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)
+</p>
+<p>'Tis the night before Christmas, and the air is ripe for the robbing. A crooked shadow vanishes through a window, stealthy as a huntsman. From her vantage point across the street, <a href="../../heroes-of-rathe/azalea-about.html">Azalea</a> traces the path <a href="../../heroes-of-rathe/arakni-about.html">Arakni</a> cleared. Steep rooflines, yawning alleyways, a traverse more treacherous than she would dare.</p>
+<p>"Agile," she observes. "And sneaky too."</p>
+<p>"None sneakier," agrees Lena Belle as she offers the ranger a brew.</p>
+<p>"I call this one <em>Festive Flare</em>. No harmful toxins!"</p>
+<p>Azalea glowers at the grubby bottle. "Honest? I spent two days bent over a barrel after your last concoction."</p>
+<p>Lena Belle shrugs. "Bacteria, booze-the boundary is fuzzy. Besides, you needed time off."</p>
+<p>"Give it here then." Azalea takes a swig of the caramel liquid and smacks her lips like a toff. "Not bad," she admits as she passes the bottle back. "From what is it brewed?"</p>
+<p>"Centennial loaf-mold and skatrat. Fortified with Blood Rot, thrice stewed."</p>
+<p>Azalea winces as the gorge rises in her throat. Lena Belle offers a reassuring smile, and an overly firm pat on her hooded cloak.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/xmas-story-1.webp" alt="xmas-story-1" class="center">
+<p>"The distillation kills all the pathogens. Nice, meaty backend though, right?"</p>
+<p>Azalea's retort is stopped short by the opening of the Tekla Toy Factory from the inside. Arakni's masked face peers out, turning this way and that as they scan the pavement. They give a jaunty wave as they open a sewer grate and drop into a maze of effluent.</p>
+<p>"Arakni's doing this for the kids?" asks Azalea with a grimace.</p>
+<p>"<a href="../../main-story/02-arcane-rising/slings-and-arrows.html">Squeakers</a> support squeakers," answers Lena Belle. "Besides, it's Christmas."</p>
+<p>She gives the ranger a merry wink. "I still remember those socks you gave me when I was barely ten."</p>
+<p>Azalea recalls it clearly. A rare moment of pity. Lena Belle has never let her forget!</p>
+<p>"And you've given me socks every year since," complains Azalea. "Purple with gold stars last time."</p>
+<p>"Don't worry." Another of those too hard pats on the back. "No gold stars this year. That would be a crime."</p>
+<p>"Glad to hear it. Now where the bloody rot is <a href="../../heroes-of-rathe/dash-about.html">Dash</a>?"</p>
+<p>On cue, the object of Azalea's impatience rolls up, her steam-wagon spouting aphotic gas. The mechanologist dismounts her contraption and greets them with a rowdy, "Helloooo!"</p>
+<p>Azalea winces for the second time that night before cautioning Dash with an urgent, "Shoosh, you!"</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/xmas-story-2.webp" alt="xmas-story-2" class="center">
+<p>"Sorry," whispers Dash when they're close enough to hear. "Can't wait to see the kids' faces when they unbox the presents this year."</p>
+<p>"Let's just load up before we end up in boxes ourselves. The Enforcer kind, with bars."</p>
+<p>"Trust me," assures Dash. "I have just the apparatus."</p>
+<p>She produces a clunky brass controller, draws out the antenna and taps some buttons. With a bleep and a blop, an automaton crawls out of the wagon. Before Azalea can say, "<a href="../../world-of-rathe/pits/blackjacks-mercenary-group.html#dregs">Dregs</a>-dammit! Enforcers," the wagon is runners-full of toys. Stolen for the squeakers, courtesy of the Expanse's most ungrateful girls and boys.</p>
+<p>"All aboard!" yells Dash over the approaching sirens.</p>
+<p>"Off with our hoard!" adds Lena Belle, to Azalea's chagrin.</p>
+<p>The steam wagon lurches forward, almost bucking Lena Belle off the back. Azalea's quick reflexes save her from a tumble and a term in the Coppertown tank. They hold on for dear life as Dash adds more pedal to the metal. Skidding around corners. Whistling past Enforcers. Speed at nitro level.</p>
+<p>And it <em>almost</em> works.</p>
+<p>To the screeching of brakes, the wagon comes to a shuddering stop.</p>
+<p>"The jig is up!" Squawks a pursuing <a href="../../world-of-rathe/metrix/metrix.html">Metrix</a> cop. "Throw out your weapons and keep your hands in the air!"</p>
+<p>Azalea shoots Lena Belle a baleful glare. "This is why I should never listen to your ideas."</p>
+<p>"Except for this one," answers the alchemist with another merry wink. With a flourish, she produces her bottle of Festive Flare drink. With deft hands, she yanks an arrow from Azalea's quiver. Lashes the bottle to the shaft with a stained festive streamer. She unstoppers the bottle, shoves some cloth in its neck. Then she lights a match with a nefarious flick.</p>
+<p>"Count to three," she tells Azalea. "And watch for the flash."</p>
+<p>"Finally." Azalea straightens her bracers. "Time to take out the trash."</p>
+<p>The arrow arcs across the sky, a flaming comet of doom. The blockade explodes with a resounding boom. Dash cranks the steam wagon back into gear. "Urgent delivery, coming through!"</p>
+<p>And they streak through the wreckage down a dark tunnel destined for HQ.</p>
+<hr />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/xmas-story-3.webp" alt="xmas-story-3" class="center">
+<p>"It's perfect!" hollers Dash as she waggles the plasma globe up and down. "First, a cup of Festive Flare, and now I have a gift?! Thank you, Lena Belle!"</p>
+<p>The alchemist blushes, "You're welcome", then looks at Arakni perched nearby. It seems the assassin is admiring their new, more festive disguise.</p>
+<p>"It's an animal from Aria, apparently. A snowfawn. Do you like it?"</p>
+<p>Arakni nods, either in approval or bemusement-it's impossible to define it. Azalea hasn't seen Lena Belle this happy since she poisoned the <a href="../../world-of-rathe/pits/blackjacks-mercenary-group.html#blackjacks-mercenary-group">Blackjack</a> guards. The party was a success, squeakers scampering in from all corners, arm in arm. Dash laid on a magnificent feast, clocked to her expense account at Centennial Foods. And Arakni put on a pantomime, though its frightful finale dampened the festive mood. The entire event almost brought a drunken tear to the self-serving ranger's eye. A moment of weakness wiped hastily away. Mercenaries don't cry, they survive. She does, however, give in to childish excitement when a present is passed her way. Azalea tears the parcel open. Yellow with purple, blue <em>and</em> red hearts.</p>
+<p>"Socks. Again?!"</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/xmas-story-4.webp" alt="xmas-story-4" class="center">
+<hr />
+<p><em>Happy Holidays from LSS Creatives!</em><br>
+<em>Source: <a href="https://fabtcg.com/articles/squeakers-christmas/">https://fabtcg.com/articles/squeakers-christmas/</a></em><br>
+<em>Stories written by Edwin McRae and Rachel Rees.</em><br>
+<em>Directed by Robbie Wen. Illus. by Sam Yang.</em></p>
+<hr />
+<h3 id="narrated-video-by-peranine"><a class="header" href="#narrated-video-by-peranine">Narrated Video by <a href="https://www.youtube.com/@Peranine">Peranine</a></a></h3>
+<p>
+(<a href="#squeakers-christmas">Jump to the Top</a>)
+</p>
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/f8PdwFkuhM8" title="Squeakers' Christmas YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/09-dynasty/vow-of-vigilence.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/10-outsiders/tidings-in-the-light.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/09-dynasty/vow-of-vigilence.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/10-outsiders/tidings-in-the-light.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

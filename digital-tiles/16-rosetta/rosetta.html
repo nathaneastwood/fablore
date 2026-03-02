@@ -1,0 +1,292 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Rosetta - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h3 id="aether-bindings-of-the-third-age"><a class="header" href="#aether-bindings-of-the-third-age">Aether Bindings of the Third Age</a></h3>
+<p>During the War of the Old Ones, the Aetherscribes attuned their keen intellects to the eldritch forces that flow through the fabric of Rathe's reality. With engines esoteric, they drew upon the aether and animated their machinations of war.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/aether-bindings-third-age.webp" alt="aether-bindings-third-age" class="center" />
+<h3 id="aurora-shooting-star"><a class="header" href="#aurora-shooting-star">Aurora, Shooting Star</a></h3>
+<p>"The wonders of the Valahai, tucked away in the vaults of shattered <span class="hint" hint="Enion">Enion</span>. It'd be a shame not to crack them open and take a peek. Dangerous? Sure! But you can't see around the next corner without sticking your neck out, right?" - <a href="../../heroes-of-rathe/aurora-about.html#aurora-shooting-star">Aurora, Shooting Star</a></p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/aurora-shooting-star.webp" alt="aurora-shooting-star" class="center" />
+<h3 id="blossoming-decay"><a class="header" href="#blossoming-decay">Blossoming Decay</a></h3>
+<p>"You have taught me much, my silent companions. From your passing I have learned the secrets of life. In your crumbling bones I see the beauty of transformation. The Rotwood speaks through you, its wisdom etched into the flowers upon your grave." - <a href="../../heroes-of-rathe/florian-about.html#florian-rotwood-harbinger">Florian, Rotwood Harbinger</a></p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/blossoming-decay.webp" alt="blossoming-decay" class="center" />
+<h3 id="earths-embrace"><a class="header" href="#earths-embrace">Earth's Embrace</a></h3>
+<p>Our <span class="hint" hint="Rosetta">Rosetta</span> languish like trees that have not borne fruit in centuries. They are mere buds dozing dormant in the endless summer. But the sweet scent of harvest now wafts through <a href="../../world-of-rathe/aria/the-land-of-legends.html#candlehold">Candlehold</a>. To sticky-sweet hands the promise of abundance returns.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/earths-embrace.webp" alt="earths-embrace" class="center" />
+<h3 id="felling-of-the-crown"><a class="header" href="#felling-of-the-crown">Felling of the Crown</a></h3>
+<p>"Listen well, my loyal Rosetta. A sorrow lies buried within the roots of our ancient home, a choice made in a time of war. But within this forest lies the power to mend it. The path may be overgrown, yet the way is clear for those who seek with open hearts." - The Queen of Candlehold</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/felling-of-the-crown.webp" alt="felling-of-the-crown" class="center" />
+<h3 id="fertile-ground"><a class="header" href="#fertile-ground">Fertile Ground</a></h3>
+<p>Those that fought by <span class="hint" hint="Davnir">Davnir</span>'s side now imbue the land with their gentle protection. Faces in the foliage smile warmly upon the Rosetta, and the limbs of trees bow gracefully to guide their people home. The fallen ensure that all who seek solace in the forest find their way.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/fertile-ground.webp" alt="fertile-ground" class="center" />
+<h3 id="florian-rotwood-harbinger"><a class="header" href="#florian-rotwood-harbinger">Florian, Rotwood Harbinger</a></h3>
+<p>"I am a child of autumn, banished from the eternal summer. Death follows my every spoiling footstep, decaying at a touch. Am I cursed? No. The Rotwood is forever changing and I behold its beauty anew every day." - Florian, Rotwood Harbinger</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/florian-rotwood-harbinger.webp" alt="florian-rotwood-harbinger" class="center" />
+<h3 id="germinate"><a class="header" href="#germinate">Germinate</a></h3>
+<p>Embody now the essence of this place,<br>
+Where life and death in endless dance entwine.<br>
+Bear forth the power, wisdom and grace,<br>
+Of Rotwood's will, its purpose now thine.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/germinate.webp" alt="germinate" class="center" />
+<h3 id="harvest-season"><a class="header" href="#harvest-season">Harvest Season</a></h3>
+<p>"Florian may find solace in the silence of the past, but I find joy in the vibrancy of the present. There is much that death can teach us, but it is through life that we find true strength. Through time alone, we achieve true wisdom." - <a href="../../heroes-of-rathe/verdance-about.html#verdance-thorn-of-the-rose">Verdance, Thorn of the Rose</a></p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/harvest-season.webp" alt="harvest-season" class="center" />
+<h3 id="heartbeat-of-candlehold"><a class="header" href="#heartbeat-of-candlehold">Heartbeat of Candlehold</a></h3>
+<p>Plucking heart from the heartless, the Queen claimed the future of her people as great Davnir passed from manifest to metaphor. The forest, thus sealed from time's depravations, became a haven beyond history, its roots gripping to an ageless crime.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/heartbeat-of-candlehold.webp" alt="heartbeat-of-candlehold" class="center" />
+<h3 id="oscilio-constella-intelligence"><a class="header" href="#oscilio-constella-intelligence">Oscilio, Constella Intelligence</a></h3>
+<p>Gathering the finest Aetherscribes, the Valahai embarked on their greatest creation. Each mind contributed a fragment of their essence to the forging. This process, both arduous and delicate, amalgamated the epitome of arcanity and golemetry. It was a labor of ambition and desperation, rendering their knowledge incarnate.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/oscilio-constella-intelligence.webp" alt="oscilio-constella-intelligence" class="center" />
+<h3 id="rotwood-reaper"><a class="header" href="#rotwood-reaper">Rotwood Reaper</a></h3>
+<p>Florian plunged a lifeless branch into the mephitic altar and drew forth an embodiment of pure decay. He asked none for permission, gave no apology, for alone he would command the putrefying power of Rotwood.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/rotwood-reaper.webp" alt="rotwood-reaper" class="center" />
+<h3 id="sanctuary-of-aria"><a class="header" href="#sanctuary-of-aria">Sanctuary of Aria</a></h3>
+<p>"In <a href="../../world-of-rathe/aria/aria.html">Aria</a>, every step is a journey through a living song; every breath taken is a draft of pure music. It is a land where nature and enchantment are harmonized; a sanctuary for all who seek the wonder of waking dreams." - <a href="../../heroes-of-rathe/melody-about.html">Melody, Sing-along</a></p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/sanctuary-of-aria.webp" alt="sanctuary-of-aria" class="center" />
+<h3 id="seeds-of-tomorrow"><a class="header" href="#seeds-of-tomorrow">Seeds of Tomorrow</a></h3>
+<p>As summer gave way to autumn, Candlehold bathed in scarlet and amber. The Queen's parting wisdom lingered in the cooling air. A millennia of peace, yet what price would be paid for perpetuity? Entrusted unto the hands of her Rosetta, it was more than a mere seed. It was a choice.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/seeds-of-tomorrow.webp" alt="seeds-of-tomorrow" class="center" />
+<h3 id="sigil-of-brilliance"><a class="header" href="#sigil-of-brilliance">Sigil of Brilliance</a></h3>
+<p>The Aetherscribes, foreseeing a time when their presence would no longer grace the world, sought to ensure their knowledge and power would endure. This sigil stands as a monument to their foresight, preserving their accomplishments for ages to come.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/sigil-of-brilliance.webp" alt="sigil-of-brilliance" class="center" />
+<h3 id="sigil-of-deadwood"><a class="header" href="#sigil-of-deadwood">Sigil of Deadwood</a></h3>
+<p>A place where life and decay embrace; where the cycle of death feeds fresh growth. We are but fragments of the whole - drops of the sap that courses through Rotwood. For every sprout there is a story told anew.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/sigil-of-deadwood.webp" alt="sigil-of-deadwood" class="center" />
+<h3 id="staff-of-verdant-shoots"><a class="header" href="#staff-of-verdant-shoots">Staff of Verdant Shoots</a></h3>
+<p>From a tiny seed, our lady Verdance nurtured a sapling of fecund potential. Flourish it did, the staff blossoming into an instrument of restoration and protection. And under Verdance's safe keeping - a symbol of the unyielding vitality of Candlehold.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/staff-of-verdant-shoots.webp" alt="staff-of-verdant-shoots" class="center" />
+<h3 id="star-fall"><a class="header" href="#star-fall">Star Fall</a></h3>
+<p>From cosmic remnants scattered amongst scarred mountain tops, the Aetherscribes harvested iron meteoric. With the smiths of Anvilheim they built forges of lightning, crafting weapons that might one day evoke the very spirit of <span class="hint" hint="Yvor">Yvor</span>.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/star-fall.webp" alt="star-fall" class="center" />
+<h3 id="verdance-thorn-of-the-rose"><a class="header" href="#verdance-thorn-of-the-rose">Verdance, Thorn of the Rose</a></h3>
+<p>"Our home is not something that I will sit by and watch wither. I am tasked with preserving this enduring summer and will safeguard against those who would see autumn creep into these lands. Even the brightest flowers have thorns." - Verdance, Thorn of the Rose</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/verdance-thorn-of-the-rose.webp" alt="verdance-thorn-of-the-rose" class="center" />
+<h3 id="volzar-lightning-rod"><a class="header" href="#volzar-lightning-rod">Volzar, Lightning Rod</a></h3>
+<p>Lightning bound through aetheric channels, its violent longings held resolute. In the spirit of Yvor, the Aetherscribes tethered the storms of Enion, only to be unleashed in times of dire necessity by the allies of besieged Valahai.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/volzar-lightning-rod.webp" alt="volzar-lightning-rod" class="center" />
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../digital-tiles/15-part-the-mistveil/part-the-mistveil.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../digital-tiles/17-the-hunted/the-hunted.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../digital-tiles/15-part-the-mistveil/part-the-mistveil.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../digital-tiles/17-the-hunted/the-hunted.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

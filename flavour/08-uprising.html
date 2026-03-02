@@ -1,0 +1,296 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Uprising - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../hero.css">
+        <link rel="stylesheet" href="../image.css">
+        <link rel="stylesheet" href="../tab.css">
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <link rel="stylesheet" href="../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h2 id="uprising"><a class="header" href="#uprising">Uprising</a></h2>
+<h4 id="arctic-incarceration---upr144"><a class="header" href="#arctic-incarceration---upr144">Arctic Incarceration - (UPR144)</a></h4>
+<p>Tales be told, the kiss of an ice nymph draws the last breath from a soul lost to the <a href="../world-of-rathe/aria/a-true-sanctuary.html#the-bleak-expanse">Bleak Expanse</a>.</p>
+<h4 id="blaze-headlong---upr092"><a class="header" href="#blaze-headlong---upr092">Blaze Headlong - (UPR092)</a></h4>
+<p>The <span class="hint" hint="Volcai">Volcai</span> army of vigilantes, renegades, and outlaws, is like a tinderbox looking for a spark.</p>
+<h4 id="brand-with-cinderclaw---upr060"><a class="header" href="#brand-with-cinderclaw---upr060">Brand with Cinderclaw - (UPR060)</a></h4>
+<p>To the <span class="hint" hint="Dracai">Dracai</span>, it's a mark of shame. To the Volcai, it's a sign of brotherhood.</p>
+<h4 id="breaking-point---upr093"><a class="header" href="#breaking-point---upr093">Breaking Point - (UPR093)</a></h4>
+<p>Push hard enough, and even the weakest Volcai might find within their heart the courage, to stand against mightiest of dragons.</p>
+<h4 id="brothers-in-arms---upr203"><a class="header" href="#brothers-in-arms---upr203">Brothers in Arms - (UPR203)</a></h4>
+<p>On both sides of the battlefield, brotherhood is a catalyst of courage, conviction, and most importantly, hope.</p>
+<h4 id="burn-away---upr094"><a class="header" href="#burn-away---upr094">Burn Away - (UPR094)</a></h4>
+<p>"I will set your lies aflame, and reveal the ugly heart of this Uprising. Sometimes, walking away isn't nearly enough..." - <a href="../heroes-of-rathe/dromai-about.html">Dromai</a></p>
+<h4 id="cinderskin-devotion---upr063"><a class="header" href="#cinderskin-devotion---upr063">Cinderskin Devotion - (UPR063)</a></h4>
+<p>Through famine, oppression, and the horrors of war, the Volcai's oath to their fallen bretheren shall never be broken.</p>
+<h4 id="critical-strike---upr206"><a class="header" href="#critical-strike---upr206">Critical Strike - (UPR206)</a></h4>
+<p>There is no mercy on the battlefield; it's brothers against sisters, and blood against blood. For resentment breeds betrayal, as anger leads to rage, and fear to hate. This endless feud, from whence did it arise, and when will it see an end?</p>
+<h4 id="flex---upr191"><a class="header" href="#flex---upr191">Flex - (UPR191)</a></h4>
+<p>"The sun is setting on this Dynasty. Tomorrow we rise up, my son." - Yunkai</p>
+<h4 id="fyendals-fighting-spirit---upr194"><a class="header" href="#fyendals-fighting-spirit---upr194">Fyendal's Fighting Spirit - (UPR194)</a></h4>
+<p>The old ways are not forgotten.</p>
+<h4 id="invoke-azvolai---upr009"><a class="header" href="#invoke-azvolai---upr009">Invoke Azvolai - (UPR009)</a></h4>
+<p>The dragon of choice, said to guard the crossroads of Sandikai.</p>
+<h4 id="invoke-cromai---upr010"><a class="header" href="#invoke-cromai---upr010">Invoke Cromai - (UPR010)</a></h4>
+<p>The dragon of engineering, said to soar over the <a href="../world-of-rathe/metrix/metrix.html">Metrix</a> rust belt.</p>
+<h4 id="invoke-dominia---upr008"><a class="header" href="#invoke-dominia---upr008">Invoke Dominia - (UPR008)</a></h4>
+<p>The dragon of dominion, said to oppress the Volcai.</p>
+<h4 id="invoke-dracona-optimai---upr006"><a class="header" href="#invoke-dracona-optimai---upr006">Invoke Dracona Optimai - (UPR006)</a></h4>
+<p>The dragon of devastation, said to serve only the Aesir of Flames.</p>
+<h4 id="invoke-kyloria---upr011"><a class="header" href="#invoke-kyloria---upr011">Invoke Kyloria - (UPR011)</a></h4>
+<p>The dragon of greed, said to dwell in her lair deep beneath the <a href="../world-of-rathe/pits/pits.html">Pits</a>.</p>
+<h4 id="invoke-miragai---upr012"><a class="header" href="#invoke-miragai---upr012">Invoke Miragai - (UPR012)</a></h4>
+<p>The dragon of tactics, said to be adrift within the ash sprays of the <a href="../world-of-rathe/misteria/misteria.html">Misterian</a> coast.</p>
+<h4 id="invoke-nekria---upr013"><a class="header" href="#invoke-nekria---upr013">Invoke Nekria - (UPR013)</a></h4>
+<p>The dragon of decay, said to roam the crypts of the <a href="../world-of-rathe/demonastery/demonastery.html">Demonastery</a>.</p>
+<h4 id="invoke-ouvia---upr014"><a class="header" href="#invoke-ouvia---upr014">Invoke Ouvia - (UPR014)</a></h4>
+<p>The dragon of fertility, said to roost within the lush caverns of <a href="../world-of-rathe/aria/aria.html">Aria</a>.</p>
+<h4 id="invoke-themai---upr015"><a class="header" href="#invoke-themai---upr015">Invoke Themai - (UPR015)</a></h4>
+<p>The dragon of law, said to watch over the golden plains of <a href="../world-of-rathe/solana/solana.html">Solana</a>.</p>
+<h4 id="invoke-tomeltai---upr007"><a class="header" href="#invoke-tomeltai---upr007">Invoke Tomeltai - (UPR007)</a></h4>
+<p>The dragon of metallurgy, said to power the Imperial Furnace.</p>
+<h4 id="invoke-vynserakai---upr016"><a class="header" href="#invoke-vynserakai---upr016">Invoke Vynserakai - (UPR016)</a></h4>
+<p>The dragon of aggression, said to prowl the <a href="../world-of-rathe/volcor/the-red-desert.html">Red Desert</a>.</p>
+<h4 id="invoke-yendurai---upr017"><a class="header" href="#invoke-yendurai---upr017">Invoke Yendurai - (UPR017)</a></h4>
+<p>The dragon of endurance, said to be rooted deep within the <a href="../world-of-rathe/savage-lands/savage-lands.html">Savage Lands</a>.</p>
+<h4 id="lava-burst---upr098"><a class="header" href="#lava-burst---upr098">Lava Burst - (UPR098)</a></h4>
+<p>As the insurgency reached a boiling point, even the Volcai monks let their temper flare.</p>
+<h4 id="lava-vein-loyalty---upr069"><a class="header" href="#lava-vein-loyalty---upr069">Lava Vein Loyalty - (UPR069)</a></h4>
+<p>"Burn bright or burn out, we burn together." - <a href="../heroes-of-rathe/fai-about.html">Fai</a></p>
+<h4 id="sand-cover---upr039"><a class="header" href="#sand-cover---upr039">Sand Cover - (UPR039)</a></h4>
+<p>A million insignificant grains will choke even the mightiest of dragon – old Volcai proverb</p>
+<h4 id="searing-touch---upr099"><a class="header" href="#searing-touch---upr099">Searing Touch - (UPR099)</a></h4>
+<p>These iron citadels and machines of war, will do little to slow the advances of the rebellion.</p>
+<h4 id="sift---upr197"><a class="header" href="#sift---upr197">Sift - (UPR197)</a></h4>
+<p>With the war of the Monarchs raging on, we need every bit of knowledge we can find to hold back the Shadows.</p>
+<h4 id="stoke-the-flames---upr100"><a class="header" href="#stoke-the-flames---upr100">Stoke the Flames - (UPR100)</a></h4>
+<p>For some Volcai, honour is nothing compared to the sweet taste of vengeance.</p>
+<h4 id="sweeping-blow---upr030"><a class="header" href="#sweeping-blow---upr030">Sweeping Blow - (UPR030)</a></h4>
+<p>The illusionists of the Ash Plains can quickly turn home ground to their advantage.</p>
+<h4 id="that-all-you-got---upr189"><a class="header" href="#that-all-you-got---upr189">That All You Got? - (UPR189)</a></h4>
+<p>"If only they were all as pathetic as you." - <a href="../heroes-of-rathe/victor-goldmane-about.html">Victor Goldmane</a></p>
+<h4 id="tome-of-duplicity---upr168"><a class="header" href="#tome-of-duplicity---upr168">Tome of Duplicity - (UPR168)</a></h4>
+<p>What intent lies beneath the pages?</p>
+<h4 id="uprising---upr088"><a class="header" href="#uprising---upr088">Uprising - (UPR088)</a></h4>
+<p>Every great cycle, a phoenix rises to challenge the dragon. Yet as sure as Dynasties rise and fall, every feathered Emperor soon grows scales.</p>
+<h4 id="vipox---upr188"><a class="header" href="#vipox---upr188">Vipox - (UPR188)</a></h4>
+<p>"Only fools resort to force." - The Spider</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../flavour/06-everfest.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../flavour/09-dynasty.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../flavour/06-everfest.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../flavour/09-dynasty.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../tab.js"></script>
+        <script src="../theme/pagetoc.js"></script>
+        <script src="../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

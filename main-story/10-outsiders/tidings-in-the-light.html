@@ -1,0 +1,313 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Tidings in the Light - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="tidings-in-the-light"><a class="header" href="#tidings-in-the-light">Tidings in the Light</a></h1>
+<p>
+(<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)
+</p>
+<p>Rays of golden sun kiss the once golden fields of <a href="../../world-of-rathe/solana/solana.html">Solana</a>.</p>
+<p>A cloaked figure pauses at the doorway of a ruined homestead, eyes lost in shadow as it looks across the embattled earth. The clamoring horde of the <a href="../../world-of-rathe/demonastery/demonastery.html">Demonastery</a> is a chorus of rumbles and howls, like a foul storm brooding in the distance.</p>
+<p>The figure checks for onlookers before darting into the war-torn house. Safe from prying eyes, it removes its fiendish mask. Its looming stature shrinks, its claws retract and soften, and its lean sinews contract and reform, sculpting an elegant new body sheathed in gold and pearl.</p>
+<p><a href="../../heroes-of-rathe/shiyana-about.html">Shiyana</a> steps from the crumpled cloak of the hideous old with a sigh of relief. She picks her way through the scattered bones of the home's inhabitants. Enough bones for a large family, scored with teeth marks, broken and sucked empty of their marrow. She looks through a shattered window at the <a href="../../world-of-rathe/solana/a-radiant-city.html#solarium">Solarium</a> in the distance, elegant in its radiance, and the comforting boundary of the Great Gates. It is a welcome sight after the boiling harshness of <a href="../../world-of-rathe/volcor/volcor.html">Volcor</a>, after the raging fires of a land at war with itself.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/tidings-in-the-light-1.webp" alt="tidings-in-the-light-1" class="center">
+<p>Against the corruption that besieges it, Solana remains graceful; a bastion of order and beauty. It feels good to be home again, once more basking in the glow of a lighthouse, safe from the intrigues and conflicts she has survived for duty and devotion.</p>
+<p>She crosses the bare and bloodied soil to the Solanian battle line where the city's surviving warriors defend the remaining farms and villages. Hands raised, she addresses the sentries, requesting they present her to their commander. Suspicious, swords at the ready, the warriors lead her into a stately marquee of cream canvas, golden banners fluttering from its whitewashed poles. The commander looks up from the map he has spread across a long table. His eyes are bloodshot with exhaustion, his normally shining armor scratched and smeared with gore.</p>
+<p>"<a href="../../world-of-rathe/solana/the-order-of-the-light.html#the-gemini">Gemini</a> Shiyana," he greets her with a weary smile. "You are as welcome as the dawn."</p>
+<p>"<a href="../../heroes-of-rathe/boltyn-about.html">Boltyn</a>, it is good to see you."</p>
+<p>"If only it were under more cordial circumstances."</p>
+<p>"The light will prevail."</p>
+<p>"You bring fair news, then?"</p>
+<p>She can sense his pain, the longing for hope. For his son, Aios. For the righteous many. Anything to fill the void left by the death of his beloved. His Eirina.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/tidings-in-the-light-2.webp" alt="tidings-in-the-light-2" class="center">
+<p>"Some." She hopes Sol will forgive her the lie. "For the <a href="../../world-of-rathe/solana/the-order-of-the-light.html#magisters">Magisters'</a> ears only."</p>
+<p>"I'll arrange an honor guard."</p>
+<p>"Better that I avoid attention."</p>
+<p>Boltyn dismisses the guards with a wave of his hand. Shiyana places her mask on her face, transforming before Boltyn into a Solanian farmer, her smock filthy, her broad face streaked with dirt and blood, her dun brown hair lank against her skull.</p>
+<p>"They are in the Council Chamber?" she asks.</p>
+<p>"Indeed. The Magisters sit to decide the fate of this year's <a href="../../world-of-rathe/solana/solstice-of-laurels.html">Solstice of Laurels</a>. Our knights rightly deserve the <a href="../../world-of-rathe/solana/a-radiant-city.html#the-blessing-of-sol">Blessing of Sol</a>, but some view the ceremony as an extravagance in these times."</p>
+<p>Shiyana respectfully takes her leave before Bolton has a chance to grasp at the unrest she holds at bay. She joins the ragged procession of refugees entering the city through the southern gate, weaving through the crowd of the wounded and the homeless lying prone along the city's grand walkway. She expects to see despair. Instead, she witnesses kindness, bravery-people who continue to give when all has been taken from them. Their benevolence touches her, Sol's divine light growing the closer she gets to the Solarium.</p>
+<p>In a vacant entryway she removes her mask, thus returning to her natural form. She whispers a poem as she steps from sandstone to solid marble, into the <a href="../../world-of-rathe/solana/a-radiant-city.html#solarium">Great Hall of the Solarium</a>, the cadence of her footsteps matching syllables from the refrain.</p>
+<p>"Before the light of Sol, we stand,<br>
+The one true guide, illumined in our hearts,<br>
+Blessings of hope eternal against this unholy world,<br>
+We are yours, <a href="../../world-of-rathe/solana/children-of-the-light.html">Children of the Light</a>,<br>
+And in your glory, we shall prevail."</p>
+<p>"Sol will prevail," she chants to herself, the strength of her voice ringing from the arches of marble and gold above.</p>
+<p>As she nears the <a href="../../world-of-rathe/solana/a-radiant-city.html#the-amphitheatre">Amphitheatre</a>, she has to shield her eyes against the brightness of the <a href="../../world-of-rathe/solana/the-grand-council.html">Grand Council</a> chamber and the congregation of Magisters seated at its center. It seems like an age since these paragons last received her, radiant in their magnificent masks and mantles. In their presence, her anxiety recedes. Their light anoints her with hope.</p>
+<p><a href="../../other-characters/the-librarian.html">The Librarian</a>-Magister of History-is the first to notice her arrival. They turn to <a href="../../world-of-rathe/solana/the-order-of-the-light.html#grand-magister">The Steadfast</a>-the fifth and wisest Grand Magister to lead and guide Solana-and await permission to announce Shiyana's return. Shiyana shivers as The Steadfast's gaze passes over her, every fiber of her being drawn to them like a flower that follows the arc of the sun. The Steadfast nods their approval and The Librarian beckons Shiyana forward.</p>
+<p>"We welcome the brightest and boldest of our Gemini," heralds The Librarian, "and give thanks to Sol for her safe return."</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/tidings-in-the-light-3.webp" alt="tidings-in-the-light-3" class="center">
+<p>Shiyana raises her hand, her diamond spinning over her palm, and bows deeply, as is the custom. "I serve in the Light."</p>
+<p>"For in the Light we are blessed," completes The Grand Council as one.</p>
+<p>"How stands Volcor?" asks The Ambassador-Magister of Diplomacy.</p>
+<p>"Neither for us nor against us, your Grace. Their-"</p>
+<p>She pauses to order her thoughts. Should she burden the council with the convictions of the <a href="../08-uprising/fires-of-rebellion.html">Phoenix</a>? The rebel leader has vowed to fight on until Volcor is remade. What of <a href="../../heroes-of-rathe/dromai-about.html">Lady Dromai</a> and the <a href="../../world-of-rathe/volcor/the-royal-court.html">Royal Court</a>, fighting amongst themselves while their land burns?</p>
+<p>"Their concerns are their own, your Grace."</p>
+<p>"You spoke with the <a href="../../heroes-of-rathe/emperor-about.html">Emperor</a>, did you not?"</p>
+<p>Even awash with the light of the Magisters, Shiyana can feel apprehension lurking, waiting for its moment to retake her.</p>
+<p>"<a href="../09-dynasty/ember-in-the-ash.html">The Emperor is dead. Slain by an assassin.</a>"</p>
+<p>She expects a chorus of surprise at the mention of it. But the chamber remains silent, not the faintest tremor of unsettlement to be heard. The Grand Magister looks upon Shiyana with a tranquil resolve that washes over her, warm and gentle, just how she remembers the waters of her own baptism as a tender child.</p>
+<p>"Continue," speaks The Steadfast, a mere whisper that fills the Amphitheatre, ringing through the stone beneath Shiyana's feet, as if that lone word had resonated up from the deep foundations of Solana itself.</p>
+<p>Like echoes to The Steadfast's cadence, Shiyana's words ring out of their own accord. She spins her summations, woven as they are from tenuous threads, unfolding a tapestry of tragedy. As a chambermaid, she witnessed the murderous rivalry between the <span class="hint" hint="Ezu">Ezu</span> and <span class="hint" hint="Alshoni">Alshoni</span>; <span class="hint" hint="Dracai">Dracai</span> factions locked in a dynastic struggle. As a healer, she patched the wounds and listened to the stories of rebels under the banner of the Phoenix. As a scribe, she copied the words of Spymaster Xathari until his untimely demise. As General Riku's personal aide, she finally snagged a hole in this arras of silence. A symbol upon a seemingly banal parchment. A sign she recognized from a long ago mission in the depths of the <a href="../../world-of-rathe/pits/pits.html">Pits</a>.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/tidings-in-the-light-4.webp" alt="tidings-in-the-light-4" class="center">
+<p><a href="../../world-of-rathe/pits/blackjacks-mercenary-group.html#lapocalypta">L'Apocalypta</a>.</p>
+<p>A cult sworn to unspeakable acts for unknowable reasons.</p>
+<p>Shiyana speaks of the assassination itself. Posed as a lieutenant of the Royal Guard, she was among the first to hear Lady Dromai's cry of alarm. She glimpsed the carnage within the throne room, reeled at the raw stench of wanton massacre. But that was nothing to the almighty roar that followed, a sonance so deafening, so profound, it was as if Mount Volcor itself wailed in anguish at the loss of its chosen son.</p>
+<p>"I know not if it was consequence or coincidence, harbinger or happenstance, yet all of Volcor suffered in the wake of that outcry. The earth was sundered. Lava rivers broke their banks."</p>
+<p>"Not unusual for Volcor," dismisses The Bastion-Magister of Defense. "It is a land of volatile firmament."</p>
+<p>"True, your Grace. Yet the suddenness, the violent scale, was beyond anything noted by the imperial historians. And there was something else. A sensation I have experienced many times, but never under such circumstances."</p>
+<p>The Librarian leans forward, expectant. "Do explain."</p>
+<p>"When I don my mask, when I change, I feel a ripple in the aether, as if I am a stone dropped into a pool of water. It is gentle, almost pleasant. This was the same, although much stronger, and not of my volition." She shudders at the memory. "The aether answered that ardent call and wreaked havoc in its wake."</p>
+<p>"It is as we foretold," states The Librarian, their surety punctuated by the briefest of glances from The Steadfast. "Before the words, before belief, they slumbered in the bygone lethe, breeding dreams in twilife's gloom, until the awakening of i'Arathael's doom."</p>
+<p>The Librarian's verse renders Shiyana speechless. How blind she has been despite the keenness of her eyes. How dim her thoughts are against The Grand Council's all-knowing presence. As if sensing the crack in Shiyana's confidence, The Steadfast raises their hand. It is a gesture befitting The Grand Magister alone, demanding patience and forbearance. Silence stretches out, growing weightier and more suffocating with every passing moment. The Amphitheatre, indeed the entire Solarium, holds its breath.</p>
+<p>"Through the gathering dusk shall Sol's light burn ever brighter."</p>
+<p>The Grand Magister's words shatter the silence like the sun breaking through a mantle of cloud. They turn to Shiyana, their blazing eyes searing through Shiyana's mind. Her petty ego scurries and squirms, trying to hide, trying to escape The Steadfast's ineluctable gaze. It cannot. One by one, her precious anxieties melt away, executed in iridescence. She is forged anew, impurities exorcized. A servant, an instrument, devoted to the glory of Sol.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/tidings-in-the-light-5.webp" alt="tidings-in-the-light-5" class="center">
+<p>"In the shade of destiny, devious minds hatch deviant dreams," intones The Librarian, slow and stately as the rising sun. "The schemes they brew are poisoned with greed and malice. Bereft of true Light, their designs will be but a passing disease, cured and forgotten."</p>
+<p>In an act of luminous certainty, The Grand Magister stands and reaches outward with their hands as if gathering Shiyana, the Grand Council, Solana and all of <a href="../../world-of-rathe/rathe.html">Rathe</a> in their embrace.</p>
+<p>"There are others," assures The Grand Magister. "Allies worthy and courageous, who look beyond their fearful walls. Those who will strive with us for Rathe's brightest future."</p>
+<p>The Grand Magister turns and acknowledges The Librarian, who nods their agreement in return.</p>
+<p>"Sol knows this as certainly as the coming of the dawn."</p>
+<p>The Grand Magister's voice is a sunlit sermon streaming over the morn, warming her after a long and frigid night.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/tidings-in-the-light-6.webp" alt="tidings-in-the-light-6" class="center">
+<p>"In Sol we trust."</p>
+<p>"In Sol we trust," answers Shiyana without doubt, without thought.</p>
+<p>"Sol will prevail."</p>
+<p>"Sol will prevail," answers the Grand Council, euphonious and sure.</p>
+<p>Shiyana joins the chorus as it soars to the highest arches of the Amphitheatre. Many voices joined as one, intoning the glory of their salvation. In that moment her heart and mind harmonize, reformed in the Light. There is no doubt. There is no fear. Only Sol.</p>
+<hr />
+<p><em>Source: <a href="https://fabtcg.com/articles/tidings-light/">https://fabtcg.com/articles/tidings-light/</a></em><br>
+<em>Written by Edwin McRae and Rachel Rees.</em><br>
+<em>Directed by Robbie Wen. Illus. by Henrique Lindner.</em></p>
+<hr />
+<h3 id="narrated-video-by-peranine"><a class="header" href="#narrated-video-by-peranine">Narrated Video by <a href="https://www.youtube.com/@Peranine">Peranine</a></a></h3>
+<p>
+(<a href="#tidings-in-the-light">Jump to the Top</a>)
+</p>
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/bYYi8b7uhRs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/10-outsiders/squeakers-christmas.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/10-outsiders/the-spiders-trap.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/10-outsiders/squeakers-christmas.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/10-outsiders/the-spiders-trap.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

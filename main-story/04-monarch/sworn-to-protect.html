@@ -1,0 +1,252 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Sworn to Protect - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="sworn-to-protect"><a class="header" href="#sworn-to-protect">Sworn to Protect</a></h1>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/boltyn-1.webp" alt="boltyn-1" class="center">
+<p>Far beyond the borders of <a href="../../world-of-rathe/solana/solana.html">Solana</a> lie the <a href="../../world-of-rathe/solana/the-northern-realms.html">Northern Realms</a>, a large expanse of land divided amongst ancient families, who rule under the watchful, detached gaze of the City of Light. <a href="../../heroes-of-rathe/boltyn-about.html">Boltyn</a> was born to nobility, raised with the knowledge that he would inherit his father's lands. Despite his exalted status, the young Boltyn was more interested in his grandmother's tales of Solana, with their noble knights, shining streets, and great library of knowledge.</p>
+<p>The small, earnest boy in time became a steadfast young man, disillusioned with the egotistical, power-hungry nobles who ruled the surrounding lands. While they were ensnared by the Shadow, delighting in their dark, vicious games, Boltyn looked upon their narcissistic obsessions and despaired. On his accession, Boltyn reluctantly took up his father's mantle, but was determined to forge a new path.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/boltyn-2.webp" alt="boltyn-2" class="center">
+<p>It was only a few years after his father's death that a party of honourable knights arrived in Boltyn's lands. They came to offer aid to the common folk, bringing the blessings of the Light, and news of a land where all could live free. The knight's tales of a bright and beautiful city reignited Boltyn's childhood passion for the stories of Solana, so carefully stoked by his grandmother. Inspired, he chose to leave his home behind, relinquishing his status as a lord to embark on a pilgrimage to Solana, where he could begin his life anew.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/boltyn-3.webp" alt="boltyn-3" class="center">
+<p>The city welcomed him as one of their own, a child of the Light returning home at long last, and Boltyn soon began his training in the Hand of Sol. Amongst their ranks he met Eirina, a cleric with dark hair and shining green eyes. Her kindness and grace enchanted him from their very first meeting, and once they had completed their training, they soon found themselves in the same party, sharing conversations between missions in the Golden Fields.</p>
+<p>Together, knight and cleric made an almost unstoppable team. They provided protection and healing to all they encountered, fighting alongside their party under the light of the sun, and spending their nights in the Golden Chariot, talking and laughing alongside their friends. Boltyn and Eirina travelled together for many years, and their partnership quickly blossomed into a devoted marriage. In time, they had a beautiful baby boy, whom they named Aios. They eagerly awaited the day of their son's Awakening ceremony, hoping that the Light would guide him into the Hand of Sol.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/boltyn-4.webp" alt="boltyn-4" class="center">
+<p>However, word was quickly spreading of unstoppable plagues, cataclysmic cults, and the darkest of magics in the surrounding lands, featuring abhorrent rituals which spilled the blood of innocents in exchange for raw power. Boltyn was on a mission within the Golden Fields when the enemy struck, unleashing a devastating assault on the city of Solana. As soon as he heard the news, Boltyn raced back home, but he arrived too late to save Eirina. She fell defending their people, torn to shreds by one of the Shadow beasts in its attempt to breach the inner sanctum. His only consolation was that Aios had been spared, kept safely within the Solarium while others fought bravely to defend the city.</p>
+<p>Wracked by intense grief and despair, Boltyn wandered the city in a daze. In an attempt to gather himself, he sought his old friend at the Golden Chariot, <a href="../../other-characters/minerva-themis.html">Minerva</a>, whom he knew would understand the position he now found himself in. She knew all too well the weight of grief, and made a suggestion; as a member of the Gemini, she told him of a small group within the Hand of Sol who operated as she did, working to seek out the Shadow before they could harm the people of Solana. As an Inquisitor, he could help prevent anyone else from meeting the same fate as Eirina.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/boltyn-5.webp" alt="boltyn-5" class="center">
+<p>While he was growing up in the Northern Realms, Boltyn had heard rumours of the dark magics that some practiced; if anyone could figure out where to begin the search, it would be him. And yet, Boltyn hesitated. If he did accept the role of Inquisitor, he would be away from the city for months, perhaps years at a time, diving right into the heart of the Shadows, the most dangerous place for anyone to be.</p>
+<p>Aios had lost his mother; could Boltyn bring himself to deprive him of his father, too? Could he take the risk that he might fall in battle, and leave his son without a parent? Could he find the courage to look into the manifold darkness of Rathe, and not lose himself within? Could he hold true to the Light, even whilst seeing the very worst of humanity? Could he indeed set aside his grief, and dedicate himself to seeking out the Shadows, in order to dispel them?</p>
+<p>Filled with doubt, Boltyn sought out the words of the Magisters, hoping that they could bring some peace to his heavy heart. Yet upon entering the Library of Illumination, he overheard the words of a young scholar who was retelling the legends of the Heralds, legendary beings who watched over the people of Solana. Glorious and ethereal, they guided all who walked the path of the Light, guardians of both the living and the dead.</p>
+<p>Enchanted by these tales of powerful, extraordinary beings, Botlyn found himself in the grasp of a powerful vision. Bellona, the Wartune Herald, appeared before him, wings aflame, wielding a mighty sword of burnished gold.</p>
+<p>The Herald then turned her gaze to the land stretching beneath her, and they watched as it turned to ash and dust, all living beings shrivelling beneath the weight of the Shadow. As the darkness spread across the land, she lifted her sword above her, summoning the Light of the sun. The sun revealed the small figure which stood within the shelter of Bellona's wings, and illuminated Aios' shining smile. For just a moment, he could have sworn he heard the whisper of Eirina's voice echoing in his ears, and caught a glimpse of her healing hands outstretched, ready to help those in need.</p>
+<p>In an instant, Boltyn remembered what he had been fighting for, and the dark fate which awaited all of Rathe should the Light fall. Bellona's blessing steeled his heart, and he resolved once again to take the path which lay ahead. No matter the price, no matter what stood in his way, he swore to uphold the Light.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/boltyn-6.webp" alt="boltyn-6" class="center">
+<p>As the war between Light and Shadow rages, soldiers fighting to defend their noble city from the onslaught of terror, Boltyn was entrusted with the role of Inquisitor, and named the leader of a small party tasked with scouring the land of evil. Whilst the knights of Solana were locked in fierce battle, fighting to protect the villages of the Golden Fields, he and his fellow Inquisitors would search for the harbingers of the Shadow; those who sacrificed innocent lives in their quest for power.</p>
+<p>Empowered by the very blessing of Bellona, Boltyn has taken up his sword once more. He fights not only for the sake of his son, Aios, but for all those he has sworn to protect, determined to free the land of Shadow and defend his shining city. With Eirina always in his prayers, he has ventured forth on a quest to vanquish Solana's foes, halt the spread of corruption and death, and protect his people from the horrors of war.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/boltyn-7.webp" alt="boltyn-7" class="center">
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/04-monarch/emissary-of-the-void.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/04-monarch/stories-of-illumination.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/04-monarch/emissary-of-the-void.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/04-monarch/stories-of-illumination.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>System Failure - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="system-failure"><a class="header" href="#system-failure">System Failure</a></h1>
+<p>Should've known better than to trust a Teklo.</p>
+<p>They're all the same... even <em>her</em>.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/system-failure-1.webp" alt="system-failure-1" class="center" />
+<p>Sucks to be betrayed by the ones you trust.</p>
+<p>There's eight people in this little cell. Standing room only. You'd think the <a href="../../world-of-rathe/metrix/a-better-tomorrow.html#iron-assembly">Iron Assembly</a> could afford more space for its 'valued customers'. And air-conditioning. Stinks like the <a href="../../world-of-rathe/metrix/a-sprawling-metropolis.html#the-sprawl">Sprawl</a> in midsummer. But that's typical of the bloody corporations. Common decency hurts their bottom line. Hurts them to do anything but make more dirty money.</p>
+<p>Drives me bonkers to think of <a href="../../heroes-of-rathe/dash-about.html">Dash</a> and all the <span class="hint" hint="tallics">tallics</span> she'll make from her new 'friend'. Can't think of any other reason she'd stitch me up like that? Money talks and all. Law of the concrete jungle.</p>
+<p>That can't be it, though? She was born privileged. That's why I'm here and she's-</p>
+<p>A couple of enforcers turn up with lunch: a plain Nutrislug and a bottle of water to wash the slime down. Guess that's why it's called life imprisonment. Enforcers don't want you dying on them. Messes with their business model.</p>
+<p>There's a kid curled up in the corner. Ragged thing, only ten years old. A bruiser from <a href="../../world-of-rathe/metrix/a-sprawling-metropolis.html#coppertown">Coppertown</a> tries to swipe her lunch. I back him off with a head butt to the kisser. Can't be having behavior like that here. It's undignified.</p>
+<p>The kid nods her thanks and guzzles her food and water before anyone else has a go. I know what that feels like; always on edge, just waiting for life to give you another kick. Learned it when I was young too, long before I met Princess Teklo.</p>
+<p>Rosario Orphanage. Sounds nice, doesn't it? Imagine brick walls covered in ivy. Think immaculate rose beds and swings hanging beneath an oak tree. Then pull the other one.</p>
+<p>Picture a giant cinderblock outhouse packed with turds. Just a bunch of abandoned Sprawl babies, like so much industrial waste. You grow up quick in a place like that.</p>
+<p>While the other six-year-olds were making mud pies in that open sewer they called a playground, I was making potions in the janitor's cupboard. Yeah, too young to be messing with chemical compounds, but I was never one to be age appropriate. Chucklate Bistink was my most successful concoction, especially when heated in the canteen oven. Cleared the whole place for days. Orphanage management had to put us up in a hotel while they deodorized the place.</p>
+<p>At age seven, I took an interest in circuitry. I isolated and activated the extinguisher system over the staff quarters, ruining several thousand tallics' worth of furniture in one night. Put an orderly in the hospital too. Asphyxiation, they said. Must have been quite the snorer.</p>
+<p>I kept a low profile after that. Minor pranks. Lights flashing on and off by themselves. Magnetic doors locking and trapping the unwary for a few minutes. Random blasts of music over the intercom. Two staffers left because they were sure the place was haunted. Phantom <a href="../../heroes-of-rathe/maxx-about.html">Maxx</a>, at your service.</p>
+<p>For my eighth birthday, I threw myself a party, complete with entertainment. Hacked the internal surveillance system and watched a sweet romance blossom between the orphanage manager and a maintenance attendant. Against company policy, of course. When they finally got it on in the boiler room, I pointed every security camera within earshot onto the suckers, uploaded the footage, and shared it to every screen within the orphanage's parent company, the renowned Rosario Hills Institute. Manager and attendant were sacked the next day. By the end of the week, I found myself in new digs-my very own room in the exclusive Rosario Chateaux.</p>
+<p>Turns out the Rosario Hills Institute runs most of the city's orphanages. Not out of the goodness of their hearts. The orphanages are gathering grounds for their "subjects". Special kids like me. Kids with unusual talents. At first, I thought it was a bit of a lark. My own room, good food, a decent bed, and attention from some very interested whitecoats. Then the tests started, the prodding and poking, the scans and samples. I soon discovered that special isn't all it's cracked up to be.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/system-failure-2.webp" alt="system-failure-2" class="center" />
+<p>At least I found some other kids on my wavelength. Ricky Royce was one. Nothing that lad couldn't steal. And Lena-Belle, purveyor of poisons. We put our ten-year-old eggheads together and hatched a plan right under those Rosario roosters' beaks. Ricky stole the keys and Lena-Belle poisoned the water. While all the whitecoats chundered on their clipboards, I mixed some industrial cleaners and blew a kid-sized hole in the outer wall. Off we three went into the alleyways with every other shaved-head wunderkind trailing along behind.</p>
+<p>We hung out for a bit, making ends meet from what we could beg or steal, until we found ourselves a 'helper'. Dash Teklo and her fancy gadgets to our rescue. A whole bag of tricks and a cozy little place to stash them. I split soon after. Never been one to take charity, especially the silver spoon princess type.</p>
+<p>I haven't seen much of the Rosario Kids since. Ricky and the others have a hideout somewhere in <a href="../../world-of-rathe/metrix/a-sprawling-metropolis.html#zinnia-park">Zinnia Park</a>. Lena-Belle pedals her poisonous wares down in <a href="../../world-of-rathe/pits/pits.html">The Pits</a>. Less chance of the Institute tracking us down if we keep our distance. Best left to our own devices.</p>
+<p>Speaking of devices.</p>
+<p>The lights dim. Bedtime for the baddies. The other inmates hunker down, sitting back-to-back, or curled up as small as they can manage in the confined space. They nod off pretty quick. That's conditioning for you. Make do with what our socio-economic betters care to dish out. Not me. I'm still standing, wide awake. This is my moment.</p>
+<p>The enforcers have stripped me of my usual gear, but I always keep something amusing tucked away for special occasions. With a wince and a meaty "shuck", the secret compartment opens at my side. I fish out the contents and pat my fake flesh shut.</p>
+<p>The shortwave disrupter pops the cell's maglock in a satisfying shower of sparks. The surveillance system is next, cameras sizzling like meatpops on a street-side barbeque. I slap the disruptor on the holding wing door and activate its self-destruct sequence.</p>
+<p>By this time, my former cell mates are waking up to the fact that there's a breakout afoot.</p>
+<p>"Close your eyes and cover your ears!" I tell them. They're smart enough to oblige before the counter hits zero. The explosion blows the metal door clean off its hinges and sends it hurtling into the startled enforcers beyond.</p>
+<p>I parade through the smoldering doorway and snatch up the nice <a href="../../digital-tiles/03-crucible-of-war/crucible-of-war.html#plasma-barrel-shot">Plasma Barrel Shot</a> an enforcer humaniform has left on the floor for me. How kind. The owner is unconscious, knocked out by the exploding door. Her bot companion tries to get up on its one remaining leg, but a blast of hot plasma ends that.</p>
+<p>Through the antechamber's window I can see other enforcers in the station's main office, both human and robot, scrambling for their weapons. I shoot out the glass and step to one side as my fellow prisoners charge out of the holding wing and take the shortest path to freedom. Through the window and over the enforcers.</p>
+<p>I pick off two bots and a humaniform who've dodged the stampede, winging the latter out of respect for fellow organics. I even order some auto-ambulances for the wounded and whining humaniforms staggering out the shattered front door.</p>
+<p>It's clear outside. Lovely evening. Even the smog's been carried off by some gusty breeze. Nothing to block my view of <a href="../../world-of-rathe/metrix/a-better-tomorrow.html#teklo-industries">Teklo Industries</a>' big, beautiful <a href="../../world-of-rathe/metrix/a-sprawling-metropolis.html#the-needle">Needle</a>. I sight my stolen Barrel Shot at the holographic face of <a href="../../heroes-of-rathe/teklovossen-about.html">Jules Teklovossen</a>. He smirks at me from a dynamic billboard perched halfway up the tower. I empty the plasma mag into his smug expression. The shots fall well short of the five-kilometer distance between me and Teklo HQ, but hey, it's the thought that counts.</p>
+<p>I toss the empty gun aside and flip Teklovossen my middle finger. Yes, I'm one to hold a grudge. They're all I have these days. Grudges with those on high, and grudges with the systems that keep them there.</p>
+<p>As for Princess Teklo. Maybe I should thank her. Betrayal has given me an exciting new focus.</p>
+<p>A big, explosive aspiration.</p>
+<p>A party the likes of which Teklo Industries hasn't seen before.</p>
+<p>There'll be fireworks. What's a rooftop party without fireworks?</p>
+<p>After all, Metrix is the city of Bright Lights.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/system-failure-3.webp" alt="system-failure-3" class="center" />
+<hr />
+<p><em>Source: <a href="https://fabtcg.com/articles/system-failure/">https://fabtcg.com/articles/system-failure/</a></em><br>
+<em>Written by Edwin McRae and Rachel Rees.</em><br>
+<em>Directed by Robbie Wen. Illus. by Sam Yang</em></p>
+<hr />
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/12-bright-lights/the-dynamic-man.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/12-bright-lights/synthetic-futures.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/12-bright-lights/the-dynamic-man.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/12-bright-lights/synthetic-futures.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

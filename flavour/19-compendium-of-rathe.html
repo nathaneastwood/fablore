@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Compendium of Rathe - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../hero.css">
+        <link rel="stylesheet" href="../image.css">
+        <link rel="stylesheet" href="../tab.css">
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <link rel="stylesheet" href="../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h4 id="colors-of-aria---pen206"><a class="header" href="#colors-of-aria---pen206">Colors of Aria - (PEN206)</a></h4>
+<p>The Ancients' sacrifice, made centuries ago, still manifests in <a href="../world-of-rathe/aria/aria.html">Aria</a>'s lush landscapes and abundant harvests. The <a href="../world-of-rathe/aria/a-true-sanctuary.html#the-flow">Flow</a> is their legacy.</p>
+<h4 id="depths-of-despair---pen195"><a class="header" href="#depths-of-despair---pen195">Depths of Despair - (PEN195)</a></h4>
+<p>The Disciple of Pain sought dominion, but in desperance he languished.</p>
+<h4 id="descend-into-madness---pen278"><a class="header" href="#descend-into-madness---pen278">Descend into Madness - (PEN278)</a></h4>
+<p>"The chaotic mind is a rich mine of dangerous ideas." - <a href="../other-characters/krest-mortimer.html">Dr Mortimer</a></p>
+<h4 id="doubling-season---pen218"><a class="header" href="#doubling-season---pen218">Doubling Season - (PEN218)</a></h4>
+<p>When <a href="../world-of-rathe/aria/the-land-of-legends.html#candlehold">Candlehold</a> rejoined the Flow, the effects were felt as far as Mount Heroic.</p>
+<h4 id="drag-down---pen331"><a class="header" href="#drag-down---pen331">Drag Down - (PEN331)</a></h4>
+<p>"Drink yer sorrows where the grog runs free, in the sunken realm of <a href="../world-of-rathe/high-seas/coralysi.html">Coralysi</a>." - Pirate's Dirge</p>
+<h4 id="duty-bound-blitz---pen185"><a class="header" href="#duty-bound-blitz---pen185">Duty Bound Blitz - (PEN185)</a></h4>
+<p>What our Gemini find in the Shadows, our Inquisitors must drag into the Light.</p>
+<h4 id="fluid-motion---pen269"><a class="header" href="#fluid-motion---pen269">Fluid Motion - (PEN269)</a></h4>
+<p>"Read the ripples on the surface. They are the okana, telling us of deeper currents in the chi." - Orihon of Mystic Tenets</p>
+<h4 id="frosthaven-sheath---pen207"><a class="header" href="#frosthaven-sheath---pen207">Frosthaven Sheath - (PEN207)</a></h4>
+<p>For Galcia she remembers when two worlds touched.</p>
+<h4 id="future-sight---pen117"><a class="header" href="#future-sight---pen117">Future Sight - (PEN117)</a></h4>
+<p>"Through aetheric visions I study these foreboding sigils of i'Arathael." - Maela Fairmind</p>
+<h4 id="gentle-breeze---pen034"><a class="header" href="#gentle-breeze---pen034">Gentle Breeze - (PEN034)</a></h4>
+<p>"We are leaves aloft, swirling in the breath of a slumbering Aesir." - Mugenshi proverb</p>
+<h4 id="glyph-power-spell---pen113"><a class="header" href="#glyph-power-spell---pen113">Glyph Power Spell - (PEN113)</a></h4>
+<p>"Two worlds, one story, written in the alphabets of Aether and Aesir." - Aetherscribe Karalyn</p>
+<h4 id="heart-wrencher---pen077"><a class="header" href="#heart-wrencher---pen077">Heart Wrencher - (PEN077)</a></h4>
+<p>"These Teklo monsters are state of the art? I'm gonna break them with all of my heart!" - <a href="../heroes-of-rathe/maxx-about.html">Maxx</a></p>
+<h4 id="hulk-up---pen293"><a class="header" href="#hulk-up---pen293">Hulk Up - (PEN293)</a></h4>
+<p>"Whatcha gonna do when a hulk runs wild on you?" - Fightmaster Batbiter</p>
+<h4 id="hyper-inflation---pen284"><a class="header" href="#hyper-inflation---pen284">Hyper Inflation - (PEN284)</a></h4>
+<p>"We shall innoculate the world against the disease of complacency." - Doctrine of L'Apocalypta</p>
+<h4 id="insult-to-injury---pen303"><a class="header" href="#insult-to-injury---pen303">Insult to Injury - (PEN303)</a></h4>
+<p>"As they love to remind us, the Prowlers come from a land of blood and mud." - Fightmaster Kox</p>
+<h4 id="ion-charged---pen242"><a class="header" href="#ion-charged---pen242">Ion Charged - (PEN242)</a></h4>
+<p>Lightning flashes over <span class="hint" hint="Enion">Enion</span>, portending an ancient and terrible storm.</p>
+<h4 id="knife-through---pen149"><a class="header" href="#knife-through---pen149">Knife Through - (PEN149)</a></h4>
+<p><a href="../heroes-of-rathe/uzuri-about.html">Uzuri</a> had only a raw talent for murder. The Spider gave her the means to turn butchery into a business.</p>
+<h4 id="leaven-sheath---pen208"><a class="header" href="#leaven-sheath---pen208">Leaven Sheath - (PEN208)</a></h4>
+<p>For <span class="hint" hint="Davnir">Davnir</span> she feels the twin lands tremble.</p>
+<h4 id="look-within---pen273"><a class="header" href="#look-within---pen273">Look Within - (PEN273)</a></h4>
+<p>"The harder you look, the deeper the mist that obscures the spirit." - Orihon of Mystic Tenets</p>
+<h4 id="oath-of-oak---pen221"><a class="header" href="#oath-of-oak---pen221">Oath of Oak - (PEN221)</a></h4>
+<p>Spring touches Candlehold for the first time in centuries, promising rebirth for those <span class="hint" hint="Rosetta">Rosetta</span> willing to embrace it.</p>
+<h4 id="runic-fellingsong---pen100"><a class="header" href="#runic-fellingsong---pen100">Runic Fellingsong - (PEN100)</a></h4>
+<p>"With the passing of our immortal Queen, Candlehold bows to the seasons of life and death." - <a href="../heroes-of-rathe/florian-about.html">Florian</a></p>
+<h4 id="soul-bond-belief---pen187"><a class="header" href="#soul-bond-belief---pen187">Soul Bond Belief - (PEN187)</a></h4>
+<p>"<span class="hint" hint="Sol">Sol</span> burns away the Shadow that would cloud your heart." - Themis, Archangel of Justice</p>
+<h4 id="stormwind-sheath---pen209"><a class="header" href="#stormwind-sheath---pen209">Stormwind Sheath - (PEN209)</a></h4>
+<p>For <span class="hint" hint="Yvor">Yvor</span> she dances through twice-sundered skies.</p>
+<h4 id="swordmasters-shine---pen048"><a class="header" href="#swordmasters-shine---pen048">Swordmaster's Shine - (PEN048)</a></h4>
+<p>"Our fears shall cower and flee before the glory of Sol." - Hala Goldenhelm</p>
+<h4 id="tome-of-pandemonium---pen277"><a class="header" href="#tome-of-pandemonium---pen277">Tome of Pandemonium - (PEN277)</a></h4>
+<p>"The Old Ones fractured the world and Chaos boiled up through the cracks." - Zeir, First Anarch of L'Apocalypta</p>
+<h4 id="valahai-riven---pen022"><a class="header" href="#valahai-riven---pen022">Valahai Riven - (PEN022)</a></h4>
+<p>"The Sundering shattered the great fortress of Valahai into a thousand fragments." - The Auric Memoirs</p>
+<h4 id="weeping-battleground---pen105"><a class="header" href="#weeping-battleground---pen105">Weeping Battleground - (PEN105)</a></h4>
+<p>"A rune is a vessel, made of speech and symbol, that collects the lifeblood of existence." - The Apostate</p>
+<h4 id="whispering-mist---pen267"><a class="header" href="#whispering-mist---pen267">Whispering Mist - (PEN267)</a></h4>
+<p>"As the moon has many faces, I have many lives in which to serve it." - <a href="../heroes-of-rathe/enigma-about.html">Enigma</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../flavour/18-high-seas.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../flavour/00-non-set-cards.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../flavour/18-high-seas.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../flavour/00-non-set-cards.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../tab.js"></script>
+        <script src="../theme/pagetoc.js"></script>
+        <script src="../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

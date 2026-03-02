@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Seven Arts - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="the-seven-arts"><a class="header" href="#the-seven-arts">The Seven Arts</a></h1>
+<p>The Seven Arts encompass every occupation and role within Misteria. Education for every Misterian begins with a foundation in all seven, slowly reducing the number of subjects as the child chooses their path. The Seven Arts have been a part of Misterian culture for generations, curated from centuries of traditions and customs. Through the Seven Arts, ancient skills and practices have been preserved, so that they can be passed on for generations to come.</p>
+<h3 id="major-arts"><a class="header" href="#major-arts">Major Arts</a></h3>
+<p>There is a particular focus on the Major Arts, which include the fundamental lessons for a child of Misteria. Language, agility, and basic combat are all incredibly important for anyone living within Misteria, and so the Major Arts are an area of focus during education.</p>
+<h4 id="signs"><a class="header" href="#signs">Signs</a></h4>
+<p>The first art, the Art of the Signs, is comprised of the study of language and culture. Those who study this Art help to record history, compose poetry and songs, and guide the many ceremonies across Misteria.</p>
+<h4 id="hand"><a class="header" href="#hand">Hand</a></h4>
+<p>This Art is the study of basic combat. While some students of the Hand may go on to study the Art of the Sparrow or the Art of the Serpent, many choose to continue studying the Art of the Hand, which contains a wide variety of martial arts and combat techniques.</p>
+<p>The Art of the Hand is perhaps one of the most versatile, providing a foundation not only in combat, but in teaching young Misterians the importance of strength and balance; both fundamental skills for living amongst the mountain ranges. It does not focus exclusively on hand-to-hand combat, but rather involves a series of techniques and fundamentals that cover the basics of most martial styles. The Art of the Hand teaches combat techniques which can be used for both offensive and defensive purposes. The Hand includes both armed and unarmed combat styles, though training typically begins with the two fundamental unarmed martial styles; the Tao Strikes, and the Feito Technique.</p>
+<p>The Tao Strikes are a basic striking and parry system, which focuses on quickly getting close to an opponent and locking in melee-range physical combat, while also protecting the ninja's vital organs. Meanwhile, the Feito Techniques utilise footwork, which emphasises maintaining balance through a central line of power, allowing the student to anchor themselves and apply force from any position.</p>
+<p>Those students who choose to train for armed combat may study multiple weapons or specialize solely with one. Alongside the various types of swords, weapons may also include metal fans, called gunsen; long staves known as bo; long-handled weapons such as the naginata; a longbow, the yumi; or three-pronged weapons known as sai.</p>
+<h4 id="sparrow"><a class="header" href="#sparrow">Sparrow</a></h4>
+<p>The Art of the Sparrow is the art of agility and balance. While all Misterians have basic training in the Art of the Sparrow, masters of this art are a sight to behold, weaving their way across a battlefield with ease.</p>
+<p>Those who train in the Art of the Sparrow practice more swift, graceful martial styles, using their speed and agility to their advantage. Rather than blocking or disarming their opponent, they slip past their opponent's defenses, using their own momentum against them. A master of the Art of the Sparrow can deflect attacks and turn them back on their opponent as if they were diverting the flow of a stream.</p>
+<h3 id="minor-arts"><a class="header" href="#minor-arts">Minor Arts</a></h3>
+<p>The Minor Arts, while included in the basic education of every young child in Misteria, are not the main focus of daily lessons. Despite this, the minor arts still play a vital role within Misteria.</p>
+<h4 id="serpent"><a class="header" href="#serpent">Serpent</a></h4>
+<p>The Art of the Serpent encompasses stealth and assassination techniques. Those who study the Art of the Serpent are all but invisible, taking down their opponents with deadly precision. The best students of the Serpent can hide in plain sight, using their surroundings to their advantage, able to navigate their way through a crowd without ever being seen.</p>
+<h4 id="earth"><a class="header" href="#earth">Earth</a></h4>
+<p>The second minor art, the Art of the Earth, covers herbalism, farming and tending to nature. Those who study this Art help not only with growing food for those across Misteria, but provide aid to villages through herbalism and healing. Life within Misteria would be almost impossible without their unique agriculture, carefully cultivated by students of the Earth. Hanging gardens provide a space to grow rice, vegetables, herbs, and other essential plants, all necessary in order for a village to survive.</p>
+<h4 id="stone"><a class="header" href="#stone">Stone</a></h4>
+<p>The third art, the Art of the Stone, is comprised of masonry and building. Students of the Stone work to construct and maintain buildings, and are responsible for Misteria's unique way of building around the landscape. The Stone also encompasses all forms of forging, smithing, stonework and metalwork; from forming tableware, cutlery and cookware, to forging and engraving weapons. Finally, the Art of the Stone encompasses some forms of woodwork, such as creating larger pieces of furniture, and maintaining the various ropes and bridges connecting the villages of Misteria.</p>
+<h4 id="willow"><a class="header" href="#willow">Willow</a></h4>
+<p>The fourth art, the Art of the Willow, is the study of tailoring and weaving professions. Students of the Willow are experts in creating the loose, billowing fabrics that Misterians are known for, and also help to create many other aspects of dress, such as the elaborate masks worn for some ceremonies and festivals.</p>
+<h2 id="secret-arts"><a class="header" href="#secret-arts">Secret Arts</a></h2>
+<p>Every major household in Misteria has their own secret art, combat-related or otherwise. While some households have secret arts in skills such as weaving fabric or forging weapons, most households have a secret art for use in battle. From the 'Eternal Crane' to the 'Dance of the Falling Petals,' each secret art is associated with a different house, and each art is only taught to members of the household. Teaching a secret art to an outsider is considered by many to be the worst possible kind of betrayal.</p>
+<p>However, the households of Misteria are not the only ones to possess secret arts. Many Grandmasters are credited with creating their own secret art, something that they might occasionally teach to a student or apprentice. Occasionally, a Grandmaster may pass away without teaching their secret art to anyone, ensuring that their art dies alongside them.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../world-of-rathe/misteria/immortal-lunar-temple.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../world-of-rathe/misteria/prestigious-households.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../world-of-rathe/misteria/immortal-lunar-temple.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../world-of-rathe/misteria/prestigious-households.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

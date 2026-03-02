@@ -1,0 +1,406 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Locations - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../hero.css">
+        <link rel="stylesheet" href="../image.css">
+        <link rel="stylesheet" href="../tab.css">
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <link rel="stylesheet" href="../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <!-- ### NOTE: This file should not be edited by hand. Please edit the .csv file. -->
+<div class="table-wrapper"><table><thead><tr><th>Name</th><th>Region</th><th>Notes</th><th>Mentions</th></tr></thead><tbody>
+<tr><td>Aldengrove</td><td>Aria</td><td></td><td><a href="../main-story/16-rosetta/battle-of-isenloft.html">Battle of Isenloft</a></td></tr>
+<tr><td>Ampitheatre</td><td>Solana</td><td>In the city proper, a space for ceremonies, public events and proclamations</td><td><a href="../world-of-rathe/solana/a-radiant-city.html">A Radiant City</a></td></tr>
+<tr><td>Ankomeido</td><td>The Pits</td><td>Home to the misfits and malcontents of Misteria</td><td><a href="../main-story/10-outsiders/its-just-business.html">Uzuri Origin Story</a></td></tr>
+<tr><td>Arcturos</td><td>Aria</td><td>Where Oscilio was embedded</td><td><a href="../short-stories/16-rosetta/oscilio-constella-intelligence.html">Oscilio short story</a></td></tr>
+<tr><td>Arena Barracks</td><td>Deathmatch Arena</td><td></td><td><a href="../main-story/14-heavy-hitters/another-day-another-title.html">Another Day, Another Title</a></td></tr>
+<tr><td>Ashvahan</td><td>Volcor</td><td>Capital of Volcor</td><td><a href="../main-story/08-uprising/journey-into-the-forgotten.html">Iyslander Origin Story</a></td></tr>
+<tr><td>Askraweld</td><td></td><td></td><td><a href="../short-stories/13-round-the-table/melody-sing-along.html">Melody Sing-along</a></td></tr>
+<tr><td>Audra</td><td>Solana</td><td>Village</td><td><a href="../main-story/07-interlude/morlock-hill.html">Morlock Hill</a></td></tr>
+<tr><td>Aui's Scale Strongholds</td><td>Misteria</td><td>Locations where things are concealed from the public</td><td><a href="../main-story/01-welcome-to-rathe/wanderings-in-the-mists.html">Katsu Origin Story</a></td></tr>
+<tr><td>Barthimont Manor</td><td>Solana</td><td>In the Northern Realms</td><td><a href="../main-story/04-monarch/destroy-and-consume.html">Levia Origin Story</a></td></tr>
+<tr><td>Barton's House</td><td>The Pits</td><td>Information Dealer</td><td><a href="../main-story/02-arcane-rising/a-bird-in-the-hand.html">A Bird in the Hand</a></td></tr>
+<tr><td>Beacon</td><td>Metrix</td><td></td><td><a href="../main-story/02-arcane-rising/needle-in-a-haystack.html">Needle in a Haystack</a></td></tr>
+<tr><td>Blackjack's Tavern</td><td>The Pits</td><td>Bounty Hunting Hub, Owned by Greenbird, "Neutral Ground"</td><td><a href="../world-of-rathe/pits/blackjacks-mercenary-group.html">Blackjack's Mercenary Group</a>,<a href="../main-story/02-arcane-rising/a-bird-in-the-hand.html">A Bird in the Hand</a>,<a href="../main-story/02-arcane-rising/cards-on-the-table.html">Cards on the Table</a>,<a href="../main-story/02-arcane-rising/slings-and-arrows.html">Slings and Arrows</a></td></tr>
+<tr><td>Blackrock Quarries</td><td>Volcor</td><td>In the north of Volcor</td><td><a href="../main-story/09-dynasty/vow-of-vigilence.html">Vow of Vigilence</a></td></tr>
+<tr><td>Blackwater Strait</td><td>High Seas</td><td></td><td><a href="../main-story/18-high-seas/the-lost-treasure-of-blackwater-strait.html">The Lost Treasure of Blackwater Strait</a>,<a href="../flavour/18-high-seas.html#expedition-to-blackwater-strait---sea156">Expedition to Blackwater Strait</a></td></tr>
+<tr><td>Blasmophet's Domain</td><td>Demonastery</td><td>Separate plane</td><td><a href="../main-story/04-monarch/destroy-and-consume.html">Levia Origin Story</a></td></tr>
+<tr><td>Blockhead Territory</td><td>The Pits</td><td>An entire sector of The Maw</td><td><a href="../world-of-rathe/pits/the-maw.html">The Maw</a></td></tr>
+<tr><td>Boulderhead Island</td><td>Aria</td><td></td><td><a href="../main-story/16-rosetta/secret-of-the-aetherscribes.html">Secret of the Aetherscribes</a></td></tr>
+<tr><td>Bravo's Legendarium</td><td>Aria</td><td>Part of the Everfest Carnival</td><td><a href="../main-story/01-welcome-to-rathe/a-rising-star.html">Bravo Origin Story</a></td></tr>
+<tr><td>Butcher's Bin</td><td>Deathmatch Arena</td><td></td><td><a href="../main-story/14-heavy-hitters/another-day-another-title.html">Another Day, Another Title</a></td></tr>
+<tr><td>Candlehold</td><td>Aria</td><td></td><td><a href="../world-of-rathe/aria/the-land-of-legends.html">The Land of Legends</a></td></tr>
+<tr><td>Candlelight Clearing</td><td>Aria</td><td>Where the Rosetta of old had once gathered to garden, share poetry, and sing</td><td><a href="../main-story/16-rosetta/essence-of-decay.html">Essence of Decay</a></td></tr>
+<tr><td>Centennial Consumables</td><td>Metrix</td><td></td><td><a href="../main-story/02-arcane-rising/stroke-of-genius.html">Stroke of Genius</a></td></tr>
+<tr><td>Ceremionial Chamber</td><td>Solana</td><td>In the city proper, location of the Awakening ceremony</td><td><a href="../main-story/01-welcome-to-rathe/pride-of-the-ironsongs.html">Dorinthea Origin Story</a></td></tr>
+<tr><td>Chamber of the Dragon</td><td>Volcor</td><td></td><td><a href="../main-story/02-arcane-rising/playing-with-fire.html">To Become a Dracai</a></td></tr>
+<tr><td>Champion's Quarters</td><td>Deathmatch Arena</td><td></td><td><a href="../main-story/14-heavy-hitters/another-day-another-title.html">Another Day, Another Title</a></td></tr>
+<tr><td>Champions Rest</td><td>Deathmatch Arena</td><td></td><td><a href="../main-story/14-heavy-hitters/another-day-another-title.html">Another Day, Another Title</a></td></tr>
+<tr><td>Charred Range</td><td></td><td>Mountains separating Solana and Volcor</td><td><a href="../short-stories/13-round-the-table/brevant-civic-protector.html">Brevant, Civic Protector</a></td></tr>
+<tr><td>Chrome Caverns</td><td>Unknown</td><td>The desert's edge</td><td><a href="../flavour/12-bright-lights.html#dust-from-the-chrome-caverns---evo246">Dust from the Chrome Caverns</a>,<a href="../main-story/16-rosetta/to-halt-the-dark.html">To Halt the Dark</a></td></tr>
+<tr><td>Cliffhold</td><td>Solana</td><td></td><td><a href="../short-stories/roll-of-honour/victor-goldmane.html">Victor Goldmane</a></td></tr>
+<tr><td>Cogwerx Conglomerate</td><td>Metrix</td><td></td><td><a href="../world-of-rathe/metrix/a-better-tomorrow.html">A Better Tomorrow</a></td></tr>
+<tr><td>Coppertown</td><td>Metrix</td><td></td><td><a href="../world-of-rathe/metrix/a-sprawling-metropolis.html">A Sprawling Metropolis</a></td></tr>
+<tr><td>Coralysi</td><td>High Seas</td><td>Home of the merfolk. Floating gardens.</td><td><a href="../world-of-rathe/high-seas/coralysi.html">Coralysi</a>,<a href="../flavour/18-high-seas.html#fiddlers-green---sea212">Fiddler's Green</a></td></tr>
+<tr><td>Courtyard</td><td>Demonastery</td><td>Enter here when using invitation</td><td><a href="../main-story/04-monarch/destroy-and-consume.html">Levia Origin Story</a></td></tr>
+<tr><td>Dagger Docks</td><td>High Seas</td><td>Shipwrights</td><td><a href="../flavour/18-high-seas.html#gold-hunter-marauder---sea164">Gold Hunter Marauder</a></td></tr>
+<tr><td>Death's Knell</td><td>Unknown</td><td>The Ocean</td><td>Eye of Ophidia, <a href="../main-story/04-monarch/destroy-and-consume.html">Levia's Origin Story</a></td></tr>
+<tr><td>Demonastery</td><td>Demonastery</td><td>Mansion, residents have specifc rooms, it moves, accessible by invitation</td><td><a href="../world-of-rathe/demonastery/demonastery.html">Demonastery</a></td></tr>
+<tr><td>Deshvahan</td><td>Volcor</td><td></td><td><a href="../main-story/17-the-hunted/mark-of-a-traitor.html">Mark of a Traitor</a>,<a href="../main-story/17-the-hunted/cleanse-the-corruption.html">Cleanse the Corruption</a>,<a href="../main-story/17-the-hunted/hunter-and-hunted-both.html">Hunter and Hunted Both</a>,<a href="../main-story/17-the-hunted/children-of-chaos.html">Children of Chaos</a>,<a href="../flavour/17-the-hunted.html#rake-over-the-coals---hnt156">Rake Over the Coals</a></td></tr>
+<tr><td>Dragon's Peak</td><td>Volcor</td><td></td><td><a href="../main-story/09-dynasty/vow-of-vigilence.html">Vow of Vigilence</a></td></tr>
+<tr><td>Dreadfall Reach</td><td>High Seas</td><td></td><td><a href="../main-story/18-high-seas/captain-bones-and-the-city-of-gold.html">Captain Bones and the City of Gold</a>,<a href="../flavour/18-high-seas.html#expedition-to-dreadfall-reach---sea157">Expedition to Dreadfall Reach</a>,<a href="../flavour/18-high-seas.html#give-no-quarter---sea049">Give No Quarter</a>,<a href="../flavour/18-high-seas.html#paddle-faster---sea054">Paddle Faster</a></td></tr>
+<tr><td>East Rise</td><td>Metrix</td><td></td><td><a href="../world-of-rathe/metrix/a-sprawling-metropolis.html">A Sprawling Metropolis</a></td></tr>
+<tr><td>Eighth Precinct</td><td>Metrix</td><td>Enforcer station, down the street from the Iron Hall</td><td><a href="../main-story/12-bright-lights/synthetic-futures.html">Synthetic Futures</a></td></tr>
+<tr><td>Enion</td><td>Aria</td><td>Armory of the ancients and training ground of champions</td><td><a href="../main-story/05-tales-of-aria/wonders-of-the-wayfarer.html">Lexi Origin Story</a></td></tr>
+<tr><td>Entrance Hall</td><td>Demonastery</td><td>Location of the portal to íArathael, Whisper the stained glass window</td><td><a href="../main-story/02-arcane-rising/birth-of-the-arknight.html">Viserai Origin Story</a></td></tr>
+<tr><td>Fardreyas</td><td>Solana</td><td>Village</td><td><a href="../main-story/07-interlude/morlock-hill.html">Morlock Hill</a></td></tr>
+<tr><td>Fedhari</td><td>High Seas</td><td>Former Dhani city, now home to the merfolk and named Coralysi</td><td><a href="../world-of-rathe/high-seas/coralysi.html">Coralysi</a></td></tr>
+<tr><td>Forward Camps</td><td>The Savage Lands</td><td>Merchants, traders, adventures, mercenaries</td><td><a href="../world-of-rathe/savage-lands/legends-and-fools.html">Legends and Fools</a>,<a href="../main-story/14-heavy-hitters/deathmatch-wrecking-ball.html">Deathmatch Wrecking Ball</a></td></tr>
+<tr><td>Fractal Scar</td><td>Aria</td><td>Battle of Fractal Scar</td><td><a href="../main-story/01-welcome-to-rathe/a-rising-star.html">Bravo Origin Story</a></td></tr>
+<tr><td>Freakshow Territory</td><td>The Pits</td><td>Deep in the Pits, composed of abandoned mineshafts</td><td><a href="../world-of-rathe/pits/the-maw.html">The Maw</a></td></tr>
+<tr><td>Gigadril Elevator</td><td>Metrix</td><td></td><td><a href="../world-of-rathe/metrix/a-sprawling-metropolis.html">A Sprawling Metropolis</a></td></tr>
+<tr><td>Gigadrill Elevator</td><td>Metrix</td><td></td><td><a href="../world-of-rathe/metrix/a-sprawling-metropolis.html#gigadrill-elevator">A Sprawling Metropolis</a></td></tr>
+<tr><td>Golden Chariot</td><td>Solana</td><td>In the city proper, inn, owned by <a href="../other-characters/minerva-themis.html">Minerva</a></td><td><a href="../main-story/01-welcome-to-rathe/pride-of-the-ironsongs.html">Dorinthea Origin Story</a></td></tr>
+<tr><td>Golden Port</td><td>High Seas</td><td>Built in the ruins of the Dhani Empire</td><td><a href="../main-story/18-high-seas/captain-bones-and-the-city-of-gold.html">Captain Bones and the City of Gold</a>,<a href="../main-story/18-high-seas/a-kraken-good-tale.html">A Kraken Good Tale</a>,<a href="../flavour/18-high-seas.html#portside-exchange---sea145">Portside Exchange</a></td></tr>
+<tr><td>Gorge of a Thousand Winds</td><td>Misteria</td><td>Same as Mugenshi Gorge?</td><td><a href="https://youtu.be/v1vq-ThsaBQ">Data Doll Introduces: Crucible of War</a></td></tr>
+<tr><td>Gougemoor</td><td>The edge of the Savage Lands</td><td></td><td><a href="../short-stories/roll-of-honour/rhinar.html">Roll of Honor: Rhinar</a>,<a href="../short-stories/14-heavy-hitters/kassais-diary.html">Kassai's Diary</a>,<a href="../world-of-rathe/deathmatch/destination-deathmatch.html">Destination Deathmatch</a></td></tr>
+<tr><td>Grayhollow</td><td>High Seas</td><td>Kuraghan safe port</td><td><a href="../main-story/18-high-seas/captain-bones-and-the-city-of-gold.html">Captain Bones and the City of Gold</a></td></tr>
+<tr><td>Graystone</td><td>High Seas</td><td></td><td><a href="../main-story/18-high-seas/captain-bones-and-the-city-of-gold.html">Captain Bones and the City of Gold</a></td></tr>
+<tr><td>Graystone Penitentiary</td><td>High Seas</td><td></td><td><a href="../main-story/18-high-seas/captain-bones-and-the-city-of-gold.html">Captain Bones and the City of Gold</a>,<a href="../main-story/18-high-seas/the-lost-treasure-of-blackwater-strait.html">The Lost Treasure of Blackwater Strait</a>,<a href="../main-story/18-high-seas/a-kraken-good-tale.html">A Kraken Good Tale</a></td></tr>
+<tr><td>Griefers Reef</td><td>Ocean</td><td></td><td><a href="../main-story/10-outsiders/catch-of-the-day.html">Riptide Origin Story</a></td></tr>
+<tr><td>Grinning Boar Cantina</td><td>Deathmatch Arena</td><td></td><td><a href="../main-story/14-heavy-hitters/deathmatch-wrecking-ball.html">Deathmatch Wrecking Ball</a>,<a href="../main-story/19-super-slam/feudmasters.html">Feudmasters</a>,<a href="../world-of-rathe/deathmatch/destination-deathmatch.html">Destination Deathmatch</a></td></tr>
+<tr><td>Hazeltown</td><td>Solana</td><td>Village</td><td><a href="../main-story/07-interlude/morlock-hill.html">Morlock Hill</a></td></tr>
+<tr><td>Highloft Inn</td><td>Aria</td><td>Inn on Skybreaker</td><td><a href="../world-of-rathe/aria/the-land-of-legends.html#skybreaker">Skybreaker</a></td></tr>
+<tr><td>Imperial Furnace</td><td>Volcor</td><td></td><td>Invoke Tomeltai</td></tr>
+<tr><td>Imperial Palace</td><td>Volcor</td><td></td><td><a href="../world-of-rathe/volcor/the-royal-court.html">The Royal Court</a></td></tr>
+<tr><td>Iron Assembly</td><td>Metrix</td><td></td><td><a href="../world-of-rathe/metrix/a-better-tomorrow.html">A Better Tomorrow</a></td></tr>
+<tr><td>Iron Hall</td><td>Metrix</td><td>The seat of power for Metrix's municipal government</td><td><a href="../main-story/12-bright-lights/synthetic-futures.html">Synthetic Futures</a></td></tr>
+<tr><td>Ironsong Forge</td><td>Solana</td><td>In the city proper</td><td><a href="../main-story/01-welcome-to-rathe/pride-of-the-ironsongs.html">Dorinthea Origin Story</a></td></tr>
+<tr><td>Isen's Peak</td><td>Aria</td><td></td><td><a href="../world-of-rathe/aria/a-true-sanctuary.html">A True Sactuary</a></td></tr>
+<tr><td>Isenloft</td><td>Aria</td><td></td><td><a href="../world-of-rathe/aria/the-land-of-legends.html">The Land of Legends</a></td></tr>
+<tr><td>Jawbreaker Territory</td><td>The Pits</td><td>No official territory with the exception of some houses on the water</td><td><a href="../world-of-rathe/pits/the-maw.html">The Maw</a></td></tr>
+<tr><td>Kirohime Gate</td><td>Mistveil</td><td></td><td><a href="../digital-tiles/15-part-the-mistveil/part-the-mistveil.html#first-tenet-of-chi-tide">First Tenet Of Chi Tide digital tile</a></td></tr>
+<tr><td>Kraken</td><td>Ocean</td><td></td><td><a href="../main-story/10-outsiders/catch-of-the-day.html">Riptide Origin Story</a></td></tr>
+<tr><td>Kraken's Barrel</td><td>High Seas</td><td>Tavern</td><td><a href="../main-story/18-high-seas/a-kraken-good-tale.html">A Kraken Good Tale</a>,<a href="../flavour/18-high-seas.html#golden-tipple---sea159">Golden Tipple</a>,<a href="../flavour/18-high-seas.html#sea-legs---sea187">Sea Legs</a></td></tr>
+<tr><td>Kyloria's Lair</td><td>The Pits</td><td>Deep beneath the Pits</td><td>Invoke Kyloria</td></tr>
+<tr><td>Lake Frigid</td><td>Aria</td><td>Channel Lake Frigid</td><td></td></tr>
+<tr><td>Larinkmorth</td><td>Aria</td><td></td><td><a href="../world-of-rathe/aria/a-true-sanctuary.html">A True Sactuary</a></td></tr>
+<tr><td>Library of Illumination</td><td>Solana</td><td>In the city proper, a public library, cared for by the members of the Light of Sol</td><td><a href="../world-of-rathe/solana/a-radiant-city.html">A Radiant City</a></td></tr>
+<tr><td>Lowlake</td><td>Metrix</td><td></td><td><a href="../world-of-rathe/metrix/a-sprawling-metropolis.html">A Sprawling Metropolis</a></td></tr>
+<tr><td>Lunar Temple</td><td>Misteria</td><td></td><td><a href="../main-story/15-part-the-mistveil/part-2-the-tapestry-unfolds.html">Part 2: The Tapestry Unfolds</a></td></tr>
+<tr><td>Midtown Markets</td><td>Metrix</td><td></td><td><a href="../world-of-rathe/metrix/a-sprawling-metropolis.html">A Sprawling Metropolis</a></td></tr>
+<tr><td>Might n' Mead</td><td>Aria</td><td>Where Valda grew up and works</td><td><a href="../heroes-of-rathe/valda-about.html">Valda</a></td></tr>
+<tr><td>Mistcloak Gully</td><td>Misteria</td><td></td><td><a href="../main-story/01-welcome-to-rathe/wanderings-in-the-mists.html">Katsu Origin Story</a></td></tr>
+<tr><td>Mistcloak Lake</td><td>Misteria</td><td></td><td><a href="../main-story/15-part-the-mistveil/part-1-the-tiger-in-the-mist.html">Part 1: The Tiger in the Mist</a>, <a href="../main-story/15-part-the-mistveil/part-2-the-tapestry-unfolds.html">Part 2: The Tapestry Unfolds</a></td></tr>
+<tr><td>Mojire</td><td>Unknown</td><td></td><td><a href="../flavour/10-outsiders.html#frailty---out235">Frailty</a></td></tr>
+<tr><td>Morlock Hill</td><td>Solana</td><td>Battle of Morlock Hill</td><td><a href="../main-story/07-interlude/morlock-hill.html">Morlock Hill</a></td></tr>
+<tr><td>Mount Heroic</td><td>Aria</td><td>Channel Mount Heroic</td><td></td></tr>
+<tr><td>Mt. Isen</td><td>Aria</td><td></td><td>Pulse of Isenloft Spoiler Tile</td></tr>
+<tr><td>Mt. Volcor</td><td>Volcor</td><td></td><td><a href="../world-of-rathe/volcor/the-royal-court.html">The Royal Court</a></td></tr>
+<tr><td>Mugenshi Gorge</td><td>Misteria</td><td></td><td><a href="../main-story/01-welcome-to-rathe/wanderings-in-the-mists.html">Katsu Origin Story</a></td></tr>
+<tr><td>Mugenshi Village</td><td>Misteria</td><td>Hidden, lead by Katsu, in the Mugenshi Gorge</td><td><a href="../main-story/01-welcome-to-rathe/wanderings-in-the-mists.html">Katsu Origin Story</a></td></tr>
+<tr><td>Nasu-ka Teahouse</td><td>Misteria</td><td>Nuu's Teahouse by Mistcloak Lake</td><td><a href="../heroes-of-rathe/nuu-about.html">Nuu, Alluring Desire</a>, <a href="../main-story/15-part-the-mistveil/part-1-the-tiger-in-the-mist.html">Part 1: The Tiger in the Mist</a>, <a href="../main-story/15-part-the-mistveil/part-2-the-tapestry-unfolds.html">Part 2: The Tapestry Unfolds</a>, <a href="../main-story/15-part-the-mistveil/part-3-the-serpents-strike.html">Part 3: The Serpent's Strike</a></td></tr>
+<tr><td>Numbskull Territory</td><td>The Pits</td><td>Cave network lined with skulls, resembles a catacomb</td><td><a href="../world-of-rathe/pits/the-maw.html">The Maw</a></td></tr>
+<tr><td>Octogria</td><td>Solana</td><td>The gardens of</td><td><a href="../main-story/11-dusk-till-dawn/falling-in-darkness.html">Falling in Darkness</a></td></tr>
+<tr><td>Old Metrix</td><td>Metrix</td><td></td><td><a href="../main-story/02-arcane-rising/full-steam-ahead.html">Full Steam Ahead</a></td></tr>
+<tr><td>Overseer Crichton's Mansion</td><td>The Pits</td><td>Situated in The Maw</td><td><a href="../main-story/10-outsiders/its-just-business.html">Uzuri Origin Story</a></td></tr>
+<tr><td>Piper's Pier</td><td>High Seas</td><td></td><td><a href="../main-story/18-high-seas/the-lost-treasure-of-blackwater-strait.html">The Lost Treasure of Blackwater Strait</a>,<a href="../main-story/18-high-seas/a-kraken-good-tale.html">A Kraken Good Tale</a>,<a href="../flavour/18-high-seas.html#goldwing-turbine---sea036">Goldwing Turbine</a>,<a href="../flavour/18-high-seas.html#pinion-sentry---sea023">Pinion Sentry</a>,<a href="../flavour/18-high-seas.html#sky-skimmer---sea027">Sky Skimmer</a></td></tr>
+<tr><td>Pirate's Perch</td><td>High Seas</td><td>Filled with jungle</td><td><a href="../main-story/18-high-seas/captain-bones-and-the-city-of-gold.html">Captain Bones and the City of Gold</a></td></tr>
+<tr><td>Pit 3</td><td>Metrix</td><td></td><td><a href="../world-of-rathe/metrix/a-sprawling-metropolis.html#gigadrill-elevator">A Sprawling Metropolis</a></td></tr>
+<tr><td>Plumvex Pipes factory</td><td>Metrix</td><td></td><td><a href="../main-story/12-bright-lights/the-dynamic-man.html">The Dynamic Man</a></td></tr>
+<tr><td>Port Conniver</td><td>High Seas</td><td></td><td><a href="../main-story/18-high-seas/captain-bones-and-the-city-of-gold.html">Captain Bones and the City of Gold</a>,<a href="../main-story/18-high-seas/a-kraken-good-tale.html">A Kraken Good Tale</a>,<a href="../flavour/18-high-seas.html#gold-hunter-ketch---sea165">Gold Hunter Ketch</a>,<a href="../flavour/18-high-seas.html#gold-hunter-longboat---sea163">Gold Hunter Longboat</a>,<a href="../flavour/18-high-seas.html#murderous-rabble---sea137">Murderous Rabble</a></td></tr>
+<tr><td>Red Desert</td><td>Volcor</td><td></td><td>Dust from the Red Desert</td></tr>
+<tr><td>Rhinar's Territory</td><td>The Savage Lands</td><td>Void of other brutes</td><td><a href="../main-story/01-welcome-to-rathe/kill-or-be-killed.html">Rhinar Origin Story</a></td></tr>
+<tr><td>Rosario Hills</td><td>Metrix</td><td>Orphanage parent company</td><td><a href="../heroes-of-rathe/dash-about.html#dash-io">Dash, I/O</a>,<a href="../main-story/12-bright-lights/system-failure.html">System Failure</a></td></tr>
+<tr><td>Rosario Orphanage</td><td>Metrix</td><td></td><td><a href="../main-story/12-bright-lights/system-failure.html">System Failure</a></td></tr>
+<tr><td>Rotwood</td><td>Aria</td><td>Area next to Candlehold</td><td><a href="../main-story/16-rosetta/roots-of-change.html">Roots of Change</a></td></tr>
+<tr><td>Rust Belt</td><td>Metrix</td><td></td><td>Invoke Cromai</td></tr>
+<tr><td>Ryōsōzan Peaks</td><td>Misteria</td><td>Owned by Nuu</td><td><a href="../flavour/15-part-the-mistveil.html#big-blue-sky---mst086">Big Blue Sky</a></td></tr>
+<tr><td>Sand Glass District</td><td>Deshvahan</td><td></td><td><a href="../main-story/17-the-hunted/mark-of-a-traitor.html">Mark of a Traitor</a></td></tr>
+<tr><td>Sandakai</td><td>Volcor</td><td></td><td>Invoke Azvolai</td></tr>
+<tr><td>Seethe</td><td>The Pits</td><td>A river</td><td><a href="../main-story/10-outsiders/catch-of-the-day.html">Riptide Origin Story</a>, <a href="../main-story/10-outsiders/its-just-business.html">Uzuri, Switchblade</a></td></tr>
+<tr><td>Seetheside Docks</td><td>The Pits</td><td></td><td><a href="../heroes-of-rathe/riptide-about.html">Riptide About Page</a></td></tr>
+<tr><td>Sellshore Coast</td><td>High Seas</td><td></td><td><a href="../flavour/18-high-seas.html#gold-hunter-lightsail---sea162">Gold Hunter Lightsail</a></td></tr>
+<tr><td>Shuntswitch Railway Station</td><td>The Pits</td><td></td><td><a href="../main-story/10-outsiders/the-iconoclast-trials.html">Arakni Origin Story</a></td></tr>
+<tr><td>Signarus</td><td>Solana</td><td></td><td><a href="../world-of-rathe/solana/a-radiant-city.html">A Radiant City</a></td></tr>
+<tr><td>Skein</td><td>The Pits</td><td></td><td><a href="../main-story/10-outsiders/the-iconoclast-trials.html">Arakni Origin Story</a></td></tr>
+<tr><td>Skylark Peak</td><td>Misteria</td><td></td><td><a href="../flavour/10-outsiders.html#visit-the-floating-dojo---out055">Visit the Floating Dojo</a>,<a href="../main-story/16-rosetta/to-halt-the-dark.html">To Halt the Dark</a></td></tr>
+<tr><td>Solana</td><td>Solana</td><td>City</td><td><a href="../world-of-rathe/solana/solana.html">Solana</a></td></tr>
+<tr><td>Sori 16</td><td>The Pits</td><td>Location of The Leaf House</td><td><a href="../main-story/10-outsiders/its-just-business.html">Uzuri Origin Story</a></td></tr>
+<tr><td>Southmaw</td><td>The Pits</td><td>A hospital/asylum in the Pits</td><td></td></tr>
+<tr><td>Sunvale</td><td>Solana</td><td>Village</td><td><a href="../main-story/07-interlude/morlock-hill.html">Morlock Hill</a></td></tr>
+<tr><td>Tarnish Hill</td><td></td><td></td><td><a href="../short-stories/14-heavy-hitters/rhinar.html">Rhinar short story</a>,<a href="../short-stories/roll-of-honour/rhinar.html">Roll of Honor: Rhinar</a></td></tr>
+<tr><td>Teklo Industries</td><td>Metrix</td><td></td><td><a href="../world-of-rathe/metrix/a-better-tomorrow.html">A Better Tomorrow</a></td></tr>
+<tr><td>Tempest Straits</td><td>Ocean</td><td></td><td><a href="../main-story/10-outsiders/catch-of-the-day.html">Riptide Origin Story</a></td></tr>
+<tr><td>Teramundr's Triangle</td><td>High Seas</td><td></td><td><a href="../main-story/18-high-seas/captain-bones-and-the-city-of-gold.html">Captain Bones and the City of Gold</a>,<a href="../main-story/18-high-seas/a-kraken-good-tale.html">A Kraken Good Tale</a>,<a href="../flavour/18-high-seas.html#walk-the-plank---sea235">Walk the Plank</a></td></tr>
+<tr><td>Terrecette Academy</td><td>Metrix</td><td></td><td><a href="../world-of-rathe/metrix/a-sprawling-metropolis.html">A Sprawling Metropolis</a></td></tr>
+<tr><td>The Ash Plains</td><td>Volcor</td><td></td><td>Sweeping Blow</td></tr>
+<tr><td>The Badlands</td><td>Volcor</td><td>Borders the Savage Lands</td><td><a href="../heroes-of-rathe/kayo-about.html">Kayo Origin Story</a></td></tr>
+<tr><td>The Beyond</td><td>Demonastery</td><td>Separate realm</td><td>Gaze the Ages spoiler tile</td></tr>
+<tr><td>The Bleake Expanse</td><td>Aria</td><td></td><td><a href="../main-story/08-uprising/journey-into-the-forgotten.html">Iyslander Origin Story</a></td></tr>
+<tr><td>The Broken Chariot Tavern</td><td>Unknown</td><td></td><td>Gambler's Gloves Spoiler Tile</td></tr>
+<tr><td>The Drop</td><td>The Pits</td><td>A bar owned by <a href="../heroes-of-rathe/uzuri-about.html">Uzuri</a></td><td><a href="../main-story/10-outsiders/the-spiders-trap.html">The Spider's Trap</a></td></tr>
+<tr><td>The Everfest Carnival</td><td>Aria</td><td></td><td><a href="../world-of-rathe/aria/people-of-aria.html">People of Aria</a></td></tr>
+<tr><td>The Forge</td><td>Deathmatch</td><td></td><td><a href="../world-of-rathe/deathmatch/destination-deathmatch.html">Destination Deathmatch</a></td></tr>
+<tr><td>The Foundry</td><td>Metrix</td><td></td><td><a href="../world-of-rathe/metrix/a-better-tomorrow.html">A Better Tomorrow</a></td></tr>
+<tr><td>The Golden Fields</td><td>Solana</td><td>Beyond the outer walls are grand golden fields, numerous villages and towns under the protection and guidance of Solana</td><td><a href="../world-of-rathe/solana/the-golden-city.html">The Golden City</a></td></tr>
+<tr><td>The Golden Gnome</td><td>Aria</td><td>Part of the Everfest Carnival</td><td><a href="../digital-tiles/06-everfest/everfest.html#knick-knack-bric-a-brac">Knick Knack Bric-a-Brac Spoiler Tile</a></td></tr>
+<tr><td>The Golden Orchard Estate</td><td>Volcor</td><td></td><td><a href="../main-story/08-uprising/dragons-of-empire.html">Dromai Origin Story</a></td></tr>
+<tr><td>The Great Gates</td><td>Solana</td><td>These eight paths lead through the city to the Solarium</td><td><a href="../world-of-rathe/solana/the-golden-city.html">The Golden City</a></td></tr>
+<tr><td>The Korshem</td><td>Aria</td><td></td><td><a href="../world-of-rathe/aria/a-true-sanctuary.html">A True Sactuary</a></td></tr>
+<tr><td>The Leaf House</td><td>The Pits</td><td>Restaurant ran by Jemjang</td><td><a href="../main-story/10-outsiders/its-just-business.html">Uzuri Origin Story</a></td></tr>
+<tr><td>The Maela</td><td>Aria</td><td>Part of the Everfest Carnival, fortune tellers, seers, oracles, enchantresses, and conjurers</td><td><a href="../world-of-rathe/aria/people-of-aria.html">People of Aria</a></td></tr>
+<tr><td>The Maw</td><td>The Pits</td><td>Entrance to the pits, traveled by mine cage</td><td><a href="../world-of-rathe/pits/the-maw.html">The Maw</a>,<a href="../main-story/02-arcane-rising/a-bird-in-the-hand.html">A Bird in the Hand</a>,<a href="../main-story/02-arcane-rising/cards-on-the-table.html">Cards on the Table</a>,<a href="../heroes-of-rathe/kavdaen-about.html">Kavdaen Origin Story</a></td></tr>
+<tr><td>The Moat</td><td>Deathmatch Arena</td><td></td><td><a href="../heroes-of-rathe/olympia-about.html">Olympia</a>,<a href="../short-stories/14-heavy-hitters/kassai.html">Kassai short story</a>,<a href="../short-stories/roll-of-honour/rhinar.html">Roll of Honor: Rhinar</a>,<a href="../world-of-rathe/deathmatch/destination-deathmatch.html">Destination Deathmatch</a></td></tr>
+<tr><td>The Needle</td><td>Metrix</td><td></td><td><a href="../world-of-rathe/metrix/a-sprawling-metropolis.html">A Sprawling Metropolis</a></td></tr>
+<tr><td>The Northern Realms</td><td>Solana</td><td>Region of Solana</td><td><a href="../main-story/04-monarch/sworn-to-protect.html">Boltyn Origin Story</a></td></tr>
+<tr><td>The Oasis</td><td>Volcor</td><td>Water from Misteria, lava from Mt. Volcor</td><td><a href="../main-story/08-uprising/dragons-of-empire.html">Dromai Origin Story</a></td></tr>
+<tr><td>The Obsidian Coast</td><td>Volcor</td><td></td><td><a href="../main-story/09-dynasty/vow-of-vigilence.html">Vow of Vigilence</a>,<a href="../main-story/17-the-hunted/hunter-and-hunted-both.html">Hunter and Hunted Both</a>,<a href="../flavour/17-the-hunted.html#march-of-loyalty---hnt153">March of Loyalty</a></td></tr>
+<tr><td>The Plazas</td><td>Solana</td><td>Connect the outer city sectors, a space to gather and hear news</td><td><a href="../world-of-rathe/solana/the-golden-city.html">The Golden City</a></td></tr>
+<tr><td>The Registry</td><td>Metrix</td><td>Information Center</td><td><a href="../main-story/02-arcane-rising/needle-in-a-haystack.html">Needle in a Haystack</a></td></tr>
+<tr><td>The Shadow Crypts</td><td>Demonastery</td><td></td><td>Dust from the Shadow Crypts</td></tr>
+<tr><td>The Silvaris</td><td>Solana</td><td>A series of beautiful public gardens surrounding the inner sanctum of Solana</td><td><a href="../world-of-rathe/solana/a-radiant-city.html">A Radiant City</a></td></tr>
+<tr><td>The Solarium</td><td>Solana</td><td>The inner sanctum, home to the Light of Sol</td><td><a href="../world-of-rathe/solana/a-radiant-city.html">A Radiant City</a></td></tr>
+<tr><td>The Sprawl</td><td>Metrix</td><td></td><td><a href="../world-of-rathe/metrix/a-sprawling-metropolis.html">A Sprawling Metropolis</a></td></tr>
+<tr><td>The Undercroft</td><td>Deathmatch Arena</td><td></td><td><a href="../main-story/14-heavy-hitters/untamed-and-unbroken.html">Untamed and Unbroken</a>,<a href="../world-of-rathe/deathmatch/destination-deathmatch.html">Destination Deathmatch</a></td></tr>
+<tr><td>The Valdur</td><td>Aria</td><td>Part of the Everfest Carnival, known for strongmen acts and work with animals</td><td><a href="../world-of-rathe/aria/people-of-aria.html">People of Aria</a></td></tr>
+<tr><td>The Venarium</td><td>Demonastery</td><td>Room filled with plants</td><td><a href="../main-story/04-monarch/destroy-and-consume.html">Levia Origin Story</a></td></tr>
+<tr><td>The Vitiate Gateway</td><td>Demonastery</td><td>Last of 9 portals connecting Rathe to íArathael</td><td><a href="../main-story/07-interlude/morlock-hill.html">Morlock Hill</a></td></tr>
+<tr><td>Thistlefold</td><td></td><td></td><td><a href="../short-stories/14-heavy-hitters/rhinar.html">Rhinar short story</a></td></tr>
+<tr><td>Throne Glade</td><td>Aria</td><td>Area next to Candlehold</td><td><a href="../main-story/16-rosetta/roots-of-change.html">Roots of Change</a></td></tr>
+<tr><td>Thunder Steppe</td><td>Aria</td><td>Channel Thunder Steppe</td><td></td></tr>
+<tr><td>Torched Territory</td><td>The Pits</td><td>Marked with trigger-sensitive flamethrowers, fire traps, lava pits, and plenty of explosives</td><td><a href="../world-of-rathe/pits/the-maw.html">The Maw</a></td></tr>
+<tr><td>Trōpal-Dhani</td><td>High Seas</td><td></td><td><a href="../main-story/18-high-seas/captain-bones-and-the-city-of-gold.html">Captain Bones and the City of Gold</a>,<a href="../main-story/18-high-seas/the-lost-treasure-of-blackwater-strait.html">The Lost Treasure of Blackwater Strait</a>,<a href="../main-story/18-high-seas/a-kraken-good-tale.html">A Kraken Good Tale</a>,<a href="../flavour/18-high-seas.html#on-the-horizon---sea241">On the Horizon</a>,<a href="../flavour/18-high-seas.html#sea-floor-salvage---sea146">Sea Floor Salvage</a></td></tr>
+<tr><td>Underdog Cafe</td><td>Metrix</td><td>In Coppertown</td><td><a href="../main-story/12-bright-lights/synthetic-futures.html">Synthetic Futures</a></td></tr>
+<tr><td>Valahai</td><td>Aria</td><td></td><td><a href="../main-story/16-rosetta/battle-of-isenloft.html">Battle of Isenloft</a></td></tr>
+<tr><td>Volthaven</td><td>Aria</td><td></td><td><a href="../world-of-rathe/aria/the-land-of-legends.html">The Land of Legends</a></td></tr>
+<tr><td>Vossen Theater</td><td>Metrix</td><td></td><td><a href="../main-story/17-the-hunted/boom-town-boom.html">Boom Town Boom</a></td></tr>
+<tr><td>Voxx Press</td><td>Metrix</td><td></td><td><a href="../world-of-rathe/metrix/a-better-tomorrow.html">A Better Tomorrow</a></td></tr>
+<tr><td>West Ranges</td><td></td><td></td><td><a href="../short-stories/14-heavy-hitters/rhinar.html">Rhinar short story</a></td></tr>
+<tr><td>West Rise</td><td>Metrix</td><td></td><td><a href="../world-of-rathe/metrix/a-sprawling-metropolis.html">A Sprawling Metropolis</a></td></tr>
+<tr><td>Yvor's Peak</td><td>Aria</td><td>Statue of Yvor located here, doorway to an armory</td><td><a href="../main-story/06-everfest/a-grand-adventure.html">A Grand Adventure</a></td></tr>
+<tr><td>Zancaro</td><td>Volcor</td><td></td><td><a href="../digital-tiles/08-uprising/uprising.html#ash">Ash Spoiler Tile</a>, <a href="../digital-tiles/08-uprising/uprising.html#storm-of-sandikai">Storm of Sandikai Spoiler Tile</a></td></tr>
+<tr><td>Zesca's</td><td>Metrix</td><td></td><td><a href="../main-story/02-arcane-rising/needle-in-a-haystack.html">Needle in a Haystack</a></td></tr>
+<tr><td>Zinnia Park</td><td>Metrix</td><td></td><td><a href="../world-of-rathe/metrix/a-sprawling-metropolis.html">A Sprawling Metropolis</a></td></tr>
+<tr><td>íArathael</td><td>Demonastery</td><td>Separate plane, accessed via a portal in the Demonastery, home of the Old Ones</td><td><a href="../world-of-rathe/demonastery/the-gateway-to-iarathael.html">The Gateway to íArathael</a></td></tr>
+</tbody></table>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../data/food-and-drink.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../data/monsters.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../data/food-and-drink.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../data/monsters.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../tab.js"></script>
+        <script src="../theme/pagetoc.js"></script>
+        <script src="../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

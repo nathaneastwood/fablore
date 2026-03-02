@@ -1,0 +1,335 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Spider&#x27;s Trap - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="the-spiders-trap"><a class="header" href="#the-spiders-trap">The Spider's Trap</a></h1>
+<p>
+(<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)
+</p>
+<p><em>(Warning: story features content that may be upsetting to certain readers.<br>
+Viewer discretion is advised.)</em></p>
+<p><a href="../../heroes-of-rathe/uzuri-about.html">Uzuri</a> savors her whisky as she stares out over the sprawling cess that is the <a href="../../world-of-rathe/pits/pits.html">Pits</a>.</p>
+<p>From the balcony of The Drop, a bar she owns under an assumed name, Uzuri lets her thoughts drift with the vapors that rise from the sunless streets. She can afford this momentary luxury, for everything is in its place. Timed and measured to the nth degree.</p>
+<p>The faintest scrape alerts her to <a href="../../heroes-of-rathe/arakni-about.html">Arakni</a>'s presence.</p>
+<p>"There's a front door, you know. Quite a nice one, too. Hand carved."</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/the-spiders-trap-1.webp" alt="the-spiders-trap-1" class="center">
+<p>Perched on the railing, Arakni stares at her in silence.</p>
+<p>"But then you're not one to appear where most would expect."</p>
+<p>Arakni climbs down from the railing and approaches Uzuri's table.</p>
+<p>"Show me the contract."</p>
+<p>They produce a scroll from under their tattered cloak and place it on the table. Uzuri raises a manicured eyebrow.</p>
+<p>"The <a href="../../heroes-of-rathe/emperor-about.html">Emperor</a> of <a href="../../world-of-rathe/volcor/volcor.html">Volcor</a>? You didn't think to question it?"</p>
+<p>Quicker than thought, Arakni stabs a knife into the parchment, right through Uzuri's signature.</p>
+<p>She slams her glass on the table in response, and is satisfied to see Arakni flinch, if only a little. "In the future, you have any misgivings, you voice them. Or in your case, write me a bloody note."</p>
+<p>Uzuri pushes her chair back, giving herself room for what's about to happen.</p>
+<p>As if on cue, the windows of The Drop explode inward. The floorboards tremble as armed women and men land among the startled patrons. Glass crunches underfoot as the bar empties in a panicked stampede, leaving only Uzuri, Arakni, and thirty masked assassins.</p>
+<p>The leading cutthroat tugs down his kerchief, revealing a cruelly handsome face. Framed by clipper cut hair, piercing blue eyes and chiseled cheekbones, is a smug smirk that Uzuri has suffered for years.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/the-spiders-trap-2.webp" alt="the-spiders-trap-2" class="center">
+<p>"Whitetail."</p>
+<p>"Uzuri."</p>
+<p>"You're paying for those windows."</p>
+<p>"I don't answer to you anymore," sneers Whitetail, his condescending laugh echoed by Blave and Carva. Two more of Uzuri's spider's nest turned traitor. No loss. The siblings share a lack of imagination that has oft tested Uzuri's patience.</p>
+<p>"So, who do you answer to now? Can't be the <a href="../../world-of-rathe/pits/blackjacks-mercenary-group.html#the-spider">Spider</a>. Last time I checked, we don't pick sides." She taps the contract. "Nice forgery, by the way."</p>
+<p>Whitetail shrugs the compliment off. "There are finer currencies than cash. What's money without power?"</p>
+<p>Uzuri makes like she is going to stand, but Whitetail lifts a hand and wraps the other around the grip of a holstered blacktek pistol.</p>
+<p>"No need to get up." He glances in Arakni's direction. "We're only here for them."</p>
+<p>"Tidying up?"</p>
+<p>"Terms of the contract. Nothing personal."</p>
+<p>"Death is as personal as it gets."</p>
+<p>Uzuri steps out from behind a pillar, her throwing knife drawn. There is no sign she moved, no passing of time. It's as if she were at the pillar all along.</p>
+<p>The knife streaks across the room, nicks the ear of a ducking assassin, and sails out through a broken window. There is a muffled ring as it strikes something metallic outside.</p>
+<p>"You missed!" scoffs Whitetail.</p>
+<p>"Did I?"</p>
+<p>With a clatter of running chains, steel jaws drop from the ceiling and snap up half a dozen assassins, hauling them thrashing and screaming into the rafters.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/the-spiders-trap-3.webp" alt="the-spiders-trap-3" class="center">
+<p>Blood showers down, the only rain the Pits ever sees. A bulky shadow looms in the broken window. Glinting eyes look up at the entrapped and dying. "Wriggle little fishes," rasps <a href="../../heroes-of-rathe/riptide-about.html">Riptide</a>, his voice harsh as a falling guillotine.</p>
+<p>Uzuri nods her approval, waits until Riptide has faded back into the shadows, then gets to some butchery of her own.</p>
+<p>Carva is her first target. She drives her dirk into the woman's throat before she can go for her sword. With a twist, Uzuri rips open her jugular and voice box, and with a yank, pulls the shredded mess out of her neck. Carva clutches at the gaping hole under her chin, staggers, and falls. Uzuri leaves the traitor to drown in her own blood.</p>
+<p>The next assassin comes in hard, dual hatchets swinging and slashing. Uzuri drops under the assault and sweeps the attacker's legs out from under them. Then she's on him, pinning his arms with her knees, squishing his face with her butt as she plunges her dirk into his groin. She drags the blade up through guts and chest, its edge so sharp that it cuts through bone as easily as flesh.</p>
+<p>Blood fountains from the man's bisected body. A crossbow bolt streaks over his twitching cadaver, aimed at a space that Uzuri no longer occupies. Several strides away, she steps out from behind a pillar and flicks a copper-barreled dart into the face of the bewildered arbalist. The dart explodes on impact. Brains and fragments of bone spray from the woman's ruined head, blinding the startled swordsman beside her.</p>
+<p>Uzuri makes the most of the surprise. She leaps across the intervening space like a cat pouncing on a rat, skewering the swordsman through the eye, her long dirk punching a bloody hole out the back of his head. She jerks the weapon free and takes cover behind the abandoned cocktail bar.</p>
+<p>Out of the corner of her eye she glimpses a flurry of violence, Arakni thinning the crowd. She wipes blood and cerebral fluid from her dirk while counting. On "three" her loyal killers burst through the entrance, punctual as expected. Widow leads the pack, scything through the hirelings, severing limbs and decapitating heads with brutal abandon. Amber, Jape, Florence, and Silka fan out across the room, stabbing and slicing those distracted by the sheer ferocity of Widow's assault.</p>
+<p>Uzuri rolls across a table, lands in a crouch and sends a throwing knife at Blave's leg. He goes down screaming as the blade bites deep into the meat of his thigh. She readies another knife for Whitetail, but the coward is sprinting for the balcony, too fast for her to intercept, even with her abilities-always was a fleet-footed bastard.</p>
+<p>The fleeing fink leaps over the railing, and for a sweet moment Uzuri thinks he has chosen the fall over a slow and painful death at her hands. Instead, Whitetail pulls a cord in his bulky jacket and out billows a silken parachute.</p>
+<p>Uzuri sprints to the railing and watches the turncoat sail out across the Pits. She raises her throwing knife, knowing the target is out of range, and opens her mind's eye to the alternatives.</p>
+<p>The knife is gone, replaced by a short, barb-headed harpoon. She takes a couple of steps back, aims high, and launches the harpoon off the balcony. The missile arcs gracefully through the air and descends upon Whitetail's dangling form. There is a distant cry as it hits him in the back.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/the-spiders-trap-4.webp" alt="the-spiders-trap-4" class="center">
+<p>It was never going to be a fatal blow. Too far, even for Uzuri. More of a memento. Something to remember her by.</p>
+<p>She turns and marches over to Blave. Around them, gasps and groans from the dying have replaced the sounds of fighting. Only Blave remains to tell the tale, and Uzuri is quick to slice out the juicy bits. The traitor bleeds out on the floor as Riptide lumbers in through the door. He nods a greeting to Arakni, then studies Uzuri with bloodshot eyes.</p>
+<p>"Blave say anything interesting, boss?"</p>
+<p>"Contract came from a ganger."</p>
+<p>"Middle man?"</p>
+<p>"Has to be. Too big a corpse for those little maggots."</p>
+<p>"Which one you want to go after first?"</p>
+<p>"All of them."</p>
+<p>"How?"</p>
+<p>Uzuri turns to Arakni, her smile as thin and sharp as a knife blade.</p>
+<p>"Arakni has a bounty on their head. Let's see who wants to collect it."</p>
+<hr />
+<p>Melten Wick squints up at the window that encircles the cavern's entrance. This is the place the squeaker spoke of, her voice all a-trembling as she described the masked monster hiding within.</p>
+<p>A tip-off worth a few <span class="hint" hint="tallics">tallics</span> to the squeaker, but a hundred thousand to the crew who serves up Arakni's head on a platter to Whitetail. Wick doesn't know what the assassin did wrong, and doesn't much care. He's got mouths to feed.</p>
+<p>He beckons for his gang to follow as he passes under the dusty, broken panes. In the wan light, the scarred leader looks like a half-cooked sausage returned to the oven for extra crisp. It's the price he's paid for his love affair with the flame. A cost he'll happily suffer, over and over, for the warming blaze and sweet scent of roasting flesh.</p>
+<p>Wick lets his eyes adjust to the gloom, the vast chamber lit only by a few green phosphor lanterns-<a href="../../world-of-rathe/metrix/metrix.html">Metrix</a> issue-stolen from a Blackjack's Mining compound.</p>
+<p>There, tucked into a makeshift shelter of fallen detritus, a misshapen figure lies dormant, the occasional twitch a sign of sleep. Wick presses his scarred finger to the skinned surface where lips once existed-a request for discretion from his fellow <a href="../../world-of-rathe/pits/the-maw.html#torched">Torched</a>-then gestures for the gang to surround the prey. Arakni's reputation precedes them, but Wick doubts they'll last long against his lot. Too many, even for the Huntsman.</p>
+<p>He raises the spout of his flamethrower, ignites it with a spark from the starter, and shoots a gout of fire into the air. Arakni leaps off the heap, pouncing like his namesake upon one of the Torched as they rush in. The assassin's knives make swift and bloody work of the hapless ganger, but the victory is short-lived. Hemmed in by firebrands and bursts from flamethrowers, they soon lose any chance of attacking or escape. Two of Wick's bravest get close enough to hurl a net over them, bearing the quarry to the ground.</p>
+<p>A grin cracks the smooth cast of Wick's melted face. Too easy. Perhaps the Huntsman's reputation is mere speculation. Perhaps-</p>
+<p>A guttural roar derails his train of thought. From a side tunnel enters a hunched figure clad in skins and chain. With her sinewy arms, Cager hauls on a pair of leashes, restraining a brace of slavering dregs. Behind her, the rest of the <a href="../../world-of-rathe/pits/the-maw.html#freakshow">Freakshow</a> spills into the cave.</p>
+<p>As if in answer, Wick hears a belch from the other side of the cave. Hands on hips, pale gut a sweaty avalanche, Slab glowers at the Torched. His hulking <a href="../../world-of-rathe/pits/the-maw.html#blockheads">Blockheads</a> spread out, readying for the charge.</p>
+<p>Through the shattered glassway clatters another deplorable mob. Their bone bodyware makes a rattling racket as the <a href="../../world-of-rathe/pits/the-maw.html#numbskulls">Numbskulls</a> take up fighting positions. Their skeletal overseer, Marrow, raises his scimitar as if to make one of his obscene pronouncements. Whatever depravity he intended to declare drowns under the weight of an explosion to the rear of the cavern.</p>
+<p>The diminutive Madame Fuse dances in through the dust, followed through the fresh-blown entrance by the marching boots of her <a href="../../world-of-rathe/pits/the-maw.html#jawbreakers">Jawbreakers</a>.</p>
+<p>It would seem that the squeakers have told tales to all and sundry, squeezing as many tallics from this bounty as possible. He'd threatened to slow-roast that girl over a barrel fire if she shared her news with anyone else, but who could know how many of her fellow street roaches she'd told first?</p>
+<p>Wick sends an almighty blaze into the air from his flamethrower and addresses the uninvited guests. "You lots wants a burning?" he screams. "You can comes get one!"</p>
+<p>It's the match that lights the fireworks. With whoops and howls, shrieks and growls, the gangers join in battle.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/the-spiders-trap-5.webp" alt="the-spiders-trap-5" class="center">
+<p>Moments later, Wick finds himself engulfing a Numbskull in a crackling inferno. The victim shrieks and stumbles about, crashing into others as she beats the flames with her burning hands. Her collisions set a Freak and one of Wick's own Torched ablaze. It matters not. When the flame is hungry, it will eat what it pleases.</p>
+<p>He spares a glance for his prize, just in time to see Arakni slit the net open. Wick levels his flamethrower at the escaping assassin, but a curious detail gives him pause. Arakni's ghoulish facade is gone, replaced by a gas mask.</p>
+<p>His racing brain has barely hurdled this surprise when another confounding fact enters the fray. A metal canister lands at his feet. He looks up to see more canisters tumbling down from the roof, dropped by a line of shadowy figures. The subsequent concussion blows Wick clean off his feet, the ganger landing hard on the concrete floor.</p>
+<p>Winded and stunned, Wick looks up to see Slab looming over him. The Blockhead leader is saying something, but Wick can't discern it over the ringing in his ears. Then Slab coughs and splutters as gas rises in a green haze.</p>
+<p>Wick tries to get up but his head is heavy, his eyelids droopy, his limbs unwilling. Slab crashes to the concrete beside him, unconscious. Wick has no choice but to slump down beside his arch enemy, unable to fight the choking intoxication.</p>
+<p>Through the mist strides the lean, long-coated figure of Uzuri, her masked assassins at her side.</p>
+<p>She points out the gang leaders she wants interrogated. Her nestlings get to work, all except Arakni. They take a knife from their sleeve, jab the point into Wick's arm, and use his blood to paint a message on Slab's bloated stomach.</p>
+<p>Uzuri stifles a laugh. "A bloody note. Cute."</p>
+<p>She reads the message, then signals for her crew to take Slab away. "One of them paid Whitetail off, but they're just the next link in the web. And what's the best way to unravel a weave?"</p>
+<p>Arakni waits, still as a trapdoor spider.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/the-spiders-trap-6.webp" alt="the-spiders-trap-6" class="center">
+<p>"You cut one thread at a time."</p>
+<p>She leaves her nestlings to clean up and strides out through the glassway with Arakni at her side. Riptide's waiting for them. The ranger falls in opposite the assassin, two contractors guarding their boss, watching for threats so that Uzuri can walk and think through the Pits' mean streets.</p>
+<p>She lost the first move, but the second is hers. Whatever the game, she and her nest are done with playing by others' rules. They'll not kowtow to the codes of petty gangsters, nor to the laws of Metrix. They'll heed no pledge to regent and realm.</p>
+<p>Assassins of the Spider live and die by their own accords.</p>
+<p>For they are Outsiders.</p>
+<p>...</p>
+<hr />
+<p><em>Source: <a href="https://fabtcg.com/articles/spiders-trap/">https://fabtcg.com/articles/spiders-trap/</a></em><br>
+<em>Written by Edwin McRae and Rachel Rees.</em><br>
+<em>Directed by Robbie Wen. Illus. by Sam Yang.</em></p>
+<hr />
+<h3 id="narrated-video-by-peranine"><a class="header" href="#narrated-video-by-peranine">Narrated Video by <a href="https://www.youtube.com/@Peranine">Peranine</a></a></h3>
+<p>
+(<a href="#the-spiders-trap">Jump to the Top</a>)
+</p>
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/ElblmAxTQPA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/10-outsiders/tidings-in-the-light.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/10-outsiders/its-just-business.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/10-outsiders/tidings-in-the-light.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/10-outsiders/its-just-business.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>

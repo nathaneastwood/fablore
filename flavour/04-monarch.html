@@ -1,0 +1,298 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Monarch - Flesh and Blood Lore</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../hero.css">
+        <link rel="stylesheet" href="../image.css">
+        <link rel="stylesheet" href="../tab.css">
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <link rel="stylesheet" href="../theme/hints.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Flesh and Blood Lore</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h2 id="monarch"><a class="header" href="#monarch">Monarch</a></h2>
+<h4 id="adrenaline-rush---mon263"><a class="header" href="#adrenaline-rush---mon263">Adrenaline Rush - (MON263)</a></h4>
+<p>"Cut off the skera's head, and it shall still find the strength to bite." - Sanni</p>
+<h4 id="battlefield-blitz---mon036"><a class="header" href="#battlefield-blitz---mon036">Battlefield Blitz - (MON036)</a></h4>
+<p>"<a href="../world-of-rathe/solana/solana.html">Solana</a> shall never succumb to the Shadows!" - Aurea, Champion of the Dawn</p>
+<h4 id="blood-tribute---mon215"><a class="header" href="#blood-tribute---mon215">Blood Tribute - (MON215)</a></h4>
+<p>"With the blood of the Ancients, all of humanity shall be reborn!" - Ersebet</p>
+<h4 id="boneyard-marauder---mon135"><a class="header" href="#boneyard-marauder---mon135">Boneyard Marauder - (MON135)</a></h4>
+<p>"It's amazing what you can find when you dig a little deeper." - Harland</p>
+<h4 id="brandish---mon269"><a class="header" href="#brandish---mon269">Brandish - (MON269)</a></h4>
+<p>If you know how to flaunt it, you barely need to use it.</p>
+<h4 id="celestial-cataclysm---mon062"><a class="header" href="#celestial-cataclysm---mon062">Celestial Cataclysm - (MON062)</a></h4>
+<p>"Legends grow larger and bolder from one generation to the next. What began as a brave warrior with a spear becomes a deity of virtue, raining down thunder upon tyrants." - <a href="../heroes-of-rathe/prism-about.html">Prism</a></p>
+<h4 id="enigma-chimera---mon098"><a class="header" href="#enigma-chimera---mon098">Enigma Chimera - (MON098)</a></h4>
+<p>"If you don't think it's real, try petting it." - Amira Surana</p>
+<h4 id="express-lightning---mon051"><a class="header" href="#express-lightning---mon051">Express Lightning - (MON051)</a></h4>
+<p>"Mighty <span class="hint" hint="Bellona">Bellona</span>, lend me your wings!" - Chiara Suncrest</p>
+<h4 id="great-library-of-solana---mon000"><a class="header" href="#great-library-of-solana---mon000">Great Library of Solana - (MON000)</a></h4>
+<p>Those seeking knowledge travel to Solana for the sole purpose of visiting the <a href="../world-of-rathe/solana/a-radiant-city.html#the-library-of-illumination">Library of Illumination</a>, a vast library located at the base of the Solarium. A grand sight, the floor is constructed from lustrous marble, with floor-to-ceiling shelves containing thousands of tomes and volumes, as well as bound parchments authored by the scholars of Solana. Solanians and travelers alike can enter and soak in the knowledge gathered from all across Rathe, though it is said that countless hidden sections and levels are privy only to the magisters and select scholars from the <a href="../world-of-rathe/solana/the-order-of-the-light.html#the-light-of-sol">Light of Sol</a>.</p>
+<h4 id="herald-of-erudition---mon004"><a class="header" href="#herald-of-erudition---mon004">Herald of Erudition - (MON004)</a></h4>
+<p>Suraya, keeper of knowledge, who enlightens the minds of Rathe.</p>
+<h4 id="herald-of-judgment---mon007"><a class="header" href="#herald-of-judgment---mon007">Herald of Judgment - (MON007)</a></h4>
+<p>Themis, keeper of the scales, who delivers mercy and vengeance in equal measure.</p>
+<h4 id="herald-of-protection---mon014"><a class="header" href="#herald-of-protection---mon014">Herald of Protection - (MON014)</a></h4>
+<p>Aegis, the shield of light, who shelters the city with her wings.</p>
+<h4 id="herald-of-rebirth---mon020"><a class="header" href="#herald-of-rebirth---mon020">Herald of Rebirth - (MON020)</a></h4>
+<p>Avalon, messenger of the dawn, whose light rejuvenates the land.</p>
+<h4 id="illuminate---mon072"><a class="header" href="#illuminate---mon072">Illuminate - (MON072)</a></h4>
+<p>"Sometimes, a hands-on lesson is the best approach." - Instructor Merlen Rivera</p>
+<h4 id="mark-of-the-beast---mon124"><a class="header" href="#mark-of-the-beast---mon124">Mark of the Beast - (MON124)</a></h4>
+<p>"Borne of Soaejn, marked by corruption; the more I learn about them, the louder its call becomes..." - <span class="hint" hint="Sutcliffe">Lord Sutcliffe</span></p>
+<h4 id="memorial-ground---mon303"><a class="header" href="#memorial-ground---mon303">Memorial Ground - (MON303)</a></h4>
+<p>Memories fade, but their names remain.</p>
+<h4 id="minnowism---mon296"><a class="header" href="#minnowism---mon296">Minnowism - (MON296)</a></h4>
+<p>Be careful who you talk down to.</p>
+<h4 id="nourishing-emptiness---mon246"><a class="header" href="#nourishing-emptiness---mon246">Nourishing Emptiness - (MON246)</a></h4>
+<p>"Every story has an ending. I wonder, what shall yours be?" - Kirigami</p>
+<h4 id="out-muscle---mon248"><a class="header" href="#out-muscle---mon248">Out Muscle - (MON248)</a></h4>
+<p>"Let's see if dem muscles' big as dat mouth." - Jackdaw</p>
+<h4 id="rise-above---mon257"><a class="header" href="#rise-above---mon257">Rise Above - (MON257)</a></h4>
+<p>"Our gifts allow us to see into the beyond, but even we cannot shape the visions we see on the other side." - Vidya Willowmere</p>
+<h4 id="rouse-the-ancients---mon247"><a class="header" href="#rouse-the-ancients---mon247">Rouse the Ancients - (MON247)</a></h4>
+<p>When the veil wanes, the Ancients shall rise once more.</p>
+<h4 id="seek-horizon---mon251"><a class="header" href="#seek-horizon---mon251">Seek Horizon - (MON251)</a></h4>
+<p>They hear the distant echoes of a rising storm, and know that their days of peace are numbered.</p>
+<h4 id="smash-with-big-tree---mon226"><a class="header" href="#smash-with-big-tree---mon226">Smash with Big Tree - (MON226)</a></h4>
+<p>"Sure, they're strong but they're... I've seen rocks more intelligent." - Harold Honeysett</p>
+<h4 id="soul-shield---mon063"><a class="header" href="#soul-shield---mon063">Soul Shield - (MON063)</a></h4>
+<p>"Do not give in to despair, for it is only after night falls that we can see the dawn." - Chancellor Helena Primavera</p>
+<h4 id="spill-blood---mon109"><a class="header" href="#spill-blood---mon109">Spill Blood - (MON109)</a></h4>
+<p>"I expected you to live longer..." - Danu Ashenguard</p>
+<h4 id="stony-woottonhog---mon284"><a class="header" href="#stony-woottonhog---mon284">Stony Woottonhog - (MON284)</a></h4>
+<p>Grandad Warthog leads the way.</p>
+<h4 id="surging-militia---mon287"><a class="header" href="#surging-militia---mon287">Surging Militia - (MON287)</a></h4>
+<p>The villages of the golden fields are just as noble and brave as the Solanians who live within the city.</p>
+<h4 id="take-flight---mon054"><a class="header" href="#take-flight---mon054">Take Flight - (MON054)</a></h4>
+<p>"Sol's radiant light shall pierce through the Shadow." - Chancellor Hypatia</p>
+<h4 id="tome-of-divinity---mon065"><a class="header" href="#tome-of-divinity---mon065">Tome of Divinity - (MON065)</a></h4>
+<p>"Knowledge bows before nothing, except existence itself." - Grand Magister, the Radiant</p>
+<h4 id="tremor-of-íarathael---mon254"><a class="header" href="#tremor-of-íarathael---mon254">Tremor of íArathael - (MON254)</a></h4>
+<p>As the gateway opens, the shattered shards collide; echoes resonating with a dissonant heartbeat.</p>
+<h4 id="valiant-thrust---mon039"><a class="header" href="#valiant-thrust---mon039">Valiant Thrust - (MON039)</a></h4>
+<p>"Do not falter! These fiends shall die like any other beast we've faced!" - Astra Morena</p>
+<h4 id="void-wraith---mon209"><a class="header" href="#void-wraith---mon209">Void Wraith - (MON209)</a></h4>
+<p>"Do you ever think that someone looks down on us, their creations, and regrets the choices that they made?" - Nestus</p>
+<h4 id="wartune-herald---mon026"><a class="header" href="#wartune-herald---mon026">Wartune Herald - (MON026)</a></h4>
+<p>Bellona, patron of the blade, who leads the charge.</p>
+<h4 id="zealous-belting---mon293"><a class="header" href="#zealous-belting---mon293">Zealous Belting - (MON293)</a></h4>
+<p>Flails, chains, and a body the size of a house. What more could a cultist wish for?</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../flavour/03-crucible-of-war.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../flavour/05-tales-of-aria.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../flavour/03-crucible-of-war.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../flavour/05-tales-of-aria.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../tab.js"></script>
+        <script src="../theme/pagetoc.js"></script>
+        <script src="../theme/hints.js"></script>
+
+
+    </div>
+    </body>
+</html>
