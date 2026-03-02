@@ -1,6 +1,8 @@
 # Brevant, Civic Protector
 
-![brevant-civic-protector](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/brevant-civic-protector.webp)
+<video width="100%" height="100%" controls autoplay muted loop playsinline>
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/brevant-civic-protector.mp4" type="video/mp4">
+</video>
 
 Each dawn, the people of [Solana](../world-of-rathe/solana/solana.md) wake to the sound of marching. The rhythm of metal on stone keeps them steady, and they return to their slumbering, safe in the knowledge they are protected by the [Hand of Sol](../world-of-rathe/solana/the-order-of-the-light.md#the-hand-of-sol). In honor the Hand serves, guarding their people, defending their livelihoods, so their beautiful homeland may prosper in peace.
 

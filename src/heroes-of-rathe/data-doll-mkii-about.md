@@ -1,6 +1,8 @@
 # Data Doll, MKII
 
-![data-doll-mkii](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/data-doll.webp)
+<video width="100%" height="100%" controls autoplay muted loop playsinline>
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/data-doll-mkii.mp4" type="video/mp4">
+</video>
 
 Buried deep beneath [Iron Assembly](../world-of-rathe/metrix/a-better-tomorrow.md#iron-assembly) headquarters there lies a vast, secret chamber. Inside rests Data Doll, a steam-powered automaton delicately suspended by a web of wires and hoses. Night and day, her pneumatic mind surges with an influx of data reported from all across [Metrix](../world-of-rathe/metrix/metrix.md). Her purpose: to provide pertinent data to the Iron Assembly's most elite members. These select few jealously guard the secret of Data Doll's existence; afraid that the key to their copiously cognizant intelligence network might be discovered. Compliant as ever, Data Doll obeys them without complaint and with all the cold, calculated accuracy of the Assembly itself.
 

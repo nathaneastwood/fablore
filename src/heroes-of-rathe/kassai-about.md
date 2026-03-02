@@ -1,6 +1,8 @@
 # Kassai, Cintari Sellsword
 
-![kassai-cintari-sellsword](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/kassai.webp)
+<video width="100%" height="100%" controls autoplay muted loop playsinline>
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/kassai-cintari-sellsword.mp4" type="video/mp4">
+</video>
 
 Across the scorched wastes of [Volcor](../world-of-rathe/volcor/volcor.md), generals clash in their quest for power. While the generals are trapped in endless warfare, not every fight is won on the battlefield; sometimes, the greatest threats come from within.
 

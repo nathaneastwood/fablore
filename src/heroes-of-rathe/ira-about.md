@@ -1,6 +1,8 @@
 # Ira, Crimson Haze
 
-![ira-crimson-haze](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/ira.webp)
+<video width="100%" height="100%" controls autoplay muted loop playsinline>
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/ira.mp4" type="video/mp4">
+</video>
 
 Ira was born in the idyllic Valley of Blossoms, the youngest child of the leader of the [Ikaru](~Ikaru) Clan. Raised in a loving family, she was a mischievous and free-spirited child, often dragging her brothers into trouble as they struggled to keep an eye on their unruly younger sister. One night, a swarm of grotesque creatures descended upon their village, resulting in the massacre of her family and most of her clan.
 

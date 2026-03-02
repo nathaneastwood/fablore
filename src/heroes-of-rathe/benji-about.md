@@ -1,6 +1,8 @@
 # Benji, The Piercing Wind
 
-![benji-the-piercing-wind](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/benji.webp)
+<video width="100%" height="100%" controls autoplay muted loop playsinline>
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/benji.mp4" type="video/mp4">
+</video>
 
 Deep within the Gorge of a Thousand Winds, a young ninja trains alone, as swift and sharp as the racing winds that tear into the rock face below. As a member of the Mugenshi clan, Benji is keenly aware of the threats that lie beyond the gorge, and those who would see his clan erased altogether.
 
