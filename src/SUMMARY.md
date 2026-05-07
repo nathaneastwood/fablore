@@ -104,6 +104,7 @@
     - [Frankie](heroes-of-rathe/frankie-about.md)
     - [Genis](heroes-of-rathe/genis-about.md)
     - [Gravy Bones](heroes-of-rathe/gravy-about.md)
+    - [Hala](heroes-of-rathe/hala-about.md)
     - [Ira](heroes-of-rathe/ira-about.md)
     - [Iyslander](heroes-of-rathe/iyslander-about.md)
     - [Jarl](heroes-of-rathe/jarl-about.md)
@@ -234,6 +235,7 @@
     - [A Kraken Good Tale](main-story/18-high-seas/a-kraken-good-tale.md)
     - [Trouble in Larinkmorth](main-story/18-high-seas/trouble-in-larinkmorth.md)
     - [Feudmasters](main-story/19-super-slam/feudmasters.md)
+    - [Vow Unbroken](main-story/20-compendium-of-rathe/vow-unbroken.md)
 
 - [Short Stories](short-stories/README.md)
     - [A Thousand Cuts](short-stories/10-outsiders/a-thousand-cuts.md)
