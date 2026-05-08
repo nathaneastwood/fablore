@@ -65,6 +65,8 @@ hint = "Bright with a rich golden flavor, this is the most popular drink served 
 hint = "The edge of the Savage Lands, home to the Deathmatch arena."
 [GrandMagister]
 hint = "Serves the city of Solana as the highest representation of Sol."
+[HandOfSol]
+hint = "The Hand of Sol is Solana's order of knights, who defend the city from outside threats."
 [Hoikers]
 hint = "Giant, acid-spitting scallops"
 [Ikaru]
@@ -119,6 +121,8 @@ hint = "Special force of loyal ninjas dedicated to hunting those responsible for
 hint = "Enchanting merfolk who lure sailors with song and beauty - gifts please them, but poor offerings may cost you dearly."
 [Skera]
 hint = "One of the Savage Lands' most skilled predators, they are almost completely nocturnal, relying on the darkness to help mask their movements while stalking prey. Their four eyes are likely to help it see in the dark, in order to hunt its prey."
+[Solarium]
+hint = "An enormous complex of shining towers that form the central nexus of Solana."
 [Sutcliffe]
 hint = "Lord Sutcliffe pursued arcane knowledge despite lacking aether affinity, creating the Arknight project to unlock magical abilities. Betrayed by his creation, Viserai, he was killed and now exists trapped in a skull, tormented and longing for revenge."
 [tallics]

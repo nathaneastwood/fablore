@@ -55,4 +55,4 @@ When word of war reached the Rek'vas Bloodboars, they were struck with fear... f
 "A crossbow bolt 'aint gonna make a dent in that thing." - Spokes
 
 #### Unified Decree - (CRU083)
-"In unity, we will overcome." - Hala Goldenhelm
+"In unity, we will overcome." - [Hala Goldenhelm](../heroes-of-rathe/hala-about.md)
