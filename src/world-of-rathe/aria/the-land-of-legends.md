@@ -46,4 +46,4 @@ For those without a flying mount to take them into Skybreaker's heights, a gondo
 
 ---
 
-In recent years, the barriers that once concealed and protected Aria is beginning to wane. The War of the Monarchs rages on; Aesirs and their Embras stir in their slumber, their influence seeping from i'Arathael into the realm of man, as the ancient defenders that lay dormant within Aria are roused by the presence of these ancient enemies, and begin to awaken and gather once more.
+In recent years, the barriers that once concealed and protected Aria is beginning to wane. The War of the Monarchs rages on; Aesirs and their Embras stir in their slumber, their influence seeping from [i'Arathael](~iArathael) into the realm of man, as the ancient defenders that lay dormant within Aria are roused by the presence of these ancient enemies, and begin to awaken and gather once more.

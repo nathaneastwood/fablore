@@ -64,7 +64,7 @@ Dorinthea leads the onslaught, hope rekindled by the flame-haired warrior at her
 
 Solana's shrewdest scholars pored over their tomes and devices, its keenest scouts scoured the shadows, until at last they found the source of the Demonastery's abyssal army.
 
-The Vitiate Gateway, the last of nine portals linking Rathe to i'Arathael.
+The Vitiate Gateway, the last of nine portals linking Rathe to [i'Arathael](~iArathael).
 
 During the Third Age, the Ancients believed they had destroyed the Gateways, forever banishing the realm of dreams. Hidden behind a veil of lies and illusion by an envoy of i'Arathael, the ninth portal remained intact and sealed. There it remained, closed and forgotten for thousands of years, until now.
 
