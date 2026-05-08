@@ -23,7 +23,7 @@ What our Gemini find in the Shadows, our Inquisitors must drag into the Light.
 For Galcia she remembers when two worlds touched.
 
 #### Future Sight - (PEN117)
-"Through aetheric visions I study these foreboding sigils of i'Arathael." - Maela Fairmind
+"Through aetheric visions I study these foreboding sigils of [i'Arathael](~iArathael)." - Maela Fairmind
 
 #### Gentle Breeze - (PEN034)
 "We are leaves aloft, swirling in the breath of a slumbering Aesir." - Mugenshi proverb

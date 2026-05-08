@@ -236,6 +236,7 @@
     - [Trouble in Larinkmorth](main-story/18-high-seas/trouble-in-larinkmorth.md)
     - [Feudmasters](main-story/19-super-slam/feudmasters.md)
     - [Vow Unbroken](main-story/20-compendium-of-rathe/vow-unbroken.md)
+    - [Omens in the Sky](main-story/21-omens-of-the-third-age/omens-in-the-ky.md)
 
 - [Short Stories](short-stories/README.md)
     - [A Thousand Cuts](short-stories/10-outsiders/a-thousand-cuts.md)

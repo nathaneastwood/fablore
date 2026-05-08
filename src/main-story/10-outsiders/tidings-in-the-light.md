@@ -106,7 +106,7 @@ The Librarian leans forward, expectant. "Do explain."
 
 "When I don my mask, when I change, I feel a ripple in the aether, as if I am a stone dropped into a pool of water. It is gentle, almost pleasant. This was the same, although much stronger, and not of my volition." She shudders at the memory. "The aether answered that ardent call and wreaked havoc in its wake."
 
-"It is as we foretold," states The Librarian, their surety punctuated by the briefest of glances from The Steadfast. "Before the words, before belief, they slumbered in the bygone lethe, breeding dreams in twilife's gloom, until the awakening of i'Arathael's doom."
+"It is as we foretold," states The Librarian, their surety punctuated by the briefest of glances from The Steadfast. "Before the words, before belief, they slumbered in the bygone lethe, breeding dreams in twilife's gloom, until the awakening of [i'Arathael](~iArathael)'s doom."
 
 The Librarian's verse renders Shiyana speechless. How blind she has been despite the keenness of her eyes. How dim her thoughts are against The Grand Council's all-knowing presence. As if sensing the crack in Shiyana's confidence, The Steadfast raises their hand. It is a gesture befitting The Grand Magister alone, demanding patience and forbearance. Silence stretches out, growing weightier and more suffocating with every passing moment. The Amphitheatre, indeed the entire Solarium, holds its breath.
 
