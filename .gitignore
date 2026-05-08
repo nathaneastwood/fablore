@@ -5,3 +5,4 @@ fablore.code-workspace
 *.png
 .DS_Store
 fablore
+.gem-home
