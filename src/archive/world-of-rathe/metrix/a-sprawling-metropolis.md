@@ -23,7 +23,7 @@ The largest and lowest level of Metrix, the buildings of the Sprawl stand on sol
 ## Landmarks
 #### Cogmire's Salvage Emporium And Workshoppe
 
-Rumor has it that [Jules Teklovossen](../../heroes-of-rathe/teklovossen-about.md) once frequented Cogmire's Salvage Emporium and Workshoppe at the southern edge of the Sprawl. Some swear he spent hours there collecting materials to build his earliest creations, when junk and scrap were all the young inventor could afford. When pressed for confirmation, the proprietor, Prospector Cogmire, said only that, "I find those glowing holophoto effigies to be in poor taste. That man gave us so much already; can't we now let him rest?"
+Rumor has it that [Jules Teklovossen](../../../heroes-of-rathe/teklovossen-about.md) once frequented Cogmire's Salvage Emporium and Workshoppe at the southern edge of the Sprawl. Some swear he spent hours there collecting materials to build his earliest creations, when junk and scrap were all the young inventor could afford. When pressed for confirmation, the proprietor, Prospector Cogmire, said only that, "I find those glowing holophoto effigies to be in poor taste. That man gave us so much already; can't we now let him rest?"
 
 Cogmire's is the oldest junkyard in all of Metrix offering anything and everything a scrap trader or tinkerer could need. The man himself has been proprietor for as long as anyone can remember, with his trusty (and rusty) pet junkyard dogg Charlotte never far from his side. She's mean in the eyes and knows the difference between a customer and a thief. So does Cogmire. The dogg is just faster.
 

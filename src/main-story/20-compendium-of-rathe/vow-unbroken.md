@@ -1,6 +1,6 @@
 # Vow Unbroken
 
-[Hala](../../heroes-of-rathe/hala-about.md) stood on the ramparts, bright [Solana](../../world-of-rathe/solana/solana.md) at her back and the writhing mass of the [Demonastery's](../../world-of-rathe/demonastery/demonastery.md) hordes spread out beyond the city walls. Inside Solana's interlocking grid of protective wards, it was strangely quiet, the air still, but it would not remain that way for long.
+[Hala](../../heroes-of-rathe/hala-about.md) stood on the ramparts, bright [Solana](../../archive/world-of-rathe/solana/solana.md) at her back and the writhing mass of the [Demonastery's](../../archive/world-of-rathe/demonastery/demonastery.md) hordes spread out beyond the city walls. Inside Solana's interlocking grid of protective wards, it was strangely quiet, the air still, but it would not remain that way for long.
 
 She sensed the wards' collapse a moment before she saw it. The latticework of runes shivered and dissipated. Street-conduits flickered out. The section of outer wall ahead of her shook then cracked apart, splitting the consecrated stonework. Debris exploded inward as soldiers fled and dust clouded the air.
 
@@ -48,7 +48,7 @@ They stood guard in a broad avenue as the civilians they'd rescued ran for the S
 
 Should death indeed rule this day, Hala stood ready, having faced it many times.
 
-She had succumbed to it once, but even death could not hold her back, not when she ached to serve Sol with every part of her being. Dispatched to the [Savage Lands](../../world-of-rathe/savage-lands/savage-lands.md) to patrol Solana's wild frontier, Hala and her troops were overrun by Brutes, those fierce and fearless predators seemingly born to carnage.
+She had succumbed to it once, but even death could not hold her back, not when she ached to serve Sol with every part of her being. Dispatched to the [Savage Lands](../../archive/world-of-rathe/savage-lands/savage-lands.md) to patrol Solana's wild frontier, Hala and her troops were overrun by Brutes, those fierce and fearless predators seemingly born to carnage.
 
 ![vow-unbroken-7](https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-7.webp)
 
@@ -104,7 +104,7 @@ The Wayfarer's head appeared over the edge of the building, her long white hair 
 
 ![vow-unbroken-11](https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-11.webp)
 
-"Unbreachable as the brambles of [Candlehold](../../world-of-rathe/aria/the-land-of-legends.md#candlehold)!" Briar said. "The Rosetta shall not be uprooted from this spot."
+"Unbreachable as the brambles of [Candlehold](../../archive/world-of-rathe/aria/the-land-of-legends.md#candlehold)!" Briar said. "The Rosetta shall not be uprooted from this spot."
 
 ![vow-unbroken-12](https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-12.webp)
 

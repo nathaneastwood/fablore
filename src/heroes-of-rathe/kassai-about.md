@@ -4,7 +4,7 @@
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/kassai-cintari-sellsword.mp4" type="video/mp4">
 </video>
 
-Across the scorched wastes of [Volcor](../world-of-rathe/volcor/volcor.md), generals clash in their quest for power. While the generals are trapped in endless warfare, not every fight is won on the battlefield; sometimes, the greatest threats come from within.
+Across the scorched wastes of [Volcor](../archive/world-of-rathe/volcor/volcor.md), generals clash in their quest for power. While the generals are trapped in endless warfare, not every fight is won on the battlefield; sometimes, the greatest threats come from within.
 
 Kassai was once the daughter of a powerful general, well-versed in the language of war. As the eldest child, she was the heir to her father's legacy, her childhood lost to years of training, preparing for the day that she would take the reins...but that day never came. In a cruel twist of fate, Kassai lost everything in a single night, as her father was overthrown by his own lieutenant. While she escaped with her life, she was forced to leave her family behind.
 
