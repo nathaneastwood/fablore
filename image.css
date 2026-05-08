@@ -3,3 +3,137 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.image-title-overlay {
+  position: relative;
+  text-align: center;
+}
+
+.image-title-overlay img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+  pointer-events: none;
+}
+
+/*
+ * mdBook themes often set heading color with !important and/or gradient text
+ * (-webkit-background-clip). Force solid white for banner overlays.
+ */
+.image-title-overlay .overlay-text h1,
+.image-title-overlay .overlay-text h2 {
+  margin: 0;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  text-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.9),
+    0 2px 12px rgba(0, 0, 0, 0.85),
+    0 4px 4px rgba(0, 0, 0, 0.75);
+}
+
+.image-title-overlay .overlay-text h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.image-title-overlay .overlay-text h2 {
+  margin-top: 0.5rem;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* World of Rathe hub: clickable region tiles */
+.world-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.world-hub-card {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid rgba(127, 127, 127, 0.35);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.world-hub-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.world-hub-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1683 / 700;
+  object-fit: cover;
+}
+
+.world-hub-card .world-hub-label {
+  display: block;
+  padding: 0.65rem 1rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.ayu .world-hub-card .world-hub-label,
+.coal .world-hub-card .world-hub-label,
+.navy .world-hub-card .world-hub-label {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.world-hub-card--placeholder {
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  padding: 0;
+}
+
+.world-hub-placeholder-title {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(145deg, #3d3d42 0%, #1e1e22 100%);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.world-hub-card--placeholder .world-hub-label {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.ayu .world-hub-card--placeholder .world-hub-label,
+.coal .world-hub-card--placeholder .world-hub-label {
+  background: rgba(255, 255, 255, 0.08);
+}
