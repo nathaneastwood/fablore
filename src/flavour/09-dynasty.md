@@ -13,7 +13,7 @@ Borrowed power comes with debt unpaid. One day the Shadows will come to play.
 The blood of the enemy is worn as a reminder that strength rules all, here in the [Savage Lands](../world-of-rathe/savage-lands/savage-lands.md).
 
 #### Blessing of Steel - (DYN073)
-"Not merely a sword, nor steel. It is our resolve that makes us strong." - Hala Goldenhelm
+"Not merely a sword, nor steel. It is our resolve that makes us strong." - [Hala Goldenhelm](../heroes-of-rathe/hala-about.md)
 
 #### Crown of Dominion - (DYN234)
 "I will watch over this Dynasty till my very last breath. Its power, riches, and enemies, I take as my own." - [Emperor, Dracai of Aesir](../heroes-of-rathe/emperor-about.md)

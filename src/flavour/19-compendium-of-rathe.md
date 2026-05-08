@@ -68,7 +68,7 @@ Spring touches Candlehold for the first time in centuries, promising rebirth for
 For [Yvor](~Yvor) she dances through twice-sundered skies.
 
 #### Swordmaster's Shine - (PEN048)
-"Our fears shall cower and flee before the glory of Sol." - Hala Goldenhelm
+"Our fears shall cower and flee before the glory of Sol." - [Hala Goldenhelm](../heroes-of-rathe/hala-about.md)
 
 #### Tome of Pandemonium - (PEN277)
 "The Old Ones fractured the world and Chaos boiled up through the cracks." - Zeir, First Anarch of L'Apocalypta

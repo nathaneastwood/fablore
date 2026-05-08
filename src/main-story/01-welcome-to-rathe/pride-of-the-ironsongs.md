@@ -62,7 +62,7 @@ Thea and Valeria, assigned to the same party, stepped forward to meet the templa
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/dori-3.webp" alt="dori-3" class="center">
 
-The templar, Hala, introduced them to their lieutenant, a younger man named Farris; the knights of their party, Vitus, Pallas and Darius; and Marcus, a scholar from the Light of Sol.
+The templar, [Hala](../../heroes-of-rathe/hala-about.md), introduced them to their lieutenant, a younger man named Farris; the knights of their party, Vitus, Pallas and Darius; and Marcus, a scholar from the Light of Sol.
 
 The party left Solana the following day, and ventured out into the villages, patrolling and offering help to those in need. Repairing damaged buildings, tracking down lost livestock, bolstering defenses, digging wells, building fences, hunting wild beasts, tracking and exterminating groups of bandits; anything that the villagers needed. Marcus, as a senior scholar, helped to heal the sick and injured, and gave speeches about Sol and the blessings of the Light.
 
