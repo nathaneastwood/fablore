@@ -221,3 +221,13 @@ _Prepare yourself, Arknight. All will become clear soon enough._
 _Source: [https://fabtcg.com/heroes/viserai/?stories=True](https://fabtcg.com/heroes/viserai/?stories=True), [Return of the Shadow](https://fabtcg.com/articles/return-shadow/)_<br>
 _ Story by Nicola Price._<br>
 _Illustrations by MJ Fetesio and Nikolay Moskvin._
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#birth-of-the-arknight">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://youtube.com/embed/txaAO8XS9Tg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

@@ -1,4 +1,4 @@
-# Vow of Vigilence
+﻿# Vow of Vigilence
 
 No sovereign could ask for a guardian more loyal, more devoted to his duty.
 
@@ -33,3 +33,13 @@ Remorse has thrust Yoji into a sovereignty of suspicion. He patrols a land haunt
 _Source: [https://fabtcg.com/heroes/yoji/?stories=True](https://fabtcg.com/heroes/yoji/?stories=True)_<br>
 _Written by Edwin McRae and Rachel Rees._<br>
 _Directed by Robbie. Illus. by Sam Yang._
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#vow-of-vigilence">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/GUTnRL-hldk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

@@ -1,4 +1,4 @@
-# Roots of Change
+﻿# Roots of Change
 
 <p>
 (<a href="#narrated-video-by-deadsummer-art">Jump to Narrated Video</a>)
@@ -168,8 +168,15 @@ Candlehold was changing; the Seed of Tomorrow in her hands a burden she had not 
 
 ### Narrated Video by [DeadSummer Art](https://www.youtube.com/@DeadSummerArt/)
 
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/ikuBbNvdIxk?si=U-DCHvN6NbcOtp2s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/GRa1-0zVqdY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+
 <p>
 (<a href="#roots-of-change">Jump to the Top</a>)
 </p>
-
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/ikuBbNvdIxk?si=U-DCHvN6NbcOtp2s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>

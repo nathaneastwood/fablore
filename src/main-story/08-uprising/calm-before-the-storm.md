@@ -1,4 +1,4 @@
-# Calm Before the Storm
+﻿# Calm Before the Storm
 
 With the stranger's mask in place, I am but one of thousands in the sweltering city of [Ashvahan](~Ashvahan).
 
@@ -101,3 +101,13 @@ Rathe needs my help. Iyslander's help.
 When the time comes, I will be ready.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-17.webp" alt="iyslander-17" class="center">
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#calm-before-the-storm">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/pbPfj7YB3zE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

@@ -1,4 +1,4 @@
-# Sworn to Protect
+﻿# Sworn to Protect
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/boltyn-1.webp" alt="boltyn-1" class="center">
 
@@ -43,3 +43,13 @@ As the war between Light and Shadow rages, soldiers fighting to defend their nob
 Empowered by the very blessing of Bellona, Boltyn has taken up his sword once more. He fights not only for the sake of his son, Aios, but for all those he has sworn to protect, determined to free the land of Shadow and defend his shining city. With Eirina always in his prayers, he has ventured forth on a quest to vanquish Solana's foes, halt the spread of corruption and death, and protect his people from the horrors of war.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/boltyn-7.webp" alt="boltyn-7" class="center">
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#sworn-to-protect">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/zalTgsdH3Ok" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

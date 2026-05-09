@@ -1,4 +1,4 @@
-# Stories of Illumination
+﻿# Stories of Illumination
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/prism-1.webp" alt="prism-1" class="center">
 
@@ -33,3 +33,13 @@ But before Prism could take her illusions into the Golden Fields, a horrific tra
 In this time of unimaginable terror, the people of Solana desperately need something to believe in. Prism is more determined than ever before to bring hope to her people, protect them from harm and show all of Rathe the way of the Light. Summoning the likenesses of her beloved Heralds, she shall call down the very heavens, creating illusions which will inspire her people and smite her foes. So long as she stands, Prism will never stop believing in the power of a good story.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/prism-6.webp" alt="prism-6" class="center">
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#stories-of-illumination">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/EGA2zamjSXU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

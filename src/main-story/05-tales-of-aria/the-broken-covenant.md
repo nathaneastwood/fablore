@@ -1,4 +1,4 @@
-# The Broken Covenant
+﻿# The Broken Covenant
 
 Ash and smoke filled our lungs, as the stench of death weigh upon our every step.
 
@@ -68,3 +68,13 @@ A void left by the broken Covenant.
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/oldhim-11.webp" alt="oldhim-11" class="center">
 
 For if he was awake, the Old Ones won't be far behind.
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#the-broken-covenant">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/7qRhbmsZLsY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

@@ -1,4 +1,4 @@
-# A Bird in the Hand
+﻿# A Bird in the Hand
 
 Walking into the tavern, Azalea was greeted by the familiar sound of a high-pitched cackle. She looked over to see the green-haired girl seated at her usual corner, giggling over several vials of questionable substance. Shaking her head, she walked towards the counter, placing her contract card onto the countertop.
 
@@ -193,3 +193,13 @@ She shrugged in response.
 _Source: [https://fabtcg.com/heroes/azalea/a-bird-in-the-hand/](https://fabtcg.com/heroes/azalea/a-bird-in-the-hand/)_
 _Story by Nicola Price._<br>
 _Featuring illustrations by [Daniel Jiménez](https://www.artstation.com/danieljimenez)._
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#a-bird-in-the-hand">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/BAhPVnQePQE?start=1030" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

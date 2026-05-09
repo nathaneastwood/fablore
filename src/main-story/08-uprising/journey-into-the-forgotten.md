@@ -1,4 +1,4 @@
-Beneath [Iyslander](../../heroes-of-rathe/iyslander-about.md)'s icy facade there beats a heart that is warm and full of longing. Her isolation has taught her much. How to survive. How to strive and thrive in a harsh land. Yet Iyslander knows she still has so much more to learn.
+﻿Beneath [Iyslander](../../heroes-of-rathe/iyslander-about.md)'s icy facade there beats a heart that is warm and full of longing. Her isolation has taught her much. How to survive. How to strive and thrive in a harsh land. Yet Iyslander knows she still has so much more to learn.
 
 First Iyslander must thaw the walls that have sealed her away from her own history, from the full potential of her power. She must extinguish the burning pain of her past if she is to harness her arcane future.
 
@@ -119,3 +119,13 @@ I hurry on, eyes down, and only allow myself to look up when I am well beyond th
 Streams of melted ice pour from the frozen walls in my mind, pooling behind my eyes. Fleeting images slip through the widening cracks. A grand residence with snarling dragons at the gate. Within that home, a library of scrolls, and a young girl cowering in a beshadowed corner. She works a lock of blond hair between her bruised lips as her trembling fingers trace arcane words across a yellowed parchment. Her eyes are a glacial blue and reflect a longing I know only too well.
 
 Every fiber of my being yearns for the peace of my Bleak Expanse. I will return. To my icekin, I have thus promised. For now, I am here, facing the heat. A broken shard of ice in a land of fire, seeking to be made whole once more.
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#journey-into-the-forgotten">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/dWMZoeUQy50" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

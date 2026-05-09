@@ -1,4 +1,4 @@
-# Betrayal
+﻿# Betrayal
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/dromai-6.webp" alt="dromai-6" class="center">
 
@@ -59,3 +59,13 @@ Ashvahan will belong to her.
 ---
 
 _Source: [https://fabtcg.com/heroes/dromai/betrayal/](https://fabtcg.com/heroes/dromai/betrayal/)_
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#betrayal">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/Mq_a2KzWBBQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

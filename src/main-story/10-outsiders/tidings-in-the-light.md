@@ -1,4 +1,4 @@
-# Tidings in the Light
+﻿# Tidings in the Light
 
 <p>
 (<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)
@@ -148,11 +148,11 @@ _Directed by Robbie Wen. Illus. by Henrique Lindner._
 
 ---
 
-### Narrated Video by [Peranine](https://www.youtube.com/@Peranine)
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>
 (<a href="#tidings-in-the-light">Jump to the Top</a>)
 </p>
 
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/bYYi8b7uhRs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/Zg_DwsesA_o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
 

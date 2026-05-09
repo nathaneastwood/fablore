@@ -1,4 +1,4 @@
-# The Blood Stained Web
+﻿# The Blood Stained Web
 
 I perch in the rafters where the air is thick with whispers. Servants gossip in a cozy huddle below. I yearn to drop among them, to cut those wagging tongues from their gaping mouths, to bathe them in blood. But that is not in the plan.
 
@@ -56,3 +56,13 @@ I dance to my delight, knowing the red rain is about to fall.
 _Source: [The Blood Stained Web](https://fabtcg.com/heroes/arakni/?stories=True)_<br>
 _Written by Edwin McRae and Rachel Rees._<br>
 _Directed by Robbie. Illus. by Sam Yang._
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#the-blood-stained-web">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/pLhKa20Xq3U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

@@ -1,4 +1,4 @@
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/emporer-1.webp" alt="emporer-1" class="center">
+﻿<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/emporer-1.webp" alt="emporer-1" class="center">
 
 # The One Emperor
 
@@ -69,3 +69,13 @@ One Emperor.
 _Source: [https://fabtcg.com/heroes/emperor-dracai-aesir/?stories=True](https://fabtcg.com/heroes/emperor-dracai-aesir/?stories=True)_<br>
 _Written by Edwin McRae and Rachel Rees._<br>
 _Directed by Robbie. Illus. by Sam Yang._
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#emperor-the-one-emperor">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/Fhy7aMhxTzA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

@@ -1,4 +1,4 @@
-Life was never easy in the Forest of Flames. Farmers and foresters eked out a meager living from the land, barely making enough to feed their families once the [Emperor](../../heroes-of-rathe/emperor-about.md)'s tax collectors had taken their due.
+﻿Life was never easy in the Forest of Flames. Farmers and foresters eked out a meager living from the land, barely making enough to feed their families once the [Emperor](../../heroes-of-rathe/emperor-about.md)'s tax collectors had taken their due.
 
 [Fai](../../heroes-of-rathe/fai-about.md)'s mother, Min, spoke of a better time, when [Volcai](~Volcai) and [Dracai](~Dracai) would walk the roads of [Volcor](../../archive/world-of-rathe/volcor/volcor.md) hand in hand, ruling the empire as equals. Fai didn't listen. He was too busy playing minion to his sister's mastermind. While [Dromai](../../heroes-of-rathe/dromai-about.md) drew the eye with monsters and wonders of ash and soot, Fai applied his swift hands and feet to the delights of petty larceny. No trove of childish treats was safe from this devious duo. Of course, she would scold him when he gave half their haul away to the poorest children of the village. But what else could he do? Min had taught him that life was never fair by nature, only by practice.
 
@@ -169,11 +169,10 @@ _Illustrated by Sam Yang, Nikolay Moskvin._
 
 ---
 
-### Fires of Rebellion, Narrated by [Peranine](https://www.youtube.com/@Peranine)
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>
 (<a href="#fires-of-rebellion">Jump to the Top</a>)
 </p>
 
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/fS5WRXRcedA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/R1MmHjvB3uY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

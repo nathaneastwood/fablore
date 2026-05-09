@@ -1,4 +1,4 @@
-# Emissary of the Void
+﻿# Emissary of the Void
 
 In a golden city devoted to the pursuit of knowledge, a small group of scholars worked within the grand library, toiling over ancient records and illuminated tomes. However, as the months passed and they continued to read through the notes of their earliest predecessors, the more they began to notice that there were inconsistencies in the tomes of old. When the scholars dared to question these missing details and contradictions, they were cast out. Their own people turned against them, declaring them heretics and driving them from the city. Even when the scholars and their loved ones escaped the city walls, their former brethren continued to hunt them, persecuting them to the farthest corners of the land.
 
@@ -61,3 +61,13 @@ With this brand new power flowing through his veins, Chane cannot rest, cannot l
 Control is a relative concept to an entity such as Ursur, and Chane must tread carefully if he wishes to fulfil his duty to mankind. Even as he races to make the creature's power his own, feeding and placating it with the souls of the Light, Chane walks a razor-thin line on the very edge of the Void.
 
 One wrong move, and Chane's own soul may be lost forever.
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#emissary-of-the-void">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/l-TflJb5-WM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

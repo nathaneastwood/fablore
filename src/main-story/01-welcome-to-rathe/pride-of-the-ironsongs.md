@@ -1,4 +1,4 @@
-# Pride of the Ironsongs
+﻿# Pride of the Ironsongs
 
 _Centuries after the end of the great wars, [Solana](../../archive/world-of-rathe/solana/solana.md) is experiencing an era of peace and prosperity, with the last of its great defenses completed, and its people watched over by noble protectors. And yet, a strange wind has begun to stir once more, sowing seeds of unrest across the continent. Strangers hail from the East, bringing their strange customs and mystic rites to the outskirts of the grand city. To the South, blasphemous cults gather, driven by greed and gluttony. Worst of all, the savage packs of the west gather near the outskirts of the jungle, creeping ever closer to the villages under Solana's protection._
 
@@ -163,3 +163,13 @@ Despite the prestige of her accomplishment, promoted to lieutenant at just twent
 _Source: [https://fabtcg.com/heroes/dorinthea-ironsong/?stories=True](https://fabtcg.com/heroes/dorinthea-ironsong/?stories=True)_<br>
 _Story by Nicola Price._<br>
 _Illustrations by MJ Fetesio, colour by Sindy Wo_
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#pride-of-the-ironsongs">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/AuOKr_eoDLY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

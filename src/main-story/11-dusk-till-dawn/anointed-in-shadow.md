@@ -1,4 +1,4 @@
-# Anointed in Shadow
+﻿# Anointed in Shadow
 
 _The uninitiated cannot see the black moon rise over the [Demonastery](../../archive/world-of-rathe/demonastery/demonastery.md). It mirrors the nighttide, pulsing starward with its invisible light, witnessed only by those anointed in Shadow. Those like [Vynnset, the Iron Maiden](../../heroes-of-rathe/vynnset-about.md)._
 
@@ -137,3 +137,11 @@ _Written by Edwin McRae and Rachel Rees._<br>
 _Directed by Robbie Wen. Illus. by Henrique Lindner._
 
 ---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#anointed-in-shadow">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/7qC0sJoOUDM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

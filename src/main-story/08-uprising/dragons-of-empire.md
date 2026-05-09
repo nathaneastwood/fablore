@@ -1,4 +1,4 @@
-[Dromai](../../heroes-of-rathe/dromai-about.md) barely remembers her parents, Torvai the [Dracai](~Dracai), and Sani of the Sandfolk. Murdered before she had even learned to walk. Min of the Forest of Flames found her, raised her in a humble village amongst the struggle and strife of [Volcai](~Volcai) life. A hatchling dragon in the nest of the phoenix.
+﻿[Dromai](../../heroes-of-rathe/dromai-about.md) barely remembers her parents, Torvai the [Dracai](~Dracai), and Sani of the Sandfolk. Murdered before she had even learned to walk. Min of the Forest of Flames found her, raised her in a humble village amongst the struggle and strife of [Volcai](~Volcai) life. A hatchling dragon in the nest of the phoenix.
 
 She and Min's son became as thick as thieves. Dromai was the mastermind, deceiving and dismaying with wit and illusion. Her adoptive brother was her minion, liberating sweets and toys from childish rivals. Yet Dromai did not plan these capers for the simple fun of it. She planned them for the practice. For the preparation. She felt different, a pretender among the peasants. Deep in her heart, Dromai knew she was destined for greater things.
 
@@ -139,3 +139,13 @@ She is Dracai.
 ---
 
 _Source: [https://fabtcg.com/heroes/dromai/dragons-empire/](https://fabtcg.com/heroes/dromai/dragons-empire/)_
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#dragons-of-empire">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/PBQnJNvhTBw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

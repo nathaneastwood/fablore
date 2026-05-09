@@ -1,4 +1,4 @@
-A life on the streets has hardened [Azalea](../../heroes-of-rathe/azalea-about.md), leaving her cynical and callous. Fighting to survive, she taught herself to hunt and kill, honing her skills to a fine edge.
+﻿A life on the streets has hardened [Azalea](../../heroes-of-rathe/azalea-about.md), leaving her cynical and callous. Fighting to survive, she taught herself to hunt and kill, honing her skills to a fine edge.
 
 Working out of the Blackjack's Tavern, Azalea has carved out a reputation for herself as one of the best mercenaries in the [Pits](../../archive/world-of-rathe/pits/pits.md). In contrast to the anarchy and disorder that surrounds her, Azalea carefully selects each contract, going to great lengths to secure a flawless execution.
 
@@ -36,3 +36,13 @@ She followed one back to his main hideout, looking up at the sign of the tavern.
 _Source: [https://fabtcg.com/heroes/azalea/slings-and-arrows/](https://fabtcg.com/heroes/azalea/slings-and-arrows/)_
 _Story by Nicola Price._<br>
 _Featuring illustrations by [Daniel Jiménez](https://www.artstation.com/danieljimenez)._
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#slings-and-arrows">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/BAhPVnQePQE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
