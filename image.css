@@ -78,6 +78,18 @@
   display: block;
 }
 
+/*
+ * mdBook ships `<html class="light">`; on load, book.js applies localStorage or
+ * prefers-color-scheme via set_theme() but only removes the *stored* theme name,
+ * not the stale `light` class. Then both `.light` and e.g. `.ayu` match and the
+ * dark ink logo sits on a dark theme background (effectively invisible).
+ */
+.coal .intro-logo--light,
+.navy .intro-logo--light,
+.ayu .intro-logo--light {
+  display: none !important;
+}
+
 .intro-disclaimer {
   font-size: 0.9rem;
   line-height: 1.45;
