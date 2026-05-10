@@ -181,6 +181,140 @@
   object-fit: cover;
 }
 
+/* Heroes hub uses portrait art; preserve full image without crop. */
+.hero-hub-card img {
+  aspect-ratio: 466 / 650;
+  object-fit: cover;
+  object-position: center top;
+  background: rgba(127, 127, 127, 0.08);
+  max-height: 420px;
+  margin: 0 auto;
+}
+
+.hero-hub-card-image--fallback {
+  padding: 0;
+  background: var(--bg);
+  object-fit: cover;
+}
+
+.hero-hub-grid {
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  align-items: start;
+}
+
+/* Heroes of Rathe hub: class filter toolbar */
+.hero-hub-toolbar {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin: 0 0 1rem;
+  z-index: 20;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid rgba(127, 127, 127, 0.25);
+  border-radius: 10px;
+  background: var(--bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.hero-hub-toolbar-spacer {
+  height: 0;
+}
+
+.hero-hub-toolbar--fixed {
+  position: fixed;
+  z-index: 120;
+  box-sizing: border-box;
+}
+
+.hero-hub-toolbar-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-right: 0.25rem;
+}
+
+.hero-hub-search-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-right: 0.5rem;
+}
+
+.hero-hub-search-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.hero-hub-search {
+  width: min(260px, 56vw);
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid rgba(127, 127, 127, 0.45);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.hero-hub-search:focus {
+  outline: 2px solid rgba(127, 127, 127, 0.45);
+  outline-offset: 1px;
+}
+
+.hero-hub-filter {
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(127, 127, 127, 0.45);
+  background: var(--bg);
+  color: var(--fg);
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.hero-hub-filter:hover {
+  border-color: var(--icons-hover);
+  color: var(--icons-hover);
+}
+
+.hero-hub-filter--active {
+  border-color: var(--icons-hover);
+  background: rgba(127, 127, 127, 0.12);
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 820px) {
+  .hero-hub-toolbar {
+    padding: 0.55rem;
+  }
+
+  .hero-hub-search-wrap {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .hero-hub-search {
+    width: 100%;
+  }
+}
+
+.hero-hub-card[hidden] {
+  display: none !important;
+}
+
+.hero-hub-class-label {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
 .world-hub-card .world-hub-label {
   display: block;
   padding: 0.65rem 1rem;

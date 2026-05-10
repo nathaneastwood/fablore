@@ -11,7 +11,7 @@ es = "./es"
 
 [output.html]
 additional-css = ["hero.css", "image.css", "tab.css", "theme/pagetoc.css", "theme/hints.css"]
-additional-js = ["tab.js", "back-to-top.js", "theme/pagetoc.js", "theme/hints.js"]
+additional-js = ["tab.js", "back-to-top.js", "hero-hub.js", "theme/pagetoc.js", "theme/hints.js"]
 default-theme = "light"
 preferred-dark-theme = "ayu"
 git-repository-url = "https://github.com/nathaneastwood/fablore"
