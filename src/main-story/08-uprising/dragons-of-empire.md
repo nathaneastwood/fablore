@@ -8,6 +8,10 @@ No. Dromai's imagination is as boundless as her ambition. She is an ash artist, 
 
 # Dragons of Empire
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 "Vynserakai!" calls Dromai.
 
 "Azvolai! Nekria!"
@@ -139,3 +143,13 @@ She is Dracai.
 ---
 
 _Source: [https://fabtcg.com/heroes/dromai/dragons-empire/](https://fabtcg.com/heroes/dromai/dragons-empire/)_
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#dragons-of-empire">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/PBQnJNvhTBw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

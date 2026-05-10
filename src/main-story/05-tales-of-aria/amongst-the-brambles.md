@@ -1,5 +1,9 @@
 # Amongst the Brambles
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 The heartlands of [Aria](../../archive/world-of-rathe/aria/aria.md) are painted with vast swaths of forests. Crystalline trees glimmer under the rainbow glow of the Flow, as beautiful Cesari and all manner of wondrous creatures dance amongst the trees. These woods had borne witness to countless stories and legends throughout the Ages, as the once arid badlands was transformed into the sanctuary that it is today by the remnants of the Ancients' power.
 
 It is within these woods that the enclave of Candlehold lay hidden, surrounded by the thick walls of bramble and thorn that separated it from the rest of Aria. And it is here that the Queen of Candlehold drifted in and out of her timeless slumber, as her dreams took her back to the Third Age, and the horrors that befell her people.
@@ -57,3 +61,13 @@ As she took up her blade, an incredible yet foreign power coursed through her. H
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/briar-10.webp" alt="briar-10" class="center">
 
 Over the Ages, her brothers and sisters had become content within their slice of paradise. They would spend their days lounging about under the lazy sun, as they became more and more like the woods that surrounded them. But Briar was filled with a desire to move, to spread her roots far and wide. She would be the first of the [Rosetta](~Rosetta) to set foot outside Candlehold since the time of the Ancients, bringing with her the tidings of her people, and the start of a brand new adventure.
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#amongst-the-brambles">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/1yMalctwQ1g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

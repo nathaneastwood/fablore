@@ -1,5 +1,9 @@
 # Wanderings in the Mists
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 _Amongst the isolated, peaceful quiet of the mountain ranges, long-forgotten clans hide themselves beneath a blanket of mist. They remain a secret to the other villages of [Misteria](../../archive/world-of-rathe/misteria/misteria.md), their names struck from every record, their continued existence a testament to the determination of their ancestors. Yet some of these clans would emerge once more, and reveal the secrets of Misteria's history._
 
 _The Mugenshi clan, having secluded themselves long ago, remain afflicted by an ancient curse that continues to take lives long after their self-imposed isolation. Each year, a number of their clan waste away, their physical and mental wellbeing deteriorating as they descend into despair. While many believe that a cure is all but impossible, some wonder whether the possibility of a cure is worth risking the mountains beyond their ancestral home._
@@ -229,3 +233,14 @@ Adjusting his bundle, Katsu turned to lead the way back home, leaping from the c
 _Source: [https://fabtcg.com/heroes/katsu-the-wanderer/?stories=True](https://fabtcg.com/heroes/katsu-the-wanderer/?stories=True)_<br>
 _Story by Nicola Price._<br>
 _Illustrations by MJ Fetesio, colour by Sindy Wo._
+
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#wanderings-in-the-mists">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/zgk-_YeeqxQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

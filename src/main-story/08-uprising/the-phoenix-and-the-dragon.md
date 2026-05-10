@@ -1,7 +1,7 @@
 # The Phoenix and the Dragon
 
 <p>
-(<a href="#the-phoenix-and-the-dragon-narrated-by-peranine">Jump to Narrated Video</a>)
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
 </p>
 
 A trap laid for a spymaster and his Ash Artist accomplice. Eun as the bait that Xathari would be compelled to take. Hundreds of ninjas waiting in ambush. Swords drawn for the soldiers. Nets and spears readied for Dromai's dragons.
@@ -83,10 +83,10 @@ _Illustrated by Sam Yang, Nikolay Moskvin._
 
 ---
 
-### The Phoenix and the Dragon, Narrated by [Peranine](https://www.youtube.com/@Peranine)
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>
 (<a href="#the-phoenix-and-the-dragon">Jump to the Top</a>)
 </p>
 
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/Cak-19PYp8E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/x7Hrh6hTEzg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

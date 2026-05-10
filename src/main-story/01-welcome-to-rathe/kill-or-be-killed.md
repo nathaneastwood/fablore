@@ -1,5 +1,9 @@
 # Kill or be Killed
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 _A vast, primordial jungle, the [Savage Lands](../../archive/world-of-rathe/savage-lands/savage-lands.md) are uncharted by any map, and its true size remains unknown. Ancient trees tower above the crowded canopy, casting shadows on saplings struggling toward the light. The dense vegetation casts a heavy blanket of silence over the jungle, broken only by the sounds of massive beasts crashing through the undergrowth. Deep within the jungle, savage predators prowl through the shadows, while vicious scavengers fight to the death over scraps of meat. All those that call this place home, from the smallest insect to the largest tree, must fight tooth and nail for their continued survival._
 
 _With creatures venturing further and further beyond the jungle's outer limits, wandering into golden fields and attacking villages, the townsfolk have sought out the help of their great protector. Shining knights march into the jungles, hacking down anything that crosses their path. The beasts of the Savage Lands seek out the intruders, preying on any warrior who leaves themselves open to attack. As tensions begin to rise, the jungle itself seems to be stirring, preparing to eliminate any human that steps within its bounds._
@@ -101,3 +105,13 @@ Standing above the carnage, Rhinar bellows, a challenge to fall on empty ears, n
 _Source: [https://fabtcg.com/heroes/rhinar-reckless-rampage/?stories=True](https://fabtcg.com/heroes/rhinar-reckless-rampage/?stories=True)_<br>
 _Story by Nicola Price._<br>
 _Illustrated by MJ Fetesio_
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#kill-or-be-killed">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/lROh5AG3DoI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

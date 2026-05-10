@@ -1,7 +1,7 @@
 # The Spider's Trap
 
 <p>
-(<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
 </p>
 
 _(Warning: story features content that may be upsetting to certain readers.<br>
@@ -195,10 +195,10 @@ _Directed by Robbie Wen. Illus. by Sam Yang._
 
 ---
 
-### Narrated Video by [Peranine](https://www.youtube.com/@Peranine)
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>
 (<a href="#the-spiders-trap">Jump to the Top</a>)
 </p>
 
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/ElblmAxTQPA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/b0CaXO23LqY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

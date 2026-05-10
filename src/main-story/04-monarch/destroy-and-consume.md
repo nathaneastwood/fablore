@@ -1,4 +1,8 @@
-# Destory and Consume
+# Destroy and Consume
+
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
 
 [Levia](../../heroes-of-rathe/levia-about.md) was born into poverty, her impoverished family one of many who worked for the nobility of the [Northern Realms](../../archive/world-of-rathe/solana/the-northern-realms.md). Her father had been a stablehand for Lord Barthimont, but he disappeared suddenly when Levia was very young, leaving his family destitute. Without the means to support herself and her daughter, Levia's mother sold them both into the service of the Barthimont estate, an act borne of desperation.
 
@@ -62,3 +66,13 @@ _Source: [https://fabtcg.com/heroes/levia/destroy-and-consume/](https://fabtcg.c
 _Written by Nicola Price._<br>
 _Edited by [Tarryn Thomas](https://tarrynlisathomas.wordpress.com/)._<br>
 _Illustrated by [Nikolay Moskvin](https://www.artstation.com/nik_moskvin)._
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#destroy-and-consume">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/FhsLEMKnOvQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

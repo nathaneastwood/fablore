@@ -1,5 +1,9 @@
 # Smoke and Mirrors
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 Across the rolling hills of Volcor, the earth was stained black with soot and ash, lava rivers a smear of colour against the dark landscape. Villages lay tucked between the rocky slopes, ruled by generals, their fate determined by the ebb and flow of battle. Step into any one of Volcor's villages and you'll find a hardy people, determined and headstrong, forged by the inhospitable environment they call home.
 
 Beyond them, the silhouette of Mt. Volcor rises above the rocky slopes, a massive active volcano which can be seen from the furthest borders of the region. A plume of toxic smoke and poisonous gases rises into the air, painting the sky in shades of grey and blocking out the sun for months at a time.
@@ -125,3 +129,13 @@ The Lord Wizard Chiyo looked back up at Kano, jaw set, her expression shifting i
 _Source: [https://fabtcg.com/heroes/kano/smoke-and-mirrors/](https://fabtcg.com/heroes/kano/smoke-and-mirrors/)_<br>
 _Story by Nicola Price._
 _Illustrations by MJ Fetesio._<br>
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#smoke-and-mirrors">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/wfUxBpQXX8g?start=798" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

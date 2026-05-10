@@ -1,5 +1,9 @@
 # Omens in the Sky
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 _Centuries have passed since the elemental titans, the Ancients, sacrificed themselves to save Rathe from the Old Ones. While few records remain from that cataclysmic time, there are those who know that history has a way of repeating…_
 
 ---
@@ -71,3 +75,13 @@ Zyggy, Aurora, and Oscilio watch in mounting horror as more omens appear, one af
 Our heroes of lightning look to one another, for all can feel the gravity of this moment, and know that Rathe is about to change...forever.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/21-omens-of-the-third-age/omens-in-the-sky-11.webp" alt="omens-in-the-sky-11" class="center">
+
+---
+
+<p>
+(<a href="#omens-in-the-sky">Jump to the Top</a>)
+</p>
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://youtube.com/embed/z42BCa8L3hs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

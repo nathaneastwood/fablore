@@ -8,6 +8,10 @@ From the frozen wastes into a fractured world, Iyslander's journey has begun, an
 
 # Journey into the Forgotten
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 The chilling air is sweet to my tastes. Wind that would cut the skin of another's caresses mine. It blows a shower of ice shavings from my snarling creation, its fury captured and frozen. Sinuous. Scaled and horned. It is a fleeting ghost from my past, those hot and hated memories locked away behind glacial walls in my mind. This is no creature of the Bleak Expanse.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-1.webp" alt="iyslander-1" class="center">
@@ -119,3 +123,13 @@ I hurry on, eyes down, and only allow myself to look up when I am well beyond th
 Streams of melted ice pour from the frozen walls in my mind, pooling behind my eyes. Fleeting images slip through the widening cracks. A grand residence with snarling dragons at the gate. Within that home, a library of scrolls, and a young girl cowering in a beshadowed corner. She works a lock of blond hair between her bruised lips as her trembling fingers trace arcane words across a yellowed parchment. Her eyes are a glacial blue and reflect a longing I know only too well.
 
 Every fiber of my being yearns for the peace of my Bleak Expanse. I will return. To my icekin, I have thus promised. For now, I am here, facing the heat. A broken shard of ice in a land of fire, seeking to be made whole once more.
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#journey-into-the-forgotten">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/dWMZoeUQy50" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

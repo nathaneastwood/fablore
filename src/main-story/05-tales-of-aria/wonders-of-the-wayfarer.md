@@ -1,5 +1,9 @@
 # Wonders of the Wayfarer
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/lexi-1.webp" alt="lexi-1" class="center">
 
 To the North of Korshem, far beyond Lake Frigid and the endless plains of ice and snow. Up the sides of mighty fjords that reach up into the heavens, lies a realm that floated amongst the long white clouds.
@@ -53,3 +57,13 @@ When the chaos subsided, Lexi gazed out into the land in shock and awe. While Vo
 The elements around Lexi were agitated now, buzzing with an urgent desperation. They tugged upon her hair and stung her arms, as if urging her onwards towards the north. What is happening? The seers did not know. But it was clear that the answers they needed lay deep within the heart of Enion.
 
 With the Elders' blessing the Wayfarers set off once more into a familiar, yet alien land, with Lexi at their helm. This would be a dangerous journey, as the elements are thrown into disarray and their beloved aurora ebbed and faded. They resolved to follow the call of the elements, as they set off on their greatest adventure yet. This would be the chance to pierce the veil of Enion's hidden secrets, and unbeknownst to them, the start of a tale that may change the future of Rathe.
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#wonders-of-the-wayfarer">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/JWZ9nDK1AkI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

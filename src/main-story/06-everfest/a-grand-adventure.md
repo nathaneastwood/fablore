@@ -1,5 +1,9 @@
 # A Grand Adventure
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 _Lightning...Ice...Earth..._<br>
 _The elements are entwined in turmoil._<br>
 _A seething storm rages throughout [Enion](~Enion), threatening to destroy Volthaven and its people._<br>
@@ -326,3 +330,13 @@ Nobody responded except Briar, who just shrugged and went back to crushing Thawn
 Lexi lifted her mug. "Then drink up, friends! Tomorrow we set foot for _Everfest_!"
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-13.webp" alt="grand-13" class="center">
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#a-grand-adventure">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/zShTCoO4VAY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

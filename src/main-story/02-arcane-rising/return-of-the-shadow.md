@@ -1,5 +1,9 @@
 # Return of the Shadow
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 Amidst the darkness, the faint glow of the Arknight shard glimmered, a pale violet against the shadow. The first thing he became aware of was the stone floor, a faint chill seeping through his thick runic armour. The tips of his gauntleted fingers scraped against the stone as he pulled his hand closer to his face.
 
 Slowly, Viserai opened his eyes.
@@ -85,3 +89,13 @@ Turning away from the frame, Viserai looked out over the small crowd which had g
 _Source: [https://fabtcg.com/articles/return-shadow/](https://fabtcg.com/articles/return-shadow/)_<br>
 _ Story by Nicola Price._<br>
 _Illustrations by MJ Fetesio and Nikolay Moskvin._
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#return-of-the-shadow">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/txaAO8XS9Tg?start=1800" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

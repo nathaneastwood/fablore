@@ -15,7 +15,7 @@ _Source: [https://fabtcg.com/heroes/fai/?stories=True](https://fabtcg.com/heroes
 # Fires of Rebellion
 
 <p>
-(<a href="#fires-of-rebellion-narrated-by-peranine">Jump to Narrated Video</a>)
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
 </p>
 
 "Will they rise?" asks Eun as she ties back her silver hair, ready for battle.
@@ -169,11 +169,10 @@ _Illustrated by Sam Yang, Nikolay Moskvin._
 
 ---
 
-### Fires of Rebellion, Narrated by [Peranine](https://www.youtube.com/@Peranine)
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>
 (<a href="#fires-of-rebellion">Jump to the Top</a>)
 </p>
 
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/fS5WRXRcedA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/R1MmHjvB3uY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

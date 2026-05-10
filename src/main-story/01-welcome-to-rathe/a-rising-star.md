@@ -3,6 +3,11 @@ _Once a land of fables, [Aria](../../archive/world-of-rathe/aria/aria.md) was di
 _However, in recent times the Flow has become increasingly unstable, and a growing number of outsiders are entering Aria. The volatile energy of the Flow is changing the landscape of Aria faster than ever before, bringing a sense of unease and confusion to its people. Amongst the uncertainty and disquiet, the traditions and festivals of Aria have become more important than ever, bringing a measure of peace to the hearts of the people._
 
 # A Rising Star
+
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 Even amongst the many taverns, festivals and celebrations of Aria, nothing could possibly compare to the excitement of the Everfest Carnival. A massive, moving circus, the Everfest travels throughout Aria, a sea of brightly coloured big-tops boasting the biggest collection of performances in all of Rathe. Yet of all its acts, none were so famous or beloved as [Bravo](../../heroes-of-rathe/bravo-about.md)'s Legendarium.
 
 Bravo was raised amongst the strongmen and animal acts of the Valdur, growing up alongside great, majestic cesari, and tiny meeps that darted from stall to stall. Many of his closest friends were members of the Maela; oracles, bards, skalds, enchanters and fortune-tellers, all breezing about the Everfest in loose silks and layers of golden jewellery.
@@ -143,3 +148,13 @@ As Bravo greeted his companions, following them into the sea of tents with a bro
 _Source: [https://fabtcg.com/heroes/bravo-showstopper/?stories=True](https://fabtcg.com/heroes/bravo-showstopper/?stories=True)_<br>
 _Story by Nicola Price._<br>
 _Illustrations by MJ Fetesio, colour by Sindy Wo._
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#a-rising-star">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/E6JoDmEbTgU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

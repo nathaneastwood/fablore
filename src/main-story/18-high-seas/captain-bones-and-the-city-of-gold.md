@@ -1,5 +1,9 @@
 # Captain Bones and the City of Gold
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 The [Dreadnought](~Dreadnought) rose from the depths to split the waves like a shark's fin. It glistened in the silver light of a full moon, making good its ambush as shouts of alarm erupted from the [Kuraghan](~Kuraghan) ship in its path.
 
 "Avast ye deathly layabouts!" [Captain Gravy Bones](../../heroes-of-rathe/gravy-about.md) hollered at his cadaverous crew. "Make ready to broadside and board!"
@@ -231,3 +235,13 @@ Before this voyage's end, he and Nocetes would be having themselves a parley. Fo
 ---
 
 _Story by Robbie Wen, Edwin McRae, Rachel Rees, Alan Baxter_
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#captain-bones-and-the-city-of-gold">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/QVYw2IpKDDc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

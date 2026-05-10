@@ -1,5 +1,9 @@
 # Cards on the Table
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 Her palms scraped against stone as she collided with the wall, pushing herself into a nearby alleyway. Footsteps echoed down the alley as her pursuer kept running down the street, straight past the small silhouette shrouded in the shadows.
 
 Azalea slowly got to her feet, looking down at her grazed knees and scraped forearms. Other than the healing gash on her leg, she had no wounds, nothing broken - just a few scrapes and bruises. As she leant against the wall, clutching the copper coin to her chest, she glanced up at the Maw stretching out above. Buildings climbed up the sides of the cavern walls, pillars of rock illuminated with crude steam-tech lanterns. At its height, a sliver of golden daylight was barely visible, the only sign of time passing above-ground.
@@ -107,3 +111,13 @@ Tucking the card into her waistband, Azalea exited the tavern, making her way ba
 _Source: [https://fabtcg.com/heroes/azalea/cards-on-the-table/](https://fabtcg.com/heroes/azalea/cards-on-the-table/)_
 _Story by Nicola Price._<br>
 _Featuring illustrations by [Daniel Jiménez](https://www.artstation.com/danieljimenez)._
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#cards-on-the-table">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/BAhPVnQePQE?start=267" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

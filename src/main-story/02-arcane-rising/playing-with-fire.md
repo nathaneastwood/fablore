@@ -6,6 +6,10 @@ In exposing the threat before the Chamber of the Dragon, Kano manages to gain th
 
 # Playing with Fire
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-1.webp" alt="kano-1" class="center">
 
 The combined nervous chatter of fourty young wizards was almost deafening, bouncing off the walls in a way that made his ears ring. Ryo looked around the room, gazing at the tense expressions of the other students gathered nearby. One of the youngest in the room looked as if she was going to pass out, her face pale with anxiety, small hands trembling as she teased a flame into existence between her fingers.
@@ -121,3 +125,13 @@ The Lord Chancellor frowned, rubbing his chin thoughtfully.
 _Source: [https://fabtcg.com/heroes/kano/playing-fire/](https://fabtcg.com/heroes/kano/playing-fire/)_<br>
 _Story by Nicola Price._
 _Illustrations by MJ Fetesio._<br>
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#playing-with-fire">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/wfUxBpQXX8g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
