@@ -242,7 +242,7 @@
 
 .hero-hub-toolbar-label {
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   margin-right: 0.25rem;
 }
 
@@ -254,15 +254,15 @@
 }
 
 .hero-hub-search-label {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 
 .hero-hub-search {
   width: min(260px, 56vw);
   font: inherit;
-  font-size: 0.9rem;
-  padding: 0.35rem 0.65rem;
+  font-size: 1rem;
+  padding: 0.45rem 0.75rem;
   border-radius: 8px;
   border: 1px solid rgba(127, 127, 127, 0.45);
   background: var(--bg);
@@ -276,8 +276,8 @@
 
 .hero-hub-filter {
   font: inherit;
-  font-size: 0.9rem;
-  padding: 0.35rem 0.85rem;
+  font-size: 1rem;
+  padding: 0.45rem 0.95rem;
   border-radius: 999px;
   border: 1px solid rgba(127, 127, 127, 0.45);
   background: var(--bg);
@@ -322,16 +322,16 @@
 .hero-hub-class-label {
   display: block;
   margin-top: 0.2rem;
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   font-weight: 500;
   opacity: 0.85;
 }
 
 .world-hub-card .world-hub-label {
   display: block;
-  padding: 0.65rem 1rem;
+  padding: 0.75rem 1rem;
   font-weight: 600;
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   background: rgba(0, 0, 0, 0.06);
 }
 
