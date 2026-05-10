@@ -1,4 +1,4 @@
-# Destory and Consume
+# Destroy and Consume
 
 <p>
 (<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
