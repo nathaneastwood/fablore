@@ -37,6 +37,7 @@ jobs:
         git update-ref -d refs/heads/gh-pages
         rm -rf *
         mv ../book/* .
-        git add .
+        # Include PNG/WebP build output; root .gitignore ignores *.png/*.webp for source tree only
+        git add -f .
         git commit -m "Deploy $GITHUB_SHA to gh-pages"
         git push --force --set-upstream origin gh-pages
