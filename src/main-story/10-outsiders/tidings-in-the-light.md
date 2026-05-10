@@ -1,4 +1,4 @@
-﻿# Tidings in the Light
+# Tidings in the Light
 
 <p>
 (<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)

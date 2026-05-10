@@ -1,4 +1,4 @@
-﻿# Stories of Illumination
+# Stories of Illumination
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/prism-1.webp" alt="prism-1" class="center">
 

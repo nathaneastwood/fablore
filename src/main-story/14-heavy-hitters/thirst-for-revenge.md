@@ -1,4 +1,4 @@
-﻿# Thirst For Revenge
+# Thirst For Revenge
 
 _[Kassai](../../heroes-of-rathe/kassai-about.md#kassai-of-the-golden-sand), clad in weathered leather armor, stands defiantly at the center of the ring, a lone figure amidst a sea of chaos. The stench of sweat and blood hangs heavy in the air, mingling with the metallic tang of anticipation. Her eyes, blazing with a fierce determination, scan the encircling crowd of gamblers, their faces twisted with greed and fear._
 

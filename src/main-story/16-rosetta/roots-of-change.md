@@ -1,4 +1,4 @@
-﻿# Roots of Change
+# Roots of Change
 
 <p>
 (<a href="#narrated-video-by-deadsummer-art">Jump to Narrated Video</a>)

@@ -1,4 +1,4 @@
-﻿# Betrayal
+# Betrayal
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/dromai-6.webp" alt="dromai-6" class="center">
 

@@ -1,4 +1,4 @@
-﻿# Anointed in Shadow
+# Anointed in Shadow
 
 _The uninitiated cannot see the black moon rise over the [Demonastery](../../archive/world-of-rathe/demonastery/demonastery.md). It mirrors the nighttide, pulsing starward with its invisible light, witnessed only by those anointed in Shadow. Those like [Vynnset, the Iron Maiden](../../heroes-of-rathe/vynnset-about.md)._
 

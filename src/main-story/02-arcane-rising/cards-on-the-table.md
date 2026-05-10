@@ -1,4 +1,4 @@
-﻿# Cards on the Table
+# Cards on the Table
 
 Her palms scraped against stone as she collided with the wall, pushing herself into a nearby alleyway. Footsteps echoed down the alley as her pursuer kept running down the street, straight past the small silhouette shrouded in the shadows.
 

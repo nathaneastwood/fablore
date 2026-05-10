@@ -1,4 +1,4 @@
-﻿# From the Ashes
+# From the Ashes
 
 The imperial guards ushered him into the room, the [Lord Wizard Chiyo](~Chiyo) close behind. As she stepped in front of him, the members of the Chamber of the Dragon all turned, looking down at the scene before them. Clearing her throat, the Lord Wizard turned her gaze to the Lord Chancellor himself.
 

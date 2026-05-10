@@ -1,4 +1,4 @@
-﻿# Edge of Autumn
+# Edge of Autumn
 
 Growing up in the peace and serenity of the [Ikaru](~Ikaru) village, [Ira](../../heroes-of-rathe/ira-about.html) was a bright and free-spirited child, always getting herself into trouble. Her brothers, Xilin and Jing, were often pulled into her mischief, despite trying their best to rein in their unruly younger sister. While her parents were often exasperated by her inability to sit still and listen to her tutors, they loved her dearly. Her memories of her family were fond, her village a complementary backdrop to the peace and contentment of her childhood.
 

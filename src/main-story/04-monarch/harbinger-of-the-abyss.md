@@ -1,4 +1,4 @@
-﻿# Harbinger of the Abyss
+# Harbinger of the Abyss
 
 <p>
 (<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)

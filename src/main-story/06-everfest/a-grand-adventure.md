@@ -1,4 +1,4 @@
-﻿# A Grand Adventure
+# A Grand Adventure
 
 _Lightning...Ice...Earth..._<br>
 _The elements are entwined in turmoil._<br>

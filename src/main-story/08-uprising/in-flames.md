@@ -1,4 +1,4 @@
-﻿# In Flames
+# In Flames
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/in-flames-1.webp" alt="in-flames-1" class="center">
 

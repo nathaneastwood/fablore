@@ -1,4 +1,4 @@
-﻿# The Phoenix and the Dragon
+# The Phoenix and the Dragon
 
 <p>
 (<a href="#the-phoenix-and-the-dragon-narrated-by-peranine">Jump to Narrated Video</a>)

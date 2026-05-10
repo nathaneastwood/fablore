@@ -1,4 +1,4 @@
-﻿# No Smoke Without Fire
+# No Smoke Without Fire
 
 <p>
 (<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)

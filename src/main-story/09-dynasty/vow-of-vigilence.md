@@ -1,4 +1,4 @@
-﻿# Vow of Vigilence
+# Vow of Vigilence
 
 No sovereign could ask for a guardian more loyal, more devoted to his duty.
 

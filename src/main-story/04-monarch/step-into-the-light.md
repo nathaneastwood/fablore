@@ -1,4 +1,4 @@
-﻿# Step Into The Light
+# Step Into The Light
 
 <p>
 (<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)

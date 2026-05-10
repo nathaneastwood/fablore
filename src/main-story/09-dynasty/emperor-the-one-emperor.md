@@ -1,4 +1,4 @@
-﻿<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/emporer-1.webp" alt="emporer-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/emporer-1.webp" alt="emporer-1" class="center">
 
 # The One Emperor
 

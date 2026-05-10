@@ -1,4 +1,4 @@
-﻿# The Blood Stained Web
+# The Blood Stained Web
 
 I perch in the rafters where the air is thick with whispers. Servants gossip in a cozy huddle below. I yearn to drop among them, to cut those wagging tongues from their gaping mouths, to bathe them in blood. But that is not in the plan.
 

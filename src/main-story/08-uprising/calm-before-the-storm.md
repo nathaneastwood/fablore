@@ -1,4 +1,4 @@
-﻿# Calm Before the Storm
+# Calm Before the Storm
 
 With the stranger's mask in place, I am but one of thousands in the sweltering city of [Ashvahan](~Ashvahan).
 

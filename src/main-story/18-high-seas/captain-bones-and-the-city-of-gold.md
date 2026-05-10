@@ -1,4 +1,4 @@
-﻿# Captain Bones and the City of Gold
+# Captain Bones and the City of Gold
 
 The [Dreadnought](~Dreadnought) rose from the depths to split the waves like a shark's fin. It glistened in the silver light of a full moon, making good its ambush as shouts of alarm erupted from the [Kuraghan](~Kuraghan) ship in its path.
 

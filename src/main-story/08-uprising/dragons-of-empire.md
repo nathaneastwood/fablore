@@ -1,4 +1,4 @@
-﻿[Dromai](../../heroes-of-rathe/dromai-about.md) barely remembers her parents, Torvai the [Dracai](~Dracai), and Sani of the Sandfolk. Murdered before she had even learned to walk. Min of the Forest of Flames found her, raised her in a humble village amongst the struggle and strife of [Volcai](~Volcai) life. A hatchling dragon in the nest of the phoenix.
+[Dromai](../../heroes-of-rathe/dromai-about.md) barely remembers her parents, Torvai the [Dracai](~Dracai), and Sani of the Sandfolk. Murdered before she had even learned to walk. Min of the Forest of Flames found her, raised her in a humble village amongst the struggle and strife of [Volcai](~Volcai) life. A hatchling dragon in the nest of the phoenix.
 
 She and Min's son became as thick as thieves. Dromai was the mastermind, deceiving and dismaying with wit and illusion. Her adoptive brother was her minion, liberating sweets and toys from childish rivals. Yet Dromai did not plan these capers for the simple fun of it. She planned them for the practice. For the preparation. She felt different, a pretender among the peasants. Deep in her heart, Dromai knew she was destined for greater things.
 

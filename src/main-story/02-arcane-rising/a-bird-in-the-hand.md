@@ -1,4 +1,4 @@
-﻿# A Bird in the Hand
+# A Bird in the Hand
 
 Walking into the tavern, Azalea was greeted by the familiar sound of a high-pitched cackle. She looked over to see the green-haired girl seated at her usual corner, giggling over several vials of questionable substance. Shaking her head, she walked towards the counter, placing her contract card onto the countertop.
 

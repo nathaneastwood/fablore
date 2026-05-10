@@ -1,4 +1,4 @@
-﻿# The Broken Covenant
+# The Broken Covenant
 
 Ash and smoke filled our lungs, as the stench of death weigh upon our every step.
 

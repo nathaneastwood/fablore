@@ -1,4 +1,4 @@
-﻿# Smoke and Mirrors
+# Smoke and Mirrors
 
 Across the rolling hills of Volcor, the earth was stained black with soot and ash, lava rivers a smear of colour against the dark landscape. Villages lay tucked between the rocky slopes, ruled by generals, their fate determined by the ebb and flow of battle. Step into any one of Volcor's villages and you'll find a hardy people, determined and headstrong, forged by the inhospitable environment they call home.
 

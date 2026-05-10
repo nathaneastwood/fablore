@@ -1,4 +1,4 @@
-﻿# Amongst the Brambles
+# Amongst the Brambles
 
 The heartlands of [Aria](../../archive/world-of-rathe/aria/aria.md) are painted with vast swaths of forests. Crystalline trees glimmer under the rainbow glow of the Flow, as beautiful Cesari and all manner of wondrous creatures dance amongst the trees. These woods had borne witness to countless stories and legends throughout the Ages, as the once arid badlands was transformed into the sanctuary that it is today by the remnants of the Ancients' power.
 

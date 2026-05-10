@@ -1,4 +1,4 @@
-﻿# Return of the Shadow
+# Return of the Shadow
 
 Amidst the darkness, the faint glow of the Arknight shard glimmered, a pale violet against the shadow. The first thing he became aware of was the stone floor, a faint chill seeping through his thick runic armour. The tips of his gauntleted fingers scraped against the stone as he pulled his hand closer to his face.
 
