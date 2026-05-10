@@ -375,10 +375,13 @@
 .back-to-top {
   position: fixed;
   bottom: 1.25rem;
-  right: 1.25rem;
+  /* mdBook .nav-chapters are fixed full-height strips (max 150px); stay left of “next” */
+  right: calc(var(--page-padding) + 150px + 0.75rem);
+  left: auto;
   z-index: 150;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 1.25rem;
   padding: 0;
   display: flex;
   align-items: center;
@@ -409,10 +412,20 @@
   color: var(--icons-hover);
 }
 
-/* Avoid clash with mobile chapter next/prev strip (next sits bottom-right in-flow) */
+[dir="rtl"] .back-to-top {
+  right: auto;
+  left: calc(var(--page-padding) + 150px + 0.75rem);
+}
+
+/* Narrow: in-flow chapter buttons; park away from bottom-right “next” */
 @media only screen and (max-width: 1080px) {
   .back-to-top {
     right: auto;
     left: 1.25rem;
+  }
+
+  [dir="rtl"] .back-to-top {
+    left: auto;
+    right: 1.25rem;
   }
 }
