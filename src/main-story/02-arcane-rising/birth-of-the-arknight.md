@@ -1,5 +1,9 @@
 # Birth of the Arknight
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 For hundreds of years, the [Demonastery](../../archive/world-of-rathe/demonastery/demonastery.md) lurked beyond the shores of Rathe, surrounded by a wall of thick sea fog. Stormy seas kept ships from ever reaching its shores, surging waves tossing would-be intruders onto the sharp rocks. An eerie silence blanketed the grounds, stifling the distant sounds of the ocean. T'was a place that is neither here nor there, a dark sanctuary free from the bounds of morality.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-1.webp" alt="viserai-1" class="center">

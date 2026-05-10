@@ -1,5 +1,9 @@
 # Betrayal
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/dromai-6.webp" alt="dromai-6" class="center">
 
 Dromai sits in the Oasis, her feet dangling in the cave's simmering lake. She watches luminous carp flit through the water, hunting flarefish that fall from the lava river.

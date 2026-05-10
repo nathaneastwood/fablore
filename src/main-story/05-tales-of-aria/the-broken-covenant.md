@@ -1,5 +1,9 @@
 # The Broken Covenant
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 Ash and smoke filled our lungs, as the stench of death weigh upon our every step.
 
 And the Old ones, drew ever near.

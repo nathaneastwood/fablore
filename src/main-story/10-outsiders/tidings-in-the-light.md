@@ -1,7 +1,7 @@
 # Tidings in the Light
 
 <p>
-(<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
 </p>
 
 Rays of golden sun kiss the once golden fields of [Solana](../../archive/world-of-rathe/solana/solana.md).

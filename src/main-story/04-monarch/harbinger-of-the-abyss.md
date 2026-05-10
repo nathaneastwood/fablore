@@ -1,7 +1,7 @@
 # Harbinger of the Abyss
 
 <p>
-(<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
 </p>
 
 A heavy silence blanketed the great hall, which was saturated with the metallic stench of blood and bile. The once pristine walls were streaked with copper stains, and claret pooled beneath cooling corpses, their expressions twisted with fear and pain. Only one of the room's occupants remained upright, stalking through the carnage.

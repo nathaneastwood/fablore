@@ -1,5 +1,9 @@
 # Sworn to Protect
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/boltyn-1.webp" alt="boltyn-1" class="center">
 
 Far beyond the borders of [Solana](../../archive/world-of-rathe/solana/solana.md) lie the [Northern Realms](../../archive/world-of-rathe/solana/the-northern-realms.md), a large expanse of land divided amongst ancient families, who rule under the watchful, detached gaze of the City of Light. [Boltyn](../../heroes-of-rathe/boltyn-about.md) was born to nobility, raised with the knowledge that he would inherit his father's lands. Despite his exalted status, the young Boltyn was more interested in his grandmother's tales of Solana, with their noble knights, shining streets, and great library of knowledge.

@@ -1,5 +1,9 @@
 # A Grand Adventure
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 _Lightning...Ice...Earth..._<br>
 _The elements are entwined in turmoil._<br>
 _A seething storm rages throughout [Enion](~Enion), threatening to destroy Volthaven and its people._<br>

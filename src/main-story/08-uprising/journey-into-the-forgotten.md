@@ -8,6 +8,10 @@ From the frozen wastes into a fractured world, Iyslander's journey has begun, an
 
 # Journey into the Forgotten
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 The chilling air is sweet to my tastes. Wind that would cut the skin of another's caresses mine. It blows a shower of ice shavings from my snarling creation, its fury captured and frozen. Sinuous. Scaled and horned. It is a fleeting ghost from my past, those hot and hated memories locked away behind glacial walls in my mind. This is no creature of the Bleak Expanse.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-1.webp" alt="iyslander-1" class="center">

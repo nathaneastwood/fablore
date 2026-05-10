@@ -1,5 +1,9 @@
 # Thirst For Revenge
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 _[Kassai](../../heroes-of-rathe/kassai-about.md#kassai-of-the-golden-sand), clad in weathered leather armor, stands defiantly at the center of the ring, a lone figure amidst a sea of chaos. The stench of sweat and blood hangs heavy in the air, mingling with the metallic tang of anticipation. Her eyes, blazing with a fierce determination, scan the encircling crowd of gamblers, their faces twisted with greed and fear._
 
 _A single bead of sweat, born from the heat of the city's unforgiving sun, traces a path down her furrowed brow and spatters onto the flat of one of her [sabers](../../weapons/cintari-saber.md). Each blade bears the scars of countless battles, a nod to Kassai's unwavering resolve in the face of adversity._

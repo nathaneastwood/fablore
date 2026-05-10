@@ -6,6 +6,10 @@ In exposing the threat before the Chamber of the Dragon, Kano manages to gain th
 
 # Playing with Fire
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-1.webp" alt="kano-1" class="center">
 
 The combined nervous chatter of fourty young wizards was almost deafening, bouncing off the walls in a way that made his ears ring. Ryo looked around the room, gazing at the tense expressions of the other students gathered nearby. One of the youngest in the room looked as if she was going to pass out, her face pale with anxiety, small hands trembling as she teased a flame into existence between her fingers.

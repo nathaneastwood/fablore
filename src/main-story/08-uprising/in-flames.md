@@ -1,5 +1,9 @@
 # In Flames
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/in-flames-1.webp" alt="in-flames-1" class="center">
 
 I will gain my audience with the [Emperor](../../heroes-of-rathe/emperor-about.md) of [Volcor](../../archive/world-of-rathe/volcor/volcor.md). Though my attempts thus far have been met with near fatal disappointment, I now hold the key to our alliance in the palm of my hand.

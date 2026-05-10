@@ -8,6 +8,10 @@ No. Dromai's imagination is as boundless as her ambition. She is an ash artist, 
 
 # Dragons of Empire
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 "Vynserakai!" calls Dromai.
 
 "Azvolai! Nekria!"

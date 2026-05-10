@@ -1,5 +1,9 @@
 # From the Ashes
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 The imperial guards ushered him into the room, the [Lord Wizard Chiyo](~Chiyo) close behind. As she stepped in front of him, the members of the Chamber of the Dragon all turned, looking down at the scene before them. Clearing her throat, the Lord Wizard turned her gaze to the Lord Chancellor himself.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-8.webp" alt="kano-8" class="center">

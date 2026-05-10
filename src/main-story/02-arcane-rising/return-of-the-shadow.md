@@ -1,5 +1,9 @@
 # Return of the Shadow
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 Amidst the darkness, the faint glow of the Arknight shard glimmered, a pale violet against the shadow. The first thing he became aware of was the stone floor, a faint chill seeping through his thick runic armour. The tips of his gauntleted fingers scraped against the stone as he pulled his hand closer to his face.
 
 Slowly, Viserai opened his eyes.

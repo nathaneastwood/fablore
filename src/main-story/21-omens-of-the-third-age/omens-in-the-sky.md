@@ -1,5 +1,9 @@
 # Omens in the Sky
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 _Centuries have passed since the elemental titans, the Ancients, sacrificed themselves to save Rathe from the Old Ones. While few records remain from that cataclysmic time, there are those who know that history has a way of repeating…_
 
 ---

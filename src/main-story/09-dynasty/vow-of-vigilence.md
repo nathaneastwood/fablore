@@ -1,5 +1,9 @@
 # Vow of Vigilence
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 No sovereign could ask for a guardian more loyal, more devoted to his duty.
 
 He was the first volunteer through the breach at Tchankem Castle, one of the bloodiest battles in [Volcor](../../archive/world-of-rathe/volcor/volcor.md)'s visceral history. The soldier who pulled his wounded commander through Serpent's Crescent on a makeshift sand skiff. The protector who shielded his lord wizard from a rival's attack, an arcane assault of such ferocity that it almost claimed his life.

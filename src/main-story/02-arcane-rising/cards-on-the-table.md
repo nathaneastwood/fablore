@@ -1,5 +1,9 @@
 # Cards on the Table
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 Her palms scraped against stone as she collided with the wall, pushing herself into a nearby alleyway. Footsteps echoed down the alley as her pursuer kept running down the street, straight past the small silhouette shrouded in the shadows.
 
 Azalea slowly got to her feet, looking down at her grazed knees and scraped forearms. Other than the healing gash on her leg, she had no wounds, nothing broken - just a few scrapes and bruises. As she leant against the wall, clutching the copper coin to her chest, she glanced up at the Maw stretching out above. Buildings climbed up the sides of the cavern walls, pillars of rock illuminated with crude steam-tech lanterns. At its height, a sliver of golden daylight was barely visible, the only sign of time passing above-ground.

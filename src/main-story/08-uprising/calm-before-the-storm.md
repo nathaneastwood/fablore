@@ -1,5 +1,9 @@
 # Calm Before the Storm
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 With the stranger's mask in place, I am but one of thousands in the sweltering city of [Ashvahan](~Ashvahan).
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-11.webp" alt="iyslander-11" class="center">

@@ -1,7 +1,7 @@
 # Step Into The Light
 
 <p>
-(<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
 </p>
 
 The trade route wound between the rolling hills, a path of dirt and clay moulded by the passage of the centuries. Dark shadows enfolded the dim landscape, and the beaten path was cast in shades of violet and listless green as the sun sank behind the horizon, relinquishing the stage to a foreboding twilight. Golden armour gleamed faintly in the last few traces of sunlight, quietly announcing the arrival of a small party of knights, marching along the trail to the north.

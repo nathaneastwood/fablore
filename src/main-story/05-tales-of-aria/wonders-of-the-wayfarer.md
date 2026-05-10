@@ -1,5 +1,9 @@
 # Wonders of the Wayfarer
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/lexi-1.webp" alt="lexi-1" class="center">
 
 To the North of Korshem, far beyond Lake Frigid and the endless plains of ice and snow. Up the sides of mighty fjords that reach up into the heavens, lies a realm that floated amongst the long white clouds.

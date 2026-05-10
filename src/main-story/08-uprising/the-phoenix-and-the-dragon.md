@@ -1,7 +1,7 @@
 # The Phoenix and the Dragon
 
 <p>
-(<a href="#the-phoenix-and-the-dragon-narrated-by-peranine">Jump to Narrated Video</a>)
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
 </p>
 
 A trap laid for a spymaster and his Ash Artist accomplice. Eun as the bait that Xathari would be compelled to take. Hundreds of ninjas waiting in ambush. Swords drawn for the soldiers. Nets and spears readied for Dromai's dragons.

@@ -6,6 +6,10 @@ While Azalea has come a long way, she has yet to realise that she is just one sm
 
 # Slings and Arrows
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 It was always cold and damp in the Pits, the underground caverns hidden well away from the reach of sunlight. Industrial waste tainted the water an inky green, coating the cavern walls in a layer of oily copper residue.
 
 Left to the mercy of the Pits, abandoned children lurked around every corner, scurrying through the shadows like rats. Tiny, skeletal figures hiding in alleyways, dangerously desperate, clutching makeshift weapons in their shaking hands. The squeakers fought like the vermin they were, teeth bared, ripping into flesh with knife and tooth and nail, clawing out eyes and tearing away skin. While feral and vicious, they are still little more than pests to the denizens of the Pits, an insignificant speck in a sea of anarchy.

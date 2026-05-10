@@ -1,7 +1,7 @@
 # The Spider's Trap
 
 <p>
-(<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
 </p>
 
 _(Warning: story features content that may be upsetting to certain readers.<br>

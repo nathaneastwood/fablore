@@ -1,7 +1,7 @@
 # No Smoke Without Fire
 
 <p>
-(<a href="#narrated-video-by-peranine">Jump to Narrated Video</a>)
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
 </p>
 
 The blade whistled faintly as it soared past her cheekbone, her head ducked as she sidestepped the raiders attack. With a sharp exhale, she swept past his follow-up attack, sword glancing off her crossed blades with a loud clang. [Kassai](../../heroes-of-rathe/kassai-about.md) scowled as she sprung backwards, narrowly avoiding a third slash. Out of the corner of her eye, she noted her fellow [Cintari](~Cintari), scattered throughout the ruined village.

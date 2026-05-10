@@ -1,5 +1,9 @@
 # The Blood Stained Web
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 I perch in the rafters where the air is thick with whispers. Servants gossip in a cozy huddle below. I yearn to drop among them, to cut those wagging tongues from their gaping mouths, to bathe them in blood. But that is not in the plan.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/bloodstained-web-1.webp" alt="bloodstained-web-1" class="center">

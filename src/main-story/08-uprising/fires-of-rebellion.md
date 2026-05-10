@@ -15,7 +15,7 @@ _Source: [https://fabtcg.com/heroes/fai/?stories=True](https://fabtcg.com/heroes
 # Fires of Rebellion
 
 <p>
-(<a href="#fires-of-rebellion-narrated-by-peranine">Jump to Narrated Video</a>)
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
 </p>
 
 "Will they rise?" asks Eun as she ties back her silver hair, ready for battle.
