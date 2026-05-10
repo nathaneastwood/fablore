@@ -21,7 +21,6 @@ The performances quickly became a staple of the Everfest, transforming into the 
 While the troupe had their fair share of followers, it was Bravo who often found himself at the centre of attention. He quickly found himself overrun by avid fans, his charisma and confidence earning him admirers everywhere he went. Yet even as he enjoyed performing, there was a part of him that still longed for more.
 
 # Call to Adventure
-
 During a life travelling with the Everfest Carnival, Bravo had visited every village in Aria - yet no matter how many he travelled to, Aldevyr remained one of his favourites. A sprawling village, its buildings were scattered across the plains, flowers and herbs growing in rolling meadows. In the midst of summer, the Everfest made its way to Aldevyr once more, greeted with the sight of lush, dense meadows overrun with flowers.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/bravo-1.webp" alt="bravo-1" class="center">
