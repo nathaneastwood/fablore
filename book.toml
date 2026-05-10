@@ -2,7 +2,8 @@
 authors = ["nathaneastwood"]
 language = "en"
 src = "src"
-title = "Flesh and Blood Lore"
+title = "Legendary Stories"
+description = "Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters."
 
 [languages]
 en = "./en"
@@ -10,7 +11,7 @@ es = "./es"
 
 [output.html]
 additional-css = ["hero.css", "image.css", "tab.css", "theme/pagetoc.css", "theme/hints.css"]
-additional-js = ["tab.js", "theme/pagetoc.js", "theme/hints.js"]
+additional-js = ["tab.js", "back-to-top.js", "theme/pagetoc.js", "theme/hints.js"]
 default-theme = "light"
 preferred-dark-theme = "ayu"
 git-repository-url = "https://github.com/nathaneastwood/fablore"

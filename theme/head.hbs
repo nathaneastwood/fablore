@@ -7,3 +7,27 @@
 
   gtag('config', 'G-XGZH476DML');
 </script>
+<!-- Open Graph / Twitter (Discord, Slack, etc. link previews — requires absolute image URL) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Legendary Stories">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:image" content="https://legendarystories.net/assets/logo_original_cropped.png">
+<meta property="og:image:width" content="736">
+<meta property="og:image:height" content="736">
+<meta property="og:image:alt" content="Legendary Stories logo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ title }}">
+<meta name="twitter:description" content="{{ description }}">
+<meta name="twitter:image" content="https://legendarystories.net/assets/logo_original_cropped.png">
+<!-- PNG first (reliable tab icon); src/assets/favicon.svg overrides mdBook bundle on disk; ?v= busts favicon cache -->
+<link rel="icon" type="image/png" sizes="32x32" href="{{ path_to_root }}assets/favicon.png?v=5">
+<link rel="icon" type="image/webp" sizes="32x32" href="{{ path_to_root }}assets/favicon.webp?v=5">
+<link rel="icon" href="{{ path_to_root }}assets/favicon.ico?v=5" sizes="any">
+<link rel="apple-touch-icon" href="{{ path_to_root }}assets/apple-touch-icon.png?v=5">
+<!-- Install / standalone: iOS “Add to Home Screen”, Android “Install app” (Chrome) -->
+<link rel="manifest" href="{{ path_to_root }}manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Legendary Stories">
+<meta name="mobile-web-app-capable" content="yes">

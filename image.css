@@ -1,3 +1,90 @@
+/*
+ * Menu bar: mdBook centres .menu-title in the flex slot between .left-buttons and
+ * .right-buttons; when those differ in width, the title no longer lines up with the
+ * main column (e.g. above a centred intro logo). Pin icons to the edges and centre
+ * the title in the full bar instead.
+ */
+#menu-bar {
+  justify-content: space-between;
+}
+
+#menu-bar .menu-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  flex: none;
+  max-width: min(52vw, 22rem);
+  margin: 0;
+  /* Match sidebar TOC links (body / normal); mdBook default is 200 */
+  font-weight: normal;
+  /* Stay below toolbar controls so taps hit icons first */
+  z-index: 0;
+}
+
+#menu-bar .left-buttons,
+#menu-bar .right-buttons {
+  position: relative;
+  flex: 0 0 auto;
+  z-index: 1;
+}
+
+/*
+ * Slightly smaller than mdBook’s 2.4rem on narrow screens so “Legendary Stories” fits,
+ * but larger than the previous pass — keep absolute centre on mobile too (flex centre
+ * skews when left icons outnumber the right).
+ */
+@media only screen and (max-width: 768px) {
+  #menu-bar .menu-title {
+    font-size: clamp(1.2rem, 4vw, 1.85rem);
+    max-width: min(calc(100vw - 9.5rem), 20rem);
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  #menu-bar .menu-title {
+    max-width: min(calc(100vw - 8.5rem), 17rem);
+  }
+}
+
+/* Introduction landing: centered logo above headline (theme-aware transparent PNGs) */
+.intro-landing-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1.75rem;
+}
+
+.intro-logo {
+  max-height: min(14rem, 42vw);
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+.intro-logo--light,
+.intro-logo--dark {
+  display: none;
+}
+
+.light .intro-logo--light,
+.rust .intro-logo--light {
+  display: block;
+}
+
+.coal .intro-logo--dark,
+.navy .intro-logo--dark,
+.ayu .intro-logo--dark {
+  display: block;
+}
+
+.intro-disclaimer {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--sidebar-non-existant);
+  margin: 1rem 0 0;
+}
+
 .center {
   display: block;
   margin-left: auto;
@@ -136,4 +223,50 @@
 .ayu .world-hub-card--placeholder .world-hub-label,
 .coal .world-hub-card--placeholder .world-hub-label {
   background: rgba(255, 255, 255, 0.08);
+}
+
+/* Floating back-to-top (paired with back-to-top.js) */
+.back-to-top {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 150;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(127, 127, 127, 0.45);
+  background: var(--bg);
+  color: var(--icons);
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.back-to-top.back-to-top--visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  color: var(--icons-hover);
+}
+
+/* Avoid clash with mobile chapter next/prev strip (next sits bottom-right in-flow) */
+@media only screen and (max-width: 1080px) {
+  .back-to-top {
+    right: auto;
+    left: 1.25rem;
+  }
 }
