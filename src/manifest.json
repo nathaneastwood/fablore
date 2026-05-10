@@ -1,0 +1,24 @@
+{
+  "name": "Legendary Stories",
+  "short_name": "Legendary Stories",
+  "description": "Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

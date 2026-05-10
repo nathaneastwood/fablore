@@ -1,3 +1,8 @@
+<div class="intro-landing-logo">
+<img src="assets/logo_transparent.png" alt="" class="intro-logo intro-logo--light" decoding="async">
+<img src="assets/logo_transparent_white.png" alt="" class="intro-logo intro-logo--dark" decoding="async">
+</div>
+
 # 🧭 Welcome to Legendary Stories
 
 *LegendaryStories.net* is a fan-curated archive of all official **Flesh and Blood** lore, lovingly maintained for those who want to explore the world of Rathe through its characters and stories.
@@ -22,4 +27,6 @@ If you enjoy Legendary Stories and want to support the work that goes into maint
 
 ---
 
-©️ All content belongs to Legend Story Studios.
+©️ All narrative and artwork quoted or reproduced here belongs to Legend Story Studios.
+
+<p class="intro-disclaimer">Legendary Stories is an independent fan project and is not affiliated with, endorsed by, or sponsored by Legend Story Studios.</p>

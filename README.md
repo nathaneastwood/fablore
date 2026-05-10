@@ -1,5 +1,12 @@
 <a name="readme-top"></a>
 
+<p align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="src/assets/logo_transparent_white.png">
+  <img alt="Legendary Stories" src="src/assets/logo_transparent.png" width="220">
+</picture>
+</p>
+
 # fablore
 
 [![Build Status](https://github.com/nathaneastwood/fablore/actions/workflows/ci.yml/badge.svg)](https://github.com/nathaneastwood/fablore/actions)

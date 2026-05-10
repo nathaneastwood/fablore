@@ -14,7 +14,8 @@
     - [Solana](world-of-rathe/solana.md)
     - [Volcor](world-of-rathe/volcor.md)
 
-- [Heroes of Rathe](heroes-of-rathe/professions-of-rathe.md)
+- [Heroes of Rathe](heroes-of-rathe/heroes-of-rathe.md)
+    - [Professions](heroes-of-rathe/professions-of-rathe.md)
     - [Arakni](heroes-of-rathe/arakni-about.md)
     - [Arakni, Marionette](heroes-of-rathe/arakni-marionette.md)
     - [Arakni, 5l!p3d 7hru 7h3 Cr4x](heroes-of-rathe/arakni-5l!p3d-7hru-7h3-cr4x-about.md)
