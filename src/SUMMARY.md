@@ -287,7 +287,7 @@
     - [Compendium of Rathe](digital-tiles/19-compendium-of-rathe/compendium-of-rathe.md)
 
 - [Data](data/data.md)
-    - [Characters](data/characters.md)
+    - [NPCs](data/npcs.md)
     - [Character Groups](data/character-groups.md)
     - [Fauna](data/fauna.md)
     - [Flora](data/flora.md)

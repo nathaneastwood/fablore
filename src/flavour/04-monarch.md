@@ -1,4 +1,4 @@
-## Monarch
+# Monarch
 
 #### Adrenaline Rush - (MON263)
 "Cut off the skera's head, and it shall still find the strength to bite." - Sanni

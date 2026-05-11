@@ -11,6 +11,12 @@ repos:
       - id: black
   - repo: local
     hooks:
+      - id: ensure-create-md-sync
+        name: ensure-create-md-sync
+        entry: bash scripts/ensure-create-md-sync.sh
+        language: system
+        pass_filenames: false
+        files: ^src/data/(create_md\.py|(npcs|fauna|flora|food-and-drink|locations|monsters|regions)\.csv|(npcs|fauna|flora|food-and-drink|locations|monsters)\.md)$
       - id: link-checks
         name: link-checks
         entry: bash scripts/link-checks.sh

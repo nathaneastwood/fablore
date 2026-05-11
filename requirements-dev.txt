@@ -1,0 +1,4 @@
+# Development / CI: pytest plus create_md / pre-commit data dependencies.
+# Repo root: python -m pytest
+-r requirements-data.txt
+pytest>=8.0

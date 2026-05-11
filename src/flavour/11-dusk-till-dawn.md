@@ -1,4 +1,4 @@
-## Dusk Till Dawn
+# Dusk Till Dawn
 
 #### Banneret of Courage - (DTD048)
 "Fear is bred in the Shadow. Bravery is born of the Light." - [Boltyn](../heroes-of-rathe/boltyn-about.md)

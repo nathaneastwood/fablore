@@ -9,6 +9,17 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+
+    - name: Install Python test dependencies
+      run: pip install -r requirements-dev.txt
+
+    - name: Run Python data pipeline tests
+      run: python -m pytest
+
     - name: Install Rust
       run: |
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y

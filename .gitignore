@@ -16,3 +16,7 @@ fablore.code-workspace
 fablore
 .gem-home
 htmlproofer-report.md
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/

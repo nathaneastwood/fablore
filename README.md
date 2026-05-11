@@ -40,6 +40,19 @@ mdbook build
 mdbook serve --open
 ```
 
+### Python data pipeline tests
+
+Optional checks on CSV helpers, generators, and validation (see [`src/data/README.md`](src/data/README.md)):
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -r requirements-dev.txt
+python3 -m pytest
+```
+
+`requirements-dev.txt` pulls in `requirements-data.txt` (numpy, pandas, `py-markdown-table`) so `tests/test_create_md.py` and the pre-commit `ensure-create-md-sync` hook can run without extra installs.
+
 <p align="right"><a href="#readme-top">Back to top</a></p>
 
 ## 🖼️ Images

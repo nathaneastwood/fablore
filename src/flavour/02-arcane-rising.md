@@ -1,4 +1,4 @@
-## Arcane Rising
+# Arcane Rising
 
 #### Absorb in Aether - (ARC123)
 The power of the [Dracai](~Dracai) burn in their veins, as they call upon the raging flames to guard their liege.

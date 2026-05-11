@@ -1,3 +1,5 @@
+# Compendium of Rathe
+
 #### Colors of Aria - (PEN206)
 The Ancients' sacrifice, made centuries ago, still manifests in [Aria](../archive/world-of-rathe/aria/aria.md)'s lush landscapes and abundant harvests. The [Flow](../archive/world-of-rathe/aria/a-true-sanctuary.md#the-flow) is their legacy.
 

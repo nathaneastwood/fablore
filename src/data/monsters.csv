@@ -1,5 +1,6 @@
-Name|Description|Mentions
-Puppeteer|A repulsive creature emerged through the opening, resembling a mass of human bodies held together by some monstrous cancer, an enormous eye in its center above a slavering mouth.|[To Halt the Dark](../main-story/16-rosetta/to-halt-the-dark.md)
-Ravenir||[Battle of Isenloft](../main-story/16-rosetta/battle-of-isenloft.md)
-Glutgorr|Mountain of Meat. A giant grown from a multitude of willing bodies. A singular aberrant baby born from a thousand mothers.|[Battle of Isenloft](../main-story/16-rosetta/battle-of-isenloft.md)
-Necrophage|
+# AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Story class in src/data/story.py (Story.link_monster / link_fauna / link_flora / link_food_drink / link_location).
+MonsterId|Name|Description
+MOc83c91fa43|Puppeteer|A repulsive creature emerged through the opening, resembling a mass of human bodies held together by some monstrous cancer, an enormous eye in its center above a slavering mouth.
+MO3291e92a32|Ravenir|
+MO2a2d40f91a|Glutgorr|Mountain of Meat. A giant grown from a multitude of willing bodies. A singular aberrant baby born from a thousand mothers.
+MO7573bed853|Necrophage|
