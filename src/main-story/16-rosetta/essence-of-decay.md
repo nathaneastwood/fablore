@@ -1,7 +1,7 @@
 # Essence of Decay
 
 <p>
-(<a href="#narrated-video-by-deadsummer-art">Jump to Narrated Video</a>)
+(<a href="#narrated-video-by-st-havock">Jump to Narrated Video</a>)
 </p>
 
 The [Rosetta](~Rosetta) gathered to their [Queen](../../archive/world-of-rathe/aria/the-land-of-legends.md), their trunks bowed in despair, awaiting a wellspring of emotion that had long since dried away in the endless summer.
