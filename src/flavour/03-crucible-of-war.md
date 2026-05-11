@@ -1,4 +1,4 @@
-## Crucible of War
+# Crucible of War
 
 #### Aetherize - (CRU164)
 "I find it amusing how often mortals turn to prayer as their last line of defense." - [Kano](../heroes-of-rathe/kano-about.md)

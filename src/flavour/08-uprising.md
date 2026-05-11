@@ -1,4 +1,4 @@
-## Uprising
+# Uprising
 
 #### Arctic Incarceration - (UPR144)
 Tales be told, the kiss of an ice nymph draws the last breath from a soul lost to the [Bleak Expanse](../archive/world-of-rathe/aria/a-true-sanctuary.md#the-bleak-expanse).

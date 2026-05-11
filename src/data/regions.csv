@@ -1,0 +1,14 @@
+# AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Story class in src/data/story.py (Story.link_npc / link_monster / link_fauna / link_flora / link_food_drink / link_location — link_location upserts regions.csv when region_name is set).
+RegionId|RegionName|WorldOfRatheStoryKey
+RG48803cad0f|Aria|world-of-rathe/aria.md
+RG23a26a3e3c|Deathmatch Arena|
+RG8bc7b8bb1d|Demonastery|world-of-rathe/demonastery.md
+RG05a2281d01|High Seas|world-of-rathe/high-seas.md
+RG58cc047b16|Metrix|world-of-rathe/metrix.md
+RG6cd31a74b6|Misteria|world-of-rathe/misteria.md
+RG0895f8daa1|Mistveil|
+RG615666dae9|Solana|world-of-rathe/solana.md
+RGb2d75101c8|The Pits|world-of-rathe/pits.md
+RG8ee35f0ddd|The Savage Lands|world-of-rathe/savage-lands.md
+RGb23a6a8439|Unknown|
+RG8e23bdd8e8|Volcor|world-of-rathe/volcor.md

@@ -1,0 +1,19 @@
+# AUTO-GENERATED FILE — do not edit by hand. Regenerate with: python3 src/data/create_sets_csv.py
+SetTypeId|SetType|SetTypeLayer
+STfcaaf6a22f|Armory Deck|Deck Releases
+ST526cd03a42|Blitz Deck|Deck Releases
+ST14e59cce5d|Box Set|Deck Releases
+ST6f903c3145|Classic Battles Deck|Deck Releases
+ST87478277a5|Core Booster Set|Booster Releases
+ST4dde9990af|Demo Deck|Deck Releases
+ST858a95be59|Expansion Booster Set|Other
+ST7fc7966b3b|First Strike Deck|Deck Releases
+ST3634cb99aa|Hero Deck|Deck Releases
+STd8e2e91515|History Pack|Booster Releases
+ST0143717ab6|History Pack Blitz Deck|Deck Releases
+STae8fdcc03a|Mastery Pack|Booster Releases
+ST92969bb9ea|Prize|Other
+ST1ac8c9771b|Promo|Other
+ST48cd9f30bc|Supplementary Booster Set|Booster Releases
+ST218948d76b|Token Set|Other
+ST00678b0ea7|Welcome Deck|Deck Releases

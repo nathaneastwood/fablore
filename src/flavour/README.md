@@ -10,7 +10,7 @@ This folder contains the individual set files which hold the flavour text printe
 The file structure should look like this:
 
 ```
-## Set Name
+# Set Name
 #### Card Name - (XXX000)
 Flavour text
 ```

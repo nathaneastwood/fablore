@@ -1,4 +1,4 @@
-## Outsiders
+# Outsiders
 
 #### Back Stab - (OUT015)
 "Perfect strands of red drawn out by a perfectly angled blade. It's an art form few can appreciate." - [Arakni](../heroes-of-rathe/arakni-about.md), Huntsman
