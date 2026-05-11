@@ -1,4 +1,4 @@
-## Tales of Aria
+# Tales of Aria
 
 #### Arcanic Shockwave - (ELE073)
 After centuries of seclusion, the [Rosetta](~Rosetta) have learned to harness [Strale](../archive/world-of-rathe/aria/the-land-of-legends.md#candlehold); the power that resonates throughout their beloved forest.

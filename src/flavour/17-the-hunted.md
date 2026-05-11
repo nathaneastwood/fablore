@@ -1,3 +1,5 @@
+# The Hunted
+
 #### Affirm Loyalty - (HNT103)
 We obey the [Emperor](../heroes-of-rathe/emperor-about.md). With blood and blade we commit at his command." - [Alshoni](~Alshoni) Mantra
 

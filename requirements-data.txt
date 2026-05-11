@@ -1,0 +1,6 @@
+# Stack for src/data/create_md.py (Markdown mirrors) and scripts/ensure-create-md-sync.sh.
+# Installed automatically via requirements-dev.txt; use this file alone if you only
+# need create_md / pre-commit hooks without pytest.
+numpy>=1.24
+pandas>=2.0
+py-markdown-table>=0.3.0
