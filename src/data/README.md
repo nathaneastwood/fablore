@@ -40,7 +40,7 @@ s.validate()
 
 Heroes: `link_hero(canonical_slug=...)` links an existing canonical row; `add_canonical_hero(slug, display_name)` inserts into `heroes-canonical.csv` (does not run `create_heroes_csv.py`—regenerate game rows separately when card data matters).
 
-Locations: `link_location(name, region_id="", …)` — omit both `region_id` and `region_name` when the region is unknown (empty `RegionId` on the location). Pass `region_name=` (and optional `world_of_rathe_story_key=`) to upsert `regions.csv`; pass `region_id=` alone only when that id already exists in `regions.csv`.
+Locations: `link_location(name, region_id="", …)` — omit both `region_id` and `region_name` when the region is unknown (empty `RegionId` on the location). Pass `region_name=` (and optional `world_of_rathe_story_key=`) to upsert `regions.csv`; pass `region_id=` alone only when that id already exists in `regions.csv`. Pass `lore_fragment=` to set or clear `locations.csv` `LoreFragment` (mdBook heading id for the world lore page, no `#`); omit the argument to leave the fragment unchanged when updating a row. When set to a non-empty value, `link_location` checks that the id exists on the resolved world lore markdown (same rules as mdBook 0.4) and raises `ValueError` with a list of valid ids if not.
 
 Weapons / equipment: `link_weapon(canonical_slug=...)` and `link_equipment(canonical_slug=...)` mirror `link_hero`: the slug must exist in `weapons-canonical.csv` / `equipment-canonical.csv` (from `create_weapons_csv.py` / `create_equipment_csv.py`). Junction rows store `CanonicalWeaponId` / `CanonicalEquipmentId`, not markdown paths. See [Heroes, weapons, and equipment: how it fits together](#heroes-weapons-and-equipment-how-it-fits-together) below.
 
@@ -256,7 +256,7 @@ Pipe-delimited unless noted. Empty fields appear as consecutive `|`.
 | Lore |||||
 | `stories.csv` | `StoryId`, `StoryKey`, `StoryType`, `Title` | `StoryId` (`ST` + hash of `StoryKey`) | `StoryKey` = path under `src/` (navigation; not used in `story-*.csv` joins) | `create_stories_index.py` / `Story` |
 | `regions.csv` | `RegionId`, `RegionName`, `WorldOfRatheStoryKey` | `RegionId` (`RG` + hash of name) | Optional story path | `Story.link_location(..., region_name=...)` upserts; historical rows ship in-repo |
-| `locations.csv` | `LocationId`, `Name`, `RegionId`, `Notes` | `LocationId` (`LO` + hash) | Optional `RegionId` → `regions.csv` (empty = unknown) | `Story.link_location` |
+| `locations.csv` | `LocationId`, `Name`, `RegionId`, `Notes`, `LoreFragment` | `LocationId` (`LO` + hash) | Optional `RegionId` → `regions.csv` (empty = unknown). Optional `LoreFragment`: heading id (no `#`) on the region’s `WorldOfRatheStoryKey` page for deep links (e.g. mdBook `### Enion` → `enion`). Validated against that `.md` file by `Story.link_location` and `validate_data.py`. | `Story.link_location` |
 | `npcs.csv` | `CharacterId`, `Name`, `Species`, `Status` | `CharacterId` (`LC` + hash) | Appearances → `story-npcs.csv` | `Story.link_npc` |
 | `monsters.csv` | `MonsterId`, `Name`, `Description` | `MonsterId` (`MO` + hash) | → `story-monsters.csv` | `Story.link_monster` |
 | `fauna.csv` | `FaunaId`, `Name`, `Description` | `FaunaId` (`FA` + hash) | → `story-fauna.csv` | `Story.link_fauna` |

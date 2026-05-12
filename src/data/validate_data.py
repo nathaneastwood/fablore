@@ -19,6 +19,7 @@ exits ``0`` when all checks pass.
 
 from __future__ import annotations
 
+import re
 import sys
 from pathlib import Path
 
@@ -28,9 +29,90 @@ if str(_SCRIPT_DIR) not in sys.path:
 
 from pipe_csv_io import read_pipe_csv
 
+from mdbook_heading_ids import (
+    collect_heading_anchor_ids_from_path,
+    format_fragment_suggestion,
+    world_lore_markdown_path,
+)
+
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "src/data"
 SRC = ROOT / "src"
+
+# Characters mdBook ``normalize_id`` can emit (Unicode ``isalnum()`` letters, plus ``._-``).
+_LORE_FRAGMENT_SAFE = re.compile(r"^[\w.-]+\Z", re.UNICODE)
+
+
+def _check_location_lore_fragments(locations_path: Path) -> list[str]:
+    """Flag ``LoreFragment`` values that cannot be mdBook heading ``id`` fragments."""
+    if not locations_path.is_file():
+        return []
+    fieldnames, rows = read_pipe_csv(locations_path)
+    if "LoreFragment" not in fieldnames:
+        return []
+    alerts: list[str] = []
+    for row in rows:
+        raw = (row.get("LoreFragment") or "").strip().lstrip("#")
+        if not raw:
+            continue
+        if not _LORE_FRAGMENT_SAFE.match(raw):
+            lid = (row.get("LocationId") or "").strip()
+            alerts.append(
+                f"locations.csv LocationId={lid!r}: LoreFragment {raw!r} should use "
+                "only characters mdBook allows in heading ids (Unicode letters/digits, "
+                "``_``, ``-``, ``.``)."
+            )
+    return alerts
+
+
+def _check_location_lore_fragments_match_headings(
+    locations_path: Path, regions_path: Path, src_root: Path
+) -> list[str]:
+    """Ensure each ``LoreFragment`` matches an mdBook heading id on the region's world lore page."""
+    alerts: list[str] = []
+    if not locations_path.is_file():
+        return alerts
+    fieldnames, loc_rows = read_pipe_csv(locations_path)
+    if "LoreFragment" not in fieldnames:
+        return alerts
+    cache: dict[str, list[str]] = {}
+    for row in loc_rows:
+        raw = (row.get("LoreFragment") or "").strip().lstrip("#")
+        if not raw or not _LORE_FRAGMENT_SAFE.match(raw):
+            continue
+        lid = (row.get("LocationId") or "").strip()
+        rid = (row.get("RegionId") or "").strip()
+        if not rid:
+            alerts.append(
+                f"locations.csv LocationId={lid!r}: LoreFragment {raw!r} is set but "
+                "RegionId is empty (cannot resolve world lore file)."
+            )
+            continue
+        md_path = world_lore_markdown_path(src_root, regions_path, rid)
+        if md_path is None:
+            alerts.append(
+                f"locations.csv LocationId={lid!r}: LoreFragment {raw!r} but region "
+                f"{rid!r} has no WorldOfRatheStoryKey in regions.csv."
+            )
+            continue
+        if not md_path.is_file():
+            alerts.append(
+                f"locations.csv LocationId={lid!r}: LoreFragment {raw!r} but world lore file "
+                f"missing: {md_path.relative_to(src_root)}"
+            )
+            continue
+        key = str(md_path.resolve())
+        if key not in cache:
+            cache[key] = collect_heading_anchor_ids_from_path(md_path)
+        ids = cache[key]
+        if raw not in ids:
+            rel = md_path.relative_to(src_root).as_posix()
+            alerts.append(
+                f"locations.csv LocationId={lid!r}: LoreFragment {raw!r} is not a heading id "
+                f"in {rel}. Valid heading ids include: {format_fragment_suggestion(ids)}"
+            )
+    return alerts
+
 
 # First path segment under ``src/`` for lore markdown; keep in sync when adding a new
 # top-level story directory. ``story.py`` / ``create_stories_index.py`` should use these
@@ -512,6 +594,13 @@ def collect_alerts() -> list[str]:
                 "Locations",
             )
         )
+
+    alerts.extend(_check_location_lore_fragments(DATA / "locations.csv"))
+    alerts.extend(
+        _check_location_lore_fragments_match_headings(
+            DATA / "locations.csv", DATA / "regions.csv", SRC
+        )
+    )
 
     return alerts
 

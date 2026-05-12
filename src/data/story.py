@@ -14,7 +14,9 @@ Existing stories load current junction links into :attr:`links`.
 
 Use ``link_*`` methods to upsert registry rows (when applicable) and append
 ``(StoryId, entity id)`` junction rows without duplicates. ``link_location`` can
-upsert ``regions.csv`` when you name a region. ``link_weapon`` / ``link_equipment``
+upsert ``regions.csv`` when you name a region, and optionally set ``LoreFragment`` on
+``locations.csv`` (heading id for deep links into ``WorldOfRatheStoryKey`` pages).
+``link_weapon`` / ``link_equipment``
 resolve ``canonical_slug`` against the canonical weapon / equipment CSVs (same idea
 as ``link_hero``).
 
@@ -65,6 +67,7 @@ from registry_ids import (
     region_row_id,
     story_id as compute_story_id,
 )
+from mdbook_heading_ids import require_valid_lore_fragment  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "src"
@@ -89,6 +92,32 @@ _STORY_JUNCTION_LINK_SPECS: tuple[tuple[str, str, str], ...] = (
 )
 
 _MAX_REMOVE_PREVIEW_ROWS = 40
+
+_LOCATION_CSV_FIELDNAMES: tuple[str, ...] = (
+    "LocationId",
+    "Name",
+    "RegionId",
+    "Notes",
+    "LoreFragment",
+)
+
+
+def _ensure_location_csv_fieldnames_rows(
+    fieldnames: list[str], rows: list[dict[str, str]]
+) -> tuple[list[str], list[dict[str, str]]]:
+    """Ensure ``locations.csv`` dict rows include ``LoreFragment`` and stable column order."""
+    std = list(_LOCATION_CSV_FIELDNAMES)
+    tail = [c for c in fieldnames if c and c not in std]
+    out_fn = std + tail
+    for row in rows:
+        for c in out_fn:
+            row.setdefault(c, "")
+    return out_fn, rows
+
+
+def _normalize_lore_fragment(raw: str) -> str:
+    """Strip whitespace and a leading ``#`` from a heading fragment for HTML ``id``."""
+    return (raw or "").strip().lstrip("#")
 
 
 def story_key_from_path(markdown_path: str | Path) -> str:
@@ -958,6 +987,7 @@ class Story:
         region_name: str = "",
         world_of_rathe_story_key: str = "",
         location_notes: str = "",
+        lore_fragment: str | None = None,
     ) -> str:
         """Upsert ``locations.csv``, optionally ``regions.csv``, and ``story-locations.csv``.
 
@@ -968,12 +998,19 @@ class Story:
         in ``regions.csv``. If both ``region_id`` and ``region_name`` are set, they must
         agree (``region_id`` must equal ``region_row_id(region_name)``).
 
+        ``LoreFragment`` stores the HTML heading id (no ``#``) on the region's
+        ``WorldOfRatheStoryKey`` page—for example ``enion`` for ``### Enion`` in
+        ``aria.md``, so Related cards can link to ``aria.md#enion``. Pass
+        ``lore_fragment=...`` to set or change it; pass ``lore_fragment=""`` to clear;
+        omit the argument to leave the existing value unchanged when updating a row.
+
         Args:
             name: Location display name.
             region_id: Existing ``RegionId`` when not passing ``region_name``.
             region_name: When set, upserts ``regions.csv`` and defines the location's region.
             world_of_rathe_story_key: Optional ``WorldOfRatheStoryKey`` when upserting by name.
             location_notes: Optional ``Notes`` on ``locations.csv``.
+            lore_fragment: Optional heading id for deep links (``None`` = leave as-is).
 
         Returns:
             ``LocationId`` for this name and resolved region (possibly empty region).
@@ -1002,28 +1039,45 @@ class Story:
         else:
             eff_region = ""
 
+        if lore_fragment is not None:
+            frag_chk = _normalize_lore_fragment(lore_fragment)
+            if frag_chk:
+                require_valid_lore_fragment(
+                    src_root=SRC,
+                    regions_csv=DATA / "regions.csv",
+                    region_id=eff_region,
+                    lore_fragment=frag_chk,
+                )
+
         rid = location_id(name, eff_region)
-        fn = ["LocationId", "Name", "RegionId", "Notes"]
         fieldnames, rows = read_pipe_csv(DATA / "locations.csv")
-        if not fieldnames:
-            fieldnames = fn
+        fieldnames, rows = _ensure_location_csv_fieldnames_rows(fieldnames, rows)
         found = False
         for row in rows:
             if (row.get("LocationId") or "").strip() == rid:
                 row["Name"] = name.strip()
                 row["RegionId"] = eff_region
                 row["Notes"] = location_notes.strip()
+                if lore_fragment is not None:
+                    row["LoreFragment"] = _normalize_lore_fragment(lore_fragment)
                 found = True
                 break
         if not found:
-            rows.append(
-                {
-                    "LocationId": rid,
-                    "Name": name.strip(),
-                    "RegionId": eff_region,
-                    "Notes": location_notes.strip(),
-                }
-            )
+            new_row: dict[str, str] = {
+                "LocationId": rid,
+                "Name": name.strip(),
+                "RegionId": eff_region,
+                "Notes": location_notes.strip(),
+                "LoreFragment": (
+                    _normalize_lore_fragment(lore_fragment)
+                    if lore_fragment is not None
+                    else ""
+                ),
+            }
+            for c in fieldnames:
+                if c not in new_row:
+                    new_row[c] = ""
+            rows.append(new_row)
         rows.sort(key=lambda r: (r.get("Name") or "").lower())
         write_pipe_csv_autogen(
             DATA / "locations.csv",
