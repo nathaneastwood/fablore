@@ -2,7 +2,7 @@
   <img src="https://d2hl7maqck52px.cloudfront.net/world-of-rathe/nebulus-rift/nebulus-rift.webp" alt="nebulus-rift">
   <div class="overlay-text">
     <h1>Nebulus Rift</h1>
-    <h2>A timeless dimension between worlds</h2>
+    <h2>A Timeless Dimension Between Worlds</h2>
   </div>
 </div>
 
