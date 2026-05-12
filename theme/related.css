@@ -1,0 +1,95 @@
+/* Injected by mdbook_related preprocessor (story ↔ heroes / locations from src/data). */
+
+/*
+ * mdBook: :root 62.5% then body { font-size: 1.6rem } (~16px). Our first pass used
+ * plain `rem` on cards (~10px, too small); `inherit` matched full body (too large).
+ * Card base `1.35rem` (~13.5px) sits between those; inner lines use `em` off that base.
+ */
+
+.related-section {
+    margin-top: 2.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--table-border-color, #ddd);
+}
+
+.related-section h1 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+.related-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
+    gap: 0.65rem;
+    align-items: stretch;
+    justify-items: stretch;
+}
+
+/* Full-width row so the next cards start on a new row after heroes */
+.related-cards-spacer {
+    grid-column: 1 / -1;
+    height: 0;
+    margin: 0.35rem 0 0.15rem;
+    pointer-events: none;
+}
+
+a.related-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    align-self: stretch;
+    height: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid var(--table-border-color, #ddd);
+    border-radius: 6px;
+    text-decoration: none;
+    color: inherit;
+    background: var(--bg, #fff);
+    font-size: 1.35rem;
+    line-height: 1.45;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.related-card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+a.related-card:hover {
+    border-color: var(--links, #4183c4);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.related-card-type {
+    display: block;
+    font-size: 0.88em;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--searchresults-header-fg, #666);
+    margin-bottom: 0.2rem;
+}
+
+.related-card-title {
+    font-weight: 600;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+.related-card-sub {
+    display: block;
+    font-size: 0.95em;
+    line-height: 1.45;
+    margin-top: auto;
+    padding-top: 0.35rem;
+    color: var(--searchresults-header-fg, #666);
+}
+
+.ayu a.related-card:hover,
+.coal a.related-card:hover,
+.navy a.related-card:hover {
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+}

@@ -106,3 +106,51 @@ def test_link_location_region_id_and_name_must_agree(
             region_id="RGaaaaaaaaaa",
             region_name="Other",
         )
+
+
+def test_link_location_sets_lore_fragment(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """``lore_fragment=`` persists ``LoreFragment`` on ``locations.csv``."""
+    src, data = _patch_story_paths(tmp_path, monkeypatch)
+    (src / "world-of-rathe").mkdir(parents=True)
+    (src / "world-of-rathe" / "aria.md").write_text(
+        "## Aria\n### Enion\n", encoding="utf-8"
+    )
+    md = src / "flavour" / "anyon.md"
+    md.parent.mkdir(parents=True)
+    md.write_text("# Anyon\n", encoding="utf-8")
+
+    s = story.Story(md, "flavour", "Anyon")
+    s.link_location(
+        "Enion",
+        region_name="Aria",
+        world_of_rathe_story_key="world-of-rathe/aria.md",
+        lore_fragment="enion",
+    )
+    _, loc_rows = story.read_pipe_csv(data / "locations.csv")
+    assert len(loc_rows) == 1
+    assert (loc_rows[0].get("LoreFragment") or "").strip() == "enion"
+
+
+def test_link_location_rejects_unknown_lore_fragment(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Invalid ``lore_fragment`` raises ``ValueError`` with valid heading ids."""
+    src, data = _patch_story_paths(tmp_path, monkeypatch)
+    (src / "world-of-rathe").mkdir(parents=True)
+    (src / "world-of-rathe" / "aria.md").write_text(
+        "## Aria\n### Enion\n", encoding="utf-8"
+    )
+    md = src / "flavour" / "b.md"
+    md.parent.mkdir(parents=True)
+    md.write_text("# B\n", encoding="utf-8")
+
+    s = story.Story(md, "flavour", "B")
+    with pytest.raises(ValueError, match="not a heading id"):
+        s.link_location(
+            "Nowhere",
+            region_name="Aria",
+            world_of_rathe_story_key="world-of-rathe/aria.md",
+            lore_fragment="nosuchsection",
+        )
