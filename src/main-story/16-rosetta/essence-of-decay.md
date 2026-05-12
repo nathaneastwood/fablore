@@ -1,5 +1,9 @@
 # Essence of Decay
 
+<p>
+(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
+</p>
+
 The [Rosetta](~Rosetta) gathered to their [Queen](../../archive/world-of-rathe/aria/the-land-of-legends.md), their trunks bowed in despair, awaiting a wellspring of emotion that had long since dried away in the endless summer.
 
 Only [Verdance](../../heroes-of-rathe/verdance-about.md) wept, her tears falling to the leaf-littered ground. The seed she had placed on the empty throne. This kernel of dormant life was all that remained of their creator, their once-immortal matriarch. From great [Davnir](~Davnir)'s death, the Queen had nurtured their survival. From the war-torn spirits of the dead, she seeded a civilization-one that would live in perpetual peace.
@@ -143,3 +147,13 @@ To Verdance the grape was neither crisp nor sweet, neither tangy nor tart, for t
 There was but one sensation she could grasp, one flavor that breathed life into her moribund imagination.
 
 For want of another word, to Verdance, this fruit tasted like the future.
+
+---
+
+### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
+
+<p>
+(<a href="#essence-of-decay">Jump to the Top</a>)
+</p>
+
+<div style="text-align: center;"><iframe width="560" height="315" src="https://youtu.be/3BFcbWTOsqE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
