@@ -8,6 +8,7 @@ from card_types_extract import (
     extract_equipment_classes_and_talents,
     extract_weapon_classes_and_talents,
     is_non_weapon_equipment_card,
+    is_young_hero_card,
     parse_tokens,
     types_include_equipment,
     types_include_weapon,
@@ -22,6 +23,13 @@ def test_valid_talent_token_count() -> None:
 def test_parse_tokens_splits_commas() -> None:
     """Comma-separated ``Types`` tokens are trimmed."""
     assert parse_tokens(" A , B , ") == ["A", "B"]
+
+
+def test_is_young_hero_card() -> None:
+    """*Young* type token is detected case-insensitively."""
+    assert is_young_hero_card("Ninja, Hero, Young") is True
+    assert is_young_hero_card("Ninja, Hero, young") is True
+    assert is_young_hero_card("Ninja, Hero") is False
 
 
 def test_types_include_weapon_detects_token() -> None:

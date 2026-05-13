@@ -60,6 +60,18 @@ STORY_ROOTS = (
 )
 
 STORIES_CSV_PATH = DATA / "stories.csv"
+STORIES_FIELDNAMES: tuple[str, ...] = (
+    "StoryId",
+    "StoryKey",
+    "StoryType",
+    "Title",
+    "Authors",
+    "Illustrators",
+    "SourceLink",
+    "PublicationDate",
+    "ThumbnailImageLink",
+    "NarratedVideos",
+)
 
 JUNCTION_SPECS: tuple[tuple[str, tuple[str, ...]], ...] = (
     ("story-npcs.csv", ("StoryId", "CharacterId")),
@@ -172,40 +184,55 @@ def infer_story_title(md_path: Path) -> str:
     return title_from_filename_stem(stem)
 
 
-def load_existing_story_titles(stories_path: Path) -> dict[str, str]:
-    """Load non-empty ``Title`` values keyed by ``StoryKey`` from ``stories.csv``.
+def load_existing_story_metadata(
+    stories_path: Path,
+) -> dict[str, dict[str, str]]:
+    """Load existing metadata keyed by ``StoryKey`` from ``stories.csv``.
 
     Args:
         stories_path: Path to ``stories.csv``.
 
     Returns:
-        Map of story key to title; missing file or columns yields an empty dict.
+        Map of story key to metadata columns that should be preserved on rescan.
     """
     if not stories_path.is_file():
         return {}
     fieldnames, rows = read_pipe_csv(stories_path)
     if "StoryKey" not in fieldnames or "Title" not in fieldnames:
         return {}
-    out: dict[str, str] = {}
+    preserve_cols = {
+        "Title",
+        "Authors",
+        "Illustrators",
+        "SourceLink",
+        "PublicationDate",
+        "ThumbnailImageLink",
+        "NarratedVideos",
+    }
+    out: dict[str, dict[str, str]] = {}
     for row in rows:
         key = (row.get("StoryKey") or "").strip()
-        title = (row.get("Title") or "").strip()
-        if key and title:
-            out[key] = title
+        if not key:
+            continue
+        out[key] = {
+            col: (row.get(col) or "").strip()
+            for col in preserve_cols
+            if col in fieldnames
+        }
     return out
 
 
-def discover_story_keys() -> list[tuple[str, str, str]]:
+def discover_story_keys() -> list[dict[str, str]]:
     """Scan ``STORY_ROOTS`` under ``src/`` for ``*.md`` files.
 
     Returns:
-        Sorted list of ``(story_key, story_type, title)`` tuples where
+        Sorted list of row dicts where
         ``story_type`` is the first path segment (root folder name). ``title`` is
         the existing ``Title`` from ``stories.csv`` when it differs from the
         filename-stem placeholder (so hand-curated titles survive); otherwise it is
         inferred from the file's first H1 or the filename stem.
     """
-    existing_titles = load_existing_story_titles(STORIES_CSV_PATH)
+    existing_meta = load_existing_story_metadata(STORIES_CSV_PATH)
     found: set[str] = set()
     for root in STORY_ROOTS:
         base = SRC / root
@@ -215,32 +242,49 @@ def discover_story_keys() -> list[tuple[str, str, str]]:
             rel = path.relative_to(SRC).as_posix()
             found.add(rel)
 
-    rows: list[tuple[str, str, str]] = []
+    rows: list[dict[str, str]] = []
     for story_key in sorted(found):
         story_type = story_key.split("/", 1)[0]
-        preserved = existing_titles.get(story_key, "").strip()
+        preserved = (existing_meta.get(story_key, {}).get("Title") or "").strip()
         auto_stem_title = title_from_filename_stem(Path(story_key).stem)
         if preserved and preserved != auto_stem_title:
             title = preserved
         else:
             title = infer_story_title(SRC / story_key)
-        rows.append((story_key, story_type, title))
+        row = {
+            "StoryId": story_id(story_key),
+            "StoryKey": story_key,
+            "StoryType": story_type,
+            "Title": title,
+            "Authors": "",
+            "Illustrators": "",
+            "SourceLink": "",
+            "PublicationDate": "",
+            "ThumbnailImageLink": "",
+            "NarratedVideos": "",
+        }
+        row.update(existing_meta.get(story_key, {}))
+        row["StoryId"] = story_id(story_key)
+        row["StoryKey"] = story_key
+        row["StoryType"] = story_type
+        row["Title"] = title
+        rows.append(row)
     return rows
 
 
-def write_stories_csv(rows: list[tuple[str, str, str]]) -> None:
+def write_stories_csv(rows: list[dict[str, str]]) -> None:
     """Overwrite ``stories.csv`` with ids and keys for discovered stories.
 
     Args:
         rows: Output of :func:`discover_story_keys`.
     """
-    out: list[tuple[str, str, str, str]] = []
-    for story_key, story_type, title in rows:
-        out.append((story_id(story_key), story_key, story_type, title))
+    out: list[tuple[str, ...]] = []
+    for row in rows:
+        out.append(tuple((row.get(col) or "").strip() for col in STORIES_FIELDNAMES))
 
     write_pipe_matrix_autogen(
         STORIES_CSV_PATH,
-        ["StoryId", "StoryKey", "StoryType", "Title"],
+        list(STORIES_FIELDNAMES),
         out,
         regenerate_command=REGENERATE_CREATE_STORIES_INDEX,
     )

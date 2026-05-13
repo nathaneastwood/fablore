@@ -13,7 +13,7 @@ def test_story_type_unknown_emits_alert(tmp_path: Path, monkeypatch: pytest.Monk
     """A StoryType not in the allowlist is reported."""
     stories = tmp_path / "stories.csv"
     stories.write_text(
-        "StoryId|StoryKey|StoryType|Title\n"
+        "StoryId|StoryKey|StoryType|Title|Authors|Illustrators|SourceLink|PublicationDate|ThumbnailImageLink|NarratedVideos\n"
         "ST1111111111|main-story/x.md|mainn-story|Title\n",
         encoding="utf-8",
     )

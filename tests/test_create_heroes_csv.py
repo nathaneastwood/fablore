@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
-from create_heroes_csv import make_hash_id, normalize_name, split_name_variant
+from create_heroes_csv import split_name_variant
+from registry_ids import make_hash_id
+from text_utils import normalize_name
 
 
 def test_normalize_name_folds_to_alnum() -> None:

@@ -9,49 +9,19 @@ Playable heroes are defined by ``heroes-canonical.csv`` (``CanonicalHero``).
 
 from __future__ import annotations
 
-import re
 import sys
-import unicodedata
 from pathlib import Path
 
 _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from pipe_csv_io import REGENERATE_STORY_REGISTRY, read_pipe_csv, write_pipe_csv_autogen
+from pipe_csv_io import REGENERATE_STORY_REGISTRY, read_pipe_csv, write_pipe_csv_autogen  # noqa: E402
+from text_utils import ascii_fold, normalize_name  # noqa: E402, F401  (re-exported for callers)
 
 ROOT = Path(__file__).resolve().parents[2]
 HEROES_CANONICAL_CSV_PATH = ROOT / "src/data/heroes-canonical.csv"
 NPCS_CSV_PATH = ROOT / "src/data/npcs.csv"
-
-# Map Icelandic (and similar) letters before folding so CSV spellings match canonical.
-_LATIN1_BRIDGES = str.maketrans({"ð": "d", "þ": "th", "Þ": "TH", "Ð": "D"})
-
-
-def ascii_fold(value: str) -> str:
-    """Remove combining marks after NFKD normalization for ASCII-ish folding.
-
-    Args:
-        value: Arbitrary Unicode display string.
-
-    Returns:
-        NFKD base characters without combining diacritics.
-    """
-    nfkd = unicodedata.normalize("NFKD", value)
-    return "".join(c for c in nfkd if not unicodedata.combining(c))
-
-
-def normalize_name(value: str) -> str:
-    """Lowercase alphanumeric-only fold for lore name keys and id hashing.
-
-    Args:
-        value: Display name from CSV or markdown.
-
-    Returns:
-        Folded, lowercased key suitable for hashing and set membership.
-    """
-    folded = ascii_fold(value.translate(_LATIN1_BRIDGES))
-    return re.sub(r"[^a-z0-9]+", "", folded.lower())
 
 
 def load_canonical_hero_names(path: Path) -> list[str]:
