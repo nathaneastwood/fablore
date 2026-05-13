@@ -99,6 +99,18 @@ def title_case_tokens(value: str) -> str:
     return ", ".join(token[:1].upper() + token[1:].lower() for token in tokens)
 
 
+def is_young_hero_card(types_value: str) -> bool:
+    """Return True when the card ``Types`` list includes a *Young* hero token.
+
+    Args:
+        types_value: Raw ``Types`` column from a card row.
+
+    Returns:
+        True if any comma-separated token matches *young* case-insensitively.
+    """
+    return any(token.lower() == "young" for token in parse_tokens(types_value))
+
+
 def extract_card_classes_and_talents(types_value: str) -> tuple[list[str], list[str]]:
     """Split ``Types`` into class names and registered affinity talent names.
 

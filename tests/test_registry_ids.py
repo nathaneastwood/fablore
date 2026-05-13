@@ -2,11 +2,10 @@
 
 from __future__ import annotations
 
-from create_heroes_csv import make_hash_id
-from registry_ids import canonical_id, lore_character_id, story_id
+from registry_ids import canonical_id, lore_character_id, make_hash_id, story_id
 
 
-def test_canonical_id_matches_create_heroes_hashing() -> None:
+def test_canonical_id_matches_make_hash_id() -> None:
     """Canonical slug hashing matches ``make_hash_id(\"CN\", ...)``."""
     slug = "boltyn"
     assert canonical_id(slug) == make_hash_id("CN", slug)

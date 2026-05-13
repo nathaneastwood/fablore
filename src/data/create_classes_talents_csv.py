@@ -17,12 +17,13 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from create_heroes_csv import make_hash_id, normalize_name  # noqa: E402
 from game_class_talent_csv import (  # noqa: E402
     UPSTREAM_CARD_CSV_PATH,
     merge_classes_and_talents_from_card_rows,
 )
+from registry_ids import make_hash_id  # noqa: E402
 from tab_csv_io import read_tab_csv  # noqa: E402
+from text_utils import normalize_name  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 

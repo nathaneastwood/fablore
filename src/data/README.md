@@ -12,7 +12,7 @@ This README documents how to run generators and `story.py`, and includes the ful
 
 ## Stories and junctions (`story.py`)
 
-Use the `Story` class in `story.py` to register a markdown file in `stories.csv` and link NPCs, heroes, monsters, fauna, flora, food & drink, locations, weapons, and equipment to that story. Instantiate with the path to the story under `src/`, a `StoryType` (first folder segment, e.g. `main-story`), and a `Title`. If the `StoryKey` (path relative to `src/`) is missing from `stories.csv`, a row is added with a deterministic `StoryId`; otherwise the existing row is refreshed and junction ids for that story are loaded into `story.links`.
+Use the `Story` class in `story.py` to register a markdown file in `stories.csv` and link NPCs, heroes, monsters, fauna, flora, food & drink, locations, weapons, and equipment to that story. Instantiate with the path to the story under `src/`, a `StoryType` (first folder segment, e.g. `main-story`), and a `Title`. Optional metadata can also be passed and stored in `stories.csv`: `Authors`, `Illustrators`, `SourceLink`, `PublicationDate`, `ThumbnailImageLink`, and `NarratedVideos` (JSON list of `{"author","url"}`). If the `StoryKey` (path relative to `src/`) is missing from `stories.csv`, a row is added with a deterministic `StoryId`; otherwise the existing row is refreshed and junction ids for that story are loaded into `story.links`.
 
 **`StoryKey` vs `StoryId`:** `StoryKey` is the repo-relative path to the Markdown file (handy for links and humans). `StoryId` is the stable primary key (`ST` + hash of the path). Every `story-*.csv` edge uses `StoryId` only. If you reorganize `src/`, `StoryId` stays the same only while the path string (and thus the hash input) is unchanged; moving a file implies new `StoryKey`/`StoryId` unless you migrate rows deliberately. Site preprocessors, reports, or downstream joins should key on `StoryId` and treat `StoryKey` as a derived display or URL path, not as the relational join column.
 
@@ -118,7 +118,7 @@ This script derives:
   - `CanonicalId` (recomputed from `CanonicalSlug` when you run `create_heroes_csv.py`), `CanonicalSlug`, `CanonicalHero` (curated display label; often shorter than printed `CardName` on cards). `validate_data.py` ensures each `heroes-game.csv` `CardName` still resolves to the row's `CanonicalId` using the same slug/alias rules as the generator.
 - `src/data/heroes-game.csv` (one row per hero card line, including adult/young):
   - Link keys: `HeroGameId` (row id, `HG` + hash), `CanonicalId` (foreign key)
-  - Game fields: `CardName` (full printed hero card title from upstream data), `ClassIds`, `TalentIds`, `Health`, `Intellect`, `AbilityText`, `Types`
+  - Game fields: `CardName` (full printed hero card title from upstream data), `ClassIds`, `TalentIds`, `Health`, `Intellect`, `AbilityText`, `YoungHero` (`true` / `false`: young-hero card line vs adult)
   - `CardName` must match the upstream card dataset ``Name`` field. If you ever inferred it from older ``Variant``-plus-canonical data, re-run ``create_heroes_csv.py`` against the official ``card.csv`` so titles stay accurate (e.g. ``Ser Boltyn``, nicknames in quotes).
   - Generated IDs are deterministic hashes from stable source identifiers (not row position), so adding new rows does not renumber existing IDs. This includes `CanonicalId` (hashed from `CanonicalSlug`).
   - Which sets a card appears in are listed only in `heroes-printings.csv` (`SetId` per printing).
@@ -216,7 +216,7 @@ Lore CSVs tie markdown articles under `src/` to entities (NPCs, places, creature
 
 | Layer | Role | How it is written |
 |-------|------|-------------------|
-| Story spine | `stories.csv` — one row per tracked `*.md` story file (`StoryKey`, `StoryId`, `StoryType`, `Title`) | `create_stories_index.py` rescans configured roots and rewrites `stories.csv` (keeps `Title` when it is not the auto stem placeholder; otherwise first H1 or title-cased filename). Constructing `Story(...)` in `story.py` upserts one row for a single file. |
+| Story spine | `stories.csv` — one row per tracked `*.md` story file (`StoryKey`, `StoryId`, `StoryType`, `Title`, `Authors`, `Illustrators`, `SourceLink`, `PublicationDate`, `ThumbnailImageLink`, `NarratedVideos`) | `create_stories_index.py` rescans configured roots and rewrites `stories.csv` (keeps `Title` when it is not the auto stem placeholder; otherwise first H1 or title-cased filename). Constructing `Story(...)` in `story.py` upserts one row for a single file, including optional metadata fields. |
 | Story ↔ entity junctions | `story-npcs.csv`, `story-heroes.csv`, `story-locations.csv`, `story-monsters.csv`, `story-fauna.csv`, `story-flora.csv`, `story-food-drink.csv`, `story-weapons.csv`, `story-equipment.csv` | Each row is `StoryId` plus a registry key (`CharacterId`, `CanonicalId`, `LocationId`, `CanonicalWeaponId`, `CanonicalEquipmentId`, etc.). `Story.link_*` appends/merges edges; `Story.remove` strips all edges for a story. `create_stories_index.py` seeds header-only junction files on first run. |
 | Lore entity registries | `npcs.csv`, `monsters.csv`, `fauna.csv`, `flora.csv`, `food-and-drink.csv`, `locations.csv`, `regions.csv` | Same class of object: in-repo rows upserted by `Story.link_npc`, `link_monster`, `link_fauna`, `link_flora`, `link_food_drink`, `link_location` (NPC rows go through `npc_lore.write_npc_rows`). `regions.csv` is updated when `link_location` is called with `region_name` (locations optionally reference a region; empty `RegionId` means unknown). No `flesh-and-blood-cards` feed for regions. Banner hint: `REGENERATE_STORY_REGISTRY` in `pipe_csv_io.py`. |
 
@@ -230,7 +230,6 @@ Foreign keys (lore side, simplified):
 | Artifact | Purpose |
 |----------|---------|
 | `character-groups.md` | Human-written groupings (Aesir, Dracai, …). Not validated by `validate_data.py`. |
-| `characters.csv` | Convenience / display index (heroes etc.); not wired into `validate_data.py` or `story.py` junctions in this repo. |
 | `data.md` | Free-form notes. |
 
 ### Full table index (columns, keys, origins)
@@ -240,7 +239,7 @@ Pipe-delimited unless noted. Empty fields appear as consecutive `|`.
 | File | Columns | Primary key | FK / notes | Origin |
 |------|---------|-------------|------------|--------|
 | Game |||||
-| `set-types.csv` | `SetTypeId`, `SetType`, `SetTypeLayer` | `SetTypeId` (`ST` + hash) | | `create_sets_csv.py` |
+| `set-types.csv` | `SetTypeId`, `SetType`, `SetTypeLayer` | `SetTypeId` (`TY` + hash) | | `create_sets_csv.py` |
 | `sets.csv` | `SetId`, `SetTypeId`, `SetName`, `InitialReleaseDate` | `SetId` (game string) | `SetTypeId` → `set-types.csv` | `create_sets_csv.py` |
 | `classes.csv` | `ClassId`, `ClassName` | `ClassId` (`CL` + hash) | Shared | `create_classes_talents_csv.py` + hero/weapon/equipment generators |
 | `talents.csv` | `TalentId`, `TalentName` | `TalentId` (`TL` + hash) | Shared | same |
@@ -254,7 +253,7 @@ Pipe-delimited unless noted. Empty fields appear as consecutive `|`.
 | `equipment-game.csv` | `EquipmentGameId`, `CardName`, `CanonicalEquipmentId`, … | `EquipmentGameId` (`EG` + hash) | → `equipment-canonical.csv` | `create_equipment_csv.py` |
 | `equipment-printings.csv` | `EquipmentGameId`, `SetId`, `CardId`, `Rarity` | composite | → `equipment-game.csv`, `sets.csv` | `create_equipment_csv.py` |
 | Lore |||||
-| `stories.csv` | `StoryId`, `StoryKey`, `StoryType`, `Title` | `StoryId` (`ST` + hash of `StoryKey`) | `StoryKey` = path under `src/` (navigation; not used in `story-*.csv` joins) | `create_stories_index.py` / `Story` |
+| `stories.csv` | `StoryId`, `StoryKey`, `StoryType`, `Title`, `Authors`, `Illustrators`, `SourceLink`, `PublicationDate`, `ThumbnailImageLink`, `NarratedVideos` | `StoryId` (`ST` + hash of `StoryKey`) | `StoryKey` = path under `src/` (navigation; not used in `story-*.csv` joins). `NarratedVideos` stores JSON array rows with `author` + `url`. | `create_stories_index.py` / `Story` |
 | `regions.csv` | `RegionId`, `RegionName`, `WorldOfRatheStoryKey` | `RegionId` (`RG` + hash of name) | Optional story path | `Story.link_location(..., region_name=...)` upserts; historical rows ship in-repo |
 | `locations.csv` | `LocationId`, `Name`, `RegionId`, `Notes`, `LoreFragment` | `LocationId` (`LO` + hash) | Optional `RegionId` → `regions.csv` (empty = unknown). Optional `LoreFragment`: heading id (no `#`) on the region’s `WorldOfRatheStoryKey` page for deep links (e.g. mdBook `### Enion` → `enion`). Validated against that `.md` file by `Story.link_location` and `validate_data.py`. | `Story.link_location` |
 | `npcs.csv` | `CharacterId`, `Name`, `Species`, `Status` | `CharacterId` (`LC` + hash) | Appearances → `story-npcs.csv` | `Story.link_npc` |
@@ -283,8 +282,9 @@ Pipe-delimited unless noted. Empty fields appear as consecutive `|`.
 | `create_equipment_csv.py` | Equipment canonical + game + printings; refreshes shared class/talent CSVs |
 | `create_stories_index.py` | Refreshes `stories.csv` from `src/` scan (titles: keep if not stem placeholder, else first H1, else filename); seeds empty `story-*.csv` if missing |
 | `story.py` | `Story` class: lore registries, junctions, `stories.csv` row upsert, `remove` |
-| `registry_ids.py` | Deterministic ids (`ST`, `LC`, `MO`, `RG`, `LO`, …) |
-| `npc_lore.py` | NPC row helpers; `write_npc_rows` for `npcs.csv` |
+| `registry_ids.py` | Deterministic ids (`make_hash_id` for game tables; lore prefixes `ST`, `LC`, `MO`, `RG`, `LO`, …) |
+| `text_utils.py` | Shared `normalize_name` / `ascii_fold` (Unicode-aware NFKD fold) used by every id generator |
+| `npc_lore.py` | NPC row helpers; `write_npc_rows` for `npcs.csv`; hero-name classification |
 | `tab_csv_io.py` | Tab-separated reads of upstream exports |
 | `pipe_csv_io.py` | Pipe read/write, `auto_gen_banner`, `REGENERATE_*` hints (`REGENERATE_STORY_JUNCTIONS`, `REGENERATE_STORY_REGISTRY`, …) |
 | `game_class_talent_csv.py` | Merges shared `classes.csv` / `talents.csv` for generators |

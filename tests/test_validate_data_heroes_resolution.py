@@ -4,7 +4,10 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from validate_data import _check_heroes_game_cardname_resolution
+from validate_data import (
+    _check_heroes_game_cardname_resolution,
+    _check_heroes_game_young_hero_column,
+)
 
 
 def _write_pair(tmp_path: Path, canonical_body: str, game_body: str) -> tuple[Path, Path]:
@@ -40,3 +43,28 @@ def test_heroes_resolution_alerts_when_canonical_id_wrong_for_cardname(tmp_path:
     alerts = _check_heroes_game_cardname_resolution(canon, game)
     assert len(alerts) == 1
     assert "Bravo" in alerts[0] and "CNmatchhash1" in alerts[0] and "CNwrongwrong1" in alerts[0]
+
+
+def test_heroes_game_young_hero_column_ok(tmp_path: Path) -> None:
+    """YoungHero true/false passes validation."""
+    game = tmp_path / "heroes-game.csv"
+    game.write_text(
+        "HeroGameId|CardName|CanonicalId|YoungHero\n"
+        "HG1|Bravo|CNx|true\n"
+        "HG2|Bravo, Showstopper|CNx|false\n",
+        encoding="utf-8",
+    )
+    assert _check_heroes_game_young_hero_column(game) == []
+
+
+def test_heroes_game_young_hero_column_rejects_bad_value(tmp_path: Path) -> None:
+    """Non-boolean YoungHero is flagged."""
+    game = tmp_path / "heroes-game.csv"
+    game.write_text(
+        "HeroGameId|CardName|CanonicalId|YoungHero\n"
+        "HG1|Bravo|CNx|yes\n",
+        encoding="utf-8",
+    )
+    alerts = _check_heroes_game_young_hero_column(game)
+    assert len(alerts) == 1
+    assert "YoungHero" in alerts[0] and "yes" in alerts[0]

@@ -8,9 +8,12 @@ row stores ``StoryId``, not ``StoryKey``. If you move or rename a story file, up
 consumers should join registries on ``StoryId`` and treat ``StoryKey`` as display or
 link construction only.
 
-Instantiate with a path under ``src/`` plus ``StoryType`` and ``Title``. If the story
-is missing from ``stories.csv``, it is inserted with a deterministic ``StoryId``.
-Existing stories load current junction links into :attr:`links`.
+Instantiate with a path under ``src/`` plus ``StoryType`` and ``Title``. Optional
+metadata fields are written to ``stories.csv``: ``Authors``, ``Illustrators``,
+``SourceLink``, ``PublicationDate``, ``ThumbnailImageLink``, and
+``NarratedVideos`` (JSON list of ``{"author","url"}``). If the story is missing
+from ``stories.csv``, it is inserted with a deterministic ``StoryId``. Existing
+stories load current junction links into :attr:`links`.
 
 Use ``link_*`` methods to upsert registry rows (when applicable) and append
 ``(StoryId, entity id)`` junction rows without duplicates. ``link_location`` can
@@ -29,7 +32,7 @@ Paths are resolved relative to the repository root when needed.
 from __future__ import annotations
 
 import csv
-import subprocess
+import json
 import sys
 from pathlib import Path
 from typing import IO, Any
@@ -92,6 +95,19 @@ _STORY_JUNCTION_LINK_SPECS: tuple[tuple[str, str, str], ...] = (
 )
 
 _MAX_REMOVE_PREVIEW_ROWS = 40
+
+_STORY_FIELDNAMES: tuple[str, ...] = (
+    "StoryId",
+    "StoryKey",
+    "StoryType",
+    "Title",
+    "Authors",
+    "Illustrators",
+    "SourceLink",
+    "PublicationDate",
+    "ThumbnailImageLink",
+    "NarratedVideos",
+)
 
 _LOCATION_CSV_FIELDNAMES: tuple[str, ...] = (
     "LocationId",
@@ -266,6 +282,39 @@ def _write_pipe_csv_plain(
             writer.writerow({k: row.get(k, "") for k in fieldnames})
 
 
+def _normalize_story_fieldnames_rows(
+    fieldnames: list[str], rows: list[dict[str, str]]
+) -> tuple[list[str], list[dict[str, str]]]:
+    """Ensure ``stories.csv`` has metadata columns in a stable order."""
+    std = list(_STORY_FIELDNAMES)
+    tail = [c for c in fieldnames if c and c not in std]
+    out_fn = std + tail
+    for row in rows:
+        for c in out_fn:
+            row.setdefault(c, "")
+    return out_fn, rows
+
+
+def _serialize_narrated_videos(narrated_videos: list[dict[str, str]] | None) -> str:
+    """Encode narrated video metadata as compact JSON.
+
+    The serialized form is a JSON array of objects with ``author`` and ``url`` keys,
+    stored in ``stories.csv`` ``NarratedVideos``.
+    """
+    if narrated_videos is None:
+        return ""
+    normalized: list[dict[str, str]] = []
+    for entry in narrated_videos:
+        author = (entry.get("author") or "").strip()
+        url = (entry.get("url") or "").strip()
+        if not author or not url:
+            raise ValueError(
+                "Each narrated video entry must include non-empty 'author' and 'url'."
+            )
+        normalized.append({"author": author, "url": url})
+    return json.dumps(normalized, ensure_ascii=False, separators=(",", ":"))
+
+
 def _partition_rows_by_column(
     rows: list[dict[str, str]],
     column: str,
@@ -295,7 +344,13 @@ class Story:
         markdown_path: str | Path,
         story_type: str,
         title: str,
+        authors: str = "",
+        illustrators: str = "",
+        source_link: str = "",
+        publication_date: str = "",
+        thumbnail_image_link: str = "",
         *,
+        narrated_videos: list[dict[str, str]] | None = None,
         run_validate: bool = False,
     ) -> None:
         """Ensure ``stories.csv`` has this story and load junction ids for it.
@@ -305,11 +360,23 @@ class Story:
             story_type: First path segment under ``src/`` for this file (e.g. ``main-story``).
                 Must match ``validate_data.ALLOWED_STORY_TYPES`` so ``stories.csv`` passes validation.
             title: Human-readable title stored in ``stories.csv``.
+            authors: Story author credits (free text; comma-separated suggested).
+            illustrators: Illustration credits (free text; comma-separated suggested).
+            source_link: Canonical source URL for the story.
+            publication_date: Publication date string (e.g. ``2025-07-12``).
+            thumbnail_image_link: Public URL for a thumbnail image.
+            narrated_videos: Optional list of ``{"author": "...", "url": "..."}`` rows.
             run_validate: If True, run ``validate_data.py`` after updating ``stories.csv``.
         """
         self.story_key = story_key_from_path(markdown_path)
         self.story_type = story_type.strip()
         self.title = title.strip()
+        self.authors = authors.strip()
+        self.illustrators = illustrators.strip()
+        self.source_link = source_link.strip()
+        self.publication_date = publication_date.strip()
+        self.thumbnail_image_link = thumbnail_image_link.strip()
+        self.narrated_videos = _serialize_narrated_videos(narrated_videos)
         self.story_id = compute_story_id(self.story_key)
 
         self.links: dict[str, set[str]] = {
@@ -329,14 +396,19 @@ class Story:
 
     def _ensure_story_row(self, *, run_validate: bool) -> None:
         fieldnames, rows = read_pipe_csv(STORIES_PATH)
-        if not fieldnames:
-            fieldnames = ["StoryId", "StoryKey", "StoryType", "Title"]
+        fieldnames, rows = _normalize_story_fieldnames_rows(fieldnames, rows)
         by_key = {(r.get("StoryKey") or "").strip(): r for r in rows}
         if self.story_key in by_key:
             row = by_key[self.story_key]
             row["StoryType"] = self.story_type
             row["Title"] = self.title
             row["StoryId"] = self.story_id
+            row["Authors"] = self.authors
+            row["Illustrators"] = self.illustrators
+            row["SourceLink"] = self.source_link
+            row["PublicationDate"] = self.publication_date
+            row["ThumbnailImageLink"] = self.thumbnail_image_link
+            row["NarratedVideos"] = self.narrated_videos
         else:
             rows.append(
                 {
@@ -344,6 +416,12 @@ class Story:
                     "StoryKey": self.story_key,
                     "StoryType": self.story_type,
                     "Title": self.title,
+                    "Authors": self.authors,
+                    "Illustrators": self.illustrators,
+                    "SourceLink": self.source_link,
+                    "PublicationDate": self.publication_date,
+                    "ThumbnailImageLink": self.thumbnail_image_link,
+                    "NarratedVideos": self.narrated_videos,
                 }
             )
         rows.sort(key=lambda r: (r.get("StoryKey") or ""))
@@ -381,171 +459,86 @@ class Story:
             f"Type:     {self.story_type}",
             "",
         ]
-
-        npc_by_id = _index_by_column(DATA / "npcs.csv", "CharacterId")
-        hero_by_id = _index_by_column(HEROES_CANONICAL_CSV_PATH, "CanonicalId")
-        loc_by_id = _index_by_column(DATA / "locations.csv", "LocationId")
-        region_by_id = _index_by_column(DATA / "regions.csv", "RegionId")
-        monster_by_id = _index_by_column(DATA / "monsters.csv", "MonsterId")
-        fauna_by_id = _index_by_column(DATA / "fauna.csv", "FaunaId")
-        flora_by_id = _index_by_column(DATA / "flora.csv", "FloraId")
-        food_by_id = _index_by_column(DATA / "food-and-drink.csv", "FoodDrinkId")
-        weapon_by_id = _index_by_column(WEAPONS_CANONICAL_CSV_PATH, "CanonicalWeaponId")
-        equipment_by_id = _index_by_column(
-            EQUIPMENT_CANONICAL_CSV_PATH, "CanonicalEquipmentId"
-        )
-
-        # --- NPCs
-        lines.append("NPCs")
-        jnpc = _junction_rows_for_story(DATA / "story-npcs.csv", sid, "CharacterId")
-        if not jnpc:
-            lines.append("  (none)")
-        else:
-            for jr in jnpc:
-                cid = (jr.get("CharacterId") or "").strip()
-                row = npc_by_id.get(cid, {})
-                name = (row.get("Name") or cid).strip()
-                spec = (row.get("Species") or "").strip()
-                stat = (row.get("Status") or "").strip()
-                meta = ", ".join(p for p in (spec, stat) if p) or "—"
-                lines.append(f"  • {name} ({meta})")
-        lines.append("")
-
-        # --- Heroes (canonical)
-        lines.append("Heroes")
-        jh = _junction_rows_for_story(DATA / "story-heroes.csv", sid, "CanonicalId")
-        if not jh:
-            lines.append("  (none)")
-        else:
-            for jr in jh:
-                hid = (jr.get("CanonicalId") or "").strip()
-                row = hero_by_id.get(hid, {})
-                disp = (row.get("CanonicalHero") or "").strip() or hid
-                slug = (row.get("CanonicalSlug") or "").strip()
-                slug_part = f" [{slug}]" if slug else ""
-                lines.append(f"  • {disp}{slug_part}")
-        lines.append("")
-
-        # --- Locations
-        lines.append("Locations")
-        jl = _junction_rows_for_story(DATA / "story-locations.csv", sid, "LocationId")
-        if not jl:
-            lines.append("  (none)")
-        else:
-            for jr in jl:
-                lid = (jr.get("LocationId") or "").strip()
-                row = loc_by_id.get(lid, {})
-                name = (row.get("Name") or "").strip() or lid
-                rid = (row.get("RegionId") or "").strip()
-                rname = (region_by_id.get(rid, {}) or {}).get("RegionName", "").strip()
-                region_part = f" — region: {rname} ({rid})" if rid else ""
-                loc_notes = (row.get("Notes") or "").strip()
-                notes_part = f" — { _trunc(loc_notes, 100)}" if loc_notes else ""
-                lines.append(f"  • {name}{region_part}{notes_part}")
-        lines.append("")
-
-        # --- Monsters
-        lines.append("Monsters")
-        jm = _junction_rows_for_story(DATA / "story-monsters.csv", sid, "MonsterId")
-        if not jm:
-            lines.append("  (none)")
-        else:
-            for jr in jm:
-                mid = (jr.get("MonsterId") or "").strip()
-                row = monster_by_id.get(mid, {})
-                name = (row.get("Name") or "").strip() or mid
-                desc = (row.get("Description") or "").strip()
-                desc_part = f": {_trunc(desc)}" if desc else ""
-                lines.append(f"  • {name}{desc_part}")
-        lines.append("")
-
-        # --- Fauna
-        lines.append("Fauna")
-        jfa = _junction_rows_for_story(DATA / "story-fauna.csv", sid, "FaunaId")
-        if not jfa:
-            lines.append("  (none)")
-        else:
-            for jr in jfa:
-                fid = (jr.get("FaunaId") or "").strip()
-                row = fauna_by_id.get(fid, {})
-                name = (row.get("Name") or "").strip() or fid
-                desc = (row.get("Description") or "").strip()
-                desc_part = f": {_trunc(desc)}" if desc else ""
-                lines.append(f"  • {name}{desc_part}")
-        lines.append("")
-
-        # --- Flora
-        lines.append("Flora")
-        jfl = _junction_rows_for_story(DATA / "story-flora.csv", sid, "FloraId")
-        if not jfl:
-            lines.append("  (none)")
-        else:
-            for jr in jfl:
-                fid = (jr.get("FloraId") or "").strip()
-                row = flora_by_id.get(fid, {})
-                name = (row.get("Name") or "").strip() or fid
-                desc = (row.get("Description") or "").strip()
-                desc_part = f": {_trunc(desc)}" if desc else ""
-                lines.append(f"  • {name}{desc_part}")
-        lines.append("")
-
-        # --- Food & drink
-        lines.append("Food & drink")
-        jfd = _junction_rows_for_story(DATA / "story-food-drink.csv", sid, "FoodDrinkId")
-        if not jfd:
-            lines.append("  (none)")
-        else:
-            for jr in jfd:
-                fdid = (jr.get("FoodDrinkId") or "").strip()
-                row = food_by_id.get(fdid, {})
-                name = (row.get("Name") or "").strip() or fdid
-                kind = (row.get("Type") or "").strip()
-                kind_part = f" ({kind})" if kind else ""
-                lines.append(f"  • {name}{kind_part}")
-        lines.append("")
-
-        # --- Weapons (canonical)
-        lines.append("Weapons")
-        jw = _junction_rows_for_story(DATA / "story-weapons.csv", sid, "CanonicalWeaponId")
-        if not jw:
-            lines.append("  (none)")
-        else:
-            for jr in jw:
-                wid = (jr.get("CanonicalWeaponId") or "").strip()
-                row = weapon_by_id.get(wid, {})
-                disp = (row.get("CanonicalWeapon") or "").strip() or wid
-                slug = (row.get("CanonicalSlug") or "").strip()
-                slug_part = f" [{slug}]" if slug else ""
-                lines.append(f"  • {disp}{slug_part}")
-        lines.append("")
-
-        # --- Equipment (canonical)
-        lines.append("Equipment")
-        je = _junction_rows_for_story(
-            DATA / "story-equipment.csv", sid, "CanonicalEquipmentId"
-        )
-        if not je:
-            lines.append("  (none)")
-        else:
-            for jr in je:
-                eid = (jr.get("CanonicalEquipmentId") or "").strip()
-                row = equipment_by_id.get(eid, {})
-                disp = (row.get("CanonicalEquipment") or "").strip() or eid
-                slug = (row.get("CanonicalSlug") or "").strip()
-                slug_part = f" [{slug}]" if slug else ""
-                lines.append(f"  • {disp}{slug_part}")
-        lines.append("")
-
+        for label, junction_file, id_column, registry_path, formatter in (
+            self._display_sections()
+        ):
+            lines.append(label)
+            jrows = _junction_rows_for_story(DATA / junction_file, sid, id_column)
+            if not jrows:
+                lines.append("  (none)")
+            else:
+                registry = _index_by_column(registry_path, id_column)
+                for jr in jrows:
+                    eid = (jr.get(id_column) or "").strip()
+                    lines.append(f"  • {formatter(registry.get(eid, {}), eid)}")
+            lines.append("")
         out.write("\n".join(lines) + "\n")
+
+    def _display_sections(self) -> list[tuple[str, str, str, Path, Any]]:
+        """Per-section spec for :meth:`display`: ``(label, junction, id_col, registry, fmt)``."""
+        region_by_id = _index_by_column(DATA / "regions.csv", "RegionId")
+
+        def fmt_npc(row: dict[str, str], eid: str) -> str:
+            name = (row.get("Name") or eid).strip()
+            species = (row.get("Species") or "").strip()
+            status = (row.get("Status") or "").strip()
+            meta = ", ".join(p for p in (species, status) if p) or "—"
+            return f"{name} ({meta})"
+
+        def fmt_canonical(display_col: str) -> Any:
+            def _fmt(row: dict[str, str], eid: str) -> str:
+                disp = (row.get(display_col) or "").strip() or eid
+                slug = (row.get("CanonicalSlug") or "").strip()
+                return f"{disp} [{slug}]" if slug else disp
+
+            return _fmt
+
+        def fmt_location(row: dict[str, str], eid: str) -> str:
+            name = (row.get("Name") or "").strip() or eid
+            rid = (row.get("RegionId") or "").strip()
+            rname = (region_by_id.get(rid, {}) or {}).get("RegionName", "").strip()
+            region_part = f" — region: {rname} ({rid})" if rid else ""
+            notes = (row.get("Notes") or "").strip()
+            notes_part = f" — {_trunc(notes, 100)}" if notes else ""
+            return f"{name}{region_part}{notes_part}"
+
+        def fmt_named_with_description(row: dict[str, str], eid: str) -> str:
+            name = (row.get("Name") or "").strip() or eid
+            desc = (row.get("Description") or "").strip()
+            return f"{name}: {_trunc(desc)}" if desc else name
+
+        def fmt_food_drink(row: dict[str, str], eid: str) -> str:
+            name = (row.get("Name") or "").strip() or eid
+            kind = (row.get("Type") or "").strip()
+            return f"{name} ({kind})" if kind else name
+
+        return [
+            ("NPCs", "story-npcs.csv", "CharacterId", DATA / "npcs.csv", fmt_npc),
+            ("Heroes", "story-heroes.csv", "CanonicalId", HEROES_CANONICAL_CSV_PATH, fmt_canonical("CanonicalHero")),
+            ("Locations", "story-locations.csv", "LocationId", DATA / "locations.csv", fmt_location),
+            ("Monsters", "story-monsters.csv", "MonsterId", DATA / "monsters.csv", fmt_named_with_description),
+            ("Fauna", "story-fauna.csv", "FaunaId", DATA / "fauna.csv", fmt_named_with_description),
+            ("Flora", "story-flora.csv", "FloraId", DATA / "flora.csv", fmt_named_with_description),
+            ("Food & drink", "story-food-drink.csv", "FoodDrinkId", DATA / "food-and-drink.csv", fmt_food_drink),
+            ("Weapons", "story-weapons.csv", "CanonicalWeaponId", WEAPONS_CANONICAL_CSV_PATH, fmt_canonical("CanonicalWeapon")),
+            ("Equipment", "story-equipment.csv", "CanonicalEquipmentId", EQUIPMENT_CANONICAL_CSV_PATH, fmt_canonical("CanonicalEquipment")),
+        ]
 
     #: Alias for :meth:`display`.
     view = display
 
-    def validate(self) -> int:
-        """Run ``validate_data.py``; return exit code."""
-        vd = DATA / "validate_data.py"
-        rc = subprocess.run([sys.executable, str(vd)], cwd=str(ROOT))
-        return rc.returncode
+    def validate(self) -> list[str]:
+        """Run data validation; return the list of alert messages (empty when clean).
+
+        Each alert is also printed to ``stderr`` (``ALERT:`` prefix) for parity
+        with running ``validate_data.py`` directly.
+        """
+        from validate_data import collect_alerts
+
+        alerts = collect_alerts()
+        for msg in alerts:
+            print(f"ALERT: {msg}", file=sys.stderr)
+        return alerts
 
     def remove(
         self,
@@ -577,8 +570,7 @@ class Story:
 
         # --- stories.csv (match StoryKey)
         s_fieldnames, s_rows = read_pipe_csv(STORIES_PATH)
-        if not s_fieldnames:
-            s_fieldnames = ["StoryId", "StoryKey", "StoryType", "Title"]
+        s_fieldnames, s_rows = _normalize_story_fieldnames_rows(s_fieldnames, s_rows)
         s_removed, s_kept = _partition_rows_by_column(s_rows, "StoryKey", sk)
         files_report["stories.csv"] = {
             "removed_count": len(s_removed),
@@ -721,28 +713,93 @@ class Story:
         self.links["npcs"].add(cid)
         return cid
 
-    def link_hero(self, *, canonical_slug: str | None = None) -> str:
-        """Link an existing canonical hero by ``CanonicalSlug``. Returns ``CanonicalId``."""
+    def _link_canonical_by_slug(
+        self,
+        *,
+        canonical_slug: str | None,
+        canonical_path: Path,
+        canonical_id_column: str,
+        junction_filename: str,
+        links_key: str,
+        slug_error_label: str,
+    ) -> str:
+        """Look up an existing canonical row by ``CanonicalSlug`` and add a junction edge."""
         if not canonical_slug or not canonical_slug.strip():
             raise ValueError("canonical_slug is required")
         slug = canonical_slug.strip()
-        fieldnames, rows = read_pipe_csv(HEROES_CANONICAL_CSV_PATH)
-        cid = ""
+        _, rows = read_pipe_csv(canonical_path)
+        found_id = ""
         for row in rows:
             if (row.get("CanonicalSlug") or "").strip() == slug:
-                cid = (row.get("CanonicalId") or "").strip()
+                found_id = (row.get(canonical_id_column) or "").strip()
                 break
-        if not cid:
-            raise ValueError(f"Unknown CanonicalSlug: {slug!r}")
+        if not found_id:
+            raise ValueError(f"Unknown {slug_error_label}CanonicalSlug: {slug!r}")
         _merge_junction_link(
-            DATA / "story-heroes.csv",
-            ["StoryId", "CanonicalId"],
-            "CanonicalId",
+            DATA / junction_filename,
+            ["StoryId", canonical_id_column],
+            canonical_id_column,
             self.story_id,
-            cid,
+            found_id,
         )
-        self.links["heroes"].add(cid)
-        return cid
+        self.links[links_key].add(found_id)
+        return found_id
+
+    def _upsert_named_registry_link(
+        self,
+        *,
+        entity_id: str,
+        name: str,
+        extra_column: str,
+        extra_value: str,
+        registry_filename: str,
+        id_column: str,
+        junction_filename: str,
+        links_key: str,
+    ) -> str:
+        """Upsert a ``{Id, Name, <extra_column>}`` registry row and add a junction edge."""
+        registry_path = DATA / registry_filename
+        fieldnames, rows = read_pipe_csv(registry_path)
+        if not fieldnames:
+            fieldnames = [id_column, "Name", extra_column]
+        name_v = name.strip()
+        extra_v = extra_value.strip()
+        found = False
+        for row in rows:
+            if (row.get(id_column) or "").strip() == entity_id:
+                row["Name"] = name_v
+                row[extra_column] = extra_v
+                found = True
+                break
+        if not found:
+            rows.append({id_column: entity_id, "Name": name_v, extra_column: extra_v})
+        rows.sort(key=lambda r: (r.get("Name") or "").lower())
+        write_pipe_csv_autogen(
+            registry_path,
+            fieldnames,
+            rows,
+            regenerate_command=REGENERATE_STORY_REGISTRY,
+        )
+        _merge_junction_link(
+            DATA / junction_filename,
+            ["StoryId", id_column],
+            id_column,
+            self.story_id,
+            entity_id,
+        )
+        self.links[links_key].add(entity_id)
+        return entity_id
+
+    def link_hero(self, *, canonical_slug: str | None = None) -> str:
+        """Link an existing canonical hero by ``CanonicalSlug``. Returns ``CanonicalId``."""
+        return self._link_canonical_by_slug(
+            canonical_slug=canonical_slug,
+            canonical_path=HEROES_CANONICAL_CSV_PATH,
+            canonical_id_column="CanonicalId",
+            junction_filename="story-heroes.csv",
+            links_key="heroes",
+            slug_error_label="",
+        )
 
     def add_canonical_hero(self, canonical_slug: str, canonical_hero: str) -> str:
         """Insert or update a row in ``heroes-canonical.csv`` and link this story.
@@ -799,147 +856,55 @@ class Story:
 
     def link_monster(self, name: str, description: str = "") -> str:
         """Upsert ``monsters.csv`` and ``story-monsters.csv``."""
-        mid = monster_id(name)
-        fn = ["MonsterId", "Name", "Description"]
-        fieldnames, rows = read_pipe_csv(DATA / "monsters.csv")
-        if not fieldnames:
-            fieldnames = fn
-        found = False
-        for row in rows:
-            if (row.get("MonsterId") or "").strip() == mid:
-                row["Name"] = name.strip()
-                row["Description"] = description.strip()
-                found = True
-                break
-        if not found:
-            rows.append(
-                {"MonsterId": mid, "Name": name.strip(), "Description": description.strip()}
-            )
-        rows.sort(key=lambda r: (r.get("Name") or "").lower())
-        write_pipe_csv_autogen(
-            DATA / "monsters.csv",
-            fieldnames,
-            rows,
-            regenerate_command=REGENERATE_STORY_REGISTRY,
+        return self._upsert_named_registry_link(
+            entity_id=monster_id(name),
+            name=name,
+            extra_column="Description",
+            extra_value=description,
+            registry_filename="monsters.csv",
+            id_column="MonsterId",
+            junction_filename="story-monsters.csv",
+            links_key="monsters",
         )
-
-        _merge_junction_link(
-            DATA / "story-monsters.csv",
-            ["StoryId", "MonsterId"],
-            "MonsterId",
-            self.story_id,
-            mid,
-        )
-        self.links["monsters"].add(mid)
-        return mid
 
     def link_fauna(self, name: str, description: str = "") -> str:
         """Upsert ``fauna.csv`` and ``story-fauna.csv``."""
-        fid = fauna_id_from_name(name)
-        fn = ["FaunaId", "Name", "Description"]
-        fieldnames, rows = read_pipe_csv(DATA / "fauna.csv")
-        if not fieldnames:
-            fieldnames = fn
-        found = False
-        for row in rows:
-            if (row.get("FaunaId") or "").strip() == fid:
-                row["Name"] = name.strip()
-                row["Description"] = description.strip()
-                found = True
-                break
-        if not found:
-            rows.append(
-                {"FaunaId": fid, "Name": name.strip(), "Description": description.strip()}
-            )
-        rows.sort(key=lambda r: (r.get("Name") or "").lower())
-        write_pipe_csv_autogen(
-            DATA / "fauna.csv",
-            fieldnames,
-            rows,
-            regenerate_command=REGENERATE_STORY_REGISTRY,
+        return self._upsert_named_registry_link(
+            entity_id=fauna_id_from_name(name),
+            name=name,
+            extra_column="Description",
+            extra_value=description,
+            registry_filename="fauna.csv",
+            id_column="FaunaId",
+            junction_filename="story-fauna.csv",
+            links_key="fauna",
         )
-
-        _merge_junction_link(
-            DATA / "story-fauna.csv",
-            ["StoryId", "FaunaId"],
-            "FaunaId",
-            self.story_id,
-            fid,
-        )
-        self.links["fauna"].add(fid)
-        return fid
 
     def link_flora(self, name: str, description: str = "") -> str:
         """Upsert ``flora.csv`` and ``story-flora.csv``."""
-        fid = flora_id(name)
-        fn = ["FloraId", "Name", "Description"]
-        fieldnames, rows = read_pipe_csv(DATA / "flora.csv")
-        if not fieldnames:
-            fieldnames = fn
-        found = False
-        for row in rows:
-            if (row.get("FloraId") or "").strip() == fid:
-                row["Name"] = name.strip()
-                row["Description"] = description.strip()
-                found = True
-                break
-        if not found:
-            rows.append(
-                {"FloraId": fid, "Name": name.strip(), "Description": description.strip()}
-            )
-        rows.sort(key=lambda r: (r.get("Name") or "").lower())
-        write_pipe_csv_autogen(
-            DATA / "flora.csv",
-            fieldnames,
-            rows,
-            regenerate_command=REGENERATE_STORY_REGISTRY,
+        return self._upsert_named_registry_link(
+            entity_id=flora_id(name),
+            name=name,
+            extra_column="Description",
+            extra_value=description,
+            registry_filename="flora.csv",
+            id_column="FloraId",
+            junction_filename="story-flora.csv",
+            links_key="flora",
         )
-
-        _merge_junction_link(
-            DATA / "story-flora.csv",
-            ["StoryId", "FloraId"],
-            "FloraId",
-            self.story_id,
-            fid,
-        )
-        self.links["flora"].add(fid)
-        return fid
 
     def link_food_drink(self, name: str, food_type: str) -> str:
         """Upsert ``food-and-drink.csv`` and ``story-food-drink.csv``."""
-        fdid = food_drink_id(name, food_type)
-        fn = ["FoodDrinkId", "Name", "Type"]
-        fieldnames, rows = read_pipe_csv(DATA / "food-and-drink.csv")
-        if not fieldnames:
-            fieldnames = fn
-        found = False
-        for row in rows:
-            if (row.get("FoodDrinkId") or "").strip() == fdid:
-                row["Name"] = name.strip()
-                row["Type"] = food_type.strip()
-                found = True
-                break
-        if not found:
-            rows.append(
-                {"FoodDrinkId": fdid, "Name": name.strip(), "Type": food_type.strip()}
-            )
-        rows.sort(key=lambda r: (r.get("Name") or "").lower())
-        write_pipe_csv_autogen(
-            DATA / "food-and-drink.csv",
-            fieldnames,
-            rows,
-            regenerate_command=REGENERATE_STORY_REGISTRY,
+        return self._upsert_named_registry_link(
+            entity_id=food_drink_id(name, food_type),
+            name=name,
+            extra_column="Type",
+            extra_value=food_type,
+            registry_filename="food-and-drink.csv",
+            id_column="FoodDrinkId",
+            junction_filename="story-food-drink.csv",
+            links_key="food_drink",
         )
-
-        _merge_junction_link(
-            DATA / "story-food-drink.csv",
-            ["StoryId", "FoodDrinkId"],
-            "FoodDrinkId",
-            self.story_id,
-            fdid,
-        )
-        self.links["food_drink"].add(fdid)
-        return fdid
 
     def _upsert_region_registry_row(
         self,
@@ -1102,26 +1067,14 @@ class Story:
         Returns:
             ``CanonicalWeaponId`` written to ``story-weapons.csv``.
         """
-        if not canonical_slug or not canonical_slug.strip():
-            raise ValueError("canonical_slug is required")
-        slug = canonical_slug.strip()
-        _, rows = read_pipe_csv(WEAPONS_CANONICAL_CSV_PATH)
-        wid = ""
-        for row in rows:
-            if (row.get("CanonicalSlug") or "").strip() == slug:
-                wid = (row.get("CanonicalWeaponId") or "").strip()
-                break
-        if not wid:
-            raise ValueError(f"Unknown weapon CanonicalSlug: {slug!r}")
-        _merge_junction_link(
-            DATA / "story-weapons.csv",
-            ["StoryId", "CanonicalWeaponId"],
-            "CanonicalWeaponId",
-            self.story_id,
-            wid,
+        return self._link_canonical_by_slug(
+            canonical_slug=canonical_slug,
+            canonical_path=WEAPONS_CANONICAL_CSV_PATH,
+            canonical_id_column="CanonicalWeaponId",
+            junction_filename="story-weapons.csv",
+            links_key="weapons",
+            slug_error_label="weapon ",
         )
-        self.links["weapons"].add(wid)
-        return wid
 
     def link_equipment(self, *, canonical_slug: str | None = None) -> str:
         """Link an existing canonical equipment card by ``CanonicalSlug``.
@@ -1129,26 +1082,14 @@ class Story:
         Returns:
             ``CanonicalEquipmentId`` written to ``story-equipment.csv``.
         """
-        if not canonical_slug or not canonical_slug.strip():
-            raise ValueError("canonical_slug is required")
-        slug = canonical_slug.strip()
-        _, rows = read_pipe_csv(EQUIPMENT_CANONICAL_CSV_PATH)
-        eid = ""
-        for row in rows:
-            if (row.get("CanonicalSlug") or "").strip() == slug:
-                eid = (row.get("CanonicalEquipmentId") or "").strip()
-                break
-        if not eid:
-            raise ValueError(f"Unknown equipment CanonicalSlug: {slug!r}")
-        _merge_junction_link(
-            DATA / "story-equipment.csv",
-            ["StoryId", "CanonicalEquipmentId"],
-            "CanonicalEquipmentId",
-            self.story_id,
-            eid,
+        return self._link_canonical_by_slug(
+            canonical_slug=canonical_slug,
+            canonical_path=EQUIPMENT_CANONICAL_CSV_PATH,
+            canonical_id_column="CanonicalEquipmentId",
+            junction_filename="story-equipment.csv",
+            links_key="equipment",
+            slug_error_label="equipment ",
         )
-        self.links["equipment"].add(eid)
-        return eid
 
 
 def main() -> None:

@@ -2,7 +2,7 @@
 
 Hero, weapon, and equipment card generators merge their ``Types`` tokens into the
 same two files so **ClassId** / **TalentId** stay consistent (``CL`` / ``TL`` +
-SHA-1 hash of :func:`create_heroes_csv.normalize_name` of the display name).
+SHA-1 hash of :func:`text_utils.normalize_name` of the display name).
 
 Use :func:`merge_classes_and_talents_from_card_rows` from generators or run
 ``python3 src/data/create_classes_talents_csv.py`` to refresh both tables from the
@@ -23,6 +23,7 @@ from card_types_extract import (
     types_include_weapon,
 )
 from pipe_csv_io import REGENERATE_CLASSES_TALENTS, read_pipe_csv, write_pipe_csv_autogen
+from registry_ids import assert_unique_ids
 
 ROOT = Path(__file__).resolve().parents[2]
 CLASSES_CSV_PATH = ROOT / "src/data/classes.csv"
@@ -48,8 +49,8 @@ def merge_classes_and_talents_from_card_rows(
 
     Args:
         card_rows: Tab-separated ``card.csv`` rows (same shape as :func:`tab_csv_io.read_tab_csv`).
-        make_hash_id: Same ``make_hash_id`` as ``create_heroes_csv``.
-        normalize_name: Same ``normalize_name`` as ``create_heroes_csv``.
+        make_hash_id: ``registry_ids.make_hash_id``.
+        normalize_name: ``text_utils.normalize_name``.
         regenerate_command: Banner hint for :func:`pipe_csv_io.write_pipe_csv_autogen`.
 
     Returns:
@@ -117,8 +118,8 @@ def merge_classes(
     Args:
         names: Class display names from the current upstream scan (typically union
             across hero, weapon, and equipment rows).
-        make_hash_id: Same ``make_hash_id`` as ``create_heroes_csv``.
-        normalize_name: Same ``normalize_name`` as ``create_heroes_csv``.
+        make_hash_id: ``registry_ids.make_hash_id``.
+        normalize_name: ``text_utils.normalize_name``.
         regenerate_command: Banner hint for :func:`pipe_csv_io.write_pipe_csv_autogen`.
 
     Returns:
@@ -135,9 +136,7 @@ def merge_classes(
             by_name[name] = disk[name]
         else:
             by_name[name] = make_hash_id("CL", normalize_name(name))
-    ids = list(by_name.values())
-    if len(ids) != len(set(ids)):
-        raise ValueError("Class ID hash collision in merged classes.csv")
+    assert_unique_ids([(cid, name) for name, cid in by_name.items()], "Class")
     rows = [
         {"ClassId": by_name[n], "ClassName": n}
         for n in sorted(by_name, key=str.lower)
@@ -171,9 +170,7 @@ def merge_talents(
             by_name[name] = disk[name]
         else:
             by_name[name] = make_hash_id("TL", normalize_name(name))
-    ids = list(by_name.values())
-    if len(ids) != len(set(ids)):
-        raise ValueError("Talent ID hash collision in merged talents.csv")
+    assert_unique_ids([(tid, name) for name, tid in by_name.items()], "Talent")
     rows = [
         {"TalentId": by_name[n], "TalentName": n}
         for n in sorted(by_name, key=str.lower)

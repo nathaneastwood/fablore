@@ -25,29 +25,34 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from card_name_slug import slugify_card_name_stem
-from card_types_extract import (
+from card_name_slug import slugify_card_name_stem  # noqa: E402
+from card_types_extract import (  # noqa: E402
     dedupe_preserving_order,
     extract_weapon_classes_and_talents,
     parse_tokens,
     types_include_weapon,
 )
-from create_heroes_csv import make_hash_id, normalize_name
-from create_sets_csv import SETS_CSV_PATH, generate_sets_csv
-from game_class_talent_csv import (
+from create_sets_csv import SETS_CSV_PATH, generate_sets_csv  # noqa: E402
+from game_class_talent_csv import (  # noqa: E402
     UPSTREAM_CARD_CSV_PATH as CARD_CSV_PATH,
-)
-from game_class_talent_csv import (
     merge_classes_and_talents_from_card_rows,
 )
-from pipe_csv_io import REGENERATE_CREATE_WEAPONS, read_pipe_csv, write_pipe_csv_autogen
-from tab_csv_io import read_tab_csv
+from pipe_csv_io import (  # noqa: E402
+    REGENERATE_CREATE_WEAPONS,
+    read_pipe_csv,
+    write_pipe_csv_autogen,
+)
+from registry_ids import assert_unique_ids, make_hash_id  # noqa: E402
+from tab_csv_io import read_tab_csv  # noqa: E402
+from text_utils import normalize_name  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 WEAPONS_CANONICAL_CSV_PATH = ROOT / "src/data/weapons-canonical.csv"
 WEAPONS_GAME_CSV_PATH = ROOT / "src/data/weapons-game.csv"
 WEAPONS_PRINTINGS_CSV_PATH = ROOT / "src/data/weapons-printings.csv"
-CARD_PRINTING_CSV_PATH = ROOT.parent / "flesh-and-blood-cards/csvs/english/card-printing.csv"
+CARD_PRINTING_CSV_PATH = (
+    ROOT.parent / "flesh-and-blood-cards/csvs/english/card-printing.csv"
+)
 
 
 def generate_weapons_csv() -> None:
@@ -116,10 +121,13 @@ def generate_weapons_csv() -> None:
             }
         )
 
-    canonical_id_by_slug = {row["CanonicalSlug"]: row["CanonicalWeaponId"] for row in canonical_rows}
-    canonical_ids = [row["CanonicalWeaponId"] for row in canonical_rows]
-    if len(canonical_ids) != len(set(canonical_ids)):
-        raise ValueError("Canonical weapon ID hash collision detected")
+    canonical_id_by_slug = {
+        row["CanonicalSlug"]: row["CanonicalWeaponId"] for row in canonical_rows
+    }
+    assert_unique_ids(
+        [(row["CanonicalWeaponId"], row["CanonicalSlug"]) for row in canonical_rows],
+        "Canonical weapon",
+    )
 
     unsorted_rows: list[dict[str, str]] = []
     for slug, cards in weapon_cards_by_key.items():
@@ -219,9 +227,10 @@ def generate_weapons_csv() -> None:
                 }
             )
 
-    weapon_game_ids = [r["WeaponGameId"] for r in game_rows]
-    if len(weapon_game_ids) != len(set(weapon_game_ids)):
-        raise ValueError("Weapon game ID hash collision detected")
+    assert_unique_ids(
+        [(r["WeaponGameId"], r["CardName"]) for r in game_rows],
+        "Weapon game",
+    )
 
     canonical_fieldnames = ["CanonicalWeaponId", "CanonicalSlug", "CanonicalWeapon"]
     game_fieldnames = [
