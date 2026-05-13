@@ -4,9 +4,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import pytest
-
 import create_stories_index as csi
+import pytest
 
 
 def test_title_from_filename_stem() -> None:
@@ -50,7 +49,7 @@ def test_discover_preserves_existing_csv_title(
     stories = data / "stories.csv"
     stories.write_text(
         "# AUTO\n"
-        "StoryId|StoryKey|StoryType|Title|Authors|Illustrators|SourceLink|PublicationDate|ThumbnailImageLink|NarratedVideos\n"
+        "StoryId|StoryKey|StoryType|Title|Authors|Artists|SourceLink|PublicationDate|ThumbnailImageLink|NarratedVideos\n"
         "ST1111111111|main-story/sample.md|main-story|Kept Title|Author A|||||\n",
         encoding="utf-8",
     )
@@ -77,7 +76,7 @@ def test_discover_refreshes_when_csv_title_is_only_stem_placeholder(
     stories = data / "stories.csv"
     stories.write_text(
         "# AUTO\n"
-        "StoryId|StoryKey|StoryType|Title|Authors|Illustrators|SourceLink|PublicationDate|ThumbnailImageLink|NarratedVideos\n"
+        "StoryId|StoryKey|StoryType|Title|Authors|Artists|SourceLink|PublicationDate|ThumbnailImageLink|NarratedVideos\n"
         "ST1111111111|main-story/sample.md|main-story|Sample\n",
         encoding="utf-8",
     )
@@ -103,7 +102,7 @@ def test_discover_infers_when_csv_title_blank(
     stories = data / "stories.csv"
     stories.write_text(
         "# AUTO\n"
-        "StoryId|StoryKey|StoryType|Title|Authors|Illustrators|SourceLink|PublicationDate|ThumbnailImageLink|NarratedVideos\n"
+        "StoryId|StoryKey|StoryType|Title|Authors|Artists|SourceLink|PublicationDate|ThumbnailImageLink|NarratedVideos\n"
         "ST1111111111|main-story/sample.md|main-story|\n",
         encoding="utf-8",
     )

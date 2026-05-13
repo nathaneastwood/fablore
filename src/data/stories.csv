@@ -1,5 +1,5 @@
 # AUTO-GENERATED FILE — do not edit by hand. Regenerate with: python3 src/data/create_stories_index.py
-StoryId|StoryKey|StoryType|Title|Authors|Illustrators|SourceLink|PublicationDate|ThumbnailImageLink|NarratedVideos
+StoryId|StoryKey|StoryType|Title|Authors|Artists|SourceLink|PublicationDate|ThumbnailImageLink|NarratedVideos
 ST33f262d990|archive/archive.md|archive|Lore Archive||||||
 ST0d93af34cb|archive/world-of-rathe/aria/a-lost-tome.md|archive|A Lost Tome||||||
 STb66442bbb6|archive/world-of-rathe/aria/a-mythical-sanctuary.md|archive|A Mythical Sanctuary||||||
@@ -7,7 +7,7 @@ ST8104c7d306|archive/world-of-rathe/aria/a-true-sanctuary.md|archive|A True Sanc
 ST31f66ea35c|archive/world-of-rathe/aria/aria.md|archive|Aria||||||
 ST963904b43c|archive/world-of-rathe/aria/creatures.md|archive|Creatures||||||
 ST7cb07da6d8|archive/world-of-rathe/aria/people-of-aria.md|archive|People of Aria||||||
-STe145ac197d|archive/world-of-rathe/aria/the-land-of-legends.md|archive|The Land of Legends||||||
+STe145ac197d|archive/world-of-rathe/aria/the-land-of-legends.md|archive|The Land of Legends|||https://fabtcg.com/articles/aria-land-legends/|2021-08-31||
 ST45dc29480e|archive/world-of-rathe/aria/tides-of-change.md|archive|Tides of Change||||||
 STc07612accc|archive/world-of-rathe/deathmatch/destination-deathmatch.md|archive|Destination Deathmatch||||||
 ST0227cf5ea4|archive/world-of-rathe/deathmatch/super-slam-season-is-here.md|archive|Super Slam Season is Here||||||
@@ -89,24 +89,24 @@ ST0468e242c9|digital-tiles/17-the-hunted/the-hunted.md|digital-tiles|The Hunted|
 STc8b03468f3|digital-tiles/18-high-seas/high-seas.md|digital-tiles|High Seas||||||
 ST1ab4a334a8|digital-tiles/19-compendium-of-rathe/compendium-of-rathe.md|digital-tiles|Compendium Of Rathe||||||
 STecf0044abc|digital-tiles/README.md|digital-tiles|Readme||||||
-ST86667b5878|equipment/README.md|equipment|Readme||||||
+ST86667b5878|equipment/in-the-fires-of-the-forge.md|equipment|In the Fires of the Forge|||https://fabtcg.com/articles/fires-forge/|2020-08-18||
 ST926a09bb3e|equipment/amethyst-tiara.md|equipment|Amethyst Tiara||||||
 ST39e50c14e8|equipment/blazen-yoroi.md|equipment|Blazen Yoroi||||||
-ST503a2c6bc4|equipment/bloodsheath-skeleta.md|equipment|Bloodsheath Skeleta||||||
+ST503a2c6bc4|equipment/bloodsheath-skeleta.md|equipment|Bloodsheath Skeleta|||https://fabtcg.com/articles/fires-forge/|2020-08-18||
 STbcc569cc74|equipment/bolt-n-boots.md|equipment|Bolt'N' Boots||||||
-ST439f18b8a8|equipment/breeze-rider-boots.md|equipment|Breeze Rider Boots||||||
+ST439f18b8a8|equipment/breeze-rider-boots.md|equipment|Breeze Rider Boots|||https://fabtcg.com/articles/fires-forge/|2020-08-18||
 ST158f5683f6|equipment/celestial-kimono.md|equipment|Celestial Kimono||||||
 ST15c6513bd5|equipment/comeback-kicks.md|equipment|Comeback Kicks||||||
-STde67b73909|equipment/courage-of-bladehold.md|equipment|Courage Of Bladehold||||||
-STf022390075|equipment/crater-fist.md|equipment|Crater Fist||||||
+STde67b73909|equipment/courage-of-bladehold.md|equipment|Courage Of Bladehold|||https://fabtcg.com/articles/fires-forge/|2020-08-18||
+STf022390075|equipment/crater-fist.md|equipment|Crater Fist|||https://fabtcg.com/articles/fires-forge/|2020-08-18||
 STb9571f6d08|equipment/grimoire-of-fellingsong.md|equipment|Grimoire Of Fellingsong||||||
-ST6dbc007292|equipment/metacarpus-node.md|equipment|Metacarpus Node||||||
+ST6dbc007292|equipment/metacarpus-node.md|equipment|Metacarpus Node|||https://fabtcg.com/articles/fires-forge/|2020-08-18||
 ST8f09a2ec82|equipment/myrkhellir-helm.md|equipment|Myrkhellir Helm||||||
 ST1637aea10d|equipment/seasoned-saviour.md|equipment|Seasoned Saviour||||||
-ST581a079901|equipment/skullhorn.md|equipment|Skullhorn||||||
+ST581a079901|equipment/skullhorn.md|equipment|Skullhorn|||https://fabtcg.com/articles/fires-forge/|2020-08-18||
 STb6d8aab38d|equipment/synapse-sparkcap.md|equipment|Synapse Sparkcap||||||
 STc0bfeaca8f|equipment/trench-of-watery-depths.md|equipment|Trench Of Watery Depths||||||
-ST4a1f68bdd7|equipment/viziertronic-model-i.md|equipment|Viziertronic Model I||||||
+ST4a1f68bdd7|equipment/viziertronic-model-i.md|equipment|Viziertronic Model I|||https://fabtcg.com/articles/fires-forge/|2020-08-18||
 STb2d2e3f4cd|equipment/wind-cutter.md|equipment|Wind Cutter||||||
 STa92a24afc4|flavour/00-non-set-cards.md|flavour|Non-Set Cards||||||
 ST1c39bcd634|flavour/01-welcome-to-rathe.md|flavour|Welcome to Rathe||||||
@@ -194,97 +194,98 @@ ST1ed9707fdd|heroes-of-rathe/viserai-about.md|heroes-of-rathe|Viserai, Rune Bloo
 STf845bb75e2|heroes-of-rathe/vynnset-about.md|heroes-of-rathe|Vynnset, Iron Maiden||||||
 ST26b81d47de|heroes-of-rathe/yoji-about.md|heroes-of-rathe|Yoji, Royal Protector||||||
 STdfa96a62e2|heroes-of-rathe/zen-about.md|heroes-of-rathe|Zen, Tamer of Purpose||||||
-STa75ebaa139|main-story/01-welcome-to-rathe/a-rising-star.md|main-story|A Rising Star||||||
-ST3214f25ce6|main-story/01-welcome-to-rathe/kill-or-be-killed.md|main-story|Kill or be Killed||||||
-ST1a4a190c61|main-story/01-welcome-to-rathe/pride-of-the-ironsongs.md|main-story|Pride of the Ironsongs||||||
-ST92ce9eae6e|main-story/01-welcome-to-rathe/wanderings-in-the-mists.md|main-story|Wanderings in the Mists||||||
-STcb90c1b82e|main-story/02-arcane-rising/a-bird-in-the-hand.md|main-story|A Bird in the Hand||||||
-ST93b7897e57|main-story/02-arcane-rising/birth-of-the-arknight.md|main-story|Birth of the Arknight||||||
-ST3f448db90f|main-story/02-arcane-rising/cards-on-the-table.md|main-story|Cards on the Table||||||
-STffcf70a47e|main-story/02-arcane-rising/from-the-ashes.md|main-story|From the Ashes||||||
-STb8ae9bcb0d|main-story/02-arcane-rising/full-steam-ahead.md|main-story|Full Steam Ahead||||||
-STdc55411956|main-story/02-arcane-rising/needle-in-a-haystack.md|main-story|Needle in a Haystack||||||
-STea49c6ee32|main-story/02-arcane-rising/playing-with-fire.md|main-story|Playing with Fire||||||
-STc50edf1d5f|main-story/02-arcane-rising/return-of-the-shadow.md|main-story|Return of the Shadow||||||
-STc2c5f1dd25|main-story/02-arcane-rising/slings-and-arrows.md|main-story|Slings and Arrows||||||
-ST2605f623cd|main-story/02-arcane-rising/smoke-and-mirrors.md|main-story|Smoke and Mirrors||||||
-STac4ad6d6b9|main-story/02-arcane-rising/stroke-of-genius.md|main-story|Stroke of Genius||||||
-ST5b1cdbca69|main-story/03-crucible-of-war/edge-of-autumn.md|main-story|Edge of Autumn||||||
-ST52f9f21c24|main-story/03-crucible-of-war/no-smoke-without-fire.md|main-story|No Smoke Without Fire||||||
-ST4108687623|main-story/03-crucible-of-war/sutcliffes-research-notes.md|main-story|[Sutcliffe](~Sutcliffe)'s Research Notes||||||
-ST35ba2102ce|main-story/04-monarch/destroy-and-consume.md|main-story|Destroy and Consume||||||
-ST37f229c387|main-story/04-monarch/emissary-of-the-void.md|main-story|Emissary of the Void||||||
-ST08e21b127b|main-story/04-monarch/harbinger-of-the-abyss.md|main-story|Harbinger of the Abyss||||||
-ST65f41cd3ae|main-story/04-monarch/step-into-the-light.md|main-story|Step Into The Light||||||
-STa13ceb0c12|main-story/04-monarch/stories-of-illumination.md|main-story|Stories of Illumination||||||
-ST51ee74ec70|main-story/04-monarch/sworn-to-protect.md|main-story|Sworn to Protect||||||
-STe10471dd45|main-story/05-tales-of-aria/amongst-the-brambles.md|main-story|Amongst the Brambles||||||
-ST5ef1912d18|main-story/05-tales-of-aria/the-broken-covenant.md|main-story|The Broken Covenant||||||
-STc0db7b2c8d|main-story/05-tales-of-aria/wonders-of-the-wayfarer.md|main-story|Wonders of the Wayfarer||||||
-ST479bbad163|main-story/06-everfest/a-grand-adventure.md|main-story|A Grand Adventure||||||
-STd1d662cdf3|main-story/07-interlude/morlock-hill.md|main-story|Morlock Hill||||||
-STca9960ed48|main-story/08-uprising/betrayal.md|main-story|Betrayal||||||
-ST91c2813225|main-story/08-uprising/calm-before-the-storm.md|main-story|Calm Before the Storm||||||
-STbbce2e9f18|main-story/08-uprising/dragons-of-empire.md|main-story|Dragons of Empire||||||
-STa4733374aa|main-story/08-uprising/fires-of-rebellion.md|main-story|Fires of Rebellion||||||
-ST51b4124cd7|main-story/08-uprising/in-flames.md|main-story|In Flames||||||
-ST3ac9e7493a|main-story/08-uprising/journey-into-the-forgotten.md|main-story|Journey into the Forgotten||||||
-ST3ad4db0637|main-story/08-uprising/the-phoenix-and-the-dragon.md|main-story|The Phoenix and the Dragon||||||
-ST2120fb131f|main-story/09-dynasty/ember-in-the-ash.md|main-story|Ember in the Ash||||||
-ST6924e49909|main-story/09-dynasty/emperor-the-one-emperor.md|main-story|The One Emperor||||||
-STc36ef3b314|main-story/09-dynasty/the-blood-stained-web.md|main-story|The Blood Stained Web||||||
-ST90f699025d|main-story/09-dynasty/vow-of-vigilence.md|main-story|Vow of Vigilence||||||
-STa06e387430|main-story/10-outsiders/catch-of-the-day.md|main-story|Catch of the Day||||||
-STad5681f2c1|main-story/10-outsiders/its-just-business.md|main-story|It's Just Business||||||
-STfc12d1aac4|main-story/10-outsiders/squeakers-christmas.md|main-story|Squeakers' Christmas||||||
-STa77e5dbba5|main-story/10-outsiders/the-iconoclast-trials.md|main-story|The Iconoclast Trials||||||
-ST72fbe0466a|main-story/10-outsiders/the-spiders-trap.md|main-story|The Spider's Trap||||||
-ST5558ee7c4c|main-story/10-outsiders/tidings-in-the-light.md|main-story|Tidings in the Light||||||
-ST1b34dc6837|main-story/11-dusk-till-dawn/anointed-in-shadow.md|main-story|Anointed in Shadow||||||
-STedfc3d34c6|main-story/11-dusk-till-dawn/falling-in-darkness.md|main-story|Falling In Darkness||||||
+STa75ebaa139|main-story/01-welcome-to-rathe/a-rising-star.md|main-story|A Rising Star|Nicola Price|MJ Fetesio, Sindy Wo|https://fabtcg.com/hero/bravo-4/story/bravo-showtopper-story/|||
+ST3214f25ce6|main-story/01-welcome-to-rathe/kill-or-be-killed.md|main-story|Kill or be Killed|Nicola Price|MJ Fetesio|https://fabtcg.com/hero/rhinar/story/rhinar-story/|||
+ST1a4a190c61|main-story/01-welcome-to-rathe/pride-of-the-ironsongs.md|main-story|Pride of the Ironsongs|Nicola Price|MJ Fetesio, Sindy Wo|https://fabtcg.com/hero/dorinthea/story/story/|||
+ST92ce9eae6e|main-story/01-welcome-to-rathe/wanderings-in-the-mists.md|main-story|Wanderings in the Mists|Nicola Price|MJ Fetesio, Sindy Wo|https://fabtcg.com/hero/katsu-the-wanderer/story/katsu-story/|||
+STcb90c1b82e|main-story/02-arcane-rising/a-bird-in-the-hand.md|main-story|A Bird in the Hand|||https://fabtcg.com/hero/azalea/story/a-bird-in-the-hand/|||
+ST93b7897e57|main-story/02-arcane-rising/birth-of-the-arknight.md|main-story|Birth of the Arknight|Nicola Price|MJ Fetesio|https://fabtcg.com/hero/viserai/story/viserai-story/|||
+ST3f448db90f|main-story/02-arcane-rising/cards-on-the-table.md|main-story|Cards on the Table|||https://fabtcg.com/hero/azalea/story/cards-on-the-table/|||
+STffcf70a47e|main-story/02-arcane-rising/from-the-ashes.md|main-story|From the Ashes|||https://fabtcg.com/hero/kano/story/from-the-ashes/|||
+STb8ae9bcb0d|main-story/02-arcane-rising/full-steam-ahead.md|main-story|Full Steam Ahead|||https://fabtcg.com/hero/dash/story/full-steam-ahead/|||
+STdc55411956|main-story/02-arcane-rising/needle-in-a-haystack.md|main-story|Needle in a Haystack|||https://fabtcg.com/hero/dash/story/needle-in-a-haystack/|||
+STea49c6ee32|main-story/02-arcane-rising/playing-with-fire.md|main-story|Playing with Fire|||https://fabtcg.com/hero/kano/story/playing-with-fire/|||
+STc50edf1d5f|main-story/02-arcane-rising/return-of-the-shadow.md|main-story|Return of the Shadow||Nikolay Moskvin|https://fabtcg.com/articles/return-shadow/|2020-08-12||
+STc2c5f1dd25|main-story/02-arcane-rising/slings-and-arrows.md|main-story|Slings and Arrows|||https://fabtcg.com/hero/azalea/story/slings-and-arrows/|||
+ST2605f623cd|main-story/02-arcane-rising/smoke-and-mirrors.md|main-story|Smoke and Mirrors|||https://fabtcg.com/hero/kano/story/smoke-and-mirrors/|||
+STac4ad6d6b9|main-story/02-arcane-rising/stroke-of-genius.md|main-story|Stroke of Genius|||https://fabtcg.com/hero/dash/story/stroke-of-genius/|||
+ST5b1cdbca69|main-story/03-crucible-of-war/edge-of-autumn.md|main-story|Edge of Autumn|||https://fabtcg.com/hero/ira-3/story/edge-of-autumn/|||
+ST52f9f21c24|main-story/03-crucible-of-war/no-smoke-without-fire.md|main-story|No Smoke Without Fire||Nikolay Moskvin, Bramasta Aji|https://fabtcg.com/articles/no-smoke-without-fire/|2020-08-14||
+ST4108687623|main-story/03-crucible-of-war/sutcliffes-research-notes.md|main-story|Sutcliffe's Research Notes||||||
+ST35ba2102ce|main-story/04-monarch/destroy-and-consume.md|main-story|Destroy and Consume|Nicola Price, Tarryn Thomas|Iain Miki|https://fabtcg.com/hero/levia/story/levia-story-destroy-and-consume/|||
+ST37f229c387|main-story/04-monarch/emissary-of-the-void.md|main-story|Emissary of the Void|Nicola Price, Tarryn Thomas|Nikolay Moskvin|https://fabtcg.com/hero/chane/story/chane-story/|||
+ST08e21b127b|main-story/04-monarch/harbinger-of-the-abyss.md|main-story|Harbinger of the Abyss|Nicola Price, Tarryn Thomas|Nikolay Moskvin|https://fabtcg.com/articles/harbinger-abyss/|2021-04-15||
+ST65f41cd3ae|main-story/04-monarch/step-into-the-light.md|main-story|Step Into The Light|Nicola Price, Tarryn Thomas|Sam Yang|https://fabtcg.com/articles/step-into-light/|2021-04-20||
+STa13ceb0c12|main-story/04-monarch/stories-of-illumination.md|main-story|Stories of Illumination|Nicola Price, Tarryn Thomas|Sam Yang|https://fabtcg.com/hero/prism-soa/story/prism-story-stories-of-illumination/|||
+ST51ee74ec70|main-story/04-monarch/sworn-to-protect.md|main-story|Sworn to Protect|Nicola Price, Tarryn Thomas|Nikolay Moskvin|https://fabtcg.com/hero/boltyn-3/story/ser-story/|||
+STe10471dd45|main-story/05-tales-of-aria/amongst-the-brambles.md|main-story|Amongst the Brambles||Nikolay Moskvin|https://fabtcg.com/hero/briar/story/briar-story/|||
+ST5ef1912d18|main-story/05-tales-of-aria/the-broken-covenant.md|main-story|The Broken Covenant||Sam Yang|https://fabtcg.com/hero/oldhim-2/story/oldhim/|||
+STc0db7b2c8d|main-story/05-tales-of-aria/wonders-of-the-wayfarer.md|main-story|Wonders of the Wayfarer||Sam Yang|https://fabtcg.com/hero/lexi/story/lexi-story/|||
+ST479bbad163|main-story/06-everfest/a-grand-adventure.md|main-story|A Grand Adventure|Kasharn Rao|Sam Yang|https://fabtcg.com/articles/grand-adventure/|2021-12-25||
+STd1d662cdf3|main-story/07-interlude/morlock-hill.md|main-story|Morlock Hill|Kasharn Rao, Edwin McRae|Nikolay Moskvin|https://fabtcg.com/articles/morlock-hill/|2022-04-11||
+STca9960ed48|main-story/08-uprising/betrayal.md|main-story|Betrayal|||https://fabtcg.com/hero/dromai/story/dromai-story-betrayal/|||
+ST91c2813225|main-story/08-uprising/calm-before-the-storm.md|main-story|Calm Before the Storm|||https://fabtcg.com/hero/iyslander-2/story/iyslander-story-calm-before-the-storm/|||
+STbbce2e9f18|main-story/08-uprising/dragons-of-empire.md|main-story|Dragons of Empire|||https://fabtcg.com/hero/dromai/story/dromai-story-dragons-of-empire/|||
+STa4733374aa|main-story/08-uprising/fires-of-rebellion.md|main-story|Fires of Rebellion|||https://fabtcg.com/hero/fai/story/fai-story-fires-of-rebellion/|||
+ST51b4124cd7|main-story/08-uprising/in-flames.md|main-story|In Flames|Edwin McRae, Rachel Rees|Sam Yang, various artists|https://fabtcg.com/articles/flames/|2022-04-25||
+ST3ac9e7493a|main-story/08-uprising/journey-into-the-forgotten.md|main-story|Journey into the Forgotten|Edwin McRae, Rachel Rees|Sam Yang|https://fabtcg.com/articles/journey-forgotten/|2022-04-21||
+ST3ad4db0637|main-story/08-uprising/the-phoenix-and-the-dragon.md|main-story|The Phoenix and the Dragon|||https://fabtcg.com/hero/fai/story/fai-story-the-phoenix-and-the-dragon/|||
+ST2120fb131f|main-story/09-dynasty/ember-in-the-ash.md|main-story|Ember in the Ash|Edwin McRae, Rachel Rees|Sam Yang|https://fabtcg.com/articles/ember-ash/|2022-10-27||
+ST6924e49909|main-story/09-dynasty/emperor-the-one-emperor.md|main-story|The One Emperor|||https://fabtcg.com/hero/emperor/story/emperor-story/|||
+STc36ef3b314|main-story/09-dynasty/the-blood-stained-web.md|main-story|The Blood Stained Web|||https://fabtcg.com/articles/story/the-bloodstained-web/|||
+ST90f699025d|main-story/09-dynasty/vow-of-vigilence.md|main-story|Vow of Vigilence|Edwin McRae, Rachel Rees|Sam Yang|https://fabtcg.com/hero/yoji/story/yoji-story/|||
+STa06e387430|main-story/10-outsiders/catch-of-the-day.md|main-story|Catch of the Day|||https://fabtcg.com/hero/riptide-lurker-of-the-deep/story/riptide-story/|||
+STad5681f2c1|main-story/10-outsiders/its-just-business.md|main-story|It's Just Business|Edwin McRae, Rachel Rees|Nikolay Moskvin|https://fabtcg.com/hero/uzuri-switchblade/story/uzuri-story/|||
+STfc12d1aac4|main-story/10-outsiders/squeakers-christmas.md|main-story|Squeakers' Christmas|Edwin McRae, Rachel Rees|Sam Yang|https://fabtcg.com/articles/squeakers-christmas/|2022-12-26||
+STa77e5dbba5|main-story/10-outsiders/the-iconoclast-trials.md|main-story|The Iconoclast Trials|Edwin McRae, Rachel Rees|Henrique Lindner|https://fabtcg.com/hero/arakni-huntsman/story/arakni-story/|||
+ST72fbe0466a|main-story/10-outsiders/the-spiders-trap.md|main-story|The Spider's Trap|Edwin McRae, Rachel Rees|Sam Yang|https://fabtcg.com/articles/spiders-trap/|2023-03-04||
+ST5558ee7c4c|main-story/10-outsiders/tidings-in-the-light.md|main-story|Tidings in the Light|Edwin McRae, Rachel Rees|Henrique Lindner|https://fabtcg.com/articles/tidings-light/|2023-03-04||
+ST1b34dc6837|main-story/11-dusk-till-dawn/anointed-in-shadow.md|main-story|Anointed in Shadow|Edwin McRae, Rachel Rees|Henrique Lindner|https://fabtcg.com/hero/vynnset/story/anointed-in-shadow/|||
+STedfc3d34c6|main-story/11-dusk-till-dawn/falling-in-darkness.md|main-story|Falling In Darkness|Edwin McRae, Rachel Rees|Sam Yang|https://fabtcg.com/articles/falling-in-darkness/|2023-07-01||
 STfbe4a9af06|main-story/11-dusk-till-dawn/prism-awakener-of-sol.md|main-story|Prism, Awakener of Sol||||||
-ST92cc159c88|main-story/11-dusk-till-dawn/unity-in-light.md|main-story|Unity In Light||||||
-STc11e23c084|main-story/12-bright-lights/P̸͍̬̭̭̺͉̣̌̐̾̌͆̚r̴͔͍͐ȯ̴̤̰͠t̵̰̘͑õ̶͍͇c̶̟͒o̶̪̳͋l̶̗̑ ̴̮̓͘A̴̞̗͆ṗ̷̢͕̈́ē̵͍̿ŕ̶̩́ḭ̴̧͐͂o̸͙̖̐͘n̴̞̺͋.md|main-story|P̸͍̬̭̭̺͉̣̌̐̾̌͆̚r̴͔͍͐ȯ̴̤̰͠t̵̰̘͑õ̶͍͇c̶̟͒o̶̪̳͋l̶̗̑ ̴̮̓͘A̴̞̗͆ṗ̷̢͕̈́ē̵͍̿ŕ̶̩́ḭ̴̧͐͂o̸͙̖̐͘n̴̞̺͋||||||
-ST5263bec686|main-story/12-bright-lights/synthetic-futures.md|main-story|Synthetic Futures||||||
-ST18d889960d|main-story/12-bright-lights/system-failure.md|main-story|System Failure||||||
-STb858af77a4|main-story/12-bright-lights/the-dynamic-man.md|main-story|The Dynamic Man||||||
-ST27d64f01a1|main-story/14-heavy-hitters/another-day-another-title.md|main-story|Another Day, Another Title||||||
+ST92cc159c88|main-story/11-dusk-till-dawn/unity-in-light.md|main-story|Unity In Light|Edwin McRae, Rachel Rees|Jessketchin|https://fabtcg.com/articles/unity-in-light/|2023-06-30||
+STc11e23c084|main-story/12-bright-lights/P̸͍̬̭̭̺͉̣̌̐̾̌͆̚r̴͔͍͐ȯ̴̤̰͠t̵̰̘͑õ̶͍͇c̶̟͒o̶̪̳͋l̶̗̑ ̴̮̓͘A̴̞̗͆ṗ̷̢͕̈́ē̵͍̿ŕ̶̩́ḭ̴̧͐͂o̸͙̖̐͘n̴̞̺͋.md|main-story|P̸͍̬̭̭̺͉̣̌̐̾̌͆̚r̴͔͍͐ȯ̴̤̰͠t̵̰̘͑õ̶͍͇c̶̟͒o̶̪̳͋l̶̗̑ ̴̮̓͘A̴̞̗͆ṗ̷̢͕̈́ē̵͍̿ŕ̶̩́ḭ̴̧͐͂o̸͙̖̐͘n̴̞̺͋|Edwin McRae, Rachel Rees|Sam Yang|https://fabtcg.com/articles/aperion-protocol/|2023-09-24||
+ST5263bec686|main-story/12-bright-lights/synthetic-futures.md|main-story|Synthetic Futures|Edwin McRae, Rachel Rees|Sam Yang|https://fabtcg.com/articles/synthetic-futures/|2023-09-22||
+ST18d889960d|main-story/12-bright-lights/system-failure.md|main-story|System Failure|Edwin McRae, Rachel Rees|Sam Yang|https://fabtcg.com/articles/system-failure/|2023-09-22||
+STb858af77a4|main-story/12-bright-lights/the-dynamic-man.md|main-story|The Dynamic Man|||https://fabtcg.com/articles/the-dynamic-man/|2023-09-22||
+ST27d64f01a1|main-story/14-heavy-hitters/another-day-another-title.md|main-story|Another Day, Another Title|||https://fabtcg.com/hero/olympia/story/olympia/|2023-12-22||
 ST4bd2ef0e2d|main-story/14-heavy-hitters/arena-announcements.md|main-story|Arena Announcements||||||
-STc8adcee73d|main-story/14-heavy-hitters/bloodied-sands.md|main-story|Bloodied Sands||||||
-STca8d9cb9c1|main-story/14-heavy-hitters/deathmatch-wrecking-ball.md|main-story|Deathmatch Wrecking Ball||||||
-ST4d32fd6213|main-story/14-heavy-hitters/thirst-for-revenge.md|main-story|Thirst For Revenge||||||
-ST04c3f513d4|main-story/14-heavy-hitters/untamed-and-unbroken.md|main-story|Untamed and Unbroken||||||
-ST3ac42a6b1f|main-story/15-part-the-mistveil/part-1-the-tiger-in-the-mist.md|main-story|Part 1: The Tiger in the Mist||||||
-ST37b0bbc374|main-story/15-part-the-mistveil/part-2-the-tapestry-unfolds.md|main-story|Part 2: The Tapestry Unfolds||||||
-ST54be02bbbd|main-story/15-part-the-mistveil/part-3-the-serpents-strike.md|main-story|Part 3: The Serpent's Strike||||||
+STc8adcee73d|main-story/14-heavy-hitters/bloodied-sands.md|main-story|Bloodied Sands|||https://fabtcg.com/articles/bloodied-sands/|2024-08-16||
+STca8d9cb9c1|main-story/14-heavy-hitters/deathmatch-wrecking-ball.md|main-story|Deathmatch Wrecking Ball|||https://fabtcg.com/hero/betsy/story/46529-2/|2023-12-20||
+STceabf2ba24|main-story/14-heavy-hitters/the-golden-son.md|main-story|The Golden Son|||https://fabtcg.com/hero/victor/story/victor/|||
+ST4d32fd6213|main-story/14-heavy-hitters/thirst-for-revenge.md|main-story|Thirst For Revenge|||https://fabtcg.com/hero/kassai-3/story/thirst-for-revenge/|2024-01-24||
+ST04c3f513d4|main-story/14-heavy-hitters/untamed-and-unbroken.md|main-story|Untamed and Unbroken|||https://fabtcg.com/hero/kayo-br/story/kayo-story/|2023-12-27||
+ST3ac42a6b1f|main-story/15-part-the-mistveil/part-1-the-tiger-in-the-mist.md|main-story|Part 1: The Tiger in the Mist|||https://fabtcg.com/hero/zen-tamer-of-purpose/story/part-1-the-tiger-in-the-mist/|||
+ST37b0bbc374|main-story/15-part-the-mistveil/part-2-the-tapestry-unfolds.md|main-story|Part 2: The Tapestry Unfolds|||https://fabtcg.com/hero/zen-tamer-of-purpose/story/part-2-the-tapestry-unfolds/|||
+ST54be02bbbd|main-story/15-part-the-mistveil/part-3-the-serpents-strike.md|main-story|Part 3: The Serpent's Strike|||https://fabtcg.com/hero/zen-tamer-of-purpose/story/part-3-the-serpents-strike/|||
 STbe95dc642a|main-story/15-part-the-mistveil/part-4-the-hare-and-the-snake.md|main-story|Part 4: The Hare and the Snake||||||
-STb2754b7fb9|main-story/16-rosetta/battle-of-isenloft.md|main-story|Battle of Isenloft||||||
-ST8d45814e3e|main-story/16-rosetta/essence-of-decay.md|main-story|Essence of Decay||||||
-ST0e6de35a1b|main-story/16-rosetta/roots-of-change.md|main-story|Roots of Change||||||
-ST7f19e7c9a7|main-story/16-rosetta/secret-of-the-aetherscribes.md|main-story|Secret of the Aetherscribes||||||
-ST9baf9d1827|main-story/16-rosetta/seeds-of-renewal.md|main-story|Seeds of Renewal||||||
-STefc179ab23|main-story/16-rosetta/to-halt-the-dark.md|main-story|To Halt the Dark||||||
-STf2e2d6afa7|main-story/17-the-hunted/boom-town-boom.md|main-story|Boom Town Boom||||||
-ST12185cdc8a|main-story/17-the-hunted/children-of-chaos.md|main-story|Children of Chaos||||||
-ST680475ab8e|main-story/17-the-hunted/cleanse-the-corruption.md|main-story|Cleanse the Corruption||||||
-ST180c72d2d2|main-story/17-the-hunted/hunter-and-hunted-both.md|main-story|Hunter and Hunted Both||||||
-ST42b55b9aa1|main-story/17-the-hunted/mark-of-a-traitor.md|main-story|Mark of a Traitor||||||
-ST7bfe1edd5b|main-story/17-the-hunted/splinter-soul.md|main-story|Splinter Soul||||||
-STa09c209240|main-story/18-high-seas/a-kraken-good-tale.md|main-story|A Kraken Good Tale||||||
-STeec230bec9|main-story/18-high-seas/captain-bones-and-the-city-of-gold.md|main-story|Captain Bones and the City of Gold||||||
-STa0a1f64e14|main-story/18-high-seas/the-lost-treasure-of-blackwater-strait.md|main-story|The Lost Treasure of Blackwater Strait||||||
-STd4a02b17c2|main-story/18-high-seas/trouble-in-larinkmorth.md|main-story|Trouble in Larinkmorth||||||
+STb2754b7fb9|main-story/16-rosetta/battle-of-isenloft.md|main-story|Battle of Isenloft|||https://fabtcg.com/articles/battle-of-isenloft/|2024-11-21||
+ST8d45814e3e|main-story/16-rosetta/essence-of-decay.md|main-story|Essence of Decay||Nikolay Moskvin|https://fabtcg.com/articles/essence-of-decay/|2024-08-24||
+ST0e6de35a1b|main-story/16-rosetta/roots-of-change.md|main-story|Roots of Change||Nikolay Moskvin|https://fabtcg.com/articles/roots-of-change/|2024-08-23||
+ST7f19e7c9a7|main-story/16-rosetta/secret-of-the-aetherscribes.md|main-story|Secret of the Aetherscribes|||https://fabtcg.com/articles/secret-of-the-aetherscribes/|2024-08-29||
+ST9baf9d1827|main-story/16-rosetta/seeds-of-renewal.md|main-story|Seeds of Renewal||Nikolay Moskvin|https://fabtcg.com/articles/seeds-of-renewal/|2024-08-25||
+STefc179ab23|main-story/16-rosetta/to-halt-the-dark.md|main-story|To Halt the Dark|||https://fabtcg.com/articles/to-halt-the-dark/|2024-10-11||
+STf2e2d6afa7|main-story/17-the-hunted/boom-town-boom.md|main-story|Boom Town Boom|||https://fabtcg.com/articles/boom-town-boom/|2025-04-17||
+ST12185cdc8a|main-story/17-the-hunted/children-of-chaos.md|main-story|Children of Chaos|||https://fabtcg.com/articles/children-of-chaos/|2025-01-17||
+ST680475ab8e|main-story/17-the-hunted/cleanse-the-corruption.md|main-story|Cleanse the Corruption|||https://fabtcg.com/articles/cleanse-the-corruption/|2025-01-15||
+ST180c72d2d2|main-story/17-the-hunted/hunter-and-hunted-both.md|main-story|Hunter and Hunted Both|||https://fabtcg.com/articles/hunter-and-hunted-both/|2025-01-16||
+ST42b55b9aa1|main-story/17-the-hunted/mark-of-a-traitor.md|main-story|Mark of a Traitor|||https://fabtcg.com/articles/mark-of-a-traitor/|2025-01-14||
+ST7bfe1edd5b|main-story/17-the-hunted/splinter-soul.md|main-story|Splinter Soul|||https://fabtcg.com/hero/terra/story/splinter-soul/|2025-02-27||
+STa09c209240|main-story/18-high-seas/a-kraken-good-tale.md|main-story|A Kraken Good Tale|Robbie Wen, Edwin McRae, Rachel Rees, Bonnie Harris-Lowe||https://fabtcg.com/articles/a-kraken-good-tale/|2025-06-05||
+STeec230bec9|main-story/18-high-seas/captain-bones-and-the-city-of-gold.md|main-story|Captain Bones and the City of Gold|Robbie Wen, Edwin McRae, Rachel Rees, Alan Baxter||https://fabtcg.com/articles/captain-bones-and-the-city-of-gold/|2025-06-02||
+STa0a1f64e14|main-story/18-high-seas/the-lost-treasure-of-blackwater-strait.md|main-story|The Lost Treasure of Blackwater Strait|Robbie Wen, Edwin McRae, Rachel Rees, Bonnie Harris-Lowe, Joyce Chng, Ryan McIntyre||https://fabtcg.com/articles/the-lost-treasure-of-blackwater-strait/|2025-06-04||
+STd4a02b17c2|main-story/18-high-seas/trouble-in-larinkmorth.md|main-story|Trouble in Larinkmorth|Robbie Wen, Edwin McRae, Ryan McIntyre, Rachel Rees, Michael Coorlim, Melissa Ren||https://fabtcg.com/articles/trouble-in-larinkmorth/|2025-08-06||
 STa8d0c317bb|main-story/19-super-slam/feudmasters.md|main-story|Feudmasters||||||
-ST7e4e9adebf|main-story/20-compendium-of-rathe/vow-unbroken.md|main-story|Vow Unbroken||||||
+ST7e4e9adebf|main-story/20-compendium-of-rathe/vow-unbroken.md|main-story|Vow Unbroken|Robbie Wen, Edwin McRae, Corey J. White, Rachel Rees, Melissa Ren, Paul Davies||https://fabtcg.com/articles/vow-unbroken/|2026-04-07||
 ST6cb4031a65|main-story/21-omens-of-the-third-age/omens-in-the-sky.md|main-story|Omens in the Sky||||||
 ST4bff273f56|main-story/README.md|main-story|Main Story||||||
-STdb68f46804|main-story/the-land-of-rathe.md|main-story|The Land of Rathe||||||
+STdb68f46804|main-story/the-land-of-rathe.md|main-story|The Land of Rathe|||https://fabtcg.com/articles/land-of-rathe/|2019-29-08||
 ST74660c65dc|other-characters/README.md|other-characters|Readme||||||
 ST86a4863826|other-characters/krest-mortimer.md|other-characters|Dr. Krest Mortimer, 'The Fixer'||||||
-ST7aa76e200d|other-characters/lady-bartimont.md|other-characters|Lady Bartimont||||||
-ST54662de240|other-characters/lord-sutcliffe.md|other-characters|Lord Sutcliffe||||||
-ST8d4bbe4211|other-characters/minerva-themis.md|other-characters|Minerva Themis||||||
-STee09244564|other-characters/the-librarian.md|other-characters|The Librarian||||||
+ST7aa76e200d|other-characters/lady-bartimont.md|other-characters|Lady Bartimont|Nicola Price, Tarryn Thomas|Carlos Cruchaga|https://fabtcg.com/articles/lady-barthimont/|2021-05-03||
+ST54662de240|other-characters/lord-sutcliffe.md|other-characters|Lord Sutcliffe|Nicola Price, Tarryn Thomas|bimawithpencil|https://fabtcg.com/articles/lord-sutcliffe/|2021-05-10||
+ST8d4bbe4211|other-characters/minerva-themis.md|other-characters|Minerva Themis|Nicola Price, Tarryn Thomas|Mihail Spil-Haufter|https://fabtcg.com/articles/minerva-themis/|2021-05-17||
+STee09244564|other-characters/the-librarian.md|other-characters|The Librarian|Nicola Price, Tarryn Thomas|Federico Musetti|https://fabtcg.com/articles/librarian/|2021-05-24||
 ST230756b4f0|short-stories/10-outsiders/a-thousand-cuts.md|short-stories|A Thousand Cuts||||||
 ST756f2cc244|short-stories/10-outsiders/aiming-high.md|short-stories|Aiming High||||||
 ST2df82d621c|short-stories/10-outsiders/bait-and-switch.md|short-stories|Bait and Switch||||||
@@ -339,30 +340,30 @@ ST0a55089688|short-stories/roll-of-honour/oldhim.md|short-stories|Roll of Honor:
 ST1b9464e42e|short-stories/roll-of-honour/rhinar.md|short-stories|Roll of Honor: Rhinar||||||
 STb5030aad92|short-stories/roll-of-honour/victor-goldmane.md|short-stories|Roll of Honor: Victor Goldmane||||||
 ST85d2d02234|short-stories/roll-of-honour/zen.md|short-stories|Roll of Honor: Zen||||||
-STf02a71d465|weapons/README.md|weapons|Readme||||||
-ST9f4494041b|weapons/cintari-saber.md|weapons|Cintari Saber||||||
+STf02a71d465|weapons/armed-to-the-teeth.md|weapons|Armed to the Teeth|||https://fabtcg.com/articles/armed-teeth/|2020-08-17||
+ST9f4494041b|weapons/cintari-saber.md|weapons|Cintari Saber|||https://fabtcg.com/articles/armed-teeth/|2020-08-17||
 ST8acf1da1c0|weapons/hanabi-blaster.md|weapons|Hanabi Blaster||||||
-ST866a8dc111|weapons/mandible-claw.md|weapons|Mandible Claw||||||
+ST866a8dc111|weapons/mandible-claw.md|weapons|Mandible Claw|||https://fabtcg.com/articles/armed-teeth/|2020-08-17||
 STd031c940d0|weapons/merciless-battleaxe.md|weapons|Merciless Battleaxe||||||
 ST3d747dbfa2|weapons/nebula-blade.md|weapons|Nebula Blade||||||
-ST27a2500c6c|weapons/plasma-barrel-shot.md|weapons|Plasma Barrel Shot||||||
-ST432823b397|weapons/reaping-blade.md|weapons|Reaping Blade||||||
-ST5b3d2e1aee|weapons/red-liner.md|weapons|Red Liner||||||
+ST27a2500c6c|weapons/plasma-barrel-shot.md|weapons|Plasma Barrel Shot|||https://fabtcg.com/articles/armed-teeth/|2020-08-17||
+ST432823b397|weapons/reaping-blade.md|weapons|Reaping Blade|||https://fabtcg.com/articles/armed-teeth/|2020-08-17||
+ST5b3d2e1aee|weapons/red-liner.md|weapons|Red Liner|||https://fabtcg.com/articles/armed-teeth/|2020-08-17||
 STb157ba96c8|weapons/rok.md|weapons|Rok||||||
 ST5761df53d9|weapons/sandscour-greatbow.md|weapons|Sandscour Greatbow||||||
 STa80aa1a105|weapons/savage-claw.md|weapons|Savage Claw||||||
-STa81ead9eaa|weapons/sledge-of-anvilheim.md|weapons|Sledge Of Anvilheim||||||
+STa81ead9eaa|weapons/sledge-of-anvilheim.md|weapons|Sledge Of Anvilheim|||https://fabtcg.com/articles/armed-teeth/|2020-08-17||
 STed7de56130|weapons/surgent-aethertide.md|weapons|Surgent Aethertide||||||
-ST15404de507|weapons/talishar-lost-prince.md|weapons|Talishar Lost Prince||||||
-STed1753e24d|weapons/zephyr-needle.md|weapons|Zephyr Needle||||||
-ST17ef02e02e|world-of-rathe/aria.md|world-of-rathe|Aria||||||
-ST59f0e271b3|world-of-rathe/demonastery.md|world-of-rathe|Demonastery||||||
-ST394b7f5954|world-of-rathe/high-seas.md|world-of-rathe|High Seas||||||
-STd45e5e52c9|world-of-rathe/metrix.md|world-of-rathe|A Towering Metropolis||||||
-ST3623a22657|world-of-rathe/misteria.md|world-of-rathe|Misteria||||||
-ST1ee61c8316|world-of-rathe/nebulus-rift.md|world-of-rathe|Nebulus Rift||||||
-ST18443a75c1|world-of-rathe/pits.md|world-of-rathe|Pits||||||
+ST15404de507|weapons/talishar-lost-prince.md|weapons|Talishar Lost Prince|||https://fabtcg.com/articles/armed-teeth/|2020-08-17||
+STed1753e24d|weapons/zephyr-needle.md|weapons|Zephyr Needle|||https://fabtcg.com/articles/armed-teeth/|2020-08-17||
+ST17ef02e02e|world-of-rathe/aria.md|world-of-rathe|Aria|||https://fabtcg.com/world-of-rathe/aria/|||
+ST59f0e271b3|world-of-rathe/demonastery.md|world-of-rathe|Demonastery|||https://fabtcg.com/world-of-rathe/demonastery/|||
+ST394b7f5954|world-of-rathe/high-seas.md|world-of-rathe|High Seas|||https://fabtcg.com/world-of-rathe/high-seas/|||
+STd45e5e52c9|world-of-rathe/metrix.md|world-of-rathe|Metrix|||https://fabtcg.com/world-of-rathe/metrix/|||
+ST3623a22657|world-of-rathe/misteria.md|world-of-rathe|Misteria|||https://fabtcg.com/world-of-rathe/misteria/|||
+ST1ee61c8316|world-of-rathe/nebulus-rift.md|world-of-rathe|Nebulus Rift|||https://fabtcg.com/world-of-rathe/nebulus-rift/|||
+ST18443a75c1|world-of-rathe/pits.md|world-of-rathe|Pits|||https://fabtcg.com/world-of-rathe/pits/|||
 STa23ae34d36|world-of-rathe/rathe.md|world-of-rathe|World of Rathe||||||
-STac17640362|world-of-rathe/savage-lands.md|world-of-rathe|Savage Lands||||||
-ST92ea326291|world-of-rathe/solana.md|world-of-rathe|Solana||||||
-ST6648f9fd6e|world-of-rathe/volcor.md|world-of-rathe|Volcor||||||
+STac17640362|world-of-rathe/savage-lands.md|world-of-rathe|Savage Lands|||https://fabtcg.com/world-of-rathe/savage-lands/|||
+ST92ea326291|world-of-rathe/solana.md|world-of-rathe|Solana|||https://fabtcg.com/world-of-rathe/solana/|||
+ST6648f9fd6e|world-of-rathe/volcor.md|world-of-rathe|Volcor|||https://fabtcg.com/world-of-rathe/volcor/|||

@@ -5,7 +5,6 @@ from __future__ import annotations
 from pathlib import Path
 
 import pytest
-
 from validate_data import ALLOWED_STORY_TYPES, _check_stories_story_type_allowlist
 
 
@@ -13,7 +12,7 @@ def test_story_type_unknown_emits_alert(tmp_path: Path, monkeypatch: pytest.Monk
     """A StoryType not in the allowlist is reported."""
     stories = tmp_path / "stories.csv"
     stories.write_text(
-        "StoryId|StoryKey|StoryType|Title|Authors|Illustrators|SourceLink|PublicationDate|ThumbnailImageLink|NarratedVideos\n"
+        "StoryId|StoryKey|StoryType|Title|Authors|Artists|SourceLink|PublicationDate|ThumbnailImageLink|NarratedVideos\n"
         "ST1111111111|main-story/x.md|mainn-story|Title\n",
         encoding="utf-8",
     )
