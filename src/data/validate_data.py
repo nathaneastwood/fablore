@@ -27,9 +27,9 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from pipe_csv_io import read_pipe_csv
+from pipe_csv_io import read_pipe_csv  # noqa: E402
 
-from mdbook_heading_ids import (
+from mdbook_heading_ids import (  # noqa: E402
     collect_heading_anchor_ids_from_path,
     format_fragment_suggestion,
     world_lore_markdown_path,
@@ -273,7 +273,7 @@ def _check_heroes_game_cardname_resolution(
     Replays the slug resolution used by :func:`create_heroes_csv.generate_heroes_csv`
     so hand-edited ``heroes-game.csv`` rows cannot drift from canonical + card-name
     rules without ``create_heroes_csv`` being re-run. Card-name aliases from
-    ``CANONICAL_HERO_CARD_NAME_ALIASES`` are applied only when the target slug exists
+    ``hero-card-name-aliases.csv`` are applied only when the target slug exists
     on the given canonical file (so minimal fixtures stay self-contained); see
     :func:`_check_hero_card_name_alias_slugs_in_canonical` for full-roster alias checks.
 
@@ -284,12 +284,11 @@ def _check_heroes_game_cardname_resolution(
     Returns:
         Alert strings; empty when every game row is consistent.
     """
-    from create_heroes_csv import (
-        CANONICAL_HERO_CARD_NAME_ALIASES,
-        apply_lore_canonical_override,
-        normalize_name,
-        split_name_variant,
-    )
+    from create_heroes_csv import apply_lore_canonical_override, split_name_variant
+    from hero_overrides import load_canonical_hero_card_name_aliases
+    from text_utils import normalize_name
+
+    aliases = load_canonical_hero_card_name_aliases()
 
     alerts: list[str] = []
     c_fields, canonical_rows = _pipe_rows(canonical_path)
@@ -316,7 +315,7 @@ def _check_heroes_game_cardname_resolution(
             name_key = normalize_name(hero)
             canonical_slug_by_name.setdefault(name_key, slug)
 
-    for alt_name_key, slug in CANONICAL_HERO_CARD_NAME_ALIASES.items():
+    for alt_name_key, slug in aliases.items():
         if slug in canonical_id_by_slug:
             canonical_slug_by_name[alt_name_key] = slug
 
@@ -335,7 +334,7 @@ def _check_heroes_game_cardname_resolution(
                 "Heroes game: "
                 f"{game_path.name} row {row_num}: CardName {card_name!r} resolves to "
                 f"unknown slug {canonical_slug!r} (check heroes-canonical.csv and "
-                "LORE_CANONICAL_OVERRIDES / aliases in create_heroes_csv.py)"
+                "hero_overrides.LORE_CANONICAL_OVERRIDES / hero-card-name-aliases.csv)"
             )
         elif expected_id != cid:
             alerts.append(
@@ -346,10 +345,36 @@ def _check_heroes_game_cardname_resolution(
     return alerts
 
 
-def _check_hero_card_name_alias_slugs_in_canonical(canonical_path: Path) -> list[str]:
-    """Ensure every ``CANONICAL_HERO_CARD_NAME_ALIASES`` target slug exists on disk.
+def _check_heroes_game_young_hero_column(game_path: Path) -> list[str]:
+    """Ensure ``heroes-game.csv`` ``YoungHero`` is ``true`` or ``false`` on every row.
 
-    The alias map is global configuration in :mod:`create_heroes_csv`; this check
+    Args:
+        game_path: ``heroes-game.csv`` path.
+
+    Returns:
+        Alert strings; empty when the column is absent (legacy file) or all values are valid.
+    """
+    allowed = frozenset({"true", "false"})
+    alerts: list[str] = []
+    fieldnames, rows = _pipe_rows(game_path)
+    if not fieldnames or "YoungHero" not in fieldnames or not rows:
+        return alerts
+    for row_num, row in enumerate(rows, start=2):
+        val = (row.get("YoungHero") or "").strip().lower()
+        if val not in allowed:
+            alerts.append(
+                "Heroes game: "
+                f"{game_path.name} row {row_num}: YoungHero must be 'true' or 'false', "
+                f"got {row.get('YoungHero')!r}"
+            )
+    return alerts
+
+
+def _check_hero_card_name_alias_slugs_in_canonical(canonical_path: Path) -> list[str]:
+    """Ensure every ``hero-card-name-aliases.csv`` target slug exists on disk.
+
+    The alias map is data in ``src/data/hero-card-name-aliases.csv`` (loaded via
+    :func:`hero_overrides.load_canonical_hero_card_name_aliases`); this check
     runs against the committed ``heroes-canonical.csv`` so typos in alias targets
     are caught without requiring a full card export run.
 
@@ -359,7 +384,7 @@ def _check_hero_card_name_alias_slugs_in_canonical(canonical_path: Path) -> list
     Returns:
         Alert strings; empty when every alias slug is present.
     """
-    from create_heroes_csv import CANONICAL_HERO_CARD_NAME_ALIASES
+    from hero_overrides import load_canonical_hero_card_name_aliases
 
     alerts: list[str] = []
     fieldnames, rows = _pipe_rows(canonical_path)
@@ -370,11 +395,11 @@ def _check_hero_card_name_alias_slugs_in_canonical(canonical_path: Path) -> list
         for r in rows
         if (r.get("CanonicalSlug") or "").strip()
     }
-    for alt_name_key, slug in CANONICAL_HERO_CARD_NAME_ALIASES.items():
+    for alt_name_key, slug in load_canonical_hero_card_name_aliases().items():
         if slug not in slugs:
             alerts.append(
-                "Heroes canonical: CANONICAL_HERO_CARD_NAME_ALIASES in create_heroes_csv.py "
-                f"maps {alt_name_key!r} to unknown CanonicalSlug {slug!r}"
+                f"Heroes canonical: hero-card-name-aliases.csv maps "
+                f"{alt_name_key!r} to unknown CanonicalSlug {slug!r}"
             )
     return alerts
 
@@ -489,6 +514,9 @@ def collect_alerts() -> list[str]:
 
     if canonical_path.is_file() and game_path.is_file():
         alerts.extend(_check_heroes_game_cardname_resolution(canonical_path, game_path))
+
+    if game_path.is_file():
+        alerts.extend(_check_heroes_game_young_hero_column(game_path))
 
     if canonical_path.is_file():
         alerts.extend(_check_hero_card_name_alias_slugs_in_canonical(canonical_path))

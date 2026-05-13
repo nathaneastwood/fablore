@@ -7,7 +7,8 @@ from pathlib import Path
 import pytest
 
 import game_class_talent_csv as gct
-from create_heroes_csv import make_hash_id, normalize_name
+from registry_ids import make_hash_id
+from text_utils import normalize_name
 
 
 def test_merge_classes_and_talents_writes_pipe_csvs(

@@ -11,8 +11,6 @@ executed as ``__main__``.
 
 from __future__ import annotations
 
-import csv
-import hashlib
 import subprocess
 import sys
 from pathlib import Path
@@ -21,41 +19,18 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from pipe_csv_io import REGENERATE_CREATE_SETS, write_pipe_csv_autogen
-from tab_csv_io import read_tab_csv
+from pipe_csv_io import REGENERATE_CREATE_SETS, write_pipe_csv_autogen  # noqa: E402
+from registry_ids import make_hash_id  # noqa: E402
+from tab_csv_io import read_tab_csv  # noqa: E402
+from text_utils import normalize_name  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 SETS_CSV_PATH = ROOT / "src/data/sets.csv"
 SET_TYPES_CSV_PATH = ROOT / "src/data/set-types.csv"
 UPSTREAM_SET_CSV_PATH = ROOT.parent / "flesh-and-blood-cards/csvs/english/set.csv"
-UPSTREAM_SET_PRINTING_CSV_PATH = ROOT.parent / "flesh-and-blood-cards/csvs/english/set-printing.csv"
-
-
-def normalize_name(value: str) -> str:
-    """Lowercase alphanumeric-only fold of ``value`` for hashing keys.
-
-    Args:
-        value: Raw set type or label string.
-
-    Returns:
-        Concatenation of lowercase letters and digits only.
-    """
-    return "".join(ch for ch in value.lower() if ch.isalnum())
-
-
-def make_hash_id(prefix: str, unique_value: str, digest_len: int = 10) -> str:
-    """Return ``prefix`` + truncated SHA-1 hex digest of ``unique_value``.
-
-    Args:
-        prefix: Short uppercase prefix (e.g. ``ST`` for set type).
-        unique_value: Stable string to hash.
-        digest_len: Number of hex characters to keep (default ``10``).
-
-    Returns:
-        Deterministic identifier string.
-    """
-    digest = hashlib.sha1(unique_value.encode("utf-8")).hexdigest()[:digest_len]
-    return f"{prefix}{digest}"
+UPSTREAM_SET_PRINTING_CSV_PATH = (
+    ROOT.parent / "flesh-and-blood-cards/csvs/english/set-printing.csv"
+)
 
 
 def infer_set_type_label(set_id: str, set_name: str) -> str:
@@ -171,7 +146,7 @@ def generate_sets_csv() -> None:
     for set_type in sorted(set(set_type_label_by_set_id.values())):
         set_types_rows.append(
             {
-                "SetTypeId": make_hash_id("ST", normalize_name(set_type)),
+                "SetTypeId": make_hash_id("TY", normalize_name(set_type)),
                 "SetType": set_type,
                 "SetTypeLayer": infer_set_type_layer(set_type),
             }

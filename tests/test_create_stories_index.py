@@ -50,8 +50,8 @@ def test_discover_preserves_existing_csv_title(
     stories = data / "stories.csv"
     stories.write_text(
         "# AUTO\n"
-        "StoryId|StoryKey|StoryType|Title\n"
-        "ST1111111111|main-story/sample.md|main-story|Kept Title\n",
+        "StoryId|StoryKey|StoryType|Title|Authors|Illustrators|SourceLink|PublicationDate|ThumbnailImageLink|NarratedVideos\n"
+        "ST1111111111|main-story/sample.md|main-story|Kept Title|Author A|||||\n",
         encoding="utf-8",
     )
     monkeypatch.setattr(csi, "SRC", src)
@@ -60,7 +60,8 @@ def test_discover_preserves_existing_csv_title(
     monkeypatch.setattr(csi, "STORY_ROOTS", ("main-story",))
     rows = csi.discover_story_keys()
     assert len(rows) == 1
-    assert rows[0][2] == "Kept Title"
+    assert rows[0]["Title"] == "Kept Title"
+    assert rows[0]["Authors"] == "Author A"
 
 
 def test_discover_refreshes_when_csv_title_is_only_stem_placeholder(
@@ -76,7 +77,7 @@ def test_discover_refreshes_when_csv_title_is_only_stem_placeholder(
     stories = data / "stories.csv"
     stories.write_text(
         "# AUTO\n"
-        "StoryId|StoryKey|StoryType|Title\n"
+        "StoryId|StoryKey|StoryType|Title|Authors|Illustrators|SourceLink|PublicationDate|ThumbnailImageLink|NarratedVideos\n"
         "ST1111111111|main-story/sample.md|main-story|Sample\n",
         encoding="utf-8",
     )
@@ -86,7 +87,7 @@ def test_discover_refreshes_when_csv_title_is_only_stem_placeholder(
     monkeypatch.setattr(csi, "STORY_ROOTS", ("main-story",))
     rows = csi.discover_story_keys()
     assert len(rows) == 1
-    assert rows[0][2] == "From H1"
+    assert rows[0]["Title"] == "From H1"
 
 
 def test_discover_infers_when_csv_title_blank(
@@ -102,7 +103,7 @@ def test_discover_infers_when_csv_title_blank(
     stories = data / "stories.csv"
     stories.write_text(
         "# AUTO\n"
-        "StoryId|StoryKey|StoryType|Title\n"
+        "StoryId|StoryKey|StoryType|Title|Authors|Illustrators|SourceLink|PublicationDate|ThumbnailImageLink|NarratedVideos\n"
         "ST1111111111|main-story/sample.md|main-story|\n",
         encoding="utf-8",
     )
@@ -112,4 +113,4 @@ def test_discover_infers_when_csv_title_blank(
     monkeypatch.setattr(csi, "STORY_ROOTS", ("main-story",))
     rows = csi.discover_story_keys()
     assert len(rows) == 1
-    assert rows[0][2] == "From File"
+    assert rows[0]["Title"] == "From File"

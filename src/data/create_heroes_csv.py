@@ -2,7 +2,9 @@
 
 This script writes linked outputs:
 1) `heroes-canonical.csv` — one row per canonical hero (`CanonicalId`, slug, display name)
-2) `heroes-game.csv` — one row per hero card line with reference IDs
+2) `heroes-game.csv` — one row per hero card line with reference IDs (``YoungHero``
+   is ``true``/``false`` from the upstream *Young* type token; classes/talents use
+   ``ClassIds`` / ``TalentIds``)
 3) `classes.csv` / `talents.csv` — shared class and talent reference tables (union of
    hero + weapon + non-weapon equipment ``Types`` via :mod:`game_class_talent_csv`;
    regenerate alone with ``python3 src/data/create_classes_talents_csv.py``)
@@ -15,8 +17,9 @@ lore tooling and story junctions. It is **not** the same field as ``CardName`` i
 ``heroes-game.csv`` (the exact printed card title from upstream ``card.csv``): many
 cards use a comma subtitle (e.g. ``Bravo, Showstopper``) while ``CanonicalHero`` may
 stay short (``Bravo``). The generator still maps each ``CardName`` to a ``CanonicalId``
-using the first segment of the title plus ``LORE_CANONICAL_OVERRIDES`` and
-``CANONICAL_HERO_CARD_NAME_ALIASES``, and it builds a name→slug index from
+using the first segment of the title plus ``LORE_CANONICAL_OVERRIDES`` from
+:mod:`hero_overrides` and the card-name aliases in ``hero-card-name-aliases.csv``,
+and it builds a name→slug index from
 ``normalize_name(CanonicalHero)`` so slug resolution stays aligned with the roster.
 ``validate_data._check_heroes_game_cardname_resolution`` replays that mapping to catch
 drift between committed canonical and game rows.
@@ -35,8 +38,6 @@ Each generated CSV begins with a ``#`` banner line marking it as auto-generated.
 
 from __future__ import annotations
 
-import hashlib
-import re
 import subprocess
 import sys
 from pathlib import Path
@@ -45,18 +46,29 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from card_types_extract import (
+from card_types_extract import (  # noqa: E402
     dedupe_preserving_order,
     extract_card_classes_and_talents,
+    is_young_hero_card,
     parse_tokens,
 )
-from create_sets_csv import SETS_CSV_PATH, generate_sets_csv
-from tab_csv_io import read_tab_csv
-from game_class_talent_csv import (
+from create_sets_csv import SETS_CSV_PATH, generate_sets_csv  # noqa: E402
+from tab_csv_io import read_tab_csv  # noqa: E402
+from game_class_talent_csv import (  # noqa: E402
     UPSTREAM_CARD_CSV_PATH as CARD_CSV_PATH,
     merge_classes_and_talents_from_card_rows,
 )
-from pipe_csv_io import REGENERATE_CREATE_HEROES, read_pipe_csv, write_pipe_csv_autogen
+from hero_overrides import (  # noqa: E402
+    LORE_CANONICAL_OVERRIDES,
+    load_canonical_hero_card_name_aliases,
+)
+from pipe_csv_io import (  # noqa: E402
+    REGENERATE_CREATE_HEROES,
+    read_pipe_csv,
+    write_pipe_csv_autogen,
+)
+from registry_ids import assert_unique_ids, make_hash_id  # noqa: E402
+from text_utils import normalize_name  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 HEROES_CANONICAL_CSV_PATH = ROOT / "src/data/heroes-canonical.csv"
@@ -64,50 +76,11 @@ HEROES_GAME_CSV_PATH = ROOT / "src/data/heroes-game.csv"
 HEROES_PRINTINGS_CSV_PATH = ROOT / "src/data/heroes-printings.csv"
 CARD_PRINTING_CSV_PATH = ROOT.parent / "flesh-and-blood-cards/csvs/english/card-printing.csv"
 
-# Extra ``normalize_name`` keys for the text *before the first comma* on the card
-# ``Name`` → ``CanonicalSlug`` when that segment does not match
-# ``normalize_name(CanonicalHero)`` from ``heroes-canonical.csv``.
-#
-# This table only affects slug / ``CanonicalId`` resolution (and
-# ``LORE_CANONICAL_OVERRIDES`` lookup). It does **not** change ``CardName``, which is
-# always the full upstream card title—so wrong ``CardName`` values in hand-migrated
-# CSV rows are not caused by these aliases.
-CANONICAL_HERO_CARD_NAME_ALIASES: dict[str, str] = {
-    "dorintheaironsong": "dorinthea",
-    "dashio": "dash",
-    "fightmasterkox": "kox",
-    "groundbreakercrix": "crix",
-    "kassaiofthegoldensand": "kassai",
-    "maxxnitro": "maxx",
-    "maxxthehypenitro": "maxx",
-    "professorteklovossen": "teklovossen",
-    "valdabrightaxe": "valda",
-    "serboltyn": "boltyn",
-}
-
-# Lore-specific canonical split overrides that are not represented in game data.
-LORE_CANONICAL_OVERRIDES = {
-    "arakni": {
-        "araknihuntsman": "arakni-huntsman",
-        "arakni": "arakni-huntsman",
-        "arakni5lp3d7hru7h3cr4x": "arakni-solitary-confinement",
-        "araknisolitaryconfinement": "arakni-solitary-confinement",
-        "araknimarionette": "arakni-web-of-deceit",
-        "arakniwebofdeceit": "arakni-web-of-deceit",
-    }
-}
-
-
-def normalize_name(value: str) -> str:
-    """Lowercase alphanumeric-only fold for hero name matching and hashing.
-
-    Args:
-        value: Raw display or card name string.
-
-    Returns:
-        Lowercase string with non-alphanumeric characters removed.
-    """
-    return re.sub(r"[^a-z0-9]+", "", value.lower())
+# Hero card-name → canonical-slug aliases now live in ``hero-card-name-aliases.csv``
+# and are loaded via :func:`hero_overrides.load_canonical_hero_card_name_aliases`.
+# Lore-specific canonical split overrides (``LORE_CANONICAL_OVERRIDES``) live in
+# :mod:`hero_overrides` alongside the matching lore-file path overrides used by
+# the mdBook preprocessor.
 
 
 def split_name_variant(heading: str) -> tuple[str, str]:
@@ -126,21 +99,6 @@ def split_name_variant(heading: str) -> tuple[str, str]:
         name, variant = [part.strip() for part in clean.split(",", 1)]
         return name, variant
     return clean, ""
-
-
-def make_hash_id(prefix: str, unique_value: str, digest_len: int = 10) -> str:
-    """Return ``prefix`` + truncated SHA-1 hex of ``unique_value``.
-
-    Args:
-        prefix: Two-letter uppercase id family (``HG``, ``CN``, etc.).
-        unique_value: Stable UTF-8 string to hash.
-        digest_len: Hex characters to keep (default ``10``).
-
-    Returns:
-        Deterministic identifier.
-    """
-    digest = hashlib.sha1(unique_value.encode("utf-8")).hexdigest()[:digest_len]
-    return f"{prefix}{digest}"
 
 
 def apply_lore_canonical_override(base_slug: str, hero_name: str, hero_variant: str) -> str:
@@ -175,9 +133,13 @@ def generate_heroes_csv() -> None:
             continue
         row["CanonicalId"] = make_hash_id("CN", slug)
 
-    canonical_ids = [row.get("CanonicalId", "") for row in canonical_rows if row.get("CanonicalId", "")]
-    if len(canonical_ids) != len(set(canonical_ids)):
-        raise ValueError("Canonical ID hash collision detected")
+    assert_unique_ids(
+        [
+            (row.get("CanonicalId", ""), row.get("CanonicalSlug", ""))
+            for row in canonical_rows
+        ],
+        "Canonical hero",
+    )
 
     canonical_id_by_slug = {row["CanonicalSlug"]: row["CanonicalId"] for row in canonical_rows}
     canonical_slug_by_name: dict[str, str] = {}
@@ -185,10 +147,11 @@ def generate_heroes_csv() -> None:
         name_key = normalize_name(row["CanonicalHero"])
         canonical_slug_by_name.setdefault(name_key, row["CanonicalSlug"])
 
-    for alt_name_key, slug in CANONICAL_HERO_CARD_NAME_ALIASES.items():
+    for alt_name_key, slug in load_canonical_hero_card_name_aliases().items():
         if slug not in canonical_id_by_slug:
             raise ValueError(
-                f"CANONICAL_HERO_CARD_NAME_ALIASES[{alt_name_key!r}] -> {slug!r} is not a CanonicalSlug in heroes-canonical.csv"
+                f"hero-card-name-aliases.csv: {alt_name_key!r} -> {slug!r} "
+                "is not a CanonicalSlug in heroes-canonical.csv"
             )
         canonical_slug_by_name[alt_name_key] = slug
 
@@ -267,7 +230,8 @@ def generate_heroes_csv() -> None:
                     "Health": card.get("Health", "").strip(),
                     "Intellect": card.get("Intelligence", "").strip(),
                     "AbilityText": card.get("Functional Text", "").strip().replace("\n", " "),
-                    "Types": ", ".join(parse_tokens(card.get("Types", ""))),
+                    "YoungHero": "true" if is_young_hero_card(card.get("Types", "")) else "false",
+                    "TypesNormalized": ", ".join(parse_tokens(card.get("Types", ""))),
                     "Printings": printings,
                     "EarliestRelease": earliest_release,
                 }
@@ -296,7 +260,7 @@ def generate_heroes_csv() -> None:
                 [
                     row.get("CanonicalSlug", ""),
                     row.get("CardName", ""),
-                    row.get("Types", ""),
+                    row.get("TypesNormalized", ""),
                     row.get("Health", ""),
                     row.get("Intellect", ""),
                 ]
@@ -314,7 +278,7 @@ def generate_heroes_csv() -> None:
                 "Health": row["Health"],
                 "Intellect": row["Intellect"],
                 "AbilityText": row["AbilityText"],
-                "Types": row["Types"],
+                "YoungHero": row["YoungHero"],
             }
         )
         for entry in row["Printings"]:
@@ -328,9 +292,10 @@ def generate_heroes_csv() -> None:
                 }
             )
 
-    hero_game_ids = [row["HeroGameId"] for row in game_rows]
-    if len(hero_game_ids) != len(set(hero_game_ids)):
-        raise ValueError("Hero game ID hash collision detected")
+    assert_unique_ids(
+        [(row["HeroGameId"], row["CardName"]) for row in game_rows],
+        "Hero game",
+    )
 
     canonical_fieldnames = ["CanonicalId", "CanonicalSlug", "CanonicalHero"]
     game_fieldnames = [
@@ -342,7 +307,7 @@ def generate_heroes_csv() -> None:
         "Health",
         "Intellect",
         "AbilityText",
-        "Types",
+        "YoungHero",
     ]
     printings_fieldnames = ["HeroGameId", "SetId", "CardId", "Rarity"]
 

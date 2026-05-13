@@ -30,18 +30,11 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
+from hero_overrides import HERO_SLUG_LORE_FILE_OVERRIDES  # noqa: E402
 from pipe_csv_io import read_pipe_csv  # noqa: E402
 
 MARK_START = "<!-- fablore-related:start -->"
 MARK_END = "<!-- fablore-related:end -->"
-
-# ``heroes-canonical`` slugs that do not match ``{slug}-about.md`` filenames under
-# ``heroes-of-rathe/`` (deck printings vs one lore page, shortened slugs, etc.).
-_HERO_SLUG_LORE_OVERRIDES: dict[str, str] = {
-    "arakni-huntsman": "heroes-of-rathe/arakni-about.md",
-    "arakni-solitary-confinement": "heroes-of-rathe/arakni-5l!p3d-7hru-7h3-cr4x-about.md",
-    "arakni-web-of-deceit": "heroes-of-rathe/arakni-marionette-about.md",
-}
 
 
 def _same_src_markdown(chapter_src_path: str, target_src_path: str) -> bool:
@@ -161,7 +154,7 @@ def resolve_hero_src_path(src_root: Path, canonical_slug: str) -> str | None:
     Returns:
         Path relative to ``src_root`` using POSIX separators, or ``None``.
     """
-    override = _HERO_SLUG_LORE_OVERRIDES.get(canonical_slug.strip())
+    override = HERO_SLUG_LORE_FILE_OVERRIDES.get(canonical_slug.strip())
     if override:
         p = Path(override)
         if (src_root / p).is_file():
