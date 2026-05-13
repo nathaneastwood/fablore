@@ -109,6 +109,7 @@ def test_build_related_fragment_hero_and_location(tmp_path: Path) -> None:
         story_key_to_id={"main-story/x.md": "ST1"},
         story_heroes={"ST1": frozenset({"CN1"})},
         story_locations={"ST1": frozenset({"LO1"})},
+        story_regions={},
         canonical_hero={"CN1": ("boltyn", "Boltyn")},
         location_row={"LO1": ("Beacon", "RG1", "")},
         region_row={"RG1": ("Metrix", "world-of-rathe/metrix.md")},
@@ -142,6 +143,7 @@ def test_build_related_fragment_skips_location_without_world_lore_file(
         story_key_to_id={"main-story/x.md": "ST1"},
         story_heroes={"ST1": frozenset({"CN1"})},
         story_locations={"ST1": frozenset({"LO1", "LO2"})},
+        story_regions={},
         canonical_hero={"CN1": ("boltyn", "Boltyn")},
         location_row={
             "LO1": ("Beacon", "RG1", ""),
@@ -172,6 +174,7 @@ def test_build_related_fragment_location_lore_fragment_in_href(tmp_path: Path) -
         story_key_to_id={"main-story/05-tales-of-aria/x.md": "ST1"},
         story_heroes={},
         story_locations={"ST1": frozenset({"LO1"})},
+        story_regions={},
         canonical_hero={},
         location_row={"LO1": ("Enion", "RG1", "enion")},
         region_row={"RG1": ("Aria", "world-of-rathe/aria.md")},
@@ -199,6 +202,7 @@ def test_build_related_fragment_skips_location_when_chapter_is_that_world_page(
         story_key_to_id={"world-of-rathe/aria.md": "ST1"},
         story_heroes={},
         story_locations={"ST1": frozenset({"LO1", "LO2"})},
+        story_regions={},
         canonical_hero={},
         location_row={
             "LO1": ("Enion", "RG1", "enion"),
@@ -234,6 +238,7 @@ def test_build_related_fragment_skips_hero_when_chapter_is_that_hero_page(
         story_key_to_id={"heroes-of-rathe/boltyn-about.md": "ST1"},
         story_heroes={"ST1": frozenset({"CN1"})},
         story_locations={},
+        story_regions={},
         canonical_hero={"CN1": ("boltyn", "Boltyn")},
         location_row={},
         region_row={},
@@ -257,6 +262,7 @@ def test_build_related_fragment_wraps_type_and_title_in_body(tmp_path: Path) -> 
         story_key_to_id={"main-story/x.md": "ST1"},
         story_heroes={"ST1": frozenset({"CN1"})},
         story_locations={},
+        story_regions={},
         canonical_hero={"CN1": ("boltyn", "Boltyn")},
         location_row={},
         region_row={},
@@ -269,3 +275,103 @@ def test_build_related_fragment_wraps_type_and_title_in_body(tmp_path: Path) -> 
     )
     assert "related-card-body" in html
     assert html.index("related-cards") < html.index("related-card-body")
+
+
+def test_build_related_fragment_region_card(tmp_path: Path) -> None:
+    """Region cards appear with type 'Region' and link to the world lore page."""
+    src = tmp_path / "src"
+    (src / "world-of-rathe").mkdir(parents=True)
+    (src / "world-of-rathe" / "savage-lands.md").write_text("# SL\n", encoding="utf-8")
+
+    maps = RelatedMaps(
+        story_key_to_id={"main-story/20-compendium-of-rathe/vow-unbroken.md": "ST1"},
+        story_heroes={},
+        story_locations={},
+        story_regions={"ST1": frozenset({"RG1"})},
+        canonical_hero={},
+        location_row={},
+        region_row={"RG1": ("The Savage Lands", "world-of-rathe/savage-lands.md")},
+    )
+    result = build_related_fragment(
+        maps,
+        story_id="ST1",
+        chapter_src_path="main-story/20-compendium-of-rathe/vow-unbroken.md",
+        src_root=src,
+    )
+    assert "Related Lore" in result
+    assert "The Savage Lands" in result
+    assert "Region" in result
+    assert "../../world-of-rathe/savage-lands.md" in result
+
+
+def test_build_related_fragment_region_skips_missing_world_page(tmp_path: Path) -> None:
+    """Region cards are omitted when the world lore file does not exist on disk."""
+    src = tmp_path / "src"
+    (src / "world-of-rathe").mkdir(parents=True)
+
+    maps = RelatedMaps(
+        story_key_to_id={"main-story/x.md": "ST1"},
+        story_heroes={},
+        story_locations={},
+        story_regions={"ST1": frozenset({"RG1"})},
+        canonical_hero={},
+        location_row={},
+        region_row={"RG1": ("The Savage Lands", "world-of-rathe/savage-lands.md")},
+    )
+    result = build_related_fragment(
+        maps,
+        story_id="ST1",
+        chapter_src_path="main-story/x.md",
+        src_root=src,
+    )
+    assert result == ""
+
+
+def test_build_related_fragment_region_skips_self(tmp_path: Path) -> None:
+    """No region card when the chapter is that region's own world lore page."""
+    src = tmp_path / "src"
+    (src / "world-of-rathe").mkdir(parents=True)
+    (src / "world-of-rathe" / "savage-lands.md").write_text("# SL\n", encoding="utf-8")
+
+    maps = RelatedMaps(
+        story_key_to_id={"world-of-rathe/savage-lands.md": "ST1"},
+        story_heroes={},
+        story_locations={},
+        story_regions={"ST1": frozenset({"RG1"})},
+        canonical_hero={},
+        location_row={},
+        region_row={"RG1": ("The Savage Lands", "world-of-rathe/savage-lands.md")},
+    )
+    result = build_related_fragment(
+        maps,
+        story_id="ST1",
+        chapter_src_path="world-of-rathe/savage-lands.md",
+        src_root=src,
+    )
+    assert result == ""
+
+
+def test_load_related_maps_loads_story_regions(tmp_path: Path) -> None:
+    """``load_related_maps`` populates ``story_regions`` from ``story-regions.csv``."""
+    data = tmp_path / "data"
+    data.mkdir()
+    (data / "stories.csv").write_text(
+        "StoryId|StoryKey|StoryType|Title\nST1|main-story/x.md|main-story|X\n",
+        encoding="utf-8",
+    )
+    (data / "story-heroes.csv").write_text("StoryId|CanonicalId\n", encoding="utf-8")
+    (data / "story-locations.csv").write_text("StoryId|LocationId\n", encoding="utf-8")
+    (data / "story-regions.csv").write_text(
+        "StoryId|RegionId\nST1|RG1\n", encoding="utf-8"
+    )
+    (data / "heroes-canonical.csv").write_text(
+        "CanonicalId|CanonicalSlug|CanonicalHero\n", encoding="utf-8"
+    )
+    (data / "locations.csv").write_text("LocationId|Name|RegionId\n", encoding="utf-8")
+    (data / "regions.csv").write_text(
+        "RegionId|RegionName|WorldOfRatheStoryKey\n"
+        "RG1|The Savage Lands|world-of-rathe/savage-lands.md\n",
+        encoding="utf-8",
+    )
+    m = load_related_maps(data)
+    assert m.story_regions["ST1"] == frozenset({"RG1"})
