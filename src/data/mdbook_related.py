@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
 """mdBook preprocessor: append a Related Lore section from story junction CSVs.
 
-Reads ``stories.csv`` and ``story-heroes.csv`` / ``story-locations.csv`` (plus
-canonical registries), matches each chapter's path to ``StoryKey``, and appends
-HTML cards with relative ``.md`` links to hero and world-of-rathe pages.
+Reads ``stories.csv`` and ``story-heroes.csv`` / ``story-locations.csv`` /
+``story-regions.csv`` (plus canonical registries), matches each chapter's path to
+``StoryKey``, and appends HTML cards with relative ``.md`` links to hero and
+world-of-rathe pages.
 **No card is emitted without a resolvable target file** under ``src/`` (heroes
-via ``heroes-of-rathe/``, locations via ``regions.csv`` ``WorldOfRatheStoryKey``).
-Optional ``locations.csv`` ``LoreFragment`` appends ``#id`` for deep links into
-that world page (mdBook heading id, e.g. ``enion`` for ``### Enion``). Cards never
-link to the chapter file itself (e.g. no location cards on ``world-of-rathe/aria.md``
-that point back to ``aria.md``). All cards render in one ``.related-cards`` grid
-(heroes first, optional spacer, then locations) so a small theme script can equalize
-card heights across both groups.
+via ``heroes-of-rathe/``, locations and regions via ``regions.csv``
+``WorldOfRatheStoryKey``). Optional ``locations.csv`` ``LoreFragment`` appends
+``#id`` for deep links into that world page (mdBook heading id, e.g. ``enion``
+for ``### Enion``). Cards never link to the chapter file itself (e.g. no region
+cards on ``world-of-rathe/savage-lands.md`` that point back to itself). All cards
+render in one ``.related-cards`` grid (heroes first, optional spacer, then
+locations, optional spacer, then regions) so a small theme script can equalize
+card heights across all groups.
 
 mdBook passes ``(PreprocessorContext, Book)`` as JSON on stdin; this process must
 print only the modified ``Book`` JSON on stdout. Supports ``supports <renderer>``.
@@ -67,6 +69,7 @@ class RelatedMaps:
     story_key_to_id: dict[str, str]
     story_heroes: dict[str, frozenset[str]]
     story_locations: dict[str, frozenset[str]]
+    story_regions: dict[str, frozenset[str]]
     canonical_hero: dict[str, tuple[str, str]]
     location_row: dict[str, tuple[str, str, str]]
     region_row: dict[str, tuple[str, str]]
@@ -109,6 +112,13 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
         if sid and lid:
             sl.setdefault(sid, set()).add(lid)
 
+    sr: dict[str, set[str]] = {}
+    for r in rows(data_dir / "story-regions.csv"):
+        sid = (r.get("StoryId") or "").strip()
+        rid = (r.get("RegionId") or "").strip()
+        if sid and rid:
+            sr.setdefault(sid, set()).add(rid)
+
     canonical: dict[str, tuple[str, str]] = {}
     for r in rows(data_dir / "heroes-canonical.csv"):
         cid = (r.get("CanonicalId") or "").strip()
@@ -138,6 +148,7 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
         story_key_to_id=key_to_id,
         story_heroes={k: frozenset(v) for k, v in sh.items()},
         story_locations={k: frozenset(v) for k, v in sl.items()},
+        story_regions={k: frozenset(v) for k, v in sr.items()},
         canonical_hero=canonical,
         location_row=loc,
         region_row=reg,
@@ -166,7 +177,7 @@ def resolve_hero_src_path(src_root: Path, canonical_slug: str) -> str | None:
     return None
 
 
-_HERO_LOCATION_GROUP_ORDER: tuple[str, ...] = ("Hero", "Location")
+_CARD_GROUP_ORDER: tuple[str, ...] = ("Hero", "Location", "Region")
 
 
 def _append_card_markup(
@@ -209,9 +220,11 @@ def build_related_fragment(
     """
     hero_ids = sorted(maps.story_heroes.get(story_id, frozenset()))
     loc_ids = sorted(maps.story_locations.get(story_id, frozenset()))
+    reg_ids = sorted(maps.story_regions.get(story_id, frozenset()))
 
     hero_cards: list[tuple[str, str, str, str]] = []
     loc_cards: list[tuple[str, str, str, str]] = []
+    reg_cards: list[tuple[str, str, str, str]] = []
     # (kind_label, title, subtitle, href). Only href-populated rows become cards.
 
     for hid in hero_ids:
@@ -259,9 +272,29 @@ def build_related_fragment(
         href = html.escape(url)
         loc_cards.append(("Location", place, subtitle, href))
 
+    for rid in reg_ids:
+        reg = maps.region_row.get(rid)
+        if not reg:
+            continue
+        rname, world_key = reg
+        if not world_key:
+            continue
+        wk = Path(world_key).as_posix()
+        if not (src_root / wk).is_file():
+            print(
+                f"mdbook_related: region {rname!r}: omitting card (world page {wk!r} missing)",
+                file=sys.stderr,
+            )
+            continue
+        if _same_src_markdown(chapter_src_path, wk):
+            continue
+        href = html.escape(relative_md_href(chapter_src_path, wk))
+        reg_cards.append(("Region", rname, "", href))
+
     by_kind: dict[str, list[tuple[str, str, str, str]]] = {
         "Hero": [c for c in hero_cards if c[3]],
         "Location": [c for c in loc_cards if c[3]],
+        "Region": [c for c in reg_cards if c[3]],
     }
     total = sum(len(by_kind[k]) for k in by_kind)
     if total == 0:
@@ -273,7 +306,7 @@ def build_related_fragment(
         '<div class="related-cards">',
     ]
     first_group = True
-    for kind_key in _HERO_LOCATION_GROUP_ORDER:
+    for kind_key in _CARD_GROUP_ORDER:
         group = by_kind.get(kind_key, [])
         if not group:
             continue

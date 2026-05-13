@@ -77,6 +77,7 @@ JUNCTION_SPECS: tuple[tuple[str, tuple[str, ...]], ...] = (
     ("story-npcs.csv", ("StoryId", "CharacterId")),
     ("story-heroes.csv", ("StoryId", "CanonicalId")),
     ("story-locations.csv", ("StoryId", "LocationId")),
+    ("story-regions.csv", ("StoryId", "RegionId")),
     ("story-weapons.csv", ("StoryId", "CanonicalWeaponId")),
     ("story-equipment.csv", ("StoryId", "CanonicalEquipmentId")),
     ("story-flora.csv", ("StoryId", "FloraId")),

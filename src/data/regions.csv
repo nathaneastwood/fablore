@@ -1,4 +1,4 @@
-# AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Story class in src/data/story.py (Story.link_npc / link_monster / link_fauna / link_flora / link_food_drink / link_location — link_location upserts regions.csv when region_name is set).
+# AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Story class in src/data/story.py (Story.link_npc / link_monster / link_fauna / link_flora / link_food_drink / link_location / link_region — link_location and link_region upsert regions.csv when region_name is set).
 RegionId|RegionName|WorldOfRatheStoryKey
 RG48803cad0f|Aria|world-of-rathe/aria.md
 RG23a26a3e3c|Deathmatch Arena|
