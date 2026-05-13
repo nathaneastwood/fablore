@@ -8,10 +8,6 @@ From that day forth, Fai paid heed to his mother's words. He vowed to forge her 
 
 With blade in hand, Fai would make sure the Volcai never suffered again.
 
----
-
-_Source: [https://fabtcg.com/heroes/fai/?stories=True](https://fabtcg.com/heroes/fai/?stories=True)_
-
 # Fires of Rebellion
 
 <p>
@@ -159,13 +155,6 @@ The name is a slap to Fai's face. His scars burn hot in his flesh. "You know whe
 "I told you there are many roads to Ashvahan, boy." She points her bloodied dagger at General Riku. "The trick is knowing who to kill to get there."
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/fai-6.webp" alt="fai-6" class="center">
-
----
-
-_Source: [https://fabtcg.com/heroes/fai/fires-rebellion/](https://fabtcg.com/heroes/fai/fires-rebellion/)_<br>
-_Story written by Edwin McRae and Rachel Rees._<br>
-_Directed by Robbie._<br>
-_Illustrated by Sam Yang, Nikolay Moskvin._
 
 ---
 

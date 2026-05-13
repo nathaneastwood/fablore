@@ -86,12 +86,6 @@ Turning away from the frame, Viserai looked out over the small crowd which had g
 
 ---
 
-_Source: [https://fabtcg.com/articles/return-shadow/](https://fabtcg.com/articles/return-shadow/)_<br>
-_ Story by Nicola Price._<br>
-_Illustrations by MJ Fetesio and Nikolay Moskvin._
-
----
-
 ### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>

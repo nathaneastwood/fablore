@@ -1,0 +1,3 @@
+#bionic-toggle[aria-pressed="true"] {
+    color: var(--icons-hover);
+}

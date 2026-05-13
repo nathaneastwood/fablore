@@ -34,12 +34,6 @@ Remorse has thrust Yoji into a sovereignty of suspicion. He patrols a land haunt
 
 ---
 
-_Source: [https://fabtcg.com/heroes/yoji/?stories=True](https://fabtcg.com/heroes/yoji/?stories=True)_<br>
-_Written by Edwin McRae and Rachel Rees._<br>
-_Directed by Robbie. Illus. by Sam Yang._
-
----
-
 ### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>

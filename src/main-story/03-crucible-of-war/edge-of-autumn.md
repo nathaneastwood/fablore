@@ -60,10 +60,6 @@ Crumpling the note, Ira dropped it onto the ground, crushing the paper beneath h
 
 ---
 
-_Source: [https://fabtcg.com/heroes/ira-crimson-haze/?stories=True](https://fabtcg.com/heroes/ira-crimson-haze/?stories=True)_
-
----
-
 ### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>

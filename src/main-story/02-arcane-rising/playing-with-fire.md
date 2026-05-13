@@ -122,12 +122,6 @@ The Lord Chancellor frowned, rubbing his chin thoughtfully.
 
 ---
 
-_Source: [https://fabtcg.com/heroes/kano/playing-fire/](https://fabtcg.com/heroes/kano/playing-fire/)_<br>
-_Story by Nicola Price._
-_Illustrations by MJ Fetesio._<br>
-
----
-
 ### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>

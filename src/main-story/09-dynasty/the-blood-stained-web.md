@@ -57,12 +57,6 @@ I dance to my delight, knowing the red rain is about to fall.
 
 ---
 
-_Source: [The Blood Stained Web](https://fabtcg.com/heroes/arakni/?stories=True)_<br>
-_Written by Edwin McRae and Rachel Rees._<br>
-_Directed by Robbie. Illus. by Sam Yang._
-
----
-
 ### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>

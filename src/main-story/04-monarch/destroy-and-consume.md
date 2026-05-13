@@ -62,13 +62,6 @@ At last, Levia has been released from her erstwhile mistress's control, and is f
 
 ---
 
-_Source: [https://fabtcg.com/heroes/levia/destroy-and-consume/](https://fabtcg.com/heroes/levia/destroy-and-consume/)<br>
-_Written by Nicola Price._<br>
-_Edited by [Tarryn Thomas](https://tarrynlisathomas.wordpress.com/)._<br>
-_Illustrated by [Nikolay Moskvin](https://www.artstation.com/nik_moskvin)._
-
----
-
 ### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>

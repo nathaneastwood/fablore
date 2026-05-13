@@ -76,13 +76,6 @@ No longer will the Volcai be ground into the dirt. It is time for the Phoenix to
 
 ---
 
-_Source: [https://fabtcg.com/heroes/fai/phoenix-and-dragon/](https://fabtcg.com/heroes/fai/phoenix-and-dragon/)_<br>
-_Story written by Edwin McRae and Rachel Rees._<br>
-_Directed by Robbie._<br>
-_Illustrated by Sam Yang, Nikolay Moskvin._
-
----
-
 ### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>

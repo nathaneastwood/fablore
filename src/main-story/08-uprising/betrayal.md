@@ -62,10 +62,6 @@ Ashvahan will belong to her.
 
 ---
 
-_Source: [https://fabtcg.com/heroes/dromai/betrayal/](https://fabtcg.com/heroes/dromai/betrayal/)_
-
----
-
 ### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>

@@ -115,9 +115,3 @@ Then, a peal of laughter shattered the tentative quiet. As one, the group of sci
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-4.webp" alt="dash-4" class="center">
 
 Dash grimaced as the man continued raving, waving her fingers sheepishly at the occupants of the room as she ducked out of view, beginning to descend down the face of the Needle. Her feet touched the ground just as the front doors burst open, revealing Wyverstone standing in the entranceway, several staff members standing just behind him. Turning on her heel, Dash made for the nearest aperture, ducking down into the city level below.
-
----
-
-_Source: [https://fabtcg.com/heroes/dash/stroke-of-genius/](https://fabtcg.com/heroes/dash/stroke-of-genius/)_<br>
-_Story by Nicola Price._<br>
-_Illustrated by Sam Yang_

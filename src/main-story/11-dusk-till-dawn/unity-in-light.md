@@ -120,11 +120,3 @@ Shiyana looked at the enemy in the distance, their shattered formation regroupin
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/11-dusk-till-dawn/unity-in-light-5.webp" alt="unity-in-light-5" class="center">
 
 _And so, side by side, the heroes stood, ready to face the darkness to come, painting a future in the visceral hues of courage and blood. They charged as one, a legion of pure purpose, to snatch victory from the jaws of shadowed defeat. They fought for Solana. They fought for Aria. They fought for a world now balanced on a knife edge between the Dusk and the Dawn._
-
----
-
-_Source: [https://fabtcg.com/articles/unity-in-light/](https://fabtcg.com/articles/unity-in-light/)_<br>
-_Written by Edwin McRae and Rachel Rees._<br>
-_Directed by Robbie Wen, Sam Yang. Illus. by Jessketchin_
-
----
