@@ -6,7 +6,6 @@ import json
 from pathlib import Path
 
 import pytest
-
 import story
 
 
@@ -37,7 +36,7 @@ def test_story_constructor_persists_story_metadata(
         "main-story",
         "Meta",
         authors="Author A, Author B",
-        illustrators="Illustrator A",
+        Artists="Illustrator A",
         source_link="https://example.com/story",
         publication_date="2026-05-13",
         thumbnail_image_link="https://example.com/thumb.jpg",
@@ -50,7 +49,7 @@ def test_story_constructor_persists_story_metadata(
     assert len(rows) == 1
     row = rows[0]
     assert row["Authors"] == "Author A, Author B"
-    assert row["Illustrators"] == "Illustrator A"
+    assert row["Artists"] == "Illustrator A"
     assert row["SourceLink"] == "https://example.com/story"
     assert row["PublicationDate"] == "2026-05-13"
     assert row["ThumbnailImageLink"] == "https://example.com/thumb.jpg"

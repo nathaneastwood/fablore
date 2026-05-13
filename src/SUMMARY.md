@@ -151,6 +151,7 @@
     - [Untamed and Unbroken](main-story/14-heavy-hitters/untamed-and-unbroken.md)
     - [Another Day, Another Title](main-story/14-heavy-hitters/another-day-another-title.md)
     - [Bloodied Sands](main-story/14-heavy-hitters/bloodied-sands.md)
+    - [The Golden Son](main-story/14-heavy-hitters/the-golden-son.md)
     - [The Tiger in the Mist](main-story/15-part-the-mistveil/part-1-the-tiger-in-the-mist.md)
     - [The Tapestry Unfolds](main-story/15-part-the-mistveil/part-2-the-tapestry-unfolds.md)
     - [The Serpent's Strike](main-story/15-part-the-mistveil/part-3-the-serpents-strike.md)
@@ -236,7 +237,7 @@
     - [Imperial](languages/04-imperial.md)
     - [Ancient Dhani](languages/05-ancient-dhani.md)
 
-- [Weapons](weapons/README.md)
+- [Weapons](weapons/armed-to-the-teeth.md)
     - [Cintari Saber](weapons/cintari-saber.md)
     - [Hanabi Blaster](weapons/hanabi-blaster.md)
     - [Mandible Claw](weapons/mandible-claw.md)
@@ -253,7 +254,7 @@
     - [Talishar, Lost Prince](weapons/talishar-lost-prince.md)
     - [Zephyr Needle](weapons/zephyr-needle.md)
 
-- [Equipment](equipment/README.md)
+- [Equipment](equipment/in-the-fires-of-the-forge.md)
     - [Amethyst Tiara](equipment/amethyst-tiara.md)
     - [Blazen Yoroi](equipment/blazen-yoroi.md)
     - [Bloodsheath Skeleta](equipment/bloodsheath-skeleta.md)
