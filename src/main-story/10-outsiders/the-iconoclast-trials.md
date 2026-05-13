@@ -63,11 +63,3 @@ _Doctor Krest Mortimer,_<br>
 _Director of Southmaw Asylum_
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/arakni-4.webp" alt="arakni-4" class="center">
-
----
-
-_Source: [https://fabtcg.com/heroes/arakni-solitary-confinement/?stories=True](https://fabtcg.com/heroes/arakni-solitary-confinement/?stories=True)_<br>
-_Written by Edwin McRae and Rachel Rees._<br>
-_Directed by Robbie Wen. Illus. by Henrique Lindner._
-
----

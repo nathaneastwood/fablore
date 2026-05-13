@@ -39,11 +39,3 @@ The slightest smile twists his mutilated face as he watches her stride off into 
 He sets down his bow, takes up his oar, and paddles across the channel. Blades to retrieve. Trophies to claim. Traps to tweak. No point in waiting about.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/riptide-4.webp" alt="riptide-4" class="center">
-
----
-
-_Source: [https://fabtcg.com/en/heroes/riptide-lurker-of-the-deep/?stories=True](https://fabtcg.com/en/heroes/riptide-lurker-of-the-deep/?stories=True)_<br>
-_Written by Edwin McRae and Rachel Rees._<br>
-_Directed by Robbie Wen. Illus. by Henrique Lindner._
-
----

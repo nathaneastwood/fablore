@@ -220,13 +220,6 @@ He grinned, gesturing to the other residents who now milled behind him, watching
 
 ---
 
-_Source: [https://fabtcg.com/articles/harbinger-abyss/](https://fabtcg.com/articles/harbinger-abyss/)<br>
-_Written by Nicola Price._<br>
-_Edited by [Tarryn Thomas](https://tarrynlisathomas.wordpress.com/)._<br>
-_Illustrated by [Nikolay Moskvin](https://www.artstation.com/nik_moskvin)._
-
----
-
 ### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>

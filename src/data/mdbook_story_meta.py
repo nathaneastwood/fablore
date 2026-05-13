@@ -28,7 +28,7 @@ from pipe_csv_io import read_pipe_csv  # noqa: E402
 MARK_START = "<!-- fablore-story-meta:start -->"
 MARK_END = "<!-- fablore-story-meta:end -->"
 
-_WORDS_PER_MINUTE = 200
+_WORDS_PER_MINUTE = 250
 _MIN_WORDS_FOR_READTIME = 50
 
 

@@ -78,11 +78,6 @@ _'Come to the Solarium, noble knights, and ready your blades... the Shadow has e
 
 ---
 
-_Source: [https://fabtcg.com/articles/no-smoke-without-fire/](https://fabtcg.com/articles/no-smoke-without-fire/)_<br>
-_Illustrated by Nikolay Moskvin featuring art of Bramasta Aji._
-
----
-
 ### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>

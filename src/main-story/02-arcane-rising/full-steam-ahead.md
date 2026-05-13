@@ -171,9 +171,3 @@ With a dry chuckle, he shrugged.
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-12.webp" alt="dash-12" class="center">
 
 Ducking between the stalls, they hurried off, turning their backs on the twisted remains of the Gigadrill, smoke rising behind them.
-
----
-
-_Source: [https://fabtcg.com/heroes/dash/full-steam-ahead/](https://fabtcg.com/heroes/dash/full-steam-ahead/)_<br>
-_Story by Nicola Price._<br>
-_Illustrated by Sam Yang_

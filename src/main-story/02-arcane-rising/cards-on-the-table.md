@@ -108,12 +108,6 @@ Tucking the card into her waistband, Azalea exited the tavern, making her way ba
 
 ---
 
-_Source: [https://fabtcg.com/heroes/azalea/cards-on-the-table/](https://fabtcg.com/heroes/azalea/cards-on-the-table/)_
-_Story by Nicola Price._<br>
-_Featuring illustrations by [Daniel Jiménez](https://www.artstation.com/danieljimenez)._
-
----
-
 ### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>

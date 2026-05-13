@@ -133,10 +133,3 @@ Hala nodded, smiling behind her mask.
 "To their last or our own. We will overcome!"
 
 This is what Hala, Bladesaint of the Vow, was reborn for.
-
----
-
-_Source: [https://fabtcg.com/articles/vow-unbroken/](https://fabtcg.com/articles/vow-unbroken/)_<br>
-_Story by Robbie Wen, Edwin McRae, Corey J. White, Rachel Rees, Melissa Ren, Paul Davies_
-
----

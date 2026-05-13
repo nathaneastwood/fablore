@@ -95,6 +95,3 @@ Arakni nods, either in approval or bemusement-it's impossible to define it. Azal
 ---
 
 _Happy Holidays from LSS Creatives!_<br>
-_Source: [https://fabtcg.com/articles/squeakers-christmas/](https://fabtcg.com/articles/squeakers-christmas/)_<br>
-_Stories written by Edwin McRae and Rachel Rees._<br>
-_Directed by Robbie Wen. Illus. by Sam Yang._

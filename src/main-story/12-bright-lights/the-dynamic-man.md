@@ -156,9 +156,3 @@ Teklovossen, the man, might have left Metrix for good. But Teklovossen, the lege
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/the-dynamic-man-4.webp" alt="the-dynamic-man-4" class="center">
 
 Excerpt from: _The Dynamic Man_
-
----
-
-_Source: [https://fabtcg.com/articles/the-dynamic-man/](https://fabtcg.com/articles/the-dynamic-man/)_
-
----
