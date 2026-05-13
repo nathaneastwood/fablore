@@ -462,6 +462,7 @@ def collect_alerts() -> list[str]:
         (DATA / "story-npcs.csv", ("StoryId", "CharacterId"), "Story ↔ NPC links"),
         (DATA / "story-heroes.csv", ("StoryId", "CanonicalId"), "Story ↔ hero links"),
         (DATA / "story-locations.csv", ("StoryId", "LocationId"), "Story ↔ location links"),
+        (DATA / "story-regions.csv", ("StoryId", "RegionId"), "Story ↔ region links"),
         (DATA / "story-monsters.csv", ("StoryId", "MonsterId"), "Story ↔ monster links"),
         (DATA / "story-fauna.csv", ("StoryId", "FaunaId"), "Story ↔ fauna links"),
         (DATA / "story-flora.csv", ("StoryId", "FloraId"), "Story ↔ flora links"),
@@ -620,6 +621,15 @@ def collect_alerts() -> list[str]:
                 region_ids,
                 "regions.csv RegionId",
                 "Locations",
+            )
+        )
+        alerts.extend(
+            _check_fk_column(
+                DATA / "story-regions.csv",
+                "RegionId",
+                region_ids,
+                "regions.csv RegionId",
+                "Story ↔ region links",
             )
         )
 

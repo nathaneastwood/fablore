@@ -88,6 +88,7 @@ _STORY_JUNCTION_LINK_SPECS: tuple[tuple[str, str, str], ...] = (
     ("npcs", "story-npcs.csv", "CharacterId"),
     ("heroes", "story-heroes.csv", "CanonicalId"),
     ("locations", "story-locations.csv", "LocationId"),
+    ("regions", "story-regions.csv", "RegionId"),
     ("monsters", "story-monsters.csv", "MonsterId"),
     ("fauna", "story-fauna.csv", "FaunaId"),
     ("flora", "story-flora.csv", "FloraId"),
@@ -385,6 +386,7 @@ class Story:
             "npcs": set(),
             "heroes": set(),
             "locations": set(),
+            "regions": set(),
             "monsters": set(),
             "fauna": set(),
             "flora": set(),
@@ -514,10 +516,16 @@ class Story:
             kind = (row.get("Type") or "").strip()
             return f"{name} ({kind})" if kind else name
 
+        def fmt_region(row: dict[str, str], eid: str) -> str:
+            name = (row.get("RegionName") or "").strip() or eid
+            wk = (row.get("WorldOfRatheStoryKey") or "").strip()
+            return f"{name} — {wk}" if wk else name
+
         return [
             ("NPCs", "story-npcs.csv", "CharacterId", DATA / "npcs.csv", fmt_npc),
             ("Heroes", "story-heroes.csv", "CanonicalId", HEROES_CANONICAL_CSV_PATH, fmt_canonical("CanonicalHero")),
             ("Locations", "story-locations.csv", "LocationId", DATA / "locations.csv", fmt_location),
+            ("Regions", "story-regions.csv", "RegionId", DATA / "regions.csv", fmt_region),
             ("Monsters", "story-monsters.csv", "MonsterId", DATA / "monsters.csv", fmt_named_with_description),
             ("Fauna", "story-fauna.csv", "FaunaId", DATA / "fauna.csv", fmt_named_with_description),
             ("Flora", "story-flora.csv", "FloraId", DATA / "flora.csv", fmt_named_with_description),
@@ -1062,6 +1070,62 @@ class Story:
         )
         self.links["locations"].add(rid)
         return rid
+
+    def link_region(
+        self,
+        region_id: str = "",
+        *,
+        region_name: str = "",
+        world_of_rathe_story_key: str = "",
+    ) -> str:
+        """Link this story directly to a region via ``story-regions.csv``.
+
+        Use when a story references a region but no specific location within it.
+        Pass ``region_name`` to upsert ``regions.csv`` (same rules as
+        ``link_location``). Pass ``region_id`` alone only if that id already
+        exists in ``regions.csv``.
+
+        Args:
+            region_id: Existing ``RegionId`` when not passing ``region_name``.
+            region_name: When set, upserts ``regions.csv`` and resolves ``RegionId``.
+            world_of_rathe_story_key: Optional lore page key when upserting by name.
+
+        Returns:
+            ``RegionId`` written to ``story-regions.csv``.
+        """
+        rn = region_name.strip()
+        ri = region_id.strip()
+        wk = world_of_rathe_story_key.strip()
+
+        if rn:
+            computed = region_row_id(rn)
+            if ri and computed != ri:
+                raise ValueError(
+                    f"region_id {ri!r} does not match region_name {rn!r} "
+                    f"(expected RegionId {computed!r})"
+                )
+            eff_region = computed
+            self._upsert_region_registry_row(eff_region, rn, wk)
+        elif ri:
+            _, reg_rows = read_pipe_csv(DATA / "regions.csv")
+            reg_ids = {(r.get("RegionId") or "").strip() for r in reg_rows}
+            if ri not in reg_ids:
+                raise ValueError(
+                    f"region_id {ri!r} not in regions.csv; pass region_name=... to create it."
+                )
+            eff_region = ri
+        else:
+            raise ValueError("Either region_id or region_name must be provided.")
+
+        _merge_junction_link(
+            DATA / "story-regions.csv",
+            ["StoryId", "RegionId"],
+            "RegionId",
+            self.story_id,
+            eff_region,
+        )
+        self.links["regions"].add(eff_region)
+        return eff_region
 
     def link_weapon(self, *, canonical_slug: str | None = None) -> str:
         """Link an existing canonical weapon by ``CanonicalSlug``.

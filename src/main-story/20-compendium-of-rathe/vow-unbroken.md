@@ -1,16 +1,16 @@
 # Vow Unbroken
 
-[Hala](../../heroes-of-rathe/hala-about.md) stood on the ramparts, bright [Solana](../../archive/world-of-rathe/solana/solana.md) at her back and the writhing mass of the [Demonastery's](../../archive/world-of-rathe/demonastery/demonastery.md) hordes spread out beyond the city walls. Inside Solana's interlocking grid of protective wards, it was strangely quiet, the air still, but it would not remain that way for long.
+Hala stood on the ramparts, bright Solana at her back and the writhing mass of the Demonastery's hordes spread out beyond the city walls. Inside Solana's interlocking grid of protective wards, it was strangely quiet, the air still, but it would not remain that way for long.
 
 She sensed the wards' collapse a moment before she saw it. The latticework of runes shivered and dissipated. Street-conduits flickered out. The section of outer wall ahead of her shook then cracked apart, splitting the consecrated stonework. Debris exploded inward as soldiers fled and dust clouded the air.
 
 ![vow-unbroken-1](https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-1.webp)
 
-Hala tightened her grip on her Zenith Blade, seeing the grotesque colossus that pushed through the opening: [Levia](../../heroes-of-rathe/levia-about.md), once human, now monster, having given herself over to the Embra, Blasmophet.
+Hala tightened her grip on her Zenith Blade, seeing the grotesque colossus that pushed through the opening: Levia, once human, now monster, having given herself over to the Embra, Blasmophet.
 
 ![vow-unbroken-2](https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-2.webp)
 
-[Levia](../../heroes-of-rathe/levia-about.md) bellowed a war cry as loud as a thousand shrieking demons and pushed her way forward, tentacles collapsing segments of the wall as she led the Demonastery's hordes through the breach.
+Levia bellowed a war cry as loud as a thousand shrieking demons and pushed her way forward, tentacles collapsing segments of the wall as she led the Demonastery's hordes through the breach.
 
 Hala turned and leapt gracefully from the wall, landing amongst her knights.
 
@@ -34,7 +34,7 @@ Hala heard screaming and stopped, turning to see a group of civilians spill into
 
 "Protect those people!" she told her squad. "*I* will deal with this abomination."
 
-Lieutenant Aurea's eyes went wide at the torn bundles of metal and meat at the monstrosity's feet, but she didn't try to argue with Hala's plan. The brigade charged down the street and Hala left them to their work. Like sharpened blades, she and [Ser Boltyn](../../heroes-of-rathe/boltyn-about.md) had personally honed the Hand to carve the Shadow from the enemies of Light.
+Lieutenant Aurea's eyes went wide at the torn bundles of metal and meat at the monstrosity's feet, but she didn't try to argue with Hala's plan. The brigade charged down the street and Hala left them to their work. Like sharpened blades, she and Ser Boltyn had personally honed the Hand to carve the Shadow from the enemies of Light.
 
 ![vow-unbroken-5](https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-5.webp)
 
@@ -48,7 +48,7 @@ They stood guard in a broad avenue as the civilians they'd rescued ran for the S
 
 Should death indeed rule this day, Hala stood ready, having faced it many times.
 
-She had succumbed to it once, but even death could not hold her back, not when she ached to serve Sol with every part of her being. Dispatched to the [Savage Lands](../../archive/world-of-rathe/savage-lands/savage-lands.md) to patrol Solana's wild frontier, Hala and her troops were overrun by Brutes, those fierce and fearless predators seemingly born to carnage.
+She had succumbed to it once, but even death could not hold her back, not when she ached to serve Sol with every part of her being. Dispatched to the Savage Lands to patrol Solana's wild frontier, Hala and her troops were overrun by Brutes, those fierce and fearless predators seemingly born to carnage.
 
 ![vow-unbroken-7](https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-7.webp)
 
@@ -78,7 +78,7 @@ From that day forward, this vow permeated throughout the training grounds of Gol
 
 Hala's reverie was cut short by the screams of frightened civilians rushing past, toward the safety of the nearby barracks.
 
-The building was a locus of violence. [Lexi](../../heroes-of-rathe/lexi-about.md) and her Volthaven Wayfarers lined the rooftop, firing ice and lightning arrows at the beasts attacking from ground and sky. At ground-level, [Briar](../../heroes-of-rathe/briar-about.md) and her [Rosetta](~Rosetta) guarded the entrance, their hands and blades alight with aether, slinging powerful runechants.
+The building was a locus of violence. Lexi and her Volthaven Wayfarers lined the rooftop, firing ice and lightning arrows at the beasts attacking from ground and sky. At ground-level, Briar and her [Rosetta](~Rosetta) guarded the entrance, their hands and blades alight with aether, slinging powerful runechants.
 
 Hala saw a fiendish mob swarm for the building's rear stairwell, tearing apart the pair of Wayfarers set to guard Lexi's flank. "Our allies need us," she told her knights. "On me!"
 
@@ -104,7 +104,7 @@ The Wayfarer's head appeared over the edge of the building, her long white hair 
 
 ![vow-unbroken-11](https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-11.webp)
 
-"Unbreachable as the brambles of [Candlehold](../../archive/world-of-rathe/aria/the-land-of-legends.md#candlehold)!" Briar said. "The Rosetta shall not be uprooted from this spot."
+"Unbreachable as the brambles of Candlehold!" Briar said. "The Rosetta shall not be uprooted from this spot."
 
 ![vow-unbroken-12](https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-12.webp)
 

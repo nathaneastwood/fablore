@@ -21,11 +21,12 @@ REGENERATE_CLASSES_TALENTS = "python3 src/data/create_classes_talents_csv.py"
 REGENERATE_STORY_CLASS = "Use the Story class in src/data/story.py."
 # Lore registry CSVs upserted by ``Story.link_npc``, ``link_monster``, ``link_fauna``,
 # ``link_flora``, ``link_food_drink``, ``link_location`` (and ``regions.csv`` when
-# ``link_location`` is given ``region_name``); ``npc_lore.write_npc_rows`` for NPCs.
+# ``link_location`` or ``link_region`` is given ``region_name``);
+# ``npc_lore.write_npc_rows`` for NPCs.
 REGENERATE_STORY_REGISTRY = (
     "Use the Story class in src/data/story.py (Story.link_npc / link_monster / link_fauna / "
-    "link_flora / link_food_drink / link_location — link_location upserts regions.csv "
-    "when region_name is set)."
+    "link_flora / link_food_drink / link_location / link_region — link_location and "
+    "link_region upsert regions.csv when region_name is set)."
 )
 # Banner hint for ``story-*.csv`` junction files (written by ``story.py`` and first-run
 # ``create_stories_index.ensure_junction_headers``).
