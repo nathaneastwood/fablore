@@ -126,12 +126,6 @@ The Lord Wizard Chiyo looked back up at Kano, jaw set, her expression shifting i
 
 ---
 
-_Source: [https://fabtcg.com/heroes/kano/smoke-and-mirrors/](https://fabtcg.com/heroes/kano/smoke-and-mirrors/)_<br>
-_Story by Nicola Price._
-_Illustrations by MJ Fetesio._<br>
-
----
-
 ### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>

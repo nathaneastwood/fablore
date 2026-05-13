@@ -186,12 +186,6 @@ For one single moment, in the pale light, Boltyn thought he glimpsed Bellona's f
 
 ---
 
-_Source: [https://fabtcg.com/articles/step-into-light/](https://fabtcg.com/articles/step-into-light/)_<br>
-_Written by Nicola Price, edited by [Tarryn Thomas](https://tarrynlisathomas.wordpress.com/)._<br>
-_Illustrated by [Sam Yang](https://www.artstation.com/samyang)._
-
----
-
 ### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>

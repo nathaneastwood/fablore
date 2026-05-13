@@ -47,11 +47,3 @@ His automatons lift the bed base like a gurney and carry Teklovossen to the wait
 "More than human," murmurs Teklovossen as the bots settle him gently into place. "Time I delivered on that promise."
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/protocol-aperion-3.webp" alt="protocol-aperion-3" class="center" />
-
----
-
-_Source: [https://fabtcg.com/articles/aperion-protocol/](https://fabtcg.com/articles/aperion-protocol/)_<br>
-_Written by Edwin McRae and Rachel Rees._<br>
-_Directed by Robbie Wen. Illus. by Sam Yang_
-
----

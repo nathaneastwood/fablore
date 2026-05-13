@@ -189,12 +189,6 @@ For they are Outsiders.
 
 ---
 
-_Source: [https://fabtcg.com/articles/spiders-trap/](https://fabtcg.com/articles/spiders-trap/)_<br>
-_Written by Edwin McRae and Rachel Rees._<br>
-_Directed by Robbie Wen. Illus. by Sam Yang._
-
----
-
 ### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>

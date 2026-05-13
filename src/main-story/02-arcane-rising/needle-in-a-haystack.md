@@ -185,9 +185,3 @@ Dash half-heartedly responded with something about last week's experiment, barel
 "What was that, dear?" Dash looked up to see her parents staring at her, and grinned.
 
 "Hey, how can I get information on a Cogwerx shipment of devices made with tenatan ore?"
-
----
-
-_Source: [https://fabtcg.com/heroes/dash/needle-in-a-haystack/](https://fabtcg.com/heroes/dash/needle-in-a-haystack/)_<br>
-_Story by Nicola Price._<br>
-_Illustrated by Sam Yang_

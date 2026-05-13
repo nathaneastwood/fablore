@@ -75,11 +75,3 @@ There'll be fireworks. What's a rooftop party without fireworks?
 After all, Metrix is the city of Bright Lights.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/system-failure-3.webp" alt="system-failure-3" class="center" />
-
----
-
-_Source: [https://fabtcg.com/articles/system-failure/](https://fabtcg.com/articles/system-failure/)_<br>
-_Written by Edwin McRae and Rachel Rees._<br>
-_Directed by Robbie Wen. Illus. by Sam Yang_
-
----

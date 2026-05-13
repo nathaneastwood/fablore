@@ -142,12 +142,6 @@ Shiyana joins the chorus as it soars to the highest arches of the Amphitheatre. 
 
 ---
 
-_Source: [https://fabtcg.com/articles/tidings-light/](https://fabtcg.com/articles/tidings-light/)_<br>
-_Written by Edwin McRae and Rachel Rees._<br>
-_Directed by Robbie Wen. Illus. by Henrique Lindner._
-
----
-
 ### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>

@@ -34,13 +34,6 @@ She followed one back to his main hideout, looking up at the sign of the tavern.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-3.webp" alt="azalea-3" class="center">
 
-
----
-
-_Source: [https://fabtcg.com/heroes/azalea/slings-and-arrows/](https://fabtcg.com/heroes/azalea/slings-and-arrows/)_
-_Story by Nicola Price._<br>
-_Featuring illustrations by [Daniel Jiménez](https://www.artstation.com/danieljimenez)._
-
 ---
 
 ### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)

@@ -194,12 +194,6 @@ She shrugged in response.
 
 ---
 
-_Source: [https://fabtcg.com/heroes/azalea/a-bird-in-the-hand/](https://fabtcg.com/heroes/azalea/a-bird-in-the-hand/)_
-_Story by Nicola Price._<br>
-_Featuring illustrations by [Daniel Jiménez](https://www.artstation.com/danieljimenez)._
-
----
-
 ### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>

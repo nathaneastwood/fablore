@@ -168,12 +168,6 @@ Dorinthea brushes back her silver hair and stands.
 
 ---
 
-_Source: [https://fabtcg.com/articles/morlock-hill/](https://fabtcg.com/articles/morlock-hill/)_<br>
-_Written by Kasharn Rao and Edwin McRae_<br>
-_Illustrated by Nikolay Moskvin_
-
----
-
 ### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>

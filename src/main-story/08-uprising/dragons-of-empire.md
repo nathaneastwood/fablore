@@ -142,10 +142,6 @@ She is Dracai.
 
 ---
 
-_Source: [https://fabtcg.com/heroes/dromai/dragons-empire/](https://fabtcg.com/heroes/dromai/dragons-empire/)_
-
----
-
 ### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>

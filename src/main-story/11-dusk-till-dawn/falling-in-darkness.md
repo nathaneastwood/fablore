@@ -125,11 +125,3 @@ The stricken scholar beside her could not answer, unable to drag her focus from 
 Were they forsaken?
 
 Tears streamed from Prism's eyes, for only they told the truth.
-
----
-
-_Source: [https://fabtcg.com/articles/falling-in-darkness/](https://fabtcg.com/articles/falling-in-darkness/)_<br>
-_Written by Edwin McRae and Rachel Rees._<br>
-_Directed by Robbie Wen. Illus. by Sam Yang_
-
----

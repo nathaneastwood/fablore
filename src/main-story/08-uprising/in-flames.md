@@ -44,14 +44,6 @@ Look to the **Uprising**.
 
 ---
 
-_Source: [https://fabtcg.com/articles/flames/](https://fabtcg.com/articles/flames/)<br>
-_Directed by Robbie._<br>
-_Written by Edwin McRae._<br>
-_Edited by Rachel Rees._<br>
-_Illustrated by Sam Yang and various artists._
-
----
-
 ### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>

@@ -207,11 +207,3 @@ Whitetail sighs, then takes a purse from his belt and pushes it across the table
 Whitetail laughs, impressed. "Alright, kid. Guess you might as well learn from the best." He offers her his hand. "Welcome to the Spider."
 
 Uzuri takes his hand in hers. The other remains wrapped around the handle of her dirk.
-
----
-
-_Source: [https://fabtcg.com/heroes/uzuri-switchblade/?stories=True](https://fabtcg.com/heroes/uzuri-switchblade/?stories=True)_<br>
-_Written by Edwin McRae and Rachel Rees._<br>
-_Directed by Robbie Wen. Illus. by Nikolay Moskvin._
-
----

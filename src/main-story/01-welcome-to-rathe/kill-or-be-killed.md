@@ -102,12 +102,6 @@ Standing above the carnage, Rhinar bellows, a challenge to fall on empty ears, n
 
 ---
 
-_Source: [https://fabtcg.com/heroes/rhinar-reckless-rampage/?stories=True](https://fabtcg.com/heroes/rhinar-reckless-rampage/?stories=True)_<br>
-_Story by Nicola Price._<br>
-_Illustrated by MJ Fetesio_
-
----
-
 ### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
 
 <p>

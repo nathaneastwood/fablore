@@ -419,11 +419,3 @@ Data Doll processes this new information. "For the first time in my existence," 
 "Make it up as you go along."
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-12.webp" alt="synthetic-futures-12" class="center" />
-
----
-
-_Source: [https://fabtcg.com/articles/synthetic-futures/](https://fabtcg.com/articles/synthetic-futures/)_<br>
-_Written by Edwin McRae and Rachel Rees._<br>
-_Directed by Robbie Wen. Illus. by Sam Yang_
-
----
