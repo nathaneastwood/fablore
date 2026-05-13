@@ -10,7 +10,7 @@ en = "./en"
 es = "./es"
 
 [output.html]
-additional-css = ["hero.css", "image.css", "tab.css", "theme/pagetoc.css", "theme/hints.css", "theme/related.css"]
+additional-css = ["hero.css", "image.css", "tab.css", "theme/pagetoc.css", "theme/hints.css", "theme/related.css", "theme/story-meta.css"]
 additional-js = ["tab.js", "back-to-top.js", "hero-hub.js", "theme/pagetoc.js", "theme/hints.js", "theme/related.js"]
 default-theme = "light"
 preferred-dark-theme = "ayu"
@@ -27,3 +27,6 @@ level = 0
 
 [preprocessor.related]
 command = "python3 src/data/mdbook_related.py"
+
+[preprocessor.story-meta]
+command = "python3 src/data/mdbook_story_meta.py"

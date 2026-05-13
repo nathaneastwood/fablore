@@ -9,7 +9,7 @@ consumers should join registries on ``StoryId`` and treat ``StoryKey`` as displa
 link construction only.
 
 Instantiate with a path under ``src/`` plus ``StoryType`` and ``Title``. Optional
-metadata fields are written to ``stories.csv``: ``Authors``, ``Illustrators``,
+metadata fields are written to ``stories.csv``: ``Authors``, ``Artists``,
 ``SourceLink``, ``PublicationDate``, ``ThumbnailImageLink``, and
 ``NarratedVideos`` (JSON list of ``{"author","url"}``). If the story is missing
 from ``stories.csv``, it is inserted with a deterministic ``StoryId``. Existing
@@ -41,6 +41,7 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
+from mdbook_heading_ids import require_valid_lore_fragment  # noqa: E402
 from npc_lore import (
     HEROES_CANONICAL_CSV_PATH,
     build_hero_match_keys,
@@ -68,9 +69,10 @@ from registry_ids import (
     lore_character_id,
     monster_id,
     region_row_id,
+)
+from registry_ids import (
     story_id as compute_story_id,
 )
-from mdbook_heading_ids import require_valid_lore_fragment  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "src"
@@ -102,7 +104,7 @@ _STORY_FIELDNAMES: tuple[str, ...] = (
     "StoryType",
     "Title",
     "Authors",
-    "Illustrators",
+    "Artists",
     "SourceLink",
     "PublicationDate",
     "ThumbnailImageLink",
@@ -345,7 +347,7 @@ class Story:
         story_type: str,
         title: str,
         authors: str = "",
-        illustrators: str = "",
+        Artists: str = "",
         source_link: str = "",
         publication_date: str = "",
         thumbnail_image_link: str = "",
@@ -361,7 +363,7 @@ class Story:
                 Must match ``validate_data.ALLOWED_STORY_TYPES`` so ``stories.csv`` passes validation.
             title: Human-readable title stored in ``stories.csv``.
             authors: Story author credits (free text; comma-separated suggested).
-            illustrators: Illustration credits (free text; comma-separated suggested).
+            Artists: Illustration credits (free text; comma-separated suggested).
             source_link: Canonical source URL for the story.
             publication_date: Publication date string (e.g. ``2025-07-12``).
             thumbnail_image_link: Public URL for a thumbnail image.
@@ -372,7 +374,7 @@ class Story:
         self.story_type = story_type.strip()
         self.title = title.strip()
         self.authors = authors.strip()
-        self.illustrators = illustrators.strip()
+        self.Artists = Artists.strip()
         self.source_link = source_link.strip()
         self.publication_date = publication_date.strip()
         self.thumbnail_image_link = thumbnail_image_link.strip()
@@ -404,7 +406,7 @@ class Story:
             row["Title"] = self.title
             row["StoryId"] = self.story_id
             row["Authors"] = self.authors
-            row["Illustrators"] = self.illustrators
+            row["Artists"] = self.Artists
             row["SourceLink"] = self.source_link
             row["PublicationDate"] = self.publication_date
             row["ThumbnailImageLink"] = self.thumbnail_image_link
@@ -417,7 +419,7 @@ class Story:
                     "StoryType": self.story_type,
                     "Title": self.title,
                     "Authors": self.authors,
-                    "Illustrators": self.illustrators,
+                    "Artists": self.Artists,
                     "SourceLink": self.source_link,
                     "PublicationDate": self.publication_date,
                     "ThumbnailImageLink": self.thumbnail_image_link,
