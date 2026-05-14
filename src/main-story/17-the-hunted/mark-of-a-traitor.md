@@ -1,6 +1,6 @@
 # Mark of a Traitor
 
-[Fang](../../heroes-of-rathe/fang-about.md) led his troops through the Sand Glass District toward the largest glassworks in all Deshvahan. They were fearsome in armor of burnished steel and brass, red sash tied at their waists to evoke the blood that bonds all [Dracai](~Dracai), and another around the upper arm in remembrance of their fallen [Emperor](../../heroes-of-rathe/emperor-about.md).
+Fang led his troops through the Sand Glass District toward the largest glassworks in all Deshvahan. They were fearsome in armor of burnished steel and brass, red sash tied at their waists to evoke the blood that bonds all [Dracai](~Dracai), and another around the upper arm in remembrance of their fallen Emperor.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/mark-of-a-traitor-1.webp" alt="mark-of-a-traitor-1" class="center" />
 
@@ -148,7 +148,7 @@ Fang stepped out. Ahead was a massive gate, like those that led into Deshvahan, 
 
 "Captain Fang, reporting!" he shouted, his name repeated on the far side of the gate until finally it opened.
 
-Fang stepped through into a massive converted underground cavern. To one side, a legion of soldiers trained. On the other, the Sayashi pored over reports from across [Volcor](../../archive/world-of-rathe/volcor/volcor.md). An imposing woman moved among the Sayashi, checking scrolls of intelligence here, whispering instructions there. He recognized her by reputation more than familiarity. [Cindra](../../heroes-of-rathe/cindra-about.md), the fearsome Dracai of Retribution.
+Fang stepped through into a massive converted underground cavern. To one side, a legion of soldiers trained. On the other, the Sayashi pored over reports from across [Volcor](../../archive/world-of-rathe/volcor/volcor.md). An imposing woman moved among the Sayashi, checking scrolls of intelligence here, whispering instructions there. He recognized her by reputation more than familiarity. Cindra, the fearsome Dracai of Retribution.
 
 Ahead, captains of the Royal Guard kneeled before a row of seated generals, a grim assemblage that formed the military leadership of the Children of the Dragon. Each captain shared their report with the generals whose expressions grew less impressed with every utterance.
 

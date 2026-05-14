@@ -1,12 +1,12 @@
 # Cleanse the Corruption
 
-[Cindra](../../heroes-of-rathe/cindra-about.md) marched past the ranks of soldiers positioned beyond the reach of [Savai](~Savai)'s archers. Her army surrounded the high walls of the Lord Merchant's fortress home, awaiting the order to attack.
+Cindra marched past the ranks of soldiers positioned beyond the reach of [Savai](~Savai)'s archers. Her army surrounded the high walls of the Lord Merchant's fortress home, awaiting the order to attack.
 
 She pointed at [Kayat](~Kayat), his corpse lying in the back of a wagon, barely recognizable after Lord Tetzuo's interrogation. "String the traitor up. Let Savai see the fate that awaits all conspirators."
 
 Soldiers rushed to obey, hauling the body up high by rope and pulley to hang like a repulsive flag.
 
-Cindra and [Fang](../../heroes-of-rathe/fang-about.md) had tracked him through Deshvahan, their senses honed in on the mark seared into the traitor's skin. They found him beating his fists against these very gates, panic etched into his sweat-soaked face.
+Cindra and Fang had tracked him through Deshvahan, their senses honed in on the mark seared into the traitor's skin. They found him beating his fists against these very gates, panic etched into his sweat-soaked face.
 
 By fleeing to Savai's home, Kayat had marked it as the heart of treachery. Cindra was unsurprised. As Lord Merchant of an immense city, Savai had the resources required to stage a coup and the wiles to do so by cloak and dagger. The man ruled Deshvahan, but that had not been enough. Now, he ruled only a city of flame, fires raging across all districts, their orange glow bleeding into the night sky.
 
@@ -18,7 +18,7 @@ The general looked up at her from the map he'd spread across the former merchant
 
 Fang stood at attention nearby. He had been insistent despite the ludicrous nature of his claims. The Children of the Dragon had acted as quickly as they were able, but not quickly enough. Already the corruption he spoke of had spread. Formalities aside, Cindra trusted Fang. If he had evidence to suggest so, she would act.
 
-Her forces had emerged from their hold beneath the city primed to hunt. Anyone linked to Kayat and this supposed corruption was executed, swiftly and unceremoniously, even those with only tenuous links to the [Emperor](../../heroes-of-rathe/emperor-about.md)'s death. Homes had been reduced to cinder, blood stained the streets, and billowing towers of smoke blotted out the stars. The razing of Deshvahan was the only way to protect the dynasty from further ruin. Such was Cindra's retribution.
+Her forces had emerged from their hold beneath the city primed to hunt. Anyone linked to Kayat and this supposed corruption was executed, swiftly and unceremoniously, even those with only tenuous links to the Emperor's death. Homes had been reduced to cinder, blood stained the streets, and billowing towers of smoke blotted out the stars. The razing of Deshvahan was the only way to protect the dynasty from further ruin. Such was Cindra's retribution.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/cleanse-the-corruption-1.webp" alt="cleanse-the-corruption-1" class="center" />
 

@@ -12,7 +12,7 @@ This is Enion, the Armory of Ancients, and Training Ground of Champions. A place
 
 And all manner of wonders and dangers lie hidden here, to this day, within these isles that hover high above the clouds.
 
-[Lexi](../../heroes-of-rathe/lexi-about.md) was born in Volthaven, a village that drifted slowly as it navigated the treacherous skies of Enion. Her childhood was spent in wide-eyed wonder, under the soft embrace of the Aurora, as she marveled at the majestic sights that lie beyond her windows.
+Lexi was born in Volthaven, a village that drifted slowly as it navigated the treacherous skies of Enion. Her childhood was spent in wide-eyed wonder, under the soft embrace of the Aurora, as she marveled at the majestic sights that lie beyond her windows.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/05-tales-of-aria/lexi-3.webp" alt="lexi-3" class="center">
 

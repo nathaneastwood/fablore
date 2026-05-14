@@ -43,7 +43,7 @@ Six days across the scorched, parched terrain of the [Red Desert](../../archive/
 
 ---
 
-Hard to describe my feelings in looking out upon Deathmatch arena for the first time. It is upwards of fifty meters tall from pit level to the topmost stands! Many smaller arenas surround the main arena and the Moat squeezes it into shape like a corset on a full-bodied whore. Smells of every kind - a spicy stew of blood, sweat, vomit, piss, and perfume. And the noise. Arena masters shouting the coin value of the next fight, trainers inflaming their beasts with whips. I watched a hulking brute, [Rhinar](../../heroes-of-rathe/rhinar-about.md), tear a [brawnhide](~Brawnhide) apart. As I thought of the scale of opulence and combat within the arena's bloody embrace, I struggled to hold back tears. It is beautiful. Bloody beautiful.
+Hard to describe my feelings in looking out upon Deathmatch arena for the first time. It is upwards of fifty meters tall from pit level to the topmost stands! Many smaller arenas surround the main arena and the Moat squeezes it into shape like a corset on a full-bodied whore. Smells of every kind - a spicy stew of blood, sweat, vomit, piss, and perfume. And the noise. Arena masters shouting the coin value of the next fight, trainers inflaming their beasts with whips. I watched a hulking brute, Rhinar, tear a [brawnhide](~Brawnhide) apart. As I thought of the scale of opulence and combat within the arena's bloody embrace, I struggled to hold back tears. It is beautiful. Bloody beautiful.
 
 ---
 
@@ -51,15 +51,15 @@ Looks like chaos when you first get here. Everyone doing their own thing. Toutin
 
 ---
 
-One combatant is a cocky bastard, utterly full of himself. [Victor Goldmane](../../heroes-of-rathe/victor-goldmane-about.md). Mister high and mighty. We spit on his kind back home. Does not know the trials of war nor has he experienced true leadership in the face of defeat. Layered in so much armor and ego, he clinks like fool's gold in a chain-mail purse. Bastard scrutinized me... called me a slop-made desert swine. Took all of my resolve to not drop the piss-haired pissant then and there! We are matched to fight next week and I have been watching his patterns. His shield dips a fraction when he lunges. I can use that.
+One combatant is a cocky bastard, utterly full of himself. Victor Goldmane. Mister high and mighty. We spit on his kind back home. Does not know the trials of war nor has he experienced true leadership in the face of defeat. Layered in so much armor and ego, he clinks like fool's gold in a chain-mail purse. Bastard scrutinized me... called me a slop-made desert swine. Took all of my resolve to not drop the piss-haired pissant then and there! We are matched to fight next week and I have been watching his patterns. His shield dips a fraction when he lunges. I can use that.
 
 ---
 
-A warm tavern at battle's end is for those who volunteered. ~~Everyone~~...everything else? Caged beasts, all of them. Beasts like [Kayo](../../heroes-of-rathe/kayo-about.md). That one has murder in its eyes. Murder in its ~~fists~~ fist. Murder in its sleep, too, no doubt. I hear it... all of them... through their bars at night, sacked-out and snoring. As for the wellborn contestants... their indulgences make them weak. One backwater bastard fought bravely today. Farm-boy turned fighter with nothing to lose. But I was too much for him. Struck him over the skull so I wouldn't have to kill him. Idiot was too pigheaded to give in. At last, I drew my saber and stuck him in the gut. Too easy! Too bad. The crowd booed. Wait until tomorrow. The beasts will bring their best. We will give the audience something to cheer about!
+A warm tavern at battle's end is for those who volunteered. ~~Everyone~~...everything else? Caged beasts, all of them. Beasts like Kayo. That one has murder in its eyes. Murder in its ~~fists~~ fist. Murder in its sleep, too, no doubt. I hear it... all of them... through their bars at night, sacked-out and snoring. As for the wellborn contestants... their indulgences make them weak. One backwater bastard fought bravely today. Farm-boy turned fighter with nothing to lose. But I was too much for him. Struck him over the skull so I wouldn't have to kill him. Idiot was too pigheaded to give in. At last, I drew my saber and stuck him in the gut. Too easy! Too bad. The crowd booed. Wait until tomorrow. The beasts will bring their best. We will give the audience something to cheer about!
 
 ---
 
-I saw [Betsy](../../heroes-of-rathe/betsy-about.md) on my first night here. She likes her liquor and a lark, this much I can tell. In the arena today, she was a storm of rage. No strategy, her anger a weakness. But I must hand it to her. She is strong! When she swung her weapon, the ground beneath me rumbled. I deflected more than I struck, wearing her out gradually. Part of me wanted to let her win so I could enjoy that throaty laugh of hers in the taverns. But only fools let pleasure stand in the way. I brought my blade to her throat, forcing her to yield. The crowd wanted more, but she lay down her weapons. The look she gave me. Sands only knows what might happen if we cross paths at a tavern tonight.
+I saw Betsy on my first night here. She likes her liquor and a lark, this much I can tell. In the arena today, she was a storm of rage. No strategy, her anger a weakness. But I must hand it to her. She is strong! When she swung her weapon, the ground beneath me rumbled. I deflected more than I struck, wearing her out gradually. Part of me wanted to let her win so I could enjoy that throaty laugh of hers in the taverns. But only fools let pleasure stand in the way. I brought my blade to her throat, forcing her to yield. The crowd wanted more, but she lay down her weapons. The look she gave me. Sands only knows what might happen if we cross paths at a tavern tonight.
 
 ---
 
@@ -67,7 +67,7 @@ In [Deshvahan](~Deshvahan), father taught me how to see and maneuver in battle. 
 
 ---
 
-These so-called gladiators hack at me like I'm a side of beef and seem quite shocked when I meet their blunt force with sabers drawn. There is one here though that impressed me early on. [Olympia](../../heroes-of-rathe/olympia-about.md), The Eternal, they call him. The first to arrive and the last to leave. No sign of him in the taverns at night. Harder than all to predict in the arena. Until today, he was the undisputed champion. The look on his face when Kayo tore him down. The gasps were audible. Even I winced. Saved from certain death by Kox. But Kayo killed Olympia's chances and his reputation in one brutal smackdown.
+These so-called gladiators hack at me like I'm a side of beef and seem quite shocked when I meet their blunt force with sabers drawn. There is one here though that impressed me early on. Olympia, The Eternal, they call him. The first to arrive and the last to leave. No sign of him in the taverns at night. Harder than all to predict in the arena. Until today, he was the undisputed champion. The look on his face when Kayo tore him down. The gasps were audible. Even I winced. Saved from certain death by Kox. But Kayo killed Olympia's chances and his reputation in one brutal smackdown.
 
 ---
 

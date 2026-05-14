@@ -24,7 +24,7 @@ Maybe it was the adrenaline, or the shock, but he found himself starting to laug
 
 Suddenly the wooden plank beneath his foot swung open, and he tumbled down into endless darkness, coins cascading like rain, screaming all the way to his demise.
 
-[Riptide](../../heroes-of-rathe/riptide-about.md) lumbered out from his hiding spot and gazed down at his latest catch, eyes gleaming.
+Riptide lumbered out from his hiding spot and gazed down at his latest catch, eyes gleaming.
 
 This was a big one.
 

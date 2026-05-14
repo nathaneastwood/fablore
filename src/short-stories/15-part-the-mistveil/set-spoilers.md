@@ -16,12 +16,12 @@ _I hope you find what you are looking for._
 
 # Chapter 1: The Snake
 
-> "With each velvet touch, and whispered smile, the tapestry of fate weaves an epic of woe and anguish." - [Nuu](../../heroes-of-rathe/nuu-about.md)
+> "With each velvet touch, and whispered smile, the tapestry of fate weaves an epic of woe and anguish." - Nuu
 
 # Chapter 2: The Tiger
 
-> "Two paths beckon: one, disciplined under the seething sun; the other, unleashed fury, a beast unchained." - [Zen](../../heroes-of-rathe/zen-about.md)
+> "Two paths beckon: one, disciplined under the seething sun; the other, unleashed fury, a beast unchained." - Zen
 
 # Chapter 3: The Moon
 
-> "As my memories start to fade, the moonlight carries me home. To a place where sky meets water, where the cycle begins anew." - [Enigma](../../heroes-of-rathe/enigma-about.md)
+> "As my memories start to fade, the moonlight carries me home. To a place where sky meets water, where the cycle begins anew." - Enigma

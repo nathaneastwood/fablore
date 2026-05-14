@@ -4,7 +4,7 @@ There's only one rule if you ever come across a [Brute](../../archive/world-of-r
 
 Don't stick your hands through the bars.
 
-The young stable cleaner had forgotten this very simple rule, which is why he now found himself pinned to the side of [Kayo](../../heroes-of-rathe/kayo-about.md)'s cage, missing an arm, two legs, and half a face.
+The young stable cleaner had forgotten this very simple rule, which is why he now found himself pinned to the side of Kayo's cage, missing an arm, two legs, and half a face.
 
 Picking a shard of bone from between his fangs, Kayo dropped the corpse and blearily peered out of his prison, head still swimming with whatever the fight-masters had pumped him with. He could just about make out the dusty brick walls, patches of dirt-caked straw, and pools of hot sand littering the chamber.
 

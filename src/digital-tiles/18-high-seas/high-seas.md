@@ -1,6 +1,6 @@
 ### Chowder, Hearty Cook
 
-Kraken ragout, kulpie terrine, sawmaw soufflé - there was nary an ingredient [Gravy](../../heroes-of-rathe/gravy-about.md)'s chief cook couldn't turn into a hearty meal. Death may have changed the crew's appetites, but the chef's new Menu de Morbid is sure to satisfy.
+Kraken ragout, kulpie terrine, sawmaw soufflé - there was nary an ingredient Gravy's chief cook couldn't turn into a hearty meal. Death may have changed the crew's appetites, but the chef's new Menu de Morbid is sure to satisfy.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/chowder-hearty-cook.webp" alt="chowder-hearty-cook" class="center" />
 

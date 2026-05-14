@@ -1,6 +1,6 @@
 # Roll of Honor: Victor Goldmane
 
-[Victor](../../heroes-of-rathe/victor-goldmane-about.md) rode Aurelius through the broken gates of Cliffhold, his trusty steed trampling the torn banner of the Drexen Hawk into the mud. Smoke drifted lazily through the ruins, curling around splintered walls and scorched towers. His men prowled the estate like hyenas, their howls and laughter cutting through the still air as they pillaged gold and finery from the once-luxurious halls of House Drexen.
+Victor rode Aurelius through the broken gates of Cliffhold, his trusty steed trampling the torn banner of the Drexen Hawk into the mud. Smoke drifted lazily through the ruins, curling around splintered walls and scorched towers. His men prowled the estate like hyenas, their howls and laughter cutting through the still air as they pillaged gold and finery from the once-luxurious halls of House Drexen.
 
 The clipped echo of the horse's hooves rang out as Aurelius cantered into the courtyard. Victor's gaze lingered on the fountain at its center. Crimson-stained water trickled from the ruptured basin, pooling around the toppled statue of a hawk in flight. Its head and wings lay scattered among the debris, its noble visage drowning in the bloodied water.
 

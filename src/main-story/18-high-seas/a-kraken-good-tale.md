@@ -1,6 +1,6 @@
 # A Kraken Good Tale
 
-"Who's thirsty, mateys?" [Marlynn](../../heroes-of-rathe/marlynn-about.md)'s strong voice carried over the raucous cheers of the tavern's patrons. With her crew in tow, many still damp from the sea and bleeding through their bandages, she swept around the room shaking hands and tipping her tricorn to the admiring crowd.
+"Who's thirsty, mateys?" Marlynn's strong voice carried over the raucous cheers of the tavern's patrons. With her crew in tow, many still damp from the sea and bleeding through their bandages, she swept around the room shaking hands and tipping her tricorn to the admiring crowd.
 
 "Marlynn, you scallywag. Get over here," the barkeep beckoned with a flailing wave and a boisterous laugh.
 
@@ -42,7 +42,7 @@ _Where was I? That's right. This serpent turned tail and ran, just as I'd hoped.
 
 _Bless me helmsman and his keen hearing, or the beast might have sent both him and the wheel straight into the drink when it fled. It swam so fast it had our ship hauling wind and leaping over the waves!_
 
-_Now here's something that'll shiver yer timbers: a ghastly ship appeared on the horizon. At first, I thought the sea spray made me eyes go wonky, but one hard look was enough to know the [Dreadnought](~Dreadnought), bound south for Graystone. Good thing the Cyanatu didn't slow, or we might have been the newest additions to ole [Gravy Bones](../../heroes-of-rathe/gravy-about.md)' zombie horde._
+_Now here's something that'll shiver yer timbers: a ghastly ship appeared on the horizon. At first, I thought the sea spray made me eyes go wonky, but one hard look was enough to know the [Dreadnought](~Dreadnought), bound south for Graystone. Good thing the Cyanatu didn't slow, or we might have been the newest additions to ole Gravy Bones' zombie horde._
 
 _The damn serpent dragged us deeper into murky territory. Aether rose off the sea like steam as the water turned from red to blue to black. Unseen monsters howled their nightmarish calls into the broken world. Lesser beings would've cut the tether and tacked to escape, but it's not every day ye wrangle an escort through the churning seas of [Teramundr's Triangle](../../archive/world-of-rathe/high-seas/teramundrs-triangle.md)._
 

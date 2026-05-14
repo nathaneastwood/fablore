@@ -12,7 +12,7 @@ The Lord Chancellor was dressed in the elaborate garb of the Chamber of the Drag
 
 "What is your name?"
 
-"[Kano](../../heroes-of-rathe/kano-about.md). Lord Chancellor-"
+"Kano. Lord Chancellor-"
 
 "You were found standing over the corpse of your former mentor. Is that correct?"
 

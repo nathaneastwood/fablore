@@ -8,7 +8,7 @@ _Amidst the brewing storm, the Hand of Sol gathers in ever larger patrols, perma
 
 For centuries, the Ironsong family have prided themselves on their reputation as master blacksmiths. The first generation of the bloodline were awarded the name of Ironsong for their work with weapons and armour, forging some of the finest in all of Solana. In the years since, they have passed down their trade secrets from generation to generation, preserving the Ironsong name.
 
-[Dorinthea Ironsong](../../heroes-of-rathe/dorinthea-about.md) was an only child with a penchant for mischief. Her earliest memories are of the forge, and the heavy scent of smoke hanging in the air as she watched her parents work, expertly crafting graceful blades and sun-blessed shields. Her mother would often talk to her while smithing, explaining everything to her curious daughter.
+Dorinthea Ironsong was an only child with a penchant for mischief. Her earliest memories are of the forge, and the heavy scent of smoke hanging in the air as she watched her parents work, expertly crafting graceful blades and sun-blessed shields. Her mother would often talk to her while smithing, explaining everything to her curious daughter.
 
 When she wasn't in the forge with her parents, Thea could usually be found with [Minerva](../../other-characters/minerva-themis.md), the reserved, steely-eyed woman who ran the Golden Chariot next to the Ironsong forge. Her parents had known Minerva since they were children, long since passing the line between friends and family. While Thea knew that Minerva had been born outside of Solana, the innkeeper was incredibly private, and rarely spoke about her past.
 
@@ -62,7 +62,7 @@ Thea and Valeria, assigned to the same party, stepped forward to meet the templa
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/dori-3.webp" alt="dori-3" class="center">
 
-The templar, [Hala](../../heroes-of-rathe/hala-about.md), introduced them to their lieutenant, a younger man named Farris; the knights of their party, Vitus, Pallas and Darius; and Marcus, a scholar from the Light of Sol.
+The templar, Hala, introduced them to their lieutenant, a younger man named Farris; the knights of their party, Vitus, Pallas and Darius; and Marcus, a scholar from the Light of Sol.
 
 The party left Solana the following day, and ventured out into the villages, patrolling and offering help to those in need. Repairing damaged buildings, tracking down lost livestock, bolstering defenses, digging wells, building fences, hunting wild beasts, tracking and exterminating groups of bandits; anything that the villagers needed. Marcus, as a senior scholar, helped to heal the sick and injured, and gave speeches about Sol and the blessings of the Light.
 

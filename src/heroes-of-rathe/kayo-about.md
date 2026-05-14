@@ -56,7 +56,7 @@ In every deadly contest, Kayo exhibits the fierce tenacity of a bloodthirsty fer
 
 Home is not something Kayo has considered in the past. Territory, yes, but never somewhere he felt he belonged. [Deathmatch](../archive/world-of-rathe/deathmatch/destination-deathmatch.md) changed all of that, transforming the solitary beast into a fighter that loves the limelight almost as much as he craves the violence. He has no wish to return to the jungle.
 
-And his defeat by [Kassai](./kassai-about.md) taught him two things. One, the concept of mercy, and how humans have a soft spot for it. Two, he needed to smarten up. Since that turning point, Kayo has not only picked up the rudiments of the Common tongue, but has become a leading member of the Prowlers, a group of ex-tribal Brutes who choose to pool their strength rather than go it alone. He has come to understand the concepts of subterfuge and terror, and how much more powerful they can be than raw strength.
+And his defeat by Kassai taught him two things. One, the concept of mercy, and how humans have a soft spot for it. Two, he needed to smarten up. Since that turning point, Kayo has not only picked up the rudiments of the Common tongue, but has become a leading member of the Prowlers, a group of ex-tribal Brutes who choose to pool their strength rather than go it alone. He has come to understand the concepts of subterfuge and terror, and how much more powerful they can be than raw strength.
 
 No longer the caged animal, consumed by his own wild urges, Kayo uses his innate cunning in and out of the ring. He's learned to bide his time, toy with his prey like a cat with a mouse, and unleash the beast within when it's least expected.
 

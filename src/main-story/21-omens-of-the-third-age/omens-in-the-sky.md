@@ -18,7 +18,7 @@ Its appearance has affected the [Flow](~TheFlow), with lightning talents surging
 
 With their abilities heightened by this Lightning Flow phenomenon, the Wayfarers and Wizards of [Volthaven](../../archive/world-of-rathe/aria/the-land-of-legends.md#volthaven) travel to all corners of Enion to counter the effects of the omen.
 
-Together, [Oscilio](../../heroes-of-rathe/oscilio-about.md) and [Aurora](../../heroes-of-rathe/aurora-about.md) ride the lightning to the omen itself, hoping to sear the opening shut. Yet they are met with a demonic force beyond anything they have encountered.
+Together, Oscilio and Aurora ride the lightning to the omen itself, hoping to sear the opening shut. Yet they are met with a demonic force beyond anything they have encountered.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/21-omens-of-the-third-age/omens-in-the-sky-4.webp" alt="omens-in-the-sky-4" class="center">
 

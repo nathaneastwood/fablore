@@ -34,7 +34,7 @@ For Galcia she remembers when two worlds touched.
 "Two worlds, one story, written in the alphabets of Aether and Aesir." - Aetherscribe Karalyn
 
 #### Heart Wrencher - (PEN077)
-"These Teklo monsters are state of the art? I'm gonna break them with all of my heart!" - [Maxx](../heroes-of-rathe/maxx-about.md)
+"These Teklo monsters are state of the art? I'm gonna break them with all of my heart!" - Maxx
 
 #### Hulk Up - (PEN293)
 "Whatcha gonna do when a hulk runs wild on you?" - Fightmaster Batbiter
@@ -49,7 +49,7 @@ For Galcia she remembers when two worlds touched.
 Lightning flashes over [Enion](~Enion), portending an ancient and terrible storm.
 
 #### Knife Through - (PEN149)
-[Uzuri](../heroes-of-rathe/uzuri-about.md) had only a raw talent for murder. The Spider gave her the means to turn butchery into a business.
+Uzuri had only a raw talent for murder. The Spider gave her the means to turn butchery into a business.
 
 #### Leaven Sheath - (PEN208)
 For [Davnir](~Davnir) she feels the twin lands tremble.
@@ -61,7 +61,7 @@ For [Davnir](~Davnir) she feels the twin lands tremble.
 Spring touches Candlehold for the first time in centuries, promising rebirth for those [Rosetta](~Rosetta) willing to embrace it.
 
 #### Runic Fellingsong - (PEN100)
-"With the passing of our immortal Queen, Candlehold bows to the seasons of life and death." - [Florian](../heroes-of-rathe/florian-about.md)
+"With the passing of our immortal Queen, Candlehold bows to the seasons of life and death." - Florian
 
 #### Soul Bond Belief - (PEN187)
 "[Sol](~Sol) burns away the Shadow that would cloud your heart." - Themis, Archangel of Justice
@@ -70,7 +70,7 @@ Spring touches Candlehold for the first time in centuries, promising rebirth for
 For [Yvor](~Yvor) she dances through twice-sundered skies.
 
 #### Swordmaster's Shine - (PEN048)
-"Our fears shall cower and flee before the glory of Sol." - [Hala Goldenhelm](../heroes-of-rathe/hala-about.md)
+"Our fears shall cower and flee before the glory of Sol." - Hala Goldenhelm
 
 #### Tome of Pandemonium - (PEN277)
 "The Old Ones fractured the world and Chaos boiled up through the cracks." - Zeir, First Anarch of L'Apocalypta
@@ -82,4 +82,4 @@ For [Yvor](~Yvor) she dances through twice-sundered skies.
 "A rune is a vessel, made of speech and symbol, that collects the lifeblood of existence." - The Apostate
 
 #### Whispering Mist - (PEN267)
-"As the moon has many faces, I have many lives in which to serve it." - [Enigma](../heroes-of-rathe/enigma-about.md)
+"As the moon has many faces, I have many lives in which to serve it." - Enigma

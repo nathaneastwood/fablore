@@ -1,7 +1,7 @@
 # The Hunted
 
 #### Affirm Loyalty - (HNT103)
-We obey the [Emperor](../heroes-of-rathe/emperor-about.md). With blood and blade we commit at his command." - [Alshoni](~Alshoni) Mantra
+We obey the Emperor. With blood and blade we commit at his command." - [Alshoni](~Alshoni) Mantra
 
 #### Demonstrate Devotion - (HNT059)
 "My heart for the Emperor. My blood for his Dynasty." - Alshoni Mantra
@@ -31,13 +31,13 @@ We obey the [Emperor](../heroes-of-rathe/emperor-about.md). With blood and blade
 "Dust Runners? Let's see if they're as fast as they claim." - Sayashi Cara
 
 #### Hunt the Hunter - (HNT161)
-"To bait a spider you need an enticing fly." - [Cindra](../heroes-of-rathe/cindra-about.md)
+"To bait a spider you need an enticing fly." - Cindra
 
 #### Hunt's End - (HNT101)
-"It's the end of the road, traitor." - [Fang](../heroes-of-rathe/fang-about.md)
+"It's the end of the road, traitor." - Fang
 
 #### Hunted or Hunter - (HNT052)
-"Daily we sweep the streets, yet still the rats crawl up from the Pits." - [Yoji](../heroes-of-rathe/yoji-about.md)
+"Daily we sweep the streets, yet still the rats crawl up from the Pits." - Yoji
 
 #### Imperial Intent - (HNT109)
 "In secret, we built our strength, hidden from [Ezu](~Ezu) meddling. Now is the time for vengeance." - [Taipanis](../heroes-of-rathe/other.md#taipanis-dracai-of-judgement)
@@ -58,7 +58,7 @@ We obey the [Emperor](../heroes-of-rathe/emperor-about.md). With blood and blade
 "Children of the Dragon, today we hunt. Today we take back our empire from the traitors within." - Taipanis
 
 #### Proclaim Vengeance - (HNT165)
-"Searing embers upon the page. The Ezu cannot ignore such Alshoni fury." - [Dromai](../heroes-of-rathe/dromai-about.md)
+"Searing embers upon the page. The Ezu cannot ignore such Alshoni fury." - Dromai
 
 #### Rake Over the Coals - (HNT156)
 The Sayashi Enclave in Deshvahan, where Tetzuo tempers truth in torture.

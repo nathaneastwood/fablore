@@ -4,7 +4,7 @@ The full moon turned the water of the mountain tarn to molten silver.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/mst-story-1.webp" alt="mst-story-1" class="center">
 
-[Nuu](../../heroes-of-rathe/nuu-about.md) laughed as her perfectly reflected mouth sprouted buck teeth, and rabbit ears sprang up from the top of her head.
+Nuu laughed as her perfectly reflected mouth sprouted buck teeth, and rabbit ears sprang up from the top of her head.
 
 "A definite improvement," concluded Fumei with mock solemnity.
 
@@ -76,7 +76,7 @@ Suspicion replaced reminiscence. Experience conquered hope.
 
 Spirits did all they could to remain in [Misteria](../../archive/world-of-rathe/misteria/misteria.md). They ran, they fought, they distracted and they deceived.
 
-[Enigma](../../heroes-of-rathe/enigma-about.md) saw through the facade.
+Enigma saw through the facade.
 
 She knew the teahouse for what it was, a mere reflection upon a lake of chi, a delusion of earthly delights hiding a creature of otherworldly essence.
 
@@ -108,7 +108,7 @@ The sigils swirled around Nuu, hemming her in. The scroll crept forward, its ope
 
 Nuu released her pent-up rancor, spinning through the sigils, scattering them around the four corners of the room. Then she dropped to the floor and planted her hands on the boards.
 
-The entire teahouse shuddered, throwing cowering patrons and fighting Vipressa off their feet, discharging them from its rooms. Only Enigma and [Zen](../../heroes-of-rathe/zen-about.md) remained standing, their spiritual balance holding them as time, space and matter shifted beneath them.
+The entire teahouse shuddered, throwing cowering patrons and fighting Vipressa off their feet, discharging them from its rooms. Only Enigma and Zen remained standing, their spiritual balance holding them as time, space and matter shifted beneath them.
 
 Curtains, wall panels, windows and chattels bent like paper.
 

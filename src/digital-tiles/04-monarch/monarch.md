@@ -60,7 +60,7 @@ Those who remain faithful to Sol's radiance know the true strength of the Light;
 
 ### Seek Enlightenment
 
-For generations, the Vidalis bloodline has resided in the [Northern Realms](../../archive/world-of-rathe/solana/the-northern-realms.md), passing down tales of their origins in the golden city. [Boltyn](../../heroes-of-rathe/boltyn-about.md) now walks the path of illumination, following in the footsteps of his ancestors, and building a new legacy for his family.
+For generations, the Vidalis bloodline has resided in the [Northern Realms](../../archive/world-of-rathe/solana/the-northern-realms.md), passing down tales of their origins in the golden city. Boltyn now walks the path of illumination, following in the footsteps of his ancestors, and building a new legacy for his family.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/seek-enlightenment.webp" alt="seek-enlightenment" class="center" />
 

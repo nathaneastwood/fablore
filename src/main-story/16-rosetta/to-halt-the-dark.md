@@ -1,6 +1,6 @@
 # To Halt the Dark
 
-[Ira](../../heroes-of-rathe/ira-about.md) crouched at the entrance to the Chrome Caverns, cool air on her face, desert heat at her back. Shiro stopped beside her, passing the order down the line to their cadre of Ninjas.
+Ira crouched at the entrance to the Chrome Caverns, cool air on her face, desert heat at her back. Shiro stopped beside her, passing the order down the line to their cadre of Ninjas.
 
 Though far from home, Ira never heard a word of complaint from her loyal [Crimson Haze](../../main-story/03-crucible-of-war/edge-of-autumn.md). They had stalked the creatures of the Night of the Dark Tide devotedly. Home was but a faded memory, obscured by the gathering mists of many years.
 

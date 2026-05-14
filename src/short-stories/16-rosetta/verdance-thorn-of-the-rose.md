@@ -1,12 +1,12 @@
 # Verdance, Thorn of the Rose
 
-The eternal bloom of [Candlehold](../../archive/world-of-rathe/aria/the-land-of-legends.md#candlehold) prepared [Verdance](../../heroes-of-rathe/verdance-about.md) for a life untouched by decay.
+The eternal bloom of [Candlehold](../../archive/world-of-rathe/aria/the-land-of-legends.md#candlehold) prepared Verdance for a life untouched by decay.
 
 She grew up under summer's dependable gaze with an affinity for the flora and fauna of the glade, and developed her skills as a wizard in accordance with the natural laws set by the [Rosetta](~Rosetta).
 
 For Verdance, Candlehold is as beautiful and free as the wildflowers that adorn her gown.
 
-Which is why she despises the [Harbinger](../../heroes-of-rathe/florian-about.md). Someone so devoted to the ephemeral that he would celebrate death as heartily as life?
+Which is why she despises the Harbinger. Someone so devoted to the ephemeral that he would celebrate death as heartily as life?
 
 Now Verdance spends her days not only as a nurturer warning Candlehold's creatures of Florian's trickery, but as a healer, warding off the rot he spreads with every spoiled step.
 

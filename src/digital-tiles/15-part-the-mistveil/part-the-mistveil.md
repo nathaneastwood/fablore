@@ -1,7 +1,7 @@
 ### 10,000 Year Reunion
 
 "I call upon the echoes of the ages, each bearing the mantle of the Ledger of Ancestry. Illuminate my path in this hour of trial. What path should I tread?"<br>
-<cite>- [Enigma](../../heroes-of-rathe/enigma-about.md)</cite>
+<cite>- Enigma</cite>
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/10000-year-reunion.webp" alt="10000-year-reunion" class="center" />
 
@@ -54,7 +54,7 @@ Beneath the waves, where the shadows writhe, the Butcher waits with a hunter's s
 ### Orihon Of Mystic Tenets
 
 In whispered tones, legend speaks of the mystical bond between the fading parchment of the orihon and the memory of Misteria. It is said that as the ink fades and the pages weather with age, the essence of her story wanes, until finally, in the shroud of obscurity, her legacy is consigned to the forgotten depths of time.<br>
-<cite>- Kouki to [Nuu](../../heroes-of-rathe/nuu-about.md)</cite>
+<cite>- Kouki to Nuu</cite>
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/orihon-of-mystic-tenets.webp" alt="orihon-of-mystic-tenets" class="center" />
 

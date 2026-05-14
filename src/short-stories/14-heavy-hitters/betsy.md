@@ -4,7 +4,7 @@
 
 The bookie quivered like a featherless chicken in the wind. A fist built like a sledgehammer thumped into the ornate table, denting the specially-picked out walnut finish.
 
-"You must be new here," [Betsy](../../heroes-of-rathe/betsy-about.md) growled, dumping a sack of gold on the terrified man's lap. "I bet the house."
+"You must be new here," Betsy growled, dumping a sack of gold on the terrified man's lap. "I bet the house."
 
 "All of it...on... on yourself?" He stammered, counting each glittering piece with sweaty fingers. "You... you do realise who the opponent is, right?"
 

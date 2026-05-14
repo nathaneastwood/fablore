@@ -2,7 +2,7 @@
 
 The [Rosetta](~Rosetta) gathered to their [Queen](../../archive/world-of-rathe/aria/the-land-of-legends.md), their trunks bowed in despair, awaiting a wellspring of emotion that had long since dried away in the endless summer.
 
-Only [Verdance](../../heroes-of-rathe/verdance-about.md) wept, her tears falling to the leaf-littered ground. The seed she had placed on the empty throne. This kernel of dormant life was all that remained of their creator, their once-immortal matriarch. From great [Davnir](~Davnir)'s death, the Queen had nurtured their survival. From the war-torn spirits of the dead, she seeded a civilization-one that would live in perpetual peace.
+Only Verdance wept, her tears falling to the leaf-littered ground. The seed she had placed on the empty throne. This kernel of dormant life was all that remained of their creator, their once-immortal matriarch. From great [Davnir](~Davnir)'s death, the Queen had nurtured their survival. From the war-torn spirits of the dead, she seeded a civilization-one that would live in perpetual peace.
 
 She spared not a glance for the shuffling Rosetta, as languid now as they had been when she sought to rouse them against the Rotwood. She could not look at them for fear that she would rend the mourning atmosphere with the anger that now sprouted peppery shoots inside her belly, heating her throat and embittering her tongue with words she would most certainly regret.
 
@@ -26,7 +26,7 @@ She looked at the wilted flowers surrounding the throne, at the yellowed canopy 
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/essence-of-decay-1.webp" alt="essence-of-decay-1" class="center" />
 
-This unwelcome voice froze Verdance's own words upon her lips. She turned slowly, struggling to maintain her dignity. To see [Florian](../../heroes-of-rathe/florian-about.md) standing there before the throne, his rot seeping into the ground, speeding the withering of the grass, turning dandelions to orbs of fluffy seeds in the blink of an eye, was too much for her to abide.
+This unwelcome voice froze Verdance's own words upon her lips. She turned slowly, struggling to maintain her dignity. To see Florian standing there before the throne, his rot seeping into the ground, speeding the withering of the grass, turning dandelions to orbs of fluffy seeds in the blink of an eye, was too much for her to abide.
 
 "You did this!" she growled, her voice splintering with rageful sorrow.
 
@@ -124,7 +124,7 @@ Entranced, Verdance reached out and plucked the orb from its perch.
 
 _Grape_.
 
-The word came to her in a memory that she had thought forgotten of a time when the [Warden of Thorns](../../heroes-of-rathe/briar-about.md) had departed Candlehold, the only Rosetta to ever do so. A time of change, albeit brief, when the blossoms had succumbed to fruit.
+The word came to her in a memory that she had thought forgotten of a time when the Warden of Thorns had departed Candlehold, the only Rosetta to ever do so. A time of change, albeit brief, when the blossoms had succumbed to fruit.
 
 Before her eyes, bud after bud exploded into blossom then curled inward to form a succulent grape. Soon, the sigil was weighed down by a plentiful crop. With wonder, Verdance gazed upon the cornucopia as she rolled the berry in her fingers, luxuriating in its smooth texture, its enticing plumpness.
 

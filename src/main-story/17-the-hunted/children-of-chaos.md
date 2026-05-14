@@ -1,6 +1,6 @@
 # Children of Chaos
 
-[Lord Wizard Chiyo](~Chiyo)'s citadel towered above [Cindra](../../heroes-of-rathe/cindra-about.md) and [Fang](../../heroes-of-rathe/fang-about.md), the fortress marred by obscenely twisted spires that punctured its once elegant architecture. Built high atop a cliff, it overlooked the southern sea, waves crashing against the cliffs below, the repetitive susurrus filling Fang's mind like a voice spilling spine-chilling whispers.
+[Lord Wizard Chiyo](~Chiyo)'s citadel towered above Cindra and Fang, the fortress marred by obscenely twisted spires that punctured its once elegant architecture. Built high atop a cliff, it overlooked the southern sea, waves crashing against the cliffs below, the repetitive susurrus filling Fang's mind like a voice spilling spine-chilling whispers.
 
 "We go in, now," Cindra said. Her eyes were hollowed with exhaustion, but she remained tall, two of her daggers circling in defensive formation.
 
@@ -12,7 +12,7 @@ She rested a hand on Fang's shoulder, between the sharp barbs of his pauldron. "
 
 "Come, then. It is our blades and our wits against whatever Chiyo has waiting for us."
 
-Fang drew one of his daggers. "Nothing will save her from the [Emperor](../../heroes-of-rathe/emperor-about.md)'s vengeance."
+Fang drew one of his daggers. "Nothing will save her from the Emperor's vengeance."
 
 They approached the open citadel gates, passing gigantic shards of obsidian that emerged from the ground like shattered teeth through bleeding gum. His haggard reflection stared out from one of those glinting black crystals. As he marched past, Fang was certain he saw it shake its head, as though urging him to turn back.
 

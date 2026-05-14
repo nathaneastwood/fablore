@@ -3,11 +3,11 @@
 _(Warning: story features content that may be upsetting to certain readers.<br>
 Viewer discretion is advised.)_
 
-[Uzuri](../../heroes-of-rathe/uzuri-about.md) savors her whisky as she stares out over the sprawling cess that is the [Pits](../../archive/world-of-rathe/pits/pits.md).
+Uzuri savors her whisky as she stares out over the sprawling cess that is the [Pits](../../archive/world-of-rathe/pits/pits.md).
 
 From the balcony of The Drop, a bar she owns under an assumed name, Uzuri lets her thoughts drift with the vapors that rise from the sunless streets. She can afford this momentary luxury, for everything is in its place. Timed and measured to the nth degree.
 
-The faintest scrape alerts her to [Arakni](../../heroes-of-rathe/arakni-about.md)'s presence.
+The faintest scrape alerts her to Arakni's presence.
 
 "There's a front door, you know. Quite a nice one, too. Hand carved."
 
@@ -23,7 +23,7 @@ Arakni climbs down from the railing and approaches Uzuri's table.
 
 They produce a scroll from under their tattered cloak and place it on the table. Uzuri raises a manicured eyebrow.
 
-"The [Emperor](../../heroes-of-rathe/emperor-about.md) of [Volcor](../../archive/world-of-rathe/volcor/volcor.md)? You didn't think to question it?"
+"The Emperor of [Volcor](../../archive/world-of-rathe/volcor/volcor.md)? You didn't think to question it?"
 
 Quicker than thought, Arakni stabs a knife into the parchment, right through Uzuri's signature.
 
@@ -71,7 +71,7 @@ With a clatter of running chains, steel jaws drop from the ceiling and snap up h
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/the-spiders-trap-3.webp" alt="the-spiders-trap-3" class="center">
 
-Blood showers down, the only rain the Pits ever sees. A bulky shadow looms in the broken window. Glinting eyes look up at the entrapped and dying. "Wriggle little fishes," rasps [Riptide](../../heroes-of-rathe/riptide-about.md), his voice harsh as a falling guillotine.
+Blood showers down, the only rain the Pits ever sees. A bulky shadow looms in the broken window. Glinting eyes look up at the entrapped and dying. "Wriggle little fishes," rasps Riptide, his voice harsh as a falling guillotine.
 
 Uzuri nods her approval, waits until Riptide has faded back into the shadows, then gets to some butchery of her own.
 

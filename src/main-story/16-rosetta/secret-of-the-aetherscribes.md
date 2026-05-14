@@ -2,7 +2,7 @@
 
 The village alarms blared out a warning that sent the Voltfolk skittering for shelter like frightened [kaie'o](../../archive/world-of-rathe/aria/creatures.md#kaieo). While thunderstorms were common enough in [Enion](~Enion), a storm this wild hadn't been seen for centuries. Yet one person dared to charge away from the safety of [Volthaven](../../archive/world-of-rathe/aria/the-land-of-legends.md#volthaven). She had better things to do than hide from some rain.
 
-[Aurora](../../heroes-of-rathe/aurora-about.md) sailed over the rooftops, leaving a trail of lightning and laughter crackling in her wake.
+Aurora sailed over the rooftops, leaving a trail of lightning and laughter crackling in her wake.
 
 "Today's my lucky day!"
 
@@ -92,7 +92,7 @@ A grid of symbols lit up when she approached, above them an inscription: "We hon
 
 Unlike the rest of the vault, this chamber was trapped in time, untouched for who knows how long until today. A glowing orb in an elaborate metal cage illuminated the massive chamber. Despite its size, the room didn't seem to hold anything of value.
 
-Aurora had barely taken two steps into the cavernous space before ominous whirring noises started up. They grew to deafening volumes as dozens of metal golems flew at her on silver wings. A lone golem was one thing, but five, ten - thirty or more of them with wings?! If she survived, [Melody](../../heroes-of-rathe/melody-about.md) should write a song about her.
+Aurora had barely taken two steps into the cavernous space before ominous whirring noises started up. They grew to deafening volumes as dozens of metal golems flew at her on silver wings. A lone golem was one thing, but five, ten - thirty or more of them with wings?! If she survived, Melody should write a song about her.
 
 A pair of golems collided in an explosion of sparks as Aurora dodged their two-sided attack. Another golem glanced off her quick-drawn blade. The next, she impaled through the chest and used its body as a sledgehammer to destroy two more.
 
@@ -124,7 +124,7 @@ Aurora retrieved her blade and stood. She wasn't sure whether to look at the orb
 
 "You first."
 
-"The Aetherscribes denominated me [Oscilio](../../heroes-of-rathe/oscilio-about.md)."
+"The Aetherscribes denominated me Oscilio."
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/secret-of-the-aetherscribes-5.webp" alt="secret-of-the-aetherscribes-5" class="center" />
 

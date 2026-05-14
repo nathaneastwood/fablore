@@ -2,7 +2,7 @@
 
 "Processing complete. Model ready for production."
 
-[Dash](../../heroes-of-rathe/dash-about.md) knew it was just her imagination, but she could have sworn that [Data Doll](../../heroes-of-rathe/data-doll-mkii-about.md)'s monotone voice had perked up. The crimson-haired prodigy aimed her Assembler at the pile of scrap she had gathered, releasing several magnetic beams that repositioned the pieces of junk until they slotted together to form a gyroscopic disk-like object.
+Dash knew it was just her imagination, but she could have sworn that Data Doll's monotone voice had perked up. The crimson-haired prodigy aimed her Assembler at the pile of scrap she had gathered, releasing several magnetic beams that repositioned the pieces of junk until they slotted together to form a gyroscopic disk-like object.
 
 "Your design is most extraordinary, Dash Teklo."
 

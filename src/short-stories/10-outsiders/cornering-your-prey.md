@@ -14,7 +14,7 @@ You turn back around, only to come face to face with a hunched creature swathed 
 
 Its eyes gleam from behind a twisted and cracked metal mask, as it utters a wretched sound that you realize is laughter.
 
-[Arakni](../../heroes-of-rathe/arakni-about.md#arakni-solitary-confinement) has found you, there's nowhere to run.
+Arakni has found you, there's nowhere to run.
 
 ---
 

@@ -30,7 +30,7 @@ Meldrick found himself back on his feet, his knees still knocking. The woman was
 
 ![the-lost-treasure-of-blackwater-strait-2](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/the-lost-treasure-of-blackwater-strait-2.webp)
 
-"Damn Graystone flighters," [Puffin](../../heroes-of-rathe/puffin-about.md) muttered. "How nice of the skywardens to send the welcoming committee." She half-turned to her crew and shouted, "Evasive action, everyone!"
+"Damn Graystone flighters," Puffin muttered. "How nice of the skywardens to send the welcoming committee." She half-turned to her crew and shouted, "Evasive action, everyone!"
 
 There was a lot of running and yelling of incomprehensible aeronautical terms as Puffin's crew rushed to their stations.
 

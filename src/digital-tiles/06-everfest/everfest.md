@@ -242,7 +242,7 @@ They called themselves the Shieldbearers; those that laughed in the face of dang
 
 ### Swarming Gloomveil
 
-The cursed grounds of the [Demonastery](../../archive/world-of-rathe/demonastery/demonastery.md) are swarming with all manner of powerful beings, pulled forth from the bowels of [i'Arathael](~iArathael). Any assaults would be futile, without an overwhelming force of our own. - [Boltyn](../../heroes-of-rathe/boltyn-about.md)
+The cursed grounds of the [Demonastery](../../archive/world-of-rathe/demonastery/demonastery.md) are swarming with all manner of powerful beings, pulled forth from the bowels of [i'Arathael](~iArathael). Any assaults would be futile, without an overwhelming force of our own. - Boltyn
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/swarming-gloomveil.webp" alt="swarming-gloomveil" class="center" />
 

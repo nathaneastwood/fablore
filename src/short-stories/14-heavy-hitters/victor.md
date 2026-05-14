@@ -2,7 +2,7 @@
 
 "You're a long way from home, boy."
 
-If there was one thing Hog wanted more than all the gold in the world right now, it was to wipe the smug smirk off [Victor Goldmane](../../heroes-of-rathe/victor-goldmane-about.md)'s stupid face. Despite the fact that Hog was easily double Victor's size, the rich bastard simply stood there in his glittering toy suit, smiling as if they were sitting down to lunch.
+If there was one thing Hog wanted more than all the gold in the world right now, it was to wipe the smug smirk off Victor Goldmane's stupid face. Despite the fact that Hog was easily double Victor's size, the rich bastard simply stood there in his glittering toy suit, smiling as if they were sitting down to lunch.
 
 "On the contrary," Victor mused. "I carry my home with me wherever I go."
 
