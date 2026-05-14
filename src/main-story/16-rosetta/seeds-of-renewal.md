@@ -1,6 +1,6 @@
 # Seeds of Renewal
 
-With a crackle of lightning and a boom of thunder, [Aurora](../../heroes-of-rathe/aurora-about.md) and [Oscilio](../../heroes-of-rathe/oscilio-about.md) landed upon a hilltop overlooking [Candlehold](../../archive/world-of-rathe/aria/the-land-of-legends.md#candlehold).
+With a crackle of lightning and a boom of thunder, Aurora and Oscilio landed upon a hilltop overlooking [Candlehold](../../archive/world-of-rathe/aria/the-land-of-legends.md#candlehold).
 
 "Whoop!" exclaimed Aurora. "What a rush!"
 
@@ -26,7 +26,7 @@ She led the way down the hillside, her companion turning many a head as they ent
 
 "Aurora!" The name was more sung than shouted, and soon refrained by the appearance of a flamboyantly dressed bard.
 
-"[Melody](../../heroes-of-rathe/melody-about.md)!" Aurora hollered back and wrapped her friend in a bear hug. The pair danced a delighted little jig together before Melody broke away to gaze up at Oscilio.
+"Melody!" Aurora hollered back and wrapped her friend in a bear hug. The pair danced a delighted little jig together before Melody broke away to gaze up at Oscilio.
 
 "Could I write a song or two about you!"
 
@@ -50,7 +50,7 @@ Melody jerked her head in the direction of a huddle of elders, their intricately
 
 "But no one's ever been inside Candlehold," complained Aurora. "Anyone come out?"
 
-Melody shook her head. "Not since the [Warden of Thorns](../../heroes-of-rathe/briar-about.md)."
+Melody shook her head. "Not since the Warden of Thorns."
 
 "Then how are we supposed to..." Aurora's voice trailed off at the sight of movement on the edge of the forest.
 
@@ -66,7 +66,7 @@ A hush settled upon the tent city as a figure emerged from the forest. A seeming
 
 Behind her, a procession followed, a stately parade of beings gnarled yet magnificent. Women, men, and animals of timber and root, flower and fungus, walked together, heads bowed. At the rear, a noticeable distance from the rest, trailed a man clad in armor and autumn leaves. He alone looked out upon the gathering of Aria, acknowledging their attendance at this funereal affair.
 
-[Florian](../../heroes-of-rathe/florian-about.md) skirted his fellow [Rosetta](~Rosetta), careful not to mar them with his trail of rot. He approached [Verdance](../../heroes-of-rathe/verdance-about.md) warily. Though it had been some time since their fracas before the throne, he still did not entirely trust her change of heart.
+Florian skirted his fellow [Rosetta](~Rosetta), careful not to mar them with his trail of rot. He approached Verdance warily. Though it had been some time since their fracas before the throne, he still did not entirely trust her change of heart.
 
 In timeless Candlehold, months passed as minutes to the Rosetta. While every spore of his being wanted to believe that this was happening, he had lived too long with disappointment to assume the best.
 

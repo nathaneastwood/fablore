@@ -200,7 +200,7 @@ He chuckled darkly, and for an instant, she glimpsed the presence which lingered
 
 "You're like me." She laughed, the sound harsh, and felt the creatures behind her cower, slinking back into the shadows. "What are you?"
 
-"You can call me [Chane](../../heroes-of-rathe/chane-about.md). I found my patron beyond the veil, but it seems you found yours through... other means. Tell me..."
+"You can call me Chane. I found my patron beyond the veil, but it seems you found yours through... other means. Tell me..."
 
 "Levia."
 

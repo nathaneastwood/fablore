@@ -36,7 +36,7 @@ Rotten before the deigned to remake him.
 
 ### Dragonscaler Flight Path
 
-Some of the [Emperor](../../heroes-of-rathe/emperor-about.md)'s most trusted servants see in his murder an opportunity for glory. To them, there is no greater sign of devotion than to hunt his enemies, no grander display of honor than to exact vengeance with fire, again and again, until the dynasty is reborn.
+Some of the Emperor's most trusted servants see in his murder an opportunity for glory. To them, there is no greater sign of devotion than to hunt his enemies, no grander display of honor than to exact vengeance with fire, again and again, until the dynasty is reborn.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/dragonscaler-flight-path.webp" alt="dragonscaler-flight-path" class="center" />
 
@@ -84,6 +84,6 @@ Reality is not always as the Dracai presume. Aether contains a myriad of natures
 
 ### Wrath of Retribution
 
-[Cindra](../../heroes-of-rathe/cindra-about.md) rose above the anarchy surrounding her and harnessed the power of the [Sayashi](~Sayashi). Out they flew. Eight kunai to carve a fiery path of retribution across the obsidian chamber. Eight daggers to blind the creatures of corruption. Eight lacerations to make them see.
+Cindra rose above the anarchy surrounding her and harnessed the power of the [Sayashi](~Sayashi). Out they flew. Eight kunai to carve a fiery path of retribution across the obsidian chamber. Eight daggers to blind the creatures of corruption. Eight lacerations to make them see.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/wrath-of-retribution.webp" alt="wrath-of-retribution" class="center" />

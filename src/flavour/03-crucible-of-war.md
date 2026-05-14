@@ -1,7 +1,7 @@
 # Crucible of War
 
 #### Aetherize - (CRU164)
-"I find it amusing how often mortals turn to prayer as their last line of defense." - [Kano](../heroes-of-rathe/kano-about.md)
+"I find it amusing how often mortals turn to prayer as their last line of defense." - Kano
 
 #### Arknight Shard - (CRU000)
 The flow of aether disturbs the ancient mists, ripples along the surface of a mirror, unravelling the fabric of time and space. Like grits of sand beneath the tongue, he feels the echoes of the forgotten, feels their gaze rasping against his skin. The foreign heartbeat is an ember within his ribcage, its icy burn heavy with the promise of power.
@@ -49,10 +49,10 @@ When word of war reached the Rek'vas Bloodboars, they were struck with fear... f
 "Nobody says that about my Mama." - Thuk
 
 #### Teklovossen's Workshop - (CRU115)
-"The process of invention is not linear. Sometimes there's mistakes, other times, happy accidents!" - [Teklovossen](../heroes-of-rathe/teklovossen-about.md)
+"The process of invention is not linear. Sometimes there's mistakes, other times, happy accidents!" - Teklovossen
 
 #### Tripwire Trap - (CRU126)
 "A crossbow bolt 'aint gonna make a dent in that thing." - Spokes
 
 #### Unified Decree - (CRU083)
-"In unity, we will overcome." - [Hala Goldenhelm](../heroes-of-rathe/hala-about.md)
+"In unity, we will overcome." - Hala Goldenhelm

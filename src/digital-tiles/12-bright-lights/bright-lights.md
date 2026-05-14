@@ -12,7 +12,7 @@ We all have to start somewhere! Take your first step into the world of industry 
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/cogwerx-base-head.webp" alt="cogwerx-base-head" class="center" />
 
-### [Dash I/O](../../heroes-of-rathe/dash-about.md)
+### Dash I/O
 
 You've got to stay curious. Ask questions. Push the envelope. Challenge your mind to think bigger, better. Brighter! I'm never who I was yesterday. I'm always two steps ahead of myself, thinking about tomorrow, inventing it as I go along!
 
@@ -44,7 +44,7 @@ Smarter, sharper, more perceptive. At ease. Sleeping well. That's how you weathe
 
 ### Fabricate
 
-Node connects to node with circuits dynamic. Forming patterns. Forming pictures. Billions of ones and zeros, meeting and making in a mindscape of automation. A tallic for your thoughts, little one. - [Jules Teklovossen](../../heroes-of-rathe/teklovossen-about.md)
+Node connects to node with circuits dynamic. Forming patterns. Forming pictures. Billions of ones and zeros, meeting and making in a mindscape of automation. A tallic for your thoughts, little one. - Jules Teklovossen
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/fabricate.webp" alt="fabricate" class="center" />
 

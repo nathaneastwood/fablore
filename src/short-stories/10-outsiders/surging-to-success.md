@@ -1,6 +1,6 @@
 # Surging to Success
 
-The first thing [Katsu](../../heroes-of-rathe/katsu-about.md) noticed was the stench.
+The first thing Katsu noticed was the stench.
 
 Unlike the fragrant cherry blossoms or fresh mountain air of his homelands, this place reeked of death and decay.
 

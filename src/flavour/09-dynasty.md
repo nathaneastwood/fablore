@@ -1,7 +1,7 @@
 # Dynasty
 
 #### Blessing of Ingenuity - (DYN098)
-"Take care of your work, that one day it may take care of you." - [Teklovossen](../heroes-of-rathe/teklovossen-about.md)
+"Take care of your work, that one day it may take care of you." - Teklovossen
 
 #### Blessing of Occult - (DYN179)
 Borrowed power comes with debt unpaid. One day the Shadows will come to play.
@@ -13,10 +13,10 @@ Borrowed power comes with debt unpaid. One day the Shadows will come to play.
 The blood of the enemy is worn as a reminder that strength rules all, here in the [Savage Lands](../archive/world-of-rathe/savage-lands/savage-lands.md).
 
 #### Blessing of Steel - (DYN073)
-"Not merely a sword, nor steel. It is our resolve that makes us strong." - [Hala Goldenhelm](../heroes-of-rathe/hala-about.md)
+"Not merely a sword, nor steel. It is our resolve that makes us strong." - Hala Goldenhelm
 
 #### Crown of Dominion - (DYN234)
-"I will watch over this Dynasty till my very last breath. Its power, riches, and enemies, I take as my own." - [Emperor, Dracai of Aesir](../heroes-of-rathe/emperor-about.md)
+"I will watch over this Dynasty till my very last breath. Its power, riches, and enemies, I take as my own." - Emperor, Dracai of Aesir
 
 #### Dust from the Golden Plains - (DYN002)
 The Golden Plains of [Solana](../archive/world-of-rathe/solana/solana.md), where the barley stands guard.
@@ -43,7 +43,7 @@ It is said that the Imperial Forge of Volcor produces the sturdiest armor in all
 Like most fruits of the forest, the good part's inside the shell.
 
 #### Spirit of Eirina - (DYN066)
-"Her spirit inside me, always." - [Boltyn](../heroes-of-rathe/boltyn-about.md)
+"Her spirit inside me, always." - Boltyn
 
 #### Visit the Imperial Forge - (DYN085)
 The sharpest blades of Rathe are forged within molten rivers that flow from the heart of Mt. Volcor.

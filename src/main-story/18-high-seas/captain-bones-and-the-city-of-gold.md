@@ -2,7 +2,7 @@
 
 The [Dreadnought](~Dreadnought) rose from the depths to split the waves like a shark's fin. It glistened in the silver light of a full moon, making good its ambush as shouts of alarm erupted from the [Kuraghan](~Kuraghan) ship in its path.
 
-"Avast ye deathly layabouts!" [Captain Gravy Bones](../../heroes-of-rathe/gravy-about.md) hollered at his cadaverous crew. "Make ready to broadside and board!"
+"Avast ye deathly layabouts!" Captain Gravy Bones hollered at his cadaverous crew. "Make ready to broadside and board!"
 
 "Begging yer pardon, Cap'n," Chum asked, his grave grin a little dulled with concern. "You sure this be them?"
 

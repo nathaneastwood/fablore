@@ -1,7 +1,7 @@
 # Part the Mistveil
 
 #### Attune with Cosmic Vibrations - (MST075)
-"The essence of life resonates with cosmic vibrations, a universal chorus found within every soul." - [Zen](../heroes-of-rathe/zen-about.md)
+"The essence of life resonates with cosmic vibrations, a universal chorus found within every soul." - Zen
 
 #### Big Blue Sky - (MST086)
 "To traverse the bridge between the Ryōsōzan Peaks was a sacred rite, a pilgrimage seeking enlightenment." - Zen
@@ -9,7 +9,7 @@
 #### Deep Blue Sea - (MST084)
 "As my memories start to fade, the moonlight carries me home.
 
-To a place where sky meets water, where the cycle begins anew." - [Enigma](../heroes-of-rathe/enigma-about.md)
+To a place where sky meets water, where the cycle begins anew." - Enigma
 
 #### Emissary of Moon - (MST197)
 "Our future extends beyond [Misteria](../archive/world-of-rathe/misteria/misteria.md). The wisdom of the Moon should be shared with the world." - Ning, Kotori Moonseeker
@@ -21,7 +21,7 @@ To a place where sky meets water, where the cycle begins anew." - [Enigma](../he
 "I must confer with the guardians of these lands. The encroaching darkness is but a prelude; the wind dares not murmur of what follows." - Dan Lu, Kotori Galewarden
 
 #### Fang Strike - (MST023)
-"The Art of the Viper is a lethal tradition that strikes when the prey is most vulnerable." - [Nuu](../heroes-of-rathe/nuu-about.md)
+"The Art of the Viper is a lethal tradition that strikes when the prey is most vulnerable." - Nuu
 
 #### First Tenet of Chi: Moon - (MST092)
 "The moon unveils hidden truths within the darkness of night, illuminating the unseen mysteries of the world." - Kouki

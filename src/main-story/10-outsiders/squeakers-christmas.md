@@ -1,6 +1,6 @@
 # Squeakers' Christmas
 
-'Tis the night before Christmas, and the air is ripe for the robbing. A crooked shadow vanishes through a window, stealthy as a huntsman. From her vantage point across the street, [Azalea](../../heroes-of-rathe/azalea-about.md) traces the path [Arakni](../../heroes-of-rathe/arakni-about.md) cleared. Steep rooflines, yawning alleyways, a traverse more treacherous than she would dare.
+'Tis the night before Christmas, and the air is ripe for the robbing. A crooked shadow vanishes through a window, stealthy as a huntsman. From her vantage point across the street, Azalea traces the path Arakni cleared. Steep rooflines, yawning alleyways, a traverse more treacherous than she would dare.
 
 "Agile," she observes. "And sneaky too."
 
@@ -36,7 +36,7 @@ Azalea recalls it clearly. A rare moment of pity. Lena Belle has never let her f
 
 "Don't worry." Another of those too hard pats on the back. "No gold stars this year. That would be a crime."
 
-"Glad to hear it. Now where the bloody rot is [Dash](../../heroes-of-rathe/dash-about.md)?"
+"Glad to hear it. Now where the bloody rot is Dash?"
 
 On cue, the object of Azalea's impatience rolls up, her steam-wagon spouting aphotic gas. The mechanologist dismounts her contraption and greets them with a rowdy, "Helloooo!"
 

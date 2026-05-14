@@ -10,11 +10,11 @@ A valiant [Volcai](~Volcai), sworn to protect what he believes to be good and ju
 
 But what if his fervor were to blind him to the true nature of his people? We are equal parts fair and foul, and misfortune is the weight that tips the balance.
 
-[Yoji](../../heroes-of-rathe/yoji-about.md) did everything by the book that day, line for line, word for word. He doubled the patrols and tripled the sentries. He banned the Dragon Festival revelers from the surrounding streets and alleyways. He secured each lock and barred every entry not vital to the running of the palace. No-one would escape the sight of his soldiers. Nothing would pass without a word of warning.
+Yoji did everything by the book that day, line for line, word for word. He doubled the patrols and tripled the sentries. He banned the Dragon Festival revelers from the surrounding streets and alleyways. He secured each lock and barred every entry not vital to the running of the palace. No-one would escape the sight of his soldiers. Nothing would pass without a word of warning.
 
 Or so Yoji thought. How could he know of traitors planted long ago? Of turncoats stitched from fear? Of dark dreams plotted while he slept? How might a soldier of leather and steel imagine schemes woven from silk and shadow? A lone man trying to peer into a vision conjured by a network of minds.
 
-Yoji wished to follow his [Emperor](../../heroes-of-rathe/emperor-about.md) into death, to be taken in chains to the Obsidian Coast and cast from Dragon's Peak. An honorable death that might redeem some small portion of his shame-shadowed soul.
+Yoji wished to follow his Emperor into death, to be taken in chains to the Obsidian Coast and cast from Dragon's Peak. An honorable death that might redeem some small portion of his shame-shadowed soul.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/vow-of-vigilence-2.webp" alt="vow-of-vigilence-2" class="center">
 

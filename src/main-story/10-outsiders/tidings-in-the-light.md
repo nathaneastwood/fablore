@@ -6,7 +6,7 @@ A cloaked figure pauses at the doorway of a ruined homestead, eyes lost in shado
 
 The figure checks for onlookers before darting into the war-torn house. Safe from prying eyes, it removes its fiendish mask. Its looming stature shrinks, its claws retract and soften, and its lean sinews contract and reform, sculpting an elegant new body sheathed in gold and pearl.
 
-[Shiyana](../../heroes-of-rathe/shiyana-about.md) steps from the crumpled cloak of the hideous old with a sigh of relief. She picks her way through the scattered bones of the home's inhabitants. Enough bones for a large family, scored with teeth marks, broken and sucked empty of their marrow. She looks through a shattered window at the [Solarium](../../archive/world-of-rathe/solana/a-radiant-city.md#solarium) in the distance, elegant in its radiance, and the comforting boundary of the Great Gates. It is a welcome sight after the boiling harshness of [Volcor](../../archive/world-of-rathe/volcor/volcor.md), after the raging fires of a land at war with itself.
+Shiyana steps from the crumpled cloak of the hideous old with a sigh of relief. She picks her way through the scattered bones of the home's inhabitants. Enough bones for a large family, scored with teeth marks, broken and sucked empty of their marrow. She looks through a shattered window at the [Solarium](../../archive/world-of-rathe/solana/a-radiant-city.md#solarium) in the distance, elegant in its radiance, and the comforting boundary of the Great Gates. It is a welcome sight after the boiling harshness of [Volcor](../../archive/world-of-rathe/volcor/volcor.md), after the raging fires of a land at war with itself.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/tidings-in-the-light-1.webp" alt="tidings-in-the-light-1" class="center">
 
@@ -16,7 +16,7 @@ She crosses the bare and bloodied soil to the Solanian battle line where the cit
 
 "[Gemini](../../archive/world-of-rathe/solana/the-order-of-the-light.md#the-gemini) Shiyana," he greets her with a weary smile. "You are as welcome as the dawn."
 
-"[Boltyn](../../heroes-of-rathe/boltyn-about.md), it is good to see you."
+"Boltyn, it is good to see you."
 
 "If only it were under more cordial circumstances."
 
@@ -68,11 +68,11 @@ Shiyana raises her hand, her diamond spinning over her palm, and bows deeply, as
 
 "Neither for us nor against us, your Grace. Their-"
 
-She pauses to order her thoughts. Should she burden the council with the convictions of the [Phoenix](../08-uprising/fires-of-rebellion.md)? The rebel leader has vowed to fight on until Volcor is remade. What of [Lady Dromai](../../heroes-of-rathe/dromai-about.md) and the [Royal Court](../../archive/world-of-rathe/volcor/the-royal-court.md), fighting amongst themselves while their land burns?
+She pauses to order her thoughts. Should she burden the council with the convictions of the [Phoenix](../08-uprising/fires-of-rebellion.md)? The rebel leader has vowed to fight on until Volcor is remade. What of Lady Dromai and the [Royal Court](../../archive/world-of-rathe/volcor/the-royal-court.md), fighting amongst themselves while their land burns?
 
 "Their concerns are their own, your Grace."
 
-"You spoke with the [Emperor](../../heroes-of-rathe/emperor-about.md), did you not?"
+"You spoke with the Emperor, did you not?"
 
 Even awash with the light of the Magisters, Shiyana can feel apprehension lurking, waiting for its moment to retake her.
 

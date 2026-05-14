@@ -16,7 +16,7 @@ Push hard enough, and even the weakest Volcai might find within their heart the 
 On both sides of the battlefield, brotherhood is a catalyst of courage, conviction, and most importantly, hope.
 
 #### Burn Away - (UPR094)
-"I will set your lies aflame, and reveal the ugly heart of this Uprising. Sometimes, walking away isn't nearly enough..." - [Dromai](../heroes-of-rathe/dromai-about.md)
+"I will set your lies aflame, and reveal the ugly heart of this Uprising. Sometimes, walking away isn't nearly enough..." - Dromai
 
 #### Cinderskin Devotion - (UPR063)
 Through famine, oppression, and the horrors of war, the Volcai's oath to their fallen bretheren shall never be broken.
@@ -70,7 +70,7 @@ The dragon of endurance, said to be rooted deep within the [Savage Lands](../arc
 As the insurgency reached a boiling point, even the Volcai monks let their temper flare.
 
 #### Lava Vein Loyalty - (UPR069)
-"Burn bright or burn out, we burn together." - [Fai](../heroes-of-rathe/fai-about.md)
+"Burn bright or burn out, we burn together." - Fai
 
 #### Sand Cover - (UPR039)
 A million insignificant grains will choke even the mightiest of dragon – old Volcai proverb
@@ -88,7 +88,7 @@ For some Volcai, honour is nothing compared to the sweet taste of vengeance.
 The illusionists of the Ash Plains can quickly turn home ground to their advantage.
 
 #### That All You Got? - (UPR189)
-"If only they were all as pathetic as you." - [Victor Goldmane](../heroes-of-rathe/victor-goldmane-about.md)
+"If only they were all as pathetic as you." - Victor Goldmane
 
 #### Tome of Duplicity - (UPR168)
 What intent lies beneath the pages?

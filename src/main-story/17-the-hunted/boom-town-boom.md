@@ -1,6 +1,6 @@
 # Boom Town Boom
 
-[Maxx](../../heroes-of-rathe/maxx-about.md) moves along with the crowd, a rarity for an anarchist punk like him, but necessary in the strictly monitored [East Rise](~EastRise). He's on a recon mission, sussing out an opportunity to stick it to [Teklo Industries][~TekloIndustries].
+Maxx moves along with the crowd, a rarity for an anarchist punk like him, but necessary in the strictly monitored [East Rise](~EastRise). He's on a recon mission, sussing out an opportunity to stick it to [Teklo Industries][~TekloIndustries].
 
 This particular throng of [Metrix](../../archive/world-of-rathe/metrix/metrix.md) citizenry is made up of success stories. There are office and lab workers, dressed neatly for conformity. There are executive types in power casual wear, and elegantly dressed elitists from the intelligentsia. They're all here for the distracting delights of Metrix's dazzling entertainment quarter.
 
@@ -16,7 +16,7 @@ Maxx pushes through the crowd until he can see the small stage set up for the ni
 
 _Just in time_.
 
-[Synthea Teklo](~SyntheaTeklo) steps up onto the stage to polite applause, followed by [Thiroux](~Thiroux) and... [_Dash_](../../heroes-of-rathe/dash-about.md). Maxx sneers at the sight of her: Princess Teklo, turncoat extraordinaire, the perpetrator of his latest stint in lock-up.
+[Synthea Teklo](~SyntheaTeklo) steps up onto the stage to polite applause, followed by [Thiroux](~Thiroux) and... _Dash_. Maxx sneers at the sight of her: Princess Teklo, turncoat extraordinaire, the perpetrator of his latest stint in lock-up.
 
 Synthea taps the microphone and it squeals sharply; people wince throughout the crowd. "Welcome to the grand opening of the new Teklo Industries East Rise Power Station," she says, speaking slowly, like every word is a quotable sound bite. "With this new addition to the power grid, we will prove once and for all that [Teklatic-dynamism](~TeklaticDynamism) is the energy source of the future. Clean, safe power for everyone!"
 
@@ -172,7 +172,7 @@ Dash doesn't know how to respond to that. She's never seen her mother so... upse
 
 "Looks like _I'll_ have to prepare something for the board tomorrow morning; keep Synthea calm when our stock prices tumble." With that, she turns and leaves.
 
-Dash waves goodbye to her mother's back, but her mind is already elsewhere. _Could [Data Doll](../../heroes-of-rathe/data-doll-mkii-about.md) solve the teklatic instability conundrum? Would she want to?_ She turns the radio back on and lets the music wash over her.
+Dash waves goodbye to her mother's back, but her mind is already elsewhere. _Could Data Doll solve the teklatic instability conundrum? Would she want to?_ She turns the radio back on and lets the music wash over her.
 
 ---
 

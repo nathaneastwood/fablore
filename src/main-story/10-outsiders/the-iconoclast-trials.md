@@ -1,6 +1,6 @@
 # The Iconoclast Trials
 
-[Patient 1413](../../heroes-of-rathe/arakni-about.md#arakni-solitary-confinement) came into my care after an 'incident' at Shuntswitch Railway Station. From what I could gather from eyewitness accounts, the youth appeared in the aftermath of an attack by alchemical mutants-those post-people colloquially known as [dregs](../../archive/world-of-rathe/pits/blackjacks-mercenary-group.md#dregs).
+Patient 1413 came into my care after an 'incident' at Shuntswitch Railway Station. From what I could gather from eyewitness accounts, the youth appeared in the aftermath of an attack by alchemical mutants-those post-people colloquially known as [dregs](../../archive/world-of-rathe/pits/blackjacks-mercenary-group.md#dregs).
 
 A sortie of said specimens emerged from the tunnels of the Skein and assaulted the shroom farmers who use the Shuntswitch line for supply and distribution. Armed with only hammers and sickles, the rail workers and farmers dispatched a baker's dozen of the wretches before the rest fled back into the depths of the [Pits](../../archive/world-of-rathe/pits/pits.md).
 

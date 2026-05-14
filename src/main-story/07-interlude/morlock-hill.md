@@ -18,7 +18,7 @@ The closest fiend shrieks with manic glee and swings its ax at the leader. The w
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-2.webp" alt="morlock-hill-2" class="center">
 
-[Dorinthea](../../heroes-of-rathe/dorinthea-about.md) spits blood and braces herself for the next attack. The creature barges forward, but this time Dorinthea slides low, passing beneath the ax's arc. She leaps to her feet, and as the fiend turns to face her, she sweeps her Dawnblade through its thick neck. The horned head thuds into the dirt, souring the earth with its blood.
+Dorinthea spits blood and braces herself for the next attack. The creature barges forward, but this time Dorinthea slides low, passing beneath the ax's arc. She leaps to her feet, and as the fiend turns to face her, she sweeps her Dawnblade through its thick neck. The horned head thuds into the dirt, souring the earth with its blood.
 
 Her victory is fleeting. Dorinthea spins to meet her next foe, and the blood drains from her face at the sight of three looming demons, larger again than the fiend she has felled.
 
@@ -34,7 +34,7 @@ Fardreyas was the first village to be consumed. Then Sunvale, Audra, and Hazelto
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/07-interlude/morlock-hill-4.webp" alt="morlock-hill-4" class="center">
 
-So far [Ser Boltyn](../../heroes-of-rathe/boltyn-about.md) and his vanguard have held the walls of the city itself, but not without dire losses. Unlike the Demonastery's soulless army, Solana's people are not expendable. Every soldier, farmer, scholar, and child killed is a name remembered. A family broken.
+So far Ser Boltyn and his vanguard have held the walls of the city itself, but not without dire losses. Unlike the Demonastery's soulless army, Solana's people are not expendable. Every soldier, farmer, scholar, and child killed is a name remembered. A family broken.
 
 ---
 

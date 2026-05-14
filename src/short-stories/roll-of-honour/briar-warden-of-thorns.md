@@ -2,7 +2,7 @@
 
 The moment she noticed it, like pinpricks toying with her spine, she knew there was no way to avoid it.
 
-"Why now?" [Briar](../../heroes-of-rathe/briar-about.md#briar-warden-of-thorns) questioned, scowling, as seismic vibrations rumbled quietly through the earth and invisible electricity buzzed through the air. She gazed over at her new friends, who were huddled nearby around the dim light of the campfire, sharing merry stories to keep their spirits high. They were oblivious to the beckoning of the [Strale](../../faq.md#what-powersforces-exist-within-rathe).
+"Why now?" Briar questioned, scowling, as seismic vibrations rumbled quietly through the earth and invisible electricity buzzed through the air. She gazed over at her new friends, who were huddled nearby around the dim light of the campfire, sharing merry stories to keep their spirits high. They were oblivious to the beckoning of the [Strale](../../faq.md#what-powersforces-exist-within-rathe).
 
 It was unfair, to say the least. She was just starting to warm up to this team of misfits and the strange world they fought so hard to protect. To be ripped away from her adventure so soon by the whims of nature itself... Briar realized she was actually trembling with frustration.
 

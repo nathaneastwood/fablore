@@ -12,7 +12,7 @@ Raised by the [Rosetta](~Rosetta), Verdance developed into an influential wizard
 
 Despite her efforts, The Rotwood threatens-a stain upon the fringe of Candlehold where decay spreads and the dance of the seasons grows stronger day by day.
 
-And at the center of the rot dwells [Florian, the Harbinger of Rotwood](./florian-about.md), a seed of discontent determined to ruin everything Candlehold has stood for since the [Queen](../archive/world-of-rathe/aria/the-land-of-legends.md) used the power of [Davnir](~Davnir) to seal the glade off from greater [Aria](../archive/world-of-rathe/aria/aria.md).
+And at the center of the rot dwells Florian, the Harbinger of Rotwood, a seed of discontent determined to ruin everything Candlehold has stood for since the [Queen](../archive/world-of-rathe/aria/the-land-of-legends.md) used the power of [Davnir](~Davnir) to seal the glade off from greater [Aria](../archive/world-of-rathe/aria/aria.md).
 
 Verdance takes her responsibility seriously and will harness her arcane abilities to stop her beloved home from falling into decay.
 

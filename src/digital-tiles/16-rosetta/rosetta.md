@@ -6,13 +6,13 @@ During the War of the Old Ones, the Aetherscribes attuned their keen intellects 
 
 ### Aurora, Shooting Star
 
-"The wonders of the Valahai, tucked away in the vaults of shattered [Enion](~Enion). It'd be a shame not to crack them open and take a peek. Dangerous? Sure! But you can't see around the next corner without sticking your neck out, right?" - [Aurora, Shooting Star](../../heroes-of-rathe/aurora-about.md#aurora-shooting-star)
+"The wonders of the Valahai, tucked away in the vaults of shattered [Enion](~Enion). It'd be a shame not to crack them open and take a peek. Dangerous? Sure! But you can't see around the next corner without sticking your neck out, right?" - Aurora, Shooting Star
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/aurora-shooting-star.webp" alt="aurora-shooting-star" class="center" />
 
 ### Blossoming Decay
 
-"You have taught me much, my silent companions. From your passing I have learned the secrets of life. In your crumbling bones I see the beauty of transformation. The Rotwood speaks through you, its wisdom etched into the flowers upon your grave." - [Florian, Rotwood Harbinger](../../heroes-of-rathe/florian-about.md#florian-rotwood-harbinger)
+"You have taught me much, my silent companions. From your passing I have learned the secrets of life. In your crumbling bones I see the beauty of transformation. The Rotwood speaks through you, its wisdom etched into the flowers upon your grave." - Florian, Rotwood Harbinger
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/blossoming-decay.webp" alt="blossoming-decay" class="center" />
 
@@ -51,7 +51,7 @@ Of Rotwood's will, its purpose now thine.
 
 ### Harvest Season
 
-"Florian may find solace in the silence of the past, but I find joy in the vibrancy of the present. There is much that death can teach us, but it is through life that we find true strength. Through time alone, we achieve true wisdom." - [Verdance, Thorn of the Rose](../../heroes-of-rathe/verdance-about.md#verdance-thorn-of-the-rose)
+"Florian may find solace in the silence of the past, but I find joy in the vibrancy of the present. There is much that death can teach us, but it is through life that we find true strength. Through time alone, we achieve true wisdom." - Verdance, Thorn of the Rose
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/harvest-season.webp" alt="harvest-season" class="center" />
 
@@ -75,7 +75,7 @@ Florian plunged a lifeless branch into the mephitic altar and drew forth an embo
 
 ### Sanctuary of Aria
 
-"In [Aria](../../archive/world-of-rathe/aria/aria.md), every step is a journey through a living song; every breath taken is a draft of pure music. It is a land where nature and enchantment are harmonized; a sanctuary for all who seek the wonder of waking dreams." - [Melody, Sing-along](../../heroes-of-rathe/melody-about.md)
+"In [Aria](../../archive/world-of-rathe/aria/aria.md), every step is a journey through a living song; every breath taken is a draft of pure music. It is a land where nature and enchantment are harmonized; a sanctuary for all who seek the wonder of waking dreams." - Melody, Sing-along
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/sanctuary-of-aria.webp" alt="sanctuary-of-aria" class="center" />
 

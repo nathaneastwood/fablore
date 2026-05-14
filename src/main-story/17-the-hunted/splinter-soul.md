@@ -1,6 +1,6 @@
 # Splinter Soul
 
-Each tree was a chorus of birdsong and the undergrowth chittered with tiny creatures. [Terra](../../heroes-of-rathe/terra-about.md) heard it all, could feel even the animals in their burrows and tunnels underfoot, could sense the insects in the soil amongst the tangled roots and mycelial threads. Indeed, he could sense the vast web of life stretching across all of [Aria](../../archive/world-of-rathe/aria/aria.md).
+Each tree was a chorus of birdsong and the undergrowth chittered with tiny creatures. Terra heard it all, could feel even the animals in their burrows and tunnels underfoot, could sense the insects in the soil amongst the tangled roots and mycelial threads. Indeed, he could sense the vast web of life stretching across all of [Aria](../../archive/world-of-rathe/aria/aria.md).
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/splinter-soul-1.webp" alt="splinter-soul-1" class="center" />
 

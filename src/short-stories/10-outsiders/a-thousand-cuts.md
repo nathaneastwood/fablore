@@ -2,7 +2,7 @@
 
 "Not from around here, are ya kid?" The [Jawbreaker](../../archive/world-of-rathe/pits/the-maw.md#jawbreakers) goon sneered down, as his four cohorts shuffled closer to corner the young Ninja in the alleyway.
 
-[Benji](../../heroes-of-rathe/benji-about.md) stood his ground, calm as the breeze.
+Benji stood his ground, calm as the breeze.
 
 "I just need directions to..."
 

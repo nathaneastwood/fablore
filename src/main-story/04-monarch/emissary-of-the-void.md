@@ -8,7 +8,7 @@ However, in their suffering, they came to discover a greater power. The pain bro
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/chane-2.webp" alt="chane-2" class="center">
 
-[Chane](../../heroes-of-rathe/chane-about.md) was raised within the order of the Disciples of Pain. He was taught the history of humanity, the gravitas of the old ones, and the true nature of [Solana](../../archive/world-of-rathe/solana/solana.md). Like his brethren, he sought to harness the suffering of humanity, to welcome the bloodletting, sanctified torture, and self-flagellation which littered his own initiations into the Disciples. As his pain threshold grew higher, Chane felt his connection to the Shadow grow stronger, allowing him to see the true nature of Rathe for the very first time. In that moment of transcendence, he felt the true weight of his duty to humanity.
+Chane was raised within the order of the Disciples of Pain. He was taught the history of humanity, the gravitas of the old ones, and the true nature of [Solana](../../archive/world-of-rathe/solana/solana.md). Like his brethren, he sought to harness the suffering of humanity, to welcome the bloodletting, sanctified torture, and self-flagellation which littered his own initiations into the Disciples. As his pain threshold grew higher, Chane felt his connection to the Shadow grow stronger, allowing him to see the true nature of Rathe for the very first time. In that moment of transcendence, he felt the true weight of his duty to humanity.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/chane-3.webp" alt="chane-3" class="center">
 

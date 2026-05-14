@@ -1,7 +1,7 @@
 # Rosetta
 
 #### Autumn's Touch - (ROS046)
-"It is not to be feared, [Verdance](../heroes-of-rathe/verdance-about.md). Autumn is but the hand that guides summer to sleep." - [Florian, Rotwood Harbinger](../heroes-of-rathe/florian-about.md#florian-rotwood-harbinger)
+"It is not to be feared, Verdance. Autumn is but the hand that guides summer to sleep." - Florian, Rotwood Harbinger
 
 #### Blossoming Decay - (ROS049)
 "Many have forgotten [Davnir](~Davnir)'s lessons: within decay, the secrets of rebirth are hidden." - Ozrim, [Rosetta](~Rosetta) Elder
@@ -10,7 +10,7 @@
 The fallen husks of the Third Age lie dormant within the Rotwood, their decaying frames germinating into a plethora of possible futures.
 
 #### Earth Form - (ROS036)
-"The mighty Ollin once fought alongside the Kin of Davnir, their combined strength keeping the Old Ones at bay." - [Oldhim](../heroes-of-rathe/oldhim-about.md)
+"The mighty Ollin once fought alongside the Kin of Davnir, their combined strength keeping the Old Ones at bay." - Oldhim
 
 #### Felling of the Crown - (ROS031)
 "With her fall, the ancient enchantment begins to fade, and the Rotwood stirs once more." - Kaysin, Maela Soothsayer

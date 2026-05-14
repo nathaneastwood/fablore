@@ -12,9 +12,9 @@ _Until now._
 
 _The truth lies beyond the mist._
 
-"Welcome traveler, you must be starving. Please come inside. I think we can satisfy your appetite. Anything you like, intimacy or perhaps ecstasy. Come a little closer I won't bite, tell me what do you desire?" - [Nuu](../../heroes-of-rathe/nuu-about.md)
+"Welcome traveler, you must be starving. Please come inside. I think we can satisfy your appetite. Anything you like, intimacy or perhaps ecstasy. Come a little closer I won't bite, tell me what do you desire?" - Nuu
 
-"Beware the tongue of the snake her fangs shall soon follow. Pleasure is but the shallow illusion, walk the true path and you shall see clear. Those who seek may discover, formless, perfect the serene unchanging infinite, eternally present." - [Enigma](../../heroes-of-rathe/enigma-about.md)
+"Beware the tongue of the snake her fangs shall soon follow. Pleasure is but the shallow illusion, walk the true path and you shall see clear. Those who seek may discover, formless, perfect the serene unchanging infinite, eternally present." - Enigma
 
 "Eternally boring, why don't we play rough." - Nuu
 
@@ -30,7 +30,7 @@ _The truth lies beyond the mist._
 
 "Just a taste." - Nuu
 
-"Enough! A tiger does not fall prey to the snake. The tiger walks its own path. Those who flow as life flows know they need no other force, the heavy is the root of the light, the unmoved the source of all movement, the center is unbound and free." - [Zen](../../heroes-of-rathe/zen-about.md)
+"Enough! A tiger does not fall prey to the snake. The tiger walks its own path. Those who flow as life flows know they need no other force, the heavy is the root of the light, the unmoved the source of all movement, the center is unbound and free." - Zen
 
 "Walk the path seek the truth." - Enigma
 

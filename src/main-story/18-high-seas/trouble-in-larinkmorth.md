@@ -1,6 +1,6 @@
 # Trouble in Larinkmorth
 
-[Valda](../../heroes-of-rathe/valda-about.md) kicked the tavern door open and hurled one, then another drunken brawler out into the cold night air.
+Valda kicked the tavern door open and hurled one, then another drunken brawler out into the cold night air.
 
 The common room erupted into cheers of approval as the muscular guardian leaned against the doorway, adjusting her bracers as the louts struggled to extricate themselves from the snow.
 
@@ -36,11 +36,11 @@ Valda guided the seer to a stool at the bar, then opened the bridge and stepped 
 
 Kaysin's arrival had Valda concerned. The seer would have traveled some distance from Everfest, which meant she had a matter of grave importance to discuss, but in typical [Aria](../../archive/world-of-rathe/aria/aria.md) fashion, was taking her time getting to the point.
 
-"[Bravo](../../heroes-of-rathe/bravo-about.md) left the [Carnival](../../archive/world-of-rathe/aria/people-of-aria.md#the-everfest-carnival), did you hear?"
+"Bravo left the [Carnival](../../archive/world-of-rathe/aria/people-of-aria.md#the-everfest-carnival), did you hear?"
 
 "Oh, I've heard." Valda rolled her eyes. "Bravo's headache enough when his troupe brings him here. I've no desire to burden myself with his antics when he's not."
 
-Kaysin's eyes were fixed on Valda as she sipped her tea. "[Oldhim](../../heroes-of-rathe/oldhim-about.md) named him leader of the new Ollin."
+Kaysin's eyes were fixed on Valda as she sipped her tea. "Oldhim named him leader of the new Ollin."
 
 Valda smirked. "The two-bit showman's found himself a larger audience."
 
@@ -84,7 +84,7 @@ She noticed movement on the slopes leading up to the peak, something big, headin
 
 She turned towards the villagers, shouting to be heard over the whipping winds. "Get back! Back in your homes!"
 
-The beast was fast, leaping past her before she could turn back. She lunged aside just in time to avoid its pursuer, a massive figure in dark and dented plate armor crusted with frozen blood. He carried an enormous weapon, jagged like an icicle. [Jarl Vetreiði](../../heroes-of-rathe/jarl-about.md).
+The beast was fast, leaping past her before she could turn back. She lunged aside just in time to avoid its pursuer, a massive figure in dark and dented plate armor crusted with frozen blood. He carried an enormous weapon, jagged like an icicle. Jarl Vetreiði.
 
 ![trouble-in-larinkmorth-2](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/trouble-in-larinkmorth-2.webp)
 

@@ -2,7 +2,7 @@
 
 Apparently 'breakneck speed' wasn't fast enough.
 
-[Maxx](../../heroes-of-rathe/maxx-about.md) careened around a corner, the thrusters of his speeder spewing flames like a dragon with a hangover. The enforcers were still only mere metres behind him, droning "HALT!" over and over as if it was the only word they knew how to say (it was).
+Maxx careened around a corner, the thrusters of his speeder spewing flames like a dragon with a hangover. The enforcers were still only mere metres behind him, droning "HALT!" over and over as if it was the only word they knew how to say (it was).
 
 He bobbed and weaved between smoky alleyways and rusted junctions, desperately trying to lose his pursuers. Maybe he had pushed it too far this time.
 

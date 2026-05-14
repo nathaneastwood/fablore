@@ -1,7 +1,7 @@
 # Outsiders
 
 #### Back Stab - (OUT015)
-"Perfect strands of red drawn out by a perfectly angled blade. It's an art form few can appreciate." - [Arakni](../heroes-of-rathe/arakni-about.md), Huntsman
+"Perfect strands of red drawn out by a perfectly angled blade. It's an art form few can appreciate." - Arakni, Huntsman
 
 #### Bloodrot Pox - (OUT234)
 "We are trumpeters of Their return, that even the deaf can hear Their footsteps drawing near." - book of the raven, [l'Apocalypta](../archive/world-of-rathe/pits/blackjacks-mercenary-group.md#lapocalypta)

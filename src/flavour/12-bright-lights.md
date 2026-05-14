@@ -40,7 +40,7 @@ The Chrome Caverns at the desert's edge, where steel-laced winds whisper of forg
 What goes up must come down... to [Coppertown](../archive/world-of-rathe/metrix/a-sprawling-metropolis.md#coppertown).
 
 #### Slay - (EVO248)
-When Light is made flesh, Light too shall bleed. - [Vynnset, the Iron Maiden](../heroes-of-rathe/vynnset-about.md)
+When Light is made flesh, Light too shall bleed. - Vynnset, the Iron Maiden
 
 #### Smashing Performance - (EVO237)
 "The scent of blood, the roar of the crowd. The enemies beneath your mace, all bear witness to the rise of a new CHAMPION!!" - Kox, Deathmatch Fightmaster
@@ -52,7 +52,7 @@ When Light is made flesh, Light too shall bleed. - [Vynnset, the Iron Maiden](..
 "Stability is the bedrock of Metrix city, as peace and profit go hand in hand." - Enforcer Eesha
 
 #### System Reset - (EVO145)
-"Data corrupted. Thoughts scrambled. Lucidity protocol enabled." - [Data Doll MKI](../heroes-of-rathe/data-doll-mkii-about.md)
+"Data corrupted. Thoughts scrambled. Lucidity protocol enabled." - Data Doll MKI
 
 #### Wax Off - (EVO239)
 "Why look without, when the Art hides within?" - Master Morita, Art of the Hand
