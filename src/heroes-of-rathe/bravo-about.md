@@ -4,7 +4,7 @@
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/bravo-showstopper.mp4" type="video/mp4">
 </video>
 
-The star of the [Everfest Carnival](../archive/world-of-rathe/aria/people-of-aria.md#the-everfest-carnival), leader of the Legendarium, performing stories and legends for cheering crowds. Bravo grew up listening to the tales of old, fascinated by past heroes and adventurers. When his destiny came knocking, with a curious quest and mysterious companions, Bravo jumped at the chance to become a true hero. Now, he has embraced the legend of the Guardians, and is ready to write his own story.
+The star of the Everfest Carnival, leader of the Legendarium, performing stories and legends for cheering crowds. Bravo grew up listening to the tales of old, fascinated by past heroes and adventurers. When his destiny came knocking, with a curious quest and mysterious companions, Bravo jumped at the chance to become a true hero. Now, he has embraced the legend of the Guardians, and is ready to write his own story.
 
 Confident, charming and theatrical, Bravo treats battle like a performance. Set the stage, build the anticipation, and prepare for the grand finale, for once he's ready to strike, nothing can stand in the way of his powerful attacks.
 

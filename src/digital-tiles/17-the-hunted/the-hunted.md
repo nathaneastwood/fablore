@@ -18,7 +18,7 @@ Children of the Dragon, be still or beware.
 
 ### Arakni, Redback
 
-Lurking in the tundra of [Volcor](../../archive/world-of-rathe/volcor/volcor.md)'s red plains,<br>
+Lurking in the tundra of Volcor's red plains,<br>
 A creation of cruelty stalks night and day,<br>
 'Tis murder it loves, the bloodier the better,<br>
 Agent 444 is the agony dispenser.
@@ -48,7 +48,7 @@ Some of the Emperor's most trusted servants see in his murder an opportunity for
 
 ### Graphene Chelicera
 
-The chitinous predators that stalk the [Pits](../../archive/world-of-rathe/pits/pits.md) can kill with a single bite, and so the blades forged in that place are crafted to the same standard. To draw blood with such a weapon is to sentence death-if but given the chance.
+The chitinous predators that stalk the Pits can kill with a single bite, and so the blades forged in that place are crafted to the same standard. To draw blood with such a weapon is to sentence death-if but given the chance.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/graphene-chelicera.webp" alt="graphene-chelicera" class="center" />
 

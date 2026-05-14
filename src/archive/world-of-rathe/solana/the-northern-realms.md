@@ -1,6 +1,6 @@
 # The Northern Realms
 
-Between [Metrix](../metrix/metrix.md) to the west and [Aria](../aria/aria.md) to the east lies the Northern Realms, a chain of plateaus, high valleys, and guarded passes held by rival noble houses. In Solana's earliest days, northern chieftains allied to Solana and subdued their shadowsworn rivals, then bent the knee in the [Solarium](./a-radiant-city.md#solarium) and were anointed as knights. From those oaths came houses that still shape the region.
+Between Metrix to the west and Aria to the east lies the Northern Realms, a chain of plateaus, high valleys, and guarded passes held by rival noble houses. In Solana's earliest days, northern chieftains allied to Solana and subdued their shadowsworn rivals, then bent the knee in the Solarium and were anointed as knights. From those oaths came houses that still shape the region.
 
 These noble families jockey for position as the dominant power of the province, contests often concerning trade accords and mining claims. Yet in the mountainous Northern Realms, an accord or claim is worth little without passage and so roads have become the most valuable asset of all.
 

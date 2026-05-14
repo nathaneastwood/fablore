@@ -16,7 +16,7 @@ Its appearance has affected the [Flow](~TheFlow), with lightning talents surging
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/21-omens-of-the-third-age/omens-in-the-sky-3.webp" alt="omens-in-the-sky-3" class="center">
 
-With their abilities heightened by this Lightning Flow phenomenon, the Wayfarers and Wizards of [Volthaven](../../archive/world-of-rathe/aria/the-land-of-legends.md#volthaven) travel to all corners of Enion to counter the effects of the omen.
+With their abilities heightened by this Lightning Flow phenomenon, the Wayfarers and Wizards of Volthaven travel to all corners of Enion to counter the effects of the omen.
 
 Together, Oscilio and Aurora ride the lightning to the omen itself, hoping to sear the opening shut. Yet they are met with a demonic force beyond anything they have encountered.
 
@@ -66,7 +66,7 @@ Though the demonic force reaches out for them again, Oscilio, Aurora, and Zyggy 
 
 It has not been alone.
 
-Zyggy, Aurora, and Oscilio watch in mounting horror as more omens appear, one after the other, each glaring down upon a different land. Above the wild jungles of the [Savage Lands](../../archive/world-of-rathe/savage-lands/savage-lands.md). Over the red earth of [Volcor](../../archive/world-of-rathe/volcor/volcor.md). Over the fog-veiled valleys of [Misteria](../../archive/world-of-rathe/misteria/misteria.md). Over the broken hills of the [Northern Realms](../../archive/world-of-rathe/solana/the-northern-realms.md). Over the skyscrapers of [Metrix](../../archive/world-of-rathe/metrix/metrix.md). Over the besieged city of [Solana](../../archive/world-of-rathe/solana/solana.md).
+Zyggy, Aurora, and Oscilio watch in mounting horror as more omens appear, one after the other, each glaring down upon a different land. Above the wild jungles of the Savage Lands. Over the red earth of Volcor. Over the fog-veiled valleys of Misteria. Over the broken hills of the Northern Realms. Over the skyscrapers of Metrix. Over the besieged city of Solana.
 
 Our heroes of lightning look to one another, for all can feel the gravity of this moment, and know that Rathe is about to change...forever.
 

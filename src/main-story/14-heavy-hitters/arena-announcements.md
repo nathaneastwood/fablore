@@ -21,13 +21,13 @@ Rhinar, the Reckless Rampage, is here to dominate!<br>
 
 ## Kayo
 Brace yourselves for a living nightmare<br>
-From the depths of the [Savage Lands](../../archive/world-of-rathe/savage-lands/savage-lands.md) - captured, mangled, and now reborn in the Arena<br>
+From the depths of the Savage Lands - captured, mangled, and now reborn in the Arena<br>
 Please, stay away from the edges of the arena<br>
 This monster's bloodlust knows no bounds<br>
 The very essence of savagery, he may be wounded, but he's armed...and dangerous, Kayo!<br>
 
 ## Victor
-Witness a guardian of grand virtue, draped in the blinding light of [Solana](../../archive/world-of-rathe/solana/solana.md)<br>
+Witness a guardian of grand virtue, draped in the blinding light of Solana<br>
 With fistfuls of wealth and an ego, even bigger than his pockets, we are so lucky he has chosen to grace us with his presence<br>
 Will his virtues illuminate his path to victory?<br>
 Behold, the Golden Son, Victor Goldmane!<br>
