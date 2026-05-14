@@ -1,9 +1,5 @@
 # Ember in the Ash
 
-<p>
-(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
-</p>
-
 _Your Imperial Majesty, forgive this impertinence, but these are desperate times. Our workers have turned rabid, infected by rebellious lies. They steal from our caravans. They plunder our warehouses. We petitioned our Lord Wizard for aid. He burned our messengers and fled the [Red Desert](../../archive/world-of-rathe/volcor/the-red-desert.md)-a disgrace to your glorious dragon blood. You are the greatest of the [Dracai](~Dracai). Your flame is the brightest of all. Punish these upstarts. Sear their treacherous hopes from their dim minds. We beseech you, our mighty [Emperor](../../heroes-of-rathe/emperor-about.md). Please, help us._
 
 _Your humble servant,_
@@ -127,13 +123,3 @@ A horn sounds from the keep, but it's too late for its inhabitants. No-one is co
 Fai's ninjas swarm over the wall, compelling him to bury his dark thoughts. He has a rebellion to lead. Again he spearheads the assault, taking the keep floor by bloody floor. He reaches the Dracai's chambers first and uses the lord's own dining table to block the incoming fireball. He dances around the sparks and spells, closes in on the panicked wizard and drives his sword through the man's heart, thus tempering his blade in dragon blood. He then ascends the turret of the holdfast, the steel of his sword still burning with arcane fire.
 
 Above him in the now reddish sky, he notices another vuurlin. This one wild; hunting. Its fiery wingtips are a beacon. An omen. He turns to face the gathering crowd of soldiers below him and raises the Phoenix banner to a thousand cries of triumph. The wings of the phoenix flap lightly in the breeze as the sun bleeds out behind the distant mountains. Fai stays there for a moment, inhaling the victory deep into his chest, as ash begins to fall like snow, settling upon his scarred face.
-
----
-
-### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
-
-<p>
-(<a href="#ember-in-the-ash">Jump to the Top</a>)
-</p>
-
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/NQQWIIAY4Ak" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

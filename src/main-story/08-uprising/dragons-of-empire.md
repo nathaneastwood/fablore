@@ -8,10 +8,6 @@ No. Dromai's imagination is as boundless as her ambition. She is an ash artist, 
 
 # Dragons of Empire
 
-<p>
-(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
-</p>
-
 "Vynserakai!" calls Dromai.
 
 "Azvolai! Nekria!"
@@ -139,13 +135,3 @@ Like the village of her childhood, her past has been burned away. No longer is s
 She is where she belongs, where her dragon blood has burned to be for thirty years.
 
 She is Dracai.
-
----
-
-### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
-
-<p>
-(<a href="#dragons-of-empire">Jump to the Top</a>)
-</p>
-
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/PBQnJNvhTBw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

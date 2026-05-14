@@ -6,8 +6,8 @@ first line, column order matching the original CSVs. All files are written
 into ``data_dir/csv/``.
 
 The ``NarratedVideos`` column (legacy JSON blob) is **not** re-emitted in
-``stories.csv`` — narrated videos now live in their own table and are only
-exported via :func:`dump_to_json`.
+``stories.csv`` — narrated videos live in the ``narrated_videos`` table and are
+exported to ``story-narrated-videos.csv`` (and included in :func:`dump_to_json`).
 """
 
 from __future__ import annotations
@@ -58,6 +58,33 @@ def _write_pipe_csv(
             writer.writerow({k: row.get(k, "") for k in fieldnames})
 
 
+def _export_story_narrated_videos(conn: sqlite3.Connection, csv_dir: Path) -> None:
+    rows = conn.execute(
+        """
+        SELECT nv.story_id, nv.author, nv.source_link, nv.channel_link, nv.duration
+        FROM narrated_videos nv
+        INNER JOIN stories s ON s.story_id = nv.story_id
+        ORDER BY s.story_key, nv.narrated_video_id
+        """
+    ).fetchall()
+    data = [
+        {
+            "StoryId": r["story_id"],
+            "Author": r["author"],
+            "SourceLink": r["source_link"],
+            "ChannelLink": r["channel_link"],
+            "Duration": r["duration"],
+        }
+        for r in rows
+    ]
+    _write_pipe_csv(
+        csv_dir / "story-narrated-videos.csv",
+        _CMD_STORIES,
+        ["StoryId", "Author", "SourceLink", "ChannelLink", "Duration"],
+        data,
+    )
+
+
 def export_all(conn: sqlite3.Connection, data_dir: Path) -> None:
     """Regenerate every CSV file in ``data_dir/csv/`` from the database.
 
@@ -67,6 +94,7 @@ def export_all(conn: sqlite3.Connection, data_dir: Path) -> None:
     """
     csv_dir = data_dir / "csv"
     _export_stories(conn, csv_dir)
+    _export_story_narrated_videos(conn, csv_dir)
     _export_regions(conn, csv_dir)
     _export_locations(conn, csv_dir)
     _export_npcs(conn, csv_dir)

@@ -1,9 +1,5 @@
 # The Spider's Trap
 
-<p>
-(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
-</p>
-
 _(Warning: story features content that may be upsetting to certain readers.<br>
 Viewer discretion is advised.)_
 
@@ -186,13 +182,3 @@ Assassins of the Spider live and die by their own accords.
 For they are Outsiders.
 
 ...
-
----
-
-### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
-
-<p>
-(<a href="#the-spiders-trap">Jump to the Top</a>)
-</p>
-
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/b0CaXO23LqY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

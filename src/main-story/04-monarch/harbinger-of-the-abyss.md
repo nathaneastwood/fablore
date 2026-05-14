@@ -1,9 +1,5 @@
 # Harbinger of the Abyss
 
-<p>
-(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
-</p>
-
 A heavy silence blanketed the great hall, which was saturated with the metallic stench of blood and bile. The once pristine walls were streaked with copper stains, and claret pooled beneath cooling corpses, their expressions twisted with fear and pain. Only one of the room's occupants remained upright, stalking through the carnage.
 
 For the first time she could remember, the Barthimont estate lay completely silent, deprived of even the tangible, unspoken tension which usually hung in the air. Yet, as Levia drew nearer to the main entrance of the great hall, she heard the faint, distant sound of footsteps echoing down the hallway lying just beyond the doors.
@@ -217,13 +213,3 @@ He grinned, gesturing to the other residents who now milled behind him, watching
 "We seek to strike at [Solana](../../archive/world-of-rathe/solana/solana.md)-the city would practically be a banquet for a power like yours. Even [Sutcliffe](~Sutcliffe) desires to take a power like theirs." Chane gestured to the head at her hip, hands outstretched. "Join us, Levia, and devour the Light."
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-16.webp" alt="levia-16" class="center">
-
----
-
-### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
-
-<p>
-(<a href="#harbinger-of-the-abyss">Jump to the Top</a>)
-</p>
-
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/kdzofJc1StE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

@@ -1,9 +1,5 @@
 # Step Into The Light
 
-<p>
-(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
-</p>
-
 The trade route wound between the rolling hills, a path of dirt and clay moulded by the passage of the centuries. Dark shadows enfolded the dim landscape, and the beaten path was cast in shades of violet and listless green as the sun sank behind the horizon, relinquishing the stage to a foreboding twilight. Golden armour gleamed faintly in the last few traces of sunlight, quietly announcing the arrival of a small party of knights, marching along the trail to the north.
 
 [Boltyn](../../heroes-of-rathe/boltyn-about.md)'s gaze was locked firmly on the fields ahead, scanning the skyline for signs of any other travellers. Behind him, the rest of his party strode forward, their hands resting on their weapons, eyes flicking from side to side as they scoured the gloomy landscape for potential threats. Months of hunting down cultists in the [Northern Realms](../../archive/world-of-rathe/solana/the-northern-realms.md) had left each of them changed by the weight of duty; their shoulders were taut with silent tension, their weapons at the ready, their gazes ever-moving, constantly checking their surroundings for the slightest trace of shadow aether.
@@ -183,13 +179,3 @@ The Amphitheatre was flooded with wordless cries of determination, answering the
 For one single moment, in the pale light, Boltyn thought he glimpsed Bellona's figure, too; rising above the Solarium, her fiery wings painting the sky in brilliant shades of gold and amber.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/step-7.webp" alt="step-7" class="center">
-
----
-
-### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
-
-<p>
-(<a href="#step-into-the-light">Jump to the Top</a>)
-</p>
-
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/d6pfgnLN-CU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

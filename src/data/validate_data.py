@@ -408,7 +408,8 @@ def collect_alerts() -> list[str]:
     """Run all non-empty-id checks and foreign-key checks.
 
     Includes story junction FKs to ``heroes-canonical``, ``weapons-canonical``,
-    and ``equipment-canonical`` where applicable. Hero ``CardName`` values must
+    and ``equipment-canonical`` where applicable, and ``StoryId`` on
+    ``story-narrated-videos.csv`` to ``stories.csv``. Hero ``CardName`` values must
     resolve to each row's ``CanonicalId`` under the same rules as ``create_heroes_csv``.
     ``stories.csv`` ``StoryType`` must be a member of :data:`ALLOWED_STORY_TYPES`.
 
@@ -469,6 +470,11 @@ def collect_alerts() -> list[str]:
         (DATA / "csv/story-food-drink.csv", ("StoryId", "FoodDrinkId"), "Story ↔ food/drink links"),
         (DATA / "csv/story-weapons.csv", ("StoryId", "CanonicalWeaponId"), "Story ↔ weapon links"),
         (DATA / "csv/story-equipment.csv", ("StoryId", "CanonicalEquipmentId"), "Story ↔ equipment links"),
+        (
+            DATA / "csv/story-narrated-videos.csv",
+            ("StoryId", "Author", "SourceLink"),
+            "Story narrated videos",
+        ),
     ]
 
     for path, cols, label in checks:
@@ -483,6 +489,18 @@ def collect_alerts() -> list[str]:
     stories_path = DATA / "csv/stories.csv"
     if stories_path.is_file():
         alerts.extend(_check_stories_story_type_allowlist(stories_path))
+
+    story_ids = _id_set_from_column(stories_path, "StoryId")
+    if story_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/story-narrated-videos.csv",
+                "StoryId",
+                story_ids,
+                "stories.csv StoryId",
+                "Story narrated videos",
+            )
+        )
 
     canonical_path = DATA / "csv/heroes-canonical.csv"
     game_path = DATA / "csv/heroes-game.csv"
