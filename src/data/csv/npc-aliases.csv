@@ -1,0 +1,14 @@
+# NPC name aliases: normalized alternate forms of NPC names → CharacterId.
+# NormalizedAlias is text_utils.normalize_name() of the alternate name.
+# CharacterId must exist in npcs.csv.
+NormalizedAlias|CharacterId
+bartimont|LCe818ee96b7
+barthimont|LCe818ee96b7
+doctorkrestmortimer|LC6d0dca761a
+drkrestmortimer|LC6d0dca761a
+drmortimer|LC6d0dca761a
+krestmortimer|LC6d0dca761a
+ladybarthimont|LCe818ee96b7
+librarian|LC158fd93075
+minerva|LC813d110fa8
+sutcliffe|LC6e4bf9ad33

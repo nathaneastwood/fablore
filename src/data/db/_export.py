@@ -212,13 +212,14 @@ def _export_npcs(conn: sqlite3.Connection, csv_dir: Path) -> None:
             "Name": r["name"],
             "Species": r["species"],
             "Status": r["status"],
+            "OtherCharactersStoryKey": r["other_characters_story_key"],
         }
         for r in rows
     ]
     _write_pipe_csv(
         csv_dir / "npcs.csv",
         _CMD_REGISTRY,
-        ["CharacterId", "Name", "Species", "Status"],
+        ["CharacterId", "Name", "Species", "Status", "OtherCharactersStoryKey"],
         data,
     )
 

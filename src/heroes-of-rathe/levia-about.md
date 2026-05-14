@@ -6,7 +6,7 @@
 
 You bleed, the Redeemed feeds. Levia has an appetite for destruction and you're welcome to the feast.
 
-Levia was born into extreme poverty, her mother forced to sell both herself and her child into the service of the cruel [Lady Barthimont](../other-characters/lady-bartimont.md) in order to survive.
+Levia was born into extreme poverty, her mother forced to sell both herself and her child into the service of the cruel Lady Barthimont in order to survive.
 
 Soon after, Levia's parents vanished under mysterious circumstances. Although haunted by her mother's desire to escape the Barthimonts by any means necessary, Levia chose to stay, to uncover the secrets of the Barthimont estate.
 
