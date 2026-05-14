@@ -4,10 +4,6 @@ _However, in recent times the Flow has become increasingly unstable, and a growi
 
 # A Rising Star
 
-<p>
-(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
-</p>
-
 Even amongst the many taverns, festivals and celebrations of Aria, nothing could possibly compare to the excitement of the Everfest Carnival. A massive, moving circus, the Everfest travels throughout Aria, a sea of brightly coloured big-tops boasting the biggest collection of performances in all of Rathe. Yet of all its acts, none were so famous or beloved as [Bravo](../../heroes-of-rathe/bravo-about.md)'s Legendarium.
 
 Bravo was raised amongst the strongmen and animal acts of the Valdur, growing up alongside great, majestic cesari, and tiny meeps that darted from stall to stall. Many of his closest friends were members of the Maela; oracles, bards, skalds, enchanters and fortune-tellers, all breezing about the Everfest in loose silks and layers of golden jewellery.
@@ -142,13 +138,3 @@ He had heard wayfarers speak of unusual changes in the Flow, and one had hinted 
 As Bravo greeted his companions, following them into the sea of tents with a broad grin, a single figure remained near the edge of the tents. An old woman, dressed in the loose silks and woven fabrics of the oracles, her golden jewellery marking her as one of the Maela. Her single eye gleamed as she watched Bravo leave, a small smile tugging at the corners of her lips.
 
 "At last, it is time. The Guardians shall return once more."
-
----
-
-### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
-
-<p>
-(<a href="#a-rising-star">Jump to the Top</a>)
-</p>
-
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/E6JoDmEbTgU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

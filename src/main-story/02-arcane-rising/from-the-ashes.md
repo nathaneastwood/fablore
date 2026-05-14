@@ -1,9 +1,5 @@
 # From the Ashes
 
-<p>
-(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
-</p>
-
 The imperial guards ushered him into the room, the [Lord Wizard Chiyo](~Chiyo) close behind. As she stepped in front of him, the members of the Chamber of the Dragon all turned, looking down at the scene before them. Clearing her throat, the Lord Wizard turned her gaze to the Lord Chancellor himself.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-8.webp" alt="kano-8" class="center">
@@ -161,13 +157,3 @@ Rising from his seat, Kano stared down at the staff before him, looking over the
 In his hands, the staff appeared to awaken, firelight dancing between the obsidian scales. He felt the aether around him in stir in response, arcane energy channeling through the core of the staff. With a laugh, he nodded, straightening.
 
 "Dracai of Aether. I like the sound of that."
-
----
-
-### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
-
-<p>
-(<a href="#from-the-ashes">Jump to the Top</a>)
-</p>
-
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/wfUxBpQXX8g?start=1693" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

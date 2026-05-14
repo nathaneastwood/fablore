@@ -1,9 +1,5 @@
 # Tidings in the Light
 
-<p>
-(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
-</p>
-
 Rays of golden sun kiss the once golden fields of [Solana](../../archive/world-of-rathe/solana/solana.md).
 
 A cloaked figure pauses at the doorway of a ruined homestead, eyes lost in shadow as it looks across the embattled earth. The clamoring horde of the [Demonastery](../../archive/world-of-rathe/demonastery/demonastery.md) is a chorus of rumbles and howls, like a foul storm brooding in the distance.
@@ -139,14 +135,3 @@ The Grand Magister's voice is a sunlit sermon streaming over the morn, warming h
 "Sol will prevail," answers the Grand Council, euphonious and sure.
 
 Shiyana joins the chorus as it soars to the highest arches of the Amphitheatre. Many voices joined as one, intoning the glory of their salvation. In that moment her heart and mind harmonize, reformed in the Light. There is no doubt. There is no fear. Only Sol.
-
----
-
-### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
-
-<p>
-(<a href="#tidings-in-the-light">Jump to the Top</a>)
-</p>
-
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/Zg_DwsesA_o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-

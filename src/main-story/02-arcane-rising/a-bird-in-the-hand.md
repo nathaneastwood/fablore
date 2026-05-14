@@ -1,9 +1,5 @@
 # A Bird in the Hand
 
-<p>
-(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
-</p>
-
 Walking into the tavern, Azalea was greeted by the familiar sound of a high-pitched cackle. She looked over to see the green-haired girl seated at her usual corner, giggling over several vials of questionable substance. Shaking her head, she walked towards the counter, placing her contract card onto the countertop.
 
 Greenbird turned toward her, acknowledging her with a nod. He placed a pouch of '[tallics](~tallics) on top of the card, then slid a different contract card onto the counter alongside it.
@@ -191,13 +187,3 @@ Azalea remained silent, extending a hand towards Greenbird, the contract card he
 She shrugged in response.
 
 "There," he spat, tossing a pouch of 'tallics across the counter. "There's your coin. Now get these bodies the hell out of my tavern."
-
----
-
-### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
-
-<p>
-(<a href="#a-bird-in-the-hand">Jump to the Top</a>)
-</p>
-
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/BAhPVnQePQE?start=1030" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

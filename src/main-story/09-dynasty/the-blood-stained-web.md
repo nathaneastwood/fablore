@@ -1,9 +1,5 @@
 # The Blood Stained Web
 
-<p>
-(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
-</p>
-
 I perch in the rafters where the air is thick with whispers. Servants gossip in a cozy huddle below. I yearn to drop among them, to cut those wagging tongues from their gaping mouths, to bathe them in blood. But that is not in the plan.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/bloodstained-web-1.webp" alt="bloodstained-web-1" class="center">
@@ -54,13 +50,3 @@ We are the [Spider](../../archive/world-of-rathe/pits/blackjacks-mercenary-group
 I dance to my delight, knowing the red rain is about to fall.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/bloodstained-web-3.webp" alt="bloodstained-web-3" class="center">
-
----
-
-### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
-
-<p>
-(<a href="#the-blood-stained-web">Jump to the Top</a>)
-</p>
-
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/pLhKa20Xq3U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

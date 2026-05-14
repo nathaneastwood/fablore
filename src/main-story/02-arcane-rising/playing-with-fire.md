@@ -6,10 +6,6 @@ In exposing the threat before the Chamber of the Dragon, Kano manages to gain th
 
 # Playing with Fire
 
-<p>
-(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
-</p>
-
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-1.webp" alt="kano-1" class="center">
 
 The combined nervous chatter of fourty young wizards was almost deafening, bouncing off the walls in a way that made his ears ring. Ryo looked around the room, gazing at the tense expressions of the other students gathered nearby. One of the youngest in the room looked as if she was going to pass out, her face pale with anxiety, small hands trembling as she teased a flame into existence between her fingers.
@@ -119,13 +115,3 @@ A low murmur rippled through the room as the Chancellor frowned, dipping his chi
 The Lord Chancellor frowned, rubbing his chin thoughtfully.
 
 "Interesting. Keep a close eye on him, Lord Wizard Akihiko. If he truly did use an aetheric spell, in spite of your wards, this student of yours may prove useful."
-
----
-
-### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
-
-<p>
-(<a href="#playing-with-fire">Jump to the Top</a>)
-</p>
-
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/wfUxBpQXX8g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

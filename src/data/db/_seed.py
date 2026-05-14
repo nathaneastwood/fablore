@@ -3,7 +3,9 @@
 Reads every CSV under ``data_dir/csv/`` using :func:`pipe_csv_io.read_pipe_csv`
 and performs ``INSERT OR IGNORE`` so reseeding is always safe (existing rows
 are never overwritten).  The legacy ``NarratedVideos`` JSON blob from
-``stories.csv`` is decoded and inserted into the ``narrated_videos`` table.
+``stories.csv`` is decoded and inserted into the ``narrated_videos`` table when
+present; :file:`story-narrated-videos.csv` then replaces rows for each listed
+``StoryId`` (see :func:`_seed_narrated_videos_from_csv`).
 
 Call :func:`seed_from_csvs` after schema migration; call order respects FK
 dependencies so FK enforcement (``PRAGMA foreign_keys = ON``) stays clean
@@ -66,6 +68,7 @@ def seed_from_csvs(conn: sqlite3.Connection, data_dir: Path) -> None:
         _seed_equipment_game(conn, data_dir)
         _seed_equipment_printings(conn, data_dir)
         _seed_stories(conn, data_dir)
+        _seed_narrated_videos_from_csv(conn, data_dir)
         _seed_story_junctions(conn, data_dir)
 
 
@@ -343,7 +346,7 @@ def _seed_stories(conn: sqlite3.Connection, data_dir: Path) -> None:
                 parsed = json.loads(raw_videos)
                 if isinstance(parsed, list):
                     videos = [
-                        (str(v.get("author", "")), str(v.get("url", "")))
+                        (str(v.get("author", "")), str(v.get("url", "")), "", "")
                         for v in parsed
                         if isinstance(v, dict)
                         and v.get("author")
@@ -354,11 +357,33 @@ def _seed_stories(conn: sqlite3.Connection, data_dir: Path) -> None:
                 pass
 
 
+def _seed_narrated_videos_from_csv(conn: sqlite3.Connection, data_dir: Path) -> None:
+    """Load ``story-narrated-videos.csv`` and replace video rows per ``StoryId``.
+
+    Each story that appears in the CSV gets its narrated video rows replaced
+    (same semantics as :func:`db._queries.set_narrated_videos`). Row order within
+    a story is preserved. Stories absent from the file are unchanged.
+    """
+    _, rows = _csv(data_dir, "story-narrated-videos.csv")
+    grouped: dict[str, list[tuple[str, str, str, str]]] = {}
+    for row in rows:
+        sid = _s(row, "StoryId")
+        author = _s(row, "Author")
+        link = _s(row, "SourceLink")
+        if not sid or not author or not link:
+            continue
+        channel = _s(row, "ChannelLink")
+        duration = _s(row, "Duration")
+        grouped.setdefault(sid, []).append((author, link, channel, duration))
+    for sid, videos in grouped.items():
+        q.set_narrated_videos(conn, sid, videos)
+
+
 # ---------------------------------------------------------------------------
 # Story junction tables
 # ---------------------------------------------------------------------------
 
-_JUNCTION_SPECS: tuple[tuple[str, str, str], ...] = (
+_JUNCTION_SPECS: tuple[tuple[str, str, str, str], ...] = (
     ("story-npcs.csv", "story_npcs", "CharacterId", "character_id"),
     ("story-heroes.csv", "story_heroes", "CanonicalId", "canonical_id"),
     ("story-locations.csv", "story_locations", "LocationId", "location_id"),

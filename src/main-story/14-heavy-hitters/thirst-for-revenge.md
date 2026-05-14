@@ -1,9 +1,5 @@
 # Thirst For Revenge
 
-<p>
-(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
-</p>
-
 _[Kassai](../../heroes-of-rathe/kassai-about.md#kassai-of-the-golden-sand), clad in weathered leather armor, stands defiantly at the center of the ring, a lone figure amidst a sea of chaos. The stench of sweat and blood hangs heavy in the air, mingling with the metallic tang of anticipation. Her eyes, blazing with a fierce determination, scan the encircling crowd of gamblers, their faces twisted with greed and fear._
 
 _A single bead of sweat, born from the heat of the city's unforgiving sun, traces a path down her furrowed brow and spatters onto the flat of one of her [sabers](../../weapons/cintari-saber.md). Each blade bears the scars of countless battles, a nod to Kassai's unwavering resolve in the face of adversity._
@@ -17,13 +13,3 @@ Years of mercenary work had only hardened her resolve, leading Kassai to the gri
 In the heart of the Arena, Kassai swiftly earned the moniker of the "Terror of the Golden Sands," her name whispered in hushed tones among those who dared to cross her path. With each tournament won, she amassed the wealth necessary to raise an army, to reclaim what was rightfully hers from the clutches of her uncle.
 
 But lurking beneath the surface of the Arena's gladiatorial spectacle lies a darker truth: the sinister machinations of Kox, the Deathmatch Fightmaster, who sees in Kassai a pawn to be used in his deadly game. If she hopes to emerge victorious and reclaim her stolen home, she must navigate the treacherous web of alliances and betrayals that await her, for in the Arena even the fiercest warrior can be bought for the right price.
-
----
-
-### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
-
-<p>
-(<a href="#thirst-for-revenge">Jump to the Top</a>)
-</p>
-
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/UZTY9EF1OMs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

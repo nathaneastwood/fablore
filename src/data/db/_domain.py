@@ -67,6 +67,8 @@ class NarratedVideoEntry:
     """A narrated reading of a story."""
     author: str
     source_link: str
+    channel_link: str = ""
+    duration: str = ""
 
 
 @dataclass
@@ -423,7 +425,8 @@ class Database:
             if narrated_videos is not None:
                 q.set_narrated_videos(
                     self.conn, story_id,
-                    [(v.author, v.source_link) for v in narrated_videos],
+                    [(v.author, v.source_link, v.channel_link, v.duration)
+                     for v in narrated_videos],
                 )
             if hero_ids is not None:
                 q.set_story_junction(self.conn, story_id, "story_heroes", "canonical_id", hero_ids)
@@ -778,7 +781,12 @@ class Database:
             publication_date=row["publication_date"],
             thumbnail_image_link=row["thumbnail_image_link"],
             narrated_videos=[
-                NarratedVideoEntry(author=v["author"], source_link=v["source_link"])
+                NarratedVideoEntry(
+                    author=v["author"],
+                    source_link=v["source_link"],
+                    channel_link=v["channel_link"],
+                    duration=v["duration"],
+                )
                 for v in videos
             ],
             _db=self,

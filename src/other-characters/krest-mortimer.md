@@ -6,10 +6,6 @@
 
 ## In Theory<sup>*</sup>
 
-<p>
-(<a href="#narrated-video-by-deadsummer-art">Jump to Narrated Video</a>)
-</p>
-
 Cultist - "[Raven](~Raven)! Grant me the strength to endure your rewards...for the glory of mankind..."
 
 _screams of pain_
@@ -45,15 +41,3 @@ More must be learnt about Inertia and its applications. Perhaps I'll make a trip
 ---
 
 Power is the pursuit of the righteous and the reckless. Energies primordial, tapped and siphoned, Ancient forces channeled in petty desires. Ambitious mechanisms drain the vigor from this unwitting world, fuelling the selfish with suffering.
-
----
-
-## Narrated Video by [DeadSummer Art](https://www.youtube.com/@DeadSummerArt)
-
-<p>
-(<a href="#in-theory">Jump to the Top</a>)
-</p>
-
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/9ZNQrwFFsl0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-
-<sup>*</sup>Note that this is not "canon" but is based on official insights provided to DeadSummer Art by LSS for their spoiler card Codex of Inertia during the Outsiders spoiler season. However it is so awesome, I decided to include it here.

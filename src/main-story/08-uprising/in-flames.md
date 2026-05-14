@@ -1,9 +1,5 @@
 # In Flames
 
-<p>
-(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
-</p>
-
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/in-flames-1.webp" alt="in-flames-1" class="center">
 
 I will gain my audience with the [Emperor](../../heroes-of-rathe/emperor-about.md) of [Volcor](../../archive/world-of-rathe/volcor/volcor.md). Though my attempts thus far have been met with near fatal disappointment, I now hold the key to our alliance in the palm of my hand.
@@ -41,13 +37,3 @@ Look to the new power. The ascending power.
 Look to the **Uprising**.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/in-flames-6.webp" alt="in-flames-6" class="center">
-
----
-
-### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
-
-<p>
-(<a href="#in-flames">Jump to the Top</a>)
-</p>
-
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/W3_wpTcN8bU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

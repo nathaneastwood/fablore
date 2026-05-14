@@ -1,9 +1,5 @@
 # Edge of Autumn
 
-<p>
-(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
-</p>
-
 Growing up in the peace and serenity of the [Ikaru](~Ikaru) village, [Ira](../../heroes-of-rathe/ira-about.html) was a bright and free-spirited child, always getting herself into trouble. Her brothers, Xilin and Jing, were often pulled into her mischief, despite trying their best to rein in their unruly younger sister. While her parents were often exasperated by her inability to sit still and listen to her tutors, they loved her dearly. Her memories of her family were fond, her village a complementary backdrop to the peace and contentment of her childhood.
 
 Despite her parents constant warnings, Ira would sometimes escape to the shrine at the very top of the valley, nestled beneath the tree her family was named for. Within the shrine lay an elegant sword, cherry blossoms engraved along the length of the blade. No matter how many times she tried, she could never manage to pick up the blade, always interrupted before she could lay her hands upon the dusty metal.
@@ -57,13 +53,3 @@ _Jing._
 ---
 
 Crumpling the note, Ira dropped it onto the ground, crushing the paper beneath her heel. A short call drew her outside of her tent, stopping to speak to a messenger. While her brother searched in vain for 'another path', she would continue to search, and bring her clan to justice.
-
----
-
-### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
-
-<p>
-(<a href="#edge-of-autumn">Jump to the Top</a>)
-</p>
-
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/FpZndCyddf0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

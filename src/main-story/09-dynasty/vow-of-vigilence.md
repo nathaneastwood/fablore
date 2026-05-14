@@ -1,9 +1,5 @@
 # Vow of Vigilence
 
-<p>
-(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
-</p>
-
 No sovereign could ask for a guardian more loyal, more devoted to his duty.
 
 He was the first volunteer through the breach at Tchankem Castle, one of the bloodiest battles in [Volcor](../../archive/world-of-rathe/volcor/volcor.md)'s visceral history. The soldier who pulled his wounded commander through Serpent's Crescent on a makeshift sand skiff. The protector who shielded his lord wizard from a rival's attack, an arcane assault of such ferocity that it almost claimed his life.
@@ -31,13 +27,3 @@ Betrayed by his own garrison, now surrounded by Ezu enemies, Yoji chose to first
 Remorse has thrust Yoji into a sovereignty of suspicion. He patrols a land haunted by paranoia, doggedly protecting the memory of his fallen master. In Yoji's mourning heart, he feels the smoldering embers of the Dynasty. Though they cool and fade, he clutches them ever tighter. He will continue to serve his true master until his dying breath.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/vow-of-vigilence-3.webp" alt="vow-of-vigilence-3" class="center">
-
----
-
-### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
-
-<p>
-(<a href="#vow-of-vigilence">Jump to the Top</a>)
-</p>
-
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/GUTnRL-hldk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
