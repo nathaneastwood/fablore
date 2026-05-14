@@ -20,3 +20,4 @@ __pycache__/
 *.pyc
 .venv/
 .pytest_cache/
+src/data/fablore.db

@@ -115,12 +115,12 @@ def main() -> None:
     matching its basename.
     """
     jobs: tuple[tuple[Path, str, Path | None], ...] = (
-        (DATA / "npcs.csv", "Name", None),
-        (DATA / "fauna.csv", "Name", None),
-        (DATA / "flora.csv", "Name", None),
-        (DATA / "food-and-drink.csv", "Name", None),
-        (DATA / "locations.csv", "Name", None),
-        (DATA / "monsters.csv", "Name", None),
+        (DATA / "csv" / "npcs.csv", "Name", DATA / "md" / "npcs.md"),
+        (DATA / "csv" / "fauna.csv", "Name", DATA / "md" / "fauna.md"),
+        (DATA / "csv" / "flora.csv", "Name", DATA / "md" / "flora.md"),
+        (DATA / "csv" / "food-and-drink.csv", "Name", DATA / "md" / "food-and-drink.md"),
+        (DATA / "csv" / "locations.csv", "Name", DATA / "md" / "locations.md"),
+        (DATA / "csv" / "monsters.csv", "Name", DATA / "md" / "monsters.md"),
     )
     for csv_path, sort_col, out_md in jobs:
         create_md_file(csv_path, sort_col, output_md=out_md)

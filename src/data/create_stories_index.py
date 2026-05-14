@@ -1,19 +1,20 @@
 """Build the stories spine and empty junction tables (first-run bootstrap).
 
-Writes ``stories.csv``: one row per ``*.md`` file under the lore content roots
-below ``src/``. ``StoryKey`` is the path relative to ``src/`` (POSIX-style): a
-navigation / file identity string, not the foreign key in junction tables.
+Scans ``*.md`` files under the lore content roots below ``src/``, UPSERTs each
+story into the SQLite database, then exports the DB back to CSV.
+
+``StoryKey`` is the path relative to ``src/`` (POSIX-style): a navigation / file
+identity string, not the foreign key in junction tables.
 
 ``StoryId`` is deterministic: ``ST`` + 10 hex chars from SHA-256 of ``StoryKey``.
 All ``story-*.csv`` rows use ``StoryId`` to reference a story; consumers that join
 lore data should use ``StoryId`` and reserve ``StoryKey`` for URLs or labels.
-``Title`` is taken from the existing ``stories.csv`` row when it differs from the
-auto-generated filename-stem title (so manual overrides survive); otherwise it is
-from the first Markdown ``#`` H1 in the file, or else title-cased from the filename stem.
+``Title`` is taken from the existing DB row when it differs from the auto-generated
+filename-stem title (so manual overrides survive); otherwise it is from the first
+Markdown ``#`` H1 in the file, or else title-cased from the filename stem.
 
-Junction CSVs (``story-*.csv``) are created **only if they do not already exist**,
-with header rows only, so you can fill them manually without the script wiping data.
-Re-running this script refreshes ``stories.csv`` from the filesystem scan only.
+Junction CSVs (``story-*.csv``) are regenerated from the DB on every run; their
+content is authoritative in the DB, not in the CSV files.
 
 Content roots (each becomes the ``StoryType`` prefix = first path segment):
 ``archive`` (world-of-rathe archive pages), ``digital-tiles``, ``flavour``,
@@ -23,8 +24,6 @@ Content roots (each becomes the ``StoryType`` prefix = first path segment):
 
 from __future__ import annotations
 
-import csv
-import hashlib
 import re
 import string
 import sys
@@ -34,13 +33,7 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from pipe_csv_io import (
-    REGENERATE_CREATE_STORIES_INDEX,
-    REGENERATE_STORY_JUNCTIONS,
-    auto_gen_banner,
-    read_pipe_csv,
-    write_pipe_matrix_autogen,
-)
+from registry_ids import story_id as _story_id
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "src"
@@ -58,49 +51,6 @@ STORY_ROOTS = (
     "weapons",
     "world-of-rathe",
 )
-
-STORIES_CSV_PATH = DATA / "stories.csv"
-STORIES_FIELDNAMES: tuple[str, ...] = (
-    "StoryId",
-    "StoryKey",
-    "StoryType",
-    "Title",
-    "Authors",
-    "Artists",
-    "SourceLink",
-    "PublicationDate",
-    "ThumbnailImageLink",
-    "NarratedVideos",
-)
-
-JUNCTION_SPECS: tuple[tuple[str, tuple[str, ...]], ...] = (
-    ("story-npcs.csv", ("StoryId", "CharacterId")),
-    ("story-heroes.csv", ("StoryId", "CanonicalId")),
-    ("story-locations.csv", ("StoryId", "LocationId")),
-    ("story-regions.csv", ("StoryId", "RegionId")),
-    ("story-weapons.csv", ("StoryId", "CanonicalWeaponId")),
-    ("story-equipment.csv", ("StoryId", "CanonicalEquipmentId")),
-    ("story-flora.csv", ("StoryId", "FloraId")),
-    ("story-fauna.csv", ("StoryId", "FaunaId")),
-    ("story-food-drink.csv", ("StoryId", "FoodDrinkId")),
-    ("story-monsters.csv", ("StoryId", "MonsterId")),
-)
-
-
-def story_id(story_key: str) -> str:
-    """Compute deterministic ``StoryId`` from ``StoryKey``.
-
-    ``story-*.csv`` rows reference this id, not the path string.
-
-    Args:
-        story_key: Path relative to ``src/`` ending in ``.md``.
-
-    Returns:
-        String ``ST`` + first 10 hex chars of SHA-256 of UTF-8 ``story_key``.
-    """
-    digest = hashlib.sha256(story_key.encode("utf-8")).hexdigest()[:10]
-    return f"ST{digest}"
-
 
 _H1_LINE = re.compile(r"^\s*#\s+(.+?)\s*$")
 
@@ -185,55 +135,26 @@ def infer_story_title(md_path: Path) -> str:
     return title_from_filename_stem(stem)
 
 
-def load_existing_story_metadata(
-    stories_path: Path,
-) -> dict[str, dict[str, str]]:
-    """Load existing metadata keyed by ``StoryKey`` from ``stories.csv``.
+def discover_story_keys(
+    existing: dict[str, dict[str, str]] | None = None,
+) -> list[dict[str, str]]:
+    """Scan ``STORY_ROOTS`` under ``SRC`` for ``*.md`` files.
 
     Args:
-        stories_path: Path to ``stories.csv``.
+        existing: Map of ``story_key`` → row dict (DB column names, lowercase)
+            for stories already in the DB.  Used to preserve manually-entered
+            metadata such as ``title``, ``authors``, etc.  Pass ``None`` or ``{}``
+            to infer everything fresh from the filesystem.
 
     Returns:
-        Map of story key to metadata columns that should be preserved on rescan.
+        Sorted list of row dicts with lowercase keys matching DB column names
+        (``story_id``, ``story_key``, ``story_type``, ``title``, ``authors``,
+        ``artists``, ``source_link``, ``publication_date``,
+        ``thumbnail_image_link``).
     """
-    if not stories_path.is_file():
-        return {}
-    fieldnames, rows = read_pipe_csv(stories_path)
-    if "StoryKey" not in fieldnames or "Title" not in fieldnames:
-        return {}
-    preserve_cols = {
-        "Title",
-        "Authors",
-        "Artists",
-        "SourceLink",
-        "PublicationDate",
-        "ThumbnailImageLink",
-        "NarratedVideos",
-    }
-    out: dict[str, dict[str, str]] = {}
-    for row in rows:
-        key = (row.get("StoryKey") or "").strip()
-        if not key:
-            continue
-        out[key] = {
-            col: (row.get(col) or "").strip()
-            for col in preserve_cols
-            if col in fieldnames
-        }
-    return out
+    if existing is None:
+        existing = {}
 
-
-def discover_story_keys() -> list[dict[str, str]]:
-    """Scan ``STORY_ROOTS`` under ``src/`` for ``*.md`` files.
-
-    Returns:
-        Sorted list of row dicts where
-        ``story_type`` is the first path segment (root folder name). ``title`` is
-        the existing ``Title`` from ``stories.csv`` when it differs from the
-        filename-stem placeholder (so hand-curated titles survive); otherwise it is
-        inferred from the file's first H1 or the filename stem.
-    """
-    existing_meta = load_existing_story_metadata(STORIES_CSV_PATH)
     found: set[str] = set()
     for root in STORY_ROOTS:
         base = SRC / root
@@ -246,82 +167,56 @@ def discover_story_keys() -> list[dict[str, str]]:
     rows: list[dict[str, str]] = []
     for story_key in sorted(found):
         story_type = story_key.split("/", 1)[0]
-        preserved = (existing_meta.get(story_key, {}).get("Title") or "").strip()
+        old = existing.get(story_key, {})
+
+        preserved_title = (old.get("title") or "").strip()
         auto_stem_title = title_from_filename_stem(Path(story_key).stem)
-        if preserved and preserved != auto_stem_title:
-            title = preserved
+        if preserved_title and preserved_title != auto_stem_title:
+            title = preserved_title
         else:
             title = infer_story_title(SRC / story_key)
-        row = {
-            "StoryId": story_id(story_key),
-            "StoryKey": story_key,
-            "StoryType": story_type,
-            "Title": title,
-            "Authors": "",
-            "Artists": "",
-            "SourceLink": "",
-            "PublicationDate": "",
-            "ThumbnailImageLink": "",
-            "NarratedVideos": "",
-        }
-        row.update(existing_meta.get(story_key, {}))
-        row["StoryId"] = story_id(story_key)
-        row["StoryKey"] = story_key
-        row["StoryType"] = story_type
-        row["Title"] = title
-        rows.append(row)
+
+        rows.append({
+            "story_id": _story_id(story_key),
+            "story_key": story_key,
+            "story_type": story_type,
+            "title": title,
+            "authors": old.get("authors", ""),
+            "artists": old.get("artists", ""),
+            "source_link": old.get("source_link", ""),
+            "publication_date": old.get("publication_date", ""),
+            "thumbnail_image_link": old.get("thumbnail_image_link", ""),
+        })
     return rows
 
 
-def write_stories_csv(rows: list[dict[str, str]]) -> None:
-    """Overwrite ``stories.csv`` with ids and keys for discovered stories.
-
-    Args:
-        rows: Output of :func:`discover_story_keys`.
-    """
-    out: list[tuple[str, ...]] = []
-    for row in rows:
-        out.append(tuple((row.get(col) or "").strip() for col in STORIES_FIELDNAMES))
-
-    write_pipe_matrix_autogen(
-        STORIES_CSV_PATH,
-        list(STORIES_FIELDNAMES),
-        out,
-        regenerate_command=REGENERATE_CREATE_STORIES_INDEX,
-    )
-
-
-def ensure_junction_headers() -> None:
-    """Create each ``story-*.csv`` with banner + header only if the file does not exist.
-
-    Does not overwrite populated junction files.
-    """
-    for filename, fieldnames in JUNCTION_SPECS:
-        path = DATA / filename
-        if path.exists():
-            continue
-        with path.open("w", newline="", encoding="utf-8") as f:
-            f.write(auto_gen_banner(REGENERATE_STORY_JUNCTIONS))
-            w = csv.writer(f, delimiter="|", lineterminator="\n")
-            w.writerow(fieldnames)
-
-
 def main() -> None:
-    """Scan ``src/`` lore trees, write ``stories.csv``, seed empty junction files.
+    """Scan ``src/`` lore trees, UPSERT into DB, export to CSV.
 
     Raises:
         FileNotFoundError: If ``src/`` is missing.
     """
     if not SRC.is_dir():
         raise FileNotFoundError(f"Missing src directory: {SRC}")
-    rows = discover_story_keys()
-    write_stories_csv(rows)
-    ensure_junction_headers()
-    print(f"Wrote {len(rows)} rows to {STORIES_CSV_PATH.relative_to(ROOT)}")
-    for filename, _ in JUNCTION_SPECS:
-        path = DATA / filename
-        n_lines = sum(1 for _ in path.open(encoding="utf-8"))
-        print(f"  {filename}: {n_lines} line(s)")
+
+    from db import Database
+    import db._queries as q
+
+    database = Database(DATA / "fablore.db")
+
+    existing = {
+        row["story_key"]: dict(row)
+        for row in q.select_all_stories(database.conn)
+    }
+
+    rows = discover_story_keys(existing)
+
+    with database.conn:
+        for row in rows:
+            q.upsert_story(database.conn, **row)
+
+    database.export_to_csv()
+    print(f"Upserted {len(rows)} stories into DB and exported to CSV")
 
 
 if __name__ == "__main__":

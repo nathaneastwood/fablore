@@ -92,35 +92,35 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
         return rs
 
     key_to_id: dict[str, str] = {}
-    for r in rows(data_dir / "stories.csv"):
+    for r in rows(data_dir / "csv" / "stories.csv"):
         sk = (r.get("StoryKey") or "").strip()
         sid = (r.get("StoryId") or "").strip()
         if sk and sid:
             key_to_id[Path(sk).as_posix()] = sid
 
     sh: dict[str, set[str]] = {}
-    for r in rows(data_dir / "story-heroes.csv"):
+    for r in rows(data_dir / "csv" / "story-heroes.csv"):
         sid = (r.get("StoryId") or "").strip()
         hid = (r.get("CanonicalId") or "").strip()
         if sid and hid:
             sh.setdefault(sid, set()).add(hid)
 
     sl: dict[str, set[str]] = {}
-    for r in rows(data_dir / "story-locations.csv"):
+    for r in rows(data_dir / "csv" / "story-locations.csv"):
         sid = (r.get("StoryId") or "").strip()
         lid = (r.get("LocationId") or "").strip()
         if sid and lid:
             sl.setdefault(sid, set()).add(lid)
 
     sr: dict[str, set[str]] = {}
-    for r in rows(data_dir / "story-regions.csv"):
+    for r in rows(data_dir / "csv" / "story-regions.csv"):
         sid = (r.get("StoryId") or "").strip()
         rid = (r.get("RegionId") or "").strip()
         if sid and rid:
             sr.setdefault(sid, set()).add(rid)
 
     canonical: dict[str, tuple[str, str]] = {}
-    for r in rows(data_dir / "heroes-canonical.csv"):
+    for r in rows(data_dir / "csv" / "heroes-canonical.csv"):
         cid = (r.get("CanonicalId") or "").strip()
         slug = (r.get("CanonicalSlug") or "").strip()
         name = (r.get("CanonicalHero") or "").strip()
@@ -128,7 +128,7 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
             canonical[cid] = (slug, name or slug)
 
     loc: dict[str, tuple[str, str, str]] = {}
-    for r in rows(data_dir / "locations.csv"):
+    for r in rows(data_dir / "csv" / "locations.csv"):
         lid = (r.get("LocationId") or "").strip()
         name = (r.get("Name") or "").strip()
         rid = (r.get("RegionId") or "").strip()
@@ -137,7 +137,7 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
             loc[lid] = (name, rid, frag)
 
     reg: dict[str, tuple[str, str]] = {}
-    for r in rows(data_dir / "regions.csv"):
+    for r in rows(data_dir / "csv" / "regions.csv"):
         rid = (r.get("RegionId") or "").strip()
         rname = (r.get("RegionName") or "").strip()
         wk = (r.get("WorldOfRatheStoryKey") or "").strip()

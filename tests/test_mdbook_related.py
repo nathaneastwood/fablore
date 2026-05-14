@@ -59,25 +59,26 @@ def test_inject_marked_block_clears() -> None:
 
 def test_load_related_maps_minimal_csvs(tmp_path: Path) -> None:
     data = tmp_path / "data"
-    data.mkdir()
-    (data / "stories.csv").write_text(
+    csv = data / "csv"
+    csv.mkdir(parents=True)
+    (csv / "stories.csv").write_text(
         "StoryId|StoryKey|StoryType|Title\nST1|main-story/x.md|main-story|X\n",
         encoding="utf-8",
     )
-    (data / "story-heroes.csv").write_text(
+    (csv / "story-heroes.csv").write_text(
         "StoryId|CanonicalId\nST1|CN1\n", encoding="utf-8"
     )
-    (data / "story-locations.csv").write_text(
+    (csv / "story-locations.csv").write_text(
         "StoryId|LocationId\nST1|LO1\n", encoding="utf-8"
     )
-    (data / "heroes-canonical.csv").write_text(
+    (csv / "heroes-canonical.csv").write_text(
         "CanonicalId|CanonicalSlug|CanonicalHero\nCN1|boltyn|Boltyn\n",
         encoding="utf-8",
     )
-    (data / "locations.csv").write_text(
+    (csv / "locations.csv").write_text(
         "LocationId|Name|RegionId|Notes\nLO1|Beacon|RG1|\n", encoding="utf-8"
     )
-    (data / "regions.csv").write_text(
+    (csv / "regions.csv").write_text(
         "RegionId|RegionName|WorldOfRatheStoryKey\n"
         "RG1|Metrix|world-of-rathe/metrix.md\n",
         encoding="utf-8",
@@ -354,21 +355,22 @@ def test_build_related_fragment_region_skips_self(tmp_path: Path) -> None:
 def test_load_related_maps_loads_story_regions(tmp_path: Path) -> None:
     """``load_related_maps`` populates ``story_regions`` from ``story-regions.csv``."""
     data = tmp_path / "data"
-    data.mkdir()
-    (data / "stories.csv").write_text(
+    csv = data / "csv"
+    csv.mkdir(parents=True)
+    (csv / "stories.csv").write_text(
         "StoryId|StoryKey|StoryType|Title\nST1|main-story/x.md|main-story|X\n",
         encoding="utf-8",
     )
-    (data / "story-heroes.csv").write_text("StoryId|CanonicalId\n", encoding="utf-8")
-    (data / "story-locations.csv").write_text("StoryId|LocationId\n", encoding="utf-8")
-    (data / "story-regions.csv").write_text(
+    (csv / "story-heroes.csv").write_text("StoryId|CanonicalId\n", encoding="utf-8")
+    (csv / "story-locations.csv").write_text("StoryId|LocationId\n", encoding="utf-8")
+    (csv / "story-regions.csv").write_text(
         "StoryId|RegionId\nST1|RG1\n", encoding="utf-8"
     )
-    (data / "heroes-canonical.csv").write_text(
+    (csv / "heroes-canonical.csv").write_text(
         "CanonicalId|CanonicalSlug|CanonicalHero\n", encoding="utf-8"
     )
-    (data / "locations.csv").write_text("LocationId|Name|RegionId\n", encoding="utf-8")
-    (data / "regions.csv").write_text(
+    (csv / "locations.csv").write_text("LocationId|Name|RegionId\n", encoding="utf-8")
+    (csv / "regions.csv").write_text(
         "RegionId|RegionName|WorldOfRatheStoryKey\n"
         "RG1|The Savage Lands|world-of-rathe/savage-lands.md\n",
         encoding="utf-8",
