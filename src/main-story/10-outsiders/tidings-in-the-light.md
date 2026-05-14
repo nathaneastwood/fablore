@@ -54,7 +54,7 @@ And in your glory, we shall prevail."
 
 As she nears the Amphitheatre, she has to shield her eyes against the brightness of the Grand Council chamber and the congregation of Magisters seated at its center. It seems like an age since these paragons last received her, radiant in their magnificent masks and mantles. In their presence, her anxiety recedes. Their light anoints her with hope.
 
-[The Librarian](../../other-characters/the-librarian.md)-Magister of History-is the first to notice her arrival. They turn to The Steadfast-the fifth and wisest Grand Magister to lead and guide Solana-and await permission to announce Shiyana's return. Shiyana shivers as The Steadfast's gaze passes over her, every fiber of her being drawn to them like a flower that follows the arc of the sun. The Steadfast nods their approval and The Librarian beckons Shiyana forward.
+The Librarian-Magister of History-is the first to notice her arrival. They turn to The Steadfast-the fifth and wisest Grand Magister to lead and guide Solana-and await permission to announce Shiyana's return. Shiyana shivers as The Steadfast's gaze passes over her, every fiber of her being drawn to them like a flower that follows the arc of the sun. The Steadfast nods their approval and The Librarian beckons Shiyana forward.
 
 "We welcome the brightest and boldest of our Gemini," heralds The Librarian, "and give thanks to Sol for her safe return."
 

@@ -4,7 +4,7 @@ Between Metrix to the west and Aria to the east lies the Northern Realms, a chai
 
 These noble families jockey for position as the dominant power of the province, contests often concerning trade accords and mining claims. Yet in the mountainous Northern Realms, an accord or claim is worth little without passage and so roads have become the most valuable asset of all.
 
-Barthimont estate became powerful through trading routes and heavy tolls, notorious under [Lady Barthimont](../../../other-characters/lady-bartimont.md)'s Shadow rites. Though Lady Barthimont fell, the House did not; a successor tenuously holds what remains and inherits both the title and the suspicion it carries.
+Barthimont estate became powerful through trading routes and heavy tolls, notorious under Lady Barthimont's Shadow rites. Though Lady Barthimont fell, the House did not; a successor tenuously holds what remains and inherits both the title and the suspicion it carries.
 
 House [Redmoor](~Redmoor), by contrast, has long traded in loyalty and service as its currency. It is from Redmoor stock that Boltyn was born, raised with the expectation of inheritance and duty. Yet, in a land where Solana's gaze is watchful but distant, even "service" has teeth. Redmoor's most trusted hands are often the ones willing to do what others will not by means that are not always fit for the golden city. Their reputation is steadier than most, but it is not spotless.
 

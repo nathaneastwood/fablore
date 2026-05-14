@@ -6,7 +6,7 @@
 
 5L!p3d 7hRu 7h3 cR4X slithers through fissures in reality, Chaos opening pathways where none should exist. Slip. It takes on the jobs that give even the other Arakni pause, slicing off bits from the blacklist. Slip, slip. It seeps into its victims' psyches, breaking them, remaking them, until the streets are painted crimson. But it wasn't always like this, not until [Southmaw](~Southmaw) and the doctor who committed it.
 
-Not a single whitecoat remembers the person who entered Southmaw Asylum on that grave day. Slip. Labeled then as Patient 1131, it was soon rendered uNR3c0GN!Z48!3 by [Dr. Mortimer](../other-characters/krest-mortimer.md)'s procedures. Volatile, it bathed in entropy and allowed itself to drown, becoming something other, its new form barely contained in the shards of what was once its human anatomy. Slip, slip.
+Not a single whitecoat remembers the person who entered Southmaw Asylum on that grave day. Slip. Labeled then as Patient 1131, it was soon rendered uNR3c0GN!Z48!3 by Dr. Mortimer's procedures. Volatile, it bathed in entropy and allowed itself to drown, becoming something other, its new form barely contained in the shards of what was once its human anatomy. Slip, slip.
 
 If you sense it, you are already its victim. If you hear it, you are already dead. It will spare no thought for its wanton violence, for it is descended from madness, Chaos uNh!NG3d, a killer unleashed. Slip, slip. Slip, 5L!p.
 

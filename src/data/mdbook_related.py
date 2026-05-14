@@ -68,9 +68,11 @@ class RelatedMaps:
 
     story_key_to_id: dict[str, str]
     story_heroes: dict[str, frozenset[str]]
+    story_npcs: dict[str, frozenset[str]]
     story_locations: dict[str, frozenset[str]]
     story_regions: dict[str, frozenset[str]]
     canonical_hero: dict[str, tuple[str, str]]
+    npc_row: dict[str, tuple[str, str]]
     location_row: dict[str, tuple[str, str, str]]
     region_row: dict[str, tuple[str, str]]
 
@@ -105,6 +107,13 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
         if sid and hid:
             sh.setdefault(sid, set()).add(hid)
 
+    sn: dict[str, set[str]] = {}
+    for r in rows(data_dir / "csv" / "story-npcs.csv"):
+        sid = (r.get("StoryId") or "").strip()
+        cid = (r.get("CharacterId") or "").strip()
+        if sid and cid:
+            sn.setdefault(sid, set()).add(cid)
+
     sl: dict[str, set[str]] = {}
     for r in rows(data_dir / "csv" / "story-locations.csv"):
         sid = (r.get("StoryId") or "").strip()
@@ -127,6 +136,14 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
         if cid and slug:
             canonical[cid] = (slug, name or slug)
 
+    npc: dict[str, tuple[str, str]] = {}
+    for r in rows(data_dir / "csv" / "npcs.csv"):
+        cid = (r.get("CharacterId") or "").strip()
+        name = (r.get("Name") or "").strip()
+        sk = (r.get("OtherCharactersStoryKey") or "").strip()
+        if cid and name:
+            npc[cid] = (name, sk)
+
     loc: dict[str, tuple[str, str, str]] = {}
     for r in rows(data_dir / "csv" / "locations.csv"):
         lid = (r.get("LocationId") or "").strip()
@@ -147,9 +164,11 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
     return RelatedMaps(
         story_key_to_id=key_to_id,
         story_heroes={k: frozenset(v) for k, v in sh.items()},
+        story_npcs={k: frozenset(v) for k, v in sn.items()},
         story_locations={k: frozenset(v) for k, v in sl.items()},
         story_regions={k: frozenset(v) for k, v in sr.items()},
         canonical_hero=canonical,
+        npc_row=npc,
         location_row=loc,
         region_row=reg,
     )
@@ -177,7 +196,7 @@ def resolve_hero_src_path(src_root: Path, canonical_slug: str) -> str | None:
     return None
 
 
-_CARD_GROUP_ORDER: tuple[str, ...] = ("Hero", "Location", "Region")
+_CARD_GROUP_ORDER: tuple[str, ...] = ("Hero", "Character", "Location", "Region")
 
 
 def _append_card_markup(
@@ -219,10 +238,12 @@ def build_related_fragment(
         lore pages or a hero's own about page).
     """
     hero_ids = sorted(maps.story_heroes.get(story_id, frozenset()))
+    npc_ids = sorted(maps.story_npcs.get(story_id, frozenset()))
     loc_ids = sorted(maps.story_locations.get(story_id, frozenset()))
     reg_ids = sorted(maps.story_regions.get(story_id, frozenset()))
 
     hero_cards: list[tuple[str, str, str, str]] = []
+    npc_cards: list[tuple[str, str, str, str]] = []
     loc_cards: list[tuple[str, str, str, str]] = []
     reg_cards: list[tuple[str, str, str, str]] = []
     # (kind_label, title, subtitle, href). Only href-populated rows become cards.
@@ -243,6 +264,21 @@ def build_related_fragment(
             continue
         href = html.escape(relative_md_href(chapter_src_path, target))
         hero_cards.append(("Hero", display, "", href))
+
+    for cid in npc_ids:
+        row = maps.npc_row.get(cid)
+        if not row:
+            continue
+        name, story_key = row
+        if not story_key:
+            continue
+        wk = Path(story_key).as_posix()
+        if not (src_root / wk).is_file():
+            continue
+        if _same_src_markdown(chapter_src_path, wk):
+            continue
+        href = html.escape(relative_md_href(chapter_src_path, wk))
+        npc_cards.append(("Character", name, "", href))
 
     for lid in loc_ids:
         loc = maps.location_row.get(lid)
@@ -293,6 +329,7 @@ def build_related_fragment(
 
     by_kind: dict[str, list[tuple[str, str, str, str]]] = {
         "Hero": [c for c in hero_cards if c[3]],
+        "Character": [c for c in npc_cards if c[3]],
         "Location": [c for c in loc_cards if c[3]],
         "Region": [c for c in reg_cards if c[3]],
     }

@@ -48,7 +48,7 @@ Prism rises on wings of wisdom to embrace the promised dawn.
 
 Her origins are a mystery, even to herself. A child's dream filled with soaring architecture and figures of grace, of a radiant spectrum upon which she floated to a glowing door. She reached out, brushed that portal with her fingertips. As it opened, so did her eyes, and she beheld the Library of Illumination for the first time.
 
-The hands that had touched that otherworldly door now held an orb of pure arclight, the very essence of Sol. When the [Librarian](../other-characters/the-librarian.md) found this little girl in the heart of the Great Library, when they saw the radiant array within her soul, they called her "Prism", for no other name would suffice. From that miracle moment, Prism became the Magister's protégé and the library's most beloved servant.
+The hands that had touched that otherworldly door now held an orb of pure arclight, the very essence of Sol. When the Librarian found this little girl in the heart of the Great Library, when they saw the radiant array within her soul, they called her "Prism", for no other name would suffice. From that miracle moment, Prism became the Magister's protégé and the library's most beloved servant.
 
 Prism's passion for knowledge and talent for story drove her to become the city's leading scholar. The shining bookworm trained in the arts of illumination and inspired the Solanian people with spectacles of history and their glorious Aesir, Sol. Yet only when the haunting questions of her past led her to the Tomes of the Heralds did Prism feel the true potency of her potential. Prism studied those books with the intensity of a savant and quickly learned how to incarnate the heralds in manifest arclight.
 

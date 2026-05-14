@@ -3,13 +3,14 @@
 Version history:
   1 — initial schema (all 32 tables)
   2 — narrated_videos: add channel_link, duration columns
+  3 — npcs: add other_characters_story_key column
 """
 
 from __future__ import annotations
 
 import sqlite3
 
-CURRENT_VERSION = 2
+CURRENT_VERSION = 3
 
 _V1_DDL = """
 CREATE TABLE IF NOT EXISTS stories (
@@ -257,4 +258,8 @@ def migrate(conn: sqlite3.Connection) -> None:
         conn.execute("ALTER TABLE narrated_videos ADD COLUMN channel_link TEXT NOT NULL DEFAULT ''")
         conn.execute("ALTER TABLE narrated_videos ADD COLUMN duration TEXT NOT NULL DEFAULT ''")
         conn.execute("PRAGMA user_version = 2")
+        conn.commit()
+    if version < 3:
+        conn.execute("ALTER TABLE npcs ADD COLUMN other_characters_story_key TEXT NOT NULL DEFAULT ''")
+        conn.execute("PRAGMA user_version = 3")
         conn.commit()

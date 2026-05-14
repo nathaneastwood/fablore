@@ -7,7 +7,7 @@ The Ancients' sacrifice, made centuries ago, still manifests in Aria's lush land
 The Disciple of Pain sought dominion, but in desperance he languished.
 
 #### Descend into Madness - (PEN278)
-"The chaotic mind is a rich mine of dangerous ideas." - [Dr Mortimer](../other-characters/krest-mortimer.md)
+"The chaotic mind is a rich mine of dangerous ideas." - Dr Mortimer
 
 #### Doubling Season - (PEN218)
 When Candlehold rejoined the Flow, the effects were felt as far as Mount Heroic.
