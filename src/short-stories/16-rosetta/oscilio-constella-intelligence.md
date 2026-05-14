@@ -1,6 +1,6 @@
 # Oscilio, Constella Intelligence
 
-The [Queen of Candlehold](../../archive/world-of-rathe/aria/the-land-of-legends.md) is dead, and [Aria](../../archive/world-of-rathe/aria/aria.md) has experienced a dramatic surge in [The Flow](../../archive/world-of-rathe/aria/a-true-sanctuary.md#the-flow).
+The Queen of Candlehold is dead, and Aria has experienced a dramatic surge in The Flow.
 
 This shift has awoken Oscilio, a wizard made by the hands and minds of the Aetherscribes. Embedded in the ancient vault of Arcturos, sealed away in the Third Age, Oscilio now finds himself navigating a strange new world.
 
@@ -8,6 +8,6 @@ All that Oscilio once knew is gone. He is a newcomer to the cultures and everyda
 
 Unbeknownst to all, Oscilio is more than a scholar. In Oscilio, the Aetherscribes created a weapon forged to defend against forgotten evils - the wisdom contained within, a blueprint for survival.
 
-Though Oscilio bears his creators' intellect, he is not humbled by the errors that led to their deaths. Oscilio stands at the nexus of history and prophecy, a sage who will help [Rathe](../../archive/world-of-rathe/rathe.md) prepare for the return of the malevolent entities that lie in wait.
+Though Oscilio bears his creators' intellect, he is not humbled by the errors that led to their deaths. Oscilio stands at the nexus of history and prophecy, a sage who will help Rathe prepare for the return of the malevolent entities that lie in wait.
 
 But first, Oscilio must face his greatest challenge since his awakening. A social engagement full of sorrow and celebration, the likes of which Aria has not seen in thousands of years.
