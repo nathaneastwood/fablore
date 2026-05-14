@@ -26,7 +26,7 @@ Though centuries have passed since the Third Age, the exiled keep still stands a
 
 ## Astral Bridge
 
-Imagine a bridge that spans the vast distance between [Aria](../archive/world-of-rathe/aria/aria.md) and the Nebulus Rift and you have the Astral Bridge.
+Imagine a bridge that spans the vast distance between Aria and the Nebulus Rift and you have the Astral Bridge.
 
 While this bridge is solid, it would be incorrect to call it physical. When walking across it, the bridge flickers and distorts, its properties changing due to the encroaching influences of the two vastly different realities it is anchored to.
 

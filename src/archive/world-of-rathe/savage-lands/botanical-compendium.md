@@ -62,7 +62,7 @@ We stumbled upon some strange form of plant today. It appeared to be some thin, 
 
 ### Thieves' Ladder
 
-These vines start out small and thin, taking root at the base of a large tree. The plant then begins to climb upward, setting down roots that slowly work their way through the tree bark. Just yesterday, I found a [brawnhide](./bestiary-of-scarborough.md#brawnhide) skull with one of these vines attached, and the root system had burrowed its way through solid bone.
+These vines start out small and thin, taking root at the base of a large tree. The plant then begins to climb upward, setting down roots that slowly work their way through the tree bark. Just yesterday, I found a brawnhide skull with one of these vines attached, and the root system had burrowed its way through solid bone.
 
 Once established, the thieves ladder roots then seek out nutrients and water within the host tree, as the vines climb up the surface of the tree, weakening the host. Once the host dies, the Thieves Ladder is left behind, a shell relying on its own root system to provide water from the soil. One has to wonder, then, if it eventually suffers a similar fate at the hands of another Thieves Ladder.
 
