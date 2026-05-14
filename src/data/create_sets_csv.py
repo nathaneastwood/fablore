@@ -25,8 +25,8 @@ from tab_csv_io import read_tab_csv  # noqa: E402
 from text_utils import normalize_name  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
-SETS_CSV_PATH = ROOT / "src/data/sets.csv"
-SET_TYPES_CSV_PATH = ROOT / "src/data/set-types.csv"
+SETS_CSV_PATH = ROOT / "src/data/csv/sets.csv"
+SET_TYPES_CSV_PATH = ROOT / "src/data/csv/set-types.csv"
 UPSTREAM_SET_CSV_PATH = ROOT.parent / "flesh-and-blood-cards/csvs/english/set.csv"
 UPSTREAM_SET_PRINTING_CSV_PATH = (
     ROOT.parent / "flesh-and-blood-cards/csvs/english/set-printing.csv"

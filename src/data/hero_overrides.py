@@ -18,7 +18,7 @@ if str(_SCRIPT_DIR) not in sys.path:
 
 from pipe_csv_io import read_pipe_csv  # noqa: E402
 
-HERO_CARD_NAME_ALIASES_PATH = Path(__file__).resolve().parent / "hero-card-name-aliases.csv"
+HERO_CARD_NAME_ALIASES_PATH = Path(__file__).resolve().parent / "csv" / "hero-card-name-aliases.csv"
 
 # Card-name → canonical-slug overrides for canonical splits not present in the
 # upstream game data. Outer key is the base slug a card would resolve to from

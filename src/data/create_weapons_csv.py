@@ -47,9 +47,9 @@ from tab_csv_io import read_tab_csv  # noqa: E402
 from text_utils import normalize_name  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
-WEAPONS_CANONICAL_CSV_PATH = ROOT / "src/data/weapons-canonical.csv"
-WEAPONS_GAME_CSV_PATH = ROOT / "src/data/weapons-game.csv"
-WEAPONS_PRINTINGS_CSV_PATH = ROOT / "src/data/weapons-printings.csv"
+WEAPONS_CANONICAL_CSV_PATH = ROOT / "src/data/csv/weapons-canonical.csv"
+WEAPONS_GAME_CSV_PATH = ROOT / "src/data/csv/weapons-game.csv"
+WEAPONS_PRINTINGS_CSV_PATH = ROOT / "src/data/csv/weapons-printings.csv"
 CARD_PRINTING_CSV_PATH = (
     ROOT.parent / "flesh-and-blood-cards/csvs/english/card-printing.csv"
 )

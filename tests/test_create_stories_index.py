@@ -36,80 +36,59 @@ def test_infer_story_title_fallback_to_stem(tmp_path: Path) -> None:
     assert csi.infer_story_title(md) == "No Heading"
 
 
-def test_discover_preserves_existing_csv_title(
+def test_discover_preserves_existing_title(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:
-    """Non-empty Title in stories.csv is kept when rescanning."""
+    """Non-default Title in existing metadata is kept when rescanning."""
     src = tmp_path / "src"
     (src / "main-story").mkdir(parents=True)
     md = src / "main-story" / "sample.md"
     md.write_text("# From File\n", encoding="utf-8")
-    data = tmp_path / "data"
-    data.mkdir()
-    stories = data / "stories.csv"
-    stories.write_text(
-        "# AUTO\n"
-        "StoryId|StoryKey|StoryType|Title|Authors|Artists|SourceLink|PublicationDate|ThumbnailImageLink|NarratedVideos\n"
-        "ST1111111111|main-story/sample.md|main-story|Kept Title|Author A|||||\n",
-        encoding="utf-8",
-    )
     monkeypatch.setattr(csi, "SRC", src)
-    monkeypatch.setattr(csi, "DATA", data)
-    monkeypatch.setattr(csi, "STORIES_CSV_PATH", stories)
     monkeypatch.setattr(csi, "STORY_ROOTS", ("main-story",))
-    rows = csi.discover_story_keys()
+    existing = {
+        "main-story/sample.md": {
+            "title": "Kept Title",
+            "authors": "Author A",
+            "artists": "",
+            "source_link": "",
+            "publication_date": "",
+            "thumbnail_image_link": "",
+        }
+    }
+    rows = csi.discover_story_keys(existing)
     assert len(rows) == 1
-    assert rows[0]["Title"] == "Kept Title"
-    assert rows[0]["Authors"] == "Author A"
+    assert rows[0]["title"] == "Kept Title"
+    assert rows[0]["authors"] == "Author A"
 
 
-def test_discover_refreshes_when_csv_title_is_only_stem_placeholder(
+def test_discover_refreshes_when_title_is_only_stem_placeholder(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:
-    """If Title matches filename stem capwords, re-infer (e.g. after adding H1)."""
+    """If title matches filename stem capwords, re-infer (e.g. after adding H1)."""
     src = tmp_path / "src"
     (src / "main-story").mkdir(parents=True)
     md = src / "main-story" / "sample.md"
     md.write_text("# From H1\n", encoding="utf-8")
-    data = tmp_path / "data"
-    data.mkdir()
-    stories = data / "stories.csv"
-    stories.write_text(
-        "# AUTO\n"
-        "StoryId|StoryKey|StoryType|Title|Authors|Artists|SourceLink|PublicationDate|ThumbnailImageLink|NarratedVideos\n"
-        "ST1111111111|main-story/sample.md|main-story|Sample\n",
-        encoding="utf-8",
-    )
     monkeypatch.setattr(csi, "SRC", src)
-    monkeypatch.setattr(csi, "DATA", data)
-    monkeypatch.setattr(csi, "STORIES_CSV_PATH", stories)
     monkeypatch.setattr(csi, "STORY_ROOTS", ("main-story",))
-    rows = csi.discover_story_keys()
+    existing = {"main-story/sample.md": {"title": "Sample"}}
+    rows = csi.discover_story_keys(existing)
     assert len(rows) == 1
-    assert rows[0]["Title"] == "From H1"
+    assert rows[0]["title"] == "From H1"
 
 
-def test_discover_infers_when_csv_title_blank(
+def test_discover_infers_when_existing_title_blank(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:
-    """Blank Title in CSV is replaced by inference from the markdown file."""
+    """Blank title in existing metadata is replaced by inference from the markdown file."""
     src = tmp_path / "src"
     (src / "main-story").mkdir(parents=True)
     md = src / "main-story" / "sample.md"
     md.write_text("# From File\n", encoding="utf-8")
-    data = tmp_path / "data"
-    data.mkdir()
-    stories = data / "stories.csv"
-    stories.write_text(
-        "# AUTO\n"
-        "StoryId|StoryKey|StoryType|Title|Authors|Artists|SourceLink|PublicationDate|ThumbnailImageLink|NarratedVideos\n"
-        "ST1111111111|main-story/sample.md|main-story|\n",
-        encoding="utf-8",
-    )
     monkeypatch.setattr(csi, "SRC", src)
-    monkeypatch.setattr(csi, "DATA", data)
-    monkeypatch.setattr(csi, "STORIES_CSV_PATH", stories)
     monkeypatch.setattr(csi, "STORY_ROOTS", ("main-story",))
-    rows = csi.discover_story_keys()
+    existing = {"main-story/sample.md": {"title": ""}}
+    rows = csi.discover_story_keys(existing)
     assert len(rows) == 1
-    assert rows[0]["Title"] == "From File"
+    assert rows[0]["title"] == "From File"

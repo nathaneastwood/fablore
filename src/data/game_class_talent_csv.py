@@ -26,8 +26,8 @@ from pipe_csv_io import REGENERATE_CLASSES_TALENTS, read_pipe_csv, write_pipe_cs
 from registry_ids import assert_unique_ids
 
 ROOT = Path(__file__).resolve().parents[2]
-CLASSES_CSV_PATH = ROOT / "src/data/classes.csv"
-TALENTS_CSV_PATH = ROOT / "src/data/talents.csv"
+CLASSES_CSV_PATH = ROOT / "src/data/csv/classes.csv"
+TALENTS_CSV_PATH = ROOT / "src/data/csv/talents.csv"
 UPSTREAM_CARD_CSV_PATH = ROOT.parent / "flesh-and-blood-cards/csvs/english/card.csv"
 
 

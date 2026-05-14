@@ -71,9 +71,9 @@ from registry_ids import assert_unique_ids, make_hash_id  # noqa: E402
 from text_utils import normalize_name  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
-HEROES_CANONICAL_CSV_PATH = ROOT / "src/data/heroes-canonical.csv"
-HEROES_GAME_CSV_PATH = ROOT / "src/data/heroes-game.csv"
-HEROES_PRINTINGS_CSV_PATH = ROOT / "src/data/heroes-printings.csv"
+HEROES_CANONICAL_CSV_PATH = ROOT / "src/data/csv/heroes-canonical.csv"
+HEROES_GAME_CSV_PATH = ROOT / "src/data/csv/heroes-game.csv"
+HEROES_PRINTINGS_CSV_PATH = ROOT / "src/data/csv/heroes-printings.csv"
 CARD_PRINTING_CSV_PATH = ROOT.parent / "flesh-and-blood-cards/csvs/english/card-printing.csv"
 
 # Hero card-name → canonical-slug aliases now live in ``hero-card-name-aliases.csv``
