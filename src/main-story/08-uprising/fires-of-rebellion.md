@@ -10,10 +10,6 @@ With blade in hand, Fai would make sure the Volcai never suffered again.
 
 # Fires of Rebellion
 
-<p>
-(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
-</p>
-
 "Will they rise?" asks Eun as she ties back her silver hair, ready for battle.
 
 "We have fed these people, given them hope."
@@ -155,13 +151,3 @@ The name is a slap to Fai's face. His scars burn hot in his flesh. "You know whe
 "I told you there are many roads to Ashvahan, boy." She points her bloodied dagger at General Riku. "The trick is knowing who to kill to get there."
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/fai-6.webp" alt="fai-6" class="center">
-
----
-
-### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
-
-<p>
-(<a href="#fires-of-rebellion">Jump to the Top</a>)
-</p>
-
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/R1MmHjvB3uY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

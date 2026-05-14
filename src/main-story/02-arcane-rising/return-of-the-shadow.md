@@ -1,9 +1,5 @@
 # Return of the Shadow
 
-<p>
-(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
-</p>
-
 Amidst the darkness, the faint glow of the Arknight shard glimmered, a pale violet against the shadow. The first thing he became aware of was the stone floor, a faint chill seeping through his thick runic armour. The tips of his gauntleted fingers scraped against the stone as he pulled his hand closer to his face.
 
 Slowly, Viserai opened his eyes.
@@ -83,13 +79,3 @@ Turning away from the frame, Viserai looked out over the small crowd which had g
 **_The doorway is opened. Behold, íArathael._**
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-11.webp" alt="viserai-11" class="center">
-
----
-
-### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
-
-<p>
-(<a href="#return-of-the-shadow">Jump to the Top</a>)
-</p>
-
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/txaAO8XS9Tg?start=1800" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

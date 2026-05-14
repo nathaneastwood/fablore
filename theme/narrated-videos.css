@@ -1,0 +1,113 @@
+/* Injected by mdbook_narrated_videos preprocessor — responsive narrated-video section. */
+
+/*
+ * mdBook sets :root to 62.5% so 1rem = 10px, then body { font-size: 1.6rem } = 16px.
+ * Tab text matches related-card base (1.35rem ≈ 13.5px).
+ * Avatar uses fixed rem values to avoid the em-cascade shrink problem.
+ */
+
+.narrated-videos {
+    margin-top: 0.5rem;
+}
+
+.narrated-videos h1 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+/* ── Tab strip ─────────────────────────────────────────────────────────────── */
+
+.nv-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--table-border-color, #ddd);
+}
+
+.nv-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 1.1rem;
+    border: none;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    background: none;
+    cursor: pointer;
+    color: var(--fg, #333);
+    font-size: 1.35rem;
+    font-family: inherit;
+    transition: color 0.15s, border-color 0.15s;
+    border-radius: 4px 4px 0 0;
+}
+
+.nv-tab:hover {
+    color: var(--links, #4183c4);
+    background: var(--quote-bg, rgba(0,0,0,0.04));
+}
+
+.nv-tab--active {
+    border-bottom-color: var(--links, #4183c4);
+    color: var(--links, #4183c4);
+    font-weight: 600;
+}
+
+/* ── Avatar circle ──────────────────────────────────────────────────────────── */
+
+.nv-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: #fff;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+/* ── Panel visibility ───────────────────────────────────────────────────────── */
+
+.nv-panel--hidden {
+    display: none;
+}
+
+/* ── Responsive 16:9 video wrapper ─────────────────────────────────────────── */
+
+.nv-video-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.nv-video-wrap iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* ── Mobile adjustments ─────────────────────────────────────────────────────── */
+
+@media (max-width: 480px) {
+    .nv-tab {
+        padding: 0.4rem 0.8rem;
+        font-size: 1.2rem;
+    }
+
+    .nv-avatar {
+        width: 2.6rem;
+        height: 2.6rem;
+        font-size: 1rem;
+    }
+}

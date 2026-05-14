@@ -1,9 +1,5 @@
 # Destroy and Consume
 
-<p>
-(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
-</p>
-
 [Levia](../../heroes-of-rathe/levia-about.md) was born into poverty, her impoverished family one of many who worked for the nobility of the [Northern Realms](../../archive/world-of-rathe/solana/the-northern-realms.md). Her father had been a stablehand for Lord Barthimont, but he disappeared suddenly when Levia was very young, leaving his family destitute. Without the means to support herself and her daughter, Levia's mother sold them both into the service of the Barthimont estate, an act borne of desperation.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-1.webp" alt="levia-1" class="center">
@@ -59,13 +55,3 @@ The marble floor caved in under the weight of her body, stone tiles cracking as 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-7.webp" alt="levia-7" class="center">
 
 At last, Levia has been released from her erstwhile mistress's control, and is finally free to decide her own fate. However, the strength she now wields has come at a terrible price. Once someone has sacrificed a living being, the grip of the Shadows is as iron. Levia is compelled to follow the whims of a creature from the beyond, succumbing to her base instinct to destroy and consume. Now that she has been released from the Barthimonts' clutches, Levia refuses to let anybody else control her ever again.
-
----
-
-### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
-
-<p>
-(<a href="#destroy-and-consume">Jump to the Top</a>)
-</p>
-
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/FhsLEMKnOvQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

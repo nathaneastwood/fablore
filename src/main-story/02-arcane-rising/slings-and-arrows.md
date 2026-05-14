@@ -6,10 +6,6 @@ While Azalea has come a long way, she has yet to realise that she is just one sm
 
 # Slings and Arrows
 
-<p>
-(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
-</p>
-
 It was always cold and damp in the Pits, the underground caverns hidden well away from the reach of sunlight. Industrial waste tainted the water an inky green, coating the cavern walls in a layer of oily copper residue.
 
 Left to the mercy of the Pits, abandoned children lurked around every corner, scurrying through the shadows like rats. Tiny, skeletal figures hiding in alleyways, dangerously desperate, clutching makeshift weapons in their shaking hands. The squeakers fought like the vermin they were, teeth bared, ripping into flesh with knife and tooth and nail, clawing out eyes and tearing away skin. While feral and vicious, they are still little more than pests to the denizens of the Pits, an insignificant speck in a sea of anarchy.
@@ -33,13 +29,3 @@ It was not luck alone that kept her alive. She learned from the mistakes of othe
 She followed one back to his main hideout, looking up at the sign of the tavern. She watched everyone who visited the building, taking note of which ones seemed to be the most powerful. Where gangs rose and fell, where other mercenaries died, these were the ones that continued to come back. And so, she set her sights on Blackjack's.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-3.webp" alt="azalea-3" class="center">
-
----
-
-### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
-
-<p>
-(<a href="#slings-and-arrows">Jump to the Top</a>)
-</p>
-
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/BAhPVnQePQE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

@@ -1,9 +1,5 @@
 # The Phoenix and the Dragon
 
-<p>
-(<a href="#narrated-video-by-st_havock">Jump to Narrated Video</a>)
-</p>
-
 A trap laid for a spymaster and his Ash Artist accomplice. Eun as the bait that Xathari would be compelled to take. Hundreds of ninjas waiting in ambush. Swords drawn for the soldiers. Nets and spears readied for Dromai's dragons.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/fai-7.webp" alt="fai-7" class="center">
@@ -73,13 +69,3 @@ Fai thrusts his sword into the ash and earth, planting his fury in the firmament
 No longer will the Volcai be ground into the dirt. It is time for the Phoenix to rise.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/fai-9.webp" alt="fai-9" class="center">
-
----
-
-### Narrated Video by [St_Havock](https://www.youtube.com/@St_Havock)
-
-<p>
-(<a href="#the-phoenix-and-the-dragon">Jump to the Top</a>)
-</p>
-
-<div style="text-align: center;"><iframe width="560" height="315" src="https://www.youtube.com/embed/x7Hrh6hTEzg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>

@@ -10,8 +10,8 @@ en = "./en"
 es = "./es"
 
 [output.html]
-additional-css = ["hero.css", "image.css", "tab.css", "bionic.css", "theme/pagetoc.css", "theme/hints.css", "theme/related.css", "theme/story-meta.css"]
-additional-js = ["tab.js", "back-to-top.js", "hero-hub.js", "bionic.js", "theme/pagetoc.js", "theme/hints.js", "theme/related.js"]
+additional-css = ["hero.css", "image.css", "tab.css", "bionic.css", "theme/pagetoc.css", "theme/hints.css", "theme/related.css", "theme/story-meta.css", "theme/narrated-videos.css"]
+additional-js = ["tab.js", "back-to-top.js", "hero-hub.js", "bionic.js", "theme/pagetoc.js", "theme/hints.js", "theme/related.js", "narrated-videos.js"]
 default-theme = "light"
 preferred-dark-theme = "ayu"
 git-repository-url = "https://github.com/nathaneastwood/fablore"
@@ -30,3 +30,6 @@ command = "python3 src/data/mdbook_related.py"
 
 [preprocessor.story-meta]
 command = "python3 src/data/mdbook_story_meta.py"
+
+[preprocessor.narrated-videos]
+command = "python3 src/data/mdbook_narrated_videos.py"
