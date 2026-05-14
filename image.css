@@ -11,13 +11,11 @@
 #menu-bar .menu-title {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
-  box-sizing: border-box;
+  top: 50%;
+  transform: translate(-50%, -50%);
   flex: none;
-  max-width: min(52vw, 22rem);
   margin: 0;
-  /* Match sidebar TOC links (body / normal); mdBook default is 200 */
-  font-weight: normal;
+  line-height: 0;
   /* Stay below toolbar controls so taps hit icons first */
   z-index: 0;
 }
@@ -29,22 +27,32 @@
   z-index: 1;
 }
 
-/*
- * Slightly smaller than mdBook’s 2.4rem on narrow screens so “Legendary Stories” fits,
- * but larger than the previous pass — keep absolute centre on mobile too (flex centre
- * skews when left icons outnumber the right).
- */
-@media only screen and (max-width: 768px) {
-  #menu-bar .menu-title {
-    font-size: clamp(1.2rem, 4vw, 1.85rem);
-    max-width: min(calc(100vw - 9.5rem), 20rem);
-  }
+.menu-logo {
+  height: 2rem;
+  width: auto;
+  display: none;
+  cursor: default;
 }
 
-@media only screen and (max-width: 420px) {
-  #menu-bar .menu-title {
-    max-width: min(calc(100vw - 8.5rem), 17rem);
-  }
+.intro-page .menu-logo {
+  display: none !important;
+}
+
+.light .menu-logo--light,
+.rust .menu-logo--light {
+  display: block;
+}
+
+.coal .menu-logo--dark,
+.navy .menu-logo--dark,
+.ayu .menu-logo--dark {
+  display: block;
+}
+
+.coal .menu-logo--light,
+.navy .menu-logo--light,
+.ayu .menu-logo--light {
+  display: none !important;
 }
 
 /* Introduction landing: centered logo above headline (theme-aware transparent PNGs) */
