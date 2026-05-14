@@ -142,7 +142,10 @@
                         {{/if}}
                     </div>
 
-                    <h1 class="menu-title">{{ book_title }}</h1>
+                    <h1 class="menu-title">
+                        <img class="menu-logo menu-logo--light" src="{{ path_to_root }}assets/logo_original_cropped.png" alt="{{ book_title }}">
+                        <img class="menu-logo menu-logo--dark" src="{{ path_to_root }}assets/logo_transparent_white.png" alt="{{ book_title }}">
+                    </h1>
 
                     <div class="right-buttons">
                         {{#if print_enable}}
