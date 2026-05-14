@@ -285,6 +285,8 @@ def build_related_fragment(
         if not loc:
             continue
         place, rid, lfrag = loc
+        if not lfrag:
+            continue
         rname, world_key = "", ""
         if rid:
             reg = maps.region_row.get(rid)
