@@ -4,7 +4,7 @@
 
 Whitetail stretches out his arms to encompass the kinetic clamor of the street. "Intoxicating, isn't it?"
 
-"Sure is," answers [Uzuri](../../heroes-of-rathe/uzuri-about.md#uzuri-switchblade), only sure of one thing: that Whitetail likes the sound of his own voice.
+"Sure is," answers Uzuri, only sure of one thing: that Whitetail likes the sound of his own voice.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/uzuri-1.webp" alt="uzuri-1" class="center">
 

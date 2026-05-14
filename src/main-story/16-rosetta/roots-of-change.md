@@ -12,13 +12,13 @@ From Candlehold's lush greenery, an ancient stag emerged, a majestic creature wi
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/roots-of-change-1.webp" alt="roots-of-change-1" class="center" />
 
-"Stop! Don't go there," [Verdance](../../heroes-of-rathe/verdance-about.md) implored, her voice tinged with sorrow. "There is nothing in Rotwood for you. Return to Candlehold, where life sustains."
+"Stop! Don't go there," Verdance implored, her voice tinged with sorrow. "There is nothing in Rotwood for you. Return to Candlehold, where life sustains."
 
 The stag turned its gaze toward her, a quiet acknowledgment, before continuing. As it ventured further in, the creature's form decayed rapidly, its wooden flesh cracking and splitting.
 
 In the spiraling corridors of the dying woods, the trees parted. The sickening crunch of broken branches echoed around her as the thick wall of the Rotwood peeled open like a wound. The trees shook and trembled, spewing black ichor from their bark onto the ground, giving way to their master, the Harbinger of Rot.
 
-The stag stood still as [Florian](../../heroes-of-rathe/florian-about.md) approached it, his hands gently cradling the beast's jaw and soothing its forehead.
+The stag stood still as Florian approached it, his hands gently cradling the beast's jaw and soothing its forehead.
 
 "Welcome, old oak," he whispered. "Here you shall be replanted amongst those who share your burden."
 

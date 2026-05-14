@@ -43,13 +43,13 @@ Money ain't mean nothing to a dead man. Spend up, stock up, and prepare to fight
 
 ### Cindering Foresight
 
-Never stand against the [Emperor](../../heroes-of-rathe/emperor-about.md). Those who dare to cross the [Royal Court](../../archive/world-of-rathe/volcor/the-royal-court.md) of [Volcor](../../archive/world-of-rathe/volcor/volcor.md) will quickly find themselves in the firing line, decimated by the power of the Dracai.
+Never stand against the Emperor. Those who dare to cross the [Royal Court](../../archive/world-of-rathe/volcor/the-royal-court.md) of [Volcor](../../archive/world-of-rathe/volcor/volcor.md) will quickly find themselves in the firing line, decimated by the power of the Dracai.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/cindering-foresight.webp" alt="cindering-foresight" class="center" />
 
 ### Cintari Saber
 
-The General's daughter, cornered, bared her teeth. Armed with a pair of stolen blades, she carved a path through the raging coup, securing her freedom... Yet her family remains. Imprisoned, unable to escape the usurper, they wait for the day that [Kassai](../../heroes-of-rathe/kassai-about.md) will return and set them free.
+The General's daughter, cornered, bared her teeth. Armed with a pair of stolen blades, she carved a path through the raging coup, securing her freedom... Yet her family remains. Imprisoned, unable to escape the usurper, they wait for the day that Kassai will return and set them free.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/cintari-saber.webp" alt="cintari-saber" class="center" />
 
@@ -61,7 +61,7 @@ Through the shattered barrier seeps the essence from beyond, blurring the line a
 
 ### Courage of Bladehold
 
-As she dons her new armour, the lieutenant [Dorinthea](../../heroes-of-rathe/dorinthea-about.md) admires the handiwork of her proud parents, gleaming in the light of the sun. She bears the weight of duty with grace and courage; she will not let them down.
+As she dons her new armour, the lieutenant Dorinthea admires the handiwork of her proud parents, gleaming in the light of the sun. She bears the weight of duty with grace and courage; she will not let them down.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/courage-of-bladehold.webp" alt="courage-of-bladehold" class="center" />
 
@@ -209,7 +209,7 @@ Despite the thick coating of dust, the blade holds a certain majesty about it; t
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/talishar-the-lost-prince.webp" alt="talishar-the-lost-prince" class="center" />
 
-### [Teklovossen](../../heroes-of-rathe/teklovossen-about.md)'s Workshop
+### Teklovossen's Workshop
 
 The Greatest minds of [Metrix](../../archive/world-of-rathe/metrix/metrix.md) are held in high esteem, their workshops put on display for future generations; a source of inspiration for those who seek to follow in their footsteps.
 

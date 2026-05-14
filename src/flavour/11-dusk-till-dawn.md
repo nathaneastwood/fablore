@@ -1,7 +1,7 @@
 # Dusk Till Dawn
 
 #### Banneret of Courage - (DTD048)
-"Fear is bred in the Shadow. Bravery is born of the Light." - [Boltyn](../heroes-of-rathe/boltyn-about.md)
+"Fear is bred in the Shadow. Bravery is born of the Light." - Boltyn
 
 #### Banneret of Gallantry - (DTD049)
 Upon that rise we understood that no fear could be worse than what we had imagined.
@@ -37,7 +37,7 @@ Still your flapping flesh; that rasping of sinuous cords. Those words were never
 "We give our lives this day for all the tomorrows to come." - Templar Timaerus
 
 #### Figment of Erudition - (DTD005)
-"Light, Shadow, feature or fancy, knowledge lays bare the fallacies." - [Prism](../heroes-of-rathe/prism-about.md)
+"Light, Shadow, feature or fancy, knowledge lays bare the fallacies." - Prism
 
 #### Figment of Judgment - (DTD006)
 The righteous shall vanquish the unholy, in Sol's name.
@@ -67,7 +67,7 @@ And so they prevailed, Light and Hand, and slew the Shadow that lie in wait.
 "United we stand, divided we get our damned faces eaten off!" - Barus Boldstride
 
 #### Morlock Hill - (DTD209)
-"No amount of retribution can allay the pain, the anguish, seared into the souls of those that remain." - [Dorinthea Ironsong](../heroes-of-rathe/dorinthea-about.md)
+"No amount of retribution can allay the pain, the anguish, seared into the souls of those that remain." - Dorinthea Ironsong
 
 #### Numbskull - (DTD201)
 "Ey'z beheaded, tooth, the DeathMatch?" - Bam Bam

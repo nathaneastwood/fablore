@@ -2,7 +2,7 @@
 
 The moon gilts the [Immortal Lunar Temple](../../archive/world-of-rathe/misteria/immortal-lunar-temple.md) in silver. Delicate astral etchings glisten with chi in the engraved limestone walls.
 
-[Enigma](../../heroes-of-rathe/enigma-about.md) pauses to watch a pair of graceful cranes fly across the heavenly orb above, then continues her solemn task. She wields the torch with a deft hand as she lights the braziers that surround the sacred circle. The earth-sweet scent of sandalwood fills the cool predawn air.
+Enigma pauses to watch a pair of graceful cranes fly across the heavenly orb above, then continues her solemn task. She wields the torch with a deft hand as she lights the braziers that surround the sacred circle. The earth-sweet scent of sandalwood fills the cool predawn air.
 
 "The moon unveils hidden truths within the twilight..." she recites, quoting the wisdom of Master Kouki. "Illuminating the unseen mysteries of the world."
 

@@ -1,6 +1,6 @@
 ### Aurum Aegis
 
-[Victor](../../heroes-of-rathe/victor-goldmane-about.md) scoffs at anything less than the pinnacle of armaments crafted by only the most elite smiths, his insatiable greed fuelled by bottomless wealth.<br>
+Victor scoffs at anything less than the pinnacle of armaments crafted by only the most elite smiths, his insatiable greed fuelled by bottomless wealth.<br>
 His ostentatious armor, adorned with intricate designs and rare gemstones, is a testament to his belief that only the extraordinary deserves a place in his formidable arsenal.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/aurum-aegis.webp" alt="aurum-aegis" class="center" />
@@ -20,13 +20,13 @@ Whispers echo through the desolate desert, borne on the wind, carrying tales of 
 ### Olympia Prized Fighter
 
 "In this arena, victory is the air I breathe, the culmination of facing every challenge and etching my name in the echoes of the peoples' cheers for decades. As you stand on this battlefield, know that it is littered with a hundred remnants of my past victories. I will show you nothing but my best, and I expect nothing less from you."<br>
-<cite>- [Olympia, Prized Fighter](../../heroes-of-rathe/olympia-about.md)</cite>
+<cite>- Olympia, Prized Fighter</cite>
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/olympia-prized-fighter.webp" alt="olympia-prized-fighter" class="center" />
 
 ### Show No Mercy
 
-The arena is no place for mercy. One slight pause in Demetrios' judgement, and [Rhinar](../../heroes-of-rathe/rhinar-about.md) seized the opportunity to show him the raw brutality that defines a winner from a loser.
+The arena is no place for mercy. One slight pause in Demetrios' judgement, and Rhinar seized the opportunity to show him the raw brutality that defines a winner from a loser.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/show-no-mercy.webp" alt="show-no-mercy" class="center" />
 

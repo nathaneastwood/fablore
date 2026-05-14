@@ -1,6 +1,6 @@
 # Living on a Prayer
 
-Fatigue burning through his muscles, [Boltyn](../../heroes-of-rathe/boltyn-about.md) fell to one knee to recover his strength. Chest heaving and sweat torrenting down his brow, he surveyed the scorched wastes that had once been lush farmlands. Friends, mentors, students, colleagues, and even people he had only met hours ago. All slain in the neverending feud with the [Demonastery](../../archive/world-of-rathe/demonastery/demonastery.md).
+Fatigue burning through his muscles, Boltyn fell to one knee to recover his strength. Chest heaving and sweat torrenting down his brow, he surveyed the scorched wastes that had once been lush farmlands. Friends, mentors, students, colleagues, and even people he had only met hours ago. All slain in the neverending feud with the [Demonastery](../../archive/world-of-rathe/demonastery/demonastery.md).
 
 As the sun began to fall over the horizon, the sound of thunderous hooves from another ghastly battalion reached his ears. Their own reinforcements would not arrive until dawn, and he didn't know if he could survive the night alone.
 

@@ -1,6 +1,6 @@
 # Hunter and Hunted Both
 
-[Cindra](../../heroes-of-rathe/cindra-about.md), [Fang](../../heroes-of-rathe/fang-about.md), and their hunting party were well clear of Deshvahan when the sun rose, the city an immense pillar of smoke at their backs. They rode hard across southern [Volcor](../../archive/world-of-rathe/volcor/volcor.md), imperial banners whipping in the wind. The troop stopped only once, trading their failing horses at an outpost garrisoned by loyalist soldiers.
+Cindra, Fang, and their hunting party were well clear of Deshvahan when the sun rose, the city an immense pillar of smoke at their backs. They rode hard across southern [Volcor](../../archive/world-of-rathe/volcor/volcor.md), imperial banners whipping in the wind. The troop stopped only once, trading their failing horses at an outpost garrisoned by loyalist soldiers.
 
 The Obsidian Coast beckoned and they continued on, covering ground faster on fresh steeds. They skirted jagged mountains and crossed broad barren plains pocked with the hardy flora and fauna that eked out an existence in Volcor's harsh climate. These lands were known to crack open and swallow entire towns, known for veins of lava bursting forth to create new hills and mountains where none had been. To inhabit Volcor one had to be decisive, for the volatile kingdom never rested.
 
@@ -158,7 +158,7 @@ Lieutenant Yamada raised his sword high. "Let us lay down our lives in your serv
 
 This was the only way forward. The sworn path of all Dracai, written into the Alshoni Mantras. She nodded to Yamada.
 
-"Soldiers," he roared. "Kindle your fires. For the [Emperor](../../heroes-of-rathe/emperor-about.md). For the blood of the dragon!"
+"Soldiers," he roared. "Kindle your fires. For the Emperor. For the blood of the dragon!"
 
 The remaining Children of the Dragon lifted their weapons and cheered, their bravery renewed by fealty.
 

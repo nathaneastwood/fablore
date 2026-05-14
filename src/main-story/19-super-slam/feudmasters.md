@@ -6,7 +6,7 @@ Rusty bashes his stein of ale on the table like a judge's gavel, frothy liquid s
 
 Slowly, the chatter dies down in the tightly packed tavern.
 
-"First, thanks are in order." Rusty gestures to the red-haired barmaid seated next to her most respected regular, [Betsy](../../heroes-of-rathe/betsy-about.md). "To Morga and the folk of this fine establishment for hosting our panel."
+"First, thanks are in order." Rusty gestures to the red-haired barmaid seated next to her most respected regular, Betsy. "To Morga and the folk of this fine establishment for hosting our panel."
 
 Betsy 'whoops' loudly and nudges Morga, almost spilling the barmaid and her tankard of ale onto the floor. 'Get on with it!' hollers Slapstick Sal from the back corner of the Grinning Boar Cantina.
 

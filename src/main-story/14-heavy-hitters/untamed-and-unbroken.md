@@ -2,7 +2,7 @@
 
 _The Undercroft is enormous, as large as the Arena standing above it - an endless network of tunnels that stretches to the city limits and which is filled with beasts and spectacular exhibits procured for the audience's amusement. The snarling and baying of the brutes echoes endlessly throughout the subterranean system, deafening at first to anyone unfortunate enough to come down here._
 
-A group of newly hired Handlers stand with their tridents and torches, pointing both at the cage of [Kayo](../../heroes-of-rathe/kayo-about.md). An older figure with a large gray beard, the Master of Beasts, edges closer to the cage.
+A group of newly hired Handlers stand with their tridents and torches, pointing both at the cage of Kayo. An older figure with a large gray beard, the Master of Beasts, edges closer to the cage.
 
 "Here he is, lads, our pride and joy," the Master says, spitting a brown glob of mucus into the cage and smiling with mocking delight. "Up you get, ya stupid animal!"
 

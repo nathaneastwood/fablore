@@ -1,6 +1,6 @@
 # Aurora, Shooting Star
 
-When a storm arrives, [Aurora](../../heroes-of-rathe/aurora-about.md) leaps into action, the promise of adventure sparkling in her eyes.
+When a storm arrives, Aurora leaps into action, the promise of adventure sparkling in her eyes.
 
 The Voltfolk are used to the Wayfarer shooting off before they can warn her of the dangers, knowing their pleas will slide off the startails of Aurora's enthusiasm. To her, a tempest usually leads to discoveries of the ancient vault kind.
 

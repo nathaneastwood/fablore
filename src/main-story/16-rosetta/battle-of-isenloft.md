@@ -4,7 +4,7 @@ _In the Third Age, the Old Ones spread across the land, an invasion beyond under
 
 ---
 
-The scream rent the air as a ravenir talon tore the Wayfarer's leather armor. His crackling bow dropped to the stone walkway. He looked down, wide-eyed, at his gaping abdomen, the reddened worms of his own entrails poking out like a tongue from a grinning face. He opened his actual mouth to scream again, but [Jarl](../../heroes-of-rathe/jarl-about.md) was having none of it. Fear was contagious, a fever that weakened everyone it touched.
+The scream rent the air as a ravenir talon tore the Wayfarer's leather armor. His crackling bow dropped to the stone walkway. He looked down, wide-eyed, at his gaping abdomen, the reddened worms of his own entrails poking out like a tongue from a grinning face. He opened his actual mouth to scream again, but Jarl was having none of it. Fear was contagious, a fever that weakened everyone it touched.
 
 The attacking ravenir clambered over the battlement, jaws snapping on oversized teeth built for fighting. Its legs gripped the cold Isenloft stone with the brushy feet of a scorpion while its talon-tipped arms reached for the Wayfarer's fellow archers who now scrambled to get clear.
 
@@ -20,7 +20,7 @@ He strode on, seeking the next trouble spot. Wayfarers, wizards, [Rosetta](~Rose
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/battle-of-isenloft-1.webp" alt="battle-of-isenloft-1" class="center" />
 
-"Never get between Jarl and something he means to kill," he'd overheard [Oldhim](../../heroes-of-rathe/oldhim-about.md) say to a batch of new guardians.
+"Never get between Jarl and something he means to kill," he'd overheard Oldhim say to a batch of new guardians.
 
 He glanced down at the bailey. Oldhim, flanked by [Ragnar](../../flavour/01-welcome-to-rathe.md#staunch-response---wtr051) and [Valgard](../../flavour/05-tales-of-aria.md#biting-gale---ele007), rallied another shield wall across the breach where the north-western tower had stood only a week ago.
 

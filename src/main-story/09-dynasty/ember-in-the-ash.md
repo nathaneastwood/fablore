@@ -1,6 +1,6 @@
 # Ember in the Ash
 
-_Your Imperial Majesty, forgive this impertinence, but these are desperate times. Our workers have turned rabid, infected by rebellious lies. They steal from our caravans. They plunder our warehouses. We petitioned our Lord Wizard for aid. He burned our messengers and fled the [Red Desert](../../archive/world-of-rathe/volcor/the-red-desert.md)-a disgrace to your glorious dragon blood. You are the greatest of the [Dracai](~Dracai). Your flame is the brightest of all. Punish these upstarts. Sear their treacherous hopes from their dim minds. We beseech you, our mighty [Emperor](../../heroes-of-rathe/emperor-about.md). Please, help us._
+_Your Imperial Majesty, forgive this impertinence, but these are desperate times. Our workers have turned rabid, infected by rebellious lies. They steal from our caravans. They plunder our warehouses. We petitioned our Lord Wizard for aid. He burned our messengers and fled the [Red Desert](../../archive/world-of-rathe/volcor/the-red-desert.md)-a disgrace to your glorious dragon blood. You are the greatest of the [Dracai](~Dracai). Your flame is the brightest of all. Punish these upstarts. Sear their treacherous hopes from their dim minds. We beseech you, our mighty Emperor. Please, help us._
 
 _Your humble servant,_
 
@@ -10,7 +10,7 @@ _Lord Merchant Savai of Deshvahan_
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/ember-1.webp" alt="ember-in-the-ash-1" class="center">
 
-[Dromai](../../heroes-of-rathe/dromai-about.md) looks about to make sure she is alone before expelling her excitement in a long, shuddering breath. This is what she has waited for, worked so hard for. She defeated the rebels in battle. She slew their most aggressive leader. And in a moment of inspiration, she erased Spymaster Xathari from the picture. Thus, she cleared the way for her most ambitious move-an audience with the Emperor and a chance to claim Xathari's position and power.
+Dromai looks about to make sure she is alone before expelling her excitement in a long, shuddering breath. This is what she has waited for, worked so hard for. She defeated the rebels in battle. She slew their most aggressive leader. And in a moment of inspiration, she erased Spymaster Xathari from the picture. Thus, she cleared the way for her most ambitious move-an audience with the Emperor and a chance to claim Xathari's position and power.
 
 No longer the "half-breed". No longer the traitor's spawn to be slighted or ignored. She is Dracai, and so much more. With Xathari's secrets at her fingertips, she will paint illusions such as [Volcor](../../archive/world-of-rathe/volcor/volcor.md) has never seen. Wizard and worker alike, the citizens of this empire will see only what she, the Ash Artist, _wants_ them to see.
 
@@ -60,7 +60,7 @@ Sandfolk fury continues to fester, as Xathari hoped it would. Their attack was a
 
 The scheming [Ezu](~Ezu) and loyal [Alshoni](~Alshoni)-two great Dracai houses locked in a deadly game of power and usurpation. The Alshoni defending stability and dynasty against dangerous Ezu aspirations. A trail of missives exchanged through the [Pits](../../archive/world-of-rathe/pits/pits.md). Prices paid in coin and blood.
 
-[Fai](../../heroes-of-rathe/fai-about.md) and his foolish [Volcai](~Volcai), their filthy hands tearing the empire apart. Enemies in every scullery and stable. Vermin that might yet overrun the entire palace.
+Fai and his foolish [Volcai](~Volcai), their filthy hands tearing the empire apart. Enemies in every scullery and stable. Vermin that might yet overrun the entire palace.
 
 Dromai follows the threads, weaving a tapestry of treachery in her mind. Yet try as she might, she can see neither the pattern nor the weaver. They are as elusive as that vile visage glimpsed and then gone into tortured darkness.
 

@@ -2,9 +2,9 @@
 
 The [Queen of Candlehold](../../archive/world-of-rathe/aria/the-land-of-legends.md) is dead, and [Aria](../../archive/world-of-rathe/aria/aria.md) has experienced a dramatic surge in [The Flow](../../archive/world-of-rathe/aria/a-true-sanctuary.md#the-flow).
 
-This shift has awoken [Oscilio](../../heroes-of-rathe/oscilio-about.md), a wizard made by the hands and minds of the Aetherscribes. Embedded in the ancient vault of Arcturos, sealed away in the Third Age, Oscilio now finds himself navigating a strange new world.
+This shift has awoken Oscilio, a wizard made by the hands and minds of the Aetherscribes. Embedded in the ancient vault of Arcturos, sealed away in the Third Age, Oscilio now finds himself navigating a strange new world.
 
-All that Oscilio once knew is gone. He is a newcomer to the cultures and everyday concerns of greater Aria - truly the odd one out. He has no time for trivial conversation; he has a mission to complete. And thanks to the astute actions and lighthearted humor of [Aurora](../../heroes-of-rathe/aurora-about.md), Oscilio now has a guide to help him explore the lands and share his knowledge.
+All that Oscilio once knew is gone. He is a newcomer to the cultures and everyday concerns of greater Aria - truly the odd one out. He has no time for trivial conversation; he has a mission to complete. And thanks to the astute actions and lighthearted humor of Aurora, Oscilio now has a guide to help him explore the lands and share his knowledge.
 
 Unbeknownst to all, Oscilio is more than a scholar. In Oscilio, the Aetherscribes created a weapon forged to defend against forgotten evils - the wisdom contained within, a blueprint for survival.
 

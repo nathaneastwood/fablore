@@ -1,6 +1,6 @@
 # Part 3: The Serpent's Strike
 
-Sweet smoke snakes into the air from [Nuu](../../heroes-of-rathe/nuu-about.md)'s pursed lips, coiling hypnotically before fading into a haze that softens every edge and detail in her lounge.
+Sweet smoke snakes into the air from Nuu's pursed lips, coiling hypnotically before fading into a haze that softens every edge and detail in her lounge.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/nuu-story-1.webp" alt="nuu-story-1" class="center">
 
@@ -160,7 +160,7 @@ She strides down the catwalk, taking in the crowd with knowing glances and sweet
 
 "And who might you be?"
 
-"[Zen](../../heroes-of-rathe/zen-about.md)," he answers. "A humble wanderer."
+"Zen," he answers. "A humble wanderer."
 
 Her eyes narrow to slits as she appraises him, sees the spiritual strength that lurks beneath his mortal muscle, the mystic claws that envelop his hands.
 

@@ -4,7 +4,7 @@ _However, in recent times the Flow has become increasingly unstable, and a growi
 
 # A Rising Star
 
-Even amongst the many taverns, festivals and celebrations of Aria, nothing could possibly compare to the excitement of the Everfest Carnival. A massive, moving circus, the Everfest travels throughout Aria, a sea of brightly coloured big-tops boasting the biggest collection of performances in all of Rathe. Yet of all its acts, none were so famous or beloved as [Bravo](../../heroes-of-rathe/bravo-about.md)'s Legendarium.
+Even amongst the many taverns, festivals and celebrations of Aria, nothing could possibly compare to the excitement of the Everfest Carnival. A massive, moving circus, the Everfest travels throughout Aria, a sea of brightly coloured big-tops boasting the biggest collection of performances in all of Rathe. Yet of all its acts, none were so famous or beloved as Bravo's Legendarium.
 
 Bravo was raised amongst the strongmen and animal acts of the Valdur, growing up alongside great, majestic cesari, and tiny meeps that darted from stall to stall. Many of his closest friends were members of the Maela; oracles, bards, skalds, enchanters and fortune-tellers, all breezing about the Everfest in loose silks and layers of golden jewellery.
 

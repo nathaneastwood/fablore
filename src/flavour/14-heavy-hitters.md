@@ -13,7 +13,7 @@ The rules of the Arena extend beyond its cavea. Strength, valor, and the occasio
 "Got a death wish, cheating against a Vandravel?" - Miss Q
 
 #### Draw Swords - (HVY121)
-"I live my life on the edge of my blade. This isn't just an arena; this is my world." - [Olympia](../heroes-of-rathe/olympia-about.md)
+"I live my life on the edge of my blade. This isn't just an arena; this is my world." - Olympia
 
 #### Goblet of Bloodrun Wine - (HVY133)
 "Blood, sweat, and tears of anguish. Such a sanguine feast of sensations, as intoxicating as the finest bloodrun wine..." - Countess Camilla
@@ -46,7 +46,7 @@ Many are denied their place in history simply because they failed to make their 
 "Tenacity separates champions from the rabble, and uplifts heroes to the realm of legends." - Brutus, Summa Rudis
 
 #### The Golden Son - (HVY059)
-"Why wait for divine intervention, when gold can pave the way?" - [Victor Goldmane](../heroes-of-rathe/victor-goldmane-about.md)
+"Why wait for divine intervention, when gold can pave the way?" - Victor Goldmane
 
 #### Wage Agility - (HVY169)
 These daunting trials will put your skills to the test, as the onlookers cheer, jeer, and place their bets.

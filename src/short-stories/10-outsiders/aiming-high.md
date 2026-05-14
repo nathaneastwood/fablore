@@ -18,7 +18,7 @@ Pinwheel whirled around, eyes darting to and fro, trying in vain to spot their a
 
 For a split second he heard the whistle of rushing air before an arrow pierced him between the eyes. He staggered back, and toppled off the side, plunging into the oily water.
 
-From her perch above, [Azalea](../../heroes-of-rathe/azalea-about.md) leaped to the ground with feline poise. She sauntered over to the dock, checking both targets were dispatched.
+From her perch above, Azalea leaped to the ground with feline poise. She sauntered over to the dock, checking both targets were dispatched.
 
 Job done.
 

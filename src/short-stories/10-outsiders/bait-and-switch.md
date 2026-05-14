@@ -1,6 +1,6 @@
 # Bait and Switch
 
-[Uzuri](../../heroes-of-rathe/uzuri-about.md) wiped the blood from her face and grinned at the common gang thug standing before her in the alleyway.
+Uzuri wiped the blood from her face and grinned at the common gang thug standing before her in the alleyway.
 
 The poor fool had his fists raised, ready to deliver another punch, but her gleeful reaction to the first blow caused him to falter, eyes darting wildly.
 

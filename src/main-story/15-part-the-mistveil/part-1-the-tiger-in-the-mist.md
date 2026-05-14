@@ -1,6 +1,6 @@
 # Part 1: The Tiger in the Mist
 
-[Zen](../../heroes-of-rathe/zen-about.md) winds his way uphill, discerning the invisible patterns of chi in the landscape, waiting for ripples of discordance to appear from the gullies throughout [Mistcloak](../../archive/world-of-rathe/misteria/among-the-mists.md#mistcloak-gully).
+Zen winds his way uphill, discerning the invisible patterns of chi in the landscape, waiting for ripples of discordance to appear from the gullies throughout [Mistcloak](../../archive/world-of-rathe/misteria/among-the-mists.md#mistcloak-gully).
 
 He was drawn to the gully by the changing tides of chi and has made the long journey to learn what destiny might be unveiling.
 
@@ -132,6 +132,6 @@ A besotted patron whispers a name. Zen breathes the name in and then grounds him
 
 For now, he knows from whence the ripples of strife have spread across this town.
 
-The Nasu-ka Teahouse is the stone, and it is from [Nuu](../../heroes-of-rathe/nuu-about.md)'s delicate fingers that it was dropped.
+The Nasu-ka Teahouse is the stone, and it is from Nuu's delicate fingers that it was dropped.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/zen-story-6.webp" alt="zen-story-6" class="center">

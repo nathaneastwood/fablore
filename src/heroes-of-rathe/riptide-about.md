@@ -12,7 +12,7 @@ A hunter of big game and lost treasures since childhood, Riptide now plies the P
 
 So often has he embraced the horrors of the drowned darkness that he has become one himself. But don't be fooled. Underneath the horror is an intelligence not to be trifled with. His appearance may be as foul as the fishes he hunts, but Riptide's ingenious cruelty often outwits the most merciless gangers in the Pits.
 
-Now a Ranger-for-hire contracted to "[the Boss](uzuri-about.md)", Riptide has become trapper, smuggler and scout. Every contraption more dangerous than the last, every deal more devious, every setup more sadistic.
+Now a Ranger-for-hire contracted to "the Boss", Riptide has become trapper, smuggler and scout. Every contraption more dangerous than the last, every deal more devious, every setup more sadistic.
 
 Predators of the Pits beware. It's the thrill of the hunt that keeps the Lurker anchored. The longer he has to wait, the worse your agonizing end shall be.
 

@@ -1,6 +1,6 @@
 # Roll of Honor: Zen
 
-[Zen](../../heroes-of-rathe/zen-about.md) wrapped his knuckles in cloth, a well-practiced ritual to calm his mind. Behind him, the training yard filled with students from the School of the Hand, an excited mob eager to see their great Master Morita spar with his star graduate.
+Zen wrapped his knuckles in cloth, a well-practiced ritual to calm his mind. Behind him, the training yard filled with students from the School of the Hand, an excited mob eager to see their great Master Morita spar with his star graduate.
 
 Zen and Morita bowed and took up their fighting positions, awaiting the peal of the starting gong. The percussion cascaded down upon them from the giant brass disc. As the students leaned in, Zen lunged forward, his movement as precise as a tiger's pounce. His fists struck at Morita with measured ferocity, an attack intended to shatter his opponent's resolve. Yet the venerable Master moved with the grace of a willow tree bending in the wind, warding off each swipe with implacable elegance.
 

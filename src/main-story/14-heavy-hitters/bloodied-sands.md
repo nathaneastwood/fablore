@@ -1,8 +1,8 @@
 # Bloodied Sands
 
-[Kassai](../../heroes-of-rathe/kassai-about.md) flexed both hands tight around the grips of her twin [sabers](../../weapons/cintari-saber.md), gritting her teeth and watching the caged beast across the arena.
+Kassai flexed both hands tight around the grips of her twin [sabers](../../weapons/cintari-saber.md), gritting her teeth and watching the caged beast across the arena.
 
-[Kayo](../../heroes-of-rathe/kayo-about.md) bellowed, impatient with bloodlust, pacing from one iron wall of his cage to the other while the announcer riled up the crowd.
+Kayo bellowed, impatient with bloodlust, pacing from one iron wall of his cage to the other while the announcer riled up the crowd.
 
 The air smelled of sweat-soaked masses and spilled liquor with the metallic tang of blood. The arena sand was stained with it, but to Kassai, bloodied sand felt like home.
 
@@ -54,13 +54,13 @@ Kassai tried to stand, only managed to stagger and drop to her knees, held uprig
 
 Fear gripped her like a choking hand around her throat. It was a feeling the hardened warrior was unused to; she had known she could die here, but hadn't believed it-not truly.
 
-In the tournament's first round, she fought [Betsy](../../heroes-of-rathe/betsy-about.md).
+In the tournament's first round, she fought Betsy.
 
 The massive woman was a storm of violent rage, but she merely fought to fund her life of excess. It was simple enough to force her to yield at blade's edge when death meant an end to her hedonism.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/14-heavy-hitters/bloodied-sands-2.webp" alt="bloodied-sands-2" class="center" />
 
-[Olympia](../../heroes-of-rathe/olympia-about.md) lost to Kayo, an upset that shook Deathmatch to its bloody roots.
+Olympia lost to Kayo, an upset that shook Deathmatch to its bloody roots.
 
 It would have been the end of the "Undisputed Champion" if Kox's arena hands hadn't dropped Kayo with a volley of sleeping darts.
 
@@ -68,13 +68,13 @@ It would have been the end of the "Undisputed Champion" if Kox's arena hands had
 
 Afterwards, Olympia made a show of bestowing Kassai with his favor. She figured it was some sort of publicity play, more about him saving face than any faith he held in her. But she took it nonetheless. The better her reputation, the more chances she got at the top spot.
 
-Studying [Rhinar](../../heroes-of-rathe/rhinar-about.md) taught her a thing or two about fighting [Brutes](../../archive/world-of-rathe/savage-lands/call-of-adventure.md#brutes).
+Studying Rhinar taught her a thing or two about fighting [Brutes](../../archive/world-of-rathe/savage-lands/call-of-adventure.md#brutes).
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/14-heavy-hitters/bloodied-sands-4.webp" alt="bloodied-sands-4" class="center" />
 
 In the melee, she bled the big bastards. A nip here, a slice there, until they collapsed. But they all lacked the runt's agility and guile. Kayo wasn't going down that way.
 
-Then there was [Victor Goldmane](../../heroes-of-rathe/victor-goldmane-about.md).
+Then there was Victor Goldmane.
 
 She'd been surprised to see him make it this far in the contest, a smarmy toff who looked like he'd be more at home bribing tourney officials. But he proved himself steady and sure in the arena.
 

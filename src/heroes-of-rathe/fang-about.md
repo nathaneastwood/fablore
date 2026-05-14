@@ -10,7 +10,7 @@ Born into a family of [Dracai](~Dracai) nobles, Fang received a formal education
 
 Fang's fragile harmony was shattered by the agonized cries of his family as they were consumed by the fires of rebellion. He saw [Volcai](~Volcai) slaughter Dracai. He smelled the flesh of family burning at the stake. He carries those painful memories with him to this day. He still bears the dishonor.
 
-Finding solace in service, Fang committed his life to the [Emperor](./emperor-about.md)'s Royal Guard. Their strict principles molded him into a fiercely devoted captain of the Children of the Dragon. Now, his every waking hour is spent waging war upon the accomplices of regicide.
+Finding solace in service, Fang committed his life to the Emperor's Royal Guard. Their strict principles molded him into a fiercely devoted captain of the Children of the Dragon. Now, his every waking hour is spent waging war upon the accomplices of regicide.
 
 Fang leads his soldiers into battle with vengeance in his fists and fealty in his heart. For order he will give no quarter. For his fallen Emperor he will make any sacrifice.
 
