@@ -130,6 +130,7 @@
 |                     Kossen                     |             Human            |                 Unknown                 |
 |                      Kouki                     |             Human            |                 Unknown                 |
 |                      Kyle                      |             Human            |                 Unknown                 |
+|                 Lady Bartimont                 |            Unknown           |                 Unknown                 |
 |               Lady Vera Sutcliffe              |             Human            |                 Unknown                 |
 |                   Lena Belle                   |             Human            |                  Alive                  |
 |                  Lieutenant Li                 |             Human            |                 Unknown                 |
@@ -160,6 +161,7 @@
 |          Metis, Archangel of Tenacity          |            Herald            |                 Unknown                 |
 |                      Miku                      |             Human            |                 Unknown                 |
 |           Min of the Forest of Flames          |             Human            |                 Unknown                 |
+|                 Minerva Themis                 |            Unknown           |                 Unknown                 |
 |                     Miss Q                     |            Unknown           |                 Unknown                 |
 |                  Molly the Mop                 |             Human            |                  Alive                  |
 |                     Moloca                     |            Unknown           |                 Unknown                 |
@@ -226,6 +228,7 @@
 |                Taskmaster Pyrion               |             Human            |                 Unknown                 |
 |                Templar Timaerus                |             Human            |                 Unknown                 |
 |                     Tetzuo                     |             Human            |                  Alive                  |
+|                  The Librarian                 |            Unknown           |                 Unknown                 |
 |          Thebasto, Magister of Defense         |             Human            |                  Alive                  |
 |          Themis, Keeper of the Scales          |            Herald            |                 Unknown                 |
 |          Theodore Hamilton Scarborough         |             Human            |                 Unknown                 |

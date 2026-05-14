@@ -45,8 +45,8 @@ def _merge_region_names_for_locations(df: pd.DataFrame, csv_path: Path) -> pd.Da
 
 
 def _drop_registry_id_columns(df: pd.DataFrame) -> pd.DataFrame:
-    """Remove technical primary/foreign key columns (names ending in ``Id``)."""
-    keep = [c for c in df.columns if not (isinstance(c, str) and c.endswith("Id"))]
+    """Remove technical primary/foreign key columns (names ending in ``Id`` or ``StoryKey``)."""
+    keep = [c for c in df.columns if not (isinstance(c, str) and (c.endswith("Id") or c.endswith("StoryKey")))]
     return df[keep]
 
 
