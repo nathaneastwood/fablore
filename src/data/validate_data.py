@@ -418,57 +418,57 @@ def collect_alerts() -> list[str]:
     alerts: list[str] = []
 
     checks: list[tuple[Path, tuple[str, ...], str]] = [
-        (DATA / "set-types.csv", ("SetTypeId",), "Set types"),
-        (DATA / "sets.csv", ("SetId", "SetTypeId"), "Sets"),
-        (DATA / "heroes-canonical.csv", ("CanonicalId", "CanonicalSlug", "CanonicalHero"), "Heroes canonical"),
-        (DATA / "heroes-game.csv", ("HeroGameId", "CardName", "CanonicalId"), "Heroes game"),
-        (DATA / "classes.csv", ("ClassId", "ClassName"), "Classes (shared)"),
-        (DATA / "talents.csv", ("TalentId", "TalentName"), "Talents (shared)"),
-        (DATA / "heroes-printings.csv", ("HeroGameId", "SetId", "CardId"), "Heroes printings"),
+        (DATA / "csv/set-types.csv", ("SetTypeId",), "Set types"),
+        (DATA / "csv/sets.csv", ("SetId", "SetTypeId"), "Sets"),
+        (DATA / "csv/heroes-canonical.csv", ("CanonicalId", "CanonicalSlug", "CanonicalHero"), "Heroes canonical"),
+        (DATA / "csv/heroes-game.csv", ("HeroGameId", "CardName", "CanonicalId"), "Heroes game"),
+        (DATA / "csv/classes.csv", ("ClassId", "ClassName"), "Classes (shared)"),
+        (DATA / "csv/talents.csv", ("TalentId", "TalentName"), "Talents (shared)"),
+        (DATA / "csv/heroes-printings.csv", ("HeroGameId", "SetId", "CardId"), "Heroes printings"),
         (
-            DATA / "weapons-canonical.csv",
+            DATA / "csv/weapons-canonical.csv",
             ("CanonicalWeaponId", "CanonicalSlug"),
             "Weapons canonical",
         ),
         (
-            DATA / "weapons-game.csv",
+            DATA / "csv/weapons-game.csv",
             ("WeaponGameId", "CardName", "CanonicalWeaponId"),
             "Weapons game",
         ),
-        (DATA / "weapons-printings.csv", ("WeaponGameId", "SetId", "CardId"), "Weapons printings"),
+        (DATA / "csv/weapons-printings.csv", ("WeaponGameId", "SetId", "CardId"), "Weapons printings"),
         (
-            DATA / "equipment-canonical.csv",
+            DATA / "csv/equipment-canonical.csv",
             ("CanonicalEquipmentId", "CanonicalSlug"),
             "Equipment canonical",
         ),
         (
-            DATA / "equipment-game.csv",
+            DATA / "csv/equipment-game.csv",
             ("EquipmentGameId", "CardName", "CanonicalEquipmentId"),
             "Equipment game",
         ),
         (
-            DATA / "equipment-printings.csv",
+            DATA / "csv/equipment-printings.csv",
             ("EquipmentGameId", "SetId", "CardId"),
             "Equipment printings",
         ),
-        (DATA / "npcs.csv", ("CharacterId", "Name", "Status"), "NPCs"),
-        (DATA / "locations.csv", ("LocationId", "Name"), "Locations"),
-        (DATA / "regions.csv", ("RegionId",), "Regions"),
-        (DATA / "flora.csv", ("FloraId",), "Flora"),
-        (DATA / "fauna.csv", ("FaunaId",), "Fauna"),
-        (DATA / "food-and-drink.csv", ("FoodDrinkId",), "Food and drink"),
-        (DATA / "monsters.csv", ("MonsterId",), "Monsters"),
-        (DATA / "stories.csv", ("StoryId", "StoryKey", "StoryType"), "Stories"),
-        (DATA / "story-npcs.csv", ("StoryId", "CharacterId"), "Story ↔ NPC links"),
-        (DATA / "story-heroes.csv", ("StoryId", "CanonicalId"), "Story ↔ hero links"),
-        (DATA / "story-locations.csv", ("StoryId", "LocationId"), "Story ↔ location links"),
-        (DATA / "story-regions.csv", ("StoryId", "RegionId"), "Story ↔ region links"),
-        (DATA / "story-monsters.csv", ("StoryId", "MonsterId"), "Story ↔ monster links"),
-        (DATA / "story-fauna.csv", ("StoryId", "FaunaId"), "Story ↔ fauna links"),
-        (DATA / "story-flora.csv", ("StoryId", "FloraId"), "Story ↔ flora links"),
-        (DATA / "story-food-drink.csv", ("StoryId", "FoodDrinkId"), "Story ↔ food/drink links"),
-        (DATA / "story-weapons.csv", ("StoryId", "CanonicalWeaponId"), "Story ↔ weapon links"),
-        (DATA / "story-equipment.csv", ("StoryId", "CanonicalEquipmentId"), "Story ↔ equipment links"),
+        (DATA / "csv/npcs.csv", ("CharacterId", "Name", "Status"), "NPCs"),
+        (DATA / "csv/locations.csv", ("LocationId", "Name"), "Locations"),
+        (DATA / "csv/regions.csv", ("RegionId",), "Regions"),
+        (DATA / "csv/flora.csv", ("FloraId",), "Flora"),
+        (DATA / "csv/fauna.csv", ("FaunaId",), "Fauna"),
+        (DATA / "csv/food-and-drink.csv", ("FoodDrinkId",), "Food and drink"),
+        (DATA / "csv/monsters.csv", ("MonsterId",), "Monsters"),
+        (DATA / "csv/stories.csv", ("StoryId", "StoryKey", "StoryType"), "Stories"),
+        (DATA / "csv/story-npcs.csv", ("StoryId", "CharacterId"), "Story ↔ NPC links"),
+        (DATA / "csv/story-heroes.csv", ("StoryId", "CanonicalId"), "Story ↔ hero links"),
+        (DATA / "csv/story-locations.csv", ("StoryId", "LocationId"), "Story ↔ location links"),
+        (DATA / "csv/story-regions.csv", ("StoryId", "RegionId"), "Story ↔ region links"),
+        (DATA / "csv/story-monsters.csv", ("StoryId", "MonsterId"), "Story ↔ monster links"),
+        (DATA / "csv/story-fauna.csv", ("StoryId", "FaunaId"), "Story ↔ fauna links"),
+        (DATA / "csv/story-flora.csv", ("StoryId", "FloraId"), "Story ↔ flora links"),
+        (DATA / "csv/story-food-drink.csv", ("StoryId", "FoodDrinkId"), "Story ↔ food/drink links"),
+        (DATA / "csv/story-weapons.csv", ("StoryId", "CanonicalWeaponId"), "Story ↔ weapon links"),
+        (DATA / "csv/story-equipment.csv", ("StoryId", "CanonicalEquipmentId"), "Story ↔ equipment links"),
     ]
 
     for path, cols, label in checks:
@@ -480,14 +480,14 @@ def collect_alerts() -> list[str]:
             continue
         alerts.extend(_check_ids(path, cols, label))
 
-    stories_path = DATA / "stories.csv"
+    stories_path = DATA / "csv/stories.csv"
     if stories_path.is_file():
         alerts.extend(_check_stories_story_type_allowlist(stories_path))
 
-    canonical_path = DATA / "heroes-canonical.csv"
-    game_path = DATA / "heroes-game.csv"
-    printings_path = DATA / "heroes-printings.csv"
-    story_heroes_path = DATA / "story-heroes.csv"
+    canonical_path = DATA / "csv/heroes-canonical.csv"
+    game_path = DATA / "csv/heroes-game.csv"
+    printings_path = DATA / "csv/heroes-printings.csv"
+    story_heroes_path = DATA / "csv/story-heroes.csv"
 
     canonical_ids = _id_set_from_column(canonical_path, "CanonicalId")
     hero_game_ids = _id_set_from_column(game_path, "HeroGameId")
@@ -522,8 +522,8 @@ def collect_alerts() -> list[str]:
     if canonical_path.is_file():
         alerts.extend(_check_hero_card_name_alias_slugs_in_canonical(canonical_path))
 
-    weapons_game_path = DATA / "weapons-game.csv"
-    weapons_printings_path = DATA / "weapons-printings.csv"
+    weapons_game_path = DATA / "csv/weapons-game.csv"
+    weapons_printings_path = DATA / "csv/weapons-printings.csv"
     weapon_game_ids = _id_set_from_column(weapons_game_path, "WeaponGameId")
     if weapon_game_ids:
         alerts.extend(
@@ -536,7 +536,7 @@ def collect_alerts() -> list[str]:
             )
         )
 
-    weapons_canonical_path = DATA / "weapons-canonical.csv"
+    weapons_canonical_path = DATA / "csv/weapons-canonical.csv"
     canonical_weapon_ids = _id_set_from_column(weapons_canonical_path, "CanonicalWeaponId")
     if canonical_weapon_ids:
         alerts.extend(
@@ -548,7 +548,7 @@ def collect_alerts() -> list[str]:
                 "Weapons game",
             )
         )
-        story_weapons_path = DATA / "story-weapons.csv"
+        story_weapons_path = DATA / "csv/story-weapons.csv"
         alerts.extend(
             _check_fk_column(
                 story_weapons_path,
@@ -559,9 +559,9 @@ def collect_alerts() -> list[str]:
             )
         )
 
-    equipment_game_path = DATA / "equipment-game.csv"
-    equipment_printings_path = DATA / "equipment-printings.csv"
-    equipment_canonical_path = DATA / "equipment-canonical.csv"
+    equipment_game_path = DATA / "csv/equipment-game.csv"
+    equipment_printings_path = DATA / "csv/equipment-printings.csv"
+    equipment_canonical_path = DATA / "csv/equipment-canonical.csv"
     equipment_game_ids = _id_set_from_column(equipment_game_path, "EquipmentGameId")
     canonical_equipment_ids = _id_set_from_column(
         equipment_canonical_path, "CanonicalEquipmentId"
@@ -576,7 +576,7 @@ def collect_alerts() -> list[str]:
                 "Equipment game",
             )
         )
-        story_equipment_path = DATA / "story-equipment.csv"
+        story_equipment_path = DATA / "csv/story-equipment.csv"
         alerts.extend(
             _check_fk_column(
                 story_equipment_path,
@@ -597,8 +597,8 @@ def collect_alerts() -> list[str]:
             )
         )
 
-    fauna_path = DATA / "fauna.csv"
-    story_fauna_path = DATA / "story-fauna.csv"
+    fauna_path = DATA / "csv/fauna.csv"
+    story_fauna_path = DATA / "csv/story-fauna.csv"
     fauna_ids = _id_set_from_column(fauna_path, "FaunaId")
     if fauna_ids:
         alerts.extend(
@@ -611,8 +611,8 @@ def collect_alerts() -> list[str]:
             )
         )
 
-    region_ids = _id_set_from_column(DATA / "regions.csv", "RegionId")
-    locations_path = DATA / "locations.csv"
+    region_ids = _id_set_from_column(DATA / "csv/regions.csv", "RegionId")
+    locations_path = DATA / "csv/locations.csv"
     if region_ids and locations_path.is_file():
         alerts.extend(
             _check_fk_column(
@@ -625,7 +625,7 @@ def collect_alerts() -> list[str]:
         )
         alerts.extend(
             _check_fk_column(
-                DATA / "story-regions.csv",
+                DATA / "csv/story-regions.csv",
                 "RegionId",
                 region_ids,
                 "regions.csv RegionId",
@@ -633,10 +633,10 @@ def collect_alerts() -> list[str]:
             )
         )
 
-    alerts.extend(_check_location_lore_fragments(DATA / "locations.csv"))
+    alerts.extend(_check_location_lore_fragments(DATA / "csv/locations.csv"))
     alerts.extend(
         _check_location_lore_fragments_match_headings(
-            DATA / "locations.csv", DATA / "regions.csv", SRC
+            DATA / "csv/locations.csv", DATA / "csv/regions.csv", SRC
         )
     )
 

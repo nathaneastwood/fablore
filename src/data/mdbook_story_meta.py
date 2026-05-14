@@ -144,7 +144,7 @@ def _inject_after_heading(content: str, inner_html: str) -> str:
 
 def _load_story_meta(data_dir: Path) -> dict[str, dict[str, str]]:
     """Return a map from ``StoryKey`` (POSIX path) to its ``stories.csv`` row."""
-    path = data_dir / "stories.csv"
+    path = data_dir / "csv" / "stories.csv"
     if not path.is_file():
         return {}
     _fn, rows = read_pipe_csv(path)
