@@ -270,6 +270,7 @@ def _seed_npcs(conn: sqlite3.Connection, data_dir: Path) -> None:
             name=_s(row, "Name"),
             species=_s(row, "Species") or "Unknown",
             status=_s(row, "Status") or "Unknown",
+            other_characters_story_key=_s(row, "OtherCharactersStoryKey"),
         )
 
 

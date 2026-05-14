@@ -40,7 +40,7 @@ Shiyana's clear voice rang out through the Scholars Assembly as she spoke of the
 
 Beside her, Prism nodded her agreement, yet it was Dorinthea who spoke. "We must go now, for Solana." She looked to Bravo and Lexi, Briar and Oldhim, and the brave folk of Aria who remained. "For all of Rathe."
 
-Behind Dorinthea's steely gaze, [Minerva](../../other-characters/minerva-themis.md) tumbled over and over into that inky rift on [Morlock Hill](../07-interlude/morlock-hill.md). Was her friend still alive, held somewhere in the Demonastery? Was it better if she were dead?
+Behind Dorinthea's steely gaze, Minerva tumbled over and over into that inky rift on [Morlock Hill](../07-interlude/morlock-hill.md). Was her friend still alive, held somewhere in the Demonastery? Was it better if she were dead?
 
 Across the hall, Boltyn stood and raised his hands, begging patience. "While Dorinthea speaks true, I have seen the Gemini's reports. They have sacrificed much, yet we know little of what we shall face beyond the veil. We must prepare. We might not get a second chance."
 

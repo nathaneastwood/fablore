@@ -34,7 +34,7 @@ Death is Arakni's only concern. Assassination, their singular delight.
 
 Southmaw Asylum is a laboratory of horrors where the orphaned and discarded of the Pits beneath Metrix are subjected to nightmarish experiments, but for Patient 1131 it was home.
 
-No one remembers the person that entered Southmaw, soon rendered unrecognizable by the surgeries and tests conducted by the monstrous [Dr. Mortimer](../other-characters/krest-mortimer.md).
+No one remembers the person that entered Southmaw, soon rendered unrecognizable by the surgeries and tests conducted by the monstrous Dr. Mortimer.
 
 Now an assassin of the Spider, this Arakni takes the jobs that give even the other Arakni pause. Its chaotic aberrations enable it to slip into target locations deemed impregnable, and it relishes those jobs that border on suicide. For if Southmaw couldn’t kill it, nothing could.
 

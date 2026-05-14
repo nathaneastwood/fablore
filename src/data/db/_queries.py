@@ -198,17 +198,22 @@ def upsert_npc(
     name: str,
     species: str = "Unknown",
     status: str = "Unknown",
+    other_characters_story_key: str = "",
 ) -> None:
     conn.execute(
         """
-        INSERT INTO npcs (character_id, name, species, status)
-        VALUES (?,?,?,?)
+        INSERT INTO npcs (character_id, name, species, status, other_characters_story_key)
+        VALUES (?,?,?,?,?)
         ON CONFLICT(character_id) DO UPDATE SET
             name    = excluded.name,
             species = excluded.species,
-            status  = excluded.status
+            status  = excluded.status,
+            other_characters_story_key = CASE
+                WHEN excluded.other_characters_story_key != '' THEN excluded.other_characters_story_key
+                ELSE npcs.other_characters_story_key
+            END
         """,
-        (character_id, name, species, status),
+        (character_id, name, species, status, other_characters_story_key),
     )
 
 

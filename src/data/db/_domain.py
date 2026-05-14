@@ -77,6 +77,7 @@ class NPCEntry:
     name: str
     species: str = "Unknown"
     status: str = "Unknown"
+    other_characters_story_key: str = ""
 
 
 @dataclass
@@ -675,7 +676,8 @@ class Database:
                 )
             cid = lore_character_id(e.name)
             q.upsert_npc(self.conn, character_id=cid, name=e.name,
-                         species=e.species, status=e.status)
+                         species=e.species, status=e.status,
+                         other_characters_story_key=e.other_characters_story_key)
             ids.append(cid)
         return ids
 
