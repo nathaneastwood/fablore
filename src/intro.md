@@ -1,3 +1,5 @@
+<script>document.documentElement.classList.add('intro-page');</script>
+
 <div class="intro-landing-logo">
 <img src="assets/logo_transparent.png" alt="" class="intro-logo intro-logo--light" decoding="async">
 <img src="assets/logo_transparent_white.png" alt="" class="intro-logo intro-logo--dark" decoding="async">
