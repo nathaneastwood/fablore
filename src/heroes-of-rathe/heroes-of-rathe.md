@@ -34,7 +34,7 @@ Browse legendary heroes by name. Use the class filters to narrow the list; heroe
       <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/full-hero-art/arakni-slipped-through-the-cracks.webp" alt="" width="466" height="650">
       <span class="world-hub-label">Arakni, 5l!p3d 7hru 7h3 Cr4x</span>
     </a>
-    <a class="world-hub-card hero-hub-card" data-classes="assassin" href="arakni-marionette.md">
+    <a class="world-hub-card hero-hub-card" data-classes="assassin" href="arakni-marionette-about.md">
       <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/full-hero-art/arakni-marionette.webp" alt="" width="466" height="650">
       <span class="world-hub-label">Arakni, Marionette</span>
     </a>

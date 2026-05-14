@@ -18,7 +18,7 @@
 
 ### What animals/non-humanoids exist within Rathe?
 
-You can see the full list of animals on the data page [here](data/fauna.md).
+You can see the full list of animals on the data page [here](data/md/fauna.md).
 
 ### What powers/forces exist within Rathe?
 
