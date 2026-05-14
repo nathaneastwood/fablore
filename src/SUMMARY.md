@@ -87,9 +87,6 @@
     - [Minerva Themis](other-characters/minerva-themis.md)
     - [The Librarian](other-characters/the-librarian.md)
 
-- [Main Story Summaries](summaries/README.md)
-  - [War of the Monarch, Part 1](summaries/war-of-the-monarch-pt-1.md)
-
 - [Main Story](main-story/the-land-of-rathe.md)
     - [Edge of Autumn](main-story/03-crucible-of-war/edge-of-autumn.md)
     - [A Rising Star](main-story/01-welcome-to-rathe/a-rising-star.md)
@@ -175,6 +172,9 @@
     - [Feudmasters](main-story/19-super-slam/feudmasters.md)
     - [Vow Unbroken](main-story/20-compendium-of-rathe/vow-unbroken.md)
     - [Omens in the Sky](main-story/21-omens-of-the-third-age/omens-in-the-sky.md)
+
+- [Main Story Summaries](summaries/README.md)
+  - [War of the Monarch, Part 1](summaries/war-of-the-monarch-pt-1.md)
 
 - [Short Stories](short-stories/README.md)
     - [A Thousand Cuts](short-stories/10-outsiders/a-thousand-cuts.md)
@@ -287,15 +287,6 @@
     - [High Seas](digital-tiles/18-high-seas/high-seas.md)
     - [Compendium of Rathe](digital-tiles/19-compendium-of-rathe/compendium-of-rathe.md)
 
-- [Data](data/data.md)
-    - [NPCs](data/md/npcs.md)
-    - [Character Groups](data/md/character-groups.md)
-    - [Fauna](data/md/fauna.md)
-    - [Flora](data/md/flora.md)
-    - [Food and Drink](data/md/food-and-drink.md)
-    - [Locations](data/md/locations.md)
-    - [Monsters](data/md/monsters.md)
-
 - [Flavour Text](flavour/intro.md)
     - [Welcome to Rathe](flavour/01-welcome-to-rathe.md)
     - [Arcane Rising](flavour/02-arcane-rising.md)
@@ -315,6 +306,15 @@
     - [High Seas](flavour/18-high-seas.md)
     - [Compendium of Rathe](flavour/19-compendium-of-rathe.md)
     - [Non-Set Cards](flavour/00-non-set-cards.md)
+
+- [Data](data/data.md)
+    - [NPCs](data/md/npcs.md)
+    - [Character Groups](data/md/character-groups.md)
+    - [Fauna](data/md/fauna.md)
+    - [Flora](data/md/flora.md)
+    - [Food and Drink](data/md/food-and-drink.md)
+    - [Locations](data/md/locations.md)
+    - [Monsters](data/md/monsters.md)
 
 - [Archive](archive/archive.md)
     - [World of Rathe](archive/world-of-rathe/rathe.md)
