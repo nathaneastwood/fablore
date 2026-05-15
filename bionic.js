@@ -77,6 +77,34 @@
         updateButton(false);
     }
 
+    function showBionicHint(btn) {
+        if (localStorage.getItem('bionic-hint-seen') === '1') return;
+        if (typeof tippy !== 'function') return;
+
+        localStorage.setItem('bionic-hint-seen', '1');
+        document.body.classList.add('bionic-hint-active');
+
+        var instance = tippy(btn, {
+            content: '<strong>Bionic Reading</strong> — bold anchors help your eyes skip through text faster. Click to try it.',
+            allowHTML: true,
+            placement: 'bottom-start',
+            trigger: 'manual',
+            arrow: true,
+            onHide: function () {
+                document.body.classList.remove('bionic-hint-active');
+            }
+        });
+
+        var hideTimer = setTimeout(function () { instance.hide(); }, 6000);
+
+        setTimeout(function () { instance.show(); }, 1200);
+
+        btn.addEventListener('click', function () {
+            clearTimeout(hideTimer);
+            instance.hide();
+        }, { once: true });
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
         var btn = document.getElementById('bionic-toggle');
         if (!btn) return;
@@ -95,5 +123,7 @@
                 enable();
             }
         });
+
+        showBionicHint(btn);
     });
 })();
