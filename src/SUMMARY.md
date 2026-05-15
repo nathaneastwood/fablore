@@ -87,6 +87,8 @@
     - [Minerva Themis](other-characters/minerva-themis.md)
     - [The Librarian](other-characters/the-librarian.md)
 
+- [Sets](sets/README.md)
+
 - [Main Story](main-story/the-land-of-rathe.md)
     - [Edge of Autumn](main-story/03-crucible-of-war/edge-of-autumn.md)
     - [A Rising Star](main-story/01-welcome-to-rathe/a-rising-star.md)
