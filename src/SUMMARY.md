@@ -285,7 +285,7 @@
     - [Rosetta](digital-tiles/16-rosetta/rosetta.md)
     - [The Hunted](digital-tiles/17-the-hunted/the-hunted.md)
     - [High Seas](digital-tiles/18-high-seas/high-seas.md)
-    - [Compendium of Rathe](digital-tiles/19-compendium-of-rathe/compendium-of-rathe.md)
+    - [Compendium of Rathe](digital-tiles/20-compendium-of-rathe/compendium-of-rathe.md)
 
 - [Flavour Text](flavour/intro.md)
     - [Welcome to Rathe](flavour/01-welcome-to-rathe.md)
@@ -304,7 +304,7 @@
     - [Rosetta](flavour/16-rosetta.md)
     - [The Hunted](flavour/17-the-hunted.md)
     - [High Seas](flavour/18-high-seas.md)
-    - [Compendium of Rathe](flavour/19-compendium-of-rathe.md)
+    - [Compendium of Rathe](flavour/20-compendium-of-rathe.md)
     - [Non-Set Cards](flavour/00-non-set-cards.md)
 
 - [Data](data/data.md)
