@@ -209,7 +209,8 @@ def upsert_npc(
             species = excluded.species,
             status  = excluded.status,
             other_characters_story_key = CASE
-                WHEN excluded.other_characters_story_key != '' THEN excluded.other_characters_story_key
+                WHEN excluded.other_characters_story_key != ''
+                    THEN excluded.other_characters_story_key
                 ELSE npcs.other_characters_story_key
             END
         """,
@@ -676,6 +677,36 @@ def select_all_equipment_printings(conn: sqlite3.Connection) -> list[sqlite3.Row
 # ---------------------------------------------------------------------------
 # Story junction helpers
 # ---------------------------------------------------------------------------
+
+def set_story_heroes(
+    conn: sqlite3.Connection,
+    story_id: str,
+    entries: list[tuple[str, str]],
+) -> None:
+    """Replace all story_heroes rows for ``story_id`` with ``(canonical_id, fragment)`` pairs."""
+    conn.execute("DELETE FROM story_heroes WHERE story_id = ?", [story_id])
+    if entries:
+        conn.executemany(
+            "INSERT OR IGNORE INTO story_heroes (story_id, canonical_id, fragment)"
+            " VALUES (?,?,?)",
+            [(story_id, cid, frag) for cid, frag in entries],
+        )
+
+
+def set_story_npcs(
+    conn: sqlite3.Connection,
+    story_id: str,
+    entries: list[tuple[str, str]],
+) -> None:
+    """Replace all story_npcs rows for ``story_id`` with ``(character_id, fragment)`` pairs."""
+    conn.execute("DELETE FROM story_npcs WHERE story_id = ?", [story_id])
+    if entries:
+        conn.executemany(
+            "INSERT OR IGNORE INTO story_npcs (story_id, character_id, fragment)"
+            " VALUES (?,?,?)",
+            [(story_id, cid, frag) for cid, frag in entries],
+        )
+
 
 def set_story_junction(
     conn: sqlite3.Connection,

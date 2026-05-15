@@ -13,9 +13,8 @@ you never have to guess an identifier.
 from __future__ import annotations
 
 import re
-import sqlite3
 import sys
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
 from typing import IO, Any
 
@@ -28,7 +27,6 @@ from mdbook_heading_ids import (  # noqa: E402
     format_fragment_suggestion,
 )
 from registry_ids import (  # noqa: E402
-    canonical_id as _canonical_id,
     fauna_id_from_name,
     flora_id,
     food_drink_id,
@@ -78,6 +76,8 @@ class NPCEntry:
     species: str = "Unknown"
     status: str = "Unknown"
     other_characters_story_key: str = ""
+    fragment: str = ""
+    """mdBook heading anchor id for a deep link into the story page, e.g. ``"morlock-hill"``."""
 
 
 @dataclass
@@ -280,7 +280,7 @@ class Database:
         self._print_table(self.list_npcs(), ["name", "species", "status"], file=file)
 
     def list_locations(self) -> list[dict[str, str]]:
-        """Return ``[{"name": …, "region": …, "notes": …, "lore_fragment": …}]`` for all locations."""
+        """Return location dicts with ``name``, ``region``, ``notes``, ``lore_fragment``."""
         rows = q.select_all_locations(self.conn)
         region_map = {r["region_id"]: r["region_name"] for r in q.select_all_regions(self.conn)}
         return [
@@ -328,6 +328,7 @@ class Database:
         narrated_videos: list[NarratedVideoEntry] | None = None,
         *,
         heroes: list[str] | None = None,
+        hero_fragments: dict[str, str] | None = None,
         npcs: list[NPCEntry] | None = None,
         locations: list[LocationEntry] | None = None,
         regions: list[RegionEntry] | None = None,
@@ -358,6 +359,9 @@ class Database:
             thumbnail_image_link: Public URL for a thumbnail image.
             narrated_videos: Narrated video entries; ``None`` = leave unchanged.
             heroes: Canonical hero slugs (see :meth:`print_heroes`).
+            hero_fragments: Optional ``{slug: fragment}`` map giving a heading
+                anchor id within the story for each hero, e.g.
+                ``{"dorinthea": "morlock-hill-dtd209"}``.
             npcs: NPC entries; strings in a future shorthand are not supported —
                 use :class:`NPCEntry` directly.
             locations: Location entries.
@@ -383,6 +387,10 @@ class Database:
 
         # Resolve hero ids eagerly so we fail fast before writing anything.
         hero_ids = self._resolve_heroes(heroes) if heroes is not None else None
+        if hero_ids is not None:
+            self._validate_hero_fragments(
+                story_key, heroes or [], hero_ids, hero_fragments or {}
+            )
         weapon_ids = self._resolve_weapons(weapons) if weapons is not None else None
         equip_ids = self._resolve_equipment(equipment) if equipment is not None else None
 
@@ -399,6 +407,7 @@ class Database:
                 thumbnail_image_link=thumbnail_image_link,
                 narrated_videos=narrated_videos,
                 hero_ids=hero_ids,
+                hero_fragments=hero_fragments,
                 npcs=npcs,
                 locations=locations,
                 regions=regions,
@@ -430,32 +439,57 @@ class Database:
                      for v in narrated_videos],
                 )
             if hero_ids is not None:
-                q.set_story_junction(self.conn, story_id, "story_heroes", "canonical_id", hero_ids)
+                frags = hero_fragments or {}
+                entries = [
+                    (cid, frags.get(slug, ""))
+                    for slug, cid in zip(heroes or [], hero_ids)
+                ]
+                q.set_story_heroes(self.conn, story_id, entries)
             if npcs is not None:
-                npc_ids = self._upsert_npcs(npcs)
-                q.set_story_junction(self.conn, story_id, "story_npcs", "character_id", npc_ids)
+                npc_entries = self._upsert_npcs(npcs)
+                q.set_story_npcs(self.conn, story_id, npc_entries)
             if regions is not None:
                 region_ids = self._upsert_regions(regions)
-                q.set_story_junction(self.conn, story_id, "story_regions", "region_id", region_ids)
+                q.set_story_junction(
+                    self.conn, story_id, "story_regions", "region_id", region_ids
+                )
             if locations is not None:
                 location_ids = self._upsert_locations(locations)
-                q.set_story_junction(self.conn, story_id, "story_locations", "location_id", location_ids)
+                q.set_story_junction(
+                    self.conn, story_id,
+                    "story_locations", "location_id", location_ids,
+                )
             if monsters is not None:
                 monster_ids = self._upsert_monsters(monsters)
-                q.set_story_junction(self.conn, story_id, "story_monsters", "monster_id", monster_ids)
+                q.set_story_junction(
+                    self.conn, story_id, "story_monsters", "monster_id", monster_ids
+                )
             if fauna is not None:
                 fauna_ids = self._upsert_fauna(fauna)
-                q.set_story_junction(self.conn, story_id, "story_fauna", "fauna_id", fauna_ids)
+                q.set_story_junction(
+                    self.conn, story_id, "story_fauna", "fauna_id", fauna_ids
+                )
             if flora is not None:
                 flora_ids = self._upsert_flora(flora)
-                q.set_story_junction(self.conn, story_id, "story_flora", "flora_id", flora_ids)
+                q.set_story_junction(
+                    self.conn, story_id, "story_flora", "flora_id", flora_ids
+                )
             if food_drink is not None:
                 fd_ids = self._upsert_food_drink(food_drink)
-                q.set_story_junction(self.conn, story_id, "story_food_drink", "food_drink_id", fd_ids)
+                q.set_story_junction(
+                    self.conn, story_id,
+                    "story_food_drink", "food_drink_id", fd_ids,
+                )
             if weapon_ids is not None:
-                q.set_story_junction(self.conn, story_id, "story_weapons", "canonical_weapon_id", weapon_ids)
+                q.set_story_junction(
+                    self.conn, story_id,
+                    "story_weapons", "canonical_weapon_id", weapon_ids,
+                )
             if equip_ids is not None:
-                q.set_story_junction(self.conn, story_id, "story_equipment", "canonical_equipment_id", equip_ids)
+                q.set_story_junction(
+                    self.conn, story_id,
+                    "story_equipment", "canonical_equipment_id", equip_ids,
+                )
 
         # Write-through: regenerate affected CSVs so git stays in sync.
         _export.export_stories(self.conn, self._data_dir)
@@ -662,12 +696,38 @@ class Database:
             ids.append(row["canonical_equipment_id"])
         return ids
 
-    def _upsert_npcs(self, entries: list[NPCEntry]) -> list[str]:
+    def _validate_hero_fragments(
+        self,
+        story_key: str,
+        slugs: list[str],
+        hero_ids: list[str],  # noqa: ARG002 — reserved for future per-hero path lookup
+        frags: dict[str, str],
+    ) -> None:
+        if not frags:
+            return
+        md_path = (SRC / story_key).resolve()
+        if not md_path.is_file():
+            return
+        ids_on_page: set[str] | None = None
+        for slug in slugs:
+            frag = frags.get(slug, "")
+            if not frag:
+                continue
+            if ids_on_page is None:
+                ids_on_page = collect_heading_anchor_ids_from_path(md_path)
+            if frag not in ids_on_page:
+                rel = md_path.relative_to(SRC).as_posix()
+                raise ValueError(
+                    f"Hero fragment {frag!r} for slug {slug!r} not found in {rel}. "
+                    f"Known ids: {format_fragment_suggestion(ids_on_page)}"
+                )
+
+    def _upsert_npcs(self, entries: list[NPCEntry]) -> list[tuple[str, str]]:
         # Guard against accidentally storing playable heroes as NPCs
         hero_names: set[str] = {
             normalize_name(r["name"]) for r in q.select_all_heroes_canonical(self.conn)
         }
-        ids: list[str] = []
+        ids: list[tuple[str, str]] = []
         for e in entries:
             norm = normalize_name(e.name)
             if norm in hero_names:
@@ -678,7 +738,7 @@ class Database:
             q.upsert_npc(self.conn, character_id=cid, name=e.name,
                          species=e.species, status=e.status,
                          other_characters_story_key=e.other_characters_story_key)
-            ids.append(cid)
+            ids.append((cid, e.fragment))
         return ids
 
     def _upsert_regions(self, entries: list[RegionEntry]) -> list[str]:
@@ -812,6 +872,7 @@ class Database:
         thumbnail_image_link: str,
         narrated_videos: list[NarratedVideoEntry] | None,
         hero_ids: list[str] | None,
+        hero_fragments: dict[str, str] | None = None,
         npcs: list[NPCEntry] | None,
         locations: list[LocationEntry] | None,
         regions: list[RegionEntry] | None,
@@ -857,6 +918,8 @@ class Database:
                     out.write(f"    + {getattr(item, 'name', str(item))}\n")
 
         _show_links("Heroes", hero_ids)
+        if hero_fragments:
+            out.write(f"  HeroFragments: {hero_fragments}\n")
         _show_links("NPCs", npcs)
         _show_links("Locations", locations)
         _show_links("Regions", regions)

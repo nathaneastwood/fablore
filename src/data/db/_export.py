@@ -16,7 +16,6 @@ import csv
 import json
 import sqlite3
 import sys
-from io import StringIO
 from pathlib import Path
 
 _SCRIPT_DIR = Path(__file__).resolve().parents[1]
@@ -493,20 +492,47 @@ def _export_set_types(conn: sqlite3.Connection, csv_dir: Path) -> None:
 
 
 _JUNCTION_EXPORT_SPECS: tuple[tuple[str, str, str, str, str], ...] = (
-    ("story_npcs", "story-npcs.csv", "character_id", "StoryId", "CharacterId"),
-    ("story_heroes", "story-heroes.csv", "canonical_id", "StoryId", "CanonicalId"),
     ("story_locations", "story-locations.csv", "location_id", "StoryId", "LocationId"),
     ("story_regions", "story-regions.csv", "region_id", "StoryId", "RegionId"),
     ("story_monsters", "story-monsters.csv", "monster_id", "StoryId", "MonsterId"),
     ("story_fauna", "story-fauna.csv", "fauna_id", "StoryId", "FaunaId"),
     ("story_flora", "story-flora.csv", "flora_id", "StoryId", "FloraId"),
-    ("story_food_drink", "story-food-drink.csv", "food_drink_id", "StoryId", "FoodDrinkId"),
-    ("story_weapons", "story-weapons.csv", "canonical_weapon_id", "StoryId", "CanonicalWeaponId"),
-    ("story_equipment", "story-equipment.csv", "canonical_equipment_id", "StoryId", "CanonicalEquipmentId"),
+    (
+        "story_food_drink", "story-food-drink.csv",
+        "food_drink_id", "StoryId", "FoodDrinkId",
+    ),
+    (
+        "story_weapons", "story-weapons.csv",
+        "canonical_weapon_id", "StoryId", "CanonicalWeaponId",
+    ),
+    (
+        "story_equipment", "story-equipment.csv",
+        "canonical_equipment_id", "StoryId", "CanonicalEquipmentId",
+    ),
 )
 
 
 def _export_story_junctions(conn: sqlite3.Connection, csv_dir: Path) -> None:
+    # story_heroes and story_npcs carry an extra Fragment column.
+    for table, csv_name, db_col, csv_id_col in (
+        ("story_heroes", "story-heroes.csv", "canonical_id", "CanonicalId"),
+        ("story_npcs", "story-npcs.csv", "character_id", "CharacterId"),
+    ):
+        rows = conn.execute(
+            f"SELECT story_id, {db_col}, fragment"
+            f" FROM {table} ORDER BY story_id, {db_col}"
+        ).fetchall()
+        data = [
+            {"StoryId": r["story_id"], csv_id_col: r[db_col], "Fragment": r["fragment"]}
+            for r in rows
+        ]
+        _write_pipe_csv(
+            csv_dir / csv_name,
+            _CMD_JUNCTIONS,
+            ["StoryId", csv_id_col, "Fragment"],
+            data,
+        )
+
     for table, csv_name, db_col, csv_sid, csv_eid in _JUNCTION_EXPORT_SPECS:
         rows = conn.execute(
             f"SELECT story_id, {db_col} FROM {table} ORDER BY story_id, {db_col}"
