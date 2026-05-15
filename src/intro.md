@@ -13,7 +13,7 @@ Whether you're hunting krakens with Marlynn, plotting assassinations with Arakni
 
 ## ✨ What you'll find:
 - 📚 Every lore article published by LSS
-- 🔎 Easy navigation by hero, region, or theme (try pressing S on your keyboard!)
+- 🔎 Easy navigation by hero, region, or theme (try pressing S or Cmd+K / Ctrl+K!)
 - 🗃️ Highlights for deprecated/canonical stories
 - ⚡ Updated fast - often the same day as release!
 
