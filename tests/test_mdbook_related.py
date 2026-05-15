@@ -18,6 +18,30 @@ from mdbook_related import (  # noqa: E402
 )
 
 
+def _maps(**kwargs) -> RelatedMaps:
+    """Build a RelatedMaps with empty defaults for use in tests."""
+    defaults: dict = dict(
+        story_key_to_id={},
+        story_id_to_key={},
+        story_id_to_title={},
+        story_id_to_type={},
+        story_heroes={},
+        story_npcs={},
+        story_locations={},
+        story_regions={},
+        canonical_hero={},
+        npc_row={},
+        location_row={},
+        region_row={},
+        hero_canonical_to_stories={},
+        npc_char_to_stories={},
+        npc_src_to_char_ids={},
+        hero_junction_fragment={},
+        npc_junction_fragment={},
+    )
+    return RelatedMaps(**{**defaults, **kwargs})
+
+
 def test_relative_md_href_nested_chapter_to_hero() -> None:
     assert (
         relative_md_href(
@@ -106,7 +130,7 @@ def test_build_related_fragment_hero_and_location(tmp_path: Path) -> None:
     (src / "world-of-rathe").mkdir(parents=True)
     (src / "world-of-rathe" / "metrix.md").write_text("# M\n", encoding="utf-8")
 
-    maps = RelatedMaps(
+    maps = _maps(
         story_key_to_id={"main-story/x.md": "ST1"},
         story_heroes={"ST1": frozenset({"CN1"})},
         story_npcs={},
@@ -142,7 +166,7 @@ def test_build_related_fragment_skips_location_without_world_lore_file(
     (src / "world-of-rathe").mkdir(parents=True)
     (src / "world-of-rathe" / "metrix.md").write_text("# M\n", encoding="utf-8")
 
-    maps = RelatedMaps(
+    maps = _maps(
         story_key_to_id={"main-story/x.md": "ST1"},
         story_heroes={"ST1": frozenset({"CN1"})},
         story_npcs={},
@@ -175,7 +199,7 @@ def test_build_related_fragment_location_lore_fragment_in_href(tmp_path: Path) -
     (src / "world-of-rathe").mkdir(parents=True)
     (src / "world-of-rathe" / "aria.md").write_text("# A\n", encoding="utf-8")
 
-    maps = RelatedMaps(
+    maps = _maps(
         story_key_to_id={"main-story/05-tales-of-aria/x.md": "ST1"},
         story_heroes={},
         story_npcs={},
@@ -205,7 +229,7 @@ def test_build_related_fragment_skips_location_when_chapter_is_that_world_page(
     (src / "world-of-rathe" / "aria.md").write_text("# A\n", encoding="utf-8")
     (src / "world-of-rathe" / "solana.md").write_text("# S\n", encoding="utf-8")
 
-    maps = RelatedMaps(
+    maps = _maps(
         story_key_to_id={"world-of-rathe/aria.md": "ST1"},
         story_heroes={},
         story_npcs={},
@@ -243,7 +267,7 @@ def test_build_related_fragment_skips_hero_when_chapter_is_that_hero_page(
     (src / "heroes-of-rathe").mkdir(parents=True)
     (src / "heroes-of-rathe" / "boltyn-about.md").write_text("# B\n", encoding="utf-8")
 
-    maps = RelatedMaps(
+    maps = _maps(
         story_key_to_id={"heroes-of-rathe/boltyn-about.md": "ST1"},
         story_heroes={"ST1": frozenset({"CN1"})},
         story_npcs={},
@@ -269,7 +293,7 @@ def test_build_related_fragment_wraps_type_and_title_in_body(tmp_path: Path) -> 
     (src / "heroes-of-rathe").mkdir(parents=True)
     (src / "heroes-of-rathe" / "boltyn-about.md").write_text("# B\n", encoding="utf-8")
 
-    maps = RelatedMaps(
+    maps = _maps(
         story_key_to_id={"main-story/x.md": "ST1"},
         story_heroes={"ST1": frozenset({"CN1"})},
         story_npcs={},
@@ -296,7 +320,7 @@ def test_build_related_fragment_region_card(tmp_path: Path) -> None:
     (src / "world-of-rathe").mkdir(parents=True)
     (src / "world-of-rathe" / "savage-lands.md").write_text("# SL\n", encoding="utf-8")
 
-    maps = RelatedMaps(
+    maps = _maps(
         story_key_to_id={"main-story/20-compendium-of-rathe/vow-unbroken.md": "ST1"},
         story_heroes={},
         story_npcs={},
@@ -324,7 +348,7 @@ def test_build_related_fragment_region_skips_missing_world_page(tmp_path: Path) 
     src = tmp_path / "src"
     (src / "world-of-rathe").mkdir(parents=True)
 
-    maps = RelatedMaps(
+    maps = _maps(
         story_key_to_id={"main-story/x.md": "ST1"},
         story_heroes={},
         story_npcs={},
@@ -350,7 +374,7 @@ def test_build_related_fragment_region_skips_self(tmp_path: Path) -> None:
     (src / "world-of-rathe").mkdir(parents=True)
     (src / "world-of-rathe" / "savage-lands.md").write_text("# SL\n", encoding="utf-8")
 
-    maps = RelatedMaps(
+    maps = _maps(
         story_key_to_id={"world-of-rathe/savage-lands.md": "ST1"},
         story_heroes={},
         story_npcs={},
