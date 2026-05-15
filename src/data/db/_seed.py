@@ -385,20 +385,42 @@ def _seed_narrated_videos_from_csv(conn: sqlite3.Connection, data_dir: Path) -> 
 # ---------------------------------------------------------------------------
 
 _JUNCTION_SPECS: tuple[tuple[str, str, str, str], ...] = (
-    ("story-npcs.csv", "story_npcs", "CharacterId", "character_id"),
-    ("story-heroes.csv", "story_heroes", "CanonicalId", "canonical_id"),
     ("story-locations.csv", "story_locations", "LocationId", "location_id"),
     ("story-regions.csv", "story_regions", "RegionId", "region_id"),
     ("story-monsters.csv", "story_monsters", "MonsterId", "monster_id"),
     ("story-fauna.csv", "story_fauna", "FaunaId", "fauna_id"),
     ("story-flora.csv", "story_flora", "FloraId", "flora_id"),
     ("story-food-drink.csv", "story_food_drink", "FoodDrinkId", "food_drink_id"),
-    ("story-weapons.csv", "story_weapons", "CanonicalWeaponId", "canonical_weapon_id"),
-    ("story-equipment.csv", "story_equipment", "CanonicalEquipmentId", "canonical_equipment_id"),
+    (
+        "story-weapons.csv", "story_weapons",
+        "CanonicalWeaponId", "canonical_weapon_id",
+    ),
+    (
+        "story-equipment.csv", "story_equipment",
+        "CanonicalEquipmentId", "canonical_equipment_id",
+    ),
 )
 
 
 def _seed_story_junctions(conn: sqlite3.Connection, data_dir: Path) -> None:
+    # story_heroes and story_npcs carry an extra Fragment column.
+    for csv_name, table, csv_id_col, db_id_col in (
+        ("story-heroes.csv", "story_heroes", "CanonicalId", "canonical_id"),
+        ("story-npcs.csv", "story_npcs", "CharacterId", "character_id"),
+    ):
+        _, rows = _csv(data_dir, csv_name)
+        triples = [
+            (_s(row, "StoryId"), _s(row, csv_id_col), _s(row, "Fragment"))
+            for row in rows
+            if _s(row, "StoryId") and _s(row, csv_id_col)
+        ]
+        if triples:
+            conn.executemany(
+                f"INSERT OR IGNORE INTO {table}"
+                f" (story_id, {db_id_col}, fragment) VALUES (?,?,?)",
+                triples,
+            )
+
     for csv_name, table, csv_col, db_col in _JUNCTION_SPECS:
         _, rows = _csv(data_dir, csv_name)
         pairs = [
