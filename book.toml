@@ -10,7 +10,7 @@ en = "./en"
 es = "./es"
 
 [output.html]
-additional-css = ["hero.css", "image.css", "tab.css", "bionic.css", "breadcrumb.css", "sets-hub.css", "theme/pagetoc.css", "theme/hints.css", "theme/related.css", "theme/story-meta.css", "theme/narrated-videos.css"]
+additional-css = ["hero.css", "image.css", "tab.css", "bionic.css", "footer.css", "breadcrumb.css", "sets-hub.css", "theme/pagetoc.css", "theme/hints.css", "theme/related.css", "theme/story-meta.css", "theme/narrated-videos.css"]
 additional-js = ["tab.js", "back-to-top.js", "hero-hub.js", "bionic.js", "theme/pagetoc.js", "theme/hints.js", "theme/related.js", "narrated-videos.js"]
 default-theme = "light"
 preferred-dark-theme = "ayu"

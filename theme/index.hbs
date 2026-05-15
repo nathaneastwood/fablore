@@ -211,6 +211,16 @@
                         <div style="clear: both"></div>
                     </nav>
                 </div>
+
+                {{#unless is_print}}
+                <footer class="site-footer">
+                    <a href="{{ path_to_root }}content-creators.html">Content Creators</a>
+                    <span aria-hidden="true">·</span>
+                    <a href="{{ path_to_root }}about.html">About</a>
+                    <span aria-hidden="true">·</span>
+                    <a href="{{ path_to_root }}support.html">Support the Site</a>
+                </footer>
+                {{/unless}}
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">

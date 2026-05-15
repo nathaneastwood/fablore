@@ -396,10 +396,10 @@
 - [Spoilers](spoilers/README.md)
     - [Bright Lights](spoilers/bright-lights.md)
 
-- [Content Creators](content-creators.md)
-
 - [FAQ](faq.md)
 
 - [About](about.md)
 
 - [Support the Site](support.md)
+
+- [Content Creators](content-creators.md)
