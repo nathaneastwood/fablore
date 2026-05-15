@@ -106,3 +106,64 @@
 .arc-story-list a:hover {
     text-decoration: underline;
 }
+
+/* ── Sets index page ─────────────────────────────────────────────────────── */
+
+.set-index-section {
+    margin: 2.5rem 0;
+    padding-left: 1rem;
+    border-left: 3px solid var(--sidebar-active);
+}
+
+.set-index-header {
+    margin-bottom: 1rem;
+}
+
+.set-index-image {
+    display: block;
+    width: 100%;
+    max-width: 560px;
+    border-radius: 4px;
+    margin-bottom: 0.6rem;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.set-index-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.set-index-name {
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.set-index-date {
+    font-size: 0.78em;
+    opacity: 0.55;
+    white-space: nowrap;
+}
+
+.set-index-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem 1.5rem;
+    margin-top: 0.75rem;
+}
+
+.set-index-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.set-index-group-label {
+    font-weight: 600;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.6;
+}

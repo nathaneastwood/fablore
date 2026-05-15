@@ -37,5 +37,8 @@ command = "python3 src/data/mdbook_narrated_videos.py"
 [preprocessor.breadcrumb]
 command = "python3 src/data/mdbook_breadcrumb.py"
 
+[preprocessor.set-index]
+command = "python3 src/data/mdbook_set_index.py"
+
 [preprocessor.sets-hub]
 command = "python3 src/data/mdbook_sets_hub.py"
