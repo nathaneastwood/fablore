@@ -1,0 +1,36 @@
+.breadcrumb {
+    font-size: 0.82em;
+    margin-bottom: 1.25rem;
+}
+
+.breadcrumb ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.breadcrumb li {
+    display: flex;
+    align-items: center;
+    color: var(--fg);
+    opacity: 0.65;
+}
+
+.breadcrumb li + li::before {
+    content: "›";
+    margin: 0 0.4em;
+    opacity: 0.8;
+}
+
+.breadcrumb a {
+    color: var(--links);
+    text-decoration: none;
+    opacity: 1;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
