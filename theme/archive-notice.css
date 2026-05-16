@@ -1,0 +1,15 @@
+/* Superseded-lore notice banner on archive/world-of-rathe pages */
+
+.archive-notice {
+    margin: 0 0 1.5rem;
+    padding: 0.7rem 1rem;
+    border-left: 4px solid var(--warning-border);
+    background: var(--quote-bg);
+    border-radius: 0 4px 4px 0;
+    font-size: 1.35rem;
+    line-height: 1.5;
+}
+
+.archive-notice a {
+    color: var(--links);
+}
