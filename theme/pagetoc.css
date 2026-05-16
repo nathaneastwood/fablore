@@ -1,24 +1,31 @@
-@media only screen and (max-width:1439px) {
+@media only screen and (max-width:1699px) {
     .sidetoc {
         display: none;
     }
 }
 
-@media only screen and (min-width:1440px) {
+@media only screen and (min-width:1700px) {
+    :root {
+        --content-max-width: 850px;
+    }
     main {
         position: relative;
     }
     .sidetoc {
-        margin-left: auto;
-        margin-right: auto;
-        left: calc(100% + (var(--content-max-width))/4 - 140px);
         position: absolute;
+        left: 100%;
     }
+    /* Track content right edge dynamically so sidebar resizes don't cause overlap.
+       Content right edge = (100vw + sidebar-width + content-max-width) / 2        */
     .pagetoc {
         position: fixed;
-        width: 200px;
+        left: calc((100vw + var(--sidebar-width) + var(--content-max-width)) / 2 + 10px);
+        right: 115px; /* stay clear of next chapter button (min-width 90px at right: 15px) */
         height: calc(100vh - var(--menu-bar-height) - 0.67em * 4);
         overflow: auto;
+    }
+    .nav-chapters.previous {
+        left: calc(var(--sidebar-width) + var(--sidebar-resize-indicator-width));
     }
     .pagetoc a {
         border-left: 1px solid var(--sidebar-bg);
