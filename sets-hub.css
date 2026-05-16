@@ -55,7 +55,7 @@
 .arc-section {
     margin: 2rem 0;
     padding-left: 1rem;
-    border-left: 3px solid var(--sidebar-active);
+    border-left: 3px solid var(--links);
 }
 
 .arc-section-header {
@@ -112,7 +112,7 @@
 .set-index-section {
     margin: 2.5rem 0;
     padding-left: 1rem;
-    border-left: 3px solid var(--sidebar-active);
+    border-left: 3px solid var(--links);
 }
 
 .set-index-header {
