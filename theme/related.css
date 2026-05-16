@@ -9,7 +9,7 @@
 .related-section {
     margin-top: 2.5rem;
     padding-top: 1.25rem;
-    border-top: 1px solid var(--table-border-color, #ddd);
+    border-top: 1px solid var(--table-border-color);
 }
 
 .related-section h1 {
@@ -42,11 +42,11 @@ a.related-card {
     min-height: 100%;
     box-sizing: border-box;
     padding: 0.65rem 0.85rem;
-    border: 1px solid var(--table-border-color, #ddd);
+    border: 1px solid var(--table-border-color);
     border-radius: 6px;
     text-decoration: none;
     color: inherit;
-    background: var(--bg, #fff);
+    background: var(--bg);
     font-size: 1.35rem;
     line-height: 1.45;
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
@@ -60,7 +60,7 @@ a.related-card {
 }
 
 a.related-card:hover {
-    border-color: var(--links, #4183c4);
+    border-color: var(--links);
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
@@ -69,7 +69,7 @@ a.related-card:hover {
     font-size: 0.88em;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: var(--searchresults-header-fg, #666);
+    color: var(--searchresults-header-fg);
     margin-bottom: 0.2rem;
 }
 
@@ -85,7 +85,7 @@ a.related-card:hover {
     line-height: 1.45;
     margin-top: auto;
     padding-top: 0.35rem;
-    color: var(--searchresults-header-fg, #666);
+    color: var(--searchresults-header-fg);
 }
 
 .ayu a.related-card:hover,

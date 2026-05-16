@@ -10,8 +10,8 @@ en = "./en"
 es = "./es"
 
 [output.html]
-additional-css = ["hero.css", "image.css", "tab.css", "bionic.css", "footer.css", "breadcrumb.css", "sets-hub.css", "theme/pagetoc.css", "theme/hints.css", "theme/related.css", "theme/story-meta.css", "theme/narrated-videos.css"]
-additional-js = ["tab.js", "back-to-top.js", "hero-hub.js", "bionic.js", "theme/pagetoc.js", "theme/hints.js", "theme/related.js", "narrated-videos.js"]
+additional-css = ["hero.css", "image.css", "tab.css", "bionic.css", "footer.css", "breadcrumb.css", "sets-hub.css", "theme/pagetoc.css", "theme/hints.css", "theme/related.css", "theme/story-meta.css", "theme/narrated-videos.css", "theme/browse.css"]
+additional-js = ["tab.js", "back-to-top.js", "hero-hub.js", "bionic.js", "theme/pagetoc.js", "theme/hints.js", "theme/related.js", "narrated-videos.js", "theme/browse.js"]
 default-theme = "light"
 preferred-dark-theme = "ayu"
 git-repository-url = "https://github.com/nathaneastwood/fablore"
@@ -22,6 +22,9 @@ sidebar = true
 [output.html.fold]
 enable = true
 level = 0
+
+[preprocessor.browse]
+command = "python3 src/data/mdbook_browse.py"
 
 [preprocessor.hints]
 

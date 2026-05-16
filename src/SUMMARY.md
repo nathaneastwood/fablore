@@ -1,6 +1,7 @@
 # Flesh and Blood Lore
 
 [Introduction](intro.md)
+[Browse Stories](browse.md)
 
 - [World of Rathe](world-of-rathe/rathe.md)
     - [Aria](world-of-rathe/aria.md)
