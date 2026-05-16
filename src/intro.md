@@ -11,6 +11,8 @@
 
 Whether you're hunting krakens with Marlynn, plotting assassinations with Arakni, or diving into the mysteries of Solana with Prism - it's all here, organised and beautifully formatted.
 
+Not sure where to start? [Browse all available stories](browse.md) and filter by type, region, or character.
+
 ## ✨ What you'll find:
 - 📚 Every lore article published by LSS
 - 🔎 Easy navigation by hero, region, or theme (try pressing S or Cmd+K / Ctrl+K!)

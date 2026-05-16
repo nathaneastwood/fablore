@@ -7,9 +7,9 @@
     margin-top: 0.5rem;
     margin-bottom: 1.75rem;
     padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--table-border-color, #ddd);
+    border-bottom: 1px solid var(--table-border-color);
     font-size: 1.25rem;
-    color: var(--searchresults-header-fg, #888);
+    color: var(--searchresults-header-fg);
     line-height: 1.6;
 }
 
@@ -25,12 +25,12 @@
 }
 
 .story-meta-item strong {
-    color: var(--fg, #333);
+    color: var(--fg);
     font-weight: 600;
 }
 
 .story-meta-item a {
-    color: var(--links, #4183c4);
+    color: var(--links);
     text-decoration: none;
 }
 

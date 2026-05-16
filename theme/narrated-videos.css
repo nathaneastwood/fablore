@@ -22,7 +22,7 @@
     flex-wrap: wrap;
     gap: 0.25rem;
     margin-bottom: 1rem;
-    border-bottom: 2px solid var(--table-border-color, #ddd);
+    border-bottom: 2px solid var(--table-border-color);
 }
 
 .nv-tab {
@@ -35,7 +35,7 @@
     margin-bottom: -2px;
     background: none;
     cursor: pointer;
-    color: var(--fg, #333);
+    color: var(--fg);
     font-size: 1.35rem;
     font-family: inherit;
     transition: color 0.15s, border-color 0.15s;
@@ -43,13 +43,13 @@
 }
 
 .nv-tab:hover {
-    color: var(--links, #4183c4);
-    background: var(--quote-bg, rgba(0,0,0,0.04));
+    color: var(--links);
+    background: var(--quote-bg);
 }
 
 .nv-tab--active {
-    border-bottom-color: var(--links, #4183c4);
-    color: var(--links, #4183c4);
+    border-bottom-color: var(--links);
+    color: var(--links);
     font-weight: 600;
 }
 
