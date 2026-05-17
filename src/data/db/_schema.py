@@ -5,13 +5,14 @@ Version history:
   2 — narrated_videos: add channel_link, duration columns
   3 — npcs: add other_characters_story_key column
   4 — story_heroes, story_npcs: add fragment column
+  5 — heroes_ll: new table for living-legend status per hero variant
 """
 
 from __future__ import annotations
 
 import sqlite3
 
-CURRENT_VERSION = 4
+CURRENT_VERSION = 5
 
 _V1_DDL = """
 CREATE TABLE IF NOT EXISTS stories (
@@ -279,4 +280,18 @@ def migrate(conn: sqlite3.Connection) -> None:
             "ALTER TABLE story_npcs ADD COLUMN fragment TEXT NOT NULL DEFAULT ''"
         )
         conn.execute("PRAGMA user_version = 4")
+        conn.commit()
+    if version < 5:
+        conn.execute(
+            """
+            CREATE TABLE IF NOT EXISTS heroes_ll (
+                canonical_slug TEXT NOT NULL,
+                card_name      TEXT NOT NULL,
+                format         TEXT NOT NULL,
+                date_in_effect TEXT NOT NULL DEFAULT '',
+                PRIMARY KEY (card_name, format)
+            )
+            """
+        )
+        conn.execute("PRAGMA user_version = 5")
         conn.commit()

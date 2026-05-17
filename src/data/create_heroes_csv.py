@@ -9,6 +9,12 @@ This script writes linked outputs:
    hero + weapon + non-weapon equipment ``Types`` via :mod:`game_class_talent_csv`;
    regenerate alone with ``python3 src/data/create_classes_talents_csv.py``)
 4) `heroes-printings.csv` — one row per set/card printing for each game row
+5) `heroes-ll.csv` — living-legend status per hero variant, derived from the
+   flesh-and-blood-cards upstream LL CSVs matched against ``heroes-game.csv``
+
+Pass ``--ll-only`` to regenerate only ``heroes-ll.csv`` from the committed
+``heroes-game.csv`` without touching the other outputs (useful when the upstream
+card data is incomplete but the LL data has been updated).
 
 Canonical IDs are normalized to deterministic hash IDs from `CanonicalSlug`.
 
@@ -74,13 +80,94 @@ ROOT = Path(__file__).resolve().parents[2]
 HEROES_CANONICAL_CSV_PATH = ROOT / "src/data/csv/heroes-canonical.csv"
 HEROES_GAME_CSV_PATH = ROOT / "src/data/csv/heroes-game.csv"
 HEROES_PRINTINGS_CSV_PATH = ROOT / "src/data/csv/heroes-printings.csv"
+HEROES_LL_CSV_PATH = ROOT / "src/data/csv/heroes-ll.csv"
 CARD_PRINTING_CSV_PATH = ROOT.parent / "flesh-and-blood-cards/csvs/english/card-printing.csv"
+_LL_CC_CSV_PATH = ROOT.parent / "flesh-and-blood-cards/csvs/english/living-legend-cc.csv"
+_LL_BLITZ_CSV_PATH = ROOT.parent / "flesh-and-blood-cards/csvs/english/living-legend-blitz.csv"
 
 # Hero card-name → canonical-slug aliases now live in ``hero-card-name-aliases.csv``
 # and are loaded via :func:`hero_overrides.load_canonical_hero_card_name_aliases`.
 # Lore-specific canonical split overrides (``LORE_CANONICAL_OVERRIDES``) live in
 # :mod:`hero_overrides` alongside the matching lore-file path overrides used by
 # the mdBook preprocessor.
+
+
+def _ll_date(raw: str) -> str:
+    """Return YYYY-MM-DD from an ISO datetime string, or the raw value on failure."""
+    s = raw.strip()
+    return s.split("T")[0] if "T" in s else s
+
+
+def generate_heroes_ll_csv(
+    game_rows: list[dict[str, str]] | None = None,
+    canonical_rows: list[dict[str, str]] | None = None,
+) -> None:
+    """Write ``heroes-ll.csv`` from flesh-and-blood-cards living-legend data.
+
+    Matches LL card names against ``heroes-game.csv`` ``CardName`` values to resolve
+    canonical slugs.  Re-legalized entries (``Status Active`` = ``No`` supersedes an
+    earlier ``Yes`` for the same card+format) are excluded.  Silently skips if either
+    upstream LL CSV is absent.
+
+    When called with no arguments reads directly from the committed
+    ``heroes-game.csv`` and ``heroes-canonical.csv``, so it can be run standalone
+    (``python3 src/data/create_heroes_csv.py --ll-only``) without regenerating all
+    other hero CSVs from the upstream flesh-and-blood-cards data.
+    """
+    if not _LL_CC_CSV_PATH.exists() or not _LL_BLITZ_CSV_PATH.exists():
+        return
+    if game_rows is None:
+        _, game_rows = read_pipe_csv(HEROES_GAME_CSV_PATH)
+    if canonical_rows is None:
+        _, canonical_rows = read_pipe_csv(HEROES_CANONICAL_CSV_PATH)
+
+    canonical_slug_by_id = {
+        row["CanonicalId"]: row["CanonicalSlug"]
+        for row in canonical_rows
+        if row.get("CanonicalId") and row.get("CanonicalSlug")
+    }
+    slug_by_card_name: dict[str, str] = {}
+    for row in game_rows:
+        card_name = (row.get("CardName") or "").strip()
+        canonical_id = (row.get("CanonicalId") or "").strip()
+        if card_name and canonical_id:
+            slug = canonical_slug_by_id.get(canonical_id, "")
+            if slug:
+                slug_by_card_name[card_name] = slug
+
+    ll_rows: list[dict[str, str]] = []
+    for fmt, csv_path in [("CC", _LL_CC_CSV_PATH), ("Blitz", _LL_BLITZ_CSV_PATH)]:
+        upstream = read_tab_csv(csv_path)
+        # For each hero card name keep only the latest entry by date (handles re-legalization).
+        latest: dict[str, dict[str, str]] = {}
+        for row in upstream:
+            card_name = (row.get("Card Name") or "").strip()
+            if card_name not in slug_by_card_name:
+                continue
+            date = _ll_date(row.get("Date In Effect") or "")
+            existing = latest.get(card_name)
+            if not existing or date > existing["date"]:
+                latest[card_name] = {
+                    "date": date,
+                    "active": (row.get("Status Active") or "").strip(),
+                }
+        for card_name, entry in latest.items():
+            if entry["active"] != "Yes":
+                continue
+            ll_rows.append({
+                "CanonicalSlug": slug_by_card_name[card_name],
+                "CardName": card_name,
+                "Format": fmt,
+                "DateInEffect": entry["date"],
+            })
+
+    ll_rows.sort(key=lambda r: (r["Format"], r["CanonicalSlug"], r["DateInEffect"]))
+    write_pipe_csv_autogen(
+        HEROES_LL_CSV_PATH,
+        ["CanonicalSlug", "CardName", "Format", "DateInEffect"],
+        ll_rows,
+        regenerate_command=REGENERATE_CREATE_HEROES,
+    )
 
 
 def split_name_variant(heading: str) -> tuple[str, str]:
@@ -323,9 +410,14 @@ def generate_heroes_csv() -> None:
             regenerate_command=REGENERATE_CREATE_HEROES,
         )
 
+    generate_heroes_ll_csv(game_rows, canonical_rows)
+
 
 if __name__ == "__main__":
-    generate_heroes_csv()
-    _vd = Path(__file__).resolve().parent / "validate_data.py"
-    _rc = subprocess.run([sys.executable, str(_vd)], cwd=str(ROOT))
-    raise SystemExit(_rc.returncode)
+    if len(sys.argv) > 1 and sys.argv[1] == "--ll-only":
+        generate_heroes_ll_csv()
+    else:
+        generate_heroes_csv()
+        _vd = Path(__file__).resolve().parent / "validate_data.py"
+        _rc = subprocess.run([sys.executable, str(_vd)], cwd=str(ROOT))
+        raise SystemExit(_rc.returncode)
