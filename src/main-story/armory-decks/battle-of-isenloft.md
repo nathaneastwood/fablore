@@ -22,7 +22,7 @@ He strode on, seeking the next trouble spot. Wayfarers, wizards, [Rosetta](~Rose
 
 "Never get between Jarl and something he means to kill," he'd overheard Oldhim say to a batch of new guardians.
 
-He glanced down at the bailey. Oldhim, flanked by [Ragnar](../../flavour/01-welcome-to-rathe.md#staunch-response---wtr051) and [Valgard](../../flavour/05-tales-of-aria.md#biting-gale---ele007), rallied another shield wall across the breach where the north-western tower had stood only a week ago.
+He glanced down at the bailey. Oldhim, flanked by [Ragnar](../../flavour/welcome-to-rathe.md#staunch-response---wtr051) and [Valgard](../../flavour/tales-of-aria.md#biting-gale---ele007), rallied another shield wall across the breach where the north-western tower had stood only a week ago.
 
 Women and men, clad head to foot in steel, braced tower shields against a heaving stream of monsters.
 

@@ -68,7 +68,7 @@ Shiyana raises her hand, her diamond spinning over her palm, and bows deeply, as
 
 "Neither for us nor against us, your Grace. Their-"
 
-She pauses to order her thoughts. Should she burden the council with the convictions of the [Phoenix](../08-uprising/fires-of-rebellion.md)? The rebel leader has vowed to fight on until Volcor is remade. What of Lady Dromai and the Royal Court, fighting amongst themselves while their land burns?
+She pauses to order her thoughts. Should she burden the council with the convictions of the [Phoenix](../uprising/fires-of-rebellion.md)? The rebel leader has vowed to fight on until Volcor is remade. What of Lady Dromai and the Royal Court, fighting amongst themselves while their land burns?
 
 "Their concerns are their own, your Grace."
 
@@ -76,7 +76,7 @@ She pauses to order her thoughts. Should she burden the council with the convict
 
 Even awash with the light of the Magisters, Shiyana can feel apprehension lurking, waiting for its moment to retake her.
 
-"[The Emperor is dead. Slain by an assassin.](../09-dynasty/ember-in-the-ash.md)"
+"[The Emperor is dead. Slain by an assassin.](../dynasty/ember-in-the-ash.md)"
 
 She expects a chorus of surprise at the mention of it. But the chamber remains silent, not the faintest tremor of unsettlement to be heard. The Grand Magister looks upon Shiyana with a tranquil resolve that washes over her, warm and gentle, just how she remembers the waters of her own baptism as a tender child.
 

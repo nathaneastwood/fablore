@@ -14,7 +14,7 @@ The [Volcai](~Volcai) live within the tumultuous fires of the Phoenix Cycle. To 
 
 ### Blunten
 
-Much is written of the sun-blessed daughter of blacksmiths who, during her [Awakening ceremony](../../main-story/01-welcome-to-rathe/pride-of-the-ironsongs.md#the-awakening), reached for the smith's hammer but grasped instead the sword that would become Dawnblade. Yet few know of the day Dorinthea bested all contenders on the sparring field and won with such grace that even the knights-in-training cheered her name. To all present, Dorinthea was a legend in the making.
+Much is written of the sun-blessed daughter of blacksmiths who, during her [Awakening ceremony](../../main-story/welcome-to-rathe/pride-of-the-ironsongs.md#the-awakening), reached for the smith's hammer but grasped instead the sword that would become Dawnblade. Yet few know of the day Dorinthea bested all contenders on the sparring field and won with such grace that even the knights-in-training cheered her name. To all present, Dorinthea was a legend in the making.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/blunten.webp" alt="blunten" class="center" />
 

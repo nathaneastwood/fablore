@@ -4,28 +4,28 @@
 # DisplayName: override label shown in breadcrumbs and hub pages (leave blank to use SetName from sets.csv).
 # ImageLink: S3/CDN URL for the set's marketing image (leave blank until uploaded).
 Slug|SetId|DisplayName|ImageLink
-00-non-set-cards||Non-Set Cards|
-01-welcome-to-rathe|WTR||
-02-arcane-rising|ARC||
-03-crucible-of-war|CRU||
-04-monarch|MON||
-05-tales-of-aria|ELE||
-06-everfest|EVR||
-07-interlude||Interlude|
-08-uprising|UPR||
-09-dynasty|DYN||
-10-outsiders|OUT||
-11-dusk-till-dawn|DTD||
-12-bright-lights|EVO||
-13-round-the-table|TCC||
-14-heavy-hitters|HVY||
-15-part-the-mistveil|MST||
-16-rosetta|ROS||
-17-the-hunted|HNT||
-18-high-seas|SEA||
-19-super-slam|SUP||
-20-compendium-of-rathe|PEN|Compendium of Rathe|
-21-omens-of-the-third-age||Omens of the Third Age|
+non-set-cards||Non-Set Cards|
+welcome-to-rathe|WTR||
+arcane-rising|ARC||
+crucible-of-war|CRU||
+monarch|MON||
+tales-of-aria|ELE||
+everfest|EVR||
+interlude||Interlude|
+uprising|UPR||
+dynasty|DYN||
+outsiders|OUT||
+dusk-till-dawn|DTD||
+bright-lights|EVO||
+round-the-table|TCC||
+heavy-hitters|HVY||
+part-the-mistveil|MST||
+rosetta|ROS||
+the-hunted|HNT||
+high-seas|SEA||
+super-slam|SUP||
+compendium-of-rathe|PEN|Compendium of Rathe|
+omens-of-the-third-age||Omens of the Third Age|
 armory-decks||Armory Decks|
-kassais-diary||Kassai's Diary|
+mastery-packs||Mastery Packs|
 roll-of-honour||Roll of Honour|
