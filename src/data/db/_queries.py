@@ -477,6 +477,26 @@ def select_all_heroes_printings(conn: sqlite3.Connection) -> list[sqlite3.Row]:
     ).fetchall()
 
 
+def upsert_hero_ll(
+    conn: sqlite3.Connection,
+    *,
+    canonical_slug: str,
+    card_name: str,
+    format: str,
+    date_in_effect: str = "",
+) -> None:
+    conn.execute(
+        """
+        INSERT INTO heroes_ll (canonical_slug, card_name, format, date_in_effect)
+        VALUES (?,?,?,?)
+        ON CONFLICT(card_name, format) DO UPDATE SET
+            canonical_slug = excluded.canonical_slug,
+            date_in_effect = excluded.date_in_effect
+        """,
+        (canonical_slug, card_name, format, date_in_effect),
+    )
+
+
 # ---------------------------------------------------------------------------
 # Weapons canonical / game / printings
 # ---------------------------------------------------------------------------
