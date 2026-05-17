@@ -43,11 +43,15 @@ command = "python3 src/data/mdbook_hero_traits.py"
 [preprocessor.hero-meta]
 command = "python3 src/data/mdbook_hero_meta.py"
 
+[preprocessor.set-meta]
+command = "python3 src/data/mdbook_set_meta.py"
+
 [preprocessor.narrated-videos]
 command = "python3 src/data/mdbook_narrated_videos.py"
 
 [preprocessor.breadcrumb]
 command = "python3 src/data/mdbook_breadcrumb.py"
+after = ["set-meta"]
 
 [preprocessor.set-index]
 command = "python3 src/data/mdbook_set_index.py"

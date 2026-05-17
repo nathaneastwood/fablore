@@ -1,3 +1,5 @@
+# Compendium of Rathe
+
 ### Art of the Phoenix: War
 
 The [Volcai](~Volcai) live within the tumultuous fires of the Phoenix Cycle. To them, it is the rhythm of life itself, a rotation marked by rebellion and restoration, collapse and coronation. Some farmfolk whisper that the cycle is no natural law but the work of Infernai, Aesir of Flames, turning the great wheel from a far-distant slumber. No matter the cause, one thing is certain: when the phoenix rises, war must follow.
