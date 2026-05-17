@@ -84,6 +84,11 @@ def _arc_release_date(slug: str, arcs: dict, sets: dict) -> str:
         return raw
 
 
+def _arc_sort_key(slug: str, arcs: dict, sets: dict) -> str:
+    set_id = arcs.get(slug, {}).get("SetId", "")
+    return sets.get(set_id, {}).get("InitialReleaseDate", "") or ""
+
+
 def _arc_image(slug: str, arcs: dict) -> str:
     return (arcs.get(slug) or {}).get("ImageLink", "")
 
@@ -127,7 +132,8 @@ def _collect(
                 if section == "flavour" and len(parts) == 2:
                     flavour.append({"name": ch.get("name", ""), "path": path})
 
-                elif section in ("main-story", "short-stories", "digital-tiles") and len(parts) >= 3:
+                elif section in ("main-story", "short-stories", "digital-tiles") \
+                        and len(parts) >= 3:
                     arc_slug = parts[1]
                     story_arcs[section].setdefault(arc_slug, []).append(
                         {"name": ch.get("name", ""), "path": path}
@@ -198,7 +204,7 @@ def _arc_card_grid_html(
 ) -> str:
     """Card grid for digital-tiles hub — one card per arc, linking to its single page."""
     cards: list[str] = []
-    for slug, chapters in sorted(arc_map.items()):
+    for slug, chapters in sorted(arc_map.items(), key=lambda kv: _arc_sort_key(kv[0], arcs, sets)):
         if not chapters:
             continue
         first = chapters[0]
@@ -242,7 +248,7 @@ def _arc_sections_html(
 ) -> str:
     """Arc sections for main-story / short-stories hub pages."""
     sections: list[str] = []
-    for slug, chapters in sorted(arc_map.items()):
+    for slug, chapters in sorted(arc_map.items(), key=lambda kv: _arc_sort_key(kv[0], arcs, sets)):
         name = html.escape(_arc_display_name(slug, arcs, sets))
         date = _arc_release_date(slug, arcs, sets)
         image = _arc_image(slug, arcs)

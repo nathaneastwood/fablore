@@ -34,7 +34,7 @@ from db import Database, NPCEntry, LocationEntry, NarratedVideoEntry
 
 db = Database("src/data/fablore.db")
 db.upsert_story(
-    "src/main-story/21-omens-of-the-third-age/omens-in-the-sky.md",
+    "src/main-story/omens-of-the-third-age/omens-in-the-sky.md",
     story_type="main-story",
     title="Omens in the Sky",
     heroes=["boltyn"],
@@ -86,7 +86,7 @@ Prints a structured diff (new/updated fields, entity links added/removed, new re
 ### Removing a story
 
 ```python
-db.remove_story("src/main-story/21-omens-of-the-third-age/omens-in-the-sky.md")
+db.remove_story("src/main-story/omens-of-the-third-age/omens-in-the-sky.md")
 ```
 
 Deletes the story row and all junction rows (cascade), then exports to CSV.
