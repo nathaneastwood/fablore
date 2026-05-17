@@ -12,18 +12,12 @@ With her revered Emperor gone, Cindra's resolve is sharply honed and mercilessly
 
 Assassins and accomplices beware. The Dracai of Retribution will find you!
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/a-maelstrom-of-daggers.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>A Maelstrom of Daggers</b><br>
-    Cindra's flamekissed daggers are here for a good time, not a long time. She'll kick off the Draconic party on the cheap, then bring her daggers back for even more punishment.
-  </div>
-</div>
+:::hero-trait A Maelstrom of Daggers
+![A Maelstrom of Daggers](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/a-maelstrom-of-daggers.webp)
+Cindra's flamekissed daggers are here for a good time, not a long time. She'll kick off the Draconic party on the cheap, then bring her daggers back for even more punishment.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dynastic-traditions.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Dynastic Traditions</b><br>
-    On the hunt for the Emperor's killer, Cindra displays her undying loyalty to the Dracai in every move she makes. Her Fealty will make any card she chooses Draconic, often with devastating results.
-  </div>
-</div>
+:::hero-trait Dynastic Traditions
+![Dynastic Traditions](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dynastic-traditions.webp)
+On the hunt for the Emperor's killer, Cindra displays her undying loyalty to the Dracai in every move she makes. Her Fealty will make any card she chooses Draconic, often with devastating results.
+:::

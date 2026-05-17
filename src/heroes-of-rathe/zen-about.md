@@ -12,18 +12,12 @@ In his travels Zen has encountered both friend and foe, guiding lost souls towar
 
 As the shadows of uncertainty loom across Rathe, Zen remains steadfast in his commitment to uphold the virtues of justice and righteousness. With unwavering determination and boundless compassion, he embarks on a quest to witness all aspects of his land and restore harmony to the land of Misteria, his unwavering spirit a testament to the indomitable power of the human spirit.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/eye-of-the-tiger.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Eye of the Tiger</b><br>
-    Turning peace to ferocity, Zen uses moments of calm to plan his next attacks to unfathomable precision. By harnessing the power of Crouching Tigers, he can unleash more attacks than any opponent can hope to defend.
-  </div>
-</div>
+:::hero-trait Eye of the Tiger
+![Eye of the Tiger](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/eye-of-the-tiger.webp)
+Turning peace to ferocity, Zen uses moments of calm to plan his next attacks to unfathomable precision. By harnessing the power of Crouching Tigers, he can unleash more attacks than any opponent can hope to defend.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/cat-like-reflexes.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Cat-like Reflexes</b><br>
-    Zen can be as elusive as he is deadly. Powerful defense reactions and blocks, as well as the tranquility needed to enter into a defensive Zen State, will surely have Zen's opponents chasing their tail as they try to pin him down.
-  </div>
-</div>
+:::hero-trait Cat-like Reflexes
+![Cat-like Reflexes](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/cat-like-reflexes.webp)
+Zen can be as elusive as he is deadly. Powerful defense reactions and blocks, as well as the tranquility needed to enter into a defensive Zen State, will surely have Zen's opponents chasing their tail as they try to pin him down.
+:::

@@ -16,18 +16,12 @@ But first, Oscilio must move with a purpose as ancient as the stones beneath his
 
 Oscilio may be the aetheric embodiment of infinite wisdom, designed to defend against an ancient threat, but he has much to learn about the Aria of today.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/oscilio-living-conduit.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Living Conduit</b><br>
-    Oscilio is arcane brilliance personified, with knowledge bordering on omnipotence. Discard instants in search of the perfect answer for any situation.
-  </div>
-</div>
+:::hero-trait Living Conduit
+![Living Conduit](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/oscilio-living-conduit.webp)
+Oscilio is arcane brilliance personified, with knowledge bordering on omnipotence. Discard instants in search of the perfect answer for any situation.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/oscilio-high-voltage.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>High Voltage</b><br>
-    One of the most electrifying weapons known to the world of Rathe, Volzar, the Lightning Rod can push Oscilio's arcane damage to an unheard-of amount of voltage.
-  </div>
-</div>
+:::hero-trait High Voltage
+![High Voltage](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/oscilio-high-voltage.webp)
+One of the most electrifying weapons known to the world of Rathe, Volzar, the Lightning Rod can push Oscilio's arcane damage to an unheard-of amount of voltage.
+:::

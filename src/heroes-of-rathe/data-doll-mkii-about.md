@@ -22,10 +22,7 @@ Now, Data Doll discovers new questions every day, and aggregates data from agent
 
 When her network of contacts suggest that dark days are on the horizon for Metrix, Data Doll sees an opportunity to gather new data and ask new questions. Patiently, she observes from afar and prepares for the chaos to come...
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/data-doll-ghost-in-the-shell.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Ghost in the Shell</b><br>
-    From concept to creation. Whatever technology passes through Data Doll's processor can be reverse engineered, and replicated by this advanced automaton. Construct a deck with plenty of boost cards to get the Furnace Heart working overtime, and you'll soon see the latest mech tech rolling off the production line.
-  </div>
-</div>
+:::hero-trait Ghost in the Shell
+![Ghost in the Shell](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/data-doll-ghost-in-the-shell.webp)
+From concept to creation. Whatever technology passes through Data Doll's processor can be reverse engineered, and replicated by this advanced automaton. Construct a deck with plenty of boost cards to get the Furnace Heart working overtime, and you'll soon see the latest mech tech rolling off the production line.
+:::

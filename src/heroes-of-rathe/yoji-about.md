@@ -12,10 +12,7 @@ When bandits sought to capture and ransom [Lord Wizard Chiyo](~Chiyo), he was th
 
 Just as there is no rest for the wicked, Yoji knows that there is no rest for the true. Danger may threaten, but the dynasty's Royal Protector is ready to meet it.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/yoji-bodyguard.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Body Guard</b><br>
-    A stalwart defender of the Dynasty, Yoji stands firm in the face of the most extreme of adversities, shielding his allies with his impenetrable armour and iron will.
-  </div>
-</div>
+:::hero-trait Body Guard
+![Body Guard](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/yoji-bodyguard.webp)
+A stalwart defender of the Dynasty, Yoji stands firm in the face of the most extreme of adversities, shielding his allies with his impenetrable armour and iron will.
+:::

@@ -395,6 +395,8 @@
             - [Fire in Their Veins](archive/world-of-rathe/volcor/fire-in-their-veins.md)
             - [The Red Desert](archive/world-of-rathe/volcor/the-red-desert.md)
             - [Wildlife](archive/world-of-rathe/volcor/wildlife.md)
+    - [Heroes of Rathe](archive/heroes-of-rathe/heroes-of-rathe.md)
+        - [Rhinar, Reckless Rampage](archive/heroes-of-rathe/rhinar-wtr.md)
 
 - [Spoilers](spoilers/README.md)
     - [Bright Lights](spoilers/bright-lights.md)

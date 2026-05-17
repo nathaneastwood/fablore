@@ -12,18 +12,12 @@ In concert, Melody is a delight to behold. Her nimble fingers dance across the b
 
 Asking for nothing but a few coppers to sustain her travels, Melody continues to seek out her compositions and perform them to one and all. She will not take her final bow until history's most precious pieces are once again sung throughout the land. She will not stop until harmony is restored to Aria.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/show-of-a-lifetime.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Show of a Lifetime</b><br>
-    Melody has long planned to cement her legacy as one of the greatest entertainers Rathe has ever seen, and has been saving copper to put on a performance worthy of legend. Her Final Act will be one everyone is sure to talk about for years to come-for better or worse!
-  </div>
-</div>
+:::hero-trait Show of a Lifetime
+![Show of a Lifetime](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/show-of-a-lifetime.webp)
+Melody has long planned to cement her legacy as one of the greatest entertainers Rathe has ever seen, and has been saving copper to put on a performance worthy of legend. Her Final Act will be one everyone is sure to talk about for years to come-for better or worse!
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/doesnt-work-for-exposure.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Doesn't Work for Exposure</b><br>
-    Melody is always ready to brighten the mood with one of her finest tunes, but you can be absolutely sure she's collecting copper for her efforts. It's best you respect her when she's on stage, she's been known to smash her lute across the head of heckling audience members.
-  </div>
-</div>
+:::hero-trait Doesn't Work for Exposure
+![Doesn't Work for Exposure](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/doesnt-work-for-exposure.webp)
+Melody is always ready to brighten the mood with one of her finest tunes, but you can be absolutely sure she's collecting copper for her efforts. It's best you respect her when she's on stage, she's been known to smash her lute across the head of heckling audience members.
+:::

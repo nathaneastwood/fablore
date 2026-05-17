@@ -22,26 +22,17 @@ Upon her return to the Demonastery, the assembly of scholars shivered in fear at
 
 She drank in their fearful vows, then looked to the horizon as the sun cast its first rays upon the millions so shining and succulent. Here was the sustenance she needed - here was a grand feast that might satisfy even the Harvester of Souls.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/hunger-for-power.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Hunger for Power</b><br>
-    The hunger that possesses Levia will only be satisfied when everything has been devoured, including existence itself. Manage your graveyard carefully to gorge upon, else you may find your Shadow consuming you!
-  </div>
-</div>
+:::hero-trait Hunger for Power
+![Hunger for Power](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/hunger-for-power.webp)
+The hunger that possesses Levia will only be satisfied when everything has been devoured, including existence itself. Manage your graveyard carefully to gorge upon, else you may find your Shadow consuming you!
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/pay-your-debt.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Pay Your Debt</b><br>
-    There's no such thing as a free lunch, and in íArathael the currency is power or blood. Be sure to include many cards with 6 or more power in your deck, and plenty of ways to send them to the banished zone to keep your inner demons at bay.
-  </div>
-</div>
+:::hero-trait Pay Your Debt
+![Pay Your Debt](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/pay-your-debt.webp)
+There's no such thing as a free lunch, and in íArathael the currency is power or blood. Be sure to include many cards with 6 or more power in your deck, and plenty of ways to send them to the banished zone to keep your inner demons at bay.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/doomsday-scenario.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Doomsday Scenario</b><br>
-    From farmhand to Shadowborn Abomination, Levia's transformation isn't by chance. A willing pawn in the Demonastery's plan, Levia is a dimenxxional gateway for the Shadow embra Blasmophet to descend upon Rathe.
-  </div>
-</div>
+:::hero-trait Doomsday Scenario
+![Doomsday Scenario](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/doomsday-scenario.webp)
+From farmhand to Shadowborn Abomination, Levia's transformation isn't by chance. A willing pawn in the Demonastery's plan, Levia is a dimenxxional gateway for the Shadow embra Blasmophet to descend upon Rathe.
+:::

@@ -14,18 +14,12 @@ Since then, Marlynn has never taken orders from anyone. Yes, she'll accept bount
 
 Marlynn now captains one of the fastest, most nimble ships on the water, yet Marlynn pushes even this exceptional craft to its limits as she chases ever larger and more dangerous bounties. Some say the ambitious Marlynn will one day meet a fish too big for even her, one that will drag her down to the bottom of the sea, hook, line and sinker. Marlynn doesn't see it that way. As far as she's concerned, she'd rather live large and die young than be a worm on someone else's hook.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/marlynn-hurtling-harpoons.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Hurtling Harpoons</b><br>
-    Krakens shall shiver to the wind's warning tune, when Marlynn goes fishing with a gold-forged harpoon.
-  </div>
-</div>
+:::hero-trait Hurtling Harpoons
+![Hurtling Harpoons](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/marlynn-hurtling-harpoons.webp)
+Krakens shall shiver to the wind's warning tune, when Marlynn goes fishing with a gold-forged harpoon.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/marlynn-lock-and-load.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Lock and Load</b><br>
-    Marlynn's after the big prizes, and for that she needs something that'll overpower even the mightiest foe. After all, it takes a crew to sail a ship and a cannon to sink it.
-  </div>
-</div>
+:::hero-trait Lock and Load
+![Lock and Load](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/marlynn-lock-and-load.webp)
+Marlynn's after the big prizes, and for that she needs something that'll overpower even the mightiest foe. After all, it takes a crew to sail a ship and a cannon to sink it.
+:::

@@ -16,18 +16,12 @@ She and Polly have the combined smarts and nous to waylay both merchants and mar
 
 Though the modest Puffin would never claim this about herself, her crew have witnessed her literally laughing in the face of danger. Pirates and eldritch powers, sea monsters and murderous storms, these are just signs that she's on the right track. For our daring Puffin has learned that where there's the highest risk, there's ofttimes the greatest reward.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/puffin-perching-parrot.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Perching Parrot</b><br>
-    Isn't it lonely at the top? Not when Puffin has a savvy sidekick perched on her shoulder! Polly Cranka's ready to swoop in whenever a becalmed caper needs a little more action.
-  </div>
-</div>
+:::hero-trait Perching Parrot
+![Perching Parrot](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/puffin-perching-parrot.webp)
+Isn't it lonely at the top? Not when Puffin has a savvy sidekick perched on her shoulder! Polly Cranka's ready to swoop in whenever a becalmed caper needs a little more action.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/puffin-spinning-gold.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Spinning Gold</b><br>
-    There's more to gold than the glinting. Puffin forges this most malleable metal into gleaming cogs which she cranks sky high to fly once more into the fray.
-  </div>
-</div>
+:::hero-trait Spinning Gold
+![Spinning Gold](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/puffin-spinning-gold.webp)
+There's more to gold than the glinting. Puffin forges this most malleable metal into gleaming cogs which she cranks sky high to fly once more into the fray.
+:::

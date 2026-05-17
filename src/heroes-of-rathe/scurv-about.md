@@ -14,18 +14,12 @@ Eventually, the two put their cross-species noggins together and orchestrated Sc
 
 Scurv learned a hard lesson from his time as a pirate captain: "The only course worth charting is to the bottom of a bottle." He and Sticky Fingers are happy to freeload off others' responsibilities, stowing away on their ships and pilfering just enough gold for necessities and a tipple or two of [Goldkiss Rum](~GoldkissRum).
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/scurv-another-round.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Another Round</b><br>
-    Scurv's never met a cup of gold he couldn't drink. Or was that a rum of coin he couldn't spend?
-  </div>
-</div>
+:::hero-trait Another Round
+![Another Round](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/scurv-another-round.webp)
+Scurv's never met a cup of gold he couldn't drink. Or was that a rum of coin he couldn't spend?
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/scurv-pilfering-cephalopod.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Pilfering Cephalopod</b><br>
-    What's better than a five-fingered felon? An eight-tentacled thief! This sneaky yoinktopus is an ever-willing accomplice to Scurv's larcenous deeds.
-  </div>
-</div>
+:::hero-trait Pilfering Cephalopod
+![Pilfering Cephalopod](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/scurv-pilfering-cephalopod.webp)
+What's better than a five-fingered felon? An eight-tentacled thief! This sneaky yoinktopus is an ever-willing accomplice to Scurv's larcenous deeds.
+:::

@@ -10,18 +10,12 @@ Arakni, Marionette is a living creation of mortal design and intent. It is a mas
 
 This is a predator that stalks the top of the chain, the beautiful beast that hunts the hunters.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/mark-your-prey.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Mark Your Prey</b><br>
-    Arakni identifies and marks its target, inducing a perpetual state of fear. Attacks, weapons, and dastardly tricks quickly introduce victims to a premature demise.
-  </div>
-</div>
+:::hero-trait Mark Your Prey
+![Mark Your Prey](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/mark-your-prey.webp)
+Arakni identifies and marks its target, inducing a perpetual state of fear. Attacks, weapons, and dastardly tricks quickly introduce victims to a premature demise.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/hunt-them-down.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Hunt Them Down</b><br>
-    With a target locked in, the Spider's ultimate trump card is revealed. Arakni of various skills and abilities emerge from the darkness to draw their prey into the chelicerae of their master.
-  </div>
-</div>
+:::hero-trait Hunt Them Down
+![Hunt Them Down](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/hunt-them-down.webp)
+With a target locked in, the Spider's ultimate trump card is revealed. Arakni of various skills and abilities emerge from the darkness to draw their prey into the chelicerae of their master.
+:::

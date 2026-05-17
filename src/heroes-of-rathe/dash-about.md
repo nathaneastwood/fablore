@@ -8,29 +8,20 @@ A young mechanologist from the city's elite caste, Dash is a brilliant inventor 
 
 Stubborn and rebellious, Dash's energetic nature often gets her into trouble. Once she has an idea, it's nigh impossible to dissuade her. And even though the Teklo name has allowed her to follow her whims, she despises the rigid dullness of Metrix's upper class, and would do anything to avoid becoming just like them.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/inventor-extraordinaire.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Inventor Extraordinaire</b><br>
-    As the daughter of Teklo Industries top scientists, Dash has access to the latest technology and tools to be found in Metrix. Despite the wealth of resources at her disposal, Dash finds inspiration from experimentation with odds and ends she comes across in the Midtown Markets and junkyards beyond the city limits.
-  </div>
-</div>
+:::hero-trait Inventor Extraordinaire
+![Inventor Extraordinaire](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/inventor-extraordinaire.webp)
+As the daughter of Teklo Industries top scientists, Dash has access to the latest technology and tools to be found in Metrix. Despite the wealth of resources at her disposal, Dash finds inspiration from experimentation with odds and ends she comes across in the Midtown Markets and junkyards beyond the city limits.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dash-pedal-to-the-metal.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Pedal to the Metal</b><br>
-    While Dash's parents wished their daughter would enjoy the comfort and safety of the elitist life in the spires of Teklo Industries HQ, Dash would rather strap on her steam-powered exoskeleton rig, and run amok across the midtown markets. Boost your way to victory, but keep an eye on your tank (your deck), cos there's nothing more frustrating than running out of gas with the finish line in sight!
-  </div>
-</div>
+:::hero-trait Pedal to the Metal
+![Pedal to the Metal](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dash-pedal-to-the-metal.webp)
+While Dash's parents wished their daughter would enjoy the comfort and safety of the elitist life in the spires of Teklo Industries HQ, Dash would rather strap on her steam-powered exoskeleton rig, and run amok across the midtown markets. Boost your way to victory, but keep an eye on your tank (your deck), cos there's nothing more frustrating than running out of gas with the finish line in sight!
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dash-power-of-steam.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Power of Steam</b><br>
-    Mechanologists are driven by the pursuit of alternative energy sources to take the city of Metrix to the reaches of tomorrow and beyond! Metrix is in the age of steam, which Dash uses to power many of the contraptions she invents and uses. Steam items are able to be charged up, converting energy to steam, which can be stored for efficient future outputs.
-  </div>
-</div>
+:::hero-trait Power of Steam
+![Power of Steam](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dash-power-of-steam.webp)
+Mechanologists are driven by the pursuit of alternative energy sources to take the city of Metrix to the reaches of tomorrow and beyond! Metrix is in the age of steam, which Dash uses to power many of the contraptions she invents and uses. Steam items are able to be charged up, converting energy to steam, which can be stored for efficient future outputs.
+:::
 
 ---
 
@@ -56,18 +47,12 @@ But what?
 
 Dash is equipped and ready to find out.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/data-doll-ghost-in-the-shell.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Ghost in the Shell</b><br>
-    Long buried under the Iron Assembly, Data Doll has finally been cut free from her prison. Now she aids Dash on her adventures, learning and processing, experiencing what life has to offer outside the cold steel tomb she was once confined to.
-  </div>
-</div>
+:::hero-trait Ghost in the Shell
+![Ghost in the Shell](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/data-doll-ghost-in-the-shell.webp)
+Long buried under the Iron Assembly, Data Doll has finally been cut free from her prison. Now she aids Dash on her adventures, learning and processing, experiencing what life has to offer outside the cold steel tomb she was once confined to.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/cracking-the-code.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Cracking the Code</b><br>
-    Data Doll's unmatched processing power is the perfect tool to compliment Dash's extraordinary ingenuity. Dash thinks up an invention and Data Doll provides the computations needed to construct it. Together they can produce groundbreaking technology in an instant!
-  </div>
-</div>
+:::hero-trait Cracking the Code
+![Cracking the Code](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/cracking-the-code.webp)
+Data Doll's unmatched processing power is the perfect tool to compliment Dash's extraordinary ingenuity. Dash thinks up an invention and Data Doll provides the computations needed to construct it. Together they can produce groundbreaking technology in an instant!
+:::

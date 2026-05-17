@@ -12,18 +12,12 @@ Of course, Lord Bloodworth Goldmane would never support such madness, so Lyath j
 
 For a while, Lyath soaked in the mad spectacle of Deathmatch, observing Victor's battles and managing his extra-arena business like a biomancer watching a rat in a maze. During this time he practiced and prepared, physically and mentally, and is now ready to enter [Super Slam](~SuperSlam). He has befriended, bought and blackmailed the right people, both inside and outside the ring. And best of all, he's fabricated a nefarious identity that will keep everyone thoroughly entertained, right to the top of the game.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/evil-genius.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Evil Genius</b><br>
-    Lyath might surround himself with lies, but one thing is absolutely true. He's the smartest person at the table. Enemies fear to play his games because Lyath simply holds more cards!
-  </div>
-</div>
+:::hero-trait Evil Genius
+![Evil Genius](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/evil-genius.webp)
+Lyath might surround himself with lies, but one thing is absolutely true. He's the smartest person at the table. Enemies fear to play his games because Lyath simply holds more cards!
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/high-handed.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>High Handed</b><br>
-    As a Goldmane, Lyath punches well above his weight. Leveraging his deadly combo of smarts and resources, Lyath's high-handed tactics will rattle the arrogance of any who dare to look down on him.
-  </div>
-</div>
+:::hero-trait High Handed
+![High Handed](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/high-handed.webp)
+As a Goldmane, Lyath punches well above his weight. Leveraging his deadly combo of smarts and resources, Lyath's high-handed tactics will rattle the arrogance of any who dare to look down on him.
+:::

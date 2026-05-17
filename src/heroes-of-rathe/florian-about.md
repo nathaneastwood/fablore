@@ -20,26 +20,17 @@ Let them bask in their illusion of eternal summer. We know the power of the soil
 
 Welcome to the Rotwood. May your ending nurture another's beginning.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/florian-germination-ritual.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Germination Ritual</b><br>
-    Decompose the remains of the fallen to nourish the blossoms of tomorrow. Use decompose cards to reach Florian's hero ability threshold, then reap the harvest as your Runechant and Embodiment of Earth aura tokens bloom aplenty.
-  </div>
-</div>
+:::hero-trait Germination Ritual
+![Germination Ritual](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/florian-germination-ritual.webp)
+Decompose the remains of the fallen to nourish the blossoms of tomorrow. Use decompose cards to reach Florian's hero ability threshold, then reap the harvest as your Runechant and Embodiment of Earth aura tokens bloom aplenty.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/florian-cycle-of-life.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Cycle of Life</b><br>
-    Death is a necessary arc of the cycle of life. Florian understands this well and uses it to his advantage with effects that sacrifice his own auras as part of the process of creation.
-  </div>
-</div>
+:::hero-trait Cycle of Life
+![Cycle of Life](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/florian-cycle-of-life.webp)
+Death is a necessary arc of the cycle of life. Florian understands this well and uses it to his advantage with effects that sacrifice his own auras as part of the process of creation.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/florian-sword-and-sorcery.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Sword and Sorcery</b><br>
-    As a Runeblade, Florian is a hybrid fighter, wielding both magic and melee in equal measure. Runeblades can attack from multiple angles, preying on the opponent's vulnerabilities with split damage types.
-  </div>
-</div>
+:::hero-trait Sword and Sorcery
+![Sword and Sorcery](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/florian-sword-and-sorcery.webp)
+As a Runeblade, Florian is a hybrid fighter, wielding both magic and melee in equal measure. Runeblades can attack from multiple angles, preying on the opponent's vulnerabilities with split damage types.
+:::

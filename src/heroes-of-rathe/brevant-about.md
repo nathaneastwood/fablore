@@ -10,18 +10,12 @@ Brevant, one of the realm's Civic Protectors, appears to carry the weight of res
 
 He patrols far and wide with his comrades-in-arms, defending his people in the farthest reaches of Solana, from the corrupted borderlands of the north to the seething ranges of the south. His fair visage gifts confidence to any who lays eyes upon it, for Brevant is the vigor of the realm-both strong of flesh and faithful of heart. In this brave young Guardian they see themselves, their hopes and glories, reflected in Sol's gracious Light.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/chivalry-above-all.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Chivalry Above All</b><br>
-    Brevant lives by a code, and would rather die than stray from it. He believes in the kindness of people's hearts, that chivalry should know no bounds, and that virtue is its own reward. Make him question these beliefs though, and you'll find a combatant entirely capable of crushing you under the swing of his massive hammer.
-  </div>
-</div>
+:::hero-trait Chivalry Above All
+![Chivalry Above All](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/chivalry-above-all.webp)
+Brevant lives by a code, and would rather die than stray from it. He believes in the kindness of people's hearts, that chivalry should know no bounds, and that virtue is its own reward. Make him question these beliefs though, and you'll find a combatant entirely capable of crushing you under the swing of his massive hammer.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/right-makes-might.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Right Makes Might</b><br>
-    Brevant's displays of defensive prowess don't only protect his allies. They also give him the inner fortitude required to pump up his attacks! Brevant will defend his friends and flex on those foolish enough to count themselves among his enemies.
-  </div>
-</div>
+:::hero-trait Right Makes Might
+![Right Makes Might](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/right-makes-might.webp)
+Brevant's displays of defensive prowess don't only protect his allies. They also give him the inner fortitude required to pump up his attacks! Brevant will defend his friends and flex on those foolish enough to count themselves among his enemies.
+:::

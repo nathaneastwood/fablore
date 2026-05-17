@@ -16,18 +16,12 @@ Now a Ranger-for-hire contracted to "the Boss", Riptide has become trapper, smug
 
 Predators of the Pits beware. It's the thrill of the hunt that keeps the Lurker anchored. The longer he has to wait, the worse your agonizing end shall be.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/riptide-catch-of-the-day.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Catch of the Day</b><br>
-    Waiting until the slightest movement catches his eye, Riptide launches a barbed harpoon into the murky water, hauling in his prize. Use your array of deadly arrows to snag your prey and drag them to their doom.
-  </div>
-</div>
+:::hero-trait Catch of the Day
+![Catch of the Day](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/riptide-catch-of-the-day.webp)
+Waiting until the slightest movement catches his eye, Riptide launches a barbed harpoon into the murky water, hauling in his prize. Use your array of deadly arrows to snag your prey and drag them to their doom.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/riptide-treacherous-traps.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Treacherous Traps</b><br>
-    Clamp down on your opponents with Riptide's ingenious contraptions. With a specially designed trap for every scenario, all you need to do is set the bait and sit tight until a poor unsuspecting soul wanders straight into your clutches. Patience is key - you don't want to pull the trigger too early or too late and end up empty handed.
-  </div>
-</div>
+:::hero-trait Treacherous Traps
+![Treacherous Traps](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/riptide-treacherous-traps.webp)
+Clamp down on your opponents with Riptide's ingenious contraptions. With a specially designed trap for every scenario, all you need to do is set the bait and sit tight until a poor unsuspecting soul wanders straight into your clutches. Patience is key - you don't want to pull the trigger too early or too late and end up empty handed.
+:::
