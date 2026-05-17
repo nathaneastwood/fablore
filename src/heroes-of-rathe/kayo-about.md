@@ -1,4 +1,4 @@
-# Kayo, Beserker Runt
+# Kayo, Berserker Runt
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/kayo-beserker-runt.mp4" type="video/mp4">
