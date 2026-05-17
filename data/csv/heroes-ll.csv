@@ -1,0 +1,30 @@
+# AUTO-GENERATED FILE — do not edit by hand. Regenerate with: python3 src/data/create_heroes_csv.py
+CanonicalSlug|CardName|Format|DateInEffect
+briar|Briar|Blitz|2024-09-06
+chane|Chane|Blitz|2023-11-24
+dash|Dash|Blitz|2024-09-06
+ira|Ira, Crimson Haze|Blitz|2023-12-08
+iyslander|Iyslander|Blitz|2023-05-05
+kano|Kano|Blitz|2023-12-01
+kassai|Kassai, Cintari Sellsword|Blitz|2023-12-01
+oldhim|Oldhim|Blitz|2023-05-05
+rhinar|Rhinar|Blitz|2024-09-13
+victor-goldmane|Victor Goldmane|Blitz|2024-12-13
+viserai|Viserai|Blitz|2022-05-02
+aurora|Aurora, Shooting Star|CC|2025-05-09
+azalea|Azalea, Ace in the Hole|CC|2025-07-18
+bravo|Bravo, Star of the Show|CC|2022-06-24
+briar|Briar, Warden of Thorns|CC|2023-09-22
+chane|Chane, Bound by Shadow|CC|2022-06-24
+dash|Dash, Inventor Extraordinaire|CC|2025-07-11
+dromai|Dromai, Ash Artist|CC|2024-04-19
+enigma|Enigma, Ledger of Ancestry|CC|2025-04-25
+florian|Florian, Rotwood Harbinger|CC|2026-01-23
+iyslander|Iyslander, Stormbind|CC|2023-12-01
+kano|Kano, Dracai of Aether|CC|2025-12-19
+lexi|Lexi, Livewire|CC|2023-11-06
+nuu|Nuu, Alluring Desire|CC|2025-06-20
+oldhim|Oldhim, Grandfather of Eternity|CC|2023-07-07
+prism|Prism, Sculptor of Arc Light|CC|2022-08-30
+viserai|Viserai, Rune Blood|CC|2025-02-28
+zen|Zen, Tamer of Purpose|CC|2025-04-25

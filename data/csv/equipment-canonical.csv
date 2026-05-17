@@ -1,0 +1,547 @@
+# AUTO-GENERATED FILE — do not edit by hand. Regenerate with: python3 src/data/create_equipment_csv.py
+CanonicalEquipmentId|CanonicalSlug|CanonicalEquipment
+CE7230f69776|achilles-accelerator|Achilles Accelerator
+CEd007dd8503|adaptive-alpha-mold|Adaptive Alpha Mold
+CEc7e119c663|adaptive-dissolver|Adaptive Dissolver
+CEaf5fd8c536|adaptive-plating|Adaptive Plating
+CEf419f10d3d|aether-bindings-of-the-third-age|Aether Bindings of the Third Age
+CEc1fddc850e|aether-crackers|Aether Crackers
+CEc78cb4a3de|aether-ironweave|Aether Ironweave
+CEdf12e5a0ea|aetherstorm-wellingtons|Aetherstorm Wellingtons
+CEd8105d41ba|alluvion-constellas|Alluvion Constellas
+CEb6a1491ed5|amethyst-tiara|Amethyst Tiara
+CE4b836da8b8|anticipating-gaze|Anticipating Gaze
+CE70b04bd474|apex-bonebreaker|Apex Bonebreaker
+CE3b40613a8b|aqua-laps|Aqua Laps
+CE3d004c9709|aqua-seeing-shell|Aqua Seeing Shell
+CE870150b51e|arcane-lantern|Arcane Lantern
+CEaf0b408f77|arcanite-fortress|Arcanite Fortress
+CE0b3441fdd4|arcanite-skullcap|Arcanite Skullcap
+CEb6c39ca7e1|arousing-wave|Arousing Wave
+CE0ffa9da79f|attention-grabbers|Attention Grabbers
+CE9ffe2dd666|aurum-aegis|Aurum Aegis
+CE63d5d8b955|balance-of-justice|Balance of Justice
+CEbcab50d9a3|bandana-of-the-blue-beyond|Bandana of the Blue Beyond
+CE2c089f6298|barkbone-strapping|Barkbone Strapping
+CEb98ce9231c|barkskin-of-the-millennium-tree|Barkskin of the Millennium Tree
+CEc91e3c4b8e|basalt-boots|Basalt Boots
+CE6b494641b2|base-of-the-mountain|Base of the Mountain
+CE918f38ddc8|bastion-of-duty|Bastion of Duty
+CEc57a868441|bastion-of-unity|Bastion of Unity
+CEe3d76a005b|beaten-trackers|Beaten Trackers
+CE04790a7f1a|beckon-applause|Beckon Applause
+CEf0539d5a06|beckoning-haunt|Beckoning Haunt
+CE7685017942|blackstone-greaves|Blackstone Greaves
+CEddd3ac275b|blacktek-whisperers|Blacktek Whisperers
+CE5ee71da445|blade-beckoner-boots|Blade Beckoner Boots
+CEd1294e9afe|blade-beckoner-gauntlets|Blade Beckoner Gauntlets
+CEb1990f1d7c|blade-beckoner-helm|Blade Beckoner Helm
+CEf0d816b314|blade-beckoner-plating|Blade Beckoner Plating
+CE326aa2928c|blade-cuff|Blade Cuff
+CE979f628bbd|blazen-yoroi|Blazen Yoroi
+CE417432fd4e|blood-drop-brocade|Blood Drop Brocade
+CE7c1548f441|blood-scent|Blood Scent
+CEc66ee04e9c|blood-splattered-vest|Blood Splattered Vest
+CE0d45819ee5|bloodied-boots|Bloodied Boots
+CEfa811e6991|bloodied-gauntlet|Bloodied Gauntlet
+CE3bd4ae0436|bloodied-helm|Bloodied Helm
+CE9aad147b95|bloodied-oval|Bloodied Oval
+CEe84207d71b|bloodied-shield|Bloodied Shield
+CEd2e2dc919e|bloodied-strapping|Bloodied Strapping
+CEd68bea3760|bloodsheath-skeleta|Bloodsheath Skeleta
+CEef91660b46|bloodtorn-bodice|Bloodtorn Bodice
+CEc8128f7712|blossom-of-spring|Blossom of Spring
+CEdeba585a0b|blue-sea-tricorn|Blue Sea Tricorn
+CE8bc643458f|boltn-boots|Bolt'n Boots
+CE642309f121|bone-puppetry|Bone Puppetry
+CE81cb3c5b46|bone-vizier|Bone Vizier
+CEd4da4fa4e6|boots-of-astral-sanctuary|Boots of Astral Sanctuary
+CEa107b5083b|boots-of-omnis-ward|Boots of Omnis Ward
+CE8ad27e8bcf|boots-to-the-boards|Boots to the Boards
+CE9294e839b3|bracers-of-belief|Bracers of Belief
+CEf1d67fd2e5|bracers-of-bellonas-grace|Bracers of Bellona's Grace
+CEf21a190b70|braveforge-bracers|Braveforge Bracers
+CEc384472aaa|breaker-helm-protos|Breaker Helm Protos
+CE709a68a003|breaking-scales|Breaking Scales
+CEa75f259d6f|breakwater-undertow|Breakwater Undertow
+CE9a9727427a|breeze-rider-boots|Breeze Rider Boots
+CEac2d144328|bruised-leather|Bruised Leather
+CEf3093df42d|buccaneers-bounty|Buccaneer's Bounty
+CE43eac6a30f|bulls-eye-bracers|Bull's Eye Bracers
+CEf93572bcfc|bunker-beard|Bunker Beard
+CE39c293dc36|burnished-bunkerplate|Burnished Bunkerplate
+CEcd13727b94|buzzard-helm|Buzzard Helm
+CE7d5661b6a5|calming-cloak|Calming Cloak
+CE5e9ccd6fcc|calming-gesture|Calming Gesture
+CE18b2af124e|cap-of-quick-thinking|Cap of Quick Thinking
+CEfa2de8617b|captains-coat|Captain's Coat
+CE9204c62d5c|carrion-crown|Carrion Crown
+CE5c95ec7fe9|carrion-husk|Carrion Husk
+CE0384e64f52|celestial-kimono|Celestial Kimono
+CEc027811bf0|civic-duty|Civic Duty
+CE41dbd2a9ec|civic-guide|Civic Guide
+CE026166089c|civic-peak|Civic Peak
+CEc5cd290528|civic-steps|Civic Steps
+CE65aab7113f|cloak-of-darkness|Cloak of Darkness
+CE66c942d23b|coat-of-allegiance|Coat of Allegiance
+CEbd902854f5|coat-of-frost|Coat of Frost
+CEf3d60d9cfa|cogwerx-base-arms|Cogwerx Base Arms
+CEa1826b0046|cogwerx-base-chest|Cogwerx Base Chest
+CEc2c766e85e|cogwerx-base-head|Cogwerx Base Head
+CE9583548f47|cogwerx-base-legs|Cogwerx Base Legs
+CE65e06f23be|cogwerx-tinker-rings|Cogwerx Tinker Rings
+CEd408c7c85d|comeback-kicks|Comeback Kicks
+CEacfa863c49|compass-of-sunken-depths|Compass of Sunken Depths
+CE6365eca963|concealed-nerve-gas|Concealed Nerve Gas
+CE42e22cd4e1|concealed-pathogen|Concealed Pathogen
+CEdd2d8d31b1|concealed-sedative|Concealed Sedative
+CE4ea25c3643|conduit-of-frostburn|Conduit of Frostburn
+CE33da5ae9ab|confront-adversity|Confront Adversity
+CE860b8da5ff|coronet-peak|Coronet Peak
+CE53348f47ba|courage-of-bladehold|Courage of Bladehold
+CEa0fe606107|cracker-jax|Cracker Jax
+CE33c1c32d50|crater-fist|Crater Fist
+CE8b2ebc9271|craterhoof|Craterhoof
+CE74ee08717d|crown-of-dichotomy|Crown of Dichotomy
+CEfc03ba0816|crown-of-dominion|Crown of Dominion
+CEd82282303e|crown-of-everbloom|Crown of Everbloom
+CE166f99aeb4|crown-of-frozen-thoughts|Crown of Frozen Thoughts
+CE65dc2318b6|crown-of-providence|Crown of Providence
+CE28b8f1e331|crown-of-reflection|Crown of Reflection
+CEaccb4821b9|crown-of-seeds|Crown of Seeds
+CEd477e276c1|crows-nest|Crow's Nest
+CE451041d138|cutting-couriers|Cutting Couriers
+CEdb44bf2fc3|dance-of-darkness|Dance of Darkness
+CEeddaeb640c|danger-digits|Danger Digits
+CE53734b15ff|dead-threads|Dead Threads
+CEbad762c8fb|deep-blue|Deep Blue
+CEcfe786c49e|diadem-of-dreamstate|Diadem of Dreamstate
+CEea7126bda6|diamond-hands|Diamond Hands
+CEb50d4dd97b|double-cross-strap|Double Cross Strap
+CE3be5df48e8|dragonscaler-flight-path|Dragonscaler Flight Path
+CE42b71af235|dream-weavers|Dream Weavers
+CE63277b939d|driftwood-quiver|Driftwood Quiver
+CE83b3f88100|drive-brake|Drive Brake
+CE31af419fdc|dyadic-carapace|Dyadic Carapace
+CE3ddacb84d7|dyed-silk-sleeves|Dyed Silk Sleeves
+CEba85785441|dynastic-diadem|Dynastic Diadem
+CE8b7c89b70f|earthlore-bounty|Earthlore Bounty
+CE28022326ae|ebon-fold|Ebon Fold
+CEfa1ca89717|echo-casque|Echo Casque
+CEa9985e1d27|embrace-adversity|Embrace Adversity
+CE2d35dfeaea|embraforged-gauntlet|Embraforged Gauntlet
+CEf38b6b6cfb|empyrean-rapture|Empyrean Rapture
+CE7d2e60b77b|enchanted-quiver|Enchanted Quiver
+CE62eba1f6d6|enclosed-firemind|Enclosed Firemind
+CE2aa82d34c0|evo-atom-breaker|Evo Atom Breaker
+CE342bf75bd9|evo-battery-pack|Evo Battery Pack
+CEdbe2d4a0ce|evo-beta-base-arms|Evo Beta Base Arms
+CE5c4ffe2027|evo-beta-base-chest|Evo Beta Base Chest
+CE890f86500a|evo-beta-base-head|Evo Beta Base Head
+CEf8d423245d|evo-beta-base-legs|Evo Beta Base Legs
+CE15eb8408cf|evo-buzz-hive|Evo Buzz Hive
+CE91b6ab3141|evo-charging-rods|Evo Charging Rods
+CEb338e100ae|evo-circuit-breaker|Evo Circuit Breaker
+CEa46b5d0456|evo-cogspitter|Evo Cogspitter
+CEdea73e0d6c|evo-command-center|Evo Command Center
+CEc0c8ae774a|evo-data-mine|Evo Data Mine
+CE488798dafd|evo-energy-matrix|Evo Energy Matrix
+CE735593d612|evo-engine-room|Evo Engine Room
+CE06ebfe536f|evo-face-breaker|Evo Face Breaker
+CEd8689d5bd1|evo-heartdrive|Evo Heartdrive
+CE1db20bfce8|evo-mach-breaker|Evo Mach Breaker
+CEfae0904c1e|evo-magneto|Evo Magneto
+CE184117b36a|evo-rapid-fire|Evo Rapid Fire
+CE540c6cbc95|evo-recall|Evo Recall
+CEb7dfca367c|evo-scatter-shot|Evo Scatter Shot
+CE85c6a103e1|evo-sentry-base-arms|Evo Sentry Base Arms
+CE5890c2ae15|evo-sentry-base-chest|Evo Sentry Base Chest
+CE39257592cb|evo-sentry-base-head|Evo Sentry Base Head
+CE5850bbd176|evo-sentry-base-legs|Evo Sentry Base Legs
+CE674abb812f|evo-shortcircuit|Evo Shortcircuit
+CEdd7ac643c0|evo-smoothbore|Evo Smoothbore
+CEb7b84dd6d8|evo-speedslip|Evo Speedslip
+CE79e3b3a3a5|evo-steel-soul-controller|Evo Steel Soul Controller
+CE32566f85e9|evo-steel-soul-memory|Evo Steel Soul Memory
+CE30e2677f67|evo-steel-soul-processor|Evo Steel Soul Processor
+CEa1e8015c9c|evo-steel-soul-tower|Evo Steel Soul Tower
+CEaaa47abb4b|evo-tekloscope|Evo Tekloscope
+CE26f2a59dd2|evo-thruster|Evo Thruster
+CE5f9fa779ef|evo-whizz-bang|Evo Whizz Bang
+CEd180109000|evo-zip-line|Evo Zip Line
+CEd15352846d|evo-zoom-call|Evo Zoom Call
+CE68a9bd1388|face-adversity|Face Adversity
+CE07f9e6630f|face-purgatory|Face Purgatory
+CE1a0f83f8dd|fiddle-dee|Fiddle-dee
+CE5783421253|fish-fingers|Fish Fingers
+CEd1dc0dee16|fist-pump|Fist Pump
+CE326cdf08c5|fisticuffs|Fisticuffs
+CE81745ae4ff|flamescale-furnace|Flamescale Furnace
+CEea41700b9f|flash-of-brilliance|Flash of Brilliance
+CE5b9a05651b|flat-trackers|Flat Trackers
+CE4b256c461e|fleet-foot-sandals|Fleet Foot Sandals
+CEff7e74788b|flick-knives|Flick Knives
+CEba532c1f0c|flight-path|Flight Path
+CE1431709e31|fluttersteps|Fluttersteps
+CEd11bc981c5|fortitude-of-anvilheim|Fortitude of Anvilheim
+CE50a9ee6faf|four-finger-gloves|Four Finger Gloves
+CE7f50e97ea8|frontline-gauntlets|Frontline Gauntlets
+CE4400a95722|frontline-helm|Frontline Helm
+CE8062bf4d4b|frontline-legs|Frontline Legs
+CE8a8abab474|frontline-plating|Frontline Plating
+CEd3f86c7f6f|fyendals-spring-tunic|Fyendal's Spring Tunic
+CE127c91bf5b|gallantry-gold|Gallantry Gold
+CE3f1a3a3b6c|galvanic-bender|Galvanic Bender
+CE01a5e40268|gamblers-gloves|Gambler's Gloves
+CEeb802d6598|garland-of-spring|Garland of Spring
+CEe59e37ce9c|gauntlet-of-boulderhold|Gauntlet of Boulderhold
+CEcd7dda992a|gauntlet-of-might|Gauntlet of Might
+CE7d0145fbd3|gauntlet-of-sword-and-sorcery|Gauntlet of Sword and Sorcery
+CE7158cadfe7|gauntlets-of-iron-will|Gauntlets of Iron Will
+CE5910ac9b4f|gauntlets-of-the-boreal-domain|Gauntlets of the Boreal Domain
+CEfe36a205ea|gauntlets-of-tyrannical-rex|Gauntlets of Tyrannical Rex
+CEbe7431f5d3|gauntlets-of-unity|Gauntlets of Unity
+CEcde107d089|ghostly-touch|Ghostly Touch
+CEf5bbdc9b1e|glacial-horns|Glacial Horns
+CEb5011275dc|glidewell-fins|Glidewell Fins
+CE930f6f31f6|glory-plate|Glory Plate
+CE88caa849a3|glory-seeker|Glory Seeker
+CEd6dafae083|gloves-of-astral-sanctuary|Gloves of Astral Sanctuary
+CEf85f7cbd73|gloves-of-azure-waves|Gloves of Azure Waves
+CEa6b9b5da8b|gloves-of-erasure|Gloves of Erasure
+CE3ca6277da8|gold-baited-hook|Gold-Baited Hook
+CE7375411963|golden-gait|Golden Gait
+CE5a4a0c7105|golden-galea|Golden Galea
+CE167223dfe2|golden-gauntlets|Golden Gauntlets
+CE94ebd39a0f|golden-glare|Golden Glare
+CE96df243125|golden-heart-plate|Golden Heart Plate
+CE99fa7a8830|goliath-gauntlet|Goliath Gauntlet
+CEcc2c502e76|good-time-chapeau|Good Time Chapeau
+CE403b5205f2|grains-of-bloodspill|Grains of Bloodspill
+CE79892e2111|grandstand-legplates|Grandstand Legplates
+CEbdc47be8b3|grasp-of-darkness|Grasp of Darkness
+CE8a13ace0f9|grasp-of-the-arknight|Grasp of the Arknight
+CEae66a32c22|graven-cowl|Graven Cowl
+CE92d5853c07|graven-gaslight|Graven Gaslight
+CE569d64a12d|graven-gloves|Graven Gloves
+CEa97a0cc310|graven-justaucorpse|Graven Justaucorpse
+CEac6a1b9486|graven-vestment|Graven Vestment
+CEd072fe9e77|graven-walkers|Graven Walkers
+CE9ae8722002|grimoire-of-fellingsong|Grimoire of Fellingsong
+CEd5f55fd8e6|grimoire-of-the-haunt|Grimoire of the Haunt
+CEe2d5510c53|halo-of-illumination|Halo of Illumination
+CE4d3dda237f|halo-of-lumina-light|Halo of Lumina Light
+CE806c998377|hand-of-vengeance|Hand of Vengeance
+CE2823324dd3|hard-knuckle|Hard Knuckle
+CEc7b3cb9230|havoc-wrap|Havoc Wrap
+CE2b891164ba|head-stone|Head Stone
+CE2f21c0297c|headliner-helm|Headliner Helm
+CE218975ceeb|heart-of-ice|Heart of Ice
+CE6071c280ef|heart-of-vengeance|Heart of Vengeance
+CE408475b6bd|heart-throb|Heart-throb
+CEe7d6d29334|heartened-cross-strap|Heartened Cross Strap
+CE38644e6f87|heat-wave|Heat Wave
+CE6db3f9055f|heavy-industry-gear-shift|Heavy Industry Gear Shift
+CE6aae7c4a5b|heavy-industry-power-plant|Heavy Industry Power Plant
+CE8974ecc2b9|heavy-industry-ram-stop|Heavy Industry Ram Stop
+CE8f6703f9fd|heavy-industry-surveillance|Heavy Industry Surveillance
+CEe2ea130446|heirloom-of-rabbit-hide|Heirloom of Rabbit Hide
+CEb741efa97b|heirloom-of-snake-hide|Heirloom of Snake Hide
+CE3f00273420|heirloom-of-tiger-hide|Heirloom of Tiger Hide
+CEca80d87f10|helios-mitre|Helio's Mitre
+CE8617588c22|helm-of-astral-sanctuary|Helm of Astral Sanctuary
+CE6aebe859b5|helm-of-halos-grace|Helm of Halo's Grace
+CEf77daad16d|helm-of-hindsight|Helm of Hindsight
+CE8cc51950f7|helm-of-isens-peak|Helm of Isen's Peak
+CE4163929329|helm-of-lignum-vitae|Helm of Lignum Vitae
+CE4154893b10|helm-of-might-and-magic|Helm of Might and Magic
+CEdfd1edad39|helm-of-safe-haven|Helm of Safe Haven
+CE70af238e4a|helm-of-sharp-eye|Helm of Sharp Eye
+CEc699a6dbce|helm-of-the-adored|Helm of the Adored
+CE33f3ea676a|helm-of-the-arknight|Helm of the Arknight
+CEe82033b91f|helm-of-unity|Helm of Unity
+CE31f67547a8|helmsmans-peak|Helmsman's Peak
+CEf7111ae0c2|hidden-agenda|Hidden Agenda
+CEe6617512cf|hide-tanner|Hide Tanner
+CEecc5af794d|hoarding-of-denial|Hoarding of Denial
+CEa37908c598|hold-firm|Hold Firm
+CE40b9d7224b|hold-focus|Hold Focus
+CE1877e0b123|honing-hood|Honing Hood
+CEe46ac53dc3|hood-of-red-sand|Hood of Red Sand
+CE0f9eb0282d|hood-of-second-thoughts|Hood of Second Thoughts
+CE13e2ada489|hooves-of-the-shadowbeast|Hooves of the Shadowbeast
+CEca81603e04|hope-merchants-hood|Hope Merchant's Hood
+CE9e8bbcffc5|hornets-sting|Hornet's Sting
+CE20699f482e|horns-of-the-despised|Horns of the Despised
+CE300084bd5b|hyper-x3|Hyper-X3
+CE704e93cc82|ink-lined-cloak|Ink-lined Cloak
+CEeaf0569a51|inverters-nightcowl|Inverter's Nightcowl
+CE604bbfc759|iris-of-the-blossom|Iris of the Blossom
+CEcb38dbce6c|ironfist-revelation|Ironfist Revelation
+CE656b143588|ironhide-gauntlet|Ironhide Gauntlet
+CEde2b0c7eba|ironhide-helm|Ironhide Helm
+CE4225cfa36a|ironhide-legs|Ironhide Legs
+CEa4d84d6931|ironhide-plate|Ironhide Plate
+CEd6809f2c19|ironrot-gauntlet|Ironrot Gauntlet
+CE574d03dafc|ironrot-helm|Ironrot Helm
+CE62b8eedb0a|ironrot-legs|Ironrot Legs
+CE7242e72fa0|ironrot-plate|Ironrot Plate
+CE869f66d6d3|ironsong-versus|Ironsong Versus
+CE81f13ae22c|kabuto-of-imperial-authority|Kabuto of Imperial Authority
+CE0e4d9d4864|kimono-of-layered-lessons|Kimono of Layered Lessons
+CEb8a750f3cf|knucklehead|Knucklehead
+CE947f5ee1cc|koi-blessed-kimono|Koi Blessed Kimono
+CE9073cc309f|laughing-knee-slappers|Laughing Knee-Slappers
+CE8fccdfb318|leap-frog-gloves|Leap Frog Gloves
+CE816557d931|leap-frog-leggings|Leap Frog Leggings
+CEea6e96b84c|leap-frog-slime-skin|Leap Frog Slime Skin
+CEf75c4bf7f3|leap-frog-vocal-sac|Leap Frog Vocal Sac
+CE74a1557240|light-fingers|Light Fingers
+CE71a81482b6|lightning-greaves|Lightning Greaves
+CE7077572caa|limbs-of-lignum-vitae|Limbs of Lignum Vitae
+CE3a6984791a|line-crossers|Line Crossers
+CEeb5ba97d06|longdraw-half-glove|Longdraw Half-glove
+CEbda1c25762|mage-master-boots|Mage Master Boots
+CE50ec5043e0|magmatic-carapace|Magmatic Carapace
+CE2258129d51|magrar|Magrar
+CE14edfa8470|mark-of-lightning|Mark of Lightning
+CEb8b0481f33|mask-of-deceit|Mask of Deceit
+CE077388038c|mask-of-malicious-manifestations|Mask of Malicious Manifestations
+CEcddd1b27f5|mask-of-many-faces|Mask of Many Faces
+CE4c69ea6ec6|mask-of-momentum|Mask of Momentum
+CE2844c48996|mask-of-perdition|Mask of Perdition
+CE0e7405a5e5|mask-of-recurring-nightmares|Mask of Recurring Nightmares
+CEa8e293784e|mask-of-shifting-perspectives|Mask of Shifting Perspectives
+CE3ca21ac2b3|mask-of-the-pouncing-lynx|Mask of the Pouncing Lynx
+CEf6a604c59a|mask-of-the-swarming-claw|Mask of the Swarming Claw
+CE8ff9adebd3|mask-of-three-tails|Mask of Three Tails
+CE17ceeefd8e|mask-of-wizened-whiskers|Mask of Wizened Whiskers
+CE02a1776e61|mbrio-base-cortex|mBrio Base Cortex
+CE7fcf36e416|mbrio-base-digits|mBrio Base Digits
+CE907bd39aa8|mbrio-base-vizier|mBrio Base Vizier
+CE37789e39af|mbrio-base-walkers|mBrio Base Walkers
+CEa1bce9627e|meridian-pathway|Meridian Pathway
+CE8c71e8eae4|metacarpus-node|Metacarpus Node
+CEf3736c3990|mightybone-knuckles|Mightybone Knuckles
+CEb47f6acdad|misfire-dampener|Misfire Dampener
+CE69bd70b38c|monstrous-veil|Monstrous Veil
+CE89469665ca|mournful-casket|Mournful Casket
+CEa1ffa2b665|myrkhellir-helm|Myrkhellir Helm
+CE14d06cab50|new-horizon|New Horizon
+CE787253aedc|nom-de-plume|Nom de Plume
+CE226170fc13|nullrune-boots|Nullrune Boots
+CEb8e4febc3f|nullrune-gloves|Nullrune Gloves
+CEf57b1a36f5|nullrune-hood|Nullrune Hood
+CE48e09e8d97|nullrune-robe|Nullrune Robe
+CE7201bba18b|okana-scar-wraps|Okana Scar Wraps
+CEbb1310c375|old-knocker|Old Knocker
+CEb85a95f2dd|ollin-ice-cap|Ollin Ice Cap
+CE291a5eb229|ornate-tessen|Ornate Tessen
+CEac1ab3a141|overbearing-presence|Overbearing Presence
+CE30e24a3f9f|overcome-adversity|Overcome Adversity
+CEc2911acca7|paragon-plate|Paragon Plate
+CE8ae8a2dd76|patch-the-hole|Patch the Hole
+CEa8aff7f44a|path-of-vengeance|Path of Vengeance
+CEe1897abade|peg-leg|Peg Leg
+CE0b300b031b|perch-grapplers|Perch Grapplers
+CE2c112164cb|phantasmal-footsteps|Phantasmal Footsteps
+CE22078efabe|pillar-of-unity|Pillar of Unity
+CE1768183bc8|pink-visor|Pink Visor
+CE0131f62394|plate-of-tough-love|Plate of Tough Love
+CE85cb470b5c|plating-of-unity|Plating of Unity
+CEde96fa4180|plume-of-evergrowth|Plume of Evergrowth
+CE9c5ff396bf|popped-collar-polo|Popped Collar Polo
+CE6e972bd832|pouncing-paws|Pouncing Paws
+CE0994d560a1|predatory-plating|Predatory Plating
+CE6938b7bb86|prey-spotters|Prey Spotters
+CEc8c0adafb1|prized-galea|Prized Galea
+CEd34a38bab4|proclamation-of-abundance|Proclamation of Abundance
+CE021e672241|proclamation-of-combat|Proclamation of Combat
+CE5519b58f96|proclamation-of-production|Proclamation of Production
+CE141f481e97|proclamation-of-requisition|Proclamation of Requisition
+CEc0709db9de|proto-base-arms|Proto Base Arms
+CE54702f261a|proto-base-chest|Proto Base Chest
+CEd3c5dbbb17|proto-base-head|Proto Base Head
+CEbc7255b749|proto-base-legs|Proto Base Legs
+CE7c3bd317a4|puffer-jacket|Puffer Jacket
+CE2b0b03e142|punching-gloves|Punching Gloves
+CE2090e3df78|quartermasters-boots|Quartermaster's Boots
+CEc1763fce4c|quelling-robe|Quelling Robe
+CE66524cc655|quelling-sleeves|Quelling Sleeves
+CE618932ee4b|quelling-slippers|Quelling Slippers
+CE1c53aad9e7|quick-clicks|Quick Clicks
+CE6702bf04cb|quickdodge-flexors|Quickdodge Flexors
+CE90ddaaf4c2|quickstep|Quickstep
+CE9d7c988060|quiver-of-abyssal-depths|Quiver of Abyssal Depths
+CE7714298cb5|quiver-of-rustling-leaves|Quiver of Rustling Leaves
+CE685584695a|radiant-flow|Radiant Flow
+CEef3dd81c0f|radiant-raiment|Radiant Raiment
+CEe372348b1c|radiant-touch|Radiant Touch
+CE4d3f4816a0|radiant-view|Radiant View
+CEdf6e97b781|ragamuffins-hat|Ragamuffin's Hat
+CE67607b8de7|rage-baiters|Rage Baiters
+CE945633ab58|rampart-of-the-rams-head|Rampart of the Ram's Head
+CEfaa489f92a|raw-meat|Raw Meat
+CE7524749ce9|reach-beyond-the-grave|Reach Beyond the Grave
+CE37f2ca66df|red-alert-boots|Red Alert Boots
+CEf8e1b1267e|red-alert-gloves|Red Alert Gloves
+CE7e41b2ca09|red-alert-vest|Red Alert Vest
+CE16193d2e3a|red-alert-visor|Red Alert Visor
+CE7d920e6367|redback-shroud|Redback Shroud
+CEeab05a7d0b|refraction-bolters|Refraction Bolters
+CE6e928ee4d9|reverent-rerebrace|Reverent Rerebrace
+CEbd17778456|richter-scale|Richter Scale
+CE51aaa21ccf|rippling-wave|Rippling Wave
+CEa27316b319|robe-of-astral-sanctuary|Robe of Astral Sanctuary
+CE477f7baacd|robe-of-autumns-fall|Robe of Autumn's Fall
+CE185e8bb9e8|robe-of-rapture|Robe of Rapture
+CEbd5d63b04f|robe-of-resourcefulness|Robe of Resourcefulness
+CE46d84b4109|root-bound-trunks|Root-Bound Trunks
+CE038d38effe|rotten-old-buckler|Rotten Old Buckler
+CE423b61442a|runaways|Runaways
+CEec2e166d5e|runebleed-robe|Runebleed Robe
+CE5f50c21173|runehold-release|Runehold Release
+CE6f0b581d4e|rust-belt|Rust Belt
+CE5aba8800bd|sash-of-sandikai|Sash of Sandikai
+CE6d0aad5589|savage-sash|Savage Sash
+CE60feb514f9|scabskin-leathers|Scabskin Leathers
+CE8eb15210e6|scowling-flesh-bag|Scowling Flesh Bag
+CE31f1c88fa4|scuttle-toes|Scuttle Toes
+CE3c80b7065a|sealace-sarong|Sealace Sarong
+CEef5d6ce314|seasoned-saviour|Seasoned Saviour
+CE0949a25221|seekers-gilet|Seeker's Gilet
+CEc553fea5c4|seekers-hood|Seeker's Hood
+CE67270ba80d|seekers-leggings|Seeker's Leggings
+CE868e345907|seekers-mitts|Seeker's Mitts
+CEb1ebcc9113|shamanic-shinbones|Shamanic Shinbones
+CEdb85bf38e7|sharp-shooters|Sharp Shooters
+CEe4465a81d3|shattering-grasp|Shattering Grasp
+CE88c7f635b0|sheltered-cove|Sheltered Cove
+CE5b5be871a2|shock-charmers|Shock Charmers
+CE766c887c88|shock-frock|Shock Frock
+CE053c5eb925|shriek-razors|Shriek Razors
+CEa1d6e9d82d|shroud-of-darkness|Shroud of Darkness
+CE30192d5c97|shroud-of-the-fate-watcher|Shroud of the Fate Watcher
+CE1b4410be51|silent-stilettos|Silent Stilettos
+CE36482198e5|silken-form|Silken Form
+CE7b30a492af|silken-gi|Silken Gi
+CEee68d382ea|silken-shawl|Silken Shawl
+CEac42143579|silken-shroud|Silken Shroud
+CE58d04475c7|silken-slippers|Silken Slippers
+CE17c4a8a6b3|silken-symphony|Silken Symphony
+CE5704a6986c|silver-palms|Silver Palms
+CEf688425269|silversheen-needle|Silversheen Needle
+CEf73bd124f6|silverstride-dodgers|Silverstride Dodgers
+CE92308a0bfa|skera-strapping|Skera Strapping
+CE77c7db2e18|skull-crushers|Skull Crushers
+CE36a953e631|skullbone-crosswrap|Skullbone Crosswrap
+CE1e23745dc8|skullhorn|Skullhorn
+CE1febeda5fc|skybody-keikoi|Skybody Keikoi
+CEb480a68fe6|skycrest-keikoi|Skycrest Keikoi
+CE3791cb1e66|skyhold-keikoi|Skyhold Keikoi
+CEfa90d00ea0|skywalker-keikoi|Skywalker Keikoi
+CE6fdd1f4a6d|smoldering-scales|Smoldering Scales
+CEc8050812fc|snapdragon-scalers|Snapdragon Scalers
+CE2e4a5ec559|solar-plexus|Solar Plexus
+CE530ba9c83d|solforge-gauntlet|Solforge Gauntlet
+CEed1af0b570|solray-plating|Solray Plating
+CE55aef7b28a|soulbond-resolve|Soulbond Resolve
+CE22d60a3051|spell-fray-cloak|Spell Fray Cloak
+CEe2cb788c7d|spell-fray-gloves|Spell Fray Gloves
+CEcca48a2012|spell-fray-leggings|Spell Fray Leggings
+CE0b39487af6|spell-fray-tiara|Spell Fray Tiara
+CEb0ea97a886|spellbound-creepers|Spellbound Creepers
+CE2381e6107d|spellfire-cloak|Spellfire Cloak
+CEe33531e01a|spoiled-skull|Spoiled Skull
+CE9890a5b00d|squires-bracers|Squire's Bracers
+CE84db1f759a|stadium-centerpiece|Stadium Centerpiece
+CEa0ee3c96d1|stalagmite-bastion-of-isenloft|Stalagmite, Bastion of Isenloft
+CEbe1154d7fb|stalkers-steps|Stalker's Steps
+CEb6d932cc97|stand-ground|Stand Ground
+CEbf329d03ed|stand-strong|Stand Strong
+CEe42cb0eaf8|starlight-striders|Starlight Striders
+CE2dc2a15175|starting-point|Starting Point
+CE03556640e9|steelbraid-buckler|Steelbraid Buckler
+CEf3f016a166|stonewall-gauntlet|Stonewall Gauntlet
+CE49823966da|stonewall-impasse|Stonewall Impasse
+CEffb9dc4fe5|storm-striders|Storm Striders
+CE9711513d91|stormweavers-aegis|Stormweaver's Aegis
+CE99768bbffb|stride-of-reprisal|Stride of Reprisal
+CEca56c0f593|strong-stomach-for-adversity|Strong Stomach for Adversity
+CE862d713606|stubby-hammerers|Stubby Hammerers
+CE9171761abe|sunkwater-exoshell|Sunkwater Exoshell
+CEe5ef43f8b7|sunkwater-lookout|Sunkwater Lookout
+CEee1d503725|sunkwater-pincers|Sunkwater Pincers
+CE501477177f|sunkwater-scalers|Sunkwater Scalers
+CE2f28b69769|sutcliffes-suede-hides|Sutcliffe's Suede Hides
+CE2998c6903a|swiftstrike-bracers|Swiftstrike Bracers
+CE14fc37f236|synapse-sparkcap|Synapse Sparkcap
+CE5ec6c69f52|talismanic-lens|Talismanic Lens
+CE30de922444|target-totalizer|Target Totalizer
+CE8427383431|tearing-shuko|Tearing Shuko
+CE83680184f6|tectonic-crust|Tectonic Crust
+CE95a3bcc3de|tectonic-plating|Tectonic Plating
+CEbdda53f201|teklo-base-arms|Teklo Base Arms
+CE3266c704f3|teklo-base-chest|Teklo Base Chest
+CEe6db91f539|teklo-base-head|Teklo Base Head
+CE34942ba802|teklo-base-legs|Teklo Base Legs
+CE4e8af27eea|teklo-foundry-heart|Teklo Foundry Heart
+CE7fab5305aa|teklovossen-the-mechropotent|Teklovossen, the Mechropotent
+CE1ff57da723|tempest-dancers|Tempest Dancers
+CEab00cc8a12|templar-spellbane|Templar Spellbane
+CEd29a6ad37f|testament-of-valahai|Testament of Valahai
+CEf255caec4c|third-eye-of-the-sphinx|Third Eye of the Sphinx
+CE7bbdeb35d6|threadbare-tunic|Threadbare Tunic
+CEe9d46cea76|tiara-of-suspense|Tiara of Suspense
+CE02f73a5089|ticket-puncher|Ticket Puncher
+CE6df85f28ec|tide-flippers|Tide Flippers
+CE061e9869e2|tiger-stripe-shuko|Tiger Stripe Shuko
+CEe954e99540|time-skippers|Time Skippers
+CEf1cc75d01b|toby-jugs|Toby Jugs
+CE7f8de51bab|topsy-turvy|Topsy Turvy
+CEa53f020cbd|torc-of-vim|Torc of Vim
+CE7bcf7c1d5c|touch-of-reality|Touch of Reality
+CEfbacbf8f9e|tough-leather-boots|Tough Leather Boots
+CE9b19661f00|toxic-tips|Toxic Tips
+CEce93356471|trampling-trackers|Trampling Trackers
+CE6a908a0384|traverse-the-universe|Traverse the Universe
+CE94f6821fb3|tremor-of-resistance|Tremor of Resistance
+CE8ccf88307f|tremorshield-sabatons|Tremorshield Sabatons
+CEf22b7d8f4b|trench-of-sunken-treasure|Trench of Sunken Treasure
+CE3d451e42f1|trench-of-watery-depths|Trench of Watery Depths
+CEad3aabb58a|tricorn-of-saltwater-death|Tricorn of Saltwater Death
+CEa48892cecb|truths-retold|Truths Retold
+CE95f3d4a10c|twelve-petal-k-ya|Twelve Petal Kāṣāya
+CE0665ee45ef|twinkle-toes|Twinkle Toes
+CEa16b564e74|two-faced|Two-Faced
+CE3de4ff4f1c|two-steps-forward|Two Steps Forward
+CEe5e064555a|undertow-stilettos|Undertow Stilettos
+CE791ca8502a|unflinching-foothold|Unflinching Foothold
+CE537a2011db|unicycle|Unicycle
+CEfdb4e55af9|unyielding-grip|Unyielding Grip
+CE29364a0272|uphold-tradition|Uphold Tradition
+CE039dadecf8|valiant-dynamo|Valiant Dynamo
+CEacd7fbf5c1|vambrace-of-determination|Vambrace of Determination
+CEccb3edd0e9|vest-of-the-first-fist|Vest of the First Fist
+CEc79c09020c|vestige-of-flagellation|Vestige of Flagellation
+CE983df3effb|vestige-of-sol|Vestige of Sol
+CE95a90b41bf|vexing-quillhand|Vexing Quillhand
+CEc165e93923|vigor-girth|Vigor Girth
+CE03b5d83122|virtuoso-bodice|Virtuoso Bodice
+CE9a1a44ab4a|viziertronic-model-i|Viziertronic Model i
+CE6c39dffce6|volcanic-vice|Volcanic Vice
+CE467d8da7b3|voltic-vanguard|Voltic Vanguard
+CE9750daad67|vow-of-vengeance|Vow of Vengeance
+CEbfec8e8a85|warband-of-bellona|Warband of Bellona
+CE8db31102cb|warpath-of-winged-grace|Warpath of Winged Grace
+CE2d7529575f|washed-up-wave|Washed Up Wave
+CE79d6fece2a|wave-of-reality|Wave of Reality
+CE007c63442b|waves-of-aqua-marine|Waves of Aqua Marine
+CEc5d1ef5b37|wayfinders-crest|Wayfinder's Crest
+CEb0a946ec26|well-grounded|Well Grounded
+CE8e97bdb4b6|widow-back-abdomen|Widow Back Abdomen
+CE28f687f6f3|widow-claw-tarsus|Widow Claw Tarsus
+CEa60c319ed1|widow-veil-respirator|Widow Veil Respirator
+CEad34aa2f08|widow-web-crawler|Widow Web Crawler
+CEb393e27823|wind-cutter|Wind Cutter
+CEe064e0dff1|zap-clappers|Zap Clappers

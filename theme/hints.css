@@ -1,0 +1,9 @@
+.hint {
+  border-left-width: 0;
+  border-right-width: 0;
+  border-top-width: 0;
+  border-bottom-width: 1.5px;
+  border-style: dashed;
+  font-weight: 500;
+  border-color: var(--links);
+}

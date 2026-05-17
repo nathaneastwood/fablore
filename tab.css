@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.tab-container {
+  display: flex;
+  justify-content: left;
+  margin-top: 20px;
+}
+
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid currentColor;
+}
+
+.tab-content {
+  display: none;
+}
+
+.active-tab {
+  border: 1px solid currentColor;
+}
+
+.active-content {
+  display: block;
+}
+

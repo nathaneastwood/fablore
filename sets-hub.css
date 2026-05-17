@@ -1,0 +1,169 @@
+/* ── Flavour hub: card grid ───────────────────────────────────────────────── */
+
+.sets-hub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.sets-hub-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--table-border-color);
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--fg);
+    overflow: hidden;
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.sets-hub-card:hover {
+    border-color: var(--links);
+    background: var(--quote-bg);
+    text-decoration: none;
+}
+
+.sets-hub-card img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.sets-hub-card-info {
+    padding: 0.65rem 0.75rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    flex: 1;
+}
+
+.sets-hub-card-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    line-height: 1.3;
+}
+
+.sets-hub-card-date {
+    font-size: 0.75em;
+    opacity: 0.6;
+}
+
+/* ── Main story / short-stories hub: arc sections ────────────────────────── */
+
+.arc-section {
+    margin: 2rem 0;
+    padding-left: 1rem;
+    border-left: 3px solid var(--links);
+}
+
+.arc-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.6rem;
+}
+
+.arc-section-name {
+    font-size: 1.05em;
+    font-weight: 700;
+}
+
+.arc-section-date {
+    font-size: 0.78em;
+    opacity: 0.55;
+    white-space: nowrap;
+}
+
+.arc-section-image {
+    display: block;
+    width: 100%;
+    max-width: 560px;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.arc-story-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.arc-story-list a {
+    color: var(--links);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.arc-story-list a:hover {
+    text-decoration: underline;
+}
+
+/* ── Sets index page ─────────────────────────────────────────────────────── */
+
+.set-index-section {
+    margin: 2.5rem 0;
+    padding-left: 1rem;
+    border-left: 3px solid var(--links);
+}
+
+.set-index-header {
+    margin-bottom: 1rem;
+}
+
+.set-index-image {
+    display: block;
+    width: 100%;
+    max-width: 560px;
+    border-radius: 4px;
+    margin-bottom: 0.6rem;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.set-index-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.set-index-name {
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.set-index-date {
+    font-size: 0.78em;
+    opacity: 0.55;
+    white-space: nowrap;
+}
+
+.set-index-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem 1.5rem;
+    margin-top: 0.75rem;
+}
+
+.set-index-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.set-index-group-label {
+    font-weight: 600;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.6;
+}

@@ -1,0 +1,39 @@
+/* Injected by mdbook_story_meta preprocessor — story metadata card below the chapter title. */
+
+.story-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 1.4rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--table-border-color);
+    font-size: 1.25rem;
+    color: var(--searchresults-header-fg);
+    line-height: 1.6;
+}
+
+.story-meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    white-space: nowrap;
+}
+
+.story-meta-item .fa {
+    font-size: 0.9em;
+}
+
+.story-meta-item strong {
+    color: var(--fg);
+    font-weight: 600;
+}
+
+.story-meta-item a {
+    color: var(--links);
+    text-decoration: none;
+}
+
+.story-meta-item a:hover {
+    text-decoration: underline;
+}

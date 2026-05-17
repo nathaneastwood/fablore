@@ -1,0 +1,440 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Vow Unbroken - Legendary Stories</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+        <!-- Open Graph / Twitter (Discord, Slack, etc. link previews — requires absolute image URL) -->
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Legendary Stories">
+        <meta property="og:title" content="Vow Unbroken - Legendary Stories">
+        <meta property="og:description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <meta property="og:image" content="https://legendarystories.net/assets/logo_original_cropped.png">
+        <meta property="og:image:width" content="736">
+        <meta property="og:image:height" content="736">
+        <meta property="og:image:alt" content="Legendary Stories logo">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Vow Unbroken - Legendary Stories">
+        <meta name="twitter:description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <meta name="twitter:image" content="https://legendarystories.net/assets/logo_original_cropped.png">
+        <!-- PNG first (reliable tab icon); src/assets/favicon.svg overrides mdBook bundle on disk; ?v= busts favicon cache -->
+        <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon.png?v=5">
+        <link rel="icon" type="image/webp" sizes="32x32" href="../../assets/favicon.webp?v=5">
+        <link rel="icon" href="../../assets/favicon.ico?v=5" sizes="any">
+        <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=5">
+        <!-- Install / standalone: iOS “Add to Home Screen”, Android “Install app” (Chrome) -->
+        <link rel="manifest" href="../../manifest.json">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="apple-mobile-web-app-title" content="Legendary Stories">
+        <meta name="mobile-web-app-capable" content="yes">
+
+        <meta name="description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero.css">
+        <link rel="stylesheet" href="../../image.css">
+        <link rel="stylesheet" href="../../tab.css">
+        <link rel="stylesheet" href="../../bionic.css">
+        <link rel="stylesheet" href="../../footer.css">
+        <link rel="stylesheet" href="../../breadcrumb.css">
+        <link rel="stylesheet" href="../../sets-hub.css">
+        <link rel="stylesheet" href="../../theme/pagetoc.css">
+        <link rel="stylesheet" href="../../theme/hints.css">
+        <link rel="stylesheet" href="../../theme/related.css">
+        <link rel="stylesheet" href="../../theme/story-meta.css">
+        <link rel="stylesheet" href="../../theme/narrated-videos.css">
+        <link rel="stylesheet" href="../../theme/browse.css">
+        <link rel="stylesheet" href="../../theme/archive-notice.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="bionic-toggle" class="icon-button" type="button" title="Enable Bionic Reading" aria-label="Enable Bionic Reading" aria-pressed="false">
+                            <i class="fa fa-bold"></i>
+                        </button>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s or Ctrl+K)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S Meta+K Control+K" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">
+                        <img class="menu-logo menu-logo--light" src="../../assets/logo_original_cropped.png" alt="Legendary Stories">
+                        <img class="menu-logo menu-logo--dark" src="../../assets/logo_transparent_white.png" alt="Legendary Stories">
+                    </h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <!-- fablore-breadcrumb:start -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="../the-land-of-rathe.html">Main Story</a></li>
+    <li><span>Compendium of Rathe</span></li>
+    <li><span aria-current="page">Vow Unbroken</span></li>
+  </ol>
+</nav>
+<!-- fablore-breadcrumb:end -->
+<h1 id="vow-unbroken"><a class="header" href="#vow-unbroken">Vow Unbroken</a></h1>
+<!-- fablore-story-meta:start -->
+<div class="story-meta" aria-label="Story information">
+  <span class="story-meta-item"><i class="fa fa-pencil" aria-hidden="true"></i> Written by <strong>Robbie Wen, Edwin McRae, Corey J. White, Rachel Rees, Melissa Ren, Paul Davies</strong></span>
+  <span class="story-meta-item"><i class="fa fa-calendar" aria-hidden="true"></i> 7 April 2026</span>
+  <span class="story-meta-item"><i class="fa fa-external-link" aria-hidden="true"></i> <a href="https://fabtcg.com/articles/vow-unbroken/" target="_blank" rel="noopener">Original article</a></span>
+  <span class="story-meta-item"><i class="fa fa-clock-o" aria-hidden="true"></i> 1,680 words · 7 min read</span>
+</div>
+<!-- fablore-story-meta:end -->
+<p>Hala stood on the ramparts, bright Solana at her back and the writhing mass of the Demonastery's hordes spread out beyond the city walls. Inside Solana's interlocking grid of protective wards, it was strangely quiet, the air still, but it would not remain that way for long.</p>
+<p>She sensed the wards' collapse a moment before she saw it. The latticework of runes shivered and dissipated. Street-conduits flickered out. The section of outer wall ahead of her shook then cracked apart, splitting the consecrated stonework. Debris exploded inward as soldiers fled and dust clouded the air.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-1.webp" alt="vow-unbroken-1" /></p>
+<p>Hala tightened her grip on her Zenith Blade, seeing the grotesque colossus that pushed through the opening: Levia, once human, now monster, having given herself over to the Embra, Blasmophet.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-2.webp" alt="vow-unbroken-2" /></p>
+<p>Levia bellowed a war cry as loud as a thousand shrieking demons and pushed her way forward, tentacles collapsing segments of the wall as she led the Demonastery's hordes through the breach.</p>
+<p>Hala turned and leapt gracefully from the wall, landing amongst her knights.</p>
+<p>"Fall back!" She pointed her blade toward the city's center. "Regroup with our allies and hold the streets leading to the <span class="hint" hint="Solarium">Solarium</span>."</p>
+<p>"We will protect those gathered there with our lives," declared Aurea, Champion of the Dawn, one of the <span class="hint" hint="HandOfSol">Hand</span>'s most seasoned lieutenants.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-3.webp" alt="vow-unbroken-3" /></p>
+<p>"If I hear that any of you die for <em>pride</em>," Hala said, "I will follow you to Sol's heaven and drag you back here myself!"</p>
+<p>The lieutenant kneeled before Hala, forehead rested on the pommel of her sword. "For all the tomorrows to come!" She acted swiftly, dispensing orders to the rest of the brigade. Each unit broke away, retreating down streets and alleyways, the clattering of their armor dulled beneath the slavering, roaring maws of the ceaseless army of horrors now pouring into Solana.</p>
+<p>The moon loomed huge and red overhead, the Demonastery's power bending even celestial objects to their evil design.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-4.webp" alt="vow-unbroken-4" /></p>
+<p>Hala gritted her teeth: death would rule this day, but no matter what, Sol's light would shine again tomorrow. That was what she fought for. That was the promise she would die for.</p>
+<p>Hala heard screaming and stopped, turning to see a group of civilians spill into the street, some already spattered with blood. The beasts of the Demonastery rushed after them with spiked limbs and snapping jaws. Hala was about to lead the charge to save the Solanians when a howl from the street to her left grabbed her attention. A creature stood in the road, a huge torso that sprouted a tangle of claw-tipped limbs, some wielding weapons stained black and red with old blood and new. Three soldiers from another brigade had put themselves between the monstrosity and a fleeing family, pikes and shields raised. The creature moved with preternatural speed to reward their bravery with butchery.</p>
+<p>"Protect those people!" she told her squad. "<em>I</em> will deal with this abomination."</p>
+<p>Lieutenant Aurea's eyes went wide at the torn bundles of metal and meat at the monstrosity's feet, but she didn't try to argue with Hala's plan. The brigade charged down the street and Hala left them to their work. Like sharpened blades, she and Ser Boltyn had personally honed the Hand to carve the Shadow from the enemies of Light.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-5.webp" alt="vow-unbroken-5" /></p>
+<p>Hala rushed forward, Zenith singing in her hand as it sliced through the air. As she neared the beast, it swung three gore-stained blades at her. She rolled beneath the swipes, dodging one arm and dismembering the other two. The beast roared and bled, slashing out at her with relentless fury.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-6.webp" alt="vow-unbroken-6" /></p>
+<p>Hala evaded each attack, cutting away its limbs until the creature's legs gave out, rivulets of blood running from every open wound. She swung Zenith clean through its neck, and by the time its foul head hit the cobblestones, Hala was already racing back to join her knights.</p>
+<p>They stood guard in a broad avenue as the civilians they'd rescued ran for the Solarium in the distance. She glanced back toward the outer wall and the repulsive creatures rushing into Solana. Levia dominated the scene, smashing through buildings like they were made of paper, her massive form destroying a path deeper and deeper into the city.</p>
+<p>Should death indeed rule this day, Hala stood ready, having faced it many times.</p>
+<p>She had succumbed to it once, but even death could not hold her back, not when she ached to serve Sol with every part of her being. Dispatched to the Savage Lands to patrol Solana's wild frontier, Hala and her troops were overrun by Brutes, those fierce and fearless predators seemingly born to carnage.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-7.webp" alt="vow-unbroken-7" /></p>
+<p>Hala fought to save her comrades-in-arms but the Brutes were relentless, their spiked clubs hammering on her armor until it cracked and the barbs drove deep into her flesh.</p>
+<p>Through sheer faith her troop won free, yet on the day she returned to Solana, her wounds burned with infection. Hala's body blazed white-hot, searing like Sol's love, and she died.</p>
+<p>An angel of Sol descended from above, her wings purest white, and granted Hala a vision of heaven.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-8.webp" alt="vow-unbroken-8" /></p>
+<p>That wondrous realm of light and joy, an eternal home for His faithful who had finished serving Sol in life.</p>
+<p>But it was not her time.</p>
+<p>Minutes later, as an archon of Octothesia was conducting her final rites, she had risen from her death bed, the disease gone, her wound beginning to heal, her service renewed.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-9.webp" alt="vow-unbroken-9" /></p>
+<p>Bastion, Magister of Defense, anointed her Bladesaint: one who has died for Sol and continues to fight in His name. She was presented with newly forged armor and sword, befitting of the mask she had adorned since ascending to the role of templar within the Hand.</p>
+<p>"In unity, we will overcome," she had said on the day of her anointment. Unity among the faithful, unity among soldiers, and unity with Sol above all.</p>
+<p>From that day forward, this vow permeated throughout the training grounds of Goldenhelm Keep, under the watchful gaze of the Bladesaint.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-10.webp" alt="vow-unbroken-10" /></p>
+<p>Hala's reverie was cut short by the screams of frightened civilians rushing past, toward the safety of the nearby barracks.</p>
+<p>The building was a locus of violence. Lexi and her Volthaven Wayfarers lined the rooftop, firing ice and lightning arrows at the beasts attacking from ground and sky. At ground-level, Briar and her <span class="hint" hint="Rosetta">Rosetta</span> guarded the entrance, their hands and blades alight with aether, slinging powerful runechants.</p>
+<p>Hala saw a fiendish mob swarm for the building's rear stairwell, tearing apart the pair of Wayfarers set to guard Lexi's flank. "Our allies need us," she told her knights. "On me!"</p>
+<p>Hala spoke a silent prayer to Sol as she charged forward: <em>Guide my blade and protect my knights. Again I welcome death if it is my time; if it is not, use me for your will.</em></p>
+<p>She crashed hard into the beast at the front of the pack and knocked the hulking monster down, plunging her sword into its heart. She spun to face the rest of the mob, her knights now by her side. They fought in concert, stabbing, cutting, and dodging in turn, leaving no openings for the beasts, offering only sharp steel.</p>
+<p>When the throng of monsters lay slaughtered, Hala joined the Rosetta, who had turned the training grounds into their own killing field. The Runeblades stood surrounded by enemy corpses, and some of their own. Briar nodded to Hala in thanks for the assistance, sparing only a moment before turning to help a wounded Runeblade to her feet.</p>
+<p>Hala glanced in through the barracks door; the building was filled with scared Solanian citizens: men, women, children.</p>
+<p>"There are secret tunnels beneath the barracks," Hala told Briar. "They will lead the civilians straight to the safety of the Solarium. Once they are clear of the opening, can your people close the tunnel?"</p>
+<p>Briar nodded.</p>
+<p>Hala raised her head. "Lexi!"</p>
+<p>The Wayfarer's head appeared over the edge of the building, her long white hair hanging beside her face. "Here to help, Bladesaint."</p>
+<p>"Hold your ground until the civilians inside have found safety through the tunnels underground. The horde is endless, but we will not falter!"</p>
+<p>"No matter the path, the Wayfarer shall guide and guard," Lexi answered, quoting an ancient proverb from the days of Valahai.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-11.webp" alt="vow-unbroken-11" /></p>
+<p>"Unbreachable as the brambles of Candlehold!" Briar said. "The Rosetta shall not be uprooted from this spot."</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-12.webp" alt="vow-unbroken-12" /></p>
+<p>Hala ordered one of her knights to lead the civilians to safety, dismissing his protestations. The Demonastery's monstrous forces filtered through the streets, rushing toward the barracks like a wave of bloodied claws and gnashing teeth. Hala raised her sword, the blade shining like a beacon.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-13.webp" alt="vow-unbroken-13" /></p>
+<p>"Stand strong against the darkness! We fight for life and Light! We fight for blessed Solana!"</p>
+<p>Hala saluted her allies, then led her knights into the fray. With prayers upon their lips, their swords struck ever true. Wayfarer arrows froze the vicious creatures solid or sent bursts of cauterizing electricity through the foul mob. Vicious thickets sprouted from the earth at the command of Briar and her Rosetta, slowing the oncoming monsters enough for their thorn-swords and runechants to wreak death upon the darkness.</p>
+<p>The ground shook beneath Hala's feet, a recurrent rumble, growing steadily closer. Another thunderous <em>dhoom</em> and she saw Levia's colossal form looming over the few structures that were still standing in that octant.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-14.webp" alt="vow-unbroken-14" /></p>
+<p>Hala stepped out from the shadow of the barracks and lifted her Zenith Blade high against the menacing blood moon overhead. As if in answer, beams of light broke through the battlefield of clouds, painting the sky golden; a beacon for her people: a dinner bell for the enemy.</p>
+<p><em>Let them come,</em> Hala thought. <em>Let them die by my sword.</em></p>
+<p>Lexi jumped down from the roof and landed by Hala's side.</p>
+<p>Briar joined them, sword in hand.</p>
+<p>Hala nodded, smiling behind her mask.</p>
+<p>"To their last or our own. We will overcome!"</p>
+<p>This is what Hala, Bladesaint of the Vow, was reborn for.</p>
+<!-- fablore-related:start -->
+<section class="related-section" aria-label="Related Lore">
+<h1 id="related-lore"><a class="header" href="#related-lore">Related Lore</a></h1>
+<div class="related-cards">
+<a class="related-card" href="../../heroes-of-rathe/boltyn-about.html">
+<span class="related-card-body">
+<span class="related-card-type">Hero</span>
+<span class="related-card-title">Boltyn</span>
+</span>
+</a>
+<a class="related-card" href="../../heroes-of-rathe/briar-about.html">
+<span class="related-card-body">
+<span class="related-card-type">Hero</span>
+<span class="related-card-title">Briar</span>
+</span>
+</a>
+<a class="related-card" href="../../heroes-of-rathe/hala-about.html">
+<span class="related-card-body">
+<span class="related-card-type">Hero</span>
+<span class="related-card-title">Hala</span>
+</span>
+</a>
+<a class="related-card" href="../../heroes-of-rathe/levia-about.html">
+<span class="related-card-body">
+<span class="related-card-type">Hero</span>
+<span class="related-card-title">Levia</span>
+</span>
+</a>
+<a class="related-card" href="../../heroes-of-rathe/lexi-about.html">
+<span class="related-card-body">
+<span class="related-card-type">Hero</span>
+<span class="related-card-title">Lexi</span>
+</span>
+</a>
+<div class="related-cards-spacer" aria-hidden="true"></div>
+<a class="related-card" href="../../world-of-rathe/aria.html#candlehold">
+<span class="related-card-body">
+<span class="related-card-type">Location</span>
+<span class="related-card-title">Candlehold</span>
+</span>
+<span class="related-card-sub">Aria</span>
+</a>
+<a class="related-card" href="../../world-of-rathe/aria.html#valahai">
+<span class="related-card-body">
+<span class="related-card-type">Location</span>
+<span class="related-card-title">Valahai</span>
+</span>
+<span class="related-card-sub">Aria</span>
+</a>
+<div class="related-cards-spacer" aria-hidden="true"></div>
+<a class="related-card" href="../../world-of-rathe/demonastery.html">
+<span class="related-card-body">
+<span class="related-card-type">Region</span>
+<span class="related-card-title">Demonastery</span>
+</span>
+</a>
+<a class="related-card" href="../../world-of-rathe/solana.html">
+<span class="related-card-body">
+<span class="related-card-type">Region</span>
+<span class="related-card-title">Solana</span>
+</span>
+</a>
+<a class="related-card" href="../../world-of-rathe/savage-lands.html">
+<span class="related-card-body">
+<span class="related-card-type">Region</span>
+<span class="related-card-title">The Savage Lands</span>
+</span>
+</a>
+</div></section>
+<!-- fablore-related:end -->
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/super-slam/feudmasters.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/omens-of-the-third-age/omens-in-the-sky.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+
+                <footer class="site-footer">
+                    <a href="../../content-creators.html">Content Creators</a>
+                    <span aria-hidden="true">·</span>
+                    <a href="../../about.html">About</a>
+                    <span aria-hidden="true">·</span>
+                    <a href="../../support.html">Support the Site</a>
+                </footer>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/super-slam/feudmasters.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/omens-of-the-third-age/omens-in-the-sky.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+            <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" title="Back to top" aria-hidden="true" tabindex="-1">
+                <i class="fa fa-arrow-up" aria-hidden="true"></i>
+            </button>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../tab.js"></script>
+        <script src="../../back-to-top.js"></script>
+        <script src="../../hero-hub.js"></script>
+        <script src="../../bionic.js"></script>
+        <script src="../../theme/pagetoc.js"></script>
+        <script src="../../theme/hints.js"></script>
+        <script src="../../theme/related.js"></script>
+        <script src="../../narrated-videos.js"></script>
+        <script src="../../theme/browse.js"></script>
+        <script src="../../theme/hero-filter.js"></script>
+
+
+    </div>
+    </body>
+</html>

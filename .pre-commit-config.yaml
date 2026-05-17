@@ -1,0 +1,30 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+  - repo: https://github.com/psf/black
+    rev: 22.10.0
+    hooks:
+      - id: black
+  - repo: local
+    hooks:
+      - id: ensure-create-md-sync
+        name: ensure-create-md-sync
+        entry: bash scripts/ensure-create-md-sync.sh
+        language: system
+        pass_filenames: false
+        files: ^src/data/(create_md\.py|(npcs|fauna|flora|food-and-drink|locations|monsters|regions)\.csv|(npcs|fauna|flora|food-and-drink|locations|monsters)\.md)$
+      - id: link-checks
+        name: link-checks
+        entry: bash scripts/link-checks.sh
+        language: system
+        pass_filenames: false
+      - id: validate-data
+        name: validate-data
+        entry: python3 src/data/validate_data.py
+        language: system
+        pass_filenames: false
+        files: ^src/data/.*\.(csv|py)$

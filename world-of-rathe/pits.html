@@ -1,0 +1,431 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Pits - Legendary Stories</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+        <!-- Open Graph / Twitter (Discord, Slack, etc. link previews — requires absolute image URL) -->
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Legendary Stories">
+        <meta property="og:title" content="Pits - Legendary Stories">
+        <meta property="og:description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <meta property="og:image" content="https://legendarystories.net/assets/logo_original_cropped.png">
+        <meta property="og:image:width" content="736">
+        <meta property="og:image:height" content="736">
+        <meta property="og:image:alt" content="Legendary Stories logo">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Pits - Legendary Stories">
+        <meta name="twitter:description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <meta name="twitter:image" content="https://legendarystories.net/assets/logo_original_cropped.png">
+        <!-- PNG first (reliable tab icon); src/assets/favicon.svg overrides mdBook bundle on disk; ?v= busts favicon cache -->
+        <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.png?v=5">
+        <link rel="icon" type="image/webp" sizes="32x32" href="../assets/favicon.webp?v=5">
+        <link rel="icon" href="../assets/favicon.ico?v=5" sizes="any">
+        <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=5">
+        <!-- Install / standalone: iOS “Add to Home Screen”, Android “Install app” (Chrome) -->
+        <link rel="manifest" href="../manifest.json">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="apple-mobile-web-app-title" content="Legendary Stories">
+        <meta name="mobile-web-app-capable" content="yes">
+
+        <meta name="description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../hero.css">
+        <link rel="stylesheet" href="../image.css">
+        <link rel="stylesheet" href="../tab.css">
+        <link rel="stylesheet" href="../bionic.css">
+        <link rel="stylesheet" href="../footer.css">
+        <link rel="stylesheet" href="../breadcrumb.css">
+        <link rel="stylesheet" href="../sets-hub.css">
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <link rel="stylesheet" href="../theme/hints.css">
+        <link rel="stylesheet" href="../theme/related.css">
+        <link rel="stylesheet" href="../theme/story-meta.css">
+        <link rel="stylesheet" href="../theme/narrated-videos.css">
+        <link rel="stylesheet" href="../theme/browse.css">
+        <link rel="stylesheet" href="../theme/archive-notice.css">
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="bionic-toggle" class="icon-button" type="button" title="Enable Bionic Reading" aria-label="Enable Bionic Reading" aria-pressed="false">
+                            <i class="fa fa-bold"></i>
+                        </button>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s or Ctrl+K)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S Meta+K Control+K" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">
+                        <img class="menu-logo menu-logo--light" src="../assets/logo_original_cropped.png" alt="Legendary Stories">
+                        <img class="menu-logo menu-logo--dark" src="../assets/logo_transparent_white.png" alt="Legendary Stories">
+                    </h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <!-- fablore-breadcrumb:start -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="rathe.html">World of Rathe</a></li>
+    <li><span aria-current="page">Pits</span></li>
+  </ol>
+</nav>
+<!-- fablore-breadcrumb:end -->
+<div class="image-title-overlay">
+  <img src="https://d2hl7maqck52px.cloudfront.net/world-of-rathe/pits/pits.webp" alt="Pits">
+  <div class="overlay-text">
+    <h1 id="pits"><a class="header" href="#pits">Pits</a></h1>
+    <h2 id="the-underworld"><a class="header" href="#the-underworld">The Underworld</a></h2>
+  </div>
+</div>
+<h2 id="pits-1"><a class="header" href="#pits-1">Pits</a></h2>
+<!-- fablore-story-meta:start -->
+<div class="story-meta" aria-label="Story information">
+  <span class="story-meta-item"><i class="fa fa-external-link" aria-hidden="true"></i> <a href="https://fabtcg.com/world-of-rathe/pits/" target="_blank" rel="noopener">Original article</a></span>
+  <span class="story-meta-item"><i class="fa fa-clock-o" aria-hidden="true"></i> 3,368 words · 13 min read</span>
+</div>
+<!-- fablore-story-meta:end -->
+<p>Deep underground, worming through the bedrock of Rathe, lies a complex network of mines and natural cave systems commonly known as the Pits. Mostly unexplored by the civilizations of the surface, this underworld stretches the length and breadth of the continent. Some say that, in places, it burrows beyond the borders of reality.</p>
+<p>The most infamous portion of the Pits, and the network’s eponym, lies beneath Metrix. These choked and fetid caverns have been accessed and exploited by mining companies. “Filth flows ever downwards,” is a Metrix saying, and for centuries the pollution of their heavy industry and alchemy has seeped into every shaft and tunnel of the Pits beneath the city, polluting the causeways and warping the wildlife.</p>
+<p>This neglected, subterranean cesspit has become a gathering-ground for the wretched and the rebellious. Assassins, mercenaries, smugglers, and fixers provide their illicit services to those who can afford to pay for their discretion. In the absence of law and order, gang rule offers something to live and die for.</p>
+<h2 id="life-in-the-dark"><a class="header" href="#life-in-the-dark">Life in the Dark</a></h2>
+<p><em>“This is like no other place in Rathe. Life here isn’t some wheel that turns from sun to moon, work to sleep. Life in the Pits ferments, humanity’s scraps foaming and frothing into a heady brew.”</em> – Whitetail</p>
+<p>If the Pits is a brew, it’s one that gets its denizens drunk on hope, then drops them in the gutter with the roaches and rats. The people here are hardened, cynical, and weary. They wander sunless streets with makeshift lanterns that light the paths to their ramshackle shelters, built from the waste that falls from above. But once they get a taste of the lawless freedom that the Pits offers, there’s no going back. It’s only a matter of time and too many inhaled toxins before they’re seeing in the dark: seeing opportunities at another mug’s expense.</p>
+<h2 id="dens-of-deceit"><a class="header" href="#dens-of-deceit">Dens of Deceit</a></h2>
+<p>The Pits may be inhospitable to most, but its lawlessness has drawn many enterprising individuals to the cave system. Of all the subterranean networks created beneath Metrix, four areas have become established settlements where these ‘pioneers’ exploit the Pits for professional and personal gain.</p>
+<h3 id="the-maw"><a class="header" href="#the-maw">The Maw</a></h3>
+<p>The Maw makes up the upper reaches of Pit 2, clinging like a parasite on the belly of the Metrix industrial machine. Originally built as a staging post for Pit 2’s workforce, it was a short ride on the coal-fueled Lungliner train to Coppertown. But when the pit was shut down and excavation moved to Pit 3, the Mob stepped in. They kept the Maw “functional” for the lesser mining companies. Soon, the Lungliner ran only for the Mob, and the Maw became a machine of extortion.</p>
+<p>Alka Bigguns, Don of Coppertown, controls access to the Lungliner, and passage is never guaranteed. Those with high-priced permits ride free. Those without pay in favors, or blood. When luck runs dry, the Mob is always willing to end a contract by sending someone over the rail.</p>
+<p>The Maw has expanded in uneven layers called shelves: structures bolted haphazardly into Pit 2’s walls. Poor construction has seen entire sections collapse into the abyss overnight. Those who survive don’t bother asking questions. They just move to the next shelf down.</p>
+<p>Even so, by Pits standards, the Maw is livable, not because it’s safe, but because it’s the only place that can access natural light. It’s a hoarded luxury, redirected through a lattice of mirrors, and sold by the minute. The deeper you go, the more ruthless the competition gets, all for a simple ray of sunshine.</p>
+<h3 id="ankomeido"><a class="header" href="#ankomeido">Ankomeido</a></h3>
+<p>Ankomeido is a dense maze of ramshackle apartments and neon-lit alleyways, its crisscrossing rooftops strung with tangled power lines, repurposed from the Gigadrill Elevator’s auxiliary circuits.</p>
+<p>The street markets are famous across the Pits, as a shanty market of stallholders offering sizzling skewers, fragrant broths, and razor-thin slices of spiced meat, but the district’s culinary reputation is a carefully curated illusion. The kitchens double as fronts for smuggling, laundering schemes, and assassination contracts. In such a stall, a dish can be ordered “dry” or “wet”, the former meaning a clean kill, the latter, something messier.</p>
+<p>At the heart of Ankomeido sits the Leaf House, an unassuming two-story teahouse tucked behind a lacquered gate with a rooftop garden overlooking the plasma-lit abyss of Pit 3.</p>
+<p>Inside this sanctuary of steeped tea leaves and hushed conversations, deals are struck over porcelain cups, assassins break fortune cookies to reveal their contracts, and merchants hedge their illicit futures on contraband smuggled into Misteria, Volcor, and the Northern Realms.</p>
+<p>Once a key figure in the Running Tigers’ smuggling operation, Jemjang runs the teahouse as a formidable fixer and information broker, her influence stretching well beyond the confines of Ankomeido.</p>
+<h3 id="the-seethe"><a class="header" href="#the-seethe">The Seethe</a></h3>
+<p>A web of flooded tunnels and sunken caves, the Seethe flows beneath the Pits like an underground ocean, with its own tidal swamps. The industrial runoff from Metrix trickles down into the waters of the Seethe, turning stagnant pools into bubbling pits.</p>
+<p>Baron Drip rules here, a crime lord who rations every drop of clean water in the Pits through a siphon network. To drink is to owe him. His toll is steep, and mercy costly. Those who can’t pay are pressed into service, vanishing into the fleets of reinforced skiffs that slip through the half-sunken tunnels, seeing to the Baron’s many illicit errands.</p>
+<p>Decades of toxic waste has twisted the present marine life into ravenous abominations, most of them blind and phosphorescent. Eel-wolves prowl the canals, their serpentine bodies coiling through the dark, their needle-thin teeth flashing in the gloom. Crimson jellies drift just beneath the surface, pulsing with slow, deliberate hunger. Touching one means agony. Breathing the air near them for too long means madness.</p>
+<p>Still, the Seethe holds value for those brave enough to seek it. Salvagers from the Pits and Metrix, nicknamed ‘Lurkers’ by the Baron, brave its depths, chasing lost cargo, forgotten caches, or hidden routes beyond the city’s reach. The reckless dive for Seethe Pearls, beautiful black orbs pried from the gullets of deep-dwelling mollusks.</p>
+<p>The boldest dive into Miners Reef, where Cogwerx and Teklo dump mining equipment too costly to recycle. Hulking mechs, shattered automatons, and fractured teklatic engines litter the seabed, flickering with power when they should be long dead. Divers strip the wreckage for parts, and sell them on to blacktek mechanologists.</p>
+<h3 id="the-skein"><a class="header" href="#the-skein">The Skein</a></h3>
+<p>The Skein is the last functional mining network in the Pits. Once owned by Blackjack’s Mining, it is now controlled by independent prospectors known as Veiners who willingly risk everything for tenatan.</p>
+<p>Here, the prospectors enforce their own rules. Strength, not law, governs who holds a claim. They mark their territory with scavenged signage, scorched sigils on cave walls, or the bodies of those who dug too close. Camps like Rattlebone and Gutpurse are neutral zones where traders sell gear and rations, engineers rig broken carts for one last haul, and mercenaries sell protection.</p>
+<p>The old Blackjack’s maps now bear little resemblance to the Skein. Rail switches, long since degraded, shift unpredictably, sometimes from decay, more often from tampering. Some tunnels loop back to where they started. Others end abruptly, hurtling the prospector out into the Seethe. Of all routes, the Shuntswitch line is the most terrifying: one wrong turn in this labyrinthine web of shafts and the unlucky Veiner becomes lost forever.</p>
+<p>Yet, the gamble is worth it. A rich tenatan haul buys all the dubious comforts that the Pits can offer.</p>
+<h2 id="skullduggery-and-monstrosity"><a class="header" href="#skullduggery-and-monstrosity">Skullduggery and Monstrosity</a></h2>
+<p>There are no official laws in the Pits, but order exists via organized crime. Trade is the lifeblood of this underworld; trade in anything and everything.</p>
+<blockquote>
+<p><em>“The darkness gives and the darkness takes. That is the way of the Pits.”</em> – Barton Mole</p>
+</blockquote>
+<h4 id="smuggler"><a class="header" href="#smuggler">Smuggler</a></h4>
+<p>The Iron Assembly has banned certain substances, devices and materials deemed too dangerous for the consumption of law-fearing citizens. The Pits has no prohibition. Smugglers readily traffic taboo produce into the city above. Blacktek, drugs, organs and mutant blood: the customers of Metrix may pick their poison.</p>
+<h4 id="mercenary"><a class="header" href="#mercenary">Mercenary</a></h4>
+<p>When strategic violence is called for, Pits mercenaries eagerly answer. Recognizing there is strength in numbers, mercenaries band together into companies. These tactical fighters span the full spectrum of security from private protection to open warfare.</p>
+<h4 id="assassin"><a class="header" href="#assassin">Assassin</a></h4>
+<p>Life might be cheap in the underworld, but a designer murder comes with a premium price tag. Trained in covert operations, these consummate killers are experts in disguise. They specialize in killing hard-to-reach targets, and can leave a clean scene or a bloody mess, depending on whether the client wishes to make an elimination or a statement.</p>
+<h4 id="fixer"><a class="header" href="#fixer">Fixer</a></h4>
+<p>Fixers are the keen eyes and ears of the Pits. They trade in favors, exploit weaknesses, and manipulate through fear and shame. If there’s a dirty deal to be done, there’s a fixer behind it, mopping up the mess and taking their cut.</p>
+<h4 id="apothecary"><a class="header" href="#apothecary">Apothecary</a></h4>
+<p>Where toxicity is a way of life, no line can be drawn between medicine and nostrum. Devious druggists play fast and loose with shady principles of alchemy, stocking their shelves with snake oil remedies, escapist concoctions, and vile poisons.</p>
+<h2 id="gangs"><a class="header" href="#gangs">Gangs</a></h2>
+<p>Most “Pitsers” come from somewhere else. Cast out or on the run, Rathe’s dissidents and delinquents seek safety in numbers. A gang offers survival, strength, something to live and die for.</p>
+<h4 id="blockheads"><a class="header" href="#blockheads">Blockheads</a></h4>
+<p>Muscle is the meat of Blockhead life, and brutality is the gravy. Picked for their brawn, trained in brawling, Blockheads bludgeon the competition into a pulp. They have beaten the territory of Southmaw into bloody submission, and none have opposed them since.</p>
+<h4 id="torched"><a class="header" href="#torched">Torched</a></h4>
+<p>These pyromaniacs wear their burn scars as badges of honor. Headquartered in the Slick, a polluted area surrounding an abandoned Cogwerx oil rig, the Torched specialize in extortion, protecting Pits businesses from ‘random’ acts of arson.</p>
+<h4 id="numbskulls"><a class="header" href="#numbskulls">Numbskulls</a></h4>
+<p>Dominating a cave system near Ankomeido known colloquially as Boneyard, the Numbskulls live off armed robbery and the dealing of tripmush narcotics. To incite terror, these gangers boil the flesh from their murder victims and wear their bones as trophies.</p>
+<h4 id="jawbreakers"><a class="header" href="#jawbreakers">Jawbreakers</a></h4>
+<p>In the sulfurous, geothermal reaches of the Skein, these volatile criminals trade in explosives—the Jawbreakers’ tool of choice. Competitors are ‘dissuaded’ by having a pipe bomb shoved down their throat.</p>
+<h4 id="piranhas"><a class="header" href="#piranhas">Piranhas</a></h4>
+<p>With teeth filed to predatory points, the Piranhas run the gambling houses and loan sharks of the central Pits slums. To borrow money from the Piranhas is to lose an arm and a leg in interest… literally.</p>
+<h4 id="freakshow"><a class="header" href="#freakshow">Freakshow</a></h4>
+<p>Hailing from Seetheside, Freakshow openly exploits their mutated neighbors. These smugglers trade in mutant specimens and biological oddities, and protect their macabre supply chains with half-starved ‘pet’ dregs.</p>
+<h2 id="plagues-of-the-pits"><a class="header" href="#plagues-of-the-pits">Plagues of the Pits</a></h2>
+<p>Three insidious plagues dominate the Pits, weaving through the lives of its inhabitants: Frailty, Bloodrot Pox, and Inertia.</p>
+<h4 id="frailty"><a class="header" href="#frailty">Frailty</a></h4>
+<p>Once a renowned healer, Achlys, the hag of Mojire, sought a remedy to her own affliction; instead, she unleashed a curse. In her swamp-bound lair deep within the Skein, she blended rare herbs with dangerous alchemy, mutating the wasting disease that infected her own body. Now, those struck down by Frailty wither like salted fish. Each day, they become drier, more brittle, their bodies betraying them one listless breath at a time. Some claim Achlys still lingers, her body desiccated, her sunken gaze still searching for a cure.</p>
+<h4 id="bloodrot-pox"><a class="header" href="#bloodrot-pox">Bloodrot Pox</a></h4>
+<p>Deep in the Savage Lands, grows a moss known locally as Bloodroot. When alchemists ripped the moss from its homeland, they mutated it into a plague that devoured its victims from the inside out. Bloodrot Pox festers in open wounds, spreading fever, necrosis, and an itch that cannot be scratched away. The plague was quarantined and exterminated in Metrix, but was carried via wastewater into the Pits. Now entire neighborhoods are torched to contain outbreaks, but the disease always returns, spreading from the dark corners of the Pits where the unscrupulous trade it as a poison-wrapped death wish.</p>
+<h4 id="inertia"><a class="header" href="#inertia">Inertia</a></h4>
+<p>Patient Zero was a dumpling courier in Ankomeido. At first she simply slowed down, her body and mind becoming increasingly sluggish. The lethargy deepened over many days until she barely had the energy to speak, let alone eat. Eventually she passed away, but only after a long period of paralysis. As the cases continued, the people of the Pits came to learn the true cruelty of Inertia. For everything it took, it gave a little back, extending the victim’s suffering beyond any sane tolerance.</p>
+<h2 id="dregs"><a class="header" href="#dregs">Dregs</a></h2>
+<p>“<em>Whilst the Pits is home to a variety of outcasts, even the gruffest mercenary might think twice before tangling with a dreg. Not because of any inherent dreg strength or viciousness, but rather because you can never know what sort of dreg you are facing until it is too late.</em></p>
+<p><em>The existence of dregs has long been linked to the industrial run-off, chemicals, and toxic tailing ponds that can be found all across the Pits; however, the evidence for a direct link is limited. For example, both Pits 2 and 3 are permeated by toxins from similar sources both within the Pits and from Metrix above, yet only Pit 3 ‘produces’ a large number of dregs. Residents of Pit 2 are far more likely to suffer common illnesses and premature death than the strange mutations seen among the dreg population.</em></p>
+<p><em>Whatever the source, the result is that these people have mutated into something ‘other’. Dregs undergo physical transformations that include, but are not limited to, hair loss, darkening of the whites of the eyes, thickening of the skin, and the toughening of finger and toenails into something resembling claws. Other changes vary from one dreg to the next. Some dregs grow huge and monstrous, their humanity barely able to be glimpsed beneath new masses of flesh and muscle. Other dregs become thin, looking emaciated, but gaining in agility, becoming better able to traverse otherwise impossibly tight spaces. In rare cases, dregs have been seen to exhibit more exotic mutations, such as bioluminescence, chameleon-like skin adaptations, and even stranger abilities that border on the arcane.</em></p>
+<p><em>Dregs also experience other, unseen mutations. It was long assumed that all dregs became vicious and animalistic after their transformation, but this is likely a result of skewed sampling. Most times, when denizens of the Pits come across a dreg, it will be a more bestial sort, driven from their home by their more human counterparts. But a close study of dregs has shown that, in terms of intellect, they exist on a wide spectrum. At one end is the base dreg, relying on instinct and animal force to survive. At the other end are dregs that have not only retained their higher cognitive functions but have experienced an increase in acuity. These more cogent dregs could one day prove to be a dangerous element, but for the moment their heads look rather fetching when mounted upon my gallery walls.</em>“</p>
+<p>— Kavdaen, Trader of Skins</p>
+<h2 id="organizations"><a class="header" href="#organizations">Organizations</a></h2>
+<p>Spanning the shadow-gray border between legality and criminality, Pits organizations provide much-needed connections with the outside world of Rathe. Better run, better funded than the gangs, these organizations wield power unrivaled in the underworld.</p>
+<h3 id="blackjacks-mercenary-company"><a class="header" href="#blackjacks-mercenary-company">Blackjack’s Mercenary Company</a></h3>
+<p>A militant offshoot of the Blackjack’s Mining Corporation, this subsidiary brokers the largest pool of freelance mercenaries in Rathe. From its headquarters at Blackjack’s Tavern in the Pits, the company provides security, peacekeeping, and black ops solutions for clients far and wide. If one has a penchant for violence, then a steady living can be made with Blackjack’s Mercenary Company.</p>
+<p>Greenbird, proprietor of Blackjack’s Tavern, doubles as a fixer for mercenaries. A ‘reformed’ card sharp, Greenbird uses cards of his own creation to organize his contracts.</p>
+<p>From his stacks, one can draw a wide variety of deadly jobs, and that same card is expected to be returned to Blackjack’s as proof of contract completion.</p>
+<h3 id="southmaw-asylum"><a class="header" href="#southmaw-asylum">Southmaw Asylum</a></h3>
+<p>Southmaw Asylum began as a safehouse for Metrix’s wealthy malcontents, for those too unstable, inconvenient, or dangerous for polite society. But it has long since abandoned the pretense of care. Hidden in the depths of the Pits, it thrives as a center for unethical study: a place where research, suffering, and commerce intertwine.</p>
+<p>The halls echo with the cries of unwilling subjects, their agony dissected in pursuit of warped innovation. Those discharged from Southmaw are changed into something other than human. For the right price, Southmaw’s researchers sell biological augments, neurochemical enhancers, and surgical modifications, pushing the limits of the human form. In the black markets of Metrix, corporations will pay handsomely for an unnatural edge over their competitors.</p>
+<p>But Southmaw is more than an institution, it is an economy. The district that surrounds it lives off its horrors. The nearby merchants, mechanics, and smugglers all profit from its needs: selling off equipment, raw materials, and fresh flesh to the asylum. Orderlies patrol its streets, ensuring silence through fear. No one speaks out. No one questions. Most within the Southmaw community do not view the asylum as a prison, and prefer to believe it is a founding pillar and consistent source of prosperity.</p>
+<p>When an inmate breaches the asylum walls, sirens blare as sick-stick-wielding orderlies hunt them through the streets. And if the escapee is fast or smart enough to evade the orderlies, freedom is short-lived as informants and bounty hunters await in the surrounding tunnels.</p>
+<p>However, the asylum’s greatest secret is not what it has created, but what it has failed to contain: experiments lost in the dark, patients unaccounted for, things that no longer resemble people at all.</p>
+<h3 id="the-spider"><a class="header" href="#the-spider">The Spider</a></h3>
+<p>No politics. No causes. Only coin. The Spider is less an organization and more an economy of death. A decentralized network of professional kills, its assassins are grouped into “nests”, and each nest is overseen by a ruthless broker who doles out the contracts. Once hired, these killers scurry unseen across Rathe, striking down targets without remorse.</p>
+<p>No one applies to join the Spider. Recruits are chosen. Plucked from the broken and the expendable. Molded into specialists who kill without conscience. Some are trained for close quarters, wielding blades laced with poison. Others perfect long-range eliminations. A rare few turn death into an art, vanishing their marks so completely that nothing—body, trace, or suspicion—remains.</p>
+<p>Each nest operates alone, bound only by the code of the Spider. Break the code—fail a contract, betray a nest—and become the contract.</p>
+<h3 id="lapocalypta"><a class="header" href="#lapocalypta">L’Apocalypta</a></h3>
+<p><em>“The world may end, yet we shall endure.”</em> — Mantra of Chaos</p>
+<p>Operating in the darkest corners of Rathe, L’Apocalypta is a cult of Chaos orchestrating catastrophes in service of its apocalyptic doctrine.</p>
+<p>Entire revolutions have been ushered into existence by their agents, and powers toppled by their unseen hand. Famines that have crippled cities, plagues that have torn through lands, many bear their mark.</p>
+<p>L’Apocalypta believes the coming devastation is inevitable: an upheaval that will wipe civilization from existence. They believe the people of Rathe must learn to navigate the cataclysmic change to come. Their purpose is not to prevent it, but to prepare humanity to survive it.</p>
+<p>So it was written by the great prophet, Anarch Zeir, who journeyed deeper into the Pits than any before, and returned to pen a most disturbed discourse. Feverishly inked beside a ravine, it was bound in fungus-leather and sealed against damp with pitch-black bile drawn from the prophet’s own baptismal pool. It was meant for the faithful who had waited for Zeir’s return. It became a terrifying tool for spreading dissent.</p>
+<p>Other tomes followed, for the first devolved into maddened scratchings in its latter pages. Zeir’s mind broke under the strain of anarchic exegesis before he could fully capture his visions from the deep. One book became many as successive anarchs, drawn to the same pilgrimage, returned from the depths with new insights. And each wrote themselves into insanity, their coherence dripping away, minds hemorrhaging like ink from a tumbled pot. The tomes accumulated, each raving author insisting it had reached deeper, seen clearer, suffered more truth. With every new anarch, the narrative grew more unhinged. The books became their own kind of Pits: layered, lightless, alive with echoing voices.</p>
+<p>And now that Rathe is listening, what will the bedlam chorus of L’Apocalypta portend next?</p>
+<!-- fablore-related:start -->
+<section class="related-section" aria-label="Related Lore">
+<h1 id="related-lore"><a class="header" href="#related-lore">Related Lore</a></h1>
+<div class="related-cards">
+<a class="related-card" href="metrix.html#coppertown">
+<span class="related-card-body">
+<span class="related-card-type">Location</span>
+<span class="related-card-title">Coppertown</span>
+</span>
+<span class="related-card-sub">Metrix</span>
+</a>
+<a class="related-card" href="metrix.html#gigadrill-elevator">
+<span class="related-card-body">
+<span class="related-card-type">Location</span>
+<span class="related-card-title">Gigadrill Elevator</span>
+</span>
+<span class="related-card-sub">Metrix</span>
+</a>
+<a class="related-card" href="metrix.html#iron-assembly">
+<span class="related-card-body">
+<span class="related-card-type">Location</span>
+<span class="related-card-title">Iron Assembly</span>
+</span>
+<span class="related-card-sub">Metrix</span>
+</a>
+</div></section>
+<!-- fablore-related:end -->
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../world-of-rathe/nebulus-rift.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../world-of-rathe/savage-lands.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+
+                <footer class="site-footer">
+                    <a href="../content-creators.html">Content Creators</a>
+                    <span aria-hidden="true">·</span>
+                    <a href="../about.html">About</a>
+                    <span aria-hidden="true">·</span>
+                    <a href="../support.html">Support the Site</a>
+                </footer>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../world-of-rathe/nebulus-rift.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../world-of-rathe/savage-lands.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+            <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" title="Back to top" aria-hidden="true" tabindex="-1">
+                <i class="fa fa-arrow-up" aria-hidden="true"></i>
+            </button>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../tab.js"></script>
+        <script src="../back-to-top.js"></script>
+        <script src="../hero-hub.js"></script>
+        <script src="../bionic.js"></script>
+        <script src="../theme/pagetoc.js"></script>
+        <script src="../theme/hints.js"></script>
+        <script src="../theme/related.js"></script>
+        <script src="../narrated-videos.js"></script>
+        <script src="../theme/browse.js"></script>
+        <script src="../theme/hero-filter.js"></script>
+
+
+    </div>
+    </body>
+</html>

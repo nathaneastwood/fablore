@@ -1,0 +1,255 @@
+# AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Database class in src/data/db/ (db.upsert_story).
+CharacterId|Name|Species|Status|OtherCharactersStoryKey
+LCdf6740910f|Achlys, hag of Mojire|Human|Unknown|
+LC1e8f706fca|Aegis, the Shield of Light|Herald|Unknown|
+LC54a776de1a|Aelius|Human|Dead|
+LCc10baca506|Aesir of Flames|Aesir|Unknown|
+LC391a4feeb5|Aios|Human|Alive|
+LCa6985f5071|Akuo|Human|Unknown|
+LC8c3fb8f946|Alif|Human|Alive|
+LC35b82717e6|Alosyn|Human|Unknown|
+LC1574ad62d4|Amir|Human|Unknown|
+LCfae0e3bb79|Amira Surana|Unknown|Unknown|
+LCd5f3905e87|Anarch Zeir|Human|Unknown|
+LC0440d6a0af|Anhe, Kotori Wavebender|Human|Unknown|
+LC8e2e606043|Apostate|Human|Unknown|
+LC2670d21cfe|Astier|Human|Unknown|
+LCd57e95e367|Astra Morena|Unknown|Unknown|
+LCb63c49c98d|Ateia|Unknown|Unknown|
+LC56f5b484c9|Aurea, Champion of the Dawn|Human|Unknown|
+LC4e2330f32a|Aurelius|Horse|Unknown|
+LC3185db92e6|Avalon, Messenger of the Dawn|Herald|Unknown|
+LCb834866543|Bam Bam|Brute|Unknown|
+LC0c3b896cc5|Baron the Butcher|Human|Dead|
+LCc87c802d32|Bartrand the Bloody|Human|Unknown|
+LC3cbe23777a|Barus Boldstride|Human|Unknown|
+LC8ba0436436|Batbiter|Unknown|Unknown|
+LCef9b462f01|Bazz|Human|Dead|
+LC7c839ea6a4|Beezy the Brash|Human|Dead|
+LC28de0aecb4|Bellona, the Wartune Herald|Herald|Unknown|
+LC5eda4b69e2|Biski|Dog|Unknown|
+LC07847c27b2|Blind Boggy|Unknown|Unknown|
+LCfaba5ba58a|Bojani|Human|Dead|
+LCbf9d6cfaac|Braumeister Balen|Human|Unknown|
+LC2fc92f5f48|Brewmeister Marv|Human|Unknown|
+LCcac9397d56|Brutus, Summa Rudis|Unknown|Unknown|
+LCc97ec89048|Butcher Jek|Human|Unknown|
+LC931eb6a232|Buttons|Human|Alive|
+LC5514d76067|Captain Cooder of the Swiftwater / Warden Cooder|Human|Unknown|
+LC072303ef3a|Captain Grit Jabir|Human|Unknown|
+LCee2ff4f5e1|Captain Juka|Human|Unknown|
+LC83faf4f515|Captain Klow|Human|Unknown|
+LCa545cf1190|Captain Moody|Human|Dead|
+LC19baf7a764|Captain Rue|Human|Unknown|
+LC8a414834a0|Captain Vanegull|Human|Unknown|
+LCc8939b7099|Caylin|Human|Dead|
+LC9e53fe9cb1|Caylin's mother|Human|Dead|
+LC4e6606fb43|Chancellor Helena Primavera|Human|Unknown|
+LC65a559d397|Chancellor Hypatia|Human|Unknown|
+LC4a2b5e1822|Charlotte|Dogg|Unknown|
+LC1f0d5d73d0|Chiara Suncrest|Unknown|Unknown|
+LCf19f1ec92f|Chum|Zombie|Dead|
+LCfded586871|Cirrus|Human|Unknown|
+LCbb2fc5d0dc|Countess Camilla|Unknown|Unknown|
+LCf479f1823a|Cutty|Zombie|Dead|
+LC1aa6cbc421|Dan Lu, Kotori Galewarden|Human|Unknown|
+LC9739559960|Danu Ashenguard|Human|Unknown|
+LC249c47aa90|Darian|Human|Dead|
+LCdba8b18154|Davnir|Ancient of Earth and Lightning|Dead|
+LC0a68d90ca3|Daxius|Human|Dead|
+LCe7b99f643d|Demetrios|Brute|Dead|
+LCf1bd74fe43|Dervin, Master of Beasts|Human|Unknown|
+LC3e69de262d|Dheric|Human|Dead|
+LC6d0dca761a|Dr. Krest Mortimer, 'The Fixer'|Human|Alive|other-characters/krest-mortimer.md
+LCbe50c5ea7f|Dr. Wyverstone|Human|Unknown|
+LCc3ac9661d5|Duke Drexen|Human|Unknown|
+LC7f363e11d8|Dunric Vargas|Human|Unknown|
+LC87b280ede4|Ebba|Human|Alive|
+LCb95a224ce9|Efaris Brittlebone|Human|Unknown|
+LCe837ee4005|Einar|Human|Unknown|
+LCfd06f99a22|Eirina|Human Cleric|Dead|
+LC339dd1bb6e|Eldon, Lost Knight|Human|Unknown|
+LCb80f3e1e8c|Elias Edgecombe|Human|Unknown|
+LC8f9c87c4b6|Emeviere|Unknown|Unknown|
+LCc0d8c53cd3|Enforcer Eesha|Human|Unknown|
+LC0a737d2abe|Ersebet|Unknown|Unknown|
+LCd45c496548|Executive Smyte|Human|Unknown|
+LC3ad7ebeb1b|Farin the Porter|Human|Unknown|
+LCba94fcbd54|Fayyad|Human|Alive|
+LCdb013e753c|Feral|Human|Unknown|
+LC1454a20f37|Fightmaster Kox|Goblin|Unknown|
+LC6acca24d74|Fightmaster Rusty|Dwarf|Unknown|
+LCbea5830559|Flannigan|Human|Unknown|
+LC7307fc2cbf|Fyanna Redmoor, Boltyn's cousin|Human|Unknown|
+LC297e082f2b|Galaphor|Human|Dead|
+LC2be5f35ac9|General Chul|Human|Unknown|
+LCb63e06ebf2|General Ekoda|Human|Unknown|
+LC99878cc3a3|General Nakami|Human|Unknown|
+LCed66c0f929|General Riku|Human|Dead|
+LCcb42576a44|General Yamatoka|Human|Alive|
+LC1b2b049cb6|Giantslayer Crix|Human|Unknown|
+LC3a3bf0afca|Governor Practiss|Human|Unknown|
+LC24444467d6|Graham the Gallant|Human|Unknown|
+LC2dff6260a6|Grand Magister, the Adamant|Human|Assumed Dead|
+LC4726dd1d21|Grand Magister, the Beloved|Human|Assumed Dead|
+LC91740cb310|Grand Magister, the Devout|Human|Assumed Dead|
+LCb1c9d31e49|Grand Magister, the Radiant|Human|Assumed Dead|
+LC4297c6b894|Grand Magister, the Steadfast|Human|Alive|
+LC8b0e17d5f6|Grandmaster Li|Human|Unknown|
+LC0b30b44cf8|Greenbird|Human|Alive|
+LC6f2646d21a|Grota|Human|Alive|
+LC24d56fd5fb|Gudo, Mistward Pilgrim|Human|Unknown|
+LC40cdd65408|Hala Goldenhelm|Human|Unknown|
+LC0a99b793f4|Hank|Human|Alive|
+LCdce09a1021|Harland|Unknown|Unknown|
+LC594fe0e095|Harold Honeysett|Human|Unknown|
+LCd801a97288|Hightarn|Witch|Dead|
+LCad8a0dfe2e|Hildegun|Human|Unknown|
+LC0dea71e888|Hirei|Human|Unknown|
+LC3731099bfd|Hisato|Human|Unknown|
+LC96e436883f|Hog|Human|Dead|
+LCdb3bed3d1e|Huxley|Human|Unknown|
+LC009a01eae7|Hyrinth|Diviner|Unknown|
+LC23c03436f2|Jackdaw|Human|Alive|
+LC035adff2ca|Jeeves|Human|Unknown|
+LC5ee8d8a3e0|Jemjang|Human|Dead|
+LCa9b12b4e7e|Jezabelle, Everfest Healer and Allsorts|Human|Unknown|
+LCd12753f60a|Jigsaw|Human|Alive|
+LC8dd835b4f3|Jing|Human|Alive|
+LCa5ad895656|Juice|Human|Unknown|
+LC81d5897f36|Jules Teklovossen|Human|Alive|
+LCb958319b2b|Kalsharpe|Human|Unknown|
+LC93dd0e7882|Karalyn|Unknown|Unknown|
+LC42ade31c47|Kayat|Illusionist|Dead|
+LCc77292488a|Kaysin|Maela Soothsayer|Unknown|
+LCce8fc595b3|Kazuo|Human|Dead|
+LC33e5580db5|Kelpie|Zombie|Dead|
+LCd4fc003242|Kirigami|Unknown|Unknown|
+LC89d47c1440|Knuckles|Human|Dead|
+LC47e52eb469|Kossen|Human|Unknown|
+LCd7baf408ac|Kouki|Human|Unknown|
+LCbb44bf07cf|Kyle|Human|Unknown|
+LCe818ee96b7|Lady Bartimont|Unknown|Unknown|other-characters/lady-bartimont.md
+LCfd2eaa9c2a|Lady Vera Sutcliffe|Human|Unknown|
+LC00b6e15f71|Lena Belle|Human|Alive|
+LCab4b2b6f5c|Lieutenant Li|Human|Unknown|
+LCd6597ac84b|Lieutenant Timaeus|Human|Unknown|
+LCd5d5a7e87c|Lieutenant Yamada|Human|Dead|
+LC5a4933979c|Lilja|Human|Unknown|
+LC52e4ae7d2b|Limpit|Zombie|Dead|
+LC06fe4efa62|Linnea, Mistress of Malady|Human|Unknown|
+LC69ccf1691b|Lishu, Crimson Haze Vigilante|Human|Unknown|
+LC9ce241686a|Lord Merchant Savai|Human|Dead|
+LC6cb0f081d1|Lord Sabuto|Human|Unknown|
+LC6e4bf9ad33|Lord Sutcliffe|Human|Just a head|other-characters/lord-sutcliffe.md
+LCba73fb74c1|Lord Wizard Chiyo|Wizard|Dead|
+LC1c1e7f6cb0|Luca, Arena Cicerone|Human|Alive|
+LC8bac65571d|Mabon|Human|Unknown|
+LC69108e988b|Mad Siv|Unknown|Unknown|
+LC496fc90d2f|Madam Rouge|Human|Dead|
+LC5621c46870|Maela Fairmind|Unknown|Unknown|
+LCb93e68286c|Magistrate Chen|Human|Unknown|
+LC72a78ff51a|Magnus the Vigilant|Human|Unknown|
+LC8a88fbb234|Magpie|Human|Alive|
+LCbb2046d3c6|Marcus 'Mauler' Monroe|Human|Alive|
+LC7cff182d16|Master Morita, Art of the Hand|Human|Unknown|
+LCf54c332041|Master Udo|Human|Unknown|
+LCcf407fe3ea|Maxwell|Human|Unknown|
+LC121a54e31e|Meldrick Sudds|Human|Alive|
+LC19bf107f74|Merlen Rivera|Human|Unknown|
+LCceda0e3bc1|Metis, Archangel of Tenacity|Herald|Unknown|
+LC5a9e67380a|Miku|Human|Unknown|
+LCd747e17e7c|Min of the Forest of Flames|Human|Unknown|
+LC813d110fa8|Minerva Themis|Unknown|Unknown|other-characters/minerva-themis.md
+LCcc40f45af6|Miss Q|Unknown|Unknown|
+LCb358f9b28f|Molly the Mop|Human|Alive|
+LCf519ee5f92|Moloca|Unknown|Unknown|
+LC5d1869c61a|Moray Le Fay|Zombie Sea Witch|Dead|
+LC3b62daa8a1|Morga, Grinning Boar Cantina Barmaid|Human|Unknown|
+LC639e372062|Mutinous Maggie|Human|Unknown|
+LCb84dc8ad8f|Nailbit Nari|Human|Unknown|
+LC65e950c62c|Narakir|Welkin|Unknown|
+LC42314fbf25|Nestus|Unknown|Unknown|
+LC194cbdcc14|Ning, Kotori Moonseeker|Human|Unknown|
+LC5ba21fd4a7|Njeri|Human|Unknown|
+LC2b8d1477e8|One Eye|Human|Alive|
+LCc5d5e47202|Otmar|Human|Unknown|
+LC26ffffff1b|Overseer Crichton|Human|Dead|
+LC3a3667de6c|Ozrim|Rosetta|Unknown|
+LC882126e906|Pearl Sandhri|Human|Alive|
+LC9d65c7a015|Pelorus|Human|Alive|
+LC1d21c10541|Pinwheel|Human|Dead|
+LCe6ae800e3a|Polly Cranka|Parrot|Alive|
+LC80a602c7f5|Professor Min|Human|Unknown|
+LC817c7ae851|Prospector Cogmire|Human|Unknown|
+LCdfc7e3b71b|Quarrel|Human|Alive|
+LCd3c5ca0a26|Queen of Candlehold|Rosetta|Gone|
+LC24173e2b7a|Ragnar Frosthelm|Human|Unknown|
+LCa9c969795d|Raven, Aesir of Chaos|Aesir|Unknown|
+LCb7b4a009bd|Ray Stingeye|Human|Unknown|
+LCe21d6f009b|Reina, Spirit Caller|Human|Unknown|
+LCa7ddcd54c1|Rex Biggun|Human|Unknown|
+LCf27abafd3e|Rez|Human|Unknown|
+LCea872d1e04|Ricky Royce|Human|Unknown|
+LCbcd97dcb81|Riggermortis|Zombie|Dead|
+LCeceaa19a30|Rigo|Robot|Spider-bot assistant to Jules Teklovossen|
+LC8a778280c3|Rupius, Auric Scrollmaster|Human|Unknown|
+LCb25d0fd93f|Sada|Sorceress|Alive|
+LC19d7a71e72|Sandy Shoo|Human|Unknown|
+LCa711b0f57f|Sanni|Human|Unknown|
+LCf1763d2638|Satsuki|Human|Alive|
+LC7cd3ab2fd8|Sayashi Cara|Human|Unknown|
+LCdedab8406b|Scooba|Zombie Dog|Dead|
+LCcb32988a63|Sekem, Archangel of Ravages|Herald|Unknown|
+LC61e880ca4c|Septus|Unknown|Unknown|
+LC6a67c3f031|Seraphina|Human|Unknown|
+LC29070da1e3|Seto of Miharu|Human|Alive|
+LC8f61337772|Shelly|Zombie|Dead|
+LC04251c7f5f|Shio|Human|Unknown|
+LC9107eddb94|Shiro|Human|Alive|
+LC6072c79313|Sidriz|Wizard|Unknown|
+LC096b229a18|Slapstick Sal|Unknown|Unknown|
+LCabd83d0d17|Slinger|Human|Alive|
+LCf7d2caa234|Soren|Human|Unknown|
+LC96a28dddf7|Speakeasy|Unknown|Unknown|
+LCc045ab8338|Spokes|Human|Unknown|
+LC769793085e|Squidge|Human|Dead|
+LCf88cae0a21|Sticky Fingers|Octopus|Alive|
+LCf4c51f268b|Sumire|Human|Unknown|
+LC40ff807dec|Suraj the Oracle|Human|Unknown|
+LCdc1e38974e|Suraya, Archangel of Knowledge|Herald|Unknown|
+LCff3816ea22|Swabbie|Zombie|Dead|
+LC824d079bd9|Swiller Saltbeard|Human|Unknown|
+LC0a57040086|Syberys|Wizard|Unknown|
+LC628ef58925|Synthea Teklo|Human|Unknown|
+LC617fb8be79|Synveri|Human|Unknown|
+LC6f5bebae87|Taka|Human|Alive|
+LCda1c3a3f91|Taskmaster Pyrion|Human|Unknown|
+LCbfa72c7fb4|Templar Timaerus|Human|Unknown|
+LCcbf5f7e513|Tetzuo|Human|Alive|
+LC158fd93075|The Librarian|Unknown|Unknown|other-characters/the-librarian.md
+LCb091dcfcd8|Thebasto, Magister of Defense|Human|Alive|
+LC8eeac0e51a|Themis, Keeper of the Scales|Herald|Unknown|
+LCcd05407fea|Theodore Hamilton Scarborough|Human|Unknown|
+LC4d5ddaaceb|Thiroux|Human|Unknown|
+LCe8af93aaa7|Thuk|Brute|Unknown|
+LC329be61e55|Tiril|Human|Unknown|
+LCf87c086303|Togark the Wrangler|Human|Dead|
+LC4aabab7242|Tohiro, Eternal Scribe|Human|Unknown|
+LCdf8c802e41|Tomass|Human|Unknown|
+LC5a8977d946|Toroja of Ishigaki|Human|Dead|
+LCfc5618e249|Vail the Vagrant|Human|Unknown|
+LCc8e089c38a|Valgard Hoarfrost|Human|Unknown|
+LCc7f6d322bc|Vera|Human|Unknown|
+LC81f9838c84|Victoria, Archangel of Triumph|Herald|Unknown|
+LC0146024889|Vidya Willowmere|Unknown|Unknown|
+LC2dc65a090b|Wailer|Zombie|Dead|
+LC9f5ae78121|Wheeler|Human|Alive|
+LC559daabac0|Whitetail|Human|Alive|
+LC4f715299cd|Widow Johana|Human|Unknown|
+LCbb4c0f9bd3|Xaine, Runescribe|Human|Dead|
+LC22b2b77838|Xilin|Human|Dead|
+LC8dc6b9afdb|Xin|Human|Unknown|
+LC9c7da0132c|Yarin|Human|Unknown|
+LCa8b0b5fa83|Yunkai|Human|Unknown|
+LC0557749716|Írunaméabh|Unkown|Unknown|
