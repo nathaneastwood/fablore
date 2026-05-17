@@ -85,8 +85,10 @@ def _arc_release_date(slug: str, arcs: dict, sets: dict) -> str:
 
 
 def _arc_sort_key(slug: str, arcs: dict, sets: dict) -> str:
-    set_id = arcs.get(slug, {}).get("SetId", "")
-    return sets.get(set_id, {}).get("InitialReleaseDate", "") or ""
+    arc = arcs.get(slug, {})
+    set_id = arc.get("SetId", "")
+    date = sets.get(set_id, {}).get("InitialReleaseDate", "") if set_id else ""
+    return (date or arc.get("SortDate", "")) or ""
 
 
 def _arc_image(slug: str, arcs: dict) -> str:
