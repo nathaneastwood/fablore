@@ -3,29 +3,29 @@
 # SetId: FK to sets.csv (leave blank when no physical set exists).
 # DisplayName: override label shown in breadcrumbs and hub pages (leave blank to use SetName from sets.csv).
 # ImageLink: S3/CDN URL for the set's marketing image (leave blank until uploaded).
-Slug|SetId|DisplayName|ImageLink
-non-set-cards||Non-Set Cards|
-welcome-to-rathe|WTR||
-arcane-rising|ARC||
-crucible-of-war|CRU||
-monarch|MON||
-tales-of-aria|ELE||
-everfest|EVR||
-interlude||Interlude|
-uprising|UPR||
-dynasty|DYN||
-outsiders|OUT||
-dusk-till-dawn|DTD||
-bright-lights|EVO||
-round-the-table|TCC||
-heavy-hitters|HVY||
-part-the-mistveil|MST||
-rosetta|ROS||
-the-hunted|HNT||
-high-seas|SEA||
-super-slam|SUP||
-compendium-of-rathe|PEN|Compendium of Rathe|
-omens-of-the-third-age||Omens of the Third Age|
-armory-decks||Armory Decks|
-mastery-packs||Mastery Packs|
-roll-of-honour||Roll of Honour|
+Slug|SetId|DisplayName|ImageLink|SortDate
+non-set-cards||Non-Set Cards||
+welcome-to-rathe|WTR|||
+arcane-rising|ARC|||
+crucible-of-war|CRU|||
+monarch|MON|||
+tales-of-aria|ELE|||
+everfest|EVR|||
+interlude||Interlude||2022-04-11
+uprising|UPR|||
+dynasty|DYN|||
+outsiders|OUT|||
+dusk-till-dawn|DTD|||
+bright-lights|EVO|||
+round-the-table|TCC|||
+heavy-hitters|HVY|||
+part-the-mistveil|MST|||
+rosetta|ROS|||
+the-hunted|HNT|||
+high-seas|SEA|||
+super-slam|SUP|||
+compendium-of-rathe|PEN|Compendium of Rathe||
+omens-of-the-third-age|OMN|||
+armory-decks||Armory Decks||2024-11-21
+mastery-packs||Mastery Packs||2025-08-06
+roll-of-honour||Roll of Honour||
