@@ -18,18 +18,12 @@ The terror of the sea sank beneath the surf, only to rise once more. Yet, where 
 
 Gravy Bones now prowls strange tides and the drowning deep, seeking ancient treasures and welcoming those who resist him to join his cadaverous crew. If Death itself couldn't stop Gravy Bones, what hope does anyone else have?
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/gravy-them-bones-they-walk-about.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Them Bones, They Walk About</b><br>
-    Where does a Necromancer go to spend time with old friends? A graveyard! A Pirate captain needs a crew, so from their watery graves they shall rise to sail with Gravy Bones once more.
-  </div>
-</div>
+:::hero-trait Them Bones, They Walk About
+![Them Bones, They Walk About](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/gravy-them-bones-they-walk-about.webp)
+Where does a Necromancer go to spend time with old friends? A graveyard! A Pirate captain needs a crew, so from their watery graves they shall rise to sail with Gravy Bones once more.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/gravy-lost-and-found.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Lost and Found</b><br>
-    Even in death, nothing is ever truly lost. Gravy can throw cards overboard to drown in the deep blue sea, only to fish them back up for some swashbuckling skullduggery.
-  </div>
-</div>
+:::hero-trait Lost and Found
+![Lost and Found](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/gravy-lost-and-found.webp)
+Even in death, nothing is ever truly lost. Gravy can throw cards overboard to drown in the deep blue sea, only to fish them back up for some swashbuckling skullduggery.
+:::

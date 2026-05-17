@@ -14,18 +14,12 @@ Hala would endure anything for Sol, even death. Fighting Brutes in the Savage La
 
 Having faced her own mortality, Hala will defend Solana fearlessly against the Demonastery's hordes until death returns her to her beloved Sol. She will cut through the turmoil with blessed truth until the Shadow is no more.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/forged-in-faith.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Forged in Faith</b><br>
-    Her unwavering templar discipline has made Hala a master of combat and craft. She enhances every flourish by sharpening her blade, stacking up counters so each cut sinks deeper than the last.
-  </div>
-</div>
+:::hero-trait Forged in Faith
+![Forged in Faith](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/forged-in-faith.webp)
+Her unwavering templar discipline has made Hala a master of combat and craft. She enhances every flourish by sharpening her blade, stacking up counters so each cut sinks deeper than the last.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/steel-yourself.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Steel Yourself</b><br>
-    Hala attacks with steady precision, becoming a flurry of steel. Leveraging her Zenith Blade's heft, she continuously strikes twice, compounding the damage of a well-honed edge.
-  </div>
-</div>
+:::hero-trait Steel Yourself
+![Steel Yourself](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/steel-yourself.webp)
+Hala attacks with steady precision, becoming a flurry of steel. Leveraging her Zenith Blade's heft, she continuously strikes twice, compounding the damage of a well-honed edge.
+:::

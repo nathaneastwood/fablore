@@ -5,7 +5,10 @@
     align-content: space-between;
 }
 .hero-icon {
-    max-height: 150px;
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    filter: url(#hero-gold);
 }
 .hero-content {
     margin-top: auto;
@@ -18,12 +21,10 @@
         justify-content: center!important;
     }
     .hero-icon {
-        max-width: 50%!important;
+        width: 120px;
+        height: 120px;
         display: block;
-        margin-top: auto;
-        margin-bottom: auto;
-        margin-left: auto;
-        margin-right: auto;
+        margin: auto;
     }
     .hero-content {
         margin: 0px;

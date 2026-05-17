@@ -12,10 +12,7 @@ Olympia has captivated audiences with his violent showmanship, each clash balanc
 
 The very arena that molded him is now the house that he built. His name, once barely a whisper amongst beggars, now roars amidst the thunderous applause of the crowd. Olympia stands as the powerhouse of the Arena, his legend embodying the strength of the Deathmatch.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/the-ultimate-prized-fighter.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>The Ultimate Prized Fighter</b><br>
-    In Olympia's eyes, there is only the competition of the arena. Every other aspect of his life is just noise. He eats, breathes, and sleeps competition, and believes the only thing worth betting on is himself. To Olympia, ever increasing stakes aren't just a source of livelihood, they are a way to prove his worth and further outshine his opponents after their inevitable defeat.
-  </div>
-</div>
+:::hero-trait The Ultimate Prized Fighter
+![The Ultimate Prized Fighter](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/the-ultimate-prized-fighter.webp)
+In Olympia's eyes, there is only the competition of the arena. Every other aspect of his life is just noise. He eats, breathes, and sleeps competition, and believes the only thing worth betting on is himself. To Olympia, ever increasing stakes aren't just a source of livelihood, they are a way to prove his worth and further outshine his opponents after their inevitable defeat.
+:::

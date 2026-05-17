@@ -12,18 +12,12 @@ In the realm of her teahouse, Nuu is both hostess and seductress, her presence s
 
 With each sip of tea and every flicker of candlelight, Nuu's legacy unfolds, a tale of resourcefulness in the face of adversity and the timeless mystique of the unknown. But beware, for beneath her seductive facade lies a danger as seductive as it is deadly - she is beauty and disaster, both flirtatious and dangerous, luring her victims into the snake's fangs before striking with vicious precision.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/self-destruction-driven-by-seduction.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Self-Destruction Driven by Seduction</b><br>
-    To Nuu, there is nothing more sensual than a murder crafted by the victim's own hands. Slowly and stealthily, Nuu will turn her prey's thoughts, desires, and eventually their very actions to her will.
-  </div>
-</div>
+:::hero-trait Self-Destruction Driven by Seduction
+![Self-Destruction Driven by Seduction](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/self-destruction-driven-by-seduction.webp)
+To Nuu, there is nothing more sensual than a murder crafted by the victim's own hands. Slowly and stealthily, Nuu will turn her prey's thoughts, desires, and eventually their very actions to her will.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/strike-of-the-snake.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Strike of the Snake</b><br>
-    Nuu's prowess isn't limited to the battlefield of the mind. She's able to modify her attacks at a moment's notice, seemingly producing the tools to do so out of thin air.
-  </div>
-</div>
+:::hero-trait Strike of the Snake
+![Strike of the Snake](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/strike-of-the-snake.webp)
+Nuu's prowess isn't limited to the battlefield of the mind. She's able to modify her attacks at a moment's notice, seemingly producing the tools to do so out of thin air.
+:::

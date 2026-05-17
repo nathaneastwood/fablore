@@ -10,18 +10,12 @@ But why stop with me? Remaking myself had been so much fun. Where you might see 
 
 What am I, you ask? Corpse‑stitcher? Scavenger? Macabre haberdasher with graveyard supply chains? Correct, correct, annnnd correct. From my end of the sepulcher, I am a highly resourceful craftswoman, raising the dead to prop up the living.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/frankie-mortal-mannequins.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Gimme A Hand</b><br>
-    When inspiration strikes, Frankie knows exactly where to collect her materials. But if the flesh is unwilling, she has just the right tool to snip away the stubborn bits.
-  </div>
-</div>
+:::hero-trait Gimme A Hand
+![Gimme A Hand](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/frankie-mortal-mannequins.webp)
+When inspiration strikes, Frankie knows exactly where to collect her materials. But if the flesh is unwilling, she has just the right tool to snip away the stubborn bits.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/frankie-gimme-a-hand.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Mortal Mannequins</b><br>
-    Hold tight to your hats and your heads. Whatever the class, size, or shape, Frankie makes the alterations to equip it from the grave.
-  </div>
-</div>
+:::hero-trait Mortal Mannequins
+![Mortal Mannequins](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/frankie-gimme-a-hand.webp)
+Hold tight to your hats and your heads. Whatever the class, size, or shape, Frankie makes the alterations to equip it from the grave.
+:::

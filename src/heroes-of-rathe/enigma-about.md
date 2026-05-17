@@ -12,18 +12,12 @@ As a custodian of the delicate equilibrium between dream and reality, Enigma ens
 
 With nuanced gestures and gentle incantations, Enigma confronts the subtle disturbances that threaten to disrupt the cosmic balance, wielding her knowledge with a quiet grace and precision. Though her origins remain veiled in the mists of time, her steadfast commitment to preserving the delicate harmony of Misteria remains unwavering, her enigmatic presence serving as a subtle shield against an encroaching uncertainty.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/moonlight-made-manifest.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Moonlight Made Manifest</b><br>
-    Should your eyes catch the angle of a moonbeam just right, you might be lucky enough to glimpse your demise before it comes for you. Enigma's reverence for the past gives rise to powerful beings in the present, all ready to spend their existence either protecting Enigma or attacking on her behalf.
-  </div>
-</div>
+:::hero-trait Moonlight Made Manifest
+![Moonlight Made Manifest](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/moonlight-made-manifest.webp)
+Should your eyes catch the angle of a moonbeam just right, you might be lucky enough to glimpse your demise before it comes for you. Enigma's reverence for the past gives rise to powerful beings in the present, all ready to spend their existence either protecting Enigma or attacking on her behalf.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/phases-of-her-plan.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Phases of her Plan</b><br>
-    Enigma knows the flow of a battle will wax and wane. Sometimes Enigma will look to protect her manifestations via her own defenses, other times she will let the spirts ward off the harm that would befall her, and instead spend her resources on building her warding army once more.
-  </div>
-</div>
+:::hero-trait Phases of her Plan
+![Phases of her Plan](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/phases-of-her-plan.webp)
+Enigma knows the flow of a battle will wax and wane. Sometimes Enigma will look to protect her manifestations via her own defenses, other times she will let the spirts ward off the harm that would befall her, and instead spend her resources on building her warding army once more.
+:::

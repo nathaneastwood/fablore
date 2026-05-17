@@ -10,28 +10,19 @@ Not a single whitecoat remembers the person who entered Southmaw Asylum on that 
 
 If you sense it, you are already its victim. If you hear it, you are already dead. It will spare no thought for its wanton violence, for it is descended from madness, Chaos uNh!NG3d, a killer unleashed. Slip, slip. Slip, 5L!p.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/slippy-stealth.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Stealth</b><br>
-    Arakni knows how to keep its targets in the dark. With its ability to play multiple cards with stealth in a turn, you never know what’s hiding around the corner...
-  </div>
-</div>
+:::hero-trait Stealth
+![Stealth](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/slippy-stealth.webp)
+Arakni knows how to keep its targets in the dark. With its ability to play multiple cards with stealth in a turn, you never know what’s hiding around the corner...
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/slippy-terrorize.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Terrorize</b><br>
-    When this Arakni marks a victim, their dreams turn to nightmares. It will terrorize them relentlessly until they welcome the relief of death.
-  </div>
-</div>
+:::hero-trait Terrorize
+![Terrorize](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/slippy-terrorize.webp)
+When this Arakni marks a victim, their dreams turn to nightmares. It will terrorize them relentlessly until they welcome the relief of death.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/slippy-stick-and-stab.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Stick And Stab</b><br>
-    Arakni lunges from the unseen to stick and stab, time and again, then recedes from sight before its target even knows what hit them.
-  </div>
-</div>
+:::hero-trait Stick And Stab
+![Stick And Stab](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/slippy-stick-and-stab.webp)
+Arakni lunges from the unseen to stick and stab, time and again, then recedes from sight before its target even knows what hit them.
+:::
 
 

@@ -10,18 +10,12 @@ When the Ashwood army was decimated by House Goldmane, Pleiades beat a tactical 
 
 Pleiades is as savvy as she is mesmerizing. She has formed a tight warband of musicians, and attracted a veritable army of fans. While her virtuoso performances enrapture the crowd, her days of soldiering have tempered her into a resilient fighter who can handle herself as well in the arena as she does on the stage. So beware any Goldmane that dares to meet her in battle.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/captivate-the-crowd.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Captivate the Crowd</b><br>
-    Pleiades knows how to play the crowd. With a sparkle in her eye, she captivates her fans and foes alike in an aura of suspense that leaves them... dying for more.
-  </div>
-</div>
+:::hero-trait Captivate the Crowd
+![Captivate the Crowd](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/captivate-the-crowd.webp)
+Pleiades knows how to play the crowd. With a sparkle in her eye, she captivates her fans and foes alike in an aura of suspense that leaves them... dying for more.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/superstar.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Superstar</b><br>
-    With the crowd cheering her on, Pleiades' confidence builds into a powerful anthem that can silence even the loudest critics.
-  </div>
-</div>
+:::hero-trait Superstar
+![Superstar](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/superstar.webp)
+With the crowd cheering her on, Pleiades' confidence builds into a powerful anthem that can silence even the loudest critics.
+:::

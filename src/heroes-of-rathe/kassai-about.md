@@ -14,13 +14,10 @@ Between the dangerous lava beasts, wandering ronin, and rampant highwaymen, ther
 
 As the generals grow increasingly aggressive in their quest for power, Kassai senses an opportunity to raise an army, overthrow the traitor lieutenant, and free her family from his clutches. At long last, Kassai might finally have the opportunity to reclaim what is rightfully hers.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/the-price-of-war.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>The Price of War</b><br>
-    Word of war is welcome respite for a sellsword; for where there's war, there's work. The promise of copper to feed herself is enough for this nomadic warrior to put her life on the line, and her mind at ease.
-  </div>
-</div>
+:::hero-trait The Price of War
+![The Price of War](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/the-price-of-war.webp)
+Word of war is welcome respite for a sellsword; for where there's war, there's work. The promise of copper to feed herself is enough for this nomadic warrior to put her life on the line, and her mind at ease.
+:::
 
 ---
 
@@ -41,18 +38,12 @@ Every severed head adds another coin to the pile, and Kassai craves not just wea
 A sandstorm is brewing - carrying whispers of retribution, and at its heart, Kassai stands poised to unleash a fury that will reshape the very landscape of her existence. The sands that bore witness to her fall, will behold her merciless retribution.
 
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/leader-of-the-cintari.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Leader of the Cintari</b><br>
-    Kassai's life in exile had one driving purpose-to seek revenge on the man who brutally ended her father's reign as a powerful General of Volcor. With her fortune made and the loyalty of the Cintari fully bought and paid for, she is finally ready to lead her raised army into battle.
-  </div>
-</div>
+:::hero-trait Leader of the Cintari
+![Leader of the Cintari](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/leader-of-the-cintari.webp)
+Kassai's life in exile had one driving purpose-to seek revenge on the man who brutally ended her father's reign as a powerful General of Volcor. With her fortune made and the loyalty of the Cintari fully bought and paid for, she is finally ready to lead her raised army into battle.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/something-from-nothing.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Something From Nothing</b><br>
-    Kassai's long years in the deserts of Volcor only served to harden her resolve and make her even more resourceful. Seizing every opportunity to load up her coffers, Kassai knows how to turn her efforts in battle into solid gold rewards, and is able to do so while spending fewer resources than the typical Warrior.
-  </div>
-</div>
+:::hero-trait Something From Nothing
+![Something From Nothing](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/something-from-nothing.webp)
+Kassai's long years in the deserts of Volcor only served to harden her resolve and make her even more resourceful. Seizing every opportunity to load up her coffers, Kassai knows how to turn her efforts in battle into solid gold rewards, and is able to do so while spending fewer resources than the typical Warrior.
+:::

@@ -36,6 +36,6 @@ Miragai called upon the spirits of the valley to cease their bewailing and help 
 
 ### Sense Weakness
 
-Snow learned a new color the day Jarl Vetreiđi thawed from the ice. Returned in an age where most have forgotten the horrors of the past, indulged as they are in the glow of ale and song, Jarl simply shrugs and gets to work hunting the remnants of the Old Ones, his bloodthirsty appetite for war a warning to all, monsters and men alike. And though his last great kill lies far behind and today's enemies are fewer and smaller, Jarl remembers them as they were, like an itch that he will do anything to scratch.
+Snow learned a new color the day Jarl Vetreiði thawed from the ice. Returned in an age where most have forgotten the horrors of the past, indulged as they are in the glow of ale and song, Jarl simply shrugs and gets to work hunting the remnants of the Old Ones, his bloodthirsty appetite for war a warning to all, monsters and men alike. And though his last great kill lies far behind and today's enemies are fewer and smaller, Jarl remembers them as they were, like an itch that he will do anything to scratch.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/sense-weakness.webp" alt="sense-weakness" class="center" />

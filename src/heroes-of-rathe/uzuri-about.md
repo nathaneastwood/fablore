@@ -22,18 +22,12 @@ Uzuri understands that information is the foundation upon which any good strateg
 
 She's at the top of her game, and no-one will ever play it better.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/uzuri-switchblade.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Switchblade</b><br>
-    Danger lurks around every corner and it always pays to have an extra trick up your sleeve. Uzuri can switch tactics mid-battle and take out her targets before they even realize they've made a fatal mistake.
-  </div>
-</div>
+:::hero-trait Switchblade
+![Switchblade](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/uzuri-switchblade.webp)
+Danger lurks around every corner and it always pays to have an extra trick up your sleeve. Uzuri can switch tactics mid-battle and take out her targets before they even realize they've made a fatal mistake.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/stealth.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Stealth</b><br>
-    Stealth alone is nothing, but in the hands of a trained Assassin, it is everything. Stealth is a keyword found on certain Assassin cards that can enable powerful effects when combined with the right tools. Master the art of stealth to get the job done quickly and quietly. No fuss, no muss.
-  </div>
-</div>
+:::hero-trait Stealth
+![Stealth](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/stealth.webp)
+Stealth alone is nothing, but in the hands of a trained Assassin, it is everything. Stealth is a keyword found on certain Assassin cards that can enable powerful effects when combined with the right tools. Master the art of stealth to get the job done quickly and quietly. No fuss, no muss.
+:::

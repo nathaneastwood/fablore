@@ -12,18 +12,12 @@ Then one fateful evening, an inferno broke out in the old Plumvex Pipes factory,
 
 There are some visionaries whose perceptions are so far-reaching they exceed the limits of mortal mechanics. It was agreed that Teklovossen be immortalized as a techno-deity and projected on every billboard and media screen in Metrix. These days, his holographic visage serves as a reminder of the city's progress, his gentle encouragement motivating us to become more than we are. More than human.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/suit-up-throw-down.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Suit Up, Throw Down</b><br>
-    Everyone has to start somewhere. Teklovossen builds upon the basics with cutting-edge Evo equipment, encasing himself within mechanized armor that packs some serious firepower. Find all the pieces, upgrade your suit, then stomp the competition!
-  </div>
-</div>
+:::hero-trait Suit Up, Throw Down
+![Suit Up, Throw Down](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/suit-up-throw-down.webp)
+Everyone has to start somewhere. Teklovossen builds upon the basics with cutting-edge Evo equipment, encasing himself within mechanized armor that packs some serious firepower. Find all the pieces, upgrade your suit, then stomp the competition!
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/more-than-human.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>More Than Human</b><br>
-    The father of modern technology in Metrix, Teklovossen strives for better... bolder... brighter. A firm believer in the raw power of human ingenuity, yet bound by the constraints of his mortal flesh, he searches for means to become something more than just man or machine. No price is too high to pay when you're chasing the impossible...
-  </div>
-</div>
+:::hero-trait More Than Human
+![More Than Human](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/more-than-human.webp)
+The father of modern technology in Metrix, Teklovossen strives for better... bolder... brighter. A firm believer in the raw power of human ingenuity, yet bound by the constraints of his mortal flesh, he searches for means to become something more than just man or machine. No price is too high to pay when you're chasing the impossible...
+:::
