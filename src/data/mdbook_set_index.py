@@ -161,7 +161,14 @@ def _set_index_html(
     for sec_map in content.values():
         all_slugs.update(sec_map.keys())
 
-    arc_slugs = sorted(s for s in all_slugs if arcs.get(s, {}).get("SetId"))
+    def _release_sort_key(slug: str) -> str:
+        set_id = arcs.get(slug, {}).get("SetId", "")
+        return sets.get(set_id, {}).get("InitialReleaseDate", "") or ""
+
+    arc_slugs = sorted(
+        (s for s in all_slugs if arcs.get(s, {}).get("SetId")),
+        key=_release_sort_key,
+    )
 
     sections_html: list[str] = []
     for slug in arc_slugs:

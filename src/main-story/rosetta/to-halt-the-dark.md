@@ -2,7 +2,7 @@
 
 Ira crouched at the entrance to the Chrome Caverns, cool air on her face, desert heat at her back. Shiro stopped beside her, passing the order down the line to their cadre of Ninjas.
 
-Though far from home, Ira never heard a word of complaint from her loyal [Crimson Haze](../../main-story/03-crucible-of-war/edge-of-autumn.md). They had stalked the creatures of the Night of the Dark Tide devotedly. Home was but a faded memory, obscured by the gathering mists of many years.
+Though far from home, Ira never heard a word of complaint from her loyal [Crimson Haze](../../main-story/crucible-of-war/edge-of-autumn.md). They had stalked the creatures of the Night of the Dark Tide devotedly. Home was but a faded memory, obscured by the gathering mists of many years.
 
 She looked to Shiro and nodded ahead, where the tracks they followed were swallowed by the open maw of the cavern.
 
@@ -14,7 +14,7 @@ Shiro nodded with a grunt.
 
 Ira entered, the Crimson Haze following close as her shadow, footfalls silent over stone worn smooth by monsoon floods. Either side, the walls were stone tendrils like ribs curling from a spine, the sky above visible, as though chewed through by a giant moth. Stranger beasts than that lived here in East Volcor.
 
-Ira drew her blade, the engraving along the length of [Edge of Autumn](../../main-story/03-crucible-of-war/edge-of-autumn.md) glowing golden in the low light.
+Ira drew her blade, the engraving along the length of [Edge of Autumn](../../main-story/crucible-of-war/edge-of-autumn.md) glowing golden in the low light.
 
 At this, a guttural laugh emanated from deeper in the cavern. "So, you have chosen to die in darkness."
 
@@ -72,7 +72,7 @@ Ira glanced across the fire at him, his eyes heavy with concern and compassion. 
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/to-halt-the-dark-3.webp" alt="to-halt-the-dark-3" class="center" />
 
-She had seen Jing only once in recent years, the lower half of his face hidden behind the mask of the Aui's Scales. But she would recognize those eyes anywhere. The same eyes as their father. [She grimaced thinking of him and his betrayal](../03-crucible-of-war/edge-of-autumn.md).
+She had seen Jing only once in recent years, the lower half of his face hidden behind the mask of the Aui's Scales. But she would recognize those eyes anywhere. The same eyes as their father. [She grimaced thinking of him and his betrayal](../crucible-of-war/edge-of-autumn.md).
 
 "What does it mean?" Shiro asked.
 

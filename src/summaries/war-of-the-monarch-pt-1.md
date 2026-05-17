@@ -10,25 +10,25 @@ The Apostate found refuge on a desolate island in the south seas of Rathe. There
 
 The Demonastery now floats in a liminal space between Rathe and íArathael, sustained and animated by its founder's unholy essence. In every brick and rune, corridor and cell, the Apostate waits with immortal patience for the coming of Dusk and Shadow's ultimate victory over the Light.
 
-Many centuries have passed. In that time, the Demonastery has continued to attract wild thinkers and rebellious heretics from all over Rathe. Some by choice, some by circumstance. [Viserai](../heroes-of-rathe/viserai-about.md), [enslaved and transformed](../main-story/02-arcane-rising/birth-of-the-arknight.md) by the mad fancies of [Lord [Sutcliffe](~Sutcliffe)](../other-characters/lord-sutcliffe.md).
+Many centuries have passed. In that time, the Demonastery has continued to attract wild thinkers and rebellious heretics from all over Rathe. Some by choice, some by circumstance. [Viserai](../heroes-of-rathe/viserai-about.md), [enslaved and transformed](../main-story/arcane-rising/birth-of-the-arknight.md) by the mad fancies of [Lord [Sutcliffe](~Sutcliffe)](../other-characters/lord-sutcliffe.md).
 
-[Chane](../heroes-of-rathe/chane-about.md) and the Disciples of Pain, [hungry to harness the power of Ursur the Soul Reaper](../main-story/04-monarch/emissary-of-the-void.md).
+[Chane](../heroes-of-rathe/chane-about.md) and the Disciples of Pain, [hungry to harness the power of Ursur the Soul Reaper](../main-story/monarch/emissary-of-the-void.md).
 
-[Levia](../heroes-of-rathe/levia-about.md), driven by [Lady Barthimont](../other-characters/lady-bartimont.md) into the [ravening embrace of Blasmophet the Soul Harvester](../main-story/04-monarch/destroy-and-consume.md).
+[Levia](../heroes-of-rathe/levia-about.md), driven by [Lady Barthimont](../other-characters/lady-bartimont.md) into the [ravening embrace of Blasmophet the Soul Harvester](../main-story/monarch/destroy-and-consume.md).
 
 Vynnset, lured into the shadows by the longings of Nasreth the Soul Harrower. And so many more, led by visions and nightmares to the gates of The Demonastery and the beshadowed Embra domains of íArathael beyond.
 
-Seeing Sol as their opposition to true freedom in Rathe, the denizens of The Demonastery have [launched previous attacks against Solana](../main-story/03-crucible-of-war/no-smoke-without-fire.md). Divided in purpose and dogma, these attacks have all fallen short. Yet learning is prized above all else in The Demonastery, every failure studied and dissected. Building upon the sinister works of Lord Sutcliffe and Chane, this dark assembly has harnessed The Dimenxxional Gateway and unleashed a Shadow-born horde upon Solana's lands of Light.
+Seeing Sol as their opposition to true freedom in Rathe, the denizens of The Demonastery have [launched previous attacks against Solana](../main-story/crucible-of-war/no-smoke-without-fire.md). Divided in purpose and dogma, these attacks have all fallen short. Yet learning is prized above all else in The Demonastery, every failure studied and dissected. Building upon the sinister works of Lord Sutcliffe and Chane, this dark assembly has harnessed The Dimenxxional Gateway and unleashed a Shadow-born horde upon Solana's lands of Light.
 
 Against this ineluctable onslaught, Solana's Heroes have fought and suffered.
 
-[Prism](../heroes-of-rathe/prism-about.md) has exhausted every history, every tale in the [Great Library](../archive/world-of-rathe/solana/a-radiant-city.md#the-library-of-illumination). [She has consulted with the Magisters and communed with the Heralds](../main-story/04-monarch/stories-of-illumination.md). She has prayed to Sol for enlightenment and received her answer; her calling. Guided by Suraya, Herald of Knowledge, she looks with yearning eyes beyond Solana's horizons for the dawn of hope.
+[Prism](../heroes-of-rathe/prism-about.md) has exhausted every history, every tale in the [Great Library](../archive/world-of-rathe/solana/a-radiant-city.md#the-library-of-illumination). [She has consulted with the Magisters and communed with the Heralds](../main-story/monarch/stories-of-illumination.md). She has prayed to Sol for enlightenment and received her answer; her calling. Guided by Suraya, Herald of Knowledge, she looks with yearning eyes beyond Solana's horizons for the dawn of hope.
 
-[Ser Boltyn, Breaker of Dawn](../heroes-of-rathe/boltyn-about.md#ser-boltyn-breaker-of-dawn), has [lost his beloved Eirina to the monsters of Shadow](../main-story/04-monarch/sworn-to-protect.md). As an Inquisitor, [watched over by Bellona the Wartune Herald](../main-story/04-monarch/step-into-the-light.md), he now scours the lands, battlegrounds and villages surrounding Solana for the signs and servants of Shadow. He does this for his people, but in his heart, he fights for the survival of his only son.
+[Ser Boltyn, Breaker of Dawn](../heroes-of-rathe/boltyn-about.md#ser-boltyn-breaker-of-dawn), has [lost his beloved Eirina to the monsters of Shadow](../main-story/monarch/sworn-to-protect.md). As an Inquisitor, [watched over by Bellona the Wartune Herald](../main-story/monarch/step-into-the-light.md), he now scours the lands, battlegrounds and villages surrounding Solana for the signs and servants of Shadow. He does this for his people, but in his heart, he fights for the survival of his only son.
 
-[Dorinthea Ironsong](../heroes-of-rathe/dorinthea-about.md) [has seen dear friends consumed by this conflict](../main-story/07-interlude/morlock-hill.md). Her mentor, Minerva Themis, was the latest in a long line of sacrifices for Sol.
+[Dorinthea Ironsong](../heroes-of-rathe/dorinthea-about.md) [has seen dear friends consumed by this conflict](../main-story/interlude/morlock-hill.md). Her mentor, Minerva Themis, was the latest in a long line of sacrifices for Sol.
 
-[Shiyana](../heroes-of-rathe/shiyana-about.md) has [traversed treachery and tragedy to gain aid for her besieged home](../main-story/08-uprising/in-flames.md), [only to be thwarted by assassination and civil war](../main-story/10-outsiders/tidings-in-the-light.md) in [Volcor](../archive/world-of-rathe/volcor/volcor.md).
+[Shiyana](../heroes-of-rathe/shiyana-about.md) has [traversed treachery and tragedy to gain aid for her besieged home](../main-story/uprising/in-flames.md), [only to be thwarted by assassination and civil war](../main-story/outsiders/tidings-in-the-light.md) in [Volcor](../archive/world-of-rathe/volcor/volcor.md).
 
 For the first time since the turning of The Apostate, Solana fears for its future. As the mirrored worlds draw ever closer together, as the progeny of Embra fight the servants of an Aesir, the fate of humanity teeters on the brink.
 
