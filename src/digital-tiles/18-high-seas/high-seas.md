@@ -1,3 +1,5 @@
+# High Seas
+
 ### Chowder, Hearty Cook
 
 Kraken ragout, kulpie terrine, sawmaw soufflé - there was nary an ingredient Gravy's chief cook couldn't turn into a hearty meal. Death may have changed the crew's appetites, but the chef's new Menu de Morbid is sure to satisfy.
