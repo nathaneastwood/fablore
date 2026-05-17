@@ -20,26 +20,17 @@ But with autumn approaching, the world sings a new song, and sweet scents carry 
 
 Verdance has a choice and knows she must decide, for the fate of Candlehold depends on it.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/verdance-bloom-goes-boom.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Bloom Goes Boom</b><br>
-    Cultivate your Earth to enable your hero ability, then reap the rewards of the harvest when new life blooms and arcane booms!
-  </div>
-</div>
+:::hero-trait Bloom Goes Boom
+![Bloom Goes Boom](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/verdance-bloom-goes-boom.webp)
+Cultivate your Earth to enable your hero ability, then reap the rewards of the harvest when new life blooms and arcane booms!
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/verdance-life-tender.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Life Tender</b><br>
-    Verdance is the embodiment of Earth, blooming with a beautiful affinity to the fertile soil of Aria that sees life blossom in her wake. Tasked with preserving the Heartbeat of Candlehold, she is the most apt hero yet at gaining life.
-  </div>
-</div>
+:::hero-trait Life Tender
+![Life Tender](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/verdance-life-tender.webp)
+Verdance is the embodiment of Earth, blooming with a beautiful affinity to the fertile soil of Aria that sees life blossom in her wake. Tasked with preserving the Heartbeat of Candlehold, she is the most apt hero yet at gaining life.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/verdance-battlemage-earth.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Battlemage, Earth</b><br>
-    There's more to Verdance than floral bouquets and nurturing the new shoots of life. Standing behind her strong and resolute are the trunks and branches of the forest. Harness Earth's ground shaking big attacks alongside your arcane spells to go Battlemage Mode!
-  </div>
-</div>
+:::hero-trait Battlemage, Earth
+![Battlemage, Earth](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/verdance-battlemage-earth.webp)
+There's more to Verdance than floral bouquets and nurturing the new shoots of life. Standing behind her strong and resolute are the trunks and branches of the forest. Harness Earth's ground shaking big attacks alongside your arcane spells to go Battlemage Mode!
+:::

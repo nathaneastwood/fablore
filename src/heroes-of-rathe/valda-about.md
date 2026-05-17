@@ -16,21 +16,15 @@ But what she was good at, was brawlin'... and here in Might n' Mead there sure a
 
 There's been stirrings in the [Flow](~TheFlow), and recently, nervous chatters of ancient enemies and the ancients' return have cast a somber wrinkle over the lively taverns of the Everfest. But that no matter to Valda Brightaxe; just don't mess around in the tavern, or she'll treat you to a proper smackdown, on the house!
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/cocky-are-we.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Cocky, Are We?</b><br>
-    "So you're the hot shit are ya? Running ya mouth and thinking ya got a fist full of fire..." Cocky patrons with bad manners set Valda off, and inevitably end up with the ale house shaking in her seismic wake!
-  </div>
-</div>
+:::hero-trait Cocky, Are We?
+![Cocky, Are We?](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/cocky-are-we.webp)
+"So you're the hot shit are ya? Running ya mouth and thinking ya got a fist full of fire..." Cocky patrons with bad manners set Valda off, and inevitably end up with the ale house shaking in her seismic wake!
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/seismic-smackdown.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Seismic Smackdown</b><br>
-    Patrons of <a href="https://legendarystories.net/archive/world-of-rathe/aria/aria.html">Aria</a>'s alehouses who disrespect the ladies are left with a hangover of seismic proportions when Valda's around.
-  </div>
-</div>
+:::hero-trait Seismic Smackdown
+![Seismic Smackdown](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/seismic-smackdown.webp)
+Patrons of <a href="https://legendarystories.net/archive/world-of-rathe/aria/aria.html">Aria</a>'s alehouses who disrespect the ladies are left with a hangover of seismic proportions when Valda's around.
+:::
 
 # Valda, Seismic Impact
 
@@ -50,19 +44,13 @@ With great power comes great expectation, but Valda isn't having a bar of that. 
 
 And if it _insists_ on disturbing the peace, Valda will kick it out of town.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/valda-read-the-room.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Read the Room</b><br>
-    Valda watches for trouble and then turns her opponent's advantage into mounting pressure. The more cards they draw, the harder the boards will tremble when they hit the floor.
-  </div>
-</div>
+:::hero-trait Read the Room
+![Read the Room](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/valda-read-the-room.webp)
+Valda watches for trouble and then turns her opponent's advantage into mounting pressure. The more cards they draw, the harder the boards will tremble when they hit the floor.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/valda-closing-time.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Closing Time</b><br>
-    Valda punishes over-indulgence with seismic dominance. She's fair, though. Every punter gets three warnings. Then they're out the door with a crushing hangover.
-  </div>
-</div>
+:::hero-trait Closing Time
+![Closing Time](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/valda-closing-time.webp)
+Valda punishes over-indulgence with seismic dominance. She's fair, though. Every punter gets three warnings. Then they're out the door with a crushing hangover.
+:::
 

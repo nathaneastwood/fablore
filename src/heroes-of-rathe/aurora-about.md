@@ -18,26 +18,17 @@ Ready to join the expedition?
 
 There could be ancient artifacts in it for you. Or some musty books. Maybe some cryptic engravings. And traps! Ooh, I love it when there's traps.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/aurora-here-in-an-instant.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Here in an Instant</b><br>
-    Aurora wants to attack, attack, and attack some more, using powerful pumps to increase her power out of nowhere. Blink and you'll miss her!
-  </div>
-</div>
+:::hero-trait Here in an Instant
+![Here in an Instant](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/aurora-here-in-an-instant.webp)
+Aurora wants to attack, attack, and attack some more, using powerful pumps to increase her power out of nowhere. Blink and you'll miss her!
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/aurora-gone-in-a-flash.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Gone in a Flash</b><br>
-    With a Lightning card deployed, Aurora can use her hero ability to create an Embodiment of Lightning, either setting up for a future turn or keeping the pain train rolling now.
-  </div>
-</div>
+:::hero-trait Gone in a Flash
+![Gone in a Flash](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/aurora-gone-in-a-flash.webp)
+With a Lightning card deployed, Aurora can use her hero ability to create an Embodiment of Lightning, either setting up for a future turn or keeping the pain train rolling now.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/aurora-sword-and-sorcery.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Sword and Sorcery</b><br>
-    As a Runeblade, Aurora is a hybrid fighter, wielding both magic and melee in equal measure. Runeblades can attack from multiple angles, preying on the opponent's vulnerabilities with split damage types.
-  </div>
-</div>
+:::hero-trait Sword and Sorcery
+![Sword and Sorcery](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/aurora-sword-and-sorcery.webp)
+As a Runeblade, Aurora is a hybrid fighter, wielding both magic and melee in equal measure. Runeblades can attack from multiple angles, preying on the opponent's vulnerabilities with split damage types.
+:::

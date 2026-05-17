@@ -14,26 +14,17 @@ Vynnset carries the pain of persecution in her sinews and in her bones. Yet hers
 
 The Iron Maiden has transformed suffering into devotion. She has sacrificed so much, given sight and service to the Shadow. Now, it is others she will sacrifice, and through their suffering, Vynnset will know freedom
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/runegate.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Rune Gate</b><br>
-    Just beyond the dimenxxional rift lie twisted nightmares beyond comprehension. Assemble enough Runechants to open the gate, and allow the horrors within to spill forth and consume your enemies.
-  </div>
-</div>
+:::hero-trait Rune Gate
+![Rune Gate](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/runegate.webp)
+Just beyond the dimenxxional rift lie twisted nightmares beyond comprehension. Assemble enough Runechants to open the gate, and allow the horrors within to spill forth and consume your enemies.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/disciple-of-pain.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Disciple of Pain</b><br>
-    Reward doesn't come without sacrifice. Vynnset harnesses her suffering and uses it to fuel her deathly ambitions. Offer up shreds of your own life to Nasreth in order to gain access to forbidden abilities.
-  </div>
-</div>
+:::hero-trait Disciple of Pain
+![Disciple of Pain](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/disciple-of-pain.webp)
+Reward doesn't come without sacrifice. Vynnset harnesses her suffering and uses it to fuel her deathly ambitions. Offer up shreds of your own life to Nasreth in order to gain access to forbidden abilities.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/sword-and-sorcery.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Sword and Sorcery</b><br>
-    Vynnset is a hybrid fighter, wielding both magic and melee in the palm of her scarred hand. Runeblades can attack from multiple angles, preying on the opponent's vulnerabilities with split damage types.
-  </div>
-</div>
+:::hero-trait Sword and Sorcery
+![Sword and Sorcery](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/sword-and-sorcery.webp)
+Vynnset is a hybrid fighter, wielding both magic and melee in the palm of her scarred hand. Runeblades can attack from multiple angles, preying on the opponent's vulnerabilities with split damage types.
+:::

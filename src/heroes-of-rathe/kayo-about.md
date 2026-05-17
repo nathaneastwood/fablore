@@ -10,13 +10,10 @@ As a cub, Kayo was born small and slow; a death sentence within the jungles of t
 
 In the badlands, Kayo fights for every inch of territory, staving off both savage jungle predators and virulent lava beasts. No matter the creature, no matter the battle, he throws himself into every fight without fear, driven by the will to survive. However, as unrest creeps across the land, he may soon find himself battling far stranger creatures than the ones he's faced before.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/knockout.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Knock Out!</b><br>
-    Kayo is a dangerous little mongrel; a product of survival in the Savage Lands. All it takes is one big hit to land to lay an opponent out for the count. Brutes have some of the biggest hits in the game, so when Kayo's got his roll on, he's packing a KO punch!
-  </div>
-</div>
+:::hero-trait Knock Out!
+![Knock Out!](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/knockout.webp)
+Kayo is a dangerous little mongrel; a product of survival in the Savage Lands. All it takes is one big hit to land to lay an opponent out for the count. Brutes have some of the biggest hits in the game, so when Kayo's got his roll on, he's packing a KO punch!
+:::
 
 ---
 
@@ -32,21 +29,15 @@ Hunting a formidable creature in the Badlands, Kayo found himself on the brink o
 
 In every deadly contest, Kayo exhibits the fierce tenacity of a bloodthirsty feral animal. Despite being repeatedly on the back foot, he rises from defeat, each setback fueling his crazed savagery and rendering him even more dangerous. Kayo has become the Underdog of the Arena, a fighter perpetually at a disadvantage, yet one who refuses to surrender, forever embracing the chaos and the brutal unpredictability of his existence.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/wounded-but-not-weakened.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Wounded, But Not Weakened</b><br>
-    The Savage Lands are a brutal, inhospitable home, and Kayo is arriving at the Deathmatch Arena one arm lighter than the last time we saw him. However, the loss of something as inconsequential as an arm hasn't slowed down Kayo's savagery in the slightest-in fact, many of his attacks are stronger than they've ever been.
-  </div>
-</div>
+:::hero-trait Wounded, But Not Weakened
+![Wounded, But Not Weakened](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/wounded-but-not-weakened.webp)
+The Savage Lands are a brutal, inhospitable home, and Kayo is arriving at the Deathmatch Arena one arm lighter than the last time we saw him. However, the loss of something as inconsequential as an arm hasn't slowed down Kayo's savagery in the slightest-in fact, many of his attacks are stronger than they've ever been.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/keep-it-rolling.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Keep It Rolling</b><br>
-    Kayo may have some new tricks up his sleeve, but he remains as wild and unpredictable as ever. When his back is against the wall, he still trusts in his raw animal instincts and a potentially lucky roll of the dice.
-  </div>
-</div>
+:::hero-trait Keep It Rolling
+![Keep It Rolling](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/keep-it-rolling.webp)
+Kayo may have some new tricks up his sleeve, but he remains as wild and unpredictable as ever. When his back is against the wall, he still trusts in his raw animal instincts and a potentially lucky roll of the dice.
+:::
 
 # Kayo, Underhanded Cheat
 
@@ -60,18 +51,12 @@ And his defeat by Kassai taught him two things. One, the concept of mercy, and h
 
 No longer the caged animal, consumed by his own wild urges, Kayo uses his innate cunning in and out of the ring. He's learned to bide his time, toy with his prey like a cat with a mouse, and unleash the beast within when it's least expected.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/feint-ferocity.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Feint Ferocity</b><br>
-    Only a fool would think the arena has tamed the one-armed Brute. Cunning Kayo has been practicing his sleight of hand. With a deft feint, Kayo draws his opponent in, only to let rip with unfettered ferocity.
-  </div>
-</div>
+:::hero-trait Feint Ferocity
+![Feint Ferocity](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/feint-ferocity.webp)
+Only a fool would think the arena has tamed the one-armed Brute. Cunning Kayo has been practicing his sleight of hand. With a deft feint, Kayo draws his opponent in, only to let rip with unfettered ferocity.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/roar-of-the-wild.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Roar of the Wild</b><br>
-    Once the lone hunter, Kayo now runs with a pack that numbers in the thousands. Their jeers are wild jungle calls to his ears. Their outrage is a great beast's roar, filling him with the lust for violence.
-  </div>
-</div>
+:::hero-trait Roar of the Wild
+![Roar of the Wild](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/roar-of-the-wild.webp)
+Once the lone hunter, Kayo now runs with a pack that numbers in the thousands. Their jeers are wild jungle calls to his ears. Their outrage is a great beast's roar, filling him with the lust for violence.
+:::

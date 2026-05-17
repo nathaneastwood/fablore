@@ -11,7 +11,7 @@ es = "./es"
 
 [output.html]
 additional-css = ["hero.css", "image.css", "tab.css", "bionic.css", "footer.css", "breadcrumb.css", "sets-hub.css", "theme/pagetoc.css", "theme/hints.css", "theme/related.css", "theme/story-meta.css", "theme/narrated-videos.css", "theme/browse.css", "theme/archive-notice.css"]
-additional-js = ["tab.js", "back-to-top.js", "hero-hub.js", "bionic.js", "theme/pagetoc.js", "theme/hints.js", "theme/related.js", "narrated-videos.js", "theme/browse.js"]
+additional-js = ["tab.js", "back-to-top.js", "hero-hub.js", "bionic.js", "theme/pagetoc.js", "theme/hints.js", "theme/related.js", "narrated-videos.js", "theme/browse.js", "theme/hero-filter.js"]
 default-theme = "light"
 preferred-dark-theme = "ayu"
 git-repository-url = "https://github.com/nathaneastwood/fablore"
@@ -36,6 +36,9 @@ command = "python3 src/data/mdbook_related.py"
 
 [preprocessor.story-meta]
 command = "python3 src/data/mdbook_story_meta.py"
+
+[preprocessor.hero-traits]
+command = "python3 src/data/mdbook_hero_traits.py"
 
 [preprocessor.hero-meta]
 command = "python3 src/data/mdbook_hero_meta.py"

@@ -8,29 +8,20 @@ The star of the Everfest Carnival, leader of the Legendarium, performing stories
 
 Confident, charming and theatrical, Bravo treats battle like a performance. Set the stage, build the anticipation, and prepare for the grand finale, for once he's ready to strike, nothing can stand in the way of his powerful attacks.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/crushing-blows.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Crushing Blows</b><br>
-    "Bravo, the Strongest Man in all of Rathe", or so the posters pinned to trees and alehouse doors say when the Everfest carnival approaches. Crush attacks are the most powerful attacks in Welcome to Rathe! Often the opponent will be able to dodge their full impact, but if Bravo is able to gain a dominating position, the severe detrimental crush effects will cripple the opponents plans.
-  </div>
-</div>
+:::hero-trait Crushing Blows
+![Crushing Blows](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/crushing-blows.webp)
+"Bravo, the Strongest Man in all of Rathe", or so the posters pinned to trees and alehouse doors say when the Everfest carnival approaches. Crush attacks are the most powerful attacks in Welcome to Rathe! Often the opponent will be able to dodge their full impact, but if Bravo is able to gain a dominating position, the severe detrimental crush effects will cripple the opponents plans.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/domination.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Domination</b><br>
-    Bravo is a master of dominating the limelight, and likewise combat. His hero ability plays a key role in his performance, making his showstopping acts impossible to miss! Bravo's ability makes his crush attacks with 7 or more power more likely to deal the four damage required to inflict their debilitating effects.
-  </div>
-</div>
+:::hero-trait Domination
+![Domination](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/domination.webp)
+Bravo is a master of dominating the limelight, and likewise combat. His hero ability plays a key role in his performance, making his showstopping acts impossible to miss! Bravo's ability makes his crush attacks with 7 or more power more likely to deal the four damage required to inflict their debilitating effects.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/star-of-the-show.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Star of the Show</b><br>
-    When Bravo takes the stage, his presence fills the room. Such is the aura of a great showman. Aura's are a key part of Bravo's act, bolstering his ability to impose himself on center stage and on the battlefield. Bravo's auras stay in the arena when you play them, giving you an ongoing effect or an effect at a future point in time.
-  </div>
-</div>
+:::hero-trait Star of the Show
+![Star of the Show](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/star-of-the-show.webp)
+When Bravo takes the stage, his presence fills the room. Such is the aura of a great showman. Aura's are a key part of Bravo's act, bolstering his ability to impose himself on center stage and on the battlefield. Bravo's auras stay in the arena when you play them, giving you an ongoing effect or an effect at a future point in time.
+:::
 
 ---
 
@@ -54,21 +45,15 @@ And the rest, as they say, is...
 
 Coming soon!
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/elemental-confluence.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Elemental Confluence</b><br>
-    Is Bravo the chosen one? The first hero for an eon to embody the Flow and with it the 3 primary elements that course through the land of <a href="https://legendarystories.net/archive/world-of-rathe/aria/aria.html">Aria</a>. Awaken the elements of Earth, Ice, and Lightning, to unleash Bravo's most spectacular performance yet!
-  </div>
-</div>
+:::hero-trait Elemental Confluence
+![Elemental Confluence](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/elemental-confluence.webp)
+Is Bravo the chosen one? The first hero for an eon to embody the Flow and with it the 3 primary elements that course through the land of <a href="https://legendarystories.net/archive/world-of-rathe/aria/aria.html">Aria</a>. Awaken the elements of Earth, Ice, and Lightning, to unleash Bravo's most spectacular performance yet!
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/take-center-stage.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Take Center Stage</b><br>
-    Folk flock from all across Rathe to see the Star of the Show take center stage at the Everfest carnival. With the biggest acts and attacks in all of Flesh and Blood, Bravo never disappoints his fans.
-  </div>
-</div>
+:::hero-trait Take Center Stage
+![Take Center Stage](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/take-center-stage.webp)
+Folk flock from all across Rathe to see the Star of the Show take center stage at the Everfest carnival. With the biggest acts and attacks in all of Flesh and Blood, Bravo never disappoints his fans.
+:::
 
 ---
 
@@ -86,18 +71,12 @@ Bravo delivers on both jaw dropping-hits and staunch defense. No matter where hi
 
 And when the finale arrives, Bravo commits in full. One blow can knock an opponent off their feet, leaving onlookers stunned into silence. And then the applause soars, louder than before, the crowd certain they just witnessed something legendary.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/crushing-celebrity.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Crushing Celebrity</b><br>
-    It only takes a smile from that famous face to get the crowd crushing on Bravo. His pride swells with every swoon, along with the power of his punch.
-  </div>
-</div>
+:::hero-trait Crushing Celebrity
+![Crushing Celebrity](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/crushing-celebrity.webp)
+It only takes a smile from that famous face to get the crowd crushing on Bravo. His pride swells with every swoon, along with the power of his punch.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dramatic-domination.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Dramatic Domination</b><br>
-    When Bravo claims the spotlight, the crowd knows he’s about to dominate the show. At that point there's only one way out for his opponent: on a stretcher.
-  </div>
-</div>
+:::hero-trait Dramatic Domination
+![Dramatic Domination](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dramatic-domination.webp)
+When Bravo claims the spotlight, the crowd knows he’s about to dominate the show. At that point there's only one way out for his opponent: on a stretcher.
+:::

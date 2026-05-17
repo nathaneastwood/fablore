@@ -15,18 +15,12 @@ Finding solace in service, Fang committed his life to the Emperor's Royal Guard.
 Fang leads his soldiers into battle with vengeance in his fists and fealty in his heart. For order he will give no quarter. For his fallen Emperor he will make any sacrifice.
 
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/loyalty-personified.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Loyalty Personified</b><br>
-    Nothing in Fang's life matters as much as his duty to the dynasty. He will gladly give his life to prove his Fealty, his devotion inspiring unimaginable feats in battle.
-  </div>
-</div>
+:::hero-trait Loyalty Personified
+![Loyalty Personified](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/loyalty-personified.webp)
+Nothing in Fang's life matters as much as his duty to the dynasty. He will gladly give his life to prove his Fealty, his devotion inspiring unimaginable feats in battle.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/free-to-play.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Free to Play</b><br>
-    With his loyalty proven, Fang's daggers become the most efficient and ruthless weapons Rathe has ever seen. Go pitchless and make your opponents pay for their crimes against the Emperor.
-  </div>
-</div>
+:::hero-trait Free to Play
+![Free to Play](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/free-to-play.webp)
+With his loyalty proven, Fang's daggers become the most efficient and ruthless weapons Rathe has ever seen. Go pitchless and make your opponents pay for their crimes against the Emperor.
+:::

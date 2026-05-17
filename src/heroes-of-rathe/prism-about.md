@@ -12,29 +12,20 @@ In developing her skills, Prism's talents were made clear for all to see. After 
 
 As shadows begin to darken the horizon, and the bells of war toll across the city, Prism invokes Solana's legendary beings, sending her creations to guard her beloved ones and smite her foes.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/heralds-of-sol.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Heralds of Sol</b><br>
-    They say the pen is mightier than the sword. Prism, a student of the pen, stumbled upon a tale of heralds forgotten to time and dust among the millions of tomes within the Library of Illumination. Prism's curious spirit and affinity to arc light may prove timely as Solana fights for its survival.
-  </div>
-</div>
+:::hero-trait Heralds of Sol
+![Heralds of Sol](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/heralds-of-sol.webp)
+They say the pen is mightier than the sword. Prism, a student of the pen, stumbled upon a tale of heralds forgotten to time and dust among the millions of tomes within the Library of Illumination. Prism's curious spirit and affinity to arc light may prove timely as Solana fights for its survival.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/spectra.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Spectra</b><br>
-    What is real? If you can see it, is it real? What about if it whacks you in the face? "But when I tried to touch it, it disappeared?!" Sculpt fantastical arc light spectras that confuse, confound, and combat bewildered opponents.
-  </div>
-</div>
+:::hero-trait Spectra
+![Spectra](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/spectra.webp)
+What is real? If you can see it, is it real? What about if it whacks you in the face? "But when I tried to touch it, it disappeared?!" Sculpt fantastical arc light spectras that confuse, confound, and combat bewildered opponents.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/soulful-protector.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Soulful Protector</b><br>
-    The Light will be your guide and fill your soul. Use it to sculpt Spectral Shield auras to protect yourself and your beloved city of Solana.
-  </div>
-</div>
+:::hero-trait Soulful Protector
+![Soulful Protector](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/soulful-protector.webp)
+The Light will be your guide and fill your soul. Use it to sculpt Spectral Shield auras to protect yourself and your beloved city of Solana.
+:::
 
 ---
 
@@ -54,18 +45,12 @@ Prism's passion for knowledge and talent for story drove her to become the city'
 
 When Solana was struck by tragedy, when fiendish creatures materialized beneath a sunless sky, Prism took up the mantle of Illusionist in defense of her cherished civilization.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/archangels-of-light.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Archangels of Light</b><br>
-    Gifted with the knowledge of mysterious 'figments' by Suraya, Prism awakens the true power of Sol, calling forth an army of mighty archangels. With these eight heavenly allies by her side, she will drive back the darkness once and for all.
-  </div>
-</div>
+:::hero-trait Archangels of Light
+![Archangels of Light](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/archangels-of-light.webp)
+Gifted with the knowledge of mysterious 'figments' by Suraya, Prism awakens the true power of Sol, calling forth an army of mighty archangels. With these eight heavenly allies by her side, she will drive back the darkness once and for all.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/heralds-of-sol.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Heralds of Sol</b><br>
-    Tales of the heralds have stayed with Prism since she was a young child. Seemingly forsaken by the passage of time, these stories of illumination are destined to be born again by Prism's hands. Unleash the power of the heralds upon your enemies, fueling your soul and unlocking the secrets within.
-  </div>
-</div>
+:::hero-trait Heralds of Sol
+![Heralds of Sol](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/heralds-of-sol.webp)
+Tales of the heralds have stayed with Prism since she was a young child. Seemingly forsaken by the passage of time, these stories of illumination are destined to be born again by Prism's hands. Unleash the power of the heralds upon your enemies, fueling your soul and unlocking the secrets within.
+:::

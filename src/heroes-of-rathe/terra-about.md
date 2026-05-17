@@ -14,18 +14,12 @@ When danger rears its ugly head - be it creeping dread or ancient terror - I sta
 
 So, if ever you need a place to rest your bones, know that the earth will welcome you, and so will I. Together, we'll tend this great garden we call home.
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/earths-might.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Earth's Might</b><br>
-    Through reverence for the land, Terra finds the strength to be Rathe's guardian. His Earth Bond empowers mighty attacks, designed to leave opponents incapable of harming Rathe or any of its inhabitants.
-  </div>
-</div>
+:::hero-trait Earth's Might
+![Earth's Might](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/earths-might.webp)
+Through reverence for the land, Terra finds the strength to be Rathe's guardian. His Earth Bond empowers mighty attacks, designed to leave opponents incapable of harming Rathe or any of its inhabitants.
+:::
 
-<div class="hero-container">
-  <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/hammer-time.webp" class="hero-icon" />
-  <div class="hero-content">
-    <b>Hammer Time</b><br>
-    With hammer carved of the finest and largest naturally-fallen redwood, Terra makes sure his foes find themselves intimately familiar with the power of nature's wrath one final time, before they return to the soil.
-  </div>
-</div>
+:::hero-trait Hammer Time
+![Hammer Time](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/hammer-time.webp)
+With hammer carved of the finest and largest naturally-fallen redwood, Terra makes sure his foes find themselves intimately familiar with the power of nature's wrath one final time, before they return to the soil.
+:::

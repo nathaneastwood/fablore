@@ -16,7 +16,7 @@ Their commander, Kalsharpe, shouted at them to keep firing. The order spurred th
 
 An enemy head appeared atop the parapet. Jarl reached over and wrapped his gauntleted hand around its mottled scalp. The creature squealed and wriggled, but Jarl held tight and squeezed until the skull gave way and the thrashing stopped. He let the carcass drop into the seething mass of enemies below and deemed this section of the wall 'under control', for now.
 
-He strode on, seeking the next trouble spot. Wayfarers, wizards, [Rosetta](~Rosetta), and guardians shrank out of his way. Whether Isenloft veterans or fresh-faced trainees from [Enion](~Enion), all knew the reputation of Jarl Vetreiđi.
+He strode on, seeking the next trouble spot. Wayfarers, wizards, [Rosetta](~Rosetta), and guardians shrank out of his way. Whether Isenloft veterans or fresh-faced trainees from [Enion](~Enion), all knew the reputation of Jarl Vetreiði.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/battle-of-isenloft-1.webp" alt="battle-of-isenloft-1" class="center" />
 
@@ -64,9 +64,9 @@ To those looking down from the fortress, the battle seemed to slow. The ravenirs
 
 Ollin looked to Ollin, disbelief writ large on their flushed faces. The best of them, the worst of them; no matter what they thought of Jarl, they all thought the same-when a man like that fell, what hope remained for the rest of them? One by one they looked away, resumed the fight, the world around them restoring its frantic tempo.
 
-Only Oldhim continued to watch. Only Oldhim saw the first geyser of gore from Glutgorr's flank. He raised his hammer and bellowed a single word at the top of his graveled voice; "VETREIĐI!"
+Only Oldhim continued to watch. Only Oldhim saw the first geyser of gore from Glutgorr's flank. He raised his hammer and bellowed a single word at the top of his graveled voice; "VETREIÐI!"
 
-As if to punctuate his cry, a bloodied hook burst through the immense monster's skin. With a wet ripping of sinew and hide, a great tear appeared, and out spilled a ragged figure drenched in guts and filth. Though his armor was bent and buckled, his cloak in shreds, Jarl Vetreiđi rose proudly, alive and resolute while the surrounding ravenirs fled their now toppling giant. It hit the ground with such force that the earth cracked, the impact sending the Old Ones' minions tumbling into the chasm.
+As if to punctuate his cry, a bloodied hook burst through the immense monster's skin. With a wet ripping of sinew and hide, a great tear appeared, and out spilled a ragged figure drenched in guts and filth. Though his armor was bent and buckled, his cloak in shreds, Jarl Vetreiði rose proudly, alive and resolute while the surrounding ravenirs fled their now toppling giant. It hit the ground with such force that the earth cracked, the impact sending the Old Ones' minions tumbling into the chasm.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/battle-of-isenloft-2.webp" alt="battle-of-isenloft-2" class="center" />
 
