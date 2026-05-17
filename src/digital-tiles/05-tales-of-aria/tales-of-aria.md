@@ -1,3 +1,5 @@
+# Tales of Aria
+
 ### Amulet of Ice
 
 Forged from the purest ice from deep within Mt. Isen, this amulet's a favorite amongst those of Isenloft as a reminder of their home.
