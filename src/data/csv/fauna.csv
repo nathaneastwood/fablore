@@ -1,12 +1,12 @@
 # AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Database class in src/data/db/ (db.upsert_story).
 FaunaId|Name|Description
-FA9f5e75235f|Ank'is|The crystalline creature does not bleed. It shatters. Its teeth are harder than stone, with serrated edges and a needle-like tip to tear through flesh. Its limbs are long and thin, with sharp points to allow it to grip onto most surfaces, and scale the difficult terrain of the Savage Lands.
+FA9f5e75235f|Ank'is|
 FA10c43b7286|Apophis|A large serpent with barbed scales, which can be found lurking within larger bodies of magma, storing energy and lying in wait. These creatures move with Volcor's lava flows, moving through the magma to feast on those caught in the flow's path. While they can occasionally be found on land, they move much more slowly, and are thus vulnerable to attack.
 FA358993be7c|Azeri|The Azeri are elusive and mysterious, lingering in the innermost depths of the Savage Lands.
 FAa5ab92bf98|Blindseal|Blubbery
 FAd995691c9f|Bloatfin|
 FA1767fef132|Boned Eel|
-FA2cf48e2ed0|Brawnhide|A giant, furred beast with long, thick canines, and small, dark eyes. Its long fur protects most of its body, dark grey in colour, fading to an off-white at the tips. It appears to make up for its poor sight through its incredibly powerful sense of small - I have witnessed it track prey through the jungle by scent alone. Their canines are almost impossible to break, both thick and incredibly strong. The brawnhide has a set of claws at the base of their feet, though their feet are far too large and their legs too short for the claws to be of any use.
+FA2cf48e2ed0|Brawnhide|
 FAf408e962cb|Cesari|
 FA831c01548e|Chirpwhisk|
 FAecb6db7b25|Cursed Dhani Warriors|Scorpion tails, claws and human head
@@ -19,6 +19,7 @@ FA8c85b7ba2f|Gossamhares|Scittish creatures
 FAd8efb2e4fe|Gupler|Moon-shaped
 FAcf5a312db5|Hoikers|Giant, acid-spitting scallops
 FA517ffce87a|Hydra|A sea creature with boat-sized flippers, three heads and perhaps as large as three whales, end on end
+FA3b6245dfdb|Jacara|
 FA433c117ce3|Kaie'o|
 FA3e42b53c29|Kneecapper Crustacean|They have foot-long pincers
 FA686d22d695|Kraken|
@@ -27,9 +28,9 @@ FAaee1610e81|Maggot Gull|
 FA23e92dfba8|Meep|
 FAac25026755|Morrows|These tiny wisps are artificially created by the wizards of Volcor; puffs of smoke brought to life by a breath of aether. Once formed, they subsist entirely on embers, flitting to and fro amongst the fiery landscape.
 FA41fc146724|Na'shari|A large beast with a crystalline hide, the na'shari has skin harder than most forms of metal. In spite of its tough appearance, this creature is known for its docile and friendly nature. Its round eyes and fuzzy tail make the creature incredibly popular with children, who often flock to na'shari in hopes of playing with the creature.
-FA1f10fd1984|Peluda|A large creature, the Peluda moves surprisingly quickly given its size, with a thick fur coat interspersed with sharp spikes. Its muscular legs are the source of its apparent speed. Its muscular tail is capable of sweeping any animal off of its feet, leaving it vulnerable to the peluda's deadly hooked claws. While the tail appears to have a stinger, further tests have shown that the barb does not contain any form of toxin.
+FA1f10fd1984|Peluda|
 FA83cf5b77b9|Raciki|Shapeshifting, fluffy canine
-FA0b949f26e2|Rek'vas|A swift and deadly creature, the Rek'vas has brightly patterned scales that are highly toxic. Its massive head is framed by some form of hood, brightly coloured skin that flares from either side of its neck.
+FA0b949f26e2|Rek'vas|
 FA4895efe22d|Rock Turtle|
 FAb97e3a4422|Rowbug|
 FAb9bb162318|Ryoki|These are small creatures, similar in appearance to fish, that inhabit the lava streams and rivers of Volcor. Despite the immense heat, these creatures thrive in the extreme conditions, lurking beneath the glowing surface of the magma. While their scales are almost black, their 'fins' catch alight when they break the surface of the lava, leaping from stream to stream.
@@ -38,7 +39,8 @@ FAcb3b255c72|Sawmaw|Triple-finned
 FA242e1cb3fe|Scarbit|
 FA2df821a03c|Sea Spider|
 FAdae735d957|Siren|Enchanting merfolk who lure sailors with song and beauty - gifts please them, but poor offerings may cost you dearly.
-FA7565189539|Skera|One of the Savage Lands' most skilled predators, they are almost completely nocturnal, relying on the darkness to help mask their movements while stalking prey. Their four eyes are likely to help it see in the dark, in order to hunt its prey. Avoid their poisonous spikes at all costs. The barb at the end of its tail is also highly toxic. Large, muscular creatures with two pairs of eyes, and long, curved claws similar to talons. Skera are covered in a mixture of fur and spikes, patterned with dark, irregular spots. While the spikes do not appear to be poisonous, they do make it rather difficult to dissect.
+FA7565189539|Skera|
+FA18c293d723|Strix|
 FA66dedd6713|Vitr'eo|
 FA6818da133a|Vuurlin|A large bird of prey that flies at a high altitude, only descending to roost or to attack vulnerable prey. When in flight, the tips of their feathers catch alight, creating flames that streak behind them as they soar through the sky. They're reliable messengers, and are often used by the royal court and the many generals of Volcor, due to the vuurlin's keen intelligence and powerful wings.
 FAd1b3a39136|Welkin|A wyvern species native to Aria. At first glance, the welkin resembles large, winged lizards. They have a leathery skin that, like the chameleon, changes color with variations in the Flow.

@@ -15,6 +15,10 @@ from db import (
 
 db = Database("src/data/fablore.db")
 
+# -------------------------------------------------------------------------------------------------------------------- #
+# Main Story
+# -------------------------------------------------------------------------------------------------------------------- #
+
 db.upsert_story(
     path="src/main-story/the-land-of-rathe.md",
     story_type="main-story",
@@ -129,3 +133,39 @@ db.upsert_story(
     weapons=["dawnblade"],
     dry_run = True,
 )
+
+db.upsert_story(
+    path="src/main-story/welcome-to-rathe/kill-or-be-killed.md",
+    story_type="main-story",
+    title='Kill or be Killed',
+    authors='Nicola Price',
+    artists='MJ Fetesio',
+    source_link='https://fabtcg.com/hero/rhinar/story/rhinar-story/',
+    publication_date='',
+    thumbnail_image_link='',
+    narrated_videos=[
+      NarratedVideoEntry(author='St_Havock', source_link='https://www.youtube.com/watch?v=lROh5AG3DoI', channel_link='https://www.youtube.com/@St_Havock')
+    ],
+    heroes=["rhinar"],
+    npcs=[],
+    locations=[
+      LocationEntry("The Golden Fields", region="Solana"),
+      LocationEntry("Rhinar's Territory", region="The Savage Lands")
+    ],
+    regions=[RegionEntry("The Savage Lands")],
+    monsters=[],
+    fauna=[
+      FaunaEntry("Jacara"),
+      FaunaEntry("Strix"),
+      FaunaEntry("Skera"),
+      FaunaEntry("Peluda"),
+      FaunaEntry("Ank'is"),
+      FaunaEntry("Brawnhide"),
+      FaunaEntry("Rek'vas")
+    ],
+    flora=[FloraEntry("Rashari")],
+    food_drink=[],
+    weapons=[],
+    dry_run = True,
+)
+
