@@ -201,3 +201,25 @@ db.upsert_story(
     weapons=["harmonized-kodachi"],
     dry_run=True,
 )
+
+db.upsert_story(
+    path="src/main-story/arcane-rising/slings-and-arrows.md",
+    story_type="main-story",
+    title='Slings and Arrows',
+    source_link='https://fabtcg.com/hero/azalea/story/slings-and-arrows/',
+    narrated_videos=[
+      NarratedVideoEntry(author='St_Havock', source_link='https://www.youtube.com/watch?v=BAhPVnQePQE', channel_link='https://www.youtube.com/@St_Havock')
+    ],
+    heroes=["azalea"],
+    locations=[
+      LocationEntry("Blackjack's Tavern", region="The Pits", lore_fragment="blackjacks-mercenary-company")
+    ],
+    regions=[RegionEntry("The Pits"), RegionEntry("Metrix")],
+    monsters=[
+      MonsterEntry(
+        name="Dregs",
+        description="Humanoid figures with bloated, rotting bodies; their faces a mass of melted, discoloured skin, dripping the length of their bony, twisted limbs."
+      )
+    ],
+    dry_run=True,
+)
