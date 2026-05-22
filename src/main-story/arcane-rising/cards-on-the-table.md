@@ -32,7 +32,7 @@ A hand grabbed the back of her neck, hauling her up into the air. Look here, ya 
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-5.webp" alt="azalea-5" class="center">
 
-Unceremoniously, she dropped her onto the pavement, the pair of them staring down at her as she scrambled to her feet. Gaze flicking to where she'd seen the coin, she barely hesitated before running straight for the water, diving in after it. Behind her, she could hear the men laughing, cackling to themselves as they returned to their post.
+Unceremoniously, he dropped her onto the pavement, the pair of them staring down at her as she scrambled to her feet. Gaze flicking to where she'd seen the coin, she barely hesitated before running straight for the water, diving in after it. Behind her, she could hear the men laughing, cackling to themselves as they returned to their post.
 
 Azalea surfaced a moment later, choking on the putrid stench of chemical waste and rancid fish, wiping water-scum from her eyes. With a deep breath, she dived back under, her hands scraping along the silty riverbed. Stones and scales and bone fragments caught under her nails, scratching at her skin.
 

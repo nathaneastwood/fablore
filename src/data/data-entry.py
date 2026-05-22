@@ -223,3 +223,31 @@ db.upsert_story(
     ],
     dry_run=True,
 )
+
+db.upsert_story(
+    path="src/main-story/arcane-rising/cards-on-the-table.md",
+    story_type="main-story",
+    title='Cards on the Table',
+    source_link='https://fabtcg.com/hero/azalea/story/cards-on-the-table/',
+    publication_date='',
+    thumbnail_image_link='',
+    narrated_videos=[
+      NarratedVideoEntry(author='St_Havock', source_link='https://www.youtube.com/watch?v=BAhPVnQePQE&t=267s', channel_link='https://www.youtube.com/@St_Havock')
+    ],
+    heroes=["azalea"],
+    npcs=[
+      NPCEntry("Moray", species="Human"),
+      NPCEntry("Greenbird", species="Human") # TODO: fragment to the tavern?
+    ],
+    locations=[
+      LocationEntry("The Maw", region="The Pits", lore_fragment="the-maw"),
+      LocationEntry("Blackjack's Tavern", region="The Pits", lore_fragment="blackjacks-mercenary-company")
+    ],
+    regions=[RegionEntry("The Pits"), RegionEntry("Metrix")],
+    monsters=[],
+    fauna=[],
+    flora=[],
+    food_drink=[FoodDrinkEntry("Blackjack's Whiskey", kind="Drink")],
+    weapons=[],
+    dry_run=True,
+)
