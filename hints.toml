@@ -3,6 +3,8 @@
 hint = "Dhani god of the great deep"
 [AbsolonsDream]
 hint = "Kuraghan flagship"
+[Aedes]
+hint = "Solanian Tuesday"
 [Aeronauts]
 hint = "Daring sky captains who trade danger for speed and freedom among the clouds."
 [Alif]
@@ -43,6 +45,8 @@ hint = "Gravy Bones' ship"
 hint = "The majority of this Metrix sector is devoted to parks and entertainment complexes"
 [Enion]
 hint = "The Armory of Ancients, and Training Ground of Champions"
+[Exorides]
+hint = "Solanian Thursday"
 [Ezu]
 hint = "A faction headed up by Chancellor Yama."
 [fai-mother]
@@ -83,10 +87,14 @@ hint = "An illusionist, boss of the Dust Runners."
 hint = "A massive tree at the heart of Aria that shelters all who live amongst its leaves."
 [Kuraghan]
 hint = "A fanatical pirate cult formed from reconditioned convicts, the Kuraghan worship the sea god Absolon and believe dying in battle earns them an afterlife of endless pleasure."
+[Lunedes]
+hint = "Solanian Monday"
 [Meep]
 hint = "Tiny, mischievous creatures are recognised by their long limbs and tails, and colourful feather crests."
 [Mendacity]
 hint = "A corporation that maintains control of the media, funding almost every radio station and newspaper in the city."
+[Merides]
+hint = "Solanian Friday"
 [Min]
 hint = "Fai's Mother."
 [MountHeroic]
@@ -101,6 +109,8 @@ hint = "A region of Solana"
 hint = "Kassai's sorceress friend and member of the Cintari."
 [Sol]
 hint = "Aesir of Light"
+[Solides]
+hint = "Solanian Sunday"
 [Southmaw]
 hint = "Southmaw Asylum is a laboratory of horrors where the orphaned and discarded of the Pits beneath Metrix are subjected to nightmarish experiments."
 [SyntheaTeklo]
@@ -139,6 +149,10 @@ hint = "An independent radio station, one of the few in Metrix that remains free
 hint = "Dash's mother"
 [TropalDhani]
 hint = "A legendary city said to have survived the Dhani empire's collapse, hiding its lost magic and treasures in the most perilous ruins."
+[Vesperides]
+hint = "Solanian Saturday"
+[Verides]
+hint = "Solanian Wednesday"
 [Vitreo]
 hint = "A majestic creature with a thick mane, crowned with a series of large crystals that grow out from the top of its skull."
 [Volcai]

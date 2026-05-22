@@ -80,5 +80,52 @@ db.upsert_story(
     dry_run = True,
 )
 
-# TODO: Fauna / Flora link to lore fragments?
-#       Location rename? e.g. The Flow is not a location
+db.upsert_story(
+    path="src/main-story/welcome-to-rathe/pride-of-the-ironsongs.md",
+    story_type="main-story",
+    title='Pride of the Ironsongs',
+    authors='Nicola Price',
+    artists='MJ Fetesio, Sindy Wo',
+    source_link='https://fabtcg.com/hero/dorinthea/story/story/',
+    publication_date='',
+    thumbnail_image_link='',
+    narrated_videos=[
+      NarratedVideoEntry(author='St_Havock', source_link='https://www.youtube.com/watch?v=AuOKr_eoDLY', channel_link='https://www.youtube.com/@St_Havock')
+    ],
+    heroes=["dorinthea", "hala"],
+    npcs=[
+      NPCEntry(name="Minerva Themis", species="Human", other_characters_story_key="other-characters/minerva-themis.md"),
+      NPCEntry(name="Grand Magister, The Steadfast", species="Human"), # TODO: Does fragment link to world lore? If so, how?
+      NPCEntry(name="Sol"),
+      NPCEntry(name="Valeria", species="Human"),
+      NPCEntry(name="Felix", species="Human"),
+      NPCEntry(name="Charis", species="Human"),
+      NPCEntry(name="Farris", species="Human"),
+      NPCEntry(name="Vitus", species="Human"),
+      NPCEntry(name="Pallas", species="Human"),
+      NPCEntry(name="Darius", species="Human"),
+      NPCEntry(name="Marcus", species="Human")
+    ],
+    locations=[
+      LocationEntry("Hand of Sol", region="Solana", lore_fragment="the-hand-of-sol"),
+      LocationEntry("Golden Chariot", region="Solana"),
+      LocationEntry("Ironsong Forge", region="Solana"),
+      LocationEntry("Library of Illumination", region="Solana"),
+      LocationEntry("Amphitheatre", region="Solana"),
+      LocationEntry("Solstice of Laurels", region="Solana", lore_fragment="solstice-of-laurels"),
+      LocationEntry("The Awakening Ceremony", region="Solana", lore_fragment="the-awakening-ceremony"),
+      LocationEntry("The Light of Sol", region="Solana", lore_fragment="the-light-of-sol"),
+      LocationEntry("Silvarium", region="Solana"),
+      LocationEntry("The Golden Fields", region="Solana"),
+      LocationEntry("Forward Camps", region="The Savage Lands"),
+      LocationEntry("The Grand Council", region="Solana", lore_fragment="the-grand-council"),
+      LocationEntry("The Savage Wilds", region="The Savage Lands"),
+      LocationEntry("Ceremonial Chamber", region="Solana")
+    ],
+    regions=[RegionEntry("Solana"), RegionEntry("The Savage Lands")],
+    monsters=[],
+    fauna=[],
+    food_drink=[],
+    weapons=["dawnblade"],
+    dry_run = True,
+)

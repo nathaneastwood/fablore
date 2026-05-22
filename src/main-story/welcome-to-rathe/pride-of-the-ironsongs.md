@@ -42,7 +42,7 @@ Thea's training began with simple classes, taught by scholars from the Light of 
 
 Thea quickly made friends with two of her fellow trainees. Valeria, short and stubborn, was determined to live up to her family legacy, and spoke of her desire to one day become a templar. Felix was a dark-haired, light-hearted, enthusiastic young boy, excited about their training and filled with gratitude to Sol for giving him the chance to become a knight. The trio were inseparable, spending almost every waking hour in each other's company.
 
-Every day, Thea rose from her warm bed above the family forge and travelled to the outer walls to begin training. Solides through Verides were spent with scholars and knights in the classroom, learning theory. Exorides and Merides were spent training, beginning with drills to learn footwork and technique, before progressing to sparring as they grew older and a little more experienced. Finally, Vesperides would come - a day of rest, for the trainees to do as they pleased, and enjoy the company of their family and friends.
+Every day, Thea rose from her warm bed above the family forge and travelled to the outer walls to begin training. [Solides](~Solides) through [Verides](~Verides) were spent with scholars and knights in the classroom, learning theory. [Exorides](~Exorides) and [Merides](~Merides) were spent training, beginning with drills to learn footwork and technique, before progressing to sparring as they grew older and a little more experienced. Finally, [Vesperides](~Vesperides) would come - a day of rest, for the trainees to do as they pleased, and enjoy the company of their family and friends.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/dori-2.webp" alt="dori-2" class="center">
 

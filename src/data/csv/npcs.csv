@@ -46,6 +46,7 @@ LCc8939b7099|Caylin|Human|Dead|
 LC9e53fe9cb1|Caylin's mother|Human|Dead|
 LC4e6606fb43|Chancellor Helena Primavera|Human|Unknown|
 LC65a559d397|Chancellor Hypatia|Human|Unknown|
+LC83bc18e47f|Charis|Human|Unknown|
 LC4a2b5e1822|Charlotte|Dogg|Unknown|
 LC1f0d5d73d0|Chiara Suncrest|Unknown|Unknown|
 LCf19f1ec92f|Chum|Zombie|Dead|
@@ -55,6 +56,7 @@ LCf479f1823a|Cutty|Zombie|Dead|
 LC1aa6cbc421|Dan Lu, Kotori Galewarden|Human|Unknown|
 LC9739559960|Danu Ashenguard|Human|Unknown|
 LC249c47aa90|Darian|Human|Dead|
+LC2651228672|Darius|Human|Unknown|
 LCdba8b18154|Davnir|Ancient of Earth and Lightning|Dead|
 LC0a68d90ca3|Daxius|Human|Dead|
 LCe7b99f643d|Demetrios|Brute|Dead|
@@ -75,7 +77,9 @@ LCc0d8c53cd3|Enforcer Eesha|Human|Unknown|
 LC0a737d2abe|Ersebet|Unknown|Unknown|
 LCd45c496548|Executive Smyte|Human|Unknown|
 LC3ad7ebeb1b|Farin the Porter|Human|Unknown|
+LC75bc3eb1a2|Farris|Human|Unknown|
 LCba94fcbd54|Fayyad|Human|Alive|
+LC960f984285|Felix|Human|Unknown|
 LCdb013e753c|Feral|Human|Unknown|
 LC1454a20f37|Fightmaster Kox|Goblin|Unknown|
 LC6acca24d74|Fightmaster Rusty|Dwarf|Unknown|
@@ -91,11 +95,11 @@ LCcb42576a44|General Yamatoka|Human|Alive|
 LC1b2b049cb6|Giantslayer Crix|Human|Unknown|
 LC3a3bf0afca|Governor Practiss|Human|Unknown|
 LC24444467d6|Graham the Gallant|Human|Unknown|
+LC4297c6b894|Grand Magister, The Steadfast|Human|Unknown|
 LC2dff6260a6|Grand Magister, the Adamant|Human|Assumed Dead|
 LC4726dd1d21|Grand Magister, the Beloved|Human|Assumed Dead|
 LC91740cb310|Grand Magister, the Devout|Human|Assumed Dead|
 LCb1c9d31e49|Grand Magister, the Radiant|Human|Assumed Dead|
-LC4297c6b894|Grand Magister, the Steadfast|Human|Alive|
 LC8b0e17d5f6|Grandmaster Li|Human|Unknown|
 LC0b30b44cf8|Greenbird|Human|Alive|
 LC6f2646d21a|Grota|Human|Alive|
@@ -153,6 +157,7 @@ LCb93e68286c|Magistrate Chen|Human|Unknown|
 LC72a78ff51a|Magnus the Vigilant|Human|Unknown|
 LC8a88fbb234|Magpie|Human|Alive|
 LC3832cc438b|Marbles|Meep|Unknown|
+LCd7ae9de750|Marcus|Human|Unknown|
 LCbb2046d3c6|Marcus 'Mauler' Monroe|Human|Alive|
 LC7cff182d16|Master Morita, Art of the Hand|Human|Unknown|
 LCf54c332041|Master Udo|Human|Unknown|
@@ -163,7 +168,7 @@ LCceda0e3bc1|Metis, Archangel of Tenacity|Herald|Unknown|
 LC70d98166ac|Mikael|Human|Unknown|
 LC5a9e67380a|Miku|Human|Unknown|
 LCd747e17e7c|Min of the Forest of Flames|Human|Unknown|
-LC813d110fa8|Minerva Themis|Unknown|Unknown|other-characters/minerva-themis.md
+LC813d110fa8|Minerva Themis|Human|Unknown|other-characters/minerva-themis.md
 LCcc40f45af6|Miss Q|Unknown|Unknown|
 LCb358f9b28f|Molly the Mop|Human|Alive|
 LCf519ee5f92|Moloca|Unknown|Unknown|
@@ -180,6 +185,7 @@ LC2b8d1477e8|One Eye|Human|Alive|
 LCc5d5e47202|Otmar|Human|Unknown|
 LC26ffffff1b|Overseer Crichton|Human|Dead|
 LC3a3667de6c|Ozrim|Rosetta|Unknown|
+LC0573e210e2|Pallas|Human|Unknown|
 LC882126e906|Pearl Sandhri|Human|Alive|
 LC9d65c7a015|Pelorus|Human|Alive|
 LC1d21c10541|Pinwheel|Human|Dead|
@@ -214,6 +220,7 @@ LC9107eddb94|Shiro|Human|Alive|
 LC6072c79313|Sidriz|Wizard|Unknown|
 LC096b229a18|Slapstick Sal|Unknown|Unknown|
 LCabd83d0d17|Slinger|Human|Alive|
+LC8db59feb4d|Sol|Unknown|Unknown|
 LCf7d2caa234|Soren|Human|Unknown|
 LC96a28dddf7|Speakeasy|Unknown|Unknown|
 LCc045ab8338|Spokes|Human|Unknown|
@@ -243,10 +250,12 @@ LC4aabab7242|Tohiro, Eternal Scribe|Human|Unknown|
 LCdf8c802e41|Tomass|Human|Unknown|
 LC5a8977d946|Toroja of Ishigaki|Human|Dead|
 LCfc5618e249|Vail the Vagrant|Human|Unknown|
+LCa1c2d05656|Valeria|Human|Unknown|
 LCc8e089c38a|Valgard Hoarfrost|Human|Unknown|
 LCc7f6d322bc|Vera|Human|Unknown|
 LC81f9838c84|Victoria, Archangel of Triumph|Herald|Unknown|
 LC0146024889|Vidya Willowmere|Unknown|Unknown|
+LC9b5f717e90|Vitus|Human|Unknown|
 LC2dc65a090b|Wailer|Zombie|Dead|
 LC9f5ae78121|Wheeler|Human|Alive|
 LC559daabac0|Whitetail|Human|Alive|
