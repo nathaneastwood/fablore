@@ -81,7 +81,7 @@ db.upsert_story(
     ],
     food_drink=[FoodDrinkEntry(name="Alder Cider", kind="Drink")],
     weapons=["anothos"],
-    dry_run = True,
+    dry_run=True,
 )
 
 db.upsert_story(
@@ -131,7 +131,7 @@ db.upsert_story(
     fauna=[],
     food_drink=[],
     weapons=["dawnblade"],
-    dry_run = True,
+    dry_run=True,
 )
 
 db.upsert_story(
@@ -166,6 +166,38 @@ db.upsert_story(
     flora=[FloraEntry("Rashari")],
     food_drink=[],
     weapons=[],
-    dry_run = True,
+    dry_run=True,
 )
 
+db.upsert_story(
+    path="src/main-story/welcome-to-rathe/wanderings-in-the-mists.md",
+    story_type="main-story",
+    title='Wanderings in the Mists',
+    authors='Nicola Price',
+    artists='MJ Fetesio, Sindy Wo',
+    source_link='https://fabtcg.com/hero/katsu-the-wanderer/story/katsu-story/',
+    publication_date='',
+    thumbnail_image_link='',
+    narrated_videos=[
+      NarratedVideoEntry(author='St_Havock', source_link='https://www.youtube.com/watch?v=zgk-_YeeqxQ', channel_link='https://www.youtube.com/@St_Havock')
+    ],
+    heroes=["katsu"],
+    npcs=[
+      NPCEntry("Master Takumi", species="Human"),
+      NPCEntry("Master Saori", species="Human")
+    ],
+    locations=[
+      LocationEntry("Mugenshi Gorge", region="Mistera", lore_fragment="mugenshi-gorge"),
+      LocationEntry("Mugenshi Ancestral Shrine", region="Misteria"),
+      LocationEntry("Mugenshi Village", region="Misteria"),
+      LocationEntry("Mistcloak Gully", region="Misteria"),
+      LocationEntry("Aui's Scales Strongholds", region="Misteria")
+    ],
+    regions=[RegionEntry("Misteria")],
+    monsters=[],
+    fauna=[],
+    flora=[],
+    food_drink=[],
+    weapons=["harmonized-kodachi"],
+    dry_run=True,
+)
