@@ -360,7 +360,7 @@ def _seed_stories(conn: sqlite3.Connection, data_dir: Path) -> None:
                 parsed = json.loads(raw_videos)
                 if isinstance(parsed, list):
                     videos = [
-                        (str(v.get("author", "")), str(v.get("url", "")), "", "")
+                        (str(v.get("author", "")), str(v.get("url", "")), "")
                         for v in parsed
                         if isinstance(v, dict)
                         and v.get("author")
@@ -387,8 +387,7 @@ def _seed_narrated_videos_from_csv(conn: sqlite3.Connection, data_dir: Path) -> 
         if not sid or not author or not link:
             continue
         channel = _s(row, "ChannelLink")
-        duration = _s(row, "Duration")
-        grouped.setdefault(sid, []).append((author, link, channel, duration))
+        grouped.setdefault(sid, []).append((author, link, channel))
     for sid, videos in grouped.items():
         q.set_narrated_videos(conn, sid, videos)
 

@@ -1,6 +1,7 @@
 # AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Database class in src/data/db/ (db.upsert_story).
 LocationId|Name|RegionId|Notes|LoreFragment
 LO2970e5c351|Aldengrove|RG48803cad0f||
+LO2ec34aa79a|Aldevyr|RG48803cad0f|A village in Aria|
 LO5b584f1cf2|Ampitheatre|RG615666dae9|In the city proper, a space for ceremonies, public events and proclamations|
 LO69f49a790f|Ankomeido|RGb2d75101c8|Home to the misfits and malcontents of Misteria|ankomeido
 LOefca8faa45|Arcturos|RG48803cad0f|Where Oscilio was embedded|
@@ -48,6 +49,7 @@ LO12dba4389a|Fardreyas|RG615666dae9|Village|
 LO7f6e1027f8|Fedhari|RG05a2281d01|Former Dhani city, now home to the merfolk and named Coralysi|
 LO525f327292|Forward Camps|RG8ee35f0ddd|Merchants, traders, adventures, mercenaries|
 LO89cd71d45e|Fractal Scar|RG48803cad0f|Battle of Fractal Scar|
+LO87891fd0a7|Fractal Scar|RG48803cad0f||
 LObcdb0c4232|Freakshow Territory|RGb2d75101c8|Deep in the Pits, composed of abandoned mineshafts|
 LO0d94f9c243|Gigadril Elevator|RG58cc047b16||
 LO9d43802f8d|Gigadrill Elevator|RG58cc047b16||gigadrill-elevator
@@ -62,6 +64,7 @@ LOabf9993793|Griefers Reef|RG05a2281d01||griefers-reef
 LO11560f9123|Grinning Boar Cantina|||
 LO8d65cf6e58|Hazeltown|RG615666dae9|Village|
 LO0b72b96328|Highloft Inn|RG48803cad0f|Inn on Skybreaker|
+LO0c5547da71|Ikaru|RG6cd31a74b6||ikaru
 LO140bb9daef|Imperial Furnace|RG8e23bdd8e8||
 LO36ae1c4fdf|Imperial Palace|RG8e23bdd8e8||
 LO4621469c21|Iron Assembly|RG58cc047b16||iron-assembly
@@ -76,11 +79,13 @@ LOaa30fa5d01|Kraken's Barrel|RG05a2281d01|Tavern|krakens-barrel
 LO81711f1965|Kyloria's Lair|RGb2d75101c8|Deep beneath the Pits|
 LO6e38122fa3|Lake Frigid|RG48803cad0f|Channel Lake Frigid|
 LOe84340b4cf|Larinkmorth|RG48803cad0f||larinkmorth
+LO7cc652d28f|Legendarium|RG48803cad0f||the-everfest-carnival
 LO1e3b7fbf46|Library of Illumination|RG615666dae9|In the city proper, a public library, cared for by the members of the Light of Sol|
 LOfe0bcee0f1|Lowlake|RG58cc047b16||
 LO0f86dbf091|Lunar Temple|RG6cd31a74b6||
 LO4c321edabb|Midtown Markets|RG58cc047b16||midtown-markets
 LOab5854ee60|Might n' Mead|RG48803cad0f|Where Valda grew up and works|
+LO05d1d645b9|Milesian Ranges|||
 LOe8d0d82e24|Mistcloak Gully|RG6cd31a74b6||
 LOc03e9c4edb|Mistcloak Lake|RG6cd31a74b6||
 LO285b16d77c|Mojire|||
@@ -132,6 +137,8 @@ LOb8c84ed077|The Bleake Expanse|RG48803cad0f||
 LOffa22496bd|The Broken Chariot Tavern|||
 LO0d4a1fe93c|The Drop|RGb2d75101c8|A bar owned by Uzuri|
 LO9fd2ca9024|The Everfest Carnival|RG48803cad0f||
+LO6562f78c72|The Everfest Carnival|RG48803cad0f||the-everfest-carnival
+LO838e79f0bd|The Flow|RG48803cad0f||the-flow
 LO44d64195eb|The Foundry|RG58cc047b16||the-foundry
 LOcfe267dc1c|The Golden Fields|RG615666dae9|Beyond the outer walls are grand golden fields, numerous villages and towns under the protection and guidance of Solana|
 LO6e57d10574|The Golden Gnome|RG48803cad0f|Part of the Everfest Carnival|

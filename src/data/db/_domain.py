@@ -66,7 +66,6 @@ class NarratedVideoEntry:
     author: str
     source_link: str
     channel_link: str = ""
-    duration: str = ""
 
 
 @dataclass
@@ -435,7 +434,7 @@ class Database:
             if narrated_videos is not None:
                 q.set_narrated_videos(
                     self.conn, story_id,
-                    [(v.author, v.source_link, v.channel_link, v.duration)
+                    [(v.author, v.source_link, v.channel_link)
                      for v in narrated_videos],
                 )
             if hero_ids is not None:
@@ -725,7 +724,7 @@ class Database:
     def _upsert_npcs(self, entries: list[NPCEntry]) -> list[tuple[str, str]]:
         # Guard against accidentally storing playable heroes as NPCs
         hero_names: set[str] = {
-            normalize_name(r["name"]) for r in q.select_all_heroes_canonical(self.conn)
+            normalize_name(r["canonical_hero"]) for r in q.select_all_heroes_canonical(self.conn)
         }
         ids: list[tuple[str, str]] = []
         for e in entries:
@@ -847,7 +846,6 @@ class Database:
                     author=v["author"],
                     source_link=v["source_link"],
                     channel_link=v["channel_link"],
-                    duration=v["duration"],
                 )
                 for v in videos
             ],
@@ -893,42 +891,153 @@ class Database:
         out.write(f"DRY RUN — {op} story\n")
         out.write(f"  StoryKey: {story_key}\n")
         out.write(f"  StoryId:  {story_id}\n")
-        out.write(f"  Title:    {title}\n")
-        out.write(f"  Type:     {story_type}\n")
-        if authors:
-            out.write(f"  Authors:  {authors}\n")
-        if artists:
-            out.write(f"  Artists:  {artists}\n")
-        if publication_date:
-            out.write(f"  Date:     {publication_date}\n")
-        if source_link:
-            out.write(f"  Source:   {source_link}\n")
+
+        scalar_fields: list[tuple[str, str, str]] = [
+            ("title",                "Title",   title),
+            ("story_type",           "Type",    story_type),
+            ("authors",              "Authors", authors),
+            ("artists",              "Artists", artists),
+            ("publication_date",     "Date",    publication_date),
+            ("source_link",          "Source",  source_link),
+            ("thumbnail_image_link", "Thumb",   thumbnail_image_link),
+        ]
+
+        if existing:
+            added: list[str] = []
+            removed: list[str] = []
+            for db_col, label, new_val in scalar_fields:
+                old_val = existing[db_col] or ""
+                if old_val == new_val:
+                    continue
+                if old_val and not new_val:
+                    removed.append(f"    - {label}: {old_val!r}")
+                elif not old_val:
+                    added.append(f"    + {label}: {new_val!r}")
+                else:
+                    added.append(f"    + {label}: {new_val!r}  (was: {old_val!r})")
+            if added:
+                out.write("  Added / changed:\n")
+                out.write("\n".join(added) + "\n")
+            if removed:
+                out.write("  Cleared:\n")
+                out.write("\n".join(removed) + "\n")
+            if not added and not removed:
+                out.write("  (story row: no scalar field changes)\n")
+        else:
+            for _, label, val in scalar_fields:
+                if val:
+                    out.write(f"  {label}: {val}\n")
 
         if narrated_videos is not None:
             out.write(f"  NarratedVideos: {len(narrated_videos)} entries\n")
 
-        def _show_links(label: str, ids_or_entries: list | None) -> None:
-            if ids_or_entries is None:
-                return
-            out.write(f"  {label}: {len(ids_or_entries)} link(s)\n")
-            for item in ids_or_entries:
-                if isinstance(item, str):
-                    out.write(f"    + {item}\n")
-                else:
-                    out.write(f"    + {getattr(item, 'name', str(item))}\n")
+        # Build id → display name maps so diffs show readable slugs/names
+        hero_id_to_slug = {
+            r["canonical_id"]: r["canonical_slug"]
+            for r in q.select_all_heroes_canonical(self.conn)
+        }
+        weapon_id_to_slug = {
+            r["canonical_weapon_id"]: r["canonical_slug"]
+            for r in q.select_all_weapons_canonical(self.conn)
+        }
+        equip_id_to_slug = {
+            r["canonical_equipment_id"]: r["canonical_slug"]
+            for r in q.select_all_equipment_canonical(self.conn)
+        }
+        npc_id_to_name = {r["character_id"]: r["name"] for r in q.select_all_npcs(self.conn)}
+        loc_id_to_name = {r["location_id"]: r["name"] for r in q.select_all_locations(self.conn)}
+        region_id_to_name = {
+            r["region_id"]: r["region_name"] for r in q.select_all_regions(self.conn)
+        }
+        monster_id_to_name = {r["monster_id"]: r["name"] for r in q.select_all_monsters(self.conn)}
+        fauna_id_to_name = {r["fauna_id"]: r["name"] for r in q.select_all_fauna(self.conn)}
+        flora_id_to_name = {r["flora_id"]: r["name"] for r in q.select_all_flora(self.conn)}
+        food_id_to_name = {
+            r["food_drink_id"]: r["name"] for r in q.select_all_food_drink(self.conn)
+        }
 
-        _show_links("Heroes", hero_ids)
+        def _show_links_diff(
+            label: str,
+            incoming: list | None,
+            incoming_names: list[str],
+            junction_table: str,
+            junction_id_col: str,
+            id_to_name: dict[str, str],
+        ) -> None:
+            if incoming is None:
+                return  # None = leave unchanged
+            incoming_set = set(incoming_names)
+            if existing:
+                existing_ids = q.select_story_junction(
+                    self.conn, story_id, junction_table, junction_id_col
+                )
+                existing_set = {id_to_name.get(eid, eid) for eid in existing_ids}
+                link_added = sorted(incoming_set - existing_set)
+                link_removed = sorted(existing_set - incoming_set)
+                if link_added or link_removed:
+                    out.write(f"  {label}:\n")
+                    for name in link_added:
+                        out.write(f"    + {name}\n")
+                    for name in link_removed:
+                        out.write(f"    - {name}\n")
+            else:
+                if incoming_names:
+                    out.write(f"  {label}:\n")
+                    for name in sorted(incoming_names):
+                        out.write(f"    + {name}\n")
+
+        _show_links_diff(
+            "Heroes", hero_ids,
+            [hero_id_to_slug.get(hid, hid) for hid in (hero_ids or [])],
+            "story_heroes", "canonical_id", hero_id_to_slug,
+        )
         if hero_fragments:
             out.write(f"  HeroFragments: {hero_fragments}\n")
-        _show_links("NPCs", npcs)
-        _show_links("Locations", locations)
-        _show_links("Regions", regions)
-        _show_links("Monsters", monsters)
-        _show_links("Fauna", fauna)
-        _show_links("Flora", flora)
-        _show_links("Food & Drink", food_drink)
-        _show_links("Weapons", weapon_ids)
-        _show_links("Equipment", equip_ids)
+        _show_links_diff(
+            "NPCs", npcs,
+            [e.name for e in (npcs or [])],
+            "story_npcs", "character_id", npc_id_to_name,
+        )
+        _show_links_diff(
+            "Locations", locations,
+            [e.name for e in (locations or [])],
+            "story_locations", "location_id", loc_id_to_name,
+        )
+        _show_links_diff(
+            "Regions", regions,
+            [e.name for e in (regions or [])],
+            "story_regions", "region_id", region_id_to_name,
+        )
+        _show_links_diff(
+            "Monsters", monsters,
+            [e.name for e in (monsters or [])],
+            "story_monsters", "monster_id", monster_id_to_name,
+        )
+        _show_links_diff(
+            "Fauna", fauna,
+            [e.name for e in (fauna or [])],
+            "story_fauna", "fauna_id", fauna_id_to_name,
+        )
+        _show_links_diff(
+            "Flora", flora,
+            [e.name for e in (flora or [])],
+            "story_flora", "flora_id", flora_id_to_name,
+        )
+        _show_links_diff(
+            "Food & Drink", food_drink,
+            [e.name for e in (food_drink or [])],
+            "story_food_drink", "food_drink_id", food_id_to_name,
+        )
+        _show_links_diff(
+            "Weapons", weapon_ids,
+            [weapon_id_to_slug.get(wid, wid) for wid in (weapon_ids or [])],
+            "story_weapons", "canonical_weapon_id", weapon_id_to_slug,
+        )
+        _show_links_diff(
+            "Equipment", equip_ids,
+            [equip_id_to_slug.get(eid, eid) for eid in (equip_ids or [])],
+            "story_equipment", "canonical_equipment_id", equip_id_to_slug,
+        )
 
         out.write("\n(no changes written)\n")
 

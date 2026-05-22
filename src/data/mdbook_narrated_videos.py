@@ -196,7 +196,6 @@ def _load_videos_by_key(data_dir: Path) -> tuple[
                 "author": author,
                 "source_link": source,
                 "channel_link": (row.get("ChannelLink") or "").strip(),
-                "duration": (row.get("Duration") or "").strip(),
             }
         )
         sid_by_key.setdefault(key, sid)

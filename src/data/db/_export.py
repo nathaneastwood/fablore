@@ -60,7 +60,7 @@ def _write_pipe_csv(
 def _export_story_narrated_videos(conn: sqlite3.Connection, csv_dir: Path) -> None:
     rows = conn.execute(
         """
-        SELECT nv.story_id, nv.author, nv.source_link, nv.channel_link, nv.duration
+        SELECT nv.story_id, nv.author, nv.source_link, nv.channel_link
         FROM narrated_videos nv
         INNER JOIN stories s ON s.story_id = nv.story_id
         ORDER BY s.story_key, nv.narrated_video_id
@@ -72,14 +72,13 @@ def _export_story_narrated_videos(conn: sqlite3.Connection, csv_dir: Path) -> No
             "Author": r["author"],
             "SourceLink": r["source_link"],
             "ChannelLink": r["channel_link"],
-            "Duration": r["duration"],
         }
         for r in rows
     ]
     _write_pipe_csv(
         csv_dir / "story-narrated-videos.csv",
         _CMD_STORIES,
-        ["StoryId", "Author", "SourceLink", "ChannelLink", "Duration"],
+        ["StoryId", "Author", "SourceLink", "ChannelLink"],
         data,
     )
 

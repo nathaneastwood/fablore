@@ -6,13 +6,14 @@ Version history:
   3 — npcs: add other_characters_story_key column
   4 — story_heroes, story_npcs: add fragment column
   5 — heroes_ll: new table for living-legend status per hero variant
+  6 — narrated_videos: drop duration column
 """
 
 from __future__ import annotations
 
 import sqlite3
 
-CURRENT_VERSION = 5
+CURRENT_VERSION = 6
 
 _V1_DDL = """
 CREATE TABLE IF NOT EXISTS stories (
@@ -294,4 +295,8 @@ def migrate(conn: sqlite3.Connection) -> None:
             """
         )
         conn.execute("PRAGMA user_version = 5")
+        conn.commit()
+    if version < 6:
+        conn.execute("ALTER TABLE narrated_videos DROP COLUMN duration")
+        conn.execute("PRAGMA user_version = 6")
         conn.commit()

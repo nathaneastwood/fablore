@@ -79,23 +79,23 @@ def select_all_stories(conn: sqlite3.Connection) -> list[sqlite3.Row]:
 def set_narrated_videos(
     conn: sqlite3.Connection,
     story_id: str,
-    videos: list[tuple[str, str, str, str]],
+    videos: list[tuple[str, str, str]],
 ) -> None:
     """Replace all narrated video rows for ``story_id`` with ``videos``.
 
     Args:
-        videos: List of ``(author, source_link, channel_link, duration)`` tuples
-            in display order. ``channel_link`` and ``duration`` may be empty strings.
+        videos: List of ``(author, source_link, channel_link)`` tuples
+            in display order. ``channel_link`` may be an empty string.
     """
     conn.execute("DELETE FROM narrated_videos WHERE story_id = ?", [story_id])
     if videos:
         conn.executemany(
             "INSERT INTO narrated_videos "
-            "(story_id, author, source_link, channel_link, duration) "
-            "VALUES (?,?,?,?,?)",
+            "(story_id, author, source_link, channel_link) "
+            "VALUES (?,?,?,?)",
             [
-                (story_id, author, url, channel, dur)
-                for author, url, channel, dur in videos
+                (story_id, author, url, channel)
+                for author, url, channel in videos
             ],
         )
 
@@ -104,7 +104,7 @@ def select_narrated_videos(
     conn: sqlite3.Connection, story_id: str
 ) -> list[sqlite3.Row]:
     return conn.execute(
-        "SELECT author, source_link, channel_link, duration "
+        "SELECT author, source_link, channel_link "
         "FROM narrated_videos WHERE story_id = ? "
         "ORDER BY narrated_video_id",
         [story_id],

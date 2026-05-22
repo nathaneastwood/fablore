@@ -1,5 +1,6 @@
 # AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Database class in src/data/db/ (db.upsert_story).
 FoodDrinkId|Name|Type
+FDfa737281fb|Alder Cider|Drink
 FDb6f84ade96|Amygdazzla|Drink
 FDa748f67df7|Breakernut Ale|Drink
 FDdb0cb9c330|Deathmatch Draught|Drink
