@@ -30,6 +30,22 @@ MARK_END = "<!-- fablore-story-meta:end -->"
 
 _WORDS_PER_MINUTE = 250
 _MIN_WORDS_FOR_READTIME = 50
+_NO_WORDCOUNT_TYPES = {"world-of-rathe", "heroes-of-rathe"}
+
+# Inline SVG for BlueSky (Font Awesome 4 has no BlueSky icon)
+_BLUESKY_SVG = (
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 568 501" '
+    'height="0.85em" width="0.85em" style="vertical-align:-0.1em;fill:currentColor" '
+    'aria-hidden="true">'
+    '<path d="M123.121 33.664C188.241 82.553 258.281 181.68 284 234.873'
+    'c25.719-53.192 95.759-152.32 160.879-201.209C491.866-1.611 568-28.906 568 57.947'
+    'c0 17.346-9.945 145.713-15.778 166.555-20.275 72.453-94.155 90.933-159.875 79.748'
+    'C508.222 323.8 521.99 372.7 484.34 421.616c-60.732 79.094-165.296 62.47-235.296-14.534'
+    'C179.044 484.086 74.48 500.71 13.748 421.616-23.902 372.7-10.134 323.8 106.532 304.25'
+    '40.812 315.435-33.068 296.955-53.343 224.502-59.176 203.66-69.121 75.293-69.121 57.947'
+    'c0-86.853 76.134-59.558 192.242-24.283z"/>'
+    '</svg>'
+)
 
 
 def _count_words(markdown: str) -> int:
@@ -67,6 +83,58 @@ def _format_date(date_str: str) -> str:
     return s
 
 
+def _share_link(cls: str, label: str, icon: str) -> str:
+    return (
+        f'  <a class="story-share-btn {cls}" href="#"'
+        f' target="_blank" rel="noopener noreferrer"'
+        f' aria-label="{label}" title="{label}">{icon}</a>'
+    )
+
+
+def _build_share_html() -> str:
+    """Return share buttons HTML with an inline script that populates URLs at runtime."""
+    _fa_facebook = '<i class="fa fa-facebook" aria-hidden="true"></i>'
+    _x_logo = '<span class="story-share-x-logo" aria-hidden="true">X</span>'
+    _fa_whatsapp = '<i class="fa fa-whatsapp" aria-hidden="true"></i>'
+    _fa_link = '<i class="fa fa-link" aria-hidden="true"></i>'
+    _copy_btn = (
+        '  <button class="story-share-btn story-share-copy"'
+        f' type="button" aria-label="Copy link" title="Copy link">{_fa_link}</button>'
+    )
+    html_block = "\n".join([
+        '<div class="story-share">',
+        '  <span class="story-share-label">Share</span>',
+        _share_link("story-share-facebook", "Share on Facebook", _fa_facebook),
+        _share_link("story-share-twitter", "Share on X", _x_logo),
+        _share_link("story-share-bluesky", "Share on BlueSky", _BLUESKY_SVG),
+        _share_link("story-share-whatsapp", "Share on WhatsApp", _fa_whatsapp),
+        _copy_btn,
+        '</div>',
+    ])
+    return html_block + "\n" + f"""<script>
+(function () {{
+  var u = encodeURIComponent(window.location.href);
+  var t = encodeURIComponent(document.title);
+  function qs(sel) {{ return document.querySelector(sel); }}
+  var fb = qs('.story-share-facebook');
+  if (fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + u;
+  var tw = qs('.story-share-twitter');
+  if (tw) tw.href = 'https://twitter.com/intent/tweet?url=' + u + '&text=' + t;
+  var bsky = qs('.story-share-bluesky');
+  if (bsky) bsky.href = 'https://bsky.app/intent/compose?text=' + t + '%20' + u;
+  var wa = qs('.story-share-whatsapp');
+  if (wa) wa.href = 'https://api.whatsapp.com/send?text=' + t + '%20' + u;
+  var cp = qs('.story-share-copy');
+  if (cp) cp.addEventListener('click', function () {{
+    navigator.clipboard.writeText(window.location.href).then(function () {{
+      cp.classList.add('story-share-copied');
+      setTimeout(function () {{ cp.classList.remove('story-share-copied'); }}, 2000);
+    }});
+  }});
+}})();
+</script>"""
+
+
 def _item(icon: str, inner: str) -> str:
     return (
         f'<span class="story-meta-item">'
@@ -82,6 +150,7 @@ def _build_meta_html(
     publication_date: str,
     source_link: str,
     word_count: int,
+    show_word_count: bool = True,
 ) -> str:
     """Return the ``story-meta`` div HTML, or an empty string when nothing to show."""
     items: list[str] = []
@@ -105,7 +174,7 @@ def _build_meta_html(
             )
         )
 
-    if word_count > 0:
+    if show_word_count and word_count > 0:
         count_fmt = f"{word_count:,}"
         if word_count >= _MIN_WORDS_FOR_READTIME:
             minutes = max(1, round(word_count / _WORDS_PER_MINUTE))
@@ -115,11 +184,12 @@ def _build_meta_html(
             wc_text = f"{count_fmt} words"
         items.append(_item("fa-clock-o", wc_text))
 
-    if not items:
-        return ""
-
-    inner = "\n  ".join(items)
-    return f'<div class="story-meta" aria-label="Story information">\n  {inner}\n</div>'
+    parts: list[str] = []
+    if items:
+        inner = "\n  ".join(items)
+        parts.append(f'<div class="story-meta" aria-label="Story information">\n  {inner}\n</div>')
+    parts.append(_build_share_html())
+    return "\n".join(parts)
 
 
 def _inject_after_heading(content: str, inner_html: str) -> str:
@@ -164,6 +234,7 @@ def _process_chapter(content: str, row: dict[str, str]) -> str:
         bare_for_count = pre + post
     else:
         bare_for_count = content
+    story_type = (row.get("StoryType") or "").strip()
     word_count = _count_words(bare_for_count)
     inner = _build_meta_html(
         authors=(row.get("Authors") or "").strip(),
@@ -171,6 +242,7 @@ def _process_chapter(content: str, row: dict[str, str]) -> str:
         publication_date=(row.get("PublicationDate") or "").strip(),
         source_link=(row.get("SourceLink") or "").strip(),
         word_count=word_count,
+        show_word_count=story_type not in _NO_WORDCOUNT_TYPES,
     )
     return _inject_after_heading(content, inner)
 

@@ -5,7 +5,7 @@
     flex-wrap: wrap;
     gap: 0.3rem 1.4rem;
     margin-top: 0.5rem;
-    margin-bottom: 1.75rem;
+    margin-bottom: 0.6rem;
     padding-bottom: 0.75rem;
     border-bottom: 1px solid var(--table-border-color);
     font-size: 1.25rem;
@@ -36,4 +36,95 @@
 
 .story-meta-item a:hover {
     text-decoration: underline;
+}
+
+/* Share buttons */
+
+.story-share {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 0.5rem;
+    margin-bottom: 1.75rem;
+    font-size: 1rem;
+}
+
+.story-share-label {
+    color: var(--searchresults-header-fg);
+    font-size: 0.8em;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-right: 0.15rem;
+}
+
+.story-share .story-share-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    font-size: 1rem;
+    text-decoration: none;
+    color: var(--fg);
+    background: var(--quote-bg);
+    border: 1px solid var(--table-border-color);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    font-family: inherit;
+    flex-shrink: 0;
+}
+
+.story-share .story-share-btn:hover {
+    text-decoration: none;
+}
+
+.story-share .story-share-btn .fa,
+.story-share .story-share-btn svg {
+    font-size: 0.9em;
+    flex-shrink: 0;
+}
+
+.story-share-x-logo {
+    font-size: 0.85em;
+    font-weight: 700;
+    line-height: 1;
+    font-family: sans-serif;
+}
+
+.story-share .story-share-copy.story-share-copied {
+    background: #25a244;
+    border-color: #25a244;
+    color: #fff;
+}
+
+.story-share .story-share-facebook:hover {
+    background: #1877f2;
+    border-color: #1877f2;
+    color: #fff;
+}
+
+.story-share .story-share-twitter:hover {
+    background: #000;
+    border-color: #000;
+    color: #fff;
+}
+
+.story-share .story-share-bluesky:hover {
+    background: #0085ff;
+    border-color: #0085ff;
+    color: #fff;
+}
+
+.story-share .story-share-whatsapp:hover {
+    background: #25d366;
+    border-color: #25d366;
+    color: #fff;
+}
+
+.story-share .story-share-copy:hover {
+    background: var(--sidebar-active);
+    border-color: var(--sidebar-active);
+    color: #fff;
 }
