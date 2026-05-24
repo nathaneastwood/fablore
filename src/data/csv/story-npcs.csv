@@ -1,8 +1,14 @@
 # AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Database class in src/data/db/ (db.upsert_story / db.remove_story).
 StoryId|CharacterId|Fragment
 ST0227cf5ea4|LC96a28dddf7|
+ST0233382227|LC00b6e15f71|
 ST0233382227|LC0b30b44cf8|
+ST0233382227|LC23c03436f2|
+ST0233382227|LC4a0fe7e3c9|
 ST0233382227|LC96e436883f|
+ST0233382227|LC9bb4e2a747|
+ST0233382227|LCca609acc12|
+ST0233382227|LCcfa07e77b0|
 ST05f79ffa0b|LC1454a20f37|
 ST05f79ffa0b|LC2be5f35ac9|
 ST0934df1d14|LC04251c7f5f|

@@ -251,3 +251,38 @@ db.upsert_story(
     weapons=[],
     dry_run=True,
 )
+
+db.upsert_story(
+    path="src/main-story/arcane-rising/a-bird-in-the-hand.md",
+    story_type="main-story",
+    title='A Bird in the Hand',
+    source_link='https://fabtcg.com/hero/azalea/story/a-bird-in-the-hand/',
+    publication_date='',
+    thumbnail_image_link='',
+    narrated_videos=[
+      NarratedVideoEntry(author='St_Havock', source_link='https://www.youtube.com/watch?v=BAhPVnQePQE&t=1030s', channel_link='https://www.youtube.com/@St_Havock')
+    ],
+    heroes=["azalea"],
+    npcs=[
+      NPCEntry("Lena Belle", species="Human"),
+      NPCEntry("Greenbird", species="Human"), # TODO: fragment to the tavern?
+      NPCEntry("Barton", species="Human"),
+      NPCEntry("The Harvester", species="Human"),
+      NPCEntry("Hog", species="Human"),
+      NPCEntry("Moray", species="Human"),
+      NPCEntry("Jackdaw", species="Human"),
+      NPCEntry("Cobbs", species="Human")
+    ],
+    locations=[
+      LocationEntry("Blackjack's Tavern", region="The Pits", lore_fragment="blackjacks-mercenary-company"),
+      LocationEntry("The Maw", region="The Pits", lore_fragment="the-maw"),
+      LocationEntry("Barton's House", region="The Pits")
+    ],
+    regions=[RegionEntry("The Pits"), RegionEntry("Metrix")],
+    monsters=[],
+    fauna=[],
+    flora=[],
+    food_drink=[FoodDrinkEntry("Blackjack's Whiskey", kind="Drink")],
+    weapons=[],
+    dry_run=True,
+)

@@ -1,6 +1,8 @@
 # AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Database class in src/data/db/ (db.upsert_story / db.remove_story).
 StoryId|RegionId
 ST00eabafbce|RG8e23bdd8e8
+ST0233382227|RG58cc047b16
+ST0233382227|RGb2d75101c8
 ST0382d8167e|RGb2d75101c8
 ST03e7564723|RG8e23bdd8e8
 ST03e7564723|RGb2d75101c8
