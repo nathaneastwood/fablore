@@ -91,7 +91,7 @@ def _share_link(cls: str, label: str, icon: str) -> str:
     )
 
 
-def _build_share_html() -> str:
+def _build_share_html(story_type: str = "") -> str:
     """Return share buttons HTML with an inline script that populates URLs at runtime."""
     _fa_facebook = '<i class="fa fa-facebook" aria-hidden="true"></i>'
     _x_logo = '<span class="story-share-x-logo" aria-hidden="true">X</span>'
@@ -101,8 +101,9 @@ def _build_share_html() -> str:
         '  <button class="story-share-btn story-share-copy"'
         f' type="button" aria-label="Copy link" title="Copy link">{_fa_link}</button>'
     )
+    _type_attr = f' data-story-type="{html.escape(story_type)}"' if story_type else ""
     html_block = "\n".join([
-        '<div class="story-share">',
+        f'<div class="story-share"{_type_attr}>',
         '  <span class="story-share-label">Share</span>',
         _share_link("story-share-facebook", "Share on Facebook", _fa_facebook),
         _share_link("story-share-twitter", "Share on X", _x_logo),
@@ -151,6 +152,7 @@ def _build_meta_html(
     source_link: str,
     word_count: int,
     show_word_count: bool = True,
+    story_type: str = "",
 ) -> str:
     """Return the ``story-meta`` div HTML, or an empty string when nothing to show."""
     items: list[str] = []
@@ -188,7 +190,7 @@ def _build_meta_html(
     if items:
         inner = "\n  ".join(items)
         parts.append(f'<div class="story-meta" aria-label="Story information">\n  {inner}\n</div>')
-    parts.append(_build_share_html())
+    parts.append(_build_share_html(story_type))
     return "\n".join(parts)
 
 
@@ -243,6 +245,7 @@ def _process_chapter(content: str, row: dict[str, str]) -> str:
         source_link=(row.get("SourceLink") or "").strip(),
         word_count=word_count,
         show_word_count=story_type not in _NO_WORDCOUNT_TYPES,
+        story_type=story_type,
     )
     return _inject_after_heading(content, inner)
 

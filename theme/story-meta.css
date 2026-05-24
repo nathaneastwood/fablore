@@ -1,3 +1,14 @@
+/* Sidebar read markers */
+
+#sidebar a.fablore-read::after {
+    content: '✓';
+    margin-left: 0.45em;
+    font-size: 0.78em;
+    font-weight: 700;
+    color: #6abf82;
+    vertical-align: 0.05em;
+}
+
 /* Reading progress bar */
 
 #reading-progress-bar {

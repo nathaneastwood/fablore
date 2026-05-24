@@ -353,6 +353,65 @@
 
         <script>
         (function () {
+            var STORAGE_KEY = 'fablore-read';
+            function getRead() {
+                try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
+                catch (e) { return []; }
+            }
+            var path = window.location.pathname;
+            var read = getRead();
+            var marked = read.indexOf(path) !== -1;
+
+            // Single pass: apply existing markers and locate current page's sidebar link
+            var currentLink = null;
+            document.querySelectorAll('#sidebar a[href]').forEach(function (a) {
+                try {
+                    var linkPath = new URL(a.href).pathname;
+                    if (read.indexOf(linkPath) !== -1) a.classList.add('fablore-read');
+                    if (linkPath === path) currentLink = a;
+                } catch (e) {}
+            });
+
+            function markRead() {
+                if (marked) return;
+                marked = true;
+                read.push(path);
+                try { localStorage.setItem(STORAGE_KEY, JSON.stringify(read)); } catch (e) {}
+                if (currentLink) currentLink.classList.add('fablore-read');
+            }
+
+            // Section header pages have a toggle arrow sibling in the sidebar;
+            // leaf content pages do not — use that to gate tracking.
+            var isSectionHeader = currentLink &&
+                currentLink.parentElement &&
+                currentLink.parentElement.querySelector('a.toggle');
+            var isTrackable = document.querySelector('.story-share') && !isSectionHeader;
+
+            if (!marked && isTrackable) {
+                var main = document.querySelector('#content main');
+                if (main) {
+                    var sentinel = document.createElement('div');
+                    sentinel.style.height = '1px';
+                    sentinel.setAttribute('aria-hidden', 'true');
+                    var supplementary = main.querySelector('.related-section, .narrated-videos');
+                    if (supplementary) {
+                        main.insertBefore(sentinel, supplementary);
+                    } else {
+                        main.appendChild(sentinel);
+                    }
+                    new IntersectionObserver(function (entries, obs) {
+                        if (entries[0].isIntersecting) {
+                            markRead();
+                            obs.disconnect();
+                        }
+                    }, { threshold: 1.0 }).observe(sentinel);
+                }
+            }
+        })();
+        </script>
+
+        <script>
+        (function () {
             var bar  = document.getElementById('reading-progress-bar');
             var fill = document.getElementById('reading-progress-fill');
             var menu = document.getElementById('menu-bar');
