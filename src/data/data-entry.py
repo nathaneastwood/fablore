@@ -187,7 +187,7 @@ db.upsert_story(
       NPCEntry("Master Saori", species="Human")
     ],
     locations=[
-      LocationEntry("Mugenshi Gorge", region="Mistera", lore_fragment="mugenshi-gorge"),
+      LocationEntry("Mugenshi Gorge", region="Misteria", lore_fragment="mugenshi-gorge"),
       LocationEntry("Mugenshi Ancestral Shrine", region="Misteria"),
       LocationEntry("Mugenshi Village", region="Misteria"),
       LocationEntry("Mistcloak Gully", region="Misteria"),
