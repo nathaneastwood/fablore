@@ -1,3 +1,19 @@
+/* Reading progress bar */
+
+#reading-progress-bar {
+    position: fixed;
+    height: 5px;
+    z-index: 101;
+    pointer-events: none;
+}
+
+#reading-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--links);
+    transition: width 0.1s linear;
+}
+
 /* Heading anchor links */
 
 .heading-anchor {
