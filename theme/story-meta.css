@@ -1,3 +1,12 @@
+/* Nav bar copy-link button — resets browser button defaults so spacing matches the <a>-based print/git buttons */
+
+#copy-link-button {
+    border: none;
+    background: none;
+    padding: 0;
+    color: var(--icons);
+}
+
 /* Injected by mdbook_story_meta preprocessor — story metadata card below the chapter title. */
 
 .story-meta {
