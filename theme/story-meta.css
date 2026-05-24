@@ -1,3 +1,28 @@
+/* Heading anchor links */
+
+.heading-anchor {
+    opacity: 0;
+    margin-left: 0.4em;
+    font-size: 0.65em;
+    color: var(--searchresults-header-fg);
+    text-decoration: none;
+    transition: opacity 0.15s, color 0.15s;
+    vertical-align: middle;
+    font-weight: normal;
+}
+
+h2:hover .heading-anchor,
+h3:hover .heading-anchor,
+h4:hover .heading-anchor {
+    opacity: 1;
+}
+
+.heading-anchor:hover,
+.heading-anchor--copied {
+    color: var(--links);
+    text-decoration: none;
+}
+
 /* Nav bar copy-link button — resets browser button defaults so spacing matches the <a>-based print/git buttons */
 
 #copy-link-button {
