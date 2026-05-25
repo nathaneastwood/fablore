@@ -9,9 +9,11 @@ LOefca8faa45|Arcturos|RG48803cad0f|Where Oscilio was embedded|
 LOc62fd77db1|Arena Barracks|||
 LOd648afbeae|Ashvahan|RG8e23bdd8e8|Capital of Volcor|
 LObdb304e6a8|Askraweld|||
+LOfa989f1937|Astral Bridge|RG63dcf97f5c||astral-bridge
 LO2929060c7c|Audra|RG615666dae9|Village|
 LO7b240bbfa5|Aui's Scale Strongholds|RG6cd31a74b6|Locations where things are concealed from the public|
 LO8b6cae13a8|Aui's Scales Strongholds|RG6cd31a74b6||
+LO1f9c8b9fc3|Auric Keep|RG63dcf97f5c||auric-keep
 LO97909f36a7|Barthimont Manor|RG615666dae9|In the Northern Realms|
 LO27ec2873bb|Barton's House|RGb2d75101c8|Information Dealer|
 LO87681a5bd3|Barton's House|RGb2d75101c8||
@@ -49,6 +51,7 @@ LO27bf9fba37|Dreadfall Reach|RG05a2281d01||
 LO8dd5855dce|East Rise|RG58cc047b16||east-rise
 LO53426708e5|Eighth Precinct|RG58cc047b16|Enforcer station, down the street from the Iron Hall|
 LO4f97dd2f4c|Enion|RG48803cad0f|Armory of the ancients and training ground of champions|enion
+LOb18734a689|Enion|RG48803cad0f||enion
 LOe569bd90f6|Entrance Hall|RG8bc7b8bb1d|Location of the portal to íArathael, Whisper the stained glass window|
 LO12dba4389a|Fardreyas|RG615666dae9|Village|
 LO7f6e1027f8|Fedhari|RG05a2281d01|Former Dhani city, now home to the merfolk and named Coralysi|
@@ -105,7 +108,8 @@ LOe70b25b69f|Mount Heroic|RG48803cad0f|Channel Mount Heroic|
 LOf854390156|Mt. Isen|RG48803cad0f||
 LO99af29f787|Mt. Volcor|RG8e23bdd8e8||
 LO817b25703b|Mugenshi Ancestral Shrine|RG6cd31a74b6||
-LO1304b41c1b|Mugenshi Gorge|RG6cd31a74b6||mugenshi-gorge
+LOa3baccb57a|Mugenshi Gorge|RG6cd31a74b6||
+LO1304b41c1b|Mugenshi Gorge|RGa08420d185||mugenshi-gorge
 LOff23e6de89|Mugenshi Village|RG6cd31a74b6|Hidden, lead by Katsu, in the Mugenshi Gorge|
 LO7e38563547|Mugenshi Village|RG6cd31a74b6||
 LO603ad6f1ca|Nasu-ka Teahouse|RG6cd31a74b6|Nuu's Teahouse by Mistcloak Lake|
@@ -132,6 +136,7 @@ LO2ab0aae07a|Seethe|RGb2d75101c8|A river|
 LO4cee4181ce|Seetheside Docks|RGb2d75101c8||
 LOdac2de7193|Sellshore Coast|RG05a2281d01||
 LOc74a0534ad|Shuntswitch Railway Station|RGb2d75101c8||
+LOda7dc20f64|Shyldverk|RG48803cad0f||shyldverk
 LO58e2880026|Signarus|RG615666dae9||
 LO0112129075|Silvarium|RG615666dae9||
 LOf88e62095e|Skein|RGb2d75101c8||
@@ -172,6 +177,7 @@ LO3e4b7962a4|The Maw|RGb2d75101c8||the-maw
 LOc8f4074eb8|The Moat|||
 LOfb3d45171c|The Needle|RG58cc047b16||the-needle
 LO26915881b0|The Northern Realms|RG615666dae9|Region of Solana|
+LO3b30c6969f|The Northern Realms|RG615666dae9||the-northern-realms
 LO1b27545b9e|The Oasis|RG8e23bdd8e8|Water from Misteria, lava from Mt. Volcor|
 LOb46ee21e33|The Obsidian Coast|RG8e23bdd8e8||
 LOc8d478fb1b|The Plazas|RG615666dae9|Connect the outer city sectors, a space to gather and hear news|
@@ -192,7 +198,10 @@ LO4d36a30f51|Torched Territory|RGb2d75101c8|Marked with trigger-sensitive flamet
 LO405629c19b|Trōpal-Dhani|RG05a2281d01||trōpal-dhani
 LObeb7a41de4|Underdog Cafe|RG58cc047b16|In Coppertown|
 LO5e38607206|Valahai|RG48803cad0f||valahai
+LO14218b7fa6|Valahai|RG48803cad0f||valahai
+LO070c2cab97|Voltaris Gem|RG63dcf97f5c||astral-bridge
 LO057e11f564|Volthaven|RG48803cad0f||
+LO793ecea506|Volthaven|RG48803cad0f||enion
 LOd97fd0d17b|Vossen Theater|RG58cc047b16||
 LOfacf25a520|Voxx Press|RG58cc047b16||
 LO44a8837c0a|West Ranges|||
@@ -201,4 +210,5 @@ LOaf5595e0df|Yvor's Peak|RG48803cad0f|Statue of Yvor located here, doorway to an
 LO6649aef91e|Zancaro|RG8e23bdd8e8||
 LO8e211cce26|Zesca's|RG58cc047b16||
 LO289cf09b7b|Zinnia Park|RG58cc047b16||zinnia-park
+LO5275385b36|i'Arathael|||
 LO33e4833932|íArathael|RG8bc7b8bb1d|Separate plane, accessed via a portal in the Demonastery, home of the Old Ones|

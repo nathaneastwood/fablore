@@ -349,7 +349,11 @@ class Database:
 
         Args:
             path: Path to the ``*.md`` file under ``src/``.
-            story_type: First ``src/`` path segment (e.g. ``"main-story"``).
+            story_type: First ``src/`` path segment. Must be one of
+                ``"archive"``, ``"digital-tiles"``, ``"equipment"``,
+                ``"flavour"``, ``"heroes-of-rathe"``, ``"main-story"``,
+                ``"other-characters"``, ``"short-stories"``, ``"weapons"``,
+                ``"world-of-rathe"``.
             title: Human-readable title for the story.
             authors: Author credits (free text, comma-separated suggested).
             artists: Illustration credits (free text).

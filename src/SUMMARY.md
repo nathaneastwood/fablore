@@ -79,6 +79,7 @@
     - [Vynnset](heroes-of-rathe/vynnset-about.md)
     - [Yoji](heroes-of-rathe/yoji-about.md)
     - [Zen](heroes-of-rathe/zen-about.md)
+    - [Zyggy](heroes-of-rathe/zyggy-about.md)
     - [Others](heroes-of-rathe/other.md)
 
 - [Other Characters](other-characters/README.md)

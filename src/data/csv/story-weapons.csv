@@ -1,6 +1,12 @@
 # AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Database class in src/data/db/ (db.upsert_story / db.remove_story).
 StoryId|CanonicalWeaponId
 ST5345dee53e|CWa96f0c6813
+ST753c993ac6|CWc963ed33e0
+ST753c993ac6|CWd56fff7138
 ST91aa0c2b46|CW148b2c606f
+STae2ed0a1b2|CW448e5ff20d
+STbca78faf59|CWc963ed33e0
+STbca78faf59|CWd56fff7138
 STcf218fa9f5|CW5cfe3e71c5
 STd23d8d544b|CW45d53ab7ae
+STdb0b746fe8|CW7c97fe936b

@@ -16,6 +16,51 @@ from db import (
 db = Database("src/data/fablore.db")
 
 # -------------------------------------------------------------------------------------------------------------------- #
+# Heroes
+# -------------------------------------------------------------------------------------------------------------------- #
+
+db.upsert_story(
+    path="src/heroes-of-rathe/aurora-about.md",
+    story_type="heroes-of-rathe",
+    title="Aurora",
+    heroes=["aurora"],
+    locations=[
+      LocationEntry("Enion", region="Aria", lore_fragment="enion"),
+      LocationEntry("Volthaven", region="Aria", lore_fragment="enion"),
+      LocationEntry("Valahai", region="Aria", lore_fragment="valahai"),
+    ],
+    weapons=["star-fall", "scorpio-comet-tail"],
+    dry_run=True
+)
+
+db.upsert_story(
+    path="src/heroes-of-rathe/oscilio-about.md",
+    story_type="heroes-of-rathe",
+    title="Oscilio",
+    heroes=["oscilio"],
+    locations=[
+      LocationEntry("Enion", region="Aria", lore_fragment="enion"),
+    ],
+    regions=[RegionEntry("Aria")],
+    weapons=["volzar-the-lightning-rod"],
+    dry_run=True
+)
+
+db.upsert_story(
+    path="src/heroes-of-rathe/zyggy-about.md",
+    story_type="heroes-of-rathe",
+    title="Zyggy Starlight",
+    heroes=["zyggy", "oscilio"],
+    regions=[RegionEntry("Nebulus Rift")],
+    locations=[
+      LocationEntry("Valahai", region="Aria", lore_fragment="valahai"),
+      LocationEntry("Auric Keep", region="Nebulus Rift", lore_fragment="auric-keep"),
+    ],
+    weapons=["aphrodias"],
+    dry_run=True
+)
+
+# -------------------------------------------------------------------------------------------------------------------- #
 # Main Story
 # -------------------------------------------------------------------------------------------------------------------- #
 
@@ -285,4 +330,39 @@ db.upsert_story(
     food_drink=[FoodDrinkEntry("Blackjack's Whiskey", kind="Drink")],
     weapons=[],
     dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/omens-of-the-third-age/omens-in-the-sky.md",
+    story_type="main-story",
+    title='Omens in the Sky',
+    source_link="https://fabtcg.com/articles/omens-in-the-sky/",
+    publication_date="2026-05-08",
+    narrated_videos=[
+      NarratedVideoEntry(author='St_Havock', source_link='https://www.youtube.com/watch?v=z42BCa8L3hs', channel_link='https://www.youtube.com/@St_Havock')
+    ],
+    heroes=["oscilio", "zyggy", "aurora"],
+    locations=[
+      LocationEntry("Enion", region="Aria", lore_fragment="enion"),
+      LocationEntry("The Flow", region="Aria", lore_fragment="the-flow"),
+      LocationEntry("Volthaven", region="Aria", lore_fragment="enion"),
+      LocationEntry("Auric Keep", region="Nebulus Rift", lore_fragment="auric-keep"),
+      LocationEntry("Valahai", region="Aria", lore_fragment="valahai"),
+      LocationEntry("Voltaris Gem", region="Nebulus Rift", lore_fragment="astral-bridge"),
+      LocationEntry("Shyldverk", region="Aria", lore_fragment="shyldverk"),
+      LocationEntry("Astral Bridge", region="Nebulus Rift", lore_fragment="astral-bridge"),
+      LocationEntry("i'Arathael"),
+      LocationEntry("The Northern Realms", region="Solana", lore_fragment="the-northern-realms"),
+    ],
+    regions=[
+      RegionEntry("Aria"),
+      RegionEntry("Nebulus Rift"),
+      RegionEntry("The Savage Lands"),
+      RegionEntry("Volcor"),
+      RegionEntry("Misteria"),
+      RegionEntry("Metrix"),
+      RegionEntry("Solana"),
+    ],
+    weapons=["star-fall", "scorpio-comet-tail"],
+    dry_run=True
 )

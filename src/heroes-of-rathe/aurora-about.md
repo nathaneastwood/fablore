@@ -32,3 +32,29 @@ With a Lightning card deployed, Aurora can use her hero ability to create an Emb
 ![Sword and Sorcery](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/aurora-sword-and-sorcery.webp)
 As a Runeblade, Aurora is a hybrid fighter, wielding both magic and melee in equal measure. Runeblades can attack from multiple angles, preying on the opponent's vulnerabilities with split damage types.
 :::
+
+---
+
+# Aurora, Legacy of Tempest
+
+<video width="100%" height="100%"  controls autoplay muted loop playsinline>
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/aurora-legacy-of-tempest.mp4" type="video/mp4">
+</video>
+
+If we succeed today, the coming moment will be written into the history books. And if we fail? Well, none will be left to write them. Volthaven will be no more.
+
+Many have suffered under the corruption that the omen’s hungering maw has unleashed upon us all. But this new bond to Lightning Flow carries with it the will to gather our Wayfarers and Wizards, to send them into this perilous fight for our fair Enion.
+
+And already we’ve come so far. Heck, I’ve tamed a comet, ridden the lightning into an astral realm, and returned with wisdom thought lost in the Third Age. Sure, the loss of Star Fall was a blow. But with a freshly forged weapon in my hands, hope gathers like thunderheads on the horizon.
+
+As we make our move against this demonic invader, I can see my fate written in the stars. I’m going to bring a storm down on that accursed sigil, a tempest like none have seen since the days of ancient Valahai!
+
+:::hero-trait Arc Lightning
+![Arc Lightning](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/aurora-arc-lightning.webp)
+Fueled by her newfound connection to Lightning Flow, Aurora strikes quick and burns bright, chaining together physical and arcane attacks to rush down her opposition.
+:::
+
+:::hero-trait Shock Tactics
+![Shock Tactics](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/aurora-shock-tactics.webp)
+Facing the looming doom, Aurora now seizes every opening she gets, unleashing a tempest of arcane stings the moment defenses run dry.
+:::

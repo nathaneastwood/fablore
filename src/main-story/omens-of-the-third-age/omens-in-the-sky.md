@@ -34,7 +34,7 @@ Zyggy is an Aetherscribe who wishes to help destroy the omen that is plaguing En
 
 Zyggy explains they are stranded in the Nebulus Rift, another reality created during the cataclysm. The only reason Zyggy has been able to reach out to Oscilio, after all this time, is that the omen has weakened the aetheric barriers between the Nebulus Rift and Enion.
 
-They and their fellow surviving Aetherscribes inhabit the Auric Keep, a fragment of old Valahai that can be reconnected to Rathe by a powerful artifact from that time: the Voltaris Gem.
+They and their fellow surviving Aetherscribes inhabit the Auric Keep, a fragment of old Valahai that can be reconnected to Rathe by a powerful artifact from that time: the [Voltaris Gem](~VoltarisGem).
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/21-omens-of-the-third-age/omens-in-the-sky-6.webp" alt="omens-in-the-sky-6" class="center">
 
