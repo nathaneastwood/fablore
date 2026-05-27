@@ -50,11 +50,84 @@ h4:hover .heading-anchor {
     text-decoration: none;
 }
 
-/* Hide random story button on narrow viewports — toolbar is already full at mobile widths */
+/* Hide secondary toolbar buttons on narrow viewports — toolbar is already full at mobile widths */
 @media only screen and (max-width: 599px) {
-    #random-story-button {
+    #random-story-button,
+    #accessibility-toggle {
         display: none;
     }
+}
+
+/* Reading preferences popup */
+
+.accessibility-popup {
+    position: absolute;
+    left: 10px;
+    top: var(--menu-bar-height);
+    z-index: 1000;
+    border-radius: 4px;
+    font-size: 0.7em;
+    color: var(--fg);
+    background: var(--theme-popup-bg);
+    border: 1px solid var(--theme-popup-border);
+    padding: 10px 0 6px;
+    min-width: 200px;
+    display: none;
+}
+
+.accessibility-section {
+    padding: 2px 16px 8px;
+}
+
+.accessibility-section + .accessibility-section {
+    border-top: 1px solid var(--theme-popup-border);
+    padding-top: 10px;
+}
+
+.accessibility-label {
+    display: block;
+    font-size: 0.9em;
+    color: var(--searchresults-header-fg);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+    white-space: nowrap;
+}
+
+.accessibility-choices {
+    display: flex;
+    gap: 4px;
+}
+
+.accessibility-choice {
+    flex: 1;
+    border: 1px solid var(--theme-popup-border);
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 3px 6px;
+    line-height: 1.6;
+    font-family: inherit;
+    font-size: inherit;
+    text-align: center;
+    white-space: nowrap;
+    transition: background 0.1s, color 0.1s;
+}
+
+.accessibility-choice:hover {
+    background: var(--theme-hover);
+}
+
+.accessibility-choice.accessibility-selected {
+    background: var(--sidebar-active);
+    border-color: var(--sidebar-active);
+    color: #fff;
+}
+
+/* Apply user font scale to content text only */
+#content main {
+    font-size: calc(var(--fablore-font-scale, 1) * 1em);
 }
 
 /* Nav bar copy-link button — resets browser button defaults so spacing matches the <a>-based print/git buttons */
