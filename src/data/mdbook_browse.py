@@ -191,6 +191,19 @@ def main() -> None:
     data_dir = src_root / "data"
 
     index = build_index(data_dir)
+
+    stories_json = json.dumps(
+        [{"t": s["t"], "u": s["u"]} for s in index["stories"]],
+        ensure_ascii=False, separators=(",", ":"),
+    )
+    stories_json_path = src_root / "stories.json"
+    try:
+        existing = stories_json_path.read_text(encoding="utf-8")
+    except FileNotFoundError:
+        existing = None
+    if existing != stories_json:
+        stories_json_path.write_text(stories_json, encoding="utf-8")
+
     walk_and_process(book.get("sections") or [], index)
 
     json.dump(book, sys.stdout, ensure_ascii=False)

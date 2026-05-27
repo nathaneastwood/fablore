@@ -50,6 +50,13 @@ h4:hover .heading-anchor {
     text-decoration: none;
 }
 
+/* Hide random story button on narrow viewports — toolbar is already full at mobile widths */
+@media only screen and (max-width: 599px) {
+    #random-story-button {
+        display: none;
+    }
+}
+
 /* Nav bar copy-link button — resets browser button defaults so spacing matches the <a>-based print/git buttons */
 
 #copy-link-button {

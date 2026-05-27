@@ -135,6 +135,11 @@
                         <button id="bionic-toggle" class="icon-button" type="button" title="Enable Bionic Reading" aria-label="Enable Bionic Reading" aria-pressed="false">
                             <i class="fa fa-bold"></i>
                         </button>
+                        {{#unless is_print}}
+                        <button id="random-story-button" class="icon-button" type="button" title="Surprise me — take me to a random story" aria-label="Random story">
+                            <i class="fa fa-random"></i>
+                        </button>
+                        {{/unless}}
                         {{#if search_enabled}}
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s or Ctrl+K)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S Meta+K Control+K" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
@@ -452,6 +457,28 @@
                     });
                 });
                 h.appendChild(a);
+            });
+        })();
+        </script>
+
+        <script>
+        (function () {
+            var btn = document.getElementById('random-story-button');
+            if (!btn) return;
+            var cache = null;
+            btn.addEventListener('click', function () {
+                function navigate(data) {
+                    var current = window.location.pathname;
+                    var others = data.filter(function (s) { return !current.endsWith('/' + s.u); });
+                    var pool = others.length ? others : data;
+                    var story = pool[Math.floor(Math.random() * pool.length)];
+                    window.location.href = path_to_root + story.u;
+                }
+                if (cache) { navigate(cache); return; }
+                fetch(path_to_root + 'stories.json')
+                    .then(function (r) { return r.json(); })
+                    .then(function (data) { cache = data; navigate(data); })
+                    .catch(function (e) { console.error('random story:', e); });
             });
         })();
         </script>
