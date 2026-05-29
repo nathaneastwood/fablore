@@ -88,11 +88,42 @@ db.update_description(
     "A predatory species, Sailorbane Coral grows from the rocky banks of channels,"
     " remaining submerged to conceal its presence.",
 )
+db.update_description(
+    "fauna", "Ank'is",
+    "The crystalline creature does not bleed. It shatters. Its teeth are harder than stone, with"
+    " serrated edges and a needle-like tip to tear through flesh. Its limbs are long and thin, with"
+    " sharp points to allow it to grip onto most surfaces, and scale the difficult terrain of the"
+    " Savage Lands.",
+)
+db.update_description(
+    "fauna", "Brawnhide",
+    "A giant, furred beast with long, thick canines, and small, dark eyes.",
+)
+db.update_description(
+    "fauna", "Fianna",
+    "Tall creature, with long flowing tails, tough skin, and massive antlers crowning the top of"
+    " their head.",
+)
+db.update_description(
+    "fauna", "Meep",
+    "Tiny, mischievous creatures recognised by their long limbs and tails, and colourful feather crests.",
+)
 db.update_description("fauna", "Sawmaw", "Triple-finned.")
 db.update_description(
     "fauna", "Siren",
     "Enchanting merfolk who lure sailors with song and beauty —"
     " gifts please them, but poor offerings may cost you dearly.",
+)
+db.update_description(
+    "fauna", "Skera",
+    "One of the Savage Lands' most skilled predators, almost completely nocturnal, relying on the"
+    " darkness to mask their movements while stalking prey. Their four eyes allow them to hunt in"
+    " the dark.",
+)
+db.update_description(
+    "fauna", "Vitr'eo",
+    "A majestic creature with a thick mane, crowned with a series of large crystals that grow out"
+    " from the top of its skull.",
 )
 db.update_description(
     "fauna", "Vuurlin",
@@ -123,6 +154,37 @@ db.update_description(
 # ---------------------------------------------------------------------------
 
 db.update_description("location", "Aldevyr", "A village in Aria.")
+db.update_description("location", "Deshvahan", "A city in Volcor.")
+db.update_description(
+    "location", "East Rise",
+    "The majority of this Metrix sector is devoted to parks and entertainment complexes.",
+)
+db.update_description(
+    "location", "Hand of Sol",
+    "Solana's order of knights, who defend the city from outside threats.",
+)
+db.update_description("location", "Ikaru", "One of the prestigious houses of Misteria; the House of Blossoms.")
+db.update_description(
+    "location", "The Flow",
+    "A wild, unpredictable force of nature in Aria, the Flow shapes the landscape around it as it"
+    " ebbs and flows.",
+)
+db.update_description(
+    "location", "The Foundry",
+    "An independent radio station, one of the few in Metrix that remains free of Mendacity control.",
+)
+db.update_description(
+    "location", "The Korshem",
+    "A massive tree at the heart of Aria that shelters all who live amongst its leaves.",
+)
+db.update_description(
+    "location", "Mount Heroic", "A mountain which towers above the forests of eastern Aria.",
+)
+db.update_description(
+    "location", "Trōpal-Dhani",
+    "A legendary city said to have survived the Dhani empire's collapse, hiding its lost magic and"
+    " treasures in the most perilous ruins.",
+)
 db.update_description(
     "location", "Ampitheatre",
     "In the city proper, a space for ceremonies, public events and proclamations.",
