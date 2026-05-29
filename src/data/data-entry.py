@@ -106,17 +106,12 @@ db.upsert_story(
       LocationEntry("The Flow", region="Aria", lore_fragment="the-flow"),
       LocationEntry("The Everfest Carnival", region="Aria", lore_fragment="the-everfest-carnival"),
       LocationEntry("Legendarium", region="Aria", lore_fragment="the-everfest-carnival"),
-      LocationEntry("Aldevyr", region="Aria", notes="A village in Aria"),
+      LocationEntry("Aldevyr", region="Aria"),
       LocationEntry("Fractal Scar", region="Aria"),
       LocationEntry("Milesian Ranges"),
     ],
     regions=[RegionEntry("Aria")],
-    monsters=[
-      MonsterEntry(
-        name="Dregs",
-        description="Humanoid figures with bloated, rotting bodies; their faces a mass of melted, discoloured skin, dripping the length of their bony, twisted limbs."
-      )
-    ],
+    monsters=[MonsterEntry("Dregs")],
     fauna=[
       FaunaEntry("Cesari"),
       FaunaEntry("Meep"),
@@ -260,12 +255,7 @@ db.upsert_story(
       LocationEntry("Blackjack's Tavern", region="The Pits", lore_fragment="blackjacks-mercenary-company")
     ],
     regions=[RegionEntry("The Pits"), RegionEntry("Metrix")],
-    monsters=[
-      MonsterEntry(
-        name="Dregs",
-        description="Humanoid figures with bloated, rotting bodies; their faces a mass of melted, discoloured skin, dripping the length of their bony, twisted limbs."
-      )
-    ],
+    monsters=[MonsterEntry("Dregs")],
     dry_run=True,
 )
 

@@ -9,7 +9,10 @@ Upsert functions use ``INSERT ... ON CONFLICT DO UPDATE`` (SQLite ≥ 3.24).
 
 from __future__ import annotations
 
+import logging
 import sqlite3
+
+_log = logging.getLogger(__name__)
 
 
 # ---------------------------------------------------------------------------
@@ -169,6 +172,16 @@ def upsert_location(
     notes: str = "",
     lore_fragment: str = "",
 ) -> None:
+    if not notes:
+        row = conn.execute(
+            "SELECT notes FROM locations WHERE location_id = ?", [location_id]
+        ).fetchone()
+        if row and row[0]:
+            _log.warning(
+                "Skipping notes overwrite for location %r — existing notes preserved"
+                " (pass non-empty notes to update them)",
+                location_id,
+            )
     conn.execute(
         """
         INSERT INTO locations (location_id, name, region_id, notes, lore_fragment)
@@ -176,8 +189,12 @@ def upsert_location(
         ON CONFLICT(location_id) DO UPDATE SET
             name          = excluded.name,
             region_id     = excluded.region_id,
-            notes         = excluded.notes,
-            lore_fragment = excluded.lore_fragment
+            notes         = CASE WHEN excluded.notes != ''
+                            THEN excluded.notes
+                            ELSE locations.notes END,
+            lore_fragment = CASE WHEN excluded.lore_fragment != ''
+                            THEN excluded.lore_fragment
+                            ELSE locations.lore_fragment END
         """,
         (location_id, name, region_id, notes, lore_fragment),
     )
@@ -234,13 +251,25 @@ def _upsert_named_entity(
     name: str,
     description: str = "",
 ) -> None:
+    if not description:
+        row = conn.execute(
+            f"SELECT description FROM {table} WHERE {id_col} = ?", [entity_id]
+        ).fetchone()
+        if row and row[0]:
+            _log.warning(
+                "Skipping description overwrite for %s %r — existing description preserved"
+                " (pass a non-empty description to update it)",
+                table, entity_id,
+            )
     conn.execute(
         f"""
         INSERT INTO {table} ({id_col}, name, description)
         VALUES (?,?,?)
         ON CONFLICT({id_col}) DO UPDATE SET
             name        = excluded.name,
-            description = excluded.description
+            description = CASE WHEN excluded.description != ''
+                          THEN excluded.description
+                          ELSE {table}.description END
         """,
         (entity_id, name, description),
     )
@@ -262,6 +291,34 @@ def upsert_flora(
     conn: sqlite3.Connection, *, flora_id: str, name: str, description: str = ""
 ) -> None:
     _upsert_named_entity(conn, "flora", "flora_id", flora_id, name, description)
+
+
+def update_entity_description(
+    conn: sqlite3.Connection,
+    table: str,
+    id_col: str,
+    entity_id: str,
+    description: str,
+) -> int:
+    """Update the description for a single entity. Returns rows affected."""
+    cur = conn.execute(
+        f"UPDATE {table} SET description = ? WHERE {id_col} = ?",
+        (description, entity_id),
+    )
+    return cur.rowcount
+
+
+def update_location_notes(
+    conn: sqlite3.Connection,
+    name: str,
+    notes: str,
+) -> int:
+    """Update notes for all locations matching name. Returns rows affected."""
+    cur = conn.execute(
+        "UPDATE locations SET notes = ? WHERE name = ?",
+        (notes, name),
+    )
+    return cur.rowcount
 
 
 def select_all_monsters(conn: sqlite3.Connection) -> list[sqlite3.Row]:

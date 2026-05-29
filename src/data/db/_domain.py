@@ -646,6 +646,47 @@ class Database:
             out.write("\n")
 
     # ------------------------------------------------------------------
+    # Description management
+    # ------------------------------------------------------------------
+
+    def update_description(self, entity_type: str, name: str, description: str) -> None:
+        """Set or update the tooltip description for an entity.
+
+        Args:
+            entity_type: One of ``"monster"``, ``"fauna"``, ``"flora"``, or ``"location"``.
+            name: Display name of the entity (must already exist in the database).
+            description: Short lore summary. For ``"location"`` this sets the ``notes`` field;
+                for all others it sets the ``description`` field.
+
+        Raises:
+            ValueError: If ``entity_type`` is unrecognised or the named entity does not exist.
+        """
+        _TABLE_MAP = {
+            "monster": ("monsters", "monster_id", _monster_id),
+            "fauna":   ("fauna",    "fauna_id",   fauna_id_from_name),
+            "flora":   ("flora",    "flora_id",   flora_id),
+        }
+        with self.conn:
+            if entity_type == "location":
+                rows = q.update_location_notes(self.conn, name, description)
+                if rows == 0:
+                    raise ValueError(f"Location not found: {name!r}")
+            elif entity_type in _TABLE_MAP:
+                table, id_col, id_fn = _TABLE_MAP[entity_type]
+                entity_id = id_fn(name)
+                rows = q.update_entity_description(
+                    self.conn, table, id_col, entity_id, description
+                )
+                if rows == 0:
+                    raise ValueError(f"{entity_type.capitalize()} not found: {name!r}")
+            else:
+                raise ValueError(
+                    f"Unknown entity type: {entity_type!r}. "
+                    "Use 'monster', 'fauna', 'flora', or 'location'."
+                )
+        _export.export_registry_tables(self.conn, self._data_dir)
+
+    # ------------------------------------------------------------------
     # Export / dump
     # ------------------------------------------------------------------
 
