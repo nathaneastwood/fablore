@@ -24,7 +24,7 @@ function renderHintContent(entry) {
   if (entry.summary) {
     parts.push(`<div class="hint-card-summary">${entry.summary}</div>`);
   }
-  return `<div class="hint-card hint-card--a">${parts.join("")}</div>`;
+  return `<div class="hint-card">${parts.join("")}</div>`;
 }
 
 async function runHints() {
