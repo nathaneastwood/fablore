@@ -10,6 +10,7 @@ Run from the repository root:
 
 import json
 import sqlite3
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -23,6 +24,19 @@ def _region_map(conn: sqlite3.Connection) -> dict[str, str]:
         row[0]: row[1]
         for row in conn.execute("SELECT region_id, region_name FROM regions")
     }
+
+
+def _key(name: str) -> str:
+    """Derive a safe hint key from a DB name: strip apostrophes."""
+    return name.replace("'", "")
+
+
+def _entry_with_match(name: str, base: dict) -> dict:
+    """Add a 'match' field if the safe key differs from the original name."""
+    key = _key(name)
+    if key != name:
+        return {"match": name, **base}
+    return base
 
 
 def generate() -> None:
@@ -39,22 +53,28 @@ def generate() -> None:
         region = regions.get(row["region_id"], "")
         if region:
             entry["region"] = region
-        hints[row["name"]] = entry
+        hints[_key(row["name"])] = _entry_with_match(row["name"], entry)
 
     for row in conn.execute("SELECT name, description FROM monsters ORDER BY name"):
         if not row["description"]:
             continue
-        hints[row["name"]] = {"type": "monster", "summary": row["description"]}
+        hints[_key(row["name"])] = _entry_with_match(
+            row["name"], {"type": "monster", "summary": row["description"]}
+        )
 
     for row in conn.execute("SELECT name, description FROM fauna ORDER BY name"):
         if not row["description"]:
             continue
-        hints[row["name"]] = {"type": "fauna", "summary": row["description"]}
+        hints[_key(row["name"])] = _entry_with_match(
+            row["name"], {"type": "fauna", "summary": row["description"]}
+        )
 
     for row in conn.execute("SELECT name, description FROM flora ORDER BY name"):
         if not row["description"]:
             continue
-        hints[row["name"]] = {"type": "flora", "summary": row["description"]}
+        hints[_key(row["name"])] = _entry_with_match(
+            row["name"], {"type": "flora", "summary": row["description"]}
+        )
 
     conn.close()
 
@@ -72,7 +92,7 @@ def generate() -> None:
     with OUTPUT_PATH.open("w", encoding="utf-8") as f:
         json.dump(hints, f, ensure_ascii=False, indent=2)
 
-    print(f"Wrote {len(hints)} entries to {OUTPUT_PATH.relative_to(ROOT)}")
+    print(f"Wrote {len(hints)} entries to {OUTPUT_PATH.relative_to(ROOT)}", file=sys.stderr)
 
 
 if __name__ == "__main__":

@@ -29,7 +29,8 @@
     "summary": "Village.",
     "region": "Solana"
   },
-  "Aui's Scale Strongholds": {
+  "Auis Scale Strongholds": {
+    "match": "Aui's Scale Strongholds",
     "type": "location",
     "summary": "Locations where things are concealed from the public.",
     "region": "Misteria"
@@ -39,12 +40,14 @@
     "summary": "In the Northern Realms.",
     "region": "Solana"
   },
-  "Barton's House": {
+  "Bartons House": {
+    "match": "Barton's House",
     "type": "location",
     "summary": "Information Dealer.",
     "region": "The Pits"
   },
-  "Blackjack's Tavern": {
+  "Blackjacks Tavern": {
+    "match": "Blackjack's Tavern",
     "type": "location",
     "summary": "Bounty Hunting Hub, owned by Greenbird. Neutral Ground.",
     "region": "The Pits"
@@ -54,7 +57,8 @@
     "summary": "In the north of Volcor.",
     "region": "Volcor"
   },
-  "Blasmophet's Domain": {
+  "Blasmophets Domain": {
+    "match": "Blasmophet's Domain",
     "type": "location",
     "summary": "Separate plane.",
     "region": "Demonastery"
@@ -64,7 +68,8 @@
     "summary": "An entire sector of The Maw.",
     "region": "The Pits"
   },
-  "Bravo's Legendarium": {
+  "Bravos Legendarium": {
+    "match": "Bravo's Legendarium",
     "type": "location",
     "summary": "Part of the Everfest Carnival.",
     "region": "Aria"
@@ -102,7 +107,8 @@
     "summary": "Shipwrights",
     "region": "High Seas"
   },
-  "Death's Knell": {
+  "Deaths Knell": {
+    "match": "Death's Knell",
     "type": "location",
     "summary": "The Ocean."
   },
@@ -221,12 +227,14 @@
     "summary": "Boat",
     "region": "High Seas"
   },
-  "Kraken's Barrel": {
+  "Krakens Barrel": {
+    "match": "Kraken's Barrel",
     "type": "location",
     "summary": "Tavern",
     "region": "High Seas"
   },
-  "Kyloria's Lair": {
+  "Kylorias Lair": {
+    "match": "Kyloria's Lair",
     "type": "location",
     "summary": "Deep beneath the Pits.",
     "region": "The Pits"
@@ -241,7 +249,8 @@
     "summary": "In the city proper, a public library cared for by the members of the Light of Sol.",
     "region": "Solana"
   },
-  "Might n' Mead": {
+  "Might n Mead": {
+    "match": "Might n' Mead",
     "type": "location",
     "summary": "Where Valda grew up and works.",
     "region": "Aria"
@@ -276,17 +285,20 @@
     "summary": "The gardens of",
     "region": "Solana"
   },
-  "Overseer Crichton's Mansion": {
+  "Overseer Crichtons Mansion": {
+    "match": "Overseer Crichton's Mansion",
     "type": "location",
     "summary": "Situated in The Maw.",
     "region": "The Pits"
   },
-  "Pirate's Perch": {
+  "Pirates Perch": {
+    "match": "Pirate's Perch",
     "type": "location",
     "summary": "Filled with jungle.",
     "region": "High Seas"
   },
-  "Rhinar's Territory": {
+  "Rhinars Territory": {
+    "match": "Rhinar's Territory",
     "type": "location",
     "summary": "Void of other brutes.",
     "region": "The Savage Lands"
@@ -461,12 +473,14 @@
     "summary": "In Coppertown.",
     "region": "Metrix"
   },
-  "Yvor's Peak": {
+  "Yvors Peak": {
+    "match": "Yvor's Peak",
     "type": "location",
     "summary": "Statue of Yvor located here, doorway to an armory.",
     "region": "Aria"
   },
-  "i'Arathael": {
+  "iArathael": {
+    "match": "i'Arathael",
     "type": "location",
     "summary": "Separate plane accessed via a portal in the Demonastery, home of the Old Ones.",
     "region": "Demonastery"
@@ -483,7 +497,8 @@
     "type": "monster",
     "summary": "A repulsive creature emerged through the opening, resembling a mass of human bodies held together by some monstrous cancer, an enormous eye in its center above a slavering mouth."
   },
-  "Ank'is": {
+  "Ankis": {
+    "match": "Ank'is",
     "type": "fauna",
     "summary": "The crystalline creature does not bleed. It shatters. Its teeth are harder than stone, with serrated edges and a needle-like tip to tear through flesh. Its limbs are long and thin, with sharp points to allow it to grip onto most surfaces, and scale the difficult terrain of the Savage Lands."
   },
@@ -559,7 +574,8 @@
     "type": "fauna",
     "summary": "These tiny wisps are artificially created by the wizards of Volcor; puffs of smoke brought to life by a breath of aether. Once formed, they subsist entirely on embers, flitting to and fro amongst the fiery landscape."
   },
-  "Na'shari": {
+  "Nashari": {
+    "match": "Na'shari",
     "type": "fauna",
     "summary": "A large beast with a crystalline hide, the na'shari has skin harder than most forms of metal. In spite of its tough appearance, this creature is known for its docile and friendly nature. Its round eyes and fuzzy tail make the creature incredibly popular with children, who often flock to na'shari in hopes of playing with the creature."
   },
@@ -591,7 +607,8 @@
     "type": "fauna",
     "summary": "One of the Savage Lands' most skilled predators, almost completely nocturnal, relying on the darkness to mask their movements while stalking prey. Their four eyes allow them to hunt in the dark."
   },
-  "Vitr'eo": {
+  "Vitreo": {
+    "match": "Vitr'eo",
     "type": "fauna",
     "summary": "A majestic creature with a thick mane, crowned with a series of large crystals that grow out from the top of its skull."
   },
