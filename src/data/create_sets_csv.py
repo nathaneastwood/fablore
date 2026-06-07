@@ -70,6 +70,8 @@ def infer_set_type_label(set_id: str, set_name: str) -> str:
         return "Token Set"
     if "mastery pack" in name:
         return "Mastery Pack"
+    if "silver age chapter" in name:
+        return "Silver Age Chapter Deck"
     if "round the table" in name:
         return "Box Set"
     if set_id in {"CRU", "EVR", "DTD", "SMP", "SUP"}:
@@ -97,6 +99,7 @@ def infer_set_type_layer(set_type: str) -> str:
         "First Strike Deck",
         "Hero Deck",
         "History Pack Blitz Deck",
+        "Silver Age Chapter Deck",
         "Welcome Deck",
     }
     booster_release_types = {
