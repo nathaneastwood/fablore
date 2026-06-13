@@ -60,6 +60,19 @@ db.upsert_story(
     dry_run=True
 )
 
+db.upsert_story(
+    path="src/heroes-of-rathe/blaze-about.md",
+    story_type="heroes-of-rathe",
+    title="Blaze",
+    heroes=["blaze"],
+    regions=[RegionEntry("Volcor")],
+    locations=[
+      LocationEntry("Imperial Palace", region="Volcor", lore_fragment="the-royal-court"),
+    ],
+    fauna=[FaunaEntry("Flare Deer")],
+    dry_run=True
+)
+
 # -------------------------------------------------------------------------------------------------------------------- #
 # Main Story
 # -------------------------------------------------------------------------------------------------------------------- #

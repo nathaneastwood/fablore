@@ -76,6 +76,11 @@
     "match": "Fiddler's Green",
     "summary": "An imaginary place where every immortal's whim shall be tended to by demure merfolk."
   },
+  "Fireseer": {
+    "type": "concept",
+    "match": ["Fireseer", "Fireseers"],
+    "summary": "One of the most powerful positions in the royal court of Volcor. The Fireseer is both spymaster and prophet, using Firesight to look through the empire's flames as windows across the land."
+  },
   "GoldenGoose": {
     "type": "ship",
     "match": "Golden Goose",
