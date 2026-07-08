@@ -68,7 +68,7 @@ def _format_date(date_str: str) -> str:
 def _item(icon: str, inner: str) -> str:
     return (
         f'<span class="story-meta-item">'
-        f'<i class="fa {icon}" aria-hidden="true"></i>'
+        f'<i class="{icon}" aria-hidden="true"></i>'
         f" {inner}</span>"
     )
 
@@ -197,7 +197,7 @@ def _build_hero_meta_html(meta: dict) -> str:
     if set_name:
         date_part = f" — {_format_date(set_date)}" if set_date else ""
         items.append(_item(
-            "fa-cube",
+            "fas fa-cube",
             f"First released in <strong>{html.escape(set_name)}</strong>{html.escape(date_part)}",
         ))
 
@@ -206,7 +206,7 @@ def _build_hero_meta_html(meta: dict) -> str:
     if classes or talents:
         labels = [html.escape(c) for c in classes] + [html.escape(t) for t in talents]
         joined = " · ".join(f"<strong>{label}</strong>" for label in labels)
-        items.append(_item("fa-tag", joined))
+        items.append(_item("fas fa-tag", joined))
 
     for entry in meta.get("ll", []):
         fmt = html.escape(entry.get("Format", ""))
@@ -216,7 +216,7 @@ def _build_hero_meta_html(meta: dict) -> str:
             if date_fmt
             else f" ({html.escape(fmt)})"
         )
-        items.append(_item("fa-trophy", f"Living Legend{detail}"))
+        items.append(_item("fas fa-trophy", f"Living Legend{detail}"))
 
     if not items:
         return ""

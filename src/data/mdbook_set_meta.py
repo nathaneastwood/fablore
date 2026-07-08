@@ -96,7 +96,7 @@ def _format_date(date_str: str) -> str:
 def _item(icon: str, inner: str) -> str:
     return (
         f'<span class="story-meta-item">'
-        f'<i class="fa {icon}" aria-hidden="true"></i>'
+        f'<i class="{icon}" aria-hidden="true"></i>'
         f" {inner}</span>"
     )
 
@@ -109,13 +109,13 @@ def _build_set_meta_html(meta: dict) -> str:
     release_date = meta.get("release_date", "")
 
     if set_name:
-        items.append(_item("fa-cube", f"<strong>{html.escape(set_name)}</strong>"))
+        items.append(_item("fas fa-cube", f"<strong>{html.escape(set_name)}</strong>"))
 
     if release_date:
-        items.append(_item("fa-calendar", html.escape(_format_date(release_date))))
+        items.append(_item("fas fa-calendar", html.escape(_format_date(release_date))))
 
     if set_type:
-        items.append(_item("fa-tag", html.escape(set_type)))
+        items.append(_item("fas fa-tag", html.escape(set_type)))
 
     if not items:
         return ""

@@ -93,10 +93,10 @@ def _share_link(cls: str, label: str, icon: str) -> str:
 
 def _build_share_html(story_type: str = "") -> str:
     """Return share buttons HTML with an inline script that populates URLs at runtime."""
-    _fa_facebook = '<i class="fa fa-facebook" aria-hidden="true"></i>'
+    _fa_facebook = '<i class="fab fa-facebook" aria-hidden="true"></i>'
     _x_logo = '<span class="story-share-x-logo" aria-hidden="true">X</span>'
-    _fa_whatsapp = '<i class="fa fa-whatsapp" aria-hidden="true"></i>'
-    _fa_link = '<i class="fa fa-link" aria-hidden="true"></i>'
+    _fa_whatsapp = '<i class="fab fa-whatsapp" aria-hidden="true"></i>'
+    _fa_link = '<i class="fas fa-link" aria-hidden="true"></i>'
     _copy_btn = (
         '  <button class="story-share-btn story-share-copy"'
         f' type="button" aria-label="Copy link" title="Copy link">{_fa_link}</button>'
@@ -139,7 +139,7 @@ def _build_share_html(story_type: str = "") -> str:
 def _item(icon: str, inner: str) -> str:
     return (
         f'<span class="story-meta-item">'
-        f'<i class="fa {icon}" aria-hidden="true"></i>'
+        f'<i class="{icon}" aria-hidden="true"></i>'
         f" {inner}</span>"
     )
 
@@ -158,20 +158,20 @@ def _build_meta_html(
     items: list[str] = []
 
     if authors:
-        items.append(_item("fa-pencil", f"Written by <strong>{html.escape(authors)}</strong>"))
+        items.append(_item("fas fa-pencil", f"Written by <strong>{html.escape(authors)}</strong>"))
 
     if artists:
-        items.append(_item("fa-image", f"Art by <strong>{html.escape(artists)}</strong>"))
+        items.append(_item("fas fa-image", f"Art by <strong>{html.escape(artists)}</strong>"))
 
     formatted_date = _format_date(publication_date)
     if formatted_date:
-        items.append(_item("fa-calendar", html.escape(formatted_date)))
+        items.append(_item("fas fa-calendar", html.escape(formatted_date)))
 
     if source_link:
         link_esc = html.escape(source_link)
         items.append(
             _item(
-                "fa-external-link",
+                "fas fa-arrow-up-right-from-square",
                 f'<a href="{link_esc}" target="_blank" rel="noopener">Original article</a>',
             )
         )
@@ -184,7 +184,7 @@ def _build_meta_html(
             wc_text = f"{count_fmt} words · {time_label}"
         else:
             wc_text = f"{count_fmt} words"
-        items.append(_item("fa-clock-o", wc_text))
+        items.append(_item("far fa-clock", wc_text))
 
     parts: list[str] = []
     if items:
