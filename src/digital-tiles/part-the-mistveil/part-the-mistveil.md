@@ -10,7 +10,7 @@
 ### Bonds Of Agony
 
 "Yes, that's it. Surrender to me. Offer up all your pain, all your suffering, every morsel of guilt you harbor. I know it hurts, but without your agony, I am numb."<br>
-<cite>- Xin, Teahouse Maiden<cite>
+<cite>- Xin, Teahouse Maiden</cite>
 
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/bonds-of-agony.webp" alt="bonds-of-agony" class="center" />
@@ -42,7 +42,7 @@ Amidst the shroud of Mistcloak Gully and across the expanse of the Misterian Ran
 ### Maul
 
 "The savagery of the tiger is tempered only by the skill of its wielder. To succumb to its tempting wrath is to succumb to the beast within, but we are not mere animals."<br>
-<cite>- Master Udo<cite>
+<cite>- Master Udo</cite>
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/maul.webp" alt="maul" class="center" />
 

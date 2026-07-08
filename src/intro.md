@@ -15,7 +15,7 @@ Not sure where to start? [Browse all available stories](browse.md) and filter by
 
 ## ✨ What you'll find:
 - 📚 Every lore article published by LSS
-- 🔎 Easy navigation by hero, region, or theme (try pressing S or Cmd+K / Ctrl+K!)
+- 🔎 Easy navigation by hero, region, or theme (try pressing S or / to search!)
 - 🗃️ Highlights for deprecated/canonical stories
 - ⚡ Updated fast - often the same day as release!
 

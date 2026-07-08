@@ -18,7 +18,7 @@ The performances quickly became a staple of the Everfest, transforming into the 
 
 While the troupe had their fair share of followers, it was Bravo who often found himself at the centre of attention. He quickly found himself overrun by avid fans, his charisma and confidence earning him admirers everywhere he went. Yet even as he enjoyed performing, there was a part of him that still longed for more.
 
-# Call to Adventure
+## Call to Adventure
 During a life travelling with the Everfest Carnival, Bravo had visited every village in Aria - yet no matter how many he travelled to, Aldevyr remained one of his favourites. A sprawling village, its buildings were scattered across the plains, flowers and herbs growing in rolling meadows. In the midst of summer, the Everfest made its way to Aldevyr once more, greeted with the sight of lush, dense meadows overrun with flowers.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/bravo-1.webp" alt="bravo-1" class="center">
@@ -53,7 +53,7 @@ It didn't take long for Bravo to gather his things, his pack still mostly untouc
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/bravo-3.webp" alt="bravo-3" class="center">
 
-# The Hero's Journey
+## The Hero's Journey
 The trio began their journey across Aria, making their way toward the massive crystalline cliffs of the Fractal Scar. The long days and balmy evenings of midsummer allowed them to spend more hours travelling during the day, spending their nights sleeping beneath the gentle light of the stars. The towns they passed through were more than happy to give them a place to rest, gifting them fruit, bottles of ale, and loaves of fresh bread for them to take on their journey.
 
 While travellers were common across Aria, the trio encountered more travellers than usual heading in the same direction as themselves, mysterious individuals that seemed out of place amongst the quiet, peaceful villages. An enchantress garbed in fine, iridescent silks; a strongman wearing simple stage armour; a wayfarer dressed in verdant broadcloth and worn brown leathers; a young woman with pale hair dressed entirely in kaie'o fur; a giant of a man wearing a massive horned helm; and all of them travelling toward the Fractal Scar.
@@ -74,7 +74,7 @@ Sure enough, Bravo turned to find a meep sitting on the balustrade, its beady li
 
 Several minutes later, Bravo descended to find Gawain and Morgan waiting for him, leaning against the tavern's counter. As they turned toward him, he watched their gaze flick to his missing earring, and then to the meep sitting happily on his shoulder, a single gold ring strung onto its tail. In response to their confused looks, the meep chittered happily, waving its prize in the air.
 
-# Transformation
+## Transformation
 According to Morgan, the wayfarers had set up camp near the Fractal Scar, rallying those who came to offer their aide. Marbles, drawn to the flash of sunlight reflected by the dowsing discs, led them from wayfarer to wayfarer, all making their way to the Fractal Scar. They were soon pointed in the right direction, and without Marbles' help, it may have taken them weeks to find their way through the icy plains.
 
 However, when they finally arrived at the village, the scene before them sent a chill down their spines. Unlike the gentle, rolling meadows of Aldevyr, the village that lay before them was an ashen husk of its former self. Houses lay abandoned, open doors swinging in the wind, blood smeared against the charred wood.
@@ -99,7 +99,7 @@ Marbles helped in his own way, darting onto Bravo's shoulder to chitter at drain
 
 Even as his heart grew weary, Bravo began to grow accustomed to this new way of life, learning to use Anothos for true battle. Hunting dregs alongside Gawain and Morgan, Bravo developed skills necessary to keep himself alive, and eliminate the creatures that threatened his home.
 
-# Final Battle
+## Final Battle
 The trio were making their way back to the wayfarer's base, seeking another quest, when they received word of a large swarm of dregs travelling further into Aria. A call went out to anyone within range, asking them to gather at a nearby valley. The trio immediately changed course and made their way to the meeting point, arriving to find a small crowd preparing themselves for battle.
 
 Even to one who had grown up in the Everfest Carnival, the collection of people gathered in the valley were mysterious and unfamiliar. Makeshift armour, worn leathers, faded silks and mended linens were worn alongside ancient helmets and layers of golden jewellery. Some looked as if they had stepped straight out of an act in the Everfest, others as if they'd just emerged from the tavern for the first time in months.
@@ -130,7 +130,7 @@ While the villages had only just begun the long road to recovery, they put on a 
 
 After many months away from their home, Bravo and his companions finally decided to return to the Everfest Carnival. Saying their goodbyes, they began to make their way north, Marbles in tow.
 
-# Homecoming
+## Homecoming
 The entire troupe was waiting for them when they arrived, welcoming them home with wide smiles and no small amount of celebration. The Legendarium's bard, Mikael, was bursting with new ideas, launching into a report of all the new stories he'd learned while in the Milesian Ranges. Meanwhile, Marbles emerged from Bravo's pack, greeting the troupe with an excited chitter.
 
 While he was happy to see his family and friends once more, it felt strange to return to the Everfest after spending so many months away. Even as he greeted his troupe, his mind drifted back to the battles and the creatures they faced, the happiness expressed by each villager as they finally returned home.
