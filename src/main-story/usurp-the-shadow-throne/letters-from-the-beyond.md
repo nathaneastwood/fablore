@@ -76,7 +76,7 @@ My base camp has been ravaged, my Runeblades slain before I returned to the surf
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/22-usurp-the-shadow-throne/letters-from-the-beyond-6.webp" alt="sketches from chane's diaries" class="center">
 
-Ursur whispers the name “Baalghor”. What is this Baalghor? Clearly titanic in proportion. Corrupted. Logic dictates that the lair of this demon may harbor more secrets of the Old Ones. Step by step, I am closer to unlocking their power; the power perhaps to consume even the Aesir of Light.
+Ursur whispers the name “Baalghor”. What is this Baalghor? Clearly titanic in proportion. Corrupted. Logic dictates that the lair of this demon may harbor more secrets of the Old Ones. Step by step, I am closer to unlocking their power; the power perhaps to consume even the [Aesir of Light](~AesirOfLight).
 
 And so, I write this last letter, knowing that the answer to our endeavors lies ahead. Until we speak again, Vynnset, in the flesh, as the dusk gathers over the ruins of Solana.
 
