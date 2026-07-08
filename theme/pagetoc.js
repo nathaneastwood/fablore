@@ -18,7 +18,7 @@ const listenActive = () => {
 const getPagetoc = () => document.querySelector(".pagetoc") || autoCreatePagetoc();
 
 const autoCreatePagetoc = () => {
-  const main = document.querySelector("#content > main");
+  const main = document.querySelector("#mdbook-content > main");
   const content = Object.assign(document.createElement("div"), {
     className: "content-wrap"
   });

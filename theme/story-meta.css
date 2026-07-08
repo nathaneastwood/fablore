@@ -1,6 +1,6 @@
 /* Sidebar read markers */
 
-#sidebar a.fablore-read::after {
+#mdbook-sidebar a.fablore-read::after {
     content: '✓';
     margin-left: 0.45em;
     font-size: 0.78em;
@@ -126,7 +126,7 @@ h4:hover .heading-anchor {
 }
 
 /* Apply user font scale to content text only */
-#content main {
+#mdbook-content main {
     font-size: calc(var(--fablore-font-scale, 1) * 1em);
 }
 

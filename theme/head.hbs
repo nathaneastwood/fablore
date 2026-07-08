@@ -31,3 +31,25 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Legendary Stories">
 <meta name="mobile-web-app-capable" content="yes">
+<!-- Font Awesome 4 (custom toolbar icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<!-- Tooltip library (used by hints.js) -->
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<!-- Apply reading preferences before content renders to prevent flash -->
+<script>
+(function () {
+    var VALID_SCALES = ['0.875', '1', '1.175'];
+    var VALID_WIDTHS = ['560px', '750px', '980px'];
+    try {
+        var s = localStorage.getItem('fablore-font-scale');
+        if (s && VALID_SCALES.indexOf(s) !== -1 && s !== '1') {
+            document.documentElement.style.setProperty('--fablore-font-scale', s);
+        }
+        var w = localStorage.getItem('fablore-line-width');
+        if (w && VALID_WIDTHS.indexOf(w) !== -1 && w !== '750px') {
+            document.documentElement.style.setProperty('--content-max-width', w);
+        }
+    } catch (e) {}
+})();
+</script>
