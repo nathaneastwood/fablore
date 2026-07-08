@@ -1,3 +1,10 @@
+# Registers each story and the entities it links to (heroes, npcs, locations,
+# regions, monsters, fauna, flora, food/drink, weapons, equipment). This file
+# only declares *relationships* — it does not set lore text.
+#
+# Lore text (location notes; monster/fauna/flora descriptions) belongs in
+# descriptions.py, not here. See descriptions.py for why.
+
 import sys
 
 sys.path.insert(0, "src/data")
@@ -123,6 +130,8 @@ db.upsert_story(
         LocationEntry("The Flow", region="Aria", lore_fragment="the-flow"),
         LocationEntry("The Everfest Carnival", region="Aria", lore_fragment="the-everfest-carnival"),
         LocationEntry("Legendarium", region="Aria", lore_fragment="the-everfest-carnival"),
+        LocationEntry("The Maela", region="Aria"),
+        LocationEntry("The Valdur", region="Aria"),
         LocationEntry("Aldevyr", region="Aria"),
         LocationEntry("Fractal Scar", region="Aria"),
         LocationEntry("Milesian Ranges"),
@@ -412,7 +421,6 @@ db.upsert_story(
             "The Shadow Crypts",
             region="Demonastery",
             lore_fragment="the-shadow-crypts",
-            notes="Dim halls within the Demonastery where a black mold containing warped microcosms of shifting light grows.",
         ),
     ],
     regions=[
@@ -420,10 +428,7 @@ db.upsert_story(
         RegionEntry("Solana"),
     ],
     monsters=[
-        MonsterEntry(
-            "Shadowrealm Walker",
-            description="Huge stilt-legged predators of i'Arathael, slow to anger, resembling praying mantises.",
-        ),
+        MonsterEntry("Shadowrealm Walker"),
     ],
     weapons=["galaxxi-black"],
     dry_run=True,
