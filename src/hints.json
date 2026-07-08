@@ -115,7 +115,8 @@
   "Demonastery": {
     "type": "location",
     "summary": "Mansion with specific rooms per resident; it moves, accessible by invitation.",
-    "region": "Demonastery"
+    "region": "Demonastery",
+    "url": "/world-of-rathe/demonastery.html"
   },
   "Deshvahan": {
     "type": "location",
@@ -320,8 +321,9 @@
   },
   "Solana": {
     "type": "location",
-    "summary": "City.",
-    "region": "Solana"
+    "summary": "Holy city-state at the heart of Rathe, built by pilgrims of Sol and governed by the Order of the Light.",
+    "region": "Solana",
+    "url": "/world-of-rathe/solana.html"
   },
   "Sori 16": {
     "type": "location",

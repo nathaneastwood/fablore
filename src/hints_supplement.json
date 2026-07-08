@@ -49,6 +49,9 @@
     "type": "ancient",
     "summary": "Ancient of Earth and Lightning."
   },
+  "Demonastery": {
+    "url": "/world-of-rathe/demonastery.html"
+  },
   "DhaniEmpire": {
     "type": "concept",
     "match": "Dhani Empire",
@@ -100,6 +103,9 @@
     "type": "faction",
     "match": "Hand of Sol",
     "summary": "Solana's order of knights, who defend the city from outside threats."
+  },
+  "Solana": {
+    "url": "/world-of-rathe/solana.html"
   },
   "Infernai": {
     "type": "aesir",
