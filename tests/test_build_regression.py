@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import json
 import re
+import shutil
 import subprocess
 from pathlib import Path
 
@@ -341,6 +342,8 @@ class TestJavaScriptCompatibility:
 
 
 @pytest.mark.slow
+@pytest.mark.slow
+@pytest.mark.skipif(shutil.which("mdbook") is None, reason="mdbook not installed")
 class TestBuildOutput:
     """Run ``mdbook build`` and validate the output.
 
