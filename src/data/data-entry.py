@@ -74,7 +74,9 @@ db.upsert_story(
     heroes=["blaze"],
     regions=[RegionEntry("Volcor")],
     locations=[
-        LocationEntry("Imperial Palace", region="Volcor", lore_fragment="the-royal-court"),
+        LocationEntry(
+            "Imperial Palace", region="Volcor", lore_fragment="the-royal-court"
+        ),
     ],
     fauna=[FaunaEntry("Flare Deer")],
     dry_run=True,
@@ -128,8 +130,14 @@ db.upsert_story(
     ],
     locations=[
         LocationEntry("The Flow", region="Aria", lore_fragment="the-flow"),
-        LocationEntry("The Everfest Carnival", region="Aria", lore_fragment="the-everfest-carnival"),
-        LocationEntry("Legendarium", region="Aria", lore_fragment="the-everfest-carnival"),
+        LocationEntry(
+            "The Everfest Carnival",
+            region="Aria",
+            lore_fragment="the-everfest-carnival",
+        ),
+        LocationEntry(
+            "Legendarium", region="Aria", lore_fragment="the-everfest-carnival"
+        ),
         LocationEntry("The Maela", region="Aria"),
         LocationEntry("The Valdur", region="Aria"),
         LocationEntry("Aldevyr", region="Aria"),
@@ -138,7 +146,13 @@ db.upsert_story(
     ],
     regions=[RegionEntry("Aria")],
     monsters=[MonsterEntry("Dregs")],
-    fauna=[FaunaEntry("Cesari"), FaunaEntry("Meep"), FaunaEntry("Kaie'o"), FaunaEntry("Fianna"), FaunaEntry("Vitr'eo")],
+    fauna=[
+        FaunaEntry("Cesari"),
+        FaunaEntry("Meep"),
+        FaunaEntry("Kaie'o"),
+        FaunaEntry("Fianna"),
+        FaunaEntry("Vitr'eo"),
+    ],
     food_drink=[FoodDrinkEntry(name="Alder Cider", kind="Drink")],
     weapons=["anothos"],
     dry_run=True,
@@ -163,7 +177,9 @@ db.upsert_story(
     heroes=["dorinthea", "hala"],
     npcs=[
         NPCEntry(
-            name="Minerva Themis", species="Human", other_characters_story_key="other-characters/minerva-themis.md"
+            name="Minerva Themis",
+            species="Human",
+            other_characters_story_key="other-characters/minerva-themis.md",
         ),
         # TODO: Does fragment link to world lore? If so, how?
         NPCEntry(name="Grand Magister, The Steadfast", species="Human"),
@@ -183,13 +199,23 @@ db.upsert_story(
         LocationEntry("Ironsong Forge", region="Solana"),
         LocationEntry("Library of Illumination", region="Solana"),
         LocationEntry("Amphitheatre", region="Solana"),
-        LocationEntry("Solstice of Laurels", region="Solana", lore_fragment="solstice-of-laurels"),
-        LocationEntry("The Awakening Ceremony", region="Solana", lore_fragment="the-awakening-ceremony"),
-        LocationEntry("The Light of Sol", region="Solana", lore_fragment="the-light-of-sol"),
+        LocationEntry(
+            "Solstice of Laurels", region="Solana", lore_fragment="solstice-of-laurels"
+        ),
+        LocationEntry(
+            "The Awakening Ceremony",
+            region="Solana",
+            lore_fragment="the-awakening-ceremony",
+        ),
+        LocationEntry(
+            "The Light of Sol", region="Solana", lore_fragment="the-light-of-sol"
+        ),
         LocationEntry("Silvarium", region="Solana"),
         LocationEntry("The Golden Fields", region="Solana"),
         LocationEntry("Forward Camps", region="The Savage Lands"),
-        LocationEntry("The Grand Council", region="Solana", lore_fragment="the-grand-council"),
+        LocationEntry(
+            "The Grand Council", region="Solana", lore_fragment="the-grand-council"
+        ),
         LocationEntry("The Savage Wilds", region="The Savage Lands"),
         LocationEntry("Ceremonial Chamber", region="Solana"),
     ],
@@ -234,7 +260,7 @@ db.upsert_story(
         FaunaEntry("Brawnhide"),
         FaunaEntry("Rek'vas"),
     ],
-    flora=[FloraEntry("Rashari")],
+    flora=[FloraEntry("Rashari"), FloraEntry("Haldor")],
     food_drink=[],
     weapons=[],
     dry_run=True,
@@ -257,12 +283,19 @@ db.upsert_story(
         )
     ],
     heroes=["katsu"],
-    npcs=[NPCEntry("Master Takumi", species="Human"), NPCEntry("Master Saori", species="Human")],
+    npcs=[
+        NPCEntry("Master Takumi", species="Human", status="Alive"),
+        NPCEntry("Master Saori", species="Human", status="Alive"),
+    ],
     locations=[
-        LocationEntry("Mugenshi Gorge", region="Misteria", lore_fragment="mugenshi-gorge"),
+        LocationEntry(
+            "Mugenshi Gorge", region="Misteria", lore_fragment="mugenshi-gorge"
+        ),
         LocationEntry("Mugenshi Ancestral Shrine", region="Misteria"),
         LocationEntry("Mugenshi Village", region="Misteria"),
-        LocationEntry("Mistcloak Gully", region="Misteria"),
+        LocationEntry(
+            "Mistcloak Gully", region="Misteria", lore_fragment="mistcloak-gully"
+        ),
         LocationEntry("Aui's Scales Strongholds", region="Misteria"),
     ],
     regions=[RegionEntry("Misteria")],
@@ -287,7 +320,13 @@ db.upsert_story(
         )
     ],
     heroes=["azalea"],
-    locations=[LocationEntry("Blackjack's Tavern", region="The Pits", lore_fragment="blackjacks-mercenary-company")],
+    locations=[
+        LocationEntry(
+            "Blackjack's Tavern",
+            region="The Pits",
+            lore_fragment="blackjacks-mercenary-company",
+        )
+    ],
     regions=[RegionEntry("The Pits"), RegionEntry("Metrix")],
     monsters=[MonsterEntry("Dregs")],
     dry_run=True,
@@ -308,10 +347,17 @@ db.upsert_story(
         )
     ],
     heroes=["azalea"],
-    npcs=[NPCEntry("Moray", species="Human"), NPCEntry("Greenbird", species="Human")],  # TODO: fragment to the tavern?
+    npcs=[
+        NPCEntry("Moray", species="Human"),
+        NPCEntry("Greenbird", species="Human"),
+    ],  # TODO: fragment to the tavern?
     locations=[
         LocationEntry("The Maw", region="The Pits", lore_fragment="the-maw"),
-        LocationEntry("Blackjack's Tavern", region="The Pits", lore_fragment="blackjacks-mercenary-company"),
+        LocationEntry(
+            "Blackjack's Tavern",
+            region="The Pits",
+            lore_fragment="blackjacks-mercenary-company",
+        ),
     ],
     regions=[RegionEntry("The Pits"), RegionEntry("Metrix")],
     monsters=[],
@@ -348,7 +394,11 @@ db.upsert_story(
         NPCEntry("Cobbs", species="Human"),
     ],
     locations=[
-        LocationEntry("Blackjack's Tavern", region="The Pits", lore_fragment="blackjacks-mercenary-company"),
+        LocationEntry(
+            "Blackjack's Tavern",
+            region="The Pits",
+            lore_fragment="blackjacks-mercenary-company",
+        ),
         LocationEntry("The Maw", region="The Pits", lore_fragment="the-maw"),
         LocationEntry("Barton's House", region="The Pits"),
     ],
@@ -381,11 +431,17 @@ db.upsert_story(
         LocationEntry("Volthaven", region="Aria", lore_fragment="enion"),
         LocationEntry("Auric Keep", region="Nebulus Rift", lore_fragment="auric-keep"),
         LocationEntry("Valahai", region="Aria", lore_fragment="valahai"),
-        LocationEntry("Voltaris Gem", region="Nebulus Rift", lore_fragment="astral-bridge"),
+        LocationEntry(
+            "Voltaris Gem", region="Nebulus Rift", lore_fragment="astral-bridge"
+        ),
         LocationEntry("Shyldverk", region="Aria", lore_fragment="shyldverk"),
-        LocationEntry("Astral Bridge", region="Nebulus Rift", lore_fragment="astral-bridge"),
+        LocationEntry(
+            "Astral Bridge", region="Nebulus Rift", lore_fragment="astral-bridge"
+        ),
         LocationEntry("i'Arathael"),
-        LocationEntry("The Northern Realms", region="Solana", lore_fragment="the-northern-realms"),
+        LocationEntry(
+            "The Northern Realms", region="Solana", lore_fragment="the-northern-realms"
+        ),
     ],
     regions=[
         RegionEntry("Aria"),
@@ -410,7 +466,9 @@ db.upsert_story(
     publication_date="2026-07-07",
     heroes=["chane", "vynnset"],
     npcs=[
-        NPCEntry(name="Baalghor", species="Demon"),  # TODO: upcoming hero — re-classify once slug exists
+        NPCEntry(
+            name="Baalghor", species="Demon"
+        ),  # TODO: upcoming hero — re-classify once slug exists
         NPCEntry(name="Kien", species="Human", status="Deceased"),
         NPCEntry(name="Ursur", species="Embra"),
     ],

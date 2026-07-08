@@ -2,8 +2,7 @@
 LocationId|Name|RegionId|Notes|LoreFragment
 LO2970e5c351|Aldengrove|RG48803cad0f||
 LO2ec34aa79a|Aldevyr|RG48803cad0f|A village in Aria.|
-LOd703dd530f|Amphitheatre|RG615666dae9||
-LO5b584f1cf2|Ampitheatre|RG615666dae9|In the city proper, a space for ceremonies, public events and proclamations.|
+LOd703dd530f|Amphitheatre|RG615666dae9|In the city proper, a space for ceremonies, public events and proclamations.|
 LO69f49a790f|Ankomeido|RGb2d75101c8|Home to the misfits and malcontents of Misteria.|ankomeido
 LOefca8faa45|Arcturos|RG48803cad0f|Where Oscilio was embedded.|
 LOc62fd77db1|Arena Barracks|||
@@ -52,9 +51,9 @@ LOe569bd90f6|Entrance Hall|RG8bc7b8bb1d|Location of the portal to íArathael, ho
 LO12dba4389a|Fardreyas|RG615666dae9|Village.|
 LO7f6e1027f8|Fedhari|RG05a2281d01|Former Dhani city, now home to the merfolk and named Coralysi|
 LO525f327292|Forward Camps|RG8ee35f0ddd|Home to merchants, traders, adventurers, and mercenaries.|
+LO8f597c6d54|Forward Camps|RG8ee35f0ddd|Home to merchants, traders, adventurers, and mercenaries.|
 LO87891fd0a7|Fractal Scar|RG48803cad0f|Site of the Battle of Fractal Scar.|
 LObcdb0c4232|Freakshow Territory|RGb2d75101c8|Deep in the Pits, composed of abandoned mineshafts.|
-LO0d94f9c243|Gigadril Elevator|RG58cc047b16||
 LO9d43802f8d|Gigadrill Elevator|RG58cc047b16||gigadrill-elevator
 LO830472649b|Golden Chariot|RG615666dae9|Inn in the city proper, owned by Minerva.|
 LOb24857e7b9|Golden Port|RG05a2281d01|Built in the ruins of the Dhani Empire.|
@@ -91,7 +90,7 @@ LO0f86dbf091|Lunar Temple|RG6cd31a74b6||
 LO4c321edabb|Midtown Markets|RG58cc047b16||midtown-markets
 LOab5854ee60|Might n' Mead|RG48803cad0f|Where Valda grew up and works.|
 LO05d1d645b9|Milesian Ranges|||
-LOe836c30d21|Mistcloak Gully|RG6cd31a74b6||
+LOe836c30d21|Mistcloak Gully|RG6cd31a74b6||mistcloak-gully
 LOc03e9c4edb|Mistcloak Lake|RG6cd31a74b6||
 LO285b16d77c|Mojire|||
 LO09eeed8abb|Morlock Hill|RG615666dae9|Site of the Battle of Morlock Hill.|
@@ -158,7 +157,7 @@ LOf169f51c99|The Korshem|RG48803cad0f|A massive tree at the heart of Aria that s
 LO6387c3994d|The Leaf House|RGb2d75101c8|Restaurant run by Jemjang.|
 LO0627fa9c19|The Light of Sol|RG615666dae9||the-light-of-sol
 LO5a77b13b75|The Maela|RG48803cad0f|Part of the Everfest Carnival, home to fortune tellers, seers, oracles, enchantresses, and conjurers.|
-LOad1f6eebc9|The Maela|RG48803cad0f||
+LOad1f6eebc9|The Maela|RG48803cad0f|Part of the Everfest Carnival, home to fortune tellers, seers, oracles, enchantresses, and conjurers.|
 LO809de2774d|The Maw|RGb2d75101c8|Entrance to the pits, traveled by mine cage|the-maw
 LOc8f4074eb8|The Moat|||
 LOfb3d45171c|The Needle|RG58cc047b16||the-needle
@@ -174,7 +173,7 @@ LO6ac245e927|The Solarium|RG615666dae9|The inner sanctum, home to the Light of S
 LOa5f3b84f11|The Sprawl|RG58cc047b16||
 LO45dac742cc|The Undercroft|||
 LO270073bf50|The Valdur|RG48803cad0f|Part of the Everfest Carnival, known for strongmen acts and work with animals.|
-LOc025e6666e|The Valdur|RG48803cad0f||
+LOc025e6666e|The Valdur|RG48803cad0f|Part of the Everfest Carnival, known for strongmen acts and work with animals.|
 LO45deab789a|The Venarium|RG8bc7b8bb1d|Room filled with plants.|
 LOf5964bb91a|The Vitiate Gateway|RG8bc7b8bb1d|Last of the 9 portals connecting Rathe to íArathael.|
 LO6f27c455e1|Thistlefold|||

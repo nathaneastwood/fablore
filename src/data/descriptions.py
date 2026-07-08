@@ -60,10 +60,16 @@ db.update_description(
     "The Azeri are elusive and mysterious, lingering in the innermost depths of the Savage Lands.",
 )
 db.update_description("fauna", "Blindseal", "Blubbery.")
-db.update_description("fauna", "Cursed Dhani Warriors", "Scorpion tails, claws and human head.")
+db.update_description(
+    "fauna", "Cursed Dhani Warriors", "Scorpion tails, claws and human head."
+)
 db.update_description("fauna", "Cyanatu", "A rare sea snake.")
-db.update_description("fauna", "Desert Fox", "The creature's mouth warped by two large boar-like tusks.")
-db.update_description("fauna", "Flare Deer", "Its scent glands swollen with massive oozing growths.")
+db.update_description(
+    "fauna", "Desert Fox", "The creature's mouth warped by two large boar-like tusks."
+)
+db.update_description(
+    "fauna", "Flare Deer", "Its scent glands swollen with massive oozing growths."
+)
 db.update_description("fauna", "Giant Drift Stingers", "Scorpion.")
 db.update_description("fauna", "Gossamhares", "Skittish creatures.")
 db.update_description("fauna", "Gupler", "Moon-shaped.")
@@ -72,6 +78,12 @@ db.update_description(
     "fauna",
     "Hydra",
     "A sea creature with boat-sized flippers, three heads and perhaps as large as three whales, end on end.",
+)
+db.update_description(
+    "fauna",
+    "Kaie'o",
+    "Small, quick creatures once common across Aria's fields, prized for their soft fur;"
+    " their sudden disappearance from the plains was an early sign of the Fractal Scar's unrest.",
 )
 db.update_description("fauna", "Kneecapper Crustacean", "They have foot-long pincers.")
 db.update_description(
@@ -128,8 +140,15 @@ db.update_description(
 )
 db.update_description(
     "fauna",
+    "Cesari",
+    "Majestic, iridescent creatures of Aria that move through the air with a spectral, coiling grace,"
+    " a sight familiar to those raised amongst the animal acts of the Valdur.",
+)
+db.update_description(
+    "fauna",
     "Fianna",
-    "Tall creature, with long flowing tails, tough skin, and massive antlers crowning the top of" " their head.",
+    "Tall creature, with long flowing tails, tough skin, and massive antlers crowning the top of"
+    " their head.",
 )
 db.update_description(
     "fauna",
@@ -176,7 +195,14 @@ db.update_description(
 # Flora
 # ---------------------------------------------------------------------------
 
-db.update_description("flora", "Blissberry Bush", "Produces small delicious berry fruits.")
+db.update_description(
+    "flora", "Blissberry Bush", "Produces small delicious berry fruits."
+)
+db.update_description(
+    "flora",
+    "Haldor",
+    "A large, slow-growing tree of the Savage Lands whose thick root warren shelters ground-dwelling creatures.",
+)
 db.update_description(
     "flora",
     "Jacaranda",
@@ -188,6 +214,11 @@ db.update_description(
 # ---------------------------------------------------------------------------
 
 db.update_description("location", "Aldevyr", "A village in Aria.")
+db.update_description(
+    "location",
+    "Amphitheatre",
+    "In the city proper, a space for ceremonies, public events and proclamations.",
+)
 db.update_description("location", "Deshvahan", "A city in Volcor.")
 db.update_description(
     "location",
@@ -199,11 +230,16 @@ db.update_description(
     "Hand of Sol",
     "Solana's order of knights, who defend the city from outside threats.",
 )
-db.update_description("location", "Ikaru", "One of the prestigious houses of Misteria; the House of Blossoms.")
+db.update_description(
+    "location",
+    "Ikaru",
+    "One of the prestigious houses of Misteria; the House of Blossoms.",
+)
 db.update_description(
     "location",
     "The Flow",
-    "A wild, unpredictable force of nature in Aria, the Flow shapes the landscape around it as it" " ebbs and flows.",
+    "A wild, unpredictable force of nature in Aria, the Flow shapes the landscape around it as it"
+    " ebbs and flows.",
 )
 db.update_description(
     "location",
@@ -231,7 +267,9 @@ db.update_description(
     "Ampitheatre",
     "In the city proper, a space for ceremonies, public events and proclamations.",
 )
-db.update_description("location", "Ankomeido", "Home to the misfits and malcontents of Misteria.")
+db.update_description(
+    "location", "Ankomeido", "Home to the misfits and malcontents of Misteria."
+)
 db.update_description("location", "Arcturos", "Where Oscilio was embedded.")
 db.update_description("location", "Ashvahan", "Capital of Volcor.")
 db.update_description("location", "Audra", "Village.")
@@ -260,7 +298,9 @@ db.update_description(
     "Ceremionial Chamber",
     "In the city proper, location of the Awakening ceremony.",
 )
-db.update_description("location", "Charred Range", "Mountains separating Solana and Volcor.")
+db.update_description(
+    "location", "Charred Range", "Mountains separating Solana and Volcor."
+)
 db.update_description("location", "Chrome Caverns", "The desert's edge.")
 db.update_description("location", "Coralysi", "Home of the merfolk. Floating gardens.")
 db.update_description("location", "Death's Knell", "The Ocean.")
@@ -296,8 +336,12 @@ db.update_description(
     "Freakshow Territory",
     "Deep in the Pits, composed of abandoned mineshafts.",
 )
-db.update_description("location", "Golden Chariot", "Inn in the city proper, owned by Minerva.")
-db.update_description("location", "Golden Port", "Built in the ruins of the Dhani Empire.")
+db.update_description(
+    "location", "Golden Chariot", "Inn in the city proper, owned by Minerva."
+)
+db.update_description(
+    "location", "Golden Port", "Built in the ruins of the Dhani Empire."
+)
 db.update_description("location", "Gougemoor", "The edge of the Savage Lands.")
 db.update_description("location", "Grayhollow", "Kuraghan safe port.")
 db.update_description("location", "Hazeltown", "Village.")
@@ -322,8 +366,14 @@ db.update_description(
 )
 db.update_description("location", "Might n' Mead", "Where Valda grew up and works.")
 db.update_description("location", "Morlock Hill", "Site of the Battle of Morlock Hill.")
-db.update_description("location", "Mugenshi Village", "Hidden village in the Mugenshi Gorge, led by Katsu.")
-db.update_description("location", "Nasu-ka Teahouse", "Nuu's teahouse by Mistcloak Lake.")
+db.update_description(
+    "location",
+    "Mugenshi Village",
+    "Hidden village in the Mugenshi Gorge, led by Katsu.",
+)
+db.update_description(
+    "location", "Nasu-ka Teahouse", "Nuu's teahouse by Mistcloak Lake."
+)
 db.update_description(
     "location",
     "Numbskull Territory",
@@ -367,10 +417,13 @@ db.update_description("location", "The Leaf House", "Restaurant run by Jemjang."
 db.update_description(
     "location",
     "The Maela",
-    "Part of the Everfest Carnival, home to fortune tellers, seers, oracles, enchantresses," " and conjurers.",
+    "Part of the Everfest Carnival, home to fortune tellers, seers, oracles, enchantresses,"
+    " and conjurers.",
 )
 db.update_description("location", "The Northern Realms", "Region of Solana.")
-db.update_description("location", "The Oasis", "Water from Misteria, lava from Mt. Volcor.")
+db.update_description(
+    "location", "The Oasis", "Water from Misteria, lava from Mt. Volcor."
+)
 db.update_description(
     "location",
     "The Plazas",
@@ -382,7 +435,9 @@ db.update_description(
     "The Silvaris",
     "A series of beautiful public gardens surrounding the inner sanctum of Solana.",
 )
-db.update_description("location", "The Solarium", "The inner sanctum, home to the Light of Sol.")
+db.update_description(
+    "location", "The Solarium", "The inner sanctum, home to the Light of Sol."
+)
 db.update_description(
     "location",
     "The Valdur",
