@@ -176,6 +176,7 @@
     - [Feudmasters](main-story/super-slam/feudmasters.md)
     - [Vow Unbroken](main-story/compendium-of-rathe/vow-unbroken.md)
     - [Omens in the Sky](main-story/omens-of-the-third-age/omens-in-the-sky.md)
+    - [Lettes from the Beyond](main-story/usurp-the-shadow-throne/letters-from-the-beyond.md)
 
 - [Main Story Summaries](summaries/README.md)
   - [War of the Monarch, Part 1](summaries/war-of-the-monarch-pt-1.md)

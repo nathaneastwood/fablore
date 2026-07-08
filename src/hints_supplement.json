@@ -230,5 +230,41 @@
   "Yvor": {
     "type": "ancient",
     "summary": "Ancient of Lightning and Ice."
+  },
+  "Baalghor": {
+    "type": "npc",
+    "summary": "Titanic corrupted demon whose lair in i'Arathael may harbor secrets of the Old Ones."
+  },
+  "Kien": {
+    "type": "npc",
+    "summary": "A Disciple of Pain who volunteered as a blood sacrifice for Chane during an expedition into i'Arathael."
+  },
+  "Ursur": {
+    "type": "embra",
+    "summary": "An Embra bound to Chane, drawn to the corruption of the Old Ones in the Shadowrealm."
+  },
+  "DisciplesOfPain": {
+    "type": "faction",
+    "match": "Disciples of Pain",
+    "summary": "Chane's elite followers within the Church of Pain, accompanying him on expeditions into i'Arathael."
+  },
+  "Runeblades": {
+    "type": "faction",
+    "summary": "Chane's Demonastery warriors who serve as guards and potential blood sacrifices on Shadowrealm expeditions."
+  },
+  "OldOnes": {
+    "type": "concept",
+    "match": "Old Ones",
+    "summary": "Ancient beings of overwhelming power from beyond Rathe who threatened to consume the world in the Third Age."
+  },
+  "ChurchOfPain": {
+    "type": "faction",
+    "match": "Church of Pain",
+    "summary": "Demonastery faction led by Chane, dedicated to harnessing pain and shadow to destroy Solana."
+  },
+  "Embra": {
+    "type": "concept",
+    "match": ["Embra", "Embras"],
+    "summary": "Powerful supernatural entities that feed on blood; Chane's patron Ursur is one."
   }
 }
