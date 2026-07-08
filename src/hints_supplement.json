@@ -126,11 +126,18 @@
     "summary": "Solana's order of knights, who defend the city from outside threats."
   },
   "Solana": {
+    "type": "region",
+    "summary": "The Golden City, realm of Illumination, founded by pilgrims drawn to Rathe by Sol's will.",
     "url": "/world-of-rathe/solana.html"
   },
   "Infernai": {
     "type": "aesir",
     "summary": "Aesir of Flames."
+  },
+  "AesirOfFlames": {
+    "type": "aesir",
+    "match": "Aesir of Flames",
+    "summary": "Epithet of Infernai."
   },
   "Jing": {
     "type": "npc",
@@ -182,6 +189,11 @@
     "type": "aesir",
     "summary": "Aesir of Chaos."
   },
+  "AesirOfChaos": {
+    "type": "aesir",
+    "match": "Aesir of Chaos",
+    "summary": "Epithet of Raven."
+  },
   "Redmoor": {
     "type": "npc",
     "summary": "The Redmoors are Boltyn's cousins."
@@ -211,7 +223,14 @@
   },
   "Sol": {
     "type": "aesir",
-    "summary": "Aesir of Light."
+    "summary": "Aesir of Light, deity of Solana. Drew the city's founding pilgrims to Rathe and is honoured as the source of the Light, the radiant energy that guides and protects the Children of the Light.",
+    "url": "/world-of-rathe/solana.html"
+  },
+  "AesirOfLight": {
+    "type": "aesir",
+    "match": "Aesir of Light",
+    "summary": "Epithet of Sol, deity of Solana and source of the Light that guides and protects the Children of the Light.",
+    "url": "/world-of-rathe/solana.html"
   },
   "Solides": "Solanian Sunday",
   "SuperSlam": {
