@@ -1,196 +1,192 @@
 # AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Database class in src/data/db/ (db.upsert_story).
 LocationId|Name|RegionId|Notes|LoreFragment
-LO2970e5c351|Aldengrove|RG48803cad0f||
+LOfa5743f6dd|Aldengrove|RG48803cad0f||
 LO2ec34aa79a|Aldevyr|RG48803cad0f|A village in Aria.|
 LOd703dd530f|Amphitheatre|RG615666dae9|In the city proper, a space for ceremonies, public events and proclamations.|
-LO69f49a790f|Ankomeido|RGb2d75101c8|Home to the misfits and malcontents of Misteria.|ankomeido
-LOefca8faa45|Arcturos|RG48803cad0f|Where Oscilio was embedded.|
-LOc62fd77db1|Arena Barracks|||
-LOd648afbeae|Ashvahan|RG8e23bdd8e8|Capital of Volcor.|
+LOaf91be5766|Ankomeido|RGb2d75101c8|Home to the misfits and malcontents of Misteria.|ankomeido
+LOb4dc89ff94|Arcturos|RG48803cad0f|Where Oscilio was embedded.|
+LO3c6d032a03|Arena Barracks|||
+LOe1d5c5e23e|Ashvahan|RG8e23bdd8e8|Capital of Volcor.|
 LObdb304e6a8|Askraweld|||
 LOfa989f1937|Astral Bridge|RG63dcf97f5c||astral-bridge
-LO2929060c7c|Audra|RG615666dae9|Village.|
-LO7b240bbfa5|Aui's Scale Strongholds|RG6cd31a74b6|Locations where things are concealed from the public.|
+LO707398693c|Audra|RG615666dae9|Village.|
+LO35638f29d7|Aui's Scale Strongholds|RG6cd31a74b6|Locations where things are concealed from the public.|
 LO8b6cae13a8|Aui's Scales Strongholds|RG6cd31a74b6||
 LO1f9c8b9fc3|Auric Keep|RG63dcf97f5c||auric-keep
-LO97909f36a7|Barthimont Manor|RG615666dae9|In the Northern Realms.|
+LOcd01faec6c|Barthimont Manor|RG615666dae9|In the Northern Realms.|
 LO87681a5bd3|Barton's House|RGb2d75101c8|Information Dealer.|
-LO96c837e382|Beacon|RG58cc047b16||
+LOb7cf83f526|Beacon|RG58cc047b16||
 LO15e6c83885|Blackjack's Tavern|RGb2d75101c8|Bounty Hunting Hub, owned by Greenbird. Neutral Ground.|blackjacks-mercenary-company
-LOa1cd57e9f8|Blackrock Quarries|RG8e23bdd8e8|In the north of Volcor.|blackrock-quarries
-LO0200dd6e55|Blackwater Strait|RG05a2281d01||
-LO276095b70d|Blasmophet's Domain|RG8bc7b8bb1d|Separate plane.|
-LOc1aabf78b3|Blockhead Territory|RGb2d75101c8|An entire sector of The Maw.|
-LO2b201a9f45|Boulderhead Island|RG48803cad0f||
-LO397719ab1b|Butcher's Bin|||
-LO8d83d0e4e1|Candlehold|RG48803cad0f||candlehold
-LOda1b258f3f|Candlelight Clearing|RG48803cad0f|Where the Rosetta of old had once gathered to garden, share poetry, and sing.|
-LO36dbfffbde|Centennial Consumables|RG58cc047b16||
-LO6d19021c71|Ceremionial Chamber|RG615666dae9|In the city proper, location of the Awakening ceremony.|
+LO78b92e272a|Blackrock Quarries|RG8e23bdd8e8|In the north of Volcor.|blackrock-quarries
+LOda2f459c2c|Blackwater Strait|RG05a2281d01||
+LO39f4a660ba|Blasmophet's Domain|RG8bc7b8bb1d|Separate plane.|
+LO538cd7834c|Blockhead Territory|RGb2d75101c8|An entire sector of The Maw.|
+LOd4ebfb0ed2|Boulderhead Island|RG48803cad0f||
+LO35dcd7f34f|Butcher's Bin|||
+LOb35af8e7db|Candlehold|RG48803cad0f||candlehold
+LO8a8b3f541a|Candlelight Clearing|RG48803cad0f|Where the Rosetta of old had once gathered to garden, share poetry, and sing.|
+LOebf8959444|Centennial Consumables|RG58cc047b16||
+LO0f55b92d52|Ceremionial Chamber|RG615666dae9|In the city proper, location of the Awakening ceremony.|
 LO353641e7c2|Ceremonial Chamber|RG615666dae9||
-LOd26c5ab761|Chamber of the Dragon|RG8e23bdd8e8||
-LO2d66c5a09e|Champion's Quarters|||
-LO9a721d463e|Champions Rest|||
+LOde55bfb211|Chamber of the Dragon|RG8e23bdd8e8||
+LOe89b7c0004|Champion's Quarters|||
+LO16202f67b9|Champions Rest|||
 LO877e9835fd|Charred Range||Mountains separating Solana and Volcor.|
-LO2065536709|Chrome Caverns||The desert's edge.|
-LO396fd35986|Cliffhold|RG615666dae9||
-LOfff7ddb659|Cogwerx Conglomerate|RG58cc047b16||cogwerx-conglomerate
-LOdd6a837ede|Coppertown|RG58cc047b16||coppertown
-LO8f65462ba1|Coralysi|RG05a2281d01|Home of the merfolk. Floating gardens.|
-LO64a0ac5002|Courtyard|RG8bc7b8bb1d|Enter here when using invitation|
-LOef7f674aa8|Dagger Docks|RG05a2281d01|Shipwrights|dagger-docks
-LOa0d4e5904f|Death's Knell||The Ocean.|
-LO45061949a1|Demonastery|RG8bc7b8bb1d|Mansion with specific rooms per resident; it moves, accessible by invitation.|
-LO4770f66959|Deshvahan|RG8e23bdd8e8|A city in Volcor.|deshvahan
-LO9654f0ebc9|Dragon's Peak|RG8e23bdd8e8||dragons-peak
-LO27bf9fba37|Dreadfall Reach|RG05a2281d01||
-LO8dd5855dce|East Rise|RG58cc047b16|The majority of this Metrix sector is devoted to parks and entertainment complexes.|east-rise
-LO53426708e5|Eighth Precinct|RG58cc047b16|Enforcer station, down the street from the Iron Hall.|
-LO4f97dd2f4c|Enion|RG48803cad0f|Armory of the ancients and training ground of champions.|enion
-LOe569bd90f6|Entrance Hall|RG8bc7b8bb1d|Location of the portal to íArathael, home of Whisper the stained glass window.|
-LO12dba4389a|Fardreyas|RG615666dae9|Village.|
-LO7f6e1027f8|Fedhari|RG05a2281d01|Former Dhani city, now home to the merfolk and named Coralysi|
-LO525f327292|Forward Camps|RG8ee35f0ddd|Home to merchants, traders, adventurers, and mercenaries.|
+LO4caae92be3|Chrome Caverns||The desert's edge.|
+LO3beb21e1fa|Cliffhold|RG615666dae9||
+LO0f644e8931|Cogwerx Conglomerate|RG58cc047b16||cogwerx-conglomerate
+LO2f893e5127|Coppertown|RG58cc047b16||coppertown
+LO91cbf27d42|Coralysi|RG05a2281d01|Home of the merfolk. Floating gardens.|
+LO87dd37ec92|Courtyard|RG8bc7b8bb1d|Enter here when using invitation|
+LOa0dd4655a8|Dagger Docks|RG05a2281d01|Shipwrights|dagger-docks
+LO9475b2b04d|Death's Knell||The Ocean.|
+LO08fe92108b|Demonastery|RG8bc7b8bb1d|Mansion with specific rooms per resident; it moves, accessible by invitation.|
+LO38a4c2e0c5|Deshvahan|RG8e23bdd8e8|A city in Volcor.|deshvahan
+LO90c9fd2c85|Dragon's Peak|RG8e23bdd8e8||dragons-peak
+LO144284e330|Dreadfall Reach|RG05a2281d01||
+LO295eda0474|East Rise|RG58cc047b16|The majority of this Metrix sector is devoted to parks and entertainment complexes.|east-rise
+LO9ceae82a7a|Eighth Precinct|RG58cc047b16|Enforcer station, down the street from the Iron Hall.|
+LOb18734a689|Enion|RG48803cad0f|Armory of the ancients and training ground of champions.|enion
+LOe210a512d5|Entrance Hall|RG8bc7b8bb1d|Location of the portal to íArathael, home of Whisper the stained glass window.|
+LOafe5d11408|Fardreyas|RG615666dae9|Village.|
+LO6a09eeb957|Fedhari|RG05a2281d01|Former Dhani city, now home to the merfolk and named Coralysi|
 LO8f597c6d54|Forward Camps|RG8ee35f0ddd|Home to merchants, traders, adventurers, and mercenaries.|
 LO87891fd0a7|Fractal Scar|RG48803cad0f|Site of the Battle of Fractal Scar.|
-LObcdb0c4232|Freakshow Territory|RGb2d75101c8|Deep in the Pits, composed of abandoned mineshafts.|
-LO9d43802f8d|Gigadrill Elevator|RG58cc047b16||gigadrill-elevator
+LO35a5abaa7e|Freakshow Territory|RGb2d75101c8|Deep in the Pits, composed of abandoned mineshafts.|
+LOd9c7ddb5e9|Gigadrill Elevator|RG58cc047b16||gigadrill-elevator
 LO830472649b|Golden Chariot|RG615666dae9|Inn in the city proper, owned by Minerva.|
-LOb24857e7b9|Golden Port|RG05a2281d01|Built in the ruins of the Dhani Empire.|
-LO2ffb2b23a5|Gorge of a Thousand Winds|RG6cd31a74b6||
-LO7d18d6f4e8|Gougemoor|RG8ee35f0ddd|The edge of the Savage Lands.|
-LOea1284ddf8|Grayhollow|RG05a2281d01|Kuraghan safe port.|
-LO862426db03|Graystone|RG05a2281d01||
-LO1ce4d9d317|Graystone Penitentiary|RG05a2281d01||
-LOabf9993793|Griefers Reef|RG05a2281d01||griefers-reef
-LO11560f9123|Grinning Boar Cantina|||
+LO53c5c1ac98|Golden Port|RG05a2281d01|Built in the ruins of the Dhani Empire.|
+LO835ac05c49|Gorge of a Thousand Winds|RG6cd31a74b6||
+LO05f6fe2daf|Gougemoor|RG8ee35f0ddd|The edge of the Savage Lands.|
+LOf540ba3232|Grayhollow|RG05a2281d01|Kuraghan safe port.|
+LO6289972a51|Graystone|RG05a2281d01||
+LOc777942005|Graystone Penitentiary|RG05a2281d01||
+LO20b45b2a05|Griefers Reef|RG05a2281d01||griefers-reef
+LOc595e52d1f|Grinning Boar Cantina|||
 LO02cb0478c3|Hand of Sol|RG615666dae9|Solana's order of knights, who defend the city from outside threats.|the-hand-of-sol
-LO8d65cf6e58|Hazeltown|RG615666dae9|Village.|
-LO0b72b96328|Highloft Inn|RG48803cad0f|Inn on Skybreaker.|
+LO0f11cbde86|Hazeltown|RG615666dae9|Village.|
+LO3881374f8b|Highloft Inn|RG48803cad0f|Inn on Skybreaker.|
 LO0c5547da71|Ikaru|RG6cd31a74b6|One of the prestigious houses of Misteria; the House of Blossoms.|ikaru
-LO140bb9daef|Imperial Furnace|RG8e23bdd8e8||
-LO36ae1c4fdf|Imperial Palace|RG8e23bdd8e8||
+LOc1c295eee7|Imperial Furnace|RG8e23bdd8e8||
 LO40042662e0|Imperial Palace|RG8e23bdd8e8||the-royal-court
-LO4621469c21|Iron Assembly|RG58cc047b16||iron-assembly
-LO8593d6a47a|Iron Hall|RG58cc047b16|The seat of power for Metrix's municipal government.|
+LO24f58a142e|Iron Assembly|RG58cc047b16||iron-assembly
+LO5960391805|Iron Hall|RG58cc047b16|The seat of power for Metrix's municipal government.|
 LO6db815b603|Ironsong Forge|RG615666dae9|In the city proper.|
-LOe0baf4e5bf|Isen's Peak|RG48803cad0f||
-LOefe3b7b779|Isenloft|RG48803cad0f||
-LO90f44534b8|Jawbreaker Territory|RGb2d75101c8|No official territory with the exception of some houses on the water.|
-LO53e78f2bca|Kirohime Gate|RG6cd31a74b6||
-LO4ad5c53ed6|Kraken|RG05a2281d01|Boat|
-LOaa30fa5d01|Kraken's Barrel|RG05a2281d01|Tavern|krakens-barrel
-LO81711f1965|Kyloria's Lair|RGb2d75101c8|Deep beneath the Pits.|
-LO6e38122fa3|Lake Frigid|RG48803cad0f|Channel Lake Frigid|
-LOe84340b4cf|Larinkmorth|RG48803cad0f||larinkmorth
+LOe738bd5661|Isen's Peak|RG48803cad0f||
+LO4a880fb760|Isenloft|RG48803cad0f||
+LO10a06fc12c|Jawbreaker Territory|RGb2d75101c8|No official territory with the exception of some houses on the water.|
+LO5624f1e30a|Kirohime Gate|RG6cd31a74b6||
+LO184bf8f78c|Kraken|RG05a2281d01|Boat|
+LO2870b35930|Kraken's Barrel|RG05a2281d01|Tavern|krakens-barrel
+LO3e219c3cb6|Kyloria's Lair|RGb2d75101c8|Deep beneath the Pits.|
+LO7f52772358|Lake Frigid|RG48803cad0f|Channel Lake Frigid|
+LO2797c773f6|Larinkmorth|RG48803cad0f||larinkmorth
 LO7cc652d28f|Legendarium|RG48803cad0f|Part of the Everfest Carnival.|the-everfest-carnival
 LO96900f0f15|Library of Illumination|RG615666dae9|In the city proper, a public library cared for by the members of the Light of Sol.|
-LOfe0bcee0f1|Lowlake|RG58cc047b16||
-LO0f86dbf091|Lunar Temple|RG6cd31a74b6||
-LO4c321edabb|Midtown Markets|RG58cc047b16||midtown-markets
-LOab5854ee60|Might n' Mead|RG48803cad0f|Where Valda grew up and works.|
+LO98dc793e08|Lowlake|RG58cc047b16||
+LOa02c20a7bf|Lunar Temple|RG6cd31a74b6||
+LOa128c4cc2b|Midtown Markets|RG58cc047b16||midtown-markets
+LOb77f1a419d|Might n' Mead|RG48803cad0f|Where Valda grew up and works.|
 LO05d1d645b9|Milesian Ranges|||
 LOe836c30d21|Mistcloak Gully|RG6cd31a74b6||mistcloak-gully
-LOc03e9c4edb|Mistcloak Lake|RG6cd31a74b6||
-LO285b16d77c|Mojire|||
-LO09eeed8abb|Morlock Hill|RG615666dae9|Site of the Battle of Morlock Hill.|
-LOe70b25b69f|Mount Heroic|RG48803cad0f|A mountain which towers above the forests of eastern Aria.|
-LOf854390156|Mt. Isen|RG48803cad0f||
-LO99af29f787|Mt. Volcor|RG8e23bdd8e8||
+LO54db0371d7|Mistcloak Lake|RG6cd31a74b6||
+LO7781801004|Mojire|||
+LO0e33bbd4a9|Morlock Hill|RG615666dae9|Site of the Battle of Morlock Hill.|
+LOefd40a0286|Mount Heroic|RG48803cad0f|A mountain which towers above the forests of eastern Aria.|
+LO21dff30ce5|Mt. Isen|RG48803cad0f||
+LO8d542316cb|Mt. Volcor|RG8e23bdd8e8||
 LO817b25703b|Mugenshi Ancestral Shrine|RG6cd31a74b6||
-LOa3baccb57a|Mugenshi Gorge|RG6cd31a74b6||mugenshi-gorge
+LOcf0cab9ebb|Mugenshi Gorge|RG6cd31a74b6||mugenshi-gorge
 LO7e38563547|Mugenshi Village|RG6cd31a74b6|Hidden village in the Mugenshi Gorge, led by Katsu.|
-LO603ad6f1ca|Nasu-ka Teahouse|RG6cd31a74b6|Nuu's teahouse by Mistcloak Lake.|
-LOadcae50c4e|Numbskull Territory|RGb2d75101c8|Cave network lined with skulls, resembling a catacomb.|
-LO982156832b|Octogria|RG615666dae9|The gardens of|
-LOa713aacc91|Old Metrix|RG58cc047b16||
-LO7e1371a24c|Overseer Crichton's Mansion|RGb2d75101c8|Situated in The Maw.|
-LOd413ac0d9c|Piper's Pier|RG05a2281d01||
-LO1796af117a|Pirate's Perch|RG05a2281d01|Filled with jungle.|
-LOd57891a167|Pit 3|RG58cc047b16||
-LO9dc6c4e008|Plumvex Pipes factory|RG58cc047b16||
-LObe049a1d08|Port Conniver|RG05a2281d01||
-LO1c93512ec9|Red Desert|RG8e23bdd8e8||
+LOe104427645|Nasu-ka Teahouse|RG6cd31a74b6|Nuu's teahouse by Mistcloak Lake.|
+LO9d006c4f90|Numbskull Territory|RGb2d75101c8|Cave network lined with skulls, resembling a catacomb.|
+LO90315ec319|Octogria|RG615666dae9|The gardens of|
+LO15b57ad328|Old Metrix|RG58cc047b16||
+LO725238a372|Overseer Crichton's Mansion|RGb2d75101c8|Situated in The Maw.|
+LO839a8f6fd9|Piper's Pier|RG05a2281d01||
+LOdd92d2930d|Pirate's Perch|RG05a2281d01|Filled with jungle.|
+LOdb228a6e6b|Pit 3|RG58cc047b16||
+LOb1a9099ee3|Plumvex Pipes factory|RG58cc047b16||
+LO52e9456e05|Port Conniver|RG05a2281d01||
+LO2776851fc1|Red Desert|RG8e23bdd8e8||
 LOde4710a671|Rhinar's Territory|RG8ee35f0ddd|Void of other brutes.|
-LO9da000af9a|Rosario Hills|RG58cc047b16|Orphanage parent company.|
-LO1406097472|Rosario Orphanage|RG58cc047b16||
-LO22dce34a3d|Rotwood|RG48803cad0f|Area next to Candlehold.|
-LO493803f93f|Rust Belt|RG58cc047b16||
-LOed5d05a8e1|Ryōsōzan Peaks|RG6cd31a74b6|Owned by Nuu.|
-LO1779d4a02e|Sand Glass District|RG8e23bdd8e8||
-LO85d0af60cd|Sandakai|RG8e23bdd8e8||
-LO2ab0aae07a|Seethe|RGb2d75101c8|A river.|
-LO4cee4181ce|Seetheside Docks|RGb2d75101c8||
-LOdac2de7193|Sellshore Coast|RG05a2281d01||
-LOc74a0534ad|Shuntswitch Railway Station|RGb2d75101c8||
+LOfb3db2badf|Rosario Hills|RG58cc047b16|Orphanage parent company.|
+LOb0b1e431ef|Rosario Orphanage|RG58cc047b16||
+LO566d9f6e7e|Rotwood|RG48803cad0f|Area next to Candlehold.|
+LO9e7982b6ff|Rust Belt|RG58cc047b16||
+LO89fda54409|Ryōsōzan Peaks|RG6cd31a74b6|Owned by Nuu.|
+LOcf1a9e7a85|Sand Glass District|RG8e23bdd8e8||
+LO2eb368953c|Sandakai|RG8e23bdd8e8||
+LOb78dd7c62c|Seethe|RGb2d75101c8|A river.|
+LOff47f57ea9|Seetheside Docks|RGb2d75101c8||
+LO508aad8280|Sellshore Coast|RG05a2281d01||
+LO9a3407fd64|Shuntswitch Railway Station|RGb2d75101c8||
 LOda7dc20f64|Shyldverk|RG48803cad0f||shyldverk
-LO58e2880026|Signarus|RG615666dae9||
+LO52452db6f3|Signarus|RG615666dae9||
 LO0112129075|Silvarium|RG615666dae9||
-LOf88e62095e|Skein|RGb2d75101c8||
-LO6f1ca2e4e2|Skylark Peak|RG6cd31a74b6||
-LOa3a04e4df8|Solana|RG615666dae9|Holy city-state at the heart of Rathe, built by pilgrims of Sol and governed by the Order of the Light.|
+LOd4d942b9a9|Skein|RGb2d75101c8||
+LO90290c6e10|Skylark Peak|RG6cd31a74b6||
+LO705eba6b42|Solana|RG615666dae9|Holy city-state at the heart of Rathe, built by pilgrims of Sol and governed by the Order of the Light.|
 LO32c4e8536a|Solstice of Laurels|RG615666dae9||solstice-of-laurels
-LO3f61ba559d|Sori 16|RGb2d75101c8|Location of The Leaf House.|
-LO91aab9bb2e|Southmaw|RGb2d75101c8|Southmaw Asylum is a laboratory of horrors where the orphaned and discarded of the Pits beneath Metrix are subjected to nightmarish experiments.|
-LO61b5004aa3|Sunvale|RG615666dae9|Village.|
+LO87586d511b|Sori 16|RGb2d75101c8|Location of The Leaf House.|
+LO80942e64c1|Southmaw|RGb2d75101c8|Southmaw Asylum is a laboratory of horrors where the orphaned and discarded of the Pits beneath Metrix are subjected to nightmarish experiments.|
+LO433dd0d787|Sunvale|RG615666dae9|Village.|
 LO59f11a4ee0|Tarnish Hill|||
-LOe65f54e241|Teklo Industries|RG58cc047b16||teklo-industries
-LO87ad66fb94|Tempest Straits|||
-LO48f0f2bc26|Teramundr's Triangle|RG05a2281d01||
-LO42d5b6c0e2|Terrecette Academy|RG58cc047b16||
-LO1a85c4ceb4|The Ash Plains|RG8e23bdd8e8||
+LO3a0f69658e|Teklo Industries|RG58cc047b16||teklo-industries
+LOaf901ef389|Tempest Straits|||
+LOeba48851d7|Teramundr's Triangle|RG05a2281d01||
+LO53832b0640|Terrecette Academy|RG58cc047b16||
+LOabadd35505|The Ash Plains|RG8e23bdd8e8||
 LO8c71f728cf|The Awakening Ceremony|RG615666dae9||the-awakening-ceremony
-LOb5f81d1848|The Badlands|RG8e23bdd8e8|Borders the Savage Lands.|
-LOa21e808c75|The Beyond|RG8bc7b8bb1d|Separate realm.|
-LOb8c84ed077|The Bleake Expanse|RG48803cad0f||
-LOffa22496bd|The Broken Chariot Tavern|||
-LO0d4a1fe93c|The Drop|RGb2d75101c8|A bar owned by Uzuri.|
+LOf27186dbff|The Badlands|RG8e23bdd8e8|Borders the Savage Lands.|
+LO05af741b20|The Beyond|RG8bc7b8bb1d|Separate realm.|
+LO4ac0408dd1|The Bleake Expanse|RG48803cad0f||
+LO0ae4264715|The Broken Chariot Tavern|||
+LO1ac84ac1c7|The Drop|RGb2d75101c8|A bar owned by Uzuri.|
 LO6562f78c72|The Everfest Carnival|RG48803cad0f||the-everfest-carnival
 LO838e79f0bd|The Flow|RG48803cad0f|A wild, unpredictable force of nature in Aria, the Flow shapes the landscape around it as it ebbs and flows.|the-flow
-LO44d64195eb|The Foundry|RG58cc047b16|An independent radio station, one of the few in Metrix that remains free of Mendacity control.|the-foundry
+LOf738571d87|The Foundry|RG58cc047b16|An independent radio station, one of the few in Metrix that remains free of Mendacity control.|the-foundry
 LO5ebb0e0557|The Golden Fields|RG615666dae9|Beyond the outer walls are grand golden fields, numerous villages and towns under the protection and guidance of Solana.|
-LO6e57d10574|The Golden Gnome|RG48803cad0f|Part of the Everfest Carnival.|
-LO59d883b748|The Golden Orchard Estate|RG8e23bdd8e8||
+LO2438e70378|The Golden Gnome|RG48803cad0f|Part of the Everfest Carnival.|
+LO99df619cb9|The Golden Orchard Estate|RG8e23bdd8e8||
 LOf2650073b1|The Grand Council|RG615666dae9||the-grand-council
-LO93dd5ae463|The Great Gates|RG615666dae9|These eight paths lead through the city to the Solarium.|
-LOf169f51c99|The Korshem|RG48803cad0f|A massive tree at the heart of Aria that shelters all who live amongst its leaves.|the-korshem
-LO6387c3994d|The Leaf House|RGb2d75101c8|Restaurant run by Jemjang.|
+LO5bcd4390d6|The Great Gates|RG615666dae9|These eight paths lead through the city to the Solarium.|
+LOfb9c32e3c0|The Korshem|RG48803cad0f|A massive tree at the heart of Aria that shelters all who live amongst its leaves.|the-korshem
+LO02596d1255|The Leaf House|RGb2d75101c8|Restaurant run by Jemjang.|
 LO0627fa9c19|The Light of Sol|RG615666dae9||the-light-of-sol
-LO5a77b13b75|The Maela|RG48803cad0f|Part of the Everfest Carnival, home to fortune tellers, seers, oracles, enchantresses, and conjurers.|
 LOad1f6eebc9|The Maela|RG48803cad0f|Part of the Everfest Carnival, home to fortune tellers, seers, oracles, enchantresses, and conjurers.|
-LO809de2774d|The Maw|RGb2d75101c8|Entrance to the pits, traveled by mine cage|the-maw
-LOc8f4074eb8|The Moat|||
-LOfb3d45171c|The Needle|RG58cc047b16||the-needle
+LO3e4b7962a4|The Maw|RGb2d75101c8|Entrance to the pits, traveled by mine cage|the-maw
+LO56ad5a0a1e|The Moat|||
+LOc68fd80453|The Needle|RG58cc047b16||the-needle
 LO3b30c6969f|The Northern Realms|RG615666dae9|Region of Solana.|the-northern-realms
-LO1b27545b9e|The Oasis|RG8e23bdd8e8|Water from Misteria, lava from Mt. Volcor.|
-LOb46ee21e33|The Obsidian Coast|RG8e23bdd8e8||
-LOc8d478fb1b|The Plazas|RG615666dae9|Connect the outer city sectors, a space to gather and hear news.|
-LO7d910b9cc1|The Registry|RG58cc047b16|Information Center.|
+LOf70c26b48f|The Oasis|RG8e23bdd8e8|Water from Misteria, lava from Mt. Volcor.|
+LOeb162dfa1e|The Obsidian Coast|RG8e23bdd8e8||
+LOf2165dc0d3|The Plazas|RG615666dae9|Connect the outer city sectors, a space to gather and hear news.|
+LOd6acb52390|The Registry|RG58cc047b16|Information Center.|
 LO5f227c8e84|The Savage Wilds|RG8ee35f0ddd||
-LOc627b5aaa2|The Shadow Crypts|RG8bc7b8bb1d|Dim halls within the Demonastery where a black mold containing warped microcosms of shifting light grows.|the-shadow-crypts
-LOae209e0ca9|The Silvaris|RG615666dae9|A series of beautiful public gardens surrounding the inner sanctum of Solana.|
-LO6ac245e927|The Solarium|RG615666dae9|The inner sanctum, home to the Light of Sol.|
-LOa5f3b84f11|The Sprawl|RG58cc047b16||
-LO45dac742cc|The Undercroft|||
-LO270073bf50|The Valdur|RG48803cad0f|Part of the Everfest Carnival, known for strongmen acts and work with animals.|
+LO2853f69ca8|The Shadow Crypts|RG8bc7b8bb1d|Dim halls within the Demonastery where a black mold containing warped microcosms of shifting light grows.|the-shadow-crypts
+LO966b87b562|The Silvaris|RG615666dae9|A series of beautiful public gardens surrounding the inner sanctum of Solana.|
+LOd49e605c0e|The Solarium|RG615666dae9|The inner sanctum, home to the Light of Sol.|
+LO108c79b0af|The Sprawl|RG58cc047b16||
+LOf73d6eaba6|The Undercroft|||
 LOc025e6666e|The Valdur|RG48803cad0f|Part of the Everfest Carnival, known for strongmen acts and work with animals.|
-LO45deab789a|The Venarium|RG8bc7b8bb1d|Room filled with plants.|
-LOf5964bb91a|The Vitiate Gateway|RG8bc7b8bb1d|Last of the 9 portals connecting Rathe to íArathael.|
+LO31ca75b500|The Venarium|RG8bc7b8bb1d|Room filled with plants.|
+LOdb916b8504|The Vitiate Gateway|RG8bc7b8bb1d|Last of the 9 portals connecting Rathe to íArathael.|
 LO6f27c455e1|Thistlefold|||
-LO6a806a431b|Throne Glade|RG48803cad0f|Area next to Candlehold.|
-LO811094e268|Thunder Steppe|RG48803cad0f|Channel Thunder Steppe|thunder-steppe
-LO4d36a30f51|Torched Territory|RGb2d75101c8|Marked with trigger-sensitive flamethrowers, fire traps, lava pits, and plenty of explosives.|
-LO405629c19b|Trōpal-Dhani|RG05a2281d01|A legendary city said to have survived the Dhani empire's collapse, hiding its lost magic and treasures in the most perilous ruins.|trōpal-dhani
-LObeb7a41de4|Underdog Cafe|RG58cc047b16|In Coppertown.|
-LO5e38607206|Valahai|RG48803cad0f||valahai
+LO18b0d9c58c|Throne Glade|RG48803cad0f|Area next to Candlehold.|
+LO27fe08a024|Thunder Steppe|RG48803cad0f|Channel Thunder Steppe|thunder-steppe
+LO4fc8febf5c|Torched Territory|RGb2d75101c8|Marked with trigger-sensitive flamethrowers, fire traps, lava pits, and plenty of explosives.|
+LO9b8ccbf9d3|Trōpal-Dhani|RG05a2281d01|A legendary city said to have survived the Dhani empire's collapse, hiding its lost magic and treasures in the most perilous ruins.|trōpal-dhani
+LOaaec3dc609|Underdog Cafe|RG58cc047b16|In Coppertown.|
+LO14218b7fa6|Valahai|RG48803cad0f||valahai
 LO070c2cab97|Voltaris Gem|RG63dcf97f5c||astral-bridge
 LO793ecea506|Volthaven|RG48803cad0f||enion
-LOd97fd0d17b|Vossen Theater|RG58cc047b16||
-LOfacf25a520|Voxx Press|RG58cc047b16||
+LO93ea3a21e6|Vossen Theater|RG58cc047b16||
+LO53cb4357e1|Voxx Press|RG58cc047b16||
 LO44a8837c0a|West Ranges|||
-LO15bc3d122e|West Rise|RG58cc047b16||west-rise
-LOaf5595e0df|Yvor's Peak|RG48803cad0f|Statue of Yvor located here, doorway to an armory.|
-LO6649aef91e|Zancaro|RG8e23bdd8e8||
-LO8e211cce26|Zesca's|RG58cc047b16||
-LO289cf09b7b|Zinnia Park|RG58cc047b16||zinnia-park
+LOb6bc8cad7e|West Rise|RG58cc047b16||west-rise
+LO494693bd51|Yvor's Peak|RG48803cad0f|Statue of Yvor located here, doorway to an armory.|
+LO0c813d59b8|Zancaro|RG8e23bdd8e8||
+LO43ee98b8c0|Zesca's|RG58cc047b16||
+LOc4eeef48a5|Zinnia Park|RG58cc047b16||zinnia-park
 LO5275385b36|i'Arathael||Separate plane accessed via a portal in the Demonastery, home of the Old Ones.|
