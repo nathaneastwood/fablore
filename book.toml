@@ -6,8 +6,8 @@ title = "Legendary Stories"
 description = "Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters."
 
 [output.html]
-additional-css = ["hero.css", "image.css", "tab.css", "bionic.css", "footer.css", "breadcrumb.css", "sets-hub.css", "theme/pagetoc.css", "theme/hints.css", "theme/related.css", "theme/story-meta.css", "theme/narrated-videos.css", "theme/browse.css"]
-additional-js = ["theme/toolbar.js", "tab.js", "back-to-top.js", "hero-hub.js", "bionic.js", "theme/pagetoc.js", "theme/hints.js", "theme/related.js", "narrated-videos.js", "theme/browse.js", "theme/hero-filter.js", "theme/reading-progress.js", "theme/heading-anchors.js", "theme/copy-link.js", "theme/reading-prefs.js", "theme/random-story.js", "theme/read-tracking.js"]
+additional-css = ["hero.css", "image.css", "tab.css", "bionic.css", "footer.css", "breadcrumb.css", "sets-hub.css", "theme/hints.css", "theme/related.css", "theme/story-meta.css", "theme/narrated-videos.css", "theme/browse.css"]
+additional-js = ["theme/toolbar.js", "tab.js", "back-to-top.js", "hero-hub.js", "bionic.js", "theme/hints.js", "theme/related.js", "narrated-videos.js", "theme/browse.js", "theme/hero-filter.js", "theme/reading-progress.js", "theme/heading-anchors.js", "theme/copy-link.js", "theme/reading-prefs.js", "theme/random-story.js", "theme/read-tracking.js"]
 default-theme = "light"
 preferred-dark-theme = "ayu"
 git-repository-url = "https://github.com/nathaneastwood/fablore"
