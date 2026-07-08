@@ -60,7 +60,7 @@ def test_meta_html_includes_word_count_by_default() -> None:
         word_count=500,
     )
     assert "500" in html
-    assert "fa-clock-o" in html
+    assert "far fa-clock" in html
 
 
 def test_meta_html_suppresses_word_count_when_flag_false() -> None:
@@ -68,9 +68,9 @@ def test_meta_html_suppresses_word_count_when_flag_false() -> None:
         authors="", artists="", publication_date="", source_link="",
         word_count=500, show_word_count=False,
     )
-    # fa-clock-o is the word-count icon; its absence confirms suppression
+    # far fa-clock is the word-count icon; its absence confirms suppression
     # (avoid asserting on "500" directly — that digit appears in the BlueSky SVG path)
-    assert "fa-clock-o" not in html
+    assert "far fa-clock" not in html
     assert "words" not in html
 
 
@@ -140,21 +140,21 @@ def test_process_chapter_world_of_rathe_no_word_count() -> None:
     content = "# Hub\n\nSome text " * 30  # enough words to normally show count
     row = _make_row("world-of-rathe")
     out = _process_chapter(content, row)
-    assert "fa-clock-o" not in out
+    assert "fa-clock" not in out
 
 
 def test_process_chapter_heroes_of_rathe_no_word_count() -> None:
     content = "# Hero\n\nSome text " * 30
     row = _make_row("heroes-of-rathe")
     out = _process_chapter(content, row)
-    assert "fa-clock-o" not in out
+    assert "fa-clock" not in out
 
 
 def test_process_chapter_main_story_has_word_count() -> None:
     content = "# Story\n\nSome text " * 30
     row = _make_row("main-story")
     out = _process_chapter(content, row)
-    assert "fa-clock-o" in out
+    assert "far fa-clock" in out
 
 
 def test_process_chapter_injects_after_heading() -> None:
@@ -198,3 +198,42 @@ def test_inject_after_heading_replaces_existing_block() -> None:
 def test_inject_after_heading_no_heading_prepends() -> None:
     out = _inject_after_heading("Just a paragraph.", "<p>meta</p>")
     assert out.startswith("<!-- fablore-story-meta:start -->")
+
+
+# ---------------------------------------------------------------------------
+# FA6 icon prefix — prevents mdBook build warnings
+#
+# mdBook 0.5.3 converts <i class="..."> elements to inline SVG. Using the
+# bare "fa" class (FA4 syntax) defaults to FA6 "regular" and warns for icons
+# that only exist in "solid" or "brands". All icons must carry an explicit
+# FA6 prefix: fas (solid), fab (brands), or far (regular).
+# ---------------------------------------------------------------------------
+
+def test_share_html_uses_fa6_brands_prefix_for_facebook() -> None:
+    html = _build_share_html()
+    assert 'class="fab fa-facebook"' in html
+    assert 'class="fa fa-facebook"' not in html
+
+
+def test_share_html_uses_fa6_brands_prefix_for_whatsapp() -> None:
+    html = _build_share_html()
+    assert 'class="fab fa-whatsapp"' in html
+    assert 'class="fa fa-whatsapp"' not in html
+
+
+def test_share_html_uses_fa6_solid_prefix_for_link() -> None:
+    html = _build_share_html()
+    assert 'class="fas fa-link"' in html
+    assert 'class="fa fa-link"' not in html
+
+
+def test_meta_html_no_bare_fa_prefix() -> None:
+    """No icon in story-meta output should use the bare 'fa' FA4 class prefix."""
+    html = _build_meta_html(
+        authors="Author", artists="Artist", publication_date="2024-01-01",
+        source_link="https://example.com", word_count=1000, show_word_count=True,
+        story_type="main-story",
+    )
+    import re
+    bare_fa = re.findall(r'class="fa fa-', html)
+    assert bare_fa == [], f"Found bare FA4 'fa' prefix: {bare_fa}"

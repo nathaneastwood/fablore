@@ -342,3 +342,40 @@ def test_protected_link():
     regions = find_protected_regions(content)
     start = content.index("[text]")
     assert any(s == start for s, _ in regions)
+
+
+def test_protected_script_block():
+    content = "<script>window.DATA = {};</script>"
+    regions = find_protected_regions(content)
+    assert any(s == 0 for s, _ in regions)
+
+
+def test_script_block_content_not_modified():
+    """Hint injection must leave <script> block contents untouched."""
+    script = '<script>window.DATA = {"Brawnhide": "raw name"};</script>'
+    result = process_chapter(script, HINTS)
+    assert result == script
+
+
+def test_script_block_json_not_corrupted():
+    """The browse-page scenario: entity names inside JSON strings must not be wrapped in spans."""
+    import json as _json
+    import re as _re
+    script = (
+        '<script>window.FABLORE_BROWSE={"stories":[{"t":"A Brawnhide appears",'
+        '"r":["Southmaw"]}]};</script>'
+    )
+    result = process_chapter(script, HINTS)
+    m = _re.search(r"window\.FABLORE_BROWSE=({.*?});", result)
+    assert m, "JSON variable should still be present after processing"
+    _json.loads(m.group(1))  # raises json.JSONDecodeError if spans corrupted the JSON
+
+
+def test_script_block_followed_by_body_text():
+    """Content after a <script> block should still be processed normally."""
+    content = "<script>var x = 'Brawnhide';</script>\nA Brawnhide prowled.\n"
+    result = process_chapter(content, HINTS)
+    # Script content unchanged
+    assert "var x = 'Brawnhide';" in result
+    # Body text still receives injection
+    assert 'hint="Brawnhide"' in result

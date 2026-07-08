@@ -1,99 +1,119 @@
-"""Tests for mdbook_archive_notice pure-logic helpers."""
+"""Tests for :mod:`mdbook_archive_notice` preprocessor."""
 
 from __future__ import annotations
 
-import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "src/data"))
+import pytest
 
-from mdbook_archive_notice import (  # noqa: E402
-    MARK_END,
-    MARK_START,
-    _build_notice,
+from mdbook_archive_notice import (
+    _hero_notice,
     _inject_notice,
-    _region_display,
-    _region_from_path,
-    _relative_href,
+    _world_notice,
 )
 
 
 # ---------------------------------------------------------------------------
-# _region_from_path
+# Fixtures
 # ---------------------------------------------------------------------------
 
 
-def test_region_from_path_nested():
-    assert _region_from_path("archive/world-of-rathe/solana/guide.md") == "solana"
-
-
-def test_region_from_path_flat():
-    assert _region_from_path("archive/world-of-rathe/solana.md") == "solana"
-
-
-def test_region_from_path_not_archive():
-    assert _region_from_path("world-of-rathe/solana/guide.md") is None
-
-
-def test_region_from_path_wrong_section():
-    assert _region_from_path("main-story/set/story.md") is None
-
-
-def test_region_from_path_too_short():
-    assert _region_from_path("archive/other.md") is None
+@pytest.fixture
+def src_root(tmp_path: Path) -> Path:
+    """Minimal src tree with one world-of-rathe page and one hero about page."""
+    (tmp_path / "world-of-rathe").mkdir()
+    (tmp_path / "world-of-rathe" / "volcor.md").write_text("# Volcor\n")
+    (tmp_path / "heroes-of-rathe").mkdir()
+    (tmp_path / "heroes-of-rathe" / "rhinar-about.md").write_text("# Rhinar\n")
+    return tmp_path
 
 
 # ---------------------------------------------------------------------------
-# _region_display
+# _world_notice
 # ---------------------------------------------------------------------------
 
 
-def test_region_display_hyphenated():
-    assert _region_display("the-savage-lands") == "The Savage Lands"
+def test_world_notice_none_for_non_archive(src_root: Path) -> None:
+    assert _world_notice("world-of-rathe/volcor.md", src_root) is None
 
 
-def test_region_display_single_word():
-    assert _region_display("solana") == "Solana"
+def test_world_notice_none_for_heroes_archive(src_root: Path) -> None:
+    assert _world_notice("archive/heroes-of-rathe/rhinar-wtr.md", src_root) is None
+
+
+def test_world_notice_with_link(src_root: Path) -> None:
+    notice = _world_notice("archive/world-of-rathe/volcor/wildlife.md", src_root)
+    assert notice is not None
+    assert "[!WARNING]" in notice
+    assert "[Volcor]" in notice
+    assert "volcor.md" in notice or "volcor" in notice
+
+
+def test_world_notice_without_link(src_root: Path) -> None:
+    """When no current page exists, notice omits the link."""
+    notice = _world_notice("archive/world-of-rathe/pits/pits.md", src_root)
+    assert notice is not None
+    assert "[!WARNING]" in notice
+    assert "historical reference" in notice
+    assert "](" not in notice  # no Markdown link in message
+
+
+def test_world_notice_relative_href(src_root: Path) -> None:
+    """Relative link must be correct for nested archive path."""
+    notice = _world_notice("archive/world-of-rathe/volcor/wildlife.md", src_root)
+    # From archive/world-of-rathe/volcor/ to world-of-rathe/volcor.md
+    assert "../../world-of-rathe/volcor.md" in notice
+
+
+def test_world_notice_uses_warning_admonition(src_root: Path) -> None:
+    notice = _world_notice("archive/world-of-rathe/volcor/volcor.md", src_root)
+    assert notice is not None
+    assert notice.startswith("> [!WARNING]")
 
 
 # ---------------------------------------------------------------------------
-# _relative_href
+# _hero_notice
 # ---------------------------------------------------------------------------
 
 
-def test_relative_href_same_depth():
-    result = _relative_href("archive/world-of-rathe/solana/guide.md", "world-of-rathe/solana.md")
-    assert result == "../../../world-of-rathe/solana.md"
+def test_hero_notice_none_for_non_archive(src_root: Path) -> None:
+    assert _hero_notice("heroes-of-rathe/rhinar-about.md", src_root) is None
 
 
-def test_relative_href_flat():
-    result = _relative_href("archive/world-of-rathe/solana.md", "world-of-rathe/solana.md")
-    assert result == "../../world-of-rathe/solana.md"
+def test_hero_notice_none_for_world_archive(src_root: Path) -> None:
+    assert _hero_notice("archive/world-of-rathe/volcor/volcor.md", src_root) is None
 
 
-# ---------------------------------------------------------------------------
-# _build_notice
-# ---------------------------------------------------------------------------
+def test_hero_notice_skips_index_page(src_root: Path) -> None:
+    """The heroes-of-rathe.md index page must not receive a notice."""
+    assert _hero_notice("archive/heroes-of-rathe/heroes-of-rathe.md", src_root) is None
 
 
-def test_build_notice_with_existing_page(tmp_path):
-    src_root = tmp_path / "src"
-    (src_root / "world-of-rathe").mkdir(parents=True)
-    (src_root / "world-of-rathe" / "solana.md").touch()
-    notice = _build_notice("archive/world-of-rathe/solana/guide.md", "solana", src_root)
-    assert '<div class="archive-notice"' in notice
-    assert "<a href=" in notice
-    assert "Solana" in notice
-    assert "superseded" in notice
+def test_hero_notice_resolves_slug(src_root: Path) -> None:
+    """rhinar-wtr should resolve to rhinar-about.md via prefix stripping."""
+    notice = _hero_notice("archive/heroes-of-rathe/rhinar-wtr.md", src_root)
+    assert notice is not None
+    assert "[!WARNING]" in notice
+    assert "[Rhinar]" in notice
+    assert "rhinar-about.md" in notice
 
 
-def test_build_notice_without_existing_page(tmp_path):
-    src_root = tmp_path / "src"
-    src_root.mkdir()
-    notice = _build_notice("archive/world-of-rathe/lost-region/guide.md", "lost-region", src_root)
-    assert '<div class="archive-notice"' in notice
-    assert "<a href=" not in notice
+def test_hero_notice_relative_href(src_root: Path) -> None:
+    notice = _hero_notice("archive/heroes-of-rathe/rhinar-wtr.md", src_root)
+    assert "../../heroes-of-rathe/rhinar-about.md" in notice
+
+
+def test_hero_notice_uses_warning_admonition(src_root: Path) -> None:
+    notice = _hero_notice("archive/heroes-of-rathe/rhinar-wtr.md", src_root)
+    assert notice is not None
+    assert notice.startswith("> [!WARNING]")
+
+
+def test_hero_notice_fallback_when_no_current_page(src_root: Path) -> None:
+    """An archive hero with no matching current page gets a generic notice."""
+    notice = _hero_notice("archive/heroes-of-rathe/unknown-arc.md", src_root)
+    assert notice is not None
+    assert "[!WARNING]" in notice
     assert "historical reference" in notice
 
 
@@ -102,37 +122,37 @@ def test_build_notice_without_existing_page(tmp_path):
 # ---------------------------------------------------------------------------
 
 
-def test_inject_after_h1():
-    content = "# My Title\n\nSome body text.\n"
-    notice = '<div class="archive-notice">Note</div>'
-    result = _inject_notice(content, notice)
-    assert result.index("# My Title") < result.index("archive-notice")
-    assert "Some body text." in result
-
-
-def test_inject_no_h1_prepends():
-    content = "No heading here.\n"
-    notice = '<div class="archive-notice">Note</div>'
-    result = _inject_notice(content, notice)
-    assert result.startswith(MARK_START)
-
-
-def test_inject_replaces_existing_notice():
-    old_notice = '<div class="archive-notice">Old</div>'
-    new_notice = '<div class="archive-notice">New</div>'
-    content = f"# Title\n\n{MARK_START}\n{old_notice}\n{MARK_END}\n\nBody.\n"
-    result = _inject_notice(content, new_notice)
-    assert "Old" not in result
-    assert "New" in result
-    assert result.count(MARK_START) == 1
-
-
-def test_inject_idempotent(tmp_path):
-    src_root = tmp_path / "src"
-    (src_root / "world-of-rathe").mkdir(parents=True)
-    (src_root / "world-of-rathe" / "solana.md").touch()
-    notice = _build_notice("archive/world-of-rathe/solana/guide.md", "solana", src_root)
+def test_inject_notice_after_h1() -> None:
     content = "# Title\n\nBody text.\n"
+    notice = "> [!WARNING]\n> Superseded."
+    out = _inject_notice(content, notice)
+    assert out.index("# Title") < out.index("> [!WARNING]") < out.index("Body text.")
+
+
+def test_inject_notice_replaces_existing_markers() -> None:
+    content = (
+        "# Title\n\n"
+        "<!-- fablore-archive-notice:start -->\n"
+        "> [!WARNING]\n> OLD\n"
+        "<!-- fablore-archive-notice:end -->\n\n"
+        "Body."
+    )
+    out = _inject_notice(content, "> [!WARNING]\n> NEW")
+    assert "OLD" not in out
+    assert "NEW" in out
+    assert "Body." in out
+
+
+def test_inject_notice_idempotent(src_root: Path) -> None:
+    content = "# Title\n\nBody.\n"
+    notice = "> [!WARNING]\n> Superseded."
     once = _inject_notice(content, notice)
     twice = _inject_notice(once, notice)
-    assert once == twice
+    assert twice.count("fablore-archive-notice:start") == 1
+
+
+def test_inject_notice_no_h1_prepends() -> None:
+    content = "Just a paragraph.\n"
+    notice = "> [!WARNING]\n> Superseded."
+    out = _inject_notice(content, notice)
+    assert out.startswith("<!-- fablore-archive-notice:start -->")
