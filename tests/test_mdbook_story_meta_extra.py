@@ -92,7 +92,7 @@ def test_build_meta_html_with_source_link() -> None:
     )
     assert "https://example.com" in result
     assert "Original article" in result
-    assert "fa-external-link" in result
+    assert "fa-arrow-up-right-from-square" in result
 
 
 def test_build_meta_html_word_count_above_min() -> None:

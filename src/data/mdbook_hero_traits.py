@@ -25,10 +25,7 @@ import sys
 # Group 3: image URL
 # Group 4: description body (may be multiple lines, already stripped of leading whitespace)
 _HERO_TRAIT_RE = re.compile(
-    r"^:::hero-trait ([^\n]+)\n"
-    r"!\[([^\]]*)\]\(([^)]+)\)\n"
-    r"([\s\S]*?)"
-    r"^:::",
+    r"^:::hero-trait ([^\n]+)\n" r"!\[([^\]]*)\]\(([^)]+)\)\n" r"([\s\S]*?)" r"^:::",
     re.MULTILINE,
 )
 
@@ -72,7 +69,7 @@ def main() -> None:
         sys.exit(0)
 
     ctx, book = json.load(sys.stdin)
-    _walk(book.get("items") or [])
+    _walk(book.get("sections") or [])
     json.dump(book, sys.stdout, ensure_ascii=False)
 
 
