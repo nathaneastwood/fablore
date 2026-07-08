@@ -1,9 +1,5 @@
 # Rhinar, Reckless Rampage
 
-<div class="archive-notice" role="note">
-  This hero overview is from the Welcome to Rathe era and has been superseded. For the current version, see <a href="../../heroes-of-rathe/rhinar-about.md">Rhinar</a>.
-</div>
-
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/rhinar.mp4" type="video/mp4">
 </video>
