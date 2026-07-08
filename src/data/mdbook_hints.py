@@ -32,6 +32,7 @@ from pathlib import Path
 _FENCED_CODE = re.compile(r'(?:```|~~~)[^\n]*\n[\s\S]*?(?:```|~~~)', re.MULTILINE)
 _CODE_SPAN = re.compile(r'`[^`\n]+`')
 _LINK = re.compile(r'!?\[(?:[^\]]*)\](?:\([^)]*\)|\[[^\]]*\])')
+_SCRIPT_BLOCK = re.compile(r'<script\b[^>]*>[\s\S]*?</script>', re.IGNORECASE)
 _HTML_TAG = re.compile(r'<[^>]+>')
 _HINT_ELEMENT = re.compile(
     r'<span\b[^>]*class="hint"[^>]*>[\s\S]*?</span>',
@@ -70,6 +71,7 @@ def find_protected_regions(content: str) -> list[tuple[int, int]]:
     """Return (start, end) byte ranges that must not be modified."""
     regions: list[tuple[int, int]] = []
     for pattern in (
+        _SCRIPT_BLOCK,
         _FENCED_CODE,
         _CODE_SPAN,
         _LINK,
