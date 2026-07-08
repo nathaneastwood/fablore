@@ -204,7 +204,7 @@ def main() -> None:
     if existing != stories_json:
         stories_json_path.write_text(stories_json, encoding="utf-8")
 
-    walk_and_process(book.get("sections") or [], index)
+    walk_and_process(book.get("items") or [], index)
 
     json.dump(book, sys.stdout, ensure_ascii=False)
 

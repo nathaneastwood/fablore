@@ -360,8 +360,8 @@ def main() -> None:
         "digital-tiles": OrderedDict(),
     }
 
-    _collect(book.get("sections") or [], flavour_chapters, story_arcs)
-    _inject_hubs(book.get("sections") or [], flavour_chapters, story_arcs, arcs, sets)
+    _collect(book.get("items") or [], flavour_chapters, story_arcs)
+    _inject_hubs(book.get("items") or [], flavour_chapters, story_arcs, arcs, sets)
 
     json.dump(book, sys.stdout, ensure_ascii=False)
 

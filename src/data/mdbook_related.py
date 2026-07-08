@@ -659,7 +659,7 @@ def main() -> None:
 
     maps = load_related_maps(data_dir)
     hero_src_map = build_hero_src_to_canonical_ids(maps, src_root)
-    walk_mutate_sections(book.get("sections") or [], maps, src_root, hero_src_map)
+    walk_mutate_sections(book.get("items") or [], maps, src_root, hero_src_map)
 
     json.dump(book, sys.stdout, ensure_ascii=False)
 

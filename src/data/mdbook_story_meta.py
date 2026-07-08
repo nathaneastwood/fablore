@@ -280,7 +280,7 @@ def main() -> None:
     data_dir = src_root / "data"
 
     meta_by_key = _load_story_meta(data_dir)
-    _walk_sections(book.get("sections") or [], meta_by_key)
+    _walk_sections(book.get("items") or [], meta_by_key)
 
     json.dump(book, sys.stdout, ensure_ascii=False)
 

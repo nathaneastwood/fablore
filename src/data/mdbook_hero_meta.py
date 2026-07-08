@@ -331,7 +331,7 @@ def main() -> None:
     data_dir = src_root / "data"
 
     card_meta = _load_card_meta(data_dir)
-    _walk_sections(book.get("sections") or [], card_meta)
+    _walk_sections(book.get("items") or [], card_meta)
 
     json.dump(book, sys.stdout, ensure_ascii=False)
 

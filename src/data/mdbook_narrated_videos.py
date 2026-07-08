@@ -238,7 +238,7 @@ def main() -> None:
     data_dir = (root / src_rel).resolve() / "data"
 
     videos_by_key, sid_by_key = _load_videos_by_key(data_dir)
-    _walk_sections(book.get("sections") or [], videos_by_key, sid_by_key)
+    _walk_sections(book.get("items") or [], videos_by_key, sid_by_key)
 
     json.dump(book, sys.stdout, ensure_ascii=False)
 

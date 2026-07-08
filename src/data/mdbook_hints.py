@@ -213,7 +213,7 @@ def main() -> None:
     hints = load_hints(hints_path) if hints_path.exists() else {}
 
     ctx, book = json.load(sys.stdin)
-    _process_sections(book.get('sections') or [], hints)
+    _process_sections(book.get('items') or [], hints)
     json.dump(book, sys.stdout, ensure_ascii=False)
 
 

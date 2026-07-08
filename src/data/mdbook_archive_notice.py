@@ -98,7 +98,7 @@ def main() -> None:
     src_rel = (book_cfg.get("src") or "src").strip() or "src"
     src_root = (root / src_rel).resolve()
 
-    _walk(book.get("sections") or [], src_root)
+    _walk(book.get("items") or [], src_root)
     json.dump(book, sys.stdout, ensure_ascii=False)
 
 

@@ -284,8 +284,8 @@ def main() -> None:
         "digital-tiles": OrderedDict(),
     }
 
-    _collect(book.get("sections") or [], content)
-    _inject_pages(book.get("sections") or [], content, arcs, sets)
+    _collect(book.get("items") or [], content)
+    _inject_pages(book.get("items") or [], content, arcs, sets)
 
     json.dump(book, sys.stdout, ensure_ascii=False)
 

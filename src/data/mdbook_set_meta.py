@@ -223,7 +223,7 @@ def main() -> None:
     data_dir = src_root / "data"
 
     slug_meta = _load_meta(data_dir)
-    _walk_sections(book.get("sections") or [], slug_meta)
+    _walk_sections(book.get("items") or [], slug_meta)
 
     json.dump(book, sys.stdout, ensure_ascii=False)
 

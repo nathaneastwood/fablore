@@ -234,7 +234,7 @@ def main() -> None:
     arcs = _load_arcs(data_dir)
     sets = _load_sets(data_dir)
 
-    _walk(book.get("sections") or [], arcs, sets)
+    _walk(book.get("items") or [], arcs, sets)
     json.dump(book, sys.stdout, ensure_ascii=False)
 
 
