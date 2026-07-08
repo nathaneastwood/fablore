@@ -499,6 +499,10 @@
     "type": "monster",
     "summary": "A repulsive creature emerged through the opening, resembling a mass of human bodies held together by some monstrous cancer, an enormous eye in its center above a slavering mouth."
   },
+  "Shadowrealm Walker": {
+    "type": "monster",
+    "summary": "Huge stilt-legged predators of i'Arathael, slow to anger, resembling praying mantises."
+  },
   "Ankis": {
     "match": "Ank'is",
     "type": "fauna",
