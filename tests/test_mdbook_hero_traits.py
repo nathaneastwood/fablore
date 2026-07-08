@@ -121,7 +121,7 @@ def test_main_processes_book(monkeypatch):
     import io, json
 
     block = f":::hero-trait T\n![T]({IMG})\nDesc.\n:::"
-    book = {"sections": [{"Chapter": {"content": block, "sub_items": []}}]}
+    book = {"items": [{"Chapter": {"content": block, "sub_items": []}}]}
     ctx = {"root": "/tmp"}
     payload = json.dumps([ctx, book])
     monkeypatch.setattr(sys, "stdin", io.TextIOWrapper(io.BytesIO(payload.encode())))
@@ -129,7 +129,7 @@ def test_main_processes_book(monkeypatch):
     monkeypatch.setattr(sys, "stdout", out)
     main()
     result = json.loads(out.getvalue())
-    assert '<div class="hero-container">' in result["sections"][0]["Chapter"]["content"]
+    assert '<div class="hero-container">' in result["items"][0]["Chapter"]["content"]
 
 
 def test_main_supports_exits(monkeypatch):

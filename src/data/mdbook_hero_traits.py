@@ -69,7 +69,7 @@ def main() -> None:
         sys.exit(0)
 
     ctx, book = json.load(sys.stdin)
-    _walk(book.get("sections") or [])
+    _walk(book.get("items") or [])
     json.dump(book, sys.stdout, ensure_ascii=False)
 
 
