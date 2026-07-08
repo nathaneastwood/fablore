@@ -200,7 +200,7 @@
          * @returns {number} Pixel position from top of viewport.
          */
         function getMenuBarBottom() {
-            var menuBar = document.getElementById('menu-bar');
+            var menuBar = document.getElementById('mdbook-menu-bar');
             if (!menuBar) {
                 return 0;
             }

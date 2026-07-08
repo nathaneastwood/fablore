@@ -33,7 +33,7 @@
 // Cmd+K / Ctrl+K opens search (alias for the built-in S shortcut).
 document.addEventListener('keydown', function (e) {
     if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        var toggle = document.getElementById('search-toggle');
+        var toggle = document.getElementById('mdbook-search-toggle');
         if (toggle) {
             e.preventDefault();
             toggle.click();

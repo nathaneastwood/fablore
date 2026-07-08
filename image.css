@@ -4,11 +4,11 @@
  * main column (e.g. above a centred intro logo). Pin icons to the edges and centre
  * the title in the full bar instead.
  */
-#menu-bar {
+#mdbook-menu-bar {
   justify-content: space-between;
 }
 
-#menu-bar .menu-title {
+#mdbook-menu-bar .menu-title {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -20,8 +20,8 @@
   z-index: 0;
 }
 
-#menu-bar .left-buttons,
-#menu-bar .right-buttons {
+#mdbook-menu-bar .left-buttons,
+#mdbook-menu-bar .right-buttons {
   position: relative;
   flex: 0 0 auto;
   z-index: 1;
