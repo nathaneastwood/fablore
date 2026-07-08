@@ -1,12 +1,12 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.3.0
+    rev: v5.0.0
     hooks:
       - id: check-yaml
       - id: end-of-file-fixer
       - id: trailing-whitespace
   - repo: https://github.com/psf/black
-    rev: 22.10.0
+    rev: 25.1.0
     hooks:
       - id: black
   - repo: local
@@ -16,7 +16,13 @@ repos:
         entry: bash scripts/ensure-create-md-sync.sh
         language: system
         pass_filenames: false
-        files: ^src/data/(create_md\.py|(npcs|fauna|flora|food-and-drink|locations|monsters|regions)\.csv|(npcs|fauna|flora|food-and-drink|locations|monsters)\.md)$
+        files: ^src/data/(create_md\.py|csv/(npcs|fauna|flora|food-and-drink|locations|monsters)\.csv|md/(npcs|fauna|flora|food-and-drink|locations|monsters)\.md)$
+      - id: ensure-hints-json-sync
+        name: ensure-hints-json-sync
+        entry: bash scripts/ensure-hints-json-sync.sh
+        language: system
+        pass_filenames: false
+        files: ^(src/hints_supplement\.json|src/data/(generate_hints_json\.py|descriptions\.py|csv/(locations|monsters|fauna|flora)\.csv))$
       - id: link-checks
         name: link-checks
         entry: bash scripts/link-checks.sh

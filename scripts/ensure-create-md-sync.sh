@@ -16,12 +16,12 @@ fi
 python3 src/data/create_md.py
 
 MD_FILES=(
-  src/data/npcs.md
-  src/data/fauna.md
-  src/data/flora.md
-  src/data/food-and-drink.md
-  src/data/locations.md
-  src/data/monsters.md
+  src/data/md/npcs.md
+  src/data/md/fauna.md
+  src/data/md/flora.md
+  src/data/md/food-and-drink.md
+  src/data/md/locations.md
+  src/data/md/monsters.md
 )
 
 if ! git diff --quiet -- "${MD_FILES[@]}"; then

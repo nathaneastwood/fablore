@@ -20,8 +20,10 @@
 |           Aurea, Champion of the Dawn          |             Human            |                 Unknown                 |
 |                    Aurelius                    |             Horse            |                 Unknown                 |
 |          Avalon, Messenger of the Dawn         |            Herald            |                 Unknown                 |
+|                    Baalghor                    |             Demon            |                 Unknown                 |
 |                     Bam Bam                    |             Brute            |                 Unknown                 |
 |                Baron the Butcher               |             Human            |                   Dead                  |
+|                     Barton                     |             Human            |                 Unknown                 |
 |               Bartrand the Bloody              |             Human            |                 Unknown                 |
 |                Barus Boldstride                |             Human            |                 Unknown                 |
 |                    Batbiter                    |            Unknown           |                 Unknown                 |
@@ -47,15 +49,18 @@
 |                 Caylin's mother                |             Human            |                   Dead                  |
 |           Chancellor Helena Primavera          |             Human            |                 Unknown                 |
 |               Chancellor Hypatia               |             Human            |                 Unknown                 |
+|                     Charis                     |             Human            |                 Unknown                 |
 |                    Charlotte                   |             Dogg             |                 Unknown                 |
 |                 Chiara Suncrest                |            Unknown           |                 Unknown                 |
 |                      Chum                      |            Zombie            |                   Dead                  |
 |                     Cirrus                     |             Human            |                 Unknown                 |
+|                      Cobbs                     |             Human            |                 Unknown                 |
 |                Countess Camilla                |            Unknown           |                 Unknown                 |
 |                      Cutty                     |            Zombie            |                   Dead                  |
 |            Dan Lu, Kotori Galewarden           |             Human            |                 Unknown                 |
 |                 Danu Ashenguard                |             Human            |                 Unknown                 |
 |                     Darian                     |             Human            |                   Dead                  |
+|                     Darius                     |             Human            |                 Unknown                 |
 |                     Davnir                     |Ancient of Earth and Lightning|                   Dead                  |
 |                     Daxius                     |             Human            |                   Dead                  |
 |                    Demetrios                   |             Brute            |                   Dead                  |
@@ -76,13 +81,16 @@
 |                     Ersebet                    |            Unknown           |                 Unknown                 |
 |                 Executive Smyte                |             Human            |                 Unknown                 |
 |                Farin the Porter                |             Human            |                 Unknown                 |
+|                     Farris                     |             Human            |                 Unknown                 |
 |                     Fayyad                     |             Human            |                  Alive                  |
+|                      Felix                     |             Human            |                 Unknown                 |
 |                      Feral                     |             Human            |                 Unknown                 |
 |                 Fightmaster Kox                |            Goblin            |                 Unknown                 |
 |                Fightmaster Rusty               |             Dwarf            |                 Unknown                 |
 |                    Flannigan                   |             Human            |                 Unknown                 |
 |         Fyanna Redmoor, Boltyn's cousin        |             Human            |                 Unknown                 |
 |                    Galaphor                    |             Human            |                   Dead                  |
+|                     Gawain                     |             Human            |                 Unknown                 |
 |                  General Chul                  |             Human            |                 Unknown                 |
 |                  General Ekoda                 |             Human            |                 Unknown                 |
 |                 General Nakami                 |             Human            |                 Unknown                 |
@@ -91,13 +99,13 @@
 |                Giantslayer Crix                |             Human            |                 Unknown                 |
 |                Governor Practiss               |             Human            |                 Unknown                 |
 |               Graham the Gallant               |             Human            |                 Unknown                 |
+|          Grand Magister, The Steadfast         |             Human            |                 Unknown                 |
 |           Grand Magister, the Adamant          |             Human            |               Assumed Dead              |
 |           Grand Magister, the Beloved          |             Human            |               Assumed Dead              |
 |           Grand Magister, the Devout           |             Human            |               Assumed Dead              |
 |           Grand Magister, the Radiant          |             Human            |               Assumed Dead              |
-|          Grand Magister, the Steadfast         |             Human            |                  Alive                  |
 |                 Grandmaster Li                 |             Human            |                 Unknown                 |
-|                    Greenbird                   |             Human            |                  Alive                  |
+|                    Greenbird                   |             Human            |                 Unknown                 |
 |                      Grota                     |             Human            |                  Alive                  |
 |             Gudo, Mistward Pilgrim             |             Human            |                 Unknown                 |
 |                 Hala Goldenhelm                |             Human            |                 Unknown                 |
@@ -108,10 +116,10 @@
 |                    Hildegun                    |             Human            |                 Unknown                 |
 |                      Hirei                     |             Human            |                 Unknown                 |
 |                     Hisato                     |             Human            |                 Unknown                 |
-|                       Hog                      |             Human            |                   Dead                  |
+|                       Hog                      |             Human            |                 Unknown                 |
 |                     Huxley                     |             Human            |                 Unknown                 |
 |                     Hyrinth                    |            Diviner           |                 Unknown                 |
-|                     Jackdaw                    |             Human            |                  Alive                  |
+|                     Jackdaw                    |             Human            |                 Unknown                 |
 |                     Jeeves                     |             Human            |                 Unknown                 |
 |                     Jemjang                    |             Human            |                   Dead                  |
 |     Jezabelle, Everfest Healer and Allsorts    |             Human            |                 Unknown                 |
@@ -125,6 +133,7 @@
 |                     Kaysin                     |       Maela Soothsayer       |                 Unknown                 |
 |                      Kazuo                     |             Human            |                   Dead                  |
 |                     Kelpie                     |            Zombie            |                   Dead                  |
+|                      Kien                      |             Human            |                 Deceased                |
 |                    Kirigami                    |            Unknown           |                 Unknown                 |
 |                    Knuckles                    |             Human            |                   Dead                  |
 |                     Kossen                     |             Human            |                 Unknown                 |
@@ -132,7 +141,7 @@
 |                      Kyle                      |             Human            |                 Unknown                 |
 |                 Lady Bartimont                 |            Unknown           |                 Unknown                 |
 |               Lady Vera Sutcliffe              |             Human            |                 Unknown                 |
-|                   Lena Belle                   |             Human            |                  Alive                  |
+|                   Lena Belle                   |             Human            |                 Unknown                 |
 |                  Lieutenant Li                 |             Human            |                 Unknown                 |
 |               Lieutenant Timaeus               |             Human            |                 Unknown                 |
 |                Lieutenant Yamada               |             Human            |                   Dead                  |
@@ -152,21 +161,28 @@
 |                 Magistrate Chen                |             Human            |                 Unknown                 |
 |               Magnus the Vigilant              |             Human            |                 Unknown                 |
 |                     Magpie                     |             Human            |                  Alive                  |
+|                     Marbles                    |             Meep             |                 Unknown                 |
+|                     Marcus                     |             Human            |                 Unknown                 |
 |             Marcus 'Mauler' Monroe             |             Human            |                  Alive                  |
 |         Master Morita, Art of the Hand         |             Human            |                 Unknown                 |
+|                  Master Saori                  |             Human            |                 Unknown                 |
+|                  Master Takumi                 |             Human            |                 Unknown                 |
 |                   Master Udo                   |             Human            |                 Unknown                 |
 |                     Maxwell                    |             Human            |                 Unknown                 |
 |                 Meldrick Sudds                 |             Human            |                  Alive                  |
 |                  Merlen Rivera                 |             Human            |                 Unknown                 |
 |          Metis, Archangel of Tenacity          |            Herald            |                 Unknown                 |
+|                     Mikael                     |             Human            |                 Unknown                 |
 |                      Miku                      |             Human            |                 Unknown                 |
 |           Min of the Forest of Flames          |             Human            |                 Unknown                 |
-|                 Minerva Themis                 |            Unknown           |                 Unknown                 |
+|                 Minerva Themis                 |             Human            |                 Unknown                 |
 |                     Miss Q                     |            Unknown           |                 Unknown                 |
 |                  Molly the Mop                 |             Human            |                  Alive                  |
 |                     Moloca                     |            Unknown           |                 Unknown                 |
+|                      Moray                     |             Human            |                 Unknown                 |
 |                  Moray Le Fay                  |       Zombie Sea Witch       |                   Dead                  |
 |      Morga, Grinning Boar Cantina Barmaid      |             Human            |                 Unknown                 |
+|                     Morgan                     |             Human            |                 Unknown                 |
 |                 Mutinous Maggie                |             Human            |                 Unknown                 |
 |                  Nailbit Nari                  |             Human            |                 Unknown                 |
 |                     Narakir                    |            Welkin            |                 Unknown                 |
@@ -177,6 +193,7 @@
 |                      Otmar                     |             Human            |                 Unknown                 |
 |                Overseer Crichton               |             Human            |                   Dead                  |
 |                      Ozrim                     |            Rosetta           |                 Unknown                 |
+|                     Pallas                     |             Human            |                 Unknown                 |
 |                  Pearl Sandhri                 |             Human            |                  Alive                  |
 |                     Pelorus                    |             Human            |                  Alive                  |
 |                    Pinwheel                    |             Human            |                   Dead                  |
@@ -211,6 +228,7 @@
 |                     Sidriz                     |            Wizard            |                 Unknown                 |
 |                  Slapstick Sal                 |            Unknown           |                 Unknown                 |
 |                     Slinger                    |             Human            |                  Alive                  |
+|                       Sol                      |            Unknown           |                 Unknown                 |
 |                      Soren                     |             Human            |                 Unknown                 |
 |                    Speakeasy                   |            Unknown           |                 Unknown                 |
 |                     Spokes                     |             Human            |                 Unknown                 |
@@ -228,6 +246,7 @@
 |                Taskmaster Pyrion               |             Human            |                 Unknown                 |
 |                Templar Timaerus                |             Human            |                 Unknown                 |
 |                     Tetzuo                     |             Human            |                  Alive                  |
+|                  The Harvester                 |             Human            |                 Unknown                 |
 |                  The Librarian                 |            Unknown           |                 Unknown                 |
 |          Thebasto, Magister of Defense         |             Human            |                  Alive                  |
 |          Themis, Keeper of the Scales          |            Herald            |                 Unknown                 |
@@ -239,11 +258,14 @@
 |             Tohiro, Eternal Scribe             |             Human            |                 Unknown                 |
 |                     Tomass                     |             Human            |                 Unknown                 |
 |               Toroja of Ishigaki               |             Human            |                   Dead                  |
+|                      Ursur                     |             Embra            |                 Unknown                 |
 |                Vail the Vagrant                |             Human            |                 Unknown                 |
+|                     Valeria                    |             Human            |                 Unknown                 |
 |                Valgard Hoarfrost               |             Human            |                 Unknown                 |
 |                      Vera                      |             Human            |                 Unknown                 |
 |         Victoria, Archangel of Triumph         |            Herald            |                 Unknown                 |
 |                Vidya Willowmere                |            Unknown           |                 Unknown                 |
+|                      Vitus                     |             Human            |                 Unknown                 |
 |                     Wailer                     |            Zombie            |                   Dead                  |
 |                     Wheeler                    |             Human            |                  Alive                  |
 |                    Whitetail                   |             Human            |                  Alive                  |

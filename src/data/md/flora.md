@@ -3,3 +3,4 @@
 |---------------|----------------------------------------------------------------------------------------------------|
 |Blissberry Bush|                               Produces small delicious berry fruits.                               |
 |   Jacaranda   |Branches like insectile limbs, each adorned with the body of a firefinch, pierced through the heart.|
+|    Rashari    |                                                                                                    |
