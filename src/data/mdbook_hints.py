@@ -29,17 +29,17 @@ from pathlib import Path
 # Regex constants
 # ---------------------------------------------------------------------------
 
-_FENCED_CODE = re.compile(r'(?:```|~~~)[^\n]*\n[\s\S]*?(?:```|~~~)', re.MULTILINE)
-_CODE_SPAN = re.compile(r'`[^`\n]+`')
-_LINK = re.compile(r'!?\[(?:[^\]]*)\](?:\([^)]*\)|\[[^\]]*\])')
-_SCRIPT_BLOCK = re.compile(r'<script\b[^>]*>[\s\S]*?</script>', re.IGNORECASE)
-_HTML_TAG = re.compile(r'<[^>]+>')
+_FENCED_CODE = re.compile(r"(?:```|~~~)[^\n]*\n[\s\S]*?(?:```|~~~)", re.MULTILINE)
+_CODE_SPAN = re.compile(r"`[^`\n]+`")
+_LINK = re.compile(r"!?\[(?:[^\]]*)\](?:\([^)]*\)|\[[^\]]*\])")
+_SCRIPT_BLOCK = re.compile(r"<script\b[^>]*>[\s\S]*?</script>", re.IGNORECASE)
+_HTML_TAG = re.compile(r"<[^>]+>")
 _HINT_ELEMENT = re.compile(
     r'<span\b[^>]*class="hint"[^>]*>[\s\S]*?</span>',
 )
-_ALL_HEADINGS = re.compile(r'^#{1,6}[^\S\n]+.+$', re.MULTILINE)
-_SECTION_HEADINGS = re.compile(r'^#{2,3}[^\S\n]+(.+?)(?:[^\S\n]*#+)?\s*$', re.MULTILINE)
-_OLD_HINT = re.compile(r'\[([^\]]+)\]\(~([^)]+)\)')
+_ALL_HEADINGS = re.compile(r"^#{1,6}[^\S\n]+.+$", re.MULTILINE)
+_SECTION_HEADINGS = re.compile(r"^#{2,3}[^\S\n]+(.+?)(?:[^\S\n]*#+)?\s*$", re.MULTILINE)
+_OLD_HINT = re.compile(r"\[([^\]]+)\]\(~([^)]+)\)")
 
 # Entity types sourced from the DB — the only types eligible for auto-detection.
 # Supplement-only types (npc, faction, aesir, ancient, concept, etc.) are
@@ -54,14 +54,14 @@ _AUTO_DETECT_TYPES = frozenset({"location", "monster", "fauna", "flora"})
 
 
 def load_hints(path: Path) -> dict:
-    with path.open(encoding='utf-8') as f:
+    with path.open(encoding="utf-8") as f:
         return json.load(f)
 
 
 def get_match_strings(key: str, entry) -> list[str]:
     """Return the text strings to search for in chapter content."""
     if isinstance(entry, dict):
-        m = entry.get('match')
+        m = entry.get("match")
         if m is not None:
             return [m] if isinstance(m, str) else list(m)
     return [key]
@@ -92,14 +92,14 @@ def extract_section_heading_texts(content: str) -> list[str]:
 def page_slug_from_path(path: str | None) -> str:
     """Derive a page slug from a chapter path (e.g. 'Solana/guide.md' → 'Solana/guide')."""
     if not path:
-        return ''
-    return Path(path).with_suffix('').as_posix()
+        return ""
+    return Path(path).with_suffix("").as_posix()
 
 
 def process_chapter(
     content: str,
     hints: dict,
-    page_slug: str = '',
+    page_slug: str = "",
 ) -> str:
     """Transform a single chapter's Markdown content."""
     # --- Step 1: convert old [Text](~Key) markup ---
@@ -121,11 +121,11 @@ def process_chapter(
             continue
 
         # Only auto-detect DB-backed entity types
-        if not isinstance(entry, dict) or entry.get('type') not in _AUTO_DETECT_TYPES:
+        if not isinstance(entry, dict) or entry.get("type") not in _AUTO_DETECT_TYPES:
             continue
 
         # Option C: exclude_pages
-        exclude = entry.get('exclude_pages') or []
+        exclude = entry.get("exclude_pages") or []
         if page_slug and page_slug in exclude:
             continue
 
@@ -147,7 +147,7 @@ def process_chapter(
     for key, match_strings in candidates:
         found = False
         for ms in match_strings:
-            pattern = re.compile(r'\b' + re.escape(ms) + r'\b', re.IGNORECASE)
+            pattern = re.compile(r"\b" + re.escape(ms) + r"\b", re.IGNORECASE)
             for m in pattern.finditer(content):
                 start, end = m.start(), m.end()
                 if _in_protected(start, end, protected):
@@ -175,7 +175,7 @@ def process_chapter(
 
 def _heading_suppressed(match_strings: list[str], heading_texts: list[str]) -> bool:
     for ms in match_strings:
-        pat = re.compile(r'\b' + re.escape(ms) + r'\b', re.IGNORECASE)
+        pat = re.compile(r"\b" + re.escape(ms) + r"\b", re.IGNORECASE)
         if any(pat.search(h) for h in heading_texts):
             return True
     return False
@@ -196,28 +196,31 @@ def _overlaps(start: int, end: int, replacements: list[tuple[int, int, str]]) ->
 
 def _process_sections(sections: list, hints: dict) -> None:
     for section in sections:
-        chapter = section.get('Chapter')
+        chapter = section.get("Chapter")
         if not chapter:
             continue
-        slug = page_slug_from_path(chapter.get('path'))
-        chapter['content'] = process_chapter(chapter['content'], hints, slug)
-        _process_sections(chapter.get('sub_items') or [], hints)
+        slug = page_slug_from_path(chapter.get("path"))
+        chapter["content"] = process_chapter(chapter["content"], hints, slug)
+        _process_sections(chapter.get("sub_items") or [], hints)
 
 
 def main() -> None:
-    if len(sys.argv) >= 3 and sys.argv[1] == 'supports':
+    if len(sys.argv) >= 3 and sys.argv[1] == "supports":
         sys.exit(0)
 
-    from generate_hints_json import generate
-    generate()
+    db_path = Path(__file__).resolve().parents[2] / "src" / "data" / "fablore.db"
+    if db_path.exists():
+        from generate_hints_json import generate
 
-    hints_path = Path(__file__).resolve().parents[2] / 'src' / 'hints.json'
+        generate()
+
+    hints_path = Path(__file__).resolve().parents[2] / "src" / "hints.json"
     hints = load_hints(hints_path) if hints_path.exists() else {}
 
     ctx, book = json.load(sys.stdin)
-    _process_sections(book.get('items') or [], hints)
+    _process_sections(book.get("items") or [], hints)
     json.dump(book, sys.stdout, ensure_ascii=False)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
