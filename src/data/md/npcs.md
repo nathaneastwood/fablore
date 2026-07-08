@@ -165,8 +165,8 @@
 |                     Marcus                     |             Human            |                 Unknown                 |
 |             Marcus 'Mauler' Monroe             |             Human            |                  Alive                  |
 |         Master Morita, Art of the Hand         |             Human            |                 Unknown                 |
-|                  Master Saori                  |             Human            |                 Unknown                 |
-|                  Master Takumi                 |             Human            |                 Unknown                 |
+|                  Master Saori                  |             Human            |                  Alive                  |
+|                  Master Takumi                 |             Human            |                  Alive                  |
 |                   Master Udo                   |             Human            |                 Unknown                 |
 |                     Maxwell                    |             Human            |                 Unknown                 |
 |                 Meldrick Sudds                 |             Human            |                  Alive                  |

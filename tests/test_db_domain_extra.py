@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src" / "data"))
 
 import db._queries as q
-from db import Database, NPCEntry, RegionEntry, LocationEntry
+from db import Database, NPCEntry, RegionEntry, LocationEntry, MonsterEntry, FaunaEntry, FloraEntry
 
 
 # ---------------------------------------------------------------------------
@@ -25,7 +25,12 @@ def _seed_weapon(database: Database, slug: str, name: str) -> str:
     from registry_ids import make_hash_id
 
     wid = make_hash_id("CW", slug)
-    q.upsert_weapon_canonical(database.conn, canonical_weapon_id=wid, canonical_slug=slug, canonical_weapon=name)
+    q.upsert_weapon_canonical(
+        database.conn,
+        canonical_weapon_id=wid,
+        canonical_slug=slug,
+        canonical_weapon=name,
+    )
     return wid
 
 
@@ -34,7 +39,10 @@ def _seed_equipment(database: Database, slug: str, name: str) -> str:
 
     eid = make_hash_id("CE", slug)
     q.upsert_equipment_canonical(
-        database.conn, canonical_equipment_id=eid, canonical_slug=slug, canonical_equipment=name
+        database.conn,
+        canonical_equipment_id=eid,
+        canonical_slug=slug,
+        canonical_equipment=name,
     )
     return eid
 
@@ -352,3 +360,111 @@ def test_display_story_with_junctions(db: Database) -> None:
     out = buf.getvalue()
     assert "Mystic" in out
     assert "NPCs" in out
+
+
+# ---------------------------------------------------------------------------
+# delete_entity
+# ---------------------------------------------------------------------------
+
+
+def test_delete_entity_location_removes_orphaned_row(db: Database) -> None:
+    db.upsert_story(
+        "src/main-story/foo.md",
+        story_type="main-story",
+        title="Foo",
+        locations=[LocationEntry("Orphan Place", region="Aria")],
+    )
+    db.remove_story("src/main-story/foo.md")
+    assert db.list_locations()  # sanity: row still present after unlink
+    db.delete_entity("location", "Orphan Place")
+    assert "Orphan Place" not in [loc["name"] for loc in db.list_locations()]
+
+
+def test_delete_entity_location_refuses_when_still_linked(db: Database) -> None:
+    db.upsert_story(
+        "src/main-story/foo.md",
+        story_type="main-story",
+        title="Foo",
+        locations=[LocationEntry("Linked Place", region="Aria")],
+    )
+    with pytest.raises(ValueError, match="still referenced"):
+        db.delete_entity("location", "Linked Place")
+    assert "Linked Place" in [loc["name"] for loc in db.list_locations()]
+
+
+def test_delete_entity_location_not_found(db: Database) -> None:
+    with pytest.raises(ValueError, match="not found"):
+        db.delete_entity("location", "Nowhere")
+
+
+def test_delete_entity_unknown_entity_type(db: Database) -> None:
+    with pytest.raises(ValueError, match="Unknown entity type"):
+        db.delete_entity("npc", "Someone")
+
+
+def test_delete_entity_monster_removes_orphaned_row(db: Database) -> None:
+    db.upsert_story(
+        "src/main-story/foo.md",
+        story_type="main-story",
+        title="Foo",
+        monsters=[MonsterEntry("Test Beast")],
+    )
+    db.remove_story("src/main-story/foo.md")
+    db.delete_entity("monster", "Test Beast")
+    cur = db.conn.execute("SELECT COUNT(*) FROM monsters WHERE name = ?", ["Test Beast"])
+    assert cur.fetchone()[0] == 0
+
+
+def test_delete_entity_monster_refuses_when_still_linked(db: Database) -> None:
+    db.upsert_story(
+        "src/main-story/foo.md",
+        story_type="main-story",
+        title="Foo",
+        monsters=[MonsterEntry("Linked Beast")],
+    )
+    with pytest.raises(ValueError, match="still referenced"):
+        db.delete_entity("monster", "Linked Beast")
+
+
+def test_delete_entity_fauna_removes_orphaned_row(db: Database) -> None:
+    db.upsert_story(
+        "src/main-story/foo.md",
+        story_type="main-story",
+        title="Foo",
+        fauna=[FaunaEntry("Test Critter")],
+    )
+    db.remove_story("src/main-story/foo.md")
+    db.delete_entity("fauna", "Test Critter")
+    cur = db.conn.execute("SELECT COUNT(*) FROM fauna WHERE name = ?", ["Test Critter"])
+    assert cur.fetchone()[0] == 0
+
+
+def test_delete_entity_flora_removes_orphaned_row(db: Database) -> None:
+    db.upsert_story(
+        "src/main-story/foo.md",
+        story_type="main-story",
+        title="Foo",
+        flora=[FloraEntry("Test Weed")],
+    )
+    db.remove_story("src/main-story/foo.md")
+    db.delete_entity("flora", "Test Weed")
+    cur = db.conn.execute("SELECT COUNT(*) FROM flora WHERE name = ?", ["Test Weed"])
+    assert cur.fetchone()[0] == 0
+
+
+def test_delete_entity_location_deletes_all_duplicate_name_rows(db: Database) -> None:
+    """Two locations can share a display name across different regions; delete_entity
+    removes every row under that name, not just the first match."""
+    db.upsert_story(
+        "src/main-story/foo.md",
+        story_type="main-story",
+        title="Foo",
+        regions=[RegionEntry("Aria"), RegionEntry("Solana")],
+        locations=[
+            LocationEntry("Market Square", region="Aria"),
+            LocationEntry("Market Square", region="Solana"),
+        ],
+    )
+    db.remove_story("src/main-story/foo.md")
+    db.delete_entity("location", "Market Square")
+    assert "Market Square" not in [loc["name"] for loc in db.list_locations()]

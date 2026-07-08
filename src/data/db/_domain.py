@@ -60,9 +60,11 @@ def _auto_world_key(region_name: str) -> str:
 # Input dataclasses
 # ---------------------------------------------------------------------------
 
+
 @dataclass
 class NarratedVideoEntry:
     """A narrated reading of a story."""
+
     author: str
     source_link: str
     channel_link: str = ""
@@ -71,6 +73,7 @@ class NarratedVideoEntry:
 @dataclass
 class NPCEntry:
     """A non-playable character to link to a story."""
+
     name: str
     species: str = "Unknown"
     status: str = "Unknown"
@@ -82,6 +85,7 @@ class NPCEntry:
 @dataclass
 class RegionEntry:
     """A world region to link to a story (upserted into regions table)."""
+
     name: str
     world_of_rathe_story_key: str = ""
 
@@ -89,6 +93,7 @@ class RegionEntry:
 @dataclass
 class LocationEntry:
     """A location to link to a story (upserted into locations table)."""
+
     name: str
     region: str = ""
     """Display name of the region — resolved to ``RegionId`` internally."""
@@ -102,6 +107,7 @@ class LocationEntry:
 @dataclass
 class MonsterEntry:
     """A monster to link to a story (upserted into monsters table)."""
+
     name: str
     description: str = ""
 
@@ -109,6 +115,7 @@ class MonsterEntry:
 @dataclass
 class FaunaEntry:
     """A fauna entry to link to a story (upserted into fauna table)."""
+
     name: str
     description: str = ""
 
@@ -116,6 +123,7 @@ class FaunaEntry:
 @dataclass
 class FloraEntry:
     """A flora entry to link to a story (upserted into flora table)."""
+
     name: str
     description: str = ""
 
@@ -123,6 +131,7 @@ class FloraEntry:
 @dataclass
 class FoodDrinkEntry:
     """A food or drink item to link to a story (upserted into food_and_drink table)."""
+
     name: str
     kind: str
     """Type category, e.g. ``"Drink"`` or ``"Food"``."""
@@ -131,6 +140,7 @@ class FoodDrinkEntry:
 # ---------------------------------------------------------------------------
 # StoryRecord
 # ---------------------------------------------------------------------------
+
 
 @dataclass
 class StoryRecord:
@@ -167,6 +177,7 @@ class StoryRecord:
 # ---------------------------------------------------------------------------
 # Database
 # ---------------------------------------------------------------------------
+
 
 class Database:
     """Runtime interface to the fablore SQLite database.
@@ -231,17 +242,24 @@ class Database:
     def list_heroes(self) -> list[dict[str, str]]:
         """Return ``[{"slug": …, "name": …}]`` for all canonical heroes."""
         rows = q.select_all_heroes_canonical(self.conn)
-        return [{"slug": r["canonical_slug"], "name": r["canonical_hero"]} for r in rows]
+        return [
+            {"slug": r["canonical_slug"], "name": r["canonical_hero"]} for r in rows
+        ]
 
     def list_weapons(self) -> list[dict[str, str]]:
         """Return ``[{"slug": …, "name": …}]`` for all canonical weapons."""
         rows = q.select_all_weapons_canonical(self.conn)
-        return [{"slug": r["canonical_slug"], "name": r["canonical_weapon"]} for r in rows]
+        return [
+            {"slug": r["canonical_slug"], "name": r["canonical_weapon"]} for r in rows
+        ]
 
     def list_equipment(self) -> list[dict[str, str]]:
         """Return ``[{"slug": …, "name": …}]`` for all canonical equipment."""
         rows = q.select_all_equipment_canonical(self.conn)
-        return [{"slug": r["canonical_slug"], "name": r["canonical_equipment"]} for r in rows]
+        return [
+            {"slug": r["canonical_slug"], "name": r["canonical_equipment"]}
+            for r in rows
+        ]
 
     def list_regions(self) -> list[dict[str, str]]:
         """Return region dicts with ``region_id``, ``region_name``, ``world_of_rathe_story_key``."""
@@ -271,8 +289,10 @@ class Database:
     def list_npcs(self) -> list[dict[str, str]]:
         """Return ``[{"name": …, "species": …, "status": …}]`` for all NPCs."""
         rows = q.select_all_npcs(self.conn)
-        return [{"name": r["name"], "species": r["species"], "status": r["status"]}
-                for r in rows]
+        return [
+            {"name": r["name"], "species": r["species"], "status": r["status"]}
+            for r in rows
+        ]
 
     def print_npcs(self, *, file: IO[str] | None = None) -> None:
         """Pretty-print all NPCs with species and status."""
@@ -281,7 +301,9 @@ class Database:
     def list_locations(self) -> list[dict[str, str]]:
         """Return location dicts with ``name``, ``region``, ``notes``, ``lore_fragment``."""
         rows = q.select_all_locations(self.conn)
-        region_map = {r["region_id"]: r["region_name"] for r in q.select_all_regions(self.conn)}
+        region_map = {
+            r["region_id"]: r["region_name"] for r in q.select_all_regions(self.conn)
+        }
         return [
             {
                 "name": r["name"],
@@ -294,11 +316,16 @@ class Database:
 
     def print_locations(self, *, file: IO[str] | None = None) -> None:
         """Pretty-print all locations with their region."""
-        self._print_table(self.list_locations(), ["name", "region", "lore_fragment"], file=file)
+        self._print_table(
+            self.list_locations(), ["name", "region", "lore_fragment"], file=file
+        )
 
     @staticmethod
-    def _print_table(rows: list[dict], cols: list[str], *, file: IO[str] | None = None) -> None:
+    def _print_table(
+        rows: list[dict], cols: list[str], *, file: IO[str] | None = None
+    ) -> None:
         import sys as _sys
+
         out = file or _sys.stdout
         if not rows:
             out.write("(none)\n")
@@ -308,7 +335,9 @@ class Database:
         out.write(header + "\n")
         out.write("  ".join("-" * widths[c] for c in cols) + "\n")
         for row in rows:
-            out.write("  ".join(str(row.get(c, "")).ljust(widths[c]) for c in cols) + "\n")
+            out.write(
+                "  ".join(str(row.get(c, "")).ljust(widths[c]) for c in cols) + "\n"
+            )
 
     # ------------------------------------------------------------------
     # Story management
@@ -395,7 +424,9 @@ class Database:
                 story_key, heroes or [], hero_ids, hero_fragments or {}
             )
         weapon_ids = self._resolve_weapons(weapons) if weapons is not None else None
-        equip_ids = self._resolve_equipment(equipment) if equipment is not None else None
+        equip_ids = (
+            self._resolve_equipment(equipment) if equipment is not None else None
+        )
 
         if dry_run:
             return self._dry_run_upsert(
@@ -437,9 +468,12 @@ class Database:
             )
             if narrated_videos is not None:
                 q.set_narrated_videos(
-                    self.conn, story_id,
-                    [(v.author, v.source_link, v.channel_link)
-                     for v in narrated_videos],
+                    self.conn,
+                    story_id,
+                    [
+                        (v.author, v.source_link, v.channel_link)
+                        for v in narrated_videos
+                    ],
                 )
             if hero_ids is not None:
                 frags = hero_fragments or {}
@@ -459,8 +493,11 @@ class Database:
             if locations is not None:
                 location_ids = self._upsert_locations(locations)
                 q.set_story_junction(
-                    self.conn, story_id,
-                    "story_locations", "location_id", location_ids,
+                    self.conn,
+                    story_id,
+                    "story_locations",
+                    "location_id",
+                    location_ids,
                 )
             if monsters is not None:
                 monster_ids = self._upsert_monsters(monsters)
@@ -480,18 +517,27 @@ class Database:
             if food_drink is not None:
                 fd_ids = self._upsert_food_drink(food_drink)
                 q.set_story_junction(
-                    self.conn, story_id,
-                    "story_food_drink", "food_drink_id", fd_ids,
+                    self.conn,
+                    story_id,
+                    "story_food_drink",
+                    "food_drink_id",
+                    fd_ids,
                 )
             if weapon_ids is not None:
                 q.set_story_junction(
-                    self.conn, story_id,
-                    "story_weapons", "canonical_weapon_id", weapon_ids,
+                    self.conn,
+                    story_id,
+                    "story_weapons",
+                    "canonical_weapon_id",
+                    weapon_ids,
                 )
             if equip_ids is not None:
                 q.set_story_junction(
-                    self.conn, story_id,
-                    "story_equipment", "canonical_equipment_id", equip_ids,
+                    self.conn,
+                    story_id,
+                    "story_equipment",
+                    "canonical_equipment_id",
+                    equip_ids,
                 )
 
         # Write-through: regenerate affected CSVs so git stays in sync.
@@ -528,13 +574,19 @@ class Database:
                "junctions": {table: count}, "story_deleted": bool}``
         """
         import sys as _sys
+
         out = file or _sys.stdout
         story_key = _story_key_from_path(path)
         row = q.select_story_by_key(self.conn, story_key)
         if row is None:
             out.write(f"Story not found: {story_key}\n")
-            return {"dry_run": dry_run, "story_key": story_key, "story_id": None,
-                    "junctions": {}, "story_deleted": False}
+            return {
+                "dry_run": dry_run,
+                "story_key": story_key,
+                "story_id": None,
+                "junctions": {},
+                "story_deleted": False,
+            }
 
         story_id = row["story_id"]
         junction_counts = q.count_story_junctions(self.conn, story_id)
@@ -577,6 +629,7 @@ class Database:
     def display_story(self, path: str | Path, *, file: IO[str] | None = None) -> None:
         """Print a human-readable summary of a story and its linked entities."""
         import sys as _sys
+
         out = file or _sys.stdout
         story_key = _story_key_from_path(path)
         row = q.select_story_by_key(self.conn, story_key)
@@ -609,26 +662,65 @@ class Database:
 
     def _display_junctions(self, story_id: str, out: IO[str]) -> None:
         sections = [
-            ("Heroes", "story_heroes", "canonical_id",
-             "heroes_canonical", "canonical_id", "canonical_hero"),
-            ("NPCs", "story_npcs", "character_id",
-             "npcs", "character_id", "name"),
-            ("Locations", "story_locations", "location_id",
-             "locations", "location_id", "name"),
-            ("Regions", "story_regions", "region_id",
-             "regions", "region_id", "region_name"),
-            ("Monsters", "story_monsters", "monster_id",
-             "monsters", "monster_id", "name"),
-            ("Fauna", "story_fauna", "fauna_id",
-             "fauna", "fauna_id", "name"),
-            ("Flora", "story_flora", "flora_id",
-             "flora", "flora_id", "name"),
-            ("Food & Drink", "story_food_drink", "food_drink_id",
-             "food_and_drink", "food_drink_id", "name"),
-            ("Weapons", "story_weapons", "canonical_weapon_id",
-             "weapons_canonical", "canonical_weapon_id", "canonical_weapon"),
-            ("Equipment", "story_equipment", "canonical_equipment_id",
-             "equipment_canonical", "canonical_equipment_id", "canonical_equipment"),
+            (
+                "Heroes",
+                "story_heroes",
+                "canonical_id",
+                "heroes_canonical",
+                "canonical_id",
+                "canonical_hero",
+            ),
+            ("NPCs", "story_npcs", "character_id", "npcs", "character_id", "name"),
+            (
+                "Locations",
+                "story_locations",
+                "location_id",
+                "locations",
+                "location_id",
+                "name",
+            ),
+            (
+                "Regions",
+                "story_regions",
+                "region_id",
+                "regions",
+                "region_id",
+                "region_name",
+            ),
+            (
+                "Monsters",
+                "story_monsters",
+                "monster_id",
+                "monsters",
+                "monster_id",
+                "name",
+            ),
+            ("Fauna", "story_fauna", "fauna_id", "fauna", "fauna_id", "name"),
+            ("Flora", "story_flora", "flora_id", "flora", "flora_id", "name"),
+            (
+                "Food & Drink",
+                "story_food_drink",
+                "food_drink_id",
+                "food_and_drink",
+                "food_drink_id",
+                "name",
+            ),
+            (
+                "Weapons",
+                "story_weapons",
+                "canonical_weapon_id",
+                "weapons_canonical",
+                "canonical_weapon_id",
+                "canonical_weapon",
+            ),
+            (
+                "Equipment",
+                "story_equipment",
+                "canonical_equipment_id",
+                "equipment_canonical",
+                "canonical_equipment_id",
+                "canonical_equipment",
+            ),
         ]
         for label, junction, jid_col, registry, rid_col, name_col in sections:
             out.write(f"{label}\n")
@@ -663,8 +755,8 @@ class Database:
         """
         _TABLE_MAP = {
             "monster": ("monsters", "monster_id", _monster_id),
-            "fauna":   ("fauna",    "fauna_id",   fauna_id_from_name),
-            "flora":   ("flora",    "flora_id",   flora_id),
+            "fauna": ("fauna", "fauna_id", fauna_id_from_name),
+            "flora": ("flora", "flora_id", flora_id),
         }
         with self.conn:
             if entity_type == "location":
@@ -677,6 +769,72 @@ class Database:
                 rows = q.update_entity_description(
                     self.conn, table, id_col, entity_id, description
                 )
+                if rows == 0:
+                    raise ValueError(f"{entity_type.capitalize()} not found: {name!r}")
+            else:
+                raise ValueError(
+                    f"Unknown entity type: {entity_type!r}. "
+                    "Use 'monster', 'fauna', 'flora', or 'location'."
+                )
+        _export.export_registry_tables(self.conn, self._data_dir)
+
+    def delete_entity(self, entity_type: str, name: str) -> None:
+        """Delete a lore registry row by name, refusing if any story still links it.
+
+        For cleaning up orphaned duplicate rows (e.g. a misspelled name left
+        behind after a story's ``upsert_story()`` call was corrected to the
+        right spelling). Never repoints links itself — link the story to the
+        surviving row first (re-run ``upsert_story()`` with the corrected
+        name), confirm the duplicate has zero story references, then call
+        this to remove it.
+
+        Args:
+            entity_type: One of ``"monster"``, ``"fauna"``, ``"flora"``, or ``"location"``.
+            name: Display name of the entity to delete.
+
+        Raises:
+            ValueError: If ``entity_type`` is unrecognised, no row matches
+                ``name``, or the entity is still referenced by any story
+                (listed junction tables and counts are included in the
+                message so the caller knows what to repoint first).
+        """
+        _JUNCTION_MAP = {
+            "monster": ("monsters", "monster_id", "story_monsters", _monster_id),
+            "fauna": ("fauna", "fauna_id", "story_fauna", fauna_id_from_name),
+            "flora": ("flora", "flora_id", "story_flora", flora_id),
+        }
+        with self.conn:
+            if entity_type == "location":
+                entity_ids = q.select_location_ids_by_name(self.conn, name)
+                if not entity_ids:
+                    raise ValueError(f"Location not found: {name!r}")
+                linked = {
+                    eid: q.count_entity_story_links(
+                        self.conn, "story_locations", "location_id", eid
+                    )
+                    for eid in entity_ids
+                }
+                still_linked = {eid: n for eid, n in linked.items() if n > 0}
+                if still_linked:
+                    raise ValueError(
+                        f"Cannot delete location {name!r}: still referenced by story_locations "
+                        f"(location_id -> story count: {still_linked}). Repoint those story links "
+                        "to the row you're keeping first."
+                    )
+                for eid in entity_ids:
+                    q.delete_entity_row(self.conn, "locations", "location_id", eid)
+            elif entity_type in _JUNCTION_MAP:
+                table, id_col, junction_table, id_fn = _JUNCTION_MAP[entity_type]
+                entity_id = id_fn(name)
+                linked = q.count_entity_story_links(
+                    self.conn, junction_table, id_col, entity_id
+                )
+                if linked:
+                    raise ValueError(
+                        f"Cannot delete {entity_type} {name!r}: still referenced by "
+                        f"{linked} row(s) in {junction_table}. Repoint those story links first."
+                    )
+                rows = q.delete_entity_row(self.conn, table, id_col, entity_id)
                 if rows == 0:
                     raise ValueError(f"{entity_type.capitalize()} not found: {name!r}")
             else:
@@ -769,7 +927,8 @@ class Database:
     def _upsert_npcs(self, entries: list[NPCEntry]) -> list[tuple[str, str]]:
         # Guard against accidentally storing playable heroes as NPCs
         hero_names: set[str] = {
-            normalize_name(r["canonical_hero"]) for r in q.select_all_heroes_canonical(self.conn)
+            normalize_name(r["canonical_hero"])
+            for r in q.select_all_heroes_canonical(self.conn)
         }
         ids: list[tuple[str, str]] = []
         for e in entries:
@@ -779,9 +938,14 @@ class Database:
                     f"Refusing NPC link for playable hero name: {e.name!r}"
                 )
             cid = lore_character_id(e.name)
-            q.upsert_npc(self.conn, character_id=cid, name=e.name,
-                         species=e.species, status=e.status,
-                         other_characters_story_key=e.other_characters_story_key)
+            q.upsert_npc(
+                self.conn,
+                character_id=cid,
+                name=e.name,
+                species=e.species,
+                status=e.status,
+                other_characters_story_key=e.other_characters_story_key,
+            )
             ids.append((cid, e.fragment))
         return ids
 
@@ -790,8 +954,12 @@ class Database:
         for e in entries:
             rid = region_row_id(e.name)
             wk = e.world_of_rathe_story_key or _auto_world_key(e.name)
-            q.upsert_region(self.conn, region_id=rid, region_name=e.name,
-                            world_of_rathe_story_key=wk)
+            q.upsert_region(
+                self.conn,
+                region_id=rid,
+                region_name=e.name,
+                world_of_rathe_story_key=wk,
+            )
             ids.append(rid)
         return ids
 
@@ -815,7 +983,9 @@ class Database:
             frag = e.lore_fragment.strip().lstrip("#")
             if frag and eff_region:
                 region_row = q.select_region_by_id(self.conn, eff_region)
-                wk = (region_row["world_of_rathe_story_key"] if region_row else "") or ""
+                wk = (
+                    region_row["world_of_rathe_story_key"] if region_row else ""
+                ) or ""
                 if wk:
                     md_path = (SRC / Path(wk)).resolve()
                     if md_path.is_file():
@@ -843,7 +1013,9 @@ class Database:
         ids: list[str] = []
         for e in entries:
             mid = _monster_id(e.name)
-            q.upsert_monster(self.conn, monster_id=mid, name=e.name, description=e.description)
+            q.upsert_monster(
+                self.conn, monster_id=mid, name=e.name, description=e.description
+            )
             ids.append(mid)
         return ids
 
@@ -851,7 +1023,9 @@ class Database:
         ids: list[str] = []
         for e in entries:
             fid = fauna_id_from_name(e.name)
-            q.upsert_fauna(self.conn, fauna_id=fid, name=e.name, description=e.description)
+            q.upsert_fauna(
+                self.conn, fauna_id=fid, name=e.name, description=e.description
+            )
             ids.append(fid)
         return ids
 
@@ -859,7 +1033,9 @@ class Database:
         ids: list[str] = []
         for e in entries:
             fid = flora_id(e.name)
-            q.upsert_flora(self.conn, flora_id=fid, name=e.name, description=e.description)
+            q.upsert_flora(
+                self.conn, flora_id=fid, name=e.name, description=e.description
+            )
             ids.append(fid)
         return ids
 
@@ -928,6 +1104,7 @@ class Database:
         file: IO[str] | None = None,
     ) -> StoryRecord:
         import sys as _sys
+
         out = file or _sys.stdout
 
         existing = q.select_story_by_key(self.conn, story_key)
@@ -938,13 +1115,13 @@ class Database:
         out.write(f"  StoryId:  {story_id}\n")
 
         scalar_fields: list[tuple[str, str, str]] = [
-            ("title",                "Title",   title),
-            ("story_type",           "Type",    story_type),
-            ("authors",              "Authors", authors),
-            ("artists",              "Artists", artists),
-            ("publication_date",     "Date",    publication_date),
-            ("source_link",          "Source",  source_link),
-            ("thumbnail_image_link", "Thumb",   thumbnail_image_link),
+            ("title", "Title", title),
+            ("story_type", "Type", story_type),
+            ("authors", "Authors", authors),
+            ("artists", "Artists", artists),
+            ("publication_date", "Date", publication_date),
+            ("source_link", "Source", source_link),
+            ("thumbnail_image_link", "Thumb", thumbnail_image_link),
         ]
 
         if existing:
@@ -989,14 +1166,24 @@ class Database:
             r["canonical_equipment_id"]: r["canonical_slug"]
             for r in q.select_all_equipment_canonical(self.conn)
         }
-        npc_id_to_name = {r["character_id"]: r["name"] for r in q.select_all_npcs(self.conn)}
-        loc_id_to_name = {r["location_id"]: r["name"] for r in q.select_all_locations(self.conn)}
+        npc_id_to_name = {
+            r["character_id"]: r["name"] for r in q.select_all_npcs(self.conn)
+        }
+        loc_id_to_name = {
+            r["location_id"]: r["name"] for r in q.select_all_locations(self.conn)
+        }
         region_id_to_name = {
             r["region_id"]: r["region_name"] for r in q.select_all_regions(self.conn)
         }
-        monster_id_to_name = {r["monster_id"]: r["name"] for r in q.select_all_monsters(self.conn)}
-        fauna_id_to_name = {r["fauna_id"]: r["name"] for r in q.select_all_fauna(self.conn)}
-        flora_id_to_name = {r["flora_id"]: r["name"] for r in q.select_all_flora(self.conn)}
+        monster_id_to_name = {
+            r["monster_id"]: r["name"] for r in q.select_all_monsters(self.conn)
+        }
+        fauna_id_to_name = {
+            r["fauna_id"]: r["name"] for r in q.select_all_fauna(self.conn)
+        }
+        flora_id_to_name = {
+            r["flora_id"]: r["name"] for r in q.select_all_flora(self.conn)
+        }
         food_id_to_name = {
             r["food_drink_id"]: r["name"] for r in q.select_all_food_drink(self.conn)
         }
@@ -1032,56 +1219,86 @@ class Database:
                         out.write(f"    + {name}\n")
 
         _show_links_diff(
-            "Heroes", hero_ids,
+            "Heroes",
+            hero_ids,
             [hero_id_to_slug.get(hid, hid) for hid in (hero_ids or [])],
-            "story_heroes", "canonical_id", hero_id_to_slug,
+            "story_heroes",
+            "canonical_id",
+            hero_id_to_slug,
         )
         if hero_fragments:
             out.write(f"  HeroFragments: {hero_fragments}\n")
         _show_links_diff(
-            "NPCs", npcs,
+            "NPCs",
+            npcs,
             [e.name for e in (npcs or [])],
-            "story_npcs", "character_id", npc_id_to_name,
+            "story_npcs",
+            "character_id",
+            npc_id_to_name,
         )
         _show_links_diff(
-            "Locations", locations,
+            "Locations",
+            locations,
             [e.name for e in (locations or [])],
-            "story_locations", "location_id", loc_id_to_name,
+            "story_locations",
+            "location_id",
+            loc_id_to_name,
         )
         _show_links_diff(
-            "Regions", regions,
+            "Regions",
+            regions,
             [e.name for e in (regions or [])],
-            "story_regions", "region_id", region_id_to_name,
+            "story_regions",
+            "region_id",
+            region_id_to_name,
         )
         _show_links_diff(
-            "Monsters", monsters,
+            "Monsters",
+            monsters,
             [e.name for e in (monsters or [])],
-            "story_monsters", "monster_id", monster_id_to_name,
+            "story_monsters",
+            "monster_id",
+            monster_id_to_name,
         )
         _show_links_diff(
-            "Fauna", fauna,
+            "Fauna",
+            fauna,
             [e.name for e in (fauna or [])],
-            "story_fauna", "fauna_id", fauna_id_to_name,
+            "story_fauna",
+            "fauna_id",
+            fauna_id_to_name,
         )
         _show_links_diff(
-            "Flora", flora,
+            "Flora",
+            flora,
             [e.name for e in (flora or [])],
-            "story_flora", "flora_id", flora_id_to_name,
+            "story_flora",
+            "flora_id",
+            flora_id_to_name,
         )
         _show_links_diff(
-            "Food & Drink", food_drink,
+            "Food & Drink",
+            food_drink,
             [e.name for e in (food_drink or [])],
-            "story_food_drink", "food_drink_id", food_id_to_name,
+            "story_food_drink",
+            "food_drink_id",
+            food_id_to_name,
         )
         _show_links_diff(
-            "Weapons", weapon_ids,
+            "Weapons",
+            weapon_ids,
             [weapon_id_to_slug.get(wid, wid) for wid in (weapon_ids or [])],
-            "story_weapons", "canonical_weapon_id", weapon_id_to_slug,
+            "story_weapons",
+            "canonical_weapon_id",
+            weapon_id_to_slug,
         )
         _show_links_diff(
-            "Equipment", equip_ids,
+            "Equipment",
+            equip_ids,
             [equip_id_to_slug.get(eid, eid) for eid in (equip_ids or [])],
-            "story_equipment", "canonical_equipment_id", equip_id_to_slug,
+            "story_equipment",
+            "canonical_equipment_id",
+            equip_id_to_slug,
         )
 
         out.write("\n(no changes written)\n")
@@ -1109,6 +1326,7 @@ class Database:
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
+
 
 def _story_key_from_path(path: str | Path) -> str:
     """Return ``StoryKey``: path relative to ``src/``, POSIX, ending in ``.md``."""

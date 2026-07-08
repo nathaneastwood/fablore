@@ -21,6 +21,12 @@
     "type": "faction",
     "summary": "A faction founded by a particular branch of the Royal Bloodline, brought together by blood ties, headed up by Lord Wizard Chiyo, cousin to the Emperor."
   },
+  "AuisScales": {
+    "type": "faction",
+    "match": "Aui's Scales",
+    "summary": "A secretive organisation that builds hidden strongholds across Misteria to conceal scrolls and artefacts from the public.",
+    "exclude_pages": ["main-story/welcome-to-rathe/wanderings-in-the-mists"]
+  },
   "Bellona": {
     "type": "npc",
     "summary": "The Wartune Herald."
@@ -44,6 +50,12 @@
   "Cogwerx": {
     "type": "organisation",
     "summary": "Credited with inventing steam technology and revolutionising Metrix through steam compression for energy, largely responsible for the city's success and development."
+  },
+  "CrimsonHaze": {
+    "type": "faction",
+    "match": "Crimson Haze",
+    "summary": "A rebel group at odds with Aui's Scales for centuries, seeking to free the people of Misteria from the Great Households.",
+    "exclude_pages": ["main-story/welcome-to-rathe/wanderings-in-the-mists"]
   },
   "Davnir": {
     "type": "ancient",
@@ -94,10 +106,19 @@
     "match": "Goldkiss Rum",
     "summary": "Bright with a rich golden flavour, the most popular drink served at the Kraken's Barrel."
   },
+  "Gawain": {
+    "type": "npc",
+    "summary": "A reserved, taciturn strongman of the Valdur who joined Bravo's Legendarium, wielding a finely crafted greataxe."
+  },
   "GrandMagister": {
     "type": "npc",
     "match": "Grand Magister",
     "summary": "Serves the city of Solana as the highest representation of Sol."
+  },
+  "GrandMagisterTheSteadfast": {
+    "type": "npc",
+    "match": "Grand Magister, The Steadfast",
+    "summary": "Serves the city of Solana as the highest representation of Sol; presides over the Solstice of Laurels and Awakening ceremonies."
   },
   "HandOfSol": {
     "type": "faction",
@@ -114,6 +135,18 @@
   "Jing": {
     "type": "npc",
     "summary": "Xilin and Ira's brother."
+  },
+  "Magnus the Vigilant": {
+    "type": "npc",
+    "summary": "The hero of one of Aria's most beloved old legends, first brought to the stage by a young Bravo and his fellow performers."
+  },
+  "Marbles": {
+    "type": "npc",
+    "summary": "A meep who joined Bravo on his journey to the Fractal Scar, drawn to the glint of the wayfarers' dowsing discs and prone to darting off with shiny trinkets."
+  },
+  "Mikael": {
+    "type": "npc",
+    "summary": "The Legendarium's bard, always brimming with new stories gathered from his travels."
   },
   "Kayat": {
     "type": "npc",
@@ -132,6 +165,10 @@
   "Min": {
     "type": "npc",
     "summary": "Fai's mother, Min of the Forest of Flames."
+  },
+  "Morgan": {
+    "type": "npc",
+    "summary": "The more talkative of two Valdur strongmen who joined Bravo's Legendarium, wielding a finely crafted greataxe."
   },
   "Nasreth": {
     "type": "creature",

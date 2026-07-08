@@ -19,6 +19,7 @@ _log = logging.getLogger(__name__)
 # Stories
 # ---------------------------------------------------------------------------
 
+
 def upsert_story(
     conn: sqlite3.Connection,
     *,
@@ -48,8 +49,17 @@ def upsert_story(
             publication_date     = excluded.publication_date,
             thumbnail_image_link = excluded.thumbnail_image_link
         """,
-        (story_id, story_key, story_type, title, authors, artists,
-         source_link, publication_date, thumbnail_image_link),
+        (
+            story_id,
+            story_key,
+            story_type,
+            title,
+            authors,
+            artists,
+            source_link,
+            publication_date,
+            thumbnail_image_link,
+        ),
     )
 
 
@@ -79,6 +89,7 @@ def select_all_stories(conn: sqlite3.Connection) -> list[sqlite3.Row]:
 # Narrated videos
 # ---------------------------------------------------------------------------
 
+
 def set_narrated_videos(
     conn: sqlite3.Connection,
     story_id: str,
@@ -96,10 +107,7 @@ def set_narrated_videos(
             "INSERT INTO narrated_videos "
             "(story_id, author, source_link, channel_link) "
             "VALUES (?,?,?,?)",
-            [
-                (story_id, author, url, channel)
-                for author, url, channel in videos
-            ],
+            [(story_id, author, url, channel) for author, url, channel in videos],
         )
 
 
@@ -117,6 +125,7 @@ def select_narrated_videos(
 # ---------------------------------------------------------------------------
 # Regions
 # ---------------------------------------------------------------------------
+
 
 def upsert_region(
     conn: sqlite3.Connection,
@@ -163,6 +172,7 @@ def region_id_exists(conn: sqlite3.Connection, region_id: str) -> bool:
 # Locations
 # ---------------------------------------------------------------------------
 
+
 def upsert_location(
     conn: sqlite3.Connection,
     *,
@@ -208,6 +218,7 @@ def select_all_locations(conn: sqlite3.Connection) -> list[sqlite3.Row]:
 # NPCs
 # ---------------------------------------------------------------------------
 
+
 def upsert_npc(
     conn: sqlite3.Connection,
     *,
@@ -243,6 +254,7 @@ def select_all_npcs(conn: sqlite3.Connection) -> list[sqlite3.Row]:
 # Monsters / Fauna / Flora  (identical structure)
 # ---------------------------------------------------------------------------
 
+
 def _upsert_named_entity(
     conn: sqlite3.Connection,
     table: str,
@@ -259,7 +271,8 @@ def _upsert_named_entity(
             _log.warning(
                 "Skipping description overwrite for %s %r — existing description preserved"
                 " (pass a non-empty description to update it)",
-                table, entity_id,
+                table,
+                entity_id,
             )
     conn.execute(
         f"""
@@ -321,6 +334,14 @@ def update_location_notes(
     return cur.rowcount
 
 
+def select_location_ids_by_name(conn: sqlite3.Connection, name: str) -> list[str]:
+    """Return every ``LocationId`` stored under ``name`` (may be >1 for duplicate rows)."""
+    rows = conn.execute(
+        "SELECT location_id FROM locations WHERE name = ?", [name]
+    ).fetchall()
+    return [r[0] for r in rows]
+
+
 def select_all_monsters(conn: sqlite3.Connection) -> list[sqlite3.Row]:
     return conn.execute("SELECT * FROM monsters ORDER BY name").fetchall()
 
@@ -336,6 +357,7 @@ def select_all_flora(conn: sqlite3.Connection) -> list[sqlite3.Row]:
 # ---------------------------------------------------------------------------
 # Food and drink
 # ---------------------------------------------------------------------------
+
 
 def upsert_food_drink(
     conn: sqlite3.Connection, *, food_drink_id: str, name: str, type_: str
@@ -360,8 +382,13 @@ def select_all_food_drink(conn: sqlite3.Connection) -> list[sqlite3.Row]:
 # Set types and sets
 # ---------------------------------------------------------------------------
 
+
 def upsert_set_type(
-    conn: sqlite3.Connection, *, set_type_id: str, set_type: str, set_type_layer: str = ""
+    conn: sqlite3.Connection,
+    *,
+    set_type_id: str,
+    set_type: str,
+    set_type_layer: str = "",
 ) -> None:
     conn.execute(
         """
@@ -408,6 +435,7 @@ def select_all_sets(conn: sqlite3.Connection) -> list[sqlite3.Row]:
 # Classes and talents
 # ---------------------------------------------------------------------------
 
+
 def upsert_class(conn: sqlite3.Connection, *, class_id: str, class_name: str) -> None:
     conn.execute(
         """
@@ -418,7 +446,9 @@ def upsert_class(conn: sqlite3.Connection, *, class_id: str, class_name: str) ->
     )
 
 
-def upsert_talent(conn: sqlite3.Connection, *, talent_id: str, talent_name: str) -> None:
+def upsert_talent(
+    conn: sqlite3.Connection, *, talent_id: str, talent_name: str
+) -> None:
     conn.execute(
         """
         INSERT INTO talents (talent_id, talent_name) VALUES (?,?)
@@ -439,6 +469,7 @@ def select_all_talents(conn: sqlite3.Connection) -> list[sqlite3.Row]:
 # ---------------------------------------------------------------------------
 # Heroes canonical / game / printings
 # ---------------------------------------------------------------------------
+
 
 def upsert_hero_canonical(
     conn: sqlite3.Connection,
@@ -500,8 +531,17 @@ def upsert_hero_game(
             ability_text = excluded.ability_text,
             young_hero   = excluded.young_hero
         """,
-        (hero_game_id, card_name, canonical_id, class_ids, talent_ids,
-         health, intellect, ability_text, young_hero),
+        (
+            hero_game_id,
+            card_name,
+            canonical_id,
+            class_ids,
+            talent_ids,
+            health,
+            intellect,
+            ability_text,
+            young_hero,
+        ),
     )
 
 
@@ -557,6 +597,7 @@ def upsert_hero_ll(
 # ---------------------------------------------------------------------------
 # Weapons canonical / game / printings
 # ---------------------------------------------------------------------------
+
 
 def upsert_weapon_canonical(
     conn: sqlite3.Connection,
@@ -618,8 +659,17 @@ def upsert_weapon_game(
             ability_text        = excluded.ability_text,
             types               = excluded.types
         """,
-        (weapon_game_id, card_name, canonical_weapon_id, class_ids, talent_ids,
-         cost, power, ability_text, types),
+        (
+            weapon_game_id,
+            card_name,
+            canonical_weapon_id,
+            class_ids,
+            talent_ids,
+            cost,
+            power,
+            ability_text,
+            types,
+        ),
     )
 
 
@@ -655,6 +705,7 @@ def select_all_weapons_printings(conn: sqlite3.Connection) -> list[sqlite3.Row]:
 # ---------------------------------------------------------------------------
 # Equipment canonical / game / printings
 # ---------------------------------------------------------------------------
+
 
 def upsert_equipment_canonical(
     conn: sqlite3.Connection,
@@ -717,8 +768,17 @@ def upsert_equipment_game(
             ability_text           = excluded.ability_text,
             types                  = excluded.types
         """,
-        (equipment_game_id, card_name, canonical_equipment_id, class_ids, talent_ids,
-         cost, defense, ability_text, types),
+        (
+            equipment_game_id,
+            card_name,
+            canonical_equipment_id,
+            class_ids,
+            talent_ids,
+            cost,
+            defense,
+            ability_text,
+            types,
+        ),
     )
 
 
@@ -754,6 +814,7 @@ def select_all_equipment_printings(conn: sqlite3.Connection) -> list[sqlite3.Row
 # ---------------------------------------------------------------------------
 # Story junction helpers
 # ---------------------------------------------------------------------------
+
 
 def set_story_heroes(
     conn: sqlite3.Connection,
@@ -816,7 +877,9 @@ def select_story_junction(
     return [r[0] for r in rows]
 
 
-def delete_all_story_junctions(conn: sqlite3.Connection, story_id: str) -> dict[str, int]:
+def delete_all_story_junctions(
+    conn: sqlite3.Connection, story_id: str
+) -> dict[str, int]:
     """Delete all junction rows for ``story_id`` across every junction table.
 
     Returns a dict of table → rows deleted (for dry-run reporting).
@@ -842,12 +905,41 @@ def delete_all_story_junctions(conn: sqlite3.Connection, story_id: str) -> dict[
     return counts
 
 
+def count_entity_story_links(
+    conn: sqlite3.Connection, junction_table: str, id_column: str, entity_id: str
+) -> int:
+    """Return how many story junction rows reference ``entity_id``.
+
+    Used to guard :func:`delete_entity_row` against silently orphaning story
+    links — callers should refuse to delete (or repoint links first) when
+    this is non-zero.
+    """
+    return conn.execute(
+        f"SELECT COUNT(*) FROM {junction_table} WHERE {id_column} = ?", [entity_id]
+    ).fetchone()[0]
+
+
+def delete_entity_row(
+    conn: sqlite3.Connection, table: str, id_column: str, entity_id: str
+) -> int:
+    """Delete one row from a lore registry table by id. Returns rows deleted."""
+    cur = conn.execute(f"DELETE FROM {table} WHERE {id_column} = ?", [entity_id])
+    return cur.rowcount
+
+
 def count_story_junctions(conn: sqlite3.Connection, story_id: str) -> dict[str, int]:
     """Return a count of linked entities per junction table (for dry-run output)."""
     junctions = [
-        "story_npcs", "story_heroes", "story_locations", "story_regions",
-        "story_monsters", "story_fauna", "story_flora", "story_food_drink",
-        "story_weapons", "story_equipment",
+        "story_npcs",
+        "story_heroes",
+        "story_locations",
+        "story_regions",
+        "story_monsters",
+        "story_fauna",
+        "story_flora",
+        "story_food_drink",
+        "story_weapons",
+        "story_equipment",
     ]
     return {
         t: conn.execute(
