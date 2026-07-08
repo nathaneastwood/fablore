@@ -187,11 +187,6 @@
     "summary": "Kuraghan safe port.",
     "region": "High Seas"
   },
-  "Hand of Sol": {
-    "type": "location",
-    "summary": "Solana's order of knights, who defend the city from outside threats.",
-    "region": "Solana"
-  },
   "Hazeltown": {
     "type": "location",
     "summary": "Village.",
@@ -401,7 +396,10 @@
   "The Maw": {
     "type": "location",
     "summary": "Entrance to the pits, traveled by mine cage",
-    "region": "The Pits"
+    "region": "The Pits",
+    "exclude_pages": [
+      "main-story/usurp-the-shadow-throne/letters-from-the-beyond"
+    ]
   },
   "The Northern Realms": {
     "type": "location",
@@ -422,6 +420,11 @@
     "type": "location",
     "summary": "Information Center.",
     "region": "Metrix"
+  },
+  "The Shadow Crypts": {
+    "type": "location",
+    "summary": "Dim halls within the Demonastery where a black mold containing warped microcosms of shifting light grows.",
+    "region": "Demonastery"
   },
   "The Silvaris": {
     "type": "location",
@@ -482,8 +485,7 @@
   "iArathael": {
     "match": "i'Arathael",
     "type": "location",
-    "summary": "Separate plane accessed via a portal in the Demonastery, home of the Old Ones.",
-    "region": "Demonastery"
+    "summary": "Separate plane accessed via a portal in the Demonastery, home of the Old Ones."
   },
   "Dregs": {
     "type": "monster",
@@ -730,8 +732,9 @@
   },
   "HandOfSol": {
     "type": "faction",
-    "match": "Hand of Sol",
-    "summary": "Solana's order of knights, who defend the city from outside threats."
+    "summary": "Solana's order of knights, who defend the city from outside threats.",
+    "region": "Solana",
+    "match": "Hand of Sol"
   },
   "Infernai": {
     "type": "aesir",
@@ -859,6 +862,14 @@
   "Yvor": {
     "type": "ancient",
     "summary": "Ancient of Lightning and Ice."
+  },
+  "ShadowrealmWalker": {
+    "type": "monster",
+    "summary": "Huge stilt-legged predators of i'Arathael, slow to anger, resembling praying mantises.",
+    "match": "Shadowrealm Walker",
+    "exclude_pages": [
+      "main-story/usurp-the-shadow-throne/letters-from-the-beyond"
+    ]
   },
   "Baalghor": {
     "type": "npc",

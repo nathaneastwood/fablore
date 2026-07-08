@@ -231,6 +231,13 @@
     "type": "ancient",
     "summary": "Ancient of Lightning and Ice."
   },
+  "The Maw": {
+    "exclude_pages": ["main-story/usurp-the-shadow-throne/letters-from-the-beyond"]
+  },
+  "ShadowrealmWalker": {
+    "match": "Shadowrealm Walker",
+    "exclude_pages": ["main-story/usurp-the-shadow-throne/letters-from-the-beyond"]
+  },
   "Baalghor": {
     "type": "npc",
     "summary": "Titanic corrupted demon whose lair in i'Arathael may harbor secrets of the Old Ones."

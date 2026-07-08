@@ -20,10 +20,7 @@ OUTPUT_PATH = ROOT / "src" / "hints.json"
 
 
 def _region_map(conn: sqlite3.Connection) -> dict[str, str]:
-    return {
-        row[0]: row[1]
-        for row in conn.execute("SELECT region_id, region_name FROM regions")
-    }
+    return {row[0]: row[1] for row in conn.execute("SELECT region_id, region_name FROM regions")}
 
 
 def _key(name: str) -> str:
@@ -37,6 +34,39 @@ def _entry_with_match(name: str, base: dict) -> dict:
     if key != name:
         return {"match": name, **base}
     return base
+
+
+def merge_supplement(hints: dict, supplement: dict) -> dict:
+    """Merge supplement entries into DB-generated hints.
+
+    Three cases:
+    - Exact key match: supplement fields override DB fields.
+    - Match-based merge: supplement key differs from DB key but its "match"
+      field resolves (via _key()) to a DB key — the DB entry is replaced by
+      the camelCase supplement key with fields merged.
+    - No match: supplement entry is appended as-is.
+    """
+    match_to_db_key: dict[str, str] = {}
+    for sup_key, value in supplement.items():
+        if isinstance(value, dict):
+            match = value.get("match")
+            if match:
+                db_key = _key(match) if isinstance(match, str) else _key(match[0])
+                if db_key in hints:
+                    match_to_db_key[sup_key] = db_key
+
+    result = dict(hints)
+    for key, value in supplement.items():
+        if key in result and isinstance(value, dict) and isinstance(result[key], dict):
+            result[key] = {**result[key], **value}
+        elif key in match_to_db_key and isinstance(value, dict):
+            db_key = match_to_db_key[key]
+            merged = {**result[db_key], **value}
+            del result[db_key]
+            result[key] = merged
+        else:
+            result[key] = value
+    return result
 
 
 def generate() -> None:
@@ -58,23 +88,17 @@ def generate() -> None:
     for row in conn.execute("SELECT name, description FROM monsters ORDER BY name"):
         if not row["description"]:
             continue
-        hints[_key(row["name"])] = _entry_with_match(
-            row["name"], {"type": "monster", "summary": row["description"]}
-        )
+        hints[_key(row["name"])] = _entry_with_match(row["name"], {"type": "monster", "summary": row["description"]})
 
     for row in conn.execute("SELECT name, description FROM fauna ORDER BY name"):
         if not row["description"]:
             continue
-        hints[_key(row["name"])] = _entry_with_match(
-            row["name"], {"type": "fauna", "summary": row["description"]}
-        )
+        hints[_key(row["name"])] = _entry_with_match(row["name"], {"type": "fauna", "summary": row["description"]})
 
     for row in conn.execute("SELECT name, description FROM flora ORDER BY name"):
         if not row["description"]:
             continue
-        hints[_key(row["name"])] = _entry_with_match(
-            row["name"], {"type": "flora", "summary": row["description"]}
-        )
+        hints[_key(row["name"])] = _entry_with_match(row["name"], {"type": "flora", "summary": row["description"]})
 
     conn.close()
 
@@ -83,11 +107,7 @@ def generate() -> None:
         with SUPPLEMENT_PATH.open(encoding="utf-8") as f:
             supplement = json.load(f)
 
-    for key, value in supplement.items():
-        if key in hints and isinstance(value, dict) and isinstance(hints[key], dict):
-            hints[key] = {**hints[key], **value}
-        else:
-            hints[key] = value
+    hints = merge_supplement(hints, supplement)
 
     with OUTPUT_PATH.open("w", encoding="utf-8") as f:
         json.dump(hints, f, ensure_ascii=False, indent=2)
