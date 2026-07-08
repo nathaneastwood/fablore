@@ -21,3 +21,5 @@ __pycache__/
 .venv/
 .pytest_cache/
 src/data/fablore.db
+.claude
+CLAUDE.md
