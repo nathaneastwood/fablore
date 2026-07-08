@@ -1,3 +1,12 @@
+# The single place to maintain lore text (location notes; monster/fauna/flora
+# descriptions) for entities that already exist in the database.
+# update_description() requires the named entity to already be linked to a
+# story via data-entry.py — it only sets the notes/description column, never
+# creates or links entities.
+#
+# Do not add notes=/description= values inline in data-entry.py; add or
+# update the entry here instead.
+
 import sys
 
 sys.path.insert(0, "src/data")
@@ -26,6 +35,11 @@ db.update_description(
     "Puppeteer",
     "A repulsive creature emerged through the opening, resembling a mass of human bodies"
     " held together by some monstrous cancer, an enormous eye in its center above a slavering mouth.",
+)
+db.update_description(
+    "monster",
+    "Shadowrealm Walker",
+    "Huge stilt-legged predators of i'Arathael, slow to anger, resembling praying mantises.",
 )
 
 # ---------------------------------------------------------------------------
@@ -236,7 +250,6 @@ db.update_description(
 db.update_description("location", "Blackrock Quarries", "In the north of Volcor.")
 db.update_description("location", "Blasmophet's Domain", "Separate plane.")
 db.update_description("location", "Blockhead Territory", "An entire sector of The Maw.")
-db.update_description("location", "Bravo's Legendarium", "Part of the Everfest Carnival.")
 db.update_description(
     "location",
     "Candlelight Clearing",
@@ -301,6 +314,7 @@ db.update_description(
     "No official territory with the exception of some houses on the water.",
 )
 db.update_description("location", "Kyloria's Lair", "Deep beneath the Pits.")
+db.update_description("location", "Legendarium", "Part of the Everfest Carnival.")
 db.update_description(
     "location",
     "Library of Illumination",
@@ -396,4 +410,9 @@ db.update_description(
     "location",
     "i'Arathael",
     "Separate plane accessed via a portal in the Demonastery, home of the Old Ones.",
+)
+db.update_description(
+    "location",
+    "The Shadow Crypts",
+    "Dim halls within the Demonastery where a black mold containing warped microcosms of shifting light grows.",
 )
