@@ -24,6 +24,7 @@
     - [Azaela](heroes-of-rathe/azalea-about.md)
     - [Benji](heroes-of-rathe/benji-about.md)
     - [Betsy](heroes-of-rathe/betsy-about.md)
+    - [Blaze](heroes-of-rathe/blaze-about.md)
     - [Boltyn](heroes-of-rathe/boltyn-about.md)
     - [Bravo](heroes-of-rathe/bravo-about.md)
     - [Brevant](heroes-of-rathe/brevant-about.md)
