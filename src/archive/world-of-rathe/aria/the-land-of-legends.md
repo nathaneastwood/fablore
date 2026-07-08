@@ -32,11 +32,11 @@ The people of Volthaven wandered here by accident, not too long ago, and fell in
 
 Deep within the woods, to the east of Korshem, lie the secretive grove of Candlehold. The essence of Earth and Lightning is strong here, converging into a potent elemental energy called the Strale which is aggressive and volatile, unlike the soft and gentle Flow that permeates the rest of Aria.
 
-The Queen of Candlehold sits atop a throne of elderwood as her mind wanders to the time of the Ancients. Her people, once mighty defenders, has fallen from grace after the fall of the Ancient [Davnir](~Davnir), father of the Earth. They've been trapped within this beautiful grove for eons, bound and melded with the Strale, but a recent shift in the Flow promises new hopes and challenges, as the spell that binds them to their beloved grove begins to weaken, and the electric thorns and brambles that surround Candlehold begin to thin.
+The Queen of Candlehold sits atop a throne of elderwood as her mind wanders to the time of the Ancients. Her people, once mighty defenders, has fallen from grace after the fall of the Ancient Davnir, father of the Earth. They've been trapped within this beautiful grove for eons, bound and melded with the Strale, but a recent shift in the Flow promises new hopes and challenges, as the spell that binds them to their beloved grove begins to weaken, and the electric thorns and brambles that surround Candlehold begin to thin.
 
 ### Skybreaker
 
-Even in a land of huge and ancient trees, Skybreaker stands apart. Its gnarled trunk climbs high into the air, its tallest boughs reaching into the clouds. Like the cherished [Korshem](~Korshem), it too represents a concentrated reservoir for the [Flow](~TheFlow), with that elemental energy feeding Skybreaker and enabling its impossible growth.
+Even in a land of huge and ancient trees, Skybreaker stands apart. Its gnarled trunk climbs high into the air, its tallest boughs reaching into the clouds. Like the cherished Korshem, it too represents a concentrated reservoir for the Flow, with that elemental energy feeding Skybreaker and enabling its impossible growth.
 
 The towering tree has long been a breeding ground for the welkin, a wyvern species native to Aria. At first glance, the welkin resembles large, winged lizards. They have a leathery skin that, like the chameleon, changes color with variations in the Flow. They dwell among Skybreaker's canopy, flying beyond it only to hunt, or riding along it only if tamed. They lay their eggs within the cavernous hollows of Skybreaker's trunk. Once hatched, fledglings fly or face one of the most precipitous drops in Aria.
 
@@ -46,4 +46,4 @@ For those without a flying mount to take them into Skybreaker's heights, a gondo
 
 ---
 
-In recent years, the barriers that once concealed and protected Aria is beginning to wane. The War of the Monarchs rages on; Aesirs and their Embras stir in their slumber, their influence seeping from [i'Arathael](~iArathael) into the realm of man, as the ancient defenders that lay dormant within Aria are roused by the presence of these ancient enemies, and begin to awaken and gather once more.
+In recent years, the barriers that once concealed and protected Aria is beginning to wane. The War of the Monarchs rages on; Aesirs and their Embras stir in their slumber, their influence seeping from i'Arathael into the realm of man, as the ancient defenders that lay dormant within Aria are roused by the presence of these ancient enemies, and begin to awaken and gather once more.

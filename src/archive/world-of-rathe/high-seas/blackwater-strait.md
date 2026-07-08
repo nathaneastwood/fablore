@@ -2,7 +2,7 @@
 
 Many a ship has met its end within Blackwater Strait, a labyrinth of islands and ruins between Azuro Keys and Golden Port. Due to the prevailing winds near Teramundr's Triangle, the strait's twisting channels can take weeks off a profitable journey. Yet, its capricious currents can smash a vessel in the blink of an unwary captain's eye.
 
-Then there are the wreckers who light false beacons or riddle the causeways with chain-snares and mines. Or the Hoikers: giant, acid-spitting scallops that scuttle out of the crumbling [Dhani](~DhaniEmpire) ruins to shoot down seabirds and [aeronauts](~Aeronauts).
+Then there are the wreckers who light false beacons or riddle the causeways with chain-snares and mines. Or the Hoikers: giant, acid-spitting scallops that scuttle out of the crumbling Dhani ruins to shoot down seabirds and aeronauts.
 
 Even if a savvy crew makes it through without paying a toll in limb or life, the sirens' song may yet entice them into a fatal embrace.
 

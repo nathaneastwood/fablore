@@ -1,8 +1,8 @@
 # Essence of Decay
 
-The [Rosetta](~Rosetta) gathered to their Queen, their trunks bowed in despair, awaiting a wellspring of emotion that had long since dried away in the endless summer.
+The Rosetta gathered to their Queen, their trunks bowed in despair, awaiting a wellspring of emotion that had long since dried away in the endless summer.
 
-Only Verdance wept, her tears falling to the leaf-littered ground. The seed she had placed on the empty throne. This kernel of dormant life was all that remained of their creator, their once-immortal matriarch. From great [Davnir](~Davnir)'s death, the Queen had nurtured their survival. From the war-torn spirits of the dead, she seeded a civilization-one that would live in perpetual peace.
+Only Verdance wept, her tears falling to the leaf-littered ground. The seed she had placed on the empty throne. This kernel of dormant life was all that remained of their creator, their once-immortal matriarch. From great Davnir's death, the Queen had nurtured their survival. From the war-torn spirits of the dead, she seeded a civilization-one that would live in perpetual peace.
 
 She spared not a glance for the shuffling Rosetta, as languid now as they had been when she sought to rouse them against the Rotwood. She could not look at them for fear that she would rend the mourning atmosphere with the anger that now sprouted peppery shoots inside her belly, heating her throat and embittering her tongue with words she would most certainly regret.
 

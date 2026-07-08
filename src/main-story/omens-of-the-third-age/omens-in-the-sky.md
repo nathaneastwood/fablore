@@ -4,13 +4,13 @@ _Centuries have passed since the elemental titans, the Ancients, sacrificed them
 
 ---
 
-In [Enion](~Enion), an ominous sigil appears in the sky, a tear in reality like a hungering maw.
+In Enion, an ominous sigil appears in the sky, a tear in reality like a hungering maw.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/21-omens-of-the-third-age/omens-in-the-sky-1.webp" alt="omens-in-the-sky-1" class="center">
 
 Creatures exposed to its foul breath become twisted and viciously ravenous. Whole towns descend into bedlam as neighbors and family members are gripped by strange, all-consuming appetites that seem to emanate from the omen in the sky.
 
-Its appearance has affected the [Flow](~TheFlow), with lightning talents surging with new potency.
+Its appearance has affected the Flow, with lightning talents surging with new potency.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/21-omens-of-the-third-age/omens-in-the-sky-2.webp" alt="omens-in-the-sky-2" class="center">
 
@@ -34,7 +34,7 @@ Zyggy is an Aetherscribe who wishes to help destroy the omen that is plaguing En
 
 Zyggy explains they are stranded in the Nebulus Rift, another reality created during the cataclysm. The only reason Zyggy has been able to reach out to Oscilio, after all this time, is that the omen has weakened the aetheric barriers between the Nebulus Rift and Enion.
 
-They and their fellow surviving Aetherscribes inhabit the Auric Keep, a fragment of old Valahai that can be reconnected to Rathe by a powerful artifact from that time: the [Voltaris Gem](~VoltarisGem).
+They and their fellow surviving Aetherscribes inhabit the Auric Keep, a fragment of old Valahai that can be reconnected to Rathe by a powerful artifact from that time: the Voltaris Gem.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/21-omens-of-the-third-age/omens-in-the-sky-6.webp" alt="omens-in-the-sky-6" class="center">
 

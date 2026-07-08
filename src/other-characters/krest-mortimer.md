@@ -2,11 +2,11 @@
 
 ## Overview
 
-"Dr. Mortimer is a scientist from an undisclosed institute in Metrix. He was cast out because his experiments became too extreme, and now conducts experiments within the Pits instead (hints of Metrix corporate influence). Nowadays, he's the lead psychologist and director of "[Southmaw](~Southmaw)", a hospital / asylum within the Pits.
+"Dr. Mortimer is a scientist from an undisclosed institute in Metrix. He was cast out because his experiments became too extreme, and now conducts experiments within the Pits instead (hints of Metrix corporate influence). Nowadays, he's the lead psychologist and director of "Southmaw", a hospital / asylum within the Pits.
 
 ## In Theory<sup>*</sup>
 
-Cultist - "[Raven](~Raven)! Grant me the strength to endure your rewards...for the glory of mankind..."
+Cultist - "Raven! Grant me the strength to endure your rewards...for the glory of mankind..."
 
 _screams of pain_
 

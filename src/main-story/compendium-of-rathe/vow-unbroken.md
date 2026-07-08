@@ -14,9 +14,9 @@ Levia bellowed a war cry as loud as a thousand shrieking demons and pushed her w
 
 Hala turned and leapt gracefully from the wall, landing amongst her knights.
 
-"Fall back!" She pointed her blade toward the city's center. "Regroup with our allies and hold the streets leading to the [Solarium](~Solarium)."
+"Fall back!" She pointed her blade toward the city's center. "Regroup with our allies and hold the streets leading to the Solarium."
 
-"We will protect those gathered there with our lives," declared Aurea, Champion of the Dawn, one of the [Hand](~HandOfSol)'s most seasoned lieutenants.
+"We will protect those gathered there with our lives," declared Aurea, Champion of the Dawn, one of the Hand's most seasoned lieutenants.
 
 ![vow-unbroken-3](https://d2hl7maqck52px.cloudfront.net/main-story/20-compendium-of-rathe/vow-unbroken-3.webp)
 
@@ -78,7 +78,7 @@ From that day forward, this vow permeated throughout the training grounds of Gol
 
 Hala's reverie was cut short by the screams of frightened civilians rushing past, toward the safety of the nearby barracks.
 
-The building was a locus of violence. Lexi and her Volthaven Wayfarers lined the rooftop, firing ice and lightning arrows at the beasts attacking from ground and sky. At ground-level, Briar and her [Rosetta](~Rosetta) guarded the entrance, their hands and blades alight with aether, slinging powerful runechants.
+The building was a locus of violence. Lexi and her Volthaven Wayfarers lined the rooftop, firing ice and lightning arrows at the beasts attacking from ground and sky. At ground-level, Briar and her Rosetta guarded the entrance, their hands and blades alight with aether, slinging powerful runechants.
 
 Hala saw a fiendish mob swarm for the building's rear stairwell, tearing apart the pair of Wayfarers set to guard Lexi's flank. "Our allies need us," she told her knights. "On me!"
 

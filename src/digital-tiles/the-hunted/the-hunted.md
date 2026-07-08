@@ -4,7 +4,7 @@
 
 Eight claws reaching, eight blades to cleave,<br>
 They hide behind trap doors of gossamer weave,<br>
-And when they smell the blood of the [Dracai](~Dracai),<br>
+And when they smell the blood of the Dracai,<br>
 Agent 342 dissects the dragon, limb to torso to eye.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/arakni-funnel-web.webp" alt="arakni-funnel-web" class="center" />
@@ -80,12 +80,12 @@ The loyalist forces are aided by powerful wizards of the imperial court, these n
 
 ### Under the Trap-Door
 
-Reality is not always as the Dracai presume. Aether contains a myriad of natures. Even in the heart of [Ashvahan](~Ashvahan), in the most sacred and secure chamber in Volcor, stones and fire may be told to part ways, to welcome the touch of chaos.
+Reality is not always as the Dracai presume. Aether contains a myriad of natures. Even in the heart of Ashvahan, in the most sacred and secure chamber in Volcor, stones and fire may be told to part ways, to welcome the touch of chaos.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/under-the-trap-door.webp" alt="under-the-trap-door" class="center" />
 
 ### Wrath of Retribution
 
-Cindra rose above the anarchy surrounding her and harnessed the power of the [Sayashi](~Sayashi). Out they flew. Eight kunai to carve a fiery path of retribution across the obsidian chamber. Eight daggers to blind the creatures of corruption. Eight lacerations to make them see.
+Cindra rose above the anarchy surrounding her and harnessed the power of the Sayashi. Out they flew. Eight kunai to carve a fiery path of retribution across the obsidian chamber. Eight daggers to blind the creatures of corruption. Eight lacerations to make them see.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/wrath-of-retribution.webp" alt="wrath-of-retribution" class="center" />

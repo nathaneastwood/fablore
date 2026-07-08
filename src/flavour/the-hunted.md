@@ -1,13 +1,13 @@
 # The Hunted
 
 #### Affirm Loyalty - (HNT103)
-We obey the Emperor. With blood and blade we commit at his command." - [Alshoni](~Alshoni) Mantra
+We obey the Emperor. With blood and blade we commit at his command." - Alshoni Mantra
 
 #### Demonstrate Devotion - (HNT059)
 "My heart for the Emperor. My blood for his Dynasty." - Alshoni Mantra
 
 #### Den of the Spider - (HNT214)
-"Our [Dracai](~Dracai) overlords have overlooked the Pits for too long." - Vail the Vagrant
+"Our Dracai overlords have overlooked the Pits for too long." - Vail the Vagrant
 
 #### Display Loyalty - (HNT060)
 "Whether with hidden dagger or drawn sword, the battle is the same." - Captain Juka
@@ -22,7 +22,7 @@ We obey the Emperor. With blood and blade we commit at his command." - [Alshoni]
 "To serve the Dracai is to honor the blood of the dragon." - Sayashi Cara
 
 #### For the Emperor - (HNT159)
-"To serve our Emperor is to fear him. And in fear the people of Volcor shall obey." - [Chiyo](~Chiyo)
+"To serve our Emperor is to fear him. And in fear the people of Volcor shall obey." - Chiyo
 
 #### For the Realm - (HNT160)
 "To serve the Alshoni is to serve the dynasty, our only hope for peace in Volcor." - Magistrate Chen
@@ -40,10 +40,10 @@ We obey the Emperor. With blood and blade we commit at his command." - [Alshoni]
 "Daily we sweep the streets, yet still the rats crawl up from the Pits." - Yoji
 
 #### Imperial Intent - (HNT109)
-"In secret, we built our strength, hidden from [Ezu](~Ezu) meddling. Now is the time for vengeance." - [Taipanis](../heroes-of-rathe/other.md#taipanis-dracai-of-judgement)
+"In secret, we built our strength, hidden from Ezu meddling. Now is the time for vengeance." - [Taipanis](../heroes-of-rathe/other.md#taipanis-dracai-of-judgement)
 
 #### Lair of the Spider - (HNT191)
-"Fevered [Volcai](~Volcai). Frightened Dracai. A great corruption has ensared the south." - General Nakami
+"Fevered Volcai. Frightened Dracai. A great corruption has ensared the south." - General Nakami
 
 #### Loyalty Beyond the Grave - (HNT150)
 "We burned with shame. Now the land shall burn with vengeance." - Emperor's Eulogy

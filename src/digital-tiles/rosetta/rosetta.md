@@ -8,7 +8,7 @@ During the War of the Old Ones, the Aetherscribes attuned their keen intellects 
 
 ### Aurora, Shooting Star
 
-"The wonders of the Valahai, tucked away in the vaults of shattered [Enion](~Enion). It'd be a shame not to crack them open and take a peek. Dangerous? Sure! But you can't see around the next corner without sticking your neck out, right?" - Aurora, Shooting Star
+"The wonders of the Valahai, tucked away in the vaults of shattered Enion. It'd be a shame not to crack them open and take a peek. Dangerous? Sure! But you can't see around the next corner without sticking your neck out, right?" - Aurora, Shooting Star
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/aurora-shooting-star.webp" alt="aurora-shooting-star" class="center" />
 
@@ -20,7 +20,7 @@ During the War of the Old Ones, the Aetherscribes attuned their keen intellects 
 
 ### Earth's Embrace
 
-Our [Rosetta](~Rosetta) languish like trees that have not borne fruit in centuries. They are mere buds dozing dormant in the endless summer. But the sweet scent of harvest now wafts through Candlehold. To sticky-sweet hands the promise of abundance returns.
+Our Rosetta languish like trees that have not borne fruit in centuries. They are mere buds dozing dormant in the endless summer. But the sweet scent of harvest now wafts through Candlehold. To sticky-sweet hands the promise of abundance returns.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/earths-embrace.webp" alt="earths-embrace" class="center" />
 
@@ -32,7 +32,7 @@ Our [Rosetta](~Rosetta) languish like trees that have not borne fruit in centuri
 
 ### Fertile Ground
 
-Those that fought by [Davnir](~Davnir)'s side now imbue the land with their gentle protection. Faces in the foliage smile warmly upon the Rosetta, and the limbs of trees bow gracefully to guide their people home. The fallen ensure that all who seek solace in the forest find their way.
+Those that fought by Davnir's side now imbue the land with their gentle protection. Faces in the foliage smile warmly upon the Rosetta, and the limbs of trees bow gracefully to guide their people home. The fallen ensure that all who seek solace in the forest find their way.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/fertile-ground.webp" alt="fertile-ground" class="center" />
 
@@ -107,7 +107,7 @@ From a tiny seed, our lady Verdance nurtured a sapling of fecund potential. Flou
 
 ### Star Fall
 
-From cosmic remnants scattered amongst scarred mountain tops, the Aetherscribes harvested iron meteoric. With the smiths of Anvilheim they built forges of lightning, crafting weapons that might one day evoke the very spirit of [Yvor](~Yvor).
+From cosmic remnants scattered amongst scarred mountain tops, the Aetherscribes harvested iron meteoric. With the smiths of Anvilheim they built forges of lightning, crafting weapons that might one day evoke the very spirit of Yvor.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/star-fall.webp" alt="star-fall" class="center" />
 

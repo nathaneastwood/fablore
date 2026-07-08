@@ -4,9 +4,9 @@ Each tree was a chorus of birdsong and the undergrowth chittered with tiny creat
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/splinter-soul-1.webp" alt="splinter-soul-1" class="center" />
 
-"Come along, creature," Sidriz snapped. The wizard sat atop a tall [fianna](~Fianna), his arms crossed over his finely embroidered tunic. Terra had learned the hard way this meant he was growing impatient. And Sidriz was increasingly unpleasant the more impatient he became.
+"Come along, creature," Sidriz snapped. The wizard sat atop a tall fianna, his arms crossed over his finely embroidered tunic. Terra had learned the hard way this meant he was growing impatient. And Sidriz was increasingly unpleasant the more impatient he became.
 
-"Yes, Master," Terra said, hurrying to join Sidriz. With them was Hyrinth, a diviner Sidriz had hired for the journey to locate some particular curiosity in the ever-shifting currents of [the Flow](~TheFlow).
+"Yes, Master," Terra said, hurrying to join Sidriz. With them was Hyrinth, a diviner Sidriz had hired for the journey to locate some particular curiosity in the ever-shifting currents of the Flow.
 
 If Sidriz was also connected to all life in their surroundings, he was not awed by it. It did not cause him to slow and stop so that he might better commune. It did not fill his very soul with warmth. His dedication to arcane study was obvious from his pale complexion, and his usually neat beard had grown tangled and wild in his obsession, dark bags growing beneath eyes that gleamed with his own grand purpose.
 
@@ -20,7 +20,7 @@ There were many things Sidriz would not say.
 
 Hyrinth looked over her shoulder at Terra, mouth twisted in a frown. But Terra was used to sneering dismissal from his master. The woman wore a long, simple dress, once green, now lovingly repaired with patches of fabric in rich azure, crimson, and violet. Her red hair glinted beneath the sunlight, and her many necklaces clattered and chimed with the rhythm of the fianna's steps.
 
-Sidriz sighed. "I don't expect you to understand, but I have a plan for Aria, of which you are key." He turned to face Hyrinth, his chin raised, chest puffed out. "I created Terra from a splinter of the Great Tree of [Korshem](~Korshem) itself."
+Sidriz sighed. "I don't expect you to understand, but I have a plan for Aria, of which you are key." He turned to face Hyrinth, his chin raised, chest puffed out. "I created Terra from a splinter of the Great Tree of Korshem itself."
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/splinter-soul-2.webp" alt="splinter-soul-2" class="center" />
 
@@ -98,7 +98,7 @@ Through this new, makeshift gateway, the sun shone down on a largely destroyed f
 
 "Terra, this is incredible. Your connection to the Flow is unlike anything I imagined." She turned to Sidriz. "Where is that place?"
 
-"My homeland, the [Northern Realms](~NorthernRealms), though exactly where I am not yet sure. Hopefully not too far from a town where I can sell these liqueurs. Word will spread, people will flock, and I will be rich. But first, construction of my gateway must begin."
+"My homeland, the Northern Realms, though exactly where I am not yet sure. Hopefully not too far from a town where I can sell these liqueurs. Word will spread, people will flock, and I will be rich. But first, construction of my gateway must begin."
 
 The rift pulsed and shook, Terra struggling to keep it open. "I can't hold it, Master."
 
@@ -108,7 +108,7 @@ Hyrinth backed away, looking from Sidriz to Terra and back again. Terra roared a
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/splinter-soul-3.webp" alt="splinter-soul-3" class="center" />
 
-The trees on either side of the rift shook violently and were torn from the earth. The opening seemed to slacken, its strength waning. Terra looked over his shoulder and saw Sidriz, eyes glowing a brilliant gold, his fingers twitching, forming magical geometries, energy crackling as the trees split into long, straight planks. Their death cries pierced Terra's mind; hundreds of years of kinship torn asunder in a moment. The branches were stripped away and fell to the ground, spilling birds' nests, squirrels and [meeps](~Meep), the animals that weren't too hurt by the fall scurrying away, their fear like a blade scraping down the back of Terra's throat. Hyrinth ran toward the cart, her eyes wide with fear.
+The trees on either side of the rift shook violently and were torn from the earth. The opening seemed to slacken, its strength waning. Terra looked over his shoulder and saw Sidriz, eyes glowing a brilliant gold, his fingers twitching, forming magical geometries, energy crackling as the trees split into long, straight planks. Their death cries pierced Terra's mind; hundreds of years of kinship torn asunder in a moment. The branches were stripped away and fell to the ground, spilling birds' nests, squirrels and meeps, the animals that weren't too hurt by the fall scurrying away, their fear like a blade scraping down the back of Terra's throat. Hyrinth ran toward the cart, her eyes wide with fear.
 
 "Master, what are you doing?" Terra cried, straining to hold the rift open.
 
@@ -176,7 +176,7 @@ Without Sidriz, Terra could do as he pleased, go where he was needed. He closed 
 
 "Can you see it too?" Terra asked, offering a hand to Hyrinth.
 
-She took his hand and gasped. "[Mount Heroic](~MountHeroic)!"
+She took his hand and gasped. "Mount Heroic!"
 
 The image faded and Terra turned to Hyrinth. "You know this place? Would you guide me there?"
 

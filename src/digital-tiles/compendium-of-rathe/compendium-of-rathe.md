@@ -2,13 +2,13 @@
 
 ### Art of the Phoenix: War
 
-The [Volcai](~Volcai) live within the tumultuous fires of the Phoenix Cycle. To them, it is the rhythm of life itself, a rotation marked by rebellion and restoration, collapse and coronation. Some farmfolk whisper that the cycle is no natural law but the work of Infernai, Aesir of Flames, turning the great wheel from a far-distant slumber. No matter the cause, one thing is certain: when the phoenix rises, war must follow.
+The Volcai live within the tumultuous fires of the Phoenix Cycle. To them, it is the rhythm of life itself, a rotation marked by rebellion and restoration, collapse and coronation. Some farmfolk whisper that the cycle is no natural law but the work of Infernai, Aesir of Flames, turning the great wheel from a far-distant slumber. No matter the cause, one thing is certain: when the phoenix rises, war must follow.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/art-of-the-phoenix-war.webp" alt="art-of-the-phoenix-war" class="center" />
 
 ### Blessing of Bellona
 
-[Bellona](~Bellona) rallied the faithful, for without an army ready to fight and die for [Sol](~Sol)'s promise, there would be no enlightenment. It is said, the Archangel cast a radiant blessing upon the soldiers and together archangels and mortals marched as one. To bear that light was the highest honor, for Light had battled Shadow since the age of blood and would not yield then nor now.
+Bellona rallied the faithful, for without an army ready to fight and die for Sol's promise, there would be no enlightenment. It is said, the Archangel cast a radiant blessing upon the soldiers and together archangels and mortals marched as one. To bear that light was the highest honor, for Light had battled Shadow since the age of blood and would not yield then nor now.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/blessing-of-bellona.webp" alt="blessing-of-bellona" class="center" />
 

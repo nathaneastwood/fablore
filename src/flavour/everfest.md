@@ -22,7 +22,7 @@ Before the Age of Man, the specter of war loomed over Rathe, as the great Aesirs
 The "Strongest Man in Rathe" performance is always a mainstay and fan favorite, wherever the Everfest Carnival roams.
 
 #### Outland Skirmish - (EVR066)
-"[Volcai](~Volcai), [Dracai](~Dracai), it's all the same to me." - Kassai
+"Volcai, Dracai, it's all the same to me." - Kassai
 
 #### Payload - (EVR076)
 The latest in Teklo Industries armament. Guaranteed to leave a dent in your enemies... and your wallet!

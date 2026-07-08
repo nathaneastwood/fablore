@@ -30,6 +30,6 @@ Suspicion is that Practiss has a clandestine alliance with the crime boss, Cirru
 
 ## Corporate Interests
 
-While most companies of Metrix origin were ousted during the Salt and Steam War, the [Cogwerx Conglomerate](~Cogwerx) still maintains a foothold in the Pier. Under contract to the Governor's Chambers, they run some of the infrastructure, and build and repair the skywardens.
+While most companies of Metrix origin were ousted during the Salt and Steam War, the Cogwerx Conglomerate still maintains a foothold in the Pier. Under contract to the Governor's Chambers, they run some of the infrastructure, and build and repair the skywardens.
 
 The only company permitted by the governor to own its own docks, Cogwerx receives sailing ships and airships filled with cogs and immigrants from Metrix, and sends them back, packed to the gunnels with raw resources, especially gold.

@@ -6,7 +6,7 @@
 
 Templar Hala guides the Hand of Sol, teaching discipline before the charge and steadiness when darkness descends.
 
-From childhood, Hala felt Sol's presence and, like other Children of the Light, was drawn to the Amphitheater to hear the [Grand Magister](~GrandMagister), Steadfast, preach Sol's Light. She watched with awe as the Hand's templars, magnificent in their gilded armor, paraded during the annual Solstice of Laurels ceremony.
+From childhood, Hala felt Sol's presence and, like other Children of the Light, was drawn to the Amphitheater to hear the Grand Magister, Steadfast, preach Sol's Light. She watched with awe as the Hand's templars, magnificent in their gilded armor, paraded during the annual Solstice of Laurels ceremony.
 
 At her awakening ceremony, when the sword chose her, it felt like Sol's holy permission. She entered Octomilita, the fortified headquarters of the Hand of Sol, as a trainee with her sights set on Goldenhelm Keep. While others chased distractions through the parlors of Octotista, Hala trained body and mind with relentless rigor, and returned over and again to the Amphitheater until her devotion to the Light became absolute.
 

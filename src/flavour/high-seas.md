@@ -10,7 +10,7 @@
 "The Reach is dead, but it ain't deserted." - Captain Rue's Log, final entry
 
 #### Cogwerx Workshop - (SEA014)
-"[Cogwerx](~Cogwerx) gave me a solid grounding, but it took imagination to truly fly." - Puffin
+"Cogwerx gave me a solid grounding, but it took imagination to truly fly." - Puffin
 
 #### Expedition to Azuro Keys - (SEA155)
 "Sparkling water and fine fishing. What better place to put yer barnacled feet up and swill yer stealings?" - Ray Stingeye
@@ -24,7 +24,7 @@ The curse of Dreadfall hungers for the greedy and the careless.
 #### Expedition to Horizon's Mantle - (SEA158)
 "Edge of the World? I'll believe it when I see it!" - Last known words of Captain Klow
 
-#### [Fiddler's Green](~FiddlersGreen) - (SEA212)
+#### Fiddler's Green - (SEA212)
 In the floating gardens of Coralysi, time has lost its way.
 
 #### Give No Quarter - (SEA049)
@@ -55,10 +55,10 @@ The Kraken's Barrel serves every flavor of swashbuckling bravado.
 Anvilheim is lost, but not forgotten.
 
 #### On the Horizon - (SEA241)
-There be one desire that all pirates harbor: to find [Trōpal-Dhani](~TropalDhani)!
+There be one desire that all pirates harbor: to find Trōpal-Dhani!
 
 #### Paddle Faster - (SEA054)
-Dreadfall Reach. Those who knew its [Dhani](~DhaniEmpire) name are long dead, killed by arcane ambition.
+Dreadfall Reach. Those who knew its Dhani name are long dead, killed by arcane ambition.
 
 #### Pinion Sentry - (SEA023)
 Office hours are 10 - 3. No exceptions. - Governor's Chambers, Piper's Pier

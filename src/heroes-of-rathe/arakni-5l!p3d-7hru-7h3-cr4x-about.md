@@ -4,7 +4,7 @@
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/slippy.mp4" type="video/mp4">
 </video>
 
-5L!p3d 7hRu 7h3 cR4X slithers through fissures in reality, Chaos opening pathways where none should exist. Slip. It takes on the jobs that give even the other Arakni pause, slicing off bits from the blacklist. Slip, slip. It seeps into its victims' psyches, breaking them, remaking them, until the streets are painted crimson. But it wasn't always like this, not until [Southmaw](~Southmaw) and the doctor who committed it.
+5L!p3d 7hRu 7h3 cR4X slithers through fissures in reality, Chaos opening pathways where none should exist. Slip. It takes on the jobs that give even the other Arakni pause, slicing off bits from the blacklist. Slip, slip. It seeps into its victims' psyches, breaking them, remaking them, until the streets are painted crimson. But it wasn't always like this, not until Southmaw and the doctor who committed it.
 
 Not a single whitecoat remembers the person who entered Southmaw Asylum on that grave day. Slip. Labeled then as Patient 1131, it was soon rendered uNR3c0GN!Z48!3 by Dr. Mortimer's procedures. Volatile, it bathed in entropy and allowed itself to drown, becoming something other, its new form barely contained in the shards of what was once its human anatomy. Slip, slip.
 

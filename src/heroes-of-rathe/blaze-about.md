@@ -4,15 +4,15 @@
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/blaze-firemind.mp4" type="video/mp4">
 </video>
 
-[Fireseers](~Fireseer) know the flames see all. So, we learn to be worthy of what we witness.
+Fireseers know the flames see all. So, we learn to be worthy of what we witness.
 
-I was born into a Fireseer lineage, duty-bound to [Ezu](~Ezu). My family are members of an empire defined as much by internal rivalries within the Imperial Palace as its fiery landscape.
+I was born into a Fireseer lineage, duty-bound to Ezu. My family are members of an empire defined as much by internal rivalries within the Imperial Palace as its fiery landscape.
 
 My grandmother taught me to read flames and politics alike, sensing threats like a wary flare deer. As she once said: “In the flare deer, night has its watcher. In the Fireseer, flame has its own.”
 
 Even after years of training, the hardest part is mentally mapping the multitude of fires dotted around our lands. But the flare deer does not stare at darkness until it panics. It learns what the dark can and cannot hide. I must look past the flames, through them, until the premonitions burn bright.
 
-I watch the [Alshoni](~Alshoni) tighten their vengeful grip on the court, even as my visions of blood and fire warn of something worse for the empire than politics. Loyal to Ezu, loyal to Volcor, I will even work with the [Volcai](~Volcai) rebellion if it will save the empire. Strength must be built beyond the palace walls, while the Alshoni are looking the wrong way. A path to better times awaits us in the flames, and I will be the one to find it.
+I watch the Alshoni tighten their vengeful grip on the court, even as my visions of blood and fire warn of something worse for the empire than politics. Loyal to Ezu, loyal to Volcor, I will even work with the Volcai rebellion if it will save the empire. Strength must be built beyond the palace walls, while the Alshoni are looking the wrong way. A path to better times awaits us in the flames, and I will be the one to find it.
 
 :::hero-trait Flame Foreseen
 ![Flame Foreseen](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/flame-foreseen.webp)

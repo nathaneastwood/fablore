@@ -24,4 +24,4 @@ It's bad luck to bite the hand that feeds you, and even worse to cross the lady 
 
 ## Goldkiss Rum
 
-All palates are catered to at Kraken's Barrel, but the most popular choice remains Goldkiss Rum. Bright with a rich golden flavor, even one drop seduces the staunchest of sailors, the sensation lingering like a sunbathed [siren](~Sirens)'s kiss. It's also one of the few things that can unite Port Conniver's corsairs under a single banner, a round for all buying a moment's truce.
+All palates are catered to at Kraken's Barrel, but the most popular choice remains Goldkiss Rum. Bright with a rich golden flavor, even one drop seduces the staunchest of sailors, the sensation lingering like a sunbathed siren's kiss. It's also one of the few things that can unite Port Conniver's corsairs under a single banner, a round for all buying a moment's truce.

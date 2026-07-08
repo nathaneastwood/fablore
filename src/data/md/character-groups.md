@@ -76,7 +76,7 @@
 
 |    Name |               Culture |              Epithets |
 | ------- | --------------------- | --------------------- |
-| Absolon | [Dhani](~DhaniEmpire) | God of the great deep |
+| Absolon | Dhani | God of the great deep |
 | Nocetes |                 Dhani |          God of death |
 
 ## Heralds

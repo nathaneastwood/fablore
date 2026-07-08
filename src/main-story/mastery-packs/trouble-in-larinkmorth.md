@@ -80,7 +80,7 @@ Valda's breath clouded in the cold as she squinted her eyes against the dark and
 
 Valda's eyes adjusted to the night. She could make out faces in the windows and bodies in the doorways of the homes flanking the now snow-covered lane that snaked between the sake brewery and their tavern, wondering as she did at the unnaturally sudden storm.
 
-She noticed movement on the slopes leading up to the peak, something big, heading down towards the town. Something about the way it darted reminded her of nothing so much as a snow hare running from a wolf. And then a flash of light from above the slope, bright enough to confirm the creature was no rabbit. Valda squinted as she stared into the flurries, hoping to pinpoint its form. She got the impression of something the size of a cave bear, but antlered like a [vitr'eo](~Vitreo), with too many limbs and too many teeth.
+She noticed movement on the slopes leading up to the peak, something big, heading down towards the town. Something about the way it darted reminded her of nothing so much as a snow hare running from a wolf. And then a flash of light from above the slope, bright enough to confirm the creature was no rabbit. Valda squinted as she stared into the flurries, hoping to pinpoint its form. She got the impression of something the size of a cave bear, but antlered like a vitr'eo, with too many limbs and too many teeth.
 
 She turned towards the villagers, shouting to be heard over the whipping winds. "Get back! Back in your homes!"
 
@@ -136,7 +136,7 @@ She flicked her arm, sending the wayfarer tumbling. "That wood and stone is our 
 
 Jarl, meanwhile, had walked over to collect his weapon, and stood watching as the ravenir skirted past the brewery to lope along the side of the cliff. Valda could see the guardian's intent. Given the chance, he'd run right through the brewery in his determination to chase down his foe. She had to act.
 
-She felt the flutter of [the Flow](~TheFlow) in her chest, a faint tremor near her heart. Instinctively, she knew it was responding to Jarl and the ravenir. She'd felt it before when trouble beckoned, when she had to move a little faster, be a little stronger. The Flow needed her to act... right now.
+She felt the flutter of the Flow in her chest, a faint tremor near her heart. Instinctively, she knew it was responding to Jarl and the ravenir. She'd felt it before when trouble beckoned, when she had to move a little faster, be a little stronger. The Flow needed her to act... right now.
 
 With a harsh cry, she drove the Flow into her hands, and clenched them until her knuckles turned white as the breath from her snarling mouth. Then she raised her fists and slammed them down onto the ground.
 

@@ -2,7 +2,7 @@
 
 The eternal bloom of Candlehold prepared Verdance for a life untouched by decay.
 
-She grew up under summer's dependable gaze with an affinity for the flora and fauna of the glade, and developed her skills as a wizard in accordance with the natural laws set by the [Rosetta](~Rosetta).
+She grew up under summer's dependable gaze with an affinity for the flora and fauna of the glade, and developed her skills as a wizard in accordance with the natural laws set by the Rosetta.
 
 For Verdance, Candlehold is as beautiful and free as the wildflowers that adorn her gown.
 

@@ -20,7 +20,7 @@ _Bilge sucking...?_
 
 _Bloody bird indeed,_ Meldrick thought. If it weren't for the avian's absent companion, Meldrick wouldn't be in this mess. As the hangman toppled off the platform and the parrot cut the noose, Meldrick decided the bird might be alright after all. At least better than his peg-legged pal. She was one hundred percent trouble.
 
-"Heave ho!" the parrot squawked as he fastened a hook to Meldrick's belt. The next thing he knew, he was yanked into the air. He hardly had time to scream; he flailed frantically as the skyhook dropped him unceremoniously onto the hard wooden deck of the [Golden Goose](~GoldenGoose).
+"Heave ho!" the parrot squawked as he fastened a hook to Meldrick's belt. The next thing he knew, he was yanked into the air. He hardly had time to scream; he flailed frantically as the skyhook dropped him unceremoniously onto the hard wooden deck of the Golden Goose.
 
 "Morning, Sudds," a familiar voice said.
 
@@ -58,7 +58,7 @@ Puffin twirled her rifle and slammed the stock on the deck with a flourish. "The
 
 Meldrick stood, dumbfounded. _All this trouble for a map?_
 
-"I'd just sailed in from [Coppertown](~Coppertown), and your suitcase swapping hijinks ruined everything. Those blasted bots you planted cost me my job. I suppose this map is worth ruining a man's life?"
+"I'd just sailed in from Coppertown, and your suitcase swapping hijinks ruined everything. Those blasted bots you planted cost me my job. I suppose this map is worth ruining a man's life?"
 
 "I wouldn't say ruined," Puffin said as she unfurled the parchment. "Besides, this map will lead us to the find of a lifetime!"
 
@@ -86,7 +86,7 @@ Their loyalty to both ship and captain was infectious. Despite himself and the a
 
 The Golden Goose was a fine but fickle ship. Though it flew smoothly enough, Puffin had to make several specialized repairs on their trip. If a gear shot off its valve, she was there with a spare. If a spar bent, she appeared out of thin air and scurried up the rigging to set it right.
 
-And when she wasn't hightailing it, Puffin stood next to Pelorus, her navigator and helmsman, both of them gazing at the map. Their destination was supposed to be the final resting place of Captain Moody's ship, the HMS Seahawk. A shipwreck full of [Dhani](~DhaniEmpire) treasure.
+And when she wasn't hightailing it, Puffin stood next to Pelorus, her navigator and helmsman, both of them gazing at the map. Their destination was supposed to be the final resting place of Captain Moody's ship, the HMS Seahawk. A shipwreck full of Dhani treasure.
 
 "We be approaching Blackwater Strait, Cap'n," Pelorus said, one eye squinting as the other peered out through his monocle. He let it drop on its chain and grabbed a spyglass from the bandolier around his waist, adjusting the focus. "Whole place be a ship graveyard. We best be careful in those waters," he warned.
 
@@ -104,7 +104,7 @@ Like Meldrick's stomach, the Golden Goose pitched and rolled through the treache
 
 As the ship dove toward the water, Meldrick hung onto the banister, praying for smooth sand dunes to cushion his inevitable fall. Then, through the blustering wind, he heard a sonorous sound. It lilted over the waves like the tinkle of coins and the ring of cash registers. Was he dreaming?
 
-"[Sirens](~Sirens)!" Buttons called from the lookout. "Cover yer ears!"
+"Sirens!" Buttons called from the lookout. "Cover yer ears!"
 
 Puffin turned to Meldrick and yelled at him. He couldn't hear what she was saying over the song, nor did he care. Coins or sirens, he needed to hear their silvery voices.
 
@@ -166,7 +166,7 @@ Before Meldrick could finish, an array of brass and copper-plated contraptions r
 
 Ocean spray salted their faces as they flew over the water, swerving through overzealous waves that threatened to smack them into the brine. The skimmer glided over the surf with the grace of a dancer, thanks to Puffin. Her effortless piloting among the rocks and waves in the growing darkness was nothing short of brilliant. With her at the helm, Meldrick didn't feel nearly as sick as he'd feared.
 
-Perched on Puffin's shoulder, Polly flapped his wings wildly, smacking Meldrick across the face repeatedly. "[Hoikers](~Hoikers)! Hhhooooikkers!" the bird screeched.
+Perched on Puffin's shoulder, Polly flapped his wings wildly, smacking Meldrick across the face repeatedly. "Hoikers! Hhhooooikkers!" the bird screeched.
 
 Giant orange-red scallops scuttled up over the rocks. "Let's turn those shellfish into chowder!" Puffin barked in Meldrick's ear.
 
@@ -262,7 +262,7 @@ One by one, Polly and the crew caught on, tilting their heads to the skyline to 
 
 "Avast, me hearties!" Puffin shouted as she hoisted the plate towards the astonished crew. "I come bearing gifts!"
 
-Puffin, now right way up, stood on the deck before her crew. "Today was a triumph. At long last, we have the map to [Trōpal-Dhani](~TropalDhani)!"
+Puffin, now right way up, stood on the deck before her crew. "Today was a triumph. At long last, we have the map to Trōpal-Dhani!"
 
 The crew cheered, though not nearly as heartily as when they'd first discovered the treasure.
 

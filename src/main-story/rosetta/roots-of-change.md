@@ -62,7 +62,7 @@ Her chest tight with conflicting emotions, Verdance tried yet again to heal the 
 
 ---
 
-Earlier that day, Verdance had sought counsel with Ozrim, a member of the [Rosetta](~Rosetta), Candlehold's ancient council. She had found him seated in quiet contemplation, his presence as still and unchanging as the ivy-clad columns that surrounded him.
+Earlier that day, Verdance had sought counsel with Ozrim, a member of the Rosetta, Candlehold's ancient council. She had found him seated in quiet contemplation, his presence as still and unchanging as the ivy-clad columns that surrounded him.
 
 "Ozrim," Verdance had begun, "Florian's actions are drawing creatures from Candlehold to the Rotwood, leading them to decay. We need to intervene."
 
@@ -138,7 +138,7 @@ Desperate, Verdance knelt beside the Queen, her hands glowing as she summoned he
 
 "In soil anew, the roots of change..." she intoned, her voice growing fainter with each word.
 
-"In the essence of decay..._[Davnir](~Davnir)_."
+"In the essence of decay..._Davnir_."
 
 "In the seeds of renewal...belonging."
 

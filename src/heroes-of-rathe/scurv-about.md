@@ -12,7 +12,7 @@ Though prison life was tough for a couple of years, Scurv made life easier by or
 
 Eventually, the two put their cross-species noggins together and orchestrated Scurv's escape. After a crafty plan involving the warden's bloomers collection, a bad-crab sandwich, and a pufferfish, Scurv was free to roam with his bestest cephalopod pal.
 
-Scurv learned a hard lesson from his time as a pirate captain: "The only course worth charting is to the bottom of a bottle." He and Sticky Fingers are happy to freeload off others' responsibilities, stowing away on their ships and pilfering just enough gold for necessities and a tipple or two of [Goldkiss Rum](~GoldkissRum).
+Scurv learned a hard lesson from his time as a pirate captain: "The only course worth charting is to the bottom of a bottle." He and Sticky Fingers are happy to freeload off others' responsibilities, stowing away on their ships and pilfering just enough gold for necessities and a tipple or two of Goldkiss Rum.
 
 :::hero-trait Another Round
 ![Another Round](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/scurv-another-round.webp)

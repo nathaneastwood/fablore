@@ -2,7 +2,7 @@
 
 ### Aetherize
 
-The wizards of Volcor draw their power from within, an innate connection to aether inherited from their distant ancestors. Only those born with this gift can utilise the fire magics of the [Dracai](~Dracai).
+The wizards of Volcor draw their power from within, an innate connection to aether inherited from their distant ancestors. Only those born with this gift can utilise the fire magics of the Dracai.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/aetherize.webp" alt="aetherize" class="center" />
 

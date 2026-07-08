@@ -1,6 +1,6 @@
 # Golden Port
 
-As ships approach Golden Port, the first thing sailors notice are the colossal twin arches overlooking the entrance to the harbor. One of the few remnants of a [Dhani](~DhaniEmpire) civilization with a penchant for the grandiose, the arches help facilitate ship traffic in and out of the port.
+As ships approach Golden Port, the first thing sailors notice are the colossal twin arches overlooking the entrance to the harbor. One of the few remnants of a Dhani civilization with a penchant for the grandiose, the arches help facilitate ship traffic in and out of the port.
 
 Once inside, the city is a sight to behold. To starboard, a patchwork of silk canopies shimmer in the sun, shading the markets throughout the day, while the soft ocean breeze cools the alleyways. On the port side, a mosaic of houses and communal buildings sprawl over the Dhani ruins, the building stones salvaged from the once-majestic palace of the three golden empresses.
 

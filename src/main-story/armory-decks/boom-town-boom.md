@@ -1,10 +1,10 @@
 # Boom Town Boom
 
-Maxx moves along with the crowd, a rarity for an anarchist punk like him, but necessary in the strictly monitored [East Rise](~EastRise). He's on a recon mission, sussing out an opportunity to stick it to [Teklo Industries][~TekloIndustries].
+Maxx moves along with the crowd, a rarity for an anarchist punk like him, but necessary in the strictly monitored East Rise. He's on a recon mission, sussing out an opportunity to stick it to [Teklo Industries][~TekloIndustries].
 
 This particular throng of Metrix citizenry is made up of success stories. There are office and lab workers, dressed neatly for conformity. There are executive types in power casual wear, and elegantly dressed elitists from the intelligentsia. They're all here for the distracting delights of Metrix's dazzling entertainment quarter.
 
-He can smell the atmosphere of privilege by its air quality, fresh and crisp in his nostrils, clean like a line of uncut trixie dust. He inhales deep and wonders if enjoying it should feel like a betrayal of [Coppertown](~Coppertown) and its homely smells of oil, tightly packed human bodies, and desperation. But Maxx figures air like this shouldn't be reserved for "paying customers only".
+He can smell the atmosphere of privilege by its air quality, fresh and crisp in his nostrils, clean like a line of uncut trixie dust. He inhales deep and wonders if enjoying it should feel like a betrayal of Coppertown and its homely smells of oil, tightly packed human bodies, and desperation. But Maxx figures air like this shouldn't be reserved for "paying customers only".
 
 Maxx follows the current of corporate lackeys, letting it take him to the big event. A decent-sized crowd has already gathered for the opening of the East Rise Power Station, with enforcers standing at each entry, scanning for troublemakers.
 
@@ -16,11 +16,11 @@ Maxx pushes through the crowd until he can see the small stage set up for the ni
 
 _Just in time_.
 
-[Synthea Teklo](~SyntheaTeklo) steps up onto the stage to polite applause, followed by [Thiroux](~Thiroux) and... _Dash_. Maxx sneers at the sight of her: Princess Teklo, turncoat extraordinaire, the perpetrator of his latest stint in lock-up.
+Synthea Teklo steps up onto the stage to polite applause, followed by Thiroux and... _Dash_. Maxx sneers at the sight of her: Princess Teklo, turncoat extraordinaire, the perpetrator of his latest stint in lock-up.
 
-Synthea taps the microphone and it squeals sharply; people wince throughout the crowd. "Welcome to the grand opening of the new Teklo Industries East Rise Power Station," she says, speaking slowly, like every word is a quotable sound bite. "With this new addition to the power grid, we will prove once and for all that [Teklatic-dynamism](~TeklaticDynamism) is the energy source of the future. Clean, safe power for everyone!"
+Synthea taps the microphone and it squeals sharply; people wince throughout the crowd. "Welcome to the grand opening of the new Teklo Industries East Rise Power Station," she says, speaking slowly, like every word is a quotable sound bite. "With this new addition to the power grid, we will prove once and for all that Teklatic-dynamism is the energy source of the future. Clean, safe power for everyone!"
 
-"Everyone who can afford the [tallics](~tallics)," Maxx hisses under his breath. The rest of the crowd isn't so realistic. They cheer and clap while Synthea gurns for the hovering [Mendacity](~Mendacity) camera drones.
+"Everyone who can afford the tallics," Maxx hisses under his breath. The rest of the crowd isn't so realistic. They cheer and clap while Synthea gurns for the hovering Mendacity camera drones.
 
 Maxx looks to where Dash is standing behind her mother. He can tell by the droop of her shoulders that she's not sharing in this moment of triumph; she looks bored but mostly embarrassed to be up there, visibly cringing as Synthea cuts a wide ribbon with an oversized pair of scissors.
 
@@ -36,7 +36,7 @@ Maxx turns and pushes back through the crowd, a sea of faces lit by joy as much 
 
 ---
 
-Maxx swaggers into a defunct pipe factory abandoned due to foundational slippage into Pit 2. Good as a squat for another couple of days, this derelict part of Coppertown not being high on the enforcers' patrol routes. He turns up the volume on a battered bronze radio, tuned to [The Foundry](~TheFoundry), subterranean pit work bass lines punching satisfyingly in the guts.
+Maxx swaggers into a defunct pipe factory abandoned due to foundational slippage into Pit 2. Good as a squat for another couple of days, this derelict part of Coppertown not being high on the enforcers' patrol routes. He turns up the volume on a battered bronze radio, tuned to The Foundry, subterranean pit work bass lines punching satisfyingly in the guts.
 
 "Find anything?" Rez asks, one hand tinkering inside a hollowed-out enforcer robot head.
 
@@ -62,7 +62,7 @@ He clicks the button to start the download, and a superstitious part in the back
 
 The complete plans drop into his terminal and Maxx opens them up, leaning close to the screen with anticipation.
 
-_Thought so_. For all Synthea's talk of Teklatic-dynamism, East Rise is a hybrid power plant. Teklatics provide the output, a _lot_ of output, while old-fashioned [Cogwerx](~Cogwerx) tech powers the cooling systems and regulates power flow. That's where the hissing of steam was coming from.
+_Thought so_. For all Synthea's talk of Teklatic-dynamism, East Rise is a hybrid power plant. Teklatics provide the output, a _lot_ of output, while old-fashioned Cogwerx tech powers the cooling systems and regulates power flow. That's where the hissing of steam was coming from.
 
 Maxx laughs, grabs his shock-wrench off its wall rack and slings it over his shoulder.
 

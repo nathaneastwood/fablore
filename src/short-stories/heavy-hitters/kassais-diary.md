@@ -2,7 +2,7 @@
 
 ---
 
-The desert eats. No. The desert <u>devours</u>. I need food. It's been five days since I found my last meal. The taproot of a shrub sucked dry in the heat. It looked like a living fossil. What I would not give for a juicy side of warthog... the tail of a horned drizard...one of those desert beetles even. I heard they suck water from fog, clever bastards. When I next meet that maggot, [General Chul](~Chul), I will make him eat the sand. I will fill his gullet with it until he chokes. He will know how it feels to be eaten alive by the desert.
+The desert eats. No. The desert <u>devours</u>. I need food. It's been five days since I found my last meal. The taproot of a shrub sucked dry in the heat. It looked like a living fossil. What I would not give for a juicy side of warthog... the tail of a horned drizard...one of those desert beetles even. I heard they suck water from fog, clever bastards. When I next meet that maggot, General Chul, I will make him eat the sand. I will fill his gullet with it until he chokes. He will know how it feels to be eaten alive by the desert.
 
 ---
 
@@ -10,11 +10,11 @@ This night, I am camped inside a sand trench. The raiders who dug it out were im
 
 ---
 
-I met with opportunity today, in the ruins near towering sand dunes. Granted, I almost died in the meeting by the blade of an especially mouthy bastard with a stitched socket for one eye. But I held my own. Took the head clean off his shoulders. Father would be proud. They call themselves [Cintari](~Cintari). Infamous among traders for being the mercenaries of the desert lands. Took my coin, feral thieves, but not my life. <u>Why not kill me?</u> They seemed roused by my wielding of the saber. I hope that is all they are roused by. Have secured me in a caravan with enough light to write this pithy introspection. Out there, all deception. In here, my truth.
+I met with opportunity today, in the ruins near towering sand dunes. Granted, I almost died in the meeting by the blade of an especially mouthy bastard with a stitched socket for one eye. But I held my own. Took the head clean off his shoulders. Father would be proud. They call themselves Cintari. Infamous among traders for being the mercenaries of the desert lands. Took my coin, feral thieves, but not my life. <u>Why not kill me?</u> They seemed roused by my wielding of the saber. I hope that is all they are roused by. Have secured me in a caravan with enough light to write this pithy introspection. Out there, all deception. In here, my truth.
 
 ---
 
-We set out at twilight. Moved silently across the sands towards a lair of giant drift stingers. Thought this was a party assault, but no. As we approached their den, the Cintari stood back. Watched as I faced the swarm alone. The scorpions were swift, and their poison burned through my veins. Each strike brought me closer to the grave than I have ever been. Just as my vision blurred and body faltered, the Cintari swooped in to finish the last of the creatures. Poured a bitter concoction down my throat. As the antidote coursed through me, I felt life returning. [Sada](~Sada) said the sand spat me out and the stars bore witness to my trial. This was my <u>training</u>. Covered in bruises the color of plump Vahanian grapes and feel splendid!
+We set out at twilight. Moved silently across the sands towards a lair of giant drift stingers. Thought this was a party assault, but no. As we approached their den, the Cintari stood back. Watched as I faced the swarm alone. The scorpions were swift, and their poison burned through my veins. Each strike brought me closer to the grave than I have ever been. Just as my vision blurred and body faltered, the Cintari swooped in to finish the last of the creatures. Poured a bitter concoction down my throat. As the antidote coursed through me, I felt life returning. Sada said the sand spat me out and the stars bore witness to my trial. This was my <u>training</u>. Covered in bruises the color of plump Vahanian grapes and feel splendid!
 
 ---
 
@@ -22,7 +22,7 @@ Another day in the desert, another head on the sand, another coin in the pouch. 
 
 ---
 
-Best recipe for spiced cactus blossom tea. Boil water in a large copper kettle. Infuse a hefty handful or two of cactus blossom and tea leaves grown in rich volcanic soil on the northern ridges of Volcor. Add enough Cintari spice for a peppery punch together with half a pannikin of date palm syrup. Stir with a palm sapling to bring out the flavor until the tea is declared made. In these climes, the Cintari take their tea without milk. It is much preferred to the weak, cream-topped tea taken in the imperious obsidian halls within [Ashvahan](~Ashvahan). And the aftertaste is...enlightening...The Cintari are not wrong in saying "one sip is a meeting with stars and sand".
+Best recipe for spiced cactus blossom tea. Boil water in a large copper kettle. Infuse a hefty handful or two of cactus blossom and tea leaves grown in rich volcanic soil on the northern ridges of Volcor. Add enough Cintari spice for a peppery punch together with half a pannikin of date palm syrup. Stir with a palm sapling to bring out the flavor until the tea is declared made. In these climes, the Cintari take their tea without milk. It is much preferred to the weak, cream-topped tea taken in the imperious obsidian halls within Ashvahan. And the aftertaste is...enlightening...The Cintari are not wrong in saying "one sip is a meeting with stars and sand".
 
 ---
 
@@ -39,11 +39,11 @@ Today, my mind is a whirlwind, filled with more thoughts than I have ink to scri
 
 ---
 
-Six days across the scorched, parched terrain of the Red Desert under the relentless sun. And now, at last, we have arrived at the border of [Gougemoor](~Gougemoor). It is an oasis of another kind for refugees - man and beast alike - worn down by the relentless desecration of their former territories. An opportunity, too, for the scum of Rathe to settle in and seize whatever they can get their hands on. Lawless and wild. I am told Gougemoor smashes up against the Savage Lands and out of that friction the Moat has risen, home of the Deathmatch. We head there tomorrow, sands willing.
+Six days across the scorched, parched terrain of the Red Desert under the relentless sun. And now, at last, we have arrived at the border of Gougemoor. It is an oasis of another kind for refugees - man and beast alike - worn down by the relentless desecration of their former territories. An opportunity, too, for the scum of Rathe to settle in and seize whatever they can get their hands on. Lawless and wild. I am told Gougemoor smashes up against the Savage Lands and out of that friction the Moat has risen, home of the Deathmatch. We head there tomorrow, sands willing.
 
 ---
 
-Hard to describe my feelings in looking out upon Deathmatch arena for the first time. It is upwards of fifty meters tall from pit level to the topmost stands! Many smaller arenas surround the main arena and the Moat squeezes it into shape like a corset on a full-bodied whore. Smells of every kind - a spicy stew of blood, sweat, vomit, piss, and perfume. And the noise. Arena masters shouting the coin value of the next fight, trainers inflaming their beasts with whips. I watched a hulking brute, Rhinar, tear a [brawnhide](~Brawnhide) apart. As I thought of the scale of opulence and combat within the arena's bloody embrace, I struggled to hold back tears. It is beautiful. Bloody beautiful.
+Hard to describe my feelings in looking out upon Deathmatch arena for the first time. It is upwards of fifty meters tall from pit level to the topmost stands! Many smaller arenas surround the main arena and the Moat squeezes it into shape like a corset on a full-bodied whore. Smells of every kind - a spicy stew of blood, sweat, vomit, piss, and perfume. And the noise. Arena masters shouting the coin value of the next fight, trainers inflaming their beasts with whips. I watched a hulking brute, Rhinar, tear a brawnhide apart. As I thought of the scale of opulence and combat within the arena's bloody embrace, I struggled to hold back tears. It is beautiful. Bloody beautiful.
 
 ---
 
@@ -63,7 +63,7 @@ I saw Betsy on my first night here. She likes her liquor and a lark, this much I
 
 ---
 
-In [Deshvahan](~Deshvahan), father taught me how to see and maneuver in battle. In the desert, the Cintari taught me how to listen and wait. How to find the unfindable. To seek, they said, a survivor must close their eyes to the desert's many mirages and instead hear all, smell all. Only then will the desert reveal the truth. This is how I know...I listen...tankards thumping, drunkards laughing, coins clinking, strings plucking, gamblers roaring, spit roast sizzling, urine seeping, sweat mingling, mud staining, aged timber creaking...wait for it...wait for the moment to strike.
+In Deshvahan, father taught me how to see and maneuver in battle. In the desert, the Cintari taught me how to listen and wait. How to find the unfindable. To seek, they said, a survivor must close their eyes to the desert's many mirages and instead hear all, smell all. Only then will the desert reveal the truth. This is how I know...I listen...tankards thumping, drunkards laughing, coins clinking, strings plucking, gamblers roaring, spit roast sizzling, urine seeping, sweat mingling, mud staining, aged timber creaking...wait for it...wait for the moment to strike.
 
 ---
 
@@ -75,7 +75,7 @@ Woke to an announcement of a Blood Brawl. Urgency in the streets, people shoutin
 
 ---
 
-In the Moat, winning a coin has proven easier than holding onto it. I pity the bastards who traveled here without a party to secure a day's takings. My years with the Cintari are paying off. Turns out guarding gold is an art best left to the lords of the sands. They've had plenty of practice protecting caravans, and even more raiding them. Pays to know both sides of the coin. [Alif](~Alif) and [Fayyad](~Fayyad) found us a safe path to the outskirts, clear sightlines for most of the way. Easy to flush thieves out from the rest. Pinning a few severed ears to the side of the wagon helped. I sleep easy at night knowing my people and I share a mutual self-interest.
+In the Moat, winning a coin has proven easier than holding onto it. I pity the bastards who traveled here without a party to secure a day's takings. My years with the Cintari are paying off. Turns out guarding gold is an art best left to the lords of the sands. They've had plenty of practice protecting caravans, and even more raiding them. Pays to know both sides of the coin. Alif and Fayyad found us a safe path to the outskirts, clear sightlines for most of the way. Easy to flush thieves out from the rest. Pinning a few severed ears to the side of the wagon helped. I sleep easy at night knowing my people and I share a mutual self-interest.
 
 ---
 

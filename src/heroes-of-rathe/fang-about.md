@@ -6,9 +6,9 @@
 
 As a young man, Fang stared into the flames of destruction and witnessed the workings of chaos.
 
-Born into a family of [Dracai](~Dracai) nobles, Fang received a formal education in the importance of tradition. According to the doctrines he had drilled into his mind, peace is built on harmony, harmony is founded on order, and order is forged by power.
+Born into a family of Dracai nobles, Fang received a formal education in the importance of tradition. According to the doctrines he had drilled into his mind, peace is built on harmony, harmony is founded on order, and order is forged by power.
 
-Fang's fragile harmony was shattered by the agonized cries of his family as they were consumed by the fires of rebellion. He saw [Volcai](~Volcai) slaughter Dracai. He smelled the flesh of family burning at the stake. He carries those painful memories with him to this day. He still bears the dishonor.
+Fang's fragile harmony was shattered by the agonized cries of his family as they were consumed by the fires of rebellion. He saw Volcai slaughter Dracai. He smelled the flesh of family burning at the stake. He carries those painful memories with him to this day. He still bears the dishonor.
 
 Finding solace in service, Fang committed his life to the Emperor's Royal Guard. Their strict principles molded him into a fiercely devoted captain of the Children of the Dragon. Now, his every waking hour is spent waging war upon the accomplices of regicide.
 

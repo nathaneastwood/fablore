@@ -82,7 +82,7 @@ She expects a chorus of surprise at the mention of it. But the chamber remains s
 
 "Continue," speaks The Steadfast, a mere whisper that fills the Amphitheatre, ringing through the stone beneath Shiyana's feet, as if that lone word had resonated up from the deep foundations of Solana itself.
 
-Like echoes to The Steadfast's cadence, Shiyana's words ring out of their own accord. She spins her summations, woven as they are from tenuous threads, unfolding a tapestry of tragedy. As a chambermaid, she witnessed the murderous rivalry between the [Ezu](~Ezu) and [Alshoni](~Alshoni); [Dracai](~Dracai) factions locked in a dynastic struggle. As a healer, she patched the wounds and listened to the stories of rebels under the banner of the Phoenix. As a scribe, she copied the words of Spymaster Xathari until his untimely demise. As General Riku's personal aide, she finally snagged a hole in this arras of silence. A symbol upon a seemingly banal parchment. A sign she recognized from a long ago mission in the depths of the Pits.
+Like echoes to The Steadfast's cadence, Shiyana's words ring out of their own accord. She spins her summations, woven as they are from tenuous threads, unfolding a tapestry of tragedy. As a chambermaid, she witnessed the murderous rivalry between the Ezu and Alshoni; Dracai factions locked in a dynastic struggle. As a healer, she patched the wounds and listened to the stories of rebels under the banner of the Phoenix. As a scribe, she copied the words of Spymaster Xathari until his untimely demise. As General Riku's personal aide, she finally snagged a hole in this arras of silence. A symbol upon a seemingly banal parchment. A sign she recognized from a long ago mission in the depths of the Pits.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/main-story/10-outsiders/tidings-in-the-light-4.webp" alt="tidings-in-the-light-4" class="center">
 
@@ -102,7 +102,7 @@ The Librarian leans forward, expectant. "Do explain."
 
 "When I don my mask, when I change, I feel a ripple in the aether, as if I am a stone dropped into a pool of water. It is gentle, almost pleasant. This was the same, although much stronger, and not of my volition." She shudders at the memory. "The aether answered that ardent call and wreaked havoc in its wake."
 
-"It is as we foretold," states The Librarian, their surety punctuated by the briefest of glances from The Steadfast. "Before the words, before belief, they slumbered in the bygone lethe, breeding dreams in twilife's gloom, until the awakening of [i'Arathael](~iArathael)'s doom."
+"It is as we foretold," states The Librarian, their surety punctuated by the briefest of glances from The Steadfast. "Before the words, before belief, they slumbered in the bygone lethe, breeding dreams in twilife's gloom, until the awakening of i'Arathael's doom."
 
 The Librarian's verse renders Shiyana speechless. How blind she has been despite the keenness of her eyes. How dim her thoughts are against The Grand Council's all-knowing presence. As if sensing the crack in Shiyana's confidence, The Steadfast raises their hand. It is a gesture befitting The Grand Magister alone, demanding patience and forbearance. Silence stretches out, growing weightier and more suffocating with every passing moment. The Amphitheatre, indeed the entire Solarium, holds its breath.
 

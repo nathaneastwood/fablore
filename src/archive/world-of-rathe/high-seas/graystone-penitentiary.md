@@ -16,6 +16,6 @@ In charge is the peg-legged Warden Cooder who takes pleasure in pandering to his
 
 In a horned cape nestles the forlorn village of Grayhollow, named after the natural cave that shelters the village's shacks. To the public, it was a site of rehabilitation where poorer inmates would go to re-acclimate to Piper's Pier society. There were workshops, fish farms, and even a school. But Warden Cooder had other ideas.
 
-Picking out prisoners with the right balance of nastiness and gullibility, Cooder discreetly populated Grayhollow with a new breed of convict. He named them the Kuraghan after an ancient [Dhani](~DhaniEmpire) cult that worshipped Absolon, god of the great deep. He anointed himself as Absolon's prophet and led his Kuraghan in building a raiding fleet.
+Picking out prisoners with the right balance of nastiness and gullibility, Cooder discreetly populated Grayhollow with a new breed of convict. He named them the Kuraghan after an ancient Dhani cult that worshipped Absolon, god of the great deep. He anointed himself as Absolon's prophet and led his Kuraghan in building a raiding fleet.
 
 In battle, the Kuraghan are fearless, for they believe that death will deliver them to Fiddler's Green, where their every immortal whim shall be tended to by demure merfolk. It's a beautiful lie, and no one tells it better than Cooder.

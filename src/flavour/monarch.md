@@ -22,7 +22,7 @@ If you know how to flaunt it, you barely need to use it.
 "If you don't think it's real, try petting it." - Amira Surana
 
 #### Express Lightning - (MON051)
-"Mighty [Bellona](~Bellona), lend me your wings!" - Chiara Suncrest
+"Mighty Bellona, lend me your wings!" - Chiara Suncrest
 
 #### Great Library of Solana - (MON000)
 Those seeking knowledge travel to Solana for the sole purpose of visiting the Library of Illumination, a vast library located at the base of the Solarium. A grand sight, the floor is constructed from lustrous marble, with floor-to-ceiling shelves containing thousands of tomes and volumes, as well as bound parchments authored by the scholars of Solana. Solanians and travelers alike can enter and soak in the knowledge gathered from all across Rathe, though it is said that countless hidden sections and levels are privy only to the magisters and select scholars from the Light of Sol.
@@ -43,7 +43,7 @@ Avalon, messenger of the dawn, whose light rejuvenates the land.
 "Sometimes, a hands-on lesson is the best approach." - Instructor Merlen Rivera
 
 #### Mark of the Beast - (MON124)
-"Borne of Soaejn, marked by corruption; the more I learn about them, the louder its call becomes..." - [Lord Sutcliffe](~Sutcliffe)
+"Borne of Soaejn, marked by corruption; the more I learn about them, the louder its call becomes..." - Lord Sutcliffe
 
 #### Memorial Ground - (MON303)
 Memories fade, but their names remain.

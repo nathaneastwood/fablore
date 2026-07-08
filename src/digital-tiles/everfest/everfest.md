@@ -2,7 +2,7 @@
 
 ### Aether Wildfire
 
-The royal bloodline runs hot through the veins of every [Dracai](~Dracai) of Volcor; the flames bow at their every whim, and pushes the force of their spells to extraordinary heights.
+The royal bloodline runs hot through the veins of every Dracai of Volcor; the flames bow at their every whim, and pushes the force of their spells to extraordinary heights.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/aether-wildfire.webp" alt="aether-wildfire" class="center" />
 
@@ -200,7 +200,7 @@ Here in the badlands, every encounter could be your last. There's no turning bac
 
 ### Revel in Runeblood
 
-It starts with a buzz, a hum deep in your mind that you can't control. An idea, like a seed, that begins to take root. A madness, pure madness that grows and grows. Then in an instant, a grand, euphoric release... Eureka! - [Sutcliffe](~Sutcliffe)
+It starts with a buzz, a hum deep in your mind that you can't control. An idea, like a seed, that begins to take root. A madness, pure madness that grows and grows. Then in an instant, a grand, euphoric release... Eureka! - Sutcliffe
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/revel-in-runeblood.webp" alt="revel-in-runeblood" class="center" />
 
@@ -244,7 +244,7 @@ They called themselves the Shieldbearers; those that laughed in the face of dang
 
 ### Swarming Gloomveil
 
-The cursed grounds of the Demonastery are swarming with all manner of powerful beings, pulled forth from the bowels of [i'Arathael](~iArathael). Any assaults would be futile, without an overwhelming force of our own. - Boltyn
+The cursed grounds of the Demonastery are swarming with all manner of powerful beings, pulled forth from the bowels of i'Arathael. Any assaults would be futile, without an overwhelming force of our own. - Boltyn
 
 <img src="https://d2hl7maqck52px.cloudfront.net/digital-tiles/swarming-gloomveil.webp" alt="swarming-gloomveil" class="center" />
 

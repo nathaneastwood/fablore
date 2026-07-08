@@ -8,11 +8,11 @@ Verdance loves her fair Candlehold as much as she loves the eternal summer that 
 
 From the moment she could walk, she felt the heartbeat of the glade beneath her feet, her attunement to nature as deep-rooted as Candlehold's oldest trees.
 
-Raised by the [Rosetta](~Rosetta), Verdance developed into an influential wizard with the power to heal all of Candlehold's flora-its flowers, vines, leaves, and weeds-so that the realm may experience a warm and stable life forever more.
+Raised by the Rosetta, Verdance developed into an influential wizard with the power to heal all of Candlehold's flora-its flowers, vines, leaves, and weeds-so that the realm may experience a warm and stable life forever more.
 
 Despite her efforts, The Rotwood threatens-a stain upon the fringe of Candlehold where decay spreads and the dance of the seasons grows stronger day by day.
 
-And at the center of the rot dwells Florian, the Harbinger of Rotwood, a seed of discontent determined to ruin everything Candlehold has stood for since the Queen used the power of [Davnir](~Davnir) to seal the glade off from greater Aria.
+And at the center of the rot dwells Florian, the Harbinger of Rotwood, a seed of discontent determined to ruin everything Candlehold has stood for since the Queen used the power of Davnir to seal the glade off from greater Aria.
 
 Verdance takes her responsibility seriously and will harness her arcane abilities to stop her beloved home from falling into decay.
 

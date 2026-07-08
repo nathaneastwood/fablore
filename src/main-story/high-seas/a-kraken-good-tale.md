@@ -10,7 +10,7 @@
 
 "To life!"
 
-Pearl reached under the bar and produced an unopened bottle of [Goldkiss Rum](~GoldkissRum). "For the lady of the hour and her daring crew."
+Pearl reached under the bar and produced an unopened bottle of Goldkiss Rum. "For the lady of the hour and her daring crew."
 
 ![a-kraken-good-tale-1](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/a-kraken-good-tale-1.webp)
 
@@ -42,7 +42,7 @@ _Where was I? That's right. This serpent turned tail and ran, just as I'd hoped.
 
 _Bless me helmsman and his keen hearing, or the beast might have sent both him and the wheel straight into the drink when it fled. It swam so fast it had our ship hauling wind and leaping over the waves!_
 
-_Now here's something that'll shiver yer timbers: a ghastly ship appeared on the horizon. At first, I thought the sea spray made me eyes go wonky, but one hard look was enough to know the [Dreadnought](~Dreadnought), bound south for Graystone. Good thing the Cyanatu didn't slow, or we might have been the newest additions to ole Gravy Bones' zombie horde._
+_Now here's something that'll shiver yer timbers: a ghastly ship appeared on the horizon. At first, I thought the sea spray made me eyes go wonky, but one hard look was enough to know the Dreadnought, bound south for Graystone. Good thing the Cyanatu didn't slow, or we might have been the newest additions to ole Gravy Bones' zombie horde._
 
 _The damn serpent dragged us deeper into murky territory. Aether rose off the sea like steam as the water turned from red to blue to black. Unseen monsters howled their nightmarish calls into the broken world. Lesser beings would've cut the tether and tacked to escape, but it's not every day ye wrangle an escort through the churning seas of Teramundr's Triangle._
 
@@ -54,7 +54,7 @@ _A walled island threatened to wreck our ship to smithereens as the serpent char
 
 "Nay, Cap'n!" yelped the chief gunner, then put his mug to his trembling lips to stop any more words from slipping out.
 
-_So there we were, dropped on the doorstep of a [Dhani](~DhaniEmpire) stronghold! In the Triangle's mixed-up reality, we beheld its glory days and its ruination._
+_So there we were, dropped on the doorstep of a Dhani stronghold! In the Triangle's mixed-up reality, we beheld its glory days and its ruination._
 
 _Ever drank til ye saw spots and tried to walk home?_
 
@@ -144,7 +144,7 @@ Wheeler's eyes widened in surprise. "This be what them Pier lot call an orrery, 
 
 "So, what ye be saying is..." He squinted in seeming recognition. "Nope. I ain't following, Cap'n."
 
-"This be proof of [Trōpal-Dhani](~TropalDhani)! Why else would the Dhani warriors summon a sea monster that size? It _was_ my largest kill yet, was it not?"
+"This be proof of Trōpal-Dhani! Why else would the Dhani warriors summon a sea monster that size? It _was_ my largest kill yet, was it not?"
 
 "Quite the trophy, Cap'n."
 

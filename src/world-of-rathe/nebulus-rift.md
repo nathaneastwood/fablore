@@ -6,7 +6,7 @@
   </div>
 </div>
 
-> "If [i'Arathael](~iArathael) and Rathe are lakes of aether, the Nebulus is a churning river between." - Rupius, Auric Scrollmaster
+> "If i'Arathael and Rathe are lakes of aether, the Nebulus is a churning river between." - Rupius, Auric Scrollmaster
 
 Between Rathe and i'Arathael, aether pours like a river of blood to form the Nebulus Rift. It is a stellarscape of possibilities, and like the wound it is, it may heal or it may spoil. Only time will tell.
 
@@ -34,4 +34,4 @@ How could a bridge of this kind come to be? During the Third Age, to protect the
 
 To guard against the Old Ones' more insidious methods of intrusion, the bridge could only be manifested using the Voltaris Gem, a powerful artifact said to have an entire storm trapped within its crystalline walls. The gem was held under arcane wards within the keep, and when needed, was flown by a trusted Wayfarer to the gatehouse.
 
-When the Auric Keep was cast into the Nebulus Rift, the gem, the gatehouse, the moat - even parts of the keep itself - were left behind in [Enion](~Enion). The exiled Aetherscribes theorized ways to return to Rathe deducing that the bridge may still provide the way, if they could just reconnect the Auric Keep in the Nebulus to Shyldverk in Enion. And through the combined efforts of Zyggy, Oscilio and Aurora, it came to be. The bridge was reestablished, an Astral Bridge now spanning two worlds.
+When the Auric Keep was cast into the Nebulus Rift, the gem, the gatehouse, the moat - even parts of the keep itself - were left behind in Enion. The exiled Aetherscribes theorized ways to return to Rathe deducing that the bridge may still provide the way, if they could just reconnect the Auric Keep in the Nebulus to Shyldverk in Enion. And through the combined efforts of Zyggy, Oscilio and Aurora, it came to be. The bridge was reestablished, an Astral Bridge now spanning two worlds.

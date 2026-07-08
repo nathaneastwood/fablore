@@ -4,7 +4,7 @@
 "It is not to be feared, Verdance. Autumn is but the hand that guides summer to sleep." - Florian, Rotwood Harbinger
 
 #### Blossoming Decay - (ROS049)
-"Many have forgotten [Davnir](~Davnir)'s lessons: within decay, the secrets of rebirth are hidden." - Ozrim, [Rosetta](~Rosetta) Elder
+"Many have forgotten Davnir's lessons: within decay, the secrets of rebirth are hidden." - Ozrim, Rosetta Elder
 
 #### Cadaverous Tilling - (ROS054)
 The fallen husks of the Third Age lie dormant within the Rotwood, their decaying frames germinating into a plethora of possible futures.
@@ -22,7 +22,7 @@ The land holds memories of all who stood against the Old Ones, forever cradled i
 "I must preserve our home, lest the creeping decay of the Rotwood devour it whole." - Verdance
 
 #### Heaven's Claws - (ROS096)
-The lightning sings of great [Yvor](~Yvor)'s fall. His battered husk sundered the land, and from the heart of the storm, Volthaven was born.
+The lightning sings of great Yvor's fall. His battered husk sundered the land, and from the heart of the storm, Volthaven was born.
 
 #### Lightning Form - (ROS082)
 "To wield lightning is to channel the raw energy of Yvor through your very veins." - Seraphina

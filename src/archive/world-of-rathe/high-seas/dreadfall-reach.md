@@ -6,7 +6,7 @@ The Dreadfall's waters? They're as treacherous as the isles themselves. Dark clo
 
 Buried beneath all that nastiness lies the true face of these islands. The waters here are calm. Serene, almost. A deep silence blankets the sprawl of drowned ruins that cluster like barnacles to the barren rocks. It's quiet here, yes, but quiet's not peace.
 
-Dreadfall Reach was once a jewel in the [Dhani](~DhaniEmpire) crown, before it was cursed with undying hunger and condemned to the abyss. Or so the legends say. And the dead are restless. Only fools brave the Reach hoping to learn its fate, only to meet their own.
+Dreadfall Reach was once a jewel in the Dhani crown, before it was cursed with undying hunger and condemned to the abyss. Or so the legends say. And the dead are restless. Only fools brave the Reach hoping to learn its fate, only to meet their own.
 
 ## The Doomed and the Drowned
 
