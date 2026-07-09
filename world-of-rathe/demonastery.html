@@ -1,0 +1,474 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Demonastery - Legendary Stories</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+        <!-- Open Graph / Twitter (Discord, Slack, etc. link previews — requires absolute image URL) -->
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Legendary Stories">
+        <meta property="og:title" content="Demonastery - Legendary Stories">
+        <meta property="og:description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <meta property="og:image" content="https://legendarystories.net/assets/logo_original_cropped.png">
+        <meta property="og:image:width" content="736">
+        <meta property="og:image:height" content="736">
+        <meta property="og:image:alt" content="Legendary Stories logo">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Demonastery - Legendary Stories">
+        <meta name="twitter:description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <meta name="twitter:image" content="https://legendarystories.net/assets/logo_original_cropped.png">
+        <!-- PNG first (reliable tab icon); src/assets/favicon.svg overrides mdBook bundle on disk; ?v= busts favicon cache -->
+        <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.png?v=5">
+        <link rel="icon" type="image/webp" sizes="32x32" href="../assets/favicon.webp?v=5">
+        <link rel="icon" href="../assets/favicon.ico?v=5" sizes="any">
+        <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=5">
+        <!-- Install / standalone: iOS “Add to Home Screen”, Android “Install app” (Chrome) -->
+        <link rel="manifest" href="../manifest.json">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="apple-mobile-web-app-title" content="Legendary Stories">
+        <meta name="mobile-web-app-capable" content="yes">
+        <!-- Font Awesome 4 (custom toolbar icons) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <!-- Tooltip library (used by hints.js) -->
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+        <!-- Apply reading preferences before content renders to prevent flash -->
+        <script>
+        (function () {
+            var VALID_SCALES = ['0.875', '1', '1.175'];
+            var VALID_WIDTHS = ['560px', '750px', '980px'];
+            try {
+                var s = localStorage.getItem('fablore-font-scale');
+                if (s && VALID_SCALES.indexOf(s) !== -1 && s !== '1') {
+                    document.documentElement.style.setProperty('--fablore-font-scale', s);
+                }
+                var w = localStorage.getItem('fablore-line-width');
+                if (w && VALID_WIDTHS.indexOf(w) !== -1 && w !== '750px') {
+                    document.documentElement.style.setProperty('--content-max-width', w);
+                }
+            } catch (e) {}
+        })();
+        </script>
+
+        <meta name="description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../hero-0066e6d7.css">
+        <link rel="stylesheet" href="../image-83732514.css">
+        <link rel="stylesheet" href="../tab-bf9533cd.css">
+        <link rel="stylesheet" href="../bionic-e54553dc.css">
+        <link rel="stylesheet" href="../footer-1dff10f9.css">
+        <link rel="stylesheet" href="../breadcrumb-6efe5711.css">
+        <link rel="stylesheet" href="../sets-hub-e2029893.css">
+        <link rel="stylesheet" href="../theme/hints-b7170011.css">
+        <link rel="stylesheet" href="../theme/related-5a0985b2.css">
+        <link rel="stylesheet" href="../theme/story-meta-d7ffbcb7.css">
+        <link rel="stylesheet" href="../theme/narrated-videos-a6b92c45.css">
+        <link rel="stylesheet" href="../theme/browse-e6d12a00.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "ayu";
+            window.path_to_searchindex_js = "../searchindex-a3252c3c.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-5f7cc31c.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Legendary Stories</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <!-- fablore-breadcrumb:start -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  
+<ol>
+    
+<li><a href="rathe.html">World of Rathe</a></li>
+
+    
+<li><span aria-current="page">Demonastery</span></li>
+
+  </ol>
+
+</nav>
+<!-- fablore-breadcrumb:end -->
+<div class="image-title-overlay">
+  <img src="https://d2hl7maqck52px.cloudfront.net/world-of-rathe/demonastery/demonastery.webp" alt="Demonastery">
+  
+<div class="overlay-text">
+    
+<h1><span class="hint" hint="Demonastery">Demonastery</span></h1>
+
+    
+<h2>Isle of the Forbidden</h2>
+
+  </div>
+
+</div>
+
+<h1 id="demonastery"><a class="header" href="#demonastery">Demonastery</a></h1>
+<!-- fablore-story-meta:start -->
+<div class="story-meta" aria-label="Story information">
+  <span class="story-meta-item"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-17.7 0-32 14.3-32 32s14.3 32 32 32h50.7L169.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L384 141.3V192c0 17.7 14.3 32 32 32s32-14.3 32-32V64c0-17.7-14.3-32-32-32H288zM80 64C35.8 64 0 99.8 0 144V400c0 44.2 35.8 80 80 80H336c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v80c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V144c0-8.8 7.2-16 16-16h80c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z"/></svg></span> <a href="https://fabtcg.com/world-of-rathe/demonastery/" target="_blank" rel="noopener">Original article</a></span>
+</div>
+
+<div class="story-share" data-story-type="world-of-rathe">
+  <span class="story-share-label">Share</span>
+  <a class="story-share-btn story-share-facebook" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" title="Share on Facebook"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg></span></a>
+  <a class="story-share-btn story-share-twitter" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on X" title="Share on X"><span class="story-share-x-logo" aria-hidden="true">X</span></a>
+  <a class="story-share-btn story-share-bluesky" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on BlueSky" title="Share on BlueSky"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 568 501" height="0.85em" width="0.85em" style="vertical-align:-0.1em;fill:currentColor" aria-hidden="true"><path d="M123.121 33.664C188.241 82.553 258.281 181.68 284 234.873c25.719-53.192 95.759-152.32 160.879-201.209C491.866-1.611 568-28.906 568 57.947c0 17.346-9.945 145.713-15.778 166.555-20.275 72.453-94.155 90.933-159.875 79.748C508.222 323.8 521.99 372.7 484.34 421.616c-60.732 79.094-165.296 62.47-235.296-14.534C179.044 484.086 74.48 500.71 13.748 421.616-23.902 372.7-10.134 323.8 106.532 304.2540.812 315.435-33.068 296.955-53.343 224.502-59.176 203.66-69.121 75.293-69.121 57.947c0-86.853 76.134-59.558 192.242-24.283z" /></svg></a>
+  <a class="story-share-btn story-share-whatsapp" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp" title="Share on WhatsApp"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></span></a>
+  <button class="story-share-btn story-share-copy" type="button" aria-label="Copy link" title="Copy link"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg></span></button>
+</div>
+
+<script>
+(function () {
+  var u = encodeURIComponent(window.location.href);
+  var t = encodeURIComponent(document.title);
+  function qs(sel) { return document.querySelector(sel); }
+  var fb = qs('.story-share-facebook');
+  if (fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + u;
+  var tw = qs('.story-share-twitter');
+  if (tw) tw.href = 'https://twitter.com/intent/tweet?url=' + u + '&text=' + t;
+  var bsky = qs('.story-share-bluesky');
+  if (bsky) bsky.href = 'https://bsky.app/intent/compose?text=' + t + '%20' + u;
+  var wa = qs('.story-share-whatsapp');
+  if (wa) wa.href = 'https://api.whatsapp.com/send?text=' + t + '%20' + u;
+  var cp = qs('.story-share-copy');
+  if (cp) cp.addEventListener('click', function () {
+    navigator.clipboard.writeText(window.location.href).then(function () {
+      cp.classList.add('story-share-copied');
+      setTimeout(function () { cp.classList.remove('story-share-copied'); }, 2000);
+    });
+  });
+})();
+</script>
+<!-- fablore-story-meta:end -->
+<p>Beyond the shores of Southern Rathe, shrouded in an ever-churning veil of sea fog, lies a forsaken isle. Many years ago, the Devout, the visionary architect and the first Grand Magister of the holy city of Solana, sought refuge on these blackened shores when their faith in Sol lay shattered.</p>
+<p>In an act deemed the highest blasphemy by their fellow Magisters, the Devout renounced Sol and all they had built. For their heresy, the Order of the Light condemned them, and executed their followers. Cast out, barely escaping with their life, the Devout began anew on that desolate island. With unwavering resolve, they laid the foundation for a grand and defiant creation: the Demonastery, a towering edifice of stone and Shadow aether. Here the Devout labored, delving into the hidden truths of Rathe. Their singular purpose: to destroy Sol.</p>
+<h2 id="drifting-between-planes"><a class="header" href="#drifting-between-planes">Drifting Between Planes</a></h2>
+<p>Over time, those who rejected Solana’s dogma—scholars, alchemists and mancers of a myriad disciplines who had long since forsaken the constraints of morality in their pursuit of forbidden knowledge—sought sanctuary within the Demonastery, and as its influence grew, so did its dreadful reputation.</p>
+<p>But they could not remain hidden. The Hand of Sol, Solana’s zealous warriors, laid siege to what they judged to be a profane stronghold. Faced with imminent destruction, the Devout performed their most desperate act. Sacrificing themselves in a torturous ritual, they tore apart their flesh and bone, infusing their very essence into the masonry and mortar of their creation. In doing so, they severed the isle from its bedrock of reality.</p>
+<p>The Demonastery now resides in a liminal space, drifting between two planes of existence: the worlds of Rathe and i’Arathael.</p>
+<h2 id="a-new-vision-for-humanity"><a class="header" href="#a-new-vision-for-humanity">A New Vision for Humanity</a></h2>
+<p>Since its founder severed its corporeal form from the physical plane, the Demonastery has shed the shackles that bind those who seek truth and knowledge. Freedom of thought. The will to dream, to lift humanity out of the mud of tradition and doctrine, to envision and enlighten all of Rathe: the founder’s ethos is etched into the mansion’s every stone.</p>
+<p>Though the Demonastery is no longer grounded in Rathe, it somehow finds like minds, moving and manifesting in a swirling mist before vanishing from sight. Those who find a place within its walls study and create without fear of retribution.</p>
+<p>Bold researchers and brilliant academics from all across Rathe have found their way to a mansion that grows ever larger, ever more complex. Doors appear, swinging open of their own volition to reveal new laboratories, libraries, and cells for specimens. Chambers alter to match the scope of each agenda and field of study. Facilities arise like mushrooms in the gloom. An arrival lured by the promise of knowledge without restriction needs only imagine the necessities of her craft and they will grow like fruit from the branch.</p>
+<p>Despite their differences, the residents have one thing in common: the eternal pursuit of truth, no matter the cost, and by any means possible. In the Demonastery, the immoral and taboo are no limit to human ingenuity. Forbidden studies, occult rituals, and reality-rending experiments are all welcome. For there is only one crime that is punishable within the Demonastery’s walls: ignorance.</p>
+<h1 id="patrons-of-the-forbidden"><a class="header" href="#patrons-of-the-forbidden">Patrons of the Forbidden</a></h1>
+<p>Biomancers, arcanists, conjurers, summoners, witches, alchemists, and mechanologists number among those who now live within the Demonastery’s ever-changing walls. Irrespective of their backgrounds, their single-minded determination to delve into fields of study long since abandoned or forbidden by the rest of Rathe is what unites the residents. The Demonastery provides a haven for these outcasts, exiles and fugitives, offering the opportunity to seek knowledge without interference. For some, that knowledge unlocks a power which grants them the ability to control the world around them. For others, their research is the basis of understanding and wisdom, a quest born out of sheer curiosity. No matter the reason for their arrival at the gates, all are welcome in the shadows of this great and grand edifice.</p>
+<h3 id="the-arcane-arts"><a class="header" href="#the-arcane-arts">The Arcane Arts</a></h3>
+<p>All research is welcome in the Demonastery, and as such, most residents have studied the arcane arts in some form or another. Many seek to understand the nature of the aether, a raw source of arcane power. Some fortunate people are born to work with aether, thanks to a natural affinity passed down through their bloodlines. These people are able to connect and draw out their innate aether talent. But such a gift is rare. Indeed, the vast majority of the people within the Demonastery do not possess natural-born talents or affinity.</p>
+<p>However, the Demonastery is a sanctum of learning, where knowledge is held in the highest regard. Those who seek answers or wish to research the means of acquiring power may do so freely, without fear of persecution. For those without a congenital connection to aether—or those who wish to surpass the limits of their natural talent—the pursuit of alternative paths offers solutions. One such path lies in Shadow, which is no easy feat; it is not for the weak-willed, the complacent, or the foolish.</p>
+<h3 id="the-shadow"><a class="header" href="#the-shadow">The Shadow</a></h3>
+<p>The Demonastery is the only place in the world where the study and practice of Shadow talent is not only permitted, but encouraged.</p>
+<p>Because of the otherworldly nature of Shadow, a scholar will often be required to deal with a powerful intermediary to further their study. Such entities, which remain unknown to the general population of Rathe, linger just beyond the edge of the physical realm. In less enlightened parts of Rathe, making contracts with these beings is deemed an unforgivable crime, and those scholars who pursue the Shadow often face severe consequences for practicing their craft. Yet, for those scholars bold enough to seek them out, and resolute enough to endure the cost, these entities can be most generous in bestowing the gifts of Shadow aether.</p>
+<h4 id="the-shadow-crypts"><a class="header" href="#the-shadow-crypts">The Shadow Crypts</a></h4>
+<p>A vast necropolis where there is no rest for the dead. Here, lost souls are studied, unmade, and remade. The air is thick with smoke, charred bone and aether-burned flesh. Sarcophagi line the crypt walls, their surfaces etched with runes that pulse with a sickly violet glow, or hum with slow, deliberate movement.</p>
+<p>Few dare to linger in <span class="hint" hint="The Shadow Crypts">the Shadow Crypts</span>, but not all who walk these halls come for study. The nocturnal residents—those who find solace in the quiet—watch in rapt silence, meditating upon the essence of Shadow that exudes at the heart of the deepest crypt, where stands the Ebon Maw.</p>
+<p>A vast rift of violet light framed in Barthimont black steel. <span class="hint" hint="The Maw">The maw</span> is not a portal. It does not lead elsewhere. It devours. Aether howls as supplicants and sacrifices perish in its depths. It does not distinguish between experiment and experimenter: flesh, bone, and soul alike, it reduces all to dust.</p>
+<h4 id="the-shadow-pens"><a class="header" href="#the-shadow-pens">The Shadow Pens</a></h4>
+<p>This hybrid prison-zoo keeps subjects and prisoners in constant agitation for rituals or experiments. Many of the pens are mock habitats, familiar enough to tempt comfort and relaxation yet uncanny enough to sustain unease and dread, enabling the Demonastery’s Dark Practitioners to induce instant fear in the subjects for their sacrificial rituals.</p>
+<p>A revenant jailor walks among cages made of bone and terrorizes the captives. For the subjects, the jailor becomes a projection of their deepest fear: a person, an animal, or the unholy incarnate.</p>
+<p>Practitioners choose their subjects based on their current goals, but the common thread is that the subject must die in a state of terror to better enliven the ritual to which it must give up its blood, and often its soul.</p>
+<h2 id="notable-residents"><a class="header" href="#notable-residents">Notable Residents</a></h2>
+<h4 id="caoimhe-witch"><a class="header" href="#caoimhe-witch">Caoimhe, Witch</a></h4>
+<p>To be able to speak with animals sounds like a wonderful thing, unless you’re raised in <span class="hint" hint="The Golden Fields">the Golden Fields</span> of Solana. Then they call you “possessed”. After narrowly escaping her Witch Trial, Caoimhe found her way to the Demonastery. There she has leveraged her talent in the study of Rathe’s creatures, especially those with aetheric abilities. Caoimhe has painstakingly teased out the connections between life in Rathe and life in i’Arathael, and now takes a special interest in beasts sourced from the other side. In this she is aided by Jerove, whose chimeric experiments teach her much about the interplays of aether and nature.</p>
+<h4 id="corva-biomancer-deceased"><a class="header" href="#corva-biomancer-deceased">Corva, Biomancer (Deceased)</a></h4>
+<p>Corva studied biomancy and blood arcanity, documenting her manipulations of life force in a grimoire that she kept always at her side. It was Viserai, the Arknight, who took her “Grimoire of the Haunt” from Corva’s disemboweled corpse. The tome disappeared shortly afterwards, as did Corva’s body. Their whereabouts remain unknown.</p>
+<h4 id="eldon-the-lost-knight"><a class="header" href="#eldon-the-lost-knight">Eldon, the Lost Knight</a></h4>
+<p>Once a warrior of the Light, Eldon was torn from the path of Solana and reforged in the shadows of Sutcliffe’s grand experiment. A precursor to the Arknight project, Eldon was one of many who were reshaped, his flesh inscribed with sigils meant to infuse him with Shadow aether. But unlike Viserai, the lone success of Sutcliffe’s twisted craft, Eldon was a failure, his body unable to contain the raw power forced upon it. The arcane sigils fractured, his form splintered between life and something less, and now he wanders the halls of the Demonastery, neither living nor truly dead.</p>
+<h4 id="harland-the-grave-dredger"><a class="header" href="#harland-the-grave-dredger">Harland, the Grave Dredger</a></h4>
+<p>A former funeral celebrant, Harland makes his living by digging deeper than most would dare. Some call him a grave robber, others an archaeologist of the forgotten, but Harland considers himself a pragmatist: if the dead no longer need what they left behind, why let it go to waste? He scavenges through crypts, battlegrounds, and burial sites, unearthing forbidden relics and lost scrolls.</p>
+<p>For years, he worked alongside Septus, a fellow seeker of lost knowledge. The two were inseparable, delving into ruins and forgotten places that no sane person would tread. But their last expedition, this time into the Savage Lands, ended in disaster. Septus never made it out. Harland doesn’t speak of what happened, only that he won’t go back. He still traces old maps, still eyes the forgotten corners of Rathe, but when it comes to the Savage Lands… even Harland knows when to leave the past buried.</p>
+<h4 id="jerove-the-fleshbinder"><a class="header" href="#jerove-the-fleshbinder">Jerove, the Fleshbinder</a></h4>
+<p>A surgeon who dismembers the carcasses of various creatures and stitches together an amalgam of their bodies. Sometimes he seeks to create beings of old, creatures which have not been seen in Rathe for centuries, if not millennia. At other times, Jerove has worked on his own inventions, splicing different creatures to create one perfect, intriguing anomaly of nature. His associate, Caoimhe, provides valuable insights from her communes with arcane animals, offering wondrous possibilities for chimeric combinations.</p>
+<h4 id="niall-the-arcanist"><a class="header" href="#niall-the-arcanist">Niall, the Arcanist</a></h4>
+<p>Originally from Valahai, Niall survived the cataclysm by putting himself into a stasis within a vault. Upon his awakening and revival, he encountered the Demonastery among the floating islands of <span class="hint" hint="Enion">Enion</span>. Niall is researching the formation of arcane armor. He works to create a set of armor which, when worn by a wizard and charged with aether, will form a kind of barrier against both physical and arcane attacks. This armor would theoretically work in tandem with the wearer’s own aether affinity. Making the armor not overheat to the point of combustion, however, is proving tricky. Niall bears the extensive burn scarring to prove it.</p>
+<h4 id="xaine-the-runescribe"><a class="header" href="#xaine-the-runescribe">Xaine, the Runescribe</a></h4>
+<p>Once a scribe of Solana’s Great Library, Xaine was cast out from his homeland and branded a heretic for seeking truths Solana deemed too dangerous. His expertise lies in arcane text and inscriptions, his studies delving into the connections between written arcanity and the realm of Shadow. In the Demonastery, Xaine works tirelessly to decipher the secrets of i’Arathael, pushing the limits of his mind—and his sanity—to understand the forces beyond Rathe’s veil.</p>
+<h4 id="lord-sutcliffe-deceased"><a class="header" href="#lord-sutcliffe-deceased">Lord Sutcliffe (Deceased)</a></h4>
+<p>A noble born without aether affinity, Lord Sutcliffe abandoned his responsibilities and beggared his Solanian estates in his obsession to unlock power. He spent years studying the Shadow, exploring the true depths of the aether, trying to establish whether a man could artificially lay claim to the abilities of the arcane.</p>
+<p>After his relocation to the Demonastery, Sutcliffe’s research evolved into the Arknight project and his ultimate success was Viserai: a living weapon. Sutcliffe struggled to keep control of his creation and wound up dead. But in the Demonastery death is often the beginning, and now Sutcliffe’s skull, preserved within layers of runecraft, has Sutcliffe trapped within his own mind, dreaming of the day when he can enact his revenge on the one who delivered him to this dark fate. One way or another, he will make Viserai pay for his disobedience.</p>
+<h1 id="oddities-and-specimens"><a class="header" href="#oddities-and-specimens">Oddities and Specimens</a></h1>
+<p>Over the centuries, the residents of the Demonastery have delved into many obscure areas of study, most of which are forbidden in the outside world. Sometimes, experiments in these sciences can result in the foulest of abominations, created by toxic tinctures and the darkest types of biomancy. Other times, a creation is intentionally brought to life by one or more practitioners collaborating within the Demonastery’s halls. Some of the entities which now exist within the mansion remain a mystery to even the oldest residents, their origins unknown to all but the very edifice itself.</p>
+<h4 id="diaphenes"><a class="header" href="#diaphenes">Diaphenes</a></h4>
+<p>A creature coated in a thick, translucent layer of protective slime, Diaphenes has beneath its body a great number of pale, wriggling larvae, biding their time until hatching. Its long, spindly limbs can carry this fell beast across the ground faster than any other creature known to man; it can even climb up solid walls and across ceilings, its limbs finding unnatural purpose on the stonework.</p>
+<h4 id="beredos"><a class="header" href="#beredos">Beredos</a></h4>
+<p>The result of a botched experiment, wherein a researcher, Corva, attempted to create artificial life, Beredos’s body is stitched together from various materials, including hides, strips of leather, and human skin. Beneath his makeshift flesh lies a modified version of a human skeleton, incorporating both biomancy and alchemy. One of the older creatures to be found within the Demonastery, he can usually be found roaming the halls, seeking a new purpose now that his mistress is dead.</p>
+<h4 id="lysagenes"><a class="header" href="#lysagenes">Lysagenes</a></h4>
+<p>At first, Lysagenes almost appears to be human, but the longer you look at it, the more monstrous it becomes. Its skin is as smooth and malleable as gristle, white as milk, with glassy black eyes, limbs which are a touch too long for comfort, and a mouth which separates into two distinct mandibles.</p>
+<h4 id="mani"><a class="header" href="#mani">Mani</a></h4>
+<p>Occasionally, one of the resident researchers will glimpse the Demonastery’s most elusive inhabitant. Those who have seen her describe a small, doll-like creature, with a crooked grin as unsightly as a gaping wound. With her large eyes, sharp teeth, and claw-like fingers, Mani is an eerie sight within the halls, and the being even appears to enjoy the effect she has on those who come across her. Some scholars have come to understand that Mani’s presence indicates something larger happening within the Demonastery’s halls, a manifestation of the pervasive sentience that the more sensitive residents feel and fear.</p>
+<h4 id="pallas"><a class="header" href="#pallas">Pallas</a></h4>
+<p>These foreboding birds are half the height of the average human, with wingspans three times that of their body length. Pure black in color, pallas have pale yellow eyes and hooked, black beaks. Their large, oval faces are framed by a border of pale gray feathers, which extend out below their round eyes. As far as anyone can tell, these birds have been living on the isle for as long as the Demonastery has existed. Caoimhe attempted to study them, but struggled to withstand the piercing cold of their menacing stares, which appear to trigger some kind of instinctual flight-or-fight response in even the most unfeeling residents of the mansion.</p>
+<h4 id="scaphus"><a class="header" href="#scaphus">Scaphus</a></h4>
+<p>An amalgam of bone and steel, Scaphus is fueled by a dark, arcane power which should never have seen the light of day. A pair of hollows are situated where its eyes might have been, lit by a dull, eerie, pale-violet glow. Despite its immense size and the composition of its body, it moves almost silently, the only audible sound a low, vibrating hum, which originates from somewhere within its chest cavity.</p>
+<h4 id="whisper"><a class="header" href="#whisper">Whisper</a></h4>
+<p>For as long as anyone could remember, a stained-glass window stood in the <span class="hint" hint="Entrance Hall">entrance hall</span> of the Demonastery, depicting a wraith-like girl looking down on whoever came through the great doors. Residents occasionally heard her whisperings, echoes of her sweet, lilting voice ringing through their mind, inaudible to anyone but the recipient of her call. These words of wisdom were a double-edged sword, equally likely to lead someone to a breakthrough as to their downfall. However, when the gateway to i’Arathael was opened, the stained-glass window was shattered, and Whisper has not been seen nor heard from since.</p>
+<!-- fablore-related:start -->
+<section class="related-section" aria-label="Related Lore">
+<h1 id="related-lore">Related Lore</h1>
+
+<div class="related-cards">
+<a class="related-card" href="aria.html#enion">
+<span class="related-card-body">
+<span class="related-card-type">Location</span>
+<span class="related-card-title">Enion</span>
+</span>
+<span class="related-card-sub">Aria</span>
+</a>
+<a class="related-card" href="pits.html#the-maw">
+<span class="related-card-body">
+<span class="related-card-type">Location</span>
+<span class="related-card-title">The Maw</span>
+</span>
+<span class="related-card-sub">The Pits</span>
+</a>
+<a class="related-card" href="aria.html#valahai">
+<span class="related-card-body">
+<span class="related-card-type">Location</span>
+<span class="related-card-title">Valahai</span>
+</span>
+<span class="related-card-sub">Aria</span>
+</a>
+</div>
+</section>
+<!-- fablore-related:end -->
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../world-of-rathe/aria.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../world-of-rathe/high-seas.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../world-of-rathe/aria.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../world-of-rathe/high-seas.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-c22b7243.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../theme/toolbar-5fa3570f.js"></script>
+        <script src="../tab-fd6a8e95.js"></script>
+        <script src="../back-to-top-7ddb360a.js"></script>
+        <script src="../hero-hub-d0a786d0.js"></script>
+        <script src="../bionic-e657825d.js"></script>
+        <script src="../theme/hints-16cd2044.js"></script>
+        <script src="../theme/related-eadba45b.js"></script>
+        <script src="../narrated-videos-84e813a2.js"></script>
+        <script src="../theme/browse-ea40f197.js"></script>
+        <script src="../theme/hero-filter-03bca56f.js"></script>
+        <script src="../theme/reading-progress-adb1a214.js"></script>
+        <script src="../theme/heading-anchors-838a9d90.js"></script>
+        <script src="../theme/copy-link-605c931d.js"></script>
+        <script src="../theme/reading-prefs-e9927c10.js"></script>
+        <script src="../theme/random-story-d16666c7.js"></script>
+        <script src="../theme/read-tracking-e63af195.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

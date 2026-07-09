@@ -1,0 +1,536 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Captain Bones and the City of Gold - Legendary Stories</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+        <!-- Open Graph / Twitter (Discord, Slack, etc. link previews — requires absolute image URL) -->
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Legendary Stories">
+        <meta property="og:title" content="Captain Bones and the City of Gold - Legendary Stories">
+        <meta property="og:description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <meta property="og:image" content="https://legendarystories.net/assets/logo_original_cropped.png">
+        <meta property="og:image:width" content="736">
+        <meta property="og:image:height" content="736">
+        <meta property="og:image:alt" content="Legendary Stories logo">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Captain Bones and the City of Gold - Legendary Stories">
+        <meta name="twitter:description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <meta name="twitter:image" content="https://legendarystories.net/assets/logo_original_cropped.png">
+        <!-- PNG first (reliable tab icon); src/assets/favicon.svg overrides mdBook bundle on disk; ?v= busts favicon cache -->
+        <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon.png?v=5">
+        <link rel="icon" type="image/webp" sizes="32x32" href="../../assets/favicon.webp?v=5">
+        <link rel="icon" href="../../assets/favicon.ico?v=5" sizes="any">
+        <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=5">
+        <!-- Install / standalone: iOS “Add to Home Screen”, Android “Install app” (Chrome) -->
+        <link rel="manifest" href="../../manifest.json">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="apple-mobile-web-app-title" content="Legendary Stories">
+        <meta name="mobile-web-app-capable" content="yes">
+        <!-- Font Awesome 4 (custom toolbar icons) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <!-- Tooltip library (used by hints.js) -->
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+        <!-- Apply reading preferences before content renders to prevent flash -->
+        <script>
+        (function () {
+            var VALID_SCALES = ['0.875', '1', '1.175'];
+            var VALID_WIDTHS = ['560px', '750px', '980px'];
+            try {
+                var s = localStorage.getItem('fablore-font-scale');
+                if (s && VALID_SCALES.indexOf(s) !== -1 && s !== '1') {
+                    document.documentElement.style.setProperty('--fablore-font-scale', s);
+                }
+                var w = localStorage.getItem('fablore-line-width');
+                if (w && VALID_WIDTHS.indexOf(w) !== -1 && w !== '750px') {
+                    document.documentElement.style.setProperty('--content-max-width', w);
+                }
+            } catch (e) {}
+        })();
+        </script>
+
+        <meta name="description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../../css/chrome-fc474251.css">
+        <link rel="stylesheet" href="../../css/print-9e4910d8.css" media="print">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero-0066e6d7.css">
+        <link rel="stylesheet" href="../../image-83732514.css">
+        <link rel="stylesheet" href="../../tab-bf9533cd.css">
+        <link rel="stylesheet" href="../../bionic-e54553dc.css">
+        <link rel="stylesheet" href="../../footer-1dff10f9.css">
+        <link rel="stylesheet" href="../../breadcrumb-6efe5711.css">
+        <link rel="stylesheet" href="../../sets-hub-e2029893.css">
+        <link rel="stylesheet" href="../../theme/hints-b7170011.css">
+        <link rel="stylesheet" href="../../theme/related-5a0985b2.css">
+        <link rel="stylesheet" href="../../theme/story-meta-d7ffbcb7.css">
+        <link rel="stylesheet" href="../../theme/narrated-videos-a6b92c45.css">
+        <link rel="stylesheet" href="../../theme/browse-e6d12a00.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "light";
+            const default_dark_theme = "ayu";
+            window.path_to_searchindex_js = "../../searchindex-a3252c3c.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc-5f7cc31c.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Legendary Stories</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <!-- fablore-breadcrumb:start -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  
+<ol>
+    
+<li><a href="../the-land-of-rathe.html">Main Story</a></li>
+
+    
+<li><span>High Seas</span></li>
+
+    
+<li><span aria-current="page">Captain Bones and the City of Gold</span></li>
+
+  </ol>
+
+</nav>
+<!-- fablore-breadcrumb:end -->
+<h1 id="captain-bones-and-the-city-of-gold"><a class="header" href="#captain-bones-and-the-city-of-gold">Captain Bones and the City of Gold</a></h1>
+<!-- fablore-story-meta:start -->
+<div class="story-meta" aria-label="Story information">
+  <span class="story-meta-item"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M421.7 220.3l-11.3 11.3-22.6 22.6-205 205c-6.6 6.6-14.8 11.5-23.8 14.1L30.8 511c-8.4 2.5-17.5 .2-23.7-6.1S-1.5 489.7 1 481.2L38.7 353.1c2.6-9 7.5-17.2 14.1-23.8l205-205 22.6-22.6 11.3-11.3 33.9 33.9 62.1 62.1 33.9 33.9zM96 353.9l-9.3 9.3c-.9 .9-1.6 2.1-2 3.4l-25.3 86 86-25.3c1.3-.4 2.5-1.1 3.4-2l9.3-9.3H112c-8.8 0-16-7.2-16-16V353.9zM453.3 19.3l39.4 39.4c25 25 25 65.5 0 90.5l-14.5 14.5-22.6 22.6-11.3 11.3-33.9-33.9-62.1-62.1L314.3 67.7l11.3-11.3 22.6-22.6 14.5-14.5c25-25 65.5-25 90.5 0z"/></svg></span> Written by <strong>Robbie Wen, Edwin McRae, Rachel Rees, Alan Baxter</strong></span>
+  <span class="story-meta-item"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M96 32V64H48C21.5 64 0 85.5 0 112v48H448V112c0-26.5-21.5-48-48-48H352V32c0-17.7-14.3-32-32-32s-32 14.3-32 32V64H160V32c0-17.7-14.3-32-32-32S96 14.3 96 32zM448 192H0V464c0 26.5 21.5 48 48 48H400c26.5 0 48-21.5 48-48V192z"/></svg></span> 2 June 2025</span>
+  <span class="story-meta-item"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-17.7 0-32 14.3-32 32s14.3 32 32 32h50.7L169.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L384 141.3V192c0 17.7 14.3 32 32 32s32-14.3 32-32V64c0-17.7-14.3-32-32-32H288zM80 64C35.8 64 0 99.8 0 144V400c0 44.2 35.8 80 80 80H336c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v80c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V144c0-8.8 7.2-16 16-16h80c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z"/></svg></span> <a href="https://fabtcg.com/articles/captain-bones-and-the-city-of-gold/" target="_blank" rel="noopener">Original article</a></span>
+  <span class="story-meta-item"><span class="fa-svg far" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M232 120C232 106.7 242.7 96 256 96C269.3 96 280 106.7 280 120V243.2L365.3 300C376.3 307.4 379.3 322.3 371.1 333.3C364.6 344.3 349.7 347.3 338.7 339.1L242.7 275.1C236 271.5 232 264 232 255.1L232 120zM256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0zM48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48C141.1 48 48 141.1 48 256z"/></svg></span> 3,734 words · 15 min read</span>
+</div>
+
+<div class="story-share" data-story-type="main-story">
+  <span class="story-share-label">Share</span>
+  <a class="story-share-btn story-share-facebook" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" title="Share on Facebook"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg></span></a>
+  <a class="story-share-btn story-share-twitter" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on X" title="Share on X"><span class="story-share-x-logo" aria-hidden="true">X</span></a>
+  <a class="story-share-btn story-share-bluesky" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on BlueSky" title="Share on BlueSky"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 568 501" height="0.85em" width="0.85em" style="vertical-align:-0.1em;fill:currentColor" aria-hidden="true"><path d="M123.121 33.664C188.241 82.553 258.281 181.68 284 234.873c25.719-53.192 95.759-152.32 160.879-201.209C491.866-1.611 568-28.906 568 57.947c0 17.346-9.945 145.713-15.778 166.555-20.275 72.453-94.155 90.933-159.875 79.748C508.222 323.8 521.99 372.7 484.34 421.616c-60.732 79.094-165.296 62.47-235.296-14.534C179.044 484.086 74.48 500.71 13.748 421.616-23.902 372.7-10.134 323.8 106.532 304.2540.812 315.435-33.068 296.955-53.343 224.502-59.176 203.66-69.121 75.293-69.121 57.947c0-86.853 76.134-59.558 192.242-24.283z" /></svg></a>
+  <a class="story-share-btn story-share-whatsapp" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp" title="Share on WhatsApp"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></span></a>
+  <button class="story-share-btn story-share-copy" type="button" aria-label="Copy link" title="Copy link"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg></span></button>
+</div>
+
+<script>
+(function () {
+  var u = encodeURIComponent(window.location.href);
+  var t = encodeURIComponent(document.title);
+  function qs(sel) { return document.querySelector(sel); }
+  var fb = qs('.story-share-facebook');
+  if (fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + u;
+  var tw = qs('.story-share-twitter');
+  if (tw) tw.href = 'https://twitter.com/intent/tweet?url=' + u + '&text=' + t;
+  var bsky = qs('.story-share-bluesky');
+  if (bsky) bsky.href = 'https://bsky.app/intent/compose?text=' + t + '%20' + u;
+  var wa = qs('.story-share-whatsapp');
+  if (wa) wa.href = 'https://api.whatsapp.com/send?text=' + t + '%20' + u;
+  var cp = qs('.story-share-copy');
+  if (cp) cp.addEventListener('click', function () {
+    navigator.clipboard.writeText(window.location.href).then(function () {
+      cp.classList.add('story-share-copied');
+      setTimeout(function () { cp.classList.remove('story-share-copied'); }, 2000);
+    });
+  });
+})();
+</script>
+<!-- fablore-story-meta:end -->
+<p>The Dreadnought rose from the depths to split the waves like a shark’s fin. It glistened in the silver light of a full moon, making good its ambush as shouts of alarm erupted from the Kuraghan ship in its path.</p>
+<p>“Avast ye deathly layabouts!” Captain Gravy Bones hollered at his cadaverous crew. “Make ready to broadside and board!”</p>
+<p>“Begging yer pardon, Cap’n,” Chum asked, his grave grin a little dulled with concern. “You sure this be them?”</p>
+<p>Gravy slapped his first mate’s shoulder with a bony clack. “Ye afeared of these lubbers, Chum?”</p>
+<p>Chum’s laugh was a jolly rasp. “Not likely, Cap’n. Just wondering their worth in yer mind. Ain’t seen you so…animated, in a wee while, is all.”</p>
+<p>Gravy stroked his beard with a fleshless claw. “They smells of sunshine, Chum. And ye know what that means.”</p>
+<p>“<span class="hint" hint="Trōpal-Dhani">Trōpal-Dhani</span>?” asked Moray Le Fay from her vantage by the gunwale. “There be easier pickings than that old place.”</p>
+<p>“And where’s the challenge in that, me fair sea witch? Will I be bored back to death chasing ‘easy’ plunder?” He drew his compass from his coat pocket. Its necrotic ambience bathed his skull in rotten light. “That <em>old place</em> be the only treasure worth seeking on the High Seas. If not Trōpal-Dhani, then what do we rise for?” He turned to face the deck and bellowed at his crew. “Step lively, ye sorry skeletons, or I’ll send ye all back to yer watery graves!”</p>
+<p>Gravy’s ragged crew of undead sailors raced to the Dreadnought’s gunwales with grappling hooks and ropes as Chum steered the ship into attack position. The crew of the Kuraghan ship clamored in panic. They didn’t have a chance to open ports let alone load their cannons as the Dreadnought broadsided them and tethers were thrown. They screamed as Gravy Bones’ zombies, all rags and bones and skulls and rotten flesh, leaped across, silver cutlasses and boarding axes flashing like coins on a dead man’s eyes.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/captain-bones-and-the-city-of-gold-1.webp" alt="captain-bones-and-the-city-of-gold-1"></p>
+<p>Blood arced, reflecting almost black in the moonlight, the coppery scent of it stark over the brine. Gravy watched from his quarterdeck, calmly taking in the scene as it played out across the backdrop of Dreadfall’s decaying edifices and jaundiced spires. He held no love for the living, but neither did he revel in senseless slaughter. These lubbers carried the key to his ultimate prize. The compass in his hand had told him so.</p>
+<p>A Kuraghan staggered for the gunwale, seeking oblivion in the waters rather than murder aboard ship, but a blade wielded by a powerful hand punched through his chest from behind and carved downward. His intestines looped shiny to the deck as he fell to reveal Cutty’s grinning face - a visage then split in twain by a Kuraghan axe blade. Gravy winced. He’d raise Cutty again when the need arose, but it was always harder to knit together fragments than to simply remember the dismembered.</p>
+<p>“Take the captain alive!” Gravy yelled at Limpit, who right then was stomping her leg-blade through the chest of the Kuraghan’s helmsman. Limpit tipped her hat in acknowledgement and lurched off in search of her target.</p>
+<p>Death continued to fill the night with the stench of sudden mortality. Though many of Gravy’s crew were felled, the Kuraghan lost more, a battle of morbid attrition until only one man remained alive.</p>
+<p>Gravy stomped across the blood-soaked deck, stepping through pools of spilled viscera. He found the captain flat on his back, a snarling, undead sea dog perched on his chest.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/captain-bones-and-the-city-of-gold-2.webp" alt="captain-bones-and-the-city-of-gold-2"></p>
+<p>“To me, Scooba,” barked Gravy. The hound gave a yelp and trotted to her master’s side.</p>
+<p>The Kuraghan captain got to his feet - a tough, imposing man, even though he bled from several wounds on his bald skull and muscular arms.</p>
+<p>A lumbering, squelching Swabbie dumped a heavy treasure chest at Gravy’s feet. Gravy kicked the chest open, sending glittering treasure spilling across the deck, then took a coin from the hoard and let it glint in the moonlight. On its embossed back, the towers of Trōpal-Dhani beckoned him.</p>
+<p>“Tell me where it is,” Gravy said to the captain, his eyes fixed on the coin.</p>
+<p>The captain spat blood onto Gravy’s boots.</p>
+<p>With the <em>pluck pluck</em> of tentacle suckers on wood, Moray joined them, a worn leather journal in her hands. Gravy accepted the book and flipped it open.</p>
+<p>“Ship’s log,” Gravy noted. “And looky here.” He tapped the page with a pallid finger. “Orders to escort a Kuraghan flagship, leaving soon on a voyage from Graystone to the Triangle.” He turned away. “Swabbie. Kill the caitiff.”</p>
+<p>To the pounding of hammer and nails, and the Kuraghan’s gurgling screams, Gravy muttered an ode to Nocetes and raised his fallen crew, one by one. With all skulls accounted for, they set a course for Graystone, trimming the sails only once so Gravy could assess a ship on the horizon.</p>
+<p>“Sail ho, ye hollowed out huskers!” he shouted across the bulkhead.</p>
+<p>Through his long glass, he noted that the sleek ship cut the waves at great speed, towed by a sea serpent tethered by a well-aimed harpoon. At the helm was a fierce-looking corsair with a magnificent hat. On any other day, Gravy would chase down such fascinating prey. Bold pirates often led to bountiful treasures. But this day, he was after much bigger fish.</p>
+<p>By the evening of the following day, the Dreadnought sat snug in a coastal cave, close but concealed from the Kuraghan safe port of <span class="hint" hint="Grayhollow">Grayhollow</span>, where atop the towering cliffs stood Graystone Penitentiary.</p>
+<hr>
+<p>Gravy had done some time in the bowels of that brig in his younger, fleshier years. A fate far worse than death, in his humble opinion. But he’d used the time to read the expedition notes of his contemporaries, recording the locations of shipwrecks and ruins, studying the treasures and histories hidden within. And on the grimmest of nights, he plotted his escape, which included slyly recruiting pirate hands fit for finding the fabled city of Trōpal-Dhani.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/captain-bones-and-the-city-of-gold-3.webp" alt="captain-bones-and-the-city-of-gold-3"></p>
+<p>The first attempt went poorly for young Gravy and his crew, slaughtered all. He’d watched the last of them, Chum, still vibrant and alive, speared through the chest by a revenant blade. He’d barely twisted away from the sword aiming for his own heart. But while he wasn’t skewered, he was mortally gashed, opened from shoulder to hip. And as he was holed, so was the ship, and down they sank into the darkening depths.</p>
+<p>But the world of the living wasn’t done with Gravy Bones.</p>
+<p>Inside a drowned temple dedicated to the Dhani death god Nocetes, Gravy made a deal. His cost to bear? Never again would he walk on land, but he’d sail the seas forever. On that fateful day, a silver-bearded lich rose from the depths, an eldritch compass tucked firm against his unbeating heart, with his undead crew and the ghoul ship Dreadnought, ready to raid again.</p>
+<hr>
+<p>Captain and crew whiled away the waiting hours with Chowder’s specially brewed Sepulchre Rum, the only spirit that could touch the minds of the undead. Wailer finished his rousing rendition of a Dreadfall dirge and there was a clatter of polite applause.</p>
+<p>After a long moment of companionable silence and rum-swilling, Riggermortis called down from his hammock in the rigging. “Them Kuraghan rogues put up stiffer resistance than I’d have wagered.”</p>
+<p>“Aye!” Limpit tapped her sharpened leg against the decking. “Easy to forget how much blood the living have in them.”</p>
+<p>“Speaking of,” said Chowder as he carried a steaming cauldron up from the galley. “Soup’s ready!”</p>
+<p>The crew greedily slurped and guzzled while Gravy sat as still as a corpse in a coffin, admiring the golden coin in his hand.</p>
+<p>“What are them Kuraghan scoundrels planning, Cap’n?” asked Chum between swigs of rum and spoons of soup. “What would they want with Trōpal-Dhani?”</p>
+<p>Gravy rolled the coin across his knuckles, a trick he’d mastered when he was a living lad. “Expand their fleet, take over the High Seas. It ain’t the pirate life fer them. Gold be a mere means to an end.”</p>
+<p>“And we’ll be relieving them of both their means and ends?” asked Cutty with a luster for larceny in his black fish-eyes.</p>
+<p>“Yarr!” growled Gravy. “What else gives purpose to our endless undeath?!”</p>
+<p>The crew cheered and drank on into the night, rocked gently by the swell, bathed in the light of the moon and stars, a warm breeze bringing them the sickly sweet and sour scents of misery from the prison above.</p>
+<hr>
+<p>Not long after dawn, Riggermortis raised the alarm from the crow’s nest. “The Kuraghan flagship be setting sail!”</p>
+<p>“All hands!” Gravy yelled. “Make chase! Submerge on my command!”</p>
+<p>As the Dreadnought moved out of the cave, a great clamor arose from the Penitentiary. Klaxons sounded and people ran along ramparts in a seeming panic.</p>
+<p>A sleek airship, marked as the Golden Goose, rose from the prison’s inner <span class="hint" hint="Courtyard">courtyard</span>. Two more airships took to the air behind it, Gravy watching through his spyglass as the colorfully clad captain blew her pursuers out of the sky with some sort of rifle. He’d seen her before, hovering over ruins on the outskirts of Dreadfall Reach.</p>
+<p>“Submerge!” he ordered, and the Dreadnought slipped beneath the waves as the Kuraghan flagship, Absolon’s Dream, put out to sea. Through the rippling water, he watched the Golden Goose fly off in an eastward direction. Flying freebooters chilled the cockles of his rotten heart. He’d take the embrace of the water over the wanton winds on any deadened day.</p>
+<p>Gravy charted their course as they traveled past the islets of Port Conniver, the hours ticking over as a storm blew in from the farthest reaches of the Triangle; it rocked Absolon’s Dream, while the Dreadnought enjoyed calm below the turbulent waves, though nothing with the reach of Teramundr’s curse could ever be described as peaceful.</p>
+<p>On the second day, they tacked out of the path of a hunting <span class="hint" hint="Hydra">hydra</span>, its boat-sized flippers pushing its body through the waters, perhaps as large as three whales, end on end. One of its three heads snapped up a giant basking shark as easily as a dolphin might chomp a cod.</p>
+<p>That night, the Dreadnought cruised cautiously through a shoal of ancient souls, their Dhani gowns floating like the tendrils of jellyfish, their translucent cadavers twitching as if still in the last throes of drowning.</p>
+<p>As dawn began to light upon the now clear sky of a third day of traveling, Absolon’s Dream slowed. Gravy called a halt to the Dreadnought and sat patiently beneath the surface. He climbed up the rigging to the crow’s nest, relieved Riggermortis from his post, and watched the flagship through a raised periscope.</p>
+<p>There was movement about the deck, the Kuraghan captain barking orders, and someone was hoisted up in a cage from below. A woman, Gravy saw, clapped in irons, cloaked in black fur, eyes so green they reminded him of dense rain forests he would never again walk. He growled softly. She was the “Hightarn” shaman Nailbit Nari had described in her expedition notes while trekking through the jungles of <span class="hint" hint="Pirates Perch">Pirate’s Perch</span>. The Kuraghan must’ve sent a slaving party inland to capture the witch.</p>
+<p>He watched as the shaman repeatedly hissed at the Kuraghan captain, clearly refusing to do as he asked. Then another prisoner was brought up, a short sleek figure, fur-clad like the shaman. No, Gravy realized, a child. The shaman’s face fell, horror in her eyes.</p>
+<p>A Kuraghan sailor raised a pistol and pressed the muzzle against the child’s belly. The shaman reluctantly hung her head in acquiescence and began an intricate ritual of chants and gestures. Sea-blue symbols formed and glistened around her. From his explorations of Dreadfall, he recognized some of them. Ancient Dhani, a dead language known to but a few.</p>
+<p>From a chest at his feet, the Kuraghan captain drew a gold-filigree skull as rare as squid’s teeth. Gravy recognized it as one of the three golden empresses whose tombs he had been seeking for half of his undeath. These blighters had been planning a long time for this moment. The captain waited until the shaman had screamed her final words, then tossed the skull into the water.</p>
+<p>Through the glassy depths, Gravy watched as the skull melted away, dissolved like salt in water. Then the brine began to turn, revolving faster and faster until it was a churning vortex that swirled ever deeper towards the ocean floor. Eldritch light flickered up and down the length of the whirlpool as it parted not only the sea but into something else as well. <em>Somewhere</em> else.</p>
+<p>Gravy gripped the gunwale as chaotic currents lashed at the Dreadnought’s hull. From his lurching vantage, he peered down into the swirling water, past the blurred forms of creatures and detritus caught in its thrall. Finally, at the whirlpool’s deepest apex, Gravy saw it, the towers and spires of a shining golden city. Not drowned in the cursed waters of Teramundr’s Triangle. Beyond them. Beyond anywhere that Gravy had ever sailed. If he had a heartbeat, it would have stilled at the sight.</p>
+<p>Movement above caught his eye as the Kuraghan flagship made for the vortex. Gravy clenched the periscope with mounting fury. He had promised himself that he would be the first to the city. If he followed them, they would get there first. The portal was open, beckoning them all to the riches of a new world. His course was clear.</p>
+<p>“All hands to arms,” he bellowed as he dropped via pulley and platform to the deck. “Them filthy fingers must not touch our gold!”</p>
+<p>The undead clung to port and starboard as Chum released the Dreadnought from its hold to surge up through the swell. It breached the surface, salty brine spilling from cracks in its carcass, and rose further still to bear down on the Kuraghan ship.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/captain-bones-and-the-city-of-gold-4.webp" alt="captain-bones-and-the-city-of-gold-4"></p>
+<p>Gravy appreciated the shocked countenance of their captain as he hollered for his crew to meet the aggressors. Portholes opened along the starboard side of Absolon’s Dream as the Dreadnought brought its own guns to bear.</p>
+<p>“Fire at will, Shelly!”</p>
+<p>His crustaceous cannoneer lit fuses and let fly. Wood splintered, Kuraghan sailors screamed, the sharp, burning scent of gunpowder harsh in the early morning air.</p>
+<p>“Reload!” Gravy cried. “These blanched blaggards need a little more iron in their blood!”</p>
+<p>But Absolon’s Dream had heavier cannons and more portholes. It fired again, and the crunch of shattering timber resounded along their hull. The Dreadnought listed to port.</p>
+<p>“I’ll shore her up, Cap’n!” Swabbie shouted as he lumbered below deck. True to his word, the carpenter had the hull patched faster than Gravy could say “Barnacle me boards.” The Dreadnought found an even keel and once more bore down on the Kuraghan flagship.</p>
+<p>Gravy watched through his spyglass as the enemy captain barked orders at the shaman. She looked forlornly at the child then spoke rapidly, the power of her incantation clear even across the waves.</p>
+<p>The sea between the two ships flowed and boiled as huge, dark tentacles burst free, suckers the size of dinner plates descending to wrap the Dreadnought in a slick, powerful grip. Mere feet from Gravy, Chum was smashed into a pile of bones.</p>
+<p>Absolon’s Dream pushed on for the vortex and Gravy howled with frustration. He would not be thwarted by the shaman’s pet. The beast’s colossal eye glared at him across the deck. He’d have dearly loved to fire a cannonball into it, but the <span class="hint" hint="Kraken">kraken</span> was too wily for that, protecting its vulnerables with a trio of stout tentacles.</p>
+<p>“Kelpie!”</p>
+<p>“Aye, Cap’n?” answered his ropey quartermaster.</p>
+<p>“Gather up Chum’s bones and load them into a cannon. Tell Shelly to aim for the eye!”</p>
+<p>Kelpie knew better than to argue with her captain in the heat of battle. With multiple writhing ropes, she plucked Chum’s remains from the deck and popped them into the muzzle that Shelly now brought to bear on the kraken.</p>
+<p>“Fire!”</p>
+<p>Like grapeshot, Chum’s bones spread as they hurtled between the sea monster’s protective tentacles. As they struck home, bouncing across the creature’s head, Gravy raised his compass and brought his first mate back from the dead.</p>
+<p>Chum’s bones flew back together, clicking into place from heel to skull. When ‘them bones’ were once again complete and walking about upon the sea beast’s bulbous cranium, Chum wasted no time in drawing his cutlass. Using his hook hand for purchase, he dangled between the kraken’s eyes and plunged the blade into the creature’s glowering orb.</p>
+<p>With a sonorous groan, the kraken’s limbs went limp, and it slid off the Dreadnought back into the depths. Kelpie threw Chum a rope and hauled the first mate back aboard before he was carried into the brine with the sinking leviathan.</p>
+<p>Gravy looked to the Kuraghan ship and saw that it had gained quite the lead. It was almost at the edge of the whirlpool. No, Gravy refused to lose this race.</p>
+<p>Once again, he raised his compass. Around him, his skeletal swashbucklers dropped to the deck, lifeless. His energies thus mustered, he whispered another ode to Nocetes, and poured the life force of his crew into the dead kraken. It stirred from its descent, then with a twitch of its tentacles, it surged towards Absolon’s Dream.</p>
+<p>“Hold them!” Gravy boomed.</p>
+<p>The beast burst up beneath the Kuraghan ship and hauled it to a halt.</p>
+<p>“Squeeze the salt from their veins!” he growled, and the beast’s huge tentacles contracted, crushing gunports and cannons, pulverizing Kuraghan gunners where they stood.</p>
+<p>With a sigh of relief, Gravy released his control of the kraken, letting it slip free to drown again. Then he set to the ghoulish work of reanimating his crew.</p>
+<p>When the last of them had once more staggered up from death, grinning and whooping, Gravy turned to Chum. “Scupper them sea scummers!”</p>
+<p>The battle was pitched, but the remaining Kuraghan crew fell to the steady, bloody work of Gravy’s pirates. Gravy himself strode across the enemy deck, grim determination shoring up his ebbing energy.</p>
+<p>He saw the captain pull the shaman from the cage, high on the quarterdeck. Above the captain, a monkey clambered up the forward rigging. Strangely, the child was nowhere to be seen, the pistol now pointed at the shaman’s head. Gravy knew full well what would happen if the sailor pulled the trigger. Even if he raised her up from the dead, no head meant no knowledge left to share with him, arcane or otherwise.</p>
+<p>“Stay thy hand, wretch!” Gravy howled, desperation spurring him up the stairs.</p>
+<p>But the captain nodded at the sailor who, with a click and bang, reduced the shaman’s cranium to red and gray mist. Above them, the monkey screeched, and before Gravy’s awestruck eyes, transformed into a winged chirpwhisk and flew off into the bruised clouds.</p>
+<p>“Riggermortis!” barked Gravy.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/captain-bones-and-the-city-of-gold-5.webp" alt="captain-bones-and-the-city-of-gold-5"></p>
+<p>From the rigging above, the zombie dropped like a diving gull and spitted the captain from head to hindquarters with his cutlass. He then wrenched his blade free with a wet rasp and swiped the head off the sailor before he could reload his pistol.</p>
+<p>Gravy spun on his heels. “Back to the ship!” Gravy bellowed at his crew. “Make for the vortex!”</p>
+<p>Leaving Absolon’s Dream to sink in her wake, the Dreadnought sailed hard for the spinning whirlpool. The ship pitched forward, hauled into the spin.</p>
+<p>After a swift descent, the Dreadnought’s bow struck the nadir of the whirlpool and, through the churning water, Gravy spied the fabled Trōpal-Dhani, his life and undeath’s quarry. Pearl towers rose into a sapphire sky. Domed roofs glittered with opal and diamond. The streets themselves seemed paved with platinum.</p>
+<p>“Hold her steady!” Gravy yelled, but the Dreadnought was slipping backward. The vortex was failing, sucking his ship up and away, intent on returning her to reality.</p>
+<p>“Kelpie!” he bellowed. “Lifeline!”</p>
+<p>A rope whipped around his waist and tied itself off. At the other end, the quartermaster lashed herself to a mast. Gravy tipped his hat at her, then dove overboard.</p>
+<p>Through the swirling water, he felt the warmth of sun-drenched sand. He swam towards it and reached out until his fingertips combed through the grains. The pain was instant and agonizing. Every bone in his body shivered. Some flaked away, flecks drifting like salt spray on a stormy night. This was Nocetes’ gift, and her curse. Eternity at sea. Certain death upon the land. Yet he clawed up onto that burning beach, searching blindly, grasping, until his failing fingers hooked something, a chain, pliant with the promise of gold.</p>
+<p>With the last of his waning strength, Gravy tugged on the rope, signaling Kelpie to haul him back in. And as his crew brought him up with a final, “Heave ho,” the Dreadnought burst through the water and bobbed upon the calming surface. The whirlpool became nothing more than a ripple. The sea grew still. Trōpal-Dhani was gone.</p>
+<p>“Arr, behold!” Gravy Bones wheezed. “Becalmed we might be, but we ain’t buried yet.” He raised his prize for all to see. The pendant gleamed in the light, the purest, brightest gold any of them had ever seen.</p>
+<p><img src="https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/captain-bones-and-the-city-of-gold-6.webp" alt="captain-bones-and-the-city-of-gold-6"></p>
+<p>He had done it. Captain Gravy Bones, the first pirate to reach that place of legend. One of the rarest Dhani treasures now lay in his undead hand.</p>
+<p>“Aye, Cap’n,” agreed Chum. “She’s a beauty. But how will we get to Trōpal-Dhani now?”</p>
+<p>“And even if we do,” added Moray, “how will ye step ashore?”</p>
+<p>“Let me worry about ole Nocetes. Fer now we need to learn some ancient Dhani words, find another golden empress, then capture that pint-sized changeling.”</p>
+<p>There was dead silence on the ship.</p>
+<p>“Quit yer gawping ye wretched cadavers! All hands, set sail fer <span class="hint" hint="Golden Port">Golden Port</span>!”</p>
+<p>His orders were met with a unanimous “Aye!”</p>
+<p>As his crew busied themselves with their duty, Gravy hung his treasure at the helm and leaned heavily on the wheel, resting his old bones as they knitted themselves back together.</p>
+<p>Before this voyage’s end, he and Nocetes would be having themselves a parley. For come deities and distant lands, a pirate goes where he wants, and plunders as he pleases.</p>
+<hr>
+<p><em>Story by Robbie Wen, Edwin McRae, Rachel Rees, Alan Baxter</em></p>
+<hr><!-- fablore-narrated-videos:start -->
+<div class="narrated-videos">
+<h1>Narrated Video</h1>
+
+<div class="nv-single-video">
+<div class="nv-video-wrap">
+<iframe src="https://www.youtube.com/embed/QVYw2IpKDDc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+</div>
+
+</div>
+
+</div>
+
+<!-- fablore-narrated-videos:end -->
+<!-- fablore-related:start -->
+<section class="related-section" aria-label="Related Lore">
+<h1 id="related-lore">Related Lore</h1>
+
+<div class="related-cards">
+<a class="related-card" href="../../heroes-of-rathe/gravy-about.html">
+<span class="related-card-body">
+<span class="related-card-type">Hero</span>
+<span class="related-card-title">Gravy Bones</span>
+</span>
+</a>
+<div class="related-cards-spacer" aria-hidden="true"></div>
+
+<a class="related-card" href="../../world-of-rathe/high-seas.html#trōpal-dhani">
+<span class="related-card-body">
+<span class="related-card-type">Location</span>
+<span class="related-card-title">Trōpal-Dhani</span>
+</span>
+<span class="related-card-sub">High Seas</span>
+</a>
+<div class="related-cards-spacer" aria-hidden="true"></div>
+
+<a class="related-card" href="../../world-of-rathe/high-seas.html">
+<span class="related-card-body">
+<span class="related-card-type">Region</span>
+<span class="related-card-title">High Seas</span>
+</span>
+</a>
+</div>
+</section>
+<!-- fablore-related:end -->
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/armory-decks/boom-town-boom.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/high-seas/the-lost-treasure-of-blackwater-strait.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/armory-decks/boom-town-boom.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/high-seas/the-lost-treasure-of-blackwater-strait.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../../mark-09e88c2c.min.js"></script>
+        <script src="../../searcher-09f2665d.js"></script>
+
+        <script src="../../clipboard-1626706a.min.js"></script>
+        <script src="../../highlight-abc7f01d.js"></script>
+        <script src="../../book-c22b7243.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../theme/toolbar-5fa3570f.js"></script>
+        <script src="../../tab-fd6a8e95.js"></script>
+        <script src="../../back-to-top-7ddb360a.js"></script>
+        <script src="../../hero-hub-d0a786d0.js"></script>
+        <script src="../../bionic-e657825d.js"></script>
+        <script src="../../theme/hints-16cd2044.js"></script>
+        <script src="../../theme/related-eadba45b.js"></script>
+        <script src="../../narrated-videos-84e813a2.js"></script>
+        <script src="../../theme/browse-ea40f197.js"></script>
+        <script src="../../theme/hero-filter-03bca56f.js"></script>
+        <script src="../../theme/reading-progress-adb1a214.js"></script>
+        <script src="../../theme/heading-anchors-838a9d90.js"></script>
+        <script src="../../theme/copy-link-605c931d.js"></script>
+        <script src="../../theme/reading-prefs-e9927c10.js"></script>
+        <script src="../../theme/random-story-d16666c7.js"></script>
+        <script src="../../theme/read-tracking-e63af195.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

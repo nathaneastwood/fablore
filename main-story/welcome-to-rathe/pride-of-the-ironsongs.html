@@ -1,0 +1,547 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Pride of the Ironsongs - Legendary Stories</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+        <!-- Open Graph / Twitter (Discord, Slack, etc. link previews — requires absolute image URL) -->
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Legendary Stories">
+        <meta property="og:title" content="Pride of the Ironsongs - Legendary Stories">
+        <meta property="og:description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <meta property="og:image" content="https://legendarystories.net/assets/logo_original_cropped.png">
+        <meta property="og:image:width" content="736">
+        <meta property="og:image:height" content="736">
+        <meta property="og:image:alt" content="Legendary Stories logo">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Pride of the Ironsongs - Legendary Stories">
+        <meta name="twitter:description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <meta name="twitter:image" content="https://legendarystories.net/assets/logo_original_cropped.png">
+        <!-- PNG first (reliable tab icon); src/assets/favicon.svg overrides mdBook bundle on disk; ?v= busts favicon cache -->
+        <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon.png?v=5">
+        <link rel="icon" type="image/webp" sizes="32x32" href="../../assets/favicon.webp?v=5">
+        <link rel="icon" href="../../assets/favicon.ico?v=5" sizes="any">
+        <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=5">
+        <!-- Install / standalone: iOS “Add to Home Screen”, Android “Install app” (Chrome) -->
+        <link rel="manifest" href="../../manifest.json">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="apple-mobile-web-app-title" content="Legendary Stories">
+        <meta name="mobile-web-app-capable" content="yes">
+        <!-- Font Awesome 4 (custom toolbar icons) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <!-- Tooltip library (used by hints.js) -->
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+        <!-- Apply reading preferences before content renders to prevent flash -->
+        <script>
+        (function () {
+            var VALID_SCALES = ['0.875', '1', '1.175'];
+            var VALID_WIDTHS = ['560px', '750px', '980px'];
+            try {
+                var s = localStorage.getItem('fablore-font-scale');
+                if (s && VALID_SCALES.indexOf(s) !== -1 && s !== '1') {
+                    document.documentElement.style.setProperty('--fablore-font-scale', s);
+                }
+                var w = localStorage.getItem('fablore-line-width');
+                if (w && VALID_WIDTHS.indexOf(w) !== -1 && w !== '750px') {
+                    document.documentElement.style.setProperty('--content-max-width', w);
+                }
+            } catch (e) {}
+        })();
+        </script>
+
+        <meta name="description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../../css/chrome-fc474251.css">
+        <link rel="stylesheet" href="../../css/print-9e4910d8.css" media="print">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero-0066e6d7.css">
+        <link rel="stylesheet" href="../../image-83732514.css">
+        <link rel="stylesheet" href="../../tab-bf9533cd.css">
+        <link rel="stylesheet" href="../../bionic-e54553dc.css">
+        <link rel="stylesheet" href="../../footer-1dff10f9.css">
+        <link rel="stylesheet" href="../../breadcrumb-6efe5711.css">
+        <link rel="stylesheet" href="../../sets-hub-e2029893.css">
+        <link rel="stylesheet" href="../../theme/hints-b7170011.css">
+        <link rel="stylesheet" href="../../theme/related-5a0985b2.css">
+        <link rel="stylesheet" href="../../theme/story-meta-d7ffbcb7.css">
+        <link rel="stylesheet" href="../../theme/narrated-videos-a6b92c45.css">
+        <link rel="stylesheet" href="../../theme/browse-e6d12a00.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "light";
+            const default_dark_theme = "ayu";
+            window.path_to_searchindex_js = "../../searchindex-a3252c3c.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc-5f7cc31c.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Legendary Stories</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <!-- fablore-breadcrumb:start -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  
+<ol>
+    
+<li><a href="../the-land-of-rathe.html">Main Story</a></li>
+
+    
+<li><span>Welcome to Rathe</span></li>
+
+    
+<li><span aria-current="page">Pride of the Ironsongs</span></li>
+
+  </ol>
+
+</nav>
+<!-- fablore-breadcrumb:end -->
+<h1 id="pride-of-the-ironsongs"><a class="header" href="#pride-of-the-ironsongs">Pride of the Ironsongs</a></h1>
+<!-- fablore-story-meta:start -->
+<div class="story-meta" aria-label="Story information">
+  <span class="story-meta-item"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M421.7 220.3l-11.3 11.3-22.6 22.6-205 205c-6.6 6.6-14.8 11.5-23.8 14.1L30.8 511c-8.4 2.5-17.5 .2-23.7-6.1S-1.5 489.7 1 481.2L38.7 353.1c2.6-9 7.5-17.2 14.1-23.8l205-205 22.6-22.6 11.3-11.3 33.9 33.9 62.1 62.1 33.9 33.9zM96 353.9l-9.3 9.3c-.9 .9-1.6 2.1-2 3.4l-25.3 86 86-25.3c1.3-.4 2.5-1.1 3.4-2l9.3-9.3H112c-8.8 0-16-7.2-16-16V353.9zM453.3 19.3l39.4 39.4c25 25 25 65.5 0 90.5l-14.5 14.5-22.6 22.6-11.3 11.3-33.9-33.9-62.1-62.1L314.3 67.7l11.3-11.3 22.6-22.6 14.5-14.5c25-25 65.5-25 90.5 0z"/></svg></span> Written by <strong>Nicola Price</strong></span>
+  <span class="story-meta-item"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM323.8 202.5c-4.5-6.6-11.9-10.5-19.8-10.5s-15.4 3.9-19.8 10.5l-87 127.6L170.7 297c-4.6-5.7-11.5-9-18.7-9s-14.2 3.3-18.7 9l-64 80c-5.8 7.2-6.9 17.1-2.9 25.4s12.4 13.6 21.6 13.6h96 32H424c8.9 0 17.1-4.9 21.2-12.8s3.6-17.4-1.4-24.7l-120-176zM112 192c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48z"/></svg></span> Art by <strong>MJ Fetesio, Sindy Wo</strong></span>
+  <span class="story-meta-item"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-17.7 0-32 14.3-32 32s14.3 32 32 32h50.7L169.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L384 141.3V192c0 17.7 14.3 32 32 32s32-14.3 32-32V64c0-17.7-14.3-32-32-32H288zM80 64C35.8 64 0 99.8 0 144V400c0 44.2 35.8 80 80 80H336c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v80c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V144c0-8.8 7.2-16 16-16h80c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z"/></svg></span> <a href="https://fabtcg.com/hero/dorinthea/story/story/" target="_blank" rel="noopener">Original article</a></span>
+  <span class="story-meta-item"><span class="fa-svg far" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M232 120C232 106.7 242.7 96 256 96C269.3 96 280 106.7 280 120V243.2L365.3 300C376.3 307.4 379.3 322.3 371.1 333.3C364.6 344.3 349.7 347.3 338.7 339.1L242.7 275.1C236 271.5 232 264 232 255.1L232 120zM256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0zM48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48C141.1 48 48 141.1 48 256z"/></svg></span> 4,936 words · 20 min read</span>
+</div>
+
+<div class="story-share" data-story-type="main-story">
+  <span class="story-share-label">Share</span>
+  <a class="story-share-btn story-share-facebook" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" title="Share on Facebook"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg></span></a>
+  <a class="story-share-btn story-share-twitter" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on X" title="Share on X"><span class="story-share-x-logo" aria-hidden="true">X</span></a>
+  <a class="story-share-btn story-share-bluesky" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on BlueSky" title="Share on BlueSky"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 568 501" height="0.85em" width="0.85em" style="vertical-align:-0.1em;fill:currentColor" aria-hidden="true"><path d="M123.121 33.664C188.241 82.553 258.281 181.68 284 234.873c25.719-53.192 95.759-152.32 160.879-201.209C491.866-1.611 568-28.906 568 57.947c0 17.346-9.945 145.713-15.778 166.555-20.275 72.453-94.155 90.933-159.875 79.748C508.222 323.8 521.99 372.7 484.34 421.616c-60.732 79.094-165.296 62.47-235.296-14.534C179.044 484.086 74.48 500.71 13.748 421.616-23.902 372.7-10.134 323.8 106.532 304.2540.812 315.435-33.068 296.955-53.343 224.502-59.176 203.66-69.121 75.293-69.121 57.947c0-86.853 76.134-59.558 192.242-24.283z" /></svg></a>
+  <a class="story-share-btn story-share-whatsapp" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp" title="Share on WhatsApp"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></span></a>
+  <button class="story-share-btn story-share-copy" type="button" aria-label="Copy link" title="Copy link"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg></span></button>
+</div>
+
+<script>
+(function () {
+  var u = encodeURIComponent(window.location.href);
+  var t = encodeURIComponent(document.title);
+  function qs(sel) { return document.querySelector(sel); }
+  var fb = qs('.story-share-facebook');
+  if (fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + u;
+  var tw = qs('.story-share-twitter');
+  if (tw) tw.href = 'https://twitter.com/intent/tweet?url=' + u + '&text=' + t;
+  var bsky = qs('.story-share-bluesky');
+  if (bsky) bsky.href = 'https://bsky.app/intent/compose?text=' + t + '%20' + u;
+  var wa = qs('.story-share-whatsapp');
+  if (wa) wa.href = 'https://api.whatsapp.com/send?text=' + t + '%20' + u;
+  var cp = qs('.story-share-copy');
+  if (cp) cp.addEventListener('click', function () {
+    navigator.clipboard.writeText(window.location.href).then(function () {
+      cp.classList.add('story-share-copied');
+      setTimeout(function () { cp.classList.remove('story-share-copied'); }, 2000);
+    });
+  });
+})();
+</script>
+<!-- fablore-story-meta:end -->
+<p><em>Centuries after the end of the great wars, Solana is experiencing an era of peace and prosperity, with the last of its great defenses completed, and its people watched over by noble protectors. And yet, a strange wind has begun to stir once more, sowing seeds of unrest across the continent. Strangers hail from the East, bringing their strange customs and mystic rites to the outskirts of the grand city. To the South, blasphemous cults gather, driven by greed and gluttony. Worst of all, the savage packs of the west gather near the outskirts of the jungle, creeping ever closer to the villages under Solana’s protection.</em></p>
+<p><em>Amidst the brewing storm, the Hand of Sol gathers in ever larger patrols, permanently stationing knights in villages across <span class="hint" hint="The Golden Fields">the golden fields</span>. As terrible beasts begin to emerge, Solana’s scholars continue to search for a possible cause, and a way to eliminate the creatures once and for all. The knights of the Hand of Sol are needed now more than ever, to defend innocent lives from the horrors that threaten to overwhelm them all.</em></p>
+<h2 id="childhood"><a class="header" href="#childhood">Childhood</a></h2>
+<p>For centuries, the Ironsong family have prided themselves on their reputation as master blacksmiths. The first generation of the bloodline were awarded the name of Ironsong for their work with weapons and armour, forging some of the finest in all of Solana. In the years since, they have passed down their trade secrets from generation to generation, preserving the Ironsong name.</p>
+<p>Dorinthea Ironsong was an only child with a penchant for mischief. Her earliest memories are of the forge, and the heavy scent of smoke hanging in the air as she watched her parents work, expertly crafting graceful blades and sun-blessed shields. Her mother would often talk to her while smithing, explaining everything to her curious daughter.</p>
+<p>When she wasn’t in the forge with her parents, Thea could usually be found with Minerva, the reserved, steely-eyed woman who ran the <span class="hint" hint="Golden Chariot">Golden Chariot</span> next to the <span class="hint" hint="Ironsong Forge">Ironsong forge</span>. Her parents had known Minerva since they were children, long since passing the line between friends and family. While Thea knew that Minerva had been born outside of Solana, the innkeeper was incredibly private, and rarely spoke about her past.</p>
+<p>In the mornings, Thea helped out with minor chores, sweeping and cleaning the tavern before returning to the family forge in the afternoon. Then, as all the guests were settling in for their evening meal, she would take up residence next to the fire and listen to the chatter around her.</p>
+<p>Thea was fascinated by the patrons that came to the inn, many of them travellers visiting from outside of Solana. She loved to listen to them share stories from their hometown, or describe the things they had seen on their travels. Most travellers came from the villages under Solana’s protection, following one of the many paths leading to the grand city gates. Others, however, came from further afield to visit the great <span class="hint" hint="Library of Illumination">Library of Illumination</span>, or listen to speeches in the <span class="hint" hint="Amphitheatre">Amphitheatre</span>. The busiest time of the year, however, was during the Solstice of Laurels.</p>
+<p>The Solstice took place once a year, equal parts celebration and ceremony for the Hand of Sol. Great processions of knights clad in ceremonial armour strode through the streets of Solana, gathering at the base of the Amphitheatre. Templars, radiant in gold and ivory, marching with their weapons held high, their masks gleaming in the light of the sun.</p>
+<p>Trainees, squires, knights, all stepping forward to receive the blessings of the Grand Magister. Where some were commended for completing their training, recognised before all of Solana, others were commended for their excellence and dedication, proudly accepting their promotions. After them, a few blessed individuals stepped forward to be inducted as Templars, receiving their masks with honour.</p>
+<p>Thea always looked forward to the Solstice. Sitting high above the arena, she would watch as the knights of Solana marched forward in perfect unison, their heads raised high with pride. Visitors came from all over Rathe to witness the ceremony, and see the noble men and women who became the new generation of knights for the Hand of Sol.</p>
+<p>After the ceremony concluded, she would make her way back to the Golden Chariot to listen to the visitors talking in hushed whispers, their voices full of awe as they spoke of the Solstice, and the radiant warriors who marched beneath the light of the sun.</p>
+<h2 id="the-awakening"><a class="header" href="#the-awakening">The Awakening</a></h2>
+<p>While Thea admired the Hand of Sol, she already knew her destiny. Her family had been chosen long ago to serve Solana as master blacksmiths, and she was proud to continue the Ironsong legacy. So, when the day finally came for the Awakening ceremony, on the eve of her eighth birthday, Thea was ready to don the blacksmith’s apron and join her parents in the forge.</p>
+<p>Following the chancellor into the <span class="hint" hint="Ceremonial Chamber">ceremonial chamber</span>, Thea went to stand at the centre of the room, looking around at all of the objects lining the walls. She searched for the gentle light of a blacksmith’s hammer activating, awakening, glowing like a dying ember in the heat of the forge. Yet, as Thea waited, she did not see a hammer, nor an anvil, tongs, or the blacksmith’s heavy apron. Instead, hundreds of swords all began to shine, resonating with the light of Sol. They darted into the air, flying around her like stars around the sun. Their glow was so bright that they began to illuminate the entire room, the darkened hall flooding with the vibrant light of the noonday sun.</p>
+<p>One sword in particular caught Thea’s attention, a graceful, thin blade with a gilded hilt. It circled closer and closer, and on its next pass, Thea reached out and plucked it from the air, grasping it tightly in her tiny hand. All at once, the rest of the swords fell to the ground with a sharp clatter, still and silent upon the marble floor.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/dori-1.webp" alt="dori-1" class="center">
+<p>The next day, the Archon of Thea’s district proclaimed her a prodigy swordsman of great potential, and Thea was immediately enrolled into training with the Hand of Sol. Even as her parents rejoiced, honoured that Sol would choose their daughter to be a knight, Minerva only watched Thea quietly, something unreadable lingering in her shrewd gaze.</p>
+<h2 id="genesis"><a class="header" href="#genesis">Genesis</a></h2>
+<p>Thea’s training began with simple classes, taught by scholars from the Light of Sol. Their lessons covered everything from the history of Solana, to the lands beyond the city walls, to the many creatures of Rathe. As their training progressed, this grew to include theory relevant to their training, such as the structure of different weapons and armour, how to identify their opponents’ weaknesses, and how to play to their own strengths.</p>
+<p>Thea quickly made friends with two of her fellow trainees. Valeria, short and stubborn, was determined to live up to her family legacy, and spoke of her desire to one day become a templar. Felix was a dark-haired, light-hearted, enthusiastic young boy, excited about their training and filled with gratitude to Sol for giving him the chance to become a knight. The trio were inseparable, spending almost every waking hour in each other’s company.</p>
+<p>Every day, Thea rose from her warm bed above the family forge and travelled to the outer walls to begin training. Solides through Verides were spent with scholars and knights in the classroom, learning theory. Exorides and Merides were spent training, beginning with drills to learn footwork and technique, before progressing to sparring as they grew older and a little more experienced. Finally, Vesperides would come - a day of rest, for the trainees to do as they pleased, and enjoy the company of their family and friends.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/dori-2.webp" alt="dori-2" class="center">
+<p>Thea, Valeria and Felix often spent Vesperides either in the Golden Chariot, listening to travellers’ tales, or in the Amphitheatre, listening to the Magisters who spoke the word of Sol. On their way home, strolling amongst the verdant gardens of the Silvarium, they would often talk about the future, dreaming about the day that they would journey outside the walls as knights of Solana. They wondered aloud about distant lands, imagining what they might see beyond the golden fields. The tales they heard in the Golden Chariot fuelled their imaginations, and they dreamed together about the day they would step forward to uphold their sacred duty. Most of all, they dreamt about their future party, and the radiant templar that would lead them beyond <span class="hint" hint="The Great Gates">the great gates</span> of Solana.</p>
+<p>Over time, their schedule began to shift, allowing for more time for physical training to perfect their fighting abilities and prepare them for battle. Their lessons covered everything that they might need to survive, information that would be crucial to protecting themselves from the horrors of the outside world.</p>
+<p>“You have no need to fear the world beyond the walls,” Charis told them. Their main instructor, she reminded them to put their faith in Sol. “The glory of Sol will protect you from any threat. Sol knows all and will always guide you to the path of the Light.”</p>
+<p>Even as Thea revelled in their training, finding joy in the structure and purpose granted by the will of Sol, she struggled with the rigid beliefs of her teachers. Meanwhile, her fellow trainees grew quieter and more reserved with each passing year, settling into their roles within the Hand of Sol.</p>
+<h2 id="come-together"><a class="header" href="#come-together">Come Together</a></h2>
+<p>After six long years, Thea, Valeria and Felix journeyed to the Amphitheatre, excited to meet their party and receive the weapons and armour of a squire. The Solstice of Laurels commenced as a procession of noble warriors marched onto the stage, bowing their heads before the cheering crowds. As the trainees crossed the stage, pausing to receive the Magister’s blessings with a humble bow, Thea turned to look out over the crowds before her, all rejoicing under the light of the sun. The Solstice continued long into the day, the figures of proud lieutenants stepping aside to give room to the templars, resplendent in their gilded ceremonial armour.</p>
+<p>Thea and Valeria, assigned to the same party, stepped forward to meet the templar striding toward them. A masked figure cast in gold and silver met their gaze, armour polished to a bright shine, the features of her mask pulled into an aloof expression, with eyes that made it seem as if she were staring straight through them.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/dori-3.webp" alt="dori-3" class="center">
+<p>The templar, Hala, introduced them to their lieutenant, a younger man named Farris; the knights of their party, Vitus, Pallas and Darius; and Marcus, a scholar from the Light of Sol.</p>
+<p>The party left Solana the following day, and ventured out into the villages, patrolling and offering help to those in need. Repairing damaged buildings, tracking down lost livestock, bolstering defenses, digging wells, building fences, hunting wild beasts, tracking and exterminating groups of bandits; anything that the villagers needed. Marcus, as a senior scholar, helped to heal the sick and injured, and gave speeches about Sol and the blessings of the Light.</p>
+<p>They roamed the plains beyond Solana, staying in villages for weeks, sometimes months at a time. By day, they worked tirelessly to help their neighbours, and by night, sat by the local inn’s fire to hear stories from grateful villagers.</p>
+<p>On their travels, the party often told stories to pass the time, sharing their own experiences or stories from Solana’s history. Thea’s memories of her time as a squire were often fond recollections of these moments, spent laughing and chatting under the light of the sun. She often went forward to join Hala at the front of the party, finding moments to talk to the radiant templar. Hala indulged the young squire, sharing tales of her past and lessons she’d learned while in the Hand of Sol.</p>
+<p>Occasionally, Thea would manage to convince Hala to spar with her, taking advantage of the tiny breaks between their patrols. Wielding Dawnblade, the sword that she had been bestowed during her Awakening ceremony, Thea was quick and agile, darting around her opponent with ease. However, the templar was a relentless opponent, constantly one step ahead. In all their time together, Thea only managed to get past Hala’s shield three times, basking in the quiet pride in Hala’s voice as she congratulated her.</p>
+<p>Several months into their patrol, one villager spoke to them in whispers, describing a massacre that had been discovered within the jungles to the west. They described a party of knights that lay strewn across the earth, armour torn open, blood coating the ground in a layer of muddied crimson. The tale was not unusual, in and of itself - the Savage Lands were known for their dangers, and occasionally, a party was caught off guard by the beasts that lurk within.</p>
+<p>However, rumours began to spread of horrific beasts emerging from the jungles, charging along the outermost reaches of the Savage Lands in a mindless frenzy. As reports poured in of attacks on outlying villages, the party spent more and more time in the villages on the outskirts of the golden fields, patrolling the area in an attempt to lessen the attacks.</p>
+<p>They found villages ransacked, bodies lying in the fields, dusty roads littered with blood and entrails. From packs of smaller beasts, to massive creatures with armoured hides, the beasts of the Savage Lands were travelling further than ever before; frenzied, relentless, they fought with reckless abandon, tearing a path through the village until they were finally struck down. Sometimes the party arrived in time to fend off the creatures and save innocent lives. At other times, they arrived to find an empty village, as if its townspeople had vanished in the middle of the night. The only signs of conflict came from the occasional bloodstain, smeared along the side of a building, a streak of crimson left amongst the grassy fields.</p>
+<p>Five years after the party had left Solana, Marcus woke the party before dawn. In the morning twilight, he relayed a message sent by an archon, summoning them to one of the <span class="hint" hint="Forward Camps">forward camps</span> located on the outskirts of the Savage Lands.</p>
+<p>They travelled for almost two weeks before they finally arrived at the forward camp, finding a clearing filled with silver and gold. Knights, lieutenants and templars were packed into the camp, almost completely drowning out the merchant’s stalls lining the border of the clearing. The templars’ masks gleamed in the pale sunlight as they conversed with scholars, gathered near the centre of the clearing. Hala disappeared into the crowd to find the archon who had summoned them, Marcus close behind. Behind them, the rest of the party lingered at the edge of the clearing, watching as the sea of knights parted before Hala’s determined stride.</p>
+<h2 id="into-the-wilderness"><a class="header" href="#into-the-wilderness">Into the Wilderness</a></h2>
+<p>Along the outskirts of the Savage Lands, forward camps lie hidden between the trees, constructed long ago by the Hand of Sol. They serve as entry points to the jungle beyond, and as a safe space for knights and adventurers alike to rest and restock supplies. The camps usually accommodated for one or two parties at a time, and were mostly occupied by merchants, traders, adventurers, and the occasional band of mercenaries. Now, however, the forward camps were overflowing with warriors from Solana, bedrolls lining the clearing.</p>
+<p>Any party near the Savage Lands had been summoned. Templars and scholars stepped aside to gather in meetings, planning patrols and keeping the camps running as they discussed the growing threat from the Savage Lands. For weeks, they remained within the jungle, awaiting news from the Grand Council.</p>
+<p>Then, finally, the scholars received their orders. Templars, scholars and veteran knights were to group together and search the jungle for information. While the senior members banded together, the lieutenants gathered the remaining knights and squires into parties to patrol the borders, and maintain a line of defense between the savage wilds and the golden fields. Farris took control of their party, leading them on minor scouting missions along the outskirts of the jungle.</p>
+<p>For months, they patrolled the borders of the jungle, hunting down any creature that emerged from the depths of the Savage Lands. Hala and the rest of her squadron were gone for days at a time, travelling deep into the jungle in increasingly longer journeys. In her moments of rest between missions, Hala would rejoin the party to check in on her charges and pass on any updates. Between all of the travel, meetings and planning, Hala would occasionally find a spare moment to spar with Thea between the trees, a tiny respite from the quiet frenzy of the forward camps.</p>
+<h2 id="the-road-of-trials"><a class="header" href="#the-road-of-trials">The Road of Trials</a></h2>
+<p>One day, Thea’s party was returning from patrol when they caught a glimpse of smoke between the trees. When the camp finally came into view, the sight was bloodcurdling. Scraps of torn fabric were strewn across the camp, littering the dirt with white, red and gold; one of the tents was on fire, billowing black smoke, while another hung limply from the branches of a nearby tree; blood was smeared into the dirt, a dark crimson stain against the dusty earth; a single corpse lay out in the open, head torn from its shoulders. The merchants, mercenaries and warriors that had been in the clearing hours prior were nowhere to be found, only a single fragment of dented metal left behind to mark their presence.</p>
+<p>After several minutes of silence, Farris relayed their orders from a nearby scholar - secure the camp, guard the remaining supplies, and wait for the parties to return. Thea tried to convince Farris to go after the missing people, that they could be out there somewhere, still alive, dying in slow, silent agony as they waited for someone to come for them. However, it didn’t work. Quietly, gently, Farris repeated their orders, reminding her that Sol knew best.</p>
+<p>Thea was certain that there had to be a mistake. She had seen first-hand the brutality and savagery that the creatures of the Savage Lands were capable of. Surely Sol, a being of wisdom and mercy, wouldn’t tell them to leave innocent people to their fate, torn apart by vicious beasts, disembowelled and left to slowly bleed to death.</p>
+<p>For a while, Thea continued to help her party clean up the camp and secure what was left, but by sundown, she had made up her mind. As the sun began to set and those present were working to secure the camp, Thea took her chance. She stole several weapons from the stockpile and disappeared into the shadows.</p>
+<p>At first, she struggled to find any tracks, but eventually stumbled across some blood smeared against a tree trunk. Thea followed the tracks for several hours, stopping every so often to gather her bearings and find the next part of the trail. Then, at last, Thea found her missing people.</p>
+<p>Four brutes lay within the clearing, while a fifth sat watch near the captives, its head bowed in sleep. Eleven people were tied to the trees next to it. Thea recognised six of them as merchants, and two more bore the armour of the Hand of Sol. The remaining three appeared to be mercenaries, judging by their light armour. Slowly, quietly, she made her way over to the two knights, untying them and handing them a weapon each. While she worked on the mercenaries, she looked over, expecting the two knights to already be on their feet and helping others - yet they were still sitting against the tree.</p>
+<p>On closer inspection, Thea saw the wounds seeping crimson against their armour, the way they were slumped forward, faces waxy and pale. They were barely going to be able to walk, let alone wield a weapon. The rest of the group were little better. Many of the captives appeared to be badly wounded, exhausted, or suffering from extreme blood loss.</p>
+<p>Just as she began to wonder how she was going to help these people escape, she heard the distinctive rasp of metal against wood. Behind her, the guard rose to its feet, club clenched tightly in one fist. Thea drew her blade, already moving in an attempt to silence it before it could alert the rest of the pack, but it was too late - with a bellowing roar, it roused the other brutes from their slumber. As the pack lurched to their feet, Thea noticed one of the warriors out of the corner of her eye, struggling to rise, leaning heavily on the tree as he straightened.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/dori-4.webp" alt="dori-4" class="center">
+<p>Raising Dawnblade before her, Thea placed herself between the pack of brutes and the camp survivors. She was preparing herself for battle when she noticed a faint flash of light between the trees, recognising the metallic shine of silver armour. Hala and the rest of her party burst into the clearing, the templar holding her shield out before her as she charged the brutes, brandishing her sword, shining with the light of Marcus’s magic. Within seconds, the group was under attack, and the sounds of fierce battle filled the clearing. The party began to make some headway as one of the brutes ran into the jungle, badly injured. For a moment, it almost seemed as if they could all make it out okay.</p>
+<p>Yet before they could defeat the remaining brutes, before they could help any of the captives to their feet, before they could even try to get anybody back to camp, a great bellow echoed throughout the clearing. Nine more brutes emerged from the line of trees, one of them towering high above the others, skin grey and craggy, eyes dark as it charged toward them. They were outnumbered, overpowered, and outmatched.</p>
+<p>The party had no choice but to flee. As Hala sounded a retreat, charging at the brutes to give the rest of the party enough time to flee, Thea started forward to help the captives struggling to their feet. Then Marcus appeared before her. Blocking her path, he pulled her away, dragging her out of the clearing and forcing her to run toward the camp. As they dashed through the trees, the air was filled with the sound of pained screams, echoing from all those they had left behind.</p>
+<p>When the morning came, the sun rising to flood the forward camp with light, only three members of the party had emerged into the campsite. Marcus and Thea arrived first, supporting Hala between them, grey-faced from blood loss, her head hanging limply from her shoulders. While, with some difficulty, Thea had been forced to leave the others behind, she had refused to return to camp without Hala. The pair found her on the brink of death, badly injured from her battle with the brutes. Even as the scholars rushed to lie her down on a bedroll, calling light to their fingertips, her breathing grew shallower, her wounds still seeping blood.</p>
+<p>Several hours later, just as Thea was about to give up hope, another group of knights entered the clearing, one of them carrying an unconscious Valeria over one shoulder. For hours, the camp was bustling with activity as other parties returned from scouting missions and damage control. Thea watched silently, oblivious to the commotion around her as she observed her friend.</p>
+<p>As Valeria finally began to stir, Thea felt a flood of relief wash over her, rising from her bedroll to make her way over to her friend. Yet when Valeria glanced in her direction, her expression shuttered, and Thea watched as she turned her face away, a burning anger in her eyes.</p>
+<h2 id="return-to-the-fold"><a class="header" href="#return-to-the-fold">Return to the Fold</a></h2>
+<p>In the years since leaving Solana, Thea had imagined their return to the city more than once: the party marching through the gates, welcomed by their people, pleased to return to their home. Yet at the age of nineteen, Thea found the reality to be much different. Their quiet procession through the fates was sombre, the walls pale in the light of dawn as they passed through the city streets.</p>
+<p>Valeria marched ahead of her, carrying Vitus’ shield on one arm, completely silent. Hala sat atop a dark mare, her face still pale, clutching her side with one arm as Thea slowly led her horse forward. Thea could feel Marcus’s gaze upon her back, and she wondered idly if Sol was watching her as well, looking on in disapproval.</p>
+<p>After handing in her armour, Thea made her way back to the smithing district. As she walked down the main street, gaze fixed on the outline of Minerva’s tavern, she began to slow, coming to a halt in front of her childhood home. Through the open doors, she could see the forge burning brightly, smoke wafting out into the gentle breeze as her parents rushed toward her with open arms.</p>
+<p>She spent several hours with her parents, answering all of their questions with a growing sense of exhaustion. Finally, she found an opportunity to slip away to the Golden Chariot. The moment that she stepped through the front door; Thea came face to face with the tavern owner’s steely gaze. For a moment, both stood completely still, staring silently at one another.</p>
+<p>Streaks of grey had appeared in Minerva’s vibrant auburn hair, dark circles hanging beneath her eyes, fine wrinkles lining her skin. She looked so much older than Thea remembered, and yet somehow, it seemed as if she hadn’t changed at all. Just as she opened her mouth to say something, Minerva suddenly lurched forward, wrapping Thea in a tight hug.</p>
+<p>In the familiar comfort of the inn, Minerva listened silently as Thea described the last few years. She spoke of the rumours that had spread, of the fear and unease, of the village that they’d found in ruins. She spoke of travelling to the Savage Lands and patrolling the outskirts of the jungle. She spoke of coming back to find the forward camp in chaos, of the captives that had been taken and the people still missing. She spoke of leaving to find survivors, of stumbling across the pack of brutes, and trying to help them, and how it had achieved nothing. That four of her party members had died trying to make up for her mistake. That they hadn’t even managed to save any of the captives in the end. When Thea was finished, Minerva smiled sadly. “I know that you were only trying to do the right thing. That’s what matters, Thea.”</p>
+<p>Yet even as Minerva comforted her, Thea felt the burden of her mistakes weighing on her shoulders, unable to forget the deaths that she had caused.</p>
+<h2 id="redemption"><a class="header" href="#redemption">Redemption</a></h2>
+<p>For months, she waited, helping to serve customers in the tavern, working in the forge, and travelling to the outer walls for sparring sessions. The Solstice came and passed, and while her fellow squires were inducted into the Hand of Sol as full knights, Thea remained on the outskirts of the ceremony with the other Solanians. For a time, it almost seemed as if she would never don her armour again, and she wondered what happened to those who failed to fulfil their chosen role. And then, she received a summons from Hala.</p>
+<p>The templar stood tall, radiant in the centre of the antechamber. Her shining armour hid any possible signs of what had happened, and Thea struggled to tell if Hala was fully healed, or if she had suffered any lasting injuries or scars. Thea struggled to meet her gaze; head bowed as she murmured her greetings. For several moments, silence filled the room, until finally she looked up. Hala’s impassive mask stared back at her, even as she gently placed a hand on Thea’s shoulder.</p>
+<p>“Are you ready to prove yourself?”</p>
+<h2 id="rite-of-passage"><a class="header" href="#rite-of-passage">Rite of Passage</a></h2>
+<p>Once a year, the kingdom of Solana holds the Solstice of Laurels, a celebration of the Hand of Sol. Templars, resplendent in their ceremonial armour, lead great processions of knights through the city streets, gathering at the base of the Amphitheatre. Then, at noon, the ceremony would finally begin. Squires completing their training step forward to stand before the Grand Magister, heads bowed as they proudly receive the blessings of Sol. Thea slowly stepped forward, bowing deeply before the radiant figure of the Grand Magister.</p>
+<p>Despite the prestige of her accomplishment, promoted to lieutenant at just twenty-one years old, Thea remains strangely solemn. She cannot forget the events that have led to this moment, or the people that she has lost along the way. With her mistakes weighing heavily upon her shoulders, Thea is determined to do better, and become an exemplary lieutenant worthy of her position. Before the people of Solana, Thea makes a promise to herself - she will learn from her past, follow the will of Sol, and honour her people.</p>
+<p>“In the name of Sol, I swear that I shall serve Solana to the best of my ability, until death relieves me of this sacred duty. I swear that I will protect Solana, and all those who live within its walls.” Her voice rang out, cutting through the hushed quiet of the crowds watching over her. “By the blessed light, I shall carry out this oath, and never shall I knowingly nor willingly violate this, my solemn oath and obligation as a lieutenant of Solana, the outstretched hand of Sol. By the glory of Sol’s light, in Sol’s name, so shall it be.”</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/01-welcome-to-rathe/dori-5.webp" alt="dori-5" class="center">
+<hr><!-- fablore-narrated-videos:start -->
+<div class="narrated-videos">
+<h1>Narrated Video</h1>
+
+<div class="nv-single-video">
+<div class="nv-video-wrap">
+<iframe src="https://www.youtube.com/embed/AuOKr_eoDLY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+</div>
+
+</div>
+
+</div>
+
+<!-- fablore-narrated-videos:end -->
+<!-- fablore-related:start -->
+<section class="related-section" aria-label="Related Lore">
+<h1 id="related-lore">Related Lore</h1>
+
+<div class="related-cards">
+<a class="related-card" href="../../heroes-of-rathe/dorinthea-about.html">
+<span class="related-card-body">
+<span class="related-card-type">Hero</span>
+<span class="related-card-title">Dorinthea</span>
+</span>
+</a>
+<a class="related-card" href="../../heroes-of-rathe/hala-about.html">
+<span class="related-card-body">
+<span class="related-card-type">Hero</span>
+<span class="related-card-title">Hala</span>
+</span>
+</a>
+<div class="related-cards-spacer" aria-hidden="true"></div>
+
+<a class="related-card" href="../../other-characters/minerva-themis.html">
+<span class="related-card-body">
+<span class="related-card-type">Character</span>
+<span class="related-card-title">Minerva Themis</span>
+</span>
+</a>
+<div class="related-cards-spacer" aria-hidden="true"></div>
+
+<a class="related-card" href="../../world-of-rathe/solana.html#the-hand-of-sol">
+<span class="related-card-body">
+<span class="related-card-type">Location</span>
+<span class="related-card-title">Hand of Sol</span>
+</span>
+<span class="related-card-sub">Solana</span>
+</a>
+<a class="related-card" href="../../world-of-rathe/solana.html#solstice-of-laurels">
+<span class="related-card-body">
+<span class="related-card-type">Location</span>
+<span class="related-card-title">Solstice of Laurels</span>
+</span>
+<span class="related-card-sub">Solana</span>
+</a>
+<a class="related-card" href="../../world-of-rathe/solana.html#the-awakening-ceremony">
+<span class="related-card-body">
+<span class="related-card-type">Location</span>
+<span class="related-card-title">The Awakening Ceremony</span>
+</span>
+<span class="related-card-sub">Solana</span>
+</a>
+<a class="related-card" href="../../world-of-rathe/solana.html#the-grand-council">
+<span class="related-card-body">
+<span class="related-card-type">Location</span>
+<span class="related-card-title">The Grand Council</span>
+</span>
+<span class="related-card-sub">Solana</span>
+</a>
+<a class="related-card" href="../../world-of-rathe/solana.html#the-light-of-sol">
+<span class="related-card-body">
+<span class="related-card-type">Location</span>
+<span class="related-card-title">The Light of Sol</span>
+</span>
+<span class="related-card-sub">Solana</span>
+</a>
+<div class="related-cards-spacer" aria-hidden="true"></div>
+
+<a class="related-card" href="../../world-of-rathe/solana.html">
+<span class="related-card-body">
+<span class="related-card-type">Region</span>
+<span class="related-card-title">Solana</span>
+</span>
+</a>
+<a class="related-card" href="../../world-of-rathe/savage-lands.html">
+<span class="related-card-body">
+<span class="related-card-type">Region</span>
+<span class="related-card-title">The Savage Lands</span>
+</span>
+</a>
+</div>
+</section>
+<!-- fablore-related:end -->
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/welcome-to-rathe/a-rising-star.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/welcome-to-rathe/kill-or-be-killed.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/welcome-to-rathe/a-rising-star.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/welcome-to-rathe/kill-or-be-killed.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../../mark-09e88c2c.min.js"></script>
+        <script src="../../searcher-09f2665d.js"></script>
+
+        <script src="../../clipboard-1626706a.min.js"></script>
+        <script src="../../highlight-abc7f01d.js"></script>
+        <script src="../../book-c22b7243.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../theme/toolbar-5fa3570f.js"></script>
+        <script src="../../tab-fd6a8e95.js"></script>
+        <script src="../../back-to-top-7ddb360a.js"></script>
+        <script src="../../hero-hub-d0a786d0.js"></script>
+        <script src="../../bionic-e657825d.js"></script>
+        <script src="../../theme/hints-16cd2044.js"></script>
+        <script src="../../theme/related-eadba45b.js"></script>
+        <script src="../../narrated-videos-84e813a2.js"></script>
+        <script src="../../theme/browse-ea40f197.js"></script>
+        <script src="../../theme/hero-filter-03bca56f.js"></script>
+        <script src="../../theme/reading-progress-adb1a214.js"></script>
+        <script src="../../theme/heading-anchors-838a9d90.js"></script>
+        <script src="../../theme/copy-link-605c931d.js"></script>
+        <script src="../../theme/reading-prefs-e9927c10.js"></script>
+        <script src="../../theme/random-story-d16666c7.js"></script>
+        <script src="../../theme/read-tracking-e63af195.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+# Hero card-name → canonical-slug aliases for create_heroes_csv.
+# NormalizedCardName is text_utils.normalize_name() of the text before the
+# first comma on the printed card Name field; used only when that segment
+# does not equal normalize_name(CanonicalHero) on heroes-canonical.csv.
+# CanonicalSlug must exist in heroes-canonical.csv.
+NormalizedCardName|CanonicalSlug
+dashio|dash
+dorintheaironsong|dorinthea
+fightmasterkox|kox
+groundbreakercrix|crix
+kassaiofthegoldensand|kassai
+maxxnitro|maxx
+maxxthehypenitro|maxx
+professorteklovossen|teklovossen
+serboltyn|boltyn
+valdabrightaxe|valda
+zyggystarlight|zyggy

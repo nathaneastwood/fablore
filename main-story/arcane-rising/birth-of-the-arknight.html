@@ -1,0 +1,527 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Birth of the Arknight - Legendary Stories</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+        <!-- Open Graph / Twitter (Discord, Slack, etc. link previews — requires absolute image URL) -->
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Legendary Stories">
+        <meta property="og:title" content="Birth of the Arknight - Legendary Stories">
+        <meta property="og:description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <meta property="og:image" content="https://legendarystories.net/assets/logo_original_cropped.png">
+        <meta property="og:image:width" content="736">
+        <meta property="og:image:height" content="736">
+        <meta property="og:image:alt" content="Legendary Stories logo">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Birth of the Arknight - Legendary Stories">
+        <meta name="twitter:description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <meta name="twitter:image" content="https://legendarystories.net/assets/logo_original_cropped.png">
+        <!-- PNG first (reliable tab icon); src/assets/favicon.svg overrides mdBook bundle on disk; ?v= busts favicon cache -->
+        <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon.png?v=5">
+        <link rel="icon" type="image/webp" sizes="32x32" href="../../assets/favicon.webp?v=5">
+        <link rel="icon" href="../../assets/favicon.ico?v=5" sizes="any">
+        <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=5">
+        <!-- Install / standalone: iOS “Add to Home Screen”, Android “Install app” (Chrome) -->
+        <link rel="manifest" href="../../manifest.json">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="apple-mobile-web-app-title" content="Legendary Stories">
+        <meta name="mobile-web-app-capable" content="yes">
+        <!-- Font Awesome 4 (custom toolbar icons) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <!-- Tooltip library (used by hints.js) -->
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+        <!-- Apply reading preferences before content renders to prevent flash -->
+        <script>
+        (function () {
+            var VALID_SCALES = ['0.875', '1', '1.175'];
+            var VALID_WIDTHS = ['560px', '750px', '980px'];
+            try {
+                var s = localStorage.getItem('fablore-font-scale');
+                if (s && VALID_SCALES.indexOf(s) !== -1 && s !== '1') {
+                    document.documentElement.style.setProperty('--fablore-font-scale', s);
+                }
+                var w = localStorage.getItem('fablore-line-width');
+                if (w && VALID_WIDTHS.indexOf(w) !== -1 && w !== '750px') {
+                    document.documentElement.style.setProperty('--content-max-width', w);
+                }
+            } catch (e) {}
+        })();
+        </script>
+
+        <meta name="description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../../css/chrome-fc474251.css">
+        <link rel="stylesheet" href="../../css/print-9e4910d8.css" media="print">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero-0066e6d7.css">
+        <link rel="stylesheet" href="../../image-83732514.css">
+        <link rel="stylesheet" href="../../tab-bf9533cd.css">
+        <link rel="stylesheet" href="../../bionic-e54553dc.css">
+        <link rel="stylesheet" href="../../footer-1dff10f9.css">
+        <link rel="stylesheet" href="../../breadcrumb-6efe5711.css">
+        <link rel="stylesheet" href="../../sets-hub-e2029893.css">
+        <link rel="stylesheet" href="../../theme/hints-b7170011.css">
+        <link rel="stylesheet" href="../../theme/related-5a0985b2.css">
+        <link rel="stylesheet" href="../../theme/story-meta-d7ffbcb7.css">
+        <link rel="stylesheet" href="../../theme/narrated-videos-a6b92c45.css">
+        <link rel="stylesheet" href="../../theme/browse-e6d12a00.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "light";
+            const default_dark_theme = "ayu";
+            window.path_to_searchindex_js = "../../searchindex-a3252c3c.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc-5f7cc31c.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Legendary Stories</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <!-- fablore-breadcrumb:start -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  
+<ol>
+    
+<li><a href="../the-land-of-rathe.html">Main Story</a></li>
+
+    
+<li><span>Arcane Rising</span></li>
+
+    
+<li><span aria-current="page">Birth of the Arknight</span></li>
+
+  </ol>
+
+</nav>
+<!-- fablore-breadcrumb:end -->
+<h1 id="birth-of-the-arknight"><a class="header" href="#birth-of-the-arknight">Birth of the Arknight</a></h1>
+<!-- fablore-story-meta:start -->
+<div class="story-meta" aria-label="Story information">
+  <span class="story-meta-item"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M421.7 220.3l-11.3 11.3-22.6 22.6-205 205c-6.6 6.6-14.8 11.5-23.8 14.1L30.8 511c-8.4 2.5-17.5 .2-23.7-6.1S-1.5 489.7 1 481.2L38.7 353.1c2.6-9 7.5-17.2 14.1-23.8l205-205 22.6-22.6 11.3-11.3 33.9 33.9 62.1 62.1 33.9 33.9zM96 353.9l-9.3 9.3c-.9 .9-1.6 2.1-2 3.4l-25.3 86 86-25.3c1.3-.4 2.5-1.1 3.4-2l9.3-9.3H112c-8.8 0-16-7.2-16-16V353.9zM453.3 19.3l39.4 39.4c25 25 25 65.5 0 90.5l-14.5 14.5-22.6 22.6-11.3 11.3-33.9-33.9-62.1-62.1L314.3 67.7l11.3-11.3 22.6-22.6 14.5-14.5c25-25 65.5-25 90.5 0z"/></svg></span> Written by <strong>Nicola Price</strong></span>
+  <span class="story-meta-item"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM323.8 202.5c-4.5-6.6-11.9-10.5-19.8-10.5s-15.4 3.9-19.8 10.5l-87 127.6L170.7 297c-4.6-5.7-11.5-9-18.7-9s-14.2 3.3-18.7 9l-64 80c-5.8 7.2-6.9 17.1-2.9 25.4s12.4 13.6 21.6 13.6h96 32H424c8.9 0 17.1-4.9 21.2-12.8s3.6-17.4-1.4-24.7l-120-176zM112 192c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48z"/></svg></span> Art by <strong>MJ Fetesio</strong></span>
+  <span class="story-meta-item"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-17.7 0-32 14.3-32 32s14.3 32 32 32h50.7L169.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L384 141.3V192c0 17.7 14.3 32 32 32s32-14.3 32-32V64c0-17.7-14.3-32-32-32H288zM80 64C35.8 64 0 99.8 0 144V400c0 44.2 35.8 80 80 80H336c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v80c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V144c0-8.8 7.2-16 16-16h80c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z"/></svg></span> <a href="https://fabtcg.com/hero/viserai/story/viserai-story/" target="_blank" rel="noopener">Original article</a></span>
+  <span class="story-meta-item"><span class="fa-svg far" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M232 120C232 106.7 242.7 96 256 96C269.3 96 280 106.7 280 120V243.2L365.3 300C376.3 307.4 379.3 322.3 371.1 333.3C364.6 344.3 349.7 347.3 338.7 339.1L242.7 275.1C236 271.5 232 264 232 255.1L232 120zM256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0zM48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48C141.1 48 48 141.1 48 256z"/></svg></span> 4,747 words · 19 min read</span>
+</div>
+
+<div class="story-share" data-story-type="main-story">
+  <span class="story-share-label">Share</span>
+  <a class="story-share-btn story-share-facebook" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" title="Share on Facebook"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg></span></a>
+  <a class="story-share-btn story-share-twitter" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on X" title="Share on X"><span class="story-share-x-logo" aria-hidden="true">X</span></a>
+  <a class="story-share-btn story-share-bluesky" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on BlueSky" title="Share on BlueSky"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 568 501" height="0.85em" width="0.85em" style="vertical-align:-0.1em;fill:currentColor" aria-hidden="true"><path d="M123.121 33.664C188.241 82.553 258.281 181.68 284 234.873c25.719-53.192 95.759-152.32 160.879-201.209C491.866-1.611 568-28.906 568 57.947c0 17.346-9.945 145.713-15.778 166.555-20.275 72.453-94.155 90.933-159.875 79.748C508.222 323.8 521.99 372.7 484.34 421.616c-60.732 79.094-165.296 62.47-235.296-14.534C179.044 484.086 74.48 500.71 13.748 421.616-23.902 372.7-10.134 323.8 106.532 304.2540.812 315.435-33.068 296.955-53.343 224.502-59.176 203.66-69.121 75.293-69.121 57.947c0-86.853 76.134-59.558 192.242-24.283z" /></svg></a>
+  <a class="story-share-btn story-share-whatsapp" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp" title="Share on WhatsApp"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></span></a>
+  <button class="story-share-btn story-share-copy" type="button" aria-label="Copy link" title="Copy link"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg></span></button>
+</div>
+
+<script>
+(function () {
+  var u = encodeURIComponent(window.location.href);
+  var t = encodeURIComponent(document.title);
+  function qs(sel) { return document.querySelector(sel); }
+  var fb = qs('.story-share-facebook');
+  if (fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + u;
+  var tw = qs('.story-share-twitter');
+  if (tw) tw.href = 'https://twitter.com/intent/tweet?url=' + u + '&text=' + t;
+  var bsky = qs('.story-share-bluesky');
+  if (bsky) bsky.href = 'https://bsky.app/intent/compose?text=' + t + '%20' + u;
+  var wa = qs('.story-share-whatsapp');
+  if (wa) wa.href = 'https://api.whatsapp.com/send?text=' + t + '%20' + u;
+  var cp = qs('.story-share-copy');
+  if (cp) cp.addEventListener('click', function () {
+    navigator.clipboard.writeText(window.location.href).then(function () {
+      cp.classList.add('story-share-copied');
+      setTimeout(function () { cp.classList.remove('story-share-copied'); }, 2000);
+    });
+  });
+})();
+</script>
+<!-- fablore-story-meta:end -->
+<p>For hundreds of years, the <span class="hint" hint="Demonastery">Demonastery</span> lurked beyond the shores of Rathe, surrounded by a wall of thick sea fog. Stormy seas kept ships from ever reaching its shores, surging waves tossing would-be intruders onto the sharp rocks. An eerie silence blanketed the grounds, stifling the distant sounds of the ocean. T’was a place that is neither here nor there, a dark sanctuary free from the bounds of morality.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-1.webp" alt="viserai-1" class="center">
+<p>Two massive wrought-iron gates lead into a <span class="hint" hint="Courtyard">courtyard</span> carved from marbled stone. While the stone paving is worn and stained, the inscribed runes were still visible, illuminated by the pale moonlight. Just beyond the courtyard lies the manor itself, looming over the grounds like a vengeful apparition.</p>
+<p>The Demonastery itself is a large and imposing series of stone buildings, with great stained glass windows, massive towers and grand spires. Gargoyles hang between the eaves, their grotesque faces twisted into expressions of agony. The main doorway is guarded by two massive statues, their carved wings mirroring one another in a dance of light and dark. Their crossed blades form an arch over the entrance way, locked in eternal battle.</p>
+<p>Inside the manor, a figure stalked through the halls, passing a series of stained glass windows. The dark metal armour he wore flashed silver in the moonlight, slivers of amethyst glistening through the gaps in the metal. The air around him seemed heavy, stifling, thick and oppressive with the weight of dark arcane energy. A helm hid his face from view, sealing the appearance of the inhuman being behind a wall of solid metal, violet light shining through the slits in his visor.</p>
+<p>As he continued down the hall, his head slowly turned to one side; the practiced, careful movements of a predator stalking his prey. The figure seemed to almost glide across the floor, an unnatural gait revealing his inhuman nature. Despite his heavy armour, he moved almost silently, his head turning as he scanned the hallway from left to right.</p>
+<p>Only the dust collecting on the edges of his torn cloak suggested the passage of time, as the Arknight searched the depths of the Demonastery. No stone left unturned, no room left untouched, he scoured the ancient mansion from floor to ceiling. Yet so far, his quarry eluded him, a creature just as nebulous and evasive as himself. In this, they were alike, numbering among the strange and frightening entities that haunted the residents of the Demonastery.</p>
+<p>However, unlike the creature he now hunted, Viserai’s existence was explained. Lord Sutcliffe was his creator, his master, without whom he would not exist. The Arknight remembered little of the ritual that gave him new life, left only with fragments of memories shattered by blinding pain. This other creature was far older, presumably one of many borne from ill-fated experiments, whose creator had long since passed. The other creature was an accident, while Viserai was designed, a success in every sense of the word.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-2.webp" alt="viserai-2" class="center">
+<p>The tests were proof enough of that. Viserai had passed all of Lord Sutcliffe’s tests thus far, procuring useful items and knowledge from around the Demonastery, aiding his research and proving his usefulness to the Lord. Retrieving a sample of this strange creature, an alchemical anomaly incapable of dying, was just one more test for Viserai. In this, as in all things, he obeyed the will of his master.</p>
+<p>The sound of a shrill scream echoed down the hall, shattering the unnatural silence. Drawing his sword from its sheath, Viserai stalked toward the source of the sound, imbuing the enchanted blade with arcane energy. Aether filled the cracks in the metal, strengthening the sword beyond the limits of any ordinary blade. An eerie glow illuminated the hall as Viserai approached the source of the sound, the last few notes of the scream echoing into the darkness.</p>
+<p>Through the open doorway, an amorphous shadow hung in the inky darkness, looming the body of an alchemist. A beaker lay on the ground next to his outstretched hand, shattered upon the floor, its contents seeping into the cracks in the stone. The shadow came into focus as the creature slowly lifted one of its heads, releasing a metallic, shrieking gurgle. Its body began to shift, reshaping, lurching over the corpse.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-3.webp" alt="viserai-3" class="center">
+<p>Viserai’s runic markings flared to life, aether escaping through the vents in his armour as he drew upon the arcane energy within. With a wave of his hand, he summoned a runechant into the air, illuminating the room with a white-violet glow. A sharp crack echoed off the walls as the arcane energy burst forth, a bolt of pure aether striking the creature, its flesh sizzling and crackling on contact with the arcane energy.</p>
+<p>Lifting the sword with both hands, Viserai swung, the aetheric blade leaving a trail of light as he slashed at the creature. It slipped out of reach of his sword, hissing wildly as it threw itself at him. Its claws slashed just next to his head as Viserai slammed a gauntleted arm between them, shoving the creature back.</p>
+<p>As it collided with the floor, it seemed to almost fold in on itself, body turning to a liquid smoke and melting through the cracks in the floor. With one last wisp of vapour, it disappeared. Viserai held his blade at the ready, summoning another runechant.</p>
+<p>The light of the runechant hung in the air, illuminating the space around him. A raised hand kept the arcane energy at bay, waiting for the right moment to strike. For a long moment, all was still, silent save for the faint hiss of the runechant. Then, on the far wall, a shadow suddenly formed, and the creature leapt out at Viserai.</p>
+<p>Its claws scraped along his armour, the shriek of claw on metal filling the room as it slashed at Viserai. Striking out with the sharp pommel of his blade, Viserai loosed the runechant, allowing the bolt of aether to strike the creature in its side. Another three runechants sparked to life, snapping through the air, striking the creature again and again.</p>
+<p>It shrieked at him as its flesh hissed and crackled, dissolving from the fresh burn in its side, and threw itself at him with an indignant howl. Viserai swung his blade, slashing at the creature, and as it drew back in preparation for another attack, he lopped off one of its heads in a single swing. The decapitated head collided with the floor with a dull thunk, hissing and bubbling as it evaporated into thin air.</p>
+<p>Some of its matter dripped onto the stone floor from its open wounds, staining the floor inky black and crimson. Incensed, it lunged at him once again, wrapping its teeth around his gauntleted forearm. With his free hand, Viserai loosed another runechant, watching as the arcane energy struck the creature directly. It howled in agony, writhing, dripping melted flesh onto the stone tiles, and with final screech, it dissolved into the shadows; wounded, but alive.</p>
+<p><em>Nothing ever truly dies around here.</em></p>
+<p>Quickly sheathing his sword, Viserai withdrew a small glass vial, scooping up some of the creature’s melted flesh and sealing the vial closed. As he did so, he felt the tug of the master’s command, compelling him to return to Lord Sutcliffe. Turning his back on the alchemist’s body, he began to make his way back down the hall.</p>
+<p>The Demonastery was silent once more, Viserai’s quiet footsteps echoing off the walls. While it wasn’t unusual to find a resident outside of their rooms, most only stepped outside of their own territory if it was absolutely necessary, each absorbed in their own individual studies and experiments. Some of the residents had someone (or more commonly, something) to fetch materials and ingredients for them, as Viserai did for Sutcliffe.</p>
+<p>As he passed the great doors leading to the <span class="hint" hint="Entrance Hall">entrance hall</span>, Viserai paused, hearing a now familiar whisper echo into the air.</p>
+<p><em>Viserai…</em></p>
+<p>The heavy weight of Sutcliffe’s command still pulled at him, compelling him to continue down the hallway. And yet… Viserai placed a hand on the door in front of him and pushed it open, entering the main hall.</p>
+<p>The sconces were all lit, casting the grand stonework in an ethereal glow. The ceiling soared high above, great chandeliers hanging between the rib-vaults. A grand statue stood at the center of the hall, towering over the polished floors. It depicted a man wearing dark robes embroidered with gold, an elaborately embellished hood hiding his face from view. Tendrils of fabric hung from his headwear, curving around him in half-circles. Dozens of weapons were carved from the stone at his feet, several helms lying directly below him, their faces carved into masks.</p>
+<p><em>Closer.</em></p>
+<p>Viserai turned, coming to a stand before a massive stained glass window at the far end of the hall, staring up at the illuminated glass panels. The vivid blues and soft violets shone with the pale light of the moon, a woman standing at the center with her face turned away from the light. Her dark hair was encircled by a golden halo, her eyes covered by a strand of hair, curling in a non-existent breeze.</p>
+<p><em>The living weapon approaches at last.</em> The voice seemed to anticipate his response, continuing after a beat of silence. <em>The residents of this place call me Whisper. I offer advice to those willing to listen, a warning to those who would choose to remain blind. Which are you, I wonder?</em></p>
+<p>When he made no move to leave, watching the stained glass from behind his helm, he heard a breathy chuckle.</p>
+<p><em>Listen well, Arknight. Beware the man born into power, who abandoned his people to pursue the Arcane Arts. He who, even now, seeks power to rival the Aesir themselves. He who would bend and break the laws of this world as he sees fit. No amount of power shall ever be enough to satisfy his desires.</em></p>
+<p><em>A mere weapon is nothing to a god; a tool to be used as he sees fit, kept on a short leash. However, the leash may yet be more fragile than it first appears. There was once a human behind the armour, and he may be there still. Humans are conduits for change. From the day they are born, they are ever-changing from one day to the next. Find the chinks in his armour, or someone else may find them first.</em></p>
+<hr>
+<p>Lord Sutcliffe raised the vial up to the light, peering thoughtfully at its contents. The master was an older man, with sharp cheekbones and narrow eyes, his angular face framed by loose, chin-length graying hair. His green eyes crinkled at the corners as he stared at the sample, frowning.</p>
+<p>“This is a little less than I would have liked, but it’ll suffice.” Tucking the vial into his jacket, Lord Sutcliffe turned toward Viserai, mouth curled into a faint scowl. “There is a woman named Corva who keeps her research notes in a tome, which she carries on her at all times. Bring me the tome. She sometimes conducts her rituals outdoors, near the offal pit. Begin there.”</p>
+<p>Viserai felt the familiar sensation of the command taking root, the compulsion driving him to leave the room. As he turned his back on Sutcliffe, walking toward the door, the master’s voice stopped him.</p>
+<p>“And Viserai?” The Arknight turned to face Lord Sutcliffe, noting the cold gleam in his eyes. “Do not open the tome.”</p>
+<p>For just a moment, Viserai could almost have believed that Lord Sutcliffe’s pale green eyes were staring straight past the armour, looking into his mind to see the memory of Whisper’s warning. However, Viserai was not human, and so did not irrationally believe that Sutcliffe could read his mind. With a quick, brief nod, Viserai turned and exited the room.</p>
+<p><em>A tool to be used as he sees fit, kept on a tight leash.</em></p>
+<p>The echo of Whisper’s voice sounded in his mind, though it rang hollow with the tone of a memory. Viserai pushed the thought away, focusing instead on <span class="hint" hint="The Flow">the flow</span> of aether within his body, travelling between the flesh-bound runes.</p>
+<p>Weaving his way through the hallways of the Demonastery, Viserai ignored the scuttle of passing vidus, the tiny constructs who acted as custodians of the manor. Several of them were returning from the direction of the entrance hall, still marked with bloodstains. More than likely, they’d just returned from cleaning up his mess from earlier. None of them paid any attention to the Arknight as he passed by, slipping into the entrance hall and out onto the manor’s grounds.</p>
+<p>The grounds were a pale silver in the light of the crescent moon, only barely visible in the dark of night. Still, Viserai continued onward, the master’s command driving him toward the offal pit. While the Lord Sutcliffe’s ritual had destroyed his ability to smell, he could imagine the scent in the air as he drew closer; the sharp, rancid odor of decaying flesh. The memory - if that’s what it was - was strong enough that Viserai could almost smell it.</p>
+<p>The faint glow of candle flames in the distance caught his attention, flickering faintly through the mists. A figure appeared amongst the shadows, almost completely masked by the surrounding fog. As Viserai drew closer, he could see the scene illuminated by the eerie light of a runic circle, carved into the solid earth. About her lay a range of detached heads in various stages of decay, eyes carved from their skills, their gaping, bloody sockets left empty.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-4.webp" alt="viserai-4" class="center">
+<p>Corva’s face was distorted by a wide grin, stretching almost ear to ear. Her eyes gleamed with unrestrained glee, blood smeared down her chin. A series of runes were painted on her skin in dark, congealed blood, matching the ones on the ground below her, while an open wound on her arm allowed blood to flow freely down her outstretched arm, dripping onto the freshly carved runes.</p>
+<p>Drawing his sword, Viserai stalked closer, arcane energy beginning to collect in the runic channels along his skin. A peal of laughter cut through the night air as Corva suddenly whipped her head to one side, her gaze meeting the indifferent profile of Viserai’s helm.</p>
+<p>“I’ve been waiting for this… I listen to the others. They don’t like Sutcliffe.” Corva spoke quickly, rapid-fire, spitting the words into the open air. “I don’t like him either. Just some stupid mortal playing with things he doesn’t understand.” She laughed darkly as Viserai began to summon a series of runechants, her face contorting into a sneer. “He can’t even cast a spell. No affinity! Has to have you to do it for him. It’s not right, not right at all.”</p>
+<p>The runechants burst into a bright flare of violet light, releasing a barrage of arcane energy, bolts striking the earth where Corva was standing mere moments before. She threw herself to one side, cackling wildly.</p>
+<p>“Missed!” With a bark of laughter, she threw her arms up in the air. The runes on her body and at her feet flared to life, flashing with a vibrant golden-red light, disturbing the fog around them.</p>
+<p>As the mists receded, Viserai’s gaze was drawn to the pile of detached heads.They were shuddering, shaking, the hair on each one almost appearing to ripple as they collapsed to the ground. With a hair-raising screech, their faces suddenly contorted, mouths slamming open with a sickening crack as the jaws dislocated, skin splitting at the sides. The gleam of bone shone through as the skulls burst open, brain matter splattering against the earth.</p>
+<p>Great, disjointed limbs began to sprout from the remains, twisting and warping, the clawed tips slamming into the ground as they rose. The two empty eye sockets stretched into gaping maws, teeth sliding up to fill the voids. The tongues reshaped into great, barbed tendrils, snapping through the air with the crack of a whip.</p>
+<p>Eight newborn creatures came to a standstill, all turning to focus on Viserai. Behind them, Corva laughed and laughed, her teeth flashing in the light. Her creations towered over her, almost twice as tall as Viserai. Without a word, she flung out one hand, releasing a shrill laugh when the creatures leapt to follow her silent command.</p>
+<p>As the creatures raced toward him, Viserai summoned a series of runechants, hair raising on the back of his neck as the arcane energy burst into the still night air. The crackle and snap of pure aether echoed through the clearing as the attacks struck, sending several of the creatures slamming to the ground. Almost immediately, they righted themselves, rolling straight back onto their feet.</p>
+<p>Viserai raised his sword, twisting and slashing at the foremost creature. It released a high-pitched shriek as it slammed into the force of his blade, melded flesh parting easily beneath the sharp edge of the runic silversteel. One of its limbs fell to the earth, and the creature released a guttural wail as it threw itself at him, its claws slamming into his armour. Viserai flung it to one side, throwing it to the ground, runechants bursting to life above him as he swung at another fiend.</p>
+<p>The creatures swarmed around him, a sea of claws and teeth and gaping maws, screeching at the onslaught of arcane energy that tore through the air. Yet even as bolts of aether seared their flesh, they barely faltered, immediately rising and attacking once again. They writhed in and around one another, scuttling across the earth with surprising speed.</p>
+<p>Finally, Viserai dispatched one of the beasts, slicing it in half. The head fell to the earth with a dull thud, its body going still almost instantaneously. Without a moment’s pause, Viserai immediately summoned another series of runechants, allowing the night air to turn bright violet as aether filled the clearing, swirling around him like mist.</p>
+<p>As a bolt of arcane energy struck down one of the creatures, Viserai closed in, channeling aether through the length of his blade. The remnants of the creature’s skull burst open from the force of the blow, its body slumping to the earth with a dull thud. Running toward a third, he struck, cleaving its head from the rest of its body with a single swing.</p>
+<p>Turning to face the remaining fiends, he noted Corva watching him with a grin, her eyes wide. She was laughing, blood dripping down her arm from a fresh wound. Viserai rose a hand, snapping his arm out as he summoned another barrage of runechants. The air crackled with arcane energy as the clearing was filled with violet light, and he loosed every attack at once.</p>
+<p>Loud as a thunderclap, the air itself seemed to snap, flashes of light almost blinding him as he dashed toward the creatures. Viserai swung, decapitating one of the creatures, slicing at another, driving the sword through the open wound.</p>
+<p>The circle of runes at Corva’s feet burst open as bodies climbed up out of the soil, little more than skeletons with scraps of decomposing flesh. They dragged themselves out of their shallow graves, empty sockets lighting with an unnatural energy as Corva charged them with an unnatural energy.</p>
+<p>Dispatching the last of Corva’s strange creatures, he advanced on the skeletons, summoning another barrage of runechants. Lifting his blade, he began to cut a path through the endless stream of undead, gaze fixed on the woman standing just beyond. Her face was pale and waxy with blood loss, her wide eyes bright with laughter as she raised more and more of the fiends.</p>
+<p>Slowly, he waded through, growing closer and closer. His vision tunneled, focusing on Corva’s face, instinct kicking in as he fought his way past her makeshift army. Yet the closer he got, the more she seemed to laugh, a wild look in her eyes as she egged him on, the runic circle growing brighter with every passing second.</p>
+<p>As he drew close, Viserai summoned one final runechant, lighting the space with a bright flare of aether. Some of the skeletons he felled began to clutch at his legs, weighing him down as he advanced. With a cry of pure rage, Corva wove a spell in mid-air, sending her own attack at him. It struck his armour, dispersing to the sides as Viserai swung his sword overhead.</p>
+<p>The blade sliced through her midsection, silversteel strengthened by the flow of aether, a wet plop sounding in the still night air as her internal organs slid out onto the ground below. With a choking sound, Corva looked up at Viserai and laughed. Even as she clutched at her stomach, several more fiends climbed out of the earth, meeting a swift end at the end of Viserai’s blade.</p>
+<p>He watched impassively as the woman finally began to give into her wounds, taking the tome from her side and peeling her fingers away from its cover.</p>
+<p>“’s just a pet. Nothing without your master,” Corva hissed at him, sinking to her knees. The runic circle flared as she called on the arcane, one hand outstretched. The skeletons around her instantly collapsed to the ground in a pile of bones. As the skin of her abdomen slowly began to knit back together, Viserai drove his blade through her chest, twisting the sword. With a quiet gurgle, Corva froze, blood trickling from the corners of her mouth.</p>
+<p>Pulling the sword from her ribcage, he let her corpse collapse silently to the ground. As he turned to walk away, he saw one of her creatures out of the corner of his eye and, strangely, hesitated.</p>
+<p><em>…kept on a tight leash…</em></p>
+<p>After a moment, Viserai looked down at the tome in his hands. Its cover was deceptively plain, marked with bloodstains and what looked like the oily grease of bone marrow. Slowly, he opened the front cover and began to flick through the pages. There were notes about several of Corva’s rituals, including the one that she’d performed earlier, but it was only once he reached the messier sections of the book that the true subject of her research became clear.</p>
+<p>Scribbled across the page, covered in notes and additions, were Corva’s notes on the subject of control. Control over the undead was a basic necessity for one of her kind; being able to command those that they brought back. However, Corva had been studying whether the same rituals and spells could be applied to a living person.</p>
+<p><em>No amount of power shall ever be enough to satisfy his desires… a tool to be used, kept on a tight leash…</em></p>
+<p><em>…a tight leash…</em></p>
+<p>A faint laugh rang through the air.</p>
+<p>Viserai turned, looking at his surroundings. Amongst the corpses of Corva’s creatures lay a small, inanimate figure. Pale and delicate, it was almost the size of a vidus, dressed in white and gold robe with a ruffled collar. It bore a wide grin, stretching from ear to ear, revealing a set of dagger-sharp teeth.</p>
+<p>Its large golden eyes gleamed in the moonlight, pupils narrowed to tiny slits. A pair of small horns sprouted from its harline, almost the same colour as its golden hair. Its skin was smooth as polished wood and white as porcelain, its dainty hands tipped with razor-like claws.</p>
+<p><em>Arknight.</em></p>
+<p>A voice rung inside of his skull, not unlike Whisper’s; yet where Whisper’s voice had been soft and soothing, this was sweet, honeyed, laced with a dark undertow.</p>
+<p><em>Do you want to spend the rest of your days serving your master?</em></p>
+<p>Images flashed through his mind; chains around bloodied limbs, a man screaming as a crystal was embedded into his chest, runic script carved into skin with a scalpel. His armour lying upon a table, coated in blood. Viserai, wizened, drained, his skin grey, runes covering the entirety of his face. Chains wound around his throat, choking him, his skin turning black beneath the metal.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-5.webp" alt="viserai-5" class="center">
+<p>Viserai, washing up on a beach, the slow turn of a gargoyle’s head as it watched Sutcliffe come across him. The master, dragging his body into the laboratory. A younger Lord Sutcliffe, slashing open his palm, allowing the blood to spill into a stone circle. Another man, much older, swearing himself to the Demonastery; a woman carving a runic sigil into her wrist; Corva, watching as a pallas flew down and gripped her severed finger in its claws, flying off into the mists.</p>
+<p>Blinking away the dark spots in his vision, Viserai looked down to the tome in his hands.</p>
+<p>“What do you want?” His voice grated, raspy from disuse, forcing the words out past his damaged vocal cords.</p>
+<p><em>Everything.</em></p>
+<p>More images, this time of the Scriptorium, tomes lined along its shelves; residents of the Demonastery, seen from a distance, a third party watching them work; the creature Viserai hunted, roaming the hallways.</p>
+<p>Viserai tilted his head, considering.</p>
+<p>“Why?”</p>
+<p><em>Power…</em></p>
+<p>A man, standing in a clearing, clutching a tome to his chest. The same man, younger, listening to someone speak of order, laws. Golden chains around his wrists, wrapping tighter and tighter.</p>
+<p><em>…insurrection.</em></p>
+<p>Viserai looked down at his sword, shining with the bright glow of aether. After a long moment, he knelt, driving his blade into the ground.</p>
+<p>The moment that the blade struck, he suddenly felt a blinding pain within his skull, striking like a clap of thunder. Falling to his knees, Viserai’s vision began to darken, and as he stared ahead, slowly fading, he could have sworn he saw the little figure laugh.</p>
+<hr>
+<p>It was dark, a pitch black that blocked out even the slightest fragment of light.</p>
+<p>Viserai slowly rolled to one side, pushing away the lingering sensation of pain echoing within his head. His muscles felt stiff and sore, his body slow to respond as he began to sit up. Reaching up, he prodded at his face with the tips of his fingers, realising that his helm was missing.</p>
+<p>As he tried to stand, the lights around him flared to life, casting the room in shades of blue and white. Without his helm, the light was almost blinding. Viserai shaded his eyes with one hand, squinting as he took in his surroundings.</p>
+<p>Slowly, Viserai looked at the room around him, recognising the statues and windows of the entrance hall. The hall was crowded with motionless figures, dark shapes against the blinding lights. Trying to focus past the pain, Viserai stepped closer, gazing at the shapes nearest to him.</p>
+<p>The Demonastery was home to all kinds of researchers, scientists and arcane practitioners, none of whom had any attachment to morals or limitations. It was inevitable that some of their experiments would go wrong, and Viserai knew of some of the failed experiments and mutated abominations that stalked the Demonastery’s halls.</p>
+<p>However, the sheer number of creatures packed into the hall was surprising, even to him. Some were clearly shaped by alchemy, others bearing moving mechanical parts, some large, some small, some translucent and shapeless, others solid and unchanging. They only had two things in common: for one, all of them were in the Demonastery. The second was that every last creature present looked incredibly dangerous.</p>
+<p>Viserai noted his helm lying nearby and picked it up, putting it back on. Now that he looked, he realised that there were weapons lying at the edges of the room, and some of the larger, more humanoid creatures were wearing makeshift armour.</p>
+<p><em>Beware the man born into power, who abandoned his people to pursue the Arcane Arts. He who, even now, seeks power to rival the Aesir themselves. He who would bend and break the laws of this world as he sees fit. No amount of power shall ever be enough to satisfy his desires.</em></p>
+<p>The words sounded through his mind, though not with the echo of a memory. Viserai turned, noting the gleam of blue and violet glass. Making his way over to Whisper, he came to a halt just in front of the window, frowning.</p>
+<p>“I listened to your warning. Lord Sutcliffe is no longer my master.”</p>
+<p><em>You did not listen. Look upon the army of one who thinks himself a god.</em></p>
+<p>Viserai looked over the creatures behind him, all immobilised by some unseen force. In the background, the statue loomed over them all, his outstretched hands casting shadows over the gathered creatures.</p>
+<p>A soft laugh echoed through the room, tinged with the unmistakable bite of mockery.</p>
+<p><em>Prepare yourself, Arknight. All will become clear soon enough.</em></p>
+<hr><!-- fablore-narrated-videos:start -->
+<div class="narrated-videos">
+<h1>Narrated Video</h1>
+
+<div class="nv-single-video">
+<div class="nv-video-wrap">
+<iframe src="https://www.youtube.com/embed/txaAO8XS9Tg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+</div>
+
+</div>
+
+</div>
+
+<!-- fablore-narrated-videos:end -->
+<!-- fablore-related:start -->
+<section class="related-section" aria-label="Related Lore">
+<h1 id="related-lore">Related Lore</h1>
+
+<div class="related-cards">
+<a class="related-card" href="../../heroes-of-rathe/viserai-about.html">
+<span class="related-card-body">
+<span class="related-card-type">Hero</span>
+<span class="related-card-title">Viserai</span>
+</span>
+</a>
+<div class="related-cards-spacer" aria-hidden="true"></div>
+
+<a class="related-card" href="../../other-characters/lord-sutcliffe.html">
+<span class="related-card-body">
+<span class="related-card-type">Character</span>
+<span class="related-card-title">Lord Sutcliffe</span>
+</span>
+</a>
+<div class="related-cards-spacer" aria-hidden="true"></div>
+
+<a class="related-card" href="../../world-of-rathe/demonastery.html">
+<span class="related-card-body">
+<span class="related-card-type">Region</span>
+<span class="related-card-title">Demonastery</span>
+</span>
+</a>
+</div>
+</section>
+<!-- fablore-related:end -->
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/arcane-rising/from-the-ashes.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../../main-story/arcane-rising/return-of-the-shadow.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/arcane-rising/from-the-ashes.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../../main-story/arcane-rising/return-of-the-shadow.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../../mark-09e88c2c.min.js"></script>
+        <script src="../../searcher-09f2665d.js"></script>
+
+        <script src="../../clipboard-1626706a.min.js"></script>
+        <script src="../../highlight-abc7f01d.js"></script>
+        <script src="../../book-c22b7243.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../theme/toolbar-5fa3570f.js"></script>
+        <script src="../../tab-fd6a8e95.js"></script>
+        <script src="../../back-to-top-7ddb360a.js"></script>
+        <script src="../../hero-hub-d0a786d0.js"></script>
+        <script src="../../bionic-e657825d.js"></script>
+        <script src="../../theme/hints-16cd2044.js"></script>
+        <script src="../../theme/related-eadba45b.js"></script>
+        <script src="../../narrated-videos-84e813a2.js"></script>
+        <script src="../../theme/browse-ea40f197.js"></script>
+        <script src="../../theme/hero-filter-03bca56f.js"></script>
+        <script src="../../theme/reading-progress-adb1a214.js"></script>
+        <script src="../../theme/heading-anchors-838a9d90.js"></script>
+        <script src="../../theme/copy-link-605c931d.js"></script>
+        <script src="../../theme/reading-prefs-e9927c10.js"></script>
+        <script src="../../theme/random-story-d16666c7.js"></script>
+        <script src="../../theme/read-tracking-e63af195.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

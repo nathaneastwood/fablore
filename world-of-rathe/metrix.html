@@ -1,0 +1,481 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Metrix - Legendary Stories</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+        <!-- Open Graph / Twitter (Discord, Slack, etc. link previews — requires absolute image URL) -->
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Legendary Stories">
+        <meta property="og:title" content="Metrix - Legendary Stories">
+        <meta property="og:description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <meta property="og:image" content="https://legendarystories.net/assets/logo_original_cropped.png">
+        <meta property="og:image:width" content="736">
+        <meta property="og:image:height" content="736">
+        <meta property="og:image:alt" content="Legendary Stories logo">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Metrix - Legendary Stories">
+        <meta name="twitter:description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <meta name="twitter:image" content="https://legendarystories.net/assets/logo_original_cropped.png">
+        <!-- PNG first (reliable tab icon); src/assets/favicon.svg overrides mdBook bundle on disk; ?v= busts favicon cache -->
+        <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.png?v=5">
+        <link rel="icon" type="image/webp" sizes="32x32" href="../assets/favicon.webp?v=5">
+        <link rel="icon" href="../assets/favicon.ico?v=5" sizes="any">
+        <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=5">
+        <!-- Install / standalone: iOS “Add to Home Screen”, Android “Install app” (Chrome) -->
+        <link rel="manifest" href="../manifest.json">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="apple-mobile-web-app-title" content="Legendary Stories">
+        <meta name="mobile-web-app-capable" content="yes">
+        <!-- Font Awesome 4 (custom toolbar icons) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <!-- Tooltip library (used by hints.js) -->
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+        <!-- Apply reading preferences before content renders to prevent flash -->
+        <script>
+        (function () {
+            var VALID_SCALES = ['0.875', '1', '1.175'];
+            var VALID_WIDTHS = ['560px', '750px', '980px'];
+            try {
+                var s = localStorage.getItem('fablore-font-scale');
+                if (s && VALID_SCALES.indexOf(s) !== -1 && s !== '1') {
+                    document.documentElement.style.setProperty('--fablore-font-scale', s);
+                }
+                var w = localStorage.getItem('fablore-line-width');
+                if (w && VALID_WIDTHS.indexOf(w) !== -1 && w !== '750px') {
+                    document.documentElement.style.setProperty('--content-max-width', w);
+                }
+            } catch (e) {}
+        })();
+        </script>
+
+        <meta name="description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../hero-0066e6d7.css">
+        <link rel="stylesheet" href="../image-83732514.css">
+        <link rel="stylesheet" href="../tab-bf9533cd.css">
+        <link rel="stylesheet" href="../bionic-e54553dc.css">
+        <link rel="stylesheet" href="../footer-1dff10f9.css">
+        <link rel="stylesheet" href="../breadcrumb-6efe5711.css">
+        <link rel="stylesheet" href="../sets-hub-e2029893.css">
+        <link rel="stylesheet" href="../theme/hints-b7170011.css">
+        <link rel="stylesheet" href="../theme/related-5a0985b2.css">
+        <link rel="stylesheet" href="../theme/story-meta-d7ffbcb7.css">
+        <link rel="stylesheet" href="../theme/narrated-videos-a6b92c45.css">
+        <link rel="stylesheet" href="../theme/browse-e6d12a00.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "ayu";
+            window.path_to_searchindex_js = "../searchindex-a3252c3c.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-5f7cc31c.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Legendary Stories</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <!-- fablore-breadcrumb:start -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  
+<ol>
+    
+<li><a href="rathe.html">World of Rathe</a></li>
+
+    
+<li><span aria-current="page">Metrix</span></li>
+
+  </ol>
+
+</nav>
+<!-- fablore-breadcrumb:end -->
+<div class="image-title-overlay">
+  <img src="https://d2hl7maqck52px.cloudfront.net/world-of-rathe/metrix/metrix.webp" alt="Metrix">
+  
+<div class="overlay-text">
+    
+<h1>Metrix</h1>
+
+    
+<h2>City of Tomorrow</h2>
+
+  </div>
+
+</div>
+
+<h2 id="metrix"><a class="header" href="#metrix">Metrix</a></h2>
+<!-- fablore-story-meta:start -->
+<div class="story-meta" aria-label="Story information">
+  <span class="story-meta-item"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-17.7 0-32 14.3-32 32s14.3 32 32 32h50.7L169.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L384 141.3V192c0 17.7 14.3 32 32 32s32-14.3 32-32V64c0-17.7-14.3-32-32-32H288zM80 64C35.8 64 0 99.8 0 144V400c0 44.2 35.8 80 80 80H336c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v80c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V144c0-8.8 7.2-16 16-16h80c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z"/></svg></span> <a href="https://fabtcg.com/world-of-rathe/metrix/" target="_blank" rel="noopener">Original article</a></span>
+</div>
+
+<div class="story-share" data-story-type="world-of-rathe">
+  <span class="story-share-label">Share</span>
+  <a class="story-share-btn story-share-facebook" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" title="Share on Facebook"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg></span></a>
+  <a class="story-share-btn story-share-twitter" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on X" title="Share on X"><span class="story-share-x-logo" aria-hidden="true">X</span></a>
+  <a class="story-share-btn story-share-bluesky" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on BlueSky" title="Share on BlueSky"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 568 501" height="0.85em" width="0.85em" style="vertical-align:-0.1em;fill:currentColor" aria-hidden="true"><path d="M123.121 33.664C188.241 82.553 258.281 181.68 284 234.873c25.719-53.192 95.759-152.32 160.879-201.209C491.866-1.611 568-28.906 568 57.947c0 17.346-9.945 145.713-15.778 166.555-20.275 72.453-94.155 90.933-159.875 79.748C508.222 323.8 521.99 372.7 484.34 421.616c-60.732 79.094-165.296 62.47-235.296-14.534C179.044 484.086 74.48 500.71 13.748 421.616-23.902 372.7-10.134 323.8 106.532 304.2540.812 315.435-33.068 296.955-53.343 224.502-59.176 203.66-69.121 75.293-69.121 57.947c0-86.853 76.134-59.558 192.242-24.283z" /></svg></a>
+  <a class="story-share-btn story-share-whatsapp" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp" title="Share on WhatsApp"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></span></a>
+  <button class="story-share-btn story-share-copy" type="button" aria-label="Copy link" title="Copy link"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg></span></button>
+</div>
+
+<script>
+(function () {
+  var u = encodeURIComponent(window.location.href);
+  var t = encodeURIComponent(document.title);
+  function qs(sel) { return document.querySelector(sel); }
+  var fb = qs('.story-share-facebook');
+  if (fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + u;
+  var tw = qs('.story-share-twitter');
+  if (tw) tw.href = 'https://twitter.com/intent/tweet?url=' + u + '&text=' + t;
+  var bsky = qs('.story-share-bluesky');
+  if (bsky) bsky.href = 'https://bsky.app/intent/compose?text=' + t + '%20' + u;
+  var wa = qs('.story-share-whatsapp');
+  if (wa) wa.href = 'https://api.whatsapp.com/send?text=' + t + '%20' + u;
+  var cp = qs('.story-share-copy');
+  if (cp) cp.addEventListener('click', function () {
+    navigator.clipboard.writeText(window.location.href).then(function () {
+      cp.classList.add('story-share-copied');
+      setTimeout(function () { cp.classList.remove('story-share-copied'); }, 2000);
+    });
+  });
+})();
+</script>
+<!-- fablore-story-meta:end -->
+<p>A vibrant and bustling city, Metrix is a shining beacon of industrial innovation. The ‘city of tomorrow’ boasts productive marketplaces, alabaster towers, and facades of copper and glass. Home to every kind of endeavor, from mechanology to cybermancy, Metrix offers a fresh start for those searching for a brighter future. Researchers, inventors, and innovators come from all over Rathe to settle within this ever-changing metropolis.</p>
+<p>At its heart, four stalwarts of industry dictate the city’s future: Cogwerx Conglomerate maintains the city’s infrastructure with reliable steam tech. The Rosario Hills Institute is dedicated to neural expansion and artificial transcendence. Teklo Industries designs the next era of mechanology and human augmentation. And finally, <span class="hint" hint="The Registry">the Registry</span> ensures security is woven into every system, every resident monitored, every anomaly corrected before disruption occurs.</p>
+<p>Metrix’s innovators are not content with merely understanding the world, they wish to reshape it. Whether that means merging the organic with the artificial, rewriting the rules of nature, or constructing a technological utopia from the ground up, their ambitions are limitless.</p>
+<h2 id="advent-of-mech-and-tech"><a class="header" href="#advent-of-mech-and-tech">Advent of Mech and Tech</a></h2>
+<p>In Metrix, progress is not merely encouraged, it is demanded. The tireless pursuit of advancement has transformed its skyline into a glittering icon of technological achievement, and its laboratories into breeding grounds for ideas that will shape the future. From small, independent think tanks operating on the fringes to towering megacorporations with vast research divisions, Metrix is a city where knowledge is power, and invention is the currency of the ambitious.</p>
+<p>The Metrix ethos is to pursue mastery over body, mind, and machine with the goal of elevating civilization itself. Whether through steel and circuits, genetic refinement, or alchemical genius, the thinkers of Metrix seek to build something greater than themselves. Mechanology has played a central role in this rapid advancement, empowering people with devices that make them stronger, faster, and smarter.</p>
+<p>But beneath the veneer of progress, an innovation war festers. Corporations, research institutions, and private inventors are locked in a ceaseless struggle to outpace each other. Intellectual property is as fiercely guarded as any vault of treasure, and theft and sabotage are accepted—if unspoken—parts of the game.</p>
+<h2 id="branches-of-study"><a class="header" href="#branches-of-study">Branches of Study</a></h2>
+<p>The city’s intellectual efforts span multiple disciplines, each with its own methodologies, controversies, and ethical dilemmas. Thanks to the success and continued patronage of the Iron Assembly and its member corporations, the technological communities of Metrix have flourished.</p>
+<h4 id="mechanology"><a class="header" href="#mechanology">Mechanology</a></h4>
+<p>The study, design, and construction of machines, structures, and augmented or artificial intelligences. Mechanologists are the architects of Metrix’s ever-expanding skyline and the creators of the city’s vast infrastructure. Their inventions range from portable armaments to autonomous drones, exosuits and sprawling networks of data-processing hubs. They harness the potent energy of steam and teklatic-dynamism, and channel that power into ever-more elaborate robotics, vehicles, and manufacturing facilities. Unlike cybermancers, who seek to refine flesh, mechanologists place their faith in cold, unfeeling steel, believing that the future of humanity lies not in biology, but in machinery.</p>
+<h4 id="alchemy"><a class="header" href="#alchemy">Alchemy</a></h4>
+<p>The study and refinement of alchemical and biological components, leading to the creation of potent tonics, toxins, elixirs, and stimulants. While many alchemists focus on consumables, energy sources, or industrial applications, others delve into more unpredictable realms: enhancing the human body, crafting substances that boost cognition and perception, even engineering biological weapons. The moral spectrum ranges from healers who synthesize life-saving compounds to clandestine alchemists who concoct volatile substances for gray and black corporate operations.</p>
+<h4 id="cybermancy"><a class="header" href="#cybermancy">Cybermancy</a></h4>
+<p>The study and manipulation of the physical form, typically concerning humans but extending to other living creatures as well. Cybermancers push the boundaries of what the body can endure, enhancing strength, resilience, cognition, and even longevity. Some use their knowledge to repair and heal, offering medical miracles to those who can afford them. Others seek to transcend the limitations of the human condition, whether through cybernetic augmentation, genetic engineering, or the controversial practice of fleshcraft. To the most radical cybermancers, the distinction between human and machine, organic and synthetic, is a relic of the past.</p>
+<h1 id="a-towering-metropolis"><a class="header" href="#a-towering-metropolis">A Towering Metropolis</a></h1>
+<p>Metrix is a city built layer upon layer. As the city advanced, it built upwards, constructing ever-higher districts that tower over what came before. Tall buildings of the current highest level, the Expanse, cast some sectors of Coppertown in permanent shade.</p>
+<h3 id="coppertown"><a class="header" href="#coppertown">Coppertown</a></h3>
+<p>Life in Coppertown is relentless. Wedged between the gaping scars of Metrix’s two former strip mines, industry never stops. The air stinks of burning metal and sulfur, thick with steam and the static hum of overworked power grids. In many of its cramped streets the sun neither rises nor sets, blotted out by the city’s upper levels. Workers’ shifts aren’t clocked by daylight but by <span class="hint" hint="Siren">sirens</span> that own their lives. When quotas slip, the sirens blare more often. Breaks are cut. Shifts stretch longer. No warning. No choice.</p>
+<p>At the center stands Rex Biggun, a don with a wrench in one hand and plasma repeater in the other. His rule: keep the engines running, keep the money flowing, and never forget who is in charge. The Mob is his business, the enforcers his ‘personal friends’, and the workers are disposable cogs in Metrix’s great machine.</p>
+<p>Beyond the industrial sprawl, the streets are clean. Not for comfort, but for control. The residential blocks are tidy, uniform, and suffocating. In cramped housing, where the walls rattle from endless machinery, sleep is a luxury, aided by sedatives peddled by the Mob. The Mob doesn’t just sell vice, they sell survival, trading black-market medicine, clean water, and stolen moments of relief, all at a price that keeps the desperate in debt.</p>
+<p>Failure is not tolerated. Performance dictates food rationing, plant-based nutrient packs for the best, synthetic sludge for the rest. The people work. They endure. They obey. Because the alternative is worse. One Last Shift. One final, grueling job from which they never return. No mystery. No rumors. Everyone knows where they end up: the Pits.</p>
+<h3 id="west-rise"><a class="header" href="#west-rise">West Rise</a></h3>
+<p>West Rise is where the promising go to prove themselves. A district of polished steel where the future is engineered as efficiently as its workforce. Corporate housing lines immaculate boulevards, glass-fronted offices hum with productivity, and ambition is both encouraged and contained. Everyone here smiles, no one complains, and no one steps out of line. Enforcers patrol the perimeter so the inhabitants of West Rise need never be interrupted or inconvenienced by outside influences.</p>
+<p>Corporate-sponsored accommodation ensures loyalty, subsidized in exchange for results. Rent is deducted directly from wages, and promotions determine living conditions. Status is everything, but climbing too high, too fast, or in an unsanctioned direction has consequences.</p>
+<p>Failure is a quiet process. Disappointment is handled delicately. A worker who resists finds promotions slowing, projects reassigned, doors quietly closing. If they persist, they are offered a ‘fresh start’ in a lower-tier facility. If they still refuse to conform, an invitation to a clinic follows. Neural recalibration ensures they return, if they return at all, eager to prove their worth again.</p>
+<h3 id="east-rise"><a class="header" href="#east-rise">East Rise</a></h3>
+<p>Perched high above the industrial sprawl, East Rise is indulgence itself, where the cobblestone pavements of its steam-powered past join with tree-lined avenues and glitzy entertainment complexes. Here, one’s attire is both art form and status symbol, and there’s a shopping district to suit all tastes.</p>
+<p>But East Rise is not history reclaimed, it is history reimagined. Every leaf is curated, every breeze calculated. The air is crisp, the light perfect, balanced via an invisible lattice of climate regulators.</p>
+<p>Within these manicured spaces, artifacts of extinct fauna exist: creatures valued for the secrets they unlocked in environmental mastery. Songbirds flit between aviaries, their artificial existence managed as precisely as Metrix’s power grid. In ponds, engineered fish glide through still waters, their genetic code replicated from Pit 3 fossils.</p>
+<p>East Rise is open to all, a rare space where workers, researchers, and executives alike can briefly escape the grind of progress. They lounge beneath UV lamps, sipping the latest Oil-Coil infusions, while their children lose themselves in Mendacity Cyber Theaters. They shop for the latest in cybernetic enhancements, cutting-edge fashion, and designer tech, ensuring that even the lowliest engineer can aspire to the elegance of the elite. These fully immersive experiences are designed to coax constructive cognition, reinforcing Metrix’s ideals of ambition and innovation.</p>
+<p>For the wealthiest, peak indulgence is at Zenith, a sky-high casino where fortunes shift with the shuffle of the cards. The true game is not just gambling, but influence, high-stakes tables where wagers go beyond money to corporate shares, classified projects, and the futures of entire R&amp;D divisions. A bad hand can erase a lifetime of work. A good one can buy a seat among Metrix’s ruling class.</p>
+<p>Beyond the revelry, lounges, and floating rooftop gardens, automated spas offer the ultimate luxury: erasure. A full-body neural reset can wipe away stress, overclock neural pathways, or remove unwanted memories altogether. For the privileged, wellness is not about health, but optimization. Being the best version of oneself, at all costs.</p>
+<h3 id="the-expanse"><a class="header" href="#the-expanse">The Expanse</a></h3>
+<p>Untouched by the smog and grime below, the Expanse is the highest tier of Metrix, where genius, power, and innovation converge. Beyond wealth, only those who contribute to the city’s progress may ascend.</p>
+<p>Pristine skybridges stretch between seamless teklo-glass and platinum composite towers. Their surfaces shift with data streams and corporate broadcasts. No streets, no congestion, only pure, uninterrupted efficiency. Mechanical assistants glide silently beside their creators, managing labs that never sleep, and facilities where the next evolution of Metrix is always in motion.</p>
+<p>Access is earned, not given. The Ascension Terminal subjects visitors to genetic marker scans and algorithmic vetting: a fractional inefficiency, a single deviation, and entry is rescinded. For those permitted, entrance is the ultimate proof of worth. There are no hospitals here, no traditional retirement. Aging inventors are recalibrated, their knowledge redirected where it remains useful. Innovators who fail to deliver are absorbed into the system, their research folded into larger projects. Below, Metrix labors, but from the skybridges and terraces of the Expanse, those who live here do not look down; they only look forward.</p>
+<h1 id="landmarks"><a class="header" href="#landmarks">Landmarks</a></h1>
+<h3 id="cogmires-salvage-emporium-and-workshoppe"><a class="header" href="#cogmires-salvage-emporium-and-workshoppe">Cogmire’s Salvage Emporium and Workshoppe</a></h3>
+<p>Rumor has it that Jules Teklovossen once frequented Cogmire’s Salvage Emporium and Workshoppe at the southern edge of the Sprawl. Some swear he spent hours there collecting materials to build his earliest creations, when junk and scrap were all the young inventor could afford. When pressed for confirmation, the proprietor, Prospector Cogmire, said only that, “I find those glowing holophoto effigies to be in poor taste. That man gave us so much already; can’t we now let him rest?”</p>
+<p>Cogmire’s is the oldest junkyard in all of Metrix offering anything and everything a scrap trader or tinkerer could need. The man himself has been proprietor for as long as anyone can remember, with his trusty (and rusty) pet junkyard dogg Charlotte never far from his side. She’s mean in the eyes and knows the difference between a customer and a thief. So does Cogmire. The dogg is just faster.</p>
+<p>The yard isn’t laid out like a proper shop. It’s a maze of chain-slung heaps and riveted wreckage, where processors, induction chambers, gears, and cogs get swallowed for years before turning up again under somebody’s boot. Need a clamp press that hasn’t been made since before your grandparents learned to swear? Might be here. Need an Evo cut to fit a frame that was “standard” for about five minutes before some bright mind changed the pattern? Could be buried under a hopper carcass and three bad decisions. Need a single copper screw with a plasma-resistant thread? You’ll find it. Eventually.</p>
+<h3 id="midtown-markets"><a class="header" href="#midtown-markets">Midtown Markets</a></h3>
+<p>A place where anything and everything can be found for the right price. Occupying a worn-out strip mine, the Midtown Markets are notorious for their counterfeit and cut-corner wares, and for the disproportionate presence of organized crime. The Iron Assembly has stationed a permanent brigade of enforcers in the area, in an attempt to control the market’s more nefarious locals. Many of the merchants remain at odds with the brigade, arguing that their presence deters the clientele.</p>
+<h3 id="gigadrill-elevator"><a class="header" href="#gigadrill-elevator">Gigadrill Elevator</a></h3>
+<p>A few decades old, Pit 3 is the only active ore pit in Metrix, and the city’s primary source of tenatan: the rarest, most precious metal of all. Used in all kinds of technologies from mechro-mods to teklatic-dynamism, the extraction of tenatan is possible thanks to the Gigadrill Elevator, one of the last inventions of Jules Teklovossen.</p>
+<p>The Gigadrill ionizes particles with intense bursts of teklatic-dynamism to form droplets of superheated plasma. As the droplets coalesce and reach critical mass, balls of plasma fall down the pit. They detonate at the bottom, destroying the thick bedrock beneath. In the morning, teams of miners make use of the newly formed hollows and tunnels. Colossal elevators run along the side of the structure, allowing them to bring the ore back to the surface.</p>
+<p>Tenatan has become such a key component of Metrix’s ability to innovate that the output of the Gigadrill Elevator is needed more than ever.</p>
+<h3 id="the-needle"><a class="header" href="#the-needle">The Needle</a></h3>
+<p>No one knows how the Needle was constructed. Speculation ranges from anti-gravity technology to materials beyond current understanding. The tallest structure in Metrix, the sleek ivory monument pierces the sky, as if daring the city to catch up to Teklo Industries.</p>
+<p>Inside, the future is being built. The uppermost floors house Teklo’s elite engineers and researchers, refining next-generation energy sources, Evo technology, and mechanized advancements to reshape life in Metrix.</p>
+<p>Security throughout the Needle is unrivaled. Self-driven monitoring systems, automated enforcers, and Iron Assembly oversight ensure that only authorized personnel move freely within its walls. The building itself seems alive. Corridors reconfigure and rooms seal at will, restricting access, as if the tower itself decides who is or is not qualified.</p>
+<p>The best and brightest toil within, hand-selected and driven beyond limits, their dedication expected to match the ambitions of the corporation. Many sleep in their labs. Some never leave. Those who enter the higher floors never speak of what they’ve seen, silenced by loyalty and ironclad contracts.</p>
+<h3 id="rosario-hills-institute"><a class="header" href="#rosario-hills-institute">Rosario Hills Institute</a></h3>
+<p>The white walls of the Rosario Hills Institute climb from the bottom of Coppertown all the way to the West Rise. A conglomerate of academics, mechanologists, and other savants involved in research and development, the institute’s motto ‘Your future is bright’ rings with optimism.</p>
+<p>According to the brochure, Rosario Hills Institute focuses on streamlining the results of fundamental research into groundbreaking-yet-practical patents and applications for the benefit of every corporation and individual in Metrix. Indeed, Mendacity’s news feeds declare the institute is nothing less than a true symbol of the well-oiled social ladder that makes Metrix the greatest city in all of Rathe <em>.</em> But ask anyone in Coppertown, and they will sneer: “Have you ever tried to climb an oiled ladder?”</p>
+<p>The Institute also operates an academic branch, offering schooling to gifted children from underprivileged backgrounds. Specifically, orphans. At first, the orphans believe they are living the dream. They get their own room, with a nice bed, and three meals a day. Even better, unlike the orphanages, the staff are friendly and pay attention to their well-being.</p>
+<p>But soon, attention turns to nightmare, for the Rosario Hills Institute hides a terrible secret: Blacktek research, dedicated to extracting the children’s innate abilities, distilling human talent into a test tube. The process involves unspeakable procedures. Forced upon the children over several months, it leaves them emotionally and intellectually empty, as if hollowed out. Most wither away, mere shadows of their former selves, shambling in the hallways until they are quietly disposed of, never to be seen again.</p>
+<h3 id="terracette-path-academy"><a class="header" href="#terracette-path-academy">Terracette Path Academy</a></h3>
+<p>Named after one of Metrix’s founders, the academy is a place of intellectual rigor and ambition, offering education to those who can afford the tuition. The halls are lined with portraits of the smartest minds of past generations, all groomed for excellence in Metrix. Connections forged here will open doors to the most powerful corporations in the city, and a graduate is guaranteed success, provided they survive the pressure.</p>
+<p>While some see Terracette Path as the pinnacle of opportunity, others whisper the academy is less an institution of learning and more a proving-ground for the elite, where innovation is not shaped by curiosity, but by the demands of Metrix’s ever-hungry industrial machine.</p>
+<h3 id="zinnia-park"><a class="header" href="#zinnia-park">Zinnia Park</a></h3>
+<p>One of the stranger attractions in Metrix, the Zinnia Park mechanical creatures were the creation of Francesca Zinnia, a wealthy and eccentric inventor obsessed with automata. According to urban legend, she died under mysterious circumstances shortly after the park’s grand opening. The park continues to operate—despite having no staff, and not drawing power from the city grid—unveiling new exhibits with no sign of their creators.</p>
+<p>The Iron Assembly denies any involvement, and no one has uncovered who, or what, truly maintains it. Ricky Royce, however, has found his way backstage, slipping into the hidden tunnels beneath the park. An ideal hideout, so long as he doesn’t attract the attention of whatever unseen force still keeps Zinnia’s vision alive.</p>
+<h1 id="a-better-tomorrow"><a class="header" href="#a-better-tomorrow">A Better Tomorrow</a></h1>
+<p>Metrix is the epitome of transformation. Through hundreds of years of innovation, there have been many corporations and agencies that have contributed to the city’s development. Today, the Iron Assembly maintains economic order, while corporations such as Cogwerx and Teklo fund research and produce exciting new technologies for citizens.</p>
+<h3 id="cogwerx-conglomerate"><a class="header" href="#cogwerx-conglomerate">Cogwerx Conglomerate</a></h3>
+<p>Headquartered in Upper West Rise, Cogwerx Conglomerate is the oldest operating corporation in Metrix. From its humble origins as a clockwork factory, Cogwerx grew to dominate and revolutionize the city with its compressed steam technology.</p>
+<p>The conglomerate produces steadfast steam-tech devices for every citizen of Metrix: enforcer, miner, and civilian alike. Products are divided into four lines: mechanical devices for everyday use, such as sweepers; wearable equipment from copperwings to accelerators; health and safety equipment from respirators to dampometers, and weaponry from shock sticks to pistols.</p>
+<p>Cogwerx has always maintained a rabid anti-aether policy, shunning anything to do with the arcane arts. Instead, they have pushed their steam technology as a strong alternative to the unpredictable benefits of arcanity. Despite recent loss of market leadership to Teklo Industries, Cogwerx remains the affordable and reliable choice for much of Metrix’s heavy industries such as Blackjack’s Mining.</p>
+<h3 id="blackjacks-mining"><a class="header" href="#blackjacks-mining">Blackjack’s Mining</a></h3>
+<p>Blackjack’s Mining is the second oldest corporation in Metrix and continues to be a major supplier of metals to Cogwerx Conglomerate. Although headquartered in Coppertown with refineries throughout Metrix, Blackjack’s conducts most of its mining operations in the Pits, where labor is cheap and there are no repercussions for exploitation. Faced with stiff competition from industry rivals, Blackjack’s has become more aggressive than ever, expanding its mining operations into the neighboring Northern Realms, and the Savage Lands. There, the corporation habitually seizes land instead of negotiating or buying it. Rumors speculate that they’ve even dug as far as Aria. To protect its growing empire, Blackjack’s established its own mercenary company, which is now one of the most effective and ruthless armed forces in the Pits.</p>
+<h3 id="registry"><a class="header" href="#registry">Registry</a></h3>
+<p>The Registry has established itself as the city’s dominant cybersecurity solutions specialist and data gatherer. Strategically positioned in Upper Coppertown, it carries out its mandate under the leadership of current director Meaze Banze.</p>
+<p>To the public, it provides vital records related to law enforcement, such as crime reports, and the ability to verify personal or public data. It is also the city’s largest communications provider, offering free comms in return for open access to user information and correspondence. The Registry then sells this personal data to the highest bidder, a small price to pay for guaranteed security.</p>
+<p>In recent years, the Registry has extended its information-gathering operations far beyond the city borders. Registry spies have infiltrated every other nation, including Aria. Through bribes and blackmail, the Registry has co-opted informers from many extralegal organizations and regularly purchases the services of the Spider. Little happens in Rathe these days without the Registry knowing about it.</p>
+<h3 id="teklo-industries"><a class="header" href="#teklo-industries">Teklo Industries</a></h3>
+<p>Founded by Jules Teklovossen, Teklo Industries is the leading technological innovator in Metrix. Located inside the Needle, its research labs hum with teklatic-dynamism, experimental materials are tempered and tested, and holo-displays flicker with equations that defy conventional thinking. Fabrication wings churn out new designs, prototyping Teklo’s latest innovations. This agile corporation has produced a multitude of products from biochic hardware to micro-processors, Evos to Mechro-mods, and appliances such as the Mach III Teklo Snapfreeze, a favorite with Metrix’s food industry.</p>
+<p>Since its founder’s mysterious death, a series of CEOs elected by the company Board of Directors have managed Teklo Industries. All executives adopt the surname Teklo to maintain a sense of dynastic continuity. The current CEO, Synthea Teklo, also holds a leadership position within the Iron Assembly.</p>
+<h3 id="iron-assembly"><a class="header" href="#iron-assembly">Iron Assembly</a></h3>
+<p>Public records state the Iron Assembly’s mission is to ‘safeguard the economic well-being of every citizen in Metrix’. Unofficially, it maintains order with an iron fist.</p>
+<p>When not engaged in municipal governance, the Iron Assembly also serves as a forum for discussion where the city’s corporations, research centers, and academic institutions meet to share, debate, and resolve issues of significance to the city. Metrix’s preeminent Energize the Era summit is held annually in <span class="hint" hint="Iron Hall">Iron Hall</span>. This important event showcases the latest in the steam, tech, and business communities, offering an opportunity for attendees to explore the latest breakthroughs and best practices in these areas, from using steam to simplify food production to solving the energy crisis. The ideas with the highest potential for ROI are elevated to the top of the assembly agenda.</p>
+<p>Headquartered in the Expanse with a council comprising members of the upper echelons of society, including executives from Teklo Industries, Cogwerx Conglomerate, and other corporations, the Iron Assembly is a technocracy that oversees every aspect of daily life in Metrix.</p>
+<h3 id="mendacity-media"><a class="header" href="#mendacity-media">Mendacity Media</a></h3>
+<p>Vigilant in maintaining their monopoly, media corporation Mendacity (formerly Voxx) owns and operates all the prominent newspapers and wave-broadcast stations in Metrix. A mecca for news and entertainment, Mendacity gobbles up independent broadcasters as soon as they garner a following, and anyone foolish enough to resist a buyout risks ‘disappearing’.</p>
+<p>Mendacity’s InfoSec Division has entire teams dedicated to tracing rogue signals and shutting down unauthorized broadcasts. Specialized Interference Drones scour the city, deploying EMP pulses to wipe out makeshift transmitters. Headquartered in The Expanse, Mendacity is paid by the Iron Assembly to run the public education system. While teaching basic literacy and numeracy in Coppertown, lessons are “brought to you by” any corporation that pays for the “adver-cation” slot.</p>
+<h1 id="voices-of-dissent"><a class="header" href="#voices-of-dissent">Voices of Dissent</a></h1>
+<h3 id="punks"><a class="header" href="#punks">Punks</a></h3>
+<p>There are those who say the city’s obsession with progress has turned Metrix into a meat grinder, destroying anyone who can’t keep pace. The punks of Metrix don’t just call out this violent inequality, but devote their lives to fighting against it, or at least partying their days away instead of contributing to the system of industrialized coercion and control.</p>
+<p>Punks are easily recognized by the bright colors and bold styles of their clothing and hair, and their fetish for body modifications is both functional and purely aesthetic. While most punks move in packs and take part in criminal activity as a matter of course, it would be wrong to call them gangs in the traditional sense, as they lack the organization. A group of punks rampaging through Metrix won’t be looking to secure territory or enrich themselves, rather they’ll be wreaking havoc on the city’s corporate overlords and the security/surveillance apparatus they feel restricts their basic freedoms, or just beating up ’Risers who think they can dress punk while still pledging fealty to the corps.</p>
+<p>A curious feature of punk creed is a communal approach to their delinquency, with punk raves invariably doling out free food for anyone in the neighborhood: assuming they can stand the loud, abrasive music long enough to eat.</p>
+<h3 id="the-foundry"><a class="header" href="#the-foundry">The Foundry</a></h3>
+<p>In a city where information is currency and truth is a commodity, the Foundry is an anomaly: an independent voice that refuses to be bought, buried, or silenced.</p>
+<p>Running an independent station in Metrix is not just rebellious, it’s dangerous. The Foundry has been marked as an “unauthorized information source” by Mendacity, making broadcast a high-stakes game of cat and mouse. Operating somewhere in the heart of Metrix’s urban sprawl, this rogue radio station is one of the last bastions of free speech in a city dominated by corporate propaganda.</p>
+<h4 id="the-voice-of-the-underground"><a class="header" href="#the-voice-of-the-underground">The Voice of the Underground</a></h4>
+<p>The Foundry is the passion project of an operator known only as λud@c!ty. No one knows their real name, face, or if they’re a single person or a collective of dissidents operating under a shared alias.</p>
+<p>λud@c!ty’s programming is eclectic, a blend of underground music, revealing factoids, and impassioned monologues that cut through the noise of corporate-controlled media. They never stay on one frequency for long, each broadcast is a ghost signal, vanishing like steam in the neon haze.</p>
+<p><em>“Metrix is a city of a thousand voices, but only one tells the truth. You’re listening to λud@c!ty on The Foundry. Stay loud, stay free.”</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../world-of-rathe/high-seas.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../world-of-rathe/misteria.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../world-of-rathe/high-seas.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../world-of-rathe/misteria.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-c22b7243.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../theme/toolbar-5fa3570f.js"></script>
+        <script src="../tab-fd6a8e95.js"></script>
+        <script src="../back-to-top-7ddb360a.js"></script>
+        <script src="../hero-hub-d0a786d0.js"></script>
+        <script src="../bionic-e657825d.js"></script>
+        <script src="../theme/hints-16cd2044.js"></script>
+        <script src="../theme/related-eadba45b.js"></script>
+        <script src="../narrated-videos-84e813a2.js"></script>
+        <script src="../theme/browse-ea40f197.js"></script>
+        <script src="../theme/hero-filter-03bca56f.js"></script>
+        <script src="../theme/reading-progress-adb1a214.js"></script>
+        <script src="../theme/heading-anchors-838a9d90.js"></script>
+        <script src="../theme/copy-link-605c931d.js"></script>
+        <script src="../theme/reading-prefs-e9927c10.js"></script>
+        <script src="../theme/random-story-d16666c7.js"></script>
+        <script src="../theme/read-tracking-e63af195.js"></script>
+
+
+
+    </div>
+    </body>
+</html>

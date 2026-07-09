@@ -1,0 +1,339 @@
+{
+  "Absolon": {
+    "type": "ancient",
+    "summary": "Dhani god of the great deep."
+  },
+  "AbsolonsDream": {
+    "type": "ship",
+    "match": "Absolon's Dream",
+    "summary": "Kuraghan flagship."
+  },
+  "Aeronauts": {
+    "type": "concept",
+    "summary": "Daring sky captains who trade danger for speed and freedom among the clouds."
+  },
+  "Aedes": "Solanian Tuesday",
+  "Alif": {
+    "type": "npc",
+    "summary": "A member of the Cintari, Kassai's close friend."
+  },
+  "Alshoni": {
+    "type": "faction",
+    "summary": "A faction founded by a particular branch of the Royal Bloodline, brought together by blood ties, headed up by Lord Wizard Chiyo, cousin to the Emperor."
+  },
+  "AuisScales": {
+    "type": "faction",
+    "match": "Aui's Scales",
+    "summary": "A secretive organisation that builds hidden strongholds across Misteria to conceal scrolls and artefacts from the public.",
+    "exclude_pages": ["main-story/welcome-to-rathe/wanderings-in-the-mists"]
+  },
+  "Bellona": {
+    "type": "npc",
+    "summary": "The Wartune Herald."
+  },
+  "Braumeister": {
+    "type": "organisation",
+    "summary": "Elite brewers of Aria making spirits which possess unique effects."
+  },
+  "Chiyo": {
+    "type": "npc",
+    "summary": "Lord Wizard, Head of the Alshoni faction and cousin to the Emperor."
+  },
+  "Chul": {
+    "type": "npc",
+    "summary": "General who betrayed Kassai's family."
+  },
+  "Cintari": {
+    "type": "faction",
+    "summary": "A group of bloodthirsty brigands who seek the thrill of battle."
+  },
+  "Cogwerx": {
+    "type": "organisation",
+    "summary": "Credited with inventing steam technology and revolutionising Metrix through steam compression for energy, largely responsible for the city's success and development."
+  },
+  "CrimsonHaze": {
+    "type": "faction",
+    "match": "Crimson Haze",
+    "summary": "A rebel group at odds with Aui's Scales for centuries, seeking to free the people of Misteria from the Great Households.",
+    "exclude_pages": ["main-story/welcome-to-rathe/wanderings-in-the-mists"]
+  },
+  "Davnir": {
+    "type": "ancient",
+    "summary": "Ancient of Earth and Lightning."
+  },
+  "Demonastery": {
+    "url": "/world-of-rathe/demonastery.html"
+  },
+  "DhaniEmpire": {
+    "type": "concept",
+    "match": "Dhani Empire",
+    "summary": "A fallen civilisation once ruled by an arcane empress, whose mastery of aether ended in cataclysmic ruin."
+  },
+  "Dracai": {
+    "type": "faction",
+    "summary": "Bestowed names free of restrictions or stigma, the Dracai are granted positions in the Royal Court of Volcor by the Emperor."
+  },
+  "Dreadnought": {
+    "type": "ship",
+    "summary": "Gravy Bones' ship."
+  },
+  "Exorides": "Solanian Thursday",
+  "Ezu": {
+    "type": "faction",
+    "summary": "A faction headed up by Chancellor Yama."
+  },
+  "Fayyad": {
+    "type": "npc",
+    "summary": "A member of the Cintari, Kassai's close friend."
+  },
+  "FiddlersGreen": {
+    "type": "concept",
+    "match": "Fiddler's Green",
+    "summary": "An imaginary place where every immortal's whim shall be tended to by demure merfolk."
+  },
+  "Fireseer": {
+    "type": "concept",
+    "match": ["Fireseer", "Fireseers"],
+    "summary": "One of the most powerful positions in the royal court of Volcor. The Fireseer is both spymaster and prophet, using Firesight to look through the empire's flames as windows across the land."
+  },
+  "GoldenGoose": {
+    "type": "ship",
+    "match": "Golden Goose",
+    "summary": "A sleek airship."
+  },
+  "GoldkissRum": {
+    "type": "item",
+    "match": "Goldkiss Rum",
+    "summary": "Bright with a rich golden flavour, the most popular drink served at the Kraken's Barrel."
+  },
+  "Gawain": {
+    "type": "npc",
+    "summary": "A reserved, taciturn strongman of the Valdur who joined Bravo's Legendarium, wielding a finely crafted greataxe."
+  },
+  "GrandMagister": {
+    "type": "npc",
+    "match": "Grand Magister",
+    "summary": "Serves the city of Solana as the highest representation of Sol."
+  },
+  "GrandMagisterTheSteadfast": {
+    "type": "npc",
+    "match": "Grand Magister, The Steadfast",
+    "summary": "Serves the city of Solana as the highest representation of Sol; presides over the Solstice of Laurels and Awakening ceremonies."
+  },
+  "HandOfSol": {
+    "type": "faction",
+    "match": "Hand of Sol",
+    "summary": "Solana's order of knights, who defend the city from outside threats."
+  },
+  "Solana": {
+    "type": "region",
+    "summary": "The Golden City, realm of Illumination, founded by pilgrims drawn to Rathe by Sol's will.",
+    "url": "/world-of-rathe/solana.html"
+  },
+  "Infernai": {
+    "type": "aesir",
+    "summary": "Aesir of Flames."
+  },
+  "AesirOfFlames": {
+    "type": "aesir",
+    "match": "Aesir of Flames",
+    "summary": "Epithet of Infernai."
+  },
+  "Jing": {
+    "type": "npc",
+    "summary": "Xilin and Ira's brother."
+  },
+  "Magnus the Vigilant": {
+    "type": "npc",
+    "summary": "The hero of one of Aria's most beloved old legends, first brought to the stage by a young Bravo and his fellow performers."
+  },
+  "Marbles": {
+    "type": "npc",
+    "summary": "A meep who joined Bravo on his journey to the Fractal Scar, drawn to the glint of the wayfarers' dowsing discs and prone to darting off with shiny trinkets."
+  },
+  "Mikael": {
+    "type": "npc",
+    "summary": "The Legendarium's bard, always brimming with new stories gathered from his travels."
+  },
+  "Kayat": {
+    "type": "npc",
+    "summary": "An illusionist, boss of the Dust Runners."
+  },
+  "Kuraghan": {
+    "type": "faction",
+    "summary": "A fanatical pirate cult formed from reconditioned convicts. The Kuraghan worship the sea god Absolon and believe dying in battle earns them an afterlife of endless pleasure."
+  },
+  "Lunedes": "Solanian Monday",
+  "Mendacity": {
+    "type": "organisation",
+    "summary": "A corporation that maintains control of the media, funding almost every radio station and newspaper in the city."
+  },
+  "Merides": "Solanian Friday",
+  "Min": {
+    "type": "npc",
+    "summary": "Fai's mother, Min of the Forest of Flames."
+  },
+  "Morgan": {
+    "type": "npc",
+    "summary": "The more talkative of two Valdur strongmen who joined Bravo's Legendarium, wielding a finely crafted greataxe."
+  },
+  "Nasreth": {
+    "type": "creature",
+    "summary": "The Soul Harrower, an Embra."
+  },
+  "Nocetes": {
+    "type": "ancient",
+    "summary": "Dhani death god."
+  },
+  "Raven": {
+    "type": "aesir",
+    "summary": "Aesir of Chaos."
+  },
+  "AesirOfChaos": {
+    "type": "aesir",
+    "match": "Aesir of Chaos",
+    "summary": "Epithet of Raven."
+  },
+  "Redmoor": {
+    "type": "npc",
+    "summary": "The Redmoors are Boltyn's cousins."
+  },
+  "Rosetta": {
+    "type": "faction",
+    "summary": "An Order of powerful spell weavers that once stood alongside the likes of the Ollin and the Seers."
+  },
+  "Sada": {
+    "type": "npc",
+    "summary": "Kassai's sorceress friend and member of the Cintari."
+  },
+  "Savai": {
+    "type": "npc",
+    "summary": "Lord Merchant of Deshvahan."
+  },
+  "Sayashi": {
+    "type": "faction",
+    "summary": "Special force of loyal ninjas dedicated to hunting those responsible for the Emperor's death."
+  },
+  "Seikan": {
+    "type": "concept",
+    "summary": "Curse afflicting the Mugenshi Clan."
+  },
+  "Siren": {
+    "match": ["Siren", "Sirens"]
+  },
+  "Sol": {
+    "type": "aesir",
+    "summary": "Aesir of Light, deity of Solana. Drew the city's founding pilgrims to Rathe and is honoured as the source of the Light, the radiant energy that guides and protects the Children of the Light.",
+    "url": "/world-of-rathe/solana.html"
+  },
+  "AesirOfLight": {
+    "type": "aesir",
+    "match": "Aesir of Light",
+    "summary": "Epithet of Sol, deity of Solana and source of the Light that guides and protects the Children of the Light.",
+    "url": "/world-of-rathe/solana.html"
+  },
+  "Solides": "Solanian Sunday",
+  "SuperSlam": {
+    "type": "concept",
+    "match": "Super Slam",
+    "summary": "A deadly combat tournament where fighters battle in the Deathmatch Arena for glory and bloodsport."
+  },
+  "Sutcliffe": {
+    "type": "npc",
+    "summary": "Pursued arcane knowledge despite lacking aether affinity, creating the Arknight project to unlock magical abilities. Betrayed by his creation, Viserai, he was killed and now exists trapped in a skull, tormented and longing for revenge."
+  },
+  "SyntheaTeklo": {
+    "type": "npc",
+    "match": "Synthea Teklo",
+    "summary": "Teklo Industries CEO."
+  },
+  "tallics": {
+    "type": "concept",
+    "summary": "The Metrix currency."
+  },
+  "TeklaticDynamism": {
+    "type": "concept",
+    "match": "Teklatic Dynamism",
+    "summary": "Energy source invented by Professor Teklovossen."
+  },
+  "TekloIndustries": {
+    "type": "organisation",
+    "match": "Teklo Industries",
+    "summary": "A recent entrant to the steamtech industry, acclaimed for its innovative products and cutting-edge designs driven by a constantly experimenting R&D team."
+  },
+  "TheFoundry": {
+    "type": "organisation",
+    "match": "the Foundry",
+    "summary": "An independent radio station, one of the few in Metrix that remains free of Mendacity control."
+  },
+  "Thiroux": {
+    "type": "npc",
+    "summary": "Dash's mother."
+  },
+  "Verides": "Solanian Wednesday",
+  "Vesperides": "Solanian Saturday",
+  "Volcai": {
+    "type": "concept",
+    "summary": "The more limited social class of Volcor; their names are homogeneous, ending in -ai as a mark of their Volcai origin status."
+  },
+  "VoltarisGem": {
+    "type": "artifact",
+    "match": "Voltaris Gem",
+    "summary": "A powerful artifact said to have an entire storm trapped within its crystalline walls."
+  },
+  "Xilin": {
+    "type": "npc",
+    "summary": "Ira and Jing's brother."
+  },
+  "Yama": {
+    "type": "npc",
+    "summary": "Lord Chancellor and Head of the Ezu faction."
+  },
+  "Yvor": {
+    "type": "ancient",
+    "summary": "Ancient of Lightning and Ice."
+  },
+  "The Maw": {
+    "exclude_pages": ["main-story/usurp-the-shadow-throne/letters-from-the-beyond"]
+  },
+  "ShadowrealmWalker": {
+    "match": "Shadowrealm Walker",
+    "exclude_pages": ["main-story/usurp-the-shadow-throne/letters-from-the-beyond"]
+  },
+  "Baalghor": {
+    "type": "npc",
+    "summary": "Titanic corrupted demon whose lair in i'Arathael may harbor secrets of the Old Ones."
+  },
+  "Kien": {
+    "type": "npc",
+    "summary": "A Disciple of Pain who volunteered as a blood sacrifice for Chane during an expedition into i'Arathael."
+  },
+  "Ursur": {
+    "type": "embra",
+    "summary": "An Embra bound to Chane, drawn to the corruption of the Old Ones in the Shadowrealm."
+  },
+  "DisciplesOfPain": {
+    "type": "faction",
+    "match": "Disciples of Pain",
+    "summary": "Chane's elite followers within the Church of Pain, accompanying him on expeditions into i'Arathael."
+  },
+  "Runeblades": {
+    "type": "faction",
+    "summary": "Chane's Demonastery warriors who serve as guards and potential blood sacrifices on Shadowrealm expeditions."
+  },
+  "OldOnes": {
+    "type": "concept",
+    "match": "Old Ones",
+    "summary": "Ancient beings of overwhelming power from beyond Rathe who threatened to consume the world in the Third Age."
+  },
+  "ChurchOfPain": {
+    "type": "faction",
+    "match": "Church of Pain",
+    "summary": "Demonastery faction led by Chane, dedicated to harnessing pain and shadow to destroy Solana."
+  },
+  "Embra": {
+    "type": "concept",
+    "match": ["Embra", "Embras"],
+    "summary": "Powerful supernatural entities that feed on blood; Chane's patron Ursur is one."
+  }
+}
