@@ -205,10 +205,13 @@ def main() -> None:
 
     index = build_index(data_dir)
 
-    stories_json = json.dumps(
-        [{"t": s["t"], "u": s["u"]} for s in index["stories"]],
-        ensure_ascii=False,
-        separators=(",", ":"),
+    stories_json = (
+        json.dumps(
+            [{"t": s["t"], "u": s["u"]} for s in index["stories"]],
+            ensure_ascii=False,
+            separators=(",", ":"),
+        )
+        + "\n"
     )
     stories_json_path = src_root / "stories.json"
     try:

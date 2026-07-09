@@ -1,14 +1,4 @@
 repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
-    hooks:
-      - id: check-yaml
-      - id: end-of-file-fixer
-      - id: trailing-whitespace
-  - repo: https://github.com/psf/black
-    rev: 25.1.0
-    hooks:
-      - id: black
   - repo: local
     hooks:
       - id: ensure-create-md-sync
@@ -23,14 +13,26 @@ repos:
         language: system
         pass_filenames: false
         files: ^(src/hints_supplement\.json|src/data/(generate_hints_json\.py|descriptions\.py|csv/(locations|monsters|fauna|flora)\.csv))$
-      - id: link-checks
-        name: link-checks
-        entry: bash scripts/link-checks.sh
-        language: system
-        pass_filenames: false
       - id: validate-data
         name: validate-data
         entry: python3 src/data/validate_data.py
         language: system
         pass_filenames: false
         files: ^src/data/.*\.(csv|py)$
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+  - repo: https://github.com/psf/black
+    rev: 25.1.0
+    hooks:
+      - id: black
+  - repo: local
+    hooks:
+      - id: link-checks
+        name: link-checks
+        entry: bash scripts/link-checks.sh
+        language: system
+        pass_filenames: false

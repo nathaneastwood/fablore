@@ -122,6 +122,7 @@ def generate() -> None:
 
     with OUTPUT_PATH.open("w", encoding="utf-8") as f:
         json.dump(hints, f, ensure_ascii=False, indent=2)
+        f.write("\n")
 
     print(
         f"Wrote {len(hints)} entries to {OUTPUT_PATH.relative_to(ROOT)}",
