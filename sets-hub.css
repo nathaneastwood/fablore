@@ -31,6 +31,26 @@
     object-fit: cover;
 }
 
+/* Card-printing art is portrait (5:7) game-card photography, unlike the
+   landscape banner images used elsewhere in this grid — cap the card width so
+   auto-fill columns can't stretch it to poster size, and show the whole card
+   uncropped. */
+.sets-hub-grid:has(.child-hub-card-art) {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 160px));
+    justify-content: start;
+}
+
+.sets-hub-card:has(img.child-hub-card-art) {
+    width: 160px;
+}
+
+.sets-hub-card img.child-hub-card-art {
+    height: auto;
+    aspect-ratio: 5 / 7;
+    object-fit: contain;
+    background: var(--quote-bg);
+}
+
 .sets-hub-card-info {
     padding: 0.65rem 0.75rem 0.75rem;
     display: flex;
