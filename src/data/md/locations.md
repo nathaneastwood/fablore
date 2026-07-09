@@ -27,8 +27,7 @@
 |         Candlehold        |      Aria      |                                                                                                                                                |         candlehold         |
 |    Candlelight Clearing   |      Aria      |                                  Where the Rosetta of old had once gathered to garden, share poetry, and sing.                                 |                            |
 |   Centennial Consumables  |     Metrix     |                                                                                                                                                |                            |
-|    Ceremionial Chamber    |     Solana     |                                             In the city proper, location of the Awakening ceremony.                                            |                            |
-|     Ceremonial Chamber    |     Solana     |                                                                                                                                                |                            |
+|     Ceremonial Chamber    |     Solana     |                                             In the city proper, location of the Awakening ceremony.                                            |                            |
 |   Chamber of the Dragon   |     Volcor     |                                                                                                                                                |                            |
 |    Champion's Quarters    |                |                                                                                                                                                |                            |
 |       Champions Rest      |                |                                                                                                                                                |                            |
@@ -52,7 +51,6 @@
 |         Fardreyas         |     Solana     |                                                                    Village.                                                                    |                            |
 |          Fedhari          |    High Seas   |                                          Former Dhani city, now home to the merfolk and named Coralysi                                         |                            |
 |       Forward Camps       |The Savage Lands|                                            Home to merchants, traders, adventurers, and mercenaries.                                           |                            |
-|       Forward Camps       |The Savage Lands|                                            Home to merchants, traders, adventurers, and mercenaries.                                           |                            |
 |        Fractal Scar       |      Aria      |                                                       Site of the Battle of Fractal Scar.                                                      |                            |
 |    Freakshow Territory    |    The Pits    |                                               Deep in the Pits, composed of abandoned mineshafts.                                              |                            |
 |     Gigadrill Elevator    |     Metrix     |                                                                                                                                                |     gigadrill-elevator     |
@@ -70,7 +68,6 @@
 |        Highloft Inn       |      Aria      |                                                               Inn on Skybreaker.                                                               |                            |
 |           Ikaru           |    Misteria    |                                        One of the prestigious houses of Misteria; the House of Blossoms.                                       |            ikaru           |
 |      Imperial Furnace     |     Volcor     |                                                                                                                                                |                            |
-|      Imperial Palace      |     Volcor     |                                                                                                                                                |                            |
 |      Imperial Palace      |     Volcor     |                                                                                                                                                |       the-royal-court      |
 |       Iron Assembly       |     Metrix     |                                                                                                                                                |        iron-assembly       |
 |         Iron Hall         |     Metrix     |                                              The seat of power for Metrix's municipal government.                                              |                            |
@@ -158,7 +155,6 @@
 |       The Leaf House      |    The Pits    |                                                           Restaurant run by Jemjang.                                                           |                            |
 |      The Light of Sol     |     Solana     |                                                                                                                                                |      the-light-of-sol      |
 |         The Maela         |      Aria      |                      Part of the Everfest Carnival, home to fortune tellers, seers, oracles, enchantresses, and conjurers.                     |                            |
-|         The Maela         |      Aria      |                      Part of the Everfest Carnival, home to fortune tellers, seers, oracles, enchantresses, and conjurers.                     |                            |
 |          The Maw          |    The Pits    |                                                   Entrance to the pits, traveled by mine cage                                                  |           the-maw          |
 |          The Moat         |                |                                                                                                                                                |                            |
 |         The Needle        |     Metrix     |                                                                                                                                                |         the-needle         |
@@ -173,7 +169,6 @@
 |        The Solarium       |     Solana     |                                                  The inner sanctum, home to the Light of Sol.                                                  |                            |
 |         The Sprawl        |     Metrix     |                                                                                                                                                |                            |
 |       The Undercroft      |                |                                                                                                                                                |                            |
-|         The Valdur        |      Aria      |                                 Part of the Everfest Carnival, known for strongmen acts and work with animals.                                 |                            |
 |         The Valdur        |      Aria      |                                 Part of the Everfest Carnival, known for strongmen acts and work with animals.                                 |                            |
 |        The Venarium       |   Demonastery  |                                                            Room filled with plants.                                                            |                            |
 |    The Vitiate Gateway    |   Demonastery  |                                              Last of the 9 portals connecting Rathe to íArathael.                                              |                            |
