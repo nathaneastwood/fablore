@@ -65,4 +65,3 @@ The Sayashi Enclave in Deshvahan, where Tetzuo tempers truth in torture.
 
 #### Sworn Vengeance - (HNT140)
 "When they murdered my emperor, they killed my destiny." - Lieutenant Yamada
-

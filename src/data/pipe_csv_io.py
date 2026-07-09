@@ -33,9 +33,7 @@ REGENERATE_STORY_REGISTRY = (
 REGENERATE_STORY_JUNCTIONS = (
     "Use the Story class in src/data/story.py (Story.link_* / Story.remove)."
 )
-REGENERATE_HEROES_CANONICAL = (
-    "Story.add_canonical_hero (src/data/story.py) or python3 src/data/create_heroes_csv.py"
-)
+REGENERATE_HEROES_CANONICAL = "Story.add_canonical_hero (src/data/story.py) or python3 src/data/create_heroes_csv.py"
 
 
 def auto_gen_banner(regenerate_command: str) -> str:

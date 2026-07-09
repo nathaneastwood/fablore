@@ -35,7 +35,9 @@ _DELAY_S = 0.3  # be polite to YouTube
 def _check_url(url: str) -> tuple[bool, str]:
     """Return (ok, message) for a single video URL."""
     oembed_url = _OEMBED.format(urllib.parse.quote(url, safe=""))
-    req = urllib.request.Request(oembed_url, headers={"User-Agent": "fablore-checker/1.0"})
+    req = urllib.request.Request(
+        oembed_url, headers={"User-Agent": "fablore-checker/1.0"}
+    )
     try:
         with urllib.request.urlopen(req, timeout=10) as resp:
             if resp.status == 200:

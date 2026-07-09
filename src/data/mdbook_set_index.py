@@ -31,16 +31,18 @@ MARK_END = "<!-- fablore-set-index:end -->"
 
 _INDEX_PAGES = frozenset({"sets/README.md", "sets/index.md"})
 
-_HUB_SKIP = frozenset({
-    "sets/README.md",
-    "sets/index.md",
-    "flavour/intro.md",
-    "short-stories/README.md",
-    "short-stories/index.md",
-    "main-story/the-land-of-rathe.md",
-    "digital-tiles/README.md",
-    "digital-tiles/index.md",
-})
+_HUB_SKIP = frozenset(
+    {
+        "sets/README.md",
+        "sets/index.md",
+        "flavour/intro.md",
+        "short-stories/README.md",
+        "short-stories/index.md",
+        "main-story/the-land-of-rathe.md",
+        "digital-tiles/README.md",
+        "digital-tiles/index.md",
+    }
+)
 
 _SECTION_LABELS = {
     "main-story": "Main Story",
@@ -58,6 +60,7 @@ Chapter = dict
 # CSV helpers
 # ---------------------------------------------------------------------------
 
+
 def _load_arcs(data_dir: Path) -> dict[str, dict[str, str]]:
     _, rows = read_pipe_csv(data_dir / "csv" / "story-arcs.csv")
     return {r["Slug"]: r for r in rows if r.get("Slug")}
@@ -71,6 +74,7 @@ def _load_sets(data_dir: Path) -> dict[str, dict[str, str]]:
 # ---------------------------------------------------------------------------
 # Display helpers
 # ---------------------------------------------------------------------------
+
 
 def _arc_display_name(slug: str, arcs: dict, sets: dict) -> str:
     arc = arcs.get(slug, {})
@@ -108,14 +112,13 @@ def _arc_id(slug: str) -> str:
 
 
 def _relative_href(from_src: str, to_src: str) -> str:
-    return Path(
-        os.path.relpath(Path(to_src), start=Path(from_src).parent)
-    ).as_posix()
+    return Path(os.path.relpath(Path(to_src), start=Path(from_src).parent)).as_posix()
 
 
 # ---------------------------------------------------------------------------
 # Pass 1: collect chapters
 # ---------------------------------------------------------------------------
+
 
 def _collect(
     sections: list,
@@ -138,7 +141,10 @@ def _collect(
                         {"name": ch.get("name", ""), "path": path}
                     )
 
-                elif section in ("main-story", "short-stories", "digital-tiles") and len(parts) >= 3:
+                elif (
+                    section in ("main-story", "short-stories", "digital-tiles")
+                    and len(parts) >= 3
+                ):
                     arc_slug = parts[1]
                     content[section].setdefault(arc_slug, []).append(
                         {"name": ch.get("name", ""), "path": path}
@@ -150,6 +156,7 @@ def _collect(
 # ---------------------------------------------------------------------------
 # Pass 2: build HTML
 # ---------------------------------------------------------------------------
+
 
 def _set_index_html(
     hub_src: str,
@@ -190,9 +197,9 @@ def _set_index_html(
 
         header_html = (
             f'<div class="set-index-header">\n'
-            f'  {img_html}'
+            f"  {img_html}"
             f'  <div class="set-index-meta">{meta_inner}</div>\n'
-            f'</div>\n'
+            f"</div>\n"
         )
 
         group_parts: list[str] = []
@@ -204,7 +211,9 @@ def _set_index_html(
             items = []
             for ch in chapters:
                 path = ch["path"]
-                title = html.escape(ch["name"] or path.split("/")[-1].removesuffix(".md"))
+                title = html.escape(
+                    ch["name"] or path.split("/")[-1].removesuffix(".md")
+                )
                 href = html.escape(_relative_href(hub_src, path))
                 items.append(f'<li><a href="{href}">{title}</a></li>')
             items_inner = "\n        ".join(items)
@@ -212,9 +221,9 @@ def _set_index_html(
                 f'<div class="set-index-group">\n'
                 f'  <span class="set-index-group-label">{label}</span>\n'
                 f'  <ul class="arc-story-list">\n'
-                f'    {items_inner}\n'
-                f'  </ul>\n'
-                f'</div>'
+                f"    {items_inner}\n"
+                f"  </ul>\n"
+                f"</div>"
             )
 
         if not group_parts:
@@ -223,9 +232,9 @@ def _set_index_html(
         groups_inner = "\n".join(group_parts)
         sections_html.append(
             f'<section class="set-index-section" id="{anchor}">\n'
-            f'{header_html}'
+            f"{header_html}"
             f'<div class="set-index-links">\n{groups_inner}\n</div>\n'
-            f'</section>'
+            f"</section>"
         )
 
     return "\n\n".join(sections_html)
@@ -243,6 +252,7 @@ def _inject_index(content: str, inner_html: str) -> str:
 # ---------------------------------------------------------------------------
 # Main walk
 # ---------------------------------------------------------------------------
+
 
 def _inject_pages(
     sections: list,

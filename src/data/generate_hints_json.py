@@ -20,7 +20,10 @@ OUTPUT_PATH = ROOT / "src" / "hints.json"
 
 
 def _region_map(conn: sqlite3.Connection) -> dict[str, str]:
-    return {row[0]: row[1] for row in conn.execute("SELECT region_id, region_name FROM regions")}
+    return {
+        row[0]: row[1]
+        for row in conn.execute("SELECT region_id, region_name FROM regions")
+    }
 
 
 def _key(name: str) -> str:
@@ -76,7 +79,9 @@ def generate() -> None:
     hints: dict = {}
     regions = _region_map(conn)
 
-    for row in conn.execute("SELECT name, notes, region_id FROM locations ORDER BY name"):
+    for row in conn.execute(
+        "SELECT name, notes, region_id FROM locations ORDER BY name"
+    ):
         if not row["notes"]:
             continue
         entry: dict = {"type": "location", "summary": row["notes"]}
@@ -88,17 +93,23 @@ def generate() -> None:
     for row in conn.execute("SELECT name, description FROM monsters ORDER BY name"):
         if not row["description"]:
             continue
-        hints[_key(row["name"])] = _entry_with_match(row["name"], {"type": "monster", "summary": row["description"]})
+        hints[_key(row["name"])] = _entry_with_match(
+            row["name"], {"type": "monster", "summary": row["description"]}
+        )
 
     for row in conn.execute("SELECT name, description FROM fauna ORDER BY name"):
         if not row["description"]:
             continue
-        hints[_key(row["name"])] = _entry_with_match(row["name"], {"type": "fauna", "summary": row["description"]})
+        hints[_key(row["name"])] = _entry_with_match(
+            row["name"], {"type": "fauna", "summary": row["description"]}
+        )
 
     for row in conn.execute("SELECT name, description FROM flora ORDER BY name"):
         if not row["description"]:
             continue
-        hints[_key(row["name"])] = _entry_with_match(row["name"], {"type": "flora", "summary": row["description"]})
+        hints[_key(row["name"])] = _entry_with_match(
+            row["name"], {"type": "flora", "summary": row["description"]}
+        )
 
     conn.close()
 
@@ -112,7 +123,10 @@ def generate() -> None:
     with OUTPUT_PATH.open("w", encoding="utf-8") as f:
         json.dump(hints, f, ensure_ascii=False, indent=2)
 
-    print(f"Wrote {len(hints)} entries to {OUTPUT_PATH.relative_to(ROOT)}", file=sys.stderr)
+    print(
+        f"Wrote {len(hints)} entries to {OUTPUT_PATH.relative_to(ROOT)}",
+        file=sys.stderr,
+    )
 
 
 if __name__ == "__main__":

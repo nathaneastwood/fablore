@@ -82,4 +82,3 @@ The Kaigomo deploy their vigilant ronin across Misteria, to ensure that peace pr
 
 #### Wounding Blow - (MST216)
 Farmhands, villagers, and slaves - the Volcai have long suffered at the hand of their masters.
-

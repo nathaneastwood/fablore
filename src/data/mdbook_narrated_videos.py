@@ -36,14 +36,21 @@ MARK_START = "<!-- fablore-narrated-videos:start -->"
 MARK_END = "<!-- fablore-narrated-videos:end -->"
 
 _AVATAR_COLORS = [
-    "#4183c4", "#c0392b", "#27ae60", "#f39c12",
-    "#8e44ad", "#16a085", "#d35400", "#2c3e50",
+    "#4183c4",
+    "#c0392b",
+    "#27ae60",
+    "#f39c12",
+    "#8e44ad",
+    "#16a085",
+    "#d35400",
+    "#2c3e50",
 ]
 
 
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
+
 
 def _to_embed_url(url: str) -> str:
     """Convert a YouTube watch/short URL to an embed URL, preserving timestamps."""
@@ -69,6 +76,7 @@ def _to_embed_url(url: str) -> str:
 def _initials(name: str) -> str:
     """Return up to two uppercase initials from an author name."""
     import re
+
     words = [w for w in re.split(r"[\s_]+", name.strip()) if w]
     if not words:
         return "?"
@@ -84,6 +92,7 @@ def _avatar_color(name: str) -> str:
 # ---------------------------------------------------------------------------
 # HTML generation
 # ---------------------------------------------------------------------------
+
 
 def _build_html(story_id: str, videos: list[dict[str, str]]) -> str:
     """Return the full narrated-videos block HTML (without markers)."""
@@ -105,7 +114,7 @@ def _build_html(story_id: str, videos: list[dict[str, str]]) -> str:
             selected = "true" if i == 0 else "false"
             parts.append(
                 f'<button class="nv-tab{active}" '
-                f'onclick="nvOpenTab(this,\'{panel_id}\')" '
+                f"onclick=\"nvOpenTab(this,'{panel_id}')\" "
                 f'role="tab" aria-selected="{selected}" aria-controls="{panel_id}">'
                 f'<span class="nv-avatar" style="background-color:{color}">'
                 f"{initials}</span>"
@@ -167,9 +176,10 @@ def _inject(content: str, story_id: str, videos: list[dict[str, str]]) -> str:
 # Data loading
 # ---------------------------------------------------------------------------
 
-def _load_videos_by_key(data_dir: Path) -> tuple[
-    dict[str, list[dict[str, str]]], dict[str, str]
-]:
+
+def _load_videos_by_key(
+    data_dir: Path,
+) -> tuple[dict[str, list[dict[str, str]]], dict[str, str]]:
     """Return (StoryKey → video-list, StoryKey → StoryId)."""
     _, stories = read_pipe_csv(data_dir / "csv" / "stories.csv")
     id_to_key: dict[str, str] = {
@@ -206,6 +216,7 @@ def _load_videos_by_key(data_dir: Path) -> tuple[
 # ---------------------------------------------------------------------------
 # mdBook walk
 # ---------------------------------------------------------------------------
+
 
 def _walk_sections(
     sections: list,

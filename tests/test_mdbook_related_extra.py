@@ -164,7 +164,9 @@ def test_build_character_stories_fragment_returns_empty_when_no_stories(
     assert result == ""
 
 
-def test_build_character_stories_fragment_omits_missing_file(tmp_path: Path, capsys) -> None:
+def test_build_character_stories_fragment_omits_missing_file(
+    tmp_path: Path, capsys
+) -> None:
     """Story whose file does not exist on disk is omitted with a warning."""
     src = tmp_path / "src"
     src.mkdir()
@@ -314,7 +316,9 @@ def test_build_related_fragment_npc_skips_self(tmp_path: Path) -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_build_related_fragment_hero_no_lore_file_omits_and_warns(tmp_path: Path, capsys) -> None:
+def test_build_related_fragment_hero_no_lore_file_omits_and_warns(
+    tmp_path: Path, capsys
+) -> None:
     """Hero with no resolvable lore file is omitted and a warning printed to stderr."""
     src = tmp_path / "src"
     (src / "heroes-of-rathe").mkdir(parents=True)
@@ -523,7 +527,10 @@ def test_build_related_fragment_hero_src_map_skips_skip_types(tmp_path: Path) ->
             "main-story/current.md": "ST1",
             "heroes-of-rathe/hero.md": "ST2",
         },
-        story_id_to_key={"ST1": "main-story/current.md", "ST2": "heroes-of-rathe/hero.md"},
+        story_id_to_key={
+            "ST1": "main-story/current.md",
+            "ST2": "heroes-of-rathe/hero.md",
+        },
         story_id_to_title={"ST2": "Hero Bio"},
         story_id_to_type={"ST2": "heroes-of-rathe"},  # in _STORY_TYPES_SKIP
         hero_canonical_to_stories={"CN1": frozenset(["ST1", "ST2"])},
@@ -729,7 +736,15 @@ def test_walk_mutate_sections_updates_chapter(tmp_path: Path) -> None:
         story_heroes={"ST1": frozenset({"CN1"})},
         canonical_hero={"CN1": ("boltyn", "Boltyn")},
     )
-    sections = [{"Chapter": {"path": "main-story/x.md", "content": "# Story\n", "sub_items": []}}]
+    sections = [
+        {
+            "Chapter": {
+                "path": "main-story/x.md",
+                "content": "# Story\n",
+                "sub_items": [],
+            }
+        }
+    ]
     walk_mutate_sections(sections, maps, src, {})
     assert "Boltyn" in sections[0]["Chapter"]["content"]
 
@@ -774,8 +789,16 @@ def test_walk_mutate_sections_recurses_sub_items(tmp_path: Path) -> None:
         story_heroes={"ST1": frozenset({"CN1"})},
         canonical_hero={"CN1": ("boltyn", "Boltyn")},
     )
-    sub_chapter = {"Chapter": {"path": "main-story/sub/x.md", "content": "# Sub\n", "sub_items": []}}
-    sections = [{"Chapter": {"path": None, "content": "# Parent\n", "sub_items": [sub_chapter]}}]
+    sub_chapter = {
+        "Chapter": {
+            "path": "main-story/sub/x.md",
+            "content": "# Sub\n",
+            "sub_items": [],
+        }
+    }
+    sections = [
+        {"Chapter": {"path": None, "content": "# Parent\n", "sub_items": [sub_chapter]}}
+    ]
     walk_mutate_sections(sections, maps, src, {})
     assert "Boltyn" in sub_chapter["Chapter"]["content"]
 
@@ -796,10 +819,16 @@ def test_load_related_maps_loads_story_npcs(tmp_path: Path) -> None:
     )
     (csv / "story-heroes.csv").write_text("StoryId|CanonicalId\n", encoding="utf-8")
     (csv / "story-locations.csv").write_text("StoryId|LocationId\n", encoding="utf-8")
-    (csv / "story-npcs.csv").write_text("StoryId|CharacterId|Fragment\nST1|C1|\n", encoding="utf-8")
-    (csv / "heroes-canonical.csv").write_text("CanonicalId|CanonicalSlug|CanonicalHero\n", encoding="utf-8")
+    (csv / "story-npcs.csv").write_text(
+        "StoryId|CharacterId|Fragment\nST1|C1|\n", encoding="utf-8"
+    )
+    (csv / "heroes-canonical.csv").write_text(
+        "CanonicalId|CanonicalSlug|CanonicalHero\n", encoding="utf-8"
+    )
     (csv / "locations.csv").write_text("LocationId|Name|RegionId\n", encoding="utf-8")
-    (csv / "regions.csv").write_text("RegionId|RegionName|WorldOfRatheStoryKey\n", encoding="utf-8")
+    (csv / "regions.csv").write_text(
+        "RegionId|RegionName|WorldOfRatheStoryKey\n", encoding="utf-8"
+    )
     m = load_related_maps(data)
     assert m.story_npcs["ST1"] == frozenset({"C1"})
     assert "C1" in m.npc_char_to_stories
@@ -817,10 +846,16 @@ def test_load_related_maps_loads_npc_junction_fragment(tmp_path: Path) -> None:
     )
     (csv / "story-heroes.csv").write_text("StoryId|CanonicalId\n", encoding="utf-8")
     (csv / "story-locations.csv").write_text("StoryId|LocationId\n", encoding="utf-8")
-    (csv / "story-npcs.csv").write_text("StoryId|CharacterId|Fragment\nST1|C1|my-fragment\n", encoding="utf-8")
-    (csv / "heroes-canonical.csv").write_text("CanonicalId|CanonicalSlug|CanonicalHero\n", encoding="utf-8")
+    (csv / "story-npcs.csv").write_text(
+        "StoryId|CharacterId|Fragment\nST1|C1|my-fragment\n", encoding="utf-8"
+    )
+    (csv / "heroes-canonical.csv").write_text(
+        "CanonicalId|CanonicalSlug|CanonicalHero\n", encoding="utf-8"
+    )
     (csv / "locations.csv").write_text("LocationId|Name|RegionId\n", encoding="utf-8")
-    (csv / "regions.csv").write_text("RegionId|RegionName|WorldOfRatheStoryKey\n", encoding="utf-8")
+    (csv / "regions.csv").write_text(
+        "RegionId|RegionName|WorldOfRatheStoryKey\n", encoding="utf-8"
+    )
     m = load_related_maps(data)
     assert m.npc_junction_fragment[("ST1", "C1")] == "my-fragment"
 
@@ -830,12 +865,18 @@ def test_load_related_maps_loads_npc_src_map(tmp_path: Path) -> None:
     data = tmp_path / "data"
     csv = data / "csv"
     csv.mkdir(parents=True)
-    (csv / "stories.csv").write_text("StoryId|StoryKey|StoryType|Title\n", encoding="utf-8")
+    (csv / "stories.csv").write_text(
+        "StoryId|StoryKey|StoryType|Title\n", encoding="utf-8"
+    )
     (csv / "story-heroes.csv").write_text("StoryId|CanonicalId\n", encoding="utf-8")
     (csv / "story-locations.csv").write_text("StoryId|LocationId\n", encoding="utf-8")
-    (csv / "heroes-canonical.csv").write_text("CanonicalId|CanonicalSlug|CanonicalHero\n", encoding="utf-8")
+    (csv / "heroes-canonical.csv").write_text(
+        "CanonicalId|CanonicalSlug|CanonicalHero\n", encoding="utf-8"
+    )
     (csv / "locations.csv").write_text("LocationId|Name|RegionId\n", encoding="utf-8")
-    (csv / "regions.csv").write_text("RegionId|RegionName|WorldOfRatheStoryKey\n", encoding="utf-8")
+    (csv / "regions.csv").write_text(
+        "RegionId|RegionName|WorldOfRatheStoryKey\n", encoding="utf-8"
+    )
     (csv / "npcs.csv").write_text(
         "CharacterId|Name|OtherCharactersStoryKey\nC1|The Villain|other-characters/villain.md\n",
         encoding="utf-8",

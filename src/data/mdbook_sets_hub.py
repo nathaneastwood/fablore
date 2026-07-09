@@ -102,9 +102,7 @@ def _arc_id(slug: str) -> str:
 
 
 def _relative_href(from_src: str, to_src: str) -> str:
-    return Path(
-        os.path.relpath(Path(to_src), start=Path(from_src).parent)
-    ).as_posix()
+    return Path(os.path.relpath(Path(to_src), start=Path(from_src).parent)).as_posix()
 
 
 # ---------------------------------------------------------------------------
@@ -134,8 +132,10 @@ def _collect(
                 if section == "flavour" and len(parts) == 2:
                     flavour.append({"name": ch.get("name", ""), "path": path})
 
-                elif section in ("main-story", "short-stories", "digital-tiles") \
-                        and len(parts) >= 3:
+                elif (
+                    section in ("main-story", "short-stories", "digital-tiles")
+                    and len(parts) >= 3
+                ):
                     arc_slug = parts[1]
                     story_arcs[section].setdefault(arc_slug, []).append(
                         {"name": ch.get("name", ""), "path": path}
@@ -154,6 +154,7 @@ def _collect(
 # ---------------------------------------------------------------------------
 # Pass 2: build HTML
 # ---------------------------------------------------------------------------
+
 
 def _card_grid_html(
     hub_src: str,
@@ -206,7 +207,9 @@ def _arc_card_grid_html(
 ) -> str:
     """Card grid for digital-tiles hub — one card per arc, linking to its single page."""
     cards: list[str] = []
-    for slug, chapters in sorted(arc_map.items(), key=lambda kv: _arc_sort_key(kv[0], arcs, sets)):
+    for slug, chapters in sorted(
+        arc_map.items(), key=lambda kv: _arc_sort_key(kv[0], arcs, sets)
+    ):
         if not chapters:
             continue
         first = chapters[0]
@@ -250,7 +253,9 @@ def _arc_sections_html(
 ) -> str:
     """Arc sections for main-story / short-stories hub pages."""
     sections: list[str] = []
-    for slug, chapters in sorted(arc_map.items(), key=lambda kv: _arc_sort_key(kv[0], arcs, sets)):
+    for slug, chapters in sorted(
+        arc_map.items(), key=lambda kv: _arc_sort_key(kv[0], arcs, sets)
+    ):
         name = html.escape(_arc_display_name(slug, arcs, sets))
         date = _arc_release_date(slug, arcs, sets)
         image = _arc_image(slug, arcs)
@@ -307,6 +312,7 @@ def _inject_hub(content: str, inner_html: str) -> str:
 # Main walk
 # ---------------------------------------------------------------------------
 
+
 def _inject_hubs(
     sections: list,
     flavour_chapters: list[Chapter],
@@ -326,7 +332,9 @@ def _inject_hubs(
                 if hub_type == "flavour":
                     inner = _card_grid_html(path, flavour_chapters, arcs, sets)
                 elif hub_type == "digital-tiles":
-                    inner = _arc_card_grid_html(path, story_arcs["digital-tiles"], arcs, sets)
+                    inner = _arc_card_grid_html(
+                        path, story_arcs["digital-tiles"], arcs, sets
+                    )
                 else:
                     inner = _arc_sections_html(path, story_arcs[hub_type], arcs, sets)
                 ch["content"] = _inject_hub(ch.get("content") or "", inner)

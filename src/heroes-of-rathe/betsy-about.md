@@ -19,4 +19,3 @@ Betsy has spent her whole life in the shadow of the Deathmatch Arena, and she's 
 ![Tower Above the Rest](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/tower-above-the-rest.webp)
 Luckily for Betsy, her confidence in her performance is well-founded. With massive, towering attacks that bring unique troubles to her opponents, Betsy is a Deathmatch Arena fan favorite, always willing to go big for the crowds that pile in to see her fight.
 :::
-

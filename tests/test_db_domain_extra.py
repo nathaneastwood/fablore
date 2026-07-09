@@ -13,7 +13,15 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src" / "data"))
 
 import db._queries as q
-from db import Database, NPCEntry, RegionEntry, LocationEntry, MonsterEntry, FaunaEntry, FloraEntry
+from db import (
+    Database,
+    NPCEntry,
+    RegionEntry,
+    LocationEntry,
+    MonsterEntry,
+    FaunaEntry,
+    FloraEntry,
+)
 
 
 # ---------------------------------------------------------------------------
@@ -90,7 +98,9 @@ def test_list_regions_with_data(db: Database) -> None:
         "src/main-story/r.md",
         story_type="main-story",
         title="R",
-        regions=[RegionEntry("Solana", world_of_rathe_story_key="world-of-rathe/solana.md")],
+        regions=[
+            RegionEntry("Solana", world_of_rathe_story_key="world-of-rathe/solana.md")
+        ],
     )
     regions = db.list_regions()
     assert any(r["region_name"] == "Solana" for r in regions)
@@ -283,7 +293,9 @@ def test_story_record_display(db: Database, monkeypatch, capsys) -> None:
 def test_story_record_display_to_buffer(db: Database, monkeypatch) -> None:
     import db._domain as _dom
 
-    r = db.upsert_story("src/main-story/foo.md", story_type="main-story", title="Bar Display")
+    r = db.upsert_story(
+        "src/main-story/foo.md", story_type="main-story", title="Bar Display"
+    )
     monkeypatch.setattr(_dom, "_story_key_from_path", lambda p: str(p))
     buf = io.StringIO()
     r.display(file=buf)
@@ -411,7 +423,9 @@ def test_delete_entity_monster_removes_orphaned_row(db: Database) -> None:
     )
     db.remove_story("src/main-story/foo.md")
     db.delete_entity("monster", "Test Beast")
-    cur = db.conn.execute("SELECT COUNT(*) FROM monsters WHERE name = ?", ["Test Beast"])
+    cur = db.conn.execute(
+        "SELECT COUNT(*) FROM monsters WHERE name = ?", ["Test Beast"]
+    )
     assert cur.fetchone()[0] == 0
 
 

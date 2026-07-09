@@ -19,4 +19,3 @@ While Solana may be known for its righteousness and piety, the Solanian-controll
 ![Might (and Money) Makes Right](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/might-and-money-makes-right.webp)
 Victor is always willing to clash with an opponent in the Deathmatch Arena, and he does so with a clear expectation of victory due to his massive attacks. However, should things go awry, Victor never hesitates to spend a little coin to turn the tide in his favour.
 :::
-

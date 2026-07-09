@@ -86,7 +86,9 @@ def test_infer_story_title_missing_file(tmp_path: Path) -> None:
     assert result == "Missing File"
 
 
-def test_infer_story_title_oserror(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+def test_infer_story_title_oserror(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
     """OSError when reading is caught and stem is used as fallback (lines 130-131)."""
     md = tmp_path / "my-story.md"
     md.write_text("# Real Title\n", encoding="utf-8")
@@ -104,7 +106,9 @@ def test_infer_story_title_oserror(tmp_path: Path, monkeypatch: pytest.MonkeyPat
 # ---------------------------------------------------------------------------
 
 
-def test_discover_story_keys_none_existing(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+def test_discover_story_keys_none_existing(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
     """Passing existing=None is handled the same as passing {} (line 156)."""
     src = tmp_path / "src"
     (src / "main-story").mkdir(parents=True)
@@ -118,7 +122,9 @@ def test_discover_story_keys_none_existing(monkeypatch: pytest.MonkeyPatch, tmp_
     assert rows[0]["story_key"] == "main-story/intro.md"
 
 
-def test_discover_story_keys_skips_missing_root(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+def test_discover_story_keys_skips_missing_root(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
     """Roots that do not exist as directories are silently skipped (line 162)."""
     src = tmp_path / "src"
     src.mkdir()
@@ -135,18 +141,24 @@ def test_discover_story_keys_skips_missing_root(monkeypatch: pytest.MonkeyPatch,
 # ---------------------------------------------------------------------------
 
 
-def test_main_raises_when_src_missing(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+def test_main_raises_when_src_missing(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
     """main() raises FileNotFoundError when src/ does not exist (line 199-200)."""
     monkeypatch.setattr(csi, "SRC", tmp_path / "nonexistent")
     with pytest.raises(FileNotFoundError, match="Missing src directory"):
         csi.main()
 
 
-def test_main_runs_successfully(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+def test_main_runs_successfully(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
     """main() upserts stories and exports CSV without error (lines 202-219)."""
     src = tmp_path / "src"
     (src / "main-story").mkdir(parents=True)
-    (src / "main-story" / "episode-one.md").write_text("# Episode One\n", encoding="utf-8")
+    (src / "main-story" / "episode-one.md").write_text(
+        "# Episode One\n", encoding="utf-8"
+    )
 
     data_dir = tmp_path / "data"
     data_dir.mkdir()

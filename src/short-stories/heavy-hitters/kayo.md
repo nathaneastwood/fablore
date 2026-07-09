@@ -15,4 +15,3 @@ Escape was futile. Every attempt he made only resulted in harsh punishment. Kayo
 Clink. The door of the cage swung open.
 
 A bloodsoaked grin quietly spread across Kayo's swamp-coloured face. Not such a dumb animal now.
-

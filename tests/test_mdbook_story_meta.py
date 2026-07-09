@@ -15,6 +15,7 @@ from mdbook_story_meta import (
 # _build_share_html
 # ---------------------------------------------------------------------------
 
+
 def test_share_html_contains_all_platforms() -> None:
     html = _build_share_html()
     assert "story-share-facebook" in html
@@ -35,7 +36,7 @@ def test_share_html_story_type_attribute() -> None:
 
 
 def test_share_html_story_type_escaped() -> None:
-    html = _build_share_html('<script>')
+    html = _build_share_html("<script>")
     # The attribute value must be HTML-escaped; check it appears correctly in the div tag
     assert 'data-story-type="&lt;script&gt;"' in html
 
@@ -49,6 +50,7 @@ def test_share_html_contains_clipboard_script() -> None:
 # _build_meta_html — word count suppression
 # ---------------------------------------------------------------------------
 
+
 def test_no_wordcount_types_contains_expected() -> None:
     assert "world-of-rathe" in _NO_WORDCOUNT_TYPES
     assert "heroes-of-rathe" in _NO_WORDCOUNT_TYPES
@@ -56,7 +58,10 @@ def test_no_wordcount_types_contains_expected() -> None:
 
 def test_meta_html_includes_word_count_by_default() -> None:
     html = _build_meta_html(
-        authors="", artists="", publication_date="", source_link="",
+        authors="",
+        artists="",
+        publication_date="",
+        source_link="",
         word_count=500,
     )
     assert "500" in html
@@ -65,8 +70,12 @@ def test_meta_html_includes_word_count_by_default() -> None:
 
 def test_meta_html_suppresses_word_count_when_flag_false() -> None:
     html = _build_meta_html(
-        authors="", artists="", publication_date="", source_link="",
-        word_count=500, show_word_count=False,
+        authors="",
+        artists="",
+        publication_date="",
+        source_link="",
+        word_count=500,
+        show_word_count=False,
     )
     # far fa-clock is the word-count icon; its absence confirms suppression
     # (avoid asserting on "500" directly — that digit appears in the BlueSky SVG path)
@@ -77,7 +86,10 @@ def test_meta_html_suppresses_word_count_when_flag_false() -> None:
 def test_meta_html_share_always_present() -> None:
     # Even with no metadata fields, share buttons are injected
     html = _build_meta_html(
-        authors="", artists="", publication_date="", source_link="",
+        authors="",
+        artists="",
+        publication_date="",
+        source_link="",
         word_count=0,
     )
     assert "story-share" in html
@@ -85,7 +97,10 @@ def test_meta_html_share_always_present() -> None:
 
 def test_meta_html_no_story_meta_div_when_no_items() -> None:
     html = _build_meta_html(
-        authors="", artists="", publication_date="", source_link="",
+        authors="",
+        artists="",
+        publication_date="",
+        source_link="",
         word_count=0,
     )
     assert 'class="story-meta"' not in html
@@ -93,15 +108,22 @@ def test_meta_html_no_story_meta_div_when_no_items() -> None:
 
 def test_meta_html_story_type_passed_to_share() -> None:
     html = _build_meta_html(
-        authors="", artists="", publication_date="", source_link="",
-        word_count=0, story_type="main-story",
+        authors="",
+        artists="",
+        publication_date="",
+        source_link="",
+        word_count=0,
+        story_type="main-story",
     )
     assert 'data-story-type="main-story"' in html
 
 
 def test_meta_html_authors_rendered() -> None:
     html = _build_meta_html(
-        authors="Jane Doe", artists="", publication_date="", source_link="",
+        authors="Jane Doe",
+        artists="",
+        publication_date="",
+        source_link="",
         word_count=0,
     )
     assert "Jane Doe" in html
@@ -110,7 +132,10 @@ def test_meta_html_authors_rendered() -> None:
 
 def test_meta_html_authors_escaped() -> None:
     html = _build_meta_html(
-        authors="<b>Bad</b>", artists="", publication_date="", source_link="",
+        authors="<b>Bad</b>",
+        artists="",
+        publication_date="",
+        source_link="",
         word_count=0,
     )
     assert "<b>" not in html
@@ -120,6 +145,7 @@ def test_meta_html_authors_escaped() -> None:
 # ---------------------------------------------------------------------------
 # _process_chapter — world-of-rathe / heroes-of-rathe skip word count
 # ---------------------------------------------------------------------------
+
 
 def _make_row(story_type: str, **kwargs: str) -> dict[str, str]:
     base = {
@@ -178,6 +204,7 @@ def test_process_chapter_idempotent() -> None:
 # _inject_after_heading
 # ---------------------------------------------------------------------------
 
+
 def test_inject_after_heading_inserts_after_h1() -> None:
     out = _inject_after_heading("# Title\n\nBody.", "<p>meta</p>")
     assert out.index("# Title") < out.index("<p>meta</p>") < out.index("Body.")
@@ -209,6 +236,7 @@ def test_inject_after_heading_no_heading_prepends() -> None:
 # FA6 prefix: fas (solid), fab (brands), or far (regular).
 # ---------------------------------------------------------------------------
 
+
 def test_share_html_uses_fa6_brands_prefix_for_facebook() -> None:
     html = _build_share_html()
     assert 'class="fab fa-facebook"' in html
@@ -230,10 +258,15 @@ def test_share_html_uses_fa6_solid_prefix_for_link() -> None:
 def test_meta_html_no_bare_fa_prefix() -> None:
     """No icon in story-meta output should use the bare 'fa' FA4 class prefix."""
     html = _build_meta_html(
-        authors="Author", artists="Artist", publication_date="2024-01-01",
-        source_link="https://example.com", word_count=1000, show_word_count=True,
+        authors="Author",
+        artists="Artist",
+        publication_date="2024-01-01",
+        source_link="https://example.com",
+        word_count=1000,
+        show_word_count=True,
         story_type="main-story",
     )
     import re
+
     bare_fa = re.findall(r'class="fa fa-', html)
     assert bare_fa == [], f"Found bare FA4 'fa' prefix: {bare_fa}"

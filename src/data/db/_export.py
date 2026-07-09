@@ -33,7 +33,9 @@ _CMD_EQUIPMENT = "python3 src/data/create_equipment_csv.py"
 _CMD_SETS = "python3 src/data/create_sets_csv.py"
 _CMD_CLASSES = "python3 src/data/create_classes_talents_csv.py"
 _CMD_REGISTRY = "Use the Database class in src/data/db/ (db.upsert_story)."
-_CMD_JUNCTIONS = "Use the Database class in src/data/db/ (db.upsert_story / db.remove_story)."
+_CMD_JUNCTIONS = (
+    "Use the Database class in src/data/db/ (db.upsert_story / db.remove_story)."
+)
 
 
 def _write_pipe_csv(
@@ -139,6 +141,7 @@ def export_story_junctions(conn: sqlite3.Connection, data_dir: Path) -> None:
 # Per-table exporters
 # ---------------------------------------------------------------------------
 
+
 def _export_stories(conn: sqlite3.Connection, csv_dir: Path) -> None:
     rows = q.select_all_stories(conn)
     data = [
@@ -158,8 +161,17 @@ def _export_stories(conn: sqlite3.Connection, csv_dir: Path) -> None:
     _write_pipe_csv(
         csv_dir / "stories.csv",
         _CMD_STORIES,
-        ["StoryId", "StoryKey", "StoryType", "Title", "Authors", "Artists",
-         "SourceLink", "PublicationDate", "ThumbnailImageLink"],
+        [
+            "StoryId",
+            "StoryKey",
+            "StoryType",
+            "Title",
+            "Authors",
+            "Artists",
+            "SourceLink",
+            "PublicationDate",
+            "ThumbnailImageLink",
+        ],
         data,
     )
 
@@ -225,12 +237,18 @@ def _export_npcs(conn: sqlite3.Connection, csv_dir: Path) -> None:
 def _export_monsters(conn: sqlite3.Connection, csv_dir: Path) -> None:
     rows = q.select_all_monsters(conn)
     data = [
-        {"MonsterId": r["monster_id"], "Name": r["name"], "Description": r["description"]}
+        {
+            "MonsterId": r["monster_id"],
+            "Name": r["name"],
+            "Description": r["description"],
+        }
         for r in rows
     ]
     _write_pipe_csv(
-        csv_dir / "monsters.csv", _CMD_REGISTRY,
-        ["MonsterId", "Name", "Description"], data,
+        csv_dir / "monsters.csv",
+        _CMD_REGISTRY,
+        ["MonsterId", "Name", "Description"],
+        data,
     )
 
 
@@ -241,8 +259,10 @@ def _export_fauna(conn: sqlite3.Connection, csv_dir: Path) -> None:
         for r in rows
     ]
     _write_pipe_csv(
-        csv_dir / "fauna.csv", _CMD_REGISTRY,
-        ["FaunaId", "Name", "Description"], data,
+        csv_dir / "fauna.csv",
+        _CMD_REGISTRY,
+        ["FaunaId", "Name", "Description"],
+        data,
     )
 
 
@@ -253,8 +273,10 @@ def _export_flora(conn: sqlite3.Connection, csv_dir: Path) -> None:
         for r in rows
     ]
     _write_pipe_csv(
-        csv_dir / "flora.csv", _CMD_REGISTRY,
-        ["FloraId", "Name", "Description"], data,
+        csv_dir / "flora.csv",
+        _CMD_REGISTRY,
+        ["FloraId", "Name", "Description"],
+        data,
     )
 
 
@@ -265,8 +287,10 @@ def _export_food_drink(conn: sqlite3.Connection, csv_dir: Path) -> None:
         for r in rows
     ]
     _write_pipe_csv(
-        csv_dir / "food-and-drink.csv", _CMD_REGISTRY,
-        ["FoodDrinkId", "Name", "Type"], data,
+        csv_dir / "food-and-drink.csv",
+        _CMD_REGISTRY,
+        ["FoodDrinkId", "Name", "Type"],
+        data,
     )
 
 
@@ -281,8 +305,10 @@ def _export_heroes_canonical(conn: sqlite3.Connection, csv_dir: Path) -> None:
         for r in rows
     ]
     _write_pipe_csv(
-        csv_dir / "heroes-canonical.csv", _CMD_HEROES,
-        ["CanonicalId", "CanonicalSlug", "CanonicalHero"], data,
+        csv_dir / "heroes-canonical.csv",
+        _CMD_HEROES,
+        ["CanonicalId", "CanonicalSlug", "CanonicalHero"],
+        data,
     )
 
 
@@ -303,9 +329,19 @@ def _export_heroes_game(conn: sqlite3.Connection, csv_dir: Path) -> None:
         for r in rows
     ]
     _write_pipe_csv(
-        csv_dir / "heroes-game.csv", _CMD_HEROES,
-        ["HeroGameId", "CardName", "CanonicalId", "ClassIds", "TalentIds",
-         "Health", "Intellect", "AbilityText", "YoungHero"],
+        csv_dir / "heroes-game.csv",
+        _CMD_HEROES,
+        [
+            "HeroGameId",
+            "CardName",
+            "CanonicalId",
+            "ClassIds",
+            "TalentIds",
+            "Health",
+            "Intellect",
+            "AbilityText",
+            "YoungHero",
+        ],
         data,
     )
 
@@ -322,8 +358,10 @@ def _export_heroes_printings(conn: sqlite3.Connection, csv_dir: Path) -> None:
         for r in rows
     ]
     _write_pipe_csv(
-        csv_dir / "heroes-printings.csv", _CMD_HEROES,
-        ["HeroGameId", "SetId", "CardId", "Rarity"], data,
+        csv_dir / "heroes-printings.csv",
+        _CMD_HEROES,
+        ["HeroGameId", "SetId", "CardId", "Rarity"],
+        data,
     )
 
 
@@ -338,8 +376,10 @@ def _export_weapons_canonical(conn: sqlite3.Connection, csv_dir: Path) -> None:
         for r in rows
     ]
     _write_pipe_csv(
-        csv_dir / "weapons-canonical.csv", _CMD_WEAPONS,
-        ["CanonicalWeaponId", "CanonicalSlug", "CanonicalWeapon"], data,
+        csv_dir / "weapons-canonical.csv",
+        _CMD_WEAPONS,
+        ["CanonicalWeaponId", "CanonicalSlug", "CanonicalWeapon"],
+        data,
     )
 
 
@@ -360,9 +400,19 @@ def _export_weapons_game(conn: sqlite3.Connection, csv_dir: Path) -> None:
         for r in rows
     ]
     _write_pipe_csv(
-        csv_dir / "weapons-game.csv", _CMD_WEAPONS,
-        ["WeaponGameId", "CardName", "CanonicalWeaponId", "ClassIds", "TalentIds",
-         "Cost", "Power", "AbilityText", "Types"],
+        csv_dir / "weapons-game.csv",
+        _CMD_WEAPONS,
+        [
+            "WeaponGameId",
+            "CardName",
+            "CanonicalWeaponId",
+            "ClassIds",
+            "TalentIds",
+            "Cost",
+            "Power",
+            "AbilityText",
+            "Types",
+        ],
         data,
     )
 
@@ -379,8 +429,10 @@ def _export_weapons_printings(conn: sqlite3.Connection, csv_dir: Path) -> None:
         for r in rows
     ]
     _write_pipe_csv(
-        csv_dir / "weapons-printings.csv", _CMD_WEAPONS,
-        ["WeaponGameId", "SetId", "CardId", "Rarity"], data,
+        csv_dir / "weapons-printings.csv",
+        _CMD_WEAPONS,
+        ["WeaponGameId", "SetId", "CardId", "Rarity"],
+        data,
     )
 
 
@@ -395,8 +447,10 @@ def _export_equipment_canonical(conn: sqlite3.Connection, csv_dir: Path) -> None
         for r in rows
     ]
     _write_pipe_csv(
-        csv_dir / "equipment-canonical.csv", _CMD_EQUIPMENT,
-        ["CanonicalEquipmentId", "CanonicalSlug", "CanonicalEquipment"], data,
+        csv_dir / "equipment-canonical.csv",
+        _CMD_EQUIPMENT,
+        ["CanonicalEquipmentId", "CanonicalSlug", "CanonicalEquipment"],
+        data,
     )
 
 
@@ -417,9 +471,19 @@ def _export_equipment_game(conn: sqlite3.Connection, csv_dir: Path) -> None:
         for r in rows
     ]
     _write_pipe_csv(
-        csv_dir / "equipment-game.csv", _CMD_EQUIPMENT,
-        ["EquipmentGameId", "CardName", "CanonicalEquipmentId", "ClassIds", "TalentIds",
-         "Cost", "Defense", "AbilityText", "Types"],
+        csv_dir / "equipment-game.csv",
+        _CMD_EQUIPMENT,
+        [
+            "EquipmentGameId",
+            "CardName",
+            "CanonicalEquipmentId",
+            "ClassIds",
+            "TalentIds",
+            "Cost",
+            "Defense",
+            "AbilityText",
+            "Types",
+        ],
         data,
     )
 
@@ -436,8 +500,10 @@ def _export_equipment_printings(conn: sqlite3.Connection, csv_dir: Path) -> None
         for r in rows
     ]
     _write_pipe_csv(
-        csv_dir / "equipment-printings.csv", _CMD_EQUIPMENT,
-        ["EquipmentGameId", "SetId", "CardId", "Rarity"], data,
+        csv_dir / "equipment-printings.csv",
+        _CMD_EQUIPMENT,
+        ["EquipmentGameId", "SetId", "CardId", "Rarity"],
+        data,
     )
 
 
@@ -469,8 +535,10 @@ def _export_sets(conn: sqlite3.Connection, csv_dir: Path) -> None:
         for r in rows
     ]
     _write_pipe_csv(
-        csv_dir / "sets.csv", _CMD_SETS,
-        ["SetId", "SetTypeId", "SetName", "InitialReleaseDate"], data,
+        csv_dir / "sets.csv",
+        _CMD_SETS,
+        ["SetId", "SetTypeId", "SetName", "InitialReleaseDate"],
+        data,
     )
 
 
@@ -485,8 +553,10 @@ def _export_set_types(conn: sqlite3.Connection, csv_dir: Path) -> None:
         for r in rows
     ]
     _write_pipe_csv(
-        csv_dir / "set-types.csv", _CMD_SETS,
-        ["SetTypeId", "SetType", "SetTypeLayer"], data,
+        csv_dir / "set-types.csv",
+        _CMD_SETS,
+        ["SetTypeId", "SetType", "SetTypeLayer"],
+        data,
     )
 
 
@@ -497,16 +567,25 @@ _JUNCTION_EXPORT_SPECS: tuple[tuple[str, str, str, str, str], ...] = (
     ("story_fauna", "story-fauna.csv", "fauna_id", "StoryId", "FaunaId"),
     ("story_flora", "story-flora.csv", "flora_id", "StoryId", "FloraId"),
     (
-        "story_food_drink", "story-food-drink.csv",
-        "food_drink_id", "StoryId", "FoodDrinkId",
+        "story_food_drink",
+        "story-food-drink.csv",
+        "food_drink_id",
+        "StoryId",
+        "FoodDrinkId",
     ),
     (
-        "story_weapons", "story-weapons.csv",
-        "canonical_weapon_id", "StoryId", "CanonicalWeaponId",
+        "story_weapons",
+        "story-weapons.csv",
+        "canonical_weapon_id",
+        "StoryId",
+        "CanonicalWeaponId",
     ),
     (
-        "story_equipment", "story-equipment.csv",
-        "canonical_equipment_id", "StoryId", "CanonicalEquipmentId",
+        "story_equipment",
+        "story-equipment.csv",
+        "canonical_equipment_id",
+        "StoryId",
+        "CanonicalEquipmentId",
     ),
 )
 
@@ -537,9 +616,7 @@ def _export_story_junctions(conn: sqlite3.Connection, csv_dir: Path) -> None:
             f"SELECT story_id, {db_col} FROM {table} ORDER BY story_id, {db_col}"
         ).fetchall()
         data = [{csv_sid: r["story_id"], csv_eid: r[db_col]} for r in rows]
-        _write_pipe_csv(
-            csv_dir / csv_name, _CMD_JUNCTIONS, [csv_sid, csv_eid], data
-        )
+        _write_pipe_csv(csv_dir / csv_name, _CMD_JUNCTIONS, [csv_sid, csv_eid], data)
 
 
 # ---------------------------------------------------------------------------
@@ -547,15 +624,38 @@ def _export_story_junctions(conn: sqlite3.Connection, csv_dir: Path) -> None:
 # ---------------------------------------------------------------------------
 
 _ALL_TABLES = [
-    "stories", "narrated_videos", "regions", "locations", "npcs",
-    "monsters", "fauna", "flora", "food_and_drink",
-    "heroes_canonical", "heroes_game", "heroes_printings",
-    "weapons_canonical", "weapons_game", "weapons_printings",
-    "equipment_canonical", "equipment_game", "equipment_printings",
-    "classes", "talents", "sets", "set_types",
-    "story_npcs", "story_heroes", "story_locations", "story_regions",
-    "story_monsters", "story_fauna", "story_flora", "story_food_drink",
-    "story_weapons", "story_equipment",
+    "stories",
+    "narrated_videos",
+    "regions",
+    "locations",
+    "npcs",
+    "monsters",
+    "fauna",
+    "flora",
+    "food_and_drink",
+    "heroes_canonical",
+    "heroes_game",
+    "heroes_printings",
+    "weapons_canonical",
+    "weapons_game",
+    "weapons_printings",
+    "equipment_canonical",
+    "equipment_game",
+    "equipment_printings",
+    "classes",
+    "talents",
+    "sets",
+    "set_types",
+    "story_npcs",
+    "story_heroes",
+    "story_locations",
+    "story_regions",
+    "story_monsters",
+    "story_fauna",
+    "story_flora",
+    "story_food_drink",
+    "story_weapons",
+    "story_equipment",
 ]
 
 

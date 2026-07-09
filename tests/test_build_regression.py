@@ -85,9 +85,10 @@ class TestFontAwesomeIcons:
             matches = re.findall(r'class=\\"fa fa-|class="fa fa-', text)
             if matches:
                 violations.append(f"{f.name}: {matches}")
-        assert (
-            violations == []
-        ), "Preprocessors generating bare FA4 'fa' prefix — causes mdBook build warnings:\n" + "\n".join(violations)
+        assert violations == [], (
+            "Preprocessors generating bare FA4 'fa' prefix — causes mdBook build warnings:\n"
+            + "\n".join(violations)
+        )
 
 
 class TestArchiveNotices:
@@ -97,18 +98,23 @@ class TestArchiveNotices:
 
     def test_no_hardcoded_archive_notice_divs(self) -> None:
         violations = [
-            str(f.relative_to(ROOT)) for f in SRC_DIR.rglob("*.md") if '<div class="archive-notice"' in f.read_text()
+            str(f.relative_to(ROOT))
+            for f in SRC_DIR.rglob("*.md")
+            if '<div class="archive-notice"' in f.read_text()
         ]
         assert violations == [], (
             "Archive notice HTML hardcoded in source files — "
-            "must be injected by mdbook_archive_notice.py preprocessor:\n" + "\n".join(violations)
+            "must be injected by mdbook_archive_notice.py preprocessor:\n"
+            + "\n".join(violations)
         )
 
     def test_no_hardcoded_warning_admonitions_in_archive_files(self) -> None:
         """'> [!WARNING]' blocks in archive/ source files should be injected
         by the preprocessor, not written by hand."""
         violations = [
-            str(f.relative_to(ROOT)) for f in (SRC_DIR / "archive").rglob("*.md") if "> [!WARNING]" in f.read_text()
+            str(f.relative_to(ROOT))
+            for f in (SRC_DIR / "archive").rglob("*.md")
+            if "> [!WARNING]" in f.read_text()
         ]
         assert violations == [], (
             "Manual [!WARNING] admonitions in archive source files — "
@@ -139,14 +145,26 @@ class TestBookToml:
             return tomllib.load(f)
 
     def test_additional_css_files_exist(self, toml_config) -> None:
-        css_files = toml_config.get("output", {}).get("html", {}).get("additional-css", [])
+        css_files = (
+            toml_config.get("output", {}).get("html", {}).get("additional-css", [])
+        )
         missing = [p for p in css_files if not (ROOT / p).is_file()]
-        assert missing == [], "additional-css entries in book.toml point to missing files:\n" + "\n".join(missing)
+        assert (
+            missing == []
+        ), "additional-css entries in book.toml point to missing files:\n" + "\n".join(
+            missing
+        )
 
     def test_additional_js_files_exist(self, toml_config) -> None:
-        js_files = toml_config.get("output", {}).get("html", {}).get("additional-js", [])
+        js_files = (
+            toml_config.get("output", {}).get("html", {}).get("additional-js", [])
+        )
         missing = [p for p in js_files if not (ROOT / p).is_file()]
-        assert missing == [], "additional-js entries in book.toml point to missing files:\n" + "\n".join(missing)
+        assert (
+            missing == []
+        ), "additional-js entries in book.toml point to missing files:\n" + "\n".join(
+            missing
+        )
 
     def test_pagetoc_not_in_book_toml(self, toml_config) -> None:
         """pagetoc was removed in favour of the built-in mdBook 0.5 sidebar heading nav.
@@ -155,9 +173,10 @@ class TestBookToml:
         css = html.get("additional-css", [])
         js = html.get("additional-js", [])
         pagetoc_refs = [p for p in css + js if "pagetoc" in p]
-        assert (
-            pagetoc_refs == []
-        ), "pagetoc removed — must not be in book.toml additional-css/additional-js:\n" + "\n".join(pagetoc_refs)
+        assert pagetoc_refs == [], (
+            "pagetoc removed — must not be in book.toml additional-css/additional-js:\n"
+            + "\n".join(pagetoc_refs)
+        )
 
 
 class TestThemeAssets:
@@ -188,21 +207,27 @@ class TestThemeAssets:
         This is the shaded header introduced in the rich card redesign."""
         text = (ROOT / "theme" / "hints.js").read_text()
         assert "hint-card-header" in text, (
-            "theme/hints.js does not render hint-card-header — " "rich card header is missing from renderHintContent()"
+            "theme/hints.js does not render hint-card-header — "
+            "rich card header is missing from renderHintContent()"
         )
 
     def test_hints_js_renders_link_icon(self) -> None:
         """hints.js must conditionally render a read-more link icon when entry.url is set."""
         text = (ROOT / "theme" / "hints.js").read_text()
-        assert "entry.url" in text, "theme/hints.js does not check entry.url — read-more link icon will never render"
-        assert "hint-card-link" in text, "theme/hints.js does not produce a hint-card-link element"
+        assert (
+            "entry.url" in text
+        ), "theme/hints.js does not check entry.url — read-more link icon will never render"
+        assert (
+            "hint-card-link" in text
+        ), "theme/hints.js does not produce a hint-card-link element"
 
     def test_hints_js_uses_theme_and_offset(self) -> None:
         """hints.js must use the hint-card Tippy theme (for CSS-variable colours) and
         a small offset so the tooltip sits close to the reference text."""
         text = (ROOT / "theme" / "hints.js").read_text()
         assert 'theme: "hint-card"' in text, (
-            "theme/hints.js does not set Tippy theme to 'hint-card' — " "tooltip will not inherit mdBook CSS variables"
+            "theme/hints.js does not set Tippy theme to 'hint-card' — "
+            "tooltip will not inherit mdBook CSS variables"
         )
         assert "offset:" in text, (
             "theme/hints.js does not set a Tippy offset — "
@@ -230,7 +255,9 @@ class TestThemeAssets:
         assert (
             "var(--bg)" in text
         ), "hints.css does not use var(--bg) — tooltip background will not match the active theme"
-        assert "var(--fg)" in text, "hints.css does not use var(--fg) — tooltip text will not match the active theme"
+        assert (
+            "var(--fg)" in text
+        ), "hints.css does not use var(--fg) — tooltip text will not match the active theme"
         assert (
             "var(--sidebar-bg)" in text
         ), "hints.css does not use var(--sidebar-bg) — card header will not match the active theme"
@@ -290,11 +317,15 @@ class TestJavaScriptCompatibility:
         mention the old name for documentation purposes.
         """
         text = (ROOT / "theme" / "read-tracking.js").read_text()
-        assert "chapter-fold-toggle" in text, "Expected 'a.chapter-fold-toggle' selector not found in read-tracking.js"
+        assert (
+            "chapter-fold-toggle" in text
+        ), "Expected 'a.chapter-fold-toggle' selector not found in read-tracking.js"
         # The selector must be assigned as a string constant — not just appear in a comment.
         import re as _re
 
-        assigned = _re.search(r"""(?:var|const|let)\s+\w+\s*=\s*['"]a\.toggle['"]""", text)
+        assigned = _re.search(
+            r"""(?:var|const|let)\s+\w+\s*=\s*['"]a\.toggle['"]""", text
+        )
         assert assigned is None, (
             "read-tracking.js assigns 'a.toggle' as a selector — "
             "must be 'a.chapter-fold-toggle' (renamed in mdBook 0.5.3)"
@@ -321,7 +352,8 @@ class TestJavaScriptCompatibility:
 
         old_call = _re.search(r"""getElementById\(\s*['"]page-wrapper['"]\s*\)""", text)
         assert old_call is None, (
-            "toolbar.js calls getElementById('page-wrapper') — " "renamed to 'mdbook-page-wrapper' in mdBook 0.5.3"
+            "toolbar.js calls getElementById('page-wrapper') — "
+            "renamed to 'mdbook-page-wrapper' in mdBook 0.5.3"
         )
 
     def test_theme_js_uses_path_to_root_not_window_property(self) -> None:
@@ -332,7 +364,8 @@ class TestJavaScriptCompatibility:
         for js_file in theme_js:
             text = js_file.read_text()
             assert "window.path_to_root" not in text, (
-                f"theme/{js_file.name} uses window.path_to_root " "(undefined — template uses 'const', not 'var')"
+                f"theme/{js_file.name} uses window.path_to_root "
+                "(undefined — template uses 'const', not 'var')"
             )
 
 
@@ -362,20 +395,32 @@ class TestBuildOutput:
         return result
 
     def test_build_exits_zero(self, build_result) -> None:
-        assert build_result.returncode == 0, f"mdbook build failed:\n{build_result.stderr}"
+        assert (
+            build_result.returncode == 0
+        ), f"mdbook build failed:\n{build_result.stderr}"
 
     def test_build_no_warnings(self, build_result) -> None:
         """A clean build must emit zero WARN lines.
         Any warning indicates a misconfiguration or an icon/template issue."""
-        warn_lines = [line for line in build_result.stderr.splitlines() if line.strip().startswith("WARN")]
-        assert warn_lines == [], f"mdbook build produced {len(warn_lines)} warning(s):\n" + "\n".join(warn_lines)
+        warn_lines = [
+            line
+            for line in build_result.stderr.splitlines()
+            if line.strip().startswith("WARN")
+        ]
+        assert (
+            warn_lines == []
+        ), f"mdbook build produced {len(warn_lines)} warning(s):\n" + "\n".join(
+            warn_lines
+        )
 
     def test_browse_json_is_valid(self, build_result) -> None:
         """The browse page embeds a large JSON object. Any hint injection
         inside the <script> block breaks the JSON and silently hides all
         stories from the browse UI."""
         browse_html = (BUILD_DIR / "browse.html").read_text()
-        m = re.search(r"window\.FABLORE_BROWSE=({.*?});</script>", browse_html, re.DOTALL)
+        m = re.search(
+            r"window\.FABLORE_BROWSE=({.*?});</script>", browse_html, re.DOTALL
+        )
         assert m, "window.FABLORE_BROWSE not found in browse.html"
         data = json.loads(m.group(1))  # raises json.JSONDecodeError if corrupted
         assert len(data["stories"]) > 0, "Browse index is empty"
@@ -394,7 +439,10 @@ class TestBuildOutput:
         missing: list[str] = []
         for page in archive_pages:
             html_content = page.read_text()
-            has_notice = "fablore-archive-notice:start" in html_content or "blockquote-tag-warning" in html_content
+            has_notice = (
+                "fablore-archive-notice:start" in html_content
+                or "blockquote-tag-warning" in html_content
+            )
             # Skip category/index pages that the preprocessor intentionally omits:
             #   - index.html / README.html (directory listings)
             #   - stem matches parent dir name (e.g. heroes-of-rathe.html in heroes-of-rathe/)
@@ -407,12 +455,16 @@ class TestBuildOutput:
             if not has_notice and not is_category:
                 missing.append(str(page.relative_to(BUILD_DIR)))
 
-        assert missing == [], "Archive pages missing injected notice:\n" + "\n".join(missing)
+        assert missing == [], "Archive pages missing injected notice:\n" + "\n".join(
+            missing
+        )
 
     def test_story_pages_have_metadata(self, build_result) -> None:
         """Spot-check that story-meta preprocessor ran on a known story page."""
         page = BUILD_DIR / "main-story" / "welcome-to-rathe" / "a-rising-star.html"
         assert page.exists(), "a-rising-star.html was not built"
         html = page.read_text()
-        assert "story-share" in html, "Share buttons missing — story-meta preprocessor may not have run"
+        assert (
+            "story-share" in html
+        ), "Share buttons missing — story-meta preprocessor may not have run"
         assert "fablore-story-meta" in html, "Story-meta markers missing"

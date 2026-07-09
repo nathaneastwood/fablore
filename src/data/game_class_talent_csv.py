@@ -22,7 +22,11 @@ from card_types_extract import (
     types_include_equipment,
     types_include_weapon,
 )
-from pipe_csv_io import REGENERATE_CLASSES_TALENTS, read_pipe_csv, write_pipe_csv_autogen
+from pipe_csv_io import (
+    REGENERATE_CLASSES_TALENTS,
+    read_pipe_csv,
+    write_pipe_csv_autogen,
+)
 from registry_ids import assert_unique_ids
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -138,8 +142,7 @@ def merge_classes(
             by_name[name] = make_hash_id("CL", normalize_name(name))
     assert_unique_ids([(cid, name) for name, cid in by_name.items()], "Class")
     rows = [
-        {"ClassId": by_name[n], "ClassName": n}
-        for n in sorted(by_name, key=str.lower)
+        {"ClassId": by_name[n], "ClassName": n} for n in sorted(by_name, key=str.lower)
     ]
     write_pipe_csv_autogen(
         CLASSES_CSV_PATH,

@@ -11,6 +11,7 @@ from mdbook_hero_meta import _build_hero_meta_html
 # FA6 icon prefix — mirrors the guards in test_mdbook_story_meta.py
 # ---------------------------------------------------------------------------
 
+
 def _meta(first_set_name="", classes=(), talents=(), ll=()):
     return {
         "first_set_name": first_set_name,

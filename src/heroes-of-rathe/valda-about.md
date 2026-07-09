@@ -53,4 +53,3 @@ Valda watches for trouble and then turns her opponent's advantage into mounting 
 ![Closing Time](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/valda-closing-time.webp)
 Valda punishes over-indulgence with seismic dominance. She's fair, though. Every punter gets three warnings. Then they're out the door with a crushing hangover.
 :::
-

@@ -32,4 +32,3 @@ The lightning sings of great Yvor's fall. His battered husk sundered the land, a
 
 #### Ten Foot Tall and Bulletproof - (ROS217)
 Worry about the hangover tomorrow.
-

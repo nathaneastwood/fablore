@@ -176,17 +176,19 @@ def discover_story_keys(
         else:
             title = infer_story_title(SRC / story_key)
 
-        rows.append({
-            "story_id": _story_id(story_key),
-            "story_key": story_key,
-            "story_type": story_type,
-            "title": title,
-            "authors": old.get("authors", ""),
-            "artists": old.get("artists", ""),
-            "source_link": old.get("source_link", ""),
-            "publication_date": old.get("publication_date", ""),
-            "thumbnail_image_link": old.get("thumbnail_image_link", ""),
-        })
+        rows.append(
+            {
+                "story_id": _story_id(story_key),
+                "story_key": story_key,
+                "story_type": story_type,
+                "title": title,
+                "authors": old.get("authors", ""),
+                "artists": old.get("artists", ""),
+                "source_link": old.get("source_link", ""),
+                "publication_date": old.get("publication_date", ""),
+                "thumbnail_image_link": old.get("thumbnail_image_link", ""),
+            }
+        )
     return rows
 
 
@@ -205,8 +207,7 @@ def main() -> None:
     database = Database(DATA / "fablore.db")
 
     existing = {
-        row["story_key"]: dict(row)
-        for row in q.select_all_stories(database.conn)
+        row["story_key"]: dict(row) for row in q.select_all_stories(database.conn)
     }
 
     rows = discover_story_keys(existing)

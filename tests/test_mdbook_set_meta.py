@@ -15,6 +15,7 @@ def _meta(set_name="", release_date="", set_type=""):
 # FA6 icon prefix
 # ---------------------------------------------------------------------------
 
+
 def test_no_bare_fa_prefix_in_set_meta_html() -> None:
     """All icons must use an explicit FA6 prefix, not bare 'fa'."""
     html = _build_set_meta_html(

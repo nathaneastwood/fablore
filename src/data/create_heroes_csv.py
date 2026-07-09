@@ -81,9 +81,15 @@ HEROES_CANONICAL_CSV_PATH = ROOT / "src/data/csv/heroes-canonical.csv"
 HEROES_GAME_CSV_PATH = ROOT / "src/data/csv/heroes-game.csv"
 HEROES_PRINTINGS_CSV_PATH = ROOT / "src/data/csv/heroes-printings.csv"
 HEROES_LL_CSV_PATH = ROOT / "src/data/csv/heroes-ll.csv"
-CARD_PRINTING_CSV_PATH = ROOT.parent / "flesh-and-blood-cards/csvs/english/card-printing.csv"
-_LL_CC_CSV_PATH = ROOT.parent / "flesh-and-blood-cards/csvs/english/living-legend-cc.csv"
-_LL_BLITZ_CSV_PATH = ROOT.parent / "flesh-and-blood-cards/csvs/english/living-legend-blitz.csv"
+CARD_PRINTING_CSV_PATH = (
+    ROOT.parent / "flesh-and-blood-cards/csvs/english/card-printing.csv"
+)
+_LL_CC_CSV_PATH = (
+    ROOT.parent / "flesh-and-blood-cards/csvs/english/living-legend-cc.csv"
+)
+_LL_BLITZ_CSV_PATH = (
+    ROOT.parent / "flesh-and-blood-cards/csvs/english/living-legend-blitz.csv"
+)
 
 # Hero card-name → canonical-slug aliases now live in ``hero-card-name-aliases.csv``
 # and are loaded via :func:`hero_overrides.load_canonical_hero_card_name_aliases`.
@@ -154,12 +160,14 @@ def generate_heroes_ll_csv(
         for card_name, entry in latest.items():
             if entry["active"] != "Yes":
                 continue
-            ll_rows.append({
-                "CanonicalSlug": slug_by_card_name[card_name],
-                "CardName": card_name,
-                "Format": fmt,
-                "DateInEffect": entry["date"],
-            })
+            ll_rows.append(
+                {
+                    "CanonicalSlug": slug_by_card_name[card_name],
+                    "CardName": card_name,
+                    "Format": fmt,
+                    "DateInEffect": entry["date"],
+                }
+            )
 
     ll_rows.sort(key=lambda r: (r["Format"], r["CanonicalSlug"], r["DateInEffect"]))
     write_pipe_csv_autogen(
@@ -188,7 +196,9 @@ def split_name_variant(heading: str) -> tuple[str, str]:
     return clean, ""
 
 
-def apply_lore_canonical_override(base_slug: str, hero_name: str, hero_variant: str) -> str:
+def apply_lore_canonical_override(
+    base_slug: str, hero_name: str, hero_variant: str
+) -> str:
     """Apply lore-specific canonical split overrides."""
     override_table = LORE_CANONICAL_OVERRIDES.get(base_slug)
     if not override_table:
@@ -228,7 +238,9 @@ def generate_heroes_csv() -> None:
         "Canonical hero",
     )
 
-    canonical_id_by_slug = {row["CanonicalSlug"]: row["CanonicalId"] for row in canonical_rows}
+    canonical_id_by_slug = {
+        row["CanonicalSlug"]: row["CanonicalId"] for row in canonical_rows
+    }
     canonical_slug_by_name: dict[str, str] = {}
     for row in canonical_rows:
         name_key = normalize_name(row["CanonicalHero"])
@@ -289,13 +301,19 @@ def generate_heroes_csv() -> None:
             name, comma_subtitle = split_name_variant(full_name)
             name_key = normalize_name(name)
             base_slug = canonical_slug_by_name.get(name_key, name_key)
-            canonical_slug = apply_lore_canonical_override(base_slug, name, comma_subtitle)
+            canonical_slug = apply_lore_canonical_override(
+                base_slug, name, comma_subtitle
+            )
             canonical_id = canonical_id_by_slug.get(canonical_slug, "")
-            class_names, talent_names = extract_card_classes_and_talents(card.get("Types", ""))
+            class_names, talent_names = extract_card_classes_and_talents(
+                card.get("Types", "")
+            )
             printings = dedupe_preserving_order(
                 [
                     f"{entry['SetId']}|{entry['CardId']}|{entry['Rarity']}"
-                    for entry in printings_by_card_unique.get(card.get("Unique ID", ""), [])
+                    for entry in printings_by_card_unique.get(
+                        card.get("Unique ID", ""), []
+                    )
                     if entry.get("SetId") and entry.get("CardId")
                 ]
             )
@@ -316,8 +334,12 @@ def generate_heroes_csv() -> None:
                     "TalentNames": talent_names,
                     "Health": card.get("Health", "").strip(),
                     "Intellect": card.get("Intelligence", "").strip(),
-                    "AbilityText": card.get("Functional Text", "").strip().replace("\n", " "),
-                    "YoungHero": "true" if is_young_hero_card(card.get("Types", "")) else "false",
+                    "AbilityText": card.get("Functional Text", "")
+                    .strip()
+                    .replace("\n", " "),
+                    "YoungHero": (
+                        "true" if is_young_hero_card(card.get("Types", "")) else "false"
+                    ),
                     "TypesNormalized": ", ".join(parse_tokens(card.get("Types", ""))),
                     "Printings": printings,
                     "EarliestRelease": earliest_release,
@@ -353,8 +375,16 @@ def generate_heroes_csv() -> None:
                 ]
             )
         hero_game_id = make_hash_id("HG", source_unique)
-        class_ids = [class_id_by_name[name] for name in row["ClassNames"] if name in class_id_by_name]
-        talent_ids = [talent_id_by_name[name] for name in row["TalentNames"] if name in talent_id_by_name]
+        class_ids = [
+            class_id_by_name[name]
+            for name in row["ClassNames"]
+            if name in class_id_by_name
+        ]
+        talent_ids = [
+            talent_id_by_name[name]
+            for name in row["TalentNames"]
+            if name in talent_id_by_name
+        ]
         game_rows.append(
             {
                 "HeroGameId": hero_game_id,

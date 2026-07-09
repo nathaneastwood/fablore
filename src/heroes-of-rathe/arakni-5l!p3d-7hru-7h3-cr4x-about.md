@@ -24,5 +24,3 @@ When this Arakni marks a victim, their dreams turn to nightmares. It will terror
 ![Stick And Stab](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/slippy-stick-and-stab.webp)
 Arakni lunges from the unseen to stick and stab, time and again, then recedes from sight before its target even knows what hit them.
 :::
-
-

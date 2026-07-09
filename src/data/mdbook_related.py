@@ -95,6 +95,7 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
     Returns:
         Frozen lookup maps for the preprocessor run.
     """
+
     def rows(path: Path) -> list[dict[str, str]]:
         if not path.is_file():
             return []
@@ -335,17 +336,26 @@ _STORY_TYPE_LABELS: dict[str, str] = {
     "digital-tiles": "Digital Tile",
 }
 
-_STORY_TYPES_SKIP: frozenset[str] = frozenset({
-    "archive",
-    "heroes-of-rathe",
-    "other-characters",
-    "weapons",
-    "equipment",
-})
+_STORY_TYPES_SKIP: frozenset[str] = frozenset(
+    {
+        "archive",
+        "heroes-of-rathe",
+        "other-characters",
+        "weapons",
+        "equipment",
+    }
+)
 
 _CARD_GROUP_ORDER: tuple[str, ...] = (
-    "Hero", "Character", "Location", "Region",
-    "Main Story", "Short Story", "World of Rathe", "Flavour Text", "Digital Tile",
+    "Hero",
+    "Character",
+    "Location",
+    "Region",
+    "Main Story",
+    "Short Story",
+    "World of Rathe",
+    "Flavour Text",
+    "Digital Tile",
 )
 
 
@@ -541,9 +551,7 @@ def build_related_fragment(
             continue
         group.sort(key=lambda c: c[1].lower())
         if not first_group:
-            parts.append(
-                '<div class="related-cards-spacer" aria-hidden="true"></div>'
-            )
+            parts.append('<div class="related-cards-spacer" aria-hidden="true"></div>')
         first_group = False
         for kind, title, sub, href in group:
             _append_card_markup(parts, kind, title, sub, href)
@@ -640,7 +648,9 @@ def walk_mutate_sections(
                     src_root=src_root,
                     hero_src_map=hero_src_map,
                 )
-            walk_mutate_sections(ch.get("sub_items") or [], maps, src_root, hero_src_map)
+            walk_mutate_sections(
+                ch.get("sub_items") or [], maps, src_root, hero_src_map
+            )
         elif "Separator" in item or "PartTitle" in item:
             continue
 
