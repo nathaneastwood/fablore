@@ -89,6 +89,7 @@ def generate_weapons_csv() -> None:
                 "SetId": row.get("Set ID", "").strip(),
                 "CardId": row.get("Card ID", "").strip(),
                 "Rarity": row.get("Rarity", "").strip(),
+                "ImageURL": row.get("Image URL", "").strip(),
             }
         )
 
@@ -112,7 +113,9 @@ def generate_weapons_csv() -> None:
     slug_order = sorted(weapon_cards_by_key.keys())
     for slug in slug_order:
         cards = weapon_cards_by_key[slug]
-        display = min(c.get("Name", "").strip() for c in cards if c.get("Name", "").strip())
+        display = min(
+            c.get("Name", "").strip() for c in cards if c.get("Name", "").strip()
+        )
         canonical_rows.append(
             {
                 "CanonicalWeaponId": make_hash_id("CW", slug),
@@ -139,8 +142,10 @@ def generate_weapons_csv() -> None:
             )
             printings = dedupe_preserving_order(
                 [
-                    f"{entry['SetId']}|{entry['CardId']}|{entry['Rarity']}"
-                    for entry in printings_by_card_unique.get(card.get("Unique ID", ""), [])
+                    f"{entry['SetId']}|{entry['CardId']}|{entry['Rarity']}|{entry['ImageURL']}"
+                    for entry in printings_by_card_unique.get(
+                        card.get("Unique ID", ""), []
+                    )
                     if entry.get("SetId") and entry.get("CardId")
                 ]
             )
@@ -201,8 +206,12 @@ def generate_weapons_csv() -> None:
                 ]
             )
         weapon_game_id = make_hash_id("WG", source_unique)
-        class_ids = [class_id_by_name[n] for n in row["ClassNames"] if n in class_id_by_name]
-        talent_ids = [talent_id_by_name[n] for n in row["TalentNames"] if n in talent_id_by_name]
+        class_ids = [
+            class_id_by_name[n] for n in row["ClassNames"] if n in class_id_by_name
+        ]
+        talent_ids = [
+            talent_id_by_name[n] for n in row["TalentNames"] if n in talent_id_by_name
+        ]
         game_rows.append(
             {
                 "WeaponGameId": weapon_game_id,
@@ -217,13 +226,16 @@ def generate_weapons_csv() -> None:
             }
         )
         for entry in row["Printings"]:
-            set_id, card_id, rarity = [part.strip() for part in entry.split("|")]
+            set_id, card_id, rarity, image_url = [
+                part.strip() for part in entry.split("|")
+            ]
             printings_rows.append(
                 {
                     "WeaponGameId": weapon_game_id,
                     "SetId": set_id,
                     "CardId": card_id,
                     "Rarity": rarity,
+                    "ImageURL": image_url,
                 }
             )
 
@@ -244,7 +256,7 @@ def generate_weapons_csv() -> None:
         "AbilityText",
         "Types",
     ]
-    printings_fieldnames = ["WeaponGameId", "SetId", "CardId", "Rarity"]
+    printings_fieldnames = ["WeaponGameId", "SetId", "CardId", "Rarity", "ImageURL"]
 
     for path, fieldnames, rows in [
         (WEAPONS_CANONICAL_CSV_PATH, canonical_fieldnames, canonical_rows),

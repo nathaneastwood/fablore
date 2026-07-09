@@ -55,6 +55,9 @@ command = "python3 src/data/mdbook_set_index.py"
 [preprocessor.sets-hub]
 command = "python3 src/data/mdbook_sets_hub.py"
 
+[preprocessor.child-hub]
+command = "python3 src/data/mdbook_child_hub.py"
+
 [output.html.redirect]
 '/digital-tiles/03-crucible-of-war/crucible-of-war.html' = '/digital-tiles/crucible-of-war/crucible-of-war.html'
 '/digital-tiles/04-monarch/monarch.html' = '/digital-tiles/monarch/monarch.html'
