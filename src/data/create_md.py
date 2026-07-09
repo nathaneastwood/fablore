@@ -109,7 +109,7 @@ def create_md_file(
         "<!-- ### NOTE: This file should not be edited by hand. "
         "Please edit the .csv file. -->\n"
     )
-    out_path.write_text(banner + table, encoding="utf-8")
+    out_path.write_text(banner + table + "\n", encoding="utf-8")
 
 
 def main() -> None:
