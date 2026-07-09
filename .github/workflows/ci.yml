@@ -27,25 +27,11 @@ jobs:
     - name: Run Python data pipeline tests
       run: python -m pytest
 
-    - name: Install Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 3.2.0
-
-    - name: Install Ruby gems (via bundler)
-      run: |
-        gem install bundler
-        bundle install --jobs 4 --retry 3
-
     - name: Build the book
       run: mdbook build
 
-    - name: Run htmlproofer on book output
-      run: |
-        bundle exec htmlproofer ./book \
-          --assume-extension \
-          --check-html \
-          --disable-external \
-          --only-4xx \
-          --ignore-missing-alt \
-          --ignore-files "./book/toc.html,./book/404.html"
+    - name: Run lychee on book output
+      uses: lycheeverse/lychee-action@v2
+      with:
+        args: --config lychee.toml --root-dir ${{ github.workspace }}/book ./book
+        fail: true

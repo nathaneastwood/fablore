@@ -108,16 +108,16 @@ Ensure you're using a custom theme and have copied the latest [`index.hbs`](http
 
 <p align="right"><a href="#readme-top">Back to top</a></p>
 
-## 🔍 Link Checking with `html-proofer`
+## 🔍 Link Checking with `lychee`
 
-To ensure all internal and external links in the built site are valid, run [`html-proofer`](https://github.com/gjtorikian/html-proofer):
+To ensure all internal links in the built site are valid, run [`lychee`](https://github.com/lycheeverse/lychee):
 
 ```bash
-gem install html-proofer
-htmlproofer book/ --check-html --allow-hash-href
+brew install lychee
+lychee --config lychee.toml --root-dir "$(pwd)/book" ./book
 ```
 
-This will scan the `book/` output directory after building to catch broken links, missing anchors, and malformed HTML.
+This will scan the `book/` output directory after building to catch broken links and missing anchors.
 
 <p align="right"><a href="#readme-top">Back to top</a></p>
 
