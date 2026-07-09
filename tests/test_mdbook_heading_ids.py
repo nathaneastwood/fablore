@@ -72,7 +72,9 @@ def test_require_valid_lore_fragment_lists_options(tmp_path: Path) -> None:
     data = tmp_path / "src" / "data"
     data.mkdir(parents=True)
     (src / "world-of-rathe").mkdir(parents=True)
-    (src / "world-of-rathe" / "aria.md").write_text("## Aria\n### Enion\n", encoding="utf-8")
+    (src / "world-of-rathe" / "aria.md").write_text(
+        "## Aria\n### Enion\n", encoding="utf-8"
+    )
     regions = data / "regions.csv"
     regions.write_text(
         "# h\nRegionId|RegionName|WorldOfRatheStoryKey\n"

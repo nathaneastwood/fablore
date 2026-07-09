@@ -77,6 +77,7 @@ def seed_from_csvs(conn: sqlite3.Connection, data_dir: Path) -> None:
 # Game data tables
 # ---------------------------------------------------------------------------
 
+
 def _seed_set_types(conn: sqlite3.Connection, data_dir: Path) -> None:
     _, rows = _csv(data_dir, "set-types.csv")
     for row in rows:
@@ -103,7 +104,9 @@ def _seed_sets(conn: sqlite3.Connection, data_dir: Path) -> None:
 def _seed_classes(conn: sqlite3.Connection, data_dir: Path) -> None:
     _, rows = _csv(data_dir, "classes.csv")
     for row in rows:
-        q.upsert_class(conn, class_id=_s(row, "ClassId"), class_name=_s(row, "ClassName"))
+        q.upsert_class(
+            conn, class_id=_s(row, "ClassId"), class_name=_s(row, "ClassName")
+        )
 
 
 def _seed_talents(conn: sqlite3.Connection, data_dir: Path) -> None:
@@ -250,6 +253,7 @@ def _seed_equipment_printings(conn: sqlite3.Connection, data_dir: Path) -> None:
 # Lore registry tables
 # ---------------------------------------------------------------------------
 
+
 def _seed_regions(conn: sqlite3.Connection, data_dir: Path) -> None:
     _, rows = _csv(data_dir, "regions.csv")
     for row in rows:
@@ -335,6 +339,7 @@ def _seed_food_drink(conn: sqlite3.Connection, data_dir: Path) -> None:
 # Stories + narrated videos
 # ---------------------------------------------------------------------------
 
+
 def _seed_stories(conn: sqlite3.Connection, data_dir: Path) -> None:
     _, rows = _csv(data_dir, "stories.csv")
     for row in rows:
@@ -362,9 +367,7 @@ def _seed_stories(conn: sqlite3.Connection, data_dir: Path) -> None:
                     videos = [
                         (str(v.get("author", "")), str(v.get("url", "")), "")
                         for v in parsed
-                        if isinstance(v, dict)
-                        and v.get("author")
-                        and v.get("url")
+                        if isinstance(v, dict) and v.get("author") and v.get("url")
                     ]
                     q.set_narrated_videos(conn, story_id, videos)
             except (json.JSONDecodeError, TypeError):
@@ -404,12 +407,16 @@ _JUNCTION_SPECS: tuple[tuple[str, str, str, str], ...] = (
     ("story-flora.csv", "story_flora", "FloraId", "flora_id"),
     ("story-food-drink.csv", "story_food_drink", "FoodDrinkId", "food_drink_id"),
     (
-        "story-weapons.csv", "story_weapons",
-        "CanonicalWeaponId", "canonical_weapon_id",
+        "story-weapons.csv",
+        "story_weapons",
+        "CanonicalWeaponId",
+        "canonical_weapon_id",
     ),
     (
-        "story-equipment.csv", "story_equipment",
-        "CanonicalEquipmentId", "canonical_equipment_id",
+        "story-equipment.csv",
+        "story_equipment",
+        "CanonicalEquipmentId",
+        "canonical_equipment_id",
     ),
 )
 

@@ -189,7 +189,7 @@ def _process_chapter(
         if path in skip_set:
             return
 
-        rel = path[len(prefix):]          # e.g. "02-arcane-rising/cards-on-the-table.md"
+        rel = path[len(prefix) :]  # e.g. "02-arcane-rising/cards-on-the-table.md"
         parts = rel.split("/")
 
         hub_href = _relative_href(path, hub_src)

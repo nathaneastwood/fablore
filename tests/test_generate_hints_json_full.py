@@ -98,7 +98,9 @@ def _make_db(path: Path) -> None:
     conn.execute("CREATE TABLE fauna (name TEXT, description TEXT)")
     conn.execute("CREATE TABLE flora (name TEXT, description TEXT)")
     conn.execute("INSERT INTO regions VALUES ('R1', 'Solana')")
-    conn.execute("INSERT INTO locations VALUES ('Grand Bazaar', 'A marketplace.', 'R1')")
+    conn.execute(
+        "INSERT INTO locations VALUES ('Grand Bazaar', 'A marketplace.', 'R1')"
+    )
     conn.execute("INSERT INTO locations VALUES ('Empty Place', '', 'R1')")
     conn.execute("INSERT INTO monsters VALUES ('Brute', 'A nasty beast.')")
     conn.execute("INSERT INTO fauna VALUES (\"Kae'io\", 'A bird.')")
@@ -162,7 +164,9 @@ def test_generate_no_region_for_unknown_region_id(tmp_path, monkeypatch):
     conn.execute("CREATE TABLE fauna (name TEXT, description TEXT)")
     conn.execute("CREATE TABLE flora (name TEXT, description TEXT)")
     # Location references a region_id not in the regions table
-    conn.execute("INSERT INTO locations VALUES ('Lost Shrine', 'Ancient ruins.', 'UNKNOWN')")
+    conn.execute(
+        "INSERT INTO locations VALUES ('Lost Shrine', 'Ancient ruins.', 'UNKNOWN')"
+    )
     conn.commit()
     conn.close()
 

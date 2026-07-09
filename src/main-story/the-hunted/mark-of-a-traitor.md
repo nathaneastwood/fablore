@@ -189,4 +189,3 @@ In their hundreds, the Children of the Dragon stopped their training and stood a
 Dozens of Cindra's best ninjas lined up in formation, pressing palm to fist as a sign of readiness.
 
 "Tomorrow, we hunt!"
-

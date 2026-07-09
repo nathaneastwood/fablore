@@ -8,7 +8,9 @@ import pytest
 from validate_data import ALLOWED_STORY_TYPES, _check_stories_story_type_allowlist
 
 
-def test_story_type_unknown_emits_alert(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+def test_story_type_unknown_emits_alert(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
     """A StoryType not in the allowlist is reported."""
     stories = tmp_path / "stories.csv"
     stories.write_text(

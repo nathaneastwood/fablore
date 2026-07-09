@@ -36,9 +36,15 @@ _TYPE_LABELS: dict[str, str] = {
     "digital-tiles": "Digital Tile",
 }
 
-_SKIP_TYPES: frozenset[str] = frozenset({
-    "archive", "heroes-of-rathe", "other-characters", "weapons", "equipment",
-})
+_SKIP_TYPES: frozenset[str] = frozenset(
+    {
+        "archive",
+        "heroes-of-rathe",
+        "other-characters",
+        "weapons",
+        "equipment",
+    }
+)
 
 
 def _rows(path: Path) -> list[dict[str, str]]:
@@ -60,7 +66,14 @@ def build_index(data_dir: Path) -> dict:
         if not sid or not key or stype in _SKIP_TYPES or not title:
             continue
         url = key[:-3] + ".html" if key.endswith(".md") else key
-        stories_by_id[sid] = {"t": title, "u": url, "k": stype, "h": [], "r": [], "_d": date}
+        stories_by_id[sid] = {
+            "t": title,
+            "u": url,
+            "k": stype,
+            "h": [],
+            "r": [],
+            "_d": date,
+        }
 
     hero_name: dict[str, str] = {}
     for r in _rows(data_dir / "csv" / "heroes-canonical.csv"):
@@ -194,7 +207,8 @@ def main() -> None:
 
     stories_json = json.dumps(
         [{"t": s["t"], "u": s["u"]} for s in index["stories"]],
-        ensure_ascii=False, separators=(",", ":"),
+        ensure_ascii=False,
+        separators=(",", ":"),
     )
     stories_json_path = src_root / "stories.json"
     try:

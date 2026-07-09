@@ -59,4 +59,3 @@ These daunting trials will put your skills to the test, as the onlookers cheer, 
 
 #### Wall of Meat and Muscle - (HVY142)
 "You lost, kid?" - Giantslayer Crix
-

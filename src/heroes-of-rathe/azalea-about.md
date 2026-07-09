@@ -17,4 +17,3 @@ The tools of the trade. Use your bow to load arrows into your arsenal, and ready
 ![Kill Shot](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/azalea-icon-target-precise.webp)
 One shot is all you need. Take your time, set up your position, and shoot to kill. Use effects to set up the top of your deck with Azalea's hero ability, to guarantee your kill shot hits the mark! Azalea's ability to give her arrows dominate is deadly when combined with effects that increase the power of her death whistlers.
 :::
-

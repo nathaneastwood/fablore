@@ -80,7 +80,9 @@ def test_expand_preserves_surrounding_content():
 
 
 def test_expand_multiline_description():
-    content = ":::hero-trait My Trait\n" f"![img]({IMG})\n" "Line one.\n" "Line two.\n" ":::"
+    content = (
+        ":::hero-trait My Trait\n" f"![img]({IMG})\n" "Line one.\n" "Line two.\n" ":::"
+    )
     result = _expand(content)
     assert "Line one." in result
     assert "Line two." in result
@@ -104,7 +106,10 @@ def test_walk_recurses_into_sub_items():
         }
     ]
     _walk(sections)
-    assert '<div class="hero-container">' in sections[0]["Chapter"]["sub_items"][0]["Chapter"]["content"]
+    assert (
+        '<div class="hero-container">'
+        in sections[0]["Chapter"]["sub_items"][0]["Chapter"]["content"]
+    )
 
 
 def test_walk_skips_non_dict():

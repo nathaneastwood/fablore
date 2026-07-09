@@ -35,10 +35,18 @@ from mdbook_hints import (  # noqa: E402
 
 HINTS = {
     "Southmaw": {"type": "location", "summary": "An asylum in the Pits."},
-    "Siren": {"match": ["Siren", "Sirens"], "type": "fauna", "summary": "Enchanting merfolk."},
+    "Siren": {
+        "match": ["Siren", "Sirens"],
+        "type": "fauna",
+        "summary": "Enchanting merfolk.",
+    },
     "Brawnhide": {"type": "fauna", "summary": "A giant furred beast."},
     "Meep": {"type": "fauna", "summary": "Tiny mischievous creatures."},
-    "MeepColony": {"match": "Meep Colony", "type": "fauna", "summary": "A group of Meeps."},
+    "MeepColony": {
+        "match": "Meep Colony",
+        "type": "fauna",
+        "summary": "A group of Meeps.",
+    },
     # Non-DB — must NOT be auto-detected
     "Sol": {"type": "aesir", "summary": "Aesir of Light"},
     "HandOfSol": {"match": "Hand of Sol", "type": "faction"},
@@ -64,13 +72,15 @@ def test_get_match_strings_plain_string():
 
 
 def test_get_match_strings_dict_no_match():
-    assert get_match_strings("Southmaw", {"type": "location", "summary": "..."}) == ["Southmaw"]
+    assert get_match_strings("Southmaw", {"type": "location", "summary": "..."}) == [
+        "Southmaw"
+    ]
 
 
 def test_get_match_strings_dict_string_match():
-    assert get_match_strings("HandOfSol", {"match": "Hand of Sol", "type": "faction"}) == [
-        "Hand of Sol"
-    ]
+    assert get_match_strings(
+        "HandOfSol", {"match": "Hand of Sol", "type": "faction"}
+    ) == ["Hand of Sol"]
 
 
 def test_get_match_strings_dict_list_match():
@@ -96,7 +106,10 @@ def test_page_slug_from_path_none():
 
 
 def test_page_slug_from_path_nested():
-    assert page_slug_from_path("main-story/uprising/betrayal.md") == "main-story/uprising/betrayal"
+    assert (
+        page_slug_from_path("main-story/uprising/betrayal.md")
+        == "main-story/uprising/betrayal"
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -270,7 +283,11 @@ def test_option_a_unrelated_heading():
 
 def test_option_c_excluded():
     hints = {
-        "Brawnhide": {"type": "fauna", "summary": "A beast.", "exclude_pages": ["lore/brawnhide"]},
+        "Brawnhide": {
+            "type": "fauna",
+            "summary": "A beast.",
+            "exclude_pages": ["lore/brawnhide"],
+        },
     }
     content = "A Brawnhide prowled.\n"
     result = process_chapter(content, hints, page_slug="lore/brawnhide")
@@ -279,7 +296,11 @@ def test_option_c_excluded():
 
 def test_option_c_not_excluded():
     hints = {
-        "Brawnhide": {"type": "fauna", "summary": "A beast.", "exclude_pages": ["lore/brawnhide"]},
+        "Brawnhide": {
+            "type": "fauna",
+            "summary": "A beast.",
+            "exclude_pages": ["lore/brawnhide"],
+        },
     }
     content = "A Brawnhide prowled.\n"
     result = process_chapter(content, hints, page_slug="other/page")
@@ -361,6 +382,7 @@ def test_script_block_json_not_corrupted():
     """The browse-page scenario: entity names inside JSON strings must not be wrapped in spans."""
     import json as _json
     import re as _re
+
     script = (
         '<script>window.FABLORE_BROWSE={"stories":[{"t":"A Brawnhide appears",'
         '"r":["Southmaw"]}]};</script>'

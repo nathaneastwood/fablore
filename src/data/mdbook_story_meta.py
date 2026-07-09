@@ -38,13 +38,13 @@ _BLUESKY_SVG = (
     'height="0.85em" width="0.85em" style="vertical-align:-0.1em;fill:currentColor" '
     'aria-hidden="true">'
     '<path d="M123.121 33.664C188.241 82.553 258.281 181.68 284 234.873'
-    'c25.719-53.192 95.759-152.32 160.879-201.209C491.866-1.611 568-28.906 568 57.947'
-    'c0 17.346-9.945 145.713-15.778 166.555-20.275 72.453-94.155 90.933-159.875 79.748'
-    'C508.222 323.8 521.99 372.7 484.34 421.616c-60.732 79.094-165.296 62.47-235.296-14.534'
-    'C179.044 484.086 74.48 500.71 13.748 421.616-23.902 372.7-10.134 323.8 106.532 304.25'
-    '40.812 315.435-33.068 296.955-53.343 224.502-59.176 203.66-69.121 75.293-69.121 57.947'
+    "c25.719-53.192 95.759-152.32 160.879-201.209C491.866-1.611 568-28.906 568 57.947"
+    "c0 17.346-9.945 145.713-15.778 166.555-20.275 72.453-94.155 90.933-159.875 79.748"
+    "C508.222 323.8 521.99 372.7 484.34 421.616c-60.732 79.094-165.296 62.47-235.296-14.534"
+    "C179.044 484.086 74.48 500.71 13.748 421.616-23.902 372.7-10.134 323.8 106.532 304.25"
+    "40.812 315.435-33.068 296.955-53.343 224.502-59.176 203.66-69.121 75.293-69.121 57.947"
     'c0-86.853 76.134-59.558 192.242-24.283z"/>'
-    '</svg>'
+    "</svg>"
 )
 
 
@@ -102,17 +102,22 @@ def _build_share_html(story_type: str = "") -> str:
         f' type="button" aria-label="Copy link" title="Copy link">{_fa_link}</button>'
     )
     _type_attr = f' data-story-type="{html.escape(story_type)}"' if story_type else ""
-    html_block = "\n".join([
-        f'<div class="story-share"{_type_attr}>',
-        '  <span class="story-share-label">Share</span>',
-        _share_link("story-share-facebook", "Share on Facebook", _fa_facebook),
-        _share_link("story-share-twitter", "Share on X", _x_logo),
-        _share_link("story-share-bluesky", "Share on BlueSky", _BLUESKY_SVG),
-        _share_link("story-share-whatsapp", "Share on WhatsApp", _fa_whatsapp),
-        _copy_btn,
-        '</div>',
-    ])
-    return html_block + "\n" + f"""<script>
+    html_block = "\n".join(
+        [
+            f'<div class="story-share"{_type_attr}>',
+            '  <span class="story-share-label">Share</span>',
+            _share_link("story-share-facebook", "Share on Facebook", _fa_facebook),
+            _share_link("story-share-twitter", "Share on X", _x_logo),
+            _share_link("story-share-bluesky", "Share on BlueSky", _BLUESKY_SVG),
+            _share_link("story-share-whatsapp", "Share on WhatsApp", _fa_whatsapp),
+            _copy_btn,
+            "</div>",
+        ]
+    )
+    return (
+        html_block
+        + "\n"
+        + f"""<script>
 (function () {{
   var u = encodeURIComponent(window.location.href);
   var t = encodeURIComponent(document.title);
@@ -134,6 +139,7 @@ def _build_share_html(story_type: str = "") -> str:
   }});
 }})();
 </script>"""
+    )
 
 
 def _item(icon: str, inner: str) -> str:
@@ -158,10 +164,16 @@ def _build_meta_html(
     items: list[str] = []
 
     if authors:
-        items.append(_item("fas fa-pencil", f"Written by <strong>{html.escape(authors)}</strong>"))
+        items.append(
+            _item(
+                "fas fa-pencil", f"Written by <strong>{html.escape(authors)}</strong>"
+            )
+        )
 
     if artists:
-        items.append(_item("fas fa-image", f"Art by <strong>{html.escape(artists)}</strong>"))
+        items.append(
+            _item("fas fa-image", f"Art by <strong>{html.escape(artists)}</strong>")
+        )
 
     formatted_date = _format_date(publication_date)
     if formatted_date:
@@ -189,7 +201,9 @@ def _build_meta_html(
     parts: list[str] = []
     if items:
         inner = "\n  ".join(items)
-        parts.append(f'<div class="story-meta" aria-label="Story information">\n  {inner}\n</div>')
+        parts.append(
+            f'<div class="story-meta" aria-label="Story information">\n  {inner}\n</div>'
+        )
     parts.append(_build_share_html(story_type))
     return "\n".join(parts)
 

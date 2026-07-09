@@ -77,4 +77,3 @@ And so they prevailed, Light and Hand, and slew the Shadow that lie in wait.
 
 #### Tear Through the Portal - (DTD190)
 "Obsessed, they call me. Rabid over-reacher. I merely grasp what begs to be possessed." - Lord Sutcliffe
-

@@ -16,7 +16,9 @@ def test_check_location_lore_fragments_rejects_unsafe_ids(tmp_path: Path) -> Non
     """``LoreFragment`` must look like an HTML ``id`` fragment."""
     loc = tmp_path / "locations.csv"
     loc.write_text(
-        "# banner\n" "LocationId|Name|RegionId|Notes|LoreFragment\n" "LO1|X|RG1||bad frag\n",
+        "# banner\n"
+        "LocationId|Name|RegionId|Notes|LoreFragment\n"
+        "LO1|X|RG1||bad frag\n",
         encoding="utf-8",
     )
     alerts = validate_data._check_location_lore_fragments(loc)
@@ -38,7 +40,9 @@ def test_check_id_hash_drift_flags_stale_id(tmp_path: Path) -> None:
         "# banner\nMonsterId|Name|Description\nMOdeadbeef01|Test Beast|\n",
         encoding="utf-8",
     )
-    alerts = validate_data._check_id_hash_drift(path, "MonsterId", "Name", monster_id, "monsters.csv")
+    alerts = validate_data._check_id_hash_drift(
+        path, "MonsterId", "Name", monster_id, "monsters.csv"
+    )
     assert len(alerts) == 1
     assert "Test Beast" in alerts[0]
 
@@ -52,7 +56,9 @@ def test_check_id_hash_drift_clean_when_id_matches(tmp_path: Path) -> None:
         f"# banner\nMonsterId|Name|Description\n{computed}|Test Beast|\n",
         encoding="utf-8",
     )
-    alerts = validate_data._check_id_hash_drift(path, "MonsterId", "Name", monster_id, "monsters.csv")
+    alerts = validate_data._check_id_hash_drift(
+        path, "MonsterId", "Name", monster_id, "monsters.csv"
+    )
     assert alerts == []
 
 
@@ -99,7 +105,10 @@ def test_check_near_duplicate_names_flags_typo(tmp_path: Path) -> None:
 def test_check_near_duplicate_names_ignores_unrelated_names(tmp_path: Path) -> None:
     path = tmp_path / "locations.csv"
     path.write_text(
-        "# banner\n" "LocationId|Name|RegionId|Notes|LoreFragment\n" "LO1|The Maela|RG1||\n" "LO2|The Valdur|RG1||\n",
+        "# banner\n"
+        "LocationId|Name|RegionId|Notes|LoreFragment\n"
+        "LO1|The Maela|RG1||\n"
+        "LO2|The Valdur|RG1||\n",
         encoding="utf-8",
     )
     alerts = validate_data._check_near_duplicate_names(

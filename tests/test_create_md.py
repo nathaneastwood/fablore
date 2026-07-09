@@ -48,8 +48,7 @@ def test_create_md_locations_includes_region_name_not_ids(tmp_path: Path) -> Non
     data = tmp_path / "data"
     data.mkdir(parents=True)
     (data / "regions.csv").write_text(
-        "RegionId|RegionName|WorldOfRatheStoryKey\n"
-        "RGaaaaaaaaaa|Test Region|\n",
+        "RegionId|RegionName|WorldOfRatheStoryKey\n" "RGaaaaaaaaaa|Test Region|\n",
         encoding="utf-8",
     )
     (data / "locations.csv").write_text(

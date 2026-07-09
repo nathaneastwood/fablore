@@ -26,4 +26,5 @@ def db(tmp_path: Path):
     """In-memory Database with schema applied; CSV dir created for write-through exports."""
     (tmp_path / "csv").mkdir()
     from db import Database
+
     return Database(":memory:", data_dir=tmp_path)

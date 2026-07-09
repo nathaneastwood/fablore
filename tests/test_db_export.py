@@ -24,7 +24,9 @@ from db import Database
 
 def _csv_lines(path: Path) -> list[str]:
     """Return non-empty lines from a CSV file."""
-    return [line for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+    return [
+        line for line in path.read_text(encoding="utf-8").splitlines() if line.strip()
+    ]
 
 
 def _csv_header(path: Path) -> str:
@@ -160,7 +162,9 @@ def test_export_registry_tables_npcs(db: Database, tmp_path: Path) -> None:
 
 
 def test_export_registry_tables_monsters(db: Database, tmp_path: Path) -> None:
-    q.upsert_monster(db.conn, monster_id="M1", name="Brute", description="Big and mean.")
+    q.upsert_monster(
+        db.conn, monster_id="M1", name="Brute", description="Big and mean."
+    )
     _export.export_registry_tables(db.conn, tmp_path)
 
     content = (tmp_path / "csv" / "monsters.csv").read_text(encoding="utf-8")
@@ -324,7 +328,9 @@ def test_export_all_narrated_videos_empty(db: Database, tmp_path: Path) -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_export_all_creates_stories_and_registry_files(db: Database, tmp_path: Path) -> None:
+def test_export_all_creates_stories_and_registry_files(
+    db: Database, tmp_path: Path
+) -> None:
     q.upsert_story(
         db.conn,
         story_id="S1",
@@ -349,7 +355,9 @@ def test_export_all_creates_stories_and_registry_files(db: Database, tmp_path: P
     assert "The High Lord" in (csv_dir / "npcs.csv").read_text(encoding="utf-8")
 
 
-def test_export_all_creates_heroes_and_weapons_files(db: Database, tmp_path: Path) -> None:
+def test_export_all_creates_heroes_and_weapons_files(
+    db: Database, tmp_path: Path
+) -> None:
     _export.export_all(db.conn, tmp_path)
 
     csv_dir = tmp_path / "csv"

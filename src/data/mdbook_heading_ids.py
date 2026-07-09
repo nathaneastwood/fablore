@@ -90,7 +90,9 @@ def collect_heading_anchor_ids_from_path(md_path: Path) -> list[str]:
     return collect_heading_anchor_ids(text)
 
 
-def world_lore_markdown_path(src_root: Path, regions_csv: Path, region_id: str) -> Path | None:
+def world_lore_markdown_path(
+    src_root: Path, regions_csv: Path, region_id: str
+) -> Path | None:
     """Resolve ``WorldOfRatheStoryKey`` for ``region_id`` to an absolute path under ``src_root``."""
     rid = (region_id or "").strip()
     if not rid:

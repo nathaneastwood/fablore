@@ -36,16 +36,16 @@ _EXCLUDED_SET_TYPE_IDS = {
 
 # Lower value = preferred when release dates tie.
 _SET_TYPE_PRIORITY: dict[str, int] = {
-    "TY87478277a5": 0,   # Core Booster Set
-    "TY858a95be59": 1,   # Expansion Booster Set
-    "TY48cd9f30bc": 2,   # Supplementary Booster Set
-    "TYd8e2e91515": 3,   # History Pack
-    "TYae8fdcc03a": 4,   # Mastery Pack
-    "TY00678b0ea7": 5,   # Welcome Deck
-    "TY3634cb99aa": 6,   # Hero Deck
-    "TY526cd03a42": 7,   # Blitz Deck
-    "TYfcaaf6a22f": 8,   # Armory Deck
-    "TY6f903c3145": 9,   # Classic Battles Deck
+    "TY87478277a5": 0,  # Core Booster Set
+    "TY858a95be59": 1,  # Expansion Booster Set
+    "TY48cd9f30bc": 2,  # Supplementary Booster Set
+    "TYd8e2e91515": 3,  # History Pack
+    "TYae8fdcc03a": 4,  # Mastery Pack
+    "TY00678b0ea7": 5,  # Welcome Deck
+    "TY3634cb99aa": 6,  # Hero Deck
+    "TY526cd03a42": 7,  # Blitz Deck
+    "TYfcaaf6a22f": 8,  # Armory Deck
+    "TY6f903c3145": 9,  # Classic Battles Deck
     "TY7fc7966b3b": 10,  # First Strike Deck
     "TY14e59cce5d": 11,  # Box Set
     "TY0143717ab6": 12,  # History Pack Blitz Deck
@@ -97,7 +97,9 @@ def _load_card_meta(data_dir: Path) -> dict[str, dict]:
         if sid:
             set_type_id_by_set_id[sid] = (row.get("SetTypeId") or "").strip()
             set_name_by_id[sid] = (row.get("SetName") or "").strip()
-            set_release_by_id[sid] = (row.get("InitialReleaseDate") or "").strip().split("T")[0]
+            set_release_by_id[sid] = (
+                (row.get("InitialReleaseDate") or "").strip().split("T")[0]
+            )
 
     # set-types lookup — kept for future use / debugging
     _ = {
@@ -131,10 +133,12 @@ def _load_card_meta(data_dir: Path) -> dict[str, dict]:
     for row in ll_rows:
         card_name = (row.get("CardName") or "").strip()
         if card_name:
-            ll_by_card_name.setdefault(card_name, []).append({
-                "Format": (row.get("Format") or "").strip(),
-                "DateInEffect": (row.get("DateInEffect") or "").strip(),
-            })
+            ll_by_card_name.setdefault(card_name, []).append(
+                {
+                    "Format": (row.get("Format") or "").strip(),
+                    "DateInEffect": (row.get("DateInEffect") or "").strip(),
+                }
+            )
 
     # --- build per-CardName metadata ---
     result: dict[str, dict] = {}
@@ -196,10 +200,12 @@ def _build_hero_meta_html(meta: dict) -> str:
     set_date = meta.get("first_set_date", "")
     if set_name:
         date_part = f" — {_format_date(set_date)}" if set_date else ""
-        items.append(_item(
-            "fas fa-cube",
-            f"First released in <strong>{html.escape(set_name)}</strong>{html.escape(date_part)}",
-        ))
+        items.append(
+            _item(
+                "fas fa-cube",
+                f"First released in <strong>{html.escape(set_name)}</strong>{html.escape(date_part)}",
+            )
+        )
 
     classes = meta.get("classes", [])
     talents = meta.get("talents", [])
@@ -238,7 +244,9 @@ _HEADING_ALIASES: dict[str, str] = {
 }
 
 
-def _build_lookup(card_meta: dict[str, dict]) -> tuple[dict[str, dict], dict[str, dict]]:
+def _build_lookup(
+    card_meta: dict[str, dict],
+) -> tuple[dict[str, dict], dict[str, dict]]:
     """Return (exact_lookup, ci_lookup) for heading → meta resolution.
 
     ``ci_lookup`` is keyed by ``heading.lower()`` and used as a fallback when
@@ -278,7 +286,7 @@ def _process_hero_chapter(content: str, card_meta: dict[str, dict]) -> str:
     for match in _H1_RE.finditer(content):
         heading_text = match.group(1).strip()
         meta = _resolve(heading_text, exact, ci)
-        parts.append(content[pos:match.end()])
+        parts.append(content[pos : match.end()])
         pos = match.end()
         if meta is not None:
             inner = _build_hero_meta_html(meta)
@@ -309,7 +317,9 @@ def _walk_sections(sections: list, card_meta: dict[str, dict]) -> None:
             ch = item["Chapter"]
             path = (ch.get("path") or "").strip()
             if path and _is_hero_about_page(path):
-                ch["content"] = _process_hero_chapter(ch.get("content") or "", card_meta)
+                ch["content"] = _process_hero_chapter(
+                    ch.get("content") or "", card_meta
+                )
             _walk_sections(ch.get("sub_items") or [], card_meta)
 
 
