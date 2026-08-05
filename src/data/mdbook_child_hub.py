@@ -97,11 +97,7 @@ def _collect(sections: list, hub_children: dict[str, list[Chapter]]) -> None:
 
 def _load_set_release_dates(data_dir: Path) -> dict[str, str]:
     _, sets_rows = read_pipe_csv(data_dir / "csv" / "sets.csv")
-    return {
-        row["SetId"]: row.get("InitialReleaseDate", "").strip()
-        for row in sets_rows
-        if row.get("SetId")
-    }
+    return {row["SetId"]: row.get("InitialReleaseDate", "").strip() for row in sets_rows if row.get("SetId")}
 
 
 def _load_card_image_lookup(data_dir: Path, kind: str) -> dict[str, str]:
@@ -183,11 +179,7 @@ def _loose_slug_key(slug: str) -> str:
     canonical slug ``talishar-the-lost-prince``, or ``bolt-n-boots.md``
     (extra hyphen) against canonical slug ``boltn-boots``.
     """
-    tokens = [
-        t
-        for t in re.split(r"[^a-z0-9]+", slug.lower())
-        if t and t not in _ARTICLE_TOKENS
-    ]
+    tokens = [t for t in re.split(r"[^a-z0-9]+", slug.lower()) if t and t not in _ARTICLE_TOKENS]
     return "".join(tokens)
 
 
@@ -313,9 +305,7 @@ def _inject_hubs(
             hub_type = _HUB_PAGES.get(path)
             if hub_type:
                 image_by_slug = image_lookups.get(hub_type, {})
-                inner = _card_grid_html(
-                    path, src_root, hub_children.get(path, []), hub_type, image_by_slug
-                )
+                inner = _card_grid_html(path, src_root, hub_children.get(path, []), hub_type, image_by_slug)
                 ch["content"] = _inject_hub(ch.get("content") or "", inner)
 
         _inject_hubs(ch.get("sub_items") or [], src_root, hub_children, image_lookups)

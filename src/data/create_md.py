@@ -46,11 +46,7 @@ def _merge_region_names_for_locations(df: pd.DataFrame, csv_path: Path) -> pd.Da
 
 def _drop_registry_id_columns(df: pd.DataFrame) -> pd.DataFrame:
     """Remove technical primary/foreign key columns (names ending in ``Id`` or ``StoryKey``)."""
-    keep = [
-        c
-        for c in df.columns
-        if not (isinstance(c, str) and (c.endswith("Id") or c.endswith("StoryKey")))
-    ]
+    keep = [c for c in df.columns if not (isinstance(c, str) and (c.endswith("Id") or c.endswith("StoryKey")))]
     return df[keep]
 
 
@@ -99,16 +95,9 @@ def create_md_file(
         df = _merge_region_names_for_locations(df, csv_path)
         df = _drop_registry_id_columns(df)
         df = _reorder_locations_columns(df, csv_path)
-    table = (
-        markdown_table(df.to_dict(orient="records"))
-        .set_params(row_sep="markdown", quote=False)
-        .get_markdown()
-    )
+    table = markdown_table(df.to_dict(orient="records")).set_params(row_sep="markdown", quote=False).get_markdown()
     out_path = output_md if output_md is not None else csv_path.with_suffix(".md")
-    banner = (
-        "<!-- ### NOTE: This file should not be edited by hand. "
-        "Please edit the .csv file. -->\n"
-    )
+    banner = "<!-- ### NOTE: This file should not be edited by hand. " "Please edit the .csv file. -->\n"
     out_path.write_text(banner + table + "\n", encoding="utf-8")
 
 

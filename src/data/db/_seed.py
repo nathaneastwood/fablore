@@ -104,17 +104,13 @@ def _seed_sets(conn: sqlite3.Connection, data_dir: Path) -> None:
 def _seed_classes(conn: sqlite3.Connection, data_dir: Path) -> None:
     _, rows = _csv(data_dir, "classes.csv")
     for row in rows:
-        q.upsert_class(
-            conn, class_id=_s(row, "ClassId"), class_name=_s(row, "ClassName")
-        )
+        q.upsert_class(conn, class_id=_s(row, "ClassId"), class_name=_s(row, "ClassName"))
 
 
 def _seed_talents(conn: sqlite3.Connection, data_dir: Path) -> None:
     _, rows = _csv(data_dir, "talents.csv")
     for row in rows:
-        q.upsert_talent(
-            conn, talent_id=_s(row, "TalentId"), talent_name=_s(row, "TalentName")
-        )
+        q.upsert_talent(conn, talent_id=_s(row, "TalentId"), talent_name=_s(row, "TalentName"))
 
 
 def _seed_heroes_canonical(conn: sqlite3.Connection, data_dir: Path) -> None:
@@ -435,18 +431,13 @@ def _seed_story_junctions(conn: sqlite3.Connection, data_dir: Path) -> None:
         ]
         if triples:
             conn.executemany(
-                f"INSERT OR IGNORE INTO {table}"
-                f" (story_id, {db_id_col}, fragment) VALUES (?,?,?)",
+                f"INSERT OR IGNORE INTO {table}" f" (story_id, {db_id_col}, fragment) VALUES (?,?,?)",
                 triples,
             )
 
     for csv_name, table, csv_col, db_col in _JUNCTION_SPECS:
         _, rows = _csv(data_dir, csv_name)
-        pairs = [
-            (_s(row, "StoryId"), _s(row, csv_col))
-            for row in rows
-            if _s(row, "StoryId") and _s(row, csv_col)
-        ]
+        pairs = [(_s(row, "StoryId"), _s(row, csv_col)) for row in rows if _s(row, "StoryId") and _s(row, csv_col)]
         if pairs:
             conn.executemany(
                 f"INSERT OR IGNORE INTO {table} (story_id, {db_col}) VALUES (?,?)",

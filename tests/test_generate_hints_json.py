@@ -69,9 +69,7 @@ def test_supplement_only_key_appended():
 def test_match_field_not_in_db_does_not_merge():
     # supplement "match" points to something not in hints — treat as new entry
     hints = {"Brawnhide": {"type": "fauna", "summary": "A beast."}}
-    supplement = {
-        "SomeKey": {"match": "Unknown Entity", "type": "npc", "summary": "..."}
-    }
+    supplement = {"SomeKey": {"match": "Unknown Entity", "type": "npc", "summary": "..."}}
     result = merge_supplement(hints, supplement)
     assert "SomeKey" in result
     assert "Unknown Entity" not in result

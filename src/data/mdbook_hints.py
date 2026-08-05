@@ -154,9 +154,7 @@ def process_chapter(
                     continue
                 if _overlaps(start, end, replacements):
                     continue
-                replacements.append(
-                    (start, end, f'<span class="hint" hint="{key}">{m.group()}</span>')
-                )
+                replacements.append((start, end, f'<span class="hint" hint="{key}">{m.group()}</span>'))
                 found = True
                 break
             if found:

@@ -258,28 +258,17 @@ def migrate(conn: sqlite3.Connection) -> None:
         conn.commit()
         version = 1
     if version < 2:
-        conn.execute(
-            "ALTER TABLE narrated_videos ADD COLUMN channel_link TEXT NOT NULL DEFAULT ''"
-        )
-        conn.execute(
-            "ALTER TABLE narrated_videos ADD COLUMN duration TEXT NOT NULL DEFAULT ''"
-        )
+        conn.execute("ALTER TABLE narrated_videos ADD COLUMN channel_link TEXT NOT NULL DEFAULT ''")
+        conn.execute("ALTER TABLE narrated_videos ADD COLUMN duration TEXT NOT NULL DEFAULT ''")
         conn.execute("PRAGMA user_version = 2")
         conn.commit()
     if version < 3:
-        conn.execute(
-            "ALTER TABLE npcs"
-            " ADD COLUMN other_characters_story_key TEXT NOT NULL DEFAULT ''"
-        )
+        conn.execute("ALTER TABLE npcs" " ADD COLUMN other_characters_story_key TEXT NOT NULL DEFAULT ''")
         conn.execute("PRAGMA user_version = 3")
         conn.commit()
     if version < 4:
-        conn.execute(
-            "ALTER TABLE story_heroes ADD COLUMN fragment TEXT NOT NULL DEFAULT ''"
-        )
-        conn.execute(
-            "ALTER TABLE story_npcs ADD COLUMN fragment TEXT NOT NULL DEFAULT ''"
-        )
+        conn.execute("ALTER TABLE story_heroes ADD COLUMN fragment TEXT NOT NULL DEFAULT ''")
+        conn.execute("ALTER TABLE story_npcs ADD COLUMN fragment TEXT NOT NULL DEFAULT ''")
         conn.execute("PRAGMA user_version = 4")
         conn.commit()
     if version < 5:

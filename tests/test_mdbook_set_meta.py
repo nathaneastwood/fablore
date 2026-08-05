@@ -18,9 +18,7 @@ def _meta(set_name="", release_date="", set_type=""):
 
 def test_no_bare_fa_prefix_in_set_meta_html() -> None:
     """All icons must use an explicit FA6 prefix, not bare 'fa'."""
-    html = _build_set_meta_html(
-        _meta(set_name="Welcome to Rathe", release_date="2019-10-11", set_type="Core")
-    )
+    html = _build_set_meta_html(_meta(set_name="Welcome to Rathe", release_date="2019-10-11", set_type="Core"))
     bare_fa = re.findall(r'class="fa fa-', html)
     assert bare_fa == [], f"Found bare FA4 'fa' prefix in set meta HTML: {bare_fa}"
 

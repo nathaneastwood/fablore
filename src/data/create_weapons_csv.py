@@ -50,9 +50,7 @@ ROOT = Path(__file__).resolve().parents[2]
 WEAPONS_CANONICAL_CSV_PATH = ROOT / "src/data/csv/weapons-canonical.csv"
 WEAPONS_GAME_CSV_PATH = ROOT / "src/data/csv/weapons-game.csv"
 WEAPONS_PRINTINGS_CSV_PATH = ROOT / "src/data/csv/weapons-printings.csv"
-CARD_PRINTING_CSV_PATH = (
-    ROOT.parent / "flesh-and-blood-cards/csvs/english/card-printing.csv"
-)
+CARD_PRINTING_CSV_PATH = ROOT.parent / "flesh-and-blood-cards/csvs/english/card-printing.csv"
 
 
 def generate_weapons_csv() -> None:
@@ -113,9 +111,7 @@ def generate_weapons_csv() -> None:
     slug_order = sorted(weapon_cards_by_key.keys())
     for slug in slug_order:
         cards = weapon_cards_by_key[slug]
-        display = min(
-            c.get("Name", "").strip() for c in cards if c.get("Name", "").strip()
-        )
+        display = min(c.get("Name", "").strip() for c in cards if c.get("Name", "").strip())
         canonical_rows.append(
             {
                 "CanonicalWeaponId": make_hash_id("CW", slug),
@@ -124,9 +120,7 @@ def generate_weapons_csv() -> None:
             }
         )
 
-    canonical_id_by_slug = {
-        row["CanonicalSlug"]: row["CanonicalWeaponId"] for row in canonical_rows
-    }
+    canonical_id_by_slug = {row["CanonicalSlug"]: row["CanonicalWeaponId"] for row in canonical_rows}
     assert_unique_ids(
         [(row["CanonicalWeaponId"], row["CanonicalSlug"]) for row in canonical_rows],
         "Canonical weapon",
@@ -137,15 +131,11 @@ def generate_weapons_csv() -> None:
         canonical_weapon_id = canonical_id_by_slug[slug]
         for card in cards:
             full_name = card.get("Name", "").strip()
-            class_names, talent_names = extract_weapon_classes_and_talents(
-                card.get("Types", "")
-            )
+            class_names, talent_names = extract_weapon_classes_and_talents(card.get("Types", ""))
             printings = dedupe_preserving_order(
                 [
                     f"{entry['SetId']}|{entry['CardId']}|{entry['Rarity']}|{entry['ImageURL']}"
-                    for entry in printings_by_card_unique.get(
-                        card.get("Unique ID", ""), []
-                    )
+                    for entry in printings_by_card_unique.get(card.get("Unique ID", ""), [])
                     if entry.get("SetId") and entry.get("CardId")
                 ]
             )
@@ -206,12 +196,8 @@ def generate_weapons_csv() -> None:
                 ]
             )
         weapon_game_id = make_hash_id("WG", source_unique)
-        class_ids = [
-            class_id_by_name[n] for n in row["ClassNames"] if n in class_id_by_name
-        ]
-        talent_ids = [
-            talent_id_by_name[n] for n in row["TalentNames"] if n in talent_id_by_name
-        ]
+        class_ids = [class_id_by_name[n] for n in row["ClassNames"] if n in class_id_by_name]
+        talent_ids = [talent_id_by_name[n] for n in row["TalentNames"] if n in talent_id_by_name]
         game_rows.append(
             {
                 "WeaponGameId": weapon_game_id,
@@ -226,9 +212,7 @@ def generate_weapons_csv() -> None:
             }
         )
         for entry in row["Printings"]:
-            set_id, card_id, rarity, image_url = [
-                part.strip() for part in entry.split("|")
-            ]
+            set_id, card_id, rarity, image_url = [part.strip() for part in entry.split("|")]
             printings_rows.append(
                 {
                     "WeaponGameId": weapon_game_id,

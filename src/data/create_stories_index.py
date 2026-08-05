@@ -206,9 +206,7 @@ def main() -> None:
 
     database = Database(DATA / "fablore.db")
 
-    existing = {
-        row["story_key"]: dict(row) for row in q.select_all_stories(database.conn)
-    }
+    existing = {row["story_key"]: dict(row) for row in q.select_all_stories(database.conn)}
 
     rows = discover_story_keys(existing)
 

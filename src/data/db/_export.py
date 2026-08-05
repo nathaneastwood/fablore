@@ -33,9 +33,7 @@ _CMD_EQUIPMENT = "python3 src/data/create_equipment_csv.py"
 _CMD_SETS = "python3 src/data/create_sets_csv.py"
 _CMD_CLASSES = "python3 src/data/create_classes_talents_csv.py"
 _CMD_REGISTRY = "Use the Database class in src/data/db/ (db.upsert_story)."
-_CMD_JUNCTIONS = (
-    "Use the Database class in src/data/db/ (db.upsert_story / db.remove_story)."
-)
+_CMD_JUNCTIONS = "Use the Database class in src/data/db/ (db.upsert_story / db.remove_story)."
 
 
 def _write_pipe_csv(
@@ -254,10 +252,7 @@ def _export_monsters(conn: sqlite3.Connection, csv_dir: Path) -> None:
 
 def _export_fauna(conn: sqlite3.Connection, csv_dir: Path) -> None:
     rows = q.select_all_fauna(conn)
-    data = [
-        {"FaunaId": r["fauna_id"], "Name": r["name"], "Description": r["description"]}
-        for r in rows
-    ]
+    data = [{"FaunaId": r["fauna_id"], "Name": r["name"], "Description": r["description"]} for r in rows]
     _write_pipe_csv(
         csv_dir / "fauna.csv",
         _CMD_REGISTRY,
@@ -268,10 +263,7 @@ def _export_fauna(conn: sqlite3.Connection, csv_dir: Path) -> None:
 
 def _export_flora(conn: sqlite3.Connection, csv_dir: Path) -> None:
     rows = q.select_all_flora(conn)
-    data = [
-        {"FloraId": r["flora_id"], "Name": r["name"], "Description": r["description"]}
-        for r in rows
-    ]
+    data = [{"FloraId": r["flora_id"], "Name": r["name"], "Description": r["description"]} for r in rows]
     _write_pipe_csv(
         csv_dir / "flora.csv",
         _CMD_REGISTRY,
@@ -282,10 +274,7 @@ def _export_flora(conn: sqlite3.Connection, csv_dir: Path) -> None:
 
 def _export_food_drink(conn: sqlite3.Connection, csv_dir: Path) -> None:
     rows = q.select_all_food_drink(conn)
-    data = [
-        {"FoodDrinkId": r["food_drink_id"], "Name": r["name"], "Type": r["type"]}
-        for r in rows
-    ]
+    data = [{"FoodDrinkId": r["food_drink_id"], "Name": r["name"], "Type": r["type"]} for r in rows]
     _write_pipe_csv(
         csv_dir / "food-and-drink.csv",
         _CMD_REGISTRY,
@@ -510,17 +499,13 @@ def _export_equipment_printings(conn: sqlite3.Connection, csv_dir: Path) -> None
 def _export_classes(conn: sqlite3.Connection, csv_dir: Path) -> None:
     rows = q.select_all_classes(conn)
     data = [{"ClassId": r["class_id"], "ClassName": r["class_name"]} for r in rows]
-    _write_pipe_csv(
-        csv_dir / "classes.csv", _CMD_CLASSES, ["ClassId", "ClassName"], data
-    )
+    _write_pipe_csv(csv_dir / "classes.csv", _CMD_CLASSES, ["ClassId", "ClassName"], data)
 
 
 def _export_talents(conn: sqlite3.Connection, csv_dir: Path) -> None:
     rows = q.select_all_talents(conn)
     data = [{"TalentId": r["talent_id"], "TalentName": r["talent_name"]} for r in rows]
-    _write_pipe_csv(
-        csv_dir / "talents.csv", _CMD_CLASSES, ["TalentId", "TalentName"], data
-    )
+    _write_pipe_csv(csv_dir / "talents.csv", _CMD_CLASSES, ["TalentId", "TalentName"], data)
 
 
 def _export_sets(conn: sqlite3.Connection, csv_dir: Path) -> None:
@@ -597,13 +582,9 @@ def _export_story_junctions(conn: sqlite3.Connection, csv_dir: Path) -> None:
         ("story_npcs", "story-npcs.csv", "character_id", "CharacterId"),
     ):
         rows = conn.execute(
-            f"SELECT story_id, {db_col}, fragment"
-            f" FROM {table} ORDER BY story_id, {db_col}"
+            f"SELECT story_id, {db_col}, fragment" f" FROM {table} ORDER BY story_id, {db_col}"
         ).fetchall()
-        data = [
-            {"StoryId": r["story_id"], csv_id_col: r[db_col], "Fragment": r["fragment"]}
-            for r in rows
-        ]
+        data = [{"StoryId": r["story_id"], csv_id_col: r[db_col], "Fragment": r["fragment"]} for r in rows]
         _write_pipe_csv(
             csv_dir / csv_name,
             _CMD_JUNCTIONS,
@@ -612,9 +593,7 @@ def _export_story_junctions(conn: sqlite3.Connection, csv_dir: Path) -> None:
         )
 
     for table, csv_name, db_col, csv_sid, csv_eid in _JUNCTION_EXPORT_SPECS:
-        rows = conn.execute(
-            f"SELECT story_id, {db_col} FROM {table} ORDER BY story_id, {db_col}"
-        ).fetchall()
+        rows = conn.execute(f"SELECT story_id, {db_col} FROM {table} ORDER BY story_id, {db_col}").fetchall()
         data = [{csv_sid: r["story_id"], csv_eid: r[db_col]} for r in rows]
         _write_pipe_csv(csv_dir / csv_name, _CMD_JUNCTIONS, [csv_sid, csv_eid], data)
 

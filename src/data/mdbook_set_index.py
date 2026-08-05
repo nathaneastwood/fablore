@@ -137,18 +137,11 @@ def _collect(
 
                 if section == "flavour" and len(parts) == 2:
                     slug = parts[1].removesuffix(".md")
-                    content["flavour"].setdefault(slug, []).append(
-                        {"name": ch.get("name", ""), "path": path}
-                    )
+                    content["flavour"].setdefault(slug, []).append({"name": ch.get("name", ""), "path": path})
 
-                elif (
-                    section in ("main-story", "short-stories", "digital-tiles")
-                    and len(parts) >= 3
-                ):
+                elif section in ("main-story", "short-stories", "digital-tiles") and len(parts) >= 3:
                     arc_slug = parts[1]
-                    content[section].setdefault(arc_slug, []).append(
-                        {"name": ch.get("name", ""), "path": path}
-                    )
+                    content[section].setdefault(arc_slug, []).append({"name": ch.get("name", ""), "path": path})
 
         _collect(ch.get("sub_items") or [], content)
 
@@ -211,9 +204,7 @@ def _set_index_html(
             items = []
             for ch in chapters:
                 path = ch["path"]
-                title = html.escape(
-                    ch["name"] or path.split("/")[-1].removesuffix(".md")
-                )
+                title = html.escape(ch["name"] or path.split("/")[-1].removesuffix(".md"))
                 href = html.escape(_relative_href(hub_src, path))
                 items.append(f'<li><a href="{href}">{title}</a></li>')
             items_inner = "\n        ".join(items)

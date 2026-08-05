@@ -141,9 +141,7 @@ def merge_classes(
         else:
             by_name[name] = make_hash_id("CL", normalize_name(name))
     assert_unique_ids([(cid, name) for name, cid in by_name.items()], "Class")
-    rows = [
-        {"ClassId": by_name[n], "ClassName": n} for n in sorted(by_name, key=str.lower)
-    ]
+    rows = [{"ClassId": by_name[n], "ClassName": n} for n in sorted(by_name, key=str.lower)]
     write_pipe_csv_autogen(
         CLASSES_CSV_PATH,
         ["ClassId", "ClassName"],
@@ -174,10 +172,7 @@ def merge_talents(
         else:
             by_name[name] = make_hash_id("TL", normalize_name(name))
     assert_unique_ids([(tid, name) for name, tid in by_name.items()], "Talent")
-    rows = [
-        {"TalentId": by_name[n], "TalentName": n}
-        for n in sorted(by_name, key=str.lower)
-    ]
+    rows = [{"TalentId": by_name[n], "TalentName": n} for n in sorted(by_name, key=str.lower)]
     write_pipe_csv_autogen(
         TALENTS_CSV_PATH,
         ["TalentId", "TalentName"],

@@ -143,11 +143,7 @@ def _build_share_html(story_type: str = "") -> str:
 
 
 def _item(icon: str, inner: str) -> str:
-    return (
-        f'<span class="story-meta-item">'
-        f'<i class="{icon}" aria-hidden="true"></i>'
-        f" {inner}</span>"
-    )
+    return f'<span class="story-meta-item">' f'<i class="{icon}" aria-hidden="true"></i>' f" {inner}</span>"
 
 
 def _build_meta_html(
@@ -164,16 +160,10 @@ def _build_meta_html(
     items: list[str] = []
 
     if authors:
-        items.append(
-            _item(
-                "fas fa-pencil", f"Written by <strong>{html.escape(authors)}</strong>"
-            )
-        )
+        items.append(_item("fas fa-pencil", f"Written by <strong>{html.escape(authors)}</strong>"))
 
     if artists:
-        items.append(
-            _item("fas fa-image", f"Art by <strong>{html.escape(artists)}</strong>")
-        )
+        items.append(_item("fas fa-image", f"Art by <strong>{html.escape(artists)}</strong>"))
 
     formatted_date = _format_date(publication_date)
     if formatted_date:
@@ -201,9 +191,7 @@ def _build_meta_html(
     parts: list[str] = []
     if items:
         inner = "\n  ".join(items)
-        parts.append(
-            f'<div class="story-meta" aria-label="Story information">\n  {inner}\n</div>'
-        )
+        parts.append(f'<div class="story-meta" aria-label="Story information">\n  {inner}\n</div>')
     parts.append(_build_share_html(story_type))
     return "\n".join(parts)
 
@@ -234,11 +222,7 @@ def _load_story_meta(data_dir: Path) -> dict[str, dict[str, str]]:
     if not path.is_file():
         return {}
     _fn, rows = read_pipe_csv(path)
-    return {
-        Path(r["StoryKey"]).as_posix(): r
-        for r in rows
-        if (r.get("StoryKey") or "").strip()
-    }
+    return {Path(r["StoryKey"]).as_posix(): r for r in rows if (r.get("StoryKey") or "").strip()}
 
 
 def _process_chapter(content: str, row: dict[str, str]) -> str:

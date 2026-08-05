@@ -57,9 +57,7 @@ def relative_md_href(chapter_src_path: str, target_src_path: str) -> str:
     Returns:
         Relative path suitable for a Markdown/HTML ``href`` (uses ``.md``).
     """
-    return Path(
-        os.path.relpath(Path(target_src_path), start=Path(chapter_src_path).parent)
-    ).as_posix()
+    return Path(os.path.relpath(Path(target_src_path), start=Path(chapter_src_path).parent)).as_posix()
 
 
 @dataclass(frozen=True)
@@ -247,9 +245,7 @@ def resolve_hero_src_path(src_root: Path, canonical_slug: str) -> str | None:
     return None
 
 
-def build_hero_src_to_canonical_ids(
-    maps: RelatedMaps, src_root: Path
-) -> dict[str, frozenset[str]]:
+def build_hero_src_to_canonical_ids(maps: RelatedMaps, src_root: Path) -> dict[str, frozenset[str]]:
     """Return a map from hero lore src path → set of CanonicalIds that resolve to it.
 
     Args:
@@ -372,9 +368,7 @@ _CARD_GROUP_ORDER: tuple[str, ...] = (
 )
 
 
-def _append_card_markup(
-    parts: list[str], kind: str, title: str, sub: str, href: str
-) -> None:
+def _append_card_markup(parts: list[str], kind: str, title: str, sub: str, href: str) -> None:
     """Append one ``related-card`` anchor to ``parts`` (mutates list)."""
     esc_title = html.escape(title)
     esc_sub = html.escape(sub) if sub else ""
@@ -661,9 +655,7 @@ def walk_mutate_sections(
                     src_root=src_root,
                     hero_src_map=hero_src_map,
                 )
-            walk_mutate_sections(
-                ch.get("sub_items") or [], maps, src_root, hero_src_map
-            )
+            walk_mutate_sections(ch.get("sub_items") or [], maps, src_root, hero_src_map)
         elif "Separator" in item or "PartTitle" in item:
             continue
 

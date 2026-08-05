@@ -33,9 +33,7 @@ def _display(slug: str) -> str:
 
 
 def _relative_href(chapter_src_path: str, target_src_path: str) -> str:
-    return Path(
-        os.path.relpath(Path(target_src_path), start=Path(chapter_src_path).parent)
-    ).as_posix()
+    return Path(os.path.relpath(Path(target_src_path), start=Path(chapter_src_path).parent)).as_posix()
 
 
 def _world_notice(chapter_src_path: str, src_root: Path) -> str | None:

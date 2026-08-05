@@ -242,24 +242,17 @@ class Database:
     def list_heroes(self) -> list[dict[str, str]]:
         """Return ``[{"slug": …, "name": …}]`` for all canonical heroes."""
         rows = q.select_all_heroes_canonical(self.conn)
-        return [
-            {"slug": r["canonical_slug"], "name": r["canonical_hero"]} for r in rows
-        ]
+        return [{"slug": r["canonical_slug"], "name": r["canonical_hero"]} for r in rows]
 
     def list_weapons(self) -> list[dict[str, str]]:
         """Return ``[{"slug": …, "name": …}]`` for all canonical weapons."""
         rows = q.select_all_weapons_canonical(self.conn)
-        return [
-            {"slug": r["canonical_slug"], "name": r["canonical_weapon"]} for r in rows
-        ]
+        return [{"slug": r["canonical_slug"], "name": r["canonical_weapon"]} for r in rows]
 
     def list_equipment(self) -> list[dict[str, str]]:
         """Return ``[{"slug": …, "name": …}]`` for all canonical equipment."""
         rows = q.select_all_equipment_canonical(self.conn)
-        return [
-            {"slug": r["canonical_slug"], "name": r["canonical_equipment"]}
-            for r in rows
-        ]
+        return [{"slug": r["canonical_slug"], "name": r["canonical_equipment"]} for r in rows]
 
     def list_regions(self) -> list[dict[str, str]]:
         """Return region dicts with ``region_id``, ``region_name``, ``world_of_rathe_story_key``."""
@@ -289,10 +282,7 @@ class Database:
     def list_npcs(self) -> list[dict[str, str]]:
         """Return ``[{"name": …, "species": …, "status": …}]`` for all NPCs."""
         rows = q.select_all_npcs(self.conn)
-        return [
-            {"name": r["name"], "species": r["species"], "status": r["status"]}
-            for r in rows
-        ]
+        return [{"name": r["name"], "species": r["species"], "status": r["status"]} for r in rows]
 
     def print_npcs(self, *, file: IO[str] | None = None) -> None:
         """Pretty-print all NPCs with species and status."""
@@ -301,9 +291,7 @@ class Database:
     def list_locations(self) -> list[dict[str, str]]:
         """Return location dicts with ``name``, ``region``, ``notes``, ``lore_fragment``."""
         rows = q.select_all_locations(self.conn)
-        region_map = {
-            r["region_id"]: r["region_name"] for r in q.select_all_regions(self.conn)
-        }
+        region_map = {r["region_id"]: r["region_name"] for r in q.select_all_regions(self.conn)}
         return [
             {
                 "name": r["name"],
@@ -316,14 +304,10 @@ class Database:
 
     def print_locations(self, *, file: IO[str] | None = None) -> None:
         """Pretty-print all locations with their region."""
-        self._print_table(
-            self.list_locations(), ["name", "region", "lore_fragment"], file=file
-        )
+        self._print_table(self.list_locations(), ["name", "region", "lore_fragment"], file=file)
 
     @staticmethod
-    def _print_table(
-        rows: list[dict], cols: list[str], *, file: IO[str] | None = None
-    ) -> None:
+    def _print_table(rows: list[dict], cols: list[str], *, file: IO[str] | None = None) -> None:
         import sys as _sys
 
         out = file or _sys.stdout
@@ -335,9 +319,7 @@ class Database:
         out.write(header + "\n")
         out.write("  ".join("-" * widths[c] for c in cols) + "\n")
         for row in rows:
-            out.write(
-                "  ".join(str(row.get(c, "")).ljust(widths[c]) for c in cols) + "\n"
-            )
+            out.write("  ".join(str(row.get(c, "")).ljust(widths[c]) for c in cols) + "\n")
 
     # ------------------------------------------------------------------
     # Story management
@@ -420,13 +402,9 @@ class Database:
         # Resolve hero ids eagerly so we fail fast before writing anything.
         hero_ids = self._resolve_heroes(heroes) if heroes is not None else None
         if hero_ids is not None:
-            self._validate_hero_fragments(
-                story_key, heroes or [], hero_ids, hero_fragments or {}
-            )
+            self._validate_hero_fragments(story_key, heroes or [], hero_ids, hero_fragments or {})
         weapon_ids = self._resolve_weapons(weapons) if weapons is not None else None
-        equip_ids = (
-            self._resolve_equipment(equipment) if equipment is not None else None
-        )
+        equip_ids = self._resolve_equipment(equipment) if equipment is not None else None
 
         if dry_run:
             return self._dry_run_upsert(
@@ -470,26 +448,18 @@ class Database:
                 q.set_narrated_videos(
                     self.conn,
                     story_id,
-                    [
-                        (v.author, v.source_link, v.channel_link)
-                        for v in narrated_videos
-                    ],
+                    [(v.author, v.source_link, v.channel_link) for v in narrated_videos],
                 )
             if hero_ids is not None:
                 frags = hero_fragments or {}
-                entries = [
-                    (cid, frags.get(slug, ""))
-                    for slug, cid in zip(heroes or [], hero_ids)
-                ]
+                entries = [(cid, frags.get(slug, "")) for slug, cid in zip(heroes or [], hero_ids)]
                 q.set_story_heroes(self.conn, story_id, entries)
             if npcs is not None:
                 npc_entries = self._upsert_npcs(npcs)
                 q.set_story_npcs(self.conn, story_id, npc_entries)
             if regions is not None:
                 region_ids = self._upsert_regions(regions)
-                q.set_story_junction(
-                    self.conn, story_id, "story_regions", "region_id", region_ids
-                )
+                q.set_story_junction(self.conn, story_id, "story_regions", "region_id", region_ids)
             if locations is not None:
                 location_ids = self._upsert_locations(locations)
                 q.set_story_junction(
@@ -501,19 +471,13 @@ class Database:
                 )
             if monsters is not None:
                 monster_ids = self._upsert_monsters(monsters)
-                q.set_story_junction(
-                    self.conn, story_id, "story_monsters", "monster_id", monster_ids
-                )
+                q.set_story_junction(self.conn, story_id, "story_monsters", "monster_id", monster_ids)
             if fauna is not None:
                 fauna_ids = self._upsert_fauna(fauna)
-                q.set_story_junction(
-                    self.conn, story_id, "story_fauna", "fauna_id", fauna_ids
-                )
+                q.set_story_junction(self.conn, story_id, "story_fauna", "fauna_id", fauna_ids)
             if flora is not None:
                 flora_ids = self._upsert_flora(flora)
-                q.set_story_junction(
-                    self.conn, story_id, "story_flora", "flora_id", flora_ids
-                )
+                q.set_story_junction(self.conn, story_id, "story_flora", "flora_id", flora_ids)
             if food_drink is not None:
                 fd_ids = self._upsert_food_drink(food_drink)
                 q.set_story_junction(
@@ -766,15 +730,12 @@ class Database:
             elif entity_type in _TABLE_MAP:
                 table, id_col, id_fn = _TABLE_MAP[entity_type]
                 entity_id = id_fn(name)
-                rows = q.update_entity_description(
-                    self.conn, table, id_col, entity_id, description
-                )
+                rows = q.update_entity_description(self.conn, table, id_col, entity_id, description)
                 if rows == 0:
                     raise ValueError(f"{entity_type.capitalize()} not found: {name!r}")
             else:
                 raise ValueError(
-                    f"Unknown entity type: {entity_type!r}. "
-                    "Use 'monster', 'fauna', 'flora', or 'location'."
+                    f"Unknown entity type: {entity_type!r}. " "Use 'monster', 'fauna', 'flora', or 'location'."
                 )
         _export.export_registry_tables(self.conn, self._data_dir)
 
@@ -809,9 +770,7 @@ class Database:
                 if not entity_ids:
                     raise ValueError(f"Location not found: {name!r}")
                 linked = {
-                    eid: q.count_entity_story_links(
-                        self.conn, "story_locations", "location_id", eid
-                    )
+                    eid: q.count_entity_story_links(self.conn, "story_locations", "location_id", eid)
                     for eid in entity_ids
                 }
                 still_linked = {eid: n for eid, n in linked.items() if n > 0}
@@ -826,9 +785,7 @@ class Database:
             elif entity_type in _JUNCTION_MAP:
                 table, id_col, junction_table, id_fn = _JUNCTION_MAP[entity_type]
                 entity_id = id_fn(name)
-                linked = q.count_entity_story_links(
-                    self.conn, junction_table, id_col, entity_id
-                )
+                linked = q.count_entity_story_links(self.conn, junction_table, id_col, entity_id)
                 if linked:
                     raise ValueError(
                         f"Cannot delete {entity_type} {name!r}: still referenced by "
@@ -839,8 +796,7 @@ class Database:
                     raise ValueError(f"{entity_type.capitalize()} not found: {name!r}")
             else:
                 raise ValueError(
-                    f"Unknown entity type: {entity_type!r}. "
-                    "Use 'monster', 'fauna', 'flora', or 'location'."
+                    f"Unknown entity type: {entity_type!r}. " "Use 'monster', 'fauna', 'flora', or 'location'."
                 )
         _export.export_registry_tables(self.conn, self._data_dir)
 
@@ -880,8 +836,7 @@ class Database:
             row = q.select_weapon_by_slug(self.conn, slug.strip())
             if row is None:
                 raise ValueError(
-                    f"Unknown weapon canonical slug: {slug!r}. "
-                    "Call db.print_weapons() to see available slugs."
+                    f"Unknown weapon canonical slug: {slug!r}. " "Call db.print_weapons() to see available slugs."
                 )
             ids.append(row["canonical_weapon_id"])
         return ids
@@ -892,8 +847,7 @@ class Database:
             row = q.select_equipment_by_slug(self.conn, slug.strip())
             if row is None:
                 raise ValueError(
-                    f"Unknown equipment canonical slug: {slug!r}. "
-                    "Call db.print_equipment() to see available slugs."
+                    f"Unknown equipment canonical slug: {slug!r}. " "Call db.print_equipment() to see available slugs."
                 )
             ids.append(row["canonical_equipment_id"])
         return ids
@@ -926,17 +880,12 @@ class Database:
 
     def _upsert_npcs(self, entries: list[NPCEntry]) -> list[tuple[str, str]]:
         # Guard against accidentally storing playable heroes as NPCs
-        hero_names: set[str] = {
-            normalize_name(r["canonical_hero"])
-            for r in q.select_all_heroes_canonical(self.conn)
-        }
+        hero_names: set[str] = {normalize_name(r["canonical_hero"]) for r in q.select_all_heroes_canonical(self.conn)}
         ids: list[tuple[str, str]] = []
         for e in entries:
             norm = normalize_name(e.name)
             if norm in hero_names:
-                raise ValueError(
-                    f"Refusing NPC link for playable hero name: {e.name!r}"
-                )
+                raise ValueError(f"Refusing NPC link for playable hero name: {e.name!r}")
             cid = lore_character_id(e.name)
             q.upsert_npc(
                 self.conn,
@@ -983,9 +932,7 @@ class Database:
             frag = e.lore_fragment.strip().lstrip("#")
             if frag and eff_region:
                 region_row = q.select_region_by_id(self.conn, eff_region)
-                wk = (
-                    region_row["world_of_rathe_story_key"] if region_row else ""
-                ) or ""
+                wk = (region_row["world_of_rathe_story_key"] if region_row else "") or ""
                 if wk:
                     md_path = (SRC / Path(wk)).resolve()
                     if md_path.is_file():
@@ -1013,9 +960,7 @@ class Database:
         ids: list[str] = []
         for e in entries:
             mid = _monster_id(e.name)
-            q.upsert_monster(
-                self.conn, monster_id=mid, name=e.name, description=e.description
-            )
+            q.upsert_monster(self.conn, monster_id=mid, name=e.name, description=e.description)
             ids.append(mid)
         return ids
 
@@ -1023,9 +968,7 @@ class Database:
         ids: list[str] = []
         for e in entries:
             fid = fauna_id_from_name(e.name)
-            q.upsert_fauna(
-                self.conn, fauna_id=fid, name=e.name, description=e.description
-            )
+            q.upsert_fauna(self.conn, fauna_id=fid, name=e.name, description=e.description)
             ids.append(fid)
         return ids
 
@@ -1033,9 +976,7 @@ class Database:
         ids: list[str] = []
         for e in entries:
             fid = flora_id(e.name)
-            q.upsert_flora(
-                self.conn, flora_id=fid, name=e.name, description=e.description
-            )
+            q.upsert_flora(self.conn, flora_id=fid, name=e.name, description=e.description)
             ids.append(fid)
         return ids
 
@@ -1154,39 +1095,20 @@ class Database:
             out.write(f"  NarratedVideos: {len(narrated_videos)} entries\n")
 
         # Build id → display name maps so diffs show readable slugs/names
-        hero_id_to_slug = {
-            r["canonical_id"]: r["canonical_slug"]
-            for r in q.select_all_heroes_canonical(self.conn)
-        }
+        hero_id_to_slug = {r["canonical_id"]: r["canonical_slug"] for r in q.select_all_heroes_canonical(self.conn)}
         weapon_id_to_slug = {
-            r["canonical_weapon_id"]: r["canonical_slug"]
-            for r in q.select_all_weapons_canonical(self.conn)
+            r["canonical_weapon_id"]: r["canonical_slug"] for r in q.select_all_weapons_canonical(self.conn)
         }
         equip_id_to_slug = {
-            r["canonical_equipment_id"]: r["canonical_slug"]
-            for r in q.select_all_equipment_canonical(self.conn)
+            r["canonical_equipment_id"]: r["canonical_slug"] for r in q.select_all_equipment_canonical(self.conn)
         }
-        npc_id_to_name = {
-            r["character_id"]: r["name"] for r in q.select_all_npcs(self.conn)
-        }
-        loc_id_to_name = {
-            r["location_id"]: r["name"] for r in q.select_all_locations(self.conn)
-        }
-        region_id_to_name = {
-            r["region_id"]: r["region_name"] for r in q.select_all_regions(self.conn)
-        }
-        monster_id_to_name = {
-            r["monster_id"]: r["name"] for r in q.select_all_monsters(self.conn)
-        }
-        fauna_id_to_name = {
-            r["fauna_id"]: r["name"] for r in q.select_all_fauna(self.conn)
-        }
-        flora_id_to_name = {
-            r["flora_id"]: r["name"] for r in q.select_all_flora(self.conn)
-        }
-        food_id_to_name = {
-            r["food_drink_id"]: r["name"] for r in q.select_all_food_drink(self.conn)
-        }
+        npc_id_to_name = {r["character_id"]: r["name"] for r in q.select_all_npcs(self.conn)}
+        loc_id_to_name = {r["location_id"]: r["name"] for r in q.select_all_locations(self.conn)}
+        region_id_to_name = {r["region_id"]: r["region_name"] for r in q.select_all_regions(self.conn)}
+        monster_id_to_name = {r["monster_id"]: r["name"] for r in q.select_all_monsters(self.conn)}
+        fauna_id_to_name = {r["fauna_id"]: r["name"] for r in q.select_all_fauna(self.conn)}
+        flora_id_to_name = {r["flora_id"]: r["name"] for r in q.select_all_flora(self.conn)}
+        food_id_to_name = {r["food_drink_id"]: r["name"] for r in q.select_all_food_drink(self.conn)}
 
         def _show_links_diff(
             label: str,
@@ -1200,9 +1122,7 @@ class Database:
                 return  # None = leave unchanged
             incoming_set = set(incoming_names)
             if existing:
-                existing_ids = q.select_story_junction(
-                    self.conn, story_id, junction_table, junction_id_col
-                )
+                existing_ids = q.select_story_junction(self.conn, story_id, junction_table, junction_id_col)
                 existing_set = {id_to_name.get(eid, eid) for eid in existing_ids}
                 link_added = sorted(incoming_set - existing_set)
                 link_removed = sorted(existing_set - incoming_set)

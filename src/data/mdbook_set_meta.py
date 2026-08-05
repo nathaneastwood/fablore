@@ -47,9 +47,7 @@ def _load_meta(data_dir: Path) -> dict[str, dict]:
     _, set_types_rows = read_pipe_csv(data_dir / "csv" / "set-types.csv")
 
     sets_by_id: dict[str, dict] = {
-        (r.get("SetId") or "").strip(): r
-        for r in sets_rows
-        if (r.get("SetId") or "").strip()
+        (r.get("SetId") or "").strip(): r for r in sets_rows if (r.get("SetId") or "").strip()
     }
     set_type_by_id: dict[str, str] = {
         (r.get("SetTypeId") or "").strip(): (r.get("SetType") or "").strip()
@@ -94,11 +92,7 @@ def _format_date(date_str: str) -> str:
 
 
 def _item(icon: str, inner: str) -> str:
-    return (
-        f'<span class="story-meta-item">'
-        f'<i class="{icon}" aria-hidden="true"></i>'
-        f" {inner}</span>"
-    )
+    return f'<span class="story-meta-item">' f'<i class="{icon}" aria-hidden="true"></i>' f" {inner}</span>"
 
 
 def _build_set_meta_html(meta: dict) -> str:

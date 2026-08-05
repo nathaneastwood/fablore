@@ -90,9 +90,7 @@ def collect_heading_anchor_ids_from_path(md_path: Path) -> list[str]:
     return collect_heading_anchor_ids(text)
 
 
-def world_lore_markdown_path(
-    src_root: Path, regions_csv: Path, region_id: str
-) -> Path | None:
+def world_lore_markdown_path(src_root: Path, regions_csv: Path, region_id: str) -> Path | None:
     """Resolve ``WorldOfRatheStoryKey`` for ``region_id`` to an absolute path under ``src_root``."""
     rid = (region_id or "").strip()
     if not rid:
@@ -148,13 +146,9 @@ def require_valid_lore_fragment(
         )
     md_path = world_lore_markdown_path(src_root, regions_csv, rid)
     if md_path is None:
-        raise ValueError(
-            f"LoreFragment {frag!r}: region {rid!r} has no WorldOfRatheStoryKey in regions.csv."
-        )
+        raise ValueError(f"LoreFragment {frag!r}: region {rid!r} has no WorldOfRatheStoryKey in regions.csv.")
     if not md_path.is_file():
-        raise ValueError(
-            f"LoreFragment {frag!r}: world lore file is missing: {md_path.relative_to(src_root)}"
-        )
+        raise ValueError(f"LoreFragment {frag!r}: world lore file is missing: {md_path.relative_to(src_root)}")
     ids = collect_heading_anchor_ids_from_path(md_path)
     if frag not in ids:
         rel = md_path.relative_to(src_root).as_posix()

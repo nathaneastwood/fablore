@@ -72,15 +72,11 @@ def test_get_match_strings_plain_string():
 
 
 def test_get_match_strings_dict_no_match():
-    assert get_match_strings("Southmaw", {"type": "location", "summary": "..."}) == [
-        "Southmaw"
-    ]
+    assert get_match_strings("Southmaw", {"type": "location", "summary": "..."}) == ["Southmaw"]
 
 
 def test_get_match_strings_dict_string_match():
-    assert get_match_strings(
-        "HandOfSol", {"match": "Hand of Sol", "type": "faction"}
-    ) == ["Hand of Sol"]
+    assert get_match_strings("HandOfSol", {"match": "Hand of Sol", "type": "faction"}) == ["Hand of Sol"]
 
 
 def test_get_match_strings_dict_list_match():
@@ -106,10 +102,7 @@ def test_page_slug_from_path_none():
 
 
 def test_page_slug_from_path_nested():
-    assert (
-        page_slug_from_path("main-story/uprising/betrayal.md")
-        == "main-story/uprising/betrayal"
-    )
+    assert page_slug_from_path("main-story/uprising/betrayal.md") == "main-story/uprising/betrayal"
 
 
 # ---------------------------------------------------------------------------
@@ -383,10 +376,7 @@ def test_script_block_json_not_corrupted():
     import json as _json
     import re as _re
 
-    script = (
-        '<script>window.FABLORE_BROWSE={"stories":[{"t":"A Brawnhide appears",'
-        '"r":["Southmaw"]}]};</script>'
-    )
+    script = '<script>window.FABLORE_BROWSE={"stories":[{"t":"A Brawnhide appears",' '"r":["Southmaw"]}]};</script>'
     result = process_chapter(script, HINTS)
     m = _re.search(r"window\.FABLORE_BROWSE=({.*?});", result)
     assert m, "JSON variable should still be present after processing"

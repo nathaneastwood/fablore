@@ -35,9 +35,7 @@ def _seed_hero(database: Database, slug: str, name: str) -> str:
     from registry_ids import canonical_id
 
     cid = canonical_id(slug)
-    q.upsert_hero_canonical(
-        database.conn, canonical_id=cid, canonical_slug=slug, canonical_hero=name
-    )
+    q.upsert_hero_canonical(database.conn, canonical_id=cid, canonical_slug=slug, canonical_hero=name)
     return cid
 
 
@@ -143,9 +141,7 @@ def test_upsert_story_replaces_narrated_videos(db: Database) -> None:
         narrated_videos=[NarratedVideoEntry("New", "https://new.com")],
     )
     story_id = db.conn.execute("SELECT story_id FROM stories").fetchone()["story_id"]
-    vids = db.conn.execute(
-        "SELECT author FROM narrated_videos WHERE story_id = ?", [story_id]
-    ).fetchall()
+    vids = db.conn.execute("SELECT author FROM narrated_videos WHERE story_id = ?", [story_id]).fetchall()
     assert len(vids) == 1
     assert vids[0]["author"] == "New"
 
@@ -208,9 +204,7 @@ def test_upsert_story_npc_none_leaves_existing(db: Database) -> None:
         title="X",
         npcs=[NPCEntry("Soldier")],
     )
-    db.upsert_story(
-        "src/main-story/x.md", story_type="main-story", title="X", npcs=None
-    )
+    db.upsert_story("src/main-story/x.md", story_type="main-story", title="X", npcs=None)
     assert db.conn.execute("SELECT COUNT(*) FROM story_npcs").fetchone()[0] == 1
 
 
@@ -406,11 +400,7 @@ def test_upsert_story_regions(db: Database) -> None:
         "src/main-story/r.md",
         story_type="main-story",
         title="R",
-        regions=[
-            RegionEntry(
-                "Testaria", world_of_rathe_story_key="world-of-rathe/testaria.md"
-            )
-        ],
+        regions=[RegionEntry("Testaria", world_of_rathe_story_key="world-of-rathe/testaria.md")],
     )
     assert db.conn.execute("SELECT COUNT(*) FROM regions").fetchone()[0] == 1
     assert db.conn.execute("SELECT COUNT(*) FROM story_regions").fetchone()[0] == 1
@@ -542,8 +532,6 @@ def test_upsert_story_dry_run_does_not_write(db: Database, capsys) -> None:
 
 def test_upsert_story_dry_run_prints_summary(db: Database, capsys) -> None:
     """dry_run prints 'DRY RUN' to stdout."""
-    db.upsert_story(
-        "src/main-story/d.md", story_type="main-story", title="D", dry_run=True
-    )
+    db.upsert_story("src/main-story/d.md", story_type="main-story", title="D", dry_run=True)
     captured = capsys.readouterr()
     assert "DRY RUN" in captured.out

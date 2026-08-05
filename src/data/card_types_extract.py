@@ -122,14 +122,8 @@ def extract_card_classes_and_talents(types_value: str) -> tuple[list[str], list[
         Talents are only tokens in :data:`VALID_TALENT_TOKENS`.
     """
     tokens = parse_tokens(types_value)
-    classes = [
-        title_case_tokens(token) for token in tokens if token.lower() in BASE_CLASSES
-    ]
-    talents = [
-        title_case_tokens(token)
-        for token in tokens
-        if token.lower() in VALID_TALENT_TOKENS
-    ]
+    classes = [title_case_tokens(token) for token in tokens if token.lower() in BASE_CLASSES]
+    talents = [title_case_tokens(token) for token in tokens if token.lower() in VALID_TALENT_TOKENS]
     return dedupe_preserving_order(classes), dedupe_preserving_order(talents)
 
 
@@ -171,6 +165,4 @@ def is_non_weapon_equipment_card(types_value: str) -> bool:
     Rows with both ``Weapon`` and ``Equipment`` in ``Types`` are handled by the
     weapons generator only so each physical card appears in at most one game table.
     """
-    return types_include_equipment(types_value) and not types_include_weapon(
-        types_value
-    )
+    return types_include_equipment(types_value) and not types_include_weapon(types_value)

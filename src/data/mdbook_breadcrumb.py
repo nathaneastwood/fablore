@@ -136,9 +136,7 @@ def _arc_display_name(slug: str, arcs: dict, sets: dict) -> str:
 
 
 def _relative_href(chapter_src: str, target_src: str) -> str:
-    return Path(
-        os.path.relpath(Path(target_src), start=Path(chapter_src).parent)
-    ).as_posix()
+    return Path(os.path.relpath(Path(target_src), start=Path(chapter_src).parent)).as_posix()
 
 
 def _build_breadcrumb(items: list[tuple[str | None, str]]) -> str:
@@ -205,9 +203,7 @@ def _process_chapter(
         items.append((None, page_title))
 
         if len(items) > 1:
-            ch["content"] = _inject_at_top(
-                ch.get("content") or "", _build_breadcrumb(items)
-            )
+            ch["content"] = _inject_at_top(ch.get("content") or "", _build_breadcrumb(items))
         return
 
 

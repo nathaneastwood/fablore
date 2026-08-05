@@ -30,9 +30,7 @@ REGENERATE_STORY_REGISTRY = (
 )
 # Banner hint for ``story-*.csv`` junction files (written by ``story.py`` and first-run
 # ``create_stories_index.ensure_junction_headers``).
-REGENERATE_STORY_JUNCTIONS = (
-    "Use the Story class in src/data/story.py (Story.link_* / Story.remove)."
-)
+REGENERATE_STORY_JUNCTIONS = "Use the Story class in src/data/story.py (Story.link_* / Story.remove)."
 REGENERATE_HEROES_CANONICAL = "Story.add_canonical_hero (src/data/story.py) or python3 src/data/create_heroes_csv.py"
 
 
@@ -46,10 +44,7 @@ def auto_gen_banner(regenerate_command: str) -> str:
     Returns:
         Single line ending with newline, suitable as the first bytes of a CSV file.
     """
-    return (
-        "# AUTO-GENERATED FILE — do not edit by hand. "
-        f"Regenerate with: {regenerate_command}\n"
-    )
+    return "# AUTO-GENERATED FILE — do not edit by hand. " f"Regenerate with: {regenerate_command}\n"
 
 
 def strip_leading_hash_comments(text: str) -> str:

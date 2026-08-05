@@ -131,10 +131,7 @@ def _build_html(story_id: str, videos: list[dict[str, str]]) -> str:
         if plural:
             hidden_class = "" if i == 0 else " nv-panel--hidden"
             hidden_attr = "" if i == 0 else " hidden"
-            parts.append(
-                f'<div class="nv-panel{hidden_class}" id="{panel_id}"'
-                f' role="tabpanel"{hidden_attr}>'
-            )
+            parts.append(f'<div class="nv-panel{hidden_class}" id="{panel_id}"' f' role="tabpanel"{hidden_attr}>')
         else:
             parts.append('<div class="nv-single-video">')
 
@@ -183,9 +180,7 @@ def _load_videos_by_key(
     """Return (StoryKey → video-list, StoryKey → StoryId)."""
     _, stories = read_pipe_csv(data_dir / "csv" / "stories.csv")
     id_to_key: dict[str, str] = {
-        r["StoryId"]: Path(r["StoryKey"]).as_posix()
-        for r in stories
-        if r.get("StoryId") and r.get("StoryKey")
+        r["StoryId"]: Path(r["StoryKey"]).as_posix() for r in stories if r.get("StoryId") and r.get("StoryKey")
     }
 
     _, video_rows = read_pipe_csv(data_dir / "csv" / "story-narrated-videos.csv")

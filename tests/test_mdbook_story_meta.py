@@ -212,9 +212,7 @@ def test_inject_after_heading_inserts_after_h1() -> None:
 
 def test_inject_after_heading_replaces_existing_block() -> None:
     existing = (
-        "# Title\n\n"
-        "<!-- fablore-story-meta:start -->\n<p>OLD</p>\n<!-- fablore-story-meta:end -->\n\n"
-        "Body."
+        "# Title\n\n" "<!-- fablore-story-meta:start -->\n<p>OLD</p>\n<!-- fablore-story-meta:end -->\n\n" "Body."
     )
     out = _inject_after_heading(existing, "<p>NEW</p>")
     assert "OLD" not in out

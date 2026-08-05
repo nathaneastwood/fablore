@@ -48,9 +48,7 @@ def test_class_talent_icon_uses_fa6_solid() -> None:
 
 
 def test_living_legend_icon_uses_fa6_solid() -> None:
-    html = _build_hero_meta_html(
-        _meta(ll=[{"Format": "CC", "DateInEffect": "2024-01-01"}])
-    )
+    html = _build_hero_meta_html(_meta(ll=[{"Format": "CC", "DateInEffect": "2024-01-01"}]))
     assert 'class="fas fa-trophy"' in html
 
 

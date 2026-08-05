@@ -10,9 +10,7 @@ from validate_data import (
 )
 
 
-def _write_pair(
-    tmp_path: Path, canonical_body: str, game_body: str
-) -> tuple[Path, Path]:
+def _write_pair(tmp_path: Path, canonical_body: str, game_body: str) -> tuple[Path, Path]:
     canon = tmp_path / "heroes-canonical.csv"
     game = tmp_path / "heroes-game.csv"
     canon.write_text(canonical_body, encoding="utf-8")
@@ -45,20 +43,14 @@ def test_heroes_resolution_alerts_when_canonical_id_wrong_for_cardname(
     )
     alerts = _check_heroes_game_cardname_resolution(canon, game)
     assert len(alerts) == 1
-    assert (
-        "Bravo" in alerts[0]
-        and "CNmatchhash1" in alerts[0]
-        and "CNwrongwrong1" in alerts[0]
-    )
+    assert "Bravo" in alerts[0] and "CNmatchhash1" in alerts[0] and "CNwrongwrong1" in alerts[0]
 
 
 def test_heroes_game_young_hero_column_ok(tmp_path: Path) -> None:
     """YoungHero true/false passes validation."""
     game = tmp_path / "heroes-game.csv"
     game.write_text(
-        "HeroGameId|CardName|CanonicalId|YoungHero\n"
-        "HG1|Bravo|CNx|true\n"
-        "HG2|Bravo, Showstopper|CNx|false\n",
+        "HeroGameId|CardName|CanonicalId|YoungHero\n" "HG1|Bravo|CNx|true\n" "HG2|Bravo, Showstopper|CNx|false\n",
         encoding="utf-8",
     )
     assert _check_heroes_game_young_hero_column(game) == []

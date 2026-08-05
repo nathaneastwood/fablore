@@ -28,9 +28,7 @@ ROOT = Path(__file__).resolve().parents[2]
 SETS_CSV_PATH = ROOT / "src/data/csv/sets.csv"
 SET_TYPES_CSV_PATH = ROOT / "src/data/csv/set-types.csv"
 UPSTREAM_SET_CSV_PATH = ROOT.parent / "flesh-and-blood-cards/csvs/english/set.csv"
-UPSTREAM_SET_PRINTING_CSV_PATH = (
-    ROOT.parent / "flesh-and-blood-cards/csvs/english/set-printing.csv"
-)
+UPSTREAM_SET_PRINTING_CSV_PATH = ROOT.parent / "flesh-and-blood-cards/csvs/english/set-printing.csv"
 
 
 def infer_set_type_label(set_id: str, set_name: str) -> str:

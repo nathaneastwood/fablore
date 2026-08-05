@@ -132,21 +132,14 @@ def _collect(
                 if section == "flavour" and len(parts) == 2:
                     flavour.append({"name": ch.get("name", ""), "path": path})
 
-                elif (
-                    section in ("main-story", "short-stories", "digital-tiles")
-                    and len(parts) >= 3
-                ):
+                elif section in ("main-story", "short-stories", "digital-tiles") and len(parts) >= 3:
                     arc_slug = parts[1]
-                    story_arcs[section].setdefault(arc_slug, []).append(
-                        {"name": ch.get("name", ""), "path": path}
-                    )
+                    story_arcs[section].setdefault(arc_slug, []).append({"name": ch.get("name", ""), "path": path})
 
                 elif section == "short-stories" and len(parts) == 2:
                     # Flat page like kassais-diary.md — its own pseudo-arc
                     slug = parts[1].removesuffix(".md")
-                    story_arcs["short-stories"].setdefault(slug, []).append(
-                        {"name": ch.get("name", ""), "path": path}
-                    )
+                    story_arcs["short-stories"].setdefault(slug, []).append({"name": ch.get("name", ""), "path": path})
 
         _collect(ch.get("sub_items") or [], flavour, story_arcs)
 
@@ -174,16 +167,9 @@ def _card_grid_html(
 
         img_html = ""
         if image:
-            img_html = (
-                f'<img src="{html.escape(image)}" alt="" '
-                f'loading="lazy" width="600" height="337">\n  '
-            )
+            img_html = f'<img src="{html.escape(image)}" alt="" ' f'loading="lazy" width="600" height="337">\n  '
 
-        date_html = (
-            f'\n    <span class="sets-hub-card-date">{html.escape(date)}</span>'
-            if date
-            else ""
-        )
+        date_html = f'\n    <span class="sets-hub-card-date">{html.escape(date)}</span>' if date else ""
 
         cards.append(
             f'<a class="sets-hub-card" href="{href}">\n'
@@ -207,9 +193,7 @@ def _arc_card_grid_html(
 ) -> str:
     """Card grid for digital-tiles hub — one card per arc, linking to its single page."""
     cards: list[str] = []
-    for slug, chapters in sorted(
-        arc_map.items(), key=lambda kv: _arc_sort_key(kv[0], arcs, sets)
-    ):
+    for slug, chapters in sorted(arc_map.items(), key=lambda kv: _arc_sort_key(kv[0], arcs, sets)):
         if not chapters:
             continue
         first = chapters[0]
@@ -220,16 +204,9 @@ def _arc_card_grid_html(
 
         img_html = ""
         if image:
-            img_html = (
-                f'<img src="{html.escape(image)}" alt="" '
-                f'loading="lazy" width="600" height="337">\n  '
-            )
+            img_html = f'<img src="{html.escape(image)}" alt="" ' f'loading="lazy" width="600" height="337">\n  '
 
-        date_html = (
-            f'\n    <span class="sets-hub-card-date">{html.escape(date)}</span>'
-            if date
-            else ""
-        )
+        date_html = f'\n    <span class="sets-hub-card-date">{html.escape(date)}</span>' if date else ""
 
         cards.append(
             f'<a class="sets-hub-card" href="{href}">\n'
@@ -253,9 +230,7 @@ def _arc_sections_html(
 ) -> str:
     """Arc sections for main-story / short-stories hub pages."""
     sections: list[str] = []
-    for slug, chapters in sorted(
-        arc_map.items(), key=lambda kv: _arc_sort_key(kv[0], arcs, sets)
-    ):
+    for slug, chapters in sorted(arc_map.items(), key=lambda kv: _arc_sort_key(kv[0], arcs, sets)):
         name = html.escape(_arc_display_name(slug, arcs, sets))
         date = _arc_release_date(slug, arcs, sets)
         image = _arc_image(slug, arcs)
@@ -263,9 +238,7 @@ def _arc_sections_html(
 
         header_parts = [f'<span class="arc-section-name">{name}</span>']
         if date:
-            header_parts.append(
-                f'<span class="arc-section-date">{html.escape(date)}</span>'
-            )
+            header_parts.append(f'<span class="arc-section-date">{html.escape(date)}</span>')
         header = "\n    ".join(header_parts)
 
         img_html = ""
@@ -332,9 +305,7 @@ def _inject_hubs(
                 if hub_type == "flavour":
                     inner = _card_grid_html(path, flavour_chapters, arcs, sets)
                 elif hub_type == "digital-tiles":
-                    inner = _arc_card_grid_html(
-                        path, story_arcs["digital-tiles"], arcs, sets
-                    )
+                    inner = _arc_card_grid_html(path, story_arcs["digital-tiles"], arcs, sets)
                 else:
                     inner = _arc_sections_html(path, story_arcs[hub_type], arcs, sets)
                 ch["content"] = _inject_hub(ch.get("content") or "", inner)

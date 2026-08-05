@@ -56,9 +56,7 @@ def test_extract_card_classes_and_talents() -> None:
 
 def test_extract_weapon_only_affinity_talents() -> None:
     """Weapon layout tokens are not talents; affinity tokens are."""
-    classes, talents = extract_weapon_classes_and_talents(
-        "Shadow, Assassin, Weapon, Dagger, 1h"
-    )
+    classes, talents = extract_weapon_classes_and_talents("Shadow, Assassin, Weapon, Dagger, 1h")
     assert "Assassin" in classes
     assert talents == ["Shadow"]
 

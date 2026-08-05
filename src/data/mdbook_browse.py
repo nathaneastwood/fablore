@@ -123,9 +123,7 @@ def build_index(data_dir: Path) -> dict:
         present_regions.update(s["r"])
 
     present_types: set[str] = {s["k"] for s in stories}
-    types_list = [
-        {"k": k, "l": v} for k, v in _TYPE_LABELS.items() if k in present_types
-    ]
+    types_list = [{"k": k, "l": v} for k, v in _TYPE_LABELS.items() if k in present_types]
 
     return {
         "stories": stories,

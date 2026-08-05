@@ -23,9 +23,7 @@ def test_create_md_npcs_md_from_npcs_csv(tmp_path: Path) -> None:
     data.mkdir(parents=True)
     npcs = data / "npcs.csv"
     npcs.write_text(
-        "# comment\nCharacterId|Name|Species|Status\n"
-        "LCbbbbbbbbbb|Zed|Human|Alive\n"
-        "LCaaaaaaaaaa|Amy|Elf|Dead\n",
+        "# comment\nCharacterId|Name|Species|Status\n" "LCbbbbbbbbbb|Zed|Human|Alive\n" "LCaaaaaaaaaa|Amy|Elf|Dead\n",
         encoding="utf-8",
     )
     out = data / "npcs.md"
@@ -52,8 +50,7 @@ def test_create_md_locations_includes_region_name_not_ids(tmp_path: Path) -> Non
         encoding="utf-8",
     )
     (data / "locations.csv").write_text(
-        "LocationId|Name|RegionId|Notes\n"
-        "LObbbbbbbbbb|Zed Town|RGaaaaaaaaaa|Near water\n",
+        "LocationId|Name|RegionId|Notes\n" "LObbbbbbbbbb|Zed Town|RGaaaaaaaaaa|Near water\n",
         encoding="utf-8",
     )
     out = data / "locations.md"

@@ -64,15 +64,11 @@ def upsert_story(
 
 
 def select_story_by_key(conn: sqlite3.Connection, story_key: str) -> sqlite3.Row | None:
-    return conn.execute(
-        "SELECT * FROM stories WHERE story_key = ?", [story_key]
-    ).fetchone()
+    return conn.execute("SELECT * FROM stories WHERE story_key = ?", [story_key]).fetchone()
 
 
 def select_story_by_id(conn: sqlite3.Connection, story_id: str) -> sqlite3.Row | None:
-    return conn.execute(
-        "SELECT * FROM stories WHERE story_id = ?", [story_id]
-    ).fetchone()
+    return conn.execute("SELECT * FROM stories WHERE story_id = ?", [story_id]).fetchone()
 
 
 def delete_story(conn: sqlite3.Connection, story_id: str) -> int:
@@ -104,16 +100,12 @@ def set_narrated_videos(
     conn.execute("DELETE FROM narrated_videos WHERE story_id = ?", [story_id])
     if videos:
         conn.executemany(
-            "INSERT INTO narrated_videos "
-            "(story_id, author, source_link, channel_link) "
-            "VALUES (?,?,?,?)",
+            "INSERT INTO narrated_videos " "(story_id, author, source_link, channel_link) " "VALUES (?,?,?,?)",
             [(story_id, author, url, channel) for author, url, channel in videos],
         )
 
 
-def select_narrated_videos(
-    conn: sqlite3.Connection, story_id: str
-) -> list[sqlite3.Row]:
+def select_narrated_videos(conn: sqlite3.Connection, story_id: str) -> list[sqlite3.Row]:
     return conn.execute(
         "SELECT author, source_link, channel_link "
         "FROM narrated_videos WHERE story_id = ? "
@@ -150,9 +142,7 @@ def upsert_region(
 
 
 def select_region_by_id(conn: sqlite3.Connection, region_id: str) -> sqlite3.Row | None:
-    return conn.execute(
-        "SELECT * FROM regions WHERE region_id = ?", [region_id]
-    ).fetchone()
+    return conn.execute("SELECT * FROM regions WHERE region_id = ?", [region_id]).fetchone()
 
 
 def select_all_regions(conn: sqlite3.Connection) -> list[sqlite3.Row]:
@@ -160,12 +150,7 @@ def select_all_regions(conn: sqlite3.Connection) -> list[sqlite3.Row]:
 
 
 def region_id_exists(conn: sqlite3.Connection, region_id: str) -> bool:
-    return (
-        conn.execute(
-            "SELECT 1 FROM regions WHERE region_id = ?", [region_id]
-        ).fetchone()
-        is not None
-    )
+    return conn.execute("SELECT 1 FROM regions WHERE region_id = ?", [region_id]).fetchone() is not None
 
 
 # ---------------------------------------------------------------------------
@@ -183,9 +168,7 @@ def upsert_location(
     lore_fragment: str = "",
 ) -> None:
     if not notes:
-        row = conn.execute(
-            "SELECT notes FROM locations WHERE location_id = ?", [location_id]
-        ).fetchone()
+        row = conn.execute("SELECT notes FROM locations WHERE location_id = ?", [location_id]).fetchone()
         if row and row[0]:
             _log.warning(
                 "Skipping notes overwrite for location %r — existing notes preserved"
@@ -264,9 +247,7 @@ def _upsert_named_entity(
     description: str = "",
 ) -> None:
     if not description:
-        row = conn.execute(
-            f"SELECT description FROM {table} WHERE {id_col} = ?", [entity_id]
-        ).fetchone()
+        row = conn.execute(f"SELECT description FROM {table} WHERE {id_col} = ?", [entity_id]).fetchone()
         if row and row[0]:
             _log.warning(
                 "Skipping description overwrite for %s %r — existing description preserved"
@@ -288,21 +269,15 @@ def _upsert_named_entity(
     )
 
 
-def upsert_monster(
-    conn: sqlite3.Connection, *, monster_id: str, name: str, description: str = ""
-) -> None:
+def upsert_monster(conn: sqlite3.Connection, *, monster_id: str, name: str, description: str = "") -> None:
     _upsert_named_entity(conn, "monsters", "monster_id", monster_id, name, description)
 
 
-def upsert_fauna(
-    conn: sqlite3.Connection, *, fauna_id: str, name: str, description: str = ""
-) -> None:
+def upsert_fauna(conn: sqlite3.Connection, *, fauna_id: str, name: str, description: str = "") -> None:
     _upsert_named_entity(conn, "fauna", "fauna_id", fauna_id, name, description)
 
 
-def upsert_flora(
-    conn: sqlite3.Connection, *, flora_id: str, name: str, description: str = ""
-) -> None:
+def upsert_flora(conn: sqlite3.Connection, *, flora_id: str, name: str, description: str = "") -> None:
     _upsert_named_entity(conn, "flora", "flora_id", flora_id, name, description)
 
 
@@ -336,9 +311,7 @@ def update_location_notes(
 
 def select_location_ids_by_name(conn: sqlite3.Connection, name: str) -> list[str]:
     """Return every ``LocationId`` stored under ``name`` (may be >1 for duplicate rows)."""
-    rows = conn.execute(
-        "SELECT location_id FROM locations WHERE name = ?", [name]
-    ).fetchall()
+    rows = conn.execute("SELECT location_id FROM locations WHERE name = ?", [name]).fetchall()
     return [r[0] for r in rows]
 
 
@@ -359,9 +332,7 @@ def select_all_flora(conn: sqlite3.Connection) -> list[sqlite3.Row]:
 # ---------------------------------------------------------------------------
 
 
-def upsert_food_drink(
-    conn: sqlite3.Connection, *, food_drink_id: str, name: str, type_: str
-) -> None:
+def upsert_food_drink(conn: sqlite3.Connection, *, food_drink_id: str, name: str, type_: str) -> None:
     conn.execute(
         """
         INSERT INTO food_and_drink (food_drink_id, name, type)
@@ -446,9 +417,7 @@ def upsert_class(conn: sqlite3.Connection, *, class_id: str, class_name: str) ->
     )
 
 
-def upsert_talent(
-    conn: sqlite3.Connection, *, talent_id: str, talent_name: str
-) -> None:
+def upsert_talent(conn: sqlite3.Connection, *, talent_id: str, talent_name: str) -> None:
     conn.execute(
         """
         INSERT INTO talents (talent_id, talent_name) VALUES (?,?)
@@ -491,15 +460,11 @@ def upsert_hero_canonical(
 
 
 def select_hero_by_slug(conn: sqlite3.Connection, slug: str) -> sqlite3.Row | None:
-    return conn.execute(
-        "SELECT * FROM heroes_canonical WHERE canonical_slug = ?", [slug]
-    ).fetchone()
+    return conn.execute("SELECT * FROM heroes_canonical WHERE canonical_slug = ?", [slug]).fetchone()
 
 
 def select_all_heroes_canonical(conn: sqlite3.Connection) -> list[sqlite3.Row]:
-    return conn.execute(
-        "SELECT * FROM heroes_canonical ORDER BY canonical_slug"
-    ).fetchall()
+    return conn.execute("SELECT * FROM heroes_canonical ORDER BY canonical_slug").fetchall()
 
 
 def upsert_hero_game(
@@ -569,9 +534,7 @@ def upsert_hero_printing(
 
 
 def select_all_heroes_printings(conn: sqlite3.Connection) -> list[sqlite3.Row]:
-    return conn.execute(
-        "SELECT * FROM heroes_printings ORDER BY hero_game_id, set_id, card_id"
-    ).fetchall()
+    return conn.execute("SELECT * FROM heroes_printings ORDER BY hero_game_id, set_id, card_id").fetchall()
 
 
 def upsert_hero_ll(
@@ -619,15 +582,11 @@ def upsert_weapon_canonical(
 
 
 def select_weapon_by_slug(conn: sqlite3.Connection, slug: str) -> sqlite3.Row | None:
-    return conn.execute(
-        "SELECT * FROM weapons_canonical WHERE canonical_slug = ?", [slug]
-    ).fetchone()
+    return conn.execute("SELECT * FROM weapons_canonical WHERE canonical_slug = ?", [slug]).fetchone()
 
 
 def select_all_weapons_canonical(conn: sqlite3.Connection) -> list[sqlite3.Row]:
-    return conn.execute(
-        "SELECT * FROM weapons_canonical ORDER BY canonical_slug"
-    ).fetchall()
+    return conn.execute("SELECT * FROM weapons_canonical ORDER BY canonical_slug").fetchall()
 
 
 def upsert_weapon_game(
@@ -697,9 +656,7 @@ def upsert_weapon_printing(
 
 
 def select_all_weapons_printings(conn: sqlite3.Connection) -> list[sqlite3.Row]:
-    return conn.execute(
-        "SELECT * FROM weapons_printings ORDER BY weapon_game_id, set_id, card_id"
-    ).fetchall()
+    return conn.execute("SELECT * FROM weapons_printings ORDER BY weapon_game_id, set_id, card_id").fetchall()
 
 
 # ---------------------------------------------------------------------------
@@ -728,15 +685,11 @@ def upsert_equipment_canonical(
 
 
 def select_equipment_by_slug(conn: sqlite3.Connection, slug: str) -> sqlite3.Row | None:
-    return conn.execute(
-        "SELECT * FROM equipment_canonical WHERE canonical_slug = ?", [slug]
-    ).fetchone()
+    return conn.execute("SELECT * FROM equipment_canonical WHERE canonical_slug = ?", [slug]).fetchone()
 
 
 def select_all_equipment_canonical(conn: sqlite3.Connection) -> list[sqlite3.Row]:
-    return conn.execute(
-        "SELECT * FROM equipment_canonical ORDER BY canonical_slug"
-    ).fetchall()
+    return conn.execute("SELECT * FROM equipment_canonical ORDER BY canonical_slug").fetchall()
 
 
 def upsert_equipment_game(
@@ -806,9 +759,7 @@ def upsert_equipment_printing(
 
 
 def select_all_equipment_printings(conn: sqlite3.Connection) -> list[sqlite3.Row]:
-    return conn.execute(
-        "SELECT * FROM equipment_printings ORDER BY equipment_game_id, set_id, card_id"
-    ).fetchall()
+    return conn.execute("SELECT * FROM equipment_printings ORDER BY equipment_game_id, set_id, card_id").fetchall()
 
 
 # ---------------------------------------------------------------------------
@@ -825,8 +776,7 @@ def set_story_heroes(
     conn.execute("DELETE FROM story_heroes WHERE story_id = ?", [story_id])
     if entries:
         conn.executemany(
-            "INSERT OR IGNORE INTO story_heroes (story_id, canonical_id, fragment)"
-            " VALUES (?,?,?)",
+            "INSERT OR IGNORE INTO story_heroes (story_id, canonical_id, fragment)" " VALUES (?,?,?)",
             [(story_id, cid, frag) for cid, frag in entries],
         )
 
@@ -840,8 +790,7 @@ def set_story_npcs(
     conn.execute("DELETE FROM story_npcs WHERE story_id = ?", [story_id])
     if entries:
         conn.executemany(
-            "INSERT OR IGNORE INTO story_npcs (story_id, character_id, fragment)"
-            " VALUES (?,?,?)",
+            "INSERT OR IGNORE INTO story_npcs (story_id, character_id, fragment)" " VALUES (?,?,?)",
             [(story_id, cid, frag) for cid, frag in entries],
         )
 
@@ -866,9 +815,7 @@ def set_story_junction(
         )
 
 
-def select_story_junction(
-    conn: sqlite3.Connection, story_id: str, table: str, id_col: str
-) -> list[str]:
+def select_story_junction(conn: sqlite3.Connection, story_id: str, table: str, id_col: str) -> list[str]:
     """Return entity ids linked to ``story_id`` in ``table``, sorted."""
     rows = conn.execute(
         f"SELECT {id_col} FROM {table} WHERE story_id = ? ORDER BY {id_col}",
@@ -877,9 +824,7 @@ def select_story_junction(
     return [r[0] for r in rows]
 
 
-def delete_all_story_junctions(
-    conn: sqlite3.Connection, story_id: str
-) -> dict[str, int]:
+def delete_all_story_junctions(conn: sqlite3.Connection, story_id: str) -> dict[str, int]:
     """Delete all junction rows for ``story_id`` across every junction table.
 
     Returns a dict of table → rows deleted (for dry-run reporting).
@@ -905,23 +850,17 @@ def delete_all_story_junctions(
     return counts
 
 
-def count_entity_story_links(
-    conn: sqlite3.Connection, junction_table: str, id_column: str, entity_id: str
-) -> int:
+def count_entity_story_links(conn: sqlite3.Connection, junction_table: str, id_column: str, entity_id: str) -> int:
     """Return how many story junction rows reference ``entity_id``.
 
     Used to guard :func:`delete_entity_row` against silently orphaning story
     links — callers should refuse to delete (or repoint links first) when
     this is non-zero.
     """
-    return conn.execute(
-        f"SELECT COUNT(*) FROM {junction_table} WHERE {id_column} = ?", [entity_id]
-    ).fetchone()[0]
+    return conn.execute(f"SELECT COUNT(*) FROM {junction_table} WHERE {id_column} = ?", [entity_id]).fetchone()[0]
 
 
-def delete_entity_row(
-    conn: sqlite3.Connection, table: str, id_column: str, entity_id: str
-) -> int:
+def delete_entity_row(conn: sqlite3.Connection, table: str, id_column: str, entity_id: str) -> int:
     """Delete one row from a lore registry table by id. Returns rows deleted."""
     cur = conn.execute(f"DELETE FROM {table} WHERE {id_column} = ?", [entity_id])
     return cur.rowcount
@@ -942,8 +881,5 @@ def count_story_junctions(conn: sqlite3.Connection, story_id: str) -> dict[str, 
         "story_equipment",
     ]
     return {
-        t: conn.execute(
-            f"SELECT COUNT(*) FROM {t} WHERE story_id = ?", [story_id]
-        ).fetchone()[0]
-        for t in junctions
+        t: conn.execute(f"SELECT COUNT(*) FROM {t} WHERE story_id = ?", [story_id]).fetchone()[0] for t in junctions
     }

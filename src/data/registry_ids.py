@@ -33,8 +33,7 @@ def assert_unique_ids(items: list[tuple[str, str]], id_kind: str) -> None:
             continue
         if new_id in seen and seen[new_id] != source:
             raise ValueError(
-                f"{id_kind} ID hash collision detected: "
-                f"{seen[new_id]!r} and {source!r} both hash to {new_id!r}"
+                f"{id_kind} ID hash collision detected: " f"{seen[new_id]!r} and {source!r} both hash to {new_id!r}"
             )
         seen[new_id] = source
 

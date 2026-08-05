@@ -21,15 +21,11 @@ from text_utils import normalize_name
 
 
 def _write_classes_csv(path: Path, rows: list[dict[str, str]]) -> None:
-    write_pipe_csv_autogen(
-        path, ["ClassId", "ClassName"], rows, regenerate_command="test"
-    )
+    write_pipe_csv_autogen(path, ["ClassId", "ClassName"], rows, regenerate_command="test")
 
 
 def _write_talents_csv(path: Path, rows: list[dict[str, str]]) -> None:
-    write_pipe_csv_autogen(
-        path, ["TalentId", "TalentName"], rows, regenerate_command="test"
-    )
+    write_pipe_csv_autogen(path, ["TalentId", "TalentName"], rows, regenerate_command="test")
 
 
 # ---------------------------------------------------------------------------
@@ -37,9 +33,7 @@ def _write_talents_csv(path: Path, rows: list[dict[str, str]]) -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_merge_weapon_types_branch(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
-) -> None:
+def test_merge_weapon_types_branch(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     """Weapon card rows contribute classes/talents via the weapon branch (lines 72-74)."""
     classes_path = tmp_path / "classes.csv"
     talents_path = tmp_path / "talents.csv"
@@ -64,9 +58,7 @@ def test_merge_weapon_types_branch(
 # ---------------------------------------------------------------------------
 
 
-def test_merge_equipment_not_weapon_branch(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
-) -> None:
+def test_merge_equipment_not_weapon_branch(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     """Equipment (non-weapon) rows contribute via the equipment branch (lines 76-78)."""
     classes_path = tmp_path / "classes.csv"
     talents_path = tmp_path / "talents.csv"
@@ -86,9 +78,7 @@ def test_merge_equipment_not_weapon_branch(
     assert "Ninja" in classes_text
 
 
-def test_weapon_equipment_hybrid_only_uses_weapon_branch(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
-) -> None:
+def test_weapon_equipment_hybrid_only_uses_weapon_branch(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     """A card with both Weapon and Equipment uses only the weapon branch, not equipment."""
     classes_path = tmp_path / "classes.csv"
     talents_path = tmp_path / "talents.csv"
@@ -110,9 +100,7 @@ def test_weapon_equipment_hybrid_only_uses_weapon_branch(
 # ---------------------------------------------------------------------------
 
 
-def test_load_name_id_map_filters_blanks(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
-) -> None:
+def test_load_name_id_map_filters_blanks(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     """_load_name_id_map skips rows with blank name or blank id (lines 99-102)."""
     classes_path = tmp_path / "classes.csv"
     # Write a CSV with a mix of valid, blank-name, and blank-id rows
@@ -141,9 +129,7 @@ def test_load_name_id_map_filters_blanks(
 # ---------------------------------------------------------------------------
 
 
-def test_merge_classes_reuses_existing_id(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
-) -> None:
+def test_merge_classes_reuses_existing_id(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     """merge_classes preserves known ClassId from disk rather than re-hashing (line 136)."""
     classes_path = tmp_path / "classes.csv"
     existing_id = "CL1234567890"
@@ -164,15 +150,11 @@ def test_merge_classes_reuses_existing_id(
     assert existing_id in written
 
 
-def test_merge_classes_generates_new_id_for_unknown(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
-) -> None:
+def test_merge_classes_generates_new_id_for_unknown(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     """merge_classes generates a new deterministic id for a name not on disk."""
     classes_path = tmp_path / "classes.csv"
     # CSV exists but does not contain "Ninja"
-    _write_classes_csv(
-        classes_path, [{"ClassId": "CL0000000001", "ClassName": "Warrior"}]
-    )
+    _write_classes_csv(classes_path, [{"ClassId": "CL0000000001", "ClassName": "Warrior"}])
     monkeypatch.setattr(gct, "CLASSES_CSV_PATH", classes_path)
 
     result = gct.merge_classes(
@@ -191,9 +173,7 @@ def test_merge_classes_generates_new_id_for_unknown(
 # ---------------------------------------------------------------------------
 
 
-def test_merge_talents_generates_new_id(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
-) -> None:
+def test_merge_talents_generates_new_id(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     """merge_talents generates a TL-prefixed id for a talent not yet on disk (lines 169-172)."""
     talents_path = tmp_path / "talents.csv"
     # Start with an empty (missing) talents file so nothing is on disk
@@ -211,15 +191,11 @@ def test_merge_talents_generates_new_id(
     assert "Shadow" in written
 
 
-def test_merge_talents_reuses_existing_id(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
-) -> None:
+def test_merge_talents_reuses_existing_id(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     """merge_talents preserves a known TalentId from disk."""
     talents_path = tmp_path / "talents.csv"
     existing_id = "TL9999999999"
-    _write_talents_csv(
-        talents_path, [{"TalentId": existing_id, "TalentName": "Shadow"}]
-    )
+    _write_talents_csv(talents_path, [{"TalentId": existing_id, "TalentName": "Shadow"}])
     monkeypatch.setattr(gct, "TALENTS_CSV_PATH", talents_path)
 
     result = gct.merge_talents(

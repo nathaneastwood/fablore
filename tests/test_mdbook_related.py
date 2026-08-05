@@ -53,10 +53,7 @@ def test_relative_md_href_nested_chapter_to_hero() -> None:
 
 
 def test_relative_md_href_same_directory() -> None:
-    assert (
-        relative_md_href("world-of-rathe/solana.md", "world-of-rathe/metrix.md")
-        == "metrix.md"
-    )
+    assert relative_md_href("world-of-rathe/solana.md", "world-of-rathe/metrix.md") == "metrix.md"
 
 
 def test_inject_marked_block_appends() -> None:
@@ -89,22 +86,15 @@ def test_load_related_maps_minimal_csvs(tmp_path: Path) -> None:
         "StoryId|StoryKey|StoryType|Title\nST1|main-story/x.md|main-story|X\n",
         encoding="utf-8",
     )
-    (csv / "story-heroes.csv").write_text(
-        "StoryId|CanonicalId\nST1|CN1\n", encoding="utf-8"
-    )
-    (csv / "story-locations.csv").write_text(
-        "StoryId|LocationId\nST1|LO1\n", encoding="utf-8"
-    )
+    (csv / "story-heroes.csv").write_text("StoryId|CanonicalId\nST1|CN1\n", encoding="utf-8")
+    (csv / "story-locations.csv").write_text("StoryId|LocationId\nST1|LO1\n", encoding="utf-8")
     (csv / "heroes-canonical.csv").write_text(
         "CanonicalId|CanonicalSlug|CanonicalHero\nCN1|boltyn|Boltyn\n",
         encoding="utf-8",
     )
-    (csv / "locations.csv").write_text(
-        "LocationId|Name|RegionId|Notes\nLO1|Beacon|RG1|\n", encoding="utf-8"
-    )
+    (csv / "locations.csv").write_text("LocationId|Name|RegionId|Notes\nLO1|Beacon|RG1|\n", encoding="utf-8")
     (csv / "regions.csv").write_text(
-        "RegionId|RegionName|WorldOfRatheStoryKey\n"
-        "RG1|Metrix|world-of-rathe/metrix.md\n",
+        "RegionId|RegionName|WorldOfRatheStoryKey\n" "RG1|Metrix|world-of-rathe/metrix.md\n",
         encoding="utf-8",
     )
     m = load_related_maps(data)
@@ -117,10 +107,7 @@ def test_resolve_hero_slug_override_arakni(tmp_path: Path) -> None:
     src = tmp_path / "src"
     (src / "heroes-of-rathe").mkdir(parents=True)
     (src / "heroes-of-rathe" / "arakni-about.md").write_text("# A\n", encoding="utf-8")
-    assert (
-        resolve_hero_src_path(src, "arakni-huntsman")
-        == "heroes-of-rathe/arakni-about.md"
-    )
+    assert resolve_hero_src_path(src, "arakni-huntsman") == "heroes-of-rathe/arakni-about.md"
 
 
 def test_build_related_fragment_hero_and_location(tmp_path: Path) -> None:
@@ -405,16 +392,11 @@ def test_load_related_maps_loads_story_regions(tmp_path: Path) -> None:
     )
     (csv / "story-heroes.csv").write_text("StoryId|CanonicalId\n", encoding="utf-8")
     (csv / "story-locations.csv").write_text("StoryId|LocationId\n", encoding="utf-8")
-    (csv / "story-regions.csv").write_text(
-        "StoryId|RegionId\nST1|RG1\n", encoding="utf-8"
-    )
-    (csv / "heroes-canonical.csv").write_text(
-        "CanonicalId|CanonicalSlug|CanonicalHero\n", encoding="utf-8"
-    )
+    (csv / "story-regions.csv").write_text("StoryId|RegionId\nST1|RG1\n", encoding="utf-8")
+    (csv / "heroes-canonical.csv").write_text("CanonicalId|CanonicalSlug|CanonicalHero\n", encoding="utf-8")
     (csv / "locations.csv").write_text("LocationId|Name|RegionId\n", encoding="utf-8")
     (csv / "regions.csv").write_text(
-        "RegionId|RegionName|WorldOfRatheStoryKey\n"
-        "RG1|The Savage Lands|world-of-rathe/savage-lands.md\n",
+        "RegionId|RegionName|WorldOfRatheStoryKey\n" "RG1|The Savage Lands|world-of-rathe/savage-lands.md\n",
         encoding="utf-8",
     )
     m = load_related_maps(data)

@@ -11,9 +11,7 @@ from registry_ids import make_hash_id
 from text_utils import normalize_name
 
 
-def test_merge_classes_and_talents_writes_pipe_csvs(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
-) -> None:
+def test_merge_classes_and_talents_writes_pipe_csvs(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     """Merged classes/talents are written to the patched paths."""
     classes_path = tmp_path / "classes.csv"
     talents_path = tmp_path / "talents.csv"

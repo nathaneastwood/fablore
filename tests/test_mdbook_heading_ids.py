@@ -19,10 +19,7 @@ from mdbook_heading_ids import (  # noqa: E402
 
 
 def test_normalize_id_rust_examples() -> None:
-    assert (
-        normalize_id("`--passes`: add more rustdoc passes")
-        == "--passes-add-more-rustdoc-passes"
-    )
+    assert normalize_id("`--passes`: add more rustdoc passes") == "--passes-add-more-rustdoc-passes"
     assert normalize_id("_-_12345") == "_-_12345"
     assert normalize_id("12345") == "12345"
 
@@ -50,13 +47,10 @@ def test_require_valid_lore_fragment_ok(tmp_path: Path) -> None:
     data = tmp_path / "src" / "data"
     data.mkdir(parents=True)
     (src / "world-of-rathe").mkdir(parents=True)
-    (src / "world-of-rathe" / "aria.md").write_text(
-        "## Aria\n### Enion\nBody.\n", encoding="utf-8"
-    )
+    (src / "world-of-rathe" / "aria.md").write_text("## Aria\n### Enion\nBody.\n", encoding="utf-8")
     regions = data / "regions.csv"
     regions.write_text(
-        "# h\nRegionId|RegionName|WorldOfRatheStoryKey\n"
-        "RG1|Aria|world-of-rathe/aria.md\n",
+        "# h\nRegionId|RegionName|WorldOfRatheStoryKey\n" "RG1|Aria|world-of-rathe/aria.md\n",
         encoding="utf-8",
     )
     require_valid_lore_fragment(
@@ -72,13 +66,10 @@ def test_require_valid_lore_fragment_lists_options(tmp_path: Path) -> None:
     data = tmp_path / "src" / "data"
     data.mkdir(parents=True)
     (src / "world-of-rathe").mkdir(parents=True)
-    (src / "world-of-rathe" / "aria.md").write_text(
-        "## Aria\n### Enion\n", encoding="utf-8"
-    )
+    (src / "world-of-rathe" / "aria.md").write_text("## Aria\n### Enion\n", encoding="utf-8")
     regions = data / "regions.csv"
     regions.write_text(
-        "# h\nRegionId|RegionName|WorldOfRatheStoryKey\n"
-        "RG1|Aria|world-of-rathe/aria.md\n",
+        "# h\nRegionId|RegionName|WorldOfRatheStoryKey\n" "RG1|Aria|world-of-rathe/aria.md\n",
         encoding="utf-8",
     )
     try:

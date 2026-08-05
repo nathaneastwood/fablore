@@ -36,9 +36,7 @@ def test_infer_story_title_fallback_to_stem(tmp_path: Path) -> None:
     assert csi.infer_story_title(md) == "No Heading"
 
 
-def test_discover_preserves_existing_title(
-    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
-) -> None:
+def test_discover_preserves_existing_title(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
     """Non-default Title in existing metadata is kept when rescanning."""
     src = tmp_path / "src"
     (src / "main-story").mkdir(parents=True)
@@ -78,9 +76,7 @@ def test_discover_refreshes_when_title_is_only_stem_placeholder(
     assert rows[0]["title"] == "From H1"
 
 
-def test_discover_infers_when_existing_title_blank(
-    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
-) -> None:
+def test_discover_infers_when_existing_title_blank(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
     """Blank title in existing metadata is replaced by inference from the markdown file."""
     src = tmp_path / "src"
     (src / "main-story").mkdir(parents=True)

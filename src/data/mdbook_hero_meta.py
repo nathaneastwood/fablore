@@ -66,11 +66,7 @@ def _format_date(date_str: str) -> str:
 
 
 def _item(icon: str, inner: str) -> str:
-    return (
-        f'<span class="story-meta-item">'
-        f'<i class="{icon}" aria-hidden="true"></i>'
-        f" {inner}</span>"
-    )
+    return f'<span class="story-meta-item">' f'<i class="{icon}" aria-hidden="true"></i>' f" {inner}</span>"
 
 
 # ---------------------------------------------------------------------------
@@ -97,9 +93,7 @@ def _load_card_meta(data_dir: Path) -> dict[str, dict]:
         if sid:
             set_type_id_by_set_id[sid] = (row.get("SetTypeId") or "").strip()
             set_name_by_id[sid] = (row.get("SetName") or "").strip()
-            set_release_by_id[sid] = (
-                (row.get("InitialReleaseDate") or "").strip().split("T")[0]
-            )
+            set_release_by_id[sid] = (row.get("InitialReleaseDate") or "").strip().split("T")[0]
 
     # set-types lookup — kept for future use / debugging
     _ = {
@@ -168,11 +162,7 @@ def _load_card_meta(data_dir: Path) -> dict[str, dict]:
             if not release:
                 continue
             priority = _SET_TYPE_PRIORITY.get(type_id, 50)
-            if (
-                not best_date
-                or release < best_date
-                or (release == best_date and priority < best_priority)
-            ):
+            if not best_date or release < best_date or (release == best_date and priority < best_priority):
                 best_date = release
                 best_set_id = sid
                 best_priority = priority
@@ -217,11 +207,7 @@ def _build_hero_meta_html(meta: dict) -> str:
     for entry in meta.get("ll", []):
         fmt = html.escape(entry.get("Format", ""))
         date_fmt = _format_date(entry.get("DateInEffect", ""))
-        detail = (
-            f" ({html.escape(fmt)}, {html.escape(date_fmt)})"
-            if date_fmt
-            else f" ({html.escape(fmt)})"
-        )
+        detail = f" ({html.escape(fmt)}, {html.escape(date_fmt)})" if date_fmt else f" ({html.escape(fmt)})"
         items.append(_item("fas fa-trophy", f"Living Legend{detail}"))
 
     if not items:
@@ -317,9 +303,7 @@ def _walk_sections(sections: list, card_meta: dict[str, dict]) -> None:
             ch = item["Chapter"]
             path = (ch.get("path") or "").strip()
             if path and _is_hero_about_page(path):
-                ch["content"] = _process_hero_chapter(
-                    ch.get("content") or "", card_meta
-                )
+                ch["content"] = _process_hero_chapter(ch.get("content") or "", card_meta)
             _walk_sections(ch.get("sub_items") or [], card_meta)
 
 
