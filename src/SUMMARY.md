@@ -178,9 +178,11 @@
     - [Vow Unbroken](main-story/compendium-of-rathe/vow-unbroken.md)
     - [Omens in the Sky](main-story/omens-of-the-third-age/omens-in-the-sky.md)
     - [Letters from the Beyond](main-story/usurp-the-shadow-throne/letters-from-the-beyond.md)
+    - [Agony in Light](main-story/usurp-the-shadow-throne/agony-in-light.md)
 
 - [Main Story Summaries](summaries/README.md)
   - [War of the Monarch, Part 1](summaries/war-of-the-monarch-pt-1.md)
+  - [War of the Monarch, Part 2](summaries/war-of-the-monarch-pt-2.md)
 
 - [Short Stories](short-stories/README.md)
     - [A Thousand Cuts](short-stories/outsiders/a-thousand-cuts.md)

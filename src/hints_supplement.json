@@ -178,7 +178,7 @@
     "summary": "The more talkative of two Valdur strongmen who joined Bravo's Legendarium, wielding a finely crafted greataxe."
   },
   "Nasreth": {
-    "type": "creature",
+    "type": "embra",
     "summary": "The Soul Harrower, an Embra."
   },
   "Nocetes": {
@@ -335,5 +335,19 @@
     "type": "concept",
     "match": ["Embra", "Embras"],
     "summary": "Powerful supernatural entities that feed on blood; Chane's patron Ursur is one."
+  },
+  "Blasmophet": {
+    "type": "embra",
+    "summary": "The demon whose all-consuming hunger possesses Levia the Consumed."
+  },
+  "Eirina": {
+    "type": "npc",
+    "summary": "Boltyn's beloved, a cleric he prays to for courage in battle."
+  },
+  "TheLightOfSol": {
+    "type": "faction",
+    "match": "The Light of Sol",
+    "summary": "Solana's order of scholars — healers, academics and scribes who serve the city and fight alongside the Hand of Sol.",
+    "url": "/world-of-rathe/solana.html#the-light-of-sol"
   }
 }

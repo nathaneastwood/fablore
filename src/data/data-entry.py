@@ -74,9 +74,7 @@ db.upsert_story(
     heroes=["blaze"],
     regions=[RegionEntry("Volcor")],
     locations=[
-        LocationEntry(
-            "Imperial Palace", region="Volcor", lore_fragment="the-royal-court"
-        ),
+        LocationEntry("Imperial Palace", region="Volcor", lore_fragment="the-royal-court"),
     ],
     fauna=[FaunaEntry("Flare Deer")],
     dry_run=True,
@@ -153,9 +151,7 @@ db.upsert_story(
             region="Aria",
             lore_fragment="the-everfest-carnival",
         ),
-        LocationEntry(
-            "Legendarium", region="Aria", lore_fragment="the-everfest-carnival"
-        ),
+        LocationEntry("Legendarium", region="Aria", lore_fragment="the-everfest-carnival"),
         LocationEntry("The Maela", region="Aria"),
         LocationEntry("The Valdur", region="Aria"),
         LocationEntry("Aldevyr", region="Aria"),
@@ -217,23 +213,17 @@ db.upsert_story(
         LocationEntry("Ironsong Forge", region="Solana"),
         LocationEntry("Library of Illumination", region="Solana"),
         LocationEntry("Amphitheatre", region="Solana"),
-        LocationEntry(
-            "Solstice of Laurels", region="Solana", lore_fragment="solstice-of-laurels"
-        ),
+        LocationEntry("Solstice of Laurels", region="Solana", lore_fragment="solstice-of-laurels"),
         LocationEntry(
             "The Awakening Ceremony",
             region="Solana",
             lore_fragment="the-awakening-ceremony",
         ),
-        LocationEntry(
-            "The Light of Sol", region="Solana", lore_fragment="the-light-of-sol"
-        ),
+        LocationEntry("The Light of Sol", region="Solana", lore_fragment="the-light-of-sol"),
         LocationEntry("Silvarium", region="Solana"),
         LocationEntry("The Golden Fields", region="Solana"),
         LocationEntry("Forward Camps", region="The Savage Lands"),
-        LocationEntry(
-            "The Grand Council", region="Solana", lore_fragment="the-grand-council"
-        ),
+        LocationEntry("The Grand Council", region="Solana", lore_fragment="the-grand-council"),
         LocationEntry("The Savage Wilds", region="The Savage Lands"),
         LocationEntry("Ceremonial Chamber", region="Solana"),
     ],
@@ -306,14 +296,10 @@ db.upsert_story(
         NPCEntry("Master Saori", species="Human", status="Alive"),
     ],
     locations=[
-        LocationEntry(
-            "Mugenshi Gorge", region="Misteria", lore_fragment="mugenshi-gorge"
-        ),
+        LocationEntry("Mugenshi Gorge", region="Misteria", lore_fragment="mugenshi-gorge"),
         LocationEntry("Mugenshi Ancestral Shrine", region="Misteria"),
         LocationEntry("Mugenshi Village", region="Misteria"),
-        LocationEntry(
-            "Mistcloak Gully", region="Misteria", lore_fragment="mistcloak-gully"
-        ),
+        LocationEntry("Mistcloak Gully", region="Misteria", lore_fragment="mistcloak-gully"),
         LocationEntry("Aui's Scales Strongholds", region="Misteria"),
     ],
     regions=[RegionEntry("Misteria")],
@@ -449,17 +435,11 @@ db.upsert_story(
         LocationEntry("Volthaven", region="Aria", lore_fragment="enion"),
         LocationEntry("Auric Keep", region="Nebulus Rift", lore_fragment="auric-keep"),
         LocationEntry("Valahai", region="Aria", lore_fragment="valahai"),
-        LocationEntry(
-            "Voltaris Gem", region="Nebulus Rift", lore_fragment="astral-bridge"
-        ),
+        LocationEntry("Voltaris Gem", region="Nebulus Rift", lore_fragment="astral-bridge"),
         LocationEntry("Shyldverk", region="Aria", lore_fragment="shyldverk"),
-        LocationEntry(
-            "Astral Bridge", region="Nebulus Rift", lore_fragment="astral-bridge"
-        ),
+        LocationEntry("Astral Bridge", region="Nebulus Rift", lore_fragment="astral-bridge"),
         LocationEntry("i'Arathael"),
-        LocationEntry(
-            "The Northern Realms", region="Solana", lore_fragment="the-northern-realms"
-        ),
+        LocationEntry("The Northern Realms", region="Solana", lore_fragment="the-northern-realms"),
     ],
     regions=[
         RegionEntry("Aria"),
@@ -484,9 +464,7 @@ db.upsert_story(
     publication_date="2026-07-07",
     heroes=["chane", "vynnset"],
     npcs=[
-        NPCEntry(
-            name="Baalghor", species="Demon"
-        ),  # TODO: upcoming hero — re-classify once slug exists
+        NPCEntry(name="Baalghor", species="Demon"),  # TODO: upcoming hero — re-classify once slug exists
         NPCEntry(name="Kien", species="Human", status="Deceased"),
         NPCEntry(name="Ursur", species="Embra"),
     ],
@@ -511,3 +489,31 @@ db.upsert_story(
 )
 # TODO: group — Disciples of Pain
 # TODO: group — Runeblades
+
+db.upsert_story(
+    path="src/main-story/usurp-the-shadow-throne/agony-in-light.md",
+    story_type="main-story",
+    title="Agony in Light",
+    authors="Corey J. White, Rachel Rees, Aidan Kwasneski, Kasharn Rao, Edwin McRae",
+    artists="Olga Tereshenko, Dominik Mayer, Simon Dominic, Isuardi Therianto",
+    source_link="https://fabtcg.com/articles/agony-in-light/",
+    publication_date="2026-07-31",
+    heroes=["vynnset", "boltyn", "dorinthea", "levia"],
+    npcs=[
+        NPCEntry(name="Nasreth", species="Embra"),
+        NPCEntry(name="Blasmophet", species="Embra"),
+        NPCEntry(name="Bellona, the Wartune Herald", species="Herald"),
+        NPCEntry(name="Eirina", species="Human Cleric", status="Dead"),
+        NPCEntry(name="Sol"),
+    ],
+    locations=[
+        LocationEntry("Hand of Sol", region="Solana", lore_fragment="the-hand-of-sol"),
+        LocationEntry("i'Arathael"),
+    ],
+    regions=[
+        RegionEntry("Solana"),
+        RegionEntry("Demonastery"),
+    ],
+    weapons=["flail-of-agony", "raydn-duskbane"],
+    dry_run=True,
+)

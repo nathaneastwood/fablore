@@ -31,6 +31,7 @@
 |                 Beezy the Brash                |             Human            |                   Dead                  |
 |           Bellona, the Wartune Herald          |            Herald            |                 Unknown                 |
 |                      Biski                     |              Dog             |                 Unknown                 |
+|                   Blasmophet                   |             Embra            |                 Unknown                 |
 |                   Blind Boggy                  |            Unknown           |                 Unknown                 |
 |                     Bojani                     |             Human            |                   Dead                  |
 |                Braumeister Balen               |             Human            |                 Unknown                 |
@@ -185,6 +186,7 @@
 |                 Mutinous Maggie                |             Human            |                 Unknown                 |
 |                  Nailbit Nari                  |             Human            |                 Unknown                 |
 |                     Narakir                    |            Welkin            |                 Unknown                 |
+|                     Nasreth                    |             Embra            |                 Unknown                 |
 |                     Nestus                     |            Unknown           |                 Unknown                 |
 |             Ning, Kotori Moonseeker            |             Human            |                 Unknown                 |
 |                      Njeri                     |             Human            |                 Unknown                 |
