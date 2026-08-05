@@ -1,4 +1,4 @@
-# Lettes from the Beyond
+# Letters from the Beyond
 
 Vynnset,
 
