@@ -19,6 +19,7 @@ exits ``0`` when all checks pass.
 
 from __future__ import annotations
 
+import ast
 import re
 import sys
 from difflib import SequenceMatcher
@@ -255,9 +256,7 @@ def _check_ids(path: Path, id_columns: tuple[str, ...], label: str) -> list[str]
         return alerts
     for col in id_columns:
         if col not in fieldnames:
-            alerts.append(
-                f"{label}: column {col!r} missing in {path.name} (cannot validate)"
-            )
+            alerts.append(f"{label}: column {col!r} missing in {path.name} (cannot validate)")
     cols_present = [c for c in id_columns if c in fieldnames]
     if not cols_present or not rows:
         return alerts
@@ -265,10 +264,7 @@ def _check_ids(path: Path, id_columns: tuple[str, ...], label: str) -> list[str]
         for col in cols_present:
             val = (row.get(col) or "").strip()
             if not val:
-                alerts.append(
-                    f"{label}: {path.name} row {row_num}: empty {col!r} "
-                    f"(expected a generated ID)"
-                )
+                alerts.append(f"{label}: {path.name} row {row_num}: empty {col!r} " f"(expected a generated ID)")
     return alerts
 
 
@@ -286,9 +282,7 @@ def _id_set_from_column(path: Path, column: str) -> set[str]:
     fieldnames, rows = _pipe_rows(path)
     if column not in fieldnames:
         return set()
-    return {
-        (r.get(column) or "").strip() for r in rows if (r.get(column) or "").strip()
-    }
+    return {(r.get(column) or "").strip() for r in rows if (r.get(column) or "").strip()}
 
 
 def _check_stories_story_type_allowlist(stories_path: Path) -> list[str]:
@@ -350,16 +344,11 @@ def _check_fk_column(
     for row_num, row in enumerate(rows, start=2):
         fk = (row.get(fk_column) or "").strip()
         if fk and fk not in parent_ids:
-            alerts.append(
-                f"{label}: {child_path.name} row {row_num}: {fk_column}={fk!r} "
-                f"not in {parent_desc}"
-            )
+            alerts.append(f"{label}: {child_path.name} row {row_num}: {fk_column}={fk!r} " f"not in {parent_desc}")
     return alerts
 
 
-def _check_heroes_game_cardname_resolution(
-    canonical_path: Path, game_path: Path
-) -> list[str]:
+def _check_heroes_game_cardname_resolution(canonical_path: Path, game_path: Path) -> list[str]:
     """Flag ``heroes-game`` rows whose ``CardName`` does not map to the row ``CanonicalId``.
 
     Replays the slug resolution used by :func:`create_heroes_csv.generate_heroes_csv`
@@ -387,9 +376,7 @@ def _check_heroes_game_cardname_resolution(
     g_fields, game_rows = _pipe_rows(game_path)
     if not c_fields or not g_fields:
         return alerts
-    if not all(
-        col in c_fields for col in ("CanonicalId", "CanonicalSlug", "CanonicalHero")
-    ):
+    if not all(col in c_fields for col in ("CanonicalId", "CanonicalSlug", "CanonicalHero")):
         return alerts
     if "CardName" not in g_fields or "CanonicalId" not in g_fields:
         return alerts
@@ -481,16 +468,68 @@ def _check_hero_card_name_alias_slugs_in_canonical(canonical_path: Path) -> list
     fieldnames, rows = _pipe_rows(canonical_path)
     if not fieldnames or "CanonicalSlug" not in fieldnames:
         return alerts
-    slugs = {
-        (r.get("CanonicalSlug") or "").strip()
-        for r in rows
-        if (r.get("CanonicalSlug") or "").strip()
-    }
+    slugs = {(r.get("CanonicalSlug") or "").strip() for r in rows if (r.get("CanonicalSlug") or "").strip()}
     for alt_name_key, slug in load_canonical_hero_card_name_aliases().items():
         if slug not in slugs:
             alerts.append(
                 f"Heroes canonical: hero-card-name-aliases.csv maps "
                 f"{alt_name_key!r} to unknown CanonicalSlug {slug!r}"
+            )
+    return alerts
+
+
+def _check_descriptions_targets_exist(descriptions_path: Path) -> list[str]:
+    """Flag ``update_description`` calls in ``descriptions.py`` whose target does not exist.
+
+    ``update_description`` raises ``ValueError`` for an unknown entity. ``descriptions.py``
+    collects those failures rather than dying on the first one, but a stale name still means
+    that description silently never applies. A name left behind by an entity rename or a
+    duplicate-row cleanup can therefore sit unnoticed indefinitely — nothing else in the
+    pipeline reads ``descriptions.py``, so this is the only check that sees it.
+
+    Reads the CSVs rather than the database so it works on a fresh clone, where
+    ``fablore.db`` does not exist yet.
+
+    Args:
+        descriptions_path: Path to ``descriptions.py``.
+
+    Returns:
+        Alert strings, one per unresolvable target (empty when all resolve).
+    """
+    if not descriptions_path.is_file():
+        return []
+
+    csv_for_kind = {
+        "location": "locations.csv",
+        "monster": "monsters.csv",
+        "fauna": "fauna.csv",
+        "flora": "flora.csv",
+    }
+    known = {kind: _id_set_from_column(DATA / "csv" / filename, "Name") for kind, filename in csv_for_kind.items()}
+
+    alerts: list[str] = []
+    tree = ast.parse(descriptions_path.read_text(encoding="utf-8"))
+    for node in ast.walk(tree):
+        if not isinstance(node, ast.Call):
+            continue
+        if getattr(node.func, "attr", "") != "update_description":
+            continue
+        if len(node.args) < 2:
+            continue
+        kind_node, name_node = node.args[0], node.args[1]
+        if not isinstance(kind_node, ast.Constant) or not isinstance(name_node, ast.Constant):
+            continue
+        kind, name = kind_node.value, name_node.value
+        if kind not in csv_for_kind:
+            alerts.append(
+                f"descriptions.py line {node.lineno}: unknown entity type {kind!r} "
+                f"(expected one of {sorted(csv_for_kind)})"
+            )
+        elif name not in known[kind]:
+            alerts.append(
+                f"descriptions.py line {node.lineno}: {kind} {name!r} is not in "
+                f"{csv_for_kind[kind]}, so this description is never applied. Check the "
+                "spelling, or register the entity via data-entry.py first."
             )
     return alerts
 
@@ -690,9 +729,7 @@ def collect_alerts() -> list[str]:
         )
 
     weapons_canonical_path = DATA / "csv/weapons-canonical.csv"
-    canonical_weapon_ids = _id_set_from_column(
-        weapons_canonical_path, "CanonicalWeaponId"
-    )
+    canonical_weapon_ids = _id_set_from_column(weapons_canonical_path, "CanonicalWeaponId")
     if canonical_weapon_ids:
         alerts.extend(
             _check_fk_column(
@@ -718,9 +755,7 @@ def collect_alerts() -> list[str]:
     equipment_printings_path = DATA / "csv/equipment-printings.csv"
     equipment_canonical_path = DATA / "csv/equipment-canonical.csv"
     equipment_game_ids = _id_set_from_column(equipment_game_path, "EquipmentGameId")
-    canonical_equipment_ids = _id_set_from_column(
-        equipment_canonical_path, "CanonicalEquipmentId"
-    )
+    canonical_equipment_ids = _id_set_from_column(equipment_canonical_path, "CanonicalEquipmentId")
     if canonical_equipment_ids:
         alerts.extend(
             _check_fk_column(
@@ -790,31 +825,13 @@ def collect_alerts() -> list[str]:
 
     alerts.extend(_check_location_lore_fragments(DATA / "csv/locations.csv"))
     alerts.extend(
-        _check_location_lore_fragments_match_headings(
-            DATA / "csv/locations.csv", DATA / "csv/regions.csv", SRC
-        )
+        _check_location_lore_fragments_match_headings(DATA / "csv/locations.csv", DATA / "csv/regions.csv", SRC)
     )
 
-    alerts.extend(
-        _check_id_hash_drift(
-            DATA / "csv/npcs.csv", "CharacterId", "Name", lore_character_id, "npcs.csv"
-        )
-    )
-    alerts.extend(
-        _check_id_hash_drift(
-            DATA / "csv/monsters.csv", "MonsterId", "Name", monster_id, "monsters.csv"
-        )
-    )
-    alerts.extend(
-        _check_id_hash_drift(
-            DATA / "csv/fauna.csv", "FaunaId", "Name", fauna_id_from_name, "fauna.csv"
-        )
-    )
-    alerts.extend(
-        _check_id_hash_drift(
-            DATA / "csv/flora.csv", "FloraId", "Name", flora_id, "flora.csv"
-        )
-    )
+    alerts.extend(_check_id_hash_drift(DATA / "csv/npcs.csv", "CharacterId", "Name", lore_character_id, "npcs.csv"))
+    alerts.extend(_check_id_hash_drift(DATA / "csv/monsters.csv", "MonsterId", "Name", monster_id, "monsters.csv"))
+    alerts.extend(_check_id_hash_drift(DATA / "csv/fauna.csv", "FaunaId", "Name", fauna_id_from_name, "fauna.csv"))
+    alerts.extend(_check_id_hash_drift(DATA / "csv/flora.csv", "FloraId", "Name", flora_id, "flora.csv"))
     alerts.extend(
         _check_id_hash_drift(
             DATA / "csv/regions.csv",
@@ -824,6 +841,7 @@ def collect_alerts() -> list[str]:
             "regions.csv",
         )
     )
+    alerts.extend(_check_descriptions_targets_exist(DATA / "descriptions.py"))
 
     return alerts
 
@@ -930,26 +948,10 @@ def collect_warnings() -> list[str]:
             group_column="RegionId",
         )
     )
-    warnings.extend(
-        _check_near_duplicate_names(
-            DATA / "csv/npcs.csv", "CharacterId", "Name", "npcs.csv"
-        )
-    )
-    warnings.extend(
-        _check_near_duplicate_names(
-            DATA / "csv/monsters.csv", "MonsterId", "Name", "monsters.csv"
-        )
-    )
-    warnings.extend(
-        _check_near_duplicate_names(
-            DATA / "csv/fauna.csv", "FaunaId", "Name", "fauna.csv"
-        )
-    )
-    warnings.extend(
-        _check_near_duplicate_names(
-            DATA / "csv/flora.csv", "FloraId", "Name", "flora.csv"
-        )
-    )
+    warnings.extend(_check_near_duplicate_names(DATA / "csv/npcs.csv", "CharacterId", "Name", "npcs.csv"))
+    warnings.extend(_check_near_duplicate_names(DATA / "csv/monsters.csv", "MonsterId", "Name", "monsters.csv"))
+    warnings.extend(_check_near_duplicate_names(DATA / "csv/fauna.csv", "FaunaId", "Name", "fauna.csv"))
+    warnings.extend(_check_near_duplicate_names(DATA / "csv/flora.csv", "FloraId", "Name", "flora.csv"))
     return warnings
 
 
@@ -979,9 +981,7 @@ def main() -> int:
             file=sys.stderr,
         )
         return 1
-    print(
-        "validate_data: OK (no empty required IDs or broken FK links in checked files)."
-    )
+    print("validate_data: OK (no empty required IDs or broken FK links in checked files).")
     return 0
 
 

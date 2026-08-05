@@ -14,6 +14,29 @@ from db import Database
 
 db = Database("src/data/fablore.db")
 
+# update_description() raises ValueError when the named entity does not exist. Because
+# this file is a flat sequence of top-level calls with no error handling, an uncaught
+# raise aborts the interpreter on that line and silently skips every call below it — so
+# a single stale name (left behind by a rename or a duplicate-row cleanup) can disable
+# most of the file without anything obviously failing. Collect failures instead, so a
+# bad entry costs only itself, then report them together and exit non-zero.
+#
+# validate_data.py checks these targets statically, which is what should catch a stale
+# name first; this is the backstop for when the script is run directly.
+_failures: list[tuple[str, str, str]] = []
+_update_description = db.update_description
+
+
+def _collecting_update_description(entity_type: str, name: str, text: str) -> None:
+    """Apply a description, recording rather than raising when the entity is missing."""
+    try:
+        _update_description(entity_type, name, text)
+    except ValueError as exc:
+        _failures.append((entity_type, name, str(exc)))
+
+
+db.update_description = _collecting_update_description
+
 # ---------------------------------------------------------------------------
 # Monsters
 # ---------------------------------------------------------------------------
@@ -60,16 +83,10 @@ db.update_description(
     "The Azeri are elusive and mysterious, lingering in the innermost depths of the Savage Lands.",
 )
 db.update_description("fauna", "Blindseal", "Blubbery.")
-db.update_description(
-    "fauna", "Cursed Dhani Warriors", "Scorpion tails, claws and human head."
-)
+db.update_description("fauna", "Cursed Dhani Warriors", "Scorpion tails, claws and human head.")
 db.update_description("fauna", "Cyanatu", "A rare sea snake.")
-db.update_description(
-    "fauna", "Desert Fox", "The creature's mouth warped by two large boar-like tusks."
-)
-db.update_description(
-    "fauna", "Flare Deer", "Its scent glands swollen with massive oozing growths."
-)
+db.update_description("fauna", "Desert Fox", "The creature's mouth warped by two large boar-like tusks.")
+db.update_description("fauna", "Flare Deer", "Its scent glands swollen with massive oozing growths.")
 db.update_description("fauna", "Giant Drift Stingers", "Scorpion.")
 db.update_description("fauna", "Gossamhares", "Skittish creatures.")
 db.update_description("fauna", "Gupler", "Moon-shaped.")
@@ -147,8 +164,7 @@ db.update_description(
 db.update_description(
     "fauna",
     "Fianna",
-    "Tall creature, with long flowing tails, tough skin, and massive antlers crowning the top of"
-    " their head.",
+    "Tall creature, with long flowing tails, tough skin, and massive antlers crowning the top of" " their head.",
 )
 db.update_description(
     "fauna",
@@ -195,9 +211,7 @@ db.update_description(
 # Flora
 # ---------------------------------------------------------------------------
 
-db.update_description(
-    "flora", "Blissberry Bush", "Produces small delicious berry fruits."
-)
+db.update_description("flora", "Blissberry Bush", "Produces small delicious berry fruits.")
 db.update_description(
     "flora",
     "Haldor",
@@ -223,8 +237,7 @@ db.update_description("location", "Deshvahan", "A city in Volcor.")
 db.update_description(
     "location",
     "Dimenxxional Gateway",
-    "The Demonastery's bridge to i'Arathael, through which monstrous hordes are drawn forth into"
-    " Rathe.",
+    "The Demonastery's bridge to i'Arathael, through which monstrous hordes are drawn forth into" " Rathe.",
 )
 db.update_description(
     "location",
@@ -244,8 +257,7 @@ db.update_description(
 db.update_description(
     "location",
     "The Flow",
-    "A wild, unpredictable force of nature in Aria, the Flow shapes the landscape around it as it"
-    " ebbs and flows.",
+    "A wild, unpredictable force of nature in Aria, the Flow shapes the landscape around it as it" " ebbs and flows.",
 )
 db.update_description(
     "location",
@@ -268,14 +280,7 @@ db.update_description(
     "A legendary city said to have survived the Dhani empire's collapse, hiding its lost magic and"
     " treasures in the most perilous ruins.",
 )
-db.update_description(
-    "location",
-    "Ampitheatre",
-    "In the city proper, a space for ceremonies, public events and proclamations.",
-)
-db.update_description(
-    "location", "Ankomeido", "Home to the misfits and malcontents of Misteria."
-)
+db.update_description("location", "Ankomeido", "Home to the misfits and malcontents of Misteria.")
 db.update_description("location", "Arcturos", "Where Oscilio was embedded.")
 db.update_description("location", "Ashvahan", "Capital of Volcor.")
 db.update_description("location", "Audra", "Village.")
@@ -301,12 +306,10 @@ db.update_description(
 )
 db.update_description(
     "location",
-    "Ceremionial Chamber",
+    "Ceremonial Chamber",
     "In the city proper, location of the Awakening ceremony.",
 )
-db.update_description(
-    "location", "Charred Range", "Mountains separating Solana and Volcor."
-)
+db.update_description("location", "Charred Range", "Mountains separating Solana and Volcor.")
 db.update_description("location", "Chrome Caverns", "The desert's edge.")
 db.update_description("location", "Coralysi", "Home of the merfolk. Floating gardens.")
 db.update_description("location", "Death's Knell", "The Ocean.")
@@ -342,12 +345,8 @@ db.update_description(
     "Freakshow Territory",
     "Deep in the Pits, composed of abandoned mineshafts.",
 )
-db.update_description(
-    "location", "Golden Chariot", "Inn in the city proper, owned by Minerva."
-)
-db.update_description(
-    "location", "Golden Port", "Built in the ruins of the Dhani Empire."
-)
+db.update_description("location", "Golden Chariot", "Inn in the city proper, owned by Minerva.")
+db.update_description("location", "Golden Port", "Built in the ruins of the Dhani Empire.")
 db.update_description("location", "Gougemoor", "The edge of the Savage Lands.")
 db.update_description("location", "Grayhollow", "Kuraghan safe port.")
 db.update_description("location", "Hazeltown", "Village.")
@@ -377,9 +376,7 @@ db.update_description(
     "Mugenshi Village",
     "Hidden village in the Mugenshi Gorge, led by Katsu.",
 )
-db.update_description(
-    "location", "Nasu-ka Teahouse", "Nuu's teahouse by Mistcloak Lake."
-)
+db.update_description("location", "Nasu-ka Teahouse", "Nuu's teahouse by Mistcloak Lake.")
 db.update_description(
     "location",
     "Numbskull Territory",
@@ -423,13 +420,10 @@ db.update_description("location", "The Leaf House", "Restaurant run by Jemjang."
 db.update_description(
     "location",
     "The Maela",
-    "Part of the Everfest Carnival, home to fortune tellers, seers, oracles, enchantresses,"
-    " and conjurers.",
+    "Part of the Everfest Carnival, home to fortune tellers, seers, oracles, enchantresses," " and conjurers.",
 )
 db.update_description("location", "The Northern Realms", "Region of Solana.")
-db.update_description(
-    "location", "The Oasis", "Water from Misteria, lava from Mt. Volcor."
-)
+db.update_description("location", "The Oasis", "Water from Misteria, lava from Mt. Volcor.")
 db.update_description(
     "location",
     "The Plazas",
@@ -441,9 +435,7 @@ db.update_description(
     "The Silvaris",
     "A series of beautiful public gardens surrounding the inner sanctum of Solana.",
 )
-db.update_description(
-    "location", "The Solarium", "The inner sanctum, home to the Light of Sol."
-)
+db.update_description("location", "The Solarium", "The inner sanctum, home to the Light of Sol.")
 db.update_description(
     "location",
     "The Valdur",
@@ -477,3 +469,18 @@ db.update_description(
     "The Shadow Crypts",
     "Dim halls within the Demonastery where a black mold containing warped microcosms of shifting light grows.",
 )
+
+# ---------------------------------------------------------------------------
+# Report
+# ---------------------------------------------------------------------------
+
+if _failures:
+    print(f"descriptions.py: {len(_failures)} description(s) could not be applied:", file=sys.stderr)
+    for _entity_type, _name, _message in _failures:
+        print(f"  {_entity_type} {_name!r}: {_message}", file=sys.stderr)
+    print(
+        "\nEvery other description was applied. A missing entity usually means the name here is "
+        "stale — check the spelling against the CSV, or register the entity in data-entry.py first.",
+        file=sys.stderr,
+    )
+    sys.exit(1)
