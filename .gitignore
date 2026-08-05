@@ -25,3 +25,4 @@ src/data/fablore.db
 .claude
 CLAUDE.md
 plans/
+.envrc
