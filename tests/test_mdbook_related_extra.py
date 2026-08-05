@@ -125,6 +125,31 @@ def test_build_character_stories_fragment_returns_story_card(tmp_path: Path) -> 
     assert "main-story/foo.md" in result
 
 
+def test_build_character_stories_fragment_appends_hero_junction_fragment(
+    tmp_path: Path,
+) -> None:
+    """A hero's junction fragment deep-links the card to that story's section."""
+    src = tmp_path / "src"
+    story_file = src / "digital-tiles" / "tile.md"
+    story_file.parent.mkdir(parents=True)
+    story_file.write_text("# Tile\n\n### Some Card", encoding="utf-8")
+
+    hero_page = "heroes-of-rathe/foo-about.md"
+    maps = _maps(
+        hero_canonical_to_stories={"CN1": frozenset(["S1"])},
+        story_id_to_key={"S1": "digital-tiles/tile.md"},
+        story_id_to_title={"S1": "Tile"},
+        hero_junction_fragment={("S1", "CN1"): "some-card"},
+    )
+    result = build_character_stories_fragment(
+        maps,
+        chapter_src_path=hero_page,
+        src_root=src,
+        hero_src_map={hero_page: frozenset(["CN1"])},
+    )
+    assert "digital-tiles/tile.md#some-card" in result
+
+
 def test_build_character_stories_fragment_npc_page(tmp_path: Path) -> None:
     """NPC page shows cards for stories via npc_src_to_char_ids."""
     src = tmp_path / "src"

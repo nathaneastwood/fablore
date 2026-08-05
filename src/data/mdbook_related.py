@@ -287,12 +287,14 @@ def build_character_stories_fragment(
         HTML string, or empty if no resolvable story links exist.
     """
     chapter_posix = Path(chapter_src_path).as_posix()
+    chapter_hero_cids = hero_src_map.get(chapter_posix, frozenset())
+    chapter_npc_cids = maps.npc_src_to_char_ids.get(chapter_posix, frozenset())
     story_ids: set[str] = set()
 
-    for cid in hero_src_map.get(chapter_posix, frozenset()):
+    for cid in chapter_hero_cids:
         story_ids |= maps.hero_canonical_to_stories.get(cid, frozenset())
 
-    for cid in maps.npc_src_to_char_ids.get(chapter_posix, frozenset()):
+    for cid in chapter_npc_cids:
         story_ids |= maps.npc_char_to_stories.get(cid, frozenset())
 
     if not story_ids:
@@ -310,7 +312,18 @@ def build_character_stories_fragment(
                 file=sys.stderr,
             )
             continue
-        href = html.escape(relative_md_href(chapter_src_path, key))
+        frag = ""
+        for cid in chapter_hero_cids:
+            frag = maps.hero_junction_fragment.get((sid, cid), "")
+            if frag:
+                break
+        if not frag:
+            for cid in chapter_npc_cids:
+                frag = maps.npc_junction_fragment.get((sid, cid), "")
+                if frag:
+                    break
+        rel = relative_md_href(chapter_src_path, key)
+        href = html.escape(f"{rel}#{frag}" if frag else rel)
         story_cards.append(("Story", title, "", href))
 
     if not story_cards:
