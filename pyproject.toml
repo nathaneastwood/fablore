@@ -1,0 +1,5 @@
+[tool.black]
+line-length = 120
+
+[tool.coverage.run]
+data_file = "/tmp/fablore.coverage"
