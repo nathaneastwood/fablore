@@ -2,7 +2,7 @@
 
 The full moon turned the water of the mountain tarn to molten silver.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/mst-story-1.webp" alt="mst-story-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/mst-story-1.webp" alt="mst-story-1" class="center">
 
 Nuu laughed as her perfectly reflected mouth sprouted buck teeth, and rabbit ears sprang up from the top of her head.
 
@@ -100,7 +100,7 @@ The scroll began to unfurl. Nuu understood what that meant, and what it would ta
 
 The Ledger of Ancestry shook her head as she raised her hands and drew sigils of moonlight in the air.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/mst-story-2.webp" alt="mst-story-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/mst-story-2.webp" alt="mst-story-2" class="center">
 
 "All that I was, I gave to the moon. I need to remember but one thing," she answered. "My duty."
 
@@ -132,7 +132,7 @@ She stared at her fingertip in wonder.
 
 Then, the Ledger of Ancestry turned and walked away, leaving the concerns of Mistcloak behind her. Together, she and her scroll ascended the path that would return them to the Eternal Lunar Temple.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/mst-story-3.webp" alt="mst-story-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/mst-story-3.webp" alt="mst-story-3" class="center">
 
 There, she would regain her solace.
 
@@ -148,7 +148,7 @@ Not being beloved by Mistcloak for his shrewd business practices, the tailor's f
 
 Situated on a ledge overlooking Mistcloak Gully, the cemetery allowed Zen the quiet needed to reflect on his strange encounter with Nuu, and the surprise appearance of the Ledger of Ancestry.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/mst-story-4.webp" alt="mst-story-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/mst-story-4.webp" alt="mst-story-4" class="center">
 
 Though his teachers had spoken of this mystical figure, he had never seen her for himself. Nor would he have expected her to allow such a troublesome spirit as Nuu to escape, yet the encounter reminded him of an old folktale, told by his most venerable sensei to Zen before he departed the grounds for good.
 
@@ -182,6 +182,6 @@ He dare not flatter himself by thinking he was the hermit of the tale. More like
 
 With the fog rolling over the ridgeline at his back, Zen descended into Mistcloak Gully.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/mst-story-5.webp" alt="mst-story-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/mst-story-5.webp" alt="mst-story-5" class="center">
 
 He would rest there for the night, then at the break of a new day, would go wherever the chi might summon him.

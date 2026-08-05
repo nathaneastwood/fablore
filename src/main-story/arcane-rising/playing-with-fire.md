@@ -6,11 +6,11 @@ In exposing the threat before the Chamber of the Dragon, Kano manages to gain th
 
 # Playing with Fire
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-1.webp" alt="kano-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/kano-1.webp" alt="kano-1" class="center">
 
 The combined nervous chatter of fourty young wizards was almost deafening, bouncing off the walls in a way that made his ears ring. Ryo looked around the room, gazing at the tense expressions of the other students gathered nearby. One of the youngest in the room looked as if she was going to pass out, her face pale with anxiety, small hands trembling as she teased a flame into existence between her fingers.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-2.webp" alt="kano-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/kano-2.webp" alt="kano-2" class="center">
 
 Ryo ran a hand over his already immaculate robes, straightening the fabric with a small frown. Despite his age, he was already wearing the apophis hairpin that marked him as the Hideshi heir, its obsidian scales gleaming in the firelight. Noting the curious stare of a couple of older students, Ryo dipped his head in greeting, watching as their gaze landed on the hairpin. One of them turned slightly to whisper in the other's ear, hiding the movement of his lips behind one hand.
 
@@ -36,7 +36,7 @@ Ryo startled at the feeling of something hitting his ankle, glancing over to the
 
 Just as Ryo thought the other boy had given up, he felt a hand slide into his pocket .The boy withdrew, quietly leaning back into his usual spot. After a moment, Ryo reached into his pocket with one hand, withdrawing a small slip of parchment. Slowly, he turned to look over his shoulder, glancing at the other student.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-3.webp" alt="kano-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/kano-3.webp" alt="kano-3" class="center">
 
 "Read it." The whisper was just barely audible, but even watching the boy's face, Ryo wasn't sure he hadn't seen his lips move.
 
@@ -80,7 +80,7 @@ The dragon circled him in one massive loop, weaving through the air, illuminatin
 
 Ryo heard several of the other students gasp behind him, and turned slightly to see the Lord Wizard drawing closer, something unreadable barely visible within his carefully blank expression.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-4.webp" alt="kano-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/kano-4.webp" alt="kano-4" class="center">
 
 "Well done, Kano. Good work." After a long moment, the Lord Wizard finally gave Kano a simple nod before turning back to the other students, continuing on to inspect those remaining.
 

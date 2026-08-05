@@ -20,7 +20,7 @@ At this, a guttural laugh emanated from deeper in the cavern. "So, you have chos
 
 Ira spun, the voice behind her. A towering figure emerged from the shadows. Standing several feet taller than Ira's biggest ninja, the creature held an ornate claymore in its corpse-gray hands. Upon its head, a mass of tendrils writhed like maggots on rotting meat, framing a rictus death mask - eyes as black as a grave.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/to-halt-the-dark-1.webp" alt="to-halt-the-dark-1" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/to-halt-the-dark-1.webp" alt="to-halt-the-dark-1" class="center" />
 
 One of her ninjas had crept up the wall like a beetle, hoping to flank their foe. Now she leapt from her perch, Kodachi poised to strike. Runes flared along the enemy's sword as its wielder pivoted with inhuman speed to cleave the woman from the air.
 
@@ -46,7 +46,7 @@ Ira bent down and picked up the skull, one finger through each of its eye socket
 
 Ira wiped a rag along Edge of Autumn's full length, cleaning dried gore from the blade. The sword had been in the Ikaru for generations, brought with them from across the sea. Some said it was a sliver of devastation. That it splintered away from the cataclysm that took their homeland. The sacred okana, written upon her bandages by the Blind Ferryman of Skylark Peak, acted as wards against the weapon's withering ways. Anyone touched by Autumn seldom saw another season.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/to-halt-the-dark-2.webp" alt="to-halt-the-dark-2" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/to-halt-the-dark-2.webp" alt="to-halt-the-dark-2" class="center" />
 
 Shiro returned from burying their dead and settled with a groan by the campfire.
 
@@ -70,7 +70,7 @@ Ira glanced across the fire at him, his eyes heavy with concern and compassion. 
 
 "People are screaming all around me, fires burn across the village, and shapeless monsters stalk the shadows, killing everyone they catch. I'm there with Jing. I don't know where Xilin is. Perhaps he is already dead? Jing and I are adults in the dream, but nothing else is different. We're still overwhelmed, still powerless."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/to-halt-the-dark-3.webp" alt="to-halt-the-dark-3" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/to-halt-the-dark-3.webp" alt="to-halt-the-dark-3" class="center" />
 
 She had seen Jing only once in recent years, the lower half of his face hidden behind the mask of the Aui's Scales. But she would recognize those eyes anywhere. The same eyes as their father. [She grimaced thinking of him and his betrayal](../crucible-of-war/edge-of-autumn.md).
 
@@ -96,7 +96,7 @@ Ira stole away from camp before dawn, taking a longma for the arduous journey fr
 
 She was almost home.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/to-halt-the-dark-4.webp" alt="to-halt-the-dark-4" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/to-halt-the-dark-4.webp" alt="to-halt-the-dark-4" class="center" />
 
 Ropes criss-crossed the mountains and valleys, connecting the region and its people, even those of the hidden villages. She could find a quicker route to the House of Blossoms along rope and path, but it seemed important she follow the trail of that dark tide which had swept through Misteria all those years ago.
 
@@ -140,13 +140,13 @@ At that, a loud thud rattled the door in its frame. Ira drew her sword in antici
 
 A repulsive creature emerged through the opening, resembling a mass of human bodies held together by some monstrous cancer, an enormous eye in its center above a slavering mouth. A Puppeteer Beast. Ira had only read of these creatures.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/to-halt-the-dark-5.webp" alt="to-halt-the-dark-5" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/to-halt-the-dark-5.webp" alt="to-halt-the-dark-5" class="center" />
 
 Insectile limbs around its mouth unfolded, each one reaching for her as the monster rushed forward. Ira somersaulted back away from its attack and swung her blade in mid-air, slicing through the beast's jagged arms. They began to wither, then detached, falling to the floor. More limbs emerged to take their place, the graveyard inside its flesh filled with countless bones for it to use and discard.
 
 It mattered not. She would plunge her blade deep into its eye, pierce whatever passed for a brain inside that beast. It would die.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/to-halt-the-dark-6.webp" alt="to-halt-the-dark-6" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/to-halt-the-dark-6.webp" alt="to-halt-the-dark-6" class="center" />
 
 She ran up along the wall and pushed off, dropping like a falcon onto her prey. Yet even as she descended, a wet body sagged out of the monster's gaping mouth. Xilin.
 
@@ -172,7 +172,7 @@ A whistle of steel cut through air. A blade punched into Xilin's face, splitting
 
 Another voice. Another brother. This one as alive as Xilin was long dead.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/to-halt-the-dark-7.webp" alt="to-halt-the-dark-7" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/to-halt-the-dark-7.webp" alt="to-halt-the-dark-7" class="center" />
 
 He perched in the charred rafters overhead, dressed in the garb of the Aui's Scales, but without the mask covering nose and mouth. Jing jumped down, landing beside her, and offered a hand. She ignored it and got to her feet.
 
@@ -238,7 +238,7 @@ The beast's remaining puppets surged forward. Jing leapt to his feet, and togeth
 
 Shiro raced into the room, the Crimson Haze behind him. They threw themselves into the fray, cutting down the monster's puppets.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/to-halt-the-dark-8.webp" alt="to-halt-the-dark-8" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/to-halt-the-dark-8.webp" alt="to-halt-the-dark-8" class="center" />
 
 Freed, Ira howled in wordless fury and charged at the Puppeteer. In her path, the creature disgorged one more body. A girl, hands raised, as if in surrender. It was herself, delicate as a blossom, the tender age she had been on the Night of the Dark Tide.
 
@@ -300,4 +300,4 @@ But not yet.
 
 The Crimson Haze had shadows to defeat. And defeat them they would, to halt the dark.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/to-halt-the-dark-9.webp" alt="to-halt-the-dark-9" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/to-halt-the-dark-9.webp" alt="to-halt-the-dark-9" class="center" />

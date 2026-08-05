@@ -6,7 +6,7 @@ Slowly, Viserai opened his eyes.
 
 His body was slow to respond as he forced himself into a sitting position, reaching toward the dim, flickering light of the Nebula Blade, lying nearby. Mind warped from years of his master's experimentation, he was accustomed to the disoriented confusion that came with memory loss, and began to carefully sort through his fragmented memories.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-6.webp" alt="viserai-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/viserai-6.webp" alt="viserai-6" class="center">
 
 _Driving his blade into the solid earth... an oath. The entrance hall. An army. The creatures. Whisper... a... bargain?_
 
@@ -30,7 +30,7 @@ The Arknight shard flared brighter and brighter as he tore through the hall, bon
 
 _Unleash._
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-7.webp" alt="viserai-7" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/viserai-7.webp" alt="viserai-7" class="center">
 
 Blood pooled about his feet, collecting in shallow channels carved into the stone floor. As it circulated through the room, a series of sigils began to illuminate, one by one, spellwork activating beneath his feet. Aether began to rise, the air almost seeming to vibrate as arcane energy flooded through the room. Viserai's knees buckled beneath him as the shard reacted to the aether in the air, activating the runework carved into his skin.
 
@@ -46,7 +46,7 @@ Chains shot out from the floor, wrapping tightly around Viserai's wrists, coilin
 
 Faces emerged from the shadows around him, each bearing an eerie, twisted grin. They drew closer, the light revealing the unnatural pallor to their skin, marred by darker patches of rot and decay. The acrid tang of necrosis flooded the room, mingling with the overwhelming metallic scent of fresh blood.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-8.webp" alt="viserai-8" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/viserai-8.webp" alt="viserai-8" class="center">
 
 Viserai turned his head slightly toward them, struggling to regain control as the ritual chipped away at his will. Nine graying faces stared back at him, their expressions drawn and tense in the pale light. As he began to struggle, he saw their eyes widen, their hushed voices rising in a panicked crescendo.
 
@@ -56,13 +56,13 @@ All at once, his senses were overwhelmed, as if there were a thousand voices sho
 
 The world tilted beneath him, equilibrium shifting to accommodate the sudden influx of energy. Bowed beneath the strain, Viserai felt the acute burn of his arcane bonds, lances of pain piercing through to his very bones. The Arknight was no stranger to pain. Refocusing, he pushed past it, ignoring the icy bite of aether. With one great heave, Viserai pulled at his connection to the arcane, calling on the power of the Arknight shard, calling on the energy flowing through to him from beyond... and broke free.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-9.webp" alt="viserai-9" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/viserai-9.webp" alt="viserai-9" class="center">
 
 As the metal shards fell to the ground, Viserai surged to his feet, flinging out one arm to catch the nearest cultist by the throat. The man never had a chance to react, throat bared to the sharp edges of Viserai's gauntlet. With the aether flowing through his veins, Viserai barely needed to flex his fingers; the cultist was decapitated with startling efficiency, his head rolling to a stop at the Arknight's feet.
 
 Tearing the spine from the cultist's fresh corpse, Viserai tapped into the newfound connection, drawing on the images playing out in his mind's eye. He cracked the sinewy structure like a whip, channeling aether along its length, watching with morbid fascination as dark material sprouted from the remnants of the cultist's spine. Arcane energy flared from between the vertebrae, forming the basis of a new blade; one of Viserai's own making. Fresh blood dripped from its honed edge, an arcane core gleaming through the marred, inky flesh which formed the body of the blade, gleaming a deep amethyst in the unnatural light.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-10.webp" alt="viserai-10" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/viserai-10.webp" alt="viserai-10" class="center">
 
 The cultists skittered backward, their wide-eyed gazes fixed firmly on Viserai. Turning toward the silhouette of the window-frame, he raised one hand toward the rippling surface of the glass, and reached for the thread of aether he could sense trickling through.
 
@@ -78,4 +78,4 @@ Turning away from the frame, Viserai looked out over the small crowd which had g
 
 **_The doorway is opened. Behold, íArathael._**
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-11.webp" alt="viserai-11" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/viserai-11.webp" alt="viserai-11" class="center">

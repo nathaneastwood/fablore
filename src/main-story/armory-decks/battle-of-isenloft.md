@@ -18,7 +18,7 @@ An enemy head appeared atop the parapet. Jarl reached over and wrapped his gaunt
 
 He strode on, seeking the next trouble spot. Wayfarers, wizards, Rosetta, and guardians shrank out of his way. Whether Isenloft veterans or fresh-faced trainees from Enion, all knew the reputation of Jarl Vetreiði.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/battle-of-isenloft-1.webp" alt="battle-of-isenloft-1" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/battle-of-isenloft-1.webp" alt="battle-of-isenloft-1" class="center" />
 
 "Never get between Jarl and something he means to kill," he'd overheard Oldhim say to a batch of new guardians.
 
@@ -34,7 +34,7 @@ The Old Ones answered the attack with an otherworldly howl that echoed across th
 
 From the observatory at Isenloft's summit, wizards used the Isenhowl Weathervane to burst the Old Ones' meaty machines with jagged comets of ice. Jarl's keen eyes picked out Syberys, resplendent in his white robes, gesticulating wildly as he split the air with lightning, targeting the membrane-winged monsters that preyed upon the citadel's loftiest recesses. Ravenirs exploded in clouds of spark and sinew, but some made it through to pluck mages from the tower, only to drop them to their doom upon the ragged rocks below.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/battle-of-isenloft-4.webp" alt="battle-of-isenloft-4" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/battle-of-isenloft-4.webp" alt="battle-of-isenloft-4" class="center" />
 
 Jarl looked out over the Old Ones' horde. A sea of enslaved life from all across Rathe. The flesh, blood and bone of a continent's creatures, consumed and regurgitated into forms beyond even the most twisted of imaginations.
 
@@ -68,7 +68,7 @@ Only Oldhim continued to watch. Only Oldhim saw the first geyser of gore from Gl
 
 As if to punctuate his cry, a bloodied hook burst through the immense monster's skin. With a wet ripping of sinew and hide, a great tear appeared, and out spilled a ragged figure drenched in guts and filth. Though his armor was bent and buckled, his cloak in shreds, Jarl Vetreiði rose proudly, alive and resolute while the surrounding ravenirs fled their now toppling giant. It hit the ground with such force that the earth cracked, the impact sending the Old Ones' minions tumbling into the chasm.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/battle-of-isenloft-2.webp" alt="battle-of-isenloft-2" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/battle-of-isenloft-2.webp" alt="battle-of-isenloft-2" class="center" />
 
 A cheer swept across the walls of Isenloft, a wave of hope inspired by this singular moment of survival. Jarl himself trudged through the wet wreckage he had wrought, weary yet satisfied as he admired his own handiwork.
 
@@ -100,7 +100,7 @@ He looked to Galcia, saw the white-cold that now shone through the smothering bl
 
 The concussion blew him off his feet. He planted his polearm and twisted around to meet a wall of white. Ravenirs froze solid where they stood. Glutgorr, first one, then the other, reeled back from the blizzard, only to topple and shatter like porcelain statues.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/battle-of-isenloft-3.webp" alt="battle-of-isenloft-3" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/battle-of-isenloft-3.webp" alt="battle-of-isenloft-3" class="center" />
 
 Jarl couldn't move, his armor locked in place, his flesh growing heavier with every passing moment. His lips stiffened into a scowl, and in his cooling brain, huddled one final thought.
 

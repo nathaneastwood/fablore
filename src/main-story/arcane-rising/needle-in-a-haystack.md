@@ -2,7 +2,7 @@
 
 From her seat on the edge of the rooftop, Dash looked down upon the rooftops of Coppertown, through to the thick layer of smog that separated the Sprawl from the rest of Metrix. In the distance, the automatons of Zinnia Park moved and shifted on their pedestals, dancing against the faint light of the Gigadrill Elevator. Dash watched as a ball of molten plasma dropped from the top of the elevator, plummeting to the mining pits far below.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-5.webp" alt="dash-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/dash-5.webp" alt="dash-5" class="center">
 
 "Oi. You listenin', or wot?" Ricky's eyebrows furrowed, nose wrinkling as Dash finally looked in his direction.
 
@@ -30,7 +30,7 @@ Dash blinked, raising an eyebrow.
 
 "You always say that. You could make stuff, you know - you'd be good at it!" Dash tossed back her hair, grinning. "I made fifteen credits a couple days ago. Sold one of my gadgets in the Markets."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-6.webp" alt="dash-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/dash-6.webp" alt="dash-6" class="center">
 
 Ricky chuckled, shaking his head.
 
@@ -42,7 +42,7 @@ Ricky chuckled, shaking his head.
 
 "Like what?"
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-7.webp" alt="dash-7" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/dash-7.webp" alt="dash-7" class="center">
 
 "Your suit looks like summat you found in a junkyard."
 
@@ -170,7 +170,7 @@ From Beacon to Zesca's, the Teklo database to Voxx press, nobody seemed to have 
 
 That night, over dinner, her parents argued about a Teklo scientist's investigation into the boundary layer effect, and their development of a bladeless turbine.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-8.webp" alt="dash-8" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/dash-8.webp" alt="dash-8" class="center">
 
 "Everyone knows mechanical vapor recompression is much more efficient," Dash muttered, picking idly at her dinner with a frown. Finally, her parents turned to look at her, her father raising an eyebrow. Before they could launch into further discussion of the matter, she cleared her throat.
 

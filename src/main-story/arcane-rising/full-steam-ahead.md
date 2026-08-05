@@ -16,7 +16,7 @@ The pounding in his head was what woke him up, slowly registering the familiar s
 
 A tall man with a patchy beard kneeled in front of him, gaze dark as he stared blankly at Ricky.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-9.webp" alt="dash-9" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/dash-9.webp" alt="dash-9" class="center">
 
 "Mornin' sunshine. Y'been sleepin' for ages." He scratched his beard idly, squinting. "Wasn' sure if ya'd wake up."
 
@@ -56,7 +56,7 @@ Light travelled along the surface as the device came to life, drawing on the pow
 
 "Okay, little buddy!" Dash grinned, slowly turning as she listened for feedback from the device. "Where are we going?"
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-10.webp" alt="dash-10" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/dash-10.webp" alt="dash-10" class="center">
 
 Choosing a direction at random, she began to walk toward the outline of Zinnia Park, listening carefully. In a day, she could cover the whole of the Midtown Markets, and a part of Lowlake. The next led her down into Coppertown, scouring every street for the slightest signal from her device. However, it continued to stay silent.
 
@@ -116,7 +116,7 @@ In front of her, six men burst into action, reaching for nearby weapons. In a sp
 
 "Grab a fucking weapon, rat boy!" Dash yelled, backing up as one of the men came at her with a nail-studded baseball bat. Even as she ducked, avoiding the blow, her mind dimly wondered why the man was wielding a bat, and not one of the endless varieties of Cogwerx or Teklo-produced weaponry.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-11.webp" alt="dash-11" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/dash-11.webp" alt="dash-11" class="center">
 
 Gathering herself, she lashed out with her fist, the gauntlet deploying knuckle guards as she slammed it into his jaw with a sickening crunch. He collided with the floor with a thud, yelling as he scrabbled for his bat. Turning on her heel, Dash fired the pistol at a man reaching for her, narrowly avoiding the knife that he wielded with one hand.
 
@@ -168,6 +168,6 @@ With a dry chuckle, he shrugged.
 
 "Let's go, then. Probably best we get away from this, anyway."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-12.webp" alt="dash-12" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/dash-12.webp" alt="dash-12" class="center">
 
 Ducking between the stalls, they hurried off, turning their backs on the twisted remains of the Gigadrill, smoke rising behind them.

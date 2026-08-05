@@ -4,7 +4,7 @@ Cindra, Fang, and their hunting party were well clear of Deshvahan when the sun 
 
 The Obsidian Coast beckoned and they continued on, covering ground faster on fresh steeds. They skirted jagged mountains and crossed broad barren plains pocked with the hardy flora and fauna that eked out an existence in Volcor's harsh climate. These lands were known to crack open and swallow entire towns, known for veins of lava bursting forth to create new hills and mountains where none had been. To inhabit Volcor one had to be decisive, for the volatile kingdom never rested.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/hunter-and-hunted-both-1.webp" alt="hunter-and-hunted-both-1" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/the-hunted/hunter-and-hunted-both-1.webp" alt="hunter-and-hunted-both-1" class="center" />
 
 In the far distance, after hours on horseback, they noticed huge spikes jutting from the earth, their shadows scraping across the landscape. Cindra and Fang slowed their horses, Lieutenant Yamada at their back, motioning to the troops to match their pace.
 
@@ -106,7 +106,7 @@ _And who is 'they'?_ Cindra thought. Her eyes met Fang's, and a grim understandi
 
 "They are toying with us," Cindra said. "We are now hunter and hunted both."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/hunter-and-hunted-both-2.webp" alt="hunter-and-hunted-both-2" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/the-hunted/hunter-and-hunted-both-2.webp" alt="hunter-and-hunted-both-2" class="center" />
 
 ---
 
@@ -142,7 +142,7 @@ Another cry. Arms torn away at the shoulders, the soldier's face pale and shocke
 
 The soldiers drew their swords. They galloped ahead, hanging low from their saddles, their flaming swords striking the earth like matchsticks, lines of orange lighting the way.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/hunter-and-hunted-both-3.webp" alt="hunter-and-hunted-both-3" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/the-hunted/hunter-and-hunted-both-3.webp" alt="hunter-and-hunted-both-3" class="center" />
 
 "Show yourselves!" Fang shouted through the passage of flame.
 

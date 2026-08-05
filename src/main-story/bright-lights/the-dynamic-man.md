@@ -2,7 +2,7 @@
 
 ## Age of Steam
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/the-dynamic-man-1.webp" alt="the-dynamic-man-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/bright-lights/the-dynamic-man-1.webp" alt="the-dynamic-man-1" class="center">
 
 Metrix. A metropolis of imagination. A place where ambition meets innovation and lives are reinvented every single day. In our pioneering past, we welcomed those ready to flee the traditions and oppressions of arcane Rathe. Together we built a city where fortunes could be made from the sweat of one's brow and the steam of one's machinery. Metrix has come a long way from those boilerplate beginnings. Technology has advanced in leaps and bounds, drawing a new generation of hopefuls to its bright lights, to promises writ large in glaring neon:
 
@@ -97,7 +97,7 @@ But will he live to see those ideas come to fruition? Teklovossen can predict ma
 
 Rigo whirs and bleeps. Its enthusiasm is echoed by another bot that scuttles out from behind a pile of brass mannequin parts. And other, lowering itself from the rafters by a high tensile wire. The chorus continues as bots of all shapes and sizes, intents and purposes, crawl, roll, scuttle and slide out of the workshop's nooks and crannies to witness Teklovossen's crowning invention.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/the-dynamic-man-2.webp" alt="the-dynamic-man-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/bright-lights/the-dynamic-man-2.webp" alt="the-dynamic-man-2" class="center">
 
 The ailing scientist manages a sickly smile for his automaton audience as he cups the skull in his hands and presses its temples with his thumbs. The cranium closes smoothly, concealing the sphere within.
 
@@ -127,7 +127,7 @@ His oldest and most faithful creation bobs its head in abject acknowledgement.
 
 He lets out a world-weary sigh. "The city has a long way to go, but it might yet prove itself worthy. In fact..."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/the-dynamic-man-3.webp" alt="the-dynamic-man-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/bright-lights/the-dynamic-man-3.webp" alt="the-dynamic-man-3" class="center">
 
 A gleaming metropolis enters his mind's eye. Towers and tramways shining with teklatic-dynamism. Prosperous people strolling along clean streets, no matter their walk of life. They breathe pristine air, chat about creativity and philosophy while bots do their work and Evos sustain their bodies. A Metrix happy in its achievements. A utopia just out of reach.
 
@@ -153,6 +153,6 @@ An effigy has now been installed upon the site: a bold and brilliant likeness ca
 
 Teklovossen, the man, might have left Metrix for good. But Teklovossen, the legend, will remain with us forever, instructing and inspiring the brightest minds to come.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/the-dynamic-man-4.webp" alt="the-dynamic-man-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/bright-lights/the-dynamic-man-4.webp" alt="the-dynamic-man-4" class="center">
 
 Excerpt from: _The Dynamic Man_

@@ -42,7 +42,7 @@ In the art for the article [Harbinger of the Abyss](../main-story/monarch/harbin
 > Rune is to sto_ _es  blood is to bone sacrificed on the...
 > Altar of divinity Erudition lies forgotten
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-9.webp" alt="levia-9" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/monarch/levia-9.webp" alt="levia-9" class="center">
 
 Finally on Vexing Quillhand we see:
 

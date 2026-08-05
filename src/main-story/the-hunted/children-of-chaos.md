@@ -16,7 +16,7 @@ Fang drew one of his daggers. "Nothing will save her from the Emperor's vengeanc
 
 They approached the open citadel gates, passing gigantic shards of obsidian that emerged from the ground like shattered teeth through bleeding gum. His haggard reflection stared out from one of those glinting black crystals. As he marched past, Fang was certain he saw it shake its head, as though urging him to turn back.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/children-of-chaos-1.webp" alt="children-of-chaos-1" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/the-hunted/children-of-chaos-1.webp" alt="children-of-chaos-1" class="center" />
 
 They entered the citadel. The rising sun drew deep shadows between buildings, the darkness itself seeming to breathe. Overhead, the sky pulsed and swam, rippling with a scintilla of refracted light. It hurt Fang's eyes to look at, and he shuddered at the thought that even the firmament itself could be twisted by this strange sickness. He wished only to face something solid, something he could stab, or at least comprehend.
 
@@ -60,7 +60,7 @@ Fang staggered back, but Cindra seemed unperturbed. She placed her hand against 
 
 Each tree they passed held the shadow of a person - branches for arms, blossoming flowers for fingers, pale trunks for legs, ankles submerged in the dirt.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/children-of-chaos-2.webp" alt="children-of-chaos-2" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/the-hunted/children-of-chaos-2.webp" alt="children-of-chaos-2" class="center" />
 
 As they passed a fountain, its surface marred with an iridescent sheen, something unseen moved beneath the water. Cindra summoned her daggers, but nothing emerged. She backed away, then turned. To her surprise, she noticed eyes upon her. Voices hissed from the trees, familiar somehow, speaking to Cindra across a vastness of years. A series of images. Blood-red threads crossing the throne room. Blood-stained steps lined with fallen soldiers. The Emperor, dead in a pool of blood, the figure of a creature looming over him, blood-tipped dagger in its gauntleted hands.
 
@@ -154,7 +154,7 @@ Cindra gathered her daggers, each aflame, hovering near her, their points aimed 
 
 They emerged from the rafters, the alcoves, from the draperies hung around the edges of the audience chamber. Six more creatures, each warped and horrific, broken and rebuilt.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/children-of-chaos-3.webp" alt="children-of-chaos-3" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/the-hunted/children-of-chaos-3.webp" alt="children-of-chaos-3" class="center" />
 
 Some retained their human-like qualities - the white-haired female Fang had barely escaped in Deshvahan, and another with long steel talons on each of her fingers. Others defied logic - one was a mass of limbs and steel, each of its many hands clasping a deadly sword. Another scuttled on insectile legs, hunched beneath a huge red parasol hanging with blades. The ground trembled as another stepped forward, arms encased in huge steel forelegs. They drew closer, Yamada's killer the boldest, ducking beneath one of Chiyo's broad wings to stand before them, parasol swaying, blades chiming a demented melody.
 

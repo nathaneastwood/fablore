@@ -2,7 +2,7 @@
 
 With the stranger's mask in place, I am but one of thousands in the sweltering city of Ashvahan.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-11.webp" alt="iyslander-11" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/uprising/iyslander-11.webp" alt="iyslander-11" class="center">
 
 The Volcai that dwell here honor the rumbling heart of Mount Volcor. Their ritual offerings of rice, silks and ceramics line the waterways. Incense burns from bronze ashtrays. Prayers float skyward to the mountain's crater, all in the hopes of appeasing this turbulent deity and its callous Dracai. Their struggle is as palpable as the heat which assaults my body and my will.
 
@@ -18,7 +18,7 @@ A robed man follows, more resplendent than any other I have seen. I know the cru
 
 His name is Kova.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-12.webp" alt="iyslander-12" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/uprising/iyslander-12.webp" alt="iyslander-12" class="center">
 
 ---
 
@@ -26,7 +26,7 @@ I am among the chaos of wild children, smeared with ash and soot as we hook ryok
 
 I am alone, singled out by a Dracai, a young wizard with sparks in his hands and flint in his eyes. My mother weeps my name, "Lyra", as I am bought and paid for with tokens of jade.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-13.webp" alt="iyslander-13" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/uprising/iyslander-13.webp" alt="iyslander-13" class="center">
 
 I fetch and I carry. I falter and I cower.
 
@@ -38,13 +38,13 @@ Wind rushes through my fingers. Stone trembles at my touch. Morrows dance in the
 
 If only they had remained unnoticed.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-14.webp" alt="iyslander-14" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/uprising/iyslander-14.webp" alt="iyslander-14" class="center">
 
 Once again, I am singled out. Kova wishes to possess my fledgling power. The price is no longer jade. The price is pain.
 
 I scream at the deaf walls of his laboratory as he melts the talent from my flesh, drop by glistening drop. When the suffering becomes so fierce that I feel it will burn through my mind, I flee into the cooling climes of my imagination. In my delirium, I dream of another land. A place far from the scorching clutches of greed.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-15.webp" alt="iyslander-15" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/uprising/iyslander-15.webp" alt="iyslander-15" class="center">
 
 I awake in a cave clad in white. At first I take it for ash. I believe I have been extinguished and discarded. Buried.
 
@@ -60,7 +60,7 @@ Ice is my clay. Ice is my craft.
 
 I am Iyslander.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-16.webp" alt="iyslander-16" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/uprising/iyslander-16.webp" alt="iyslander-16" class="center">
 
 ---
 
@@ -100,4 +100,4 @@ Rathe needs my help. Iyslander's help.
 
 When the time comes, I will be ready.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-17.webp" alt="iyslander-17" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/uprising/iyslander-17.webp" alt="iyslander-17" class="center">

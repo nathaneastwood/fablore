@@ -8,7 +8,7 @@ He can smell the atmosphere of privilege by its air quality, fresh and crisp in 
 
 Maxx follows the current of corporate lackeys, letting it take him to the big event. A decent-sized crowd has already gathered for the opening of the East Rise Power Station, with enforcers standing at each entry, scanning for troublemakers.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/boom-town-boom-1.webp" alt="Security Script" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/the-hunted/boom-town-boom-1.webp" alt="Security Script" class="center" />
 
 His hands itch at the sight of them, always eager for a fight, but he left his shock-wrench at home - a little too showy for a stroll out in public. Maxx pulls his cap down low, careful not to dislodge the hologuise projector attached to the brim, sighing in relief when he passes the security checkpoint without incident. His face scans as Dudley Broon, low-level Teklo stooge.
 
@@ -52,7 +52,7 @@ Maxx swaggers into a defunct pipe factory abandoned due to foundational slippage
 
 He pats the top of his terminal as he sits down, the machine humming warmly as it boots, the screen a bright flare of technic in a sea of clutter and detritus. Maxx's hands are battered and scarred, but his fingers still move over the keyboard with the grace of a seasoned hacker. He navigates to a weak spot he's found in the Registry, obsolete threads of code left dangling. He runs a penetration script and slips into their secure database.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/boom-town-boom-2.webp" alt="Penetration Script" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/the-hunted/boom-town-boom-2.webp" alt="Penetration Script" class="center" />
 
 "So much dirty, dirty data," Maxx whispers to himself, scanning through the flood of information.
 
@@ -88,7 +88,7 @@ He howls and punches the roof, then turns up the radio, always tuned to The Foun
 
 Maxx drifts into the last corner, tires squealing, laying down burning rubber as he brings their mobile mosh pit to a stop outside the back of the power plant.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/boom-town-boom-3.webp" alt="Burn Rubber" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/the-hunted/boom-town-boom-3.webp" alt="Burn Rubber" class="center" />
 
 He busts open the door and steps out, pulling the shock-wrench out from behind him, the tool always at the ready for a bit of street 'art'.
 
@@ -102,7 +102,7 @@ From the trunk, Rez tosses the tightly packed explosives to Feral and Juice. Max
 
 "Chuck us a bomb, Rez," Maxx says, striding over to stand beneath the concealed steam pipes. She throws it to him, the grenade spinning in the air until he catches it.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/boom-town-boom-4.webp" alt="Boom Grenade" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/the-hunted/boom-town-boom-4.webp" alt="Boom Grenade" class="center" />
 
 "Watch me," he says, "just like this." Maxx tosses the bomb straight up and it hits the pipe, magnet sticking it to the surface.
 
@@ -128,7 +128,7 @@ The enforcer bikers are bearing down on them, fast. The robot troops are forming
 
 "Only one thing for it," Maxx says. He throws the detonator up into the air, hits the pulse on his shock-wrench and swings it hard.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/boom-town-boom-5.webp" alt="Banksy" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/the-hunted/boom-town-boom-5.webp" alt="Banksy" class="center" />
 
 He hits the detonator, overcharging it for a split second before it shatters, triggering the explosives in a shuddering _boom_ that destroys the steam pipes and blows the cordon of robot enforcers into parts. Maxx holds on tight as a concussive wave washes over him, grinning wildly at the enforcer bikers who are knocked off their rides.
 

@@ -6,7 +6,7 @@ With a crackle of lightning and a boom of thunder, Aurora and Oscilio landed upo
 
 She stretched up onto her tiptoes, arms outflung, and surveyed the scene below with wide, sky-blue eyes. "Woah! I haven't seen this many people since Everfest."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/seeds-of-renewal-1.webp" alt="seeds-of-renewal-1" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/seeds-of-renewal-1.webp" alt="seeds-of-renewal-1" class="center" />
 
 The towering golem hovered to her side. Below them, a sprawling campsite had been pitched upon the rolling grasslands. From all parts of Aria, all walks of life, the mottle of colors and shapes spread around the edges of Candlehold like a vast meadow of wildflowers.
 
@@ -62,7 +62,7 @@ Children who had accompanied the curious were busy feasting on those berries. No
 
 A hush settled upon the tent city as a figure emerged from the forest. A seemingly young woman, although most gathered knew that Candlehold was a place bereft of time where age had never held court. To Aurora, with her auburn hair and flowing green dress, the lady looked like a red rose given human form.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/seeds-of-renewal-2.webp" alt="seeds-of-renewal-2" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/seeds-of-renewal-2.webp" alt="seeds-of-renewal-2" class="center" />
 
 Behind her, a procession followed, a stately parade of beings gnarled yet magnificent. Women, men, and animals of timber and root, flower and fungus, walked together, heads bowed. At the rear, a noticeable distance from the rest, trailed a man clad in armor and autumn leaves. He alone looked out upon the gathering of Aria, acknowledging their attendance at this funereal affair.
 
@@ -78,7 +78,7 @@ She shrugged, the wound apparently dismissed, along with their conflict.
 
 "I am relieved you are here."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/seeds-of-renewal-3.webp" alt="seeds-of-renewal-3" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/seeds-of-renewal-3.webp" alt="seeds-of-renewal-3" class="center" />
 
 She had been holding the Seed of Tomorrow in her hands. Now she laid it amongst the grass before stepping back to stare at him with an unnerving intensity.
 
@@ -90,7 +90,7 @@ Florian looked from Verdance to the seed. Understanding prickled across his skin
 
 "Within decay lie the roots of rebirth," Ozrim encouraged softly from where he stood with the other Rosetta. "In time our lives will end, returning us to the Flow. And thus we make Aria whole once more." Behind him, the elders murmured their agreement.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/seeds-of-renewal-4.webp" alt="seeds-of-renewal-4" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/seeds-of-renewal-4.webp" alt="seeds-of-renewal-4" class="center" />
 
 Florian knelt beside the Seed of Tomorrow and placed his hand on the ground. At once, the grass withered, dying back until the seed sat upon bare earth. He murmured an incantation, willing the ground to relinquish its nutrients, summoning the worms to feast and fertilize. Within moments, the soil had become a rich loam, ready for planting.
 
@@ -108,7 +108,7 @@ He nodded in what he hoped was an encouraging way and turned to address the crow
 
 And so the Rosetta led the folk of Aria into Candlehold for the first time in an age and an age again. Melody accompanied the solemn march with a soulful dirge, blending an ancient rhythm with freshly plucked riffs. Together they dined upon the bounty of autumn, drank ciders freshly brewed from fruits and berries, danced to the music of Aria, and reminisced over great deeds and the trials of eternity.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/seeds-of-renewal-5.webp" alt="seeds-of-renewal-5" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/seeds-of-renewal-5.webp" alt="seeds-of-renewal-5" class="center" />
 
 Outside of Candlehold, alone on green pastures, the Millenium Tree listened to the merriment in quiet contentment.
 

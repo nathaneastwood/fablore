@@ -18,7 +18,7 @@ Gravy stroked his beard with a fleshless claw. "They smells of sunshine, Chum. A
 
 Gravy's ragged crew of undead sailors raced to the Dreadnought's gunwales with grappling hooks and ropes as Chum steered the ship into attack position. The crew of the Kuraghan ship clamored in panic. They didn't have a chance to open ports let alone load their cannons as the Dreadnought broadsided them and tethers were thrown. They screamed as Gravy Bones' zombies, all rags and bones and skulls and rotten flesh, leaped across, silver cutlasses and boarding axes flashing like coins on a dead man's eyes.
 
-![captain-bones-and-the-city-of-gold-1](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/captain-bones-and-the-city-of-gold-1.webp)
+![captain-bones-and-the-city-of-gold-1](https://d2hl7maqck52px.cloudfront.net/main-story/high-seas/captain-bones-and-the-city-of-gold-1.webp)
 
 Blood arced, reflecting almost black in the moonlight, the coppery scent of it stark over the brine. Gravy watched from his quarterdeck, calmly taking in the scene as it played out across the backdrop of Dreadfall's decaying edifices and jaundiced spires. He held no love for the living, but neither did he revel in senseless slaughter. These lubbers carried the key to his ultimate prize. The compass in his hand had told him so.
 
@@ -30,7 +30,7 @@ Death continued to fill the night with the stench of sudden mortality. Though ma
 
 Gravy stomped across the blood-soaked deck, stepping through pools of spilled viscera. He found the captain flat on his back, a snarling, undead sea dog perched on his chest.
 
-![captain-bones-and-the-city-of-gold-2](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/captain-bones-and-the-city-of-gold-2.webp)
+![captain-bones-and-the-city-of-gold-2](https://d2hl7maqck52px.cloudfront.net/main-story/high-seas/captain-bones-and-the-city-of-gold-2.webp)
 
 "To me, Scooba," barked Gravy. The hound gave a yelp and trotted to her master's side.
 
@@ -58,7 +58,7 @@ By the evening of the following day, the Dreadnought sat snug in a coastal cave,
 
 Gravy had done some time in the bowels of that brig in his younger, fleshier years. A fate far worse than death, in his humble opinion. But he'd used the time to read the expedition notes of his contemporaries, recording the locations of shipwrecks and ruins, studying the treasures and histories hidden within. And on the grimmest of nights, he plotted his escape, which included slyly recruiting pirate hands fit for finding the fabled city of Trōpal-Dhani.
 
-![captain-bones-and-the-city-of-gold-3](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/captain-bones-and-the-city-of-gold-3.webp)
+![captain-bones-and-the-city-of-gold-3](https://d2hl7maqck52px.cloudfront.net/main-story/high-seas/captain-bones-and-the-city-of-gold-3.webp)
 
 The first attempt went poorly for young Gravy and his crew, slaughtered all. He'd watched the last of them, Chum, still vibrant and alive, speared through the chest by a revenant blade. He'd barely twisted away from the sword aiming for his own heart. But while he wasn't skewered, he was mortally gashed, opened from shoulder to hip. And as he was holed, so was the ship, and down they sank into the darkening depths.
 
@@ -126,7 +126,7 @@ Movement above caught his eye as the Kuraghan flagship made for the vortex. Grav
 
 The undead clung to port and starboard as Chum released the Dreadnought from its hold to surge up through the swell. It breached the surface, salty brine spilling from cracks in its carcass, and rose further still to bear down on the Kuraghan ship.
 
-![captain-bones-and-the-city-of-gold-4](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/captain-bones-and-the-city-of-gold-4.webp)
+![captain-bones-and-the-city-of-gold-4](https://d2hl7maqck52px.cloudfront.net/main-story/high-seas/captain-bones-and-the-city-of-gold-4.webp)
 
 Gravy appreciated the shocked countenance of their captain as he hollered for his crew to meet the aggressors. Portholes opened along the starboard side of Absolon's Dream as the Dreadnought brought its own guns to bear.
 
@@ -186,7 +186,7 @@ But the captain nodded at the sailor who, with a click and bang, reduced the sha
 
 "Riggermortis!" barked Gravy.
 
-![captain-bones-and-the-city-of-gold-5](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/captain-bones-and-the-city-of-gold-5.webp)
+![captain-bones-and-the-city-of-gold-5](https://d2hl7maqck52px.cloudfront.net/main-story/high-seas/captain-bones-and-the-city-of-gold-5.webp)
 
 From the rigging above, the zombie dropped like a diving gull and spitted the captain from head to hindquarters with his cutlass. He then wrenched his blade free with a wet rasp and swiped the head off the sailor before he could reload his pistol.
 
@@ -208,7 +208,7 @@ With the last of his waning strength, Gravy tugged on the rope, signaling Kelpie
 
 "Arr, behold!" Gravy Bones wheezed. "Becalmed we might be, but we ain't buried yet." He raised his prize for all to see. The pendant gleamed in the light, the purest, brightest gold any of them had ever seen.
 
-![captain-bones-and-the-city-of-gold-6](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/captain-bones-and-the-city-of-gold-6.webp)
+![captain-bones-and-the-city-of-gold-6](https://d2hl7maqck52px.cloudfront.net/main-story/high-seas/captain-bones-and-the-city-of-gold-6.webp)
 
 He had done it. Captain Gravy Bones, the first pirate to reach that place of legend. One of the rarest Dhani treasures now lay in his undead hand.
 

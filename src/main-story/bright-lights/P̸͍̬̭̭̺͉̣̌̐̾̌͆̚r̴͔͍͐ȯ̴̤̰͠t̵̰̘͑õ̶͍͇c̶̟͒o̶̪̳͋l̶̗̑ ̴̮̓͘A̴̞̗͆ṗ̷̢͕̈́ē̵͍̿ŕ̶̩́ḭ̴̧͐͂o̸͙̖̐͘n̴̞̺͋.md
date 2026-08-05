@@ -6,7 +6,7 @@ A̵̼̥͒͆̒͗n̵̳̼̟̺͒̑̚͝o̸͍͖̞̊̿m̴̜̞̤͑á̸̻̙̲̽̿̇l̷̐
 
 Rigo scuttles down from his charging recess in the wall and plugs directly into the console, mainlining this fresh information to verify its authenticity.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/protocol-aperion-1.webp" alt="protocol-aperion-1" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/bright-lights/protocol-aperion-1.webp" alt="protocol-aperion-1" class="center" />
 
 Overhead, the boilers gurgle and chug, feeding much-needed backup energy into the building above. Second outage this month, from a dynamic fluctuation in the teklatic generators.
 
@@ -16,7 +16,7 @@ Rigo twitches with its best approximation of excitement and wakes the other bots
 
 The occupant's eyelids open, exposing dilated pupils that haven't been used in half a century. Rigo hovers at his side like a nervous partner as the other bots busy themselves with their creator's waking anatomy, cleaning away the residue of a fifty-year slumber.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/protocol-aperion-2.webp" alt="protocol-aperion-2" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/bright-lights/protocol-aperion-2.webp" alt="protocol-aperion-2" class="center" />
 
 "Rigo," croaks Teklovossen from clogged vocal cords. "Report."
 
@@ -46,4 +46,4 @@ His automatons lift the bed base like a gurney and carry Teklovossen to the wait
 
 "More than human," murmurs Teklovossen as the bots settle him gently into place. "Time I delivered on that promise."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/protocol-aperion-3.webp" alt="protocol-aperion-3" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/bright-lights/protocol-aperion-3.webp" alt="protocol-aperion-3" class="center" />

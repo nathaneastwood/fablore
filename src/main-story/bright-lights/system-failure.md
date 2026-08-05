@@ -4,7 +4,7 @@ Should've known better than to trust a Teklo.
 
 They're all the same... even _her_.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/system-failure-1.webp" alt="system-failure-1" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/bright-lights/system-failure-1.webp" alt="system-failure-1" class="center" />
 
 Sucks to be betrayed by the ones you trust.
 
@@ -34,7 +34,7 @@ For my eighth birthday, I threw myself a party, complete with entertainment. Hac
 
 Turns out the Rosario Hills Institute runs most of the city's orphanages. Not out of the goodness of their hearts. The orphanages are gathering grounds for their "subjects". Special kids like me. Kids with unusual talents. At first, I thought it was a bit of a lark. My own room, good food, a decent bed, and attention from some very interested whitecoats. Then the tests started, the prodding and poking, the scans and samples. I soon discovered that special isn't all it's cracked up to be.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/system-failure-2.webp" alt="system-failure-2" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/bright-lights/system-failure-2.webp" alt="system-failure-2" class="center" />
 
 At least I found some other kids on my wavelength. Ricky Royce was one. Nothing that lad couldn't steal. And Lena-Belle, purveyor of poisons. We put our ten-year-old eggheads together and hatched a plan right under those Rosario roosters' beaks. Ricky stole the keys and Lena-Belle poisoned the water. While all the whitecoats chundered on their clipboards, I mixed some industrial cleaners and blew a kid-sized hole in the outer wall. Off we three went into the alleyways with every other shaved-head wunderkind trailing along behind.
 
@@ -74,4 +74,4 @@ There'll be fireworks. What's a rooftop party without fireworks?
 
 After all, Metrix is the city of Bright Lights.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/system-failure-3.webp" alt="system-failure-3" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/bright-lights/system-failure-3.webp" alt="system-failure-3" class="center" />

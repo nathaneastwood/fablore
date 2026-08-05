@@ -8,7 +8,7 @@ Launching herself forward, she rushed to the end of the alley, following the sou
 
 Azalea slipped between the warehouses, gaze fixed on the tavern sitting at the end of the wharf. Her mouth began to water at the smells wafting out of the open door; hot fish-head stew, pickled eggs, offal cakes, jellied trotters, and dark ale. Through the glass, she could see a pouch of coins pass hands, copper and silver gleaming in the lantern's light as a mercenary began to count.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-4.webp" alt="azalea-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/azalea-4.webp" alt="azalea-4" class="center">
 
 Two giant, burly men stood watch just outside the open door, arms crossed, weapons within reach. The taller of the pair was built like a brick, skin ashen and chalky, with a wide jaw and deep-set eyes. At his side lay a baseball bat studded with nails, chunks of hair caught in the metal. The slightly shorter man had thin, greasy hair, with a thick moustache and crooked teeth, a machete leaning against the wall behind him. His short sleeves revealed a tattoo inked on his upper arm, depicting a black spade with three daggers piercing its centre.
 
@@ -30,7 +30,7 @@ Azalea started forward, hands stretching out for the coin he held between his fi
 
 A hand grabbed the back of her neck, hauling her up into the air. Look here, ya pest. You aren't allowed 'ere." Writhing in his grasp, she spat at him, grimacing when he just chuckled. "Yer lucky we ain't sellin' ya for scraps."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-5.webp" alt="azalea-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/azalea-5.webp" alt="azalea-5" class="center">
 
 Unceremoniously, he dropped her onto the pavement, the pair of them staring down at her as she scrambled to her feet. Gaze flicking to where she'd seen the coin, she barely hesitated before running straight for the water, diving in after it. Behind her, she could hear the men laughing, cackling to themselves as they returned to their post.
 

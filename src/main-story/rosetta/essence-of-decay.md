@@ -24,7 +24,7 @@ She looked at the wilted flowers surrounding the throne, at the yellowed canopy 
 
 "And if we don't?"
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/essence-of-decay-1.webp" alt="essence-of-decay-1" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/essence-of-decay-1.webp" alt="essence-of-decay-1" class="center" />
 
 This unwelcome voice froze Verdance's own words upon her lips. She turned slowly, struggling to maintain her dignity. To see Florian standing there before the throne, his rot seeping into the ground, speeding the withering of the grass, turning dandelions to orbs of fluffy seeds in the blink of an eye, was too much for her to abide.
 
@@ -76,7 +76,7 @@ Gritting her teeth, Verdance redoubled her efforts. The entrapping flora grew fa
 
 Florian sliced and slashed with increasing ferocity, his bladework a blur of destruction. Severed vines curled as they fell, rupturing into dank dust as they struck the ground.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/essence-of-decay-2.webp" alt="essence-of-decay-2" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/essence-of-decay-2.webp" alt="essence-of-decay-2" class="center" />
 
 "In the name of the Queen, you shall be bound!" cried Verdance, citing a law that had not been enforced in a millennia. "For the safety of Candlehold, you shall be-"
 
@@ -100,7 +100,7 @@ He turned and shuffled away. The Candleholders followed his example, shambling b
 
 Verdance touched the wound on her cheek. Infection had taken hold, bruising her flesh, making her skin feverishly hot to the touch. Yet a simple incantation soon wiped it away, sealing the wound so thoroughly that it was as if it had never occurred. As she healed, her mind wandered through the paths and glades of her vast memory.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/essence-of-decay-3.webp" alt="essence-of-decay-3" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/essence-of-decay-3.webp" alt="essence-of-decay-3" class="center" />
 
 Candlelight Clearing, where the Rosetta of old had once gathered to garden, share poetry, and sing. No one visited now. The buildings were empty, the gardens overgrown, the floating light-trees smothered with lichen and regret.
 
@@ -128,7 +128,7 @@ The word came to her in a memory that she had thought forgotten of a time when t
 
 Before her eyes, bud after bud exploded into blossom then curled inward to form a succulent grape. Soon, the sigil was weighed down by a plentiful crop. With wonder, Verdance gazed upon the cornucopia as she rolled the berry in her fingers, luxuriating in its smooth texture, its enticing plumpness.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/essence-of-decay-4.webp" alt="essence-of-decay-4" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/essence-of-decay-4.webp" alt="essence-of-decay-4" class="center" />
 
 _Taste it_, murmured the rustling leaves as they shifted in the wind. _Davnir's feast_.
 

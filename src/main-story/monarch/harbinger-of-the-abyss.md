@@ -14,7 +14,7 @@ _Here_ was the same power, the same dark influence that she'd come to know so we
 
 Snarling, Levia lunged towards the strange visitor, slamming him against the nearest wall. Her clawed fingers cut easily into his flesh, shreds of fabric hanging from his battered skin as Levia drove her hand into his chest, elbow-deep in the man's ribcage. She felt the staccato rhythm beat against her palm, his muscles seizing as blood vessels burst beneath her pointed talons, and then she tore the stranger's heart from his chest.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-8.webp" alt="levia-8" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/monarch/levia-8.webp" alt="levia-8" class="center">
 
 With a wet, disbelieving gurgle, he collapsed to the ground, face going slack as his blood pooled atop the marble. Levia crushed his heart in her fist, letting the shredded tissue spill onto the floor at her feet. The skin on his chest tore easily beneath her talons, exposing his internal organs to her ravenous gaze. Sinking her hands into the pooling blood, she grabbed his organs by the handful, ramming lungs and kidneys and intestines into her open mouth, grinding the viscera between her teeth until they were a fine paste, watery purge leaking from her carnassials.
 
@@ -22,7 +22,7 @@ As the bloodlust faded, hunger sated for the time being, her gaze fell to the gl
 
 A small, grotesque gargoyle met her gaze, the claws on its hands forming a rudimentary clasp at the top of the pendant. As she gazed down at the object, she felt the telltale etchings of an inscription on the back, rough against her fingertips. When Levia turned the pendant over, she found an unfamiliar script carved into the silver surface.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-9.webp" alt="levia-9" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/monarch/levia-9.webp" alt="levia-9" class="center">
 
 _Some say that those who die come to this:_<br>
 _That which brings both an end_<br>
@@ -42,7 +42,7 @@ Turning her gaze away, Levia refocused her attention on the courtyard proper, wa
 
 After a long moment, the Demonastery itself came into view. A large, imposing gothic manor, it stretched far to the east and to the west; stained glass windows lined its walls, hanging below stone arches and towering spires. The massive front door was cracked open, and dusky light spilled out onto the flagstones. As Levia drew nearer, something within her shuddered at the perfect silence, absent the usual distant calls and eerie shrieks which were wont to echo across the grounds.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-10.webp" alt="levia-10" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/monarch/levia-10.webp" alt="levia-10" class="center">
 
 _...the usual? How would I know what it's usually like?_
 
@@ -56,7 +56,7 @@ A sea of green and glass stretched out before her, and a name rose to the tip of
 
 _The Venarium._
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-11.webp" alt="levia-11" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/monarch/levia-11.webp" alt="levia-11" class="center">
 
 The name rose to the tip of her tongue, unbidden, as if whispered by some long-forgotten echo at the edges of her consciousness. For one split-second, Levia could have sworn she remembered the Venarium in all its former glory.
 
@@ -94,7 +94,7 @@ Gleaming white bone lay exposed on one side of the head, the face split by a gas
 
 The man's wide, pale green eyes locked onto Levia's from across the room, his teeth bared in an expression raw with both anger and agony. Without warning, an unfamiliar voice echoed within her mind, a tangible feeling which translated itself readily into words.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-12.webp" alt="levia-12" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/monarch/levia-12.webp" alt="levia-12" class="center">
 
 _Free me. If you wish to avoid meeting the same fate as I have, free me, and I shall share what I know._
 
@@ -112,7 +112,7 @@ Levia distantly heard the protests of the disembodied voice, the head calling on
 
 A visceral, crimson landscape stretched as far as her eyes could see. Levia's feet came into contact with layers upon layers of rotting carrion, her gaze greeted by writhing fiends and decomposing corpses.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-13.webp" alt="levia-13" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/monarch/levia-13.webp" alt="levia-13" class="center">
 
 Blasmophet's domain was a sea of gluttonous waste; consumption incarnate, a hunger for power only sated by devouring the bodies of friend and foe alike. Yet when she turned her attention to the head hanging from her fingers, its teeth were bared in a snarl.
 
@@ -146,7 +146,7 @@ The fifth and final class of Blasmophet's creatures were the beasts of old, colo
 
 Devoratum lingered at the centre of Blasphema, watching over the empty throne. Almost four times her height, the colossal fiend towered above her, its grey, fleshy body twisted and misshapen. Dozens of eyes sprouted from the top of its body, reddened and glistening in the light, their dilated pupils locked onto Levia. Multitudes of slender, frog-like limbs supported its immense weight, allowing it to scuttle along the earth like a centipede. A gash in the front of its body constituted a kind of mouth, opening to reveal a great, gaping chasm lined with hundreds of razor-sharp fangs, its dozens of tentacle-like tongues covered in a corrosive saliva.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-14.webp" alt="levia-14" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/monarch/levia-14.webp" alt="levia-14" class="center">
 
 However, even in the face of this horrendous brute, Levia did not falter. After hunting and devouring enough creatures to become a beast in her own right, Levia went toe to toe with the Devoratum, propelled by sheer rage and bloodlust, lunging at the being's immense mass of a body.
 
@@ -166,7 +166,7 @@ _You. I killed you. You should be dead._
 
 _You should know better than that. People like you and I, we do not die so easily_. His reverberating laughter stoked the tight burn of her rage into a firestorm, and distantly, Levia felt their-felt her hand curl into a fist, talons biting into their palm sharply enough to draw blood. _Now, surrender to me, and I might just let you remain._
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-15.webp" alt="levia-15" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/monarch/levia-15.webp" alt="levia-15" class="center">
 
 _This is my body, and you shall not control it._
 
@@ -212,4 +212,4 @@ He grinned, gesturing to the other residents who now milled behind him, watching
 
 "We seek to strike at Solana-the city would practically be a banquet for a power like yours. Even Sutcliffe desires to take a power like theirs." Chane gestured to the head at her hip, hands outstretched. "Join us, Levia, and devour the Light."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/levia-16.webp" alt="levia-16" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/monarch/levia-16.webp" alt="levia-16" class="center">

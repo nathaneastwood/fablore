@@ -2,7 +2,7 @@
 
 The imperial guards ushered him into the room, the Lord Wizard Chiyo close behind. As she stepped in front of him, the members of the Chamber of the Dragon all turned, looking down at the scene before them. Clearing her throat, the Lord Wizard turned her gaze to the Lord Chancellor himself.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-8.webp" alt="kano-8" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/kano-8.webp" alt="kano-8" class="center">
 
 "Not five minutes ago, I heard a commotion in the halls of the inner palace. When I found the source of the noise, I found this young wizard standing over Lord Wizard Akihiko's body."
 
@@ -56,7 +56,7 @@ The Lord Chancellor sighed deeply, rubbing a hand over his forehead.
 
 "This is preposterous." One of the grand strategists, a large man by the name of Daijo, rose from his seat, pointing down at Kano. "We've heard of this young man before. He has a reputation for trickery and lies - we have no reason to believe him."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-9.webp" alt="kano-9" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/kano-9.webp" alt="kano-9" class="center">
 
 "I concur with Daijo-"
 
@@ -92,7 +92,7 @@ Almost a third of the Chamber were frozen in place, staring blankly into mid-air
 
 The Lord Chancellor, for his part, caught on quickly, gazing around the room with horror dawning on his face. One by one, the other members of the Chamber began to realise what was happening, turning to look at their neighbours with expressions of alarm. Next to him, he heard the Lord Wizard Chiyo's sharp inhale.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-10.webp" alt="kano-10" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/kano-10.webp" alt="kano-10" class="center">
 
 The tension in the room reached a tipping point, a moment of silence reigning as everyone froze in place. Kano watched as the grand strategist Daijo stared down at him, his dark expression morphing into a snarl, and with an ear-splitting shriek, he leapt forward.
 
@@ -126,7 +126,7 @@ Rising from his position on the floor, the Lord Chancellor kept his head bowed, 
 
 For almost two days, Kano heard nothing further, excluded from the Chamber of the Dragon's discussions. Finally, someone came to collect him, his uniform identifying him as one of the imperial family's personal retinue. With some amount of apprehension, Kano followed him down into the innermost sanctum of the palace.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-11.webp" alt="kano-11" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/kano-11.webp" alt="kano-11" class="center">
 
 The guard led him into a hidden room, its doorway masked by the panels decorating the halls. It was almost indistinguishable from its surroundings, unless you knew exactly where to look. The guard remained standing nearby, staring directly ahead, waiting. Kano looked at the room around him, choosing to remain standing.
 
@@ -148,7 +148,7 @@ It is my understanding that you have yet to receive a title. The Emperor himself
 
 Taking the staff from the guard, she stood, hands outstretched, offering the staff to Kano.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-12.webp" alt="kano-12" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/kano-12.webp" alt="kano-12" class="center">
 
 "This is the Crucible of Aetherweave, an heirloom which was once gifted to your ancestor by the past Emperor. Accept this, and you accept your role as the Dracai of Aether."
 

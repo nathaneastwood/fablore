@@ -2,7 +2,7 @@
 
 Each tree was a chorus of birdsong and the undergrowth chittered with tiny creatures. Terra heard it all, could feel even the animals in their burrows and tunnels underfoot, could sense the insects in the soil amongst the tangled roots and mycelial threads. Indeed, he could sense the vast web of life stretching across all of Aria.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/splinter-soul-1.webp" alt="splinter-soul-1" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/the-hunted/splinter-soul-1.webp" alt="splinter-soul-1" class="center" />
 
 "Come along, creature," Sidriz snapped. The wizard sat atop a tall fianna, his arms crossed over his finely embroidered tunic. Terra had learned the hard way this meant he was growing impatient. And Sidriz was increasingly unpleasant the more impatient he became.
 
@@ -22,7 +22,7 @@ Hyrinth looked over her shoulder at Terra, mouth twisted in a frown. But Terra w
 
 Sidriz sighed. "I don't expect you to understand, but I have a plan for Aria, of which you are key." He turned to face Hyrinth, his chin raised, chest puffed out. "I created Terra from a splinter of the Great Tree of Korshem itself."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/splinter-soul-2.webp" alt="splinter-soul-2" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/the-hunted/splinter-soul-2.webp" alt="splinter-soul-2" class="center" />
 
 Terra craned his neck as a flock of birds passed high above, tiny black silhouettes forming a 'V'. When he brought his eyes back down to the horizon, Hyrinth was staring at him with a look she normally reserved for particularly brilliant displays of light in the sky marking the Flow's passage.
 
@@ -106,7 +106,7 @@ The rift pulsed and shook, Terra struggling to keep it open. "I can't hold it, M
 
 Hyrinth backed away, looking from Sidriz to Terra and back again. Terra roared and pushed back the torn halves of the fissure, holding them apart at his full arm-span, his arms and shoulders trembling with the effort.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/splinter-soul-3.webp" alt="splinter-soul-3" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/the-hunted/splinter-soul-3.webp" alt="splinter-soul-3" class="center" />
 
 The trees on either side of the rift shook violently and were torn from the earth. The opening seemed to slacken, its strength waning. Terra looked over his shoulder and saw Sidriz, eyes glowing a brilliant gold, his fingers twitching, forming magical geometries, energy crackling as the trees split into long, straight planks. Their death cries pierced Terra's mind; hundreds of years of kinship torn asunder in a moment. The branches were stripped away and fell to the ground, spilling birds' nests, squirrels and meeps, the animals that weren't too hurt by the fall scurrying away, their fear like a blade scraping down the back of Terra's throat. Hyrinth ran toward the cart, her eyes wide with fear.
 
@@ -150,7 +150,7 @@ Terra closed his eyes. He ignored the wizard and listened as Aria itself spoke t
 
 "I didn't come from nothing. I came from the Korshem," Terra said, pounding a fist against his chest, vibrant with brilliant green leaves budding from new growth. "It's not your magic that animates me, it is Aria."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/splinter-soul-4.webp" alt="splinter-soul-4" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/the-hunted/splinter-soul-4.webp" alt="splinter-soul-4" class="center" />
 
 Terra brought the hammer down hard, Sidriz barely getting a shield up before he was slammed into the ground. Terra grabbed the wizard by his robes and lifted him so they were face to bleeding face.
 

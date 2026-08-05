@@ -10,7 +10,7 @@ Having pushed herself to exhaustion, she laid her head upon the pages of a most 
 
 íArathael.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/11-dusk-till-dawn/unity-in-light-1.webp" alt="unity-in-light-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/dusk-till-dawn/unity-in-light-1.webp" alt="unity-in-light-1" class="center">
 
 In that strange realm, she saw things most wondrous and terrible. Rivers of sapphire snaking through forests of emerald. Warm seas of ruby radiating against shoreline palaces of silver and gold. Beings that streaked across the landscape like shooting stars in the night sky. A molten landscape shifting and seething in a fever of metamorphic fury, dreamed into existence by a slumbering Aesir of incandescent rage. A desolate tract of rot and ruin, and a monstrous giant, fleshed with a thousand corpses, that tore open the veil between íArathael and Aria.
 
@@ -26,7 +26,7 @@ If only she'd been a tad quicker off the mark. For upon uttering the last word, 
 
 And we were not alone.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/11-dusk-till-dawn/unity-in-light-2.webp" alt="unity-in-light-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/dusk-till-dawn/unity-in-light-2.webp" alt="unity-in-light-2" class="center">
 
 A cadaverous colossus placed its weeping foot in the center of our circle. The rest of the towering mort soon followed, accompanied by the most wretched stench it has been this storyteller's misfortune to inhale. Still do I cough and splutter upon a chilly morning as my poor lungs struggle to expunge that lingering fug.
 
@@ -48,7 +48,7 @@ Yet as he raised Anothos to clout the monster, another vision dazzled us all. Su
 
 "Bravo of Aria, and you're most welcome."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/11-dusk-till-dawn/unity-in-light-3.webp" alt="unity-in-light-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/dusk-till-dawn/unity-in-light-3.webp" alt="unity-in-light-3" class="center">
 
 Together they fought the Embra in that place in between. Prism blinded it with beams of holy light while Bravo bound it with ice and struck it with lightning. Step by retreating step, they drove the monster backward. With rays of hope and enlightenment, Prism empowered the hammer stroke that sent the primordial pest back into the embrace of íArathael. Then, with soulful auras, she mended the rift behind it.
 
@@ -85,7 +85,7 @@ All eyes turned to me, and of course I vowed my allegiance to Bravo and the Olli
 
 I entrusted my notebook to Prism, and in the days that followed, continued to play my part, spreading the call of the Ollin from forest to vale, from mountaintop to cellar. Before long, a host had gathered at Everfest, hundreds of Aria's finest fighters, ready to march to Solana's aid.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/11-dusk-till-dawn/unity-in-light-4.webp" alt="unity-in-light-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/dusk-till-dawn/unity-in-light-4.webp" alt="unity-in-light-4" class="center">
 
 The Maela had long ago come to some spiritual agreement with the Korshem -- that great and inexplicable tree that has ever welcomed the wayward in its ancient embrace. Among roots like mountain ridges, they laid their runes and spoke in languages forgotten by most. The great tree answered with a creaking of boughs, a whisper of leaves, and parted the Flow before us. We, the Ollin, ventured forth, breaching our own fair borders for the first time in an age.
 
@@ -117,6 +117,6 @@ I could not agree more.
 
 Shiyana looked at the enemy in the distance, their shattered formation regrouping around a fresh lieutenant. "Then let us see how this story ends."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/11-dusk-till-dawn/unity-in-light-5.webp" alt="unity-in-light-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/dusk-till-dawn/unity-in-light-5.webp" alt="unity-in-light-5" class="center">
 
 _And so, side by side, the heroes stood, ready to face the darkness to come, painting a future in the visceral hues of courage and blood. They charged as one, a legion of pure purpose, to snatch victory from the jaws of shadowed defeat. They fought for Solana. They fought for Aria. They fought for a world now balanced on a knife edge between the Dusk and the Dawn._

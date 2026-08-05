@@ -2,7 +2,7 @@
 
 For hundreds of years, the Demonastery lurked beyond the shores of Rathe, surrounded by a wall of thick sea fog. Stormy seas kept ships from ever reaching its shores, surging waves tossing would-be intruders onto the sharp rocks. An eerie silence blanketed the grounds, stifling the distant sounds of the ocean. T'was a place that is neither here nor there, a dark sanctuary free from the bounds of morality.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-1.webp" alt="viserai-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/viserai-1.webp" alt="viserai-1" class="center">
 
 Two massive wrought-iron gates lead into a courtyard carved from marbled stone. While the stone paving is worn and stained, the inscribed runes were still visible, illuminated by the pale moonlight. Just beyond the courtyard lies the manor itself, looming over the grounds like a vengeful apparition.
 
@@ -16,7 +16,7 @@ Only the dust collecting on the edges of his torn cloak suggested the passage of
 
 However, unlike the creature he now hunted, Viserai's existence was explained. Lord Sutcliffe was his creator, his master, without whom he would not exist. The Arknight remembered little of the ritual that gave him new life, left only with fragments of memories shattered by blinding pain. This other creature was far older, presumably one of many borne from ill-fated experiments, whose creator had long since passed. The other creature was an accident, while Viserai was designed, a success in every sense of the word.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-2.webp" alt="viserai-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/viserai-2.webp" alt="viserai-2" class="center">
 
 The tests were proof enough of that. Viserai had passed all of Lord Sutcliffe's tests thus far, procuring useful items and knowledge from around the Demonastery, aiding his research and proving his usefulness to the Lord. Retrieving a sample of this strange creature, an alchemical anomaly incapable of dying, was just one more test for Viserai. In this, as in all things, he obeyed the will of his master.
 
@@ -24,7 +24,7 @@ The sound of a shrill scream echoed down the hall, shattering the unnatural sile
 
 Through the open doorway, an amorphous shadow hung in the inky darkness, looming the body of an alchemist. A beaker lay on the ground next to his outstretched hand, shattered upon the floor, its contents seeping into the cracks in the stone. The shadow came into focus as the creature slowly lifted one of its heads, releasing a metallic, shrieking gurgle. Its body began to shift, reshaping, lurching over the corpse.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-3.webp" alt="viserai-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/viserai-3.webp" alt="viserai-3" class="center">
 
 Viserai's runic markings flared to life, aether escaping through the vents in his armour as he drew upon the arcane energy within. With a wave of his hand, he summoned a runechant into the air, illuminating the room with a white-violet glow. A sharp crack echoed off the walls as the arcane energy burst forth, a bolt of pure aether striking the creature, its flesh sizzling and crackling on contact with the arcane energy.
 
@@ -88,7 +88,7 @@ The grounds were a pale silver in the light of the crescent moon, only barely vi
 
 The faint glow of candle flames in the distance caught his attention, flickering faintly through the mists. A figure appeared amongst the shadows, almost completely masked by the surrounding fog. As Viserai drew closer, he could see the scene illuminated by the eerie light of a runic circle, carved into the solid earth. About her lay a range of detached heads in various stages of decay, eyes carved from their skills, their gaping, bloody sockets left empty.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-4.webp" alt="viserai-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/viserai-4.webp" alt="viserai-4" class="center">
 
 Corva's face was distorted by a wide grin, stretching almost ear to ear. Her eyes gleamed with unrestrained glee, blood smeared down her chin. A series of runes were painted on her skin in dark, congealed blood, matching the ones on the ground below her, while an open wound on her arm allowed blood to flow freely down her outstretched arm, dripping onto the freshly carved runes.
 
@@ -160,7 +160,7 @@ _Do you want to spend the rest of your days serving your master?_
 
 Images flashed through his mind; chains around bloodied limbs, a man screaming as a crystal was embedded into his chest, runic script carved into skin with a scalpel. His armour lying upon a table, coated in blood. Viserai, wizened, drained, his skin grey, runes covering the entirety of his face. Chains wound around his throat, choking him, his skin turning black beneath the metal.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/viserai-5.webp" alt="viserai-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/viserai-5.webp" alt="viserai-5" class="center">
 
 Viserai, washing up on a beach, the slow turn of a gargoyle's head as it watched Sutcliffe come across him. The master, dragging his body into the laboratory. A younger Lord Sutcliffe, slashing open his palm, allowing the blood to spill into a stone circle. Another man, much older, swearing himself to the Demonastery; a woman carving a runic sigil into her wrist; Corva, watching as a pallas flew down and gripped her severed finger in its claws, flying off into the mists.
 

@@ -2,7 +2,7 @@
 
 Sweet smoke snakes into the air from Nuu's pursed lips, coiling hypnotically before fading into a haze that softens every edge and detail in her lounge.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/nuu-story-1.webp" alt="nuu-story-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/nuu-story-1.webp" alt="nuu-story-1" class="center">
 
 She taps the spent tobacco into a porcelain bowl, places the slender pipe on the side table, and looks at her protégé like a cobra might eye up a mouse.
 
@@ -28,7 +28,7 @@ Of all the places it might appear in Misteria, why has the teahouse brought her 
 
 She gazes at the moon and grits her teeth against the distress the silver orb excites within her. The School of the Moon taught her to manipulate the minds and memories of others, yet not her own. To never forget might be considered a gift by many, yet to her it is punishment. While Nuu has experienced the rarest, most exquisite pleasures that existence can offer, the bliss of ignorance is forever beyond her grasp.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/nuu-story-2.webp" alt="nuu-story-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/nuu-story-2.webp" alt="nuu-story-2" class="center">
 
 A knock at the door interrupts her troubled reverie.
 
@@ -44,7 +44,7 @@ Her administration of misery done for the moment, Nuu moves to her wardrobe to s
 
 She is adjusting a lantern to produce the most flattering silhouette when there is another knock at the door.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/nuu-story-3.webp" alt="nuu-story-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/nuu-story-3.webp" alt="nuu-story-3" class="center">
 
 "Enter!" she calls.
 
@@ -72,7 +72,7 @@ She begins her dance, each step fluid and mesmerizing, drawing her singular audi
 
 The master tailor gasps as she raises her knee to reveal a silken length of thigh before planting her heeled shoe between his legs. He inhales her intoxicating aroma; a subtle blend of perfume and pheromone.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/nuu-story-4.webp" alt="nuu-story-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/nuu-story-4.webp" alt="nuu-story-4" class="center">
 
 Her lips curl into a knowing smile. The smile he offers back is reckless, beyond his own control. She loves to toy with these mortals, leading them from the heights of pleasure to the depths of despair.
 
@@ -88,7 +88,7 @@ Nuu swats the offending paw aside and jabs him under the chin with her closed fa
 
 "Look at me!"
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/nuu-story-5.webp" alt="nuu-story-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/nuu-story-5.webp" alt="nuu-story-5" class="center">
 
 He obeys as Nuu curves her hips, her gown flowing over her body like the fog rolling down the mountains of Misteria. Her feet float across the wooden floor, hands twisting through enchanting patterns, her movements like a snake's rattle mesmerizing its prey.
 
@@ -110,7 +110,7 @@ He flinches at the intensity, his eyes widening in terror as Nuu's mouth extends
 
 He struggles in vain, helpless, as the viper kisses his flesh with her fangs. The chi courses from him like blood from an artery.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/nuu-story-6.webp" alt="nuu-story-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/nuu-story-6.webp" alt="nuu-story-6" class="center">
 
 Nuu takes life as she gives pleasure, engulfing his remaining years, his memories, his very essence. His body shudders, oblivious to the cost of its ecstasy. His racing heart falters and stops. His flesh withers within Nuu's embrace until he is but an empty husk.
 
@@ -144,7 +144,7 @@ The Vipressa bows and brushes past her mistress to deal with the former tailor's
 
 Nuu checks herself in a full-length mirror, makes a couple of minor adjustments to her clothes and hair, and constructs a smile that will carefully conceal her unease. There is something strange in the air today. It chills her from tongue to tail.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/nuu-story-7.webp" alt="nuu-story-7" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/nuu-story-7.webp" alt="nuu-story-7" class="center">
 
 She makes her way along twisting corridors until she reaches the backstage area of the main hall. The teahouse never unfolds the same way twice. Fresh rooms, secret corridors, new nooks and crannies. Nuu never tires of exploring its ephemeral architecture.
 
@@ -176,9 +176,9 @@ The swordsman tightens his grip, choking Satsuki's words. It doesn't matter to N
 
 Every Vipressa in the room knows that signal.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/nuu-story-8.webp" alt="nuu-story-8" class="center">
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/nuu-story-9.webp" alt="nuu-story-9" class="center">
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/nuu-story-10.webp" alt="nuu-story-10" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/nuu-story-8.webp" alt="nuu-story-8" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/nuu-story-9.webp" alt="nuu-story-9" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/nuu-story-10.webp" alt="nuu-story-10" class="center">
 
 Satsuki draws a Mistblade from the folds of her robe and drives the point through Seto's arm.
 
@@ -190,7 +190,7 @@ Nuu watches on with interest as her patrons flee from the melee. Here is a true 
 
 Even as she thinks this, a young man succumbs to the tiger's claw, his throat a gaping ruin.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/nuu-story-11.webp" alt="nuu-story-11" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/nuu-story-11.webp" alt="nuu-story-11" class="center">
 
 Moments later, a woman tumbles across the floor, her ribs shattered by a spinning wheel kick.
 
@@ -204,13 +204,13 @@ Such is the cycle of mortality, the serpent that eats itself.
 
 One of her tattooed courtesans tries to drive her dagger into Zen's back, only to fall prey to the monk's rapid reflexes. She drops to her knees, delicately inked skin torn and bleeding.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/nuu-story-12.webp" alt="nuu-story-12" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/nuu-story-12.webp" alt="nuu-story-12" class="center">
 
 Nuu wonders if it is time to end this fray, to summon the will to feed upon this man's abundant chi. She licks her lips in anticipation, but then something draws her attention from the battle, an urge so powerful she cannot disobey. She looks to the teahouse entrance and there stands a memory Nuu thought never to see made flesh.
 
 The woman's face, her stature, her hair and her eyes belong to another person, another lifetime, yet within the stranger there hides an intimacy of history shared. Nuu knows her, feels the cosmic ribbons that twist between them, binding two fates into one.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/nuu-story-13.webp" alt="nuu-story-13" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/nuu-story-13.webp" alt="nuu-story-13" class="center">
 
 Nuu steps down from the stage; the battle, her patrons, her teahouse all forgotten. She walks towards the silvered woman, a journey of moments that crosses an eon.
 

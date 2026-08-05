@@ -14,7 +14,7 @@ Vynnset straightens, fixing her metal tunic in place for the coming rite, the pa
 
 ...a little girl with flaxen hair sits cross-legged in a wheat field. She cocks her head, listening, then giggles.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/11-dusk-till-dawn/annointed-in-shadow-1.webp" alt="annointed-in-shadow-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/dusk-till-dawn/annointed-in-shadow-1.webp" alt="annointed-in-shadow-1" class="center">
 
 "You're naughty, Ren." A look of worry passes over her face like a cloud crossing the sun. "Sol is always listening."
 
@@ -28,7 +28,7 @@ The lady stands. She's heard enough. The girl looks up, suddenly afraid. The sun
 
 The girl struggles in the chair, but the buckled straps hold her tight. Tears stream down her cheeks as the scholar brings the arcane lamp closer. Her face contorts as she tries to close her eyes - a hopeless attempt - pinned open as they are by contraptions of silver and brass.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/11-dusk-till-dawn/annointed-in-shadow-2.webp" alt="annointed-in-shadow-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/dusk-till-dawn/annointed-in-shadow-2.webp" alt="annointed-in-shadow-2" class="center">
 
 "A shadow lurks in the recesses of her mind," shouts the scholar, raising his voice over the girl's cries. "We must exorcize it." He looks to the lady of means and meets her tearful gaze. "Without delay."
 
@@ -42,7 +42,7 @@ Robed matrons carry the girl through a marble archway; Sisters of Octothesia tak
 
 Her shaved head lolls in the blazing sun, scalp shining with sweat. Her skin is red and blistered, her lips shriveled with dehydration. She lies spread eagle, hands and wrists tethered to stakes that are driven deep into the bare earth.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/11-dusk-till-dawn/annointed-in-shadow-3.webp" alt="annointed-in-shadow-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/dusk-till-dawn/annointed-in-shadow-3.webp" alt="annointed-in-shadow-3" class="center">
 
 "Don't leave me," she croaks. "Never leave me."
 
@@ -68,7 +68,7 @@ He offers what he thinks is a reassuring smile and reaches with a gauntleted han
 
 The knight shrieks with pain as a heavy shield falls from the load, crushing his wrist. The woman clambers down the injured man like he is a ladder and turns to face the advancing guards.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/11-dusk-till-dawn/annointed-in-shadow-4.webp" alt="annointed-in-shadow-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/dusk-till-dawn/annointed-in-shadow-4.webp" alt="annointed-in-shadow-4" class="center">
 
 "I'm NOT going back!"
 
@@ -76,7 +76,7 @@ Black smoke rises from her slender body. Her eyes are pools of deepest shadow. S
 
 A low keening escapes the woman's narrow throat, so subtle yet so piercing that the guards wince, some covering their ears as the song drives spikes of pain through their skulls. The wagon's cargo answers to that music. Shields and breast plates rise. Helms roll and gauntlets crawl on jingling fingers. Disembodied pieces form hollow knights that lash out with all the woman's anger and hurt. Years of judgment and torment, meted out with metallic might. The guards try to defend themselves, but one by one they fall, beaten into a bloody pulp.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/11-dusk-till-dawn/annointed-in-shadow-5.webp" alt="annointed-in-shadow-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/dusk-till-dawn/annointed-in-shadow-5.webp" alt="annointed-in-shadow-5" class="center">
 
 One guard lives longer than the rest, though no one would count him luckier. The woman draws his dagger and slashes the buckles of his armor, stripping him naked in the noonday sun. He wails as she carves jagged runes into his broken limbs and shattered chest.
 
@@ -104,7 +104,7 @@ She raises the dagger to her face, not a tremble in her hand, and bursts her eye
 
 With unfaltering precision, she drives the dagger into the guard's heart. The blood boils up from his chest, more than his body could ever contain, flooding, drowning, until it is a rich, red pool into which the woman wades.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/11-dusk-till-dawn/annointed-in-shadow-6.webp" alt="annointed-in-shadow-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/dusk-till-dawn/annointed-in-shadow-6.webp" alt="annointed-in-shadow-6" class="center">
 
 From that wound in reality, she emerges onto a mountaintop of inky blackness. From the nebulous sky stares a great black moon. And from that scrutinizing orb descends a creature of terrifying beauty. The woman sees it and more, and the truth of seeing makes her weep red tears of rapture from her blood-filled sockets.
 
@@ -126,6 +126,6 @@ The Iron Maiden rests her palms on the rune-carved stones before her. Rivulets o
 
 Vynnset draws a curved blade from her belt.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/11-dusk-till-dawn/annointed-in-shadow-7.webp" alt="annointed-in-shadow-7" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/dusk-till-dawn/annointed-in-shadow-7.webp" alt="annointed-in-shadow-7" class="center">
 
 "Ready to free the Shadow."

@@ -24,7 +24,7 @@ Kassai raised one sword into the air, signaling her assent.
 
 The door to Kayo's cage dropped open, falling out of sight beneath the sand. The green-skinned beast charged forward, jagged gauntlet on his right arm gleaming beneath the harsh sun.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/14-heavy-hitters/bloodied-sands-1.webp" alt="bloodied-sands-1" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/heavy-hitters/bloodied-sands-1.webp" alt="bloodied-sands-1" class="center" />
 
 Kassai held both sabers out to her sides and stalked ahead, studying Kayo's movements for those brief moments of calm.
 
@@ -58,19 +58,19 @@ In the tournament's first round, she fought Betsy.
 
 The massive woman was a storm of violent rage, but she merely fought to fund her life of excess. It was simple enough to force her to yield at blade's edge when death meant an end to her hedonism.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/14-heavy-hitters/bloodied-sands-2.webp" alt="bloodied-sands-2" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/heavy-hitters/bloodied-sands-2.webp" alt="bloodied-sands-2" class="center" />
 
 Olympia lost to Kayo, an upset that shook Deathmatch to its bloody roots.
 
 It would have been the end of the "Undisputed Champion" if Kox's arena hands hadn't dropped Kayo with a volley of sleeping darts.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/14-heavy-hitters/bloodied-sands-3.webp" alt="bloodied-sands-3" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/heavy-hitters/bloodied-sands-3.webp" alt="bloodied-sands-3" class="center" />
 
 Afterwards, Olympia made a show of bestowing Kassai with his favor. She figured it was some sort of publicity play, more about him saving face than any faith he held in her. But she took it nonetheless. The better her reputation, the more chances she got at the top spot.
 
 Studying Rhinar taught her a thing or two about fighting Brutes.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/14-heavy-hitters/bloodied-sands-4.webp" alt="bloodied-sands-4" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/heavy-hitters/bloodied-sands-4.webp" alt="bloodied-sands-4" class="center" />
 
 In the melee, she bled the big bastards. A nip here, a slice there, until they collapsed. But they all lacked the runt's agility and guile. Kayo wasn't going down that way.
 
@@ -84,7 +84,7 @@ She took the long view and his coin.
 
 Business before pleasure.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/14-heavy-hitters/bloodied-sands-5.webp" alt="bloodied-sands-5" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/heavy-hitters/bloodied-sands-5.webp" alt="bloodied-sands-5" class="center" />
 
 Every bout, she thought of her father, Amir, and what he would have wanted. "Honor is not in the killing," he told her. "Honor is in the choice."
 
@@ -108,7 +108,7 @@ She stopped just before Kayo's iron cage and spun to face the beast. She sheathe
 
 Kayo ran his index finger gently over the neat cut across his belly. He daubed a line of blood down beneath each eye and roared. He charged forward, enraged, reckless, a ragged shout escaping his throat as he tore toward Kassai, leg muscles flexing hard with each step.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/14-heavy-hitters/bloodied-sands-6.webp" alt="bloodied-sands-6" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/heavy-hitters/bloodied-sands-6.webp" alt="bloodied-sands-6" class="center" />
 
 Kassai watched intently.
 
@@ -148,7 +148,7 @@ She allowed herself a smile.
 
 It was over.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/14-heavy-hitters/bloodied-sands-7.webp" alt="bloodied-sands-7" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/heavy-hitters/bloodied-sands-7.webp" alt="bloodied-sands-7" class="center" />
 
 Kassai sat up front of the wagon with Sada, rocking from side to side; her winnings clinked and rattled inside the chests at the rear, watched over by Fayyad and Alif, her brothers-in-arms.
 
@@ -168,7 +168,7 @@ A bone-weary exhaustion came over her. Her body ached, and her shoulder wound it
 
 Sada shook her head but smiled. "I suppose you are right."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/14-heavy-hitters/bloodied-sands-8.webp" alt="bloodied-sands-8" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/heavy-hitters/bloodied-sands-8.webp" alt="bloodied-sands-8" class="center" />
 
 Kassai's people were camped outside the city walls-a safer option when the streets were lousy with crooks, thieves, and brigands of every stripe, and when everyone knew of the gold she now carried.
 
@@ -184,7 +184,7 @@ They cheered again.
 
 "Tonight, we celebrate," she said, more quietly, "for tomorrow, we ride. This was just the beginning. Soon, with you by my side, I will reclaim my birthright. I will set my family free."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/14-heavy-hitters/bloodied-sands-9.webp" alt="bloodied-sands-9" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/heavy-hitters/bloodied-sands-9.webp" alt="bloodied-sands-9" class="center" />
 
 The whip cracked and drew another slash across the back of the whimpering prisoner. The captain holding the whip grinned. The rebels would break under his punishment, or they would bleed out. He didn't care which. There was no mercy in General Chul's playbook.
 
@@ -218,7 +218,7 @@ The looking glass fell from his hand, the lens cracking when it struck the woode
 
 "An army," he muttered. "Marching toward Volcor wearing a sandstorm as cloak and armor."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/14-heavy-hitters/bloodied-sands-10.webp" alt="bloodied-sands-10" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/heavy-hitters/bloodied-sands-10.webp" alt="bloodied-sands-10" class="center" />
 
 The wind whipped at Kassai's cloak, the last remnants of the sandstorm quickly dissipating. The outpost had been laid to waste, Chul's men slain, messengers captured and killed with warnings still sealed in their satchels.
 

@@ -2,7 +2,7 @@
 
 Fang led his troops through the Sand Glass District toward the largest glassworks in all Deshvahan. They were fearsome in armor of burnished steel and brass, red sash tied at their waists to evoke the blood that bonds all Dracai, and another around the upper arm in remembrance of their fallen Emperor.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/mark-of-a-traitor-1.webp" alt="mark-of-a-traitor-1" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/the-hunted/mark-of-a-traitor-1.webp" alt="mark-of-a-traitor-1" class="center" />
 
 The chorus of footfalls echoed sharply through the backstreets, residents retreating to their homes, closing doors and shuttering windows as they passed. Everyone in Deshvahan knew that where the Children of the Dragon went, retribution followed.
 
@@ -64,7 +64,7 @@ He pointed the jagged tip of his dagger at the nearest voice of dissent.
 
 The soldier visibly swallowed, then dropped to one knee, head bowed deeply. "Forgive me, Captain!"
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/mark-of-a-traitor-2.webp" alt="mark-of-a-traitor-2" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/the-hunted/mark-of-a-traitor-2.webp" alt="mark-of-a-traitor-2" class="center" />
 
 The others did the same.
 
@@ -122,7 +122,7 @@ Fang ignored the throbbing pain in his bruised arm as rage propelled him toward 
 
 Then came the noises again, louder now. Sharp sound like steel scratching glass. Coming closer. So close it scraped at the inside of Fang's skull.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/mark-of-a-traitor-3.webp" alt="mark-of-a-traitor-3" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/the-hunted/mark-of-a-traitor-3.webp" alt="mark-of-a-traitor-3" class="center" />
 
 A warped figure seeped from the shadows, long white hair spattered with blood, cunning eyes gleaming out from a monstrous mask, vicious teeth jutting from a leering mouth. Her blade cut the air between Fang and his quarry, forcing him back. He drew his second dagger just in time to block the next attack. A sequence of blows followed inhumanly fast. It took every ounce of Fang's fury and training to stop her.
 

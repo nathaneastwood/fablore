@@ -2,7 +2,7 @@
 
 A trap laid for a spymaster and his Ash Artist accomplice. Eun as the bait that Xathari would be compelled to take. Hundreds of ninjas waiting in ambush. Swords drawn for the soldiers. Nets and spears readied for Dromai's dragons.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/fai-7.webp" alt="fai-7" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/uprising/fai-7.webp" alt="fai-7" class="center">
 
 Eun's plan was cunning. Fai had to give her that. Since the massacre at Golden Orchard, Eun had been obsessed with ridding Volcor of 'that scheming snake'. With Xathari and his firesight extinguished, it would be easier to infiltrate the Imperial Palace, to tear the Dracai down from within.
 
@@ -52,7 +52,7 @@ Jaws burst through the rock with such force that the tremor knocks Fai off his f
 
 "Not him," commands Dromai. She points at Xathari.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/fai-8.webp" alt="fai-8" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/uprising/fai-8.webp" alt="fai-8" class="center">
 
 The Dracai shrieks with fear, tries to run. Flames billow around him as teeth close shut on his limping form. The dragon tosses him into the air, and with a snap of its great jaws, it swallows the wriggling man down.
 
@@ -68,4 +68,4 @@ Fai thrusts his sword into the ash and earth, planting his fury in the firmament
 
 No longer will the Volcai be ground into the dirt. It is time for the Phoenix to rise.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/fai-9.webp" alt="fai-9" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/uprising/fai-9.webp" alt="fai-9" class="center">

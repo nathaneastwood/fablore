@@ -10,7 +10,7 @@ Though small and suffocated, the Rotwood strained against its borders, yearning 
 
 From Candlehold's lush greenery, an ancient stag emerged, a majestic creature with a body of living wood and vine. Its antlers, twisted and adorned with budding flowers, glimmered faintly in the wan light. As the creature crossed into the depths of the Rotwood, its vibrant form wizened, each step pulling it deeper into decay.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/roots-of-change-1.webp" alt="roots-of-change-1" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/roots-of-change-1.webp" alt="roots-of-change-1" class="center" />
 
 "Stop! Don't go there," Verdance implored, her voice tinged with sorrow. "There is nothing in Rotwood for you. Return to Candlehold, where life sustains."
 
@@ -46,7 +46,7 @@ He held her gaze, drawing closer until Verdance could see the deep lines etched 
 
 With a final, piercing look, he turned away from her, his attention returning to the stag.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/roots-of-change-2.webp" alt="roots-of-change-2" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/roots-of-change-2.webp" alt="roots-of-change-2" class="center" />
 
 He knelt beside the beast and began the last rites, his voice carried softly through the still air.
 
@@ -108,7 +108,7 @@ Verdance entered the Throne Glade, where the lush canopy above allowed dappled s
 
 The Queen, a figure of timeless grace, reclined on her throne. Her eyes, once bright and full of ancient wisdom, now seemed dim and unfocused.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/roots-of-change-3.webp" alt="roots-of-change-3" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/roots-of-change-3.webp" alt="roots-of-change-3" class="center" />
 
 "Your Majesty, Candlehold is in danger. The Rotwood is spreading at Florian's will and - "
 
@@ -130,7 +130,7 @@ The Queen sighed. "Ah, Verdance," she whispered, "I am returning to the earth...
 
 She watched in horror as the Queen's form continued to change. "Your Majesty, no!" Verdance cried, reaching out as if to halt the process. "We need you. Candlehold needs you."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/roots-of-change-4.webp" alt="roots-of-change-4" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/roots-of-change-4.webp" alt="roots-of-change-4" class="center" />
 
 Desperate, Verdance knelt beside the Queen, her hands glowing as she summoned her healing magic.
 
@@ -154,7 +154,7 @@ The Queen was gone.
 
 A cool breeze whispered through the glade, causing Verdance to shiver with the sudden cold. It stirred the dust of the Queen's remains, revealing a perfectly formed seed that glowed like the first light of a summer's morning.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/roots-of-change-5.webp" alt="roots-of-change-5" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/roots-of-change-5.webp" alt="roots-of-change-5" class="center" />
 
 Verdance picked it up and stood, speechless.
 

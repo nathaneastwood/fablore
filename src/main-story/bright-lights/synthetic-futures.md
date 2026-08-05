@@ -4,7 +4,7 @@
 
 "Bloody systems. Smash em all!"
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-1.webp" alt="synthetic-futures-1" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/bright-lights/synthetic-futures-1.webp" alt="synthetic-futures-1" class="center" />
 
 So excited is Maxx by this notion of wanton destruction that he slops his Amygdazzla onto the already sticky floor of his Lowlake hideout.
 
@@ -30,7 +30,7 @@ Her calm logic gets a bewildered glare from Maxx. "No, not the health system, ob
 
 The mere mention of the e-word makes the anarchists twitchy. Particularly Maxx. He leans forwards, changes to a harsh whisper, like that'll fool any half-decent surveillance device.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-2.webp" alt="synthetic-futures-2" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/bright-lights/synthetic-futures-2.webp" alt="synthetic-futures-2" class="center" />
 
 "They've been tracking us all for weeks now."
 
@@ -60,7 +60,7 @@ Dash thinks it over. Although the last ten years have seen a rapid increase in T
 
 "Cogwerx," she concludes.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-3.webp" alt="synthetic-futures-3" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/bright-lights/synthetic-futures-3.webp" alt="synthetic-futures-3" class="center" />
 
 The woman next to Maxx nudges him with her elbow, then glares at him through her mirror shades.
 
@@ -86,7 +86,7 @@ She gets Maxx is out of his tinpot mind. Dash opens her mouth to say as much, bu
 
 "Grab your masks!" shouts Maxx as Rez and the anarchists duck for cover. He throws a mask at Dash as the room fills with gas and enforcers, and tugs at her arm to follow him. She presses the mask to her face with one hand, drawing her Teklo Plasma Pistol with the other, then shoots the legs out from under the closest enforcer bot, sending it backwards onto the other humaniforms.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-4.webp" alt="synthetic-futures-4" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/bright-lights/synthetic-futures-4.webp" alt="synthetic-futures-4" class="center" />
 
 Through thickening smoke, Dash follows Maxx to a corrugated iron wall. She covers their retreat with her pistol while he gives the barrier a solid kick. A pre-cut section of iron crashes to the ground, and Maxx drags Dash outside.
 
@@ -118,7 +118,7 @@ Dash stifles another yawn and heads down the corridor to Wyverstone's laboratory
 
 After the seventh home appliance, she wants to stick her head in a blender and press pulp. On the tenth, she's optically measuring Wyverstone for insertion into the Mach III Teklo Snapfreeze. If only she could retreat to her workshop, where the real inventing happens. A place where she can tinker and play, try things out for the sheer creativity of it. Far away from protocols and focus groups, budgets and tick-boxes.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-5.webp" alt="synthetic-futures-5" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/bright-lights/synthetic-futures-5.webp" alt="synthetic-futures-5" class="center" />
 
 The mech-in-a-box project offers her momentary relief. Yeah, she can imagine some amusing uses for a full-body Evo that folds into a container the size of a briefcase.
 
@@ -136,7 +136,7 @@ He shows Dash the reflex-boosters and cognition nodes, the subdermal weaves and 
 
 _It's like they can slit open our skulls and peer into our brains._
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-6.webp" alt="synthetic-futures-6" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/bright-lights/synthetic-futures-6.webp" alt="synthetic-futures-6" class="center" />
 
 "Thiroux mentioned none of this before. Who commissioned it?"
 
@@ -170,7 +170,7 @@ The hologram smiles blithely. "You have a restful evening, Dash."
 
 "Um, sure, Teklovossen."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-7.webp" alt="synthetic-futures-7" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/bright-lights/synthetic-futures-7.webp" alt="synthetic-futures-7" class="center" />
 
 At home, with her sore feet up, the setting sun painting her East Rise apartment in warming pink, she tries to forget about work. Yet try as she might, she can't shake those mechro-mods from her mind. Though fascinating, they just don't sit well with her. The secrecy makes sense, considering how intrusive the technology is. To her, Evos are meant to enhance the human body, not replace it. Why the tangent? Who ordered it?
 
@@ -186,7 +186,7 @@ None of which syncs with the friendly mustached faux-man that greets her every m
 
 She codes a system-worm to impersonate Wyverstone and burrows deeper into Teklo's classified dataforts. Teklovossen covered his tracks well, leaving only a single notification, received belatedly from the Iron Assembly, two days after Teklovossen's death.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-8.webp" alt="synthetic-futures-8" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/bright-lights/synthetic-futures-8.webp" alt="synthetic-futures-8" class="center" />
 
 _Micro-processor DD6.3 and chassis received and installed in the Iron Hall basement, as per your instructions, Professor. It's ready to review at your discretion._
 
@@ -252,7 +252,7 @@ Dash gives him a long, hard look. Sussing, judging, just like he does to her. Sh
 
 Her business collar scratches at her throat. She's starting to wonder why in halitosis she signed up for this.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-9.webp" alt="synthetic-futures-9" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/bright-lights/synthetic-futures-9.webp" alt="synthetic-futures-9" class="center" />
 
 _Energize the Era! Brought to you by the Iron Assembly._
 
@@ -298,7 +298,7 @@ Dash cuts the call and makes the most of her alone time. Winding through the maz
 
 Like a marionette, it hangs there, as if suspended between shows by a neglectful puppeteer. The weave of strings glow and oscillate through spectrums of color-a psychedelic cobweb of connective cabling. Behind it a green-screen writhes with figures and abstracted facts; the people of Metrix disintegrated to millions of data points. Dead eyes stare at Dash from a mask of brass, hiding the object of her operation. Teklovossen's micro-processor.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-10.webp" alt="synthetic-futures-10" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/bright-lights/synthetic-futures-10.webp" alt="synthetic-futures-10" class="center" />
 
 "Hellooooo, Beautiful," admires Dash, breathless. She's never seen anything more perfect. A fusion of technologies both Cogwerx _and_ Teklo in design. An impossible alliance given they rarely, if ever, collaborate.
 
@@ -354,7 +354,7 @@ A moment's pause. The information streams more quickly across the green-screen.
 
 "You've gone soft in the head," interjects Maxx. "A machine, a _system_." He takes a step closer, putting himself within striking distance of Dash. "We break this thing, we break the enforcers!"
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-11.webp" alt="synthetic-futures-11" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/bright-lights/synthetic-futures-11.webp" alt="synthetic-futures-11" class="center" />
 
 "Wait. That's not all you'd break, Maxx. Data Doll parses information for the entire city. We don't know how far those data streams extend, how many dependent systems she supports. What about that health care system you _obviously_ didn't want to smash?"
 
@@ -418,4 +418,4 @@ Data Doll processes this new information. "For the first time in my existence," 
 
 "Make it up as you go along."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/12-bright-lights/synthetic-futures-12.webp" alt="synthetic-futures-12" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/bright-lights/synthetic-futures-12.webp" alt="synthetic-futures-12" class="center" />

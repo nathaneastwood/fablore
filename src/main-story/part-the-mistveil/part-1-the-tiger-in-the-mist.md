@@ -6,7 +6,7 @@ He was drawn to the gully by the changing tides of chi and has made the long jou
 
 To the wanderer, every moment offers purpose and each step affirms an enduring commitment made to the cosmos: all who summon the chi must allow the chi to summon them.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/zen-story-1.webp" alt="zen-story-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/zen-story-1.webp" alt="zen-story-1" class="center">
 
 Villagers bow as he strolls past them, then return to their revered daily routines - every sweep of the broom effected with grace; the day's harvests washed and prepared with care and consideration.
 
@@ -34,7 +34,7 @@ But where to find this mysterious killer?
 
 Zen lowers his head, sweeps his open hand into his chest and concentrates all of his energy towards his center, channeling his inner power, seeking direction.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/zen-story-2.webp" alt="zen-story-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/zen-story-2.webp" alt="zen-story-2" class="center">
 
 The sun transforms the mist into a glistening haze over the Ikaru gardens. Zen treks into the dell, bowing as he passes the statue of Mistress Ikaru. He settles into a cross-legged position near a trickling spring where he hears the rustling of raciki scavenging for food.
 
@@ -64,7 +64,7 @@ Zen bows low to reflect the prestige of the man's house. Seto offers a shallow b
 
 The swordsman grunts and limps off, heading back towards town. Zen waits a while so he can pursue in secret, then follows Seto's oily trail of guilt.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/zen-story-3.webp" alt="zen-story-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/zen-story-3.webp" alt="zen-story-3" class="center">
 
 The teahouse seems insignificant, suspended as it is high above Mistcloak Lake between two jagged cliffs. "Nasu-ka" is the name Zen has gleaned from a passing water carrier, a title uttered with trepidation and disgust.
 
@@ -82,7 +82,7 @@ Delicate tones of harp and flute fill the room, each note drifting like cherry b
 
 In every open lounge and secluded corner, patrons gaze at beguiling servants who entertain in elegant attire. Silk gowns of intricate styles whisper against the polished floor. Hair, elaborately styled and adorned, framed faces of captivating beauty.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/zen-story-4.webp" alt="zen-story-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/zen-story-4.webp" alt="zen-story-4" class="center">
 
 Upon a broad stage, the servants gather to dance, each step fluid and mesmerizing, drawing the patrons deeper into the spell they weave. The room seems to hold its breath, utterly entranced. The performers command effortlessly, their fans fluttering, delicate and delightful, like the first butterfly wings of spring.
 
@@ -112,7 +112,7 @@ He summons his own strength, feels the tingling in his hands as ephemeral claws 
 
 He moves to stay Seto's hand, but is stopped in his tracks by an impossible vision.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/zen-story-5.webp" alt="zen-story-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/zen-story-5.webp" alt="zen-story-5" class="center">
 
 The dancers part to reveal a woman so beautiful, so enrapturing, that she catches even Zen's disciplined breath.
 
@@ -134,4 +134,4 @@ For now, he knows from whence the ripples of strife have spread across this town
 
 The Nasu-ka Teahouse is the stone, and it is from Nuu's delicate fingers that it was dropped.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/zen-story-6.webp" alt="zen-story-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/zen-story-6.webp" alt="zen-story-6" class="center">

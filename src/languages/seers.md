@@ -8,4 +8,4 @@ The only known reference to this language was in the story [A Grand Adventure](.
 
 > This age of Gods and Monsters. Ophidia the _ eeder of the Fyendal will one day return
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/06-everfest/grand-4.webp" alt="grand-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/everfest/grand-4.webp" alt="grand-4" class="center">

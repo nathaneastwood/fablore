@@ -10,7 +10,7 @@ From the frozen wastes into a fractured world, Iyslander's journey has begun, an
 
 The chilling air is sweet to my tastes. Wind that would cut the skin of another's caresses mine. It blows a shower of ice shavings from my snarling creation, its fury captured and frozen. Sinuous. Scaled and horned. It is a fleeting ghost from my past, those hot and hated memories locked away behind glacial walls in my mind. This is no creature of the Bleak Expanse.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-1.webp" alt="iyslander-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/uprising/iyslander-1.webp" alt="iyslander-1" class="center">
 
 Where others cannot, I live in contentment. Alone in body yet accompanied by spirit. I have everything I need right now. So why do unbidden tears freeze upon my cheeks? Why must I yearn for what has been? Why must I know that which has been forgotten?
 
@@ -18,13 +18,13 @@ The spell rises to answer my questions, a storm that rages from heart to throat 
 
 My statues, the mountain, the pale plain; I lose all in blinding white. Then it is over. The wind drops to an apologetic whisper. The air clears and my spell reveals the path that will lead me into the past.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-2.webp" alt="iyslander-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/uprising/iyslander-2.webp" alt="iyslander-2" class="center">
 
 ---
 
 I look back at the frozen lands that have been my home for many years. While my past remains walled off, I can recall every day since with crystal clarity. A youthful girl, shivering in a field as blank and white as the memory of how I got there. A cave of snow, opening like a warm embrace.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-3.webp" alt="iyslander-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/uprising/iyslander-3.webp" alt="iyslander-3" class="center">
 
 Spirits spoke to me in words of cooling compassion, teaching me to harness the winter within. Kindred kindness of frost and time that raised me into the woman I am now.
 
@@ -34,13 +34,13 @@ I follow my companion through the verdant countryside of Aria. We skirt the live
 
 ---
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-4.webp" alt="iyslander-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/uprising/iyslander-4.webp" alt="iyslander-4" class="center">
 
 Within the reddened Solanian dusk, I reel from a world at war. Long have I cherished the peace of ice, the slow settling of snow. Time passes with glacial calm in the Bleak Expanse. Now I witness the inferno of battle, the steaming heat of spilled blood.
 
 A dark-skinned warrior leads his metal-clad army against creatures so grotesque that my stomach churns. A fiend breaks away from its horde, smelling my presence even through the gore-soaked air. It charges, gibbering and slavering. Before it can lay its cruel claws upon me, I freeze the beast's blood in its veins.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-5.webp" alt="iyslander-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/uprising/iyslander-5.webp" alt="iyslander-5" class="center">
 
 I wipe sweat from my forehead, the first time I can recall doing so. My heart pounds, fast and hot. I am so far from my icekin that this one incantation has sapped my will. And through a crack in my weary mind, a recollection wriggles free. A feeling. Slick and coiling within my chest. Fear.
 
@@ -48,7 +48,7 @@ I flee this valley of violence, chased by the roars of the monstrous, the scream
 
 At an archway in a rugged pass, I remember a name. Volcor.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-6.webp" alt="iyslander-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/uprising/iyslander-6.webp" alt="iyslander-6" class="center">
 
 ---
 
@@ -56,7 +56,7 @@ I follow a path, winding and rugged. It takes me above the pass, though the way 
 
 At last I descend into the foothills and stop to listen to the rumbling of wagons, their trays protesting under the weight of black, sooty rock. Ahead, men and women carve open a hill with picks and shovels. Armed warriors watch over them, scarves wrapped around their faces to ward off the dust. A woman in fine robes sits astride her horse, surveying the dismal scene with calculating eyes. Her manner scratches at the ice around my memories. Have I known someone like this?
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-7.webp" alt="iyslander-7" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/uprising/iyslander-7.webp" alt="iyslander-7" class="center">
 
 She points at a worker who has stopped to rest. Warriors grab the hapless man, drag him before their mistress. She dismounts and draws a whip from her saddlebag. The crack of leather against flesh makes my skin burn with sympathy. My bones ache with frigid anger.
 
@@ -72,7 +72,7 @@ Yet despite the risk, I am drawn to the edge of a walled town. I have glimpsed t
 
 A shout from the street shatters the reflection. Man and girl fade back into the past as a sizzling ball smashes through the window. The apothecary explodes into flames.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-8.webp" alt="iyslander-8" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/uprising/iyslander-8.webp" alt="iyslander-8" class="center">
 
 I sneak away while all eyes are turned to the commotion. From then on I avoid the fear-fortified settlements, the raven general's patrols, and the daily injustices that infest this troubled land.
 
@@ -88,7 +88,7 @@ A storm of ice builds in my palm. After a long game of cat and mouse with the ra
 
 I let her guide me into a humble house, a bolthole away from prying eyes where she can reveal her true self.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-9.webp" alt="iyslander-9" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/uprising/iyslander-9.webp" alt="iyslander-9" class="center">
 
 "Who are you?"
 
@@ -114,7 +114,7 @@ I shuffle with the line, mimicking the others, their slumped shoulders, their do
 
 I hurry on, eyes down, and only allow myself to look up when I am well beyond the gate. The city surrounds me, its heat pressing against my skin, so dry in my lungs that I fight for breath.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/iyslander-10.webp" alt="iyslander-10" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/uprising/iyslander-10.webp" alt="iyslander-10" class="center">
 
 Streams of melted ice pour from the frozen walls in my mind, pooling behind my eyes. Fleeting images slip through the widening cracks. A grand residence with snarling dragons at the gate. Within that home, a library of scrolls, and a young girl cowering in a beshadowed corner. She works a lock of blond hair between her bruised lips as her trembling fingers trace arcane words across a yellowed parchment. Her eyes are a glacial blue and reflect a longing I know only too well.
 

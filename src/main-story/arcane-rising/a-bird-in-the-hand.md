@@ -4,13 +4,13 @@ Walking into the tavern, Azalea was greeted by the familiar sound of a high-pitc
 
 Greenbird turned toward her, acknowledging her with a nod. He placed a pouch of 'tallics on top of the card, then slid a different contract card onto the counter alongside it.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-6.webp" alt="azalea-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/azalea-6.webp" alt="azalea-6" class="center">
 
 "I have something else for you. One of the gangs is causing some trouble. They keep triggering the tavern's defenses, and I'm getting fuckin' tired of getting their blood off the walls. I'll give you ten silvers for their leader's head." With a sigh, Greenbird waved her off, already dismissing her to attend to the busy tavern.
 
 Weaving through the crowded tables, she slipped past the guards at the door, keeping a close eye on a nearby group of mercenaries. Once she was clear, Azalea ducked into an alleyway, withdrawing the contract card from her pocket. Flipping it over, she found a single mechanical arm sketched onto the front, a skull nestled just above its elbow.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-7.webp" alt="azalea-7" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/azalea-7.webp" alt="azalea-7" class="center">
 
 _Arms Dealers_. It made sense. She'd had run-ins with a couple of its members on the streets, they were exactly the kind to throw themselves at the tavern. _Fucking cults_.
 
@@ -32,7 +32,7 @@ Knocking on the front door of his shack, Azalea waited, listening as sounds with
 
 The door opened just enough for him to peer around the corner, one hazel eye peeking out at her.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-8.webp" alt="azalea-8" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/azalea-8.webp" alt="azalea-8" class="center">
 
 "Azalea! Didn't expect you for another couple months yet." Opening the door proper, Barton waved her in, brushing back his greying hair with a grin. "Not that I'm not happy t' see ya, 'course."
 
@@ -100,7 +100,7 @@ In the centre of it all sat Barton, or what remained of him. His corpse was perc
 
 His skin hung off him in tatters, revealing the dark glisten of muscle underneath. In some places, the bones burst through, the points of his ribcage piercing through his abdomen. It looked like at some point, his stomach had ruptured - in addition to the sharp, acrid scent of bile in the air, she could see it coating what remained of his clothes.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-9.webp" alt="azalea-9" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/azalea-9.webp" alt="azalea-9" class="center">
 
 _Shit_. Jaw clenched, Azalea stepped closer, ignoring the pungent smell to the air around the corpse. Emptying his pockets, she found three coppers, four lockpicks and a piece of flint, tucking them into one of her pouches. The rest of the clutter she left, looking around the room to check for anything else she could use.
 
@@ -172,7 +172,7 @@ _One_.
 
 Finally, the Harvester was the only one left, his gun held aloft as he ducked out from behind the counter. The instant he appeared, before he had time to react, the thwack of a bowstring sounded as an arrow pierced his skull. This one was slightly thicker than the others, the fletching longer and wider. As the Harvester stood there, frozen, his skull suddenly detonated, sending chunks of brain matter, blood and skull fragments flying across the room.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-10.webp" alt="azalea-10" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/azalea-10.webp" alt="azalea-10" class="center">
 
 Greenbird slowly raised one hand to wipe the blood splatter from his face, his expression thunderous. There was a strip of skin dangling from his bodice, the Harvester's hair still attached to the piece of scalp. Pinching the hair between the tips of his fingers, he flung it one side, expression twisting into a look of disgust.
 

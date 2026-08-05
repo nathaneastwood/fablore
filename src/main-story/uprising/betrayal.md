@@ -1,6 +1,6 @@
 # Betrayal
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/dromai-6.webp" alt="dromai-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/uprising/dromai-6.webp" alt="dromai-6" class="center">
 
 Dromai sits in the Oasis, her feet dangling in the cave's simmering lake. She watches luminous carp flit through the water, hunting flarefish that fall from the lava river.
 
@@ -18,7 +18,7 @@ It gave her no pleasure to kill Eun. That surprises her. Justice has been served
 
 Xathari is a different matter. For ten years, he was her mentor, her confidante and friend.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/dromai-7.webp" alt="dromai-7" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/uprising/dromai-7.webp" alt="dromai-7" class="center">
 
 He saved her from murderous rebels.
 
@@ -54,4 +54,4 @@ She will never belong to Ashvahan.
 
 Ashvahan will belong to her.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/08-uprising/dromai-8.webp" alt="dromai-8" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/uprising/dromai-8.webp" alt="dromai-8" class="center">

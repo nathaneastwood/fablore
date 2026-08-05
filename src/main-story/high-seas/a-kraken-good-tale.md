@@ -12,7 +12,7 @@
 
 Pearl reached under the bar and produced an unopened bottle of Goldkiss Rum. "For the lady of the hour and her daring crew."
 
-![a-kraken-good-tale-1](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/a-kraken-good-tale-1.webp)
+![a-kraken-good-tale-1](https://d2hl7maqck52px.cloudfront.net/main-story/high-seas/a-kraken-good-tale-1.webp)
 
 "Ye know me too well," Marlynn said as she grabbed her coin pouch.
 
@@ -26,7 +26,7 @@ _It started with Piper's Pier. A sea serpent was having its way with the supply 
 
 _The sea roiled around us as the serpent gobbled them guts. I readied me harpoon, but when the beastie reared above the water and I saw its golden choppers, I realized this weren't yer average sea snake, but a rare Cyanatu._
 
-![a-kraken-good-tale-2](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/a-kraken-good-tale-2.webp)
+![a-kraken-good-tale-2](https://d2hl7maqck52px.cloudfront.net/main-story/high-seas/a-kraken-good-tale-2.webp)
 
 _"Batten down the hatches!" I hollered. "We be following this one home!" I tethered the harpoon to the ship and fired into the serpent's side. It didn't take kindly to that, hissing and howling like a...a-_
 
@@ -76,7 +76,7 @@ Pearl raised her mug in a toast to that, and all joined her for a celebratory sw
 
 _"Raise the mainsail!" I yelled to Wheeler. "Sail to half-mast!" he ordered the crew. "Hard to starboard! Ready the cannons!" Not a moment after, the leviathan surfaced with the force of a monsoon. We were lucky not to get thrown back to the Triangle by the waves it made!_
 
-![a-kraken-good-tale-3](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/a-kraken-good-tale-3.webp)
+![a-kraken-good-tale-3](https://d2hl7maqck52px.cloudfront.net/main-story/high-seas/a-kraken-good-tale-3.webp)
 
 _Of course, we weren't alone out there. A blockade of buccaneers sailed out to greet the creature, but every pirate worth their salt knows luck is fickle. One ship capsized in the leviathan's bow wave and two more were thrust against the rocks. They were already sinking by the time the other ships began firing. Couldn't see a damn thing through the gunpowder cloud, but I could hear enough. The leviathan roared, wood splintered, pirates wailed. The smoke cleared just as we got within range, and all that was left of that skull-flying fleet was the sea monster squashing the last ship like a grape. Not a bloomin' scratch on it. Better not to waste good iron on a creature that would pay it no-_
 
@@ -98,7 +98,7 @@ _I ordered Wheeler to steer the ship closer. Poor bloke likely thought I was mad
 
 _A whirlpool dragged us toward the leviathan, hard and fast. The ship's boards screamed with effort as me crew tacked the ship to and fro. Crashing into the beast wouldn't make for a very heroic ending, would it? We held just enough distance to skirt along its side, until its eye found us, and me harpoon found its eye. Dead center!_
 
-![a-kraken-good-tale-4](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/a-kraken-good-tale-4.webp)
+![a-kraken-good-tale-4](https://d2hl7maqck52px.cloudfront.net/main-story/high-seas/a-kraken-good-tale-4.webp)
 
 _It roared like thunder, a storm unto itself, lashing its tentacles out in all directions. Golden blood spilled from its socket as it fell back into the ocean. I watched from the bow as it slipped beneath the surface to join its victims in the briny deep._
 

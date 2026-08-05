@@ -2,7 +2,7 @@
 
 _Creation and destruction, an endless cycle of hope and despair. One cannot exist without the other, yet neither can they be equal, balanced. In Summer, the enlightened hours stretch like cats basking in the sunlight. In Winter, darkness curls close around our shivering flesh. Each day a battlefield as the Dusk and Dawn wax and wane._
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/11-dusk-till-dawn/into-the-darkness-1.webp" alt="into-the-darkness-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/dusk-till-dawn/into-the-darkness-1.webp" alt="into-the-darkness-1" class="center">
 
 The fighters of Solana and Aria threw back the demon horde with unified defiance, slaughtering the monstrosities until carcasses piled high across the Golden Fields. Yet still, the Demonastery spewed out an endless flow of aberration.
 
@@ -26,7 +26,7 @@ Dorinthea shook her head. "Let's find these people some food and shelter."
 
 Once, and only once, had the Demonastery manifested their foul creations within the city, exploiting a lone frailty left unnoticed over centuries of peace. Thebasto, Magister of Defense, had since eliminated that weakness. The runes were stronger than ever. No Shadow could survive within Solana's sublime architecture.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/11-dusk-till-dawn/into-the-darkness-2.webp" alt="into-the-darkness-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/dusk-till-dawn/into-the-darkness-2.webp" alt="into-the-darkness-2" class="center">
 
 In the days to come, Solana's faith proved out as the city's runic ramparts thwarted the Demonastery's endless tide. Time and again they attacked, only to retreat, bloodied and broken, leaving ever more shattered carcasses in their wake like flotsam on a beach. Though their hearts bled for the lands and lives lost beyond the walls, Solana's champions allowed themselves to breathe, to sleep. In Sol's embrace, they were safe.
 
@@ -46,7 +46,7 @@ Across the hall, Boltyn stood and raised his hands, begging patience. "While Dor
 
 Bravo rose to his feet, wincing as his muscles pulled at the bandaged wound on his broad chest. "A storm is coming, and it will shake their damned house to its very foundations. Am I right?!"
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/11-dusk-till-dawn/into-the-darkness-3.webp" alt="into-the-darkness-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/dusk-till-dawn/into-the-darkness-3.webp" alt="into-the-darkness-3" class="center">
 
 The Ollin answered in thunderous agreement, an uproar of such fervor, such courage, that it tugged a smile from even Ser Boltyn's stern lips.
 
@@ -56,7 +56,7 @@ As the noble assembly dispersed to make its preparations, another parlance was o
 
 Levia regarded Vynnset with eyes of chilling violet. Her beauty belied the beast within. Her grace concealed the hunger.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/11-dusk-till-dawn/into-the-darkness-4.webp" alt="into-the-darkness-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/dusk-till-dawn/into-the-darkness-4.webp" alt="into-the-darkness-4" class="center">
 
 "It is all I need."
 
@@ -90,7 +90,7 @@ Levia the Redeemed answered with a roar. As she surrendered her body to Blasmoph
 
 "A moment, fleeting at best."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/11-dusk-till-dawn/into-the-darkness-5.webp" alt="into-the-darkness-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/dusk-till-dawn/into-the-darkness-5.webp" alt="into-the-darkness-5" class="center">
 
 Even as the wall gleamed around the darkened stain; even as light burned at the clinging gloom - containing, cleansing - Levia the Consumed struck the rampart with all of her primordial strength. Stones that had withstood thousands of years now splintered under that gargantuan blow. The wall gave way with an ear-shattering crack and the Consumed broke through into the sleeping city beyond.
 
@@ -100,7 +100,7 @@ Lexi rushed out onto the barrack roof. Her breath caught in her throat as she to
 
 Dorinthea and Boltyn rallied a vanguard of those closest at hand, warriors and illusionists of Solana rushing into the fray with the wizards and runeblades of Aria. They led them against the creatures that surged into the city around the towering Consumed. They cut through the Demonastery's slavering shock troops, buying precious moments for fleeing citizens. Yet they were too few to hold back the tide for long. Half their number fell in the first charge, more as their formation buckled under the sheer weight of the onslaught.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/11-dusk-till-dawn/into-the-darkness-6.webp" alt="into-the-darkness-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/dusk-till-dawn/into-the-darkness-6.webp" alt="into-the-darkness-6" class="center">
 
 "To the Solarium!" ordered Boltyn, the Wartune's blessings ringing in his ears. With Dorinthea at his side, Boltyn held the line until the last of the surviving allies had broken free.
 
@@ -120,7 +120,7 @@ Up on the Great Library's highest balcony, Shiyana shook her head; a small act o
 
 The stricken scholar beside her could not answer, unable to drag her focus from her strife-torn city. A thousand stories screamed in her mind, a thousand reasons Sol could never let this happen.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/11-dusk-till-dawn/into-the-darkness-7.webp" alt="into-the-darkness-7" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/dusk-till-dawn/into-the-darkness-7.webp" alt="into-the-darkness-7" class="center">
 
 Were they forsaken?
 

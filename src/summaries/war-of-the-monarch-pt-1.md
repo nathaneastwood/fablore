@@ -34,7 +34,7 @@ For the first time since the turning of The Apostate, Solana fears for its futur
 
 Who shall prevail, the Shadow or the Light?
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/04-monarch/prism-6.webp" alt="prism-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/monarch/prism-6.webp" alt="prism-6" class="center">
 
 Only one thing is certain. Whatever the victory, Rathe shall feel its effects for aeons to come...
 

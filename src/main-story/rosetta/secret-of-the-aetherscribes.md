@@ -6,7 +6,7 @@ Aurora sailed over the rooftops, leaving a trail of lightning and laughter crack
 
 "Today's my lucky day!"
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/secret-of-the-aetherscribes-1.webp" alt="secret-of-the-aetherscribes-1" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/secret-of-the-aetherscribes-1.webp" alt="secret-of-the-aetherscribes-1" class="center" />
 
 Her pace quickened as she approached the edge of the floating isle. She let herself fall, compressing herself into a ball of pure energy as she landed near the bluff. Without wasting a moment, she uncoiled her limbs and vaulted off, a loud CRACK punctuating her departure.
 
@@ -28,7 +28,7 @@ She'd skimmed a ponderous tome, found out that this vault would only open for a 
 
 As if acting on her suggestion, the storm called down a massive bolt to strike the floating rock.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/secret-of-the-aetherscribes-2.webp" alt="secret-of-the-aetherscribes-2" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/secret-of-the-aetherscribes-2.webp" alt="secret-of-the-aetherscribes-2" class="center" />
 
 The door unleashed a blinding light before groaning open like a slumberous Ollin thawing under a new dawn. The large mass stirring in the shadows cued that the angry door was the least of her worries.
 
@@ -96,7 +96,7 @@ Aurora had barely taken two steps into the cavernous space before ominous whirri
 
 A pair of golems collided in an explosion of sparks as Aurora dodged their two-sided attack. Another golem glanced off her quick-drawn blade. The next, she impaled through the chest and used its body as a sledgehammer to destroy two more.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/secret-of-the-aetherscribes-3.webp" alt="secret-of-the-aetherscribes-3" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/secret-of-the-aetherscribes-3.webp" alt="secret-of-the-aetherscribes-3" class="center" />
 
 As four golems surged towards her, she sent out a wave of lightning that sent them sputtering to the floor. Before she could recharge, one golem snatched her sword away and opened a gap for eight of its companions to swarm her.
 
@@ -114,7 +114,7 @@ Aurora searched for the source of the voice as the golems flitted back to their 
 
 In answer, the glowing orb pulsed. Its cage shook free of the wall piece by piece, strands of light holding the metal shards together as they floated toward her as one.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/secret-of-the-aetherscribes-4.webp" alt="secret-of-the-aetherscribes-4" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/secret-of-the-aetherscribes-4.webp" alt="secret-of-the-aetherscribes-4" class="center" />
 
 The sheer scale of the thing was mind-boggling; a moving tower of metal and magnetism, bound by ancient energies beyond any she'd seen before.
 
@@ -126,7 +126,7 @@ Aurora retrieved her blade and stood. She wasn't sure whether to look at the orb
 
 "The Aetherscribes denominated me Oscilio."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/16-rosetta/secret-of-the-aetherscribes-5.webp" alt="secret-of-the-aetherscribes-5" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/rosetta/secret-of-the-aetherscribes-5.webp" alt="secret-of-the-aetherscribes-5" class="center" />
 
 "The Aetherwho?"
 

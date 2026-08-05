@@ -4,7 +4,7 @@ Across the rolling hills of Volcor, the earth was stained black with soot and as
 
 Beyond them, the silhouette of Mt. Volcor rises above the rocky slopes, a massive active volcano which can be seen from the furthest borders of the region. A plume of toxic smoke and poisonous gases rises into the air, painting the sky in shades of grey and blocking out the sun for months at a time.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-5.webp" alt="kano-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/kano-5.webp" alt="kano-5" class="center">
 
 A path cut into the slope of the volcano leads to the imperial palace, an imposing structure carved from obsidian and stone. The palace extends deep below the earth, a massive network of underground halls providing a home for every member of the royal court. It stands apart from the villages far below, equal parts magnificent and formidable, separated from the rest of Volcor by a series of stone walls and grand gates.
 
@@ -14,7 +14,7 @@ Great golden lanterns illuminated the halls, casting everything they touched in 
 
 A court wizard strolled down one such hallway, his crimson robes a splash of colour against the pale mats and dark stone walls. The crimson fabric was bordered in fine gold embroidery, set against the jet-black skirt of his robes. In one hand, he held a staff carved from pure obsidian, gold detailing running along its length. His hair was drawn up into a high ponytail, decorated with a large, blood-red feather plume, which was held in place by an intricate golden hairpin.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-6.webp" alt="kano-6" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/kano-6.webp" alt="kano-6" class="center">
 
 As he strode down the hall, Kano came to a stop near one of the sigils embedded in the wall, weaving a spell into the air with his free hand. Most of the court's wizards weren't required to perform such menial tasks, but most wizards had already received a title and become a true member of the royal court. Kano, still awaiting a title, was still included within the group of young wizards that worked to maintain the spells around the palace.
 
@@ -108,7 +108,7 @@ Even as Kano drew the fire away, holding it at the ready, Akihiko continued to w
 
 After a long moment, Kano allowed the fire to extinguish, cautiously approaching the still form of his former mentor. Now that he lay still, Kano could suddenly see the Lord Wizard's sunken cheeks, the bluish pallor to his skin, the dark rings that circled his eyes. The skin on his hands was wrinkled and dry, his lips cracked, unseeing milky-white eyes staring blankly into the middle distance.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/kano-7.webp" alt="kano-7" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/kano-7.webp" alt="kano-7" class="center">
 
 The sound of thunderous footsteps startled Kano out of his confusion, whipping around in time to see a host of armored imperial guards racing around the corner. As they came into view, Kano recognised the Lord Wizard at the front of the group, her alarmed gaze meeting his. As he watched, the Lord Wizard Chiyo's gaze fell to the body at his feet, shock rippling across her expression at the sight of Akihiko's corpse.
 

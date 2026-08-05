@@ -20,7 +20,7 @@ Fang stood at attention nearby. He had been insistent despite the ludicrous natu
 
 Her forces had emerged from their hold beneath the city primed to hunt. Anyone linked to Kayat and this supposed corruption was executed, swiftly and unceremoniously, even those with only tenuous links to the Emperor's death. Homes had been reduced to cinder, blood stained the streets, and billowing towers of smoke blotted out the stars. The razing of Deshvahan was the only way to protect the dynasty from further ruin. Such was Cindra's retribution.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/cleanse-the-corruption-1.webp" alt="cleanse-the-corruption-1" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/the-hunted/cleanse-the-corruption-1.webp" alt="cleanse-the-corruption-1" class="center" />
 
 The general shot a piercing look at the captain, sizing him up. "Captain Fang?"
 
@@ -48,7 +48,7 @@ At Fang's command, drums beat the rhythms of war and the Children of the Dragon 
 
 Taipanis and his cadre of wizards raised their arms, golden aether flowing through bodies and into open palms. They unleashed balls of fire that tore through the smoke-blackened sky, engulfing the battlements. Savai's archers screamed as they burned. Others jumped, the conflagration burning brighter still so that Cindra couldn't look without squinting.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/cleanse-the-corruption-2.webp" alt="cleanse-the-corruption-2" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/the-hunted/cleanse-the-corruption-2.webp" alt="cleanse-the-corruption-2" class="center" />
 
 Fang used the moment to raise his daggers high, a signal for the soldiers to pull on the ropes using the full force of their strength. As portions of the walls toppled under the dragging pressure, the soldiers regrouped behind the cloud ladders and pushed them forward. By the dozen, the devices unfolded. Fang was the first to climb one of the extended ladders, followed by hundreds of soldiers who clambered through the breaches to cut Savai's defenders down.
 
@@ -74,7 +74,7 @@ Savai twitched as he glanced back at Cindra, his body hunched, his face a distor
 
 "Whoever kills her gets a bonus," Jemjang shouted.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/17-the-hunted/cleanse-the-corruption-3.webp" alt="cleanse-the-corruption-3" class="center" />
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/the-hunted/cleanse-the-corruption-3.webp" alt="cleanse-the-corruption-3" class="center" />
 
 The assassins were a motley bunch, dressed in the varied and garish fashions of the Pits, each clutching a weapon: a stiletto, a hammer, an axe, and three varieties of sword. None would fight for the other, nor would they have trained for it. Cindra stood her ground, letting them come closer - closer than she needed. She hurled a dagger, striking Stiletto in the eye, dropping her immediately. Cindra spun to dodge a sword strike and slammed a dagger into the man's neck, then leaped high, stepping off the walls and over the remaining assassins, throwing two daggers before she touched the ground. Each found its target, straight to the heart.
 

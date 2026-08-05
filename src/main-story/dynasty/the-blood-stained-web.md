@@ -2,7 +2,7 @@
 
 I perch in the rafters where the air is thick with whispers. Servants gossip in a cozy huddle below. I yearn to drop among them, to cut those wagging tongues from their gaping mouths, to bathe them in blood. But that is not in the plan.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/bloodstained-web-1.webp" alt="bloodstained-web-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/dynasty/bloodstained-web-1.webp" alt="bloodstained-web-1" class="center">
 
 Laughter breaks out as a punchline is hit. Something about a Dracai, a chamber pot, and tea ceremony. I vault from rafter to rafter while their eyes are blinded by mirth. I drop out of hiding and stalk into the passage beyond, none of them the wiser. If only they knew Death had passed so close, their jokes would stiffen like the lips on a corpse-their sleepless nights would stretch and twist with sweats and shivers.
 
@@ -26,7 +26,7 @@ My first shiny flies across the room to puncture the Karasita player's eye and h
 
 I step forward and plunge my second shiny into the back of the polisher's neck.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/bloodstained-web-2.webp" alt="bloodstained-web-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/dynasty/bloodstained-web-2.webp" alt="bloodstained-web-2" class="center">
 
 The third guard knocks the chair and Karasita board aside as he stands. It does him no good. My favorite shiny slices open his windpipe before his hand touches the hilt of his sword.
 
@@ -49,4 +49,4 @@ We are the Spider's spinnerets-a latticework of slaughter sent to end a dynasty.
 
 I dance to my delight, knowing the red rain is about to fall.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/09-dynasty/bloodstained-web-3.webp" alt="bloodstained-web-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/dynasty/bloodstained-web-3.webp" alt="bloodstained-web-3" class="center">

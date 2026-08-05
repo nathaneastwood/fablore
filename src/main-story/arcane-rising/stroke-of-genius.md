@@ -10,7 +10,7 @@ Amidst the clamor of the marketplace, a woman pushed her way through the crowds,
 
 As the flow of the crowd shoved her out to the sides of the thoroughfare, she stumbled into a merchant's stall, drawing his attention. He reached out with one plump, gloved hand to steady her.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-1.webp" alt="dash-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/dash-1.webp" alt="dash-1" class="center">
 
 Behind a single table adorned with a crudely painted sign, the merchant peered out from beneath his bushy eyebrows, curled lips revealing a toothy grin. His entire head was covered by a mass of messy white hair and a giant hat, his figure obscured by layers upon layers of cloth, leather and fur.
 
@@ -28,7 +28,7 @@ Behind a single table adorned with a crudely painted sign, the merchant peered o
 
 "Oh, the lasers these days aren't nearly as powerful as they used to be. Nobody makes 'em like that anymore. When I was a lad, you could carve furniture with a laser; now ye'd be lucky to cut a Centennial loaf. 'Course, there's always the induction chamber."
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-2.webp" alt="dash-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/dash-2.webp" alt="dash-2" class="center">
 
 "What's an induction chamber?" The research assistant frowned, clutching the package tightly. "Why would that help?"
 
@@ -70,7 +70,7 @@ In the light of midday, the plumes of white around the city were cast a pale gol
 
 "Ugh. Okay, I'm out," the merchant groaned, reaching into one sleeve to retrieve a small key. "Time to check up on that researcher from earlier." He ducked behind his stall, unlocking a false panel in the back of the stand.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-3.webp" alt="dash-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/dash-3.webp" alt="dash-3" class="center">
 
 Glancing from side to side, he pulled off his wig, revealing a head of bright copper hair. Removing several layers of clothing, the gleam of burnished metal flashed in the sun as the merchant stashed the disguise beneath the market stall. A petite, spry young girl stepped out of her platform shoes, a shower of freckles scattered across her face.
 
@@ -112,6 +112,6 @@ Then, a peal of laughter shattered the tentative quiet. As one, the group of sci
 
 "Wasn't intentional," Wyverstone roared, firing in Dash's direction. "Someone bring me that brat right now! Somebody call Thiroux and tell her to control her daughter! No, call Teklo- Call the Iron Council! Bring me my phone this instant...!"
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/dash-4.webp" alt="dash-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/dash-4.webp" alt="dash-4" class="center">
 
 Dash grimaced as the man continued raving, waving her fingers sheepishly at the occupants of the room as she ducked out of view, beginning to descend down the face of the Needle. Her feet touched the ground just as the front doors burst open, revealing Wyverstone standing in the entranceway, several staff members standing just behind him. Turning on her heel, Dash made for the nearest aperture, ducking down into the city level below.

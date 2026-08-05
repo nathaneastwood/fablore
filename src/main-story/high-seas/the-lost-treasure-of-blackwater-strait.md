@@ -16,7 +16,7 @@ _Bilge sucking...?_
 
 "Bloody bird, get off me!" the hangman yelped as he fended off an assault from a cutlass-wielding parrot.
 
-![the-lost-treasure-of-blackwater-strait-1](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/the-lost-treasure-of-blackwater-strait-1.webp)
+![the-lost-treasure-of-blackwater-strait-1](https://d2hl7maqck52px.cloudfront.net/main-story/high-seas/the-lost-treasure-of-blackwater-strait-1.webp)
 
 _Bloody bird indeed,_ Meldrick thought. If it weren't for the avian's absent companion, Meldrick wouldn't be in this mess. As the hangman toppled off the platform and the parrot cut the noose, Meldrick decided the bird might be alright after all. At least better than his peg-legged pal. She was one hundred percent trouble.
 
@@ -28,7 +28,7 @@ Meldrick found himself back on his feet, his knees still knocking. The woman was
 
 "Hello, Puff-" he started, interrupted by alarm klaxons splitting the sky with their loud wailing.
 
-![the-lost-treasure-of-blackwater-strait-2](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/the-lost-treasure-of-blackwater-strait-2.webp)
+![the-lost-treasure-of-blackwater-strait-2](https://d2hl7maqck52px.cloudfront.net/main-story/high-seas/the-lost-treasure-of-blackwater-strait-2.webp)
 
 "Damn Graystone flighters," Puffin muttered. "How nice of the skywardens to send the welcoming committee." She half-turned to her crew and shouted, "Evasive action, everyone!"
 
@@ -110,7 +110,7 @@ Puffin turned to Meldrick and yelled at him. He couldn't hear what she was sayin
 
 He vaguely saw Puffin stuff something into her ears, then felt her grab his waist and pull. He refused to let go of the banister, desperately trying to spot the singing. He leaned dangerously over the rail, on the brink of toppling, and there they were: six alluring figures laying languid on the rocks, filling the air with glorious music. He wanted, no, _needed_ to be with those wondrous merwomen.
 
-![the-lost-treasure-of-blackwater-strait-3](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/the-lost-treasure-of-blackwater-strait-3.webp)
+![the-lost-treasure-of-blackwater-strait-3](https://d2hl7maqck52px.cloudfront.net/main-story/high-seas/the-lost-treasure-of-blackwater-strait-3.webp)
 
 He struggled against Puffin as he tried to climb over the banister. Beside them, Knuckles and two other crewmen jumped overboard and began swimming toward the creatures. How lucky they were!
 
@@ -158,7 +158,7 @@ Puffin flipped a lever and several doors on the deck flew open. "Ever flown a sk
 
 Before Meldrick could finish, an array of brass and copper-plated contraptions rose from the hold, propelled by turbines, steam filling the air. The crew cheered as they jumped into the jangly aircrafts with practiced ease.
 
-![the-lost-treasure-of-blackwater-strait-4](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/the-lost-treasure-of-blackwater-strait-4.webp)
+![the-lost-treasure-of-blackwater-strait-4](https://d2hl7maqck52px.cloudfront.net/main-story/high-seas/the-lost-treasure-of-blackwater-strait-4.webp)
 
 "Meldrick. With me!"
 
@@ -186,7 +186,7 @@ Meldrick gave the parrot his best death stare, which only made Polly laugh harde
 
 The remaining aircrafts regrouped, landing on the rocky island. The Seahawk looked remarkably intact having met its end in such a harsh place. As if reading his thoughts, Polly began to recount the tale of the Seahawk. "'Tis said the Seahawk were marooned when a mighty tempest careened 'er."
 
-![the-lost-treasure-of-blackwater-strait-5](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/the-lost-treasure-of-blackwater-strait-5.webp)
+![the-lost-treasure-of-blackwater-strait-5](https://d2hl7maqck52px.cloudfront.net/main-story/high-seas/the-lost-treasure-of-blackwater-strait-5.webp)
 
 Puffin shook her head at the bird. "No cyclone could pluck a ship that size out of the sea."
 
@@ -238,7 +238,7 @@ The crew hovered aloft and stared at the bubbling sea-foam where the turtle had 
 
 The crew's relief was weighted with loss by the time they were safely away from Blackwater Strait. Battered and bruised, their numbers sadly depleted, they dropped anchor at a small, sandy-beached island to regroup and properly mourn the dead.
 
-![the-lost-treasure-of-blackwater-strait-6](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/the-lost-treasure-of-blackwater-strait-6.webp)
+![the-lost-treasure-of-blackwater-strait-6](https://d2hl7maqck52px.cloudfront.net/main-story/high-seas/the-lost-treasure-of-blackwater-strait-6.webp)
 
 Pelorus broke out the rum ration and all remaining hands sat on deck to drown their sorrows.
 

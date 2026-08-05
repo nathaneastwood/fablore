@@ -8,7 +8,7 @@ Enigma pauses to watch a pair of graceful cranes fly across the heavenly orb abo
 
 As if in answer, an ancient tapestry unfolds from the moonlight, shimmering into material presence before her.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/enigma-story-1.webp" alt="enigma-story-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/enigma-story-1.webp" alt="enigma-story-1" class="center">
 
 "Hello, Cosmo." Enigma smiles. "Shall we begin?"
 
@@ -38,7 +38,7 @@ Enigma draws moon glyphs in the air with the tip of her finger, writing the stor
 
 The picture shimmers, lifting from Cosmo, coalescing to form an orb of blue light. The spirit soars upwards, following the beams of the moon until it disappears into the twilight.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/enigma-story-2.webp" alt="enigma-story-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/enigma-story-2.webp" alt="enigma-story-2" class="center">
 
 Cosmo rises from the circle and nudges her side, seeking attention. She rolls her eyes, though there is a faint smile on her lips.
 
@@ -78,7 +78,7 @@ The last task is the most difficult, and most dangerous. Vengeance is a force th
 
 Calling upon the essence of her ancestral duty to protect her, Enigma faces the specter in an abandoned house that others fear entering.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/enigma-story-3.webp" alt="enigma-story-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/enigma-story-3.webp" alt="enigma-story-3" class="center">
 
 The old building groans and trembles, straining to contain the spirit's fury. The air howls around Enigma, clutching at her robes, scratching at her skin with stones and splinters.
 
@@ -90,7 +90,7 @@ She then heads for the edge of town with Cosmo in tow, intending to return with 
 
 Hissing snakes surround a growling tiger. As one, the serpents raise their heads, wet fangs bared, ready to strike.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/enigma-story-4.webp" alt="enigma-story-4" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/enigma-story-4.webp" alt="enigma-story-4" class="center">
 
 Enigma spins about so fast that Cosmo bumps into her.
 
@@ -120,6 +120,6 @@ An elegant madame looks down upon the melee from the teahouse's stage, a small s
 
 The madame is most certainly a spirit - one of the most conflicted Enigma has ever felt - but there's more to this spirit than Enigma can fathom. Across the churning chi is a mystical resonance, raw and long-standing, that binds them.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/15-part-the-mistveil/enigma-story-5.webp" alt="enigma-story-5" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/part-the-mistveil/enigma-story-5.webp" alt="enigma-story-5" class="center">
 
 Enigma stares, fixated, into the parting mists of time.

@@ -14,7 +14,7 @@ Her words reached Einar through his drunken haze. He took a short step back to h
 
 Valda watched them hobble off just long enough to ensure they didn't wander towards the cliff, then cast her gaze across the peaceful mountainside village of Larinkmorth.
 
-![trouble-in-larinkmorth-1](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/trouble-in-larinkmorth-1.webp)
+![trouble-in-larinkmorth-1](https://d2hl7maqck52px.cloudfront.net/main-story/high-seas/trouble-in-larinkmorth-1.webp)
 
 Home to the folk who worked at the Isenri Sake Brewery, Valda had found her people in Larinkmorth, a good people who had the tendency to get a little rowdy when consuming the liquor they produced. They'd shown the truth of their hearts in accepting her and Balen into their community. Ensuring their new tavern was a safe place to kick back and relax was her own way of showing gratitude.
 
@@ -86,7 +86,7 @@ She turned towards the villagers, shouting to be heard over the whipping winds. 
 
 The beast was fast, leaping past her before she could turn back. She lunged aside just in time to avoid its pursuer, a massive figure in dark and dented plate armor crusted with frozen blood. He carried an enormous weapon, jagged like an icicle. Jarl Vetreiði.
 
-![trouble-in-larinkmorth-2](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/trouble-in-larinkmorth-2.webp)
+![trouble-in-larinkmorth-2](https://d2hl7maqck52px.cloudfront.net/main-story/high-seas/trouble-in-larinkmorth-2.webp)
 
 She was aware of another figure trailing him with a bow that crackled with lightning, but she could scarcely look away from their armored partner. Then Jarl was gone, leaving behind a cold that chilled Valda to the bone, in an indomitable pursuit that spared no concern for her home or its people. In his zeal to run down his quarry, he swung his massive weapon in an arc that clove stone and timber as easily as the frigid air, pulverizing the side of Widow Johana's cottage into rubble before brushing Lilja's oxcart aside like it was a cobweb.
 
@@ -140,7 +140,7 @@ She felt the flutter of the Flow in her chest, a faint tremor near her heart. In
 
 With a harsh cry, she drove the Flow into her hands, and clenched them until her knuckles turned white as the breath from her snarling mouth. Then she raised her fists and slammed them down onto the ground.
 
-![trouble-in-larinkmorth-3](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/trouble-in-larinkmorth-3.webp)
+![trouble-in-larinkmorth-3](https://d2hl7maqck52px.cloudfront.net/main-story/high-seas/trouble-in-larinkmorth-3.webp)
 
 The resounding strike shook snow from the boughs of distant trees. A jagged crack split the cobblestones at the point of impact and spread faster than Jarl's heavy paces could carry him towards the ravenir. The widening rift reached the cliff's edge and crumbled the ground beneath the beast. The ravenir scrabbled for purchase on the icy stones as the landslide swept its legs out from under it. For a moment, the ravenir hung there in shocked suspension, then let out an unearthly howl as it tumbled to its death into the ravine below.
 
@@ -184,7 +184,7 @@ Tomass hoisted his sake cup to her. "Nobody gets one over on our Valda."
 
 The others joined him in a cheer. "To Valda!"
 
-![trouble-in-larinkmorth-4](https://d2hl7maqck52px.cloudfront.net/main-story/18-high-seas/trouble-in-larinkmorth-4.webp)
+![trouble-in-larinkmorth-4](https://d2hl7maqck52px.cloudfront.net/main-story/high-seas/trouble-in-larinkmorth-4.webp)
 
 ---
 

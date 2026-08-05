@@ -10,7 +10,7 @@ It was always cold and damp in the Pits, the underground caverns hidden well awa
 
 Left to the mercy of the Pits, abandoned children lurked around every corner, scurrying through the shadows like rats. Tiny, skeletal figures hiding in alleyways, dangerously desperate, clutching makeshift weapons in their shaking hands. The squeakers fought like the vermin they were, teeth bared, ripping into flesh with knife and tooth and nail, clawing out eyes and tearing away skin. While feral and vicious, they are still little more than pests to the denizens of the Pits, an insignificant speck in a sea of anarchy.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-1.webp" alt="azalea-1" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/azalea-1.webp" alt="azalea-1" class="center">
 
 Hiding in alleyways and beneath buildings, a nameless girl shivered in the shadows, her nights passing in a haze of fever dreams and stiff limbs. The chill never left, cold set deep into her bones, ragged clothing doing little to protect her from the damp, diseased air. Shaking hands and blue lips were a close companion of every squeaker.
 
@@ -18,7 +18,7 @@ While others died around her, the tiniest scraps of luck allowed her to survive,
 
 Surrounded by the dead and dying, she watched as other children succumbed to the dangers of the Pits. Hollow cheeks and bloated stomachs, lying still within the shadows. Beaten and bloodied, fallen next to the corpse they'd been fighting over, their hands still curled into fists. Slumped against a wall on the main streets, eyes staring blankly, ignored by anyone who walked by. Sometimes, she came across the remains of a small skeleton, stripped of even their flesh by the desperate and the dying.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-2.webp" alt="azalea-2" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/azalea-2.webp" alt="azalea-2" class="center">
 
 She tried to learn from everything she found, poking at the remains of those around her. Don't steal from the taverns. Don't go near the mercenaries. Never remain in the open. Avoid the brain and the organs. Never drink from the river. Don't go in the water. Don't go near the dregs. Avoid the travelling merchants. Don't ever get caught.
 
@@ -28,4 +28,4 @@ It was not luck alone that kept her alive. She learned from the mistakes of othe
 
 She followed one back to his main hideout, looking up at the sign of the tavern. She watched everyone who visited the building, taking note of which ones seemed to be the most powerful. Where gangs rose and fell, where other mercenaries died, these were the ones that continued to come back. And so, she set her sights on Blackjack's.
 
-<img src="https://d2hl7maqck52px.cloudfront.net/main-story/02-arcane-rising/azalea-3.webp" alt="azalea-3" class="center">
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/arcane-rising/azalea-3.webp" alt="azalea-3" class="center">
