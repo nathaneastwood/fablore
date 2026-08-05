@@ -42,6 +42,7 @@
 |       Death's Knell       |                |                                                                   The Ocean.                                                                   |                            |
 |        Demonastery        |   Demonastery  |                                  Mansion with specific rooms per resident; it moves, accessible by invitation.                                 |                            |
 |         Deshvahan         |     Volcor     |                                                                A city in Volcor.                                                               |          deshvahan         |
+|    Dimenxxional Gateway   |   Demonastery  |                       The Demonastery's bridge to i'Arathael, through which monstrous hordes are drawn forth into Rathe.                       |                            |
 |       Dragon's Peak       |     Volcor     |                                                                                                                                                |        dragons-peak        |
 |      Dreadfall Reach      |    High Seas   |                                                                                                                                                |                            |
 |         East Rise         |     Metrix     |                               The majority of this Metrix sector is devoted to parks and entertainment complexes.                              |          east-rise         |

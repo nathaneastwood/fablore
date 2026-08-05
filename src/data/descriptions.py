@@ -222,6 +222,12 @@ db.update_description(
 db.update_description("location", "Deshvahan", "A city in Volcor.")
 db.update_description(
     "location",
+    "Dimenxxional Gateway",
+    "The Demonastery's bridge to i'Arathael, through which monstrous hordes are drawn forth into"
+    " Rathe.",
+)
+db.update_description(
+    "location",
     "East Rise",
     "The majority of this Metrix sector is devoted to parks and entertainment complexes.",
 )

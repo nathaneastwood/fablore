@@ -82,6 +82,24 @@ db.upsert_story(
     dry_run=True,
 )
 
+db.upsert_story(
+    path="src/heroes-of-rathe/dorinthea-about.md",
+    story_type="heroes-of-rathe",
+    title="Dorinthea",
+    heroes=["dorinthea", "hala"],
+    locations=[
+        LocationEntry("Dimenxxional Gateway", region="Demonastery"),
+        LocationEntry("Hand of Sol", region="Solana", lore_fragment="the-hand-of-sol"),
+        LocationEntry("The Golden Fields", region="Solana"),
+    ],
+    regions=[
+        RegionEntry("Demonastery"),
+        RegionEntry("Solana"),
+    ],
+    weapons=["dawnblade", "dawnblade-resplendent"],
+    dry_run=True,
+)
+
 # -------------------------------------------------------------------------------------------------------------------- #
 # Main Story
 # -------------------------------------------------------------------------------------------------------------------- #

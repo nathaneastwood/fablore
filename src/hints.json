@@ -117,6 +117,11 @@
     "summary": "A city in Volcor.",
     "region": "Volcor"
   },
+  "Dimenxxional Gateway": {
+    "type": "location",
+    "summary": "The Demonastery's bridge to i'Arathael, through which monstrous hordes are drawn forth into Rathe.",
+    "region": "Demonastery"
+  },
   "East Rise": {
     "type": "location",
     "summary": "The majority of this Metrix sector is devoted to parks and entertainment complexes.",

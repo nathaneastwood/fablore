@@ -26,3 +26,25 @@ Take up the mantle of the proud warrior, and join the ranks of the Hand of Sol. 
 ---
 
 # Dorinthea, Quicksilver Prodigy
+
+<video width="100%" height="100%" controls autoplay muted loop playsinline>
+  <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dorinthea-quicksilver-prodigy.mp4" type="video/mp4">
+</video>
+
+Demonic blood pools under the Quicksilver Prodigy’s boots, and dismembered shadows litter the once golden fields. Before becoming a lieutenant, the sight of such a battlefield would have made her breath catch in her throat. But she is quicker to recover in these darkened days.
+
+Hala Goldenhelm taught her to sharpen away her blunting doubts, unsheathing a new era of speed and accuracy for Dorinthea. This savant of a swordswoman learned to snatch victory from the jaws of defeat, striking faster than the speed of fear. Her promotion to lieutenant soon followed, but then began the war with the Demonastery.
+
+When Dorinthea wipes Dawnblade Resplendent clean, she does so knowing the Demonastery will soon draw more monsters forth from their Dimenxxional Gateway. This battle was just a drop in the ocean of blood that will be spilled. It’s clear that winning the day wasn’t enough.
+
+For the light of Sol to shine across the land as Dorinthea believes it must, with all of her heart, Solana needs to win the war.
+
+:::hero-trait Warrior’s Valor
+![Warrior’s Valor](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/warriors-valor.webp)
+Whether she must push the attack or hold the line, Dorinthea remains stalwart on the battlefield. Reliable as her blade’s edge, she can adapt to any scenario and press her advantage.
+:::
+
+:::hero-trait Glistening Steel
+![Glistening Steel](https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/glistening-steel.webp)
+Radiant as the dawn, Dorinthea’s blade sings with each attack, growing more powerful with her second strike.
+:::

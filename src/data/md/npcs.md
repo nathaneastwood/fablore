@@ -108,7 +108,6 @@
 |                    Greenbird                   |             Human            |                 Unknown                 |
 |                      Grota                     |             Human            |                  Alive                  |
 |             Gudo, Mistward Pilgrim             |             Human            |                 Unknown                 |
-|                 Hala Goldenhelm                |             Human            |                 Unknown                 |
 |                      Hank                      |             Human            |                  Alive                  |
 |                     Harland                    |            Unknown           |                 Unknown                 |
 |                Harold Honeysett                |             Human            |                 Unknown                 |
