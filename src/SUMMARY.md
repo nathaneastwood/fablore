@@ -22,6 +22,7 @@
     - [Arakni, 5l!p3d 7hru 7h3 Cr4x](heroes-of-rathe/arakni-5l!p3d-7hru-7h3-cr4x-about.md)
     - [Aurora](heroes-of-rathe/aurora-about.md)
     - [Azaela](heroes-of-rathe/azalea-about.md)
+    - [Baalghor](heroes-of-rathe/baalghor-about.md)
     - [Benji](heroes-of-rathe/benji-about.md)
     - [Betsy](heroes-of-rathe/betsy-about.md)
     - [Blaze](heroes-of-rathe/blaze-about.md)

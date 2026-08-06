@@ -301,8 +301,8 @@
     "exclude_pages": ["main-story/usurp-the-shadow-throne/letters-from-the-beyond"]
   },
   "Baalghor": {
-    "type": "npc",
-    "summary": "Titanic corrupted demon whose lair in i'Arathael may harbor secrets of the Old Ones."
+    "type": "hero",
+    "summary": "On the edge of the Abyss, interlopers are met by a colossal sentinel that casts a damning shadow. With immense power, Baalghor has one inexorable goal. The utter obliteration of any intruder."
   },
   "Kien": {
     "type": "npc",

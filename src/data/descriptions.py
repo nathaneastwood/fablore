@@ -391,6 +391,12 @@ db.update_description("location", "Ryōsōzan Peaks", "Owned by Nuu.")
 db.update_description("location", "Seethe", "A river.")
 db.update_description(
     "location",
+    "Shadowrealm",
+    "A desolate expanse within i'Arathael, home to the Shadowrealm Walkers and traversed by"
+    " Demonastery expeditions.",
+)
+db.update_description(
+    "location",
     "Solana",
     "Holy city-state at the heart of Rathe, built by pilgrims of Sol and governed by the Order of the Light.",
 )
@@ -401,6 +407,12 @@ db.update_description(
     "Southmaw Asylum is a laboratory of horrors where the orphaned and discarded of the Pits beneath Metrix are subjected to nightmarish experiments.",
 )
 db.update_description("location", "Sunvale", "Village.")
+db.update_description(
+    "location",
+    "The Abyss",
+    "The most sacred site in the Shadowrealm, guarded by Baalghor. No expedition to its outer"
+    " reaches has ever returned.",
+)
 db.update_description("location", "The Badlands", "Borders the Savage Lands.")
 db.update_description("location", "The Beyond", "Separate realm.")
 db.update_description("location", "The Drop", "A bar owned by Uzuri.")

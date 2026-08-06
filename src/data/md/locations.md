@@ -121,6 +121,7 @@
 |           Seethe          |    The Pits    |                                                                    A river.                                                                    |                            |
 |      Seetheside Docks     |    The Pits    |                                                                                                                                                |                            |
 |      Sellshore Coast      |    High Seas   |                                                                                                                                                |                            |
+|        Shadowrealm        |                |                 A desolate expanse within i'Arathael, home to the Shadowrealm Walkers and traversed by Demonastery expeditions.                |                            |
 |Shuntswitch Railway Station|    The Pits    |                                                                                                                                                |                            |
 |         Shyldverk         |      Aria      |                                                                                                                                                |          shyldverk         |
 |          Signarus         |     Solana     |                                                                                                                                                |                            |
@@ -137,6 +138,7 @@
 |      Tempest Straits      |                |                                                                                                                                                |                            |
 |    Teramundr's Triangle   |    High Seas   |                                                                                                                                                |                            |
 |     Terrecette Academy    |     Metrix     |                                                                                                                                                |                            |
+|         The Abyss         |                |               The most sacred site in the Shadowrealm, guarded by Baalghor. No expedition to its outer reaches has ever returned.              |                            |
 |       The Ash Plains      |     Volcor     |                                                                                                                                                |                            |
 |   The Awakening Ceremony  |     Solana     |                                                                                                                                                |   the-awakening-ceremony   |
 |        The Badlands       |     Volcor     |                                                            Borders the Savage Lands.                                                           |                            |

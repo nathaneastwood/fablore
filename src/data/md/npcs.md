@@ -20,7 +20,6 @@
 |           Aurea, Champion of the Dawn          |             Human            |                 Unknown                 |
 |                    Aurelius                    |             Horse            |                 Unknown                 |
 |          Avalon, Messenger of the Dawn         |            Herald            |                 Unknown                 |
-|                    Baalghor                    |             Demon            |                 Unknown                 |
 |                     Bam Bam                    |             Brute            |                 Unknown                 |
 |                Baron the Butcher               |             Human            |                   Dead                  |
 |                     Barton                     |             Human            |                 Unknown                 |

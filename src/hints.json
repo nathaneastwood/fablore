@@ -323,6 +323,10 @@
     "summary": "A river.",
     "region": "The Pits"
   },
+  "Shadowrealm": {
+    "type": "location",
+    "summary": "A desolate expanse within i'Arathael, home to the Shadowrealm Walkers and traversed by Demonastery expeditions."
+  },
   "Solana": {
     "type": "region",
     "summary": "The Golden City, realm of Illumination, founded by pilgrims drawn to Rathe by Sol's will.",
@@ -344,6 +348,10 @@
     "type": "location",
     "summary": "Village.",
     "region": "Solana"
+  },
+  "The Abyss": {
+    "type": "location",
+    "summary": "The most sacred site in the Shadowrealm, guarded by Baalghor. No expedition to its outer reaches has ever returned."
   },
   "The Badlands": {
     "type": "location",
@@ -954,8 +962,8 @@
     ]
   },
   "Baalghor": {
-    "type": "npc",
-    "summary": "Titanic corrupted demon whose lair in i'Arathael may harbor secrets of the Old Ones."
+    "type": "hero",
+    "summary": "On the edge of the Abyss, interlopers are met by a colossal sentinel that casts a damning shadow. With immense power, Baalghor has one inexorable goal. The utter obliteration of any intruder."
   },
   "Kien": {
     "type": "npc",

@@ -24,6 +24,7 @@ Browse legendary heroes by name. Use the class filters to narrow the list; heroe
     <button type="button" class="hero-hub-filter" data-class="shapeshifter" aria-pressed="false">Shapeshifter</button>
     <button type="button" class="hero-hub-filter" data-class="warrior" aria-pressed="false">Warrior</button>
     <button type="button" class="hero-hub-filter" data-class="wizard" aria-pressed="false">Wizard</button>
+    <button type="button" class="hero-hub-filter" data-class="unclassified" aria-pressed="false">Unclassified</button>
   </div>
   <div class="world-hub-grid hero-hub-grid">
     <a class="world-hub-card hero-hub-card" data-classes="assassin" href="arakni-about.md">
@@ -45,6 +46,10 @@ Browse legendary heroes by name. Use the class filters to narrow the list; heroe
     <a class="world-hub-card hero-hub-card" data-classes="ranger" href="azalea-about.md">
       <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/full-hero-art/azalea-ace-in-the-hole.webp" alt="" loading="lazy" width="466" height="650">
       <span class="world-hub-label">Azalea</span>
+    </a>
+    <a class="world-hub-card hero-hub-card" data-classes="unclassified" href="baalghor-about.md">
+      <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/full-hero-art/baalghor-omen-of-the-end.webp" alt="" loading="lazy" width="466" height="650">
+      <span class="world-hub-label">Baalghor</span>
     </a>
     <a class="world-hub-card hero-hub-card" data-classes="ninja" href="benji-about.md">
       <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/full-hero-art/benji-the-piercing-wind.webp" alt="" loading="lazy" width="466" height="650">

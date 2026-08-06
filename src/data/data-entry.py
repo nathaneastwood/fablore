@@ -98,6 +98,21 @@ db.upsert_story(
     dry_run=True,
 )
 
+db.upsert_story(
+    path="src/heroes-of-rathe/baalghor-about.md",
+    story_type="heroes-of-rathe",
+    title="Baalghor",
+    source_link="https://fabtcg.com/hero/baalghor/",
+    heroes=["baalghor"],
+    locations=[
+        LocationEntry("i'Arathael"),
+        LocationEntry("Shadowrealm"),
+        LocationEntry("The Abyss"),
+    ],
+    regions=[RegionEntry("Demonastery")],
+    dry_run=True,
+)
+
 # -------------------------------------------------------------------------------------------------------------------- #
 # Main Story
 # -------------------------------------------------------------------------------------------------------------------- #
@@ -462,14 +477,14 @@ db.upsert_story(
     artists="Sebastian Giacobino",
     source_link="https://fabtcg.com/articles/letters-from-the-beyond/",
     publication_date="2026-07-07",
-    heroes=["chane", "vynnset"],
+    heroes=["baalghor", "chane", "vynnset"],
     npcs=[
-        NPCEntry(name="Baalghor", species="Demon"),  # TODO: upcoming hero — re-classify once slug exists
         NPCEntry(name="Kien", species="Human", status="Deceased"),
         NPCEntry(name="Ursur", species="Embra"),
     ],
     locations=[
         LocationEntry("i'Arathael"),
+        LocationEntry("Shadowrealm"),
         LocationEntry("The Golden Fields", region="Solana"),
         LocationEntry(
             "The Shadow Crypts",
