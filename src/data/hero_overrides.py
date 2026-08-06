@@ -21,9 +21,11 @@ from pipe_csv_io import read_pipe_csv  # noqa: E402
 HERO_CARD_NAME_ALIASES_PATH = Path(__file__).resolve().parent / "csv" / "hero-card-name-aliases.csv"
 
 # Card-name → canonical-slug overrides for canonical splits not present in the
-# upstream game data. Outer key is the base slug a card would resolve to from
-# its first-segment name alone; inner map keys are ``normalize_name(full_name)``
-# of the full printed card title and values are the correct canonical slug.
+# upstream game data. Outer key is either the base slug a card would resolve to
+# from its first-segment name alone, or that first-segment name normalized —
+# the latter is what matches when the hero's forms are themselves rostered, as
+# Arakni's are. Inner map keys are ``normalize_name(full_name)`` of the full
+# printed card title and values are the correct canonical slug.
 LORE_CANONICAL_OVERRIDES: dict[str, dict[str, str]] = {
     "arakni": {
         "araknihuntsman": "arakni-huntsman",

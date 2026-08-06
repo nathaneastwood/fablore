@@ -191,8 +191,15 @@ def split_name_variant(heading: str) -> tuple[str, str]:
 
 
 def apply_lore_canonical_override(base_slug: str, hero_name: str, hero_variant: str) -> str:
-    """Apply lore-specific canonical split overrides."""
-    override_table = LORE_CANONICAL_OVERRIDES.get(base_slug)
+    """Apply lore-specific canonical split overrides.
+
+    The table is looked up by ``base_slug`` first, then by the normalized base
+    hero name. Both are needed: ``base_slug`` is only the bare name when that
+    name is absent from the roster, and for a hero whose forms are already
+    rostered — Arakni — it has instead been resolved to whichever of those rows
+    the name index happened to yield, so a name-keyed table would never be hit.
+    """
+    override_table = LORE_CANONICAL_OVERRIDES.get(base_slug) or LORE_CANONICAL_OVERRIDES.get(normalize_name(hero_name))
     if not override_table:
         return base_slug
     full_name = f"{hero_name}, {hero_variant}" if hero_variant else hero_name

@@ -1,11 +1,11 @@
 # AUTO-GENERATED FILE — do not edit by hand. Regenerate with: python3 src/data/create_heroes_csv.py
 HeroGameId|CardName|CanonicalId|ClassIds|TalentIds|Health|Intellect|AbilityText|YoungHero
 HG2ebf14b63e|Arakni|CNb6ce517916|CLa055f8b49d||20|4|Whenever you play a card with **contract**, you may look at the top card of target opponent's deck. You may put it on the bottom.|true
-HG85a411c1c2|Arakni, 5L!p3d 7hRu 7h3 cR4X|CNb6ce517916|CLa055f8b49d|TLb23b4b8d68|38|4|The first attack with **stealth** each turn gets **go again**.|false
+HG85a411c1c2|Arakni, 5L!p3d 7hRu 7h3 cR4X|CN9e7e17ea4a|CLa055f8b49d|TLb23b4b8d68|38|4|The first attack with **stealth** each turn gets **go again**.|false
 HGb02713b27d|Arakni, Huntsman|CNb6ce517916|CLa055f8b49d||40|4|Whenever you play a card with **contract**, you may look at the top card of target opponent's deck. You may put it on the bottom.|false
-HGe3444c8155|Arakni, Marionette|CNb6ce517916|CLa055f8b49d|TLb23b4b8d68|40|4|"Your attacks with **stealth** that are attacking a **marked** hero get +1{p} and ""When this hits, this gets **go again**.""  At the beginning of your end phase, if an opponent is **marked**, you become a random Agent of Chaos."|false
-HGd9f0a502ae|Arakni, Solitary Confinement|CNb6ce517916|CLa055f8b49d||19|4|Your first attack with **stealth** each turn has **go again**.|true
-HG3709e3c90d|Arakni, Web of Deceit|CNb6ce517916|CLa055f8b49d|TLb23b4b8d68|20|4|"Your attacks with **stealth** that are attacking a **marked** hero get +1{p} and ""When this hits, this gets **go again**.""  At the beginning of your end phase, if an opponent is **marked**, you become a random Agent of Chaos."|true
+HGe3444c8155|Arakni, Marionette|CN925a43d42d|CLa055f8b49d|TLb23b4b8d68|40|4|"Your attacks with **stealth** that are attacking a **marked** hero get +1{p} and ""When this hits, this gets **go again**.""  At the beginning of your end phase, if an opponent is **marked**, you become a random Agent of Chaos."|false
+HGd9f0a502ae|Arakni, Solitary Confinement|CN9e7e17ea4a|CLa055f8b49d||19|4|Your first attack with **stealth** each turn has **go again**.|true
+HG3709e3c90d|Arakni, Web of Deceit|CN925a43d42d|CLa055f8b49d|TLb23b4b8d68|20|4|"Your attacks with **stealth** that are attacking a **marked** hero get +1{p} and ""When this hits, this gets **go again**.""  At the beginning of your end phase, if an opponent is **marked**, you become a random Agent of Chaos."|true
 HG135fed27ba|Aurora|CNc8251d848e|CL7ddbb0abd6|TL86c5d291db|20|4|**Once per Turn Instant** - {r}{r}: Create an Embodiment of Lightning token. Activate this only if you've played a Lightning card this turn.  **Essence of Lightning**|true
 HG39b4bb74a8|Aurora, Emissary of Lightning|CNc8251d848e|CL7ddbb0abd6|TL71f4977891|20|4|**Instant** - {r}{r}, {t}, destroy a Lightning Flow you control: Create an Embodiment of Lightning token.|true
 HG72251130b3|Aurora, Legacy of Tempest|CNc8251d848e|CL7ddbb0abd6|TL71f4977891|40|4|**Instant** - {r}{r}, {t}, destroy a Lightning Flow you control: Create an Embodiment of Lightning token.|false
