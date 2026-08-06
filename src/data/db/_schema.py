@@ -152,7 +152,8 @@ CREATE TABLE IF NOT EXISTS weapons_printings (
     set_id         TEXT NOT NULL,
     card_id        TEXT NOT NULL,
     rarity         TEXT NOT NULL DEFAULT '',
-    PRIMARY KEY (weapon_game_id, set_id, card_id)
+    image_url      TEXT NOT NULL DEFAULT '',
+    PRIMARY KEY (weapon_game_id, set_id, card_id, image_url)
 );
 
 CREATE TABLE IF NOT EXISTS equipment_canonical (
@@ -178,7 +179,8 @@ CREATE TABLE IF NOT EXISTS equipment_printings (
     set_id            TEXT NOT NULL,
     card_id           TEXT NOT NULL,
     rarity            TEXT NOT NULL DEFAULT '',
-    PRIMARY KEY (equipment_game_id, set_id, card_id)
+    image_url         TEXT NOT NULL DEFAULT '',
+    PRIMARY KEY (equipment_game_id, set_id, card_id, image_url)
 );
 
 -- Story junction tables (all cascade-delete when a story is removed)
@@ -288,4 +290,42 @@ def migrate(conn: sqlite3.Connection) -> None:
     if version < 6:
         conn.execute("ALTER TABLE narrated_videos DROP COLUMN duration")
         conn.execute("PRAGMA user_version = 6")
+        conn.commit()
+    if version < 7:
+        # equipment-printings.csv and weapons-printings.csv carry an ImageURL column
+        # produced from the game API by create_equipment_csv.py / create_weapons_csv.py.
+        # The tables had no place for it, so export_to_csv() silently dropped the column
+        # on every row — and because alternate printings differ *only* by image URL
+        # (e.g. WTR005 in 2019-WTR and again in 2020-U-WTR), the old three-part primary
+        # key collapsed them: 1301 equipment rows became 1166, 409 weapon rows became 347.
+        # Any run of create_stories_index.py therefore corrupted both CSVs as a side
+        # effect. Adding image_url to the key makes the CSV -> DB -> CSV round trip lossless.
+        #
+        # SQLite cannot alter a primary key, so each table is rebuilt. These hold derived
+        # game data seeded from CSV, so they are left empty and repopulated by the reseed
+        # in Database.__init__ rather than migrated row by row — existing rows have no
+        # image_url to recover, and keeping them would collide with the reseeded rows.
+        conn.executescript(
+            """
+            DROP TABLE IF EXISTS weapons_printings;
+            CREATE TABLE weapons_printings (
+                weapon_game_id TEXT NOT NULL REFERENCES weapons_game(weapon_game_id) ON DELETE CASCADE,
+                set_id         TEXT NOT NULL,
+                card_id        TEXT NOT NULL,
+                rarity         TEXT NOT NULL DEFAULT '',
+                image_url      TEXT NOT NULL DEFAULT '',
+                PRIMARY KEY (weapon_game_id, set_id, card_id, image_url)
+            );
+            DROP TABLE IF EXISTS equipment_printings;
+            CREATE TABLE equipment_printings (
+                equipment_game_id TEXT NOT NULL REFERENCES equipment_game(equipment_game_id) ON DELETE CASCADE,
+                set_id            TEXT NOT NULL,
+                card_id           TEXT NOT NULL,
+                rarity            TEXT NOT NULL DEFAULT '',
+                image_url         TEXT NOT NULL DEFAULT '',
+                PRIMARY KEY (equipment_game_id, set_id, card_id, image_url)
+            );
+            """
+        )
+        conn.execute("PRAGMA user_version = 7")
         conn.commit()

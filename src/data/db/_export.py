@@ -414,13 +414,14 @@ def _export_weapons_printings(conn: sqlite3.Connection, csv_dir: Path) -> None:
             "SetId": r["set_id"],
             "CardId": r["card_id"],
             "Rarity": r["rarity"],
+            "ImageURL": r["image_url"],
         }
         for r in rows
     ]
     _write_pipe_csv(
         csv_dir / "weapons-printings.csv",
         _CMD_WEAPONS,
-        ["WeaponGameId", "SetId", "CardId", "Rarity"],
+        ["WeaponGameId", "SetId", "CardId", "Rarity", "ImageURL"],
         data,
     )
 
@@ -485,13 +486,14 @@ def _export_equipment_printings(conn: sqlite3.Connection, csv_dir: Path) -> None
             "SetId": r["set_id"],
             "CardId": r["card_id"],
             "Rarity": r["rarity"],
+            "ImageURL": r["image_url"],
         }
         for r in rows
     ]
     _write_pipe_csv(
         csv_dir / "equipment-printings.csv",
         _CMD_EQUIPMENT,
-        ["EquipmentGameId", "SetId", "CardId", "Rarity"],
+        ["EquipmentGameId", "SetId", "CardId", "Rarity", "ImageURL"],
         data,
     )
 

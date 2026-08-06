@@ -212,10 +212,17 @@ class Database:
         self._path = Path(path)
         self._data_dir = data_dir or DATA
         self.conn = open_db(self._path)
-        # Auto-seed when the database is empty
-        count = self.conn.execute("SELECT COUNT(*) FROM stories").fetchone()[0]
-        if count == 0 and self._path != Path(":memory:"):
+        # Auto-seed when the database is empty, or when a migration has emptied a
+        # derived game-data table that only the CSVs can repopulate (migration 7
+        # rebuilds both printings tables to widen their primary key).
+        if self._path != Path(":memory:") and self._needs_seed():
             seed_from_csvs(self.conn, self._data_dir)
+
+    def _needs_seed(self) -> bool:
+        for table in ("stories", "equipment_printings", "weapons_printings"):
+            if self.conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0] == 0:
+                return True
+        return False
 
     @classmethod
     def from_csv(

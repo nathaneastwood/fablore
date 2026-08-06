@@ -242,6 +242,10 @@ def generate_weapons_csv() -> None:
     ]
     printings_fieldnames = ["WeaponGameId", "SetId", "CardId", "Rarity", "ImageURL"]
 
+    # Sort to match db._export._export_weapons_printings' ORDER BY, so regenerating
+    # from the API and round-tripping through the database produce byte-identical files.
+    printings_rows.sort(key=lambda r: (r["WeaponGameId"], r["SetId"], r["CardId"], r["ImageURL"]))
+
     for path, fieldnames, rows in [
         (WEAPONS_CANONICAL_CSV_PATH, canonical_fieldnames, canonical_rows),
         (WEAPONS_GAME_CSV_PATH, game_fieldnames, game_rows),

@@ -643,20 +643,21 @@ def upsert_weapon_printing(
     set_id: str,
     card_id: str,
     rarity: str = "",
+    image_url: str = "",
 ) -> None:
     conn.execute(
         """
-        INSERT INTO weapons_printings (weapon_game_id, set_id, card_id, rarity)
-        VALUES (?,?,?,?)
-        ON CONFLICT(weapon_game_id, set_id, card_id) DO UPDATE SET
+        INSERT INTO weapons_printings (weapon_game_id, set_id, card_id, rarity, image_url)
+        VALUES (?,?,?,?,?)
+        ON CONFLICT(weapon_game_id, set_id, card_id, image_url) DO UPDATE SET
             rarity = excluded.rarity
         """,
-        (weapon_game_id, set_id, card_id, rarity),
+        (weapon_game_id, set_id, card_id, rarity, image_url),
     )
 
 
 def select_all_weapons_printings(conn: sqlite3.Connection) -> list[sqlite3.Row]:
-    return conn.execute("SELECT * FROM weapons_printings ORDER BY weapon_game_id, set_id, card_id").fetchall()
+    return conn.execute("SELECT * FROM weapons_printings ORDER BY weapon_game_id, set_id, card_id, image_url").fetchall()
 
 
 # ---------------------------------------------------------------------------
@@ -746,20 +747,21 @@ def upsert_equipment_printing(
     set_id: str,
     card_id: str,
     rarity: str = "",
+    image_url: str = "",
 ) -> None:
     conn.execute(
         """
-        INSERT INTO equipment_printings (equipment_game_id, set_id, card_id, rarity)
-        VALUES (?,?,?,?)
-        ON CONFLICT(equipment_game_id, set_id, card_id) DO UPDATE SET
+        INSERT INTO equipment_printings (equipment_game_id, set_id, card_id, rarity, image_url)
+        VALUES (?,?,?,?,?)
+        ON CONFLICT(equipment_game_id, set_id, card_id, image_url) DO UPDATE SET
             rarity = excluded.rarity
         """,
-        (equipment_game_id, set_id, card_id, rarity),
+        (equipment_game_id, set_id, card_id, rarity, image_url),
     )
 
 
 def select_all_equipment_printings(conn: sqlite3.Connection) -> list[sqlite3.Row]:
-    return conn.execute("SELECT * FROM equipment_printings ORDER BY equipment_game_id, set_id, card_id").fetchall()
+    return conn.execute("SELECT * FROM equipment_printings ORDER BY equipment_game_id, set_id, card_id, image_url").fetchall()
 
 
 # ---------------------------------------------------------------------------

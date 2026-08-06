@@ -202,6 +202,7 @@ def _seed_weapons_printings(conn: sqlite3.Connection, data_dir: Path) -> None:
             set_id=_s(row, "SetId"),
             card_id=_s(row, "CardId"),
             rarity=_s(row, "Rarity"),
+            image_url=_s(row, "ImageURL"),
         )
 
 
@@ -242,6 +243,7 @@ def _seed_equipment_printings(conn: sqlite3.Connection, data_dir: Path) -> None:
             set_id=_s(row, "SetId"),
             card_id=_s(row, "CardId"),
             rarity=_s(row, "Rarity"),
+            image_url=_s(row, "ImageURL"),
         )
 
 
