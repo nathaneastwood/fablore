@@ -9,6 +9,12 @@ chapter (word-boundary match, case-insensitive), and wraps it in:
 Suppression rules:
   Option A: if a match string appears in any ##/### heading, skip that hint
   Option C: per-hint "exclude_pages" list in hints.json
+  Option D: if an entity is mentioned on exactly one page in the whole book, skip
+            it everywhere — that page introduces and explains it, so a tooltip
+            would only restate the surrounding prose
+
+Generated reference tables under data/ are excluded from both detection and the
+Option D count, since they name every entity and would distort both.
 
 Protected regions (no injection):
   fenced code blocks, inline code spans, Markdown links/images, HTML tags,
@@ -41,12 +47,12 @@ _ALL_HEADINGS = re.compile(r"^#{1,6}[^\S\n]+.+$", re.MULTILINE)
 _SECTION_HEADINGS = re.compile(r"^#{2,3}[^\S\n]+(.+?)(?:[^\S\n]*#+)?\s*$", re.MULTILINE)
 _OLD_HINT = re.compile(r"\[([^\]]+)\]\(~([^)]+)\)")
 
-# Entity types sourced from the DB — the only types eligible for auto-detection.
-# Supplement-only types (npc, faction, aesir, ancient, concept, etc.) are
-# intentionally excluded: they are introduced and described in-story, so
-# auto-linking them produces redundant or context-breaking tooltips.
-# Manual [Text](~Key) markup still works for any type.
-_AUTO_DETECT_TYPES = frozenset({"location", "monster", "fauna", "flora"})
+# Entity type no longer gates auto-detection. It used to: only DB-backed types
+# (location/monster/fauna/flora) were eligible, on the grounds that NPCs, factions
+# and the like are introduced and described in-story. That reasoning is sound but
+# applies to the *page* that introduces an entity, not to the entity forever — it
+# left long-established characters such as Nasreth with no tooltip on any of the
+# eight pages naming them. See compute_single_page_keys for the replacement.
 
 # ---------------------------------------------------------------------------
 # Public helpers (importable for tests)
@@ -100,8 +106,17 @@ def process_chapter(
     content: str,
     hints: dict,
     page_slug: str = "",
+    single_page_keys: frozenset[str] = frozenset(),
 ) -> str:
-    """Transform a single chapter's Markdown content."""
+    """Transform a single chapter's Markdown content.
+
+    Args:
+        content: The chapter's Markdown.
+        hints: Loaded ``hints.json``.
+        page_slug: This chapter's slug, for ``exclude_pages`` matching.
+        single_page_keys: Keys mentioned on only one page across the whole book;
+            see :func:`compute_single_page_keys`.
+    """
     # --- Step 1: convert old [Text](~Key) markup ---
     manually_handled: set[str] = set()
 
@@ -120,15 +135,16 @@ def process_chapter(
         if key in manually_handled:
             continue
 
-        # Only auto-detect DB-backed entity types. A supplement entry may relabel a
-        # DB-backed entity for display (the Hand of Sol is a locations row shown as a
-        # faction; Solana is shown as a region), so eligibility follows "db_type" —
-        # the type the entity actually has in the database — and falls back to "type"
-        # for entries the supplement never relabelled. Judging by the relabelled type
-        # would silently disable detection for entities that are genuinely DB-backed.
-        if not isinstance(entry, dict):
+        # Any entry with a summary is eligible — there is something to put in the
+        # tooltip. Entity type is deliberately not consulted: whether a tooltip is
+        # wanted depends on where the entity is mentioned, not what kind of thing
+        # it is. See Option D below and _single_page_keys.
+        if not isinstance(entry, dict) or not entry.get("summary"):
             continue
-        if (entry.get("db_type") or entry.get("type")) not in _AUTO_DETECT_TYPES:
+
+        # Option D: an entity mentioned on exactly one page is introduced and
+        # explained there, so a tooltip would restate the surrounding prose.
+        if key in single_page_keys:
             continue
 
         # Option C: exclude_pages
@@ -201,14 +217,77 @@ def _overlaps(start: int, end: int, replacements: list[tuple[int, int, str]]) ->
 # ---------------------------------------------------------------------------
 
 
-def _process_sections(sections: list, hints: dict) -> None:
+def _collect_chapters(sections: list, out: list[tuple[str, str]]) -> list[tuple[str, str]]:
+    """Flatten the book into ``(slug, content)`` pairs, skipping generated pages."""
     for section in sections:
         chapter = section.get("Chapter")
         if not chapter:
             continue
         slug = page_slug_from_path(chapter.get("path"))
-        chapter["content"] = process_chapter(chapter["content"], hints, slug)
-        _process_sections(chapter.get("sub_items") or [], hints)
+        if not _is_generated_page(slug):
+            out.append((slug, chapter.get("content") or ""))
+        _collect_chapters(chapter.get("sub_items") or [], out)
+    return out
+
+
+def compute_single_page_keys(chapters: list[tuple[str, str]], hints: dict) -> frozenset[str]:
+    """Return hint keys mentioned on exactly one page across the whole book.
+
+    An entity named on a single page is, by definition, introduced and explained
+    there — Gawain and Marbles appear only in *A Rising Star*, Kien only in
+    *Letters from the Beyond*. Wrapping those in a tooltip restates the sentence
+    the reader is already looking at, which is the redundancy this avoids.
+
+    An entity named on several pages is the opposite case: a reader arriving at
+    any page but the first has no context, so every mention earns a tooltip.
+
+    Counting mentions rather than consulting ``SUMMARY.md`` order matters: the
+    world lore pages are ordered alphabetically, not narratively, so "the first
+    page that mentions it" is not reliably the page that introduces it — Sol
+    would be pinned to the Demonastery page purely because D precedes S.
+
+    Args:
+        chapters: ``(slug, content)`` pairs for every rendered page.
+        hints: Loaded ``hints.json``.
+
+    Returns:
+        The keys to skip entirely.
+    """
+    singles: set[str] = set()
+    for key, entry in hints.items():
+        if not isinstance(entry, dict) or not entry.get("summary"):
+            continue
+        patterns = [re.compile(rf"\b{re.escape(s)}\b", re.IGNORECASE) for s in get_match_strings(key, entry)]
+        pages = 0
+        for _slug, content in chapters:
+            if any(p.search(content) for p in patterns):
+                pages += 1
+                if pages > 1:
+                    break
+        if pages == 1:
+            singles.add(key)
+    return frozenset(singles)
+
+
+def _is_generated_page(slug: str) -> bool:
+    """True for generated reference tables, which list every entity by name.
+
+    ``data/md/npcs.md`` and friends are produced by ``create_md.py``. Auto-linking
+    there would make each row link to a tooltip describing itself, and would also
+    inflate the mention count so that genuinely single-page entities look shared.
+    """
+    return slug.startswith("data/")
+
+
+def _process_sections(sections: list, hints: dict, single_page_keys: frozenset[str]) -> None:
+    for section in sections:
+        chapter = section.get("Chapter")
+        if not chapter:
+            continue
+        slug = page_slug_from_path(chapter.get("path"))
+        if not _is_generated_page(slug):
+            chapter["content"] = process_chapter(chapter["content"], hints, slug, single_page_keys)
+        _process_sections(chapter.get("sub_items") or [], hints, single_page_keys)
 
 
 def main() -> None:
@@ -225,7 +304,9 @@ def main() -> None:
     hints = load_hints(hints_path) if hints_path.exists() else {}
 
     ctx, book = json.load(sys.stdin)
-    _process_sections(book.get("items") or [], hints)
+    items = book.get("items") or []
+    single_page_keys = compute_single_page_keys(_collect_chapters(items, []), hints)
+    _process_sections(items, hints, single_page_keys)
     json.dump(book, sys.stdout, ensure_ascii=False)
 
 

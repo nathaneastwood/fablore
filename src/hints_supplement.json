@@ -117,7 +117,7 @@
   },
   "GrandMagisterTheSteadfast": {
     "type": "npc",
-    "match": "Grand Magister, The Steadfast",
+    "match": ["Grand Magister, The Steadfast", "The Steadfast"],
     "summary": "Serves the city of Solana as the highest representation of Sol; presides over the Solstice of Laurels and Awakening ceremonies."
   },
   "HandOfSol": {

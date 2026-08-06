@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src/data"))
 
 from mdbook_hints import (  # noqa: E402
-    _AUTO_DETECT_TYPES,
+    compute_single_page_keys,
     extract_section_heading_texts,
     find_protected_regions,
     get_match_strings,
@@ -54,12 +54,42 @@ HINTS = {
 }
 
 # ---------------------------------------------------------------------------
-# _AUTO_DETECT_TYPES
+# Option D — single-page suppression
 # ---------------------------------------------------------------------------
 
 
-def test_auto_detect_types_contains_db_types():
-    assert _AUTO_DETECT_TYPES == {"location", "monster", "fauna", "flora"}
+def test_single_page_entity_is_suppressed():
+    """An entity named on one page only is introduced there; no tooltip anywhere."""
+    chapters = [("a", "Kien volunteered as a sacrifice."), ("b", "Nothing relevant here.")]
+    hints = {"Kien": {"type": "npc", "summary": "A Disciple of Pain."}}
+    assert compute_single_page_keys(chapters, hints) == {"Kien"}
+
+
+def test_multi_page_entity_is_not_suppressed():
+    """An entity named on several pages needs a tooltip on each."""
+    chapters = [("a", "Nasreth had been her patron."), ("b", "She summons Nasreth.")]
+    hints = {"Nasreth": {"type": "embra", "summary": "The Soul Harrower."}}
+    assert compute_single_page_keys(chapters, hints) == frozenset()
+
+
+def test_single_page_count_is_case_insensitive_and_uses_match_strings():
+    chapters = [("a", "the steadfast nods."), ("b", "They turn to The Steadfast.")]
+    hints = {"GMS": {"match": ["The Steadfast"], "type": "npc", "summary": "Grand Magister."}}
+    assert compute_single_page_keys(chapters, hints) == frozenset()
+
+
+def test_entry_without_summary_is_never_eligible():
+    chapters = [("a", "Raven watches."), ("b", "Raven again.")]
+    hints = {"Raven": {"type": "aesir"}}
+    assert compute_single_page_keys(chapters, hints) == frozenset()
+    assert 'hint="Raven"' not in process_chapter("Raven watches.\n", hints)
+
+
+def test_supplement_type_is_auto_detected_when_multi_page():
+    """Types like aesir/npc/faction are no longer excluded by type alone."""
+    hints = {"Sol": {"type": "aesir", "summary": "Aesir of Light"}}
+    result = process_chapter("Sol shines over the city.\n", hints)
+    assert 'hint="Sol"' in result
 
 
 # ---------------------------------------------------------------------------
@@ -133,10 +163,10 @@ def test_db_type_auto_detected():
     assert 'hint="Brawnhide"' in result
 
 
-def test_non_db_type_not_auto_detected():
-    # "Sol" is type "aesir" — must not be auto-linked
+def test_single_page_key_is_skipped_by_process_chapter():
+    # Passed in as single-page, so suppressed even though it would otherwise match
     content = "Sol shines over Solana.\n"
-    result = process_chapter(content, HINTS)
+    result = process_chapter(content, HINTS, single_page_keys=frozenset({"Sol"}))
     assert 'hint="Sol"' not in result
 
 
