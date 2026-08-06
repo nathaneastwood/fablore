@@ -120,8 +120,15 @@ def process_chapter(
         if key in manually_handled:
             continue
 
-        # Only auto-detect DB-backed entity types
-        if not isinstance(entry, dict) or entry.get("type") not in _AUTO_DETECT_TYPES:
+        # Only auto-detect DB-backed entity types. A supplement entry may relabel a
+        # DB-backed entity for display (the Hand of Sol is a locations row shown as a
+        # faction; Solana is shown as a region), so eligibility follows "db_type" —
+        # the type the entity actually has in the database — and falls back to "type"
+        # for entries the supplement never relabelled. Judging by the relabelled type
+        # would silently disable detection for entities that are genuinely DB-backed.
+        if not isinstance(entry, dict):
+            continue
+        if (entry.get("db_type") or entry.get("type")) not in _AUTO_DETECT_TYPES:
             continue
 
         # Option C: exclude_pages

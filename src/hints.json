@@ -327,7 +327,8 @@
     "type": "region",
     "summary": "The Golden City, realm of Illumination, founded by pilgrims drawn to Rathe by Sol's will.",
     "region": "Solana",
-    "url": "/world-of-rathe/solana.html"
+    "url": "/world-of-rathe/solana.html",
+    "db_type": "location"
   },
   "Sori 16": {
     "type": "location",
@@ -778,7 +779,8 @@
     "type": "faction",
     "summary": "Solana's order of knights, who defend the city from outside threats.",
     "region": "Solana",
-    "match": "Hand of Sol"
+    "match": "Hand of Sol",
+    "db_type": "location"
   },
   "Infernai": {
     "type": "aesir",

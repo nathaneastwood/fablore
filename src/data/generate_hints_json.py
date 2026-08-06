@@ -36,6 +36,34 @@ def _entry_with_match(name: str, base: dict) -> dict:
     return base
 
 
+def _merge_entry(db_entry: dict, sup_entry: dict) -> dict:
+    """Merge a supplement entry over a DB entry, recording the DB's own type.
+
+    A supplement entry often retypes a DB-backed entity so the tooltip reads
+    correctly — the Hand of Sol and the Light of Sol are stored as ``locations``
+    rows so stories can link them, but they are really orders, and are labelled
+    ``faction``. Solana is a location row labelled ``region``.
+
+    The hints preprocessor decides auto-detection eligibility from ``type``, so
+    such a relabel silently disqualifies an entity that genuinely is DB-backed —
+    Solana lost its tooltips this way. Keep the DB's type under ``db_type`` so
+    display and eligibility can differ: the supplement still controls the label,
+    while detection follows where the entity actually came from.
+
+    Args:
+        db_entry: The DB-generated hint entry.
+        sup_entry: The supplement entry overriding it.
+
+    Returns:
+        The merged entry, with ``db_type`` set when the supplement relabels it.
+    """
+    merged = {**db_entry, **sup_entry}
+    db_type = db_entry.get("type")
+    if db_type and sup_entry.get("type") and sup_entry["type"] != db_type:
+        merged["db_type"] = db_type
+    return merged
+
+
 def merge_supplement(hints: dict, supplement: dict) -> dict:
     """Merge supplement entries into DB-generated hints.
 
@@ -58,10 +86,10 @@ def merge_supplement(hints: dict, supplement: dict) -> dict:
     result = dict(hints)
     for key, value in supplement.items():
         if key in result and isinstance(value, dict) and isinstance(result[key], dict):
-            result[key] = {**result[key], **value}
+            result[key] = _merge_entry(result[key], value)
         elif key in match_to_db_key and isinstance(value, dict):
             db_key = match_to_db_key[key]
-            merged = {**result[db_key], **value}
+            merged = _merge_entry(result[db_key], value)
             del result[db_key]
             result[key] = merged
         else:
