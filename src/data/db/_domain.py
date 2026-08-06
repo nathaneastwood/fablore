@@ -749,8 +749,13 @@ class Database:
         name), confirm the duplicate has zero story references, then call
         this to remove it.
 
+        The common case for ``"npc"`` is a character promoted to a playable
+        hero: dropping their :class:`NPCEntry` removes the story *link* but
+        leaves the registry row behind, and the orphan survives every export.
+
         Args:
-            entity_type: One of ``"monster"``, ``"fauna"``, ``"flora"``, or ``"location"``.
+            entity_type: One of ``"monster"``, ``"fauna"``, ``"flora"``,
+                ``"npc"``, or ``"location"``.
             name: Display name of the entity to delete.
 
         Raises:
@@ -763,6 +768,7 @@ class Database:
             "monster": ("monsters", "monster_id", "story_monsters", _monster_id),
             "fauna": ("fauna", "fauna_id", "story_fauna", fauna_id_from_name),
             "flora": ("flora", "flora_id", "story_flora", flora_id),
+            "npc": ("npcs", "character_id", "story_npcs", lore_character_id),
         }
         with self.conn:
             if entity_type == "location":
@@ -796,7 +802,7 @@ class Database:
                     raise ValueError(f"{entity_type.capitalize()} not found: {name!r}")
             else:
                 raise ValueError(
-                    f"Unknown entity type: {entity_type!r}. " "Use 'monster', 'fauna', 'flora', or 'location'."
+                    f"Unknown entity type: {entity_type!r}. " "Use 'monster', 'fauna', 'flora', 'npc', or 'location'."
                 )
         _export.export_registry_tables(self.conn, self._data_dir)
 

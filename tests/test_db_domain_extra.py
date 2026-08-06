@@ -407,7 +407,51 @@ def test_delete_entity_location_not_found(db: Database) -> None:
 
 def test_delete_entity_unknown_entity_type(db: Database) -> None:
     with pytest.raises(ValueError, match="Unknown entity type"):
-        db.delete_entity("npc", "Someone")
+        db.delete_entity("weapon", "Something")
+
+
+def test_delete_entity_npc_removes_orphaned_row(db: Database) -> None:
+    """An NPC promoted to hero leaves an orphaned registry row behind.
+
+    Dropping the ``NPCEntry`` removes the story link, not the row, so the
+    orphan otherwise survives every export.
+    """
+    db.upsert_story(
+        "src/main-story/foo.md",
+        story_type="main-story",
+        title="Foo",
+        npcs=[NPCEntry(name="Promoted Character", species="Demon")],
+    )
+    db.upsert_story(
+        "src/main-story/foo.md",
+        story_type="main-story",
+        title="Foo",
+        npcs=[],
+    )
+    cur = db.conn.execute("SELECT COUNT(*) FROM npcs WHERE name = ?", ["Promoted Character"])
+    assert cur.fetchone()[0] == 1  # sanity: row survives the unlink
+
+    db.delete_entity("npc", "Promoted Character")
+    cur = db.conn.execute("SELECT COUNT(*) FROM npcs WHERE name = ?", ["Promoted Character"])
+    assert cur.fetchone()[0] == 0
+
+
+def test_delete_entity_npc_refuses_when_still_linked(db: Database) -> None:
+    db.upsert_story(
+        "src/main-story/foo.md",
+        story_type="main-story",
+        title="Foo",
+        npcs=[NPCEntry(name="Linked Character", species="Human")],
+    )
+    with pytest.raises(ValueError, match="still referenced"):
+        db.delete_entity("npc", "Linked Character")
+    cur = db.conn.execute("SELECT COUNT(*) FROM npcs WHERE name = ?", ["Linked Character"])
+    assert cur.fetchone()[0] == 1
+
+
+def test_delete_entity_npc_not_found(db: Database) -> None:
+    with pytest.raises(ValueError, match="not found"):
+        db.delete_entity("npc", "No Such Character")
 
 
 def test_delete_entity_monster_removes_orphaned_row(db: Database) -> None:
