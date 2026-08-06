@@ -963,7 +963,11 @@
   },
   "Baalghor": {
     "type": "hero",
-    "summary": "On the edge of the Abyss, interlopers are met by a colossal sentinel that casts a damning shadow. With immense power, Baalghor has one inexorable goal. The utter obliteration of any intruder."
+    "summary": "On the edge of the Abyss, interlopers are met by a colossal sentinel that casts a damning shadow. With immense power, Baalghor has one inexorable goal. The utter obliteration of any intruder.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/baalghor-about"
+    ]
   },
   "Kien": {
     "type": "npc",
@@ -1020,5 +1024,534 @@
     "match": "The Light of Sol",
     "summary": "Solana's order of scholars — healers, academics and scribes who serve the city and fight alongside the Hand of Sol.",
     "url": "/world-of-rathe/solana.html#the-light-of-sol"
+  },
+  "Arakni": {
+    "type": "hero",
+    "summary": "A dagger unsheathed of morality and conscience, a weapon of sharpened mind and polished purpose. Death is Arakni’s only concern. Assassination, their singular delight.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/arakni-about",
+      "heroes-of-rathe/arakni-marionette-about",
+      "heroes-of-rathe/arakni-5l!p3d-7hru-7h3-cr4x-about"
+    ]
+  },
+  "Arakni5lp3d7hru7h3Cr4x": {
+    "type": "hero",
+    "match": "Arakni, 5l!p3d 7hru 7h3 Cr4x",
+    "summary": "It stalks through rifts in reality, striking where enemies least expect. This agent of Chaos hunts in a world as unpredictable as its own fR4c7uR3d p5ych3.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/arakni-5l!p3d-7hru-7h3-cr4x-about"
+    ]
+  },
+  "ArakniMarionette": {
+    "type": "hero",
+    "match": "Arakni, Marionette",
+    "summary": "Arakni is a living creation of mortal design, a masterwork of sculpted flesh and blood. It is more than a mere killer; it is a predator that hunts the hunters.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/arakni-marionette-about"
+    ]
+  },
+  "Aurora": {
+    "type": "hero",
+    "summary": "Aurora lights up the sky like a shooting star. Faster than thunder and full of spark, this Wayfarer will navigate the dark dangers and uncover the brightest promises of the future.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/aurora-about",
+      "main-story/everfest/a-grand-adventure",
+      "world-of-rathe/aria"
+    ]
+  },
+  "Azalea": {
+    "type": "hero",
+    "summary": "Azalea has clawed up from the gutters to the top of Blackjack’s mercenary company. A sharp-eyed archer with a routier’s heart, one shot is all Azalea needs.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/azalea-about"
+    ]
+  },
+  "Benji": {
+    "type": "hero",
+    "summary": "Swift as a gale and agile as a sparrow, Benji is ready to fight for his clan. Even as whispers of doom darken the wind, this young Mugenshi will fly in the face of calamity.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/benji-about"
+    ]
+  },
+  "Betsy": {
+    "type": "hero",
+    "summary": "Betsy is a head-smashing wrecking ball who lives for the wild risks of the Deathmatch Arena. There’s no bluffing with Betsy. She’s all in!",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/betsy-about"
+    ]
+  },
+  "Boltyn": {
+    "type": "hero",
+    "summary": "Ser Boltyn leads Solana’s vanguard into battle. With light in his heart and sword in his hand, Boltyn will carve the corruption from this land.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/boltyn-about"
+    ]
+  },
+  "Bravo": {
+    "type": "hero",
+    "summary": "The star of Everfest, leader of the Legendarium, Bravo performed grand shows for cheering crowds. But when destiny came knocking, Bravo jumped at the chance to become a true hero!",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/bravo-about"
+    ]
+  },
+  "Brevant": {
+    "type": "hero",
+    "summary": "Brevant’s easy grace conceals a will forged into steel by grinding instruction and grueling training. To the folk of Solana his fair visage is a symbol of Sol’s protection.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/brevant-about"
+    ]
+  },
+  "Briar": {
+    "type": "hero",
+    "summary": "Briar is a tenacious wielder of thorn and thaumaturgy. The first of the Rosetta to set foot outside of Candlehold, Briar is ready to fight for her place in the wilderness of Rathe.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/briar-about"
+    ]
+  },
+  "Chane": {
+    "type": "hero",
+    "summary": "Chane harnessed the power of an otherworldly Embra from the shadows of i’Arathael. For that forbidden knowledge he paid the ultimate price.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/chane-about"
+    ]
+  },
+  "Cindra": {
+    "type": "hero",
+    "summary": "The Dracai of Retribution has sharpened her daggers on rebels. With her Emperor gone, Cindra’s resolve is now mercilessly singular; the traitors will be found and executed.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/cindra-about"
+    ]
+  },
+  "Dash": {
+    "type": "hero",
+    "summary": "Dash is full of wild ideas for ingenious gadgets. Born among the corporate heavyweights of Metrix, this savvy inventor is determined to disrupt the status quo.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/dash-about"
+    ]
+  },
+  "DataDoll": {
+    "type": "hero",
+    "match": "Data Doll",
+    "summary": "A one-of-a-kind automaton, Data Doll is the secret mind in the great machine that is Metrix. With all of the city’s data at her fingertips, nothing escapes her notice.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/data-doll-mkii-about"
+    ]
+  },
+  "Dorinthea": {
+    "type": "hero",
+    "summary": "Chosen to brandish Dawnblade against the darkness that hungers to consume the light, Dorinthea will allow neither pride nor pity to deflect her duty to Sol.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/dorinthea-about"
+    ]
+  },
+  "Dromai": {
+    "type": "hero",
+    "summary": "Dromai is an artist who paints her masterpieces in ash. Her imagination is as boundless as her ambition, and her visionary dragons will ignite terror in all who behold them.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/dromai-about"
+    ]
+  },
+  "Emperor": {
+    "type": "hero",
+    "summary": "Upon the Imperial Throne of Volcor sits the greatest wizard this volatile land has ever seen. For the sake of his people, the Emperor must decide their fate.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/emperor-about",
+      "archive/world-of-rathe/volcor/fire-in-their-veins"
+    ]
+  },
+  "Enigma": {
+    "type": "hero",
+    "summary": "As the Ledger of Ancestry, Enigma was reincarnated with a cosmic purpose; to maintain the delicate and dangerous balance between the worlds of life and spirit.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/enigma-about"
+    ]
+  },
+  "Fai": {
+    "type": "hero",
+    "summary": "Fai strikes with blistering speed, liberating his people, punishing their oppressors. From the ashes of the empire, this phoenix will rise.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/fai-about"
+    ]
+  },
+  "Fang": {
+    "type": "hero",
+    "summary": "Fang’s imperial training has molded him into a devoted captain of the Royal Guard. He now leads his soldiers into battle with vengeance in his fists and fealty in his heart.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/fang-about",
+      "main-story/welcome-to-rathe/kill-or-be-killed"
+    ]
+  },
+  "Florian": {
+    "type": "hero",
+    "summary": "They call him the Harbinger. While others bask in their illusion of eternal summer, Florian embraces the truth. Every leaf must fall. Death comes to us all.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/florian-about"
+    ]
+  },
+  "Frankie": {
+    "type": "hero",
+    "summary": "Freaky Frankie is a macabre haberdasher sourcing atrophied accouterments for her drop dead gorgeous creations.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/frankie-about"
+    ]
+  },
+  "Genis": {
+    "type": "hero",
+    "summary": "They call Genis the Roaming Bazaar, and what a spectacle he is! Ready your Silvers as you approach his stall, for Genis has got what you need!",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/genis-about"
+    ]
+  },
+  "GravyBones": {
+    "type": "hero",
+    "match": "Gravy Bones",
+    "summary": "As a necromantic pirate captain, Gravy Bones prowls strange tides and the drowning deep, seeking ancient treasures and raising fallen foes to join his cadaverous crew.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/gravy-about"
+    ]
+  },
+  "Hala": {
+    "type": "hero",
+    "summary": "After years of training Solana’s finest, this veteran templar now returns to the frontlines, ready to cut down the enemies of Sol.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/hala-about"
+    ]
+  },
+  "Ira": {
+    "type": "hero",
+    "summary": "With the infamous Edge of Autumn in her hands, Ira leads the ruthless Crimson Haze. Her family slaughtered, her clan eradicated, Ira now lives only for vengeance.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/ira-about"
+    ]
+  },
+  "Iyslander": {
+    "type": "hero",
+    "summary": "Iyslander carries the fierce beauty of the frozen north with her. Her will is as hard and cold as the winter she commands, for she is a woman reborn of ice and snow.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/iyslander-about"
+    ]
+  },
+  "Jarl": {
+    "type": "hero",
+    "summary": "After eons entombed in Isenloft, this ironclad Guardian has thawed from his frozen prison and entered a Rathe transformed. Yet time hasn’t cooled his fury, nor his ardor for war.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/jarl-about"
+    ]
+  },
+  "Kano": {
+    "type": "hero",
+    "summary": "The dragon’s fire burns hot within Kano’s veins. While the court demands his duty, this lordling lives only to further grow the power of his flame.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/kano-about"
+    ]
+  },
+  "Kassai": {
+    "type": "hero",
+    "summary": "Her father taught her how to fight. The Red Desert taught her how to survive. Now Kassai is ready to take up her sabers and carve off a piece of the empire for herself.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/kassai-about"
+    ]
+  },
+  "Katsu": {
+    "type": "hero",
+    "summary": "Katsu is the calm before the storm. To protect the Mugenshi clan from plague and peril, he will unleash a hurricane that will sweep his enemies from the mountains of Misteria.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/katsu-about"
+    ]
+  },
+  "Kavdaen": {
+    "type": "hero",
+    "summary": "This underworld artist deals in the morbid and the macabre. It’s a deadly business and Kavdaen will make a visceral sculpture of anyone who crosses him.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/kavdaen-about"
+    ]
+  },
+  "Kayo": {
+    "type": "hero",
+    "summary": "What Kayo lacks in size, he makes up for in ferocity. No matter the creature or battle, Kayo throws himself into every fight without fear, driven by the raw will to survive.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/kayo-about"
+    ]
+  },
+  "Levia": {
+    "type": "hero",
+    "summary": "The hunger that possesses Levia gives her strength beyond any natural bounds, yet the monster within her may only be satisfied when all of Rathe has been devoured.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/levia-about"
+    ]
+  },
+  "Lexi": {
+    "type": "hero",
+    "summary": "The darling of Volthaven, Lexi is a daring Wayfarer who rides lightning and skates on thin ice. She’ll go anywhere, take on any challenge, for a shot at saving her precious Aria.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/lexi-about"
+    ]
+  },
+  "Lyath": {
+    "type": "hero",
+    "summary": "Bored with playing and winning the feudal power games of the Northern Realms, Lyath sought fresh challenges in the blood sports of Deathmatch. After pulling the strings behind Victor’s gladiatorial successes there, Lyath is now ready to test his wits in the best game going. Super Slam!",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/lyath-about"
+    ]
+  },
+  "Marlynn": {
+    "type": "hero",
+    "summary": "Marlynn sails the fastest ships and chases the most dangerous bounties. She’d rather live large and die young than be a worm on someone else’s hook.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/marlynn-about"
+    ]
+  },
+  "Maxx": {
+    "type": "hero",
+    "summary": "Maxx revels in vandalism, high-tech heists, and good old-fashioned anarchy. Whatever the corporations’ treasure, this wily punk will steal, sabotage or destroy.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/maxx-about"
+    ]
+  },
+  "Melody": {
+    "type": "hero",
+    "summary": "Melody’s songs soothe the growing dissonance within Aria. This restless minstrel won’t take her final bow until history’s most precious pieces are played throughout the land.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/melody-about",
+      "main-story/everfest/a-grand-adventure",
+      "main-story/the-hunted/children-of-chaos"
+    ]
+  },
+  "Nuu": {
+    "type": "hero",
+    "summary": "Beneath her alluring facade lies a sensual serpent of deadly grace. Nuu has seen more years than most, a long life mysteriously sustained by her most sinful patrons.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/nuu-about"
+    ]
+  },
+  "Oldhim": {
+    "type": "hero",
+    "summary": "This mighty Shieldbearer of the Ollin once stood against the Old Ones. Now Oldhim has risen from his frigid slumber to defend a new age against an ancient enemy.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/oldhim-about"
+    ]
+  },
+  "Olympia": {
+    "type": "hero",
+    "summary": "From beggar to champion, Olympia rose to glory in the arena, carving a bloody trail through the challengers who dared to cross his path.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/olympia-about"
+    ]
+  },
+  "Oscilio": {
+    "type": "hero",
+    "summary": "Crafted during Rathe’s darkest hour, Oscilio is a living relic of the Third Age. His purpose is ancient, as are the enemies he was built to destroy.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/oscilio-about"
+    ]
+  },
+  "Pleiades": {
+    "type": "hero",
+    "summary": "War and music are all Pleiades has ever known. Having left the feudal conflicts of the Northern Realms, Pleiades now heads up her own warband with a set list of breathtaking anthems at their disposal. The audience adores her. Competitors fear her fame. Pleiades is a one-woman constellation of stardom.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/pleiades-about"
+    ]
+  },
+  "Prism": {
+    "type": "hero",
+    "summary": "Raised within the Library of Illumination, Prism turned her love of lore into mastery of illusions, manifesting her bright creations to guard her loved ones and smite her foes.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/prism-about"
+    ]
+  },
+  "Puffin": {
+    "type": "hero",
+    "summary": "Driven by her insatiable curiosity, this skyfaring freebooter (and her avian sidekick) will stop at nothing to uncover the secrets of the High Seas.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/puffin-about"
+    ]
+  },
+  "Rhinar": {
+    "type": "hero",
+    "summary": "Rhinar’s bloodlust knows no bounds. To the apex predator of the Savage Lands, everything is prey, to be slaughtered by this brutal force of his untamed nature.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/rhinar-about"
+    ]
+  },
+  "Riptide": {
+    "type": "hero",
+    "summary": "Riptide’s cunning traps and devious cruelty make him a peerless hunter of the Pits’ diluvian depths. Beast or being, if you want something caught, he’s the one to catch it.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/riptide-about"
+    ]
+  },
+  "Scurv": {
+    "type": "hero",
+    "summary": "Scurv and his octopus sidekick are happiest when stowing away on ships and pilfering enough gold for necessities like bottles of Goldkiss Rum!",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/scurv-about"
+    ]
+  },
+  "Shiyana": {
+    "type": "hero",
+    "summary": "As a mistress of disguise, Shiyana searches Rathe for secret threats to her beloved Solana. Her heart and mind are harmonized, attuned to the Light. There is no fear. Only Sol.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/shiyana-about"
+    ]
+  },
+  "Teklovossen": {
+    "type": "hero",
+    "summary": "Teklovossen’s visionary ideas propelled Metrix from a past of steam and brass into a future of dynamism and data. His brilliance survives even his mysterious death.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/teklovossen-about"
+    ]
+  },
+  "Terra": {
+    "type": "hero",
+    "summary": "Terra was born to protect the flora and fauna of Aria, and hears their whispers as they call him to battle. Terra views every living thing as kin and he will let nothing harm them.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/terra-about"
+    ]
+  },
+  "Tuffnut": {
+    "type": "hero",
+    "summary": "Tuffnut is a fun-loving giant who enjoys nothing more than roughhousing with his ‘friends’ and lapping up the adoration of the crowd. With boundless enthusiasm, Tuffnut crashes into the arena like a one-Brute natural disaster. Tuffnut doesn’t mean anything by it. He’s just having a good time!",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/tuffnut-about"
+    ]
+  },
+  "Uzuri": {
+    "type": "hero",
+    "summary": "Uzuri is a criminal mastermind who knows all the angles. She can read the play and choose where to stick the knife, usually where it’s least expected.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/uzuri-about"
+    ]
+  },
+  "Valda": {
+    "type": "hero",
+    "summary": "Watch your mouth when Valda’s in the ale house, or you’ll wake up with more than a hangover! Valda’s never shy to put her foot down, and when she does, you’ll feel the rumble!",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/valda-about"
+    ]
+  },
+  "Verdance": {
+    "type": "hero",
+    "summary": "Verdance’s attunement to nature is as deep-rooted as Candlehold’s most venerable trees, and with that power she can heal even the deepest of wounds.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/verdance-about"
+    ]
+  },
+  "VictorGoldmane": {
+    "type": "hero",
+    "match": "Victor Goldmane",
+    "summary": "Victor struts into the arena with the wealth and power of noble-born privilege. A mighty fighter in his own right, Victor can still ensure his wins with a flash of gold.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/victor-goldmane-about"
+    ]
+  },
+  "Viserai": {
+    "type": "hero",
+    "summary": "Created to be the perfect weapon, Viserai is deadly with both blade and aether. Yet forced to obey selfish whims, the Arknight must one day sever the bonds of servitude.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/viserai-about"
+    ]
+  },
+  "Vynnset": {
+    "type": "hero",
+    "summary": "Vynnset wears the ache of persecution like runes engraved upon her bones. To dark forces she has paid homage in pain, and now it is her enemies who will do the suffering.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/vynnset-about"
+    ]
+  },
+  "Yoji": {
+    "type": "hero",
+    "summary": "Yoji tirelessly guards the imperial palace, his devotion to the dynasty as mighty as his halberd. Ever vigilant, the dynasty’s Royal Protector is ready to meet any threat.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/yoji-about"
+    ]
+  },
+  "Zen": {
+    "type": "hero",
+    "summary": "With body and mind honed into instruments of tigrine determination, Zen prowls the currents of chi, maintaining the balance with hand and claw.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/zen-about"
+    ]
+  },
+  "Blaze": {
+    "type": "hero",
+    "summary": "Blaze watches through the flames of uprising and dynasty, using her insights to manipulate both rebels and nobles, all for the future of the empire and Volcor.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/blaze-about",
+      "digital-tiles/monarch/monarch",
+      "main-story/bright-lights/the-dynamic-man",
+      "main-story/interlude/morlock-hill",
+      "main-story/outsiders/the-spiders-trap"
+    ]
+  },
+  "Zyggy": {
+    "type": "hero",
+    "summary": "Zyggy returns to Rathe from a cosmic exile that has changed them in powerful ways. Having crossed unimaginable borders, they now turn the stuff of dreams into shocking realities.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/zyggy-about"
+    ]
   }
 }
