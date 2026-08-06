@@ -61,6 +61,12 @@ db.update_description(
 )
 db.update_description(
     "monster",
+    "Ravenir",
+    "Ever-hungry creatures the Old Ones sculpt from the stolen flesh of Rathe's living,"
+    " consuming corpses to multiply; no two are ever alike.",
+)
+db.update_description(
+    "monster",
     "Shadowrealm Walker",
     "Huge stilt-legged predators of i'Arathael, slow to anger, resembling praying mantises.",
 )
@@ -276,18 +282,54 @@ db.update_description(
 )
 db.update_description(
     "location",
+    "Mt. Isen",
+    "Ageless mountain watching over Larinkmorth, untouched by the Flow; from its summit"
+    " Isen is said to have crafted the Isen Ranges. Also recorded as Isen's Peak.",
+)
+db.update_description(
+    "location",
     "Trōpal-Dhani",
     "A legendary city said to have survived the Dhani empire's collapse, hiding its lost magic and"
     " treasures in the most perilous ruins.",
 )
+db.update_description(
+    "location",
+    "Aldengrove",
+    "One of the Third Age's three bastions - Aldengrove to sustain the Rathenfolk,"
+    " Valahai to empower them, and Isenloft to guard them all.",
+)
 db.update_description("location", "Ankomeido", "Home to the misfits and malcontents of Misteria.")
+db.update_description(
+    "location",
+    "Anvilheim",
+    "Home of Rathe's finest architects and smiths, who raised the Auric Keep and forged"
+    " Shyldverk's arcanite gate; now lost, but not forgotten.",
+)
+db.update_description(
+    "location",
+    "Arcane Hall",
+    "Cavernous testing chamber within the Auric Keep, converted into the laboratory where"
+    " the Aetherscribes built Oscilio.",
+)
 db.update_description("location", "Arcturos", "Where Oscilio was embedded.")
 db.update_description("location", "Ashvahan", "Capital of Volcor.")
+db.update_description(
+    "location",
+    "Astral Bridge",
+    "An arcane span manifested by the Voltaris Gem, anchoring Shyldverk in Enion to the"
+    " Auric Keep in the Nebulus Rift.",
+)
 db.update_description("location", "Audra", "Village.")
 db.update_description(
     "location",
     "Aui's Scale Strongholds",
     "Locations where things are concealed from the public.",
+)
+db.update_description(
+    "location",
+    "Auric Keep",
+    "Citadel of learning the Aetherscribes built at the heart of Valahai; cast into the"
+    " Nebulus Rift by the Ancients' cataclysm and later reconnected to Enion by the Astral Bridge.",
 )
 db.update_description("location", "Barthimont Manor", "In the Northern Realms.")
 db.update_description("location", "Barton's House", "Information Dealer.")
@@ -359,6 +401,19 @@ db.update_description(
 db.update_description("location", "Ironsong Forge", "In the city proper.")
 db.update_description(
     "location",
+    "Isen Ranges",
+    "The mountain range dividing western Aria from the rest of Rathe, said to have been"
+    " crafted by Isen from earth and aether; Valahai was founded behind it and Isenloft"
+    " guards its only pass.",
+)
+db.update_description(
+    "location",
+    "Isenloft",
+    "Mighty citadel amidst the Isen Ranges guarding the only passage into Aria; frozen at"
+    " the Third Age's end, and thawing once more in recent times.",
+)
+db.update_description(
+    "location",
     "Jawbreaker Territory",
     "No official territory with the exception of some houses on the water.",
 )
@@ -394,6 +449,12 @@ db.update_description(
     "Shadowrealm",
     "A desolate expanse within i'Arathael, home to the Shadowrealm Walkers and traversed by"
     " Demonastery expeditions.",
+)
+db.update_description(
+    "location",
+    "Shyldverk",
+    "Arcanite-forged gatehouse guarding the aetheric moat and the bridge to the Auric Keep;"
+    " a surviving fragment of old Valahai.",
 )
 db.update_description(
     "location",
@@ -466,6 +527,12 @@ db.update_description(
     "Marked with trigger-sensitive flamethrowers, fire traps, lava pits, and plenty of explosives.",
 )
 db.update_description("location", "Underdog Cafe", "In Coppertown.")
+db.update_description(
+    "location",
+    "Valahai",
+    "Fortress city founded on the plains of Enion, the Rathenfolk's last bastion against"
+    " the Old Ones, overrun and shattered in the Third Age.",
+)
 db.update_description(
     "location",
     "Yvor's Peak",

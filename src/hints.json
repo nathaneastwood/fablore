@@ -1,4 +1,9 @@
 {
+  "Aldengrove": {
+    "type": "location",
+    "summary": "One of the Third Age's three bastions - Aldengrove to sustain the Rathenfolk, Valahai to empower them, and Isenloft to guard them all.",
+    "region": "Aria"
+  },
   "Aldevyr": {
     "type": "location",
     "summary": "A village in Aria.",
@@ -14,6 +19,10 @@
     "summary": "Home to the misfits and malcontents of Misteria.",
     "region": "The Pits"
   },
+  "Anvilheim": {
+    "type": "location",
+    "summary": "Home of Rathe's finest architects and smiths, who raised the Auric Keep and forged Shyldverk's arcanite gate; now lost, but not forgotten."
+  },
   "Arcturos": {
     "type": "location",
     "summary": "Where Oscilio was embedded.",
@@ -23,6 +32,11 @@
     "type": "location",
     "summary": "Capital of Volcor.",
     "region": "Volcor"
+  },
+  "Astral Bridge": {
+    "type": "location",
+    "summary": "An arcane span manifested by the Voltaris Gem, anchoring Shyldverk in Enion to the Auric Keep in the Nebulus Rift.",
+    "region": "Nebulus Rift"
   },
   "Audra": {
     "type": "location",
@@ -34,6 +48,11 @@
     "type": "location",
     "summary": "Locations where things are concealed from the public.",
     "region": "Misteria"
+  },
+  "Auric Keep": {
+    "type": "location",
+    "summary": "Citadel of learning the Aetherscribes built at the heart of Valahai; cast into the Nebulus Rift by the Ancients' cataclysm and later reconnected to Enion by the Astral Bridge.",
+    "region": "Nebulus Rift"
   },
   "Barthimont Manor": {
     "type": "location",
@@ -212,6 +231,17 @@
     "summary": "In the city proper.",
     "region": "Solana"
   },
+  "Isen Ranges": {
+    "type": "location",
+    "summary": "The mountain range dividing western Aria from the rest of Rathe, said to have been crafted by Isen from earth and aether; Valahai was founded behind it and Isenloft guards its only pass.",
+    "region": "Aria"
+  },
+  "Isenloft": {
+    "type": "location",
+    "summary": "Mighty citadel amidst the Isen Ranges guarding the only passage into Aria; frozen at the Third Age's end, and thawing once more in recent times.",
+    "region": "Aria",
+    "url": "/archive/world-of-rathe/aria/the-land-of-legends.html#isenloft"
+  },
   "Jawbreaker Territory": {
     "type": "location",
     "summary": "No official territory with the exception of some houses on the water.",
@@ -264,6 +294,16 @@
     "type": "location",
     "summary": "A mountain which towers above the forests of eastern Aria.",
     "region": "Aria"
+  },
+  "Mt. Isen": {
+    "type": "location",
+    "summary": "Ageless mountain watching over Larinkmorth, untouched by the Flow; from its summit Isen is said to have crafted the Isen Ranges. Also recorded as Isen's Peak.",
+    "region": "Aria",
+    "match": [
+      "Mt. Isen",
+      "Mount Isen",
+      "Isen's Peak"
+    ]
   },
   "Mugenshi Village": {
     "type": "location",
@@ -326,6 +366,11 @@
   "Shadowrealm": {
     "type": "location",
     "summary": "A desolate expanse within i'Arathael, home to the Shadowrealm Walkers and traversed by Demonastery expeditions."
+  },
+  "Shyldverk": {
+    "type": "location",
+    "summary": "Arcanite-forged gatehouse guarding the aetheric moat and the bridge to the Auric Keep; a surviving fragment of old Valahai.",
+    "region": "Aria"
   },
   "Solana": {
     "type": "region",
@@ -491,6 +536,11 @@
     "summary": "In Coppertown.",
     "region": "Metrix"
   },
+  "Valahai": {
+    "type": "location",
+    "summary": "Fortress city founded on the plains of Enion, the Rathenfolk's last bastion against the Old Ones, overrun and shattered in the Third Age.",
+    "region": "Aria"
+  },
   "Yvors Peak": {
     "match": "Yvor's Peak",
     "type": "location",
@@ -513,6 +563,10 @@
   "Puppeteer": {
     "type": "monster",
     "summary": "A repulsive creature emerged through the opening, resembling a mass of human bodies held together by some monstrous cancer, an enormous eye in its center above a slavering mouth."
+  },
+  "Ravenir": {
+    "type": "monster",
+    "summary": "Ever-hungry creatures the Old Ones sculpt from the stolen flesh of Rathe's living, consuming corpses to multiply; no two are ever alike."
   },
   "Ankis": {
     "match": "Ank'is",
@@ -1552,6 +1606,60 @@
     "exclude_pages": [
       "heroes-of-rathe/heroes-of-rathe",
       "heroes-of-rathe/zyggy-about"
+    ]
+  },
+  "Galcia": {
+    "type": "ancient",
+    "summary": "Ancient of Ice."
+  },
+  "Aetherscribes": {
+    "type": "faction",
+    "summary": "A learned collective of scholars and seers devoted to the survival of all Rathenfolk.",
+    "url": "/world-of-rathe/aria.html#aetherscribes"
+  },
+  "Wayfarers": {
+    "type": "faction",
+    "summary": "Lightning-riding scouts and heralds of Valahai, who keep word flowing between the bastions.",
+    "url": "/world-of-rathe/aria.html#wayfarers"
+  },
+  "Ollin": {
+    "type": "faction",
+    "summary": "The elite of Valahai's defenders, who communed with Galcia to gain command over Ice.",
+    "url": "/world-of-rathe/aria.html#ollin"
+  },
+  "Chanek": {
+    "type": "faction",
+    "summary": "Green-skinned, pointed-eared Rathenfolk of the far west."
+  },
+  "Rathenfolk": {
+    "type": "concept",
+    "summary": "The living peoples of Rathe, reduced by the Old Ones to survivors in Isenloft, Aldengrove and Valahai."
+  },
+  "Wendryn": {
+    "type": "npc",
+    "summary": "Scarred veteran Wayfarer of Valahai, lost holding the Shyldverk against the ravenirs."
+  },
+  "AstreaQuazor": {
+    "match": "Astrea Quazor",
+    "type": "npc",
+    "summary": "The Auric Keep's finest surgeon, whose knowledge of aether saved Zyggy after Yvor's detonation."
+  },
+  "AuricSeeress": {
+    "match": "Auric Seeress",
+    "type": "npc",
+    "summary": "Prophetess who trained Zyggy; she foresaw the end and died in Valahai's fall."
+  },
+  "Wynvarin": {
+    "type": "npc",
+    "summary": "The first Wayfarer, remembered for the saying “the lightning shall carry me before the storm.”"
+  },
+  "ArcaneHall": {
+    "type": "location",
+    "summary": "Cavernous testing chamber within the Auric Keep, converted into the laboratory where the Aetherscribes built Oscilio.",
+    "region": "Nebulus Rift",
+    "match": "Arcane Hall",
+    "exclude_pages": [
+      "main-story/omens-of-the-third-age/fall-of-valahai"
     ]
   }
 }

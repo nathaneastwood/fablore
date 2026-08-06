@@ -1,18 +1,20 @@
 # AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Database class in src/data/db/ (db.upsert_story).
 LocationId|Name|RegionId|Notes|LoreFragment
-LOfa5743f6dd|Aldengrove|RG48803cad0f||
+LOfa5743f6dd|Aldengrove|RG48803cad0f|One of the Third Age's three bastions - Aldengrove to sustain the Rathenfolk, Valahai to empower them, and Isenloft to guard them all.|
 LO2ec34aa79a|Aldevyr|RG48803cad0f|A village in Aria.|
 LOd703dd530f|Amphitheatre|RG615666dae9|In the city proper, a space for ceremonies, public events and proclamations.|
 LOaf91be5766|Ankomeido|RGb2d75101c8|Home to the misfits and malcontents of Misteria.|ankomeido
+LOaa1174793b|Anvilheim||Home of Rathe's finest architects and smiths, who raised the Auric Keep and forged Shyldverk's arcanite gate; now lost, but not forgotten.|
+LO89d656d928|Arcane Hall|RG63dcf97f5c|Cavernous testing chamber within the Auric Keep, converted into the laboratory where the Aetherscribes built Oscilio.|auric-keep
 LOb4dc89ff94|Arcturos|RG48803cad0f|Where Oscilio was embedded.|
 LO3c6d032a03|Arena Barracks|||
 LOe1d5c5e23e|Ashvahan|RG8e23bdd8e8|Capital of Volcor.|
 LObdb304e6a8|Askraweld|||
-LOfa989f1937|Astral Bridge|RG63dcf97f5c||astral-bridge
+LOfa989f1937|Astral Bridge|RG63dcf97f5c|An arcane span manifested by the Voltaris Gem, anchoring Shyldverk in Enion to the Auric Keep in the Nebulus Rift.|astral-bridge
 LO707398693c|Audra|RG615666dae9|Village.|
 LO35638f29d7|Aui's Scale Strongholds|RG6cd31a74b6|Locations where things are concealed from the public.|
 LO8b6cae13a8|Aui's Scales Strongholds|RG6cd31a74b6||
-LO1f9c8b9fc3|Auric Keep|RG63dcf97f5c||auric-keep
+LO1f9c8b9fc3|Auric Keep|RG63dcf97f5c|Citadel of learning the Aetherscribes built at the heart of Valahai; cast into the Nebulus Rift by the Ancients' cataclysm and later reconnected to Enion by the Astral Bridge.|auric-keep
 LOcd01faec6c|Barthimont Manor|RG615666dae9|In the Northern Realms.|
 LO87681a5bd3|Barton's House|RGb2d75101c8|Information Dealer.|
 LOb7cf83f526|Beacon|RG58cc047b16||
@@ -38,6 +40,7 @@ LO2f893e5127|Coppertown|RG58cc047b16||coppertown
 LO91cbf27d42|Coralysi|RG05a2281d01|Home of the merfolk. Floating gardens.|
 LO87dd37ec92|Courtyard|RG8bc7b8bb1d|Enter here when using invitation|
 LOa0dd4655a8|Dagger Docks|RG05a2281d01|Shipwrights|dagger-docks
+LOdca41ce7bd|Dawnhaven|||
 LO9475b2b04d|Death's Knell||The Ocean.|
 LO08fe92108b|Demonastery|RG8bc7b8bb1d|Mansion with specific rooms per resident; it moves, accessible by invitation.|
 LO38a4c2e0c5|Deshvahan|RG8e23bdd8e8|A city in Volcor.|deshvahan
@@ -72,8 +75,8 @@ LO40042662e0|Imperial Palace|RG8e23bdd8e8||the-royal-court
 LO24f58a142e|Iron Assembly|RG58cc047b16||iron-assembly
 LO5960391805|Iron Hall|RG58cc047b16|The seat of power for Metrix's municipal government.|
 LO6db815b603|Ironsong Forge|RG615666dae9|In the city proper.|
-LOe738bd5661|Isen's Peak|RG48803cad0f||
-LO4a880fb760|Isenloft|RG48803cad0f||
+LO5813d4e070|Isen Ranges|RG48803cad0f|The mountain range dividing western Aria from the rest of Rathe, said to have been crafted by Isen from earth and aether; Valahai was founded behind it and Isenloft guards its only pass.|
+LO4a880fb760|Isenloft|RG48803cad0f|Mighty citadel amidst the Isen Ranges guarding the only passage into Aria; frozen at the Third Age's end, and thawing once more in recent times.|
 LO10a06fc12c|Jawbreaker Territory|RGb2d75101c8|No official territory with the exception of some houses on the water.|
 LO5624f1e30a|Kirohime Gate|RG6cd31a74b6||
 LO184bf8f78c|Kraken|RG05a2281d01|Boat|
@@ -93,7 +96,7 @@ LO54db0371d7|Mistcloak Lake|RG6cd31a74b6||
 LO7781801004|Mojire|||
 LO0e33bbd4a9|Morlock Hill|RG615666dae9|Site of the Battle of Morlock Hill.|
 LOefd40a0286|Mount Heroic|RG48803cad0f|A mountain which towers above the forests of eastern Aria.|
-LO21dff30ce5|Mt. Isen|RG48803cad0f||
+LO21dff30ce5|Mt. Isen|RG48803cad0f|Ageless mountain watching over Larinkmorth, untouched by the Flow; from its summit Isen is said to have crafted the Isen Ranges. Also recorded as Isen's Peak.|mount-isen
 LO8d542316cb|Mt. Volcor|RG8e23bdd8e8||
 LO817b25703b|Mugenshi Ancestral Shrine|RG6cd31a74b6||
 LOcf0cab9ebb|Mugenshi Gorge|RG6cd31a74b6||mugenshi-gorge
@@ -122,7 +125,7 @@ LOff47f57ea9|Seetheside Docks|RGb2d75101c8||
 LO508aad8280|Sellshore Coast|RG05a2281d01||
 LOc4233fa904|Shadowrealm||A desolate expanse within i'Arathael, home to the Shadowrealm Walkers and traversed by Demonastery expeditions.|
 LO9a3407fd64|Shuntswitch Railway Station|RGb2d75101c8||
-LOda7dc20f64|Shyldverk|RG48803cad0f||shyldverk
+LOda7dc20f64|Shyldverk|RG48803cad0f|Arcanite-forged gatehouse guarding the aetheric moat and the bridge to the Auric Keep; a surviving fragment of old Valahai.|shyldverk
 LO52452db6f3|Signarus|RG615666dae9||
 LO0112129075|Silvarium|RG615666dae9||
 LOd4d942b9a9|Skein|RGb2d75101c8||
@@ -180,7 +183,7 @@ LO27fe08a024|Thunder Steppe|RG48803cad0f|Channel Thunder Steppe|thunder-steppe
 LO4fc8febf5c|Torched Territory|RGb2d75101c8|Marked with trigger-sensitive flamethrowers, fire traps, lava pits, and plenty of explosives.|
 LO9b8ccbf9d3|Trōpal-Dhani|RG05a2281d01|A legendary city said to have survived the Dhani empire's collapse, hiding its lost magic and treasures in the most perilous ruins.|trōpal-dhani
 LOaaec3dc609|Underdog Cafe|RG58cc047b16|In Coppertown.|
-LO14218b7fa6|Valahai|RG48803cad0f||valahai
+LO14218b7fa6|Valahai|RG48803cad0f|Fortress city founded on the plains of Enion, the Rathenfolk's last bastion against the Old Ones, overrun and shattered in the Third Age.|valahai
 LO070c2cab97|Voltaris Gem|RG63dcf97f5c||astral-bridge
 LO793ecea506|Volthaven|RG48803cad0f||enion
 LO93ea3a21e6|Vossen Theater|RG58cc047b16||

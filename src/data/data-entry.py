@@ -470,6 +470,49 @@ db.upsert_story(
 )
 
 db.upsert_story(
+    path="src/main-story/omens-of-the-third-age/fall-of-valahai.md",
+    story_type="main-story",
+    title="Fall of Valahai",
+    authors="Corey J. White, Becca Barnes, Rachel Rees, Aidan Kwasneski, Edwin McRae",
+    artists="Narendra B Adi, Federico Musetti, Olga Tereshenko, Simon Wong, Carlos Cruchaga",
+    source_link="https://fabtcg.com/articles/fall-of-valahai/",
+    publication_date="2026-06-09",
+    heroes=["zyggy", "oscilio"],
+    npcs=[
+        NPCEntry(name="Wendryn", species="Human", status="Deceased"),
+        NPCEntry(name="Astrea Quazor", species="Human", status="Alive"),
+        NPCEntry(name="Auric Seeress", species="Human", status="Deceased"),
+        NPCEntry(name="Wynvarin", species="Human"),
+        NPCEntry(name="Yvor", species="Ancient", status="Deceased"),
+        NPCEntry(name="Davnir", species="Ancient", status="Deceased"),
+        NPCEntry(name="Galcia", species="Ancient", status="Deceased"),
+    ],
+    locations=[
+        LocationEntry("Valahai", region="Aria", lore_fragment="valahai"),
+        LocationEntry("Shyldverk", region="Aria", lore_fragment="shyldverk"),
+        LocationEntry("Enion", region="Aria", lore_fragment="enion"),
+        LocationEntry("Isenloft", region="Aria"),
+        LocationEntry("Aldengrove", region="Aria"),
+        LocationEntry("Isen Ranges", region="Aria"),
+        LocationEntry("Auric Keep", region="Nebulus Rift", lore_fragment="auric-keep"),
+        LocationEntry("Astral Bridge", region="Nebulus Rift", lore_fragment="astral-bridge"),
+        LocationEntry("Arcane Hall", region="Nebulus Rift", lore_fragment="auric-keep"),
+        LocationEntry("Voltaris Gem", region="Nebulus Rift", lore_fragment="astral-bridge"),
+        LocationEntry("Anvilheim"),
+        LocationEntry("Dawnhaven"),
+    ],
+    regions=[
+        RegionEntry("Aria"),
+        RegionEntry("Nebulus Rift"),
+    ],
+    monsters=[
+        MonsterEntry("Ravenir"),
+    ],
+    weapons=["aphrodias"],
+    dry_run=True,
+)
+
+db.upsert_story(
     path="src/main-story/usurp-the-shadow-throne/letters-from-the-beyond.md",
     story_type="main-story",
     title="Letters from the Beyond",

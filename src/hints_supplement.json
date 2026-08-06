@@ -909,5 +909,66 @@
       "heroes-of-rathe/heroes-of-rathe",
       "heroes-of-rathe/zyggy-about"
     ]
+  },
+  "Galcia": {
+    "type": "ancient",
+    "summary": "Ancient of Ice."
+  },
+  "Aetherscribes": {
+    "type": "faction",
+    "summary": "A learned collective of scholars and seers devoted to the survival of all Rathenfolk.",
+    "url": "/world-of-rathe/aria.html#aetherscribes"
+  },
+  "Wayfarers": {
+    "type": "faction",
+    "summary": "Lightning-riding scouts and heralds of Valahai, who keep word flowing between the bastions.",
+    "url": "/world-of-rathe/aria.html#wayfarers"
+  },
+  "Ollin": {
+    "type": "faction",
+    "summary": "The elite of Valahai's defenders, who communed with Galcia to gain command over Ice.",
+    "url": "/world-of-rathe/aria.html#ollin"
+  },
+  "Chanek": {
+    "type": "faction",
+    "summary": "Green-skinned, pointed-eared Rathenfolk of the far west."
+  },
+  "Rathenfolk": {
+    "type": "concept",
+    "summary": "The living peoples of Rathe, reduced by the Old Ones to survivors in Isenloft, Aldengrove and Valahai."
+  },
+  "Wendryn": {
+    "type": "npc",
+    "summary": "Scarred veteran Wayfarer of Valahai, lost holding the Shyldverk against the ravenirs."
+  },
+  "AstreaQuazor": {
+    "match": "Astrea Quazor",
+    "type": "npc",
+    "summary": "The Auric Keep's finest surgeon, whose knowledge of aether saved Zyggy after Yvor's detonation."
+  },
+  "AuricSeeress": {
+    "match": "Auric Seeress",
+    "type": "npc",
+    "summary": "Prophetess who trained Zyggy; she foresaw the end and died in Valahai's fall."
+  },
+  "Wynvarin": {
+    "type": "npc",
+    "summary": "The first Wayfarer, remembered for the saying “the lightning shall carry me before the storm.”"
+  },
+  "Isenloft": {
+    "url": "/archive/world-of-rathe/aria/the-land-of-legends.html#isenloft"
+  },
+  "ArcaneHall": {
+    "match": "Arcane Hall",
+    "exclude_pages": [
+      "main-story/omens-of-the-third-age/fall-of-valahai"
+    ]
+  },
+  "Mt. Isen": {
+    "match": [
+      "Mt. Isen",
+      "Mount Isen",
+      "Isen's Peak"
+    ]
   }
 }

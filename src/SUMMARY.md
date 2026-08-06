@@ -178,6 +178,7 @@
     - [Feudmasters](main-story/super-slam/feudmasters.md)
     - [Vow Unbroken](main-story/compendium-of-rathe/vow-unbroken.md)
     - [Omens in the Sky](main-story/omens-of-the-third-age/omens-in-the-sky.md)
+    - [Fall of Valahai](main-story/omens-of-the-third-age/fall-of-valahai.md)
     - [Letters from the Beyond](main-story/usurp-the-shadow-throne/letters-from-the-beyond.md)
     - [Agony in Light](main-story/usurp-the-shadow-throne/agony-in-light.md)
 
