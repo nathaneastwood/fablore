@@ -315,11 +315,13 @@
   "DisciplesOfPain": {
     "type": "faction",
     "match": "Disciples of Pain",
-    "summary": "Chane's elite followers within the Church of Pain, accompanying him on expeditions into i'Arathael."
+    "summary": "The Demonastery order who embrace pain to surpass mortal limits and break Solana's hold on Rathe, following whichever Apostle leads them — Chane in his day, now Vynnset, the Apostle of Agony."
   },
   "Runeblades": {
-    "type": "faction",
-    "summary": "Chane's Demonastery warriors who serve as guards and potential blood sacrifices on Shadowrealm expeditions."
+    "type": "concept",
+    "match": ["Runeblades", "Runeblade"],
+    "summary": "Hybrid fighters who wield blade and sorcery in equal measure, evoking runechants as they strike.",
+    "exclude_pages": ["heroes-of-rathe/heroes-of-rathe"]
   },
   "OldOnes": {
     "type": "concept",
@@ -329,12 +331,12 @@
   "ChurchOfPain": {
     "type": "faction",
     "match": "Church of Pain",
-    "summary": "Demonastery faction led by Chane, dedicated to harnessing pain and shadow to destroy Solana."
+    "summary": "The Demonastery institution devoted to harnessing pain and Shadow to destroy Solana. Chane wore its mantle until he named Vynnset his successor."
   },
   "Embra": {
     "type": "concept",
     "match": ["Embra", "Embras"],
-    "summary": "Powerful supernatural entities that feed on blood; Chane's patron Ursur is one."
+    "summary": "Powerful supernatural entities that feed on blood."
   },
   "Blasmophet": {
     "type": "embra",
