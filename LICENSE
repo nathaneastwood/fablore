@@ -1,4 +1,15 @@
-Copyright (c) 2022 Nathan Eastwood.
+MIT License
+
+Copyright (c) 2022-2026 Nathan Eastwood.
+
+This license covers the code in this repository: the Python data pipeline,
+the mdBook preprocessors, the theme, the scripts and the configuration.
+
+It does not cover the Flesh and Blood lore content, meaning the narrative
+text, artwork and card flavour text reproduced under src/. That material is
+copyright Legend Story Studios and is reproduced here for archival and
+reference purposes. Legendary Stories is a fan project and is not affiliated
+with, endorsed by, or sponsored by Legend Story Studios.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
