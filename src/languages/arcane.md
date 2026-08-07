@@ -4,6 +4,20 @@ The language of Arcane, as of Everfest, is known to be as follows.
 
 <img src="https://d2hl7maqck52px.cloudfront.net/languages/language-arcane.webp" alt="language-arcane" class="center">
 
+Arcane maps one-to-one onto the English alphabet, so anything can be written in
+it. Every glyph above has been traced into a typeface — type below to see your
+own words in Arcane.
+
+<div data-arcane-translator></div>
+
+No glyph for **Z** has ever appeared in published card art, so it is the one
+letter that cannot be written; it renders as an empty rune above.
+
+Nor has any Arcane text ever shown a punctuation mark or a numeral — not the
+Runechant token, the Arcane Rising box, nor the book behind Lady Barthimont.
+Every attested inscription is letters and spaces alone, so that is all the
+typeface will write.
+
 The Arcane language is often on Runeblade cards and also appeared on the box art of Arcane Rising. The box says:
 
 > The shadows, shall rise again, releasing, the arcane, arts once, more.

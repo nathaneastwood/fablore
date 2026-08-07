@@ -36,6 +36,40 @@
 <!-- Tooltip library (used by hints.js) -->
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="https://unpkg.com/tippy.js@6"></script>
+<!--
+  Spoiler splash: sends visitors landing on the site root to /countdown.html
+  for the run-up to the Usurp the Shadow Throne reveal.
+
+  Self-limiting on purpose. The window below is the only switch — outside it
+  this does nothing, so the splash cannot be left on the homepage by accident.
+  Delete this block once the reveal is done.
+
+  Deliberately narrow: root only (deep links and shared story URLs are never
+  intercepted), once per browser session, bypassable with ?nosplash. The
+  homepage links back to /countdown.html so it is always reachable on purpose.
+
+  Root only is what keeps this safe for search: every story, hero and location
+  page is untouched, so the archive's actual search traffic never sees it. The
+  homepage may surface as the countdown for the duration; that is the trade.
+  /countdown.html is deliberately indexable — pointing the homepage at a
+  noindexed page is what could push the homepage itself out of the index.
+-->
+<script>
+(function () {
+    var FROM  = Date.parse("2026-08-07T00:00:00Z"); // live now
+    var UNTIL = Date.parse("2026-08-26T12:00:00Z"); // 13:00 BST, one hour after reveal
+    try {
+        var now = Date.now();
+        if (now < FROM || now >= UNTIL) return;
+        var p = location.pathname;
+        if (p !== "/" && p !== "/index.html") return;
+        if (location.search.indexOf("nosplash") !== -1) return;
+        if (sessionStorage.getItem("ls-splash-seen")) return;
+        sessionStorage.setItem("ls-splash-seen", "1");
+        location.replace("/countdown.html");
+    } catch (e) {}
+})();
+</script>
 <!-- Apply reading preferences before content renders to prevent flash -->
 <script>
 (function () {

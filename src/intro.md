@@ -13,6 +13,8 @@ Whether you're hunting krakens with Marlynn, plotting assassinations with Arakni
 
 Not sure where to start? [Browse all available stories](browse.md) and filter by type, region, or character.
 
+> 🕯️ **Spoiler season.** Two cards from *Usurp the Shadow Throne* are being revealed here on 26 August at 12:00 BST. [Watch the countdown](countdown.html).
+
 ## ✨ What you'll find:
 - 📚 Every lore article published by LSS
 - 🔎 Easy navigation by hero, region, or theme (try pressing / to search!)
