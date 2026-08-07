@@ -434,6 +434,11 @@ db.update_description(
 db.update_description("location", "Nasu-ka Teahouse", "Nuu's teahouse by Mistcloak Lake.")
 db.update_description(
     "location",
+    "Neverest",
+    "Cursed tarns on the Shadowrealm's jagged heights, holding wells of " "necromantic potential Malice draws upon.",
+)
+db.update_description(
+    "location",
     "Numbskull Territory",
     "Cave network lined with skulls, resembling a catacomb.",
 )

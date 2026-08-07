@@ -575,3 +575,30 @@ db.upsert_story(
     weapons=["flail-of-agony", "raydn-duskbane"],
     dry_run=True,
 )
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Short Stories
+# -------------------------------------------------------------------------------------------------------------------- #
+
+db.upsert_story(
+    path="src/short-stories/usurp-the-shadow-throne/open-the-gates.md",
+    story_type="short-stories",
+    title="Open the Gates",
+    publication_date="2026-07-16",
+    heroes=["viserai", "levia", "malice"],
+    npcs=[
+        NPCEntry(name="Blasmophet", species="Embra"),
+    ],
+    locations=[
+        LocationEntry("The Abyss"),
+        LocationEntry("Neverest"),
+        LocationEntry("Shadowrealm"),
+        LocationEntry("i'Arathael"),
+    ],
+    regions=[
+        RegionEntry("Demonastery"),
+        RegionEntry("Solana"),
+    ],
+    dry_run=True,
+)
+# TODO: group — Gloomblades

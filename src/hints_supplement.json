@@ -5,7 +5,10 @@
   },
   "AbsolonsDream": {
     "type": "ship",
-    "match": "Absolon's Dream",
+    "match": [
+      "Absolon's Dream",
+      "Absolon’s Dream"
+    ],
     "summary": "Kuraghan flagship."
   },
   "Aeronauts": {
@@ -23,7 +26,10 @@
   },
   "AuisScales": {
     "type": "faction",
-    "match": "Aui's Scales",
+    "match": [
+      "Aui's Scales",
+      "Aui’s Scales"
+    ],
     "summary": "A secretive organisation that builds hidden strongholds across Misteria to conceal scrolls and artefacts from the public.",
     "exclude_pages": [
       "main-story/welcome-to-rathe/wanderings-in-the-mists"
@@ -92,7 +98,10 @@
   },
   "FiddlersGreen": {
     "type": "concept",
-    "match": "Fiddler's Green",
+    "match": [
+      "Fiddler's Green",
+      "Fiddler’s Green"
+    ],
     "summary": "An imaginary place where every immortal's whim shall be tended to by demure merfolk."
   },
   "Fireseer": {
@@ -968,7 +977,149 @@
     "match": [
       "Mt. Isen",
       "Mount Isen",
-      "Isen's Peak"
+      "Isen's Peak",
+      "Isen’s Peak"
+    ]
+  },
+  "Neverest": {
+    "exclude_pages": [
+      "short-stories/usurp-the-shadow-throne/open-the-gates"
+    ]
+  },
+  "Gloomblades": {
+    "type": "faction",
+    "summary": "The Demonastery's runeblade forces, corrupted into Viserai's eldritch legion after his return from the Abyss."
+  },
+  "MarkOfNeverest": {
+    "match": "Mark of Neverest",
+    "type": "artifact",
+    "summary": "The token by which Malice taps Neverest's necromantic reservoir to swell her reanimated dead."
+  },
+  "SoulOfExistence": {
+    "match": "Soul of Existence",
+    "type": "artifact",
+    "summary": "The Old Ones' corrupting gift to the Arknight, drawn from the Abyss — the very soul of Shadow's existence."
+  },
+  "Runechant": {
+    "match": [
+      "Runechant",
+      "Runechants"
+    ],
+    "type": "concept",
+    "summary": "Auras of violet arcane energy evoked by runeblades, hovering at their master's command until loosed as bolts of pure aether."
+  },
+  "Arknight": {
+    "type": "concept",
+    "summary": "Sutcliffe's living weapon: a man born without aether affinity, granted it by an implanted shard. Viserai is the first and only success.",
+    "exclude_pages": [
+      "main-story/arcane-rising/birth-of-the-arknight"
+    ]
+  },
+  "ArknightShard": {
+    "match": "Arknight Shard",
+    "type": "artifact",
+    "summary": "The relic set into Viserai's chest, feeding arcane energy through runic vents carved into his bone and skin."
+  },
+  "Auis Scale Strongholds": {
+    "match": [
+      "Aui's Scale Strongholds",
+      "Aui’s Scale Strongholds"
+    ]
+  },
+  "Bartons House": {
+    "match": [
+      "Barton's House",
+      "Barton’s House"
+    ]
+  },
+  "Blackjacks Tavern": {
+    "match": [
+      "Blackjack's Tavern",
+      "Blackjack’s Tavern"
+    ]
+  },
+  "Blasmophets Domain": {
+    "match": [
+      "Blasmophet's Domain",
+      "Blasmophet’s Domain"
+    ]
+  },
+  "Deaths Knell": {
+    "match": [
+      "Death's Knell",
+      "Death’s Knell"
+    ]
+  },
+  "Krakens Barrel": {
+    "match": [
+      "Kraken's Barrel",
+      "Kraken’s Barrel"
+    ]
+  },
+  "Kylorias Lair": {
+    "match": [
+      "Kyloria's Lair",
+      "Kyloria’s Lair"
+    ]
+  },
+  "Might n Mead": {
+    "match": [
+      "Might n' Mead",
+      "Might n’ Mead"
+    ]
+  },
+  "Overseer Crichtons Mansion": {
+    "match": [
+      "Overseer Crichton's Mansion",
+      "Overseer Crichton’s Mansion"
+    ]
+  },
+  "Pirates Perch": {
+    "match": [
+      "Pirate's Perch",
+      "Pirate’s Perch"
+    ]
+  },
+  "Rhinars Territory": {
+    "match": [
+      "Rhinar's Territory",
+      "Rhinar’s Territory"
+    ]
+  },
+  "Yvors Peak": {
+    "match": [
+      "Yvor's Peak",
+      "Yvor’s Peak"
+    ]
+  },
+  "iArathael": {
+    "match": [
+      "i'Arathael",
+      "i’Arathael"
+    ]
+  },
+  "Ankis": {
+    "match": [
+      "Ank'is",
+      "Ank’is"
+    ]
+  },
+  "Kaieo": {
+    "match": [
+      "Kaie'o",
+      "Kaie’o"
+    ]
+  },
+  "Nashari": {
+    "match": [
+      "Na'shari",
+      "Na’shari"
+    ]
+  },
+  "Vitreo": {
+    "match": [
+      "Vitr'eo",
+      "Vitr’eo"
     ]
   }
 }

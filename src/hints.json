@@ -44,7 +44,10 @@
     "region": "Solana"
   },
   "Auis Scale Strongholds": {
-    "match": "Aui's Scale Strongholds",
+    "match": [
+      "Aui's Scale Strongholds",
+      "Aui’s Scale Strongholds"
+    ],
     "type": "location",
     "summary": "Locations where things are concealed from the public.",
     "region": "Misteria"
@@ -60,13 +63,19 @@
     "region": "Solana"
   },
   "Bartons House": {
-    "match": "Barton's House",
+    "match": [
+      "Barton's House",
+      "Barton’s House"
+    ],
     "type": "location",
     "summary": "Information Dealer.",
     "region": "The Pits"
   },
   "Blackjacks Tavern": {
-    "match": "Blackjack's Tavern",
+    "match": [
+      "Blackjack's Tavern",
+      "Blackjack’s Tavern"
+    ],
     "type": "location",
     "summary": "Bounty Hunting Hub, owned by Greenbird. Neutral Ground.",
     "region": "The Pits"
@@ -77,7 +86,10 @@
     "region": "Volcor"
   },
   "Blasmophets Domain": {
-    "match": "Blasmophet's Domain",
+    "match": [
+      "Blasmophet's Domain",
+      "Blasmophet’s Domain"
+    ],
     "type": "location",
     "summary": "Separate plane.",
     "region": "Demonastery"
@@ -121,7 +133,10 @@
     "region": "High Seas"
   },
   "Deaths Knell": {
-    "match": "Death's Knell",
+    "match": [
+      "Death's Knell",
+      "Death’s Knell"
+    ],
     "type": "location",
     "summary": "The Ocean."
   },
@@ -253,13 +268,19 @@
     "region": "High Seas"
   },
   "Krakens Barrel": {
-    "match": "Kraken's Barrel",
+    "match": [
+      "Kraken's Barrel",
+      "Kraken’s Barrel"
+    ],
     "type": "location",
     "summary": "Tavern",
     "region": "High Seas"
   },
   "Kylorias Lair": {
-    "match": "Kyloria's Lair",
+    "match": [
+      "Kyloria's Lair",
+      "Kyloria’s Lair"
+    ],
     "type": "location",
     "summary": "Deep beneath the Pits.",
     "region": "The Pits"
@@ -280,7 +301,10 @@
     "region": "Solana"
   },
   "Might n Mead": {
-    "match": "Might n' Mead",
+    "match": [
+      "Might n' Mead",
+      "Might n’ Mead"
+    ],
     "type": "location",
     "summary": "Where Valda grew up and works.",
     "region": "Aria"
@@ -302,7 +326,8 @@
     "match": [
       "Mt. Isen",
       "Mount Isen",
-      "Isen's Peak"
+      "Isen's Peak",
+      "Isen’s Peak"
     ]
   },
   "Mugenshi Village": {
@@ -315,6 +340,13 @@
     "summary": "Nuu's teahouse by Mistcloak Lake.",
     "region": "Misteria"
   },
+  "Neverest": {
+    "type": "location",
+    "summary": "Cursed tarns on the Shadowrealm's jagged heights, holding wells of necromantic potential Malice draws upon.",
+    "exclude_pages": [
+      "short-stories/usurp-the-shadow-throne/open-the-gates"
+    ]
+  },
   "Numbskull Territory": {
     "type": "location",
     "summary": "Cave network lined with skulls, resembling a catacomb.",
@@ -326,19 +358,28 @@
     "region": "Solana"
   },
   "Overseer Crichtons Mansion": {
-    "match": "Overseer Crichton's Mansion",
+    "match": [
+      "Overseer Crichton's Mansion",
+      "Overseer Crichton’s Mansion"
+    ],
     "type": "location",
     "summary": "Situated in The Maw.",
     "region": "The Pits"
   },
   "Pirates Perch": {
-    "match": "Pirate's Perch",
+    "match": [
+      "Pirate's Perch",
+      "Pirate’s Perch"
+    ],
     "type": "location",
     "summary": "Filled with jungle.",
     "region": "High Seas"
   },
   "Rhinars Territory": {
-    "match": "Rhinar's Territory",
+    "match": [
+      "Rhinar's Territory",
+      "Rhinar’s Territory"
+    ],
     "type": "location",
     "summary": "Void of other brutes.",
     "region": "The Savage Lands"
@@ -542,13 +583,19 @@
     "region": "Aria"
   },
   "Yvors Peak": {
-    "match": "Yvor's Peak",
+    "match": [
+      "Yvor's Peak",
+      "Yvor’s Peak"
+    ],
     "type": "location",
     "summary": "Statue of Yvor located here, doorway to an armory.",
     "region": "Aria"
   },
   "iArathael": {
-    "match": "i'Arathael",
+    "match": [
+      "i'Arathael",
+      "i’Arathael"
+    ],
     "type": "location",
     "summary": "Separate plane accessed via a portal in the Demonastery, home of the Old Ones."
   },
@@ -569,7 +616,10 @@
     "summary": "Ever-hungry creatures the Old Ones sculpt from the stolen flesh of Rathe's living, consuming corpses to multiply; no two are ever alike."
   },
   "Ankis": {
-    "match": "Ank'is",
+    "match": [
+      "Ank'is",
+      "Ank’is"
+    ],
     "type": "fauna",
     "summary": "The crystalline creature does not bleed. It shatters. Its teeth are harder than stone, with serrated edges and a needle-like tip to tear through flesh. Its limbs are long and thin, with sharp points to allow it to grip onto most surfaces, and scale the difficult terrain of the Savage Lands."
   },
@@ -634,7 +684,10 @@
     "summary": "A sea creature with boat-sized flippers, three heads and perhaps as large as three whales, end on end."
   },
   "Kaieo": {
-    "match": "Kaie'o",
+    "match": [
+      "Kaie'o",
+      "Kaie’o"
+    ],
     "type": "fauna",
     "summary": "Small, quick creatures once common across Aria's fields, prized for their soft fur; their sudden disappearance from the plains was an early sign of the Fractal Scar's unrest."
   },
@@ -655,7 +708,10 @@
     "summary": "These tiny wisps are artificially created by the wizards of Volcor; puffs of smoke brought to life by a breath of aether. Once formed, they subsist entirely on embers, flitting to and fro amongst the fiery landscape."
   },
   "Nashari": {
-    "match": "Na'shari",
+    "match": [
+      "Na'shari",
+      "Na’shari"
+    ],
     "type": "fauna",
     "summary": "A large beast with a crystalline hide, the na'shari has skin harder than most forms of metal. In spite of its tough appearance, this creature is known for its docile and friendly nature. Its round eyes and fuzzy tail make the creature incredibly popular with children, who often flock to na'shari in hopes of playing with the creature."
   },
@@ -688,7 +744,10 @@
     "summary": "One of the Savage Lands' most skilled predators, almost completely nocturnal, relying on the darkness to mask their movements while stalking prey. Their four eyes allow them to hunt in the dark."
   },
   "Vitreo": {
-    "match": "Vitr'eo",
+    "match": [
+      "Vitr'eo",
+      "Vitr’eo"
+    ],
     "type": "fauna",
     "summary": "A majestic creature with a thick mane, crowned with a series of large crystals that grow out from the top of its skull."
   },
@@ -718,7 +777,10 @@
   },
   "AbsolonsDream": {
     "type": "ship",
-    "match": "Absolon's Dream",
+    "match": [
+      "Absolon's Dream",
+      "Absolon’s Dream"
+    ],
     "summary": "Kuraghan flagship."
   },
   "Aeronauts": {
@@ -736,7 +798,10 @@
   },
   "AuisScales": {
     "type": "faction",
-    "match": "Aui's Scales",
+    "match": [
+      "Aui's Scales",
+      "Aui’s Scales"
+    ],
     "summary": "A secretive organisation that builds hidden strongholds across Misteria to conceal scrolls and artefacts from the public.",
     "exclude_pages": [
       "main-story/welcome-to-rathe/wanderings-in-the-mists"
@@ -802,7 +867,10 @@
   },
   "FiddlersGreen": {
     "type": "concept",
-    "match": "Fiddler's Green",
+    "match": [
+      "Fiddler's Green",
+      "Fiddler’s Green"
+    ],
     "summary": "An imaginary place where every immortal's whim shall be tended to by demure merfolk."
   },
   "Fireseer": {
@@ -1661,5 +1729,39 @@
     "exclude_pages": [
       "main-story/omens-of-the-third-age/fall-of-valahai"
     ]
+  },
+  "Gloomblades": {
+    "type": "faction",
+    "summary": "The Demonastery's runeblade forces, corrupted into Viserai's eldritch legion after his return from the Abyss."
+  },
+  "MarkOfNeverest": {
+    "match": "Mark of Neverest",
+    "type": "artifact",
+    "summary": "The token by which Malice taps Neverest's necromantic reservoir to swell her reanimated dead."
+  },
+  "SoulOfExistence": {
+    "match": "Soul of Existence",
+    "type": "artifact",
+    "summary": "The Old Ones' corrupting gift to the Arknight, drawn from the Abyss — the very soul of Shadow's existence."
+  },
+  "Runechant": {
+    "match": [
+      "Runechant",
+      "Runechants"
+    ],
+    "type": "concept",
+    "summary": "Auras of violet arcane energy evoked by runeblades, hovering at their master's command until loosed as bolts of pure aether."
+  },
+  "Arknight": {
+    "type": "concept",
+    "summary": "Sutcliffe's living weapon: a man born without aether affinity, granted it by an implanted shard. Viserai is the first and only success.",
+    "exclude_pages": [
+      "main-story/arcane-rising/birth-of-the-arknight"
+    ]
+  },
+  "ArknightShard": {
+    "match": "Arknight Shard",
+    "type": "artifact",
+    "summary": "The relic set into Viserai's chest, feeding arcane energy through runic vents carved into his bone and skin."
   }
 }

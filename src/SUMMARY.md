@@ -217,6 +217,7 @@
     - [Oscilio](short-stories/rosetta/oscilio-constella-intelligence.md)
     - [Verdance](short-stories/rosetta/verdance-thorn-of-the-rose.md)
     - [Seasonal Guide](short-stories/compendium-of-rathe/seasonal-guide.md)
+    - [Open the Gates](short-stories/usurp-the-shadow-throne/open-the-gates.md)
     - [Roll of Honour](short-stories/roll-of-honour/README.md)
         - [Briar](short-stories/roll-of-honour/briar.md)
         - [Briar, Warden of Thorns](short-stories/roll-of-honour/briar-warden-of-thorns.md)
