@@ -1763,5 +1763,17 @@
     "match": "Arknight Shard",
     "type": "artifact",
     "summary": "The relic set into Viserai's chest, feeding arcane energy through runic vents carved into his bone and skin."
+  },
+  "Aesir": {
+    "type": "concept",
+    "match": [
+      "Aesir",
+      "Aesirs"
+    ],
+    "summary": "Primordial beings of elemental force who slumber beyond the veil — worshipped as deities such as Sol, and fought as ancient enemies in the Third Age."
+  },
+  "Apostate": {
+    "type": "npc",
+    "summary": "The Grand Magister who denounced Sol, founded the Demonastery, and sacrificed themself to tear it from Rathe into the Nebulus Rift."
   }
 }

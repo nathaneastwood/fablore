@@ -218,6 +218,7 @@ ALLOWED_STORY_TYPES: frozenset[str] = frozenset(
         "main-story",
         "other-characters",
         "short-stories",
+        "summaries",
         "weapons",
         "world-of-rathe",
     }

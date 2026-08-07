@@ -340,6 +340,7 @@ def build_character_stories_fragment(
 _STORY_TYPE_LABELS: dict[str, str] = {
     "main-story": "Main Story",
     "short-stories": "Short Story",
+    "summaries": "Summary",
     "world-of-rathe": "World of Rathe",
     "flavour": "Flavour Text",
     "digital-tiles": "Digital Tile",

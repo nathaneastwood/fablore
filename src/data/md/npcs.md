@@ -177,7 +177,7 @@
 |                     Mikael                     |      Human     |                 Unknown                 |
 |                      Miku                      |      Human     |                 Unknown                 |
 |           Min of the Forest of Flames          |      Human     |                 Unknown                 |
-|                 Minerva Themis                 |      Human     |                 Unknown                 |
+|                 Minerva Themis                 |      Human     |                 Deceased                |
 |                     Miss Q                     |     Unknown    |                 Unknown                 |
 |                  Molly the Mop                 |      Human     |                  Alive                  |
 |                     Moloca                     |     Unknown    |                 Unknown                 |
@@ -231,7 +231,7 @@
 |                     Sidriz                     |     Wizard     |                 Unknown                 |
 |                  Slapstick Sal                 |     Unknown    |                 Unknown                 |
 |                     Slinger                    |      Human     |                  Alive                  |
-|                       Sol                      |     Unknown    |                 Unknown                 |
+|                       Sol                      |      Aesir     |                 Unknown                 |
 |                      Soren                     |      Human     |                 Unknown                 |
 |                    Speakeasy                   |     Unknown    |                 Unknown                 |
 |                     Spokes                     |      Human     |                 Unknown                 |

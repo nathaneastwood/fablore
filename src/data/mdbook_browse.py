@@ -31,6 +31,7 @@ _BROWSE_SRC_PATH = "browse.md"
 _TYPE_LABELS: dict[str, str] = {
     "main-story": "Main Story",
     "short-stories": "Short Story",
+    "summaries": "Summary",
     "world-of-rathe": "World of Rathe",
     "flavour": "Flavour Text",
     "digital-tiles": "Digital Tile",

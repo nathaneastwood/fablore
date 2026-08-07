@@ -19,7 +19,7 @@ content is authoritative in the DB, not in the CSV files.
 Content roots (each becomes the ``StoryType`` prefix = first path segment):
 ``archive`` (world-of-rathe archive pages), ``digital-tiles``, ``flavour``,
 ``equipment``, ``heroes-of-rathe``, ``main-story``, ``other-characters``,
-``short-stories``, ``weapons``, ``world-of-rathe``.
+``short-stories``, ``summaries``, ``weapons``, ``world-of-rathe``.
 """
 
 from __future__ import annotations
@@ -48,6 +48,7 @@ STORY_ROOTS = (
     "main-story",
     "other-characters",
     "short-stories",
+    "summaries",
     "weapons",
     "world-of-rathe",
 )
