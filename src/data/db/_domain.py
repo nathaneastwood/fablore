@@ -75,8 +75,10 @@ class NPCEntry:
     """A non-playable character to link to a story."""
 
     name: str
-    species: str = "Unknown"
-    status: str = "Unknown"
+    species: str = ""
+    """Leave empty to preserve an existing NPC's species; new NPCs default to ``"Unknown"``."""
+    status: str = ""
+    """Leave empty to preserve an existing NPC's status; new NPCs default to ``"Unknown"``."""
     other_characters_story_key: str = ""
     fragment: str = ""
     """mdBook heading anchor id for a deep link into the story page, e.g. ``"morlock-hill"``."""
@@ -384,7 +386,9 @@ class Database:
                 anchor id within the story for each hero, e.g.
                 ``{"dorinthea": "morlock-hill-dtd209"}``.
             npcs: NPC entries; strings in a future shorthand are not supported —
-                use :class:`NPCEntry` directly.
+                use :class:`NPCEntry` directly. Omit ``species``/``status`` to
+                preserve whatever an existing NPC row already has; only pass
+                them when this story is the evidence for the value.
             locations: Location entries.
             regions: Region entries (for stories that reference a region but no
                 specific location within it).

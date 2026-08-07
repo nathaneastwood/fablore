@@ -520,3 +520,66 @@ def test_delete_entity_location_deletes_all_duplicate_name_rows(db: Database) ->
     db.remove_story("src/main-story/foo.md")
     db.delete_entity("location", "Market Square")
     assert "Market Square" not in [loc["name"] for loc in db.list_locations()]
+
+
+# ---------------------------------------------------------------------------
+# NPC curated-field preservation
+# ---------------------------------------------------------------------------
+
+
+def _npc_row(database: Database, name: str) -> tuple[str, str]:
+    row = database.conn.execute("SELECT species, status FROM npcs WHERE name = ?", [name]).fetchone()
+    return (row["species"], row["status"])
+
+
+def test_upsert_npc_preserves_curated_species_and_status(db: Database) -> None:
+    """Omitting species/status must not reset a curated NPC to 'Unknown'.
+
+    Regression: NPCEntry once defaulted both fields to the sentinel "Unknown",
+    which upsert_npc wrote unconditionally. A later story registration that knew
+    a character's name but not their lore status silently replaced values such as
+    "Just a head" with "Unknown".
+    """
+    db.upsert_story(
+        "src/main-story/first.md",
+        story_type="main-story",
+        title="First",
+        npcs=[NPCEntry("Lord Sutcliffe", species="Human", status="Just a head")],
+    )
+    assert _npc_row(db, "Lord Sutcliffe") == ("Human", "Just a head")
+
+    db.upsert_story(
+        "src/main-story/second.md",
+        story_type="main-story",
+        title="Second",
+        npcs=[NPCEntry("Lord Sutcliffe")],
+    )
+    assert _npc_row(db, "Lord Sutcliffe") == ("Human", "Just a head")
+
+
+def test_upsert_npc_explicit_value_still_overwrites(db: Database) -> None:
+    """Preservation applies to omitted fields only — an explicit value always wins."""
+    db.upsert_story(
+        "src/main-story/first.md",
+        story_type="main-story",
+        title="First",
+        npcs=[NPCEntry("Sol", species="Unknown")],
+    )
+    db.upsert_story(
+        "src/main-story/second.md",
+        story_type="main-story",
+        title="Second",
+        npcs=[NPCEntry("Sol", species="Aesir")],
+    )
+    assert _npc_row(db, "Sol")[0] == "Aesir"
+
+
+def test_upsert_npc_new_row_defaults_to_unknown(db: Database) -> None:
+    """A brand-new NPC has nothing to preserve, so omitted fields seed 'Unknown'."""
+    db.upsert_story(
+        "src/main-story/first.md",
+        story_type="main-story",
+        title="First",
+        npcs=[NPCEntry("Nameless Stranger")],
+    )
+    assert _npc_row(db, "Nameless Stranger") == ("Unknown", "Unknown")

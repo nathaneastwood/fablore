@@ -207,18 +207,53 @@ def upsert_npc(
     *,
     character_id: str,
     name: str,
-    species: str = "Unknown",
-    status: str = "Unknown",
+    species: str = "",
+    status: str = "",
     other_characters_story_key: str = "",
 ) -> None:
+    """Insert or update an NPC, preserving curated fields the caller omits.
+
+    ``species`` and ``status`` follow the same preserve-on-empty contract as
+    :func:`upsert_location`'s ``notes``: an empty string means "leave whatever is
+    already there", not "set it to Unknown". This matters because most callers are
+    story registrations that know a character's name but not their curated lore
+    status — passing a sentinel would silently replace values such as
+    ``"Just a head"`` or ``"Assumed Dead"`` with ``"Unknown"``.
+
+    A brand-new NPC still lands as ``"Unknown"`` for whichever field is omitted.
+    """
+    row = conn.execute(
+        "SELECT species, status FROM npcs WHERE character_id = ?",
+        [character_id],
+    ).fetchone()
+    if row is None:
+        # New row — an omitted field has nothing to preserve, so seed the sentinel.
+        species = species or "Unknown"
+        status = status or "Unknown"
+    else:
+        for field, value in (("species", species), ("status", status)):
+            existing = row[field]
+            if not value and existing and existing != "Unknown":
+                _log.warning(
+                    "Skipping %s overwrite for npc %r — existing value %r preserved"
+                    " (pass a non-empty %s to update it)",
+                    field,
+                    character_id,
+                    existing,
+                    field,
+                )
     conn.execute(
         """
         INSERT INTO npcs (character_id, name, species, status, other_characters_story_key)
         VALUES (?,?,?,?,?)
         ON CONFLICT(character_id) DO UPDATE SET
             name    = excluded.name,
-            species = excluded.species,
-            status  = excluded.status,
+            species = CASE WHEN excluded.species != ''
+                      THEN excluded.species
+                      ELSE npcs.species END,
+            status  = CASE WHEN excluded.status != ''
+                      THEN excluded.status
+                      ELSE npcs.status END,
             other_characters_story_key = CASE
                 WHEN excluded.other_characters_story_key != ''
                     THEN excluded.other_characters_story_key
@@ -657,7 +692,9 @@ def upsert_weapon_printing(
 
 
 def select_all_weapons_printings(conn: sqlite3.Connection) -> list[sqlite3.Row]:
-    return conn.execute("SELECT * FROM weapons_printings ORDER BY weapon_game_id, set_id, card_id, image_url").fetchall()
+    return conn.execute(
+        "SELECT * FROM weapons_printings ORDER BY weapon_game_id, set_id, card_id, image_url"
+    ).fetchall()
 
 
 # ---------------------------------------------------------------------------
@@ -761,7 +798,9 @@ def upsert_equipment_printing(
 
 
 def select_all_equipment_printings(conn: sqlite3.Connection) -> list[sqlite3.Row]:
-    return conn.execute("SELECT * FROM equipment_printings ORDER BY equipment_game_id, set_id, card_id, image_url").fetchall()
+    return conn.execute(
+        "SELECT * FROM equipment_printings ORDER BY equipment_game_id, set_id, card_id, image_url"
+    ).fetchall()
 
 
 # ---------------------------------------------------------------------------
