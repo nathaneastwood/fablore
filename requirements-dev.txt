@@ -1,5 +1,6 @@
-# Development / CI: pytest plus create_md / pre-commit data dependencies.
+# Development / CI: pytest, the pre-commit runner, and the create_md data deps.
 # Repo root: python -m pytest
 -r requirements-data.txt
 pytest>=8.0
 pytest-cov>=5.0
+pre-commit>=4.0

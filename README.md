@@ -117,7 +117,13 @@ This catches broken links and missing anchors. See [`scripts/link-checks.sh`](sc
 
 ## ✅ Pre-commit Hooks
 
-Hooks run automatically on `git commit`. To run them by hand:
+The hooks only run on `git commit` once they are installed into the clone. `pre-commit` comes with [`requirements-dev.txt`](requirements-dev.txt); enable the hooks once per clone with:
+
+```bash
+pre-commit install
+```
+
+Without that step the config below is inert and commits go through unchecked. To run the hooks by hand at any time:
 
 ```bash
 pre-commit run --all-files
