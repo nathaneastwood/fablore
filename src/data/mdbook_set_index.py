@@ -87,12 +87,22 @@ def _arc_display_name(slug: str, arcs: dict, sets: dict) -> str:
     return name.replace("-", " ").title()
 
 
-def _arc_release_date(slug: str, arcs: dict, sets: dict) -> str:
+def _arc_raw_date(slug: str, arcs: dict, sets: dict) -> str:
+    """Release date for an arc, as a raw ISO string.
+
+    Prefers the upstream ``sets.csv`` date, falling back to the hand-maintained
+    ``SortDate`` in ``story-arcs.csv``. Announced-but-unreleased sets have no
+    upstream row yet (``create_sets_csv.py`` only sees what the game API
+    publishes), so ``SortDate`` is how they carry a date until they do.
+    """
     arc = arcs.get(slug, {})
     set_id = arc.get("SetId", "")
-    if not set_id or set_id not in sets:
-        return ""
-    raw = sets[set_id].get("InitialReleaseDate", "")
+    upstream = sets.get(set_id, {}).get("InitialReleaseDate", "") if set_id else ""
+    return upstream or arc.get("SortDate", "") or ""
+
+
+def _arc_release_date(slug: str, arcs: dict, sets: dict) -> str:
+    raw = _arc_raw_date(slug, arcs, sets)
     if not raw:
         return ""
     try:
@@ -162,11 +172,14 @@ def _set_index_html(
         all_slugs.update(sec_map.keys())
 
     def _release_sort_key(slug: str) -> str:
-        set_id = arcs.get(slug, {}).get("SetId", "")
-        return sets.get(set_id, {}).get("InitialReleaseDate", "") or ""
+        return _arc_raw_date(slug, arcs, sets)
 
+    # An arc earns a place here once it has either an upstream SetId or a
+    # hand-maintained SortDate — the latter covers sets announced but not yet
+    # published to the game API, plus recurring product lines that never get
+    # a SetId of their own (Armory Decks, Mastery Packs).
     arc_slugs = sorted(
-        (s for s in all_slugs if arcs.get(s, {}).get("SetId")),
+        (s for s in all_slugs if arcs.get(s, {}).get("SetId") or arcs.get(s, {}).get("SortDate")),
         key=_release_sort_key,
     )
 
