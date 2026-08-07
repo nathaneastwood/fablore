@@ -316,6 +316,7 @@
     - [The Hunted](flavour/the-hunted.md)
     - [High Seas](flavour/high-seas.md)
     - [Compendium of Rathe](flavour/compendium-of-rathe.md)
+    - [Omens of the Third Age](flavour/omens-of-the-third-age.md)
     - [Non-Set Cards](flavour/non-set-cards.md)
 
 - [Data](data/data.md)

@@ -63,6 +63,7 @@
 |                 Danu Ashenguard                |      Human     |                 Unknown                 |
 |                     Darian                     |      Human     |                   Dead                  |
 |                     Darius                     |      Human     |                 Unknown                 |
+|                  Daryas Nimbus                 |     Unknown    |                 Unknown                 |
 |                     Davnir                     |     Ancient    |                 Deceased                |
 |                     Daxius                     |      Human     |                   Dead                  |
 |                    Demetrios                   |      Brute     |                   Dead                  |
@@ -90,6 +91,7 @@
 |                 Fightmaster Kox                |     Goblin     |                 Unknown                 |
 |                Fightmaster Rusty               |      Dwarf     |                 Unknown                 |
 |                    Flannigan                   |      Human     |                 Unknown                 |
+|                Freya Eldingsturm               |     Unknown    |                 Unknown                 |
 |         Fyanna Redmoor, Boltyn's cousin        |      Human     |                 Unknown                 |
 |                    Galaphor                    |      Human     |                   Dead                  |
 |                     Galcia                     |     Ancient    |                 Deceased                |
@@ -160,6 +162,8 @@
 |                     Mad Siv                    |     Unknown    |                 Unknown                 |
 |                   Madam Rouge                  |      Human     |                   Dead                  |
 |                 Maela Fairmind                 |     Unknown    |                 Unknown                 |
+|                  Maela Isulfo                  |     Unknown    |                 Unknown                 |
+|                  Maela Sharena                 |     Unknown    |                 Unknown                 |
 |                 Magistrate Chen                |      Human     |                 Unknown                 |
 |               Magnus the Vigilant              |      Human     |                 Unknown                 |
 |                     Magpie                     |      Human     |                  Alive                  |
@@ -211,6 +215,7 @@
 |              Reina, Spirit Caller              |      Human     |                 Unknown                 |
 |                   Rex Biggun                   |      Human     |                 Unknown                 |
 |                       Rez                      |      Human     |                 Unknown                 |
+|               Reznyr Eldingsturm               |     Unknown    |                 Unknown                 |
 |                   Ricky Royce                  |      Human     |                 Unknown                 |
 |                  Riggermortis                  |     Zombie     |                   Dead                  |
 |                      Rigo                      |      Robot     |Spider-bot assistant to Jules Teklovossen|
@@ -229,6 +234,7 @@
 |                      Shio                      |      Human     |                 Unknown                 |
 |                      Shiro                     |      Human     |                  Alive                  |
 |                     Sidriz                     |     Wizard     |                 Unknown                 |
+|                 Skynda Feyscout                |     Unknown    |                 Unknown                 |
 |                  Slapstick Sal                 |     Unknown    |                 Unknown                 |
 |                     Slinger                    |      Human     |                  Alive                  |
 |                       Sol                      |      Aesir     |                 Unknown                 |
@@ -269,6 +275,7 @@
 |         Victoria, Archangel of Triumph         |     Herald     |                 Unknown                 |
 |                Vidya Willowmere                |     Unknown    |                 Unknown                 |
 |                      Vitus                     |      Human     |                 Unknown                 |
+|                Vyhara Cloudburst               |     Unknown    |                 Unknown                 |
 |                     Wailer                     |     Zombie     |                   Dead                  |
 |                     Wendryn                    |      Human     |                 Deceased                |
 |                     Wheeler                    |      Human     |                  Alive                  |

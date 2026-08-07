@@ -540,6 +540,12 @@ db.update_description(
 )
 db.update_description(
     "location",
+    "Volthaven",
+    "Snow-dusted village drifting through the skies of Enion, born from the storm where"
+    " Yvor fell; home of Lexi and Aurora, its passage guarded by Wayfarers.",
+)
+db.update_description(
+    "location",
     "Yvor's Peak",
     "Statue of Yvor located here, doorway to an armory.",
 )

@@ -1133,5 +1133,41 @@
   "Apostate": {
     "type": "npc",
     "summary": "The Grand Magister who denounced Sol, founded the Demonastery, and sacrificed themself to tear it from Rathe into the Nebulus Rift."
+  },
+  "LadyBarthimont": {
+    "type": "npc",
+    "match": [
+      "Barthimont",
+      "Bartimont"
+    ],
+    "summary": "Northern Realms noblewoman who turned to the Shadow through a gifted grimoire, bleeding her servants in rituals to buy power; strangled by the servant who stole the entity she meant to summon.",
+    "exclude_pages": [
+      "other-characters/lady-bartimont"
+    ]
+  },
+  "KrestMortimer": {
+    "type": "npc",
+    "match": "Mortimer",
+    "summary": "Scientist cast out of a Metrix institute for extreme experiments, now director of Southmaw asylum in the Pits and a student of Inertia and the Bloodrot Pox.",
+    "exclude_pages": [
+      "other-characters/krest-mortimer"
+    ]
+  },
+  "TheLibrarian": {
+    "type": "npc",
+    "match": "Librarian",
+    "summary": "The Magister who keeps the Library of Illumination in Solana — a timeless, dignified custodian who guides its patrons and hunts the truth behind the Shadow's onslaught.",
+    "exclude_pages": [
+      "other-characters/the-librarian",
+      "main-story/dusk-till-dawn/unity-in-light"
+    ]
+  },
+  "MinervaThemis": {
+    "type": "npc",
+    "match": "Minerva",
+    "summary": "Orphan turned Gemini spy who lost her twin Mercurius to an ambush, and now keeps the Golden Chariot inn in Solana, listening to travellers and offering counsel.",
+    "exclude_pages": [
+      "other-characters/minerva-themis"
+    ]
   }
 }

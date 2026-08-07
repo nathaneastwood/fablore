@@ -697,3 +697,43 @@ db.upsert_story(
     ],
     dry_run=True,
 )
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Flavour
+# -------------------------------------------------------------------------------------------------------------------- #
+
+db.upsert_story(
+    path="src/flavour/omens-of-the-third-age.md",
+    story_type="flavour",
+    title="Omens of the Third Age",
+    heroes=["aurora", "lexi"],
+    npcs=[
+        # Already curated — named here only to link them to this page. Species and
+        # status are left empty so the existing curated values are preserved.
+        NPCEntry(name="Astrea Quazor"),
+        NPCEntry(name="Auric Seeress"),
+        NPCEntry(name="Lord Sutcliffe"),
+        NPCEntry(name="Rupius, Auric Scrollmaster"),
+        NPCEntry(name="Yvor"),
+        # New with this set. Species is unattested in the flavour text, so it is
+        # left to default to "Unknown" rather than being guessed.
+        NPCEntry(name="Daryas Nimbus"),
+        NPCEntry(name="Freya Eldingsturm"),
+        NPCEntry(name="Maela Isulfo"),
+        NPCEntry(name="Maela Sharena"),
+        NPCEntry(name="Reznyr Eldingsturm"),
+        NPCEntry(name="Skynda Feyscout"),
+        NPCEntry(name="Vyhara Cloudburst"),
+    ],
+    locations=[
+        LocationEntry("Enion", region="Aria"),
+        LocationEntry("Valahai", region="Aria"),
+        LocationEntry("Volthaven", region="Aria"),
+        LocationEntry("i'Arathael"),
+    ],
+    regions=[
+        RegionEntry("Aria"),
+        RegionEntry("Nebulus Rift"),
+    ],
+    dry_run=True,
+)
