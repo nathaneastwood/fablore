@@ -1,12 +1,10 @@
 # Arcane Language
 
-The language of Arcane, as of Everfest, is known to be as follows.
-
-<img src="https://d2hl7maqck52px.cloudfront.net/languages/language-arcane.webp" alt="language-arcane" class="center">
+<div data-arcane-alphabet></div>
 
 Arcane maps one-to-one onto the English alphabet, so anything can be written in
-it. Every glyph above has been traced into a typeface — type below to see your
-own words in Arcane.
+it. Every glyph above has been traced into a typeface — type into the box below
+and read your own words in Arcane.
 
 <div data-arcane-translator></div>
 

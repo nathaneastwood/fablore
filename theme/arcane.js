@@ -13,6 +13,9 @@
     "use strict";
 
     var MOUNT = "[data-arcane-translator]";
+    var ALPHABET_MOUNT = "[data-arcane-alphabet]";
+    var LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var INPUT_ID = "arcane-translator-input";
     var FONT = '"Arcane of Rathe"';
     var DEFAULT_TEXT = "Fear not the lightning, fear the darkness that follows";
     var UNWRITABLE = /z/i;
@@ -38,6 +41,30 @@
         return n;
     }
 
+    /*
+     * The alphabet chart, drawn in the typeface rather than shipped as an
+     * image. Being live text it follows the reader's theme, stays sharp at any
+     * zoom, and cannot fall out of step with the face the translator uses —
+     * the chart and the widget below it are now the same glyphs by
+     * construction. Z is left to render as the hollow rune the font draws for
+     * it; that gap is the point, and the prose on the page explains it.
+     *
+     * Nothing writes to this after build: it is a reference, not an output.
+     */
+    function buildAlphabet(mount) {
+        mount.className = "arcane-alphabet";
+        for (var i = 0; i < LETTERS.length; i++) {
+            var cell = el("div", "arcane-letter");
+            var glyph = el("span", "arcane-letter-glyph", LETTERS[i]);
+            // Glyph and label are the same character in two faces, so let the
+            // Latin one speak and keep the pair from being read out twice.
+            glyph.setAttribute("aria-hidden", "true");
+            cell.appendChild(glyph);
+            cell.appendChild(el("span", "arcane-letter-name", LETTERS[i]));
+            mount.appendChild(cell);
+        }
+    }
+
     function build(mount) {
         var head = el("div", "arcane-tool-head");
         head.appendChild(el("span", "arcane-tool-title", "Write in Arcane"));
@@ -45,10 +72,43 @@
             "A 1:1 alphabet — type English, read Arcane."));
 
         var input = el("textarea", "arcane-input");
+        input.id = INPUT_ID;
         input.rows = 1;
         input.value = DEFAULT_TEXT;
-        input.setAttribute("aria-label", "English text to render in Arcane");
         input.setAttribute("spellcheck", "false");
+        input.placeholder = "Type anything…";
+
+        // A bare textarea carrying a sample sentence reads as body copy, not as
+        // a control. The visible label plus the boxed field in arcane.css are
+        // what tell a reader this line is theirs to change.
+        var label = el("label", "arcane-input-label", "Type your text here");
+        label.setAttribute("for", INPUT_ID);
+
+        /*
+         * A textarea only shows a caret once it is focused, which is too late —
+         * the caret is what tells the reader the box is a box. So an unfocused
+         * field gets a fake one: a mirror layered over the textarea holding the
+         * same text in transparent ink, with a blinking bar after it. Matching
+         * the textarea's metrics (arcane.css keeps the two rules together) makes
+         * the mirror wrap identically, so the bar lands where the real caret
+         * would. It hides on focus and the browser's own caret takes over.
+         */
+        var mirror = el("div", "arcane-mirror");
+        mirror.setAttribute("aria-hidden", "true");
+        var mirrorText = el("span", "arcane-mirror-text");
+        mirror.appendChild(mirrorText);
+        mirror.appendChild(el("span", "arcane-caret"));
+
+        var field = el("div", "arcane-field");
+        // "Armed" is the cold-start state: caret showing, keystrokes captured.
+        // It is given up for good the first time the reader leaves the field.
+        field.dataset.armed = "true";
+        field.appendChild(mirror);
+        field.appendChild(input);
+
+        var row = el("div", "arcane-input-row");
+        row.appendChild(label);
+        row.appendChild(field);
 
         var plate = el("div", "arcane-plate");
         var out = el("div", "arcane-output");
@@ -68,17 +128,37 @@
 
         mount.className = "arcane-tool";
         mount.appendChild(head);
-        mount.appendChild(input);
+        mount.appendChild(row);
         mount.appendChild(plate);
         mount.appendChild(foot);
 
-        return { input: input, out: out, latin: latin, warn: warn, save: save };
+        return {
+            input: input, field: field, mirrorText: mirrorText,
+            plate: plate, out: out, latin: latin, warn: warn, save: save
+        };
+    }
+
+    /* Something else already owns the keyboard — a search box, another field. */
+    function isEditable(node) {
+        if (!node) return false;
+        var tag = node.tagName;
+        return tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" ||
+            node.isContentEditable === true;
+    }
+
+    function onScreen(node) {
+        var r = node.getBoundingClientRect();
+        return r.bottom > 0 && r.top < (window.innerHeight ||
+            document.documentElement.clientHeight);
     }
 
     /* Grow the box to fit its content so Enter never hides a line. */
     function autosize(input) {
         input.style.height = "auto";
-        input.style.height = input.scrollHeight + "px";
+        // scrollHeight is the content box; the field is border-box and bordered,
+        // so without adding the borders back the last line is clipped.
+        var borders = input.offsetHeight - input.clientHeight;
+        input.style.height = input.scrollHeight + borders + "px";
     }
 
     function writable(text) {
@@ -98,6 +178,12 @@
 
     function render(ui) {
         autosize(ui.input);
+        // The mirror tracks the raw value, not the filtered one: it sits over
+        // the box the reader is typing into, so it has to wrap exactly as the
+        // textarea does. Filtering happens on the way to the plate only.
+        ui.mirrorText.textContent = ui.input.value;
+        ui.field.dataset.empty = ui.input.value.length ? "false" : "true";
+
         var w = writable(ui.input.value);
         ui.out.textContent = w.text;
         ui.latin.textContent = w.text.replace(/\s+/g, " ").trim();
@@ -183,6 +269,13 @@
     }
 
     function init() {
+        // Independent of the translator: a page may want the chart alone.
+        var chart = document.querySelector(ALPHABET_MOUNT);
+        if (chart && chart.dataset.ready !== "true") {
+            chart.dataset.ready = "true";
+            buildAlphabet(chart);
+        }
+
         var mount = document.querySelector(MOUNT);
         if (!mount || mount.dataset.ready === "true") return;
         mount.dataset.ready = "true";
@@ -190,6 +283,79 @@
         var ui = build(mount);
         render(ui);
         ui.input.addEventListener("input", function () { render(ui); });
+
+        /*
+         * The field ships with a sample sentence so the plate is never blank,
+         * but that sentence is in the reader's way. Selecting it on first focus
+         * makes the first keystroke replace it — the box behaves like a
+         * placeholder without giving up the demo.
+         */
+        var pristine = true;
+        ui.input.addEventListener("focus", function () {
+            if (pristine && ui.input.value === DEFAULT_TEXT) ui.input.select();
+            pristine = false;
+            /*
+             * Type-to-start is a cold-start affordance, spent on first use. The
+             * reader has now been in the box, so from here on the field behaves
+             * like any other: click in to type, click away and it stops
+             * listening. Disarming on focus rather than on the blur that
+             * follows is the same thing observed from outside — while the field
+             * has focus the real caret is showing and keystrokes go there
+             * natively — and it means the widget cannot be left armed by a blur
+             * that never fires.
+             */
+            ui.field.dataset.armed = "false";
+        });
+
+        /*
+         * A caret blinking in a field that does not have focus is a lie: it says
+         * "type and it lands here" when nothing would happen. Rather than drop
+         * the caret — it is the affordance that makes the widget look usable —
+         * make the promise true, but only while the caret is actually showing.
+         * A letter pressed on an armed, on-screen field that nothing else has
+         * claimed starts typing into it.
+         *
+         * Letters only, for two reasons. Anything else is dropped by the
+         * typeface anyway, so claiming it would insert nothing and consume the
+         * keystroke; and it leaves mdBook's '/' search shortcut, digits and
+         * punctuation doing what the reader expects. Space is excluded on the
+         * same principle — no sentence opens with one, and swallowing it would
+         * break space-to-scroll for a reader passing the widget.
+         *
+         * Capture phase, because mdBook's searcher binds 's' on document during
+         * bubble: without claiming the event first, 's' would both type here and
+         * throw the reader up to the search box. stopPropagation only fires when
+         * the keystroke is actually taken, so every other key is untouched.
+         */
+        document.addEventListener("keydown", function (e) {
+            if (e.ctrlKey || e.metaKey || e.altKey) return;
+            if (!/^[A-Za-z]$/.test(e.key)) return;
+            if (ui.field.dataset.armed !== "true") return;
+            if (document.activeElement === ui.input) return;
+            if (isEditable(document.activeElement)) return;
+            if (!onScreen(ui.field)) return;
+
+            e.preventDefault();
+            e.stopPropagation();
+            // Same rule as the select-on-focus above: while the box still holds
+            // the untouched sample, the first letter typed replaces it.
+            if (ui.input.value === DEFAULT_TEXT) ui.input.value = "";
+            // Inserted by hand rather than left to fall through after focus(),
+            // which browsers disagree about.
+            ui.input.value += e.key;
+            ui.input.focus();
+            var end = ui.input.value.length;
+            ui.input.setSelectionRange(end, end);
+            render(ui);
+        }, true);
+
+        // Clicking the render is a natural "let me change this" gesture. Ignore
+        // it mid-selection, so copying the Latin caption still works.
+        ui.plate.addEventListener("click", function () {
+            var sel = window.getSelection();
+            if (sel && String(sel)) return;
+            ui.input.focus();
+        });
 
         // Canvas fillText silently falls back unless the face is already loaded.
         ui.save.addEventListener("click", function () {
