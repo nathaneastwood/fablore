@@ -1,8 +1,22 @@
 # Solanian Language
 
-The language of Solana, as of Everfest, is known to be as follows.
+<div data-glyph-alphabet="solanian"></div>
 
-<img src="https://d2hl7maqck52px.cloudfront.net/languages/language-solanian.webp" alt="language-solanian" class="center">
+Solanian maps one-to-one onto the English alphabet. Every glyph above has been
+traced into a typeface — type into the box below and read your own words in
+Solanian.
+
+<div data-glyph-tool="solanian"></div>
+
+No glyph for **J**, **Q**, **X** or **Z** has ever appeared in published card
+art, so those four letters cannot be written; they render as empty runes above.
+
+Nor has any Solanian text ever shown a punctuation mark or a numeral — not
+Dorinthea's pillar, the nullrune equipment, nor the card backs. Every attested
+inscription is letters and spaces alone, so that is all the typeface will write.
+
+Although the letters are cursive in shape, they do not join: on Dorinthea's
+pillar each one stands separate, and the typeface follows suit.
 
 This language was first seen on Dorinthea's main artwork.
 

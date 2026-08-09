@@ -1,12 +1,12 @@
 # Arcane Language
 
-<div data-arcane-alphabet></div>
+<div data-glyph-alphabet="arcane"></div>
 
 Arcane maps one-to-one onto the English alphabet, so anything can be written in
 it. Every glyph above has been traced into a typeface — type into the box below
 and read your own words in Arcane.
 
-<div data-arcane-translator></div>
+<div data-glyph-tool="arcane"></div>
 
 No glyph for **Z** has ever appeared in published card art, so it is the one
 letter that cannot be written; it renders as an empty rune above.

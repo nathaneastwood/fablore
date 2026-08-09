@@ -1,12 +1,25 @@
 # Imperial Language
 
-The language dubbed by the community as the "Imperial" language, as of Outsiders, is known to be as follows.
+<div data-glyph-alphabet="imperial"></div>
 
-<img src="https://d2hl7maqck52px.cloudfront.net/languages/language-imperial.webp" alt="language-imperial" class="center" style="background-color:white"/>
+My thanks go to [Mara Faris](https://bsky.app/profile/blackwingstudio.ascent-gaming.com), who assembled the
+Imperial alphabet chart for this site from card art. Every glyph above has been
+traced from that chart into a typeface — type into the box below and read your
+own words in Imperial.
+
+<div data-glyph-tool="imperial"></div>
+
+No glyph for **Q** or **X** has ever appeared in published card art, so those
+are the two letters that cannot be written; they render as empty runes above.
+
+Nor has any Imperial text ever shown a punctuation mark or a numeral, so the
+typeface will write letters and spaces alone.
+
+Imperial is not always written left to right. The Proclamation of Requisition
+below reads right to left, and the banners in Spectral Procession run top to
+bottom in columns — hence the direction buttons on the translator.
 
 Some examples of the language can be seen below.
-
-My thanks go to [Mara Faris](https://bsky.app/profile/blackwingstudio.ascent-gaming.com) for putting the above image together for this site.
 
 ## Tome of Firebrand
 
