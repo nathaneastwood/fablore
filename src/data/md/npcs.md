@@ -35,11 +35,13 @@
 |                   Blasmophet                   |      Embra     |                 Unknown                 |
 |                   Blind Boggy                  |     Unknown    |                 Unknown                 |
 |                     Bojani                     |      Human     |                   Dead                  |
+|                       Boo                      |     Unknown    |                 Unknown                 |
 |                Braumeister Balen               |      Human     |                 Unknown                 |
 |                Brewmeister Marv                |      Human     |                 Unknown                 |
 |               Brutus, Summa Rudis              |     Unknown    |                 Unknown                 |
 |                   Butcher Jek                  |      Human     |                 Unknown                 |
 |                     Buttons                    |      Human     |                  Alive                  |
+|                 Captain Bludge                 |     Unknown    |                 Unknown                 |
 |Captain Cooder of the Swiftwater / Warden Cooder|      Human     |                 Unknown                 |
 |               Captain Grit Jabir               |      Human     |                 Unknown                 |
 |                  Captain Juka                  |      Human     |                 Unknown                 |
@@ -55,6 +57,7 @@
 |                     Charis                     |      Human     |                 Unknown                 |
 |                    Charlotte                   |      Dogg      |                 Unknown                 |
 |                 Chiara Suncrest                |     Unknown    |                 Unknown                 |
+|                     Chowder                    |     Zombie     |                 Unknown                 |
 |                      Chum                      |     Zombie     |                   Dead                  |
 |                     Cirrus                     |      Human     |                 Unknown                 |
 |                      Cobbs                     |      Human     |                 Unknown                 |
@@ -190,6 +193,7 @@
 |                      Miku                      |      Human     |                 Unknown                 |
 |           Min of the Forest of Flames          |      Human     |                 Unknown                 |
 |                 Minerva Themis                 |      Human     |                 Deceased                |
+|                     Miragai                    |     Dragon     |                 Unknown                 |
 |                     Miss Q                     |     Unknown    |                 Unknown                 |
 |                  Molly the Mop                 |      Human     |                  Alive                  |
 |                     Moloca                     |     Unknown    |                 Unknown                 |
@@ -265,6 +269,7 @@
 |                Taskmaster Pyrion               |      Human     |                 Unknown                 |
 |                Templar Timaerus                |      Human     |                 Unknown                 |
 |                     Tetzuo                     |      Human     |                  Alive                  |
+|                    Thanuella                   |     Unknown    |                 Unknown                 |
 |                   The Bastion                  |     Unknown    |                 Unknown                 |
 |                  The Harvester                 |      Human     |                 Unknown                 |
 |                  The Librarian                 |     Unknown    |                 Unknown                 |

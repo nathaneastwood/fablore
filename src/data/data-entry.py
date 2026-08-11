@@ -941,6 +941,7 @@ db.upsert_story(
     # The Fabricate tile is signed "Jules Teklovossen" — that is the hero
     # Teklovossen under his full name, not the separate NPC row of that name.
     heroes=["dash", "teklovossen"],
+    hero_fragments={"dash": "dash-io", "teklovossen": "fabricate"},
     locations=[
         LocationEntry("Cogwerx Conglomerate", region="Metrix", lore_fragment="cogwerx-conglomerate"),
         # New with this set. The realm of data made manifest, reached through Teklo's
@@ -997,6 +998,12 @@ db.upsert_story(
     story_type="digital-tiles",
     title="Crucible of War",
     heroes=["azalea", "dorinthea", "emperor", "kassai", "teklovossen"],
+    hero_fragments={
+        "dorinthea": "courage-of-bladehold",
+        "emperor": "cindering-foresight",
+        "kassai": "cintari-saber",
+        "teklovossen": "teklovossens-workshop",
+    },
     npcs=[
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
@@ -1060,6 +1067,7 @@ db.upsert_story(
     story_type="digital-tiles",
     title="Everfest",
     heroes=["boltyn"],
+    hero_fragments={"boltyn": "swarming-gloomveil"},
     npcs=[
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
@@ -1114,6 +1122,7 @@ db.upsert_story(
     title="Heavy Hitters",
     # Hood of Red Sand names "The Terror of the Golden Sands" — that is Kassai.
     heroes=["kassai", "olympia", "rhinar", "victor-goldmane"],
+    hero_fragments={"rhinar": "show-no-mercy", "victor-goldmane": "aurum-aegis"},
     npcs=[
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
@@ -1172,6 +1181,7 @@ db.upsert_story(
     story_type="digital-tiles",
     title="Monarch",
     heroes=["boltyn"],
+    hero_fragments={"boltyn": "seek-enlightenment"},
     npcs=[
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
@@ -1200,6 +1210,7 @@ db.upsert_story(
     story_type="digital-tiles",
     title="Part the Mistveil",
     heroes=["enigma", "nuu"],
+    hero_fragments={"enigma": "10000-year-reunion"},
     npcs=[
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
@@ -1232,6 +1243,7 @@ db.upsert_story(
     story_type="digital-tiles",
     title="Rosetta",
     heroes=["aurora", "florian", "melody", "oscilio", "verdance"],
+    hero_fragments={"aurora": "aurora-shooting-star", "melody": "sanctuary-of-aria"},
     npcs=[
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
@@ -1289,6 +1301,7 @@ db.upsert_story(
     story_type="digital-tiles",
     title="The Hunted",
     heroes=["arakni-huntsman", "cindra", "emperor", "taipanis"],
+    hero_fragments={"cindra": "wrath-of-retribution"},
     npcs=[
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
