@@ -3,7 +3,7 @@
 #### Avast Ye! - (SEA056)
 "The lubber in ye must die, that a true pirate be born." - Captain Vanegull
 
-#### Battalion Barque - (SEA152)
+#### Battalion Barque - (SEA152/153/154)
 "Captain Vanegull? Aye, there be a sea dog whose barque be worse than his bite." - Swiller Saltbeard
 
 #### Board the Ship - (SEA053)
@@ -24,7 +24,7 @@ The curse of Dreadfall hungers for the greedy and the careless.
 #### Expedition to Horizon's Mantle - (SEA158)
 "Edge of the World? I'll believe it when I see it!" - Last known words of Captain Klow
 
-#### Fiddler's Green - (SEA212)
+#### Fiddler's Green - (SEA212/213/214)
 In the floating gardens of Coralysi, time has lost its way.
 
 #### Give No Quarter - (SEA049)
@@ -42,19 +42,21 @@ The Dreadfall plague offered no mercy to the living and no rest for the dead.
 #### Gold Hunter Marauder - (SEA164)
 "The shipwrights of Dagger Docks build'em sleek and mean." - Nailbit Nari
 
-#### Golden Tipple - (SEA159)
+#### Golden Tipple - (SEA159/160/161)
 The Kraken's Barrel serves every flavor of swashbuckling bravado.
 
-#### Goldwing Turbine - (SEA036)
+#### Goldwing Turbine - (SEA036/037/038)
 "Forecast for Piper's Pier: cloudy with a chance of falling debris." - Cogwerx Chronicle
 
 #### Murderous Rabble - (SEA137)
+<!-- keep: card prints "attracts"; upstream transcribes "attracks" -->
 "Port Conniver attracts the worst kind of person, and the best kind of pirate." - Pearl Sandhri
 
-#### Nimby - (SEA220)
+#### Nimby - (SEA220/221/222)
 Anvilheim is lost, but not forgotten.
 
 #### On the Horizon - (SEA241)
+<!-- keep: card prints "one desire"; upstream drops "one" -->
 There be one desire that all pirates harbor: to find Trōpal-Dhani!
 
 #### Paddle Faster - (SEA054)
@@ -66,10 +68,11 @@ Office hours are 10 - 3. No exceptions. - Governor's Chambers, Piper's Pier
 #### Portside Exchange - (SEA145)
 Built in the ruins of the Dhani Empire, Golden Port is where antiquity meets profitability.
 
-#### Saltwater Swell - (SEA141)
+#### Saltwater Swell - (SEA141/142/143)
 The Dhani were swept away by a monstrous tide of their own making.
 
 #### Scrub the Deck - (SEA147)
+<!-- keep: the translation note is editorial, added here and not on the card -->
 Just another day on the High Marauder's Ship, the HMS Scumbucket.
 
 Translation Notes:
@@ -81,17 +84,18 @@ The search for Trōpal-Dhani be as old as piracy.
 #### Sea Legs - (SEA187)
 "With our rum in yer belly, yer always at sea!" - Kraken's Barrel slogan
 
-#### Sirens of Safe Harbor - (SEA226)
+#### Sirens of Safe Harbor - (SEA226/227/228)
 The sirens of Lost Lagoon will have their tribute, be it in cargo or crew.
 
 #### Sky Skimmer - (SEA027)
+<!-- keep: card prints "artificers"; upstream transcribes "artificer's" -->
 To the ambitious artificers of Piper's Pier, the sky's the limit.
 
 #### Sunken Treasure - (SEA133)
 The Dhani Empire might be gone, but its legacy still gleams in forgotten places.
 
-#### Swiftwater Sloop - (SEA166)
+#### Swiftwater Sloop - (SEA166/167/168)
 "Faster, ye lazy limpits! A lash on yer backs for each bell we're late!" - Captain Cooder
 
-#### Walk the Plank - (SEA235)
+#### Walk the Plank - (SEA235/236/237)
 "You says the Triangle's a picnic, Cap'n. Why don't ye stay fer lunch?" - Mutinous Maggie

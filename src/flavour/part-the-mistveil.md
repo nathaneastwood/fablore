@@ -32,10 +32,10 @@ To a place where sky meets water, where the cycle begins anew." - Enigma
 #### First Tenet of Chi: Wind - (MST094)
 "In the breath's gentle sway, find the harmony that unveils the essence of boundless freedom." - Sumire
 
-#### Hiss - (MST016)
+#### Hiss - (MST014/015/016)
 The mistresses of Clan Nasu-ka weave pleasure with hand and limb, painting a vision of desire across their scarlet tapestries.
 
-#### Moon Chakra - (MST034)
+#### Moon Chakra - (MST034/035/036)
 "Moon's ancient whisper, Chakra aglow in night's dance, Awakens the mind's eye." - Soren
 
 #### Orihon of Mystic Tenets - (MST080)
@@ -56,29 +56,29 @@ The mistresses of Clan Nasu-ka weave pleasure with hand and limb, painting a vis
 #### Slither - (MST024)
 "With each velvet touch, and whispered smile, the tapestry of fate weaves an epic of woe and anguish." - Nuu, Alluring Desire
 
-#### Tide Chakra - (MST011)
+#### Tide Chakra - (MST011/012/013)
 "Finger's trace the tide's sway, My chi ignites with desire, Passion within." - Miku
 
 #### Unravel Aggression - (MST078)
 "Wrapped in the mantle of my lineage, the echoes of my ancestors protect me from harm." - Reina, Spirit Caller
 
-#### Untamed - (MST187)
+#### Untamed - (MST185/186/187)
 "Two paths beckon: one, disciplined under the seething sun; the other, unleashed fury, a beast unchained." - Zen
 
-#### Venomous Bite - (MST020)
+#### Venomous Bite - (MST020/021/022)
 To merely gaze upon the Vipressa invites peril - they are born of The Siren's song, their kiss a sweet poison that seduces the soul.
 
-#### Water the Seeds - (MST214)
+#### Water the Seeds - (MST212/213/214)
 "The roots are set with discipline, the branches grown with practice. Master these, and bear the fruits of your knowledge." - Master Morita
 
-#### Waxing Specter - (MST043)
+#### Waxing Specter - (MST043/044/045)
 The New Moon watches over the reverent pilgrims, oft sending Wakuro to grant them her celestial blessings.
 
 #### Wide Blue Yonder - (MST085)
 The Kaigomo deploy their vigilant ronin across Misteria, to ensure that peace prevails amidst these hidden valleys.
 
-#### Wind Chakra - (MST054)
+#### Wind Chakra - (MST054/055/056)
 "Whispers of tempest, Swift currents of boundless force, Unleashed upon the world." - Hirei
 
-#### Wounding Blow - (MST216)
+#### Wounding Blow - (MST215/216/217)
 Farmhands, villagers, and slaves - the Volcai have long suffered at the hand of their masters.

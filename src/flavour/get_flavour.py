@@ -45,7 +45,23 @@ _UNDATED = "9999-99-99"
 # block pattern below would otherwise read as published flavour text.
 _NOT_SET_PAGES = frozenset({"README.md", "intro.md", "xx-non-set-cards.md"})
 
-_BLOCK_RE = re.compile(r"^#### .+? - \(\w+\)\n(?P<text>.+)$", re.MULTILINE)
+# Card ids are not restricted to ``\w+``: a cycle is cited as ``EVO186/187/188``
+# and ``non-set-cards.md`` cites a prototype as ``DEMO A-004``. The blank line is
+# optional because that page is hand-curated and spaces its blocks out. The body
+# runs to the next heading rather than the next blank line, because a verse spans
+# stanzas — MST084 and ELE227 are multi-paragraph.
+#
+# The heading parts are line-bounded on purpose. Written with DOTALL so the body
+# could span stanzas, ``.+?`` in the heading would also cross newlines, letting a
+# match start at one card and run to a later card's closing paren, silently
+# absorbing every block in between.
+_BLOCK_RE = re.compile(r"^#### [^\n]+? - \([^)\n]+\)\n\n?(?P<text>[\s\S]+?)(?=\n#|\Z)", re.MULTILINE)
+
+# A block whose body opens with this comment is protected — see ``keep_blocks``.
+_KEEP_RE = re.compile(
+    r"^#### (?P<name>[^\n]+?) - \((?P<ids>[^)\n]+)\)\n<!-- keep:[^\n]*-->\n[\s\S]+?(?=\n#|\Z)",
+    re.MULTILINE,
+)
 
 # Upstream prints typographic punctuation on some cards (121 rows, concentrated in
 # WTR/ARC/CRU/MON/EVR/UPR); every published flavour page carries the ASCII form.
@@ -59,8 +75,13 @@ def _to_ascii_punctuation(text: str) -> str:
 
 
 def _normalise(text: str) -> str:
-    """Key for comparing two renderings of the same line across pages."""
-    return " ".join(_to_ascii_punctuation(text).split())
+    """Key for comparing two renderings of the same line across pages.
+
+    Strips a leading ``keep`` comment: it is annotation, not flavour text, and
+    leaving it in would stop a protected line from suppressing its own reprints.
+    """
+    body = re.sub(r"^\s*<!-- keep:[^\n]*-->\n", "", str(text))
+    return " ".join(_to_ascii_punctuation(body).split())
 
 
 def _sets() -> pd.DataFrame:
@@ -147,6 +168,53 @@ def published_flavour_text(flavour_dir: Path | str | None = None, exclude: str =
     return published
 
 
+def cite(ids: list[str]) -> str:
+    """Render a card's printings as the citation shown in a heading.
+
+    A common is printed once per pitch value, each with its own collector number
+    but the same flavour text, so there is no single "the" id to quote. All of
+    them are cited, sharing the set prefix::
+
+        ["EVO186", "EVO187", "EVO188"] -> "EVO186/187/188"
+
+    Where the printings of a cycle carry *different* lines they are separate
+    entries and each cites only its own id — Everfest's ``Wax On`` is one quote
+    split three ways across EVR050/051/052.
+    """
+    ordered = sorted(ids)
+    if len(ordered) == 1:
+        return ordered[0]
+    prefix = re.match(r"^\D*", ordered[0]).group(0)
+    tail = [i[len(prefix) :] if i.startswith(prefix) else i for i in ordered[1:]]
+    return "/".join([ordered[0], *tail])
+
+
+def keep_blocks(page: Path | str) -> dict[str, str]:
+    """Return ``{card id: block}`` for blocks the page marks as protected.
+
+    A block whose body opens with an HTML ``keep`` comment is reproduced verbatim
+    on regeneration, whatever the upstream data says::
+
+        #### Astral Assault - (OMN160)
+        <!-- keep: card prints "Quazor"; upstream transcribes "Quazar" -->
+        "In the Nebulus Rift, we have long battled ..." - Astrea Quazor
+
+    This is the mechanism for the things upstream cannot express: a transcription
+    error on its side, a card whose printed flavour it never recorded, and an
+    editorial note added here. Every id cited in the heading maps to the block, so
+    a kept block is still found after an id is added to a cycle.
+    """
+    path = Path(page)
+    if not path.exists():
+        return {}
+    kept: dict[str, str] = {}
+    for match in _KEEP_RE.finditer(path.read_text(encoding="utf-8")):
+        block = match.group(0).strip()
+        for cid in match.group("ids").split("/"):
+            kept[cid.strip()] = block
+    return kept
+
+
 def create_flavour_md(
     set_id: str,
     card_flattened_path: str,
@@ -178,12 +246,23 @@ def create_flavour_md(
     df = df[df["set_id"] == set_id]
     df = df.replace("", np.nan).dropna(subset=["flavor_text"])
     df = df.assign(flavor_text=df["flavor_text"].map(_to_ascii_punctuation))
-    # Sorted by id as well as name, with a stable sort, so that where several
-    # printings share a line the surviving card id is the lowest rather than
-    # whatever order the upstream JSON happened to arrive in.
+    # One row per distinct line, carrying every printing that shares it: a common
+    # prints once per pitch value, and the heading cites all of them rather than
+    # picking one arbitrarily. Grouped on the normalised text so that a stray
+    # difference in whitespace does not split one line into two entries.
     df = df.sort_values(["name", "id"], kind="stable")
-    df = df.drop_duplicates(subset=["flavor_text"])
-    df = df.reset_index(drop=True)
+    df = (
+        df.assign(_key=df["flavor_text"].map(_normalise))
+        .groupby("_key", sort=False)
+        .agg(
+            set_id=("set_id", "first"),
+            name=("name", "first"),
+            flavor_text=("flavor_text", "first"),
+            ids=("id", lambda s: sorted(set(s))),
+        )
+        .reset_index(drop=True)
+    )
+    df = df.assign(id=df["ids"].map(cite)).sort_values(["name", "id"], kind="stable").reset_index(drop=True)
 
     dropped = df.iloc[:0].assign(reprint_of=pd.Series(dtype=str))
     if drop_reprints:
@@ -199,15 +278,31 @@ def create_flavour_md(
         dropped = df[is_reprint].assign(reprint_of=origins[is_reprint].map(lambda o: o[0])).reset_index(drop=True)
         df = df[~is_reprint].reset_index(drop=True)
 
-    heading = title if title is not None else set_name(set_id)
-    lines = [f"# {heading}", ""]
+    # Protected blocks win over anything derived from upstream, and a protected
+    # block for a card upstream no longer carries is still published — that is the
+    # only copy of a line transcribed from the physical card.
+    kept = keep_blocks(out_file)
+    rendered: list[tuple[str, str]] = []
+    used: set[str] = set()
     for _, row in df.iterrows():
-        lines.append("#### " + row["name"] + " - (" + row["id"] + ")")
-        lines.append(row["flavor_text"])
-        lines.append("")
+        block = next((kept[i] for i in row["ids"] if i in kept), None)
+        if block is None:
+            rendered.append((row["name"], "#### %s - (%s)\n%s" % (row["name"], row["id"], row["flavor_text"])))
+        elif block not in used:
+            # A card can carry several distinct lines against one id — ARC203's
+            # couplet, FAB470's three — so more than one row may resolve to the
+            # same protected block. It is published once.
+            used.add(block)
+            rendered.append((row["name"], block))
+    for block in dict.fromkeys(kept.values()):
+        if block not in used:
+            rendered.append((_KEEP_RE.match(block).group("name"), block))
+    rendered.sort(key=lambda r: r[0])
 
+    heading = title if title is not None else set_name(set_id)
+    body = "\n\n".join(block for _, block in rendered)
     # Single trailing newline — the end-of-file-fixer pre-commit hook would
     # otherwise rewrite the file underneath the commit.
-    Path(out_file).write_text("\n".join(lines).rstrip("\n") + "\n", encoding="utf-8")
+    Path(out_file).write_text(("# %s\n\n%s" % (heading, body)).rstrip("\n") + "\n", encoding="utf-8")
 
     return df, dropped

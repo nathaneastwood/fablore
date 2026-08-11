@@ -3,7 +3,7 @@
 #### Colors of Aria - (PEN206)
 The Ancients' sacrifice, made centuries ago, still manifests in Aria's lush landscapes and abundant harvests. The Flow is their legacy.
 
-#### Depths of Despair - (PEN195)
+#### Depths of Despair - (PEN195/196/197)
 The Disciple of Pain sought dominion, but in desperance he languished.
 
 #### Descend into Madness - (PEN278)
@@ -12,10 +12,10 @@ The Disciple of Pain sought dominion, but in desperance he languished.
 #### Doubling Season - (PEN218)
 When Candlehold rejoined the Flow, the effects were felt as far as Mount Heroic.
 
-#### Drag Down - (PEN331)
+#### Drag Down - (PEN331/332/333)
 "Drink yer sorrows where the grog runs free, in the sunken realm of Coralysi." - Pirate's Dirge
 
-#### Duty Bound Blitz - (PEN185)
+#### Duty Bound Blitz - (PEN183/184/185)
 What our Gemini find in the Shadows, our Inquisitors must drag into the Light.
 
 #### Fluid Motion - (PEN269)
@@ -24,7 +24,7 @@ What our Gemini find in the Shadows, our Inquisitors must drag into the Light.
 #### Frosthaven Sheath - (PEN207)
 For Galcia she remembers when two worlds touched.
 
-#### Future Sight - (PEN117)
+#### Future Sight - (PEN117/118/119)
 "Through aetheric visions I study these foreboding sigils of i'Arathael." - Maela Fairmind
 
 #### Gentle Breeze - (PEN034)
@@ -33,22 +33,22 @@ For Galcia she remembers when two worlds touched.
 #### Glyph Power Spell - (PEN113)
 "Two worlds, one story, written in the alphabets of Aether and Aesir." - Aetherscribe Karalyn
 
-#### Heart Wrencher - (PEN077)
+#### Heart Wrencher - (PEN075/076/077)
 "These Teklo monsters are state of the art? I'm gonna break them with all of my heart!" - Maxx
 
-#### Hulk Up - (PEN293)
+#### Hulk Up - (PEN291/292/293)
 "Whatcha gonna do when a hulk runs wild on you?" - Fightmaster Batbiter
 
-#### Hyper Inflation - (PEN284)
+#### Hyper Inflation - (PEN282/283/284)
 "We shall innoculate the world against the disease of complacency." - Doctrine of L'Apocalypta
 
-#### Insult to Injury - (PEN303)
+#### Insult to Injury - (PEN303/304/305)
 "As they love to remind us, the Prowlers come from a land of blood and mud." - Fightmaster Kox
 
 #### Ion Charged - (PEN242)
 Lightning flashes over Enion, portending an ancient and terrible storm.
 
-#### Knife Through - (PEN149)
+#### Knife Through - (PEN147/148/149)
 Uzuri had only a raw talent for murder. The Spider gave her the means to turn butchery into a business.
 
 #### Leaven Sheath - (PEN208)
@@ -57,13 +57,13 @@ For Davnir she feels the twin lands tremble.
 #### Look Within - (PEN273)
 "The harder you look, the deeper the mist that obscures the spirit." - Orihon of Mystic Tenets
 
-#### Oath of Oak - (PEN221)
+#### Oath of Oak - (PEN219/220/221)
 Spring touches Candlehold for the first time in centuries, promising rebirth for those Rosetta willing to embrace it.
 
-#### Runic Fellingsong - (PEN100)
+#### Runic Fellingsong - (PEN100/101/102)
 "With the passing of our immortal Queen, Candlehold bows to the seasons of life and death." - Florian
 
-#### Soul Bond Belief - (PEN187)
+#### Soul Bond Belief - (PEN186/187/188)
 "Sol burns away the Shadow that would cloud your heart." - Themis, Archangel of Justice
 
 #### Stormwind Sheath - (PEN209)
@@ -78,7 +78,7 @@ For Yvor she dances through twice-sundered skies.
 #### Valahai Riven - (PEN022)
 "The Sundering shattered the great fortress of Valahai into a thousand fragments." - The Auric Memoirs
 
-#### Weeping Battleground - (PEN105)
+#### Weeping Battleground - (PEN103/104/105)
 "A rune is a vessel, made of speech and symbol, that collects the lifeblood of existence." - The Apostate
 
 #### Whispering Mist - (PEN267)

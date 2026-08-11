@@ -4,18 +4,19 @@
 "I find it amusing how often mortals turn to prayer as their last line of defense." - Kano
 
 #### Arknight Shard - (CRU000)
+<!-- keep: transcribed from the card; upstream records no flavour text -->
 The flow of aether disturbs the ancient mists, ripples along the surface of a mirror, unravelling the fabric of time and space. Like grits of sand beneath the tongue, he feels the echoes of the forgotten, feels their gaze rasping against his skin. The foreign heartbeat is an ember within his ribcage, its icy burn heavy with the promise of power.
 
-#### Barraging Big Horn - (CRU010)
+#### Barraging Big Horn - (CRU010/011/012)
 "Big Horn? Big problem!" - Togark
 
-#### Brutal Assault - (CRU192)
+#### Brutal Assault - (CRU192/193/194)
 "By the all-seeing eye, I spill this blood in your image, I sacrifice this foul beast unto you, that you might take- Wait. What are you doing? Don't- no!" - Septus
 
 #### Coax a Commotion - (CRU180)
 In Aria, preparing for war means making the most of the time you have left.
 
-#### Consuming Volition - (CRU148)
+#### Consuming Volition - (CRU148/149/150)
 The tongue is the only weapon that grows sharper with use.
 
 #### Find Center - (CRU054)
@@ -25,30 +26,30 @@ From your home, draw strength. From your family, take heart. From the mists, fin
 Every thunderstorm begins with a single drop of rain.
 
 #### Mangle - (CRU026)
-"There will be no peace for warmongers like you." - Jarl Vetreidi
+"There will be no peace for warmongers like you." - Jarl Vetreiði
 
 #### Pitfall Trap - (CRU127)
 "Ain't a dreg, an' it ain't human. The hell am I s'posed to do against it?" - Jackdaw
 
-#### Riled Up - (CRU016)
+#### Riled Up - (CRU016/017/018)
 When word of war reached the Rek'vas Bloodboars, they were struck with fear... fear of missing out!
 
-#### Rousing Aether - (CRU171)
+#### Rousing Aether - (CRU171/172/173)
 "Please... you could never have unlocked its true power." - Linnea, Mistress of Malady
 
 #### Sledge of Anvilheim - (CRU024)
 "Where Isen's Peak touches the heavens, mighty weapons fit for the Gods are forged." - Olde tale of Anvilheim
 
-#### Sleep Dart - (CRU132)
+#### Sleep Dart - (CRU132/133/134)
 "I ain't paying you to sleep!" - Greenbird
 
 #### Snag - (CRU182)
 "Not quite the outcome you envisioned?" - Butcher Jek
 
-#### Swing Fist, Think Later - (CRU019)
+#### Swing Fist, Think Later - (CRU019/020/021)
 "Nobody says that about my Mama." - Thuk
 
-#### Teklovossen's Workshop - (CRU115)
+#### Teklovossen's Workshop - (CRU115/116/117)
 "The process of invention is not linear. Sometimes there's mistakes, other times, happy accidents!" - Teklovossen
 
 #### Tripwire Trap - (CRU126)

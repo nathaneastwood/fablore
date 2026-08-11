@@ -1,7 +1,8 @@
 # The Hunted
 
 #### Affirm Loyalty - (HNT103)
-We obey the Emperor. With blood and blade we commit at his command." - Alshoni Mantra
+<!-- keep: card opens with a quote mark and prints "mantra" lowercase; upstream drops the quote -->
+"We obey the Emperor. With blood and blade we commit at his command." - Alshoni mantra
 
 #### Demonstrate Devotion - (HNT059)
 "My heart for the Emperor. My blood for his Dynasty." - Alshoni Mantra
@@ -40,7 +41,7 @@ We obey the Emperor. With blood and blade we commit at his command." - Alshoni M
 "Daily we sweep the streets, yet still the rats crawl up from the Pits." - Yoji
 
 #### Imperial Intent - (HNT109)
-"In secret, we built our strength, hidden from Ezu meddling. Now is the time for vengeance." - [Taipanis](../heroes-of-rathe/other.md#taipanis-dracai-of-judgement)
+"In secret, we built our strength, hidden from Ezu meddling. Now is the time for vengeance." - Taipanis
 
 #### Lair of the Spider - (HNT191)
 "Fevered Volcai. Frightened Dracai. A great corruption has ensared the south." - General Nakami
@@ -63,5 +64,5 @@ We obey the Emperor. With blood and blade we commit at his command." - Alshoni M
 #### Rake Over the Coals - (HNT156)
 The Sayashi Enclave in Deshvahan, where Tetzuo tempers truth in torture.
 
-#### Sworn Vengeance - (HNT140)
+#### Sworn Vengeance - (HNT140/141)
 "When they murdered my emperor, they killed my destiny." - Lieutenant Yamada

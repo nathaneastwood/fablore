@@ -739,6 +739,46 @@ db.upsert_story(
 )
 
 db.upsert_story(
+    path="src/flavour/super-slam.md",
+    story_type="flavour",
+    title="Super Slam",
+    heroes=["kayo", "lyath", "pleiades", "tuffnut", "victor-goldmane"],
+    npcs=[
+        # Already curated — named here only to link them to this page. The DB holds
+        # the fightmasters under their bare names, not the "Fightmaster X" form the
+        # cards use.
+        NPCEntry(name="Batbiter"),
+        NPCEntry(name="Emeviere"),
+        NPCEntry(name="Fightmaster Kox"),
+        NPCEntry(name="Fightmaster Rusty"),
+        NPCEntry(name="Luca, Arena Cicerone"),
+        NPCEntry(name="Moloca"),
+        NPCEntry(name="Slapstick Sal"),
+        NPCEntry(name="Speakeasy"),
+        # New with this set. Species is unattested in the flavour text.
+        NPCEntry(name="Foreman Pebb"),
+        NPCEntry(name="Fugger Grimes"),
+        NPCEntry(name="Helx"),
+        NPCEntry(name="Salvador Stallion"),
+    ],
+    locations=[
+        LocationEntry("Anvilheim"),
+        LocationEntry("Den of Beasts"),
+        LocationEntry("Grinning Boar Cantina"),
+        LocationEntry("The Moat"),
+        LocationEntry("The Undercroft"),
+    ],
+    regions=[
+        RegionEntry("The Savage Lands"),
+    ],
+    dry_run=True,
+)
+# TODO: group — Baleful Horde, Boulder Clan, Champions of Chivalry, Fury Fists,
+# Glorytown Gladiators, Jungle Slayers, Mythmakers, Prowlers, Wild Wonders
+# TODO: "the Infernal Maw" (SUP120) may be the existing "The Maw" location in the
+# Pits rather than a new Deathmatch venue — left unlinked pending a decision.
+
+db.upsert_story(
     path="src/flavour/mastery-pack-guardian.md",
     story_type="flavour",
     title="Mastery Pack Guardian",

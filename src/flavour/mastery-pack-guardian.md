@@ -12,10 +12,10 @@ In the mountain deep there rumbled the ineluctable toil of Anvilheim.
 #### Break Stature - (MPG014)
 "Far be it from us to break with tradition." - Fai
 
-#### Little Big Foot - (MPG038)
+#### Little Big Foot - (MPG038/039/040)
 "I swear this story gets taller with every telling." - Valda
 
-#### Macho Grande - (MPG041)
+#### Macho Grande - (MPG041/042/043)
 "The dizzying sights of Everfest are as strong as the ale." - Valda
 
 #### Visit Anvilheim - (MPG021)

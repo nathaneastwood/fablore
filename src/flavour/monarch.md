@@ -1,72 +1,76 @@
 # Monarch
 
-#### Adrenaline Rush - (MON263)
+#### Adrenaline Rush - (MON263/264/265)
 "Cut off the skera's head, and it shall still find the strength to bite." - Sanni
 
-#### Battlefield Blitz - (MON036)
+#### Battlefield Blitz - (MON036/037/038)
 "Solana shall never succumb to the Shadows!" - Aurea, Champion of the Dawn
 
-#### Blood Tribute - (MON215)
+#### Blood Tribute - (MON215/216/217)
 "With the blood of the Ancients, all of humanity shall be reborn!" - Ersebet
 
-#### Boneyard Marauder - (MON135)
+#### Boneyard Marauder - (MON135/136/137)
 "It's amazing what you can find when you dig a little deeper." - Harland
 
-#### Brandish - (MON269)
+#### Brandish - (MON269/270/271)
 If you know how to flaunt it, you barely need to use it.
 
 #### Celestial Cataclysm - (MON062)
 "Legends grow larger and bolder from one generation to the next. What began as a brave warrior with a spear becomes a deity of virtue, raining down thunder upon tyrants." - Prism
 
-#### Enigma Chimera - (MON098)
+#### Enigma Chimera - (MON098/099/100)
 "If you don't think it's real, try petting it." - Amira Surana
 
-#### Express Lightning - (MON051)
+#### Express Lightning - (MON051/052/053)
 "Mighty Bellona, lend me your wings!" - Chiara Suncrest
 
 #### Great Library of Solana - (MON000)
+<!-- keep: transcribed from the card; upstream records no flavour text -->
 Those seeking knowledge travel to Solana for the sole purpose of visiting the Library of Illumination, a vast library located at the base of the Solarium. A grand sight, the floor is constructed from lustrous marble, with floor-to-ceiling shelves containing thousands of tomes and volumes, as well as bound parchments authored by the scholars of Solana. Solanians and travelers alike can enter and soak in the knowledge gathered from all across Rathe, though it is said that countless hidden sections and levels are privy only to the magisters and select scholars from the Light of Sol.
 
 #### Herald of Erudition - (MON004)
 Suraya, keeper of knowledge, who enlightens the minds of Rathe.
 
 #### Herald of Judgment - (MON007)
+<!-- keep: upstream records this flavour only on the promo printing FAB028, not MON -->
 Themis, keeper of the scales, who delivers mercy and vengeance in equal measure.
 
 #### Herald of Protection - (MON014)
+<!-- keep: upstream records this flavour only on the promo printing FAB029, not MON -->
 Aegis, the shield of light, who shelters the city with her wings.
 
 #### Herald of Rebirth - (MON020)
+<!-- keep: upstream records this flavour only on the promo printing FAB032, not MON -->
 Avalon, messenger of the dawn, whose light rejuvenates the land.
 
-#### Illuminate - (MON072)
+#### Illuminate - (MON072/073/074)
 "Sometimes, a hands-on lesson is the best approach." - Instructor Merlen Rivera
 
 #### Mark of the Beast - (MON124)
 "Borne of Soaejn, marked by corruption; the more I learn about them, the louder its call becomes..." - Lord Sutcliffe
 
-#### Memorial Ground - (MON303)
+#### Memorial Ground - (MON303/304/305)
 Memories fade, but their names remain.
 
-#### Minnowism - (MON296)
+#### Minnowism - (MON296/297/298)
 Be careful who you talk down to.
 
 #### Nourishing Emptiness - (MON246)
 "Every story has an ending. I wonder, what shall yours be?" - Kirigami
 
-#### Out Muscle - (MON248)
+#### Out Muscle - (MON248/249/250)
 "Let's see if dem muscles' big as dat mouth." - Jackdaw
 
-#### Rise Above - (MON257)
+#### Rise Above - (MON257/258/259)
 "Our gifts allow us to see into the beyond, but even we cannot shape the visions we see on the other side." - Vidya Willowmere
 
 #### Rouse the Ancients - (MON247)
 When the veil wanes, the Ancients shall rise once more.
 
-#### Seek Horizon - (MON251)
+#### Seek Horizon - (MON251/252/253)
 They hear the distant echoes of a rising storm, and know that their days of peace are numbered.
 
-#### Smash with Big Tree - (MON226)
+#### Smash with Big Tree - (MON226/227/228)
 "Sure, they're strong but they're... I've seen rocks more intelligent." - Harold Honeysett
 
 #### Soul Shield - (MON063)
@@ -75,29 +79,31 @@ They hear the distant echoes of a rising storm, and know that their days of peac
 #### Spill Blood - (MON109)
 "I expected you to live longer..." - Danu Ashenguard
 
-#### Stony Woottonhog - (MON284)
+#### Stony Woottonhog - (MON284/285/286)
 Grandad Warthog leads the way.
 
 #### Surging Militia - (MON287)
+<!-- keep: card prints "villages"; upstream transcribes "villagers" -->
 The villages of the golden fields are just as noble and brave as the Solanians who live within the city.
 
-#### Take Flight - (MON054)
+#### Take Flight - (MON054/055/056)
 "Sol's radiant light shall pierce through the Shadow." - Chancellor Hypatia
 
 #### Tome of Divinity - (MON065)
 "Knowledge bows before nothing, except existence itself." - Grand Magister, the Radiant
 
-#### Tremor of íArathael - (MON254)
+#### Tremor of i'Arathael - (MON254/255/256)
 As the gateway opens, the shattered shards collide; echoes resonating with a dissonant heartbeat.
 
-#### Valiant Thrust - (MON039)
+#### Valiant Thrust - (MON039/040/041)
 "Do not falter! These fiends shall die like any other beast we've faced!" - Astra Morena
 
-#### Void Wraith - (MON209)
+#### Void Wraith - (MON209/210/211)
 "Do you ever think that someone looks down on us, their creations, and regrets the choices that they made?" - Nestus
 
 #### Wartune Herald - (MON026)
+<!-- keep: upstream records this flavour only on the promo printing FAB035, not MON -->
 Bellona, patron of the blade, who leads the charge.
 
-#### Zealous Belting - (MON293)
+#### Zealous Belting - (MON293/294/295)
 Flails, chains, and a body the size of a house. What more could a cultist wish for?

@@ -1,6 +1,6 @@
 # Outsiders
 
-#### Back Stab - (OUT015)
+#### Back Stab - (OUT015/016/017)
 "Perfect strands of red drawn out by a perfectly angled blade. It's an art form few can appreciate." - Arakni, Huntsman
 
 #### Bloodrot Pox - (OUT234)
@@ -9,34 +9,34 @@
 #### Concealed Blade - (OUT143)
 "Always pack the right tools for the job" - Akuo, Spider Operative
 
-#### Death Touch - (OUT164)
+#### Death Touch - (OUT162/163/164)
 "Inoculate yourself with this merciful madness, that you may survive the horrors to come..." - book of the raven, l'Apocalypta
 
-#### Destructive Deliberation - (OUT206)
-Dis will blow your MIND!" - Suraj the Oracle
+#### Destructive Deliberation - (OUT204/205/206)
+"Dis will blow your MIND!" - Suraj the Oracle
 
 #### Down and Dirty - (OUT184)
 Mobs scuttle through the undercity like pack rats, sniffing out havoc and any opportunity for a good mugging.
 
-#### Feisty Locals - (OUT208)
+#### Feisty Locals - (OUT207/208/209)
 Far more dangerous than a man with a sword, is a man with nothing to lose.
 
 #### Frailty - (OUT235)
 "Alchemy draws you in with a deadly allure. The promise of deliverance, the costs yet unknown." - Achlys, hag of Mojire
 
-#### Freewheeling Renegades - (OUT211)
+#### Freewheeling Renegades - (OUT210/211/212)
 "Puff ya chest out... even more than that. Now yer ready to fight!" - Lena Belle
 
 #### Inertia - (OUT236)
 "This? A lil set-back is all it is. All it ever will be." - Dr. Mortimer
 
-#### Malign - (OUT032)
+#### Malign - (OUT030/031/032)
 Don't worry, you won't feel a thing." - Dr. Mortimer
 
-#### Plunge - (OUT152)
+#### Plunge - (OUT151/152/153)
 "Damn squeakers. Dangerous, hungry, desperate... they'd cut your throat soon as look at you!" - Otmar
 
-#### Razor's Edge - (OUT044)
+#### Razor's Edge - (OUT042/043/044)
 There's hit men. There's big game hunters. Then there's king slayers.
 
 #### Visit the Floating Dojo - (OUT055)

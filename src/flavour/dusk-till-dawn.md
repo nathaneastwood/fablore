@@ -1,4 +1,4 @@
-# Dusk Till Dawn
+# Dusk till Dawn
 
 #### Banneret of Courage - (DTD048)
 "Fear is bred in the Shadow. Bravery is born of the Light." - Boltyn
@@ -18,22 +18,22 @@ We few must preserve that which is precious to all.
 #### Banneret of Vigor - (DTD056)
 It is our passion for peace that drives us into the horrors of war.
 
-#### Beseech the Demigon - (DTD189)
+#### Beseech the Demigon - (DTD187/188/189)
 "At last I will show them what true knowledge looks like!" - Final words of Xaine, Runescribe
 
-#### Break of Dawn - (DTD102)
+#### Break of Dawn - (DTD100/101/102)
 "Each and every soldier, a ray of light that completes the dawn." - Magister of Defense
 
-#### Celestial Reprimand - (DTD038)
+#### Celestial Reprimand - (DTD038/039/040)
 "These degenerate shades cannot bear the scrutiny of true Light." - Magister of Justice
 
-#### Celestial Resolve - (DTD043)
+#### Celestial Resolve - (DTD041/042/043)
 Faith is the cloak that shall warm us against the chill of the night.
 
 #### Censor - (DTD226)
 Still your flapping flesh; that rasping of sinuous cords. Those words were never meant for such as you.
 
-#### Charge of the Light Brigade - (DTD074)
+#### Charge of the Light Brigade - (DTD072/073/074)
 "We give our lives this day for all the tomorrows to come." - Templar Timaerus
 
 #### Figment of Erudition - (DTD005)
@@ -73,7 +73,8 @@ And so they prevailed, Light and Hand, and slew the Shadow that lie in wait.
 "Ey'z beheaded, tooth, the DeathMatch?" - Bam Bam
 
 #### Shaden Swing - (DTD126)
-"Fear not this carven flesh, for tonight we feast with Blasmophet." - Lady Bartimont
+<!-- keep: card misprints the demon as "Blasphomet"; every other card (DTD164, IAR221, FAB021, MON125) names him Blasmophet -->
+"Fear not this carven flesh, for tonight we feast with Blasmophet." - Lady Barthimont
 
-#### Tear Through the Portal - (DTD190)
+#### Tear Through the Portal - (DTD190/191/192)
 "Obsessed, they call me. Rabid over-reacher. I merely grasp what begs to be possessed." - Lord Sutcliffe

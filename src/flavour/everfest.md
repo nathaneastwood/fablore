@@ -3,7 +3,7 @@
 #### Bingo - (EVR156)
 "Winner winner chicken dinner..." - Astier
 
-#### Emeritus Scolding - (EVR125)
+#### Emeritus Scolding - (EVR125/126/127)
 "I may look frail, but my mind will CRUSH you!" - Efaris Brittlebone
 
 #### Firebreathing - (EVR157)
@@ -12,19 +12,19 @@ It's always show time at the spectacular, stupendous, sensational extravaganza t
 #### Healing Potion - (EVR183)
 "Guaranteed to heal everything but a broken heart." - Jezabelle, Everfest Healer and Allsorts
 
-#### High Striker - (EVR164)
+#### High Striker - (EVR164/165/166)
 Step right up, step right up!
 
 #### Imposing Visage - (EVR022)
 Before the Age of Man, the specter of war loomed over Rathe, as the great Aesirs roamed the land.
 
-#### Macho Grande - (EVR027)
+#### Macho Grande - (EVR027/028/029)
 The "Strongest Man in Rathe" performance is always a mainstay and fan favorite, wherever the Everfest Carnival roams.
 
-#### Outland Skirmish - (EVR066)
+#### Outland Skirmish - (EVR066/067/068)
 "Volcai, Dracai, it's all the same to me." - Kassai
 
-#### Payload - (EVR076)
+#### Payload - (EVR076/077/078)
 The latest in Teklo Industries armament. Guaranteed to leave a dent in your enemies... and your wallet!
 
 #### Potion of Ironhide - (EVR186)
@@ -36,16 +36,16 @@ The latest in Teklo Industries armament. Guaranteed to leave a dent in your enem
 #### Potion of Seeing - (EVR184)
 "Don't like what you see? NO REFUNDS." - Jezabelle, Everfest Alchemist and Allsorts
 
-#### Read the Glide Path - (EVR100)
+#### Read the Glide Path - (EVR100/101/102)
 Victory is oft found before the first shot is fired.
 
 #### Runic Reclamation - (EVR104)
 A morbid union; Viserai's hunger for revenge, and his Master's hunger for power.
 
-#### Seismic Stir - (EVR030)
+#### Seismic Stir - (EVR030/031/032)
 The Ollin stand guard over the land of Aria, and the land in turn shall answer their call.
 
-#### Steadfast - (EVR033)
+#### Steadfast - (EVR033/034/035)
 "Be it sword or sorcery, we defend, we defeat, or we die." - Oldhim, Grandfather of Eternity
 
 #### Swing Big - (EVR002)
@@ -66,5 +66,5 @@ It's said that wherever the Dracai of War planted this talisman, the lava was so
 #### Wax On - (EVR052)
 ".. for no task is too small to learn from." - Master Morita, Art of the Hand
 
-#### Wild Ride - (EVR011)
+#### Wild Ride - (EVR011/012/013)
 Everyone who knows how to have a good time is welcome in Aria.

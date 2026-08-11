@@ -1,33 +1,33 @@
 # Uprising
 
-#### Arctic Incarceration - (UPR144)
+#### Arctic Incarceration - (UPR144/145/146)
 Tales be told, the kiss of an ice nymph draws the last breath from a soul lost to the Bleak Expanse.
 
 #### Blaze Headlong - (UPR092)
 The Volcai army of vigilantes, renegades, and outlaws, is like a tinderbox looking for a spark.
 
-#### Brand with Cinderclaw - (UPR060)
+#### Brand with Cinderclaw - (UPR060/061/062)
 To the Dracai, it's a mark of shame. To the Volcai, it's a sign of brotherhood.
 
 #### Breaking Point - (UPR093)
 Push hard enough, and even the weakest Volcai might find within their heart the courage, to stand against mightiest of dragons.
 
-#### Brothers in Arms - (UPR203)
+#### Brothers in Arms - (UPR203/204/205)
 On both sides of the battlefield, brotherhood is a catalyst of courage, conviction, and most importantly, hope.
 
 #### Burn Away - (UPR094)
 "I will set your lies aflame, and reveal the ugly heart of this Uprising. Sometimes, walking away isn't nearly enough..." - Dromai
 
-#### Cinderskin Devotion - (UPR063)
+#### Cinderskin Devotion - (UPR063/064/065)
 Through famine, oppression, and the horrors of war, the Volcai's oath to their fallen bretheren shall never be broken.
 
-#### Critical Strike - (UPR206)
+#### Critical Strike - (UPR206/207/208)
 There is no mercy on the battlefield; it's brothers against sisters, and blood against blood. For resentment breeds betrayal, as anger leads to rage, and fear to hate. This endless feud, from whence did it arise, and when will it see an end?
 
-#### Flex - (UPR191)
+#### Flex - (UPR191/192/193)
 "The sun is setting on this Dynasty. Tomorrow we rise up, my son." - Yunkai
 
-#### Fyendal's Fighting Spirit - (UPR194)
+#### Fyendal's Fighting Spirit - (UPR194/195/196)
 The old ways are not forgotten.
 
 #### Invoke Azvolai - (UPR009)
@@ -69,22 +69,23 @@ The dragon of endurance, said to be rooted deep within the Savage Lands.
 #### Lava Burst - (UPR098)
 As the insurgency reached a boiling point, even the Volcai monks let their temper flare.
 
-#### Lava Vein Loyalty - (UPR069)
+#### Lava Vein Loyalty - (UPR069/070/071)
 "Burn bright or burn out, we burn together." - Fai
 
-#### Sand Cover - (UPR039)
-A million insignificant grains will choke even the mightiest of dragon – old Volcai proverb
+#### Sand Cover - (UPR039/040/041)
+A million insignificant grains will choke even the mightiest of dragon - old Volcai proverb
 
 #### Searing Touch - (UPR099)
 These iron citadels and machines of war, will do little to slow the advances of the rebellion.
 
-#### Sift - (UPR197)
+#### Sift - (UPR197/198/199)
 With the war of the Monarchs raging on, we need every bit of knowledge we can find to hold back the Shadows.
 
 #### Stoke the Flames - (UPR100)
+<!-- keep: card misprints "vengence"; corrected to "vengeance" -->
 For some Volcai, honour is nothing compared to the sweet taste of vengeance.
 
-#### Sweeping Blow - (UPR030)
+#### Sweeping Blow - (UPR030/031/032)
 The illusionists of the Ash Plains can quickly turn home ground to their advantage.
 
 #### That All You Got? - (UPR189)

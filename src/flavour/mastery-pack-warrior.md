@@ -9,7 +9,7 @@
 #### Gleam of the Blade - (MPW045)
 "On roads grown tangled with trouble, our Neelasha coach guards slash the way." - Vanik Silvertooth
 
-#### Golden Company - (MPW053)
+#### Golden Company - (MPW053/054/055)
 "Bandits raided your caravan? For a fair price we'll return your goods and throw in their heads for free." - Captain Shevez
 
 #### Ironsong Response - (MPW085)
@@ -24,7 +24,7 @@ Before it sank beneath the waves, Fiddler's Green was a bright emerald in the Dh
 #### Point of Escalation - (MPW025)
 "Four thousand brilliant blades, and ninety-six enlightened souls to lead them." - The Bastion, Magister of Defense
 
-#### Run Through - (MPW048)
+#### Run Through - (MPW048/049/050)
 "On the Savage frontier, we draw our battlelines in blood." - Lieutenant Farris
 
 #### Sharpen Steel - (MPW122)
@@ -36,10 +36,10 @@ Solanian steel, the purest northern iron forged by the enlightened smiths of Oct
 #### Starting Stake - (MPW152)
 "Many are denied their place in history because they failed to make their first coin." - Fightmaster Rusty
 
-#### Steel on Steel - (MPW096)
+#### Steel on Steel - (MPW096/097/098)
 "Volcai rising up and Dracai on the warpath. No wonder the Cintari doubled their price." - Tasha of Deshvahan
 
-#### Steelblade Shunt - (MPW056)
+#### Steelblade Shunt - (MPW056/057/058)
 The Hand of Sol are trained to turn the enemy's advances to their advantage.
 
 #### Thwart - (MPW145)

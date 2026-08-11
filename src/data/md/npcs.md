@@ -92,7 +92,9 @@
 |                 Fightmaster Kox                |     Goblin     |                 Unknown                 |
 |                Fightmaster Rusty               |      Dwarf     |                 Unknown                 |
 |                    Flannigan                   |      Human     |                 Unknown                 |
+|                  Foreman Pebb                  |     Unknown    |                 Unknown                 |
 |                Freya Eldingsturm               |     Unknown    |                 Unknown                 |
+|                  Fugger Grimes                 |     Unknown    |                 Unknown                 |
 |         Fyanna Redmoor, Boltyn's cousin        |      Human     |                 Unknown                 |
 |                    Galaphor                    |      Human     |                   Dead                  |
 |                     Galcia                     |     Ancient    |                 Deceased                |
@@ -117,6 +119,7 @@
 |                      Hank                      |      Human     |                  Alive                  |
 |                     Harland                    |     Unknown    |                 Unknown                 |
 |                Harold Honeysett                |      Human     |                 Unknown                 |
+|                      Helx                      |     Unknown    |                 Unknown                 |
 |                    Hightarn                    |      Witch     |                   Dead                  |
 |                    Hildegun                    |      Human     |                 Unknown                 |
 |                      Hirei                     |      Human     |                 Unknown                 |
@@ -226,6 +229,7 @@
 |                      Rigo                      |      Robot     |Spider-bot assistant to Jules Teklovossen|
 |           Rupius, Auric Scrollmaster           |      Human     |                 Unknown                 |
 |                      Sada                      |    Sorceress   |                  Alive                  |
+|                Salvador Stallion               |     Unknown    |                 Unknown                 |
 |                   Sandy Shoo                   |      Human     |                 Unknown                 |
 |                      Sanni                     |      Human     |                 Unknown                 |
 |                     Satsuki                    |      Human     |                  Alive                  |

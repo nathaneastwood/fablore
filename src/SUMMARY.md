@@ -317,6 +317,7 @@
     - [The Hunted](flavour/the-hunted.md)
     - [High Seas](flavour/high-seas.md)
     - [Mastery Pack Guardian](flavour/mastery-pack-guardian.md)
+    - [Super Slam](flavour/super-slam.md)
     - [Compendium of Rathe](flavour/compendium-of-rathe.md)
     - [Omens of the Third Age](flavour/omens-of-the-third-age.md)
     - [Mastery Pack Warrior](flavour/mastery-pack-warrior.md)
