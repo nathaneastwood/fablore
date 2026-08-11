@@ -245,7 +245,7 @@
     - [Arcane](languages/arcane.md)
     - [Solanian](languages/solanian.md)
     - [Seers](languages/seers.md)
-    - [Imperial](languages/imperial.md)
+    - [Okana](languages/okana.md)
     - [Ancient Dhani](languages/ancient-dhani.md)
 
 - [Weapons](weapons/armed-to-the-teeth.md)

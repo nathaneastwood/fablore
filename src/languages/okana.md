@@ -1,23 +1,18 @@
-# Imperial Language
+# Okana
 
-<div data-glyph-alphabet="imperial"></div>
+Okana is cross-cultural, written in both Volcor and Misteria.
 
-My thanks go to [Mara Faris](https://bsky.app/profile/blackwingstudio.ascent-gaming.com), who assembled the
-Imperial alphabet chart for this site from card art. Every glyph above has been
-traced from that chart into a typeface — type into the box below and read your
-own words in Imperial.
+<div data-glyph-alphabet="okana"></div>
 
-<div data-glyph-tool="imperial"></div>
+My thanks go to [Mara Faris](https://bsky.app/profile/blackwingstudio.ascent-gaming.com), who assembled the Okana alphabet chart for this site from card art. Every glyph above has been traced from that chart into a typeface — type into the box below and read your own words in Okana.
 
-No glyph for **Q** or **X** has ever appeared in published card art, so those
-are the two letters that cannot be written; they render as empty runes above.
+<div data-glyph-tool="okana"></div>
 
-Nor has any Imperial text ever shown a punctuation mark or a numeral, so the
-typeface will write letters and spaces alone.
+No glyph for **Q** or **X** has ever appeared in published card art, so those are the two letters that cannot be written; they render as empty runes above.
 
-Imperial is not always written left to right. The Proclamation of Requisition
-below reads right to left, and the banners in Spectral Procession run top to
-bottom in columns — hence the direction buttons on the translator.
+Nor has any Okana text ever shown a punctuation mark or a numeral, so the typeface will write letters and spaces alone.
+
+Okana is not always written left to right. The Proclamation of Requisition below reads right to left, and the banners in Spectral Procession run top to bottom in columns — hence the direction buttons on the translator.
 
 Some examples of the language can be seen below.
 

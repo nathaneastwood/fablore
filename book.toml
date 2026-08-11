@@ -89,6 +89,7 @@ command = "python3 src/data/mdbook_child_hub.py"
 '/flavour/17-the-hunted.html' = '/flavour/the-hunted.html'
 '/flavour/18-high-seas.html' = '/flavour/high-seas.html'
 '/flavour/20-compendium-of-rathe.html' = '/flavour/compendium-of-rathe.html'
+'/languages/imperial.html' = '/languages/okana.html'
 '/main-story/01-welcome-to-rathe/a-rising-star.html' = '/main-story/welcome-to-rathe/a-rising-star.html'
 '/main-story/01-welcome-to-rathe/kill-or-be-killed.html' = '/main-story/welcome-to-rathe/kill-or-be-killed.html'
 '/main-story/01-welcome-to-rathe/pride-of-the-ironsongs.html' = '/main-story/welcome-to-rathe/pride-of-the-ironsongs.html'

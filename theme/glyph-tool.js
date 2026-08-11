@@ -9,8 +9,8 @@
  *
  * It also means one widget serves all four. A page opts in with
  *
- *     <div data-glyph-alphabet="imperial"></div>
- *     <div data-glyph-tool="imperial"></div>
+ *     <div data-glyph-alphabet="okana"></div>
+ *     <div data-glyph-tool="okana"></div>
  *
  * and everything that differs between the scripts — the face, the sample line,
  * which letters have never been published, the colours of the output plate,
@@ -62,10 +62,10 @@
                 latin: "#6c6f80"
             }
         },
-        imperial: {
-            font: '"Imperial of Rathe"',
-            title: "Write in Imperial",
-            note: "A 1:1 alphabet — type English, read Imperial.",
+        okana: {
+            font: '"Okana of Rathe"',
+            title: "Write in Okana",
+            note: "A 1:1 alphabet — type English, read Okana.",
             sample: "Children of the dragon, kindle your fires",
             unwritable: "QX",
             /*
