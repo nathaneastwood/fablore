@@ -13,7 +13,7 @@ As he is forced to rise once again and defend his long-forsaken tomb, he longs f
 "Oh, you thought you were going to win?" - Kano
 
 #### Come to Fight - (ARC203)
-<!-- keep: second line of the couplet; the ARC203 and ARC204 printings show only the first -->
+<!-- keep: the First Edition Rainbow Foil printing carries the couplet's second line; every standard printing carries only the first -->
 Graham the Gallant strode among the trees, tracking a band of notorious thieves.
 They cowered before good Graham's might, for they knew they'd already lost the fight.
 

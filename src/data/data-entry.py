@@ -765,6 +765,9 @@ db.upsert_story(
         LocationEntry("Anvilheim"),
         LocationEntry("Den of Beasts"),
         LocationEntry("Grinning Boar Cantina"),
+        # A Deathmatch venue, distinct from "The Maw" in the Pits. Region is left
+        # blank to match its siblings (The Undercroft, The Moat, Arena Barracks).
+        LocationEntry("Infernal Maw"),
         LocationEntry("The Moat"),
         LocationEntry("The Undercroft"),
     ],
@@ -775,8 +778,6 @@ db.upsert_story(
 )
 # TODO: group — Baleful Horde, Boulder Clan, Champions of Chivalry, Fury Fists,
 # Glorytown Gladiators, Jungle Slayers, Mythmakers, Prowlers, Wild Wonders
-# TODO: "the Infernal Maw" (SUP120) may be the existing "The Maw" location in the
-# Pits rather than a new Deathmatch venue — left unlinked pending a decision.
 
 db.upsert_story(
     path="src/flavour/mastery-pack-guardian.md",
