@@ -133,6 +133,7 @@
 |                Jules Teklovossen               |      Human     |                  Alive                  |
 |                    Kalsharpe                   |      Human     |                 Unknown                 |
 |                     Karalyn                    |     Unknown    |                 Unknown                 |
+|                      Karl                      |     Unknown    |                 Unknown                 |
 |                      Kayat                     |   Illusionist  |                   Dead                  |
 |                     Kaysin                     |Maela Soothsayer|                 Unknown                 |
 |                      Kazuo                     |      Human     |                   Dead                  |
@@ -162,7 +163,7 @@
 |                     Mad Siv                    |     Unknown    |                 Unknown                 |
 |                   Madam Rouge                  |      Human     |                   Dead                  |
 |                 Maela Fairmind                 |     Unknown    |                 Unknown                 |
-|                  Maela Isulfo                  |     Unknown    |                 Unknown                 |
+|                  Maela Isulfv                  |     Unknown    |                 Unknown                 |
 |                  Maela Sharena                 |     Unknown    |                 Unknown                 |
 |                 Magistrate Chen                |      Human     |                 Unknown                 |
 |               Magnus the Vigilant              |      Human     |                 Unknown                 |

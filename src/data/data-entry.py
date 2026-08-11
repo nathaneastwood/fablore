@@ -719,7 +719,7 @@ db.upsert_story(
         # left to default to "Unknown" rather than being guessed.
         NPCEntry(name="Daryas Nimbus"),
         NPCEntry(name="Freya Eldingsturm"),
-        NPCEntry(name="Maela Isulfo"),
+        NPCEntry(name="Maela Isulfv"),
         NPCEntry(name="Maela Sharena"),
         NPCEntry(name="Reznyr Eldingsturm"),
         NPCEntry(name="Skynda Feyscout"),
@@ -729,6 +729,37 @@ db.upsert_story(
         LocationEntry("Enion", region="Aria"),
         LocationEntry("Valahai", region="Aria"),
         LocationEntry("Volthaven", region="Aria"),
+        LocationEntry("i'Arathael"),
+    ],
+    regions=[
+        RegionEntry("Aria"),
+        RegionEntry("Nebulus Rift"),
+    ],
+    dry_run=True,
+)
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Digital Tiles
+# -------------------------------------------------------------------------------------------------------------------- #
+
+db.upsert_story(
+    path="src/digital-tiles/omens-of-the-third-age/omens-of-the-third-age.md",
+    story_type="digital-tiles",
+    title="Omens of the Third Age",
+    heroes=["aurora", "oscilio", "zyggy"],
+    npcs=[
+        # Already curated — named here only to link them to this page. Species and
+        # status are left empty so the existing curated values are preserved.
+        NPCEntry(name="Maela Isulfv"),
+        NPCEntry(name="Yvor"),
+        # New with this set.
+        NPCEntry(name="Karl"),
+    ],
+    locations=[
+        LocationEntry("Astral Bridge", region="Nebulus Rift", lore_fragment="astral-bridge"),
+        LocationEntry("Auric Keep", region="Nebulus Rift", lore_fragment="auric-keep"),
+        LocationEntry("Enion", region="Aria", lore_fragment="enion"),
+        LocationEntry("Valahai", region="Aria", lore_fragment="valahai"),
         LocationEntry("i'Arathael"),
     ],
     regions=[

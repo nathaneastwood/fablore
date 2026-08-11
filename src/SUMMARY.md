@@ -297,6 +297,7 @@
     - [The Hunted](digital-tiles/the-hunted/the-hunted.md)
     - [High Seas](digital-tiles/high-seas/high-seas.md)
     - [Compendium of Rathe](digital-tiles/compendium-of-rathe/compendium-of-rathe.md)
+    - [Omens of the Third Age](digital-tiles/omens-of-the-third-age/omens-of-the-third-age.md)
 
 - [Flavour Text](flavour/intro.md)
     - [Welcome to Rathe](flavour/welcome-to-rathe.md)

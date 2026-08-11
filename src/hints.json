@@ -1816,5 +1816,20 @@
     "exclude_pages": [
       "other-characters/minerva-themis"
     ]
+  },
+  "Karl": {
+    "type": "npc",
+    "summary": "Graverobber whose crew opened a wrathful baron's coffin; he woke alone in an open grave, soaked in his comrades' blood."
+  },
+  "Seers": {
+    "type": "faction",
+    "summary": "An order of prophets named alongside the Ollin and Rosetta, who read the omens and keep a script of their own."
+  },
+  "Ancients": {
+    "type": "concept",
+    "summary": "Colossal elemental beings native to Rathe; Davnir, Yvor and Galcia spent their lives in the cataclysm that broke the world of the Third Age.",
+    "exclude_pages": [
+      "world-of-rathe/aria"
+    ]
   }
 }

@@ -43,7 +43,7 @@ To vanquish the Old Ones the Ancients had to sunder the world in twain.
 Otherworldly sigils hang in the sky like gibbous moons, driving the animals to lunacy.
 
 #### Tome of Quandaries - (OMN133)
-"In i'Arathael, the land of dreams, nothing is ever as it seems." - Maela Isulfo
+"In i'Arathael, the land of dreams, nothing is ever as it seems." - Maela Isulfv
 
 #### Visionary of Orbits - (OMN151)
 "A circle of fate, seven signs bound, and the returning shadow in blood be drowned." - The Auric Seeress
