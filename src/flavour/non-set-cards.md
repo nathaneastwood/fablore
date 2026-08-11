@@ -22,7 +22,19 @@ With a deafening roar, he slaughtered the beast, mighty ax easily tearing throug
 
 ## Promos
 
-The three Lightning Flow lines are one card printed three ways, each with its own flavour text.
+The four Heralds are printed in Monarch without flavour text; these lines appear only on the promo printings. The three Lightning Flow lines are one card printed three ways, each with its own flavour text.
+
+#### Herald of Judgment - (FAB028)
+
+Themis, keeper of the scales, who delivers mercy and vengeance in equal measure.
+
+#### Herald of Protection - (FAB029/030/031)
+
+Aegis, the shield of light, who shelters the city with her wings.
+
+#### Herald of Rebirth - (FAB032/033/034)
+
+Avalon, messenger of the dawn, whose light rejuvenates the land.
 
 #### Lightning Flow - (FAB470)
 
@@ -35,6 +47,10 @@ The Wayfarers of the Third Age founded a tradition that still echoes like distan
 #### Lightning Flow - (FAB470)
 
 Upon a bridge over voltic waters, the scion spans the ages, witnessing the ominous cascades of Old Ones past flood the unknowing future.
+
+#### Wartune Herald - (FAB035/036/037)
+
+Bellona, patron of the blade, who leads the charge.
 
 ## Hero Card Promos
 

@@ -31,18 +31,6 @@ Those seeking knowledge travel to Solana for the sole purpose of visiting the Li
 #### Herald of Erudition - (MON004)
 Suraya, keeper of knowledge, who enlightens the minds of Rathe.
 
-#### Herald of Judgment - (MON007)
-<!-- keep: upstream records this flavour only on the promo printing FAB028, not MON -->
-Themis, keeper of the scales, who delivers mercy and vengeance in equal measure.
-
-#### Herald of Protection - (MON014)
-<!-- keep: upstream records this flavour only on the promo printing FAB029, not MON -->
-Aegis, the shield of light, who shelters the city with her wings.
-
-#### Herald of Rebirth - (MON020)
-<!-- keep: upstream records this flavour only on the promo printing FAB032, not MON -->
-Avalon, messenger of the dawn, whose light rejuvenates the land.
-
 #### Illuminate - (MON072/073/074)
 "Sometimes, a hands-on lesson is the best approach." - Instructor Merlen Rivera
 
@@ -100,10 +88,6 @@ As the gateway opens, the shattered shards collide; echoes resonating with a dis
 
 #### Void Wraith - (MON209/210/211)
 "Do you ever think that someone looks down on us, their creations, and regrets the choices that they made?" - Nestus
-
-#### Wartune Herald - (MON026)
-<!-- keep: upstream records this flavour only on the promo printing FAB035, not MON -->
-Bellona, patron of the blade, who leads the charge.
 
 #### Zealous Belting - (MON293/294/295)
 Flails, chains, and a body the size of a house. What more could a cultist wish for?

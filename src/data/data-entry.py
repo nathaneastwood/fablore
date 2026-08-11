@@ -738,6 +738,66 @@ db.upsert_story(
     dry_run=True,
 )
 
+# Monarch's four Heralds are printed without flavour text; the lines the page used
+# to carry belong to the promo printings and now live on non-set-cards.md. This
+# declaration exists to repoint Themis, Aegis and Avalon off this page — Bellona
+# stays, still named by Chiara Suncrest's line on MON081.
+db.upsert_story(
+    path="src/flavour/monarch.md",
+    story_type="flavour",
+    title="Monarch",
+    heroes=["prism"],
+    hero_fragments={"prism": "celestial-cataclysm---mon062"},
+    npcs=[
+        NPCEntry(name="Amira Surana"),
+        NPCEntry(name="Astra Morena"),
+        NPCEntry(name="Aurea, Champion of the Dawn"),
+        NPCEntry(name="Bellona, the Wartune Herald"),
+        NPCEntry(name="Chancellor Helena Primavera"),
+        NPCEntry(name="Chancellor Hypatia"),
+        NPCEntry(name="Chiara Suncrest"),
+        NPCEntry(name="Danu Ashenguard"),
+        NPCEntry(name="Ersebet"),
+        NPCEntry(name="Grand Magister, the Radiant"),
+        NPCEntry(name="Harland"),
+        NPCEntry(name="Harold Honeysett"),
+        NPCEntry(name="Jackdaw"),
+        NPCEntry(name="Kirigami"),
+        NPCEntry(name="Merlen Rivera"),
+        NPCEntry(name="Nestus"),
+        NPCEntry(name="Sanni"),
+        NPCEntry(name="Suraya, Archangel of Knowledge"),
+        NPCEntry(name="Vidya Willowmere"),
+    ],
+    regions=[
+        RegionEntry("Solana"),
+    ],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/flavour/non-set-cards.md",
+    story_type="flavour",
+    title="Non-Set Cards",
+    npcs=[
+        NPCEntry(name="Aegis, the Shield of Light"),
+        NPCEntry(name="Avalon, Messenger of the Dawn"),
+        NPCEntry(name="Bellona, the Wartune Herald"),
+        NPCEntry(name="Themis, Keeper of the Scales"),
+        NPCEntry(name="Yvor"),
+    ],
+    locations=[
+        LocationEntry("Auric Keep", region="Nebulus Rift"),
+        LocationEntry("Enion", region="Aria"),
+        LocationEntry("Volthaven", region="Aria"),
+    ],
+    regions=[
+        RegionEntry("Aria"),
+        RegionEntry("Nebulus Rift"),
+    ],
+    dry_run=True,
+)
+
 db.upsert_story(
     path="src/flavour/super-slam.md",
     story_type="flavour",
