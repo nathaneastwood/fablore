@@ -86,6 +86,9 @@ body {
   font-weight: 400;
   line-height: 1.45;
   letter-spacing: .04em;
+  /* Copying the glyphs pastes the Latin letters behind them, so make the line
+     unselectable. Friction only — the plaintext is still in the source. */
+  -webkit-user-select: none; user-select: none;
   /* wide enough for a two-line hero once the wider word space is accounted for */
   max-width: 26ch;
   text-wrap: balance;
@@ -123,6 +126,8 @@ body {
   font-family: "Arcane of Rathe", var(--serif);
   font-size: clamp(.85rem, 2vw, 1.1rem);
   color: #767a8d; line-height: 1;
+  /* Decorative twin of .unit-name — keep it out of copied selections. */
+  -webkit-user-select: none; user-select: none;
 }
 .unit-name {
   font-family: var(--util);
