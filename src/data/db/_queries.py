@@ -344,6 +344,11 @@ def update_location_notes(
     return cur.rowcount
 
 
+def select_location_by_id(conn: sqlite3.Connection, location_id: str) -> sqlite3.Row | None:
+    """Return a location row by id, or ``None``."""
+    return conn.execute("SELECT * FROM locations WHERE location_id = ?", [location_id]).fetchone()
+
+
 def select_location_ids_by_name(conn: sqlite3.Connection, name: str) -> list[str]:
     """Return every ``LocationId`` stored under ``name`` (may be >1 for duplicate rows)."""
     rows = conn.execute("SELECT location_id FROM locations WHERE name = ?", [name]).fetchall()
@@ -806,6 +811,20 @@ def select_all_equipment_printings(conn: sqlite3.Connection) -> list[sqlite3.Row
 # ---------------------------------------------------------------------------
 # Story junction helpers
 # ---------------------------------------------------------------------------
+
+
+def select_story_hero_fragments(conn: sqlite3.Connection, story_id: str) -> dict[str, str]:
+    """Return ``{canonical_id: fragment}`` for a story's hero links.
+
+    Fragments live in the ``story_heroes`` junction rather than on a registry
+    row, so :func:`select_story_junction` cannot see them. The dry-run preview
+    needs them to report an anchor that a declaration is about to clear.
+    """
+    rows = conn.execute(
+        "SELECT canonical_id, fragment FROM story_heroes WHERE story_id = ?",
+        [story_id],
+    ).fetchall()
+    return {r["canonical_id"]: (r["fragment"] or "") for r in rows}
 
 
 def set_story_heroes(

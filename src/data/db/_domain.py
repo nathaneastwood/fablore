@@ -1109,7 +1109,24 @@ class Database:
                     out.write(f"  {label}: {val}\n")
 
         if narrated_videos is not None:
-            out.write(f"  NarratedVideos: {len(narrated_videos)} entries\n")
+            # set_narrated_videos() deletes and re-inserts the whole set, so a bare
+            # count reads identically for a no-op and for a total replacement.
+            incoming_videos = [(v.author, v.source_link) for v in narrated_videos]
+            stored_videos = (
+                [(r["author"], r["source_link"]) for r in q.select_narrated_videos(self.conn, story_id)]
+                if existing
+                else []
+            )
+            if incoming_videos != stored_videos:
+                out.write("  NarratedVideos:\n")
+                for author, link in stored_videos:
+                    if (author, link) not in incoming_videos:
+                        out.write(f"    - {author} ({link})\n")
+                for author, link in incoming_videos:
+                    if (author, link) not in stored_videos:
+                        out.write(f"    + {author} ({link})\n")
+            else:
+                out.write(f"  NarratedVideos: {len(narrated_videos)} entries (unchanged)\n")
 
         # Build id → display name maps so diffs show readable slugs/names
         hero_id_to_slug = {r["canonical_id"]: r["canonical_slug"] for r in q.select_all_heroes_canonical(self.conn)}
@@ -1119,6 +1136,10 @@ class Database:
         equip_id_to_slug = {
             r["canonical_equipment_id"]: r["canonical_slug"] for r in q.select_all_equipment_canonical(self.conn)
         }
+        npc_rows = {r["character_id"]: r for r in q.select_all_npcs(self.conn)}
+        monster_rows = {r["monster_id"]: r for r in q.select_all_monsters(self.conn)}
+        fauna_rows = {r["fauna_id"]: r for r in q.select_all_fauna(self.conn)}
+        flora_rows = {r["flora_id"]: r for r in q.select_all_flora(self.conn)}
         npc_id_to_name = {r["character_id"]: r["name"] for r in q.select_all_npcs(self.conn)}
         loc_id_to_name = {r["location_id"]: r["name"] for r in q.select_all_locations(self.conn)}
         region_id_to_name = {r["region_id"]: r["region_name"] for r in q.select_all_regions(self.conn)}
@@ -1163,7 +1184,30 @@ class Database:
             "canonical_id",
             hero_id_to_slug,
         )
-        if hero_fragments:
+        if hero_ids is not None and existing:
+            # set_story_heroes() replaces (canonical_id, fragment) pairs wholesale, so a
+            # declaration that lists heroes without a matching hero_fragments= blanks
+            # every curated anchor. Membership is unchanged in that case, so the
+            # membership diff above stays silent — this is the only warning.
+            old_frags = q.select_story_hero_fragments(self.conn, story_id)
+            new_frags = hero_fragments or {}
+            frag_lines: list[str] = []
+            for cid in hero_ids:
+                slug = hero_id_to_slug.get(cid, cid)
+                was = old_frags.get(cid, "")
+                now = new_frags.get(slug, "")
+                if was == now:
+                    continue
+                if was and not now:
+                    frag_lines.append(f"    ~ {slug}: fragment {was!r} -> cleared")
+                elif not was:
+                    frag_lines.append(f"    ~ {slug}: fragment -> {now!r}")
+                else:
+                    frag_lines.append(f"    ~ {slug}: fragment {was!r} -> {now!r}")
+            if frag_lines:
+                out.write("  Hero fragments:\n")
+                out.write("\n".join(frag_lines) + "\n")
+        elif hero_fragments:
             out.write(f"  HeroFragments: {hero_fragments}\n")
         _show_links_diff(
             "NPCs",
@@ -1181,6 +1225,132 @@ class Database:
             "location_id",
             loc_id_to_name,
         )
+
+        def _show_location_changes() -> None:
+            """Report location rows this declaration would fork or re-attribute.
+
+            ``location_id`` is a hash of ``name|region_id``, so changing a
+            location's region does not edit the row — it mints a second one and
+            strands the first. The membership diff above compares display names,
+            which are identical before and after, so it stays silent. Without
+            this block the preview shows a clean no-op for a row-orphaning change.
+            """
+            if locations is None or not existing:
+                return
+            linked_ids = q.select_story_junction(self.conn, story_id, "story_locations", "location_id")
+            lines: list[str] = []
+            for entry in locations:
+                eff_region = region_row_id(entry.region) if entry.region else ""
+                new_id = _location_id(entry.name, eff_region)
+                superseded = [lid for lid in linked_ids if loc_id_to_name.get(lid) == entry.name and lid != new_id]
+                if superseded:
+                    old_id = superseded[0]
+                    old_row = q.select_location_by_id(self.conn, old_id)
+                    old_region = ""
+                    if old_row is not None and old_row["region_id"]:
+                        old_region = region_id_to_name.get(old_row["region_id"], old_row["region_id"])
+                    lines.append(
+                        f"    ~ {entry.name}: region {old_region or '(none)'!r} -> {entry.region or '(none)'!r}"
+                    )
+                    lines.append(f"      NEW ROW {old_id} -> {new_id}; the old row is orphaned, not updated")
+                    continue
+
+                # Same row: report the columns this declaration would overwrite.
+                # notes and lore_fragment both preserve-on-empty, so an omitted
+                # value is not a change and must not be reported as one.
+                row = q.select_location_by_id(self.conn, new_id)
+                if row is None:
+                    continue
+                for field, incoming in (("notes", entry.notes), ("lore_fragment", entry.lore_fragment)):
+                    stored = row[field] or ""
+                    if not incoming or incoming == stored:
+                        continue
+                    lines.append(f"    ~ {entry.name}: {field} {stored or '(none)'!r} -> {incoming!r}")
+            if lines:
+                out.write("  Location rows:\n")
+                out.write("\n".join(lines) + "\n")
+
+        def _show_attr_changes(
+            label: str,
+            entries: list | None,
+            id_fn: Any,
+            rows_by_id: dict[str, Any],
+            fields: tuple[str, ...],
+        ) -> None:
+            """Report registry columns this declaration would overwrite.
+
+            Every one of these columns preserves-on-empty, so an omitted value
+            leaves the stored one alone and is not a change. Reporting it as a
+            clear would be a false alarm, which trains the reader to skim past
+            the section — so only a non-empty, differing value is shown.
+            """
+            if entries is None or not existing:
+                return
+            lines: list[str] = []
+            for entry in entries:
+                row = rows_by_id.get(id_fn(entry.name))
+                if row is None:
+                    continue  # new row: nothing to overwrite
+                for field in fields:
+                    incoming = getattr(entry, field, "") or ""
+                    stored = row[field] or ""
+                    if not incoming or incoming == stored:
+                        continue
+                    lines.append(f"    ~ {entry.name}: {field} {stored or '(none)'!r} -> {incoming!r}")
+            if lines:
+                out.write(f"  {label} rows:\n")
+                out.write("\n".join(lines) + "\n")
+
+        def _show_food_drink_changes() -> None:
+            """Warn when a kind change forks a row, as ``food_drink_id`` hashes name|kind."""
+            if food_drink is None or not existing:
+                return
+            linked_ids = q.select_story_junction(self.conn, story_id, "story_food_drink", "food_drink_id")
+            lines: list[str] = []
+            for entry in food_drink:
+                new_id = food_drink_id(entry.name, entry.kind)
+                superseded = [fid for fid in linked_ids if food_id_to_name.get(fid) == entry.name and fid != new_id]
+                if not superseded:
+                    continue
+                lines.append(f"    ~ {entry.name}: kind -> {entry.kind!r}")
+                lines.append(f"      NEW ROW {superseded[0]} -> {new_id}; the old row is orphaned, not updated")
+            if lines:
+                out.write("  Food & Drink rows:\n")
+                out.write("\n".join(lines) + "\n")
+
+        _show_location_changes()
+        _show_attr_changes(
+            "NPC",
+            npcs,
+            lore_character_id,
+            npc_rows,
+            ("species", "status", "other_characters_story_key"),
+        )
+        _show_attr_changes("Monster", monsters, _monster_id, monster_rows, ("description",))
+        _show_attr_changes("Fauna", fauna, fauna_id_from_name, fauna_rows, ("description",))
+        _show_attr_changes("Flora", flora, flora_id, flora_rows, ("description",))
+
+        def _show_region_changes() -> None:
+            """Report a region's world_of_rathe_story_key being overwritten in place."""
+            if regions is None or not existing:
+                return
+            lines: list[str] = []
+            for entry in regions:
+                rid = region_row_id(entry.name)
+                row = q.select_region_by_id(self.conn, rid)
+                if row is None:
+                    continue
+                incoming = entry.world_of_rathe_story_key or _auto_world_key(entry.name)
+                stored = row["world_of_rathe_story_key"] or ""
+                if not incoming or incoming == stored:
+                    continue
+                lines.append(f"    ~ {entry.name}: world_of_rathe_story_key {stored or '(none)'!r} -> {incoming!r}")
+            if lines:
+                out.write("  Region rows:\n")
+                out.write("\n".join(lines) + "\n")
+
+        _show_food_drink_changes()
+        _show_region_changes()
         _show_links_diff(
             "Regions",
             regions,
