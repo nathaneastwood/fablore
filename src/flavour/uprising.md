@@ -73,6 +73,7 @@ As the insurgency reached a boiling point, even the Volcai monks let their tempe
 "Burn bright or burn out, we burn together." - Fai
 
 #### Sand Cover - (UPR039/040/041)
+<!-- keep: card misprints "insigificant" and "mightest"; corrected to "insignificant" and "mightiest" -->
 A million insignificant grains will choke even the mightiest of dragon - old Volcai proverb
 
 #### Searing Touch - (UPR099)
