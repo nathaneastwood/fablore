@@ -43,10 +43,10 @@
     "summary": "Village.",
     "region": "Solana"
   },
-  "Auis Scale Strongholds": {
+  "Auis Scales Strongholds": {
     "match": [
-      "Aui's Scale Strongholds",
-      "Aui’s Scale Strongholds"
+      "Aui's Scales Strongholds",
+      "Aui’s Scales Strongholds"
     ],
     "type": "location",
     "summary": "Locations where things are concealed from the public.",
@@ -1831,5 +1831,33 @@
     "exclude_pages": [
       "world-of-rathe/aria"
     ]
+  },
+  "Necropolis": {
+    "type": "location",
+    "summary": "Quarter of the Demonastery where its finest morticians turn sepulchral preservation to self-preservation.",
+    "exclude_pages": [
+      "digital-tiles/compendium-of-rathe/compendium-of-rathe"
+    ]
+  },
+  "Boo": {
+    "type": "npc",
+    "summary": "Cheery cabin-boy phantom of the High Seas, who swabs the decks of undead crews and haunts alongside his captain."
+  },
+  "Miragai": {
+    "type": "creature",
+    "summary": "A dragon who called on the spirits of Rain, Wind, River and Mountain to bring harmony back to the Mistveil."
+  },
+  "CaptainBludge": {
+    "type": "npc",
+    "match": "Captain Bludge",
+    "summary": "Deranged sky-pirate who rams airship into airship, terrorising the merchant zeppelins of Piper's Pier."
+  },
+  "Chowder": {
+    "type": "npc",
+    "summary": "Chief cook aboard Gravy Bones' ship, whose Menu de Morbid feeds a crew whose appetites death has changed."
+  },
+  "Thanuella": {
+    "type": "npc",
+    "summary": "Dhani death-mage among whose possessions Dead Threads was found, casting doubt on the necrophage's true purpose."
   }
 }

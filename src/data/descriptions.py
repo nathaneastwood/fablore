@@ -322,7 +322,7 @@ db.update_description(
 db.update_description("location", "Audra", "Village.")
 db.update_description(
     "location",
-    "Aui's Scale Strongholds",
+    "Aui's Scales Strongholds",
     "Locations where things are concealed from the public.",
 )
 db.update_description(
