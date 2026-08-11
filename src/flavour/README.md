@@ -24,7 +24,7 @@ The `flavour-to-page` skill drives the whole process. To do it by hand:
   ```
 
   A kept block is reproduced verbatim, and is still published when upstream records no flavour text for that card at all — which is the only copy of several lines here. Keep the reason specific; it is the whole audit trail.
-* Add any new characters, heroes or locations to the [data files](../data) by registering the page as a story in [`data-entry.py`](../data/data-entry.py).
+* Add any new characters, heroes or locations to the [data files](../data) by registering the page as a story in [`entries/flavour.py`](../data/entries/flavour.py).
 * Add the flavour text file to the [SUMMARY.md](../SUMMARY.md) file, in set release order.
 
 Do **not** add links to first mentions. The `hints` preprocessor detects entities automatically by mention count, and adding markup by hand duplicates it — see the linking rules in [CLAUDE.md](../../CLAUDE.md).

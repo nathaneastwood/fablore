@@ -59,6 +59,17 @@ Lore tables are owned by the `Database` API. Always use it — never edit the `s
 
 ### Register or update a story
 
+Registrations are kept, not thrown away: a story's declaration lives in `src/data/entries/`, one module per story type, and `data-entry.py` runs them.
+
+```bash
+python3 src/data/data-entry.py --only src/main-story/set-name/story-slug.md  # preview one
+python3 src/data/data-entry.py                                               # preview all
+```
+
+Set `dry_run=False` on the declaration and re-run to commit. Pages with nothing to change print nothing; `--verbose` shows them.
+
+The same call ad hoc, when you want a one-off that is not worth keeping:
+
 ```python
 import sys; sys.path.insert(0, "src/data")
 from db import Database, NPCEntry, LocationEntry, NarratedVideoEntry

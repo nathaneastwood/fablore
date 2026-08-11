@@ -46,6 +46,15 @@ db.upsert_story(
 
 **`StoryKey` vs `StoryId`:** `StoryKey` is the repo-relative path to the Markdown file (handy for links and humans). `StoryId` is the stable primary key (`ST` + hash of the path). Every `story-*.csv` edge uses `StoryId` only.
 
+**Where the real calls live.** The snippet above is the ad-hoc form. Registrations that are meant to stick are kept as declarations in `src/data/entries/`, one module per story type, and run by `src/data/data-entry.py`:
+
+```bash
+python3 src/data/data-entry.py --only src/main-story/omens-of-the-third-age/omens-in-the-sky.md
+python3 src/data/data-entry.py                    # every declaration; unchanged ones stay silent
+```
+
+Keeping them means the diff of a declaration is the reviewable record of what a page links to, and re-running is a no-op for anything already applied. `tests/test_data_entry.py` holds the package's invariants: one declaration per story, every declared path still on disk and in `stories.csv`, and each declaration in the module its path implies.
+
 ### Entity linking semantics
 
 | Entity | Input | Identifier |
@@ -300,6 +309,8 @@ All files are under `src/data/csv/` unless noted. Pipe-delimited. Empty fields a
 | `create_heroes_csv.py` | Hero canonical + game + printings; refreshes shared class/talent CSVs |
 | `create_weapons_csv.py` | Weapon canonical + game + printings; refreshes shared class/talent CSVs |
 | `create_equipment_csv.py` | Equipment canonical + game + printings; refreshes shared class/talent CSVs |
+| `data-entry.py` | Runner for the declarations in `entries/`; `--only <path>` filters to one story, unchanged stories print nothing |
+| `entries/` | The story declarations themselves — one module per story type, plus `_runner.py` (the filtering `db` proxy) and `SECTIONS` in `__init__.py` |
 | `create_stories_index.py` | Scans `src/` lore roots, UPSERTs discovered stories into DB, exports all tables to `csv/`. Titles: keep DB value when not the auto stem placeholder; else infer from first H1 or filename. |
 | `db/__init__.py` | Exports `Database`, `StoryRecord`, and all dataclasses (`NPCEntry`, `LocationEntry`, etc.) |
 | `db/_schema.py` | DDL and forward-only migrations (`PRAGMA user_version`) |
@@ -333,7 +344,7 @@ pip install -r requirements-dev.txt
 python3 -m pytest
 ```
 
-This exercises pipe/tab CSV helpers, `Types` parsing, shared class/talent merging (with isolated temp files), hero hashing helpers, registry id helpers, the full `Database` API (in-memory DB fixture), and an integration check that `validate_data.collect_alerts()` returns no issues for the committed datasets.
+This exercises pipe/tab CSV helpers, `Types` parsing, shared class/talent merging (with isolated temp files), hero hashing helpers, registry id helpers, the full `Database` API (in-memory DB fixture), an integration check that `validate_data.collect_alerts()` returns no issues for the committed datasets, and the `src/data/entries/` invariants (`test_data_entry.py`, which parses the declarations with `ast` rather than importing them, so it needs no database).
 
 Isolation: mutating tests use pytest `tmp_path` and `monkeypatch`; they do not write into `src/data/` in the checkout. The `db` fixture uses an in-memory SQLite database and does not seed from CSVs. The `validate_data` integration test only reads the checkout.
 
