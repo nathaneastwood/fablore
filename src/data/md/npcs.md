@@ -46,6 +46,7 @@
 |                  Captain Klow                  |      Human     |                 Unknown                 |
 |                  Captain Moody                 |      Human     |                   Dead                  |
 |                   Captain Rue                  |      Human     |                 Unknown                 |
+|                 Captain Shevez                 |     Unknown    |                 Unknown                 |
 |                Captain Vanegull                |      Human     |                 Unknown                 |
 |                     Caylin                     |      Human     |                   Dead                  |
 |                 Caylin's mother                |      Human     |                   Dead                  |
@@ -123,6 +124,7 @@
 |                       Hog                      |      Human     |                 Unknown                 |
 |                     Huxley                     |      Human     |                 Unknown                 |
 |                     Hyrinth                    |     Diviner    |                 Unknown                 |
+|                Inquisitor Aricia               |     Unknown    |                 Unknown                 |
 |                     Jackdaw                    |      Human     |                 Unknown                 |
 |                     Jeeves                     |      Human     |                 Unknown                 |
 |                     Jemjang                    |      Human     |                   Dead                  |
@@ -159,11 +161,13 @@
 |                 Lord Sutcliffe                 |      Human     |               Just a head               |
 |                Lord Wizard Chiyo               |     Wizard     |                   Dead                  |
 |              Luca, Arena Cicerone              |      Human     |                  Alive                  |
+|             Lucilla the Setting Sun            |     Unknown    |                 Unknown                 |
 |                      Mabon                     |      Human     |                 Unknown                 |
 |                     Mad Siv                    |     Unknown    |                 Unknown                 |
 |                   Madam Rouge                  |      Human     |                   Dead                  |
 |                 Maela Fairmind                 |     Unknown    |                 Unknown                 |
 |                  Maela Isulfv                  |     Unknown    |                 Unknown                 |
+|                  Maela One-eye                 |     Unknown    |                 Unknown                 |
 |                  Maela Sharena                 |     Unknown    |                 Unknown                 |
 |                 Magistrate Chen                |      Human     |                 Unknown                 |
 |               Magnus the Vigilant              |      Human     |                 Unknown                 |
@@ -253,9 +257,11 @@
 |                  Synthea Teklo                 |      Human     |                 Unknown                 |
 |                     Synveri                    |      Human     |                 Unknown                 |
 |                      Taka                      |      Human     |                  Alive                  |
+|               Tasha of Deshvahan               |     Unknown    |                 Unknown                 |
 |                Taskmaster Pyrion               |      Human     |                 Unknown                 |
 |                Templar Timaerus                |      Human     |                 Unknown                 |
 |                     Tetzuo                     |      Human     |                  Alive                  |
+|                   The Bastion                  |     Unknown    |                 Unknown                 |
 |                  The Harvester                 |      Human     |                 Unknown                 |
 |                  The Librarian                 |     Unknown    |                 Unknown                 |
 |          Thebasto, Magister of Defense         |      Human     |                  Alive                  |
@@ -272,6 +278,7 @@
 |                Vail the Vagrant                |      Human     |                 Unknown                 |
 |                     Valeria                    |      Human     |                 Unknown                 |
 |                Valgard Hoarfrost               |      Human     |                 Unknown                 |
+|                Vanik Silvertooth               |     Unknown    |                 Unknown                 |
 |                      Vera                      |      Human     |                 Unknown                 |
 |         Victoria, Archangel of Triumph         |     Herald     |                 Unknown                 |
 |                Vidya Willowmere                |     Unknown    |                 Unknown                 |

@@ -59,6 +59,17 @@ command = "python3 src/data/mdbook_sets_hub.py"
 command = "python3 src/data/mdbook_child_hub.py"
 
 [output.html.redirect]
+# Armory decks and mastery packs used to share one folder per product line; each
+# release now has its own arc folder so it can carry its upstream SetId.
+'/main-story/armory-decks/battle-of-isenloft.html' = '/main-story/armory-deck-jarl-vetreidi/battle-of-isenloft.html'
+'/main-story/armory-decks/boom-town-boom.html' = '/main-story/armory-deck-maxx/boom-town-boom.html'
+'/main-story/mastery-packs/trouble-in-larinkmorth.html' = '/main-story/mastery-pack-guardian/trouble-in-larinkmorth.html'
+'/short-stories/armory-decks/arakni-5l!p3d-7hru-7h3-cr4x.html' = '/short-stories/armory-deck-arakni/arakni-5l!p3d-7hru-7h3-cr4x.html'
+'/short-stories/armory-decks/gravy-bones.html' = '/short-stories/armory-deck-gravy-bones/gravy-bones.html'
+'/short-stories/armory-decks/hala.html' = '/short-stories/armory-deck-hala/hala.html'
+'/short-stories/armory-decks/pleiades.html' = '/short-stories/armory-deck-pleiades/pleiades.html'
+'/short-stories/armory-decks/rhinar.html' = '/short-stories/armory-deck-rhinar/rhinar.html'
+
 '/digital-tiles/03-crucible-of-war/crucible-of-war.html' = '/digital-tiles/crucible-of-war/crucible-of-war.html'
 '/digital-tiles/04-monarch/monarch.html' = '/digital-tiles/monarch/monarch.html'
 '/digital-tiles/05-tales-of-aria/tales-of-aria.html' = '/digital-tiles/tales-of-aria/tales-of-aria.html'

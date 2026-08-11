@@ -1,9 +1,9 @@
 # AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Database class in src/data/db/ (db.upsert_story / db.remove_story).
 StoryId|MonsterId
 ST12965e28e6|MO3291e92a32
-ST29f68100b8|MO2a2d40f91a
-ST29f68100b8|MO3291e92a32
 ST5345dee53e|MOf007e46f72
 ST60b0d7f178|MOf007e46f72
 ST9e98b2b0c6|MO57d9d8abd5
+STa2e78754c3|MO2a2d40f91a
+STa2e78754c3|MO3291e92a32
 STf92196ff1e|MOc83c91fa43

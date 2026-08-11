@@ -738,6 +738,69 @@ db.upsert_story(
     dry_run=True,
 )
 
+db.upsert_story(
+    path="src/flavour/mastery-pack-guardian.md",
+    story_type="flavour",
+    title="Mastery Pack Guardian",
+    heroes=["fai", "valda"],
+    npcs=[
+        # Already curated — named here only to link them to this page. Species and
+        # status are left empty so the existing curated values are preserved.
+        # MPG029 prints "Archangel Aegis"; that is a new epithet for the Herald of
+        # Protection already registered under her Monarch title, not a new character.
+        NPCEntry(name="Aegis, the Shield of Light"),
+        # New with this set. Species is unattested in the flavour text, so it is
+        # left to default to "Unknown" rather than being guessed.
+        NPCEntry(name="Maela One-eye"),
+    ],
+    locations=[
+        LocationEntry("Anvilheim"),
+        LocationEntry("The Everfest Carnival", region="Aria"),
+    ],
+    regions=[
+        RegionEntry("Aria"),
+    ],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/flavour/mastery-pack-warrior.md",
+    story_type="flavour",
+    title="Mastery Pack Warrior",
+    npcs=[
+        # Already curated — named here only to link them to this page.
+        # MPW048 prints "Lieutenant Farris"; Pride of the Ironsongs introduces the
+        # same Solanian lieutenant on the same Savage Lands frontier.
+        NPCEntry(name="Farris"),
+        NPCEntry(name="Fightmaster Kox"),
+        NPCEntry(name="Fightmaster Rusty"),
+        NPCEntry(name="Lieutenant Timaeus"),
+        # New with this set. Species is unattested in the flavour text.
+        NPCEntry(name="Captain Shevez"),
+        NPCEntry(name="Inquisitor Aricia"),
+        NPCEntry(name="Lucilla the Setting Sun"),
+        NPCEntry(name="Tasha of Deshvahan"),
+        NPCEntry(name="The Bastion"),
+        NPCEntry(name="Vanik Silvertooth"),
+    ],
+    locations=[
+        LocationEntry("Dawnhaven"),
+        LocationEntry("Deshvahan", region="Volcor"),
+        LocationEntry("Fiddler's Green", region="High Seas"),
+        LocationEntry("Neelasha"),
+        LocationEntry("Octomilitia", region="Solana"),
+        LocationEntry("Solarium", region="Solana"),
+        LocationEntry("Valahai", region="Aria"),
+    ],
+    regions=[
+        RegionEntry("Demonastery"),
+        RegionEntry("Solana"),
+        RegionEntry("The Savage Lands"),
+        RegionEntry("Volcor"),
+    ],
+    dry_run=True,
+)
+
 # -------------------------------------------------------------------------------------------------------------------- #
 # Digital Tiles
 # -------------------------------------------------------------------------------------------------------------------- #

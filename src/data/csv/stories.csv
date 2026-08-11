@@ -122,6 +122,8 @@ ST7e4248048e|flavour/everfest.md|flavour|Everfest|||||
 STa01d80c895|flavour/heavy-hitters.md|flavour|Heavy Hitters|||||
 ST5111f3b91c|flavour/high-seas.md|flavour|High Seas|||||
 STbc8fc54740|flavour/intro.md|flavour|Flavour Text|||||
+ST8cb6453bc8|flavour/mastery-pack-guardian.md|flavour|Mastery Pack Guardian|||||
+STbfc99f23f5|flavour/mastery-pack-warrior.md|flavour|Mastery Pack Warrior|||||
 ST1d89a2857a|flavour/monarch.md|flavour|Monarch|||||
 STcfba23bda0|flavour/non-set-cards.md|flavour|Non-Set Cards|||||
 STa7e1abd2d2|flavour/omens-of-the-third-age.md|flavour|Omens of the Third Age|||||
@@ -214,8 +216,8 @@ ST7c15c44248|main-story/arcane-rising/return-of-the-shadow.md|main-story|Return 
 ST60b0d7f178|main-story/arcane-rising/slings-and-arrows.md|main-story|Slings and Arrows|||https://fabtcg.com/hero/azalea/story/slings-and-arrows/||
 STc51bf69e33|main-story/arcane-rising/smoke-and-mirrors.md|main-story|Smoke and Mirrors|||https://fabtcg.com/hero/kano/story/smoke-and-mirrors/||
 STae3f78f52b|main-story/arcane-rising/stroke-of-genius.md|main-story|Stroke of Genius|||https://fabtcg.com/hero/dash/story/stroke-of-genius/||
-ST29f68100b8|main-story/armory-decks/battle-of-isenloft.md|main-story|Battle of Isenloft|||https://fabtcg.com/articles/battle-of-isenloft/|2024-11-21|
-STcfb15cb5b4|main-story/armory-decks/boom-town-boom.md|main-story|Boom Town Boom|||https://fabtcg.com/articles/boom-town-boom/|2025-04-17|
+STa2e78754c3|main-story/armory-deck-jarl-vetreidi/battle-of-isenloft.md|main-story|Battle of Isenloft|||https://fabtcg.com/articles/battle-of-isenloft/|2024-11-21|
+ST76b6e8445e|main-story/armory-deck-maxx/boom-town-boom.md|main-story|Boom Town Boom|||https://fabtcg.com/articles/boom-town-boom/|2025-04-17|
 ST3427b5855e|main-story/bright-lights/P̸͍̬̭̭̺͉̣̌̐̾̌͆̚r̴͔͍͐ȯ̴̤̰͠t̵̰̘͑õ̶͍͇c̶̟͒o̶̪̳͋l̶̗̑ ̴̮̓͘A̴̞̗͆ṗ̷̢͕̈́ē̵͍̿ŕ̶̩́ḭ̴̧͐͂o̸͙̖̐͘n̴̞̺͋.md|main-story|P̸͍̬̭̭̺͉̣̌̐̾̌͆̚r̴͔͍͐ȯ̴̤̰͠t̵̰̘͑õ̶͍͇c̶̟͒o̶̪̳͋l̶̗̑ ̴̮̓͘A̴̞̗͆ṗ̷̢͕̈́ē̵͍̿ŕ̶̩́ḭ̴̧͐͂o̸͙̖̐͘n̴̞̺͋|Edwin McRae, Rachel Rees|Sam Yang|https://fabtcg.com/articles/aperion-protocol/|2023-09-24|
 ST8fdf4cc8f4|main-story/bright-lights/synthetic-futures.md|main-story|Synthetic Futures|Edwin McRae, Rachel Rees|Sam Yang|https://fabtcg.com/articles/synthetic-futures/|2023-09-22|
 ST0d81b8848e|main-story/bright-lights/system-failure.md|main-story|System Failure|Edwin McRae, Rachel Rees|Sam Yang|https://fabtcg.com/articles/system-failure/|2023-09-22|
@@ -244,7 +246,7 @@ ST52edf826d3|main-story/high-seas/a-kraken-good-tale.md|main-story|A Kraken Good
 ST3fd6d760ad|main-story/high-seas/captain-bones-and-the-city-of-gold.md|main-story|Captain Bones and the City of Gold|Robbie Wen, Edwin McRae, Rachel Rees, Alan Baxter||https://fabtcg.com/articles/captain-bones-and-the-city-of-gold/|2025-06-02|
 STd7f10fc996|main-story/high-seas/the-lost-treasure-of-blackwater-strait.md|main-story|The Lost Treasure of Blackwater Strait|Robbie Wen, Edwin McRae, Rachel Rees, Bonnie Harris-Lowe, Joyce Chng, Ryan McIntyre||https://fabtcg.com/articles/the-lost-treasure-of-blackwater-strait/|2025-06-04|
 ST3245bf055a|main-story/interlude/morlock-hill.md|main-story|Morlock Hill|Kasharn Rao, Edwin McRae|Nikolay Moskvin|https://fabtcg.com/articles/morlock-hill/|2022-04-11|
-STef6d8b9d21|main-story/mastery-packs/trouble-in-larinkmorth.md|main-story|Trouble in Larinkmorth|Robbie Wen, Edwin McRae, Ryan McIntyre, Rachel Rees, Michael Coorlim, Melissa Ren||https://fabtcg.com/articles/trouble-in-larinkmorth/|2025-08-06|
+ST571a944d20|main-story/mastery-pack-guardian/trouble-in-larinkmorth.md|main-story|Trouble in Larinkmorth|Robbie Wen, Edwin McRae, Ryan McIntyre, Rachel Rees, Michael Coorlim, Melissa Ren||https://fabtcg.com/articles/trouble-in-larinkmorth/|2025-08-06|
 STd0eed28b5a|main-story/monarch/destroy-and-consume.md|main-story|Destroy and Consume|Nicola Price, Tarryn Thomas|Iain Miki|https://fabtcg.com/hero/levia/story/levia-story-destroy-and-consume/||
 ST6da0eff435|main-story/monarch/emissary-of-the-void.md|main-story|Emissary of the Void|Nicola Price, Tarryn Thomas|Nikolay Moskvin|https://fabtcg.com/hero/chane/story/chane-story/||
 ST1fb1cce30b|main-story/monarch/harbinger-of-the-abyss.md|main-story|Harbinger of the Abyss|Nicola Price, Tarryn Thomas|Nikolay Moskvin|https://fabtcg.com/articles/harbinger-abyss/|2021-04-15|
@@ -298,12 +300,12 @@ ST54662de240|other-characters/lord-sutcliffe.md|other-characters|Lord Sutcliffe|
 ST8d4bbe4211|other-characters/minerva-themis.md|other-characters|Minerva Themis|Nicola Price, Tarryn Thomas|Mihail Spil-Haufter|https://fabtcg.com/articles/minerva-themis/|2021-05-17|
 STee09244564|other-characters/the-librarian.md|other-characters|The Librarian|Nicola Price, Tarryn Thomas|Federico Musetti|https://fabtcg.com/articles/librarian/|2021-05-24|
 STc229de8e9b|short-stories/README.md|short-stories|Short Stories|||||
-STb7257a80ec|short-stories/armory-decks/arakni-5l!p3d-7hru-7h3-cr4x.md|short-stories|5l!p 7hru 7h3 Cr4x 4nd Unh!ng3 Your V!c7!m|||||
+ST0823427921|short-stories/armory-deck-arakni/arakni-5l!p3d-7hru-7h3-cr4x.md|short-stories|5l!p 7hru 7h3 Cr4x 4nd Unh!ng3 Your V!c7!m|||||
+STe2357105b0|short-stories/armory-deck-gravy-bones/gravy-bones.md|short-stories|Rise From The Depths And Terrorize The High Seas|||||
+ST38b9858df9|short-stories/armory-deck-hala/hala.md|short-stories|Armory Deck Origins: Hala|||||
+STcb3e6b522b|short-stories/armory-deck-pleiades/pleiades.md|short-stories|Build The Arena Atmosphere Like A Superstar!|||||
+STe6700864f2|short-stories/armory-deck-rhinar/rhinar.md|short-stories|Reclaim Your Territory! Rip Your Foes Apart!|||||
 ST0f1bee1830|short-stories/armory-decks/armory-decks.md|short-stories|Armory Decks|||||
-ST59c70f6bb8|short-stories/armory-decks/gravy-bones.md|short-stories|Rise From The Depths And Terrorize The High Seas|||||
-ST6ee58af2d5|short-stories/armory-decks/hala.md|short-stories|Armory Deck Origins: Hala|||||
-ST2bc83525dd|short-stories/armory-decks/pleiades.md|short-stories|Build The Arena Atmosphere Like A Superstar!|||||
-ST38ed2092b2|short-stories/armory-decks/rhinar.md|short-stories|Reclaim Your Territory! Rip Your Foes Apart!|||||
 ST18110febb8|short-stories/bright-lights/bright-lights.md|short-stories|Bright Lights|||||
 STeda068b535|short-stories/bright-lights/dash-through-data.md|short-stories|Dash Through Data|||||
 STea0d4cea09|short-stories/bright-lights/maxx-imum-hype.md|short-stories|Maxx-imum Hype|||||
