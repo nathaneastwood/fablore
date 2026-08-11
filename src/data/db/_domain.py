@@ -213,6 +213,7 @@ class Database:
     ) -> None:
         self._path = Path(path)
         self._data_dir = data_dir or DATA
+        self._last_dry_run_changed = False
         self.conn = open_db(self._path)
         # Auto-seed when the database is empty, or when a migration has emptied a
         # derived game-data table that only the CSVs can repopulate (migration 7
@@ -240,6 +241,7 @@ class Database:
         db = cls.__new__(cls)
         db._path = Path(path)
         db._data_dir = data_dir or DATA
+        db._last_dry_run_changed = False
         db.conn = open_db(db._path)
         seed_from_csvs(db.conn, db._data_dir)
         return db
@@ -333,6 +335,17 @@ class Database:
     # ------------------------------------------------------------------
     # Story management
     # ------------------------------------------------------------------
+
+    @property
+    def last_dry_run_changed(self) -> bool:
+        """Whether the most recent ``upsert_story(dry_run=True)`` found a change.
+
+        Set on every dry run, and never by a real write. A caller replaying many
+        declarations reads it to decide whether the preview it just captured is
+        worth showing — the preview text alone cannot be distinguished from a
+        no-op without parsing it.
+        """
+        return self._last_dry_run_changed
 
     def upsert_story(
         self,
@@ -1068,6 +1081,12 @@ class Database:
         existing = q.select_story_by_key(self.conn, story_key)
         op = "UPDATE" if existing else "INSERT"
 
+        # Recorded on the instance as last_dry_run_changed so a caller running
+        # many declarations can tell a real diff from a no-op and stay silent
+        # about the rest. An INSERT is a change by definition.
+        changed = not existing
+        self._last_dry_run_changed = changed
+
         out.write(f"DRY RUN — {op} story\n")
         out.write(f"  StoryKey: {story_key}\n")
         out.write(f"  StoryId:  {story_id}\n")
@@ -1096,9 +1115,11 @@ class Database:
                 else:
                     added.append(f"    + {label}: {new_val!r}  (was: {old_val!r})")
             if added:
+                changed = True
                 out.write("  Added / changed:\n")
                 out.write("\n".join(added) + "\n")
             if removed:
+                changed = True
                 out.write("  Cleared:\n")
                 out.write("\n".join(removed) + "\n")
             if not added and not removed:
@@ -1118,6 +1139,7 @@ class Database:
                 else []
             )
             if incoming_videos != stored_videos:
+                changed = True
                 out.write("  NarratedVideos:\n")
                 for author, link in stored_videos:
                     if (author, link) not in incoming_videos:
@@ -1156,6 +1178,7 @@ class Database:
             junction_id_col: str,
             id_to_name: dict[str, str],
         ) -> None:
+            nonlocal changed
             if incoming is None:
                 return  # None = leave unchanged
             incoming_set = set(incoming_names)
@@ -1165,6 +1188,7 @@ class Database:
                 link_added = sorted(incoming_set - existing_set)
                 link_removed = sorted(existing_set - incoming_set)
                 if link_added or link_removed:
+                    changed = True
                     out.write(f"  {label}:\n")
                     for name in link_added:
                         out.write(f"    + {name}\n")
@@ -1205,6 +1229,7 @@ class Database:
                 else:
                     frag_lines.append(f"    ~ {slug}: fragment {was!r} -> {now!r}")
             if frag_lines:
+                changed = True
                 out.write("  Hero fragments:\n")
                 out.write("\n".join(frag_lines) + "\n")
         elif hero_fragments:
@@ -1235,6 +1260,7 @@ class Database:
             which are identical before and after, so it stays silent. Without
             this block the preview shows a clean no-op for a row-orphaning change.
             """
+            nonlocal changed
             if locations is None or not existing:
                 return
             linked_ids = q.select_story_junction(self.conn, story_id, "story_locations", "location_id")
@@ -1267,6 +1293,7 @@ class Database:
                         continue
                     lines.append(f"    ~ {entry.name}: {field} {stored or '(none)'!r} -> {incoming!r}")
             if lines:
+                changed = True
                 out.write("  Location rows:\n")
                 out.write("\n".join(lines) + "\n")
 
@@ -1284,6 +1311,7 @@ class Database:
             clear would be a false alarm, which trains the reader to skim past
             the section — so only a non-empty, differing value is shown.
             """
+            nonlocal changed
             if entries is None or not existing:
                 return
             lines: list[str] = []
@@ -1298,11 +1326,13 @@ class Database:
                         continue
                     lines.append(f"    ~ {entry.name}: {field} {stored or '(none)'!r} -> {incoming!r}")
             if lines:
+                changed = True
                 out.write(f"  {label} rows:\n")
                 out.write("\n".join(lines) + "\n")
 
         def _show_food_drink_changes() -> None:
             """Warn when a kind change forks a row, as ``food_drink_id`` hashes name|kind."""
+            nonlocal changed
             if food_drink is None or not existing:
                 return
             linked_ids = q.select_story_junction(self.conn, story_id, "story_food_drink", "food_drink_id")
@@ -1315,6 +1345,7 @@ class Database:
                 lines.append(f"    ~ {entry.name}: kind -> {entry.kind!r}")
                 lines.append(f"      NEW ROW {superseded[0]} -> {new_id}; the old row is orphaned, not updated")
             if lines:
+                changed = True
                 out.write("  Food & Drink rows:\n")
                 out.write("\n".join(lines) + "\n")
 
@@ -1332,6 +1363,7 @@ class Database:
 
         def _show_region_changes() -> None:
             """Report a region's world_of_rathe_story_key being overwritten in place."""
+            nonlocal changed
             if regions is None or not existing:
                 return
             lines: list[str] = []
@@ -1346,6 +1378,7 @@ class Database:
                     continue
                 lines.append(f"    ~ {entry.name}: world_of_rathe_story_key {stored or '(none)'!r} -> {incoming!r}")
             if lines:
+                changed = True
                 out.write("  Region rows:\n")
                 out.write("\n".join(lines) + "\n")
 
@@ -1408,6 +1441,7 @@ class Database:
             equip_id_to_slug,
         )
 
+        self._last_dry_run_changed = changed
         out.write("\n(no changes written)\n")
 
         # Return a StoryRecord reflecting the would-be state
