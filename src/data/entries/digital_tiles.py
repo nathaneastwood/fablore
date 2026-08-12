@@ -17,12 +17,17 @@ from db import (  # noqa: F401
     FaunaEntry,
     FloraEntry,
     FoodDrinkEntry,
-    LocationEntry,
     MonsterEntry,
     NarratedVideoEntry,
-    NPCEntry,
-    RegionEntry,
 )
+
+# NPCs, locations and regions are referenced, never constructed. Their ids are
+# hashes of the fields written at the call site, so a second literal for the same
+# entity competes with the first row instead of reusing it — that is how
+# "The Shadow Crypts" became two rows. The canonical definition of each lives
+# in entries/catalogue/; the three names are deliberately not imported above, so
+# writing LocationEntry(...) here is a NameError rather than a silent new row.
+from entries.catalogue import locations as loc, npcs as npc, regions as reg  # noqa: F401
 from entries._runner import db
 
 db.upsert_story(
@@ -33,21 +38,21 @@ db.upsert_story(
     npcs=[
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        NPCEntry(name="Maela Isulfv"),
-        NPCEntry(name="Yvor"),
+        npc.MAELA_ISULFV,
+        npc.YVOR,
         # New with this set.
-        NPCEntry(name="Karl"),
+        npc.KARL,
     ],
     locations=[
-        LocationEntry("Astral Bridge", region="Nebulus Rift", lore_fragment="astral-bridge"),
-        LocationEntry("Auric Keep", region="Nebulus Rift", lore_fragment="auric-keep"),
-        LocationEntry("Enion", region="Aria", lore_fragment="enion"),
-        LocationEntry("Valahai", region="Aria", lore_fragment="valahai"),
-        LocationEntry("i'Arathael"),
+        loc.ASTRAL_BRIDGE,
+        loc.AURIC_KEEP,
+        loc.ENION,
+        loc.VALAHAI,
+        loc.I_ARATHAEL,
     ],
     regions=[
-        RegionEntry("Aria"),
-        RegionEntry("Nebulus Rift"),
+        reg.ARIA,
+        reg.NEBULUS_RIFT,
     ],
     dry_run=True,
 )
@@ -61,16 +66,16 @@ db.upsert_story(
     heroes=["dash", "teklovossen"],
     hero_fragments={"dash": "dash-io", "teklovossen": "fabricate"},
     locations=[
-        LocationEntry("Cogwerx Conglomerate", region="Metrix", lore_fragment="cogwerx-conglomerate"),
+        loc.COGWERX_CONGLOMERATE,
         # New with this set. The realm of data made manifest, reached through Teklo's
         # Data Link — named on the main-story and flavour pages for this set too.
-        LocationEntry("Eidolon", region="Metrix"),
-        LocationEntry("Iron Assembly", region="Metrix", lore_fragment="iron-assembly"),
-        LocationEntry("Lowlake", region="Metrix"),
-        LocationEntry("Teklo Industries", region="Metrix", lore_fragment="teklo-industries"),
+        loc.EIDOLON,
+        loc.IRON_ASSEMBLY,
+        loc.LOWLAKE,
+        loc.TEKLO_INDUSTRIES,
     ],
     regions=[
-        RegionEntry("Metrix"),
+        reg.METRIX,
     ],
     equipment=["cogwerx-base-head", "evo-command-center", "evo-data-mine"],
     dry_run=True,
@@ -85,27 +90,27 @@ db.upsert_story(
     npcs=[
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        NPCEntry(name="Bellona, the Wartune Herald"),
-        NPCEntry(name="Sol"),
+        npc.BELLONA_THE_WARTUNE_HERALD,
+        npc.SOL,
         # New with this set. Species is unattested in the flavour text, so it is
         # left to default to "Unknown" rather than being guessed.
-        NPCEntry(name="Boo"),
+        npc.BOO,
         # A dragon, not a person — there is no dragons table, so it is carried
         # as an NPC row and relabelled to "creature" in hints_supplement.json.
-        NPCEntry(name="Miragai", species="Dragon"),
+        npc.MIRAGAI,
     ],
     locations=[
-        LocationEntry("Demonastery", region="Demonastery"),
+        loc.DEMONASTERY,
         # New with this set. The Demonastery's mortuary quarter.
-        LocationEntry("Necropolis", region="Demonastery"),
-        LocationEntry("The Awakening Ceremony", region="Solana", lore_fragment="the-awakening-ceremony"),
+        loc.NECROPOLIS,
+        loc.THE_AWAKENING_CEREMONY,
     ],
     regions=[
-        RegionEntry("Demonastery"),
-        RegionEntry("High Seas"),
-        RegionEntry("Misteria"),
-        RegionEntry("Solana"),
-        RegionEntry("Volcor"),
+        reg.DEMONASTERY,
+        reg.HIGH_SEAS,
+        reg.MISTERIA,
+        reg.SOLANA,
+        reg.VOLCOR,
     ],
     weapons=["dawnblade"],
     dry_run=True,
@@ -125,33 +130,33 @@ db.upsert_story(
     npcs=[
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        NPCEntry(name="General Ekoda"),
-        NPCEntry(name="Lord Sabuto"),
-        NPCEntry(name="Lord Sutcliffe"),
-        NPCEntry(name="Magnus the Vigilant"),
-        NPCEntry(name="Sol"),
-        NPCEntry(name="Theodore Hamilton Scarborough"),
-        NPCEntry(name="Írunaméabh"),
+        npc.GENERAL_EKODA,
+        npc.LORD_SABUTO,
+        npc.LORD_SUTCLIFFE,
+        npc.MAGNUS_THE_VIGILANT,
+        npc.SOL,
+        npc.THEODORE_HAMILTON_SCARBOROUGH,
+        npc.IRUNAMEABH,
     ],
     locations=[
-        LocationEntry("Anvilheim"),
-        LocationEntry("Imperial Palace", region="Volcor", lore_fragment="the-royal-court"),
-        LocationEntry("Mugenshi Gorge", region="Misteria", lore_fragment="mugenshi-gorge"),
-        LocationEntry("The Badlands", region="Volcor"),
-        LocationEntry("The Broken Chariot Tavern"),
-        LocationEntry("The Golden Fields", region="Solana"),
-        LocationEntry("Zancaro", region="Volcor"),
-        LocationEntry("i'Arathael"),
+        loc.ANVILHEIM,
+        loc.IMPERIAL_PALACE,
+        loc.MUGENSHI_GORGE,
+        loc.THE_BADLANDS,
+        loc.THE_BROKEN_CHARIOT_TAVERN,
+        loc.THE_GOLDEN_FIELDS,
+        loc.ZANCARO,
+        loc.I_ARATHAEL,
     ],
     regions=[
-        RegionEntry("Aria"),
-        RegionEntry("Demonastery"),
-        RegionEntry("Metrix"),
-        RegionEntry("Misteria"),
-        RegionEntry("Solana"),
-        RegionEntry("The Pits"),
-        RegionEntry("The Savage Lands"),
-        RegionEntry("Volcor"),
+        reg.ARIA,
+        reg.DEMONASTERY,
+        reg.METRIX,
+        reg.MISTERIA,
+        reg.SOLANA,
+        reg.THE_PITS,
+        reg.THE_SAVAGE_LANDS,
+        reg.VOLCOR,
     ],
     fauna=[
         FaunaEntry(name="Azeri"),
@@ -189,27 +194,27 @@ db.upsert_story(
     npcs=[
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        NPCEntry(name="Jezabelle, Everfest Healer and Allsorts"),
-        NPCEntry(name="Lord Sutcliffe"),
-        NPCEntry(name="Sol"),
+        npc.JEZABELLE_EVERFEST_HEALER_AND_ALLSORTS,
+        npc.LORD_SUTCLIFFE,
+        npc.SOL,
     ],
     locations=[
-        LocationEntry("Demonastery", region="Demonastery"),
-        LocationEntry("Isenloft", region="Aria"),
-        LocationEntry("Skylark Peak", region="Misteria"),
-        LocationEntry("The Badlands", region="Volcor"),
-        LocationEntry("The Everfest Carnival", region="Aria", lore_fragment="the-everfest-carnival"),
-        LocationEntry("The Golden Gnome", region="Aria"),
-        LocationEntry("i'Arathael"),
+        loc.DEMONASTERY,
+        loc.ISENLOFT,
+        loc.SKYLARK_PEAK,
+        loc.THE_BADLANDS,
+        loc.THE_EVERFEST_CARNIVAL,
+        loc.THE_GOLDEN_GNOME,
+        loc.I_ARATHAEL,
     ],
     regions=[
-        RegionEntry("Aria"),
-        RegionEntry("Demonastery"),
-        RegionEntry("Metrix"),
-        RegionEntry("Misteria"),
-        RegionEntry("The Pits"),
-        RegionEntry("The Savage Lands"),
-        RegionEntry("Volcor"),
+        reg.ARIA,
+        reg.DEMONASTERY,
+        reg.METRIX,
+        reg.MISTERIA,
+        reg.THE_PITS,
+        reg.THE_SAVAGE_LANDS,
+        reg.VOLCOR,
     ],
     fauna=[
         FaunaEntry(name="Kaie'o"),
@@ -244,12 +249,12 @@ db.upsert_story(
     npcs=[
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        NPCEntry(name="Demetrios"),
+        npc.DEMETRIOS,
     ],
     locations=[
         # New, though it is named on eleven other pages already. Region is left
         # blank to match its siblings (The Moat, The Undercroft, Arena Barracks).
-        LocationEntry("Deathmatch Arena"),
+        loc.DEATHMATCH_ARENA,
     ],
     equipment=["aurum-aegis", "gauntlets-of-iron-will", "hood-of-red-sand"],
     dry_run=True,
@@ -263,23 +268,23 @@ db.upsert_story(
     npcs=[
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        NPCEntry(name="Kelpie"),
-        NPCEntry(name="Moray Le Fay"),
-        NPCEntry(name="Scooba"),
-        NPCEntry(name="Swabbie"),
+        npc.KELPIE,
+        npc.MORAY_LE_FAY,
+        npc.SCOOBA,
+        npc.SWABBIE,
         # New with this set.
-        NPCEntry(name="Captain Bludge"),
-        NPCEntry(name="Chowder", species="Zombie"),
+        npc.CAPTAIN_BLUDGE,
+        npc.CHOWDER,
         # "Dhani death-mage" — Dhani is the culture, not a species, so species is
         # left to default to "Unknown".
-        NPCEntry(name="Thanuella"),
+        npc.THANUELLA,
     ],
     locations=[
-        LocationEntry("Dreadfall Reach", region="High Seas"),
-        LocationEntry("Piper's Pier", region="High Seas"),
+        loc.DREADFALL_REACH,
+        loc.PIPER_S_PIER,
     ],
     regions=[
-        RegionEntry("High Seas"),
+        reg.HIGH_SEAS,
     ],
     monsters=[
         MonsterEntry(name="Necrophage"),
@@ -303,20 +308,20 @@ db.upsert_story(
     npcs=[
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        NPCEntry(name="Blasmophet"),
-        NPCEntry(name="Sol"),
-        NPCEntry(name="Ursur"),
+        npc.BLASMOPHET,
+        npc.SOL,
+        npc.URSUR,
     ],
     locations=[
-        LocationEntry("Blasmophet's Domain", region="Demonastery"),
-        LocationEntry("Solana", region="Solana"),
-        LocationEntry("The Golden Fields", region="Solana"),
-        LocationEntry("The Northern Realms", region="Solana", lore_fragment="the-northern-realms"),
-        LocationEntry("i'Arathael"),
+        loc.BLASMOPHET_S_DOMAIN,
+        loc.SOLANA,
+        loc.THE_GOLDEN_FIELDS,
+        loc.THE_NORTHERN_REALMS,
+        loc.I_ARATHAEL,
     ],
     regions=[
-        RegionEntry("Demonastery"),
-        RegionEntry("Solana"),
+        reg.DEMONASTERY,
+        reg.SOLANA,
     ],
     weapons=["galaxxi-black"],
     equipment=["aether-ironweave"],
@@ -332,26 +337,26 @@ db.upsert_story(
     npcs=[
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        NPCEntry(name="Dan Lu, Kotori Galewarden"),
-        NPCEntry(name="Kazuo"),
-        NPCEntry(name="Kouki"),
-        NPCEntry(name="Master Udo"),
-        NPCEntry(name="Shio"),
-        NPCEntry(name="Xin"),
+        npc.DAN_LU_KOTORI_GALEWARDEN,
+        npc.KAZUO,
+        npc.KOUKI,
+        npc.MASTER_UDO,
+        npc.SHIO,
+        npc.XIN,
     ],
     locations=[
         # Spelled to match the live row that Wanderings in the Mists registers.
         # "Aui's Scale Strongholds" is an unlinked duplicate awaiting deletion.
-        LocationEntry("Aui's Scales Strongholds", region="Misteria"),
-        LocationEntry("Kirohime Gate", region="Misteria"),
-        LocationEntry("Mistcloak Gully", region="Misteria", lore_fragment="mistcloak-gully"),
+        loc.AUI_S_SCALES_STRONGHOLDS,
+        loc.KIROHIME_GATE,
+        loc.MISTCLOAK_GULLY,
         # Murky Water's "Butcher" is the hero Riptide; deliberately not linked, as
         # the tile never names him and the DB holds two unrelated Butcher NPCs.
-        LocationEntry("Seethe", region="The Pits"),
+        loc.SEETHE,
     ],
     regions=[
-        RegionEntry("Misteria"),
-        RegionEntry("The Pits"),
+        reg.MISTERIA,
+        reg.THE_PITS,
     ],
     dry_run=True,
 )
@@ -365,19 +370,19 @@ db.upsert_story(
     npcs=[
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        NPCEntry(name="Davnir"),
-        NPCEntry(name="Queen of Candlehold"),
-        NPCEntry(name="Yvor"),
+        npc.DAVNIR,
+        npc.QUEEN_OF_CANDLEHOLD,
+        npc.YVOR,
     ],
     locations=[
-        LocationEntry("Anvilheim"),
-        LocationEntry("Candlehold", region="Aria", lore_fragment="candlehold"),
-        LocationEntry("Enion", region="Aria", lore_fragment="enion"),
-        LocationEntry("Rotwood", region="Aria"),
-        LocationEntry("Valahai", region="Aria", lore_fragment="valahai"),
+        loc.ANVILHEIM,
+        loc.CANDLEHOLD,
+        loc.ENION,
+        loc.ROTWOOD,
+        loc.VALAHAI,
     ],
     regions=[
-        RegionEntry("Aria"),
+        reg.ARIA,
     ],
     weapons=[
         "rotwood-reaper",
@@ -396,19 +401,19 @@ db.upsert_story(
     npcs=[
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        NPCEntry(name="Davnir"),
-        NPCEntry(name="Queen of Candlehold"),
-        NPCEntry(name="Yvor"),
+        npc.DAVNIR,
+        npc.QUEEN_OF_CANDLEHOLD,
+        npc.YVOR,
     ],
     locations=[
-        LocationEntry("Candlehold", region="Aria", lore_fragment="candlehold"),
-        LocationEntry("Isenloft", region="Aria"),
-        LocationEntry("Mount Heroic", region="Aria"),
-        LocationEntry("Mt. Isen", region="Aria", lore_fragment="mount-isen"),
-        LocationEntry("Volthaven", region="Aria", lore_fragment="enion"),
+        loc.CANDLEHOLD,
+        loc.ISENLOFT,
+        loc.MOUNT_HEROIC,
+        loc.MT_ISEN,
+        loc.VOLTHAVEN,
     ],
     regions=[
-        RegionEntry("Aria"),
+        reg.ARIA,
     ],
     dry_run=True,
 )
@@ -423,16 +428,16 @@ db.upsert_story(
     npcs=[
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        NPCEntry(name="Dr. Krest Mortimer, 'The Fixer'"),
+        npc.DR_KREST_MORTIMER_THE_FIXER,
     ],
     locations=[
-        LocationEntry("Ashvahan", region="Volcor"),
-        LocationEntry("Deshvahan", region="Volcor", lore_fragment="deshvahan"),
-        LocationEntry("Skein", region="The Pits"),
+        loc.ASHVAHAN,
+        loc.DESHVAHAN,
+        loc.SKEIN,
     ],
     regions=[
-        RegionEntry("The Pits"),
-        RegionEntry("Volcor"),
+        reg.THE_PITS,
+        reg.VOLCOR,
     ],
     weapons=["graphene-chelicera", "mark-of-the-huntsman"],
     equipment=[
@@ -449,10 +454,10 @@ db.upsert_story(
     title="Uprising",
     heroes=["dromai", "emperor", "fai"],
     locations=[
-        LocationEntry("Zancaro", region="Volcor"),
+        loc.ZANCARO,
     ],
     regions=[
-        RegionEntry("Volcor"),
+        reg.VOLCOR,
     ],
     weapons=["storm-of-sandikai"],
     dry_run=True,

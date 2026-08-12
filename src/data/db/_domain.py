@@ -70,9 +70,14 @@ class NarratedVideoEntry:
     channel_link: str = ""
 
 
-@dataclass
+@dataclass(frozen=True)
 class NPCEntry:
-    """A non-playable character to link to a story."""
+    """A non-playable character to link to a story.
+
+    Frozen because the canonical definition of each NPC lives in
+    ``entries/catalogue/npcs.py`` and one instance is shared by every story that
+    links it — a mutation would silently rewrite the entity for unrelated pages.
+    """
 
     name: str
     species: str = ""
@@ -84,17 +89,27 @@ class NPCEntry:
     """mdBook heading anchor id for a deep link into the story page, e.g. ``"morlock-hill"``."""
 
 
-@dataclass
+@dataclass(frozen=True)
 class RegionEntry:
-    """A world region to link to a story (upserted into regions table)."""
+    """A world region to link to a story (upserted into regions table).
+
+    Frozen and shared — see :class:`NPCEntry`; the constants live in
+    ``entries/catalogue/regions.py``.
+    """
 
     name: str
     world_of_rathe_story_key: str = ""
 
 
-@dataclass
+@dataclass(frozen=True)
 class LocationEntry:
-    """A location to link to a story (upserted into locations table)."""
+    """A location to link to a story (upserted into locations table).
+
+    Frozen and shared — see :class:`NPCEntry`; the constants live in
+    ``entries/catalogue/locations.py``. This one matters most: ``location_id``
+    hashes ``name`` *and* ``region``, so a per-call-site edit to either does not
+    update the row, it mints a second one.
+    """
 
     name: str
     region: str = ""

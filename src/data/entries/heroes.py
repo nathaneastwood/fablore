@@ -17,12 +17,17 @@ from db import (  # noqa: F401
     FaunaEntry,
     FloraEntry,
     FoodDrinkEntry,
-    LocationEntry,
     MonsterEntry,
     NarratedVideoEntry,
-    NPCEntry,
-    RegionEntry,
 )
+
+# NPCs, locations and regions are referenced, never constructed. Their ids are
+# hashes of the fields written at the call site, so a second literal for the same
+# entity competes with the first row instead of reusing it — that is how
+# "The Shadow Crypts" became two rows. The canonical definition of each lives
+# in entries/catalogue/; the three names are deliberately not imported above, so
+# writing LocationEntry(...) here is a NameError rather than a silent new row.
+from entries.catalogue import locations as loc, npcs as npc, regions as reg  # noqa: F401
 from entries._runner import db
 
 db.upsert_story(
@@ -31,9 +36,9 @@ db.upsert_story(
     title="Aurora",
     heroes=["aurora"],
     locations=[
-        LocationEntry("Enion", region="Aria", lore_fragment="enion"),
-        LocationEntry("Volthaven", region="Aria", lore_fragment="enion"),
-        LocationEntry("Valahai", region="Aria", lore_fragment="valahai"),
+        loc.ENION,
+        loc.VOLTHAVEN,
+        loc.VALAHAI,
     ],
     weapons=["star-fall", "scorpio-comet-tail"],
     dry_run=True,
@@ -45,9 +50,9 @@ db.upsert_story(
     title="Oscilio",
     heroes=["oscilio"],
     locations=[
-        LocationEntry("Enion", region="Aria", lore_fragment="enion"),
+        loc.ENION,
     ],
-    regions=[RegionEntry("Aria")],
+    regions=[reg.ARIA],
     weapons=["volzar-the-lightning-rod"],
     dry_run=True,
 )
@@ -57,10 +62,10 @@ db.upsert_story(
     story_type="heroes-of-rathe",
     title="Zyggy Starlight",
     heroes=["zyggy", "oscilio"],
-    regions=[RegionEntry("Nebulus Rift")],
+    regions=[reg.NEBULUS_RIFT],
     locations=[
-        LocationEntry("Valahai", region="Aria", lore_fragment="valahai"),
-        LocationEntry("Auric Keep", region="Nebulus Rift", lore_fragment="auric-keep"),
+        loc.VALAHAI,
+        loc.AURIC_KEEP,
     ],
     weapons=["aphrodias"],
     dry_run=True,
@@ -71,9 +76,9 @@ db.upsert_story(
     story_type="heroes-of-rathe",
     title="Blaze",
     heroes=["blaze"],
-    regions=[RegionEntry("Volcor")],
+    regions=[reg.VOLCOR],
     locations=[
-        LocationEntry("Imperial Palace", region="Volcor", lore_fragment="the-royal-court"),
+        loc.IMPERIAL_PALACE,
     ],
     fauna=[FaunaEntry("Flare Deer")],
     dry_run=True,
@@ -85,13 +90,13 @@ db.upsert_story(
     title="Dorinthea",
     heroes=["dorinthea", "hala"],
     locations=[
-        LocationEntry("Dimenxxional Gateway", region="Demonastery"),
-        LocationEntry("Hand of Sol", region="Solana", lore_fragment="the-hand-of-sol"),
-        LocationEntry("The Golden Fields", region="Solana"),
+        loc.DIMENXXIONAL_GATEWAY,
+        loc.HAND_OF_SOL,
+        loc.THE_GOLDEN_FIELDS,
     ],
     regions=[
-        RegionEntry("Demonastery"),
-        RegionEntry("Solana"),
+        reg.DEMONASTERY,
+        reg.SOLANA,
     ],
     weapons=["dawnblade", "dawnblade-resplendent"],
     dry_run=True,
@@ -104,10 +109,10 @@ db.upsert_story(
     source_link="https://fabtcg.com/hero/baalghor/",
     heroes=["baalghor"],
     locations=[
-        LocationEntry("i'Arathael"),
-        LocationEntry("Shadowrealm"),
-        LocationEntry("The Abyss"),
+        loc.I_ARATHAEL,
+        loc.SHADOWREALM,
+        loc.THE_ABYSS,
     ],
-    regions=[RegionEntry("Demonastery")],
+    regions=[reg.DEMONASTERY],
     dry_run=True,
 )

@@ -17,12 +17,17 @@ from db import (  # noqa: F401
     FaunaEntry,
     FloraEntry,
     FoodDrinkEntry,
-    LocationEntry,
     MonsterEntry,
     NarratedVideoEntry,
-    NPCEntry,
-    RegionEntry,
 )
+
+# NPCs, locations and regions are referenced, never constructed. Their ids are
+# hashes of the fields written at the call site, so a second literal for the same
+# entity competes with the first row instead of reusing it — that is how
+# "The Shadow Crypts" became two rows. The canonical definition of each lives
+# in entries/catalogue/; the three names are deliberately not imported above, so
+# writing LocationEntry(...) here is a NameError rather than a silent new row.
+from entries.catalogue import locations as loc, npcs as npc, regions as reg  # noqa: F401
 from entries._runner import db
 
 db.upsert_story(
@@ -33,30 +38,30 @@ db.upsert_story(
     npcs=[
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        NPCEntry(name="Astrea Quazor"),
-        NPCEntry(name="Auric Seeress"),
-        NPCEntry(name="Lord Sutcliffe"),
-        NPCEntry(name="Rupius, Auric Scrollmaster"),
-        NPCEntry(name="Yvor"),
+        npc.ASTREA_QUAZOR,
+        npc.AURIC_SEERESS,
+        npc.LORD_SUTCLIFFE,
+        npc.RUPIUS_AURIC_SCROLLMASTER,
+        npc.YVOR,
         # New with this set. Species is unattested in the flavour text, so it is
         # left to default to "Unknown" rather than being guessed.
-        NPCEntry(name="Daryas Nimbus"),
-        NPCEntry(name="Freya Eldingsturm"),
-        NPCEntry(name="Maela Isulfv"),
-        NPCEntry(name="Maela Sharena"),
-        NPCEntry(name="Reznyr Eldingsturm"),
-        NPCEntry(name="Skynda Feyscout"),
-        NPCEntry(name="Vyhara Cloudburst"),
+        npc.DARYAS_NIMBUS,
+        npc.FREYA_ELDINGSTURM,
+        npc.MAELA_ISULFV,
+        npc.MAELA_SHARENA,
+        npc.REZNYR_ELDINGSTURM,
+        npc.SKYNDA_FEYSCOUT,
+        npc.VYHARA_CLOUDBURST,
     ],
     locations=[
-        LocationEntry("Enion", region="Aria"),
-        LocationEntry("Valahai", region="Aria"),
-        LocationEntry("Volthaven", region="Aria"),
-        LocationEntry("i'Arathael"),
+        loc.ENION,
+        loc.VALAHAI,
+        loc.VOLTHAVEN,
+        loc.I_ARATHAEL,
     ],
     regions=[
-        RegionEntry("Aria"),
-        RegionEntry("Nebulus Rift"),
+        reg.ARIA,
+        reg.NEBULUS_RIFT,
     ],
     dry_run=True,
 )
@@ -72,28 +77,28 @@ db.upsert_story(
     heroes=["prism"],
     hero_fragments={"prism": "celestial-cataclysm---mon062"},
     npcs=[
-        NPCEntry(name="Amira Surana"),
-        NPCEntry(name="Astra Morena"),
-        NPCEntry(name="Aurea, Champion of the Dawn"),
-        NPCEntry(name="Bellona, the Wartune Herald"),
-        NPCEntry(name="Chancellor Helena Primavera"),
-        NPCEntry(name="Chancellor Hypatia"),
-        NPCEntry(name="Chiara Suncrest"),
-        NPCEntry(name="Danu Ashenguard"),
-        NPCEntry(name="Ersebet"),
-        NPCEntry(name="Grand Magister, the Radiant"),
-        NPCEntry(name="Harland"),
-        NPCEntry(name="Harold Honeysett"),
-        NPCEntry(name="Jackdaw"),
-        NPCEntry(name="Kirigami"),
-        NPCEntry(name="Merlen Rivera"),
-        NPCEntry(name="Nestus"),
-        NPCEntry(name="Sanni"),
-        NPCEntry(name="Suraya, Archangel of Knowledge"),
-        NPCEntry(name="Vidya Willowmere"),
+        npc.AMIRA_SURANA,
+        npc.ASTRA_MORENA,
+        npc.AUREA_CHAMPION_OF_THE_DAWN,
+        npc.BELLONA_THE_WARTUNE_HERALD,
+        npc.CHANCELLOR_HELENA_PRIMAVERA,
+        npc.CHANCELLOR_HYPATIA,
+        npc.CHIARA_SUNCREST,
+        npc.DANU_ASHENGUARD,
+        npc.ERSEBET,
+        npc.GRAND_MAGISTER_THE_RADIANT,
+        npc.HARLAND,
+        npc.HAROLD_HONEYSETT,
+        npc.JACKDAW,
+        npc.KIRIGAMI,
+        npc.MERLEN_RIVERA,
+        npc.NESTUS,
+        npc.SANNI,
+        npc.SURAYA_ARCHANGEL_OF_KNOWLEDGE,
+        npc.VIDYA_WILLOWMERE,
     ],
     regions=[
-        RegionEntry("Solana"),
+        reg.SOLANA,
     ],
     dry_run=True,
 )
@@ -103,20 +108,20 @@ db.upsert_story(
     story_type="flavour",
     title="Non-Set Cards",
     npcs=[
-        NPCEntry(name="Aegis, the Shield of Light"),
-        NPCEntry(name="Avalon, Messenger of the Dawn"),
-        NPCEntry(name="Bellona, the Wartune Herald"),
-        NPCEntry(name="Themis, Keeper of the Scales"),
-        NPCEntry(name="Yvor"),
+        npc.AEGIS_THE_SHIELD_OF_LIGHT,
+        npc.AVALON_MESSENGER_OF_THE_DAWN,
+        npc.BELLONA_THE_WARTUNE_HERALD,
+        npc.THEMIS_KEEPER_OF_THE_SCALES,
+        npc.YVOR,
     ],
     locations=[
-        LocationEntry("Auric Keep", region="Nebulus Rift"),
-        LocationEntry("Enion", region="Aria"),
-        LocationEntry("Volthaven", region="Aria"),
+        loc.AURIC_KEEP,
+        loc.ENION,
+        loc.VOLTHAVEN,
     ],
     regions=[
-        RegionEntry("Aria"),
-        RegionEntry("Nebulus Rift"),
+        reg.ARIA,
+        reg.NEBULUS_RIFT,
     ],
     dry_run=True,
 )
@@ -130,32 +135,32 @@ db.upsert_story(
         # Already curated — named here only to link them to this page. The DB holds
         # the fightmasters under their bare names, not the "Fightmaster X" form the
         # cards use.
-        NPCEntry(name="Batbiter"),
-        NPCEntry(name="Emeviere"),
-        NPCEntry(name="Fightmaster Kox"),
-        NPCEntry(name="Fightmaster Rusty"),
-        NPCEntry(name="Luca, Arena Cicerone"),
-        NPCEntry(name="Moloca"),
-        NPCEntry(name="Slapstick Sal"),
-        NPCEntry(name="Speakeasy"),
+        npc.BATBITER,
+        npc.EMEVIERE,
+        npc.FIGHTMASTER_KOX,
+        npc.FIGHTMASTER_RUSTY,
+        npc.LUCA_ARENA_CICERONE,
+        npc.MOLOCA,
+        npc.SLAPSTICK_SAL,
+        npc.SPEAKEASY,
         # New with this set. Species is unattested in the flavour text.
-        NPCEntry(name="Foreman Pebb"),
-        NPCEntry(name="Fugger Grimes"),
-        NPCEntry(name="Helx"),
-        NPCEntry(name="Salvador Stallion"),
+        npc.FOREMAN_PEBB,
+        npc.FUGGER_GRIMES,
+        npc.HELX,
+        npc.SALVADOR_STALLION,
     ],
     locations=[
-        LocationEntry("Anvilheim"),
-        LocationEntry("Den of Beasts"),
-        LocationEntry("Grinning Boar Cantina"),
+        loc.ANVILHEIM,
+        loc.DEN_OF_BEASTS,
+        loc.GRINNING_BOAR_CANTINA,
         # A Deathmatch venue, distinct from "The Maw" in the Pits. Region is left
         # blank to match its siblings (The Undercroft, The Moat, Arena Barracks).
-        LocationEntry("Infernal Maw"),
-        LocationEntry("The Moat"),
-        LocationEntry("The Undercroft"),
+        loc.INFERNAL_MAW,
+        loc.THE_MOAT,
+        loc.THE_UNDERCROFT,
     ],
     regions=[
-        RegionEntry("The Savage Lands"),
+        reg.THE_SAVAGE_LANDS,
     ],
     dry_run=True,
 )
@@ -172,17 +177,17 @@ db.upsert_story(
         # status are left empty so the existing curated values are preserved.
         # MPG029 prints "Archangel Aegis"; that is a new epithet for the Herald of
         # Protection already registered under her Monarch title, not a new character.
-        NPCEntry(name="Aegis, the Shield of Light"),
+        npc.AEGIS_THE_SHIELD_OF_LIGHT,
         # New with this set. Species is unattested in the flavour text, so it is
         # left to default to "Unknown" rather than being guessed.
-        NPCEntry(name="Maela One-eye"),
+        npc.MAELA_ONE_EYE,
     ],
     locations=[
-        LocationEntry("Anvilheim"),
-        LocationEntry("The Everfest Carnival", region="Aria"),
+        loc.ANVILHEIM,
+        loc.THE_EVERFEST_CARNIVAL,
     ],
     regions=[
-        RegionEntry("Aria"),
+        reg.ARIA,
     ],
     dry_run=True,
 )
@@ -195,32 +200,32 @@ db.upsert_story(
         # Already curated — named here only to link them to this page.
         # MPW048 prints "Lieutenant Farris"; Pride of the Ironsongs introduces the
         # same Solanian lieutenant on the same Savage Lands frontier.
-        NPCEntry(name="Farris"),
-        NPCEntry(name="Fightmaster Kox"),
-        NPCEntry(name="Fightmaster Rusty"),
-        NPCEntry(name="Lieutenant Timaeus"),
+        npc.FARRIS,
+        npc.FIGHTMASTER_KOX,
+        npc.FIGHTMASTER_RUSTY,
+        npc.LIEUTENANT_TIMAEUS,
         # New with this set. Species is unattested in the flavour text.
-        NPCEntry(name="Captain Shevez"),
-        NPCEntry(name="Inquisitor Aricia"),
-        NPCEntry(name="Lucilla the Setting Sun"),
-        NPCEntry(name="Tasha of Deshvahan"),
-        NPCEntry(name="The Bastion"),
-        NPCEntry(name="Vanik Silvertooth"),
+        npc.CAPTAIN_SHEVEZ,
+        npc.INQUISITOR_ARICIA,
+        npc.LUCILLA_THE_SETTING_SUN,
+        npc.TASHA_OF_DESHVAHAN,
+        npc.THE_BASTION,
+        npc.VANIK_SILVERTOOTH,
     ],
     locations=[
-        LocationEntry("Dawnhaven"),
-        LocationEntry("Deshvahan", region="Volcor"),
-        LocationEntry("Fiddler's Green", region="High Seas"),
-        LocationEntry("Neelasha"),
-        LocationEntry("Octomilitia", region="Solana"),
-        LocationEntry("Solarium", region="Solana"),
-        LocationEntry("Valahai", region="Aria"),
+        loc.DAWNHAVEN,
+        loc.DESHVAHAN,
+        loc.FIDDLER_S_GREEN,
+        loc.NEELASHA,
+        loc.OCTOMILITIA,
+        loc.SOLARIUM,
+        loc.VALAHAI,
     ],
     regions=[
-        RegionEntry("Demonastery"),
-        RegionEntry("Solana"),
-        RegionEntry("The Savage Lands"),
-        RegionEntry("Volcor"),
+        reg.DEMONASTERY,
+        reg.SOLANA,
+        reg.THE_SAVAGE_LANDS,
+        reg.VOLCOR,
     ],
     dry_run=True,
 )

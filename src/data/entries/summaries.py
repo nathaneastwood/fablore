@@ -17,12 +17,17 @@ from db import (  # noqa: F401
     FaunaEntry,
     FloraEntry,
     FoodDrinkEntry,
-    LocationEntry,
     MonsterEntry,
     NarratedVideoEntry,
-    NPCEntry,
-    RegionEntry,
 )
+
+# NPCs, locations and regions are referenced, never constructed. Their ids are
+# hashes of the fields written at the call site, so a second literal for the same
+# entity competes with the first row instead of reusing it — that is how
+# "The Shadow Crypts" became two rows. The canonical definition of each lives
+# in entries/catalogue/; the three names are deliberately not imported above, so
+# writing LocationEntry(...) here is a NameError rather than a silent new row.
+from entries.catalogue import locations as loc, npcs as npc, regions as reg  # noqa: F401
 from entries._runner import db
 
 db.upsert_story(
@@ -40,29 +45,29 @@ db.upsert_story(
         "shiyana",
     ],
     npcs=[
-        NPCEntry(name="Grand Magister, the Devout", species="Human", status="Assumed Dead"),
-        NPCEntry(name="Apostate", species="Human"),
-        NPCEntry(name="Lord Sutcliffe", species="Human", status="Just a head"),
-        NPCEntry(name="Lady Bartimont"),
-        NPCEntry(name="Ursur", species="Embra"),
-        NPCEntry(name="Blasmophet", species="Embra"),
-        NPCEntry(name="Nasreth", species="Embra"),
-        NPCEntry(name="Sol", species="Aesir"),
-        NPCEntry(name="Suraya, Archangel of Knowledge", species="Herald"),
-        NPCEntry(name="Bellona, the Wartune Herald", species="Herald"),
-        NPCEntry(name="Minerva Themis", species="Human", status="Deceased"),
+        npc.GRAND_MAGISTER_THE_DEVOUT,
+        npc.APOSTATE,
+        npc.LORD_SUTCLIFFE,
+        npc.LADY_BARTIMONT,
+        npc.URSUR,
+        npc.BLASMOPHET,
+        npc.NASRETH,
+        npc.SOL,
+        npc.SURAYA_ARCHANGEL_OF_KNOWLEDGE,
+        npc.BELLONA_THE_WARTUNE_HERALD,
+        npc.MINERVA_THEMIS,
     ],
     locations=[
-        LocationEntry("Dimenxxional Gateway", region="Demonastery"),
-        LocationEntry("Hand of Sol", region="Solana", lore_fragment="the-hand-of-sol"),
-        LocationEntry("Library of Illumination", region="Solana"),
-        LocationEntry("i'Arathael"),
+        loc.DIMENXXIONAL_GATEWAY,
+        loc.HAND_OF_SOL,
+        loc.LIBRARY_OF_ILLUMINATION,
+        loc.I_ARATHAEL,
     ],
     regions=[
-        RegionEntry("Aria"),
-        RegionEntry("Demonastery"),
-        RegionEntry("Solana"),
-        RegionEntry("Volcor"),
+        reg.ARIA,
+        reg.DEMONASTERY,
+        reg.SOLANA,
+        reg.VOLCOR,
     ],
     dry_run=True,
 )
@@ -90,28 +95,24 @@ db.upsert_story(
         "hala",
     ],
     npcs=[
-        NPCEntry(name="Apostate", species="Human"),
-        NPCEntry(name="Lord Sutcliffe", species="Human", status="Just a head"),
-        NPCEntry(name="Ursur", species="Embra"),
-        NPCEntry(name="Blasmophet", species="Embra"),
-        NPCEntry(name="Sol", species="Aesir"),
+        npc.APOSTATE,
+        npc.LORD_SUTCLIFFE,
+        npc.URSUR,
+        npc.BLASMOPHET,
+        npc.SOL,
     ],
     locations=[
-        LocationEntry("Dimenxxional Gateway", region="Demonastery"),
-        LocationEntry("Hand of Sol", region="Solana", lore_fragment="the-hand-of-sol"),
-        LocationEntry(
-            "The Northern Realms",
-            region="Solana",
-            lore_fragment="the-northern-realms",
-        ),
-        LocationEntry("The Solarium", region="Solana"),
-        LocationEntry("i'Arathael"),
+        loc.DIMENXXIONAL_GATEWAY,
+        loc.HAND_OF_SOL,
+        loc.THE_NORTHERN_REALMS,
+        loc.THE_SOLARIUM,
+        loc.I_ARATHAEL,
     ],
     regions=[
-        RegionEntry("Aria"),
-        RegionEntry("Demonastery"),
-        RegionEntry("Nebulus Rift"),
-        RegionEntry("Solana"),
+        reg.ARIA,
+        reg.DEMONASTERY,
+        reg.NEBULUS_RIFT,
+        reg.SOLANA,
     ],
     dry_run=True,
 )

@@ -122,3 +122,68 @@ def test_story_type_matches_path_and_module(module, path, story_type, lineno) ->
     assert story_type == SECTIONS[module], (
         f"entries/{module}.py:{lineno} holds a {story_type!r} declaration; " f"that module is for {SECTIONS[module]!r}"
     )
+
+
+# ---------------------------------------------------------------------------
+# The catalogue: entity identity lives in exactly one place
+# ---------------------------------------------------------------------------
+
+CATALOGUED = ("NPCEntry", "LocationEntry", "RegionEntry")
+
+
+def _constructor_calls(module: str) -> list[tuple[str, int]]:
+    """Return ``(class_name, lineno)`` for each catalogued type constructed in ``module``."""
+    source = (ENTRIES_DIR / f"{module}.py").read_text(encoding="utf-8")
+    tree = ast.parse(source, filename=f"{module}.py")
+    return [
+        (node.func.id, node.lineno)
+        for node in ast.walk(tree)
+        if isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id in CATALOGUED
+    ]
+
+
+@pytest.mark.parametrize("module", sorted(SECTIONS))
+def test_section_modules_reference_entities_rather_than_construct_them(module) -> None:
+    """A second literal for one entity does not reuse its row, it mints another.
+
+    Every registry id is a hash of the fields written at the call site — an NPC
+    *is* its name, a location *is* its name and its region — so two literals for
+    one entity give two rows and nothing raises. ``Legendarium`` and ``The Shadow
+    Crypts`` each became two rows that way; ``Deathmatch Arena`` and ``The Moat``
+    were declared inconsistently and would have followed. Define the entity once in
+    ``entries/catalogue/`` and reference it as ``npc.NAME`` / ``loc.NAME`` /
+    ``reg.NAME``; adding a new one there is the only place it should happen.
+    """
+    offenders = [f"entries/{module}.py:{lineno} constructs {cls}" for cls, lineno in _constructor_calls(module)]
+    assert not offenders, (
+        "\n".join(offenders) + "\n\nDefine it in src/data/entries/catalogue/ and reference it instead."
+    )
+
+
+def test_catalogue_constants_have_distinct_ids() -> None:
+    """Two constants that hash alike are one row wearing two names.
+
+    This is the ``Legendarium`` / ``Bravo's Legendarium`` failure: two display
+    names for one place, which the id hash cannot tell apart once normalised.
+    """
+    import sys
+
+    sys.path.insert(0, str(ROOT / "src" / "data"))
+    from db._domain import _location_id
+    from entries.catalogue import locations, npcs, regions
+    from registry_ids import lore_character_id, region_row_id
+
+    collisions: list[str] = []
+    for module, id_fn in (
+        (npcs, lambda e: lore_character_id(e.name)),
+        (locations, lambda e: _location_id(e.name, region_row_id(e.region) if e.region else "")),
+        (regions, lambda e: region_row_id(e.name)),
+    ):
+        seen: dict[str, str] = {}
+        for const in sorted(n for n in dir(module) if n.isupper()):
+            entity_id = id_fn(getattr(module, const))
+            if entity_id in seen:
+                collisions.append(f"{module.__name__}: {const} and {seen[entity_id]} both hash to {entity_id}")
+            else:
+                seen[entity_id] = const
+    assert not collisions, "\n".join(collisions)

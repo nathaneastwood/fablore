@@ -17,12 +17,17 @@ from db import (  # noqa: F401
     FaunaEntry,
     FloraEntry,
     FoodDrinkEntry,
-    LocationEntry,
     MonsterEntry,
     NarratedVideoEntry,
-    NPCEntry,
-    RegionEntry,
 )
+
+# NPCs, locations and regions are referenced, never constructed. Their ids are
+# hashes of the fields written at the call site, so a second literal for the same
+# entity competes with the first row instead of reusing it — that is how
+# "The Shadow Crypts" became two rows. The canonical definition of each lives
+# in entries/catalogue/; the three names are deliberately not imported above, so
+# writing LocationEntry(...) here is a NameError rather than a silent new row.
+from entries.catalogue import locations as loc, npcs as npc, regions as reg  # noqa: F401
 from entries._runner import db
 
 db.upsert_story(
@@ -32,17 +37,17 @@ db.upsert_story(
     publication_date="2026-07-16",
     heroes=["viserai", "levia", "malice"],
     npcs=[
-        NPCEntry(name="Blasmophet", species="Embra"),
+        npc.BLASMOPHET,
     ],
     locations=[
-        LocationEntry("The Abyss"),
-        LocationEntry("Neverest"),
-        LocationEntry("Shadowrealm"),
-        LocationEntry("i'Arathael"),
+        loc.THE_ABYSS,
+        loc.NEVEREST,
+        loc.SHADOWREALM,
+        loc.I_ARATHAEL,
     ],
     regions=[
-        RegionEntry("Demonastery"),
-        RegionEntry("Solana"),
+        reg.DEMONASTERY,
+        reg.SOLANA,
     ],
     dry_run=True,
 )
