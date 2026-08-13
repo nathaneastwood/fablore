@@ -5,6 +5,7 @@ const {
   nodeRadius,
   buildLabels,
   groupConnections,
+  rankNodes,
   starPoints,
   findBySlug,
   boxesOverlap
@@ -173,6 +174,103 @@ test("groupConnections: every input row survives into exactly one section", () =
   const sections = groupConnections(rows, SUB_ORDER);
   const total = sections.reduce((n, s) => n + s.rows.length, 0);
   assert.equal(total, rows.length, "section counts must sum to the header total");
+});
+
+// ── rankNodes ────────────────────────────────────────────────────────────────
+// The narrow-viewport list replaces the canvas with a ranked run of nodes. It
+// sorts on the same key as a panel section — busiest first, name to break ties —
+// so a node holds the same relative position in both views.
+
+test("rankNodes: busiest first", () => {
+  const ranked = rankNodes(
+    [
+      { name: "quiet", degree: 2 },
+      { name: "busy", degree: 46 },
+      { name: "middling", degree: 9 }
+    ],
+    ""
+  );
+  assert.deepEqual(
+    ranked.map((n) => n.name),
+    ["busy", "middling", "quiet"]
+  );
+});
+
+test("rankNodes: equal counts fall back to name, so the order is stable", () => {
+  const ranked = rankNodes(
+    [
+      { name: "Zyggy", degree: 3 },
+      { name: "Astrea", degree: 3 }
+    ],
+    ""
+  );
+  assert.deepEqual(
+    ranked.map((n) => n.name),
+    ["Astrea", "Zyggy"]
+  );
+});
+
+test("rankNodes: an empty query keeps every node", () => {
+  const nodes = [
+    { name: "Dorinthea", degree: 4 },
+    { name: "Bravo", degree: 2 }
+  ];
+  assert.equal(rankNodes(nodes, "").length, 2);
+  assert.equal(rankNodes(nodes, "   ").length, 2);
+  assert.equal(rankNodes(nodes, null).length, 2);
+  assert.equal(rankNodes(nodes, undefined).length, 2);
+});
+
+test("rankNodes: the query matches anywhere in the name, not just the start", () => {
+  // "Ser Boltyn, Breaker of Dawn" has to be reachable by typing "boltyn" or
+  // "dawn" — a reader searching this archive knows an epithet, not a full title.
+  const nodes = [
+    { name: "Ser Boltyn, Breaker of Dawn", degree: 8 },
+    { name: "Dorinthea", degree: 4 }
+  ];
+  assert.deepEqual(
+    rankNodes(nodes, "dawn").map((n) => n.name),
+    ["Ser Boltyn, Breaker of Dawn"]
+  );
+});
+
+test("rankNodes: the query ignores case and surrounding space", () => {
+  const nodes = [{ name: "Dorinthea", degree: 4 }];
+  assert.equal(rankNodes(nodes, "DORIN").length, 1);
+  assert.equal(rankNodes(nodes, "  dorin  ").length, 1);
+});
+
+test("rankNodes: a query matching nothing yields an empty list, not everything", () => {
+  assert.deepEqual(rankNodes([{ name: "Dorinthea", degree: 4 }], "zzzz"), []);
+});
+
+test("rankNodes: does not mutate or alias the array it was given", () => {
+  // It is called with the live `active` array on every keystroke. Sorting that
+  // in place would quietly reorder what the canvas draws and what the filters
+  // recompute from.
+  const nodes = [
+    { name: "quiet", degree: 2 },
+    { name: "busy", degree: 46 }
+  ];
+  const ranked = rankNodes(nodes, "");
+  assert.deepEqual(
+    nodes.map((n) => n.name),
+    ["quiet", "busy"],
+    "the caller's order must survive"
+  );
+  assert.notEqual(ranked, nodes);
+});
+
+test("rankNodes: a missing degree sorts last rather than producing NaN", () => {
+  const ranked = rankNodes([{ name: "a" }, { name: "b", degree: 3 }], "");
+  assert.deepEqual(
+    ranked.map((n) => n.name),
+    ["b", "a"]
+  );
+});
+
+test("rankNodes: no nodes yields no rows", () => {
+  assert.deepEqual(rankNodes([], ""), []);
 });
 
 test("groupConnections: no connections yields no sections", () => {

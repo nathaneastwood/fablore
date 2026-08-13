@@ -417,6 +417,103 @@ class TestLoreGraphThemeCoupling:
         )
 
 
+_GRAPH_JS = ROOT / "theme" / "graph.js"
+
+# 44px, Apple's minimum tap target, in mdBook's rem (:root is 62.5%, so 1rem is
+# 10px). The narrow-viewport list exists because the canvas cannot reach this:
+# at 390px a node mark lands near 19px.
+_MIN_TAP_TARGET_REM = 4.4
+
+
+class TestLoreGraphListMode:
+    """Below the canvas breakpoint the graph is replaced by a ranked list.
+
+    ``theme/graph.js`` owns the breakpoint and stamps ``is-list-mode`` on the
+    container; ``theme/graph.css`` dresses that class, and
+    ``mdbook_graph.build_graph_html`` supplies the elements both reach for. Every
+    join in that chain fails quietly — the script guards each lookup with an
+    ``if``, so a renamed id disables a control rather than throwing, and a
+    renamed class drops the rule that makes a row big enough to hit.
+    """
+
+    def test_every_element_the_script_looks_up_exists_in_the_shell(self) -> None:
+        from mdbook_graph import build_graph_html
+
+        html = build_graph_html({"nodes": [], "links": [], "groups": []})
+        wanted = sorted(set(re.findall(r'getElementById\("(lore-graph-[\w-]+)"\)', _GRAPH_JS.read_text())))
+        assert wanted, "theme/graph.js no longer looks up any lore-graph element"
+        missing = [i for i in wanted if f'id="{i}"' not in html]
+        assert missing == [], (
+            f"theme/graph.js reads elements the page shell does not emit: {missing}. "
+            "Each lookup is guarded by an `if`, so the matching control would "
+            "simply stop working, with nothing logged. Add the id in "
+            "src/data/mdbook_graph.py:build_graph_html."
+        )
+
+    @staticmethod
+    def _names_a_class(text: str, name: str) -> bool:
+        """True when ``text`` uses ``name`` as a whole class token.
+
+        The trailing guard is what makes this worth writing: a plain ``in``
+        check is satisfied by ``.lore-graph-list-rowX``, so renaming a class —
+        the exact mistake being guarded against — would slip straight past.
+        """
+        return re.search(r"\." + re.escape(name) + r"(?![\w-])", text) is not None
+
+    def test_every_list_class_the_script_emits_is_styled(self) -> None:
+        css = _GRAPH_CSS.read_text()
+        emitted = sorted(set(re.findall(r'class="(lore-graph-list-[\w-]+)"', _GRAPH_JS.read_text())))
+        assert emitted, "theme/graph.js no longer builds the list markup"
+        missing = [c for c in emitted if not self._names_a_class(css, c)]
+        assert missing == [], (
+            f"theme/graph.js emits list classes theme/graph.css does not style: {missing}. "
+            "Unstyled rows fall back to the browser default, which is well under "
+            "the minimum tap target this mode exists to guarantee."
+        )
+
+    def test_the_mode_class_is_set_by_the_script_and_read_by_the_stylesheet(self) -> None:
+        """The breakpoint is a JS literal, and this class is how it reaches the
+        stylesheet. The stylesheet must never restate the width itself — a second
+        copy is free to drift, and then the list styling and the list it styles
+        switch on at different widths."""
+        assert 'classList.toggle("is-list-mode"' in _GRAPH_JS.read_text(), (
+            "theme/graph.js no longer stamps the is-list-mode class, so every "
+            "rule in theme/graph.css that dresses the list is now dead."
+        )
+        assert self._names_a_class(_GRAPH_CSS.read_text(), "lore-graph.is-list-mode"), (
+            "theme/graph.css no longer reads the is-list-mode class. The list "
+            "would render with the canvas-mode controls and mouse-sized targets."
+        )
+
+    # Everything a reader has to hit once the canvas is gone: the two list
+    # controls, and the three filters that survive into list mode. Each is sized
+    # for a mouse above the breakpoint, so each needs an explicit floor below it.
+    _TAP_TARGETS = (
+        ".lore-graph-list-row",
+        ".lore-graph-list-more",
+        ".lore-graph.is-list-mode .lore-graph-input",
+        ".lore-graph.is-list-mode .lore-graph-chip",
+        '.lore-graph.is-list-mode .lore-graph-degree input[type="range"]',
+    )
+
+    def test_every_control_clears_the_minimum_tap_target(self) -> None:
+        """The measured justification for the whole mode. A canvas mark lands
+        near 19px at 390px; if a control here can shrink under 44px the list has
+        moved that fault rather than fixed it."""
+        css = _GRAPH_CSS.read_text()
+        for selector in self._TAP_TARGETS:
+            block = re.search(re.escape(selector) + r"\s*\{(.*?)\}", css, re.S)
+            assert block, f"theme/graph.css no longer has a {selector} rule"
+            # Either property does the job; a range input needs `height`, since
+            # min-height leaves its thumb at the old size.
+            found = re.search(r"(?:min-)?height:\s*([\d.]+)rem", block.group(1))
+            assert found, f"{selector} sets no height, so it can shrink below the tap target"
+            assert float(found.group(1)) >= _MIN_TAP_TARGET_REM, (
+                f"{selector} is {found.group(1)}rem tall; the minimum tap target is "
+                f"{_MIN_TAP_TARGET_REM}rem (44px at mdBook's 62.5% root)."
+            )
+
+
 # ===========================================================================
 # Build checks (slow)
 # ===========================================================================

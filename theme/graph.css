@@ -476,6 +476,211 @@
     opacity: 0.7;
 }
 
+/* --- The narrow-viewport list ----------------------------------------- */
+
+/*
+ * Below the canvas breakpoint the stage is replaced by a ranked list. The
+ * breakpoint itself is not written here: theme/graph.js owns it, because the
+ * simulation has to know the mode too, and puts `is-list-mode` on the container.
+ * Everything below keys off that class, so the two cannot drift apart.
+ *
+ * The list borrows the inspector panel's markup for its detail view, so the
+ * .lore-graph-panel-* rules above dress it — bar the two controls, which are
+ * sized for a mouse and are re-sized for a thumb at the end of this block.
+ */
+
+.lore-graph-list {
+    /* .lore-graph-panel-close is absolute and needs this to hang from. */
+    position: relative;
+    border: 1px solid var(--table-border-color);
+    border-radius: 4px;
+}
+
+.lore-graph-hint-list,
+.lore-graph.is-list-mode .lore-graph-hint-graph {
+    display: none;
+}
+
+.lore-graph.is-list-mode .lore-graph-hint-list {
+    display: block;
+}
+
+/*
+ * Spread and Reset view are viewport controls. A list has no viewport to spread
+ * or reset, so they say nothing here. Minimum connections and the legend both
+ * still filter what the list ranks, and stay.
+ */
+.lore-graph.is-list-mode .lore-graph-spread,
+.lore-graph.is-list-mode .lore-graph-reset {
+    display: none;
+}
+
+.lore-graph-list-count {
+    margin: 0;
+    padding: 0.7rem 0.9rem;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid var(--table-border-color);
+    opacity: 0.6;
+}
+
+.lore-graph-list-empty {
+    margin: 0;
+    padding: 1.6rem 1.2rem;
+    font-size: 1.35rem;
+    text-align: center;
+    opacity: 0.7;
+}
+
+.lore-graph-list-rows {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lore-graph-list-row {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    width: 100%;
+    /* 44px. The measured failure this whole mode exists to fix is a ~19px tap
+       target, so the row cannot be allowed to shrink under the minimum. */
+    min-height: 4.4rem;
+    padding: 0.5rem 0.9rem;
+    font: inherit;
+    font-size: 1.4rem;
+    text-align: left;
+    color: var(--fg);
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--table-border-color);
+    cursor: pointer;
+}
+
+.lore-graph-list-rows li:last-child .lore-graph-list-row {
+    border-bottom: 0;
+}
+
+.lore-graph-list-row:hover,
+.lore-graph-list-row:focus-visible {
+    background: var(--quote-bg);
+}
+
+/* min-width: 0 is what lets the name ellipsis instead of forcing the row wide. */
+.lore-graph-list-text {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.lore-graph-list-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.lore-graph-list-sub {
+    font-size: 1.15rem;
+    opacity: 0.55;
+}
+
+/* The rank key, shown so the order is legible — same reason the panel shows it. */
+.lore-graph-list-degree {
+    flex: none;
+    min-width: 2.4rem;
+    font-size: 1.25rem;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    opacity: 0.6;
+}
+
+.lore-graph-list-more {
+    display: block;
+    width: 100%;
+    min-height: 4.4rem;
+    padding: 0.8rem;
+    font: inherit;
+    font-size: 1.35rem;
+    color: var(--fg);
+    background: none;
+    border: 0;
+    border-top: 1px solid var(--table-border-color);
+    cursor: pointer;
+}
+
+.lore-graph-list-more:hover {
+    background: var(--quote-bg);
+}
+
+/*
+ * Every control is sized for a mouse pointer above the breakpoint. None of them
+ * are below it, and this mode exists precisely because a 19px target is not
+ * hittable — so shrinking the canvas away while leaving the controls that filter
+ * it at 23px would only move the fault, not fix it.
+ */
+.lore-graph.is-list-mode .lore-graph-panel-close,
+.lore-graph.is-list-mode .lore-graph-focus {
+    width: 4.4rem;
+    height: 4.4rem;
+}
+
+.lore-graph.is-list-mode .lore-graph-input {
+    min-height: 4.4rem;
+}
+
+.lore-graph.is-list-mode .lore-graph-chip {
+    min-height: 4.4rem;
+    padding: 0.3rem 1.1rem;
+}
+
+/* A range input needs an explicit height; min-height leaves the thumb where it
+   was, which is the part a thumb actually has to catch. */
+.lore-graph.is-list-mode .lore-graph-degree input[type="range"] {
+    height: 4.4rem;
+    width: 100%;
+}
+
+/* Freed by dropping Spread and Reset — the slider gets the row to itself. */
+.lore-graph.is-list-mode .lore-graph-degree {
+    flex: 1 1 100%;
+}
+
+/* The panel's rows are 1.35 line-height on a hover-revealed button; on a phone
+   the row is a tap target and the focus button is always visible. */
+.lore-graph.is-list-mode .lore-graph-panel-list li {
+    align-items: center;
+    padding: 0.35rem 0;
+}
+
+.lore-graph.is-list-mode .lore-graph-focus {
+    opacity: 0.75;
+}
+
+.lore-graph-list .lore-graph-panel-kind,
+.lore-graph-list .lore-graph-panel-title,
+.lore-graph-list .lore-graph-panel-count,
+.lore-graph-list .lore-graph-panel-group,
+.lore-graph-list .lore-graph-panel-list,
+.lore-graph-list .lore-graph-panel-more {
+    margin-left: 0.9rem;
+    margin-right: 0.9rem;
+}
+
+.lore-graph-list .lore-graph-panel-kind {
+    margin-top: 0.9rem;
+    padding-right: 4.6rem;
+}
+
+.lore-graph-list .lore-graph-panel-title {
+    padding-right: 4.6rem;
+}
+
+.lore-graph-list .lore-graph-panel-list:last-child {
+    margin-bottom: 1rem;
+}
+
 @media (max-width: 700px) {
     .lore-graph-stage {
         height: min(60vh, 560px);

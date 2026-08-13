@@ -30,7 +30,9 @@
     var escapeHtml = core.escapeHtml;
 
     var canvas = document.getElementById("lore-graph-canvas");
+    var stage = document.getElementById("lore-graph-stage");
     var panel = document.getElementById("lore-graph-panel");
+    var listEl = document.getElementById("lore-graph-list");
     var status = document.getElementById("lore-graph-status");
     var legend = document.getElementById("lore-graph-legend");
     var input = document.getElementById("lore-graph-input");
@@ -45,6 +47,26 @@
 
     var reducedMotion =
         window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // --- List mode ---------------------------------------------------------
+    //
+    // Below this width the canvas is dropped for a ranked list. A force layout
+    // needs area a phone does not have: at 390px the stage is 348x506 for 417
+    // nodes — about 420px² each — and a mark lands near 19px against the 44px
+    // minimum tap target. Panning and zooming out of that is not a graph, it is
+    // a puzzle.
+    //
+    // The breakpoint lives here and nowhere else. The stylesheet keys off the
+    // `is-list-mode` class this sets, so the two can never drift apart, and the
+    // simulation has to know the mode anyway — it must not run for a hidden
+    // canvas.
+    var listQuery = window.matchMedia ? window.matchMedia("(max-width: 700px)") : null;
+    var listMode = !!(listQuery && listQuery.matches);
+    // How many rows the list shows before "Show more". The whole filtered run is
+    // often several hundred nodes, which is a lot of DOM to hand a phone at once.
+    var LIST_PAGE = 60;
+    var listShown = LIST_PAGE;
+    var listScrollY = 0;
 
     // --- Model -------------------------------------------------------------
 
@@ -315,6 +337,13 @@
     }
 
     function frame() {
+        // A rotation into list mode can land mid-settle. The canvas is hidden by
+        // then, so every further tick is work nobody sees.
+        if (listMode) {
+            running = false;
+            pendingFocus = null;
+            return;
+        }
         tick();
         if (!userAdjusted) {
             fitToView();
@@ -542,7 +571,6 @@
         if (selected && !live.has(selected.id)) {
             select(null);
         }
-        seedPositions();
         if (status) {
             status.textContent =
                 active.length +
@@ -554,6 +582,14 @@
                 links.length +
                 ".";
         }
+        // The list is rebuilt from `active`, so it re-ranks itself for free; the
+        // simulation is skipped entirely because there is no canvas to settle.
+        if (listMode) {
+            listShown = LIST_PAGE;
+            renderList();
+            return;
+        }
+        seedPositions();
         if (options && options.settle && reducedMotion) {
             for (var i = 0; i < 300; i++) {
                 tick();
@@ -603,8 +639,13 @@
 
     function panelHtml(node) {
         var parts = [];
+        // Same control, two meanings. Over the canvas it dismisses an overlay
+        // and the graph is still there behind it. In list mode this view *is*
+        // the page, so the control goes back to the list and has to say so.
         parts.push('<button type="button" class="lore-graph-panel-close"');
-        parts.push(' aria-label="Close">×</button>');
+        parts.push(
+            listMode ? ' aria-label="Back to the list">←</button>' : ' aria-label="Close">×</button>'
+        );
         parts.push('<p class="lore-graph-panel-kind">' + escapeHtml(node.sub) + "</p>");
         if (node.url) {
             parts.push(
@@ -666,14 +707,18 @@
                         "</span>" +
                         // Separate from the name link on purpose: the link
                         // leaves for the page, this stays and re-roots the
-                        // panel, so the reader can walk the graph.
+                        // panel, so the reader can walk the graph. In list mode
+                        // there is no graph to move, so it is named for what it
+                        // does there instead: open that node's own connections.
                         '<button type="button" class="lore-graph-focus"' +
                         ' data-node="' +
                         m.id +
-                        '" title="Show this in the graph"' +
-                        ' aria-label="Show ' +
+                        '" title="' +
+                        (listMode ? "Show its connections" : "Show this in the graph") +
+                        '" aria-label="Show ' +
                         escapeHtml(m.name) +
-                        ' in the graph">' +
+                        (listMode ? "'s connections" : " in the graph") +
+                        '">' +
                         FOCUS_ICON +
                         "</button></li>"
                 );
@@ -688,6 +733,93 @@
             parts.push("</ul>");
         });
         return parts.join("");
+    }
+
+    // --- The narrow-viewport list ------------------------------------------
+    //
+    // Master and detail in one container. The master is the ranked run of what
+    // is visible; the detail is `panelHtml` unchanged, so the connection view a
+    // reader gets on a phone is the same one they get on the canvas.
+
+    /** The ranked master list: what is biggest in the archive right now. */
+    function listHtml() {
+        var ranked = core.rankNodes(active, input ? input.value : "");
+        if (!ranked.length) {
+            return (
+                '<p class="lore-graph-list-empty">Nothing matches. Try a shorter ' +
+                "search, turn a type back on, or lower the minimum connections.</p>"
+            );
+        }
+        var parts = [];
+        parts.push(
+            '<p class="lore-graph-list-count">' +
+                ranked.length +
+                (ranked.length === 1 ? " entry" : " entries") +
+                ", most connected first</p>"
+        );
+        parts.push('<ul class="lore-graph-list-rows">');
+        ranked.slice(0, listShown).forEach(function (n) {
+            // A button, not a link: tapping opens the connections, which is what
+            // the canvas does on a click. The page itself is one tap further in,
+            // from the title link in the detail.
+            parts.push(
+                '<li><button type="button" class="lore-graph-list-row" data-node="' +
+                    n.id +
+                    '">' +
+                    dotMarkup(n.kind, n.group) +
+                    '<span class="lore-graph-list-text">' +
+                    '<span class="lore-graph-list-name">' +
+                    escapeHtml(n.name) +
+                    "</span>" +
+                    '<span class="lore-graph-list-sub">' +
+                    escapeHtml(n.sub) +
+                    "</span></span>" +
+                    '<span class="lore-graph-list-degree" title="' +
+                    n.degree +
+                    ' connections">' +
+                    n.degree +
+                    "</span></button></li>"
+            );
+        });
+        parts.push("</ul>");
+        if (ranked.length > listShown) {
+            parts.push(
+                '<button type="button" class="lore-graph-list-more">Show ' +
+                    Math.min(LIST_PAGE, ranked.length - listShown) +
+                    " more</button>"
+            );
+        }
+        return parts.join("");
+    }
+
+    function renderList() {
+        if (!listEl) {
+            return;
+        }
+        listEl.innerHTML = selected ? panelHtml(selected) : listHtml();
+    }
+
+    /**
+     * Put the top of the list under the reader's thumb. The detail replaces the
+     * whole master in place, so without this a reader who tapped the fortieth
+     * row opens its connections already scrolled past the title.
+     */
+    function scrollListToTop() {
+        if (!listEl) {
+            return;
+        }
+        var top = listEl.getBoundingClientRect().top + (window.pageYOffset || 0);
+        window.scrollTo(0, Math.max(0, top - 12));
+    }
+
+    /** Open a master row, remembering the place in the list to come back to. */
+    function openFromList(node) {
+        if (!node) {
+            return;
+        }
+        listScrollY = window.pageYOffset || 0;
+        select(node);
+        scrollListToTop();
     }
 
     /**
@@ -725,6 +857,12 @@
             applyFilter();
         }
         select(node);
+        if (listMode) {
+            // Nothing to centre — the detail is already the whole view. The
+            // reader may be anywhere down a long page, so bring it into sight.
+            scrollListToTop();
+            return;
+        }
         // Centring locks the zoom (fitToView stops once the reader takes over),
         // so it must wait for the layout to settle. Centring mid-settle froze
         // the zoom the compact early layout had been fitted to, which is what
@@ -744,6 +882,13 @@
         if (window.history && window.history.replaceState) {
             var hash = node && node.slug ? "#" + node.slug : "";
             window.history.replaceState(null, "", window.location.pathname + hash);
+        }
+        // One selection, rendered wherever the current mode puts it. Keeping
+        // `selected` mode-independent is what lets a rotation carry the reader's
+        // place across with it.
+        if (listMode) {
+            renderList();
+            return;
         }
         if (panel) {
             if (node) {
@@ -889,28 +1034,66 @@
         hovered = null;
     });
 
-    if (panel) {
-        panel.addEventListener("click", function (e) {
-            if (e.target.closest(".lore-graph-panel-close")) {
-                select(null);
-                return;
+    /**
+     * Clicks inside the inspector. The same markup renders into the stage panel
+     * and into the list, so both bind this; only what "close" and "focus" then
+     * mean to the viewport differs.
+     */
+    function handleInspectorClick(e) {
+        if (e.target.closest(".lore-graph-panel-close")) {
+            select(null);
+            if (listMode) {
+                // Back to the master — and back to the row they came from, which
+                // is otherwise lost every time they look at a connection.
+                window.scrollTo(0, listScrollY);
             }
-            var focusButton = e.target.closest(".lore-graph-focus");
-            if (focusButton) {
-                var next = nodes[parseInt(focusButton.dataset.node, 10)];
-                if (next) {
-                    select(next);
+            return true;
+        }
+        var focusButton = e.target.closest(".lore-graph-focus");
+        if (focusButton) {
+            var next = nodes[parseInt(focusButton.dataset.node, 10)];
+            if (next) {
+                select(next);
+                if (listMode) {
+                    scrollListToTop();
+                } else {
                     centreOn(next);
                     panel.scrollTop = 0;
                 }
             }
-        });
-        document.addEventListener("keydown", function (e) {
-            if (e.key === "Escape" && selected && document.activeElement !== input) {
-                select(null);
+            return true;
+        }
+        return false;
+    }
+
+    if (panel) {
+        panel.addEventListener("click", handleInspectorClick);
+    }
+
+    if (listEl) {
+        listEl.addEventListener("click", function (e) {
+            if (e.target.closest(".lore-graph-list-more")) {
+                listShown += LIST_PAGE;
+                renderList();
+                return;
             }
+            var row = e.target.closest(".lore-graph-list-row");
+            if (row) {
+                openFromList(nodes[parseInt(row.dataset.node, 10)]);
+                return;
+            }
+            handleInspectorClick(e);
         });
     }
+
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && selected && document.activeElement !== input) {
+            select(null);
+            if (listMode) {
+                window.scrollTo(0, listScrollY);
+            }
+        }
+    });
 
     // --- Legend ------------------------------------------------------------
 
@@ -968,6 +1151,19 @@
         };
 
         input.addEventListener("input", function () {
+            // In list mode the box filters the list in place rather than opening
+            // a dropdown over it: the list is already a list of results, so a
+            // second one on top of it would be the same rows twice. Typing from
+            // a detail view returns to the master, which is where the matches are.
+            if (listMode) {
+                listShown = LIST_PAGE;
+                if (selected) {
+                    select(null);
+                } else {
+                    renderList();
+                }
+                return;
+            }
             var q = input.value.trim().toLowerCase();
             if (q.length < 2) {
                 closeDropdown();
@@ -1035,6 +1231,64 @@
         attributeFilter: ["class"]
     });
 
+    // --- Mode switching ----------------------------------------------------
+
+    /** Show the half of the page the current mode uses, and hide the other. */
+    function applyModeToDom() {
+        root.classList.toggle("is-list-mode", listMode);
+        if (stage) {
+            stage.hidden = listMode;
+        }
+        if (listEl) {
+            listEl.hidden = !listMode;
+        }
+    }
+
+    /**
+     * Cross the breakpoint — a rotation, or a desktop window being dragged
+     * narrow. The selection survives the crossing; only how it is drawn changes.
+     */
+    function setListMode(on) {
+        if (on === listMode) {
+            return;
+        }
+        listMode = on;
+        applyModeToDom();
+        if (listMode) {
+            if (panel) {
+                panel.hidden = true;
+                panel.innerHTML = "";
+            }
+            listShown = LIST_PAGE;
+            renderList();
+            return;
+        }
+        if (listEl) {
+            listEl.innerHTML = "";
+        }
+        if (panel && selected) {
+            panel.innerHTML = panelHtml(selected);
+            panel.hidden = false;
+        }
+        // The canvas measured zero while it was hidden, and the simulation has
+        // not run for however long the reader spent in the list, so the layout
+        // has to be measured and settled again before anything is drawn.
+        resize();
+        seedPositions();
+        reheat(1);
+    }
+
+    if (listQuery) {
+        var onModeChange = function (e) {
+            setListMode(e.matches);
+        };
+        if (listQuery.addEventListener) {
+            listQuery.addEventListener("change", onModeChange);
+        } else if (listQuery.addListener) {
+            listQuery.addListener(onModeChange);
+        }
+    }
+
     // --- Boot --------------------------------------------------------------
 
     readPalette();
@@ -1042,6 +1296,7 @@
         degreeSlider.value = String(minDegree);
         degreeValue.textContent = String(minDegree);
     }
+    applyModeToDom();
     resize();
     applyFilter({ settle: true });
 

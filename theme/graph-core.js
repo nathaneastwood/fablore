@@ -113,6 +113,42 @@
     }
 
     /**
+     * Rank nodes for the narrow-viewport list, keeping only those whose name
+     * contains `query`.
+     *
+     * Below the canvas breakpoint the list *is* the graph, so it has to answer
+     * the question the map answers at a glance: what is most connected here.
+     * That means the same sort key a panel section uses — busiest first, name to
+     * break ties — so a node holds the same relative position in both views.
+     *
+     * The match is a substring, not a prefix, because a reader knows an epithet
+     * rather than a full title: "dawn" has to find "Ser Boltyn, Breaker of Dawn".
+     *
+     * Returns a new array — the caller passes the live visible-node list, and
+     * sorting that in place would reorder what the canvas draws.
+     *
+     * @param {Array<{name: string, degree: number}>} nodes
+     * @param {string} query — empty or blank keeps every node
+     * @returns {Array} matching nodes, busiest first
+     */
+    function rankNodes(nodes, query) {
+        var q = String(query == null ? "" : query)
+            .trim()
+            .toLowerCase();
+        var out = [];
+        for (var i = 0; i < nodes.length; i++) {
+            if (!q || String(nodes[i].name).toLowerCase().indexOf(q) !== -1) {
+                out.push(nodes[i]);
+            }
+        }
+        out.sort(function (a, b) {
+            return (b.degree || 0) - (a.degree || 0) ||
+                String(a.name).localeCompare(String(b.name));
+        });
+        return out;
+    }
+
+    /**
      * Points of a five-pointed star, ready to stroke as a closed path.
      *
      * The first point sits at the top (-90°). `outer` is the tip reach; the
@@ -166,6 +202,7 @@
         nodeRadius: nodeRadius,
         buildLabels: buildLabels,
         groupConnections: groupConnections,
+        rankNodes: rankNodes,
         starPoints: starPoints,
         findBySlug: findBySlug,
         boxesOverlap: boxesOverlap

@@ -535,7 +535,8 @@ def build_graph_html(graph: dict) -> str:
         ' aria-describedby="lore-graph-degree-value" />\n'
         '      <output id="lore-graph-degree-value">2</output>\n'
         "    </label>\n"
-        '    <label class="lore-graph-degree">\n'
+        # Classed so the stylesheet can drop it in list mode without a :has().
+        '    <label class="lore-graph-degree lore-graph-spread">\n'
         "      <span>Spread</span>\n"
         '      <input type="range" id="lore-graph-spread" min="60" max="600" step="20"'
         ' value="240" aria-label="How far apart the graph spreads" />\n'
@@ -544,16 +545,27 @@ def build_graph_html(graph: dict) -> str:
         "  </div>\n"
         '  <div class="lore-graph-legend" id="lore-graph-legend" role="group"'
         ' aria-label="Filter the graph by node type"></div>\n'
-        '  <div class="lore-graph-stage">\n'
+        '  <div class="lore-graph-stage" id="lore-graph-stage">\n'
         '    <canvas id="lore-graph-canvas" class="lore-graph-canvas"'
         ' aria-label="Force-directed graph of lore connections" role="img"></canvas>\n'
         '    <div class="lore-graph-panel" id="lore-graph-panel" hidden></div>\n'
-        '    <p class="lore-graph-status" id="lore-graph-status" role="status"></p>\n'
         "  </div>\n"
-        '  <p class="lore-graph-hint">Hover a node to see its connections. '
-        "Click to open its page. Drag to pan, scroll to zoom. "
+        # Narrow-viewport stand-in for the canvas, filled by theme/graph.js. A
+        # force layout needs area the phone does not have: at 390px the stage
+        # holds 417 nodes at ~420px² each, and the marks land near 19px against
+        # Apple's 44px minimum tap target. The list carries the same ranking and
+        # the same connection view without asking for the area.
+        '  <div class="lore-graph-list" id="lore-graph-list" hidden></div>\n'
+        # Outside the stage on purpose: the stage is hidden in list mode, and a
+        # hidden ancestor takes the live region down with it.
+        '  <p class="lore-graph-status" id="lore-graph-status" role="status"></p>\n'
+        '  <p class="lore-graph-hint lore-graph-hint-graph">Hover a node to see its '
+        "connections. Click to open its page. Drag to pan, scroll to zoom. "
         "In the panel, a name opens its page and the target button beside it "
         "moves the graph to that connection.</p>\n"
+        '  <p class="lore-graph-hint lore-graph-hint-list">Tap an entry to read its '
+        "connections, most connected first. The number beside a name is how many "
+        "connections it has.</p>\n"
         "</div>"
     )
 

@@ -467,6 +467,25 @@ def test_build_graph_html_embeds_the_payload() -> None:
     assert 'id="lore-graph-legend"' in html
 
 
+def test_build_graph_html_carries_the_narrow_viewport_list_container() -> None:
+    """``theme/graph.js`` fills this below the canvas breakpoint; without it the
+    phone gets a stage too small to hit."""
+    html = build_graph_html({"nodes": [], "links": [], "groups": []})
+    assert 'id="lore-graph-list"' in html
+    assert 'class="lore-graph-hint lore-graph-hint-graph"' in html
+    assert 'class="lore-graph-hint lore-graph-hint-list"' in html
+
+
+def test_status_live_region_sits_outside_the_stage() -> None:
+    """A silent coupling: list mode hides the stage, and a hidden ancestor takes
+    the live region down with it, so the node tally would stop reaching screen
+    readers on exactly the viewport that has no canvas to look at."""
+    html = build_graph_html({"nodes": [], "links": [], "groups": []})
+    stage = html.split('id="lore-graph-stage"', 1)[1].split('id="lore-graph-list"', 1)[0]
+    assert "lore-graph-status" not in stage
+    assert 'id="lore-graph-status"' in html
+
+
 def test_build_graph_html_payload_is_valid_json(src_root: Path) -> None:
     graph = build_graph(src_root / "data", src_root)
     html = build_graph_html(graph)
