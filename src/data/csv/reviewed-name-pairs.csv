@@ -1,0 +1,17 @@
+# HAND-MAINTAINED. A record of human decisions, not generated data — nothing
+# writes to this file automatically.
+#
+# validate_data.py reports pairs of registry rows whose names are near-identical,
+# because that is how one thing becomes two rows. Similarity cannot tell a typo
+# from two genuinely different places: Silvarium and The Solarium are both in
+# Solana and score highly, and they are not the same place.
+#
+# A row here asserts "these are two different entities and both rows should
+# exist", and stops that pair being reported. There is no row for the opposite
+# verdict — if the two are the same thing you merge them, and the pair no longer
+# exists to report. Adding a row is a decision only a person should make.
+#
+# Delete a row if either id is merged away or renamed; validate_data.py reports
+# entries naming an id that no longer exists, because a stale entry silently
+# suppresses a real warning about the surviving row.
+IdA|IdB|Note

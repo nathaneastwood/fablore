@@ -854,7 +854,72 @@ def collect_alerts() -> list[str]:
 # fall below it. Some legitimate near-duplicates use unrelated wording
 # (``Silvarium``/``The Silvaris``) and won't be caught by string similarity
 # at all — this check is a net, not a guarantee.
-_DUPLICATE_NAME_SIMILARITY_THRESHOLD = 0.85
+#
+# Lowered from 0.85 to 0.80 once the registry started being extended by
+# automated registration rather than by hand: ``Solarium``/``The Solarium``
+# (same region, two rows) scores 0.84 and was being missed. The cost is more
+# false positives, which is the right trade only because a reviewed pair can be
+# recorded once in ``reviewed-name-pairs.csv`` and stops being reported.
+_DUPLICATE_NAME_SIMILARITY_THRESHOLD = 0.80
+
+# Leading articles are stripped for this comparison rather than scored: "the X"
+# and "X" are the single most common way one place becomes two rows, and the
+# ratio for short names lands under any threshold worth using.
+_ARTICLES = ("the", "a", "an")
+
+REVIEWED_PAIRS_CSV = DATA / "csv/reviewed-name-pairs.csv"
+
+
+def _differ_only_by_article(n1: str, n2: str) -> bool:
+    """True when two normalized names differ only by a leading article."""
+    for article in _ARTICLES:
+        if n1.startswith(article) and n1[len(article) :] == n2:
+            return True
+        if n2.startswith(article) and n2[len(article) :] == n1:
+            return True
+    return False
+
+
+def _reviewed_pairs() -> dict[frozenset, str]:
+    """Return ``{frozenset({id1, id2}): note}`` for pairs a human has ruled on.
+
+    The ledger records **only** decisions made by a person. Nothing writes to it
+    automatically: a pair stays reported on every run until someone looks at the
+    two rows and records that they are distinct. Recording a pair here asserts
+    "these are two different things and both rows should exist" — the opposite
+    verdict is not recorded, because merging the rows makes the pair disappear.
+    """
+    if not REVIEWED_PAIRS_CSV.is_file():
+        return {}
+    reviewed: dict[frozenset, str] = {}
+    _, rows = read_pipe_csv(REVIEWED_PAIRS_CSV)
+    for row in rows:
+        id1, id2 = (row.get("IdA") or "").strip(), (row.get("IdB") or "").strip()
+        if id1 and id2:
+            reviewed[frozenset({id1, id2})] = (row.get("Note") or "").strip()
+    return reviewed
+
+
+def _check_reviewed_pairs_are_current(known_ids: set[str]) -> list[str]:
+    """Flag ledger entries naming a row that no longer exists.
+
+    A stale entry is a silent suppression: the id it names has been merged away
+    or renamed, so it can no longer match anything, and a genuinely new
+    near-duplicate involving the surviving row would look reviewed.
+    """
+    alerts: list[str] = []
+    if not REVIEWED_PAIRS_CSV.is_file():
+        return alerts
+    _, rows = read_pipe_csv(REVIEWED_PAIRS_CSV)
+    for row in rows:
+        for column in ("IdA", "IdB"):
+            rid = (row.get(column) or "").strip()
+            if rid and rid not in known_ids:
+                alerts.append(
+                    f"reviewed-name-pairs.csv: {column}={rid!r} no longer exists in any registry — "
+                    "delete the row, or repoint it if the entity was renamed."
+                )
+    return alerts
 
 
 def _check_near_duplicate_names(
@@ -898,24 +963,31 @@ def _check_near_duplicate_names(
         key = (row.get(group_column) or "").strip() if group_column else ""
         groups.setdefault(key, []).append((name, rid))
 
+    reviewed = _reviewed_pairs()
     alerts: list[str] = []
     for entries in groups.values():
         for (name1, id1), (name2, id2) in combinations(entries, 2):
             if name1 == name2:
                 continue
+            if frozenset({id1, id2}) in reviewed:
+                continue  # a person has looked at these two and recorded them as distinct
             n1, n2 = normalize_name(name1), normalize_name(name2)
             if n1 == n2:
                 ratio = 1.0
             else:
                 ratio = SequenceMatcher(None, n1, n2).ratio()
-            if ratio >= _DUPLICATE_NAME_SIMILARITY_THRESHOLD:
-                alerts.append(
-                    f"{label}: {id_column}={id1!r} Name={name1!r} looks like a possible "
-                    f"duplicate of {id_column}={id2!r} Name={name2!r} (similarity "
-                    f"{ratio:.2f}). If these are the same place/entity, merge the rows "
-                    "and repoint any story links to whichever has the fuller notes/"
-                    "description; if they're genuinely distinct, no action needed."
-                )
+            article = _differ_only_by_article(n1, n2)
+            if ratio < _DUPLICATE_NAME_SIMILARITY_THRESHOLD and not article:
+                continue
+            why = "differs only by a leading article" if article else f"similarity {ratio:.2f}"
+            alerts.append(
+                f"{label}: {id_column}={id1!r} Name={name1!r} looks like a possible "
+                f"duplicate of {id_column}={id2!r} Name={name2!r} ({why}). "
+                "Decide which: if they are the same thing, merge the rows and repoint "
+                "any story links to whichever has the fuller notes/description; if they "
+                "are genuinely distinct, record them in csv/reviewed-name-pairs.csv so "
+                "this stops being reported."
+            )
     return alerts
 
 
@@ -953,7 +1025,93 @@ def collect_warnings() -> list[str]:
     warnings.extend(_check_near_duplicate_names(DATA / "csv/monsters.csv", "MonsterId", "Name", "monsters.csv"))
     warnings.extend(_check_near_duplicate_names(DATA / "csv/fauna.csv", "FaunaId", "Name", "fauna.csv"))
     warnings.extend(_check_near_duplicate_names(DATA / "csv/flora.csv", "FloraId", "Name", "flora.csv"))
+    warnings.extend(
+        _check_near_duplicate_names(DATA / "csv/food-and-drink.csv", "FoodDrinkId", "Name", "food-and-drink.csv")
+    )
+    warnings.extend(_check_new_catalogue_names(_reviewed_pairs()))
+    warnings.extend(_check_reviewed_pairs_are_current(_all_registry_ids()))
     return warnings
+
+
+def _check_new_catalogue_names(reviewed: dict[frozenset, str]) -> list[str]:
+    """Compare not-yet-registered catalogue constants against the existing registry.
+
+    The CSV checks compare row against row, so they only see an entity once its
+    declaration has been applied — which is after the duplicate row exists. A
+    constant added by ``register-story`` for a genuinely new entity sits in the
+    catalogue with no CSV row yet, and is exactly the case most likely to be a
+    second spelling of something registered by hand years ago. This is the only
+    check that runs before the row is created.
+    """
+    try:
+        from entries.catalogue import fauna, flora, food_drink, locations, monsters, npcs
+    except Exception:  # noqa: BLE001 — a validator must not fail on an import problem
+        return []
+
+    from registry_ids import food_drink_id
+
+    specs = [
+        (
+            locations,
+            "csv/locations.csv",
+            "LocationId",
+            lambda e: location_id(e.name, region_row_id(e.region) if e.region else ""),
+        ),
+        (npcs, "csv/npcs.csv", "CharacterId", lambda e: lore_character_id(e.name)),
+        (monsters, "csv/monsters.csv", "MonsterId", lambda e: monster_id(e.name)),
+        (fauna, "csv/fauna.csv", "FaunaId", lambda e: fauna_id_from_name(e.name)),
+        (flora, "csv/flora.csv", "FloraId", lambda e: flora_id(e.name)),
+        (food_drink, "csv/food-and-drink.csv", "FoodDrinkId", lambda e: food_drink_id(e.name, e.kind)),
+    ]
+    alerts: list[str] = []
+    for module, csv_name, id_column, id_fn in specs:
+        path = DATA / csv_name
+        if not path.is_file():
+            continue
+        _, rows = read_pipe_csv(path)
+        known = {(row.get(id_column) or "").strip(): (row.get("Name") or "").strip() for row in rows}
+        for const in sorted(n for n in dir(module) if n.isupper()):
+            entity = getattr(module, const)
+            entity_id = id_fn(entity)
+            if entity_id in known:
+                continue  # already a registry row; the row-vs-row checks cover it
+            n1 = normalize_name(entity.name)
+            for row_id, row_name in known.items():
+                n2 = normalize_name(row_name)
+                if n1 == n2 or frozenset({entity_id, row_id}) in reviewed:
+                    continue
+                article = _differ_only_by_article(n1, n2)
+                ratio = SequenceMatcher(None, n1, n2).ratio()
+                if ratio < _DUPLICATE_NAME_SIMILARITY_THRESHOLD and not article:
+                    continue
+                why = "differs only by a leading article" if article else f"similarity {ratio:.2f}"
+                alerts.append(
+                    f"{Path(csv_name).name}: catalogue constant {const} Name={entity.name!r} is new "
+                    f"(no registry row yet) and looks like a possible duplicate of existing "
+                    f"{id_column}={row_id!r} Name={row_name!r} ({why}). Decide before the "
+                    "declaration is applied — once it runs, the second row exists. If they are "
+                    f"genuinely distinct, record {entity_id}|{row_id} in csv/reviewed-name-pairs.csv."
+                )
+    return alerts
+
+
+def _all_registry_ids() -> set[str]:
+    """Every id in every lore registry, for spotting stale ledger entries."""
+    ids: set[str] = set()
+    for name, column in (
+        ("locations.csv", "LocationId"),
+        ("npcs.csv", "CharacterId"),
+        ("monsters.csv", "MonsterId"),
+        ("fauna.csv", "FaunaId"),
+        ("flora.csv", "FloraId"),
+        ("food-and-drink.csv", "FoodDrinkId"),
+    ):
+        path = DATA / "csv" / name
+        if not path.is_file():
+            continue
+        _, rows = read_pipe_csv(path)
+        ids.update((row.get(column) or "").strip() for row in rows if (row.get(column) or "").strip())
+    return ids
 
 
 def main() -> int:
@@ -965,11 +1123,23 @@ def main() -> int:
     """
     warnings = collect_warnings()
     if warnings:
-        print(
-            f"WARNING: {len(warnings)} known pre-existing locations.csv id-hash drift "
-            "issue(s) (not blocking; see plans/ for the migration this affects):",
-            file=sys.stderr,
-        )
+        # The header used to count every warning and describe them all as id-hash
+        # drift, which was wrong whenever the near-duplicate check found anything
+        # — and it finds most of them. Count each kind separately.
+        drift = sum(1 for msg in warnings if "stored id does not match" in msg)
+        pairs = sum(1 for msg in warnings if "looks like a possible duplicate" in msg)
+        stale = sum(1 for msg in warnings if msg.startswith("reviewed-name-pairs.csv:"))
+        parts = []
+        if drift:
+            parts.append(f"{drift} id-hash drift (see plans/ for the migration this affects)")
+        if pairs:
+            parts.append(f"{pairs} name pair(s) awaiting a decision — see csv/reviewed-name-pairs.csv")
+        if stale:
+            parts.append(f"{stale} stale reviewed-pair entr(y/ies)")
+        other = len(warnings) - drift - pairs - stale
+        if other:
+            parts.append(f"{other} other")
+        print(f"WARNING: not blocking — {'; '.join(parts)}:", file=sys.stderr)
         for msg in warnings:
             print(f"WARNING: {msg}", file=sys.stderr)
 

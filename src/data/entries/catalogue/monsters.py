@@ -15,6 +15,8 @@ from db import MonsterEntry
 
 
 DREGS = MonsterEntry("Dregs")
+GLUTGORR = MonsterEntry("Glutgorr")
 NECROPHAGE = MonsterEntry("Necrophage")
+PUPPETEER = MonsterEntry("Puppeteer")
 RAVENIR = MonsterEntry("Ravenir")
 SHADOWREALM_WALKER = MonsterEntry("Shadowrealm Walker")
