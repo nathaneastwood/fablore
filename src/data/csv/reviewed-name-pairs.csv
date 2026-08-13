@@ -9,9 +9,22 @@
 # A row here asserts "these are two different entities and both rows should
 # exist", and stops that pair being reported. There is no row for the opposite
 # verdict — if the two are the same thing you merge them, and the pair no longer
-# exists to report. Adding a row is a decision only a person should make.
+# exists to report.
 #
 # Delete a row if either id is merged away or renamed; validate_data.py reports
 # entries naming an id that no longer exists, because a stale entry silently
 # suppresses a real warning about the surviving row.
 IdA|IdB|Note
+LO538cd7834c|LO4fc8febf5c|Blockhead Territory and Torched Territory are two of the named Pits territories, not one row twice.
+LOe1d5c5e23e|LO38a4c2e0c5|Ashvahan and Deshvahan are separate cities in Volcor; each has its own world-lore heading.
+LO295eda0474|LOb6bc8cad7e|East Rise and West Rise are opposite sides, not a spelling variant.
+LC54a776de1a|LC4e2330f32a|Aelius and Aurelius are different characters.
+LC2651228672|LC0a68d90ca3|Darius and Daxius are different characters.
+LC3c8d14cbde|LC34621cde67|Freya and Reznyr Eldingsturm are different characters sharing a family name.
+LC4297c6b894|LC2dff6260a6|Grand Magister is a position held by different people at different times, each with their own title.
+LC4297c6b894|LCb1c9d31e49|Grand Magister is a position held by different people at different times, each with their own title.
+LC2dff6260a6|LC91740cb310|Grand Magister is a position held by different people at different times, each with their own title.
+LC2dff6260a6|LCb1c9d31e49|Grand Magister is a position held by different people at different times, each with their own title.
+LC4726dd1d21|LC91740cb310|Grand Magister is a position held by different people at different times, each with their own title.
+LC91740cb310|LCb1c9d31e49|Grand Magister is a position held by different people at different times, each with their own title.
+LC04251c7f5f|LC9107eddb94|Shio and Shiro are different characters.

@@ -220,7 +220,7 @@ db.upsert_story(
         loc.FIDDLER_S_GREEN,
         loc.NEELASHA,
         loc.OCTOMILITIA,
-        loc.SOLARIUM,
+        loc.THE_SOLARIUM,
         loc.VALAHAI,
     ],
     regions=[

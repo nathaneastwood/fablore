@@ -163,7 +163,6 @@ OCTOGRIA = LocationEntry("Octogria", region="Solana")
 OCTOMILITIA = LocationEntry("Octomilitia", region="Solana")
 SILVARIUM = LocationEntry("Silvarium", region="Solana")
 SOLANA = LocationEntry("Solana", region="Solana")
-SOLARIUM = LocationEntry("Solarium", region="Solana")
 SOLSTICE_OF_LAURELS = LocationEntry("Solstice of Laurels", region="Solana", lore_fragment="solstice-of-laurels")
 SUNVALE = LocationEntry("Sunvale", region="Solana")
 THE_AWAKENING_CEREMONY = LocationEntry(
