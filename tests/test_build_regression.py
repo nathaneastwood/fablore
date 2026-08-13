@@ -336,6 +336,87 @@ class TestJavaScriptCompatibility:
             )
 
 
+_GRAPH_CSS = ROOT / "theme" / "graph.css"
+_INDEX_HBS = ROOT / "theme" / "index.hbs"
+
+# How the Lore Graph's node palette is stepped for each mdBook theme. The base
+# `.lore-graph` rule carries the light hues; the dark hues are a separate,
+# deliberately chosen set, applied by theme class.
+_LIGHT_THEMES = frozenset({"light", "rust"})
+_DARK_THEMES = frozenset({"coal", "navy", "ayu"})
+
+
+class TestLoreGraphThemeCoupling:
+    """The Lore Graph paints a canvas, so it cannot inherit mdBook's colours.
+
+    ``theme/graph.js`` reads its palette out of CSS custom properties, and
+    ``theme/graph.css`` switches those properties on mdBook's theme class. That
+    coupling fails *silently*: a renamed or added theme leaves the dark themes
+    on the light hues, i.e. mid-blue nodes on a near-black canvas, with no error
+    anywhere. These tests turn that into a failing build.
+    """
+
+    def _theme_ids(self) -> set[str]:
+        """Theme ids from the picker's menu items.
+
+        Scoped to ``class="theme"`` so the picker's own toggle button and popup
+        list (``mdbook-theme-toggle``, ``mdbook-theme-list``) are not mistaken
+        for themes.
+        """
+        html = _INDEX_HBS.read_text()
+        ids = set(re.findall(r'class="theme"\s+id="mdbook-theme-([a-z_]+)"', html))
+        ids.discard("default_theme")  # "Auto" — follows the OS, stamps no class
+        return ids
+
+    def test_every_mdbook_theme_is_classified_light_or_dark(self) -> None:
+        """A new or renamed mdBook theme must be sorted into a palette by hand.
+
+        Failing here is the intended behaviour, not a bug in the test: someone
+        has to decide whether the new theme takes the light hues or the dark
+        ones, and validate the palette against its surface colour.
+        """
+        found = self._theme_ids()
+        known = _LIGHT_THEMES | _DARK_THEMES
+        assert found == known, (
+            "theme/index.hbs no longer offers the themes theme/graph.css was "
+            f"written against.\n  added:   {sorted(found - known)}\n"
+            f"  removed: {sorted(known - found)}\n"
+            "Classify each new theme as light or dark, add it to _DARK_THEMES "
+            "and to the dark selector list in theme/graph.css, then re-run the "
+            "palette validator against that theme's background colour."
+        )
+
+    def test_dark_themes_all_select_the_dark_node_palette(self) -> None:
+        css = _GRAPH_CSS.read_text()
+        missing = [t for t in sorted(_DARK_THEMES) if f".{t} .lore-graph" not in css]
+        assert missing == [], (
+            f"theme/graph.css has no dark palette rule for: {missing}. "
+            "Those themes would render the light node hues on a dark canvas."
+        )
+
+    def test_light_themes_are_left_to_the_base_rule(self) -> None:
+        """A `.light`/`.rust` override would be dead weight that drifts."""
+        css = _GRAPH_CSS.read_text()
+        stray = [t for t in sorted(_LIGHT_THEMES) if f".{t} .lore-graph" in css]
+        assert stray == [], (
+            f"theme/graph.css overrides the palette for light theme(s) {stray}; "
+            "the base .lore-graph rule already carries the light hues."
+        )
+
+    def test_the_dark_palette_defines_every_hue_the_light_one_does(self) -> None:
+        """A hue defined only in the light block silently persists into dark."""
+        css = _GRAPH_CSS.read_text()
+        base = re.search(r"\.lore-graph \{(.*?)\}", css, re.S)
+        dark = re.search(r"\.ayu \.lore-graph \{(.*?)\}", css, re.S)
+        assert base and dark, "theme/graph.css no longer has the expected palette blocks"
+        hue = re.compile(r"(--lg-(?:story|character|place|set|other|link|dim|label|accent)[\w-]*)\s*:")
+        missing = sorted(set(hue.findall(base.group(1))) - set(hue.findall(dark.group(1))))
+        assert missing == [], (
+            f"These node colours are defined only for light surfaces: {missing}. "
+            "They would keep their light value on a dark canvas."
+        )
+
+
 # ===========================================================================
 # Build checks (slow)
 # ===========================================================================
@@ -416,3 +497,39 @@ class TestBuildOutput:
         html = page.read_text()
         assert "story-share" in html, "Share buttons missing — story-meta preprocessor may not have run"
         assert "fablore-story-meta" in html, "Story-meta markers missing"
+
+    def test_lore_graph_clears_the_chapter_chevrons(self, build_result) -> None:
+        """The graph canvas must not run underneath mdBook's prev/next arrows.
+
+        The canvas takes pointer events, so an overlap does not merely look
+        wrong — it swallows the clicks and the arrows stop working. ``graph.css``
+        reserves ``--lg-gutter`` for them, sized against mdBook's own
+        ``.nav-chapters`` rule, which lives inside the mdbook binary and is only
+        visible once the book is built.
+
+        Note mdBook sets ``:root { font-size: 62.5% }``, so 1rem is 10px here.
+        Reading the gutter as 16px/rem is exactly the mistake this guards.
+        """
+        chrome = next(BUILD_DIR.glob("css/chrome*.css"), None)
+        assert chrome is not None, "mdBook's chrome.css was not built"
+
+        rule = re.search(r"\.nav-chapters\s*\{(.*?)\}", chrome.read_text(), re.S)
+        assert rule is not None, (
+            "mdBook no longer defines a .nav-chapters rule — the chapter "
+            "chevrons have moved or been renamed, so theme/graph.css's "
+            "--lg-gutter is now reserving space for nothing. Re-measure."
+        )
+        min_width = re.search(r"min-width:\s*(\d+)px", rule.group(1))
+        assert min_width is not None, "mdBook's .nav-chapters no longer sets a min-width"
+
+        gutter_rem = re.search(r"--lg-gutter:\s*([\d.]+)rem", _GRAPH_CSS.read_text())
+        assert gutter_rem is not None, "theme/graph.css no longer declares --lg-gutter"
+
+        gutter_px = float(gutter_rem.group(1)) * 10  # mdBook root font-size is 62.5%
+        needed = int(min_width.group(1)) * 2
+        assert gutter_px >= needed, (
+            f"--lg-gutter reserves {gutter_px:.0f}px but mdBook's chevrons need "
+            f"{needed}px ({min_width.group(1)}px each side). The graph canvas "
+            "would cover them and eat their clicks. Widen --lg-gutter in "
+            "theme/graph.css."
+        )

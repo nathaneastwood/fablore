@@ -27,6 +27,11 @@ jobs:
     - name: Run Python data pipeline tests
       run: python -m pytest
 
+    # theme/graph-core.js holds the Lore Graph's pure logic. node --test is
+    # built in, so this needs no package.json and no install step.
+    - name: Run JavaScript tests
+      run: node --test "tests/js/**/*.test.js"
+
     - name: Build the book
       run: mdbook build
 

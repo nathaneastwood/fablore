@@ -19,6 +19,14 @@ repos:
         language: system
         pass_filenames: false
         files: ^src/data/.*\.(csv|py)$
+      # node --test is built into Node, so this needs no package.json and no
+      # install step. Skipped unless the graph's JS or its tests changed.
+      - id: graph-js-tests
+        name: graph-js-tests
+        entry: node --test tests/js/**/*.test.js
+        language: system
+        pass_filenames: false
+        files: ^(theme/graph-core\.js|tests/js/.*\.test\.js)$
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:

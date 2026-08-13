@@ -6,8 +6,8 @@ title = "Legendary Stories"
 description = "Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters."
 
 [output.html]
-additional-css = ["hero.css", "image.css", "tab.css", "bionic.css", "footer.css", "breadcrumb.css", "sets-hub.css", "theme/hints.css", "theme/related.css", "theme/story-meta.css", "theme/narrated-videos.css", "theme/browse.css", "theme/glyph-tool.css"]
-additional-js = ["theme/toolbar.js", "tab.js", "back-to-top.js", "hero-hub.js", "bionic.js", "theme/hints.js", "theme/related.js", "narrated-videos.js", "theme/browse.js", "theme/hero-filter.js", "theme/reading-progress.js", "theme/heading-anchors.js", "theme/copy-link.js", "theme/reading-prefs.js", "theme/random-story.js", "theme/read-tracking.js", "theme/glyph-tool.js"]
+additional-css = ["hero.css", "image.css", "tab.css", "bionic.css", "footer.css", "breadcrumb.css", "sets-hub.css", "theme/hints.css", "theme/related.css", "theme/story-meta.css", "theme/narrated-videos.css", "theme/browse.css", "theme/glyph-tool.css", "theme/graph.css"]
+additional-js = ["theme/toolbar.js", "tab.js", "back-to-top.js", "hero-hub.js", "bionic.js", "theme/hints.js", "theme/related.js", "narrated-videos.js", "theme/browse.js", "theme/hero-filter.js", "theme/reading-progress.js", "theme/heading-anchors.js", "theme/copy-link.js", "theme/reading-prefs.js", "theme/random-story.js", "theme/read-tracking.js", "theme/glyph-tool.js", "theme/graph-core.js", "theme/graph.js"]
 default-theme = "light"
 preferred-dark-theme = "ayu"
 git-repository-url = "https://github.com/nathaneastwood/fablore"
@@ -23,6 +23,15 @@ command = "python3 src/data/mdbook_archive_notice.py"
 
 [preprocessor.browse]
 command = "python3 src/data/mdbook_browse.py"
+
+[preprocessor.graph]
+command = "python3 src/data/mdbook_graph.py"
+
+[preprocessor.graph-link]
+command = "python3 src/data/mdbook_graph_link.py"
+# The backlink is placed under the share sheet, so the story-meta block that
+# renders it has to exist by the time this runs.
+after = ["story-meta"]
 
 [preprocessor.hints]
 command = "python3 src/data/mdbook_hints.py"

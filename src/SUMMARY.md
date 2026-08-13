@@ -2,6 +2,7 @@
 
 [Introduction](intro.md)
 [Browse Stories](browse.md)
+[Lore Graph](graph.md)
 
 - [World of Rathe](world-of-rathe/rathe.md)
     - [Aria](world-of-rathe/aria.md)
