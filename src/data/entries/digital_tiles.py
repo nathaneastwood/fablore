@@ -10,24 +10,26 @@ Preview one page with ``python3 src/data/data-entry.py --only <path>``; see
 
 from __future__ import annotations
 
-# Every section module imports the whole entry set, so extending a declaration
-# with a new entity type never also means editing the import. Unused names are
-# deliberate.
-from db import (  # noqa: F401
-    FaunaEntry,
-    FloraEntry,
-    FoodDrinkEntry,
-    MonsterEntry,
-    NarratedVideoEntry,
+# Entities are referenced, never constructed. Every registry id is a hash of the
+# fields written at the call site, so a second literal for the same entity
+# competes with the first row instead of reusing it — that is how "The Shadow
+# Crypts" became two rows. The canonical definition of each lives in
+# entries/catalogue/; none of the entry classes are imported here, so writing
+# LocationEntry(...) is a NameError rather than a silent new row.
+from entries.catalogue import (  # noqa: F401
+    fauna,
+    flora,
+    food_drink as food,
+    locations as loc,
+    monsters as mon,
+    npcs as npc,
+    regions as reg,
 )
 
-# NPCs, locations and regions are referenced, never constructed. Their ids are
-# hashes of the fields written at the call site, so a second literal for the same
-# entity competes with the first row instead of reusing it — that is how
-# "The Shadow Crypts" became two rows. The canonical definition of each lives
-# in entries/catalogue/; the three names are deliberately not imported above, so
-# writing LocationEntry(...) here is a NameError rather than a silent new row.
-from entries.catalogue import locations as loc, npcs as npc, regions as reg  # noqa: F401
+# NarratedVideoEntry is the one exception: a narrated reading belongs to one
+# story, has no registry table and no id of its own, so it is per-declaration
+# data rather than a shared entity.
+from db import NarratedVideoEntry  # noqa: F401
 from entries._runner import db
 
 db.upsert_story(
@@ -159,8 +161,8 @@ db.upsert_story(
         reg.VOLCOR,
     ],
     fauna=[
-        FaunaEntry(name="Azeri"),
-        FaunaEntry(name="Rek'vas"),
+        fauna.AZERI,
+        fauna.REK_VAS,
     ],
     weapons=[
         "cintari-saber",
@@ -217,13 +219,13 @@ db.upsert_story(
         reg.VOLCOR,
     ],
     fauna=[
-        FaunaEntry(name="Kaie'o"),
-        FaunaEntry(name="Kraken"),
-        FaunaEntry(name="Meep"),
+        fauna.KAIE_O,
+        fauna.KRAKEN,
+        fauna.MEEP,
         # New with this set, all three named only as tavern-tale creatures.
-        FaunaEntry(name="Ebon Serpent"),
-        FaunaEntry(name="Kumiho"),
-        FaunaEntry(name="Mireoa"),
+        fauna.EBON_SERPENT,
+        fauna.KUMIHO,
+        fauna.MIREOA,
     ],
     weapons=["dreadbore", "krakens-aethervein"],
     equipment=[
@@ -287,13 +289,13 @@ db.upsert_story(
         reg.HIGH_SEAS,
     ],
     monsters=[
-        MonsterEntry(name="Necrophage"),
+        mon.NECROPHAGE,
     ],
     fauna=[
-        FaunaEntry(name="Kraken"),
-        FaunaEntry(name="Sawmaw"),
+        fauna.KRAKEN,
+        fauna.SAWMAW,
         # New with this set, named only as an ingredient on Chowder's menu.
-        FaunaEntry(name="Kulpie"),
+        fauna.KULPIE,
     ],
     equipment=["dead-threads"],
     dry_run=True,

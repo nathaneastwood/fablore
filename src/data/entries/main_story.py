@@ -10,24 +10,26 @@ Preview one page with ``python3 src/data/data-entry.py --only <path>``; see
 
 from __future__ import annotations
 
-# Every section module imports the whole entry set, so extending a declaration
-# with a new entity type never also means editing the import. Unused names are
-# deliberate.
-from db import (  # noqa: F401
-    FaunaEntry,
-    FloraEntry,
-    FoodDrinkEntry,
-    MonsterEntry,
-    NarratedVideoEntry,
+# Entities are referenced, never constructed. Every registry id is a hash of the
+# fields written at the call site, so a second literal for the same entity
+# competes with the first row instead of reusing it — that is how "The Shadow
+# Crypts" became two rows. The canonical definition of each lives in
+# entries/catalogue/; none of the entry classes are imported here, so writing
+# LocationEntry(...) is a NameError rather than a silent new row.
+from entries.catalogue import (  # noqa: F401
+    fauna,
+    flora,
+    food_drink as food,
+    locations as loc,
+    monsters as mon,
+    npcs as npc,
+    regions as reg,
 )
 
-# NPCs, locations and regions are referenced, never constructed. Their ids are
-# hashes of the fields written at the call site, so a second literal for the same
-# entity competes with the first row instead of reusing it — that is how
-# "The Shadow Crypts" became two rows. The canonical definition of each lives
-# in entries/catalogue/; the three names are deliberately not imported above, so
-# writing LocationEntry(...) here is a NameError rather than a silent new row.
-from entries.catalogue import locations as loc, npcs as npc, regions as reg  # noqa: F401
+# NarratedVideoEntry is the one exception: a narrated reading belongs to one
+# story, has no registry table and no id of its own, so it is per-declaration
+# data rather than a shared entity.
+from db import NarratedVideoEntry  # noqa: F401
 from entries._runner import db
 
 db.upsert_story(
@@ -84,15 +86,15 @@ db.upsert_story(
         loc.MILESIAN_RANGES,
     ],
     regions=[reg.ARIA],
-    monsters=[MonsterEntry("Dregs")],
+    monsters=[mon.DREGS],
     fauna=[
-        FaunaEntry("Cesari"),
-        FaunaEntry("Meep"),
-        FaunaEntry("Kaie'o"),
-        FaunaEntry("Fianna"),
-        FaunaEntry("Vitr'eo"),
+        fauna.CESARI,
+        fauna.MEEP,
+        fauna.KAIE_O,
+        fauna.FIANNA,
+        fauna.VITR_EO,
     ],
-    food_drink=[FoodDrinkEntry(name="Alder Cider", kind="Drink")],
+    food_drink=[food.ALDER_CIDER],
     weapons=["anothos"],
     dry_run=True,
 )
@@ -177,15 +179,15 @@ db.upsert_story(
     regions=[reg.THE_SAVAGE_LANDS],
     monsters=[],
     fauna=[
-        FaunaEntry("Jacara"),
-        FaunaEntry("Strix"),
-        FaunaEntry("Skera"),
-        FaunaEntry("Peluda"),
-        FaunaEntry("Ank'is"),
-        FaunaEntry("Brawnhide"),
-        FaunaEntry("Rek'vas"),
+        fauna.JACARA,
+        fauna.STRIX,
+        fauna.SKERA,
+        fauna.PELUDA,
+        fauna.ANK_IS,
+        fauna.BRAWNHIDE,
+        fauna.REK_VAS,
     ],
-    flora=[FloraEntry("Rashari"), FloraEntry("Haldor")],
+    flora=[flora.RASHARI, flora.HALDOR],
     food_drink=[],
     weapons=[],
     dry_run=True,
@@ -243,7 +245,7 @@ db.upsert_story(
     heroes=["azalea"],
     locations=[loc.BLACKJACK_S_TAVERN],
     regions=[reg.THE_PITS, reg.METRIX],
-    monsters=[MonsterEntry("Dregs")],
+    monsters=[mon.DREGS],
     dry_run=True,
 )
 
@@ -274,7 +276,7 @@ db.upsert_story(
     monsters=[],
     fauna=[],
     flora=[],
-    food_drink=[FoodDrinkEntry("Blackjack's Whiskey", kind="Drink")],
+    food_drink=[food.BLACKJACK_S_WHISKEY],
     weapons=[],
     dry_run=True,
 )
@@ -313,7 +315,7 @@ db.upsert_story(
     monsters=[],
     fauna=[],
     flora=[],
-    food_drink=[FoodDrinkEntry("Blackjack's Whiskey", kind="Drink")],
+    food_drink=[food.BLACKJACK_S_WHISKEY],
     weapons=[],
     dry_run=True,
 )
@@ -394,7 +396,7 @@ db.upsert_story(
         reg.NEBULUS_RIFT,
     ],
     monsters=[
-        MonsterEntry("Ravenir"),
+        mon.RAVENIR,
     ],
     weapons=["aphrodias"],
     dry_run=True,
@@ -424,7 +426,7 @@ db.upsert_story(
         reg.SOLANA,
     ],
     monsters=[
-        MonsterEntry("Shadowrealm Walker"),
+        mon.SHADOWREALM_WALKER,
     ],
     weapons=["galaxxi-black"],
     dry_run=True,

@@ -10,12 +10,15 @@ sets lore text — location ``notes`` and monster/fauna/flora ``description``
 values are owned exclusively by ``descriptions.py``, which writes the same
 database columns. See that file's header for the reasoning.
 
-**References, not definitions.** NPCs, locations and regions are defined once in
-``entries/catalogue/`` and referenced here as ``npc.NAME`` / ``loc.NAME`` /
-``reg.NAME``. Their ids are hashes of the fields written at the call site, so a
-literal here would not reuse the entity's row — it would mint a second one, and
-nothing would raise. The three class names are deliberately absent from the
-section modules' imports so that writing one is a ``NameError``.
+**References, not definitions.** Every entity with a registry table — NPCs,
+locations, regions, monsters, fauna, flora, food and drink — is defined once in
+``entries/catalogue/`` and referenced here as ``npc.NAME``, ``loc.NAME``,
+``reg.NAME``, ``mon.NAME``, ``fauna.NAME``, ``flora.NAME`` or ``food.NAME``.
+Their ids are hashes of the fields written at the call site, so a literal here
+would not reuse the entity's row — it would mint a second one, and nothing would
+raise. The entry classes are deliberately absent from the section modules'
+imports so that writing one is a ``NameError``. ``NarratedVideoEntry`` is the
+exception and stays inline: it has no registry table and no id.
 
 Run them with ``python3 src/data/data-entry.py`` (see that file for the
 preview-then-commit workflow). Nothing here imports the section modules, so

@@ -121,33 +121,48 @@ class LocationEntry:
     """Only needed when creating a new region via this location."""
 
 
-@dataclass
+@dataclass(frozen=True)
 class MonsterEntry:
-    """A monster to link to a story (upserted into monsters table)."""
+    """A monster to link to a story (upserted into monsters table).
+
+    Frozen and shared — the constants live in ``entries/catalogue/monsters.py``.
+    """
 
     name: str
     description: str = ""
 
 
-@dataclass
+@dataclass(frozen=True)
 class FaunaEntry:
-    """A fauna entry to link to a story (upserted into fauna table)."""
+    """A fauna entry to link to a story (upserted into fauna table).
+
+    Frozen and shared — the constants live in ``entries/catalogue/fauna.py``.
+    """
 
     name: str
     description: str = ""
 
 
-@dataclass
+@dataclass(frozen=True)
 class FloraEntry:
-    """A flora entry to link to a story (upserted into flora table)."""
+    """A flora entry to link to a story (upserted into flora table).
+
+    Frozen and shared — the constants live in ``entries/catalogue/flora.py``.
+    """
 
     name: str
     description: str = ""
 
 
-@dataclass
+@dataclass(frozen=True)
 class FoodDrinkEntry:
-    """A food or drink item to link to a story (upserted into food_and_drink table)."""
+    """A food or drink item to link to a story (upserted into food_and_drink table).
+
+    Frozen and shared — the constants live in ``entries/catalogue/food_drink.py``.
+    ``food_drink_id`` hashes ``"name|kind"``, so ``kind`` is part of the identity
+    the way a location's ``region`` is: change it at one call site and you get a
+    second row, not an edited one.
+    """
 
     name: str
     kind: str

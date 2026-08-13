@@ -128,7 +128,17 @@ def test_story_type_matches_path_and_module(module, path, story_type, lineno) ->
 # The catalogue: entity identity lives in exactly one place
 # ---------------------------------------------------------------------------
 
-CATALOGUED = ("NPCEntry", "LocationEntry", "RegionEntry")
+# Every entity type that has a registry table and a derived id. NarratedVideoEntry
+# is deliberately absent: it has neither, so it is per-declaration data.
+CATALOGUED = (
+    "NPCEntry",
+    "LocationEntry",
+    "RegionEntry",
+    "MonsterEntry",
+    "FaunaEntry",
+    "FloraEntry",
+    "FoodDrinkEntry",
+)
 
 
 def _constructor_calls(module: str) -> list[tuple[str, int]]:
@@ -147,12 +157,18 @@ def test_section_modules_reference_entities_rather_than_construct_them(module) -
     """A second literal for one entity does not reuse its row, it mints another.
 
     Every registry id is a hash of the fields written at the call site — an NPC
-    *is* its name, a location *is* its name and its region — so two literals for
-    one entity give two rows and nothing raises. ``Legendarium`` and ``The Shadow
-    Crypts`` each became two rows that way; ``Deathmatch Arena`` and ``The Moat``
-    were declared inconsistently and would have followed. Define the entity once in
-    ``entries/catalogue/`` and reference it as ``npc.NAME`` / ``loc.NAME`` /
-    ``reg.NAME``; adding a new one there is the only place it should happen.
+    *is* its name, a location *is* its name and its region, a food or drink *is*
+    its name and its kind — so two literals for one entity give two rows and
+    nothing raises. ``Legendarium`` and ``The Shadow Crypts`` each became two rows
+    that way; ``Deathmatch Arena`` and ``The Moat`` were declared inconsistently
+    and would have followed.
+
+    All seven types are covered, not only the ones whose ids are composite.
+    Monsters, fauna and flora hash the name alone and so cannot fork, but a rule
+    with exceptions is one every future declaration has to re-derive — and their
+    exemption held only while ``description=`` stayed out of ``entries/``, which
+    is a second rule that could quietly lapse. Define the entity once in
+    ``entries/catalogue/`` and reference it.
     """
     offenders = [f"entries/{module}.py:{lineno} constructs {cls}" for cls, lineno in _constructor_calls(module)]
     assert not offenders, (
@@ -169,15 +185,19 @@ def test_catalogue_constants_have_distinct_ids() -> None:
     import sys
 
     sys.path.insert(0, str(ROOT / "src" / "data"))
-    from db._domain import _location_id
-    from entries.catalogue import locations, npcs, regions
-    from registry_ids import lore_character_id, region_row_id
+    from db._domain import _location_id, _monster_id
+    from entries.catalogue import fauna, flora, food_drink, locations, monsters, npcs, regions
+    from registry_ids import fauna_id_from_name, flora_id, food_drink_id, lore_character_id, region_row_id
 
     collisions: list[str] = []
     for module, id_fn in (
         (npcs, lambda e: lore_character_id(e.name)),
         (locations, lambda e: _location_id(e.name, region_row_id(e.region) if e.region else "")),
         (regions, lambda e: region_row_id(e.name)),
+        (monsters, lambda e: _monster_id(e.name)),
+        (fauna, lambda e: fauna_id_from_name(e.name)),
+        (flora, lambda e: flora_id(e.name)),
+        (food_drink, lambda e: food_drink_id(e.name, e.kind)),
     ):
         seen: dict[str, str] = {}
         for const in sorted(n for n in dir(module) if n.isupper()):
