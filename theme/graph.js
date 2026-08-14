@@ -639,12 +639,26 @@
 
     function panelHtml(node) {
         var parts = [];
-        // Same control, two meanings. Over the canvas it dismisses an overlay
-        // and the graph is still there behind it. In list mode this view *is*
-        // the page, so the control goes back to the list and has to say so.
+        // Two controls, and the difference between them is the point: ← undoes
+        // one step of the walk, × leaves it altogether. Without the arrow the
+        // only way back a step is the browser's own button, which is a long
+        // reach on a phone and easy to miss on a desktop.
+        //
+        // Disabled rather than hidden at the start of a walk — a deep link opens
+        // straight into a node with nothing of ours behind it, and an arrow that
+        // silently became "leave the site" is worse than one that is visibly
+        // spent. Keeping it in place also stops the title reflowing mid-walk.
+        parts.push(
+            '<button type="button" class="lore-graph-panel-back"' +
+                (currentDepth() > 0 ? "" : " disabled") +
+                ' title="Back" aria-label="Back to the previous entry">←</button>'
+        );
+        // Over the canvas × dismisses an overlay and the graph is still there
+        // behind it. In list mode this view *is* the page, so it goes out to the
+        // list, and only the label can say so.
         parts.push('<button type="button" class="lore-graph-panel-close"');
         parts.push(
-            listMode ? ' aria-label="Back to the list">←</button>' : ' aria-label="Close">×</button>'
+            ' aria-label="' + (listMode ? "Back to the list" : "Close") + '">×</button>'
         );
         parts.push('<p class="lore-graph-panel-kind">' + escapeHtml(node.sub) + "</p>");
         if (node.url) {
@@ -874,15 +888,52 @@
         }
     }
 
+    // --- History -----------------------------------------------------------
+    //
+    // Each selection is a history entry, so Back retraces the walk a node at a
+    // time. This replaced a `replaceState` that kept the address bar shareable
+    // without ever stacking an entry — which left Back with nothing to retrace,
+    // so a reader four connections deep lost the whole route in one press and
+    // had no way to remember how they got there.
+    //
+    // The cost is real and was the original reason for `replaceState`: clicking
+    // twenty nodes now takes twenty Backs to leave the page. Retracing is worth
+    // more than a fast exit, and the panel's × still closes in one press.
+
+    /** True while an entry is being applied, so it does not re-push itself. */
+    var applyingHistory = false;
+
+    /** How many selections deep the current entry is; 0 means start of walk. */
+    function currentDepth() {
+        return core.historyDepth(window.history && window.history.state);
+    }
+
+    /** Push the selection onto the history, unless it is already the entry. */
+    function recordInHistory(node) {
+        if (!window.history || !window.history.pushState) {
+            return;
+        }
+        var hash = node && node.slug ? "#" + node.slug : "";
+        // Re-selecting what is already showing is not a step in the walk. This
+        // also covers applying an entry that already names the node, which is
+        // what stops a Back press from pushing the entry it just came from.
+        if (hash === window.location.hash) {
+            return;
+        }
+        if (applyingHistory) {
+            return;
+        }
+        window.history.pushState(
+            { fabloreGraph: currentDepth() + 1 },
+            "",
+            window.location.pathname + hash
+        );
+    }
+
     function select(node) {
         selected = node;
         setHighlight(node || hovered);
-        // Keep the address bar shareable without stacking history entries: the
-        // reader is exploring, not navigating, so Back should leave the page.
-        if (window.history && window.history.replaceState) {
-            var hash = node && node.slug ? "#" + node.slug : "";
-            window.history.replaceState(null, "", window.location.pathname + hash);
-        }
+        recordInHistory(node);
         // One selection, rendered wherever the current mode puts it. Keeping
         // `selected` mode-independent is what lets a rotation carry the reader's
         // place across with it.
@@ -1040,6 +1091,13 @@
      * mean to the viewport differs.
      */
     function handleInspectorClick(e) {
+        // Deliberately the browser's own Back rather than a private trail: the
+        // arrow and the Back button then cannot disagree about where "back" is,
+        // and the phone's back gesture retraces the walk for free.
+        if (e.target.closest(".lore-graph-panel-back")) {
+            window.history.back();
+            return true;
+        }
         if (e.target.closest(".lore-graph-panel-close")) {
             select(null);
             if (listMode) {
@@ -1303,13 +1361,35 @@
     // Deep link. Opening `graph.html#dorinthea` selects that node, and every
     // page that has a node links in this way — so the graph is reachable from
     // the archive rather than only from the table of contents.
+    /**
+     * Bring the view in line with the address bar — on load, on a Back or
+     * Forward, and on a hash typed or linked in.
+     *
+     * Returning early when the view already matches is what makes it safe to
+     * bind twice: a traversal between two hashes fires `popstate` *and*
+     * `hashchange`, and applying the same entry twice would re-centre the
+     * canvas and throw away the reader's scroll position in the list.
+     */
     function applyHash() {
         var target = core.findBySlug(nodes, window.location.hash);
-        if (target) {
-            revealNode(target);
+        if (target === selected) {
+            return;
+        }
+        // The entry is already in the bar; recording it again would push a
+        // duplicate and, on a Back, one the reader could never get past.
+        applyingHistory = true;
+        try {
+            if (target) {
+                revealNode(target);
+            } else {
+                select(null);
+            }
+        } finally {
+            applyingHistory = false;
         }
     }
     applyHash();
+    window.addEventListener("popstate", applyHash);
     window.addEventListener("hashchange", applyHash);
 
     if (window.ResizeObserver) {

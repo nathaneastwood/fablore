@@ -149,6 +149,28 @@
     }
 
     /**
+     * How many selections deep into the graph a history entry is.
+     *
+     * Every selection pushes an entry stamped with its own depth, so the panel's
+     * back arrow can tell a walk it can retrace from the first entry, where the
+     * only thing behind it is whatever page the reader came from. Anything that
+     * is not a whole count this page wrote reads as zero: the entry may predate
+     * the feature, or belong to another script, and `"2" + 1` is `"21"`, which
+     * would stamp nonsense on every entry after it.
+     *
+     * @param {?Object} state — `history.state`, which is null far more often
+     *     than not
+     * @returns {number} depth, never negative
+     */
+    function historyDepth(state) {
+        var depth = state ? state.fabloreGraph : 0;
+        if (typeof depth !== "number" || !isFinite(depth) || depth < 0) {
+            return 0;
+        }
+        return Math.floor(depth);
+    }
+
+    /**
      * Points of a five-pointed star, ready to stroke as a closed path.
      *
      * The first point sits at the top (-90°). `outer` is the tip reach; the
@@ -203,6 +225,7 @@
         buildLabels: buildLabels,
         groupConnections: groupConnections,
         rankNodes: rankNodes,
+        historyDepth: historyDepth,
         starPoints: starPoints,
         findBySlug: findBySlug,
         boxesOverlap: boxesOverlap

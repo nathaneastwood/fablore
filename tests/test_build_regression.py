@@ -485,16 +485,41 @@ class TestLoreGraphListMode:
             "would render with the canvas-mode controls and mouse-sized targets."
         )
 
-    # Everything a reader has to hit once the canvas is gone: the two list
-    # controls, and the three filters that survive into list mode. Each is sized
-    # for a mouse above the breakpoint, so each needs an explicit floor below it.
+    # Everything a reader has to hit once the canvas is gone: the list's own two
+    # controls, the three filters that survive into list mode, and the panel's
+    # back, close and focus arrows. Each is sized for a mouse above the
+    # breakpoint, so each needs an explicit floor below it.
     _TAP_TARGETS = (
         ".lore-graph-list-row",
         ".lore-graph-list-more",
         ".lore-graph.is-list-mode .lore-graph-input",
         ".lore-graph.is-list-mode .lore-graph-chip",
         '.lore-graph.is-list-mode .lore-graph-degree input[type="range"]',
+        ".lore-graph.is-list-mode .lore-graph-panel-back",
+        ".lore-graph.is-list-mode .lore-graph-panel-close",
+        ".lore-graph.is-list-mode .lore-graph-focus",
     )
+
+    @staticmethod
+    def _heights_for(css: str, selector: str) -> list[float]:
+        """Every rem height any rule setting ``selector`` gives it.
+
+        Matched against each rule's whole selector list rather than as literal
+        text, so grouping three arrows into one rule — or splitting them apart
+        again — does not silently drop them out of this check.
+        """
+        out: list[float] = []
+        # Comments first: a `/* … */` above a rule is swept up with the selector
+        # that follows it, which would stop the first selector of every
+        # documented rule from matching.
+        css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+        for selectors, body in re.findall(r"([^{}]+)\{([^{}]*)\}", css):
+            if selector not in [s.strip() for s in selectors.split(",")]:
+                continue
+            # Either property does the job; a range input needs `height`, since
+            # min-height leaves its thumb at the size a thumb has to catch.
+            out += [float(v) for v in re.findall(r"(?:min-)?height:\s*([\d.]+)rem", body)]
+        return out
 
     def test_every_control_clears_the_minimum_tap_target(self) -> None:
         """The measured justification for the whole mode. A canvas mark lands
@@ -502,14 +527,12 @@ class TestLoreGraphListMode:
         moved that fault rather than fixed it."""
         css = _GRAPH_CSS.read_text()
         for selector in self._TAP_TARGETS:
-            block = re.search(re.escape(selector) + r"\s*\{(.*?)\}", css, re.S)
-            assert block, f"theme/graph.css no longer has a {selector} rule"
-            # Either property does the job; a range input needs `height`, since
-            # min-height leaves its thumb at the old size.
-            found = re.search(r"(?:min-)?height:\s*([\d.]+)rem", block.group(1))
-            assert found, f"{selector} sets no height, so it can shrink below the tap target"
-            assert float(found.group(1)) >= _MIN_TAP_TARGET_REM, (
-                f"{selector} is {found.group(1)}rem tall; the minimum tap target is "
+            heights = self._heights_for(css, selector)
+            assert heights, (
+                f"theme/graph.css sets no rem height on {selector}, so it can " "shrink below the minimum tap target."
+            )
+            assert min(heights) >= _MIN_TAP_TARGET_REM, (
+                f"{selector} is {min(heights)}rem tall; the minimum tap target is "
                 f"{_MIN_TAP_TARGET_REM}rem (44px at mdBook's 62.5% root)."
             )
 

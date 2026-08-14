@@ -341,9 +341,46 @@
     background: var(--quote-bg);
 }
 
+/*
+ * Steps back one node of the walk; the × beside it leaves the walk altogether.
+ * Same absolute placement as the ×, and for the same reason — see above — just
+ * parked one button-width inboard of it.
+ */
+.lore-graph-panel-back {
+    position: absolute;
+    z-index: 2;
+    top: 0.4rem;
+    right: 3.3rem;
+    width: 2.6rem;
+    height: 2.6rem;
+    padding: 0;
+    font: inherit;
+    font-size: 1.7rem;
+    line-height: 1;
+    color: var(--fg);
+    background: none;
+    border: none;
+    border-radius: 4px;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.lore-graph-panel-back:hover:not(:disabled) {
+    background: var(--quote-bg);
+}
+
+/* Spent, not missing: a deep link opens with nothing of ours behind it, and an
+   arrow that quietly turned into "leave the site" would be worse than a dead
+   one. Keeping it placed also stops the title reflowing partway through a walk. */
+.lore-graph-panel-back:disabled {
+    opacity: 0.2;
+    cursor: default;
+}
+
 .lore-graph-panel-kind {
     margin: 0;
-    padding-right: 2.4rem;
+    /* Clears both controls. */
+    padding-right: 6.2rem;
     font-size: 1.15rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;
@@ -352,7 +389,7 @@
 
 .lore-graph-panel-title {
     margin: 0.15rem 0 0.35rem;
-    padding-right: 2.4rem;
+    padding-right: 6.2rem;
     font-size: 1.7rem;
     line-height: 1.2;
 }
@@ -621,9 +658,15 @@
  * it at 23px would only move the fault, not fix it.
  */
 .lore-graph.is-list-mode .lore-graph-panel-close,
+.lore-graph.is-list-mode .lore-graph-panel-back,
 .lore-graph.is-list-mode .lore-graph-focus {
     width: 4.4rem;
     height: 4.4rem;
+}
+
+/* Parked one 4.4rem button plus its gutter inboard of the ×. */
+.lore-graph.is-list-mode .lore-graph-panel-back {
+    right: 5.1rem;
 }
 
 .lore-graph.is-list-mode .lore-graph-input {
@@ -668,13 +711,14 @@
     margin-right: 0.9rem;
 }
 
+/* Both controls again, at the larger tap-target size. */
 .lore-graph-list .lore-graph-panel-kind {
     margin-top: 0.9rem;
-    padding-right: 4.6rem;
+    padding-right: 10rem;
 }
 
 .lore-graph-list .lore-graph-panel-title {
-    padding-right: 4.6rem;
+    padding-right: 10rem;
 }
 
 .lore-graph-list .lore-graph-panel-list:last-child {

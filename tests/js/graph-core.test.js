@@ -6,6 +6,7 @@ const {
   buildLabels,
   groupConnections,
   rankNodes,
+  historyDepth,
   starPoints,
   findBySlug,
   boxesOverlap
@@ -271,6 +272,40 @@ test("rankNodes: a missing degree sorts last rather than producing NaN", () => {
 
 test("rankNodes: no nodes yields no rows", () => {
   assert.deepEqual(rankNodes([], ""), []);
+});
+
+// ── historyDepth ─────────────────────────────────────────────────────────────
+// Each selection pushes a history entry stamped with how many selections deep it
+// is, so the panel's back arrow knows whether there is a walk behind it. Reading
+// it wrong is not cosmetic: too high and the arrow is offered on the first entry
+// and takes the reader off the site; too low and a real walk looks like a dead
+// end.
+
+test("historyDepth: reads the depth this page stamped", () => {
+  assert.equal(historyDepth({ fabloreGraph: 3 }), 3);
+});
+
+test("historyDepth: an untouched entry is the start of the walk", () => {
+  // What the browser hands back for a page nobody has pushed state onto —
+  // a fresh load, or an entry mdBook itself created.
+  assert.equal(historyDepth(null), 0);
+  assert.equal(historyDepth(undefined), 0);
+  assert.equal(historyDepth({}), 0);
+});
+
+test("historyDepth: state belonging to some other script is not a depth", () => {
+  assert.equal(historyDepth({ someOtherFeature: 7 }), 0);
+});
+
+test("historyDepth: a non-number is refused rather than coerced", () => {
+  // "2" + 1 is "21", which would stamp a nonsense depth on every later entry.
+  assert.equal(historyDepth({ fabloreGraph: "2" }), 0);
+  assert.equal(historyDepth({ fabloreGraph: null }), 0);
+  assert.equal(historyDepth({ fabloreGraph: NaN }), 0);
+});
+
+test("historyDepth: never returns a negative, so the arrow cannot leave the site", () => {
+  assert.equal(historyDepth({ fabloreGraph: -1 }), 0);
 });
 
 test("groupConnections: no connections yields no sections", () => {
