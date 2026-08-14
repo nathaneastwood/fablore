@@ -22,6 +22,10 @@
     --lg-other: #6f6d67;
     --lg-link: rgba(11, 11, 11, 0.16);
     --lg-link-active: rgba(11, 11, 11, 0.55);
+    /* Printings, dashed. Stronger than a story line despite carrying less
+       weight in the archive, because a dash puts less ink on the canvas than
+       a solid stroke of the same colour and would otherwise disappear. */
+    --lg-link-print: rgba(11, 11, 11, 0.34);
     --lg-dim: rgba(11, 11, 11, 0.09);
     --lg-label: #0b0b0b;
     --lg-accent: #0b0b0b;
@@ -41,6 +45,7 @@
     --lg-other: #8f8d85;
     --lg-link: rgba(255, 255, 255, 0.14);
     --lg-link-active: rgba(255, 255, 255, 0.5);
+    --lg-link-print: rgba(255, 255, 255, 0.32);
     --lg-dim: rgba(255, 255, 255, 0.08);
     --lg-label: #ffffff;
     --lg-accent: #ffffff;
@@ -297,6 +302,26 @@
     border: 0;
 }
 
+/*
+ * Shown when the filters leave nothing to draw. Centred in the stage rather
+ * than painted on the canvas, so it is selectable text that tracks the theme
+ * and reaches a screen reader.
+ */
+.lore-graph-empty {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 42rem;
+    margin: 0;
+    padding: 0 1.5rem;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    text-align: center;
+    text-wrap: balance;
+    opacity: 0.75;
+    transform: translate(-50%, -50%);
+}
+
 /* --- Inspector panel -------------------------------------------------- */
 
 .lore-graph-panel {
@@ -434,6 +459,25 @@
 .lore-graph-panel-more {
     font-size: 1.2rem;
     opacity: 0.6;
+}
+
+/*
+ * Printings. The rule under this heading is dashed to echo the stroke these
+ * rows have on the canvas, which is the only thing saying that this section
+ * and the Set section above it mean different things.
+ */
+.lore-graph-panel-group-printed {
+    border-bottom-style: dashed;
+}
+
+/*
+ * These rows carry no trailing number: a printing is not part of the degree
+ * every other number in this panel is measured in, and borrowing the set's
+ * story count would read as if it were. Nothing is then pushing the focus
+ * button out to the margin, so it does it itself.
+ */
+.lore-graph-panel-printed .lore-graph-focus {
+    margin-left: auto;
 }
 
 .lore-graph-panel-list {

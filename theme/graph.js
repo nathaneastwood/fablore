@@ -33,6 +33,7 @@
     var stage = document.getElementById("lore-graph-stage");
     var panel = document.getElementById("lore-graph-panel");
     var listEl = document.getElementById("lore-graph-list");
+    var emptyEl = document.getElementById("lore-graph-empty");
     var status = document.getElementById("lore-graph-status");
     var legend = document.getElementById("lore-graph-legend");
     var input = document.getElementById("lore-graph-input");
@@ -83,6 +84,7 @@
             slug: n.sl || "",
             degree: 0,
             neighbours: [],
+            printNeighbours: [],
             x: 0,
             y: 0,
             vx: 0,
@@ -97,6 +99,26 @@
         l.target.degree++;
         l.source.neighbours.push(l.target);
         l.target.neighbours.push(l.source);
+    });
+
+    // Printings: the set a hero's card was printed in. The only relation here
+    // that is not an appearance in a story, so it is kept in its own list and
+    // drawn dashed.
+    //
+    // It deliberately does not count toward `degree`. Degree drives the node
+    // sizes, the panel's ranking and the minimum-connections slider, and its
+    // meaning — how many stories catalogue this — stays clean only if a release
+    // fact is kept out of it. So printings decorate a graph the story edges
+    // already decided, and never pull a node into it.
+    // Mirrors _PRINTED_KINDS in the preprocessor: what a card can be.
+    var PRINTED_KINDS = ["hero", "weapon", "equipment"];
+
+    var printLinks = (data.prints || []).map(function (p) {
+        return { source: nodes[p[0]], target: nodes[p[1]] };
+    });
+    printLinks.forEach(function (l) {
+        l.source.printNeighbours.push(l.target);
+        l.target.printNeighbours.push(l.source);
     });
 
     var maxDegree = nodes.reduce(function (m, n) {
@@ -160,6 +182,7 @@
     var pendingFocus = null;
     var active = []; // visible nodes
     var activeLinks = [];
+    var activePrintLinks = [];
     var highlight = null; // Set of highlighted node ids, or null
 
     /** Node radius in world units — what the simulation spaces nodes by. */
@@ -208,6 +231,7 @@
             other: v("--lg-other"),
             link: v("--lg-link"),
             linkActive: v("--lg-link-active"),
+            linkPrint: v("--lg-link-print"),
             dim: v("--lg-dim"),
             label: v("--lg-label"),
             surface: v("--lg-surface"),
@@ -243,6 +267,27 @@
             n.vy = 0;
             n.seeded = true;
         });
+    }
+
+    /** Pull each pair toward its rest length, scaled by `stiffness`. */
+    function springs(list, stiffness) {
+        for (var i = 0; i < list.length; i++) {
+            var s = list[i].source;
+            var t = list[i].target;
+            var lx = t.x + t.vx - s.x - s.vx;
+            var ly = t.y + t.vy - s.y - s.vy;
+            var dist = Math.sqrt(lx * lx + ly * ly) || 1;
+            var rest = 34 + radius(s) + radius(t);
+            var strength = 1 / Math.min(s.degree, t.degree);
+            var amount = ((dist - rest) / dist) * alpha * strength * stiffness;
+            lx *= amount;
+            ly *= amount;
+            var share = t.degree / (s.degree + t.degree);
+            t.vx -= lx * share;
+            t.vy -= ly * share;
+            s.vx += lx * (1 - share);
+            s.vy += ly * (1 - share);
+        }
     }
 
     function tick() {
@@ -293,24 +338,12 @@
 
         // Link springs. Stiffness falls off with the busier endpoint so hubs
         // are not dragged apart by their own popularity.
-        for (i = 0; i < activeLinks.length; i++) {
-            var l = activeLinks[i];
-            var s = l.source;
-            var t = l.target;
-            var lx = t.x + t.vx - s.x - s.vx;
-            var ly = t.y + t.vy - s.y - s.vy;
-            var dist = Math.sqrt(lx * lx + ly * ly) || 1;
-            var rest = 34 + radius(s) + radius(t);
-            var strength = 1 / Math.min(s.degree, t.degree);
-            var amount = ((dist - rest) / dist) * alpha * strength * 0.7;
-            lx *= amount;
-            ly *= amount;
-            var share = t.degree / (s.degree + t.degree);
-            t.vx -= lx * share;
-            t.vy -= ly * share;
-            s.vx += lx * (1 - share);
-            s.vy += ly * (1 - share);
-        }
+        springs(activeLinks, 0.7);
+        // Printings pull, but gently. They should settle a hero near the set
+        // that printed it without competing with the story structure the graph
+        // is about — and without them pulling at all, a hero held on screen by
+        // a printing alone would drift off trailing a dashed line behind it.
+        springs(activePrintLinks, 0.28);
 
         // Weak gravity keeps detached components from drifting off for ever.
         // It stays low so it shapes the layout rather than compressing it —
@@ -481,6 +514,43 @@
         }
         ctx.stroke();
 
+        // Printings, dashed. A different relation needs a different stroke, and
+        // dash is the channel still going spare — the four categorical hues are
+        // spent on the node kinds and a fifth would fail the all-pairs
+        // colour-vision floor. The dash is scaled by the zoom for the same
+        // reason line width is, or it would pack into a solid line when zoomed
+        // out and stop reading as dashed at all.
+        if (activePrintLinks.length) {
+            ctx.save();
+            ctx.setLineDash([5 / view.k, 4 / view.k]);
+            ctx.strokeStyle = highlight ? palette.dim : palette.linkPrint;
+            ctx.lineWidth = 1.2 / view.k;
+            ctx.beginPath();
+            for (i = 0; i < activePrintLinks.length; i++) {
+                l = activePrintLinks[i];
+                if (highlight && (l.source === focus || l.target === focus)) {
+                    continue;
+                }
+                ctx.moveTo(l.source.x, l.source.y);
+                ctx.lineTo(l.target.x, l.target.y);
+            }
+            ctx.stroke();
+            if (highlight && focus) {
+                ctx.strokeStyle = palette.linkActive;
+                ctx.lineWidth = 1.6 / view.k;
+                ctx.beginPath();
+                for (i = 0; i < activePrintLinks.length; i++) {
+                    l = activePrintLinks[i];
+                    if (l.source === focus || l.target === focus) {
+                        ctx.moveTo(l.source.x, l.source.y);
+                        ctx.lineTo(l.target.x, l.target.y);
+                    }
+                }
+                ctx.stroke();
+            }
+            ctx.restore();
+        }
+
         if (highlight && focus) {
             ctx.strokeStyle = palette.linkActive;
             ctx.lineWidth = 1.4 / view.k;
@@ -574,6 +644,43 @@
 
     // --- Filtering ---------------------------------------------------------
 
+    /**
+     * Why the stage is blank, in the reader's terms — or nothing when it is not.
+     *
+     * An empty canvas with no words on it reads as broken rather than as
+     * filtered, and hiding Story empties it completely, which is the one cause
+     * a reader cannot work out for themselves.
+     */
+    function emptyStateText() {
+        var everyKindOff = (data.groups || []).every(function (g) {
+            return hiddenKinds[g.k];
+        });
+        return core.emptyStateMessage({
+            // Search only filters what is drawn in list mode; over the canvas it
+            // opens a dropdown and leaves the graph alone.
+            hasQuery: listMode && !!(input && input.value.trim()),
+            storyHidden: !!hiddenKinds.story,
+            // Only these three are printed on cards, so only these three can
+            // carry a dashed line.
+            printedHidden: PRINTED_KINDS.every(function (k) {
+                return hiddenKinds[k];
+            }),
+            allKindsHidden: everyKindOff,
+            minDegree: minDegree
+        });
+    }
+
+    function updateEmptyState() {
+        if (!emptyEl) {
+            return;
+        }
+        var blank = !active.length;
+        emptyEl.hidden = !blank;
+        if (blank) {
+            emptyEl.textContent = emptyStateText();
+        }
+    }
+
     function applyFilter(options) {
         // Two passes. The filters say which nodes are eligible; then anything
         // left with no connection to draw is dropped, because a lone dot in a
@@ -590,8 +697,15 @@
         activeLinks = links.filter(function (l) {
             return pool.has(l.source.id) && pool.has(l.target.id);
         });
+        activePrintLinks = printLinks.filter(function (l) {
+            return pool.has(l.source.id) && pool.has(l.target.id);
+        });
+        // A printing counts as a connection to draw. This is what leaves
+        // something on screen when Story is switched off: heroes and the sets
+        // that printed them survive, where before every kind lost every line at
+        // once and the stage went blank.
         var connected = new Set();
-        activeLinks.forEach(function (l) {
+        activeLinks.concat(activePrintLinks).forEach(function (l) {
             connected.add(l.source.id);
             connected.add(l.target.id);
         });
@@ -610,15 +724,20 @@
         if (dropped) {
             select(null);
         }
+        updateEmptyState();
         if (status) {
+            // Printings are counted here. They are lines on the screen, and
+            // with Story switched off they are the only lines left — reporting
+            // "0 connections" beside 57 nodes joined by dashes would be wrong
+            // for the reader who most needs this line.
             status.textContent =
                 active.length +
                 " nodes, " +
-                activeLinks.length +
+                (activeLinks.length + activePrintLinks.length) +
                 " connections shown of " +
                 nodes.length +
                 " and " +
-                links.length +
+                (links.length + printLinks.length) +
                 ".";
         }
         // The list is rebuilt from `active`, so it re-ranks itself for free; the
@@ -649,7 +768,9 @@
             return;
         }
         highlight = new Set([node.id]);
-        node.neighbours.forEach(function (m) {
+        // Printed-in sets light up with the rest: the dashed line is on screen,
+        // so leaving it dim while its neighbour lights would read as a fault.
+        node.neighbours.concat(node.printNeighbours).forEach(function (m) {
             if (isEligible(m)) {
                 highlight.add(m.id);
             }
@@ -785,6 +906,41 @@
             }
             parts.push("</ul>");
         });
+
+        // Printings get a section of their own rather than joining the Set run.
+        // The dashed line on the canvas says these are a different claim from
+        // an appearance, and the panel has to say the same — a reader who can
+        // see the line has to be able to find out what it is.
+        var printed = core.rankNodes(node.printNeighbours.filter(isEligible), "");
+        if (printed.length) {
+            parts.push(
+                '<p class="lore-graph-panel-group lore-graph-panel-group-printed">' +
+                    (node.kind === "set" ? "Cards printed here" : "Printed in") +
+                    ' <span class="lore-graph-panel-group-count">' +
+                    printed.length +
+                    "</span></p>"
+            );
+            parts.push('<ul class="lore-graph-panel-list lore-graph-panel-printed">');
+            printed.forEach(function (m) {
+                var label = escapeHtml(m.name);
+                parts.push(
+                    "<li>" +
+                        dotMarkup(m.kind, m.group) +
+                        (m.url ? '<a href="' + escapeHtml(m.url) + '">' + label + "</a>" : label) +
+                        '<button type="button" class="lore-graph-focus" data-node="' +
+                        m.id +
+                        '" title="' +
+                        (listMode ? "Show its connections" : "Show this in the graph") +
+                        '" aria-label="Show ' +
+                        escapeHtml(m.name) +
+                        (listMode ? "'s connections" : " in the graph") +
+                        '">' +
+                        FOCUS_ICON +
+                        "</button></li>"
+                );
+            });
+            parts.push("</ul>");
+        }
         return parts.join("");
     }
 
@@ -798,10 +954,9 @@
     function listHtml() {
         var ranked = core.rankNodes(active, input ? input.value : "");
         if (!ranked.length) {
-            return (
-                '<p class="lore-graph-list-empty">Nothing matches. Try a shorter ' +
-                "search, turn a type back on, or lower the minimum connections.</p>"
-            );
+            // Same explanation the canvas gives, from the same function, so the
+            // two cannot drift into saying different things about one cause.
+            return '<p class="lore-graph-list-empty">' + escapeHtml(emptyStateText()) + "</p>";
         }
         var parts = [];
         parts.push(

@@ -171,6 +171,48 @@
     }
 
     /**
+     * Why is there nothing to show?
+     *
+     * A blank stage with no words on it reads as broken rather than as filtered.
+     * Each way of emptying the graph has its own undo, so the message names the
+     * one that applies rather than listing all of them. Order is by how recently
+     * the reader did it, except that hiding stories comes with an explanation:
+     * every edge in this graph is an appearance in a story, so removing stories
+     * takes almost everything with it, which is not guessable from the outside.
+     *
+     * @param {{hasQuery: boolean, storyHidden: boolean, allKindsHidden: boolean,
+     *          minDegree: number}} state
+     * @returns {string} never empty
+     */
+    function emptyStateMessage(state) {
+        var s = state || {};
+        if (s.hasQuery) {
+            return "Nothing matches that search. Try a shorter one, or clear it.";
+        }
+        if (s.allKindsHidden) {
+            return "Every type is switched off. Turn one back on to see it.";
+        }
+        if (s.storyHidden) {
+            var why =
+                "Every line here is an appearance in a story, so with stories " +
+                "hidden there is almost nothing left to join. ";
+            // A dashed line runs only from a card to a set, so pointing at one
+            // while every card type is switched off would send the reader
+            // looking for something that cannot be there.
+            return s.printedHidden
+                ? why + "Turn Story back on, or turn on Hero, Weapon or Equipment to see the sets that printed them."
+                : why + "Turn Story back on, or follow the dashed lines from a card to the set that printed it.";
+        }
+        var n = typeof s.minDegree === "number" && s.minDegree > 0 ? s.minDegree : 1;
+        return (
+            "Nothing here has " +
+            n +
+            (n === 1 ? " connection" : " connections") +
+            " or more. Lower the minimum, or turn a type back on."
+        );
+    }
+
+    /**
      * Points of a five-pointed star, ready to stroke as a closed path.
      *
      * The first point sits at the top (-90°). `outer` is the tip reach; the
@@ -226,6 +268,7 @@
         groupConnections: groupConnections,
         rankNodes: rankNodes,
         historyDepth: historyDepth,
+        emptyStateMessage: emptyStateMessage,
         starPoints: starPoints,
         findBySlug: findBySlug,
         boxesOverlap: boxesOverlap

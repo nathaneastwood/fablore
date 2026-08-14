@@ -7,6 +7,7 @@ const {
   groupConnections,
   rankNodes,
   historyDepth,
+  emptyStateMessage,
   starPoints,
   findBySlug,
   boxesOverlap
@@ -306,6 +307,69 @@ test("historyDepth: a non-number is refused rather than coerced", () => {
 
 test("historyDepth: never returns a negative, so the arrow cannot leave the site", () => {
   assert.equal(historyDepth({ fabloreGraph: -1 }), 0);
+});
+
+// ── emptyStateMessage ────────────────────────────────────────────────────────
+// A blank stage with no explanation reads as broken. Every way of emptying the
+// graph has a different fix, so the message has to name the one that applies.
+
+test("emptyStateMessage: a search that matches nothing names the search", () => {
+  const msg = emptyStateMessage({ hasQuery: true, storyHidden: false, allKindsHidden: false, minDegree: 4 });
+  assert.match(msg, /search/i);
+});
+
+test("emptyStateMessage: the search wins over the other causes", () => {
+  // Typing is the most recent thing the reader did, so it is the most likely
+  // thing they want undone — even with a filter also capable of emptying it.
+  const msg = emptyStateMessage({ hasQuery: true, storyHidden: true, allKindsHidden: false, minDegree: 6 });
+  assert.match(msg, /search/i);
+});
+
+test("emptyStateMessage: every type switched off says so", () => {
+  const msg = emptyStateMessage({ hasQuery: false, storyHidden: true, allKindsHidden: true, minDegree: 4 });
+  assert.match(msg, /type/i);
+  assert.doesNotMatch(msg, /connections slider/i);
+});
+
+test("emptyStateMessage: hiding stories explains why that empties everything", () => {
+  // The one case a reader cannot work out for themselves: the graph is
+  // bipartite, so with stories gone most kinds have nothing left to join to.
+  const msg = emptyStateMessage({ hasQuery: false, storyHidden: true, allKindsHidden: false, minDegree: 4 });
+  assert.match(msg, /stor/i);
+  assert.doesNotMatch(msg, /every type/i);
+});
+
+test("emptyStateMessage: with stories hidden it points at the dashed card lines", () => {
+  const msg = emptyStateMessage({ storyHidden: true, printedHidden: false });
+  assert.match(msg, /dashed/i);
+});
+
+test("emptyStateMessage: but not when every printed card type is hidden too", () => {
+  // A dashed line runs only from a hero, weapon or equipment to a set. Sending
+  // a reader to look for one with all three off is advice they cannot follow.
+  const msg = emptyStateMessage({ storyHidden: true, printedHidden: true });
+  assert.doesNotMatch(msg, /dashed/i);
+  assert.match(msg, /Hero, Weapon or Equipment/);
+});
+
+test("emptyStateMessage: otherwise it blames the connections slider, with the number", () => {
+  const msg = emptyStateMessage({ hasQuery: false, storyHidden: false, allKindsHidden: false, minDegree: 6 });
+  assert.match(msg, /6/);
+  assert.match(msg, /connection/i);
+});
+
+test("emptyStateMessage: always returns a non-empty string", () => {
+  // It is rendered straight into the stage; an empty one would leave the blank
+  // box this exists to explain.
+  for (const state of [
+    {},
+    { hasQuery: true },
+    { storyHidden: true },
+    { allKindsHidden: true },
+    { minDegree: 1 }
+  ]) {
+    assert.ok(emptyStateMessage(state).length > 0, JSON.stringify(state));
+  }
 });
 
 test("groupConnections: no connections yields no sections", () => {

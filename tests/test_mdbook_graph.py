@@ -15,6 +15,7 @@ from mdbook_graph import (
     assign_slugs,
     build_graph,
     build_graph_html,
+    build_printing_edges,
     inject_into_content,
     load_sets_by_arc,
     page_graph_targets,
@@ -272,7 +273,7 @@ def test_links_are_deduplicated_and_indices_are_in_range(src_root: Path) -> None
 def test_missing_csv_files_do_not_raise(tmp_path: Path) -> None:
     (tmp_path / "data" / "csv").mkdir(parents=True)
     graph = build_graph(tmp_path / "data", tmp_path)
-    assert graph == {"nodes": [], "links": [], "groups": [], "subs": []}
+    assert graph == {"nodes": [], "links": [], "prints": [], "groups": [], "subs": []}
 
 
 # ---------------------------------------------------------------------------
@@ -466,6 +467,173 @@ def test_build_graph_html_embeds_the_payload() -> None:
     assert "window.FABLORE_GRAPH=" in html
     assert 'id="lore-graph-canvas"' in html
     assert 'id="lore-graph-legend"' in html
+
+
+@pytest.fixture
+def printings_root(tmp_path: Path) -> Path:
+    """Two sets that each have a story, and a hero printed in both but written
+    into only one — the shape the real data takes, where Boltyn appears in
+    Everfest stories and his card was printed in none of them.
+    """
+    csv_dir = tmp_path / "data" / "csv"
+    csv_dir.mkdir(parents=True)
+    (csv_dir / "stories.csv").write_text(
+        "# AUTO-GENERATED\n"
+        "StoryId|StoryKey|StoryType|Title|Authors|Artists|SourceLink|PublicationDate|ThumbnailImageLink\n"
+        "ST1|main-story/monarch/a.md|main-story|A|||||\n"
+        "ST2|main-story/uprising/b.md|main-story|B|||||\n"
+    )
+    (csv_dir / "sets.csv").write_text(
+        "# AUTO-GENERATED\n"
+        "SetId|SetTypeId|SetName|InitialReleaseDate\n"
+        "MON|TY1|Monarch|2021-04-30T00:00:00.000Z\n"
+        "UPR|TY1|Uprising|2022-08-05T00:00:00.000Z\n"
+    )
+    (csv_dir / "story-arcs.csv").write_text(
+        "# Hand-maintained.\n"
+        "Slug|SetId|DisplayName|ImageLink|SortDate\n"
+        "monarch|MON|||\n"
+        "uprising|UPR|||\n"
+        "ghost|ZZZ|||\n"  # an arc whose set is not in sets.csv, so has no node
+    )
+    (csv_dir / "heroes-canonical.csv").write_text(
+        "# AUTO-GENERATED\n"
+        "CanonicalId|CanonicalSlug|CanonicalHero\n"
+        "CN1|dorinthea|Dorinthea\n"
+        "CN2|rhinar|Rhinar\n"
+        "CN3|ghost|Ghost\n"
+    )
+    # CN1 is written into Monarch only; CN2 into Uprising only; CN3 nowhere, so
+    # it never becomes a node.
+    (csv_dir / "story-heroes.csv").write_text("# AUTO-GENERATED\nStoryId|CanonicalId|Fragment\nST1|CN1|\nST2|CN2|\n")
+    (csv_dir / "heroes-game.csv").write_text(
+        "# AUTO-GENERATED\n"
+        "HeroGameId|CardName|CanonicalId|ClassIds|TalentIds|Health|Intellect|AbilityText|YoungHero\n"
+        "HG1|Dorinthea|CN1|||20|4||false\n"
+        "HG2|Rhinar|CN2|||20|4||false\n"
+        "HG3|Ghost|CN3|||20|4||false\n"
+    )
+    (csv_dir / "heroes-printings.csv").write_text(
+        "# AUTO-GENERATED\n"
+        "HeroGameId|SetId|CardId|Rarity\n"
+        "HG1|MON|MON001|M\n"  # printed where it is also written
+        "HG1|MON|MON002|R\n"  # a second printing of the same pair
+        "HG1|UPR|UPR001|M\n"  # printed where it is NOT written — the point
+        "HG1|ZZZ|ZZZ001|M\n"  # set has an arc but no node
+        "HG3|MON|MON003|M\n"  # hero has no node
+        "HG9|MON|MON004|M\n"  # game id in no join table
+    )
+
+    # Weapons and equipment join the same way, through their own three tables.
+    (csv_dir / "weapons-canonical.csv").write_text(
+        "# AUTO-GENERATED\nCanonicalWeaponId|CanonicalSlug|CanonicalWeapon\nCW1|dawnblade|Dawnblade\n"
+    )
+    (csv_dir / "story-weapons.csv").write_text("# AUTO-GENERATED\nStoryId|CanonicalWeaponId\nST1|CW1\n")
+    (csv_dir / "weapons-game.csv").write_text(
+        "# AUTO-GENERATED\n"
+        "WeaponGameId|CardName|CanonicalWeaponId|ClassIds|TalentIds|Cost|Power|AbilityText|Types\n"
+        "WG1|Dawnblade|CW1||||||\n"
+    )
+    (csv_dir / "weapons-printings.csv").write_text(
+        "# AUTO-GENERATED\nWeaponGameId|SetId|CardId|Rarity|ImageURL\nWG1|UPR|UPR050|R|\n"
+    )
+    (csv_dir / "equipment-canonical.csv").write_text(
+        "# AUTO-GENERATED\nCanonicalEquipmentId|CanonicalSlug|CanonicalEquipment\nCE1|helm-of-light|Helm of Light\n"
+    )
+    (csv_dir / "story-equipment.csv").write_text("# AUTO-GENERATED\nStoryId|CanonicalEquipmentId\nST1|CE1\n")
+    (csv_dir / "equipment-game.csv").write_text(
+        "# AUTO-GENERATED\n"
+        "EquipmentGameId|CardName|CanonicalEquipmentId|ClassIds|TalentIds|Cost|Defense|AbilityText|Types\n"
+        "EG1|Helm of Light|CE1||||||\n"
+    )
+    (csv_dir / "equipment-printings.csv").write_text(
+        "# AUTO-GENERATED\nEquipmentGameId|SetId|CardId|Rarity|ImageURL\nEG1|MON|MON110|P|\n"
+    )
+    return tmp_path
+
+
+class TestPrintingEdges:
+    """A hero card is printed in a set. That is the one relation on the graph
+    that is not an appearance in a story, and it is recorded rather than
+    inferred — so it must stay separable from the story edges at every step.
+    """
+
+    def _graph(self, root: Path) -> dict:
+        return build_graph(root / "data", root)
+
+    def test_printings_only_ever_join_a_printed_card_to_a_set(self, printings_root: Path) -> None:
+        """Heroes, weapons and equipment are printed on cards. Regions, monsters
+        and the rest are not, and must never gain a dashed line."""
+        graph = self._graph(printings_root)
+        kinds = [n["k"] for n in graph["nodes"]]
+        assert graph["prints"], "no printing edges were built at all"
+        wrong = set()
+        for a, b in graph["prints"]:
+            pair = {kinds[a], kinds[b]}
+            if "set" not in pair or not (pair - {"set"}) <= {"hero", "weapon", "equipment"}:
+                wrong.add((kinds[a], kinds[b]))
+        assert wrong == set(), f"printing edges joining the wrong kinds: {sorted(wrong)}"
+
+    def test_weapons_and_equipment_are_printed_too(self, printings_root: Path) -> None:
+        """All three card types use the same three-table join, so a column name
+        drifting on any one of them must fail here rather than silently drop
+        that type's dashed lines."""
+        graph = self._graph(printings_root)
+        kinds = [n["k"] for n in graph["nodes"]]
+        printed_kinds = {kinds[a] for a, b in graph["prints"]} | {kinds[b] for a, b in graph["prints"]}
+        assert {"hero", "weapon", "equipment"} <= printed_kinds
+
+    def test_a_printing_is_not_the_same_claim_as_appearing_in_a_story(self, printings_root: Path) -> None:
+        """The whole reason these are drawn differently. Dorinthea is written
+        into Monarch and printed in both Monarch and Uprising; the Uprising edge
+        is a fact no story edge carries."""
+        graph = self._graph(printings_root)
+        names = [n["n"] for n in graph["nodes"]]
+        printed = {tuple(sorted((names[a], names[b]))) for a, b in graph["prints"]}
+        assert printed == {
+            ("Dorinthea", "Monarch"),
+            ("Dorinthea", "Uprising"),
+            ("Dawnblade", "Uprising"),
+            ("Helm of Light", "Monarch"),
+        }
+        # Nothing joins Dorinthea to an Uprising story, so the graph says this
+        # only because a printing says it.
+        story_pairs = {tuple(sorted((names[a], names[b]))) for a, b in graph["links"]}
+        assert ("Dorinthea", "Uprising") not in story_pairs
+
+    def test_printings_decorate_the_graph_and_never_grow_it(self, printings_root: Path) -> None:
+        """A hero no story mentions has no node and must not gain one here, or
+        the legend counts stop agreeing with the story edges they came from."""
+        graph = self._graph(printings_root)
+        assert "Ghost" not in {n["n"] for n in graph["nodes"]}
+        n = len(graph["nodes"])
+        assert all(0 <= a < n and 0 <= b < n for a, b in graph["prints"])
+        story_linked = {x for e in graph["links"] for x in e}
+        stranded = {x for e in graph["prints"] for x in e} - story_linked
+        assert stranded == set(), (
+            f"{len(stranded)} node(s) held in the graph by a printing alone. "
+            "Printings are supplementary; they must not pull in nodes."
+        )
+
+    def test_repeat_printings_of_one_card_collapse_to_one_edge(self, printings_root: Path) -> None:
+        """A hero is reprinted; the graph still draws one line."""
+        graph = self._graph(printings_root)
+        pairs = [tuple(e) for e in graph["prints"]]
+        assert len(pairs) == len(set(pairs))
+        assert all(a != b for a, b in pairs)
+
+    def test_the_real_archive_builds_printings(self, src_root: Path) -> None:
+        """The fixture proves the rules; this proves the join actually resolves
+        against the committed CSVs, which is where the column names can drift."""
+        root = Path(__file__).resolve().parents[1]
+        graph = build_graph(root / "src" / "data", root / "src")
+        assert len(graph["prints"]) > 50, "the printings join stopped resolving"
+
+    def test_missing_join_tables_are_skipped_rather_than_raising(self, tmp_path: Path) -> None:
+        """Most sets have no arc, so no node, and a clean checkout may be
+        missing a table entirely. Neither may break the build."""
+        assert build_printing_edges(tmp_path, {"CN1": 0}, {}) == []
+        assert build_printing_edges(tmp_path, {}, {"welcome-to-rathe": 1}) == []
 
 
 def test_the_graph_opens_on_sets_stories_heroes_and_regions(src_root: Path) -> None:

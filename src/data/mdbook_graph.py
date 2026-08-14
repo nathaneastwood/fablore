@@ -200,6 +200,78 @@ def load_sets_by_arc(data_dir: Path) -> dict[str, str]:
     return by_arc
 
 
+# Every card type that records which set it was printed in. Each needs three
+# tables: the printings, and the game table that joins a printing's game id back
+# to the canonical entity the graph draws.
+#
+# (printings csv, game id column, game csv, canonical id column)
+# The node kinds a printing can attach to. Everything else in the archive is a
+# place, a creature or a person, none of which are printed on a card.
+_PRINTED_KINDS: frozenset[str] = frozenset({"hero", "weapon", "equipment"})
+
+_PRINTING_SOURCES: tuple[tuple[str, str, str, str], ...] = (
+    ("heroes-printings.csv", "HeroGameId", "heroes-game.csv", "CanonicalId"),
+    ("weapons-printings.csv", "WeaponGameId", "weapons-game.csv", "CanonicalWeaponId"),
+    ("equipment-printings.csv", "EquipmentGameId", "equipment-game.csv", "CanonicalEquipmentId"),
+)
+
+
+def build_printing_edges(data_dir: Path, card_node: dict[str, int], set_node: dict[str, int]) -> list[tuple[int, int]]:
+    """Return ``(card index, set index)`` pairs for the sets a card was printed in.
+
+    This is the one relation in the graph that is not an appearance in a story,
+    and it is recorded rather than inferred: a printings table gives the set per
+    game id, and the matching game table joins that id back to the canonical
+    hero, weapon or equipment the graph draws.
+
+    It is deliberately not the same claim as "this appears in a story from that
+    set's arc". For heroes only 75 of the two sets' pairs agree — Boltyn is in
+    Everfest, Dynasty and Outsiders stories and was printed in none of them.
+    Drawing a printing as an ordinary edge would state the second thing while
+    meaning the first, which is why ``theme/graph.js`` strokes these dashed and
+    keeps them out of the connection counts.
+
+    Args:
+        data_dir: ``src/data`` directory holding ``csv/``.
+        card_node: ``{canonical id: node index}`` for the heroes, weapons and
+            equipment already in the graph. Canonical ids are unique across the
+            three by prefix (``CN``, ``CW``, ``CE``), so one map serves all.
+        set_node: ``{arc slug: node index}`` for sets already in the graph.
+
+    Returns:
+        Sorted unique index pairs. Cards and sets that are not already nodes are
+        skipped — printings must decorate the graph, never grow it.
+    """
+    csv_dir = data_dir / "csv"
+
+    # A set is a node only where an arc maps to it, so this also filters out
+    # every set that has no stories on the site.
+    slug_for_set: dict[str, str] = {}
+    for r in _rows(csv_dir / "story-arcs.csv"):
+        sid = (r.get("SetId") or "").strip()
+        slug = (r.get("Slug") or "").strip()
+        if sid and slug:
+            slug_for_set.setdefault(sid, slug)
+
+    edges: set[tuple[int, int]] = set()
+    for printings_csv, game_id_col, game_csv, canonical_col in _PRINTING_SOURCES:
+        canonical_for_game: dict[str, str] = {}
+        for r in _rows(csv_dir / game_csv):
+            gid = (r.get(game_id_col) or "").strip()
+            cid = (r.get(canonical_col) or "").strip()
+            if gid and cid:
+                canonical_for_game[gid] = cid
+
+        for r in _rows(csv_dir / printings_csv):
+            gid = (r.get(game_id_col) or "").strip()
+            set_id = (r.get("SetId") or "").strip()
+            card_idx = card_node.get(canonical_for_game.get(gid, ""))
+            set_idx = set_node.get(slug_for_set.get(set_id, ""))
+            if card_idx is not None and set_idx is not None and card_idx != set_idx:
+                edges.add((card_idx, set_idx))
+    return sorted(edges)
+
+
 class _Builder:
     """Accumulates nodes and edges, de-duplicating nodes by registry id."""
 
@@ -428,6 +500,22 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
     nodes = [b.nodes[i] for i in keep]
     links = sorted((remap[a], remap[c]) for a, c in b.edges)
 
+    # Printings decorate the graph and never grow it, so they are resolved
+    # against the surviving nodes only: a hero no story mentions has no node,
+    # and so gets no edge to the set that printed it.
+    card_node: dict[str, int] = {}
+    set_node: dict[str, int] = {}
+    for node_id, old in b.index.items():
+        new = remap.get(old)
+        if new is None:
+            continue
+        node_kind = nodes[new]["k"]
+        if node_kind in _PRINTED_KINDS:
+            card_node[node_id] = new
+        elif node_kind == "set" and node_id.startswith("SET"):
+            set_node[node_id[len("SET") :]] = new
+    prints = build_printing_edges(data_dir, card_node, set_node)
+
     assign_slugs(nodes)
 
     counts: dict[str, int] = {}
@@ -463,7 +551,15 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
             if candidate in present_subs and candidate not in sub_order:
                 sub_order.append(candidate)
 
-    return {"nodes": nodes, "links": links, "groups": groups, "subs": sub_order}
+    return {
+        "nodes": nodes,
+        "links": links,
+        # Kept apart from `links`, not flagged inside it: these are a different
+        # relation and the script strokes and counts them differently.
+        "prints": prints,
+        "groups": groups,
+        "subs": sub_order,
+    }
 
 
 def assign_slugs(nodes: list[dict]) -> None:
@@ -573,6 +669,9 @@ def build_graph_html(graph: dict) -> str:
         '    <canvas id="lore-graph-canvas" class="lore-graph-canvas"'
         ' aria-label="Force-directed graph of lore connections" role="img"></canvas>\n'
         '    <div class="lore-graph-panel" id="lore-graph-panel" hidden></div>\n'
+        # A blank canvas with no words on it reads as broken rather than as
+        # filtered, and switching Story off empties it completely.
+        '    <p class="lore-graph-empty" id="lore-graph-empty" hidden></p>\n'
         "  </div>\n"
         # Narrow-viewport stand-in for the canvas, filled by theme/graph.js. A
         # force layout needs area the phone does not have: at 390px the stage
@@ -586,7 +685,12 @@ def build_graph_html(graph: dict) -> str:
         '  <p class="lore-graph-hint lore-graph-hint-graph">Hover a node to see its '
         "connections. Click to open its page. Drag to pan, scroll to zoom. "
         "In the panel, a name opens its page and the target button beside it "
-        "moves the graph to that connection.</p>\n"
+        "moves the graph to that connection. "
+        # The dashed stroke is the only mark on the graph whose meaning cannot
+        # be read off the legend, because it is an edge rather than a node.
+        "A solid line means an appearance in a story; a dashed one joins a hero, "
+        "weapon or piece of equipment to a set its card was printed in, which is "
+        "not the same thing.</p>\n"
         '  <p class="lore-graph-hint lore-graph-hint-list">Tap an entry to read its '
         "connections, most connected first. The number beside a name is how many "
         "connections it has.</p>\n"
