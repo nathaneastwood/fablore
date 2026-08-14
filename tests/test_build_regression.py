@@ -537,6 +537,30 @@ class TestLoreGraphListMode:
             )
 
 
+_GRAPH_CORE_JS = ROOT / "theme" / "graph-core.js"
+
+
+class TestLoreGraphCoreExports:
+    """``theme/graph.js`` reaches into ``graph-core.js`` through a hand-written
+    export object. A helper renamed or added without updating that object is a
+    ``TypeError`` at the first call, and only in a browser — the pure logic is
+    covered by ``node --test``, but the script that consumes it is DOM wiring
+    and is verified by hand.
+    """
+
+    def test_every_core_helper_the_script_calls_is_exported(self) -> None:
+        api = re.search(r"var api = \{(.*?)\};", _GRAPH_CORE_JS.read_text(), re.S)
+        assert api, "theme/graph-core.js no longer has the expected `var api = {…}` block"
+        exported = set(re.findall(r"(\w+)\s*:", api.group(1)))
+        used = set(re.findall(r"\bcore\.(\w+)\b", _GRAPH_JS.read_text()))
+        assert used, "theme/graph.js no longer calls into graph-core.js"
+        missing = sorted(used - exported)
+        assert missing == [], (
+            f"theme/graph.js calls core helpers that graph-core.js does not export: {missing}. "
+            "Add them to the `api` object at the bottom of theme/graph-core.js."
+        )
+
+
 # ===========================================================================
 # Build checks (slow)
 # ===========================================================================

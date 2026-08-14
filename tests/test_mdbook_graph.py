@@ -10,6 +10,7 @@ import pytest
 from mdbook_graph import (
     MARK_END,
     MARK_START,
+    _DEFAULT_MIN_DEGREE,
     arc_slug_for_story,
     assign_slugs,
     build_graph,
@@ -465,6 +466,28 @@ def test_build_graph_html_embeds_the_payload() -> None:
     assert "window.FABLORE_GRAPH=" in html
     assert 'id="lore-graph-canvas"' in html
     assert 'id="lore-graph-legend"' in html
+
+
+def test_the_graph_opens_on_sets_stories_heroes_and_regions(src_root: Path) -> None:
+    """The opening view is the release structure and who runs through it.
+
+    Everything else is in the legend but folded away: all twelve kinds at once
+    is a hairball, and the shape a reader came for is under it.
+    """
+    graph = build_graph(src_root / "data", src_root)
+    on = {g["k"] for g in graph["groups"] if g["o"]}
+    assert on == {"set", "story", "hero", "region"}
+    # Every kind still has to declare itself either way — a new kind that
+    # silently defaulted to off would just be missing.
+    assert all("o" in g for g in graph["groups"])
+
+
+def test_the_slider_and_the_script_agree_on_the_opening_minimum() -> None:
+    """The script reads its opening filter off this markup. If the rendered
+    value drifts from what the graph shows, the control lies about the view."""
+    html = build_graph_html({"nodes": [], "links": [], "groups": []})
+    assert f'id="lore-graph-degree" min="1" max="6" value="{_DEFAULT_MIN_DEGREE}"' in html
+    assert f'<output id="lore-graph-degree-value">{_DEFAULT_MIN_DEGREE}</output>' in html
 
 
 def test_build_graph_html_carries_the_narrow_viewport_list_container() -> None:

@@ -131,13 +131,23 @@
 
     // --- View state --------------------------------------------------------
 
-    var minDegree = 2;
+    // Opening filter, read off the slider the preprocessor rendered rather than
+    // held as a second copy here — the two drifting apart would leave the
+    // control reading one thing and the graph showing another.
+    var minDegree = degreeSlider ? parseInt(degreeSlider.value, 10) || 1 : 4;
     // Repulsion coefficient. Scaling every distance uniformly would be invisible
     // — fitToView simply zooms back out — so "spread" means the strength of
     // repulsion *relative* to the link springs, which is what decides how far
     // clusters sit from each other.
     var spread = 240;
+    // Most kinds start folded away — see _DEFAULT_ON_KINDS in the preprocessor.
+    // They are all still in the legend, and turning one on is a single tap.
     var hiddenKinds = Object.create(null);
+    (data.groups || []).forEach(function (g) {
+        if (!g.o) {
+            hiddenKinds[g.k] = true;
+        }
+    });
     var view = { x: 0, y: 0, k: 1 };
     // Once the reader pans, zooms or jumps to a search hit, the auto-fit stops
     // fighting them for control of the viewport until they reset it.
@@ -168,7 +178,13 @@
         return radius(n) / view.k;
     }
 
-    function isVisible(n) {
+    /**
+     * Does this node clear the filters? Not the same as being drawn — see
+     * applyFilter, which then drops whatever has no connection left to draw.
+     * For a neighbour the two are the same thing: if both ends clear the
+     * filters, the edge between them survives and so do both nodes.
+     */
+    function isEligible(n) {
         return n.degree >= minDegree && !hiddenKinds[n.kind];
     }
 
@@ -559,16 +575,39 @@
     // --- Filtering ---------------------------------------------------------
 
     function applyFilter(options) {
-        active = nodes.filter(isVisible);
-        var live = new Set(
-            active.map(function (n) {
+        // Two passes. The filters say which nodes are eligible; then anything
+        // left with no connection to draw is dropped, because a lone dot in a
+        // graph of appearances says nothing. The preprocessor already drops
+        // those at build time for exactly this reason — hiding a kind strands
+        // nodes the same way, and turning Locations off should not leave five
+        // World of Rathe pages floating with every line they had gone.
+        var eligible = nodes.filter(isEligible);
+        var pool = new Set(
+            eligible.map(function (n) {
                 return n.id;
             })
         );
         activeLinks = links.filter(function (l) {
-            return live.has(l.source.id) && live.has(l.target.id);
+            return pool.has(l.source.id) && pool.has(l.target.id);
         });
-        if (selected && !live.has(selected.id)) {
+        var connected = new Set();
+        activeLinks.forEach(function (l) {
+            connected.add(l.source.id);
+            connected.add(l.target.id);
+        });
+        // Stranded and ineligible are different failures and are answered
+        // differently. Turning off Heroes while a hero is selected should drop
+        // it — the reader said they did not want heroes. Stranding it by hiding
+        // everything it touches should not: they asked for that node by name,
+        // and revealNode has no business turning its neighbours' kinds back on
+        // to keep it company. So eligibility still deselects; isolation does not.
+        var keep = (options && options.keep) || selected;
+        var dropped = selected && !pool.has(selected.id);
+        active = eligible.filter(function (n) {
+            return connected.has(n.id) || (!dropped && n === keep);
+        });
+        // Deselect only after `active` is right — select() draws from it.
+        if (dropped) {
             select(null);
         }
         if (status) {
@@ -611,7 +650,7 @@
         }
         highlight = new Set([node.id]);
         node.neighbours.forEach(function (m) {
-            if (isVisible(m)) {
+            if (isEligible(m)) {
                 highlight.add(m.id);
             }
         });
@@ -675,7 +714,7 @@
             );
         }
 
-        var shown = node.neighbours.filter(isVisible);
+        var shown = node.neighbours.filter(isEligible);
         parts.push(
             '<p class="lore-graph-panel-count">' +
                 node.degree +
@@ -865,10 +904,12 @@
             }
             changed = true;
         }
-        // Only re-run the layout if a filter actually moved — otherwise this
-        // reheats a settled graph for nothing.
-        if (changed) {
-            applyFilter();
+        // Re-run when a filter moved, and also when the node clears every filter
+        // yet still is not drawn — which happens when everything it touches is
+        // hidden, leaving it stranded. Passing it as `keep` is what exempts it.
+        // Otherwise this would reheat a settled graph for nothing.
+        if (changed || active.indexOf(node) === -1) {
+            applyFilter({ keep: node });
         }
         select(node);
         if (listMode) {
@@ -1158,10 +1199,11 @@
     if (legend) {
         (data.groups || []).forEach(function (g) {
             var chip = document.createElement("button");
+            var startsOn = !hiddenKinds[g.k];
             chip.type = "button";
-            chip.className = "lore-graph-chip is-on";
+            chip.className = "lore-graph-chip" + (startsOn ? " is-on" : "");
             chip.dataset.kind = g.k;
-            chip.setAttribute("aria-pressed", "true");
+            chip.setAttribute("aria-pressed", String(startsOn));
             chip.innerHTML =
                 dotMarkup(g.k, g.g) +
                 escapeHtml(g.l) +
@@ -1350,8 +1392,10 @@
     // --- Boot --------------------------------------------------------------
 
     readPalette();
-    if (degreeValue && degreeSlider) {
-        degreeSlider.value = String(minDegree);
+    // The slider is the source of the opening value, so only the readout beside
+    // it needs setting — and it needs setting rather than trusting the markup,
+    // because a reload can restore a slider to the reader's last position.
+    if (degreeValue) {
         degreeValue.textContent = String(minDegree);
     }
     applyModeToDom();

@@ -90,6 +90,16 @@ _KINDS: dict[str, tuple[str, str, str]] = {
     "equipment": ("Equipment", "other", "circle"),
 }
 
+# The kinds the graph opens on, and the connection count it opens at.
+#
+# With all twelve kinds on at a minimum of two, the first thing a reader meets
+# is 839 nodes under 1,696 edges, and the shape they came for — which stories a
+# set gathers, and which heroes and regions run through them — is buried under
+# the one-off mentions that make up most of the archive. The rest are one tap
+# away in the legend; nothing is removed, only folded away until asked for.
+_DEFAULT_ON_KINDS: frozenset[str] = frozenset({"set", "story", "hero", "region"})
+_DEFAULT_MIN_DEGREE = 4
+
 _STORY_TYPE_LABELS: dict[str, str] = {
     "main-story": "Main Story",
     "short-stories": "Short Story",
@@ -427,7 +437,19 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
     groups = []
     for kind, (label, group, shape) in _KINDS.items():
         if counts.get(kind):
-            groups.append({"k": kind, "l": label, "g": group, "s": shape, "c": counts[kind]})
+            groups.append(
+                {
+                    "k": kind,
+                    "l": label,
+                    "g": group,
+                    "s": shape,
+                    "c": counts[kind],
+                    # Whether the legend chip starts pressed. The opening view
+                    # is decided here rather than in the script so the kind
+                    # table stays the one place a kind is described.
+                    "o": 1 if kind in _DEFAULT_ON_KINDS else 0,
+                }
+            )
 
     # Canonical order for the inspector panel's sections. The panel groups a
     # node's connections by their `sub` label, and `sub` is finer than `kind`:
@@ -531,9 +553,11 @@ def build_graph_html(graph: dict) -> str:
         '  <div class="lore-graph-controls">\n'
         '    <label class="lore-graph-degree">\n'
         "      <span>Minimum connections</span>\n"
-        '      <input type="range" id="lore-graph-degree" min="1" max="6" value="2"'
+        # The script reads its opening filter off this value rather than
+        # carrying its own copy, so the control cannot disagree with the view.
+        f'      <input type="range" id="lore-graph-degree" min="1" max="6" value="{_DEFAULT_MIN_DEGREE}"'
         ' aria-describedby="lore-graph-degree-value" />\n'
-        '      <output id="lore-graph-degree-value">2</output>\n'
+        f'      <output id="lore-graph-degree-value">{_DEFAULT_MIN_DEGREE}</output>\n'
         "    </label>\n"
         # Classed so the stylesheet can drop it in list mode without a :has().
         '    <label class="lore-graph-degree lore-graph-spread">\n'

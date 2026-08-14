@@ -4,12 +4,12 @@ Every story on this site is joined to the heroes, characters, places, creatures 
 items it records. This is that record drawn as a map: each dot is a story or an
 entity, each line is an appearance.
 
-Choose anything on it to read what that story or entity connects to, and to open its
-page. Use the minimum-connections slider to hide the one-off mentions and leave the
-shape of the archive behind.
-
-On a narrow screen the map is replaced by the same archive as a ranked list, most
-connected first — a force layout needs more room than a phone has.
+It opens on the sets, their stories, and the heroes and regions running through them;
+drawing everything at once buries the shape you came to see. Characters, places,
+creatures and items are each one tap away below, beside a slider for how well
+connected a thing must be to appear. Choose anything to read what it connects to and
+to open its page. On a narrow screen the map becomes a ranked list, which is what a
+phone has the room for.
 
 <!-- fablore-graph:start -->
 <!-- fablore-graph:end -->
