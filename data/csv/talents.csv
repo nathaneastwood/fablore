@@ -1,0 +1,14 @@
+# AUTO-GENERATED FILE — do not edit by hand. Regenerate with: python3 src/data/create_classes_talents_csv.py
+TalentId|TalentName
+TLb23b4b8d68|Chaos
+TL8d85e3583f|Draconic
+TL44d476274f|Earth
+TL86c5d291db|Elemental
+TLd53b257ba8|Ice
+TLdfccc06f14|Light
+TL71f4977891|Lightning
+TLf06e1de18e|Mystic
+TLb211e516e8|Revered
+TLc090c7fd61|Reviled
+TL9d644bbc55|Royal
+TLed9d3d832a|Shadow

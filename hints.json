@@ -1,0 +1,1853 @@
+{
+  "Aldengrove": {
+    "type": "location",
+    "summary": "One of the Third Age's three bastions - Aldengrove to sustain the Rathenfolk, Valahai to empower them, and Isenloft to guard them all.",
+    "region": "Aria"
+  },
+  "Aldevyr": {
+    "type": "location",
+    "summary": "A village in Aria.",
+    "region": "Aria"
+  },
+  "Amphitheatre": {
+    "type": "location",
+    "summary": "In the city proper, a space for ceremonies, public events and proclamations.",
+    "region": "Solana"
+  },
+  "Ankomeido": {
+    "type": "location",
+    "summary": "Home to the misfits and malcontents of Misteria.",
+    "region": "The Pits"
+  },
+  "Anvilheim": {
+    "type": "location",
+    "summary": "Home of Rathe's finest architects and smiths, who raised the Auric Keep and forged Shyldverk's arcanite gate; now lost, but not forgotten."
+  },
+  "Arcturos": {
+    "type": "location",
+    "summary": "Where Oscilio was embedded.",
+    "region": "Aria"
+  },
+  "Ashvahan": {
+    "type": "location",
+    "summary": "Capital of Volcor.",
+    "region": "Volcor"
+  },
+  "Astral Bridge": {
+    "type": "location",
+    "summary": "An arcane span manifested by the Voltaris Gem, anchoring Shyldverk in Enion to the Auric Keep in the Nebulus Rift.",
+    "region": "Nebulus Rift"
+  },
+  "Audra": {
+    "type": "location",
+    "summary": "Village.",
+    "region": "Solana"
+  },
+  "Auis Scales Strongholds": {
+    "match": [
+      "Aui's Scales Strongholds",
+      "Aui’s Scales Strongholds"
+    ],
+    "type": "location",
+    "summary": "Locations where things are concealed from the public.",
+    "region": "Misteria"
+  },
+  "Auric Keep": {
+    "type": "location",
+    "summary": "Citadel of learning the Aetherscribes built at the heart of Valahai; cast into the Nebulus Rift by the Ancients' cataclysm and later reconnected to Enion by the Astral Bridge.",
+    "region": "Nebulus Rift"
+  },
+  "Barthimont Manor": {
+    "type": "location",
+    "summary": "In the Northern Realms.",
+    "region": "Solana"
+  },
+  "Bartons House": {
+    "match": [
+      "Barton's House",
+      "Barton’s House"
+    ],
+    "type": "location",
+    "summary": "Information Dealer.",
+    "region": "The Pits"
+  },
+  "Blackjacks Tavern": {
+    "match": [
+      "Blackjack's Tavern",
+      "Blackjack’s Tavern"
+    ],
+    "type": "location",
+    "summary": "Bounty Hunting Hub, owned by Greenbird. Neutral Ground.",
+    "region": "The Pits"
+  },
+  "Blackrock Quarries": {
+    "type": "location",
+    "summary": "In the north of Volcor.",
+    "region": "Volcor"
+  },
+  "Blasmophets Domain": {
+    "match": [
+      "Blasmophet's Domain",
+      "Blasmophet’s Domain"
+    ],
+    "type": "location",
+    "summary": "Separate plane.",
+    "region": "Demonastery"
+  },
+  "Blockhead Territory": {
+    "type": "location",
+    "summary": "An entire sector of The Maw.",
+    "region": "The Pits"
+  },
+  "Candlelight Clearing": {
+    "type": "location",
+    "summary": "Where the Rosetta of old had once gathered to garden, share poetry, and sing.",
+    "region": "Aria"
+  },
+  "Ceremonial Chamber": {
+    "type": "location",
+    "summary": "In the city proper, location of the Awakening ceremony.",
+    "region": "Solana"
+  },
+  "Charred Range": {
+    "type": "location",
+    "summary": "Mountains separating Solana and Volcor."
+  },
+  "Chrome Caverns": {
+    "type": "location",
+    "summary": "The desert's edge."
+  },
+  "Coralysi": {
+    "type": "location",
+    "summary": "Home of the merfolk. Floating gardens.",
+    "region": "High Seas"
+  },
+  "Courtyard": {
+    "type": "location",
+    "summary": "Enter here when using invitation",
+    "region": "Demonastery"
+  },
+  "Dagger Docks": {
+    "type": "location",
+    "summary": "Shipwrights",
+    "region": "High Seas"
+  },
+  "Deaths Knell": {
+    "match": [
+      "Death's Knell",
+      "Death’s Knell"
+    ],
+    "type": "location",
+    "summary": "The Ocean."
+  },
+  "Deshvahan": {
+    "type": "location",
+    "summary": "A city in Volcor.",
+    "region": "Volcor"
+  },
+  "Dimenxxional Gateway": {
+    "type": "location",
+    "summary": "The Demonastery's bridge to i'Arathael, through which monstrous hordes are drawn forth into Rathe.",
+    "region": "Demonastery"
+  },
+  "East Rise": {
+    "type": "location",
+    "summary": "The majority of this Metrix sector is devoted to parks and entertainment complexes.",
+    "region": "Metrix"
+  },
+  "Eighth Precinct": {
+    "type": "location",
+    "summary": "Enforcer station, down the street from the Iron Hall.",
+    "region": "Metrix"
+  },
+  "Enion": {
+    "type": "location",
+    "summary": "Armory of the ancients and training ground of champions.",
+    "region": "Aria"
+  },
+  "Entrance Hall": {
+    "type": "location",
+    "summary": "Location of the portal to íArathael, home of Whisper the stained glass window.",
+    "region": "Demonastery"
+  },
+  "Fardreyas": {
+    "type": "location",
+    "summary": "Village.",
+    "region": "Solana"
+  },
+  "Fedhari": {
+    "type": "location",
+    "summary": "Former Dhani city, now home to the merfolk and named Coralysi",
+    "region": "High Seas"
+  },
+  "Forward Camps": {
+    "type": "location",
+    "summary": "Home to merchants, traders, adventurers, and mercenaries.",
+    "region": "The Savage Lands"
+  },
+  "Fractal Scar": {
+    "type": "location",
+    "summary": "Site of the Battle of Fractal Scar.",
+    "region": "Aria"
+  },
+  "Freakshow Territory": {
+    "type": "location",
+    "summary": "Deep in the Pits, composed of abandoned mineshafts.",
+    "region": "The Pits"
+  },
+  "Golden Chariot": {
+    "type": "location",
+    "summary": "Inn in the city proper, owned by Minerva.",
+    "region": "Solana"
+  },
+  "Golden Port": {
+    "type": "location",
+    "summary": "Built in the ruins of the Dhani Empire.",
+    "region": "High Seas"
+  },
+  "Gougemoor": {
+    "type": "location",
+    "summary": "The edge of the Savage Lands.",
+    "region": "The Savage Lands"
+  },
+  "Grayhollow": {
+    "type": "location",
+    "summary": "Kuraghan safe port.",
+    "region": "High Seas"
+  },
+  "Hazeltown": {
+    "type": "location",
+    "summary": "Village.",
+    "region": "Solana"
+  },
+  "Highloft Inn": {
+    "type": "location",
+    "summary": "Inn on Skybreaker.",
+    "region": "Aria"
+  },
+  "Ikaru": {
+    "type": "location",
+    "summary": "One of the prestigious houses of Misteria; the House of Blossoms.",
+    "region": "Misteria"
+  },
+  "Iron Hall": {
+    "type": "location",
+    "summary": "The seat of power for Metrix's municipal government.",
+    "region": "Metrix"
+  },
+  "Ironsong Forge": {
+    "type": "location",
+    "summary": "In the city proper.",
+    "region": "Solana"
+  },
+  "Isen Ranges": {
+    "type": "location",
+    "summary": "The mountain range dividing western Aria from the rest of Rathe, said to have been crafted by Isen from earth and aether; Valahai was founded behind it and Isenloft guards its only pass.",
+    "region": "Aria"
+  },
+  "Isenloft": {
+    "type": "location",
+    "summary": "Mighty citadel amidst the Isen Ranges guarding the only passage into Aria; frozen at the Third Age's end, and thawing once more in recent times.",
+    "region": "Aria",
+    "url": "/archive/world-of-rathe/aria/the-land-of-legends.html#isenloft"
+  },
+  "Jawbreaker Territory": {
+    "type": "location",
+    "summary": "No official territory with the exception of some houses on the water.",
+    "region": "The Pits"
+  },
+  "Krakens Barrel": {
+    "match": [
+      "Kraken's Barrel",
+      "Kraken’s Barrel"
+    ],
+    "type": "location",
+    "summary": "Tavern",
+    "region": "High Seas"
+  },
+  "Kylorias Lair": {
+    "match": [
+      "Kyloria's Lair",
+      "Kyloria’s Lair"
+    ],
+    "type": "location",
+    "summary": "Deep beneath the Pits.",
+    "region": "The Pits"
+  },
+  "Lake Frigid": {
+    "type": "location",
+    "summary": "Channel Lake Frigid",
+    "region": "Aria"
+  },
+  "Legendarium": {
+    "type": "location",
+    "summary": "Part of the Everfest Carnival.",
+    "region": "Aria"
+  },
+  "Library of Illumination": {
+    "type": "location",
+    "summary": "In the city proper, a public library cared for by the members of the Light of Sol.",
+    "region": "Solana"
+  },
+  "Might n Mead": {
+    "match": [
+      "Might n' Mead",
+      "Might n’ Mead"
+    ],
+    "type": "location",
+    "summary": "Where Valda grew up and works.",
+    "region": "Aria"
+  },
+  "Morlock Hill": {
+    "type": "location",
+    "summary": "Site of the Battle of Morlock Hill.",
+    "region": "Solana"
+  },
+  "Mount Heroic": {
+    "type": "location",
+    "summary": "A mountain which towers above the forests of eastern Aria.",
+    "region": "Aria"
+  },
+  "Mt. Isen": {
+    "type": "location",
+    "summary": "Ageless mountain watching over Larinkmorth, untouched by the Flow; from its summit Isen is said to have crafted the Isen Ranges. Also recorded as Isen's Peak.",
+    "region": "Aria",
+    "match": [
+      "Mt. Isen",
+      "Mount Isen",
+      "Isen's Peak",
+      "Isen’s Peak"
+    ]
+  },
+  "Mugenshi Village": {
+    "type": "location",
+    "summary": "Hidden village in the Mugenshi Gorge, led by Katsu.",
+    "region": "Misteria"
+  },
+  "Nasu-ka Teahouse": {
+    "type": "location",
+    "summary": "Nuu's teahouse by Mistcloak Lake.",
+    "region": "Misteria"
+  },
+  "Neverest": {
+    "type": "location",
+    "summary": "Cursed tarns on the Shadowrealm's jagged heights, holding wells of necromantic potential Malice draws upon.",
+    "exclude_pages": [
+      "short-stories/usurp-the-shadow-throne/open-the-gates"
+    ]
+  },
+  "Numbskull Territory": {
+    "type": "location",
+    "summary": "Cave network lined with skulls, resembling a catacomb.",
+    "region": "The Pits"
+  },
+  "Octogria": {
+    "type": "location",
+    "summary": "The gardens of",
+    "region": "Solana"
+  },
+  "Overseer Crichtons Mansion": {
+    "match": [
+      "Overseer Crichton's Mansion",
+      "Overseer Crichton’s Mansion"
+    ],
+    "type": "location",
+    "summary": "Situated in The Maw.",
+    "region": "The Pits"
+  },
+  "Pirates Perch": {
+    "match": [
+      "Pirate's Perch",
+      "Pirate’s Perch"
+    ],
+    "type": "location",
+    "summary": "Filled with jungle.",
+    "region": "High Seas"
+  },
+  "Rhinars Territory": {
+    "match": [
+      "Rhinar's Territory",
+      "Rhinar’s Territory"
+    ],
+    "type": "location",
+    "summary": "Void of other brutes.",
+    "region": "The Savage Lands"
+  },
+  "Rosario Hills": {
+    "type": "location",
+    "summary": "Orphanage parent company.",
+    "region": "Metrix"
+  },
+  "Rotwood": {
+    "type": "location",
+    "summary": "Area next to Candlehold.",
+    "region": "Aria"
+  },
+  "Ryōsōzan Peaks": {
+    "type": "location",
+    "summary": "Owned by Nuu.",
+    "region": "Misteria"
+  },
+  "Seethe": {
+    "type": "location",
+    "summary": "A river.",
+    "region": "The Pits"
+  },
+  "Shadowrealm": {
+    "type": "location",
+    "summary": "A desolate expanse within i'Arathael, home to the Shadowrealm Walkers and traversed by Demonastery expeditions."
+  },
+  "Shyldverk": {
+    "type": "location",
+    "summary": "Arcanite-forged gatehouse guarding the aetheric moat and the bridge to the Auric Keep; a surviving fragment of old Valahai.",
+    "region": "Aria"
+  },
+  "Sori 16": {
+    "type": "location",
+    "summary": "Location of The Leaf House.",
+    "region": "The Pits"
+  },
+  "Southmaw": {
+    "type": "location",
+    "summary": "Southmaw Asylum is a laboratory of horrors where the orphaned and discarded of the Pits beneath Metrix are subjected to nightmarish experiments.",
+    "region": "The Pits"
+  },
+  "Sunvale": {
+    "type": "location",
+    "summary": "Village.",
+    "region": "Solana"
+  },
+  "The Abyss": {
+    "type": "location",
+    "summary": "The most sacred site in the Shadowrealm, guarded by Baalghor. No expedition to its outer reaches has ever returned."
+  },
+  "The Badlands": {
+    "type": "location",
+    "summary": "Borders the Savage Lands.",
+    "region": "Volcor"
+  },
+  "The Beyond": {
+    "type": "location",
+    "summary": "Separate realm.",
+    "region": "Demonastery"
+  },
+  "The Drop": {
+    "type": "location",
+    "summary": "A bar owned by Uzuri.",
+    "region": "The Pits"
+  },
+  "The Flow": {
+    "type": "location",
+    "summary": "A wild, unpredictable force of nature in Aria, the Flow shapes the landscape around it as it ebbs and flows.",
+    "region": "Aria"
+  },
+  "The Foundry": {
+    "type": "location",
+    "summary": "An independent radio station, one of the few in Metrix that remains free of Mendacity control.",
+    "region": "Metrix"
+  },
+  "The Golden Fields": {
+    "type": "location",
+    "summary": "Beyond the outer walls are grand golden fields, numerous villages and towns under the protection and guidance of Solana.",
+    "region": "Solana"
+  },
+  "The Golden Gnome": {
+    "type": "location",
+    "summary": "Part of the Everfest Carnival.",
+    "region": "Aria"
+  },
+  "The Great Gates": {
+    "type": "location",
+    "summary": "These eight paths lead through the city to the Solarium.",
+    "region": "Solana"
+  },
+  "The Korshem": {
+    "type": "location",
+    "summary": "A massive tree at the heart of Aria that shelters all who live amongst its leaves.",
+    "region": "Aria"
+  },
+  "The Leaf House": {
+    "type": "location",
+    "summary": "Restaurant run by Jemjang.",
+    "region": "The Pits"
+  },
+  "The Maela": {
+    "type": "location",
+    "summary": "Part of the Everfest Carnival, home to fortune tellers, seers, oracles, enchantresses, and conjurers.",
+    "region": "Aria"
+  },
+  "The Maw": {
+    "type": "location",
+    "summary": "Entrance to the pits, traveled by mine cage",
+    "region": "The Pits",
+    "exclude_pages": [
+      "main-story/usurp-the-shadow-throne/letters-from-the-beyond"
+    ]
+  },
+  "The Northern Realms": {
+    "type": "location",
+    "summary": "Region of Solana.",
+    "region": "Solana"
+  },
+  "The Oasis": {
+    "type": "location",
+    "summary": "Water from Misteria, lava from Mt. Volcor.",
+    "region": "Volcor"
+  },
+  "The Plazas": {
+    "type": "location",
+    "summary": "Connect the outer city sectors, a space to gather and hear news.",
+    "region": "Solana"
+  },
+  "The Registry": {
+    "type": "location",
+    "summary": "Information Center.",
+    "region": "Metrix"
+  },
+  "The Shadow Crypts": {
+    "type": "location",
+    "summary": "Dim halls within the Demonastery where a black mold containing warped microcosms of shifting light grows.",
+    "region": "Demonastery"
+  },
+  "The Silvaris": {
+    "type": "location",
+    "summary": "A series of beautiful public gardens surrounding the inner sanctum of Solana.",
+    "region": "Solana"
+  },
+  "The Solarium": {
+    "type": "location",
+    "summary": "The inner sanctum, home to the Light of Sol.",
+    "region": "Solana"
+  },
+  "The Valdur": {
+    "type": "location",
+    "summary": "Part of the Everfest Carnival, known for strongmen acts and work with animals.",
+    "region": "Aria"
+  },
+  "The Venarium": {
+    "type": "location",
+    "summary": "Room filled with plants.",
+    "region": "Demonastery"
+  },
+  "The Vitiate Gateway": {
+    "type": "location",
+    "summary": "Last of the 9 portals connecting Rathe to íArathael.",
+    "region": "Demonastery"
+  },
+  "Throne Glade": {
+    "type": "location",
+    "summary": "Area next to Candlehold.",
+    "region": "Aria"
+  },
+  "Thunder Steppe": {
+    "type": "location",
+    "summary": "Channel Thunder Steppe",
+    "region": "Aria"
+  },
+  "Torched Territory": {
+    "type": "location",
+    "summary": "Marked with trigger-sensitive flamethrowers, fire traps, lava pits, and plenty of explosives.",
+    "region": "The Pits"
+  },
+  "Trōpal-Dhani": {
+    "type": "location",
+    "summary": "A legendary city said to have survived the Dhani empire's collapse, hiding its lost magic and treasures in the most perilous ruins.",
+    "region": "High Seas"
+  },
+  "Underdog Cafe": {
+    "type": "location",
+    "summary": "In Coppertown.",
+    "region": "Metrix"
+  },
+  "Valahai": {
+    "type": "location",
+    "summary": "Fortress city founded on the plains of Enion, the Rathenfolk's last bastion against the Old Ones, overrun and shattered in the Third Age.",
+    "region": "Aria"
+  },
+  "Volthaven": {
+    "type": "location",
+    "summary": "Snow-dusted village drifting through the skies of Enion, born from the storm where Yvor fell; home of Lexi and Aurora, its passage guarded by Wayfarers.",
+    "region": "Aria"
+  },
+  "Yvors Peak": {
+    "match": [
+      "Yvor's Peak",
+      "Yvor’s Peak"
+    ],
+    "type": "location",
+    "summary": "Statue of Yvor located here, doorway to an armory.",
+    "region": "Aria"
+  },
+  "iArathael": {
+    "match": [
+      "i'Arathael",
+      "i’Arathael"
+    ],
+    "type": "location",
+    "summary": "Separate plane accessed via a portal in the Demonastery, home of the Old Ones."
+  },
+  "Dregs": {
+    "type": "monster",
+    "summary": "Humanoid figures with bloated, rotting bodies; their faces a mass of melted, discoloured skin, dripping the length of their bony, twisted limbs."
+  },
+  "Glutgorr": {
+    "type": "monster",
+    "summary": "Mountain of Meat. A giant grown from a multitude of willing bodies. A singular aberrant baby born from a thousand mothers."
+  },
+  "Puppeteer": {
+    "type": "monster",
+    "summary": "A repulsive creature emerged through the opening, resembling a mass of human bodies held together by some monstrous cancer, an enormous eye in its center above a slavering mouth."
+  },
+  "Ravenir": {
+    "type": "monster",
+    "summary": "Ever-hungry creatures the Old Ones sculpt from the stolen flesh of Rathe's living, consuming corpses to multiply; no two are ever alike."
+  },
+  "Ankis": {
+    "match": [
+      "Ank'is",
+      "Ank’is"
+    ],
+    "type": "fauna",
+    "summary": "The crystalline creature does not bleed. It shatters. Its teeth are harder than stone, with serrated edges and a needle-like tip to tear through flesh. Its limbs are long and thin, with sharp points to allow it to grip onto most surfaces, and scale the difficult terrain of the Savage Lands."
+  },
+  "Apophis": {
+    "type": "fauna",
+    "summary": "A large serpent with barbed scales, which can be found lurking within larger bodies of magma, storing energy and lying in wait. These creatures move with Volcor's lava flows, moving through the magma to feast on those caught in the flow's path. While they can occasionally be found on land, they move much more slowly, and are thus vulnerable to attack."
+  },
+  "Azeri": {
+    "type": "fauna",
+    "summary": "The Azeri are elusive and mysterious, lingering in the innermost depths of the Savage Lands."
+  },
+  "Blindseal": {
+    "type": "fauna",
+    "summary": "Blubbery."
+  },
+  "Brawnhide": {
+    "type": "fauna",
+    "summary": "A giant, furred beast with long, thick canines, and small, dark eyes."
+  },
+  "Cesari": {
+    "type": "fauna",
+    "summary": "Majestic, iridescent creatures of Aria that move through the air with a spectral, coiling grace, a sight familiar to those raised amongst the animal acts of the Valdur."
+  },
+  "Cursed Dhani Warriors": {
+    "type": "fauna",
+    "summary": "Scorpion tails, claws and human head."
+  },
+  "Cyanatu": {
+    "type": "fauna",
+    "summary": "A rare sea snake."
+  },
+  "Desert Fox": {
+    "type": "fauna",
+    "summary": "The creature's mouth warped by two large boar-like tusks."
+  },
+  "Fianna": {
+    "type": "fauna",
+    "summary": "Tall creature, with long flowing tails, tough skin, and massive antlers crowning the top of their head."
+  },
+  "Flare Deer": {
+    "type": "fauna",
+    "summary": "Its scent glands swollen with massive oozing growths."
+  },
+  "Giant Drift Stingers": {
+    "type": "fauna",
+    "summary": "Scorpion."
+  },
+  "Gossamhares": {
+    "type": "fauna",
+    "summary": "Skittish creatures."
+  },
+  "Gupler": {
+    "type": "fauna",
+    "summary": "Moon-shaped."
+  },
+  "Hoikers": {
+    "type": "fauna",
+    "summary": "Giant, acid-spitting scallops."
+  },
+  "Hydra": {
+    "type": "fauna",
+    "summary": "A sea creature with boat-sized flippers, three heads and perhaps as large as three whales, end on end."
+  },
+  "Kaieo": {
+    "match": [
+      "Kaie'o",
+      "Kaie’o"
+    ],
+    "type": "fauna",
+    "summary": "Small, quick creatures once common across Aria's fields, prized for their soft fur; their sudden disappearance from the plains was an early sign of the Fractal Scar's unrest."
+  },
+  "Kneecapper Crustacean": {
+    "type": "fauna",
+    "summary": "They have foot-long pincers."
+  },
+  "Longma": {
+    "type": "fauna",
+    "summary": "Despite their vague resemblance, longma are larger than the mounts used by Solana, ink-black in colour and covered in a dense coat of fur that helps to protect them from embers. Longma store heat within their bodies as a source of energy, smoke escaping their nostrils with every exhale. These hardy creatures are excellent for long-distance travel, able to withstand the heat of Volcor's landscape."
+  },
+  "Meep": {
+    "type": "fauna",
+    "summary": "Tiny, mischievous creatures recognised by their long limbs and tails, and colourful feather crests."
+  },
+  "Morrows": {
+    "type": "fauna",
+    "summary": "These tiny wisps are artificially created by the wizards of Volcor; puffs of smoke brought to life by a breath of aether. Once formed, they subsist entirely on embers, flitting to and fro amongst the fiery landscape."
+  },
+  "Nashari": {
+    "match": [
+      "Na'shari",
+      "Na’shari"
+    ],
+    "type": "fauna",
+    "summary": "A large beast with a crystalline hide, the na'shari has skin harder than most forms of metal. In spite of its tough appearance, this creature is known for its docile and friendly nature. Its round eyes and fuzzy tail make the creature incredibly popular with children, who often flock to na'shari in hopes of playing with the creature."
+  },
+  "Raciki": {
+    "type": "fauna",
+    "summary": "Shapeshifting, fluffy canine."
+  },
+  "Ryoki": {
+    "type": "fauna",
+    "summary": "These are small creatures, similar in appearance to fish, that inhabit the lava streams and rivers of Volcor. Despite the immense heat, these creatures thrive in the extreme conditions, lurking beneath the glowing surface of the magma. While their scales are almost black, their 'fins' catch alight when they break the surface of the lava, leaping from stream to stream."
+  },
+  "Sailorbane Coral": {
+    "type": "fauna",
+    "summary": "A predatory species, Sailorbane Coral grows from the rocky banks of channels, remaining submerged to conceal its presence."
+  },
+  "Sawmaw": {
+    "type": "fauna",
+    "summary": "Triple-finned."
+  },
+  "Siren": {
+    "type": "fauna",
+    "summary": "Enchanting merfolk who lure sailors with song and beauty — gifts please them, but poor offerings may cost you dearly.",
+    "match": [
+      "Siren",
+      "Sirens"
+    ]
+  },
+  "Skera": {
+    "type": "fauna",
+    "summary": "One of the Savage Lands' most skilled predators, almost completely nocturnal, relying on the darkness to mask their movements while stalking prey. Their four eyes allow them to hunt in the dark."
+  },
+  "Vitreo": {
+    "match": [
+      "Vitr'eo",
+      "Vitr’eo"
+    ],
+    "type": "fauna",
+    "summary": "A majestic creature with a thick mane, crowned with a series of large crystals that grow out from the top of its skull."
+  },
+  "Vuurlin": {
+    "type": "fauna",
+    "summary": "A large bird of prey that flies at a high altitude, only descending to roost or to attack vulnerable prey. When in flight, the tips of their feathers catch alight, creating flames that streak behind them as they soar through the sky. They're reliable messengers, and are often used by the royal court and the many generals of Volcor, due to the vuurlin's keen intelligence and powerful wings."
+  },
+  "Welkin": {
+    "type": "fauna",
+    "summary": "A wyvern species native to Aria. At first glance, the welkin resembles large, winged lizards. They have a leathery skin that, like the chameleon, changes color with variations in the Flow."
+  },
+  "Blissberry Bush": {
+    "type": "flora",
+    "summary": "Produces small delicious berry fruits."
+  },
+  "Haldor": {
+    "type": "flora",
+    "summary": "A large, slow-growing tree of the Savage Lands whose thick root warren shelters ground-dwelling creatures."
+  },
+  "Jacaranda": {
+    "type": "flora",
+    "summary": "Branches like insectile limbs, each adorned with the body of a firefinch, pierced through the heart."
+  },
+  "Absolon": {
+    "type": "ancient",
+    "summary": "Dhani god of the great deep."
+  },
+  "AbsolonsDream": {
+    "type": "ship",
+    "match": [
+      "Absolon's Dream",
+      "Absolon’s Dream"
+    ],
+    "summary": "Kuraghan flagship."
+  },
+  "Aeronauts": {
+    "type": "concept",
+    "summary": "Daring sky captains who trade danger for speed and freedom among the clouds."
+  },
+  "Aedes": "Solanian Tuesday",
+  "Alif": {
+    "type": "npc",
+    "summary": "A member of the Cintari, Kassai's close friend."
+  },
+  "Alshoni": {
+    "type": "faction",
+    "summary": "A faction founded by a particular branch of the Royal Bloodline, brought together by blood ties, headed up by Lord Wizard Chiyo, cousin to the Emperor."
+  },
+  "AuisScales": {
+    "type": "faction",
+    "match": [
+      "Aui's Scales",
+      "Aui’s Scales"
+    ],
+    "summary": "A secretive organisation that builds hidden strongholds across Misteria to conceal scrolls and artefacts from the public.",
+    "exclude_pages": [
+      "main-story/welcome-to-rathe/wanderings-in-the-mists"
+    ]
+  },
+  "Bellona": {
+    "type": "npc",
+    "summary": "The Wartune Herald."
+  },
+  "Braumeister": {
+    "type": "organisation",
+    "summary": "Elite brewers of Aria making spirits which possess unique effects."
+  },
+  "Chiyo": {
+    "type": "npc",
+    "summary": "Lord Wizard, Head of the Alshoni faction and cousin to the Emperor."
+  },
+  "Chul": {
+    "type": "npc",
+    "summary": "General who betrayed Kassai's family."
+  },
+  "Cintari": {
+    "type": "faction",
+    "summary": "A group of bloodthirsty brigands who seek the thrill of battle."
+  },
+  "Cogwerx": {
+    "type": "organisation",
+    "summary": "Credited with inventing steam technology and revolutionising Metrix through steam compression for energy, largely responsible for the city's success and development."
+  },
+  "CrimsonHaze": {
+    "type": "faction",
+    "match": "Crimson Haze",
+    "summary": "A rebel group at odds with Aui's Scales for centuries, seeking to free the people of Misteria from the Great Households.",
+    "exclude_pages": [
+      "main-story/welcome-to-rathe/wanderings-in-the-mists"
+    ]
+  },
+  "Davnir": {
+    "type": "ancient",
+    "summary": "Ancient of Earth and Lightning."
+  },
+  "Demonastery": {
+    "type": "region",
+    "summary": "Forsaken isle beyond the shores of Southern Rathe, wrapped in sea fog, where the Devout took refuge when their faith in Sol broke.",
+    "url": "/world-of-rathe/demonastery.html"
+  },
+  "DhaniEmpire": {
+    "type": "concept",
+    "match": "Dhani Empire",
+    "summary": "A fallen civilisation once ruled by an arcane empress, whose mastery of aether ended in cataclysmic ruin."
+  },
+  "Dracai": {
+    "type": "faction",
+    "summary": "Bestowed names free of restrictions or stigma, the Dracai are granted positions in the Royal Court of Volcor by the Emperor."
+  },
+  "Dreadnought": {
+    "type": "ship",
+    "summary": "Gravy Bones' ship."
+  },
+  "Exorides": "Solanian Thursday",
+  "Ezu": {
+    "type": "faction",
+    "summary": "A faction headed up by Chancellor Yama."
+  },
+  "Fayyad": {
+    "type": "npc",
+    "summary": "A member of the Cintari, Kassai's close friend."
+  },
+  "FiddlersGreen": {
+    "match": [
+      "Fiddler's Green",
+      "Fiddler’s Green"
+    ],
+    "type": "location",
+    "summary": "The pirates' name for the sunken Dhani city beneath Coralysi, and for the afterlife the Kuraghan believe it promises them - a beautiful lie no one tells better than Cooder.",
+    "region": "High Seas"
+  },
+  "Fireseer": {
+    "type": "concept",
+    "match": [
+      "Fireseer",
+      "Fireseers"
+    ],
+    "summary": "One of the most powerful positions in the royal court of Volcor. The Fireseer is both spymaster and prophet, using Firesight to look through the empire's flames as windows across the land."
+  },
+  "GoldenGoose": {
+    "type": "ship",
+    "match": "Golden Goose",
+    "summary": "A sleek airship."
+  },
+  "GoldkissRum": {
+    "type": "item",
+    "match": "Goldkiss Rum",
+    "summary": "Bright with a rich golden flavour, the most popular drink served at the Kraken's Barrel."
+  },
+  "Gawain": {
+    "type": "npc",
+    "summary": "A reserved, taciturn strongman of the Valdur who joined Bravo's Legendarium, wielding a finely crafted greataxe."
+  },
+  "GrandMagister": {
+    "type": "npc",
+    "match": "Grand Magister",
+    "summary": "Serves the city of Solana as the highest representation of Sol."
+  },
+  "GrandMagisterTheSteadfast": {
+    "type": "npc",
+    "match": [
+      "Grand Magister, The Steadfast",
+      "The Steadfast"
+    ],
+    "summary": "Serves the city of Solana as the highest representation of Sol; presides over the Solstice of Laurels and Awakening ceremonies."
+  },
+  "HandOfSol": {
+    "type": "faction",
+    "summary": "Solana's order of knights, who defend the city from outside threats.",
+    "region": "Solana",
+    "match": "Hand of Sol",
+    "db_type": "location"
+  },
+  "Solana": {
+    "type": "region",
+    "summary": "The Golden City, realm of Illumination, founded by pilgrims drawn to Rathe by Sol's will.",
+    "url": "/world-of-rathe/solana.html"
+  },
+  "Infernai": {
+    "type": "aesir",
+    "summary": "Aesir of Flames."
+  },
+  "AesirOfFlames": {
+    "type": "aesir",
+    "match": "Aesir of Flames",
+    "summary": "Epithet of Infernai."
+  },
+  "Jing": {
+    "type": "npc",
+    "summary": "Xilin and Ira's brother."
+  },
+  "Magnus the Vigilant": {
+    "type": "npc",
+    "summary": "The hero of one of Aria's most beloved old legends, first brought to the stage by a young Bravo and his fellow performers."
+  },
+  "Marbles": {
+    "type": "npc",
+    "summary": "A meep who joined Bravo on his journey to the Fractal Scar, drawn to the glint of the wayfarers' dowsing discs and prone to darting off with shiny trinkets."
+  },
+  "Mikael": {
+    "type": "npc",
+    "summary": "The Legendarium's bard, always brimming with new stories gathered from his travels."
+  },
+  "Kayat": {
+    "type": "npc",
+    "summary": "An illusionist, boss of the Dust Runners."
+  },
+  "Kuraghan": {
+    "type": "faction",
+    "summary": "A fanatical pirate cult formed from reconditioned convicts. The Kuraghan worship the sea god Absolon and believe dying in battle earns them an afterlife of endless pleasure."
+  },
+  "Lunedes": "Solanian Monday",
+  "Mendacity": {
+    "type": "organisation",
+    "summary": "A corporation that maintains control of the media, funding almost every radio station and newspaper in the city."
+  },
+  "Merides": "Solanian Friday",
+  "Min": {
+    "type": "npc",
+    "summary": "Fai's mother, Min of the Forest of Flames."
+  },
+  "Morgan": {
+    "type": "npc",
+    "summary": "The more talkative of two Valdur strongmen who joined Bravo's Legendarium, wielding a finely crafted greataxe."
+  },
+  "Nasreth": {
+    "type": "embra",
+    "summary": "The Soul Harrower, an Embra."
+  },
+  "Nocetes": {
+    "type": "ancient",
+    "summary": "Dhani death god."
+  },
+  "Raven": {
+    "type": "aesir",
+    "summary": "Aesir of Chaos."
+  },
+  "AesirOfChaos": {
+    "type": "aesir",
+    "match": "Aesir of Chaos",
+    "summary": "Epithet of Raven."
+  },
+  "Redmoor": {
+    "type": "npc",
+    "summary": "The Redmoors are Boltyn's cousins."
+  },
+  "Rosetta": {
+    "type": "faction",
+    "summary": "An Order of powerful spell weavers that once stood alongside the likes of the Ollin and the Seers."
+  },
+  "Sada": {
+    "type": "npc",
+    "summary": "Kassai's sorceress friend and member of the Cintari."
+  },
+  "Savai": {
+    "type": "npc",
+    "summary": "Lord Merchant of Deshvahan."
+  },
+  "Sayashi": {
+    "type": "faction",
+    "summary": "Special force of loyal ninjas dedicated to hunting those responsible for the Emperor's death."
+  },
+  "Seikan": {
+    "type": "concept",
+    "summary": "Curse afflicting the Mugenshi Clan."
+  },
+  "Sol": {
+    "type": "aesir",
+    "summary": "Aesir of Light, deity of Solana. Drew the city's founding pilgrims to Rathe and is honoured as the source of the Light, the radiant energy that guides and protects the Children of the Light.",
+    "url": "/world-of-rathe/solana.html"
+  },
+  "AesirOfLight": {
+    "type": "aesir",
+    "match": "Aesir of Light",
+    "summary": "Epithet of Sol, deity of Solana and source of the Light that guides and protects the Children of the Light.",
+    "url": "/world-of-rathe/solana.html"
+  },
+  "Solides": "Solanian Sunday",
+  "SuperSlam": {
+    "type": "concept",
+    "match": "Super Slam",
+    "summary": "A deadly combat tournament where fighters battle in the Deathmatch Arena for glory and bloodsport."
+  },
+  "Sutcliffe": {
+    "type": "npc",
+    "summary": "Pursued arcane knowledge despite lacking aether affinity, creating the Arknight project to unlock magical abilities. Betrayed by his creation, Viserai, he was killed and now exists trapped in a skull, tormented and longing for revenge."
+  },
+  "SyntheaTeklo": {
+    "type": "npc",
+    "match": "Synthea Teklo",
+    "summary": "Teklo Industries CEO."
+  },
+  "tallics": {
+    "type": "concept",
+    "summary": "The Metrix currency."
+  },
+  "TeklaticDynamism": {
+    "type": "concept",
+    "match": "Teklatic Dynamism",
+    "summary": "Energy source invented by Professor Teklovossen."
+  },
+  "TekloIndustries": {
+    "type": "organisation",
+    "match": "Teklo Industries",
+    "summary": "A recent entrant to the steamtech industry, acclaimed for its innovative products and cutting-edge designs driven by a constantly experimenting R&D team."
+  },
+  "TheFoundry": {
+    "type": "organisation",
+    "match": "the Foundry",
+    "summary": "An independent radio station, one of the few in Metrix that remains free of Mendacity control."
+  },
+  "Thiroux": {
+    "type": "npc",
+    "summary": "Dash's mother."
+  },
+  "Verides": "Solanian Wednesday",
+  "Vesperides": "Solanian Saturday",
+  "Volcai": {
+    "type": "concept",
+    "summary": "The more limited social class of Volcor; their names are homogeneous, ending in -ai as a mark of their Volcai origin status."
+  },
+  "VoltarisGem": {
+    "type": "artifact",
+    "match": "Voltaris Gem",
+    "summary": "A powerful artifact said to have an entire storm trapped within its crystalline walls."
+  },
+  "Xilin": {
+    "type": "npc",
+    "summary": "Ira and Jing's brother."
+  },
+  "Yama": {
+    "type": "npc",
+    "summary": "Lord Chancellor and Head of the Ezu faction."
+  },
+  "Yvor": {
+    "type": "ancient",
+    "summary": "Ancient of Lightning and Ice."
+  },
+  "ShadowrealmWalker": {
+    "type": "monster",
+    "summary": "Huge stilt-legged predators of i'Arathael, slow to anger, resembling praying mantises.",
+    "match": "Shadowrealm Walker",
+    "exclude_pages": [
+      "main-story/usurp-the-shadow-throne/letters-from-the-beyond"
+    ]
+  },
+  "Baalghor": {
+    "type": "hero",
+    "summary": "On the edge of the Abyss, interlopers are met by a colossal sentinel that casts a damning shadow. With immense power, Baalghor has one inexorable goal. The utter obliteration of any intruder.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/baalghor-about"
+    ]
+  },
+  "Kien": {
+    "type": "npc",
+    "summary": "A Disciple of Pain who volunteered as a blood sacrifice for Chane during an expedition into i'Arathael."
+  },
+  "Ursur": {
+    "type": "embra",
+    "summary": "An Embra bound to Chane, drawn to the corruption of the Old Ones in the Shadowrealm."
+  },
+  "DisciplesOfPain": {
+    "type": "faction",
+    "match": "Disciples of Pain",
+    "summary": "The Demonastery order who embrace pain to surpass mortal limits and break Solana's hold on Rathe, following whichever Apostle leads them — Chane in his day, now Vynnset, the Apostle of Agony."
+  },
+  "Runeblades": {
+    "type": "concept",
+    "match": [
+      "Runeblades",
+      "Runeblade"
+    ],
+    "summary": "Hybrid fighters who wield blade and sorcery in equal measure, evoking runechants as they strike.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe"
+    ]
+  },
+  "OldOnes": {
+    "type": "concept",
+    "match": "Old Ones",
+    "summary": "Ancient beings of overwhelming power from beyond Rathe who threatened to consume the world in the Third Age."
+  },
+  "ChurchOfPain": {
+    "type": "faction",
+    "match": "Church of Pain",
+    "summary": "The Demonastery institution devoted to harnessing pain and Shadow to destroy Solana. Chane wore its mantle until he named Vynnset his successor."
+  },
+  "Embra": {
+    "type": "concept",
+    "match": [
+      "Embra",
+      "Embras"
+    ],
+    "summary": "Powerful supernatural entities that feed on blood."
+  },
+  "Blasmophet": {
+    "type": "embra",
+    "summary": "The demon whose all-consuming hunger possesses Levia the Consumed."
+  },
+  "Eirina": {
+    "type": "npc",
+    "summary": "Boltyn's beloved, a cleric he prays to for courage in battle."
+  },
+  "TheLightOfSol": {
+    "type": "faction",
+    "match": "The Light of Sol",
+    "summary": "Solana's order of scholars — healers, academics and scribes who serve the city and fight alongside the Hand of Sol.",
+    "url": "/world-of-rathe/solana.html#the-light-of-sol"
+  },
+  "Arakni": {
+    "type": "hero",
+    "summary": "A dagger unsheathed of morality and conscience, a weapon of sharpened mind and polished purpose. Death is Arakni’s only concern. Assassination, their singular delight.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/arakni-about",
+      "heroes-of-rathe/arakni-marionette-about",
+      "heroes-of-rathe/arakni-5l!p3d-7hru-7h3-cr4x-about"
+    ]
+  },
+  "Arakni5lp3d7hru7h3Cr4x": {
+    "type": "hero",
+    "match": "Arakni, 5l!p3d 7hru 7h3 Cr4x",
+    "summary": "It stalks through rifts in reality, striking where enemies least expect. This agent of Chaos hunts in a world as unpredictable as its own fR4c7uR3d p5ych3.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/arakni-5l!p3d-7hru-7h3-cr4x-about"
+    ]
+  },
+  "ArakniMarionette": {
+    "type": "hero",
+    "match": "Arakni, Marionette",
+    "summary": "Arakni is a living creation of mortal design, a masterwork of sculpted flesh and blood. It is more than a mere killer; it is a predator that hunts the hunters.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/arakni-marionette-about"
+    ]
+  },
+  "Aurora": {
+    "type": "hero",
+    "summary": "Aurora lights up the sky like a shooting star. Faster than thunder and full of spark, this Wayfarer will navigate the dark dangers and uncover the brightest promises of the future.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/aurora-about",
+      "main-story/everfest/a-grand-adventure",
+      "world-of-rathe/aria"
+    ]
+  },
+  "Azalea": {
+    "type": "hero",
+    "summary": "Azalea has clawed up from the gutters to the top of Blackjack’s mercenary company. A sharp-eyed archer with a routier’s heart, one shot is all Azalea needs.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/azalea-about"
+    ]
+  },
+  "Benji": {
+    "type": "hero",
+    "summary": "Swift as a gale and agile as a sparrow, Benji is ready to fight for his clan. Even as whispers of doom darken the wind, this young Mugenshi will fly in the face of calamity.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/benji-about"
+    ]
+  },
+  "Betsy": {
+    "type": "hero",
+    "summary": "Betsy is a head-smashing wrecking ball who lives for the wild risks of the Deathmatch Arena. There’s no bluffing with Betsy. She’s all in!",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/betsy-about"
+    ]
+  },
+  "Boltyn": {
+    "type": "hero",
+    "summary": "Ser Boltyn leads Solana’s vanguard into battle. With light in his heart and sword in his hand, Boltyn will carve the corruption from this land.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/boltyn-about"
+    ]
+  },
+  "Bravo": {
+    "type": "hero",
+    "summary": "The star of Everfest, leader of the Legendarium, Bravo performed grand shows for cheering crowds. But when destiny came knocking, Bravo jumped at the chance to become a true hero!",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/bravo-about"
+    ]
+  },
+  "Brevant": {
+    "type": "hero",
+    "summary": "Brevant’s easy grace conceals a will forged into steel by grinding instruction and grueling training. To the folk of Solana his fair visage is a symbol of Sol’s protection.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/brevant-about"
+    ]
+  },
+  "Briar": {
+    "type": "hero",
+    "summary": "Briar is a tenacious wielder of thorn and thaumaturgy. The first of the Rosetta to set foot outside of Candlehold, Briar is ready to fight for her place in the wilderness of Rathe.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/briar-about"
+    ]
+  },
+  "Chane": {
+    "type": "hero",
+    "summary": "Chane harnessed the power of an otherworldly Embra from the shadows of i’Arathael. For that forbidden knowledge he paid the ultimate price.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/chane-about"
+    ]
+  },
+  "Cindra": {
+    "type": "hero",
+    "summary": "The Dracai of Retribution has sharpened her daggers on rebels. With her Emperor gone, Cindra’s resolve is now mercilessly singular; the traitors will be found and executed.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/cindra-about"
+    ]
+  },
+  "Dash": {
+    "type": "hero",
+    "summary": "Dash is full of wild ideas for ingenious gadgets. Born among the corporate heavyweights of Metrix, this savvy inventor is determined to disrupt the status quo.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/dash-about"
+    ]
+  },
+  "DataDoll": {
+    "type": "hero",
+    "match": "Data Doll",
+    "summary": "A one-of-a-kind automaton, Data Doll is the secret mind in the great machine that is Metrix. With all of the city’s data at her fingertips, nothing escapes her notice.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/data-doll-mkii-about"
+    ]
+  },
+  "Dorinthea": {
+    "type": "hero",
+    "summary": "Chosen to brandish Dawnblade against the darkness that hungers to consume the light, Dorinthea will allow neither pride nor pity to deflect her duty to Sol.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/dorinthea-about"
+    ]
+  },
+  "Dromai": {
+    "type": "hero",
+    "summary": "Dromai is an artist who paints her masterpieces in ash. Her imagination is as boundless as her ambition, and her visionary dragons will ignite terror in all who behold them.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/dromai-about"
+    ]
+  },
+  "Emperor": {
+    "type": "hero",
+    "summary": "Upon the Imperial Throne of Volcor sits the greatest wizard this volatile land has ever seen. For the sake of his people, the Emperor must decide their fate.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/emperor-about",
+      "archive/world-of-rathe/volcor/fire-in-their-veins"
+    ]
+  },
+  "Enigma": {
+    "type": "hero",
+    "summary": "As the Ledger of Ancestry, Enigma was reincarnated with a cosmic purpose; to maintain the delicate and dangerous balance between the worlds of life and spirit.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/enigma-about"
+    ]
+  },
+  "Fai": {
+    "type": "hero",
+    "summary": "Fai strikes with blistering speed, liberating his people, punishing their oppressors. From the ashes of the empire, this phoenix will rise.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/fai-about"
+    ]
+  },
+  "Fang": {
+    "type": "hero",
+    "summary": "Fang’s imperial training has molded him into a devoted captain of the Royal Guard. He now leads his soldiers into battle with vengeance in his fists and fealty in his heart.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/fang-about",
+      "main-story/welcome-to-rathe/kill-or-be-killed"
+    ]
+  },
+  "Florian": {
+    "type": "hero",
+    "summary": "They call him the Harbinger. While others bask in their illusion of eternal summer, Florian embraces the truth. Every leaf must fall. Death comes to us all.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/florian-about"
+    ]
+  },
+  "Frankie": {
+    "type": "hero",
+    "summary": "Freaky Frankie is a macabre haberdasher sourcing atrophied accouterments for her drop dead gorgeous creations.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/frankie-about"
+    ]
+  },
+  "Genis": {
+    "type": "hero",
+    "summary": "They call Genis the Roaming Bazaar, and what a spectacle he is! Ready your Silvers as you approach his stall, for Genis has got what you need!",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/genis-about"
+    ]
+  },
+  "GravyBones": {
+    "type": "hero",
+    "match": "Gravy Bones",
+    "summary": "As a necromantic pirate captain, Gravy Bones prowls strange tides and the drowning deep, seeking ancient treasures and raising fallen foes to join his cadaverous crew.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/gravy-about"
+    ]
+  },
+  "Hala": {
+    "type": "hero",
+    "summary": "After years of training Solana’s finest, this veteran templar now returns to the frontlines, ready to cut down the enemies of Sol.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/hala-about"
+    ]
+  },
+  "Ira": {
+    "type": "hero",
+    "summary": "With the infamous Edge of Autumn in her hands, Ira leads the ruthless Crimson Haze. Her family slaughtered, her clan eradicated, Ira now lives only for vengeance.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/ira-about"
+    ]
+  },
+  "Iyslander": {
+    "type": "hero",
+    "summary": "Iyslander carries the fierce beauty of the frozen north with her. Her will is as hard and cold as the winter she commands, for she is a woman reborn of ice and snow.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/iyslander-about"
+    ]
+  },
+  "Jarl": {
+    "type": "hero",
+    "summary": "After eons entombed in Isenloft, this ironclad Guardian has thawed from his frozen prison and entered a Rathe transformed. Yet time hasn’t cooled his fury, nor his ardor for war.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/jarl-about"
+    ]
+  },
+  "Kano": {
+    "type": "hero",
+    "summary": "The dragon’s fire burns hot within Kano’s veins. While the court demands his duty, this lordling lives only to further grow the power of his flame.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/kano-about"
+    ]
+  },
+  "Kassai": {
+    "type": "hero",
+    "summary": "Her father taught her how to fight. The Red Desert taught her how to survive. Now Kassai is ready to take up her sabers and carve off a piece of the empire for herself.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/kassai-about"
+    ]
+  },
+  "Katsu": {
+    "type": "hero",
+    "summary": "Katsu is the calm before the storm. To protect the Mugenshi clan from plague and peril, he will unleash a hurricane that will sweep his enemies from the mountains of Misteria.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/katsu-about"
+    ]
+  },
+  "Kavdaen": {
+    "type": "hero",
+    "summary": "This underworld artist deals in the morbid and the macabre. It’s a deadly business and Kavdaen will make a visceral sculpture of anyone who crosses him.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/kavdaen-about"
+    ]
+  },
+  "Kayo": {
+    "type": "hero",
+    "summary": "What Kayo lacks in size, he makes up for in ferocity. No matter the creature or battle, Kayo throws himself into every fight without fear, driven by the raw will to survive.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/kayo-about"
+    ]
+  },
+  "Levia": {
+    "type": "hero",
+    "summary": "The hunger that possesses Levia gives her strength beyond any natural bounds, yet the monster within her may only be satisfied when all of Rathe has been devoured.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/levia-about"
+    ]
+  },
+  "Lexi": {
+    "type": "hero",
+    "summary": "The darling of Volthaven, Lexi is a daring Wayfarer who rides lightning and skates on thin ice. She’ll go anywhere, take on any challenge, for a shot at saving her precious Aria.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/lexi-about"
+    ]
+  },
+  "Lyath": {
+    "type": "hero",
+    "summary": "Bored with playing and winning the feudal power games of the Northern Realms, Lyath sought fresh challenges in the blood sports of Deathmatch. After pulling the strings behind Victor’s gladiatorial successes there, Lyath is now ready to test his wits in the best game going. Super Slam!",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/lyath-about"
+    ]
+  },
+  "Marlynn": {
+    "type": "hero",
+    "summary": "Marlynn sails the fastest ships and chases the most dangerous bounties. She’d rather live large and die young than be a worm on someone else’s hook.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/marlynn-about"
+    ]
+  },
+  "Maxx": {
+    "type": "hero",
+    "summary": "Maxx revels in vandalism, high-tech heists, and good old-fashioned anarchy. Whatever the corporations’ treasure, this wily punk will steal, sabotage or destroy.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/maxx-about"
+    ]
+  },
+  "Melody": {
+    "type": "hero",
+    "summary": "Melody’s songs soothe the growing dissonance within Aria. This restless minstrel won’t take her final bow until history’s most precious pieces are played throughout the land.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/melody-about",
+      "main-story/everfest/a-grand-adventure",
+      "main-story/the-hunted/children-of-chaos"
+    ]
+  },
+  "Nuu": {
+    "type": "hero",
+    "summary": "Beneath her alluring facade lies a sensual serpent of deadly grace. Nuu has seen more years than most, a long life mysteriously sustained by her most sinful patrons.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/nuu-about"
+    ]
+  },
+  "Oldhim": {
+    "type": "hero",
+    "summary": "This mighty Shieldbearer of the Ollin once stood against the Old Ones. Now Oldhim has risen from his frigid slumber to defend a new age against an ancient enemy.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/oldhim-about"
+    ]
+  },
+  "Olympia": {
+    "type": "hero",
+    "summary": "From beggar to champion, Olympia rose to glory in the arena, carving a bloody trail through the challengers who dared to cross his path.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/olympia-about"
+    ]
+  },
+  "Oscilio": {
+    "type": "hero",
+    "summary": "Crafted during Rathe’s darkest hour, Oscilio is a living relic of the Third Age. His purpose is ancient, as are the enemies he was built to destroy.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/oscilio-about"
+    ]
+  },
+  "Pleiades": {
+    "type": "hero",
+    "summary": "War and music are all Pleiades has ever known. Having left the feudal conflicts of the Northern Realms, Pleiades now heads up her own warband with a set list of breathtaking anthems at their disposal. The audience adores her. Competitors fear her fame. Pleiades is a one-woman constellation of stardom.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/pleiades-about"
+    ]
+  },
+  "Prism": {
+    "type": "hero",
+    "summary": "Raised within the Library of Illumination, Prism turned her love of lore into mastery of illusions, manifesting her bright creations to guard her loved ones and smite her foes.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/prism-about"
+    ]
+  },
+  "Puffin": {
+    "type": "hero",
+    "summary": "Driven by her insatiable curiosity, this skyfaring freebooter (and her avian sidekick) will stop at nothing to uncover the secrets of the High Seas.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/puffin-about"
+    ]
+  },
+  "Rhinar": {
+    "type": "hero",
+    "summary": "Rhinar’s bloodlust knows no bounds. To the apex predator of the Savage Lands, everything is prey, to be slaughtered by this brutal force of his untamed nature.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/rhinar-about"
+    ]
+  },
+  "Riptide": {
+    "type": "hero",
+    "summary": "Riptide’s cunning traps and devious cruelty make him a peerless hunter of the Pits’ diluvian depths. Beast or being, if you want something caught, he’s the one to catch it.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/riptide-about"
+    ]
+  },
+  "Scurv": {
+    "type": "hero",
+    "summary": "Scurv and his octopus sidekick are happiest when stowing away on ships and pilfering enough gold for necessities like bottles of Goldkiss Rum!",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/scurv-about"
+    ]
+  },
+  "Shiyana": {
+    "type": "hero",
+    "summary": "As a mistress of disguise, Shiyana searches Rathe for secret threats to her beloved Solana. Her heart and mind are harmonized, attuned to the Light. There is no fear. Only Sol.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/shiyana-about"
+    ]
+  },
+  "Teklovossen": {
+    "type": "hero",
+    "summary": "Teklovossen’s visionary ideas propelled Metrix from a past of steam and brass into a future of dynamism and data. His brilliance survives even his mysterious death.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/teklovossen-about"
+    ]
+  },
+  "Terra": {
+    "type": "hero",
+    "summary": "Terra was born to protect the flora and fauna of Aria, and hears their whispers as they call him to battle. Terra views every living thing as kin and he will let nothing harm them.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/terra-about"
+    ]
+  },
+  "Tuffnut": {
+    "type": "hero",
+    "summary": "Tuffnut is a fun-loving giant who enjoys nothing more than roughhousing with his ‘friends’ and lapping up the adoration of the crowd. With boundless enthusiasm, Tuffnut crashes into the arena like a one-Brute natural disaster. Tuffnut doesn’t mean anything by it. He’s just having a good time!",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/tuffnut-about"
+    ]
+  },
+  "Uzuri": {
+    "type": "hero",
+    "summary": "Uzuri is a criminal mastermind who knows all the angles. She can read the play and choose where to stick the knife, usually where it’s least expected.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/uzuri-about"
+    ]
+  },
+  "Valda": {
+    "type": "hero",
+    "summary": "Watch your mouth when Valda’s in the ale house, or you’ll wake up with more than a hangover! Valda’s never shy to put her foot down, and when she does, you’ll feel the rumble!",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/valda-about"
+    ]
+  },
+  "Verdance": {
+    "type": "hero",
+    "summary": "Verdance’s attunement to nature is as deep-rooted as Candlehold’s most venerable trees, and with that power she can heal even the deepest of wounds.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/verdance-about"
+    ]
+  },
+  "VictorGoldmane": {
+    "type": "hero",
+    "match": "Victor Goldmane",
+    "summary": "Victor struts into the arena with the wealth and power of noble-born privilege. A mighty fighter in his own right, Victor can still ensure his wins with a flash of gold.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/victor-goldmane-about"
+    ]
+  },
+  "Viserai": {
+    "type": "hero",
+    "summary": "Created to be the perfect weapon, Viserai is deadly with both blade and aether. Yet forced to obey selfish whims, the Arknight must one day sever the bonds of servitude.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/viserai-about"
+    ]
+  },
+  "Vynnset": {
+    "type": "hero",
+    "summary": "Vynnset wears the ache of persecution like runes engraved upon her bones. To dark forces she has paid homage in pain, and now it is her enemies who will do the suffering.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/vynnset-about"
+    ]
+  },
+  "Yoji": {
+    "type": "hero",
+    "summary": "Yoji tirelessly guards the imperial palace, his devotion to the dynasty as mighty as his halberd. Ever vigilant, the dynasty’s Royal Protector is ready to meet any threat.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/yoji-about"
+    ]
+  },
+  "Zen": {
+    "type": "hero",
+    "summary": "With body and mind honed into instruments of tigrine determination, Zen prowls the currents of chi, maintaining the balance with hand and claw.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/zen-about"
+    ]
+  },
+  "Blaze": {
+    "type": "hero",
+    "summary": "Blaze watches through the flames of uprising and dynasty, using her insights to manipulate both rebels and nobles, all for the future of the empire and Volcor.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/blaze-about",
+      "digital-tiles/monarch/monarch",
+      "main-story/bright-lights/the-dynamic-man",
+      "main-story/interlude/morlock-hill",
+      "main-story/outsiders/the-spiders-trap"
+    ]
+  },
+  "Zyggy": {
+    "type": "hero",
+    "summary": "Zyggy returns to Rathe from a cosmic exile that has changed them in powerful ways. Having crossed unimaginable borders, they now turn the stuff of dreams into shocking realities.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/zyggy-about"
+    ]
+  },
+  "Galcia": {
+    "type": "ancient",
+    "summary": "Ancient of Ice."
+  },
+  "Aetherscribes": {
+    "type": "faction",
+    "summary": "A learned collective of scholars and seers devoted to the survival of all Rathenfolk.",
+    "url": "/world-of-rathe/aria.html#aetherscribes"
+  },
+  "Wayfarers": {
+    "type": "faction",
+    "summary": "Lightning-riding scouts and heralds of Valahai, who keep word flowing between the bastions.",
+    "url": "/world-of-rathe/aria.html#wayfarers"
+  },
+  "Ollin": {
+    "type": "faction",
+    "summary": "The elite of Valahai's defenders, who communed with Galcia to gain command over Ice.",
+    "url": "/world-of-rathe/aria.html#ollin"
+  },
+  "Chanek": {
+    "type": "faction",
+    "summary": "Green-skinned, pointed-eared Rathenfolk of the far west."
+  },
+  "Rathenfolk": {
+    "type": "concept",
+    "summary": "The living peoples of Rathe, reduced by the Old Ones to survivors in Isenloft, Aldengrove and Valahai."
+  },
+  "Wendryn": {
+    "type": "npc",
+    "summary": "Scarred veteran Wayfarer of Valahai, lost holding the Shyldverk against the ravenirs."
+  },
+  "AstreaQuazor": {
+    "match": "Astrea Quazor",
+    "type": "npc",
+    "summary": "The Auric Keep's finest surgeon, whose knowledge of aether saved Zyggy after Yvor's detonation."
+  },
+  "AuricSeeress": {
+    "match": "Auric Seeress",
+    "type": "npc",
+    "summary": "Prophetess who trained Zyggy; she foresaw the end and died in Valahai's fall."
+  },
+  "Wynvarin": {
+    "type": "npc",
+    "summary": "The first Wayfarer, remembered for the saying “the lightning shall carry me before the storm.”"
+  },
+  "ArcaneHall": {
+    "type": "location",
+    "summary": "Cavernous testing chamber within the Auric Keep, converted into the laboratory where the Aetherscribes built Oscilio.",
+    "region": "Nebulus Rift",
+    "match": "Arcane Hall",
+    "exclude_pages": [
+      "main-story/omens-of-the-third-age/fall-of-valahai"
+    ]
+  },
+  "Gloomblades": {
+    "type": "faction",
+    "summary": "The Demonastery's runeblade forces, corrupted into Viserai's eldritch legion after his return from the Abyss."
+  },
+  "MarkOfNeverest": {
+    "match": "Mark of Neverest",
+    "type": "artifact",
+    "summary": "The token by which Malice taps Neverest's necromantic reservoir to swell her reanimated dead."
+  },
+  "SoulOfExistence": {
+    "match": "Soul of Existence",
+    "type": "artifact",
+    "summary": "The Old Ones' corrupting gift to the Arknight, drawn from the Abyss — the very soul of Shadow's existence."
+  },
+  "Runechant": {
+    "match": [
+      "Runechant",
+      "Runechants"
+    ],
+    "type": "concept",
+    "summary": "Auras of violet arcane energy evoked by runeblades, hovering at their master's command until loosed as bolts of pure aether."
+  },
+  "Arknight": {
+    "type": "concept",
+    "summary": "Sutcliffe's living weapon: a man born without aether affinity, granted it by an implanted shard. Viserai is the first and only success.",
+    "exclude_pages": [
+      "main-story/arcane-rising/birth-of-the-arknight"
+    ]
+  },
+  "ArknightShard": {
+    "match": "Arknight Shard",
+    "type": "artifact",
+    "summary": "The relic set into Viserai's chest, feeding arcane energy through runic vents carved into his bone and skin."
+  },
+  "Aesir": {
+    "type": "concept",
+    "match": [
+      "Aesir",
+      "Aesirs"
+    ],
+    "summary": "Primordial beings of elemental force who slumber beyond the veil — worshipped as deities such as Sol, and fought as ancient enemies in the Third Age."
+  },
+  "Apostate": {
+    "type": "npc",
+    "summary": "The Grand Magister who denounced Sol, founded the Demonastery, and sacrificed themself to tear it from Rathe into the Nebulus Rift."
+  },
+  "LadyBarthimont": {
+    "type": "npc",
+    "match": "Barthimont",
+    "summary": "Northern Realms noblewoman who turned to the Shadow through a gifted grimoire, bleeding her servants in rituals to buy power; strangled by the servant who stole the entity she meant to summon.",
+    "exclude_pages": [
+      "other-characters/lady-barthimont"
+    ]
+  },
+  "KrestMortimer": {
+    "type": "npc",
+    "match": "Mortimer",
+    "summary": "Scientist cast out of a Metrix institute for extreme experiments, now director of Southmaw asylum in the Pits and a student of Inertia and the Bloodrot Pox.",
+    "exclude_pages": [
+      "other-characters/krest-mortimer"
+    ]
+  },
+  "TheLibrarian": {
+    "type": "npc",
+    "match": "Librarian",
+    "summary": "The Magister who keeps the Library of Illumination in Solana — a timeless, dignified custodian who guides its patrons and hunts the truth behind the Shadow's onslaught.",
+    "exclude_pages": [
+      "other-characters/the-librarian",
+      "main-story/dusk-till-dawn/unity-in-light"
+    ]
+  },
+  "MinervaThemis": {
+    "type": "npc",
+    "match": "Minerva",
+    "summary": "Orphan turned Gemini spy who lost her twin Mercurius to an ambush, and now keeps the Golden Chariot inn in Solana, listening to travellers and offering counsel.",
+    "exclude_pages": [
+      "other-characters/minerva-themis"
+    ]
+  },
+  "Karl": {
+    "type": "npc",
+    "summary": "Graverobber whose crew opened a wrathful baron's coffin; he woke alone in an open grave, soaked in his comrades' blood."
+  },
+  "Seers": {
+    "type": "faction",
+    "summary": "An order of prophets named alongside the Ollin and Rosetta, who read the omens and keep a script of their own."
+  },
+  "Ancients": {
+    "type": "concept",
+    "summary": "Colossal elemental beings native to Rathe; Davnir, Yvor and Galcia spent their lives in the cataclysm that broke the world of the Third Age.",
+    "exclude_pages": [
+      "world-of-rathe/aria"
+    ]
+  },
+  "Necropolis": {
+    "type": "location",
+    "summary": "Quarter of the Demonastery where its finest morticians turn sepulchral preservation to self-preservation.",
+    "exclude_pages": [
+      "digital-tiles/compendium-of-rathe/compendium-of-rathe"
+    ]
+  },
+  "Boo": {
+    "type": "npc",
+    "summary": "Cheery cabin-boy phantom of the High Seas, who swabs the decks of undead crews and haunts alongside his captain."
+  },
+  "Miragai": {
+    "type": "creature",
+    "summary": "A dragon who called on the spirits of Rain, Wind, River and Mountain to bring harmony back to the Mistveil."
+  },
+  "CaptainBludge": {
+    "type": "npc",
+    "match": "Captain Bludge",
+    "summary": "Deranged sky-pirate who rams airship into airship, terrorising the merchant zeppelins of Piper's Pier."
+  },
+  "Chowder": {
+    "type": "npc",
+    "summary": "Chief cook aboard Gravy Bones' ship, whose Menu de Morbid feeds a crew whose appetites death has changed."
+  },
+  "Thanuella": {
+    "type": "npc",
+    "summary": "Dhani death-mage among whose possessions Dead Threads was found, casting doubt on the necrophage's true purpose."
+  }
+}

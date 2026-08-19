@@ -1,0 +1,271 @@
+/* Sidebar read markers */
+
+#mdbook-sidebar a.fablore-read::after {
+    content: '✓';
+    margin-left: 0.45em;
+    font-size: 0.78em;
+    font-weight: 700;
+    color: #6abf82;
+    vertical-align: 0.05em;
+}
+
+/* Reading progress bar */
+
+#reading-progress-bar {
+    position: fixed;
+    height: 5px;
+    z-index: 101;
+    pointer-events: none;
+}
+
+#reading-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--links);
+    transition: width 0.1s linear;
+}
+
+/* Heading anchor links */
+
+.heading-anchor {
+    opacity: 0;
+    margin-left: 0.4em;
+    font-size: 0.65em;
+    color: var(--searchresults-header-fg);
+    text-decoration: none;
+    transition: opacity 0.15s, color 0.15s;
+    vertical-align: middle;
+    font-weight: normal;
+}
+
+h2:hover .heading-anchor,
+h3:hover .heading-anchor,
+h4:hover .heading-anchor {
+    opacity: 1;
+}
+
+.heading-anchor:hover,
+.heading-anchor--copied {
+    color: var(--links);
+    text-decoration: none;
+}
+
+/* Hide secondary toolbar buttons on narrow viewports — toolbar is already full at mobile widths */
+@media only screen and (max-width: 599px) {
+    #random-story-button,
+    #accessibility-toggle {
+        display: none;
+    }
+}
+
+/* Reading preferences popup */
+
+.accessibility-popup {
+    position: absolute;
+    left: 10px;
+    top: var(--menu-bar-height);
+    z-index: 1000;
+    border-radius: 4px;
+    font-size: 0.7em;
+    color: var(--fg);
+    background: var(--theme-popup-bg);
+    border: 1px solid var(--theme-popup-border);
+    padding: 10px 0 6px;
+    min-width: 200px;
+    display: none;
+}
+
+.accessibility-section {
+    padding: 2px 16px 8px;
+}
+
+.accessibility-section + .accessibility-section {
+    border-top: 1px solid var(--theme-popup-border);
+    padding-top: 10px;
+}
+
+.accessibility-label {
+    display: block;
+    font-size: 0.9em;
+    color: var(--searchresults-header-fg);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+    white-space: nowrap;
+}
+
+.accessibility-choices {
+    display: flex;
+    gap: 4px;
+}
+
+.accessibility-choice {
+    flex: 1;
+    border: 1px solid var(--theme-popup-border);
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 3px 6px;
+    line-height: 1.6;
+    font-family: inherit;
+    font-size: inherit;
+    text-align: center;
+    white-space: nowrap;
+    transition: background 0.1s, color 0.1s;
+}
+
+.accessibility-choice:hover {
+    background: var(--theme-hover);
+}
+
+.accessibility-choice.accessibility-selected {
+    background: var(--sidebar-active);
+    border-color: var(--sidebar-active);
+    color: #fff;
+}
+
+/* Apply user font scale to content text only */
+#mdbook-content main {
+    font-size: calc(var(--fablore-font-scale, 1) * 1em);
+}
+
+/* Nav bar copy-link button — resets browser button defaults so spacing matches the <a>-based print/git buttons */
+
+#copy-link-button {
+    border: none;
+    background: none;
+    padding: 0;
+    color: var(--icons);
+}
+
+/* Injected by mdbook_story_meta preprocessor — story metadata card below the chapter title. */
+
+.story-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 1.4rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--table-border-color);
+    font-size: 1.25rem;
+    color: var(--searchresults-header-fg);
+    line-height: 1.6;
+}
+
+.story-meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    white-space: nowrap;
+}
+
+.story-meta-item .fa {
+    font-size: 0.9em;
+}
+
+.story-meta-item strong {
+    color: var(--fg);
+    font-weight: 600;
+}
+
+.story-meta-item a {
+    color: var(--links);
+    text-decoration: none;
+}
+
+.story-meta-item a:hover {
+    text-decoration: underline;
+}
+
+/* Share buttons */
+
+.story-share {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 0.5rem;
+    margin-bottom: 1.75rem;
+    font-size: 1rem;
+}
+
+.story-share-label {
+    color: var(--searchresults-header-fg);
+    font-size: 0.8em;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-right: 0.15rem;
+}
+
+.story-share .story-share-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    font-size: 1rem;
+    text-decoration: none;
+    color: var(--fg);
+    background: var(--quote-bg);
+    border: 1px solid var(--table-border-color);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    font-family: inherit;
+    flex-shrink: 0;
+}
+
+.story-share .story-share-btn:hover {
+    text-decoration: none;
+}
+
+.story-share .story-share-btn .fa,
+.story-share .story-share-btn svg {
+    font-size: 0.9em;
+    flex-shrink: 0;
+}
+
+.story-share-x-logo {
+    font-size: 0.85em;
+    font-weight: 700;
+    line-height: 1;
+    font-family: sans-serif;
+}
+
+.story-share .story-share-copy.story-share-copied {
+    background: #25a244;
+    border-color: #25a244;
+    color: #fff;
+}
+
+.story-share .story-share-facebook:hover {
+    background: #1877f2;
+    border-color: #1877f2;
+    color: #fff;
+}
+
+.story-share .story-share-twitter:hover {
+    background: #000;
+    border-color: #000;
+    color: #fff;
+}
+
+.story-share .story-share-bluesky:hover {
+    background: #0085ff;
+    border-color: #0085ff;
+    color: #fff;
+}
+
+.story-share .story-share-whatsapp:hover {
+    background: #25d366;
+    border-color: #25d366;
+    color: #fff;
+}
+
+.story-share .story-share-copy:hover {
+    background: var(--sidebar-active);
+    border-color: var(--sidebar-active);
+    color: #fff;
+}

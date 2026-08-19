@@ -1,0 +1,439 @@
+/*
+ * Menu bar: mdBook centres .menu-title in the flex slot between .left-buttons and
+ * .right-buttons; when those differ in width, the title no longer lines up with the
+ * main column (e.g. above a centred intro logo). Pin icons to the edges and centre
+ * the title in the full bar instead.
+ */
+#mdbook-menu-bar {
+  justify-content: space-between;
+}
+
+#mdbook-menu-bar .menu-title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  flex: none;
+  margin: 0;
+  line-height: 0;
+  /* Stay below toolbar controls so taps hit icons first */
+  z-index: 0;
+}
+
+#mdbook-menu-bar .left-buttons,
+#mdbook-menu-bar .right-buttons {
+  position: relative;
+  flex: 0 0 auto;
+  z-index: 1;
+}
+
+.menu-logo {
+  height: 2rem;
+  width: auto;
+  display: none;
+  cursor: default;
+}
+
+.intro-page .menu-logo {
+  display: none !important;
+}
+
+.light .menu-logo--light,
+.rust .menu-logo--light {
+  display: block;
+}
+
+.coal .menu-logo--dark,
+.navy .menu-logo--dark,
+.ayu .menu-logo--dark {
+  display: block;
+}
+
+.coal .menu-logo--light,
+.navy .menu-logo--light,
+.ayu .menu-logo--light {
+  display: none !important;
+}
+
+/* Introduction landing: centered logo above headline (theme-aware transparent PNGs) */
+.intro-landing-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1.75rem;
+}
+
+.intro-logo {
+  max-height: min(14rem, 42vw);
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+.intro-logo--light,
+.intro-logo--dark {
+  display: none;
+}
+
+.light .intro-logo--light,
+.rust .intro-logo--light {
+  display: block;
+}
+
+.coal .intro-logo--dark,
+.navy .intro-logo--dark,
+.ayu .intro-logo--dark {
+  display: block;
+}
+
+/*
+ * mdBook ships `<html class="light">`; on load, book.js applies localStorage or
+ * prefers-color-scheme via set_theme() but only removes the *stored* theme name,
+ * not the stale `light` class. Then both `.light` and e.g. `.ayu` match and the
+ * dark ink logo sits on a dark theme background (effectively invisible).
+ */
+.coal .intro-logo--light,
+.navy .intro-logo--light,
+.ayu .intro-logo--light {
+  display: none !important;
+}
+
+.intro-disclaimer {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--sidebar-non-existant);
+  margin: 1rem 0 0;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image-title-overlay {
+  position: relative;
+  text-align: center;
+}
+
+.image-title-overlay img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+  pointer-events: none;
+}
+
+/*
+ * mdBook themes often set heading color with !important and/or gradient text
+ * (-webkit-background-clip). Force solid white for banner overlays.
+ */
+.image-title-overlay .overlay-text h1,
+.image-title-overlay .overlay-text h2 {
+  margin: 0;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  text-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.9),
+    0 2px 12px rgba(0, 0, 0, 0.85),
+    0 4px 4px rgba(0, 0, 0, 0.75);
+}
+
+.image-title-overlay .overlay-text h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.image-title-overlay .overlay-text h2 {
+  margin-top: 0.5rem;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* World of Rathe hub: clickable region tiles */
+.world-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.world-hub-card {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid rgba(127, 127, 127, 0.35);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.world-hub-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.world-hub-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1683 / 700;
+  object-fit: cover;
+}
+
+/* Heroes hub uses portrait art; preserve full image without crop. */
+.hero-hub-card img {
+  aspect-ratio: 466 / 650;
+  object-fit: cover;
+  object-position: center top;
+  background: rgba(127, 127, 127, 0.08);
+  max-height: 420px;
+  margin: 0 auto;
+}
+
+.hero-hub-card-image--fallback {
+  padding: 0;
+  background: var(--bg);
+  object-fit: cover;
+}
+
+.hero-hub-grid {
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  align-items: start;
+}
+
+/* Heroes of Rathe hub: class filter toolbar */
+.hero-hub-toolbar {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin: 0 0 1rem;
+  z-index: 20;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid rgba(127, 127, 127, 0.25);
+  border-radius: 10px;
+  background: var(--bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.hero-hub-toolbar-spacer {
+  height: 0;
+}
+
+.hero-hub-toolbar--fixed {
+  position: fixed;
+  z-index: 120;
+  box-sizing: border-box;
+}
+
+.hero-hub-toolbar-label {
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-right: 0.25rem;
+}
+
+.hero-hub-search-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-right: 0.5rem;
+}
+
+.hero-hub-search-label {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.hero-hub-search {
+  width: min(260px, 56vw);
+  font: inherit;
+  font-size: 1rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(127, 127, 127, 0.45);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.hero-hub-search:focus {
+  outline: 2px solid rgba(127, 127, 127, 0.45);
+  outline-offset: 1px;
+}
+
+.hero-hub-filter {
+  font: inherit;
+  font-size: 1rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid rgba(127, 127, 127, 0.45);
+  background: var(--bg);
+  color: var(--fg);
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.hero-hub-filter:hover {
+  border-color: var(--icons-hover);
+  color: var(--icons-hover);
+}
+
+.hero-hub-filter--active {
+  border-color: var(--icons-hover);
+  background: rgba(127, 127, 127, 0.12);
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 820px) {
+  .hero-hub-toolbar {
+    padding: 0.55rem;
+  }
+
+  .hero-hub-search-wrap {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .hero-hub-search {
+    width: 100%;
+  }
+}
+
+.hero-hub-card[hidden] {
+  display: none !important;
+}
+
+.hero-hub-class-label {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+.world-hub-card .world-hub-label {
+  display: block;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.ayu .world-hub-card .world-hub-label,
+.coal .world-hub-card .world-hub-label,
+.navy .world-hub-card .world-hub-label {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.world-hub-card--placeholder {
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  padding: 0;
+}
+
+.world-hub-placeholder-title {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(145deg, #3d3d42 0%, #1e1e22 100%);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.world-hub-card--placeholder .world-hub-label {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.ayu .world-hub-card--placeholder .world-hub-label,
+.coal .world-hub-card--placeholder .world-hub-label {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Floating back-to-top (paired with back-to-top.js) */
+.back-to-top {
+  position: fixed;
+  bottom: 1.25rem;
+  /* mdBook .nav-chapters are fixed full-height strips (max 150px); stay left of “next” */
+  right: calc(var(--page-padding) + 150px + 0.75rem);
+  left: auto;
+  z-index: 150;
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 1.25rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(127, 127, 127, 0.45);
+  background: var(--bg);
+  color: var(--icons);
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.back-to-top.back-to-top--visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  color: var(--icons-hover);
+}
+
+[dir="rtl"] .back-to-top {
+  right: auto;
+  left: calc(var(--page-padding) + 150px + 0.75rem);
+}
+
+/* Narrow: in-flow chapter buttons; park away from bottom-right “next” */
+@media only screen and (max-width: 1080px) {
+  .back-to-top {
+    right: auto;
+    left: 1.25rem;
+  }
+
+  [dir="rtl"] .back-to-top {
+    left: auto;
+    right: 1.25rem;
+  }
+}
