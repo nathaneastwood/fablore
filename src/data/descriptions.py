@@ -354,6 +354,13 @@ db.update_description(
 db.update_description("location", "Charred Range", "Mountains separating Solana and Volcor.")
 db.update_description("location", "Chrome Caverns", "The desert's edge.")
 db.update_description("location", "Coralysi", "Home of the merfolk. Floating gardens.")
+db.update_description(
+    "location",
+    "Fiddler's Green",
+    "The pirates' name for the sunken Dhani city beneath Coralysi, and for the "
+    "afterlife the Kuraghan believe it promises them - a beautiful lie no one "
+    "tells better than Cooder.",
+)
 db.update_description("location", "Death's Knell", "The Ocean.")
 db.update_description(
     "location",

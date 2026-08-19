@@ -871,12 +871,13 @@
     "summary": "A member of the Cintari, Kassai's close friend."
   },
   "FiddlersGreen": {
-    "type": "concept",
     "match": [
       "Fiddler's Green",
       "Fiddler’s Green"
     ],
-    "summary": "An imaginary place where every immortal's whim shall be tended to by demure merfolk."
+    "type": "location",
+    "summary": "The pirates' name for the sunken Dhani city beneath Coralysi, and for the afterlife the Kuraghan believe it promises them - a beautiful lie no one tells better than Cooder.",
+    "region": "High Seas"
   },
   "Fireseer": {
     "type": "concept",
