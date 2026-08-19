@@ -1783,13 +1783,10 @@
   },
   "LadyBarthimont": {
     "type": "npc",
-    "match": [
-      "Barthimont",
-      "Bartimont"
-    ],
+    "match": "Barthimont",
     "summary": "Northern Realms noblewoman who turned to the Shadow through a gifted grimoire, bleeding her servants in rituals to buy power; strangled by the servant who stole the entity she meant to summon.",
     "exclude_pages": [
-      "other-characters/lady-bartimont"
+      "other-characters/lady-barthimont"
     ]
   },
   "KrestMortimer": {

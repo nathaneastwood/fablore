@@ -88,7 +88,7 @@
 - [Other Characters](other-characters/README.md)
     - [Dr. Krest Mortimer](other-characters/krest-mortimer.md)
     - [Lord Sutcliffe](other-characters/lord-sutcliffe.md)
-    - [Lady Bartimont](other-characters/lady-bartimont.md)
+    - [Lady Barthimont](other-characters/lady-barthimont.md)
     - [Minerva Themis](other-characters/minerva-themis.md)
     - [The Librarian](other-characters/the-librarian.md)
 

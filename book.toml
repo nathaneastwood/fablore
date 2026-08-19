@@ -221,3 +221,7 @@ command = "python3 src/data/mdbook_child_hub.py"
 '/short-stories/16-rosetta/oscilio-constella-intelligence.html' = '/short-stories/rosetta/oscilio-constella-intelligence.html'
 '/short-stories/16-rosetta/verdance-thorn-of-the-rose.html' = '/short-stories/rosetta/verdance-thorn-of-the-rose.html'
 '/short-stories/20-compendium-of-rathe/seasonal-guide.html' = '/short-stories/compendium-of-rathe/seasonal-guide.html'
+
+# "Bartimont" was a misspelling — every source, including the upstream article
+# URL, spells the name Barthimont.
+'/other-characters/lady-bartimont.html' = '/other-characters/lady-barthimont.html'

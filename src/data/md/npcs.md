@@ -153,7 +153,7 @@
 |                     Kossen                     |      Human     |                 Unknown                 |
 |                      Kouki                     |      Human     |                 Unknown                 |
 |                      Kyle                      |      Human     |                 Unknown                 |
-|                 Lady Bartimont                 |     Unknown    |                 Unknown                 |
+|                 Lady Barthimont                |     Unknown    |                 Unknown                 |
 |               Lady Vera Sutcliffe              |      Human     |                 Unknown                 |
 |                   Lena Belle                   |      Human     |                 Unknown                 |
 |                  Lieutenant Li                 |      Human     |                 Unknown                 |

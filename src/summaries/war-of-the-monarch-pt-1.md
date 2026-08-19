@@ -14,7 +14,7 @@ Many centuries have passed. In that time, the Demonastery has continued to attra
 
 [Chane](../heroes-of-rathe/chane-about.md) and the Disciples of Pain, [hungry to harness the power of Ursur the Soul Reaper](../main-story/monarch/emissary-of-the-void.md).
 
-[Levia](../heroes-of-rathe/levia-about.md), driven by [Lady Barthimont](../other-characters/lady-bartimont.md) into the [ravening embrace of Blasmophet the Soul Harvester](../main-story/monarch/destroy-and-consume.md).
+[Levia](../heroes-of-rathe/levia-about.md), driven by [Lady Barthimont](../other-characters/lady-barthimont.md) into the [ravening embrace of Blasmophet the Soul Harvester](../main-story/monarch/destroy-and-consume.md).
 
 Vynnset, lured into the shadows by the longings of Nasreth the Soul Harrower. And so many more, led by visions and nightmares to the gates of The Demonastery and the beshadowed Embra domains of íArathael beyond.
 

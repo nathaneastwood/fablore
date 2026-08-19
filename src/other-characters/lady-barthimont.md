@@ -1,4 +1,4 @@
-# Lady Bartimont
+# Lady Barthimont
 
 Born the daughter of a noble house in the Northern Realms, the future Lady Barthimont was raised with the grace and cunning expected of a woman of her rank. Once she had come of age, her father quickly found a match for her, marrying her to another Lord in order to secure the power and status that he felt his daughter rightfully deserved.
 
