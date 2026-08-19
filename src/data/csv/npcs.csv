@@ -61,6 +61,7 @@ LCf19f1ec92f|Chum|Zombie|Dead|
 LCfded586871|Cirrus|Human|Unknown|
 LCcfa07e77b0|Cobbs|Human|Unknown|
 LCbb2fc5d0dc|Countess Camilla|Unknown|Unknown|
+LCce8cf2b15e|Cox|Unknown|Unknown|
 LCf479f1823a|Cutty|Zombie|Dead|
 LC1aa6cbc421|Dan Lu, Kotori Galewarden|Human|Unknown|
 LC9739559960|Danu Ashenguard|Human|Unknown|
@@ -79,7 +80,7 @@ LC7f363e11d8|Dunric Vargas|Human|Unknown|
 LC87b280ede4|Ebba|Human|Alive|
 LCb95a224ce9|Efaris Brittlebone|Human|Unknown|
 LCe837ee4005|Einar|Human|Unknown|
-LCfd06f99a22|Eirina|Human Cleric|Dead|
+LCfd06f99a22|Eirina|Human Cleric|Deceased|
 LC339dd1bb6e|Eldon, Lost Knight|Human|Unknown|
 LCb80f3e1e8c|Elias Edgecombe|Human|Unknown|
 LC8f9c87c4b6|Emeviere|Unknown|Unknown|
@@ -278,7 +279,7 @@ LCcd05407fea|Theodore Hamilton Scarborough|Human|Unknown|
 LC4d5ddaaceb|Thiroux|Human|Unknown|
 LCe8af93aaa7|Thuk|Brute|Unknown|
 LC329be61e55|Tiril|Human|Unknown|
-LCf87c086303|Togark the Wrangler|Human|Dead|
+LCf87c086303|Togark the Wrangler|Human|Deceased|
 LC4aabab7242|Tohiro, Eternal Scribe|Human|Unknown|
 LCdf8c802e41|Tomass|Human|Unknown|
 LC5a8977d946|Toroja of Ishigaki|Human|Dead|

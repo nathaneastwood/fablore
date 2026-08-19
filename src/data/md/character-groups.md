@@ -67,7 +67,7 @@
 | Position |       Epithets |
 | -------- | -------------- |
 |        1 |     The Devout |
-|        2 |     The Adaman |
+|        2 |    The Adamant |
 |        3 |    The Radiant |
 |        4 |    The Beloved |
 |        5 |  The Steadfast |

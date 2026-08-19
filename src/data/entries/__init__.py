@@ -37,6 +37,7 @@ SECTIONS: dict[str, str] = {
     "heroes": "heroes-of-rathe",
     "main_story": "main-story",
     "short_stories": "short-stories",
+    "other_characters": "other-characters",
     "summaries": "summaries",
     "flavour": "flavour",
     "digital_tiles": "digital-tiles",

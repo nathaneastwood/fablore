@@ -62,6 +62,7 @@
 |                     Cirrus                     |      Human     |                 Unknown                 |
 |                      Cobbs                     |      Human     |                 Unknown                 |
 |                Countess Camilla                |     Unknown    |                 Unknown                 |
+|                       Cox                      |     Unknown    |                 Unknown                 |
 |                      Cutty                     |     Zombie     |                   Dead                  |
 |            Dan Lu, Kotori Galewarden           |      Human     |                 Unknown                 |
 |                 Danu Ashenguard                |      Human     |                 Unknown                 |
@@ -80,7 +81,7 @@
 |                      Ebba                      |      Human     |                  Alive                  |
 |               Efaris Brittlebone               |      Human     |                 Unknown                 |
 |                      Einar                     |      Human     |                 Unknown                 |
-|                     Eirina                     |  Human Cleric  |                   Dead                  |
+|                     Eirina                     |  Human Cleric  |                 Deceased                |
 |               Eldon, Lost Knight               |      Human     |                 Unknown                 |
 |                 Elias Edgecombe                |      Human     |                 Unknown                 |
 |                    Emeviere                    |     Unknown    |                 Unknown                 |
@@ -279,7 +280,7 @@
 |                     Thiroux                    |      Human     |                 Unknown                 |
 |                      Thuk                      |      Brute     |                 Unknown                 |
 |                      Tiril                     |      Human     |                 Unknown                 |
-|               Togark the Wrangler              |      Human     |                   Dead                  |
+|               Togark the Wrangler              |      Human     |                 Deceased                |
 |             Tohiro, Eternal Scribe             |      Human     |                 Unknown                 |
 |                     Tomass                     |      Human     |                 Unknown                 |
 |               Toroja of Ishigaki               |      Human     |                   Dead                  |

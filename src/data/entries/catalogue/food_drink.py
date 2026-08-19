@@ -13,3 +13,4 @@ from db import FoodDrinkEntry
 
 ALDER_CIDER = FoodDrinkEntry("Alder Cider", kind="Drink")
 BLACKJACK_S_WHISKEY = FoodDrinkEntry("Blackjack's Whiskey", kind="Drink")
+GOLDKISS_RUM = FoodDrinkEntry("Goldkiss Rum", kind="Drink")

@@ -50,7 +50,7 @@ db.upsert_story(
         npc.GRAND_MAGISTER_THE_DEVOUT,
         npc.APOSTATE,
         npc.LORD_SUTCLIFFE,
-        npc.LADY_BARTIMONT,
+        npc.LADY_BARTHIMONT,
         npc.URSUR,
         npc.BLASMOPHET,
         npc.NASRETH,
