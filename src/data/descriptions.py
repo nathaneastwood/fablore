@@ -364,11 +364,6 @@ db.update_description(
 db.update_description("location", "Death's Knell", "The Ocean.")
 db.update_description(
     "location",
-    "Demonastery",
-    "Mansion with specific rooms per resident; it moves, accessible by invitation.",
-)
-db.update_description(
-    "location",
     "Eighth Precinct",
     "Enforcer station, down the street from the Iron Hall.",
 )
@@ -467,11 +462,6 @@ db.update_description(
     "Shyldverk",
     "Arcanite-forged gatehouse guarding the aetheric moat and the bridge to the Auric Keep;"
     " a surviving fragment of old Valahai.",
-)
-db.update_description(
-    "location",
-    "Solana",
-    "Holy city-state at the heart of Rathe, built by pilgrims of Sol and governed by the Order of the Light.",
 )
 db.update_description("location", "Sori 16", "Location of The Leaf House.")
 db.update_description(

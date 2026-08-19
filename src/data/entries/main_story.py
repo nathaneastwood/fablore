@@ -953,7 +953,6 @@ db.upsert_story(
     heroes=["viserai"],
     npcs=[npc.LORD_SUTCLIFFE],
     locations=[
-        loc.DEMONASTERY,
         loc.ENTRANCE_HALL,
     ],
     regions=[reg.DEMONASTERY],
@@ -1068,7 +1067,6 @@ db.upsert_story(
     source_link="https://fabtcg.com/articles/return-shadow/",
     heroes=["viserai"],
     locations=[
-        loc.DEMONASTERY,
         loc.ENTRANCE_HALL,
         loc.I_ARATHAEL,
     ],
@@ -1157,7 +1155,6 @@ db.upsert_story(
     heroes=["chane"],
     npcs=[npc.URSUR],
     locations=[
-        loc.DEMONASTERY,
         loc.I_ARATHAEL,
     ],
     regions=[reg.DEMONASTERY, reg.SOLANA],
@@ -1270,7 +1267,6 @@ db.upsert_story(
         loc.BLASMOPHET_S_DOMAIN,
         loc.COURTYARD,
         loc.DEATH_S_KNELL,
-        loc.DEMONASTERY,
         loc.ENTRANCE_HALL,
         loc.THE_VENARIUM,
     ],

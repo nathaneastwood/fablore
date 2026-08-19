@@ -72,6 +72,8 @@
     "summary": "Ancient of Earth and Lightning."
   },
   "Demonastery": {
+    "type": "region",
+    "summary": "Forsaken isle beyond the shores of Southern Rathe, wrapped in sea fog, where the Devout took refuge when their faith in Sol broke.",
     "url": "/world-of-rathe/demonastery.html"
   },
   "DhaniEmpire": {

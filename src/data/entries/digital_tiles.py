@@ -102,7 +102,6 @@ db.upsert_story(
         npc.MIRAGAI,
     ],
     locations=[
-        loc.DEMONASTERY,
         # New with this set. The Demonastery's mortuary quarter.
         loc.NECROPOLIS,
         loc.THE_AWAKENING_CEREMONY,
@@ -201,7 +200,6 @@ db.upsert_story(
         npc.SOL,
     ],
     locations=[
-        loc.DEMONASTERY,
         loc.ISENLOFT,
         loc.SKYLARK_PEAK,
         loc.THE_BADLANDS,
@@ -316,7 +314,6 @@ db.upsert_story(
     ],
     locations=[
         loc.BLASMOPHET_S_DOMAIN,
-        loc.SOLANA,
         loc.THE_GOLDEN_FIELDS,
         loc.THE_NORTHERN_REALMS,
         loc.I_ARATHAEL,

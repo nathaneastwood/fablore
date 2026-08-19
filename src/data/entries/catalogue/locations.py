@@ -57,7 +57,6 @@ YVOR_S_PEAK = LocationEntry("Yvor's Peak", region="Aria")
 
 BLASMOPHET_S_DOMAIN = LocationEntry("Blasmophet's Domain", region="Demonastery")
 COURTYARD = LocationEntry("Courtyard", region="Demonastery")
-DEMONASTERY = LocationEntry("Demonastery", region="Demonastery")
 DIMENXXIONAL_GATEWAY = LocationEntry("Dimenxxional Gateway", region="Demonastery")
 ENTRANCE_HALL = LocationEntry("Entrance Hall", region="Demonastery")
 NECROPOLIS = LocationEntry("Necropolis", region="Demonastery")
@@ -81,7 +80,6 @@ GRAYSTONE_PENITENTIARY = LocationEntry(
     "Graystone Penitentiary", region="High Seas", lore_fragment="graystone-penitentiary"
 )
 GRIEFERS_REEF = LocationEntry("Griefers Reef", region="High Seas", lore_fragment="griefers-reef")
-KRAKEN = LocationEntry("Kraken", region="High Seas")
 KRAKEN_S_BARREL = LocationEntry("Kraken's Barrel", region="High Seas", lore_fragment="krakens-barrel")
 PIPER_S_PIER = LocationEntry("Piper's Pier", region="High Seas", lore_fragment="pipers-pier")
 PIRATE_S_PERCH = LocationEntry("Pirate's Perch", region="High Seas")
@@ -173,7 +171,6 @@ OCTOGRIA = LocationEntry("Octogria", region="Solana")
 OCTOMILITIA = LocationEntry("Octomilitia", region="Solana")
 OCTOTISTA = LocationEntry("Octotista", region="Solana")
 SILVARIUM = LocationEntry("Silvarium", region="Solana")
-SOLANA = LocationEntry("Solana", region="Solana")
 SOLSTICE_OF_LAURELS = LocationEntry("Solstice of Laurels", region="Solana", lore_fragment="solstice-of-laurels")
 SUNVALE = LocationEntry("Sunvale", region="Solana")
 THE_AWAKENING_CEREMONY = LocationEntry(

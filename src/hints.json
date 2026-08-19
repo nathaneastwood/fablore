@@ -140,12 +140,6 @@
     "type": "location",
     "summary": "The Ocean."
   },
-  "Demonastery": {
-    "type": "location",
-    "summary": "Mansion with specific rooms per resident; it moves, accessible by invitation.",
-    "region": "Demonastery",
-    "url": "/world-of-rathe/demonastery.html"
-  },
   "Deshvahan": {
     "type": "location",
     "summary": "A city in Volcor.",
@@ -261,11 +255,6 @@
     "type": "location",
     "summary": "No official territory with the exception of some houses on the water.",
     "region": "The Pits"
-  },
-  "Kraken": {
-    "type": "location",
-    "summary": "Boat",
-    "region": "High Seas"
   },
   "Krakens Barrel": {
     "match": [
@@ -412,13 +401,6 @@
     "type": "location",
     "summary": "Arcanite-forged gatehouse guarding the aetheric moat and the bridge to the Auric Keep; a surviving fragment of old Valahai.",
     "region": "Aria"
-  },
-  "Solana": {
-    "type": "region",
-    "summary": "The Golden City, realm of Illumination, founded by pilgrims drawn to Rathe by Sol's will.",
-    "region": "Solana",
-    "url": "/world-of-rathe/solana.html",
-    "db_type": "location"
   },
   "Sori 16": {
     "type": "location",
@@ -848,6 +830,11 @@
     "type": "ancient",
     "summary": "Ancient of Earth and Lightning."
   },
+  "Demonastery": {
+    "type": "region",
+    "summary": "Forsaken isle beyond the shores of Southern Rathe, wrapped in sea fog, where the Devout took refuge when their faith in Sol broke.",
+    "url": "/world-of-rathe/demonastery.html"
+  },
   "DhaniEmpire": {
     "type": "concept",
     "match": "Dhani Empire",
@@ -920,6 +907,11 @@
     "region": "Solana",
     "match": "Hand of Sol",
     "db_type": "location"
+  },
+  "Solana": {
+    "type": "region",
+    "summary": "The Golden City, realm of Illumination, founded by pilgrims drawn to Rathe by Sol's will.",
+    "url": "/world-of-rathe/solana.html"
   },
   "Infernai": {
     "type": "aesir",
