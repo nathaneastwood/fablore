@@ -129,6 +129,8 @@ def export_registry_tables(conn: sqlite3.Connection, data_dir: Path) -> None:
     _export_fauna(conn, csv_dir)
     _export_flora(conn, csv_dir)
     _export_food_drink(conn, csv_dir)
+    _export_groups(conn, csv_dir)
+    _export_group_members(conn, csv_dir)
 
 
 def export_story_junctions(conn: sqlite3.Connection, data_dir: Path) -> None:
@@ -201,15 +203,58 @@ def _export_locations(conn: sqlite3.Connection, csv_dir: Path) -> None:
             "RegionId": r["region_id"],
             "Notes": r["notes"],
             "LoreFragment": r["lore_fragment"],
+            "ParentLocationId": r["parent_location_id"],
         }
         for r in rows
     ]
     _write_pipe_csv(
         csv_dir / "locations.csv",
         _CMD_REGISTRY,
-        ["LocationId", "Name", "RegionId", "Notes", "LoreFragment"],
+        ["LocationId", "Name", "RegionId", "Notes", "LoreFragment", "ParentLocationId"],
         data,
     )
+
+
+def _export_groups(conn: sqlite3.Connection, csv_dir: Path) -> None:
+    rows = q.select_all_groups(conn)
+    data = [
+        {
+            "GroupId": r["group_id"],
+            "Name": r["name"],
+            "Kind": r["kind"],
+            "Notes": r["notes"],
+            "ParentGroupId": r["parent_group_id"],
+            "LocationId": r["location_id"],
+        }
+        for r in rows
+    ]
+    _write_pipe_csv(
+        csv_dir / "groups.csv",
+        _CMD_REGISTRY,
+        ["GroupId", "Name", "Kind", "Notes", "ParentGroupId", "LocationId"],
+        data,
+    )
+
+
+def _export_group_members(conn: sqlite3.Connection, csv_dir: Path) -> None:
+    """Write the two membership tables (R1).
+
+    Not part of ``_JUNCTION_EXPORT_SPECS``: these hang off a group, not a story,
+    and their ``StoryKey`` is evidence for the membership (D2) rather than the
+    link itself.
+    """
+    for table, csv_name, db_col, csv_id_col in (
+        ("group_npcs", "group-npcs.csv", "character_id", "CharacterId"),
+        ("group_heroes", "group-heroes.csv", "canonical_id", "CanonicalId"),
+    ):
+        rows = conn.execute(f"SELECT group_id, {db_col}, story_key FROM {table} ORDER BY group_id, {db_col}").fetchall()
+        data = [{"GroupId": r["group_id"], csv_id_col: r[db_col], "StoryKey": r["story_key"]} for r in rows]
+        _write_pipe_csv(
+            csv_dir / csv_name,
+            _CMD_REGISTRY,
+            ["GroupId", csv_id_col, "StoryKey"],
+            data,
+        )
 
 
 def _export_npcs(conn: sqlite3.Connection, csv_dir: Path) -> None:
@@ -574,6 +619,7 @@ _JUNCTION_EXPORT_SPECS: tuple[tuple[str, str, str, str, str], ...] = (
         "StoryId",
         "CanonicalEquipmentId",
     ),
+    ("story_groups", "story-groups.csv", "group_id", "StoryId", "GroupId"),
 )
 
 
@@ -637,6 +683,10 @@ _ALL_TABLES = [
     "story_food_drink",
     "story_weapons",
     "story_equipment",
+    "groups",
+    "group_npcs",
+    "group_heroes",
+    "story_groups",
 ]
 
 

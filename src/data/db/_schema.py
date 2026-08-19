@@ -7,13 +7,15 @@ Version history:
   4 — story_heroes, story_npcs: add fragment column
   5 — heroes_ll: new table for living-legend status per hero variant
   6 — narrated_videos: drop duration column
+  7 — weapons_printings, equipment_printings: image_url in the primary key
+  8 — groups, group_npcs, group_heroes, story_groups; locations.parent_location_id
 """
 
 from __future__ import annotations
 
 import sqlite3
 
-CURRENT_VERSION = 6
+CURRENT_VERSION = 8
 
 _V1_DDL = """
 CREATE TABLE IF NOT EXISTS stories (
@@ -42,11 +44,20 @@ CREATE TABLE IF NOT EXISTS regions (
 );
 
 CREATE TABLE IF NOT EXISTS locations (
-    location_id   TEXT PRIMARY KEY,
-    name          TEXT NOT NULL,
-    region_id     TEXT NOT NULL DEFAULT '',
-    notes         TEXT NOT NULL DEFAULT '',
-    lore_fragment TEXT NOT NULL DEFAULT ''
+    location_id        TEXT PRIMARY KEY,
+    name               TEXT NOT NULL,
+    region_id          TEXT NOT NULL DEFAULT '',
+    notes              TEXT NOT NULL DEFAULT '',
+    lore_fragment      TEXT NOT NULL DEFAULT '',
+    -- Containment only: X is *inside* Y. Proximity ("area next to Candlehold")
+    -- stays prose in notes, because the two read identically in the data and a
+    -- mechanical migration would assert containments the lore denies. The split
+    -- was reviewed row by row; see plans/location-containment-review.csv.
+    -- No SQL REFERENCES: the column defaults to '' for the ~180 locations with no
+    -- parent, and '' can never satisfy a foreign key. This is the same shape as
+    -- region_id above, which is likewise validated in validate_data.py rather
+    -- than by SQLite.
+    parent_location_id TEXT NOT NULL DEFAULT ''
 );
 
 CREATE TABLE IF NOT EXISTS npcs (
@@ -183,6 +194,39 @@ CREATE TABLE IF NOT EXISTS equipment_printings (
     PRIMARY KEY (equipment_game_id, set_id, card_id, image_url)
 );
 
+CREATE TABLE IF NOT EXISTS groups (
+    group_id        TEXT PRIMARY KEY,
+    name            TEXT NOT NULL,
+    kind            TEXT NOT NULL DEFAULT '',
+    notes           TEXT NOT NULL DEFAULT '',
+    -- A group inside a group: Boulders inside a clan, a guild inside a carnival.
+    -- Both id columns default to '' and so carry no SQL REFERENCES; see the note
+    -- on locations.parent_location_id. validate_data.py checks them.
+    parent_group_id TEXT NOT NULL DEFAULT '',
+    -- Only for a group that is *also* a physical place, e.g. Teklo Industries,
+    -- which is a company and a works with 14 story links to the location. Most
+    -- groups leave this empty; a group is not a place.
+    location_id     TEXT NOT NULL DEFAULT ''
+);
+
+-- Membership (R1). Declared on the group in entries/catalogue/groups.py, not on
+-- the story: "Tara VanGeld is a VanGeld" is a world fact, not a page fact. See
+-- D1 in plans/character-groups-schema-options.md. story_key is the optional
+-- evidence column from D2 — an uncited membership is unsourced lore.
+CREATE TABLE IF NOT EXISTS group_npcs (
+    group_id     TEXT NOT NULL REFERENCES groups(group_id) ON DELETE CASCADE,
+    character_id TEXT NOT NULL REFERENCES npcs(character_id),
+    story_key    TEXT NOT NULL DEFAULT '',
+    PRIMARY KEY (group_id, character_id)
+);
+
+CREATE TABLE IF NOT EXISTS group_heroes (
+    group_id     TEXT NOT NULL REFERENCES groups(group_id) ON DELETE CASCADE,
+    canonical_id TEXT NOT NULL REFERENCES heroes_canonical(canonical_id),
+    story_key    TEXT NOT NULL DEFAULT '',
+    PRIMARY KEY (group_id, canonical_id)
+);
+
 -- Story junction tables (all cascade-delete when a story is removed)
 CREATE TABLE IF NOT EXISTS story_npcs (
     story_id     TEXT NOT NULL REFERENCES stories(story_id) ON DELETE CASCADE,
@@ -242,6 +286,14 @@ CREATE TABLE IF NOT EXISTS story_equipment (
     story_id               TEXT NOT NULL REFERENCES stories(story_id) ON DELETE CASCADE,
     canonical_equipment_id TEXT NOT NULL REFERENCES equipment_canonical(canonical_equipment_id),
     PRIMARY KEY (story_id, canonical_equipment_id)
+);
+
+-- Mentions (R5): this page names the Prowlers. Separate from group_npcs, which
+-- is membership. Both are needed and they answer different questions.
+CREATE TABLE IF NOT EXISTS story_groups (
+    story_id TEXT NOT NULL REFERENCES stories(story_id) ON DELETE CASCADE,
+    group_id TEXT NOT NULL REFERENCES groups(group_id),
+    PRIMARY KEY (story_id, group_id)
 );
 """
 
@@ -328,4 +380,47 @@ def migrate(conn: sqlite3.Connection) -> None:
             """
         )
         conn.execute("PRAGMA user_version = 7")
+        conn.commit()
+    if version < 8:
+        # Groups: houses, clans, guilds, orders and troupes. Until now the only
+        # home for one was a tooltip in hints_supplement.json, so "which stories
+        # mention the Rosetta" was unanswerable and the Lore Graph had no group
+        # node. 41 `# TODO: group —` comments were parked in entries/ as a result.
+        #
+        # locations.parent_location_id lands in the same migration because it is
+        # the same column shape as groups.parent_group_id and costs nothing while
+        # the migration is already open.
+        conn.executescript(
+            """
+            CREATE TABLE IF NOT EXISTS groups (
+                group_id        TEXT PRIMARY KEY,
+                name            TEXT NOT NULL,
+                kind            TEXT NOT NULL DEFAULT '',
+                notes           TEXT NOT NULL DEFAULT '',
+                parent_group_id TEXT NOT NULL DEFAULT '',
+                location_id     TEXT NOT NULL DEFAULT ''
+            );
+            CREATE TABLE IF NOT EXISTS group_npcs (
+                group_id     TEXT NOT NULL REFERENCES groups(group_id) ON DELETE CASCADE,
+                character_id TEXT NOT NULL REFERENCES npcs(character_id),
+                story_key    TEXT NOT NULL DEFAULT '',
+                PRIMARY KEY (group_id, character_id)
+            );
+            CREATE TABLE IF NOT EXISTS group_heroes (
+                group_id     TEXT NOT NULL REFERENCES groups(group_id) ON DELETE CASCADE,
+                canonical_id TEXT NOT NULL REFERENCES heroes_canonical(canonical_id),
+                story_key    TEXT NOT NULL DEFAULT '',
+                PRIMARY KEY (group_id, canonical_id)
+            );
+            CREATE TABLE IF NOT EXISTS story_groups (
+                story_id TEXT NOT NULL REFERENCES stories(story_id) ON DELETE CASCADE,
+                group_id TEXT NOT NULL REFERENCES groups(group_id),
+                PRIMARY KEY (story_id, group_id)
+            );
+            """
+        )
+        cols = {r[1] for r in conn.execute("PRAGMA table_info(locations)").fetchall()}
+        if "parent_location_id" not in cols:
+            conn.execute("ALTER TABLE locations ADD COLUMN parent_location_id TEXT NOT NULL DEFAULT ''")
+        conn.execute("PRAGMA user_version = 8")
         conn.commit()

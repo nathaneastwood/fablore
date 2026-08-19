@@ -44,6 +44,7 @@ from registry_ids import (  # noqa: E402
     location_id,
     lore_character_id,
     monster_id,
+    group_id,
     region_row_id,
 )
 
@@ -174,6 +175,36 @@ def _check_id_hash_drift(
                 "migration this affects."
             )
     return alerts
+
+
+def _check_self_parent(path: Path, id_column: str, parent_column: str, label: str) -> list[str]:
+    """Flag a row that is its own parent, or a cycle in the parent chain.
+
+    A self-referencing parent column has no SQL constraint stopping either, and
+    both make breadcrumbs and the Lore Graph loop forever rather than fail loudly.
+    """
+    if not path.is_file():
+        return []
+    _, rows = read_pipe_csv(path)
+    parent_of: dict[str, str] = {}
+    for row in rows:
+        eid = (row.get(id_column) or "").strip()
+        pid = (row.get(parent_column) or "").strip()
+        if eid and pid:
+            parent_of[eid] = pid
+    alerts: list[str] = []
+    for start in parent_of:
+        seen = [start]
+        node = parent_of.get(start, "")
+        while node:
+            if node in seen:
+                chain = " -> ".join([*seen, node])
+                alerts.append(f"{label}: {path.name}: {parent_column} cycle: {chain}")
+                break
+            seen.append(node)
+            node = parent_of.get(node, "")
+    # One alert per cycle, not one per member of it.
+    return sorted(set(alerts))
 
 
 def _check_location_id_hash_drift(locations_path: Path) -> list[str]:
@@ -601,6 +632,10 @@ def collect_alerts() -> list[str]:
         ),
         (DATA / "csv/npcs.csv", ("CharacterId", "Name", "Status"), "NPCs"),
         (DATA / "csv/locations.csv", ("LocationId", "Name"), "Locations"),
+        (DATA / "csv/groups.csv", ("GroupId", "Name"), "Groups"),
+        (DATA / "csv/group-npcs.csv", ("GroupId", "CharacterId"), "Group ↔ NPC membership"),
+        (DATA / "csv/group-heroes.csv", ("GroupId", "CanonicalId"), "Group ↔ hero membership"),
+        (DATA / "csv/story-groups.csv", ("StoryId", "GroupId"), "Story ↔ group links"),
         (DATA / "csv/regions.csv", ("RegionId",), "Regions"),
         (DATA / "csv/flora.csv", ("FloraId",), "Flora"),
         (DATA / "csv/fauna.csv", ("FaunaId",), "Fauna"),
@@ -824,6 +859,49 @@ def collect_alerts() -> list[str]:
             )
         )
 
+    # groups: the four id columns SQLite cannot enforce, because each one defaults
+    # to '' for the many rows that have no parent, no location, no evidence.
+    group_ids = _id_set_from_column(DATA / "csv/groups.csv", "GroupId")
+    location_ids = _id_set_from_column(DATA / "csv/locations.csv", "LocationId")
+    if location_ids:
+        alerts.extend(
+            _check_fk_column(
+                locations_path,
+                "ParentLocationId",
+                location_ids,
+                "locations.csv LocationId",
+                "Location containment",
+            )
+        )
+    if group_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/groups.csv",
+                "ParentGroupId",
+                group_ids,
+                "groups.csv GroupId",
+                "Group hierarchy",
+            )
+        )
+        for child, label in (
+            ("group-npcs.csv", "Group ↔ NPC membership"),
+            ("group-heroes.csv", "Group ↔ hero membership"),
+            ("story-groups.csv", "Story ↔ group links"),
+        ):
+            alerts.extend(_check_fk_column(DATA / f"csv/{child}", "GroupId", group_ids, "groups.csv GroupId", label))
+    if location_ids and group_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/groups.csv",
+                "LocationId",
+                location_ids,
+                "locations.csv LocationId",
+                "Group ↔ location",
+            )
+        )
+    alerts.extend(_check_self_parent(DATA / "csv/groups.csv", "GroupId", "ParentGroupId", "Groups"))
+    alerts.extend(_check_self_parent(locations_path, "LocationId", "ParentLocationId", "Locations"))
+
     alerts.extend(_check_location_lore_fragments(DATA / "csv/locations.csv"))
     alerts.extend(
         _check_location_lore_fragments_match_headings(DATA / "csv/locations.csv", DATA / "csv/regions.csv", SRC)
@@ -833,6 +911,7 @@ def collect_alerts() -> list[str]:
     alerts.extend(_check_id_hash_drift(DATA / "csv/monsters.csv", "MonsterId", "Name", monster_id, "monsters.csv"))
     alerts.extend(_check_id_hash_drift(DATA / "csv/fauna.csv", "FaunaId", "Name", fauna_id_from_name, "fauna.csv"))
     alerts.extend(_check_id_hash_drift(DATA / "csv/flora.csv", "FloraId", "Name", flora_id, "flora.csv"))
+    alerts.extend(_check_id_hash_drift(DATA / "csv/groups.csv", "GroupId", "Name", group_id, "groups.csv"))
     alerts.extend(
         _check_id_hash_drift(
             DATA / "csv/regions.csv",

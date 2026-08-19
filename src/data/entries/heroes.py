@@ -20,6 +20,7 @@ from entries.catalogue import (  # noqa: F401
     fauna,
     flora,
     food_drink as food,
+    groups as grp,
     locations as loc,
     monsters as mon,
     npcs as npc,

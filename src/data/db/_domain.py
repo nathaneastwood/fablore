@@ -30,6 +30,7 @@ from registry_ids import (  # noqa: E402
     fauna_id_from_name,
     flora_id,
     food_drink_id,
+    group_id as _group_id,
     location_id as _location_id,
     lore_character_id,
     monster_id as _monster_id,
@@ -119,6 +120,11 @@ class LocationEntry:
     """mdBook heading anchor id for deep links, e.g. ``"grand-bazaar"``."""
     world_of_rathe_story_key: str = ""
     """Only needed when creating a new region via this location."""
+    parent: "LocationEntry | None" = None
+    """Enclosing location (R7). **Containment only** — X is *inside* Y. Proximity
+    ("area next to Candlehold") is not containment and stays prose in ``notes``;
+    the two read identically in the data, which is why the split was reviewed row
+    by row rather than migrated. See ``plans/location-containment-review.csv``."""
 
 
 @dataclass(frozen=True)
@@ -167,6 +173,41 @@ class FoodDrinkEntry:
     name: str
     kind: str
     """Type category, e.g. ``"Drink"`` or ``"Food"``."""
+
+
+@dataclass(frozen=True)
+class GroupEntry:
+    """A group — house, clan, guild, order, troupe — with its roster.
+
+    Frozen and shared; the constants live in ``entries/catalogue/groups.py``.
+    ``group_id`` hashes ``name`` alone, so a second spelling mints a second row.
+
+    This class is the one departure from "the catalogue holds identity only".
+    Membership is declared **here, on the group**, because "Tara VanGeld is a
+    VanGeld" is a world fact with no page to hang from — there is no story whose
+    registration would assert it. Mentions stay on the story, via
+    ``upsert_story(groups=[...])``. Both are needed and they answer different
+    questions: the roster answers "who belongs", the mention answers "which pages
+    name this group". See D1 in ``plans/character-groups-schema-options.md``.
+
+    Import direction is one-way — ``catalogue/groups.py`` imports
+    ``catalogue/npcs.py``, never the reverse — so no cycle is possible.
+    """
+
+    name: str
+    kind: str = ""
+    """Free text: ``"clan"``, ``"house"``, ``"guild"``, ``"order"``, ``"troupe"``."""
+    npc_members: tuple["NPCEntry", ...] = ()
+    """NPC roster (R1). A tuple, because the dataclass is frozen and hashable."""
+    hero_members: tuple[str, ...] = ()
+    """Canonical hero slugs in the roster. Validated on upsert."""
+    parent: "GroupEntry | None" = None
+    """Enclosing group, e.g. a Super Slam guild inside the clan it draws from."""
+    location: "LocationEntry | None" = None
+    """Only when the group is *also* a place — Teklo Industries, a company and a
+    works. Most groups leave this empty; a group is not a place."""
+    member_source: str = ""
+    """Optional story key citing the roster (D2). Applies to every member."""
 
 
 # ---------------------------------------------------------------------------
@@ -400,6 +441,7 @@ class Database:
         food_drink: list[FoodDrinkEntry] | None = None,
         weapons: list[str] | None = None,
         equipment: list[str] | None = None,
+        groups: list[GroupEntry] | None = None,
         dry_run: bool = False,
     ) -> StoryRecord:
         """Register or update a story and declare its linked entities.
@@ -441,6 +483,11 @@ class Database:
             food_drink: Food and drink entries.
             weapons: Canonical weapon slugs (see :meth:`print_weapons`).
             equipment: Canonical equipment slugs (see :meth:`print_equipment`).
+            groups: Group entries this page *mentions* (R5). This does not say
+                who belongs — membership is declared on the group itself, in
+                ``entries/catalogue/groups.py``. Upserting a group here also
+                upserts its roster, so a page can introduce a group without a
+                separate pass.
             dry_run: Print a diff and return the record without writing anything.
 
         Returns:
@@ -483,6 +530,7 @@ class Database:
                 food_drink=food_drink,
                 weapon_ids=weapon_ids,
                 equip_ids=equip_ids,
+                groups=groups,
             )
 
         with self.conn:
@@ -557,6 +605,9 @@ class Database:
                     "canonical_equipment_id",
                     equip_ids,
                 )
+            if groups is not None:
+                group_ids = self._upsert_groups(groups)
+                q.set_story_junction(self.conn, story_id, "story_groups", "group_id", group_ids)
 
         # Write-through: regenerate affected CSVs so git stays in sync.
         _export.export_stories(self.conn, self._data_dir)
@@ -972,7 +1023,7 @@ class Database:
             ids.append(rid)
         return ids
 
-    def _upsert_locations(self, entries: list[LocationEntry]) -> list[str]:
+    def _upsert_locations(self, entries: list[LocationEntry], _seen: tuple[str, ...] = ()) -> list[str]:
         ids: list[str] = []
         for e in entries:
             eff_region = ""
@@ -1005,6 +1056,11 @@ class Database:
                             )
 
             lid = _location_id(e.name, eff_region)
+            if lid in _seen:
+                raise ValueError(f"Cycle in LocationEntry.parent involving {e.name!r}")
+            parent_id = ""
+            if e.parent is not None:
+                parent_id = self._upsert_locations([e.parent], (*_seen, lid))[0]
             q.upsert_location(
                 self.conn,
                 location_id=lid,
@@ -1012,6 +1068,7 @@ class Database:
                 region_id=eff_region,
                 notes=e.notes,
                 lore_fragment=frag,
+                parent_location_id=parent_id,
             )
             ids.append(lid)
         return ids
@@ -1039,6 +1096,60 @@ class Database:
             q.upsert_flora(self.conn, flora_id=fid, name=e.name, description=e.description)
             ids.append(fid)
         return ids
+
+    def _upsert_groups(self, entries: list[GroupEntry]) -> list[str]:
+        """Upsert each group, its parent chain, its location and its roster.
+
+        Returns the ids in call order. Parents are written first so the foreign
+        key always resolves; a cycle in ``parent`` raises rather than looping.
+        """
+        ids: list[str] = []
+        for e in entries:
+            ids.append(self._upsert_one_group(e))
+        return ids
+
+    def _upsert_one_group(self, entry: GroupEntry, _seen: tuple[str, ...] = ()) -> str:
+        gid = _group_id(entry.name)
+        if gid in _seen:
+            chain = " -> ".join([*_seen, entry.name])
+            raise ValueError(f"Cycle in GroupEntry.parent: {chain}")
+
+        parent_id = ""
+        if entry.parent is not None:
+            parent_id = self._upsert_one_group(entry.parent, (*_seen, gid))
+
+        loc_id = ""
+        if entry.location is not None:
+            loc_id = self._upsert_locations([entry.location])[0]
+
+        q.upsert_group(
+            self.conn,
+            group_id=gid,
+            name=entry.name,
+            kind=entry.kind,
+            parent_group_id=parent_id,
+            location_id=loc_id,
+        )
+
+        if entry.npc_members:
+            npc_ids = self._upsert_npcs(list(entry.npc_members))
+            q.set_group_members(
+                self.conn,
+                gid,
+                "group_npcs",
+                "character_id",
+                [(cid, entry.member_source) for cid, _frag in npc_ids],
+            )
+        if entry.hero_members:
+            hero_ids = self._resolve_heroes(list(entry.hero_members))
+            q.set_group_members(
+                self.conn,
+                gid,
+                "group_heroes",
+                "canonical_id",
+                [(hid, entry.member_source) for hid in hero_ids],
+            )
+        return gid
 
     def _upsert_food_drink(self, entries: list[FoodDrinkEntry]) -> list[str]:
         ids: list[str] = []
@@ -1102,6 +1213,7 @@ class Database:
         food_drink: list[FoodDrinkEntry] | None,
         weapon_ids: list[str] | None,
         equip_ids: list[str] | None,
+        groups: list[GroupEntry] | None = None,
         file: IO[str] | None = None,
     ) -> StoryRecord:
         import sys as _sys
@@ -1199,6 +1311,8 @@ class Database:
         fauna_id_to_name = {r["fauna_id"]: r["name"] for r in q.select_all_fauna(self.conn)}
         flora_id_to_name = {r["flora_id"]: r["name"] for r in q.select_all_flora(self.conn)}
         food_id_to_name = {r["food_drink_id"]: r["name"] for r in q.select_all_food_drink(self.conn)}
+        group_rows = {r["group_id"]: r for r in q.select_all_groups(self.conn)}
+        group_id_to_name = {r["group_id"]: r["name"] for r in q.select_all_groups(self.conn)}
 
         def _show_links_diff(
             label: str,
@@ -1469,6 +1583,58 @@ class Database:
             "story_equipment",
             "canonical_equipment_id",
             equip_id_to_slug,
+        )
+
+        def _show_group_changes() -> None:
+            """Report roster and attribute changes a group declaration would write.
+
+            The roster is the part worth previewing: membership is replace-semantic
+            like a story junction, so a short ``npc_members`` silently drops people.
+            """
+            nonlocal changed
+            if not groups:
+                return
+            lines: list[str] = []
+            for entry in groups:
+                gid = _group_id(entry.name)
+                row = group_rows.get(gid)
+                if row is None:
+                    roster = len(entry.npc_members) + len(entry.hero_members)
+                    lines.append(f"    + {entry.name} (new group, kind={entry.kind or '(none)'!r}, {roster} members)")
+                    continue
+                for field, incoming in (("kind", entry.kind),):
+                    stored = row[field] or ""
+                    if incoming and incoming != stored:
+                        lines.append(f"    ~ {entry.name}: {field} {stored or '(none)'!r} -> {incoming!r}")
+                for table, id_col, wanted in (
+                    ("group_npcs", "character_id", [lore_character_id(m.name) for m in entry.npc_members]),
+                    ("group_heroes", "canonical_id", list(entry.hero_members)),
+                ):
+                    if not wanted and not entry.npc_members and not entry.hero_members:
+                        continue
+                    stored_ids = {eid for eid, _src in q.select_group_members(self.conn, gid, table, id_col)}
+                    if table == "group_heroes":
+                        wanted_ids = set(self._resolve_heroes(wanted)) if wanted else set()
+                    else:
+                        wanted_ids = set(wanted)
+                    added, removed = wanted_ids - stored_ids, stored_ids - wanted_ids
+                    if added:
+                        lines.append(f"    + {entry.name}: {len(added)} member(s) added to {table}")
+                    if removed:
+                        lines.append(f"    - {entry.name}: {len(removed)} member(s) REMOVED from {table}")
+            if lines:
+                changed = True
+                out.write("  Group rows:\n")
+                out.write("\n".join(lines) + "\n")
+
+        _show_group_changes()
+        _show_links_diff(
+            "Groups",
+            groups,
+            [e.name for e in (groups or [])],
+            "story_groups",
+            "group_id",
+            group_id_to_name,
         )
 
         self._last_dry_run_changed = changed

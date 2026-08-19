@@ -85,6 +85,7 @@ _KINDS: dict[str, tuple[str, str, str]] = {
     "monster": ("Monster", "other", "circle"),
     "fauna": ("Fauna", "other", "circle"),
     "flora": ("Flora", "other", "circle"),
+    "group": ("Group", "character", "circle"),
     "food": ("Food & Drink", "other", "circle"),
     "weapon": ("Weapon", "other", "circle"),
     "equipment": ("Equipment", "other", "circle"),
@@ -92,7 +93,7 @@ _KINDS: dict[str, tuple[str, str, str]] = {
 
 # The kinds the graph opens on, and the connection count it opens at.
 #
-# With all twelve kinds on at a minimum of two, the first thing a reader meets
+# With all thirteen kinds on at a minimum of two, the first thing a reader meets
 # is 839 nodes under 1,696 edges, and the shape they came for — which stories a
 # set gathers, and which heroes and regions run through them — is buried under
 # the one-off mentions that make up most of the archive. The rest are one tap
@@ -422,6 +423,7 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
     monsters = _entity_names(csv_dir / "monsters.csv", "MonsterId", "Name")
     fauna = _entity_names(csv_dir / "fauna.csv", "FaunaId", "Name")
     flora = _entity_names(csv_dir / "flora.csv", "FloraId", "Name")
+    groups = _entity_names(csv_dir / "groups.csv", "GroupId", "Name")
     food = _entity_names(csv_dir / "food-and-drink.csv", "FoodDrinkId", "Name")
 
     def _region_url(region_id: str, fragment: str = "") -> str:
@@ -475,6 +477,7 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
         ("story-fauna.csv", "FaunaId", "fauna", _plain(fauna)),
         ("story-flora.csv", "FloraId", "flora", _plain(flora)),
         ("story-food-drink.csv", "FoodDrinkId", "food", _plain(food)),
+        ("story-groups.csv", "GroupId", "group", _plain(groups)),
     )
 
     for filename, id_col, kind, resolve in junctions:

@@ -1,6 +1,6 @@
 """Generate src/hints.json from the database and src/hints_supplement.json.
 
-DB-backed entries (locations, monsters, fauna, flora) are written first.
+DB-backed entries (locations, monsters, fauna, flora, groups) are written first.
 The supplement is then merged on top: supplement fields override DB fields for
 matching keys, and supplement-only keys are appended.
 
@@ -127,6 +127,20 @@ def generate() -> None:
         if not row["description"]:
             continue
         hints[_key(row["name"])] = _entry_with_match(row["name"], {"type": "flora", "summary": row["description"]})
+
+    # Groups. `kind` is the displayed type when it is set ("clan", "guild",
+    # "order"), which reads better than a flat "group" label and matches what
+    # hints_supplement.json has been doing by hand with `faction` /
+    # `organisation`. Rows with empty notes are skipped like every other
+    # registry above, so a group with no summary yet renders nothing rather
+    # than an empty tooltip — and until the supplement summaries move into
+    # descriptions.py, that is most of them.
+    for row in conn.execute("SELECT name, kind, notes FROM groups ORDER BY name"):
+        if not row["notes"]:
+            continue
+        hints[_key(row["name"])] = _entry_with_match(
+            row["name"], {"type": row["kind"] or "group", "summary": row["notes"]}
+        )
 
     conn.close()
 

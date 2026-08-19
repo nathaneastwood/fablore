@@ -166,6 +166,7 @@ def upsert_location(
     region_id: str = "",
     notes: str = "",
     lore_fragment: str = "",
+    parent_location_id: str = "",
 ) -> None:
     if not notes:
         row = conn.execute("SELECT notes FROM locations WHERE location_id = ?", [location_id]).fetchone()
@@ -177,24 +178,128 @@ def upsert_location(
             )
     conn.execute(
         """
-        INSERT INTO locations (location_id, name, region_id, notes, lore_fragment)
-        VALUES (?,?,?,?,?)
+        INSERT INTO locations
+            (location_id, name, region_id, notes, lore_fragment, parent_location_id)
+        VALUES (?,?,?,?,?,?)
         ON CONFLICT(location_id) DO UPDATE SET
-            name          = excluded.name,
-            region_id     = excluded.region_id,
-            notes         = CASE WHEN excluded.notes != ''
-                            THEN excluded.notes
-                            ELSE locations.notes END,
-            lore_fragment = CASE WHEN excluded.lore_fragment != ''
-                            THEN excluded.lore_fragment
-                            ELSE locations.lore_fragment END
+            name               = excluded.name,
+            region_id          = excluded.region_id,
+            notes              = CASE WHEN excluded.notes != ''
+                                 THEN excluded.notes
+                                 ELSE locations.notes END,
+            lore_fragment      = CASE WHEN excluded.lore_fragment != ''
+                                 THEN excluded.lore_fragment
+                                 ELSE locations.lore_fragment END,
+            parent_location_id = CASE WHEN excluded.parent_location_id != ''
+                                 THEN excluded.parent_location_id
+                                 ELSE locations.parent_location_id END
         """,
-        (location_id, name, region_id, notes, lore_fragment),
+        (location_id, name, region_id, notes, lore_fragment, parent_location_id),
     )
 
 
 def select_all_locations(conn: sqlite3.Connection) -> list[sqlite3.Row]:
     return conn.execute("SELECT * FROM locations ORDER BY name").fetchall()
+
+
+def set_parent(
+    conn: sqlite3.Connection, table: str, id_col: str, parent_col: str, entity_id: str, parent_id: str
+) -> None:
+    """Set a self-referencing parent column after every row exists.
+
+    Seeding cannot set these inline: the CSV is ordered by name, so a child is
+    routinely read before its parent, and foreign keys are enforced. Both
+    seeders therefore insert every row first and set parents in a second pass.
+    """
+    if not parent_id:
+        return
+    conn.execute(f"UPDATE {table} SET {parent_col} = ? WHERE {id_col} = ?", (parent_id, entity_id))
+
+
+# ---------------------------------------------------------------------------
+# Groups
+# ---------------------------------------------------------------------------
+
+
+def upsert_group(
+    conn: sqlite3.Connection,
+    *,
+    group_id: str,
+    name: str,
+    kind: str = "",
+    notes: str = "",
+    parent_group_id: str = "",
+    location_id: str = "",
+) -> None:
+    """Insert or update a group, preserving curated fields the caller omits.
+
+    ``notes`` follows the same rule as location notes and monster descriptions:
+    an empty value never clears a curated one, because ``descriptions.py`` is the
+    only writer that should be setting it.
+    """
+    if not notes:
+        row = conn.execute("SELECT notes FROM groups WHERE group_id = ?", [group_id]).fetchone()
+        if row and row[0]:
+            _log.warning(
+                "Skipping notes overwrite for group %r — existing notes preserved"
+                " (pass non-empty notes to update them)",
+                group_id,
+            )
+    conn.execute(
+        """
+        INSERT INTO groups (group_id, name, kind, notes, parent_group_id, location_id)
+        VALUES (?,?,?,?,?,?)
+        ON CONFLICT(group_id) DO UPDATE SET
+            name            = excluded.name,
+            kind            = CASE WHEN excluded.kind != ''
+                              THEN excluded.kind
+                              ELSE groups.kind END,
+            notes           = CASE WHEN excluded.notes != ''
+                              THEN excluded.notes
+                              ELSE groups.notes END,
+            parent_group_id = CASE WHEN excluded.parent_group_id != ''
+                              THEN excluded.parent_group_id
+                              ELSE groups.parent_group_id END,
+            location_id     = CASE WHEN excluded.location_id != ''
+                              THEN excluded.location_id
+                              ELSE groups.location_id END
+        """,
+        (group_id, name, kind, notes, parent_group_id, location_id),
+    )
+
+
+def select_all_groups(conn: sqlite3.Connection) -> list[sqlite3.Row]:
+    return conn.execute("SELECT * FROM groups ORDER BY name").fetchall()
+
+
+def set_group_members(
+    conn: sqlite3.Connection,
+    group_id: str,
+    table: str,
+    id_col: str,
+    members: list[tuple[str, str]],
+) -> None:
+    """Replace all membership rows for ``group_id`` with ``members``.
+
+    Args:
+        members: ``(entity_id, story_key)`` pairs. ``story_key`` is the optional
+            evidence citation (D2) and may be empty.
+    """
+    conn.execute(f"DELETE FROM {table} WHERE group_id = ?", [group_id])
+    if members:
+        conn.executemany(
+            f"INSERT OR IGNORE INTO {table} (group_id, {id_col}, story_key) VALUES (?,?,?)",
+            [(group_id, eid, key) for eid, key in members],
+        )
+
+
+def select_group_members(conn: sqlite3.Connection, group_id: str, table: str, id_col: str) -> list[tuple[str, str]]:
+    """Return ``(entity_id, story_key)`` membership rows for ``group_id``, sorted."""
+    rows = conn.execute(
+        f"SELECT {id_col}, story_key FROM {table} WHERE group_id = ? ORDER BY {id_col}",
+        [group_id],
+    ).fetchall()
+    return [(r[0], r[1]) for r in rows]
 
 
 # ---------------------------------------------------------------------------
@@ -902,6 +1007,7 @@ def delete_all_story_junctions(conn: sqlite3.Connection, story_id: str) -> dict[
         ("story_food_drink", "food_drink_id"),
         ("story_weapons", "canonical_weapon_id"),
         ("story_equipment", "canonical_equipment_id"),
+        ("story_groups", "group_id"),
     ]
     counts: dict[str, int] = {}
     for table, _ in junctions:
@@ -939,6 +1045,7 @@ def count_story_junctions(conn: sqlite3.Connection, story_id: str) -> dict[str, 
         "story_food_drink",
         "story_weapons",
         "story_equipment",
+        "story_groups",
     ]
     return {
         t: conn.execute(f"SELECT COUNT(*) FROM {t} WHERE story_id = ?", [story_id]).fetchone()[0] for t in junctions

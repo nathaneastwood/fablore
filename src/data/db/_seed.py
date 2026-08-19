@@ -68,6 +68,8 @@ def seed_from_csvs(conn: sqlite3.Connection, data_dir: Path) -> None:
         _seed_equipment_canonical(conn, data_dir)
         _seed_equipment_game(conn, data_dir)
         _seed_equipment_printings(conn, data_dir)
+        _seed_groups(conn, data_dir)
+        _seed_group_members(conn, data_dir)
         _seed_stories(conn, data_dir)
         _seed_narrated_videos_from_csv(conn, data_dir)
         _seed_story_junctions(conn, data_dir)
@@ -264,6 +266,13 @@ def _seed_regions(conn: sqlite3.Connection, data_dir: Path) -> None:
 
 
 def _seed_locations(conn: sqlite3.Connection, data_dir: Path) -> None:
+    """Seed locations, then wire parents in a second pass.
+
+    ``parent_location_id`` points at another row in this same table and the CSV
+    is ordered by name, so a child is routinely read before its parent. Foreign
+    keys are enforced, so setting it inline would fail on that ordering. Every
+    row is inserted first and parents are applied afterwards.
+    """
     _, rows = _csv(data_dir, "locations.csv")
     for row in rows:
         q.upsert_location(
@@ -274,6 +283,57 @@ def _seed_locations(conn: sqlite3.Connection, data_dir: Path) -> None:
             notes=_s(row, "Notes"),
             lore_fragment=_s(row, "LoreFragment"),
         )
+    for row in rows:
+        q.set_parent(
+            conn,
+            "locations",
+            "location_id",
+            "parent_location_id",
+            _s(row, "LocationId"),
+            _s(row, "ParentLocationId"),
+        )
+
+
+def _seed_groups(conn: sqlite3.Connection, data_dir: Path) -> None:
+    """Seed groups, then wire parents — same two-pass reason as locations."""
+    _, rows = _csv(data_dir, "groups.csv")
+    for row in rows:
+        q.upsert_group(
+            conn,
+            group_id=_s(row, "GroupId"),
+            name=_s(row, "Name"),
+            kind=_s(row, "Kind"),
+            notes=_s(row, "Notes"),
+            location_id=_s(row, "LocationId"),
+        )
+    for row in rows:
+        q.set_parent(
+            conn,
+            "groups",
+            "group_id",
+            "parent_group_id",
+            _s(row, "GroupId"),
+            _s(row, "ParentGroupId"),
+        )
+
+
+def _seed_group_members(conn: sqlite3.Connection, data_dir: Path) -> None:
+    """Seed the two membership tables (R1).
+
+    Kept separate from the story junctions because membership is not a story
+    link: it hangs off the group, and its ``story_key`` is evidence (D2), not
+    the owner of the row.
+    """
+    for filename, table, id_key, id_col in (
+        ("group-npcs.csv", "group_npcs", "CharacterId", "character_id"),
+        ("group-heroes.csv", "group_heroes", "CanonicalId", "canonical_id"),
+    ):
+        _, rows = _csv(data_dir, filename)
+        for row in rows:
+            conn.execute(
+                f"INSERT OR IGNORE INTO {table} (group_id, {id_col}, story_key) VALUES (?,?,?)",
+                (_s(row, "GroupId"), _s(row, id_key), _s(row, "StoryKey")),
+            )
 
 
 def _seed_npcs(conn: sqlite3.Connection, data_dir: Path) -> None:
@@ -416,6 +476,7 @@ _JUNCTION_SPECS: tuple[tuple[str, str, str, str], ...] = (
         "CanonicalEquipmentId",
         "canonical_equipment_id",
     ),
+    ("story-groups.csv", "story_groups", "GroupId", "group_id"),
 )
 
 

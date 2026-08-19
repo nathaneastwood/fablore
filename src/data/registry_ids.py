@@ -1,6 +1,6 @@
 """Deterministic primary keys for lore and game registry CSVs (pipe-delimited).
 
-Lore-side ids (``LC``, ``MO``, ``FA``, ``FR``, ``FD``, ``RG``, ``LO``, ``ST``) use
+Lore-side ids (``LC``, ``MO``, ``FA``, ``FR``, ``FD``, ``RG``, ``LO``, ``GR``, ``ST``) use
 SHA-256 over :func:`text_utils.normalize_name` of the source string. Game-side ids
 (``CN``, ``HG``, ``WG``, ``EG``, ``CW``, ``CE``, ``CL``, ``TL``, ``TY``) use
 :func:`make_hash_id` (SHA-1) over a caller-supplied stable key (slug, name, or
@@ -165,6 +165,25 @@ def region_row_id(region_name: str) -> str:
         ``RG`` + 10 hex characters.
     """
     return _sha256_id("RG", region_name.strip())
+
+
+def group_id(name: str) -> str:
+    """Return ``GroupId`` for a group display name.
+
+    Hashes the name alone, deliberately: a group is its name and nothing else.
+    Unlike :func:`location_id` there is no second field to fork on, so the only
+    way to mint a duplicate row is to spell the name two ways — which is why
+    ``entries/catalogue/groups.py`` owns every spelling and the declarations
+    reference it. See ``plans/group-canonical-names.md`` for how the 42 names in
+    the backlog were folded down to 39.
+
+    Args:
+        name: Group display name as stored in ``groups.csv``.
+
+    Returns:
+        ``GR`` + digest id.
+    """
+    return _sha256_id("GR", name.strip())
 
 
 def location_id(name: str, region_id: str) -> str:

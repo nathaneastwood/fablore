@@ -138,6 +138,7 @@ CATALOGUED = (
     "FaunaEntry",
     "FloraEntry",
     "FoodDrinkEntry",
+    "GroupEntry",
 )
 
 
@@ -186,8 +187,15 @@ def test_catalogue_constants_have_distinct_ids() -> None:
 
     sys.path.insert(0, str(ROOT / "src" / "data"))
     from db._domain import _location_id, _monster_id
-    from entries.catalogue import fauna, flora, food_drink, locations, monsters, npcs, regions
-    from registry_ids import fauna_id_from_name, flora_id, food_drink_id, lore_character_id, region_row_id
+    from entries.catalogue import fauna, flora, food_drink, groups, locations, monsters, npcs, regions
+    from registry_ids import (
+        fauna_id_from_name,
+        flora_id,
+        food_drink_id,
+        group_id,
+        lore_character_id,
+        region_row_id,
+    )
 
     collisions: list[str] = []
     for module, id_fn in (
@@ -198,6 +206,7 @@ def test_catalogue_constants_have_distinct_ids() -> None:
         (fauna, lambda e: fauna_id_from_name(e.name)),
         (flora, lambda e: flora_id(e.name)),
         (food_drink, lambda e: food_drink_id(e.name, e.kind)),
+        (groups, lambda e: group_id(e.name)),
     ):
         seen: dict[str, str] = {}
         for const in sorted(n for n in dir(module) if n.isupper()):
