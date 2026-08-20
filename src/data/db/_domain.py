@@ -1566,6 +1566,55 @@ class Database:
                 out.write("  Location rows:\n")
                 out.write("\n".join(lines) + "\n")
 
+        def _reachable_entities() -> tuple[list, list, list]:
+            """Return every NPC, location and group this declaration would write.
+
+            The kwargs are not the whole list. ``_upsert_one_group`` walks into
+            ``parent``, ``location`` and ``npc_members``, and ``_upsert_locations``
+            walks into ``parent`` — each of those writes the entity's alternate
+            names just as a top-level one does. Reporting only the kwargs would
+            leave a nested change applying in silence, which is the exact shape
+            this preview exists to catch: Ozrim and Maela Fairmind are reachable
+            through a group roster and through nothing else.
+
+            The seen sets double as the cycle guard. ``_upsert_locations`` and
+            ``_upsert_one_group`` raise on a cycle, but they raise during the
+            *write*, and this runs first.
+            """
+            seen_npc: dict[str, Any] = {}
+            seen_loc: dict[tuple[str, str], Any] = {}
+            seen_grp: dict[str, Any] = {}
+
+            def walk_npc(entry) -> None:
+                seen_npc.setdefault(entry.name, entry)
+
+            def walk_location(entry) -> None:
+                key = (entry.name, entry.region)
+                if key in seen_loc:
+                    return
+                seen_loc[key] = entry
+                if entry.parent is not None:
+                    walk_location(entry.parent)
+
+            def walk_group(entry) -> None:
+                if entry.name in seen_grp:
+                    return
+                seen_grp[entry.name] = entry
+                if entry.parent is not None:
+                    walk_group(entry.parent)
+                if entry.location is not None:
+                    walk_location(entry.location)
+                for member in entry.npc_members:
+                    walk_npc(member)
+
+            for entry in npcs or []:
+                walk_npc(entry)
+            for entry in locations or []:
+                walk_location(entry)
+            for entry in groups or []:
+                walk_group(entry)
+            return list(seen_npc.values()), list(seen_loc.values()), list(seen_grp.values())
+
         def _show_alternate_name_changes() -> None:
             """Report epithet and alias rows this declaration would add or remove.
 
@@ -1573,12 +1622,14 @@ class Database:
             from a declaration is a deletion. That is precisely the change the
             preview used to be blind to — ``member_source`` moved silently for a
             whole session before anyone noticed — so every one of the three tables
-            is diffed here rather than trusted.
+            is diffed here rather than trusted, over every entity the write path
+            reaches rather than over the kwargs alone.
             """
             nonlocal changed
             lines: list[str] = []
+            reach_npcs, reach_locations, reach_groups = _reachable_entities()
 
-            for entry in npcs or []:
+            for entry in reach_npcs:
                 cid = lore_character_id(entry.name)
                 stored = set(q.select_npc_epithets(self.conn, cid))
                 wanted = {(n, "epithet") for n in entry.epithets} | {(n, "short-name") for n in entry.short_names}
@@ -1587,7 +1638,7 @@ class Database:
                 for name, kind in sorted(stored - wanted):
                     lines.append(f"    - {entry.name}: {kind} {name!r} REMOVED")
 
-            for entry in locations or []:
+            for entry in reach_locations:
                 lid = _location_id(entry.name, region_row_id(entry.region) if entry.region else "")
                 stored = set(q.select_location_aliases(self.conn, lid))
                 wanted = {_alias_pair(a) for a in entry.aliases}
@@ -1596,7 +1647,7 @@ class Database:
                 for alias, era in sorted(stored - wanted):
                     lines.append(f"    - {entry.name}: alias {alias!r} REMOVED")
 
-            for entry in groups or []:
+            for entry in reach_groups:
                 gid = _group_id(entry.name)
                 stored = set(q.select_group_aliases(self.conn, gid))
                 wanted = set(entry.aliases)

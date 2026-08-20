@@ -321,12 +321,18 @@ craft section while its summary was written from the Valahai one."""
 THE_DHANI_EMPIRE = GroupEntry(
     "The Dhani Empire",
     kind="empire",
+    aliases=("Dhani Empire",),
     lore_story_key="world-of-rathe/high-seas.md",
     lore_fragment="the-dhani-empire",
 )
 """The polity, not the people. "Dhani" also runs through the archive as a folk with
 their own gods, language and dress — that sense is a species and belongs to stage 4;
-this row is the empire they built (2026-08-20)."""
+this row is the empire they built (2026-08-20).
+
+The alias restores the bare form. Stage 2 replaced a supplement entry matching
+``Dhani Empire`` with this row, whose name carries the article, so the matcher
+stopped finding "a long-dead Dhani Empire" — the same loss ``Mendacity`` took, and
+one the clash warning cannot report, because a missing bare form is not a clash."""
 KURAGHAN = GroupEntry(
     "Kuraghan",
     kind="cult",

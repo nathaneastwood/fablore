@@ -598,3 +598,96 @@ def test_alternate_names_survive_the_csv_round_trip(db: Database, tmp_path: Path
     fresh = Database(str(tmp_path / "round-trip.db"), data_dir=tmp_path)
     assert q.select_npc_epithets(fresh.conn, lore_character_id("Bellona")) == [("Archangel of War", "epithet")]
     assert q.select_group_aliases(fresh.conn, group_id("Mendacity Media")) == ["Mendacity"]
+
+
+# ---------------------------------------------------------------------------
+# The preview reaches as far as the write does
+# ---------------------------------------------------------------------------
+#
+# ``_upsert_one_group`` walks into ``parent``, ``location`` and ``npc_members``,
+# and ``_upsert_locations`` walks into ``parent``. Each of those writes the
+# entity's alternate names, so a preview that read only the kwargs left a nested
+# change applying in silence — the same shape as the guarded roster it replaced.
+# Ozrim and Maela Fairmind are reachable through a group roster and nothing else.
+
+
+def test_dry_run_reports_an_epithet_on_a_group_member(db: Database, capsys) -> None:
+    _story(db, groups=[GroupEntry("Rosetta", npc_members=(NPCEntry("Ozrim"),))])
+    capsys.readouterr()
+    db.upsert_story(
+        path="src/main-story/super-slam/feudmasters.md",
+        story_type="main-story",
+        title="T",
+        groups=[GroupEntry("Rosetta", npc_members=(NPCEntry("Ozrim", epithets=("Keeper of the Script",)),))],
+        dry_run=True,
+    )
+    assert "Ozrim: epithet 'Keeper of the Script'" in capsys.readouterr().out
+
+
+def test_dry_run_reports_an_alias_on_a_groups_location(db: Database, capsys) -> None:
+    _story(db, groups=[GroupEntry("The Maela", location=LocationEntry("The Everfest Carnival"))])
+    capsys.readouterr()
+    db.upsert_story(
+        path="src/main-story/super-slam/feudmasters.md",
+        story_type="main-story",
+        title="T",
+        groups=[GroupEntry("The Maela", location=LocationEntry("The Everfest Carnival", aliases=("The Carnival",)))],
+        dry_run=True,
+    )
+    assert "The Everfest Carnival: alias 'The Carnival'" in capsys.readouterr().out
+
+
+def test_dry_run_reports_an_alias_on_a_parent_location(db: Database, capsys) -> None:
+    _story(db, locations=[LocationEntry("Shyldverk", parent=LocationEntry("Mt. Isen", aliases=("Isen's Peak",)))])
+    capsys.readouterr()
+    db.upsert_story(
+        path="src/main-story/super-slam/feudmasters.md",
+        story_type="main-story",
+        title="T",
+        locations=[LocationEntry("Shyldverk", parent=LocationEntry("Mt. Isen"))],
+        dry_run=True,
+    )
+    assert 'Mt. Isen: alias "Isen\'s Peak" REMOVED' in capsys.readouterr().out
+
+
+def test_dry_run_reports_an_alias_on_a_parent_group(db: Database, capsys) -> None:
+    _story(db, groups=[GroupEntry("Sayashi", parent=GroupEntry("Mendacity Media", aliases=("Mendacity",)))])
+    capsys.readouterr()
+    db.upsert_story(
+        path="src/main-story/super-slam/feudmasters.md",
+        story_type="main-story",
+        title="T",
+        groups=[GroupEntry("Sayashi", parent=GroupEntry("Mendacity Media"))],
+        dry_run=True,
+    )
+    assert "Mendacity Media: alias 'Mendacity' REMOVED" in capsys.readouterr().out
+
+
+def test_preview_reports_a_nested_entity_only_once(db: Database, capsys) -> None:
+    """A group's location named at top level too must not print twice."""
+    carnival = LocationEntry("The Everfest Carnival", aliases=("The Carnival",))
+    capsys.readouterr()
+    db.upsert_story(
+        path="src/main-story/super-slam/feudmasters.md",
+        story_type="main-story",
+        title="T",
+        locations=[carnival],
+        groups=[GroupEntry("The Maela", location=carnival)],
+        dry_run=True,
+    )
+    assert capsys.readouterr().out.count("The Everfest Carnival: alias 'The Carnival'") == 1
+
+
+def test_preview_survives_a_parent_cycle_rather_than_looping(db: Database, capsys) -> None:
+    """The write path raises on a cycle, but the preview runs first."""
+    outer = GroupEntry("Prowlers")
+    looped = GroupEntry("Gorelords", parent=outer)
+    object.__setattr__(outer, "parent", looped)
+    db.upsert_story(
+        path="src/main-story/super-slam/feudmasters.md",
+        story_type="main-story",
+        title="T",
+        groups=[looped],
+        dry_run=True,
+    )
+    assert "DRY RUN" in capsys.readouterr().out

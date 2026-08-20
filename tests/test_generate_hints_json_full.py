@@ -418,6 +418,29 @@ def test_clash_warning_names_an_article_shadow() -> None:
     assert any("shadows" in w for w in warnings)
 
 
+def test_clash_warning_ignores_an_entry_shadowing_itself() -> None:
+    """`The Dhani Empire` carries `Dhani Empire` so both forms reach one tooltip."""
+    from generate_hints_json import _warn_match_collisions
+
+    assert (
+        _warn_match_collisions({"The Dhani Empire": {"type": "empire", "match": ["The Dhani Empire", "Dhani Empire"]}})
+        == []
+    )
+
+
+def test_clash_warning_still_names_a_third_party_shadow() -> None:
+    """Self-shadowing is quiet; another key owning the bare form is not."""
+    from generate_hints_json import _warn_match_collisions
+
+    warnings = _warn_match_collisions(
+        {
+            "The Registry": {"type": "location", "match": ["The Registry", "Registry"]},
+            "Registry Ltd": {"type": "corporation", "match": "Registry"},
+        }
+    )
+    assert any("shadows" in w and "Registry Ltd" in w for w in warnings)
+
+
 def test_clash_warning_ignores_plain_substrings() -> None:
     """`Sol` inside `Solarium` is what longest-first exists to resolve, not a clash."""
     from generate_hints_json import _warn_match_collisions

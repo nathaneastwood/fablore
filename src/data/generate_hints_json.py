@@ -60,6 +60,11 @@ def _warn_match_collisions(hints: dict) -> list[str]:
       front. Longest-first hands the articled form every mention that carries the
       article, which is how ``Registry`` lost "the Registry" to a location row.
 
+    An entry that shadows *itself* is not a clash. ``The Dhani Empire`` carries the
+    alias ``Dhani Empire`` precisely so both forms reach the same tooltip, and
+    whichever wins is the same entry — so the warning fires only where some other
+    key owns the bare form.
+
     Plain substring overlap is *not* warned about: ``Sol`` inside ``Solarium`` is
     exactly what longest-first exists to resolve, and warning on it would bury the
     two shapes above in noise.
@@ -78,12 +83,16 @@ def _warn_match_collisions(hints: dict) -> list[str]:
             warnings.append(f"hint clash: {text!r} is claimed by {sorted(keys)} — only the first can ever match")
     for text, keys in sorted(owners.items()):
         for article in _LEADING_ARTICLES:
-            if text.startswith(article) and text[len(article) :] in owners:
-                bare = text[len(article) :]
-                warnings.append(
-                    f"hint clash: {text!r} ({sorted(keys)}) shadows {bare!r} "
-                    f"({sorted(owners[bare])}) — the articled form wins every mention that carries it"
-                )
+            if not (text.startswith(article) and text[len(article) :] in owners):
+                continue
+            bare = text[len(article) :]
+            shadowed = sorted(set(owners[bare]) - set(keys))
+            if not shadowed:
+                continue
+            warnings.append(
+                f"hint clash: {text!r} ({sorted(keys)}) shadows {bare!r} "
+                f"({shadowed}) — the articled form wins every mention that carries it"
+            )
     for line in warnings:
         print(line, file=sys.stderr)
     return warnings

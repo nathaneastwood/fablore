@@ -846,6 +846,10 @@
     "region": "Metrix"
   },
   "The Dhani Empire": {
+    "match": [
+      "The Dhani Empire",
+      "Dhani Empire"
+    ],
     "type": "empire",
     "summary": "A matriarchal aethocracy built on the manipulation of aether, undone when its last empress unleashed forces her greatest wizard could not contain.",
     "url": "/world-of-rathe/high-seas.html#the-dhani-empire"
