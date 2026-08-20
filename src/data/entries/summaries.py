@@ -62,7 +62,6 @@ db.upsert_story(
     ],
     locations=[
         loc.DIMENXXIONAL_GATEWAY,
-        loc.HAND_OF_SOL,
         loc.LIBRARY_OF_ILLUMINATION,
         loc.I_ARATHAEL,
     ],
@@ -72,6 +71,7 @@ db.upsert_story(
         reg.SOLANA,
         reg.VOLCOR,
     ],
+    groups=[grp.HAND_OF_SOL],
     dry_run=True,
 )
 # TODO: metadata — authors / source_link / publication_date unknown for this recap
@@ -106,7 +106,6 @@ db.upsert_story(
     ],
     locations=[
         loc.DIMENXXIONAL_GATEWAY,
-        loc.HAND_OF_SOL,
         loc.THE_NORTHERN_REALMS,
         loc.THE_SOLARIUM,
         loc.I_ARATHAEL,
@@ -117,5 +116,6 @@ db.upsert_story(
         reg.NEBULUS_RIFT,
         reg.SOLANA,
     ],
+    groups=[grp.HAND_OF_SOL],
     dry_run=True,
 )

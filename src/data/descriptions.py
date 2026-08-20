@@ -265,11 +265,6 @@ db.update_description(
 )
 db.update_description(
     "location",
-    "Hand of Sol",
-    "Solana's order of knights, who defend the city from outside threats.",
-)
-db.update_description(
-    "location",
     "Ikaru",
     "One of the prestigious houses of Misteria; the House of Blossoms.",
 )
@@ -505,11 +500,6 @@ db.update_description(
     "These eight paths lead through the city to the Solarium.",
 )
 db.update_description("location", "The Leaf House", "Restaurant run by Jemjang.")
-db.update_description(
-    "location",
-    "The Maela",
-    "Part of the Everfest Carnival, home to fortune tellers, seers, oracles, enchantresses," " and conjurers.",
-)
 db.update_description("location", "The Northern Realms", "Region of Solana.")
 db.update_description("location", "The Oasis", "Water from Misteria, lava from Mt. Volcor.")
 db.update_description(
@@ -524,11 +514,6 @@ db.update_description(
     "A series of beautiful public gardens surrounding the inner sanctum of Solana.",
 )
 db.update_description("location", "The Solarium", "The inner sanctum, home to the Light of Sol.")
-db.update_description(
-    "location",
-    "The Valdur",
-    "Part of the Everfest Carnival, known for strongmen acts and work with animals.",
-)
 db.update_description("location", "The Venarium", "Room filled with plants.")
 db.update_description(
     "location",
@@ -623,6 +608,157 @@ db.set_location_parent("The Abyss", "Shadowrealm")
 
 db.set_location_parent("Sori 16", "Ankomeido")
 db.set_location_parent("The Leaf House", "Sori 16")
+
+
+# ---------------------------------------------------------------------------
+# Group notes (R1 / D3)
+# ---------------------------------------------------------------------------
+# Moved here from hints_supplement.json in stage 2. They had to move: the
+# supplement is merged *over* the DB by generate_hints_json.py, so a groups.notes
+# value would have been silently overridden by the faction/organisation entry
+# already sitting there. Two writers, one tooltip. The supplement entries are
+# deleted in the same commit, leaving only override-only stubs carrying display
+# facts no column models (exclude_pages, a two-value match).
+#
+# A group must have a row before its note can land, and a row exists only once a
+# story declaration names the group — update_description raises otherwise. That
+# is why the re-pointing in entries/ comes first.
+
+
+db.update_description(
+    "group",
+    "Alshoni",
+    "A faction founded by a particular branch of the Royal Bloodline, brought together by blood ties, headed up by Lord Wizard Chiyo, cousin to the Emperor.",
+)
+
+db.update_description(
+    "group",
+    "Disciples of Pain",
+    "The Demonastery order who embrace pain to surpass mortal limits and break Solana's hold on Rathe, following whichever Apostle leads them — Chane in his day, now Vynnset, the Apostle of Agony.",
+)
+
+db.update_description(
+    "group",
+    "Ezu",
+    "A faction headed up by Chancellor Yama.",
+)
+
+db.update_description(
+    "group",
+    "Gloomblades",
+    "The Demonastery's runeblade forces, corrupted into Viserai's eldritch legion after his return from the Abyss.",
+)
+
+db.update_description(
+    "group",
+    "Hand of Sol",
+    "Solana's order of knights, who defend the city from outside threats.",
+)
+
+db.update_description(
+    "group",
+    "Mendacity Media",
+    "A corporation that maintains control of the media, funding almost every radio station and newspaper in the city.",
+)
+
+db.update_description(
+    "group",
+    "Teklo Industries",
+    "A recent entrant to the steamtech industry, acclaimed for its innovative products and cutting-edge designs driven by a constantly experimenting R&D team.",
+)
+
+db.update_description(
+    "group",
+    "The Light of Sol",
+    "Solana's order of scholars — healers, academics and scribes who serve the city and fight alongside the Hand of Sol.",
+)
+
+db.update_description(
+    "group",
+    "Aui's Scales",
+    "A secretive organisation that builds hidden strongholds across Misteria to conceal scrolls and artefacts from the public.",
+)
+
+db.update_description(
+    "group",
+    "Cogwerx",
+    "Credited with inventing steam technology and revolutionising Metrix through steam compression for energy, largely responsible for the city's success and development.",
+)
+
+db.update_description(
+    "group",
+    "Crimson Haze",
+    "A rebel group at odds with Aui's Scales for centuries, seeking to free the people of Misteria from the Great Households.",
+)
+
+db.update_description(
+    "group",
+    "Sayashi",
+    "Special force of loyal ninjas dedicated to hunting those responsible for the Emperor's death.",
+)
+
+db.update_description(
+    "group",
+    "Aetherscribes",
+    "A learned collective of scholars and seers devoted to the survival of all Rathenfolk.",
+)
+
+db.update_description(
+    "group",
+    "Wayfarers",
+    "Lightning-riding scouts and heralds of Valahai, who keep word flowing between the bastions.",
+)
+
+db.update_description(
+    "group",
+    "Ollin",
+    "The elite of Valahai's defenders, who communed with Galcia to gain command over Ice.",
+)
+
+db.update_description(
+    "group",
+    "Seers",
+    "An order of prophets named alongside the Ollin and Rosetta, who read the omens and keep a script of their own.",
+)
+
+db.update_description(
+    "group",
+    "Rosetta",
+    "An Order of powerful spell weavers that once stood alongside the likes of the Ollin and the Seers.",
+)
+
+db.update_description(
+    "group",
+    "Cintari",
+    "A group of bloodthirsty brigands who seek the thrill of battle.",
+)
+
+db.update_description(
+    "group",
+    "Church of Pain",
+    "The Demonastery institution devoted to harnessing pain and Shadow to destroy Solana. Chane wore its mantle until he named Vynnset his successor.",
+)
+
+db.update_description(
+    "group",
+    "Dracai",
+    "Bestowed names free of restrictions or stigma, the Dracai are granted positions in the Royal Court of Volcor by the Emperor.",
+)
+
+# The Maela and the Valdur were locations rows (D4). Both are described as bodies
+# of people, not places — "members of the Maela", "the marvellous Valdur perform"
+# — so the rows are dropped and their notes come across here.
+db.update_description(
+    "group",
+    "The Maela",
+    "Part of the Everfest Carnival, home to fortune tellers, seers, oracles, enchantresses, and conjurers.",
+)
+db.update_description(
+    "group",
+    "The Valdur",
+    "Part of the Everfest Carnival, known for strongmen acts and work with animals.",
+)
+
 
 if _failures:
     print(f"descriptions.py: {len(_failures)} description(s) could not be applied:", file=sys.stderr)

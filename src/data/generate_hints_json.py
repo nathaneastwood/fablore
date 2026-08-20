@@ -23,6 +23,22 @@ def _region_map(conn: sqlite3.Connection) -> dict[str, str]:
     return {row[0]: row[1] for row in conn.execute("SELECT region_id, region_name FROM regions")}
 
 
+def _lore_url(story_key: str, fragment: str) -> str:
+    """Turn a story key plus a heading fragment into a rendered page URL.
+
+    ``"world-of-rathe/solana.md"`` + ``"the-hand-of-sol"`` becomes
+    ``"/world-of-rathe/solana.html#the-hand-of-sol"``. Matches the shape the
+    supplement already used by hand for the entries this replaces.
+    """
+    key = (story_key or "").strip()
+    if not key:
+        return ""
+    path = key[:-3] + ".html" if key.endswith(".md") else key
+    frag = (fragment or "").strip().lstrip("#")
+    url = f"/{path.lstrip('/')}"
+    return f"{url}#{frag}" if frag else url
+
+
 def _key(name: str) -> str:
     """Derive a safe hint key from a DB name: strip apostrophes."""
     return name.replace("'", "")
@@ -135,12 +151,31 @@ def generate() -> None:
     # registry above, so a group with no summary yet renders nothing rather
     # than an empty tooltip — and until the supplement summaries move into
     # descriptions.py, that is most of them.
-    for row in conn.execute("SELECT name, kind, notes FROM groups ORDER BY name"):
+    # A group's region is *derived*, never stored: groups move about, so most carry
+    # no region at all, but one tied to a place (Ikaru Clan, Teklo Industries, the
+    # Maela) borrows the region of that place for the badge.
+    #
+    # The url comes from lore_story_key + lore_fragment, which the group carries
+    # itself. A location walks region_id -> world_of_rathe_story_key to reach its
+    # page; a group has no region to walk.
+    group_sql = """
+        SELECT g.name, g.kind, g.notes, g.lore_story_key, g.lore_fragment,
+               l.region_id AS loc_region_id
+        FROM groups g
+        LEFT JOIN locations l ON l.location_id = g.location_id
+        ORDER BY g.name
+    """
+    for row in conn.execute(group_sql):
         if not row["notes"]:
             continue
-        hints[_key(row["name"])] = _entry_with_match(
-            row["name"], {"type": row["kind"] or "group", "summary": row["notes"]}
-        )
+        entry = {"type": row["kind"] or "group", "summary": row["notes"]}
+        region = regions.get(row["loc_region_id"] or "", "")
+        if region:
+            entry["region"] = region
+        url = _lore_url(row["lore_story_key"], row["lore_fragment"])
+        if url:
+            entry["url"] = url
+        hints[_key(row["name"])] = _entry_with_match(row["name"], entry)
 
     conn.close()
 

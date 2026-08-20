@@ -20,22 +20,16 @@
     "type": "npc",
     "summary": "A member of the Cintari, Kassai's close friend."
   },
-  "Alshoni": {
-    "type": "faction",
-    "summary": "A faction founded by a particular branch of the Royal Bloodline, brought together by blood ties, headed up by Lord Wizard Chiyo, cousin to the Emperor."
-  },
   "ArbiterMagisterOfJustice": {
     "type": "npc",
     "match": "Arbiter, Magister of Justice",
     "summary": "A Magister of Sol's order who confronts the Shadowrealm's corrupting influence, denying its prophecies in Sol's name."
   },
   "AuisScales": {
-    "type": "faction",
     "match": [
       "Aui's Scales",
       "Aui’s Scales"
     ],
-    "summary": "A secretive organisation that builds hidden strongholds across Misteria to conceal scrolls and artefacts from the public.",
     "exclude_pages": [
       "main-story/welcome-to-rathe/wanderings-in-the-mists"
     ]
@@ -56,18 +50,8 @@
     "type": "npc",
     "summary": "General who betrayed Kassai's family."
   },
-  "Cintari": {
-    "type": "faction",
-    "summary": "A group of bloodthirsty brigands who seek the thrill of battle."
-  },
-  "Cogwerx": {
-    "type": "organisation",
-    "summary": "Credited with inventing steam technology and revolutionising Metrix through steam compression for energy, largely responsible for the city's success and development."
-  },
   "CrimsonHaze": {
-    "type": "faction",
     "match": "Crimson Haze",
-    "summary": "A rebel group at odds with Aui's Scales for centuries, seeking to free the people of Misteria from the Great Households.",
     "exclude_pages": [
       "main-story/welcome-to-rathe/wanderings-in-the-mists"
     ]
@@ -86,19 +70,11 @@
     "match": "Dhani Empire",
     "summary": "A fallen civilisation once ruled by an arcane empress, whose mastery of aether ended in cataclysmic ruin."
   },
-  "Dracai": {
-    "type": "faction",
-    "summary": "Bestowed names free of restrictions or stigma, the Dracai are granted positions in the Royal Court of Volcor by the Emperor."
-  },
   "Dreadnought": {
     "type": "ship",
     "summary": "Gravy Bones' ship."
   },
   "Exorides": "Solanian Thursday",
-  "Ezu": {
-    "type": "faction",
-    "summary": "A faction headed up by Chancellor Yama."
-  },
   "Fayyad": {
     "type": "npc",
     "summary": "A member of the Cintari, Kassai's close friend."
@@ -144,11 +120,6 @@
     ],
     "summary": "Serves the city of Solana as the highest representation of Sol; presides over the Solstice of Laurels and Awakening ceremonies."
   },
-  "HandOfSol": {
-    "type": "faction",
-    "match": "Hand of Sol",
-    "summary": "Solana's order of knights, who defend the city from outside threats."
-  },
   "Solana": {
     "type": "region",
     "summary": "The Golden City, realm of Illumination, founded by pilgrims drawn to Rathe by Sol's will.",
@@ -188,10 +159,6 @@
     "summary": "A fanatical pirate cult formed from reconditioned convicts. The Kuraghan worship the sea god Absolon and believe dying in battle earns them an afterlife of endless pleasure."
   },
   "Lunedes": "Solanian Monday",
-  "Mendacity": {
-    "type": "organisation",
-    "summary": "A corporation that maintains control of the media, funding almost every radio station and newspaper in the city."
-  },
   "Merides": "Solanian Friday",
   "Min": {
     "type": "npc",
@@ -222,10 +189,6 @@
     "type": "npc",
     "summary": "The Redmoors are Boltyn's cousins."
   },
-  "Rosetta": {
-    "type": "faction",
-    "summary": "An Order of powerful spell weavers that once stood alongside the likes of the Ollin and the Seers."
-  },
   "Sada": {
     "type": "npc",
     "summary": "Kassai's sorceress friend and member of the Cintari."
@@ -233,10 +196,6 @@
   "Savai": {
     "type": "npc",
     "summary": "Lord Merchant of Deshvahan."
-  },
-  "Sayashi": {
-    "type": "faction",
-    "summary": "Special force of loyal ninjas dedicated to hunting those responsible for the Emperor's death."
   },
   "Seikan": {
     "type": "concept",
@@ -282,11 +241,6 @@
     "type": "concept",
     "match": "Teklatic Dynamism",
     "summary": "Energy source invented by Professor Teklovossen."
-  },
-  "TekloIndustries": {
-    "type": "organisation",
-    "match": "Teklo Industries",
-    "summary": "A recent entrant to the steamtech industry, acclaimed for its innovative products and cutting-edge designs driven by a constantly experimenting R&D team."
   },
   "TheFoundry": {
     "type": "organisation",
@@ -347,11 +301,6 @@
     "type": "embra",
     "summary": "An Embra bound to Chane, drawn to the corruption of the Old Ones in the Shadowrealm."
   },
-  "DisciplesOfPain": {
-    "type": "faction",
-    "match": "Disciples of Pain",
-    "summary": "The Demonastery order who embrace pain to surpass mortal limits and break Solana's hold on Rathe, following whichever Apostle leads them — Chane in his day, now Vynnset, the Apostle of Agony."
-  },
   "Runeblades": {
     "type": "concept",
     "match": [
@@ -368,11 +317,6 @@
     "match": "Old Ones",
     "summary": "Ancient beings of overwhelming power from beyond Rathe who threatened to consume the world in the Third Age."
   },
-  "ChurchOfPain": {
-    "type": "faction",
-    "match": "Church of Pain",
-    "summary": "The Demonastery institution devoted to harnessing pain and Shadow to destroy Solana. Chane wore its mantle until he named Vynnset his successor."
-  },
   "Embra": {
     "type": "concept",
     "match": [
@@ -388,12 +332,6 @@
   "Eirina": {
     "type": "npc",
     "summary": "Boltyn's beloved, a cleric he prays to for courage in battle."
-  },
-  "TheLightOfSol": {
-    "type": "faction",
-    "match": "The Light of Sol",
-    "summary": "Solana's order of scholars — healers, academics and scribes who serve the city and fight alongside the Hand of Sol.",
-    "url": "/world-of-rathe/solana.html#the-light-of-sol"
   },
   "Arakni": {
     "type": "hero",
@@ -936,23 +874,8 @@
     "type": "ancient",
     "summary": "Ancient of Ice."
   },
-  "Aetherscribes": {
-    "type": "faction",
-    "summary": "A learned collective of scholars and seers devoted to the survival of all Rathenfolk.",
-    "url": "/world-of-rathe/aria.html#aetherscribes"
-  },
-  "Wayfarers": {
-    "type": "faction",
-    "summary": "Lightning-riding scouts and heralds of Valahai, who keep word flowing between the bastions.",
-    "url": "/world-of-rathe/aria.html#wayfarers"
-  },
-  "Ollin": {
-    "type": "faction",
-    "summary": "The elite of Valahai's defenders, who communed with Galcia to gain command over Ice.",
-    "url": "/world-of-rathe/aria.html#ollin"
-  },
   "Chanek": {
-    "type": "faction",
+    "type": "species",
     "summary": "Green-skinned, pointed-eared Rathenfolk of the far west."
   },
   "Rathenfolk": {
@@ -1004,19 +927,10 @@
       "short-stories/usurp-the-shadow-throne/open-the-gates"
     ]
   },
-  "Gloomblades": {
-    "type": "faction",
-    "summary": "The Demonastery's runeblade forces, corrupted into Viserai's eldritch legion after his return from the Abyss."
-  },
   "MarkOfNeverest": {
     "match": "Mark of Neverest",
     "type": "artifact",
     "summary": "The token by which Malice taps Neverest's necromantic reservoir to swell her reanimated dead."
-  },
-  "SoulOfExistence": {
-    "match": "Soul of Existence",
-    "type": "artifact",
-    "summary": "The Old Ones' corrupting gift to the Arknight, drawn from the Abyss — the very soul of Shadow's existence."
   },
   "Runechant": {
     "match": [
@@ -1199,10 +1113,6 @@
   "Karl": {
     "type": "npc",
     "summary": "Graverobber whose crew opened a wrathful baron's coffin; he woke alone in an open grave, soaked in his comrades' blood."
-  },
-  "Seers": {
-    "type": "faction",
-    "summary": "An order of prophets named alongside the Ollin and Rosetta, who read the omens and keep a script of their own."
   },
   "Ancients": {
     "type": "concept",

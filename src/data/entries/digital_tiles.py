@@ -81,7 +81,7 @@ db.upsert_story(
         reg.METRIX,
     ],
     equipment=["cogwerx-base-head", "evo-command-center", "evo-data-mine"],
-    groups=[grp.STEELSTREET_ENFORCERS],
+    groups=[grp.STEELSTREET_ENFORCERS, grp.TEKLO_INDUSTRIES],
     dry_run=True,
 )
 
@@ -459,5 +459,6 @@ db.upsert_story(
         reg.VOLCOR,
     ],
     weapons=["storm-of-sandikai"],
+    groups=[grp.DRACAI],
     dry_run=True,
 )

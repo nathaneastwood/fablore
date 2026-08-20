@@ -117,6 +117,47 @@ def format_fragment_suggestion(ids: list[str], *, limit: int = 35) -> str:
     return f"{head}, … ({len(uniq)} ids total; showing first {limit})"
 
 
+def require_valid_group_lore_fragment(
+    *,
+    src_root: Path,
+    lore_story_key: str,
+    lore_fragment: str,
+) -> None:
+    """Raise ``ValueError`` if a group's fragment is not a heading on its own page.
+
+    The group variant of :func:`require_valid_lore_fragment`. A location resolves
+    its page by walking ``region_id`` to ``regions.world_of_rathe_story_key``; a
+    group carries the page directly, because a group is not tied to a region.
+
+    Args:
+        src_root: Book ``src`` root.
+        lore_story_key: Page the group is documented on, e.g.
+            ``"world-of-rathe/solana.md"``.
+        lore_fragment: Normalized fragment (no ``#``); non-empty only.
+
+    Raises:
+        ValueError: When the fragment cannot be resolved to a heading on disk.
+    """
+    frag = (lore_fragment or "").strip().lstrip("#")
+    if not frag:
+        return
+    key = (lore_story_key or "").strip()
+    if not key:
+        raise ValueError(
+            "LoreFragment requires a lore_story_key naming the page the group is "
+            "documented on, so the heading can be resolved."
+        )
+    md_path = src_root / key
+    if not md_path.is_file():
+        raise ValueError(f"LoreFragment {frag!r}: page is missing: {key}")
+    ids = collect_heading_anchor_ids_from_path(md_path)
+    if frag not in ids:
+        raise ValueError(
+            f"LoreFragment {frag!r} is not a heading id in {key}. "
+            f"Valid heading ids include: {format_fragment_suggestion(ids)}"
+        )
+
+
 def require_valid_lore_fragment(
     *,
     src_root: Path,

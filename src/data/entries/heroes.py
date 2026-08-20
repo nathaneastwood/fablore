@@ -57,6 +57,7 @@ db.upsert_story(
     ],
     regions=[reg.ARIA],
     weapons=["volzar-the-lightning-rod"],
+    groups=[grp.AETHERSCRIBES],
     dry_run=True,
 )
 
@@ -94,7 +95,6 @@ db.upsert_story(
     heroes=["dorinthea", "hala"],
     locations=[
         loc.DIMENXXIONAL_GATEWAY,
-        loc.HAND_OF_SOL,
         loc.THE_GOLDEN_FIELDS,
     ],
     regions=[
@@ -102,6 +102,7 @@ db.upsert_story(
         reg.SOLANA,
     ],
     weapons=["dawnblade", "dawnblade-resplendent"],
+    groups=[grp.HAND_OF_SOL],
     dry_run=True,
 )
 
@@ -188,6 +189,7 @@ db.upsert_story(
     title="Cindra, Dracai of Retribution",
     heroes=["cindra", "emperor"],
     regions=[reg.VOLCOR],
+    groups=[grp.SAYASHI],
     dry_run=True,
 )
 
@@ -245,6 +247,7 @@ db.upsert_story(
         loc.IKARU,
     ],
     regions=[reg.MISTERIA],
+    groups=[grp.CRIMSON_HAZE, grp.IKARU_CLAN],
     dry_run=True,
 )
 
@@ -303,13 +306,12 @@ db.upsert_story(
     ],
     locations=[
         loc.THE_NORTHERN_REALMS,
-        loc.HAND_OF_SOL,
         loc.THE_GOLDEN_FIELDS,
         loc.THE_SOLARIUM,
         loc.OCTOMILITIA,
     ],
     regions=[reg.SOLANA, reg.DEMONASTERY],
-    groups=[grp.SISTERS_OF_OCTOTHESIA],
+    groups=[grp.SISTERS_OF_OCTOTHESIA, grp.HAND_OF_SOL],
     dry_run=True,
 )
 
@@ -400,6 +402,7 @@ db.upsert_story(
     ],
     regions=[reg.ARIA],
     equipment=["stalagmite-bastion-of-isenloft"],
+    groups=[grp.OLLIN],
     dry_run=True,
 )
 
@@ -492,7 +495,7 @@ db.upsert_story(
     locations=[
         loc.I_ARATHAEL,
     ],
-    regions=[reg.DEMONASTERY],
+    regions=[reg.DEMONASTERY, reg.SOLANA],
     dry_run=True,
 )
 
@@ -623,10 +626,12 @@ db.upsert_story(
     story_type="heroes-of-rathe",
     title="Brevant, Civic Protector",
     heroes=["brevant"],
+    # Explicitly empty, not omitted. Hand of Sol was this page's only location and
+    # is now a group; an omitted kwarg means "leave the junction alone", so the
+    # stale story_locations row would have survived the move in silence.
+    locations=[],
     regions=[reg.SOLANA],
-    locations=[
-        loc.HAND_OF_SOL,
-    ],
+    groups=[grp.HAND_OF_SOL],
     dry_run=True,
 )
 
@@ -730,6 +735,7 @@ db.upsert_story(
         loc.COGWERX_CONGLOMERATE,
         loc.IRON_ASSEMBLY,
     ],
+    groups=[grp.TEKLO_INDUSTRIES],
     dry_run=True,
 )
 
@@ -784,6 +790,7 @@ db.upsert_story(
         loc.LOWLAKE,
     ],
     regions=[reg.METRIX],
+    groups=[grp.TEKLO_INDUSTRIES],
     dry_run=True,
 )
 
@@ -808,6 +815,7 @@ db.upsert_story(
         loc.DEATHMATCH_ARENA,
     ],
     regions=[reg.VOLCOR],
+    groups=[grp.CINTARI],
     dry_run=True,
 )
 
@@ -851,6 +859,7 @@ db.upsert_story(
         loc.COGWERX_CONGLOMERATE,
     ],
     weapons=["banksy"],
+    groups=[grp.COGWERX],
     dry_run=True,
 )
 

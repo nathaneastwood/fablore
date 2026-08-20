@@ -276,6 +276,7 @@ db.upsert_story(
     heroes=["florian", "verdance"],
     locations=[loc.CANDLEHOLD],
     regions=[reg.ARIA],
+    groups=[grp.ROSETTA],
     dry_run=True,
 )
 
@@ -287,9 +288,9 @@ db.upsert_story(
     npcs=[npc.THEBASTO_MAGISTER_OF_DEFENSE],
     locations=[
         loc.CHARRED_RANGE,
-        loc.HAND_OF_SOL,
     ],
     regions=[reg.SOLANA, reg.VOLCOR],
+    groups=[grp.HAND_OF_SOL],
     dry_run=True,
 )
 
@@ -377,6 +378,7 @@ db.upsert_story(
         loc.GIGADRILL_ELEVATOR,
     ],
     regions=[reg.METRIX],
+    groups=[grp.TEKLO_INDUSTRIES],
     dry_run=True,
 )
 

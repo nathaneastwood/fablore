@@ -208,6 +208,15 @@ class GroupEntry:
     works. Most groups leave this empty; a group is not a place."""
     member_source: str = ""
     """Optional story key citing the roster (D2). Applies to every member."""
+    lore_story_key: str = ""
+    """Story key of the page this group is **documented** on, e.g.
+    ``"world-of-rathe/solana.md"``. Not where the group lives — a group moves,
+    and most carry no region at all. A location reaches its page by walking
+    ``region_id`` to ``regions.world_of_rathe_story_key``; a group has no region
+    to walk, so it carries the page itself."""
+    lore_fragment: str = ""
+    """Heading anchor on ``lore_story_key``, e.g. ``"the-hand-of-sol"``. Validated
+    against the real headings on that page, exactly as location fragments are."""
 
 
 # ---------------------------------------------------------------------------
@@ -814,10 +823,16 @@ class Database:
         """Set or update the tooltip description for an entity.
 
         Args:
-            entity_type: One of ``"monster"``, ``"fauna"``, ``"flora"``, or ``"location"``.
+            entity_type: One of ``"monster"``, ``"fauna"``, ``"flora"``, ``"location"``
+                or ``"group"``.
             name: Display name of the entity (must already exist in the database).
-            description: Short lore summary. For ``"location"`` this sets the ``notes`` field;
-                for all others it sets the ``description`` field.
+            description: Short lore summary. ``"location"`` and ``"group"`` set the
+                ``notes`` field; the others set the ``description`` field.
+
+        A group must already have a row before its summary can land here, and a row
+        is only created by a story declaration naming it. Six catalogue constants
+        have no row yet for exactly that reason, so re-point the declaration before
+        adding the note rather than the other way round.
 
         Raises:
             ValueError: If ``entity_type`` is unrecognised or the named entity does not exist.
@@ -832,6 +847,10 @@ class Database:
                 rows = q.update_location_notes(self.conn, name, description)
                 if rows == 0:
                     raise ValueError(f"Location not found: {name!r}")
+            elif entity_type == "group":
+                rows = q.update_group_notes(self.conn, _group_id(name), description)
+                if rows == 0:
+                    raise ValueError(f"Group not found: {name!r}")
             elif entity_type in _TABLE_MAP:
                 table, id_col, id_fn = _TABLE_MAP[entity_type]
                 entity_id = id_fn(name)
@@ -840,7 +859,7 @@ class Database:
                     raise ValueError(f"{entity_type.capitalize()} not found: {name!r}")
             else:
                 raise ValueError(
-                    f"Unknown entity type: {entity_type!r}. " "Use 'monster', 'fauna', 'flora', or 'location'."
+                    f"Unknown entity type: {entity_type!r}. " "Use 'monster', 'fauna', 'flora', 'location', or 'group'."
                 )
         _export.export_registry_tables(self.conn, self._data_dir)
 
@@ -1189,6 +1208,8 @@ class Database:
             kind=entry.kind,
             parent_group_id=parent_id,
             location_id=loc_id,
+            lore_story_key=entry.lore_story_key,
+            lore_fragment=entry.lore_fragment,
         )
 
         if entry.npc_members:

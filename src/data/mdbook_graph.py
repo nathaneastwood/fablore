@@ -423,7 +423,18 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
     monsters = _entity_names(csv_dir / "monsters.csv", "MonsterId", "Name")
     fauna = _entity_names(csv_dir / "fauna.csv", "FaunaId", "Name")
     flora = _entity_names(csv_dir / "flora.csv", "FloraId", "Name")
-    groups = _entity_names(csv_dir / "groups.csv", "GroupId", "Name")
+    # Groups carry their own documentation page rather than reaching one through a
+    # region, because a group is not tied to one place. Without this a group node
+    # has no link at all, which is what dropping the Hand of Sol's locations row
+    # would otherwise have cost.
+    groups: dict[str, tuple[str, str, str]] = {}
+    for r in _rows(csv_dir / "groups.csv"):
+        gid = (r.get("GroupId") or "").strip()
+        name = (r.get("Name") or "").strip()
+        key = (r.get("LoreStoryKey") or "").strip()
+        frag = (r.get("LoreFragment") or "").strip().lstrip("#")
+        if gid and name:
+            groups[gid] = (name, key, frag)
     food = _entity_names(csv_dir / "food-and-drink.csv", "FoodDrinkId", "Name")
 
     def _region_url(region_id: str, fragment: str = "") -> str:
@@ -459,6 +470,16 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
         row = equipment.get(eid)
         return None if row is None else (row[0], _card_url(src_root, "equipment", row[1]))
 
+    def _group(eid: str):
+        row = groups.get(eid)
+        if row is None:
+            return None
+        name, key, frag = row
+        if not key:
+            return (name, "")
+        url = _html_url(key)
+        return (name, f"{url}#{frag}" if frag else url)
+
     def _plain(table: dict[str, str]):
         def resolve(eid: str):
             name = table.get(eid)
@@ -477,7 +498,7 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
         ("story-fauna.csv", "FaunaId", "fauna", _plain(fauna)),
         ("story-flora.csv", "FloraId", "flora", _plain(flora)),
         ("story-food-drink.csv", "FoodDrinkId", "food", _plain(food)),
-        ("story-groups.csv", "GroupId", "group", _plain(groups)),
+        ("story-groups.csv", "GroupId", "group", _group),
     )
 
     for filename, id_col, kind, resolve in junctions:

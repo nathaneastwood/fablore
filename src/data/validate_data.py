@@ -20,6 +20,7 @@ exits ``0`` when all checks pass.
 from __future__ import annotations
 
 import ast
+import json
 import re
 import sys
 from difflib import SequenceMatcher
@@ -35,6 +36,7 @@ from pipe_csv_io import read_pipe_csv  # noqa: E402
 from mdbook_heading_ids import (  # noqa: E402
     collect_heading_anchor_ids_from_path,
     format_fragment_suggestion,
+    require_valid_group_lore_fragment,
     world_lore_markdown_path,
 )
 
@@ -510,6 +512,113 @@ def _check_hero_card_name_alias_slugs_in_canonical(canonical_path: Path) -> list
     return alerts
 
 
+# The entity types ``hints_supplement.json`` may use. theme/hints.js prints the
+# value verbatim as the tooltip label, so a typo ships as a visible label rather
+# than failing anything — which is the whole reason this list exists.
+#
+# It covers the SUPPLEMENT ONLY. ``groups.kind`` also reaches the tooltip as a
+# type (generate_hints_json.py), but kinds are deliberately bespoke per group
+# ("order of knights", "law enforcement"), so no closed list can cover both.
+# Decided 2026-08-20.
+#
+# ``faction`` and ``organisation`` are on their way out: stage 2 of the groups
+# work migrates those 24 entries into the groups table, after which they can be
+# dropped from this list.
+_SUPPLEMENT_TYPES = frozenset(
+    {
+        "aesir",
+        "ancient",
+        "artifact",
+        "concept",
+        "creature",
+        "embra",
+        "faction",
+        "hero",
+        "item",
+        "location",
+        "npc",
+        "organisation",
+        "region",
+        "ship",
+        "species",
+    }
+)
+
+
+def _check_supplement_types(supplement_path: Path) -> list[str]:
+    """Flag a ``hints_supplement.json`` entry whose ``type`` is not a known one.
+
+    Two entry shapes are legitimately typeless and are skipped: a plain string
+    value (the seven Solanian weekdays, which are summary-only), and a dict that
+    carries only display overrides such as ``match``, ``url`` or
+    ``exclude_pages`` — 25 of those exist, refining an entry the database
+    already types.
+
+    Args:
+        supplement_path: Path to ``hints_supplement.json``.
+
+    Returns:
+        Alert strings, one per unknown type.
+    """
+    if not supplement_path.is_file():
+        return []
+    with supplement_path.open(encoding="utf-8") as f:
+        supplement = json.load(f)
+
+    alerts: list[str] = []
+    for key, value in supplement.items():
+        if not isinstance(value, dict):
+            continue
+        entry_type = value.get("type")
+        if entry_type is None:
+            continue
+        if entry_type not in _SUPPLEMENT_TYPES:
+            alerts.append(
+                f"hints_supplement.json: {key!r} has unknown type {entry_type!r} "
+                f"(expected one of {sorted(_SUPPLEMENT_TYPES)}). The tooltip prints "
+                "this verbatim, so a typo ships as a visible label."
+            )
+    return alerts
+
+
+def _check_group_lore_fragments(groups_path: Path, stories_path: Path, src_root: Path) -> list[str]:
+    """Ensure each group's ``LoreFragment`` is a real heading on its ``LoreStoryKey`` page.
+
+    The group counterpart to :func:`_check_location_lore_fragments_match_headings`.
+    A location finds its page through its region; a group carries the page itself,
+    because a group is not tied to one place. Both are checked here rather than on
+    write, so a heading renamed in the markdown is caught by the same pass.
+
+    Args:
+        groups_path: Path to ``groups.csv``.
+        stories_path: Path to ``stories.csv``.
+        src_root: Book ``src`` root.
+
+    Returns:
+        Alert strings, one per unresolvable fragment.
+    """
+    if not groups_path.is_file():
+        return []
+    story_keys = _id_set_from_column(stories_path, "StoryKey") if stories_path.is_file() else set()
+
+    alerts: list[str] = []
+    _, rows = read_pipe_csv(groups_path)
+    for row in rows:
+        name = (row.get("Name") or "").strip()
+        key = (row.get("LoreStoryKey") or "").strip()
+        frag = (row.get("LoreFragment") or "").strip()
+        if not key and not frag:
+            continue
+        if key and story_keys and key not in story_keys:
+            alerts.append(f"Groups: {name!r} LoreStoryKey {key!r} is not a StoryKey in stories.csv.")
+            continue
+        try:
+            require_valid_group_lore_fragment(src_root=src_root, lore_story_key=key, lore_fragment=frag)
+        except ValueError as exc:
+            alerts.append(f"Groups: {name!r}: {exc}")
+    return alerts
+
+
 def _check_descriptions_targets_exist(descriptions_path: Path) -> list[str]:
     """Flag ``update_description`` calls in ``descriptions.py`` whose target does not exist.
 
@@ -536,6 +645,7 @@ def _check_descriptions_targets_exist(descriptions_path: Path) -> list[str]:
         "monster": "monsters.csv",
         "fauna": "fauna.csv",
         "flora": "flora.csv",
+        "group": "groups.csv",
     }
     known = {kind: _id_set_from_column(DATA / "csv" / filename, "Name") for kind, filename in csv_for_kind.items()}
 
@@ -922,6 +1032,8 @@ def collect_alerts() -> list[str]:
         )
     )
     alerts.extend(_check_descriptions_targets_exist(DATA / "descriptions.py"))
+    alerts.extend(_check_supplement_types(SRC / "hints_supplement.json"))
+    alerts.extend(_check_group_lore_fragments(DATA / "csv/groups.csv", DATA / "csv/stories.csv", SRC))
 
     return alerts
 

@@ -305,6 +305,8 @@ def _seed_groups(conn: sqlite3.Connection, data_dir: Path) -> None:
             kind=_s(row, "Kind"),
             notes=_s(row, "Notes"),
             location_id=_s(row, "LocationId"),
+            lore_story_key=_s(row, "LoreStoryKey"),
+            lore_fragment=_s(row, "LoreFragment"),
         )
     for row in rows:
         q.set_parent(

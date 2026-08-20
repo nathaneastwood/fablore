@@ -225,13 +225,15 @@ def _export_groups(conn: sqlite3.Connection, csv_dir: Path) -> None:
             "Notes": r["notes"],
             "ParentGroupId": r["parent_group_id"],
             "LocationId": r["location_id"],
+            "LoreStoryKey": r["lore_story_key"],
+            "LoreFragment": r["lore_fragment"],
         }
         for r in rows
     ]
     _write_pipe_csv(
         csv_dir / "groups.csv",
         _CMD_REGISTRY,
-        ["GroupId", "Name", "Kind", "Notes", "ParentGroupId", "LocationId"],
+        ["GroupId", "Name", "Kind", "Notes", "ParentGroupId", "LocationId", "LoreStoryKey", "LoreFragment"],
         data,
     )
 

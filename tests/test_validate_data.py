@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import validate_data
@@ -123,3 +124,102 @@ def test_check_near_duplicate_names_respects_group_column(tmp_path: Path) -> Non
         path, "LocationId", "Name", "locations.csv", group_column="RegionId"
     )
     assert alerts == []
+
+
+# ---------------------------------------------------------------------------
+# hints_supplement.json entity types
+# ---------------------------------------------------------------------------
+
+
+def _supplement(tmp_path: Path, payload: dict) -> Path:
+    path = tmp_path / "hints_supplement.json"
+    path.write_text(json.dumps(payload), encoding="utf-8")
+    return path
+
+
+def test_check_supplement_types_accepts_known_types(tmp_path: Path) -> None:
+    path = _supplement(tmp_path, {"Chanek": {"type": "species", "summary": "Rathenfolk of the far west."}})
+    assert validate_data._check_supplement_types(path) == []
+
+
+def test_check_supplement_types_flags_a_typo(tmp_path: Path) -> None:
+    """The reason this check exists.
+
+    theme/hints.js prints `type` verbatim as the tooltip label, so a misspelling
+    ships as a visible label rather than failing anything downstream.
+    """
+    path = _supplement(tmp_path, {"Rosetta": {"type": "factoin", "summary": "An Order of spell weavers."}})
+    alerts = validate_data._check_supplement_types(path)
+    assert len(alerts) == 1
+    assert "'factoin'" in alerts[0]
+
+
+def test_check_supplement_types_skips_override_only_entries(tmp_path: Path) -> None:
+    """25 entries carry only match/url/exclude_pages and take their type from the DB."""
+    path = _supplement(tmp_path, {"Isenloft": {"url": "/world-of-rathe/aria.html#isenloft"}})
+    assert validate_data._check_supplement_types(path) == []
+
+
+def test_check_supplement_types_skips_plain_string_entries(tmp_path: Path) -> None:
+    """The seven Solanian weekdays are stored as bare summary strings."""
+    path = _supplement(tmp_path, {"Lunedes": "Solanian Monday"})
+    assert validate_data._check_supplement_types(path) == []
+
+
+def test_species_is_a_known_type() -> None:
+    """Added 2026-08-20 so Chanek could be retyped off `faction`; it is a species."""
+    assert "species" in validate_data._SUPPLEMENT_TYPES
+
+
+def test_real_supplement_has_no_unknown_types() -> None:
+    assert validate_data._check_supplement_types(validate_data.SRC / "hints_supplement.json") == []
+
+
+# ---------------------------------------------------------------------------
+# Group lore fragments
+# ---------------------------------------------------------------------------
+
+
+def _group_fragment_fixture(tmp_path: Path, lore_story_key: str, lore_fragment: str) -> tuple[Path, Path, Path]:
+    src = tmp_path / "src"
+    (src / "world-of-rathe").mkdir(parents=True)
+    (src / "world-of-rathe" / "solana.md").write_text("# Solana\n\n### The Hand of Sol\n\ntext\n", encoding="utf-8")
+    groups = tmp_path / "groups.csv"
+    groups.write_text(
+        "# banner\n"
+        "GroupId|Name|Kind|Notes|ParentGroupId|LocationId|LoreStoryKey|LoreFragment\n"
+        f"GR1|Hand of Sol|order|||| {lore_story_key}|{lore_fragment}\n".replace("| ", "|"),
+        encoding="utf-8",
+    )
+    stories = tmp_path / "stories.csv"
+    stories.write_text(
+        "# banner\nStoryId|StoryKey|StoryType|Title\nST1|world-of-rathe/solana.md|world-of-rathe|Solana\n",
+        encoding="utf-8",
+    )
+    return groups, stories, src
+
+
+def test_check_group_lore_fragments_accepts_a_real_heading(tmp_path: Path) -> None:
+    groups, stories, src = _group_fragment_fixture(tmp_path, "world-of-rathe/solana.md", "the-hand-of-sol")
+    assert validate_data._check_group_lore_fragments(groups, stories, src) == []
+
+
+def test_check_group_lore_fragments_rejects_a_missing_heading(tmp_path: Path) -> None:
+    """Catches a heading renamed in the markdown, which nothing else would see."""
+    groups, stories, src = _group_fragment_fixture(tmp_path, "world-of-rathe/solana.md", "the-hand-of-sun")
+    alerts = validate_data._check_group_lore_fragments(groups, stories, src)
+    assert len(alerts) == 1
+    assert "the-hand-of-sun" in alerts[0]
+
+
+def test_check_group_lore_fragments_rejects_an_unknown_page(tmp_path: Path) -> None:
+    groups, stories, src = _group_fragment_fixture(tmp_path, "world-of-rathe/nowhere.md", "the-hand-of-sol")
+    alerts = validate_data._check_group_lore_fragments(groups, stories, src)
+    assert len(alerts) == 1
+    assert "not a StoryKey" in alerts[0]
+
+
+def test_check_group_lore_fragments_ignores_groups_with_no_link(tmp_path: Path) -> None:
+    """Most groups carry no documentation page, and that is not an error."""
+    groups, stories, src = _group_fragment_fixture(tmp_path, "", "")
+    assert validate_data._check_group_lore_fragments(groups, stories, src) == []

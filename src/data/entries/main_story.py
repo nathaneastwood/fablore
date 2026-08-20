@@ -85,8 +85,6 @@ db.upsert_story(
         loc.THE_FLOW,
         loc.THE_EVERFEST_CARNIVAL,
         loc.LEGENDARIUM,
-        loc.THE_MAELA,
-        loc.THE_VALDUR,
         loc.ALDEVYR,
         loc.FRACTAL_SCAR,
         # Named only here, by Mikael on his return to the Everfest — an Arian range.
@@ -103,6 +101,7 @@ db.upsert_story(
     ],
     food_drink=[food.ALDER_CIDER],
     weapons=["anothos"],
+    groups=[grp.THE_MAELA, grp.THE_VALDUR],
     dry_run=True,
 )
 
@@ -138,14 +137,12 @@ db.upsert_story(
         npc.MARCUS,
     ],
     locations=[
-        loc.HAND_OF_SOL,
         loc.GOLDEN_CHARIOT,
         loc.IRONSONG_FORGE,
         loc.LIBRARY_OF_ILLUMINATION,
         loc.AMPHITHEATRE,
         loc.SOLSTICE_OF_LAURELS,
         loc.THE_AWAKENING_CEREMONY,
-        loc.THE_LIGHT_OF_SOL,
         loc.SILVARIUM,
         loc.THE_GOLDEN_FIELDS,
         loc.FORWARD_CAMPS,
@@ -158,6 +155,7 @@ db.upsert_story(
     fauna=[],
     food_drink=[],
     weapons=["dawnblade"],
+    groups=[grp.HAND_OF_SOL, grp.THE_LIGHT_OF_SOL],
     dry_run=True,
 )
 
@@ -234,6 +232,7 @@ db.upsert_story(
     flora=[],
     food_drink=[],
     weapons=["harmonized-kodachi"],
+    groups=[grp.AUIS_SCALES],
     dry_run=True,
 )
 
@@ -438,7 +437,7 @@ db.upsert_story(
         mon.SHADOWREALM_WALKER,
     ],
     weapons=["galaxxi-black"],
-    groups=[grp.DISCIPLES_OF_PAIN],
+    groups=[grp.DISCIPLES_OF_PAIN, grp.CHURCH_OF_PAIN],
     dry_run=True,
 )
 
@@ -459,7 +458,6 @@ db.upsert_story(
         npc.SOL,
     ],
     locations=[
-        loc.HAND_OF_SOL,
         loc.I_ARATHAEL,
     ],
     regions=[
@@ -467,6 +465,7 @@ db.upsert_story(
         reg.DEMONASTERY,
     ],
     weapons=["flail-of-agony", "raydn-duskbane"],
+    groups=[grp.HAND_OF_SOL],
     dry_run=True,
 )
 
@@ -561,6 +560,7 @@ db.upsert_story(
     artists="Sam Yang",
     source_link="https://fabtcg.com/hero/oldhim-2/story/oldhim/",
     heroes=["oldhim"],
+    groups=[grp.SEERS],
     dry_run=True,
 )
 
@@ -577,6 +577,7 @@ db.upsert_story(
     # TODO: needs catalogue constant — Lake Frigid (loc)
     locations=[loc.ENION, loc.VOLTHAVEN, loc.THE_KORSHEM],
     regions=[reg.ARIA],
+    groups=[grp.WAYFARERS],
     dry_run=True,
 )
 
@@ -749,13 +750,13 @@ db.upsert_story(
         loc.THE_KORSHEM,
         loc.THE_FLOW,
         loc.FRACTAL_SCAR,
-        loc.THE_MAELA,
         loc.THE_EVERFEST_CARNIVAL,
         loc.I_ARATHAEL,
         loc.LIBRARY_OF_ILLUMINATION,
     ],
     regions=[reg.ARIA, reg.DEMONASTERY, reg.SOLANA],
     weapons=["anothos"],
+    groups=[grp.THE_MAELA],
     dry_run=True,
 )
 
@@ -1118,7 +1119,7 @@ db.upsert_story(
     ],
     regions=[reg.METRIX],
     # TODO: needs catalogue constant — Clara (npc). See the table below.
-    groups=[grp.IRON_ASSEMBLY],
+    groups=[grp.IRON_ASSEMBLY, grp.TEKLO_INDUSTRIES],
     dry_run=True,
 )
 
@@ -1210,14 +1211,13 @@ db.upsert_story(
     ],
     locations=[
         loc.GOLDEN_CHARIOT,
-        loc.HAND_OF_SOL,
         loc.LIBRARY_OF_ILLUMINATION,
         loc.THE_GOLDEN_FIELDS,
         loc.THE_NORTHERN_REALMS,
         loc.THE_SOLARIUM,
     ],
     regions=[reg.SOLANA],
-    groups=[grp.GEMINI],
+    groups=[grp.GEMINI, grp.HAND_OF_SOL],
     dry_run=True,
 )
 

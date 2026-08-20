@@ -9,13 +9,14 @@ Version history:
   6 — narrated_videos: drop duration column
   7 — weapons_printings, equipment_printings: image_url in the primary key
   8 — groups, group_npcs, group_heroes, story_groups; locations.parent_location_id
+  9 — groups: lore_story_key, lore_fragment (the page a group is documented on)
 """
 
 from __future__ import annotations
 
 import sqlite3
 
-CURRENT_VERSION = 8
+CURRENT_VERSION = 9
 
 _V1_DDL = """
 CREATE TABLE IF NOT EXISTS stories (
@@ -206,7 +207,14 @@ CREATE TABLE IF NOT EXISTS groups (
     -- Only for a group that is *also* a physical place, e.g. Teklo Industries,
     -- which is a company and a works with 14 story links to the location. Most
     -- groups leave this empty; a group is not a place.
-    location_id     TEXT NOT NULL DEFAULT ''
+    location_id     TEXT NOT NULL DEFAULT '',
+    -- Where the group is *documented*, not where it lives. A location reaches its
+    -- page by walking region_id -> regions.world_of_rathe_story_key; a group has
+    -- no region to walk, because a group is not tied to one place — so it carries
+    -- the page itself. Both halves have precedent (the fragment on locations, the
+    -- story key on regions); a single row holding both is new to groups.
+    lore_story_key  TEXT NOT NULL DEFAULT '',
+    lore_fragment   TEXT NOT NULL DEFAULT ''
 );
 
 -- Membership (R1). Declared on the group in entries/catalogue/groups.py, not on
@@ -423,4 +431,16 @@ def migrate(conn: sqlite3.Connection) -> None:
         if "parent_location_id" not in cols:
             conn.execute("ALTER TABLE locations ADD COLUMN parent_location_id TEXT NOT NULL DEFAULT ''")
         conn.execute("PRAGMA user_version = 8")
+        conn.commit()
+    if version < 9:
+        # Where a group is documented. The Hand of Sol was a locations row purely
+        # so its tooltip and graph node could link to solana.md#the-hand-of-sol —
+        # but an order of knights is not a place, and dropping that row would have
+        # taken the link with it. A group has no region to walk to a page, so it
+        # carries the page itself.
+        cols = {r[1] for r in conn.execute("PRAGMA table_info(groups)").fetchall()}
+        for col in ("lore_story_key", "lore_fragment"):
+            if col not in cols:
+                conn.execute(f"ALTER TABLE groups ADD COLUMN {col} TEXT NOT NULL DEFAULT ''")
+        conn.execute("PRAGMA user_version = 9")
         conn.commit()

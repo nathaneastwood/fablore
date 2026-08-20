@@ -230,6 +230,8 @@ def upsert_group(
     notes: str = "",
     parent_group_id: str = "",
     location_id: str = "",
+    lore_story_key: str = "",
+    lore_fragment: str = "",
 ) -> None:
     """Insert or update a group, preserving curated fields the caller omits.
 
@@ -247,8 +249,10 @@ def upsert_group(
             )
     conn.execute(
         """
-        INSERT INTO groups (group_id, name, kind, notes, parent_group_id, location_id)
-        VALUES (?,?,?,?,?,?)
+        INSERT INTO groups
+            (group_id, name, kind, notes, parent_group_id, location_id,
+             lore_story_key, lore_fragment)
+        VALUES (?,?,?,?,?,?,?,?)
         ON CONFLICT(group_id) DO UPDATE SET
             name            = excluded.name,
             kind            = CASE WHEN excluded.kind != ''
@@ -262,14 +266,31 @@ def upsert_group(
                               ELSE groups.parent_group_id END,
             location_id     = CASE WHEN excluded.location_id != ''
                               THEN excluded.location_id
-                              ELSE groups.location_id END
+                              ELSE groups.location_id END,
+            lore_story_key  = CASE WHEN excluded.lore_story_key != ''
+                              THEN excluded.lore_story_key
+                              ELSE groups.lore_story_key END,
+            lore_fragment   = CASE WHEN excluded.lore_fragment != ''
+                              THEN excluded.lore_fragment
+                              ELSE groups.lore_fragment END
         """,
-        (group_id, name, kind, notes, parent_group_id, location_id),
+        (group_id, name, kind, notes, parent_group_id, location_id, lore_story_key, lore_fragment),
     )
 
 
 def select_all_groups(conn: sqlite3.Connection) -> list[sqlite3.Row]:
     return conn.execute("SELECT * FROM groups ORDER BY name").fetchall()
+
+
+def update_group_notes(conn: sqlite3.Connection, group_id: str, notes: str) -> int:
+    """Update the notes (tooltip summary) for a single group. Returns rows affected.
+
+    Groups keep their summary in ``notes``, the same column name locations use,
+    rather than the ``description`` column monsters/fauna/flora use — which is why
+    this cannot go through :func:`update_entity_description`.
+    """
+    cur = conn.execute("UPDATE groups SET notes = ? WHERE group_id = ?", (notes, group_id))
+    return cur.rowcount
 
 
 def set_group_members(

@@ -357,3 +357,96 @@ def test_set_location_parent_rejects_an_ambiguous_name(db: Database) -> None:
     q.upsert_location(db.conn, location_id="LOdup2", name="Twin", region_id="RGother")
     with pytest.raises(ValueError, match="matches 2 rows"):
         db.set_location_parent("Twin", "The Maw")
+
+
+# ---------------------------------------------------------------------------
+# update_description("group", …) — group notes come from descriptions.py
+# ---------------------------------------------------------------------------
+
+
+def test_update_description_writes_group_notes(db: Database) -> None:
+    """Groups take their tooltip summary the same way locations take theirs.
+
+    D3 requires the summary to live in exactly one place. `descriptions.py` is
+    that place, so the supplement entry can be deleted in the same commit without
+    the tooltip going dark.
+    """
+    _story(db, groups=[GroupEntry("Hand of Sol", kind="order")])
+    db.update_description("group", "Hand of Sol", "Solana's order of knights.")
+    row = db.conn.execute("SELECT notes FROM groups WHERE name = 'Hand of Sol'").fetchone()
+    assert row["notes"] == "Solana's order of knights."
+
+
+def test_update_description_rejects_a_group_with_no_row(db: Database) -> None:
+    """The ordering constraint, made loud.
+
+    A group row only exists once a story declaration names it. Six catalogue
+    constants have no row yet, so a note written before the re-point would
+    silently never apply — this raises instead.
+    """
+    with pytest.raises(ValueError, match="Group not found"):
+        db.update_description("group", "Ikaru Clan", "Never applied.")
+
+
+def test_update_description_group_notes_reach_the_csv(db: Database) -> None:
+    _story(db, groups=[GroupEntry("Wardens", kind="order")])
+    db.update_description("group", "Wardens", "Keepers of the wood.")
+    text = (db._data_dir / "csv" / "groups.csv").read_text(encoding="utf-8")
+    assert "Keepers of the wood." in text
+
+
+# ---------------------------------------------------------------------------
+# lore_story_key / lore_fragment — where a group is documented (migration 9)
+# ---------------------------------------------------------------------------
+
+
+def test_group_carries_its_own_documentation_page(db: Database) -> None:
+    """The reason groups need two columns where a location needs one.
+
+    A location reaches its page by walking region_id to the region's
+    world_of_rathe_story_key. A group has no region to walk — it is not tied to
+    one place — so it carries the page itself.
+    """
+    _story(
+        db,
+        groups=[
+            GroupEntry(
+                "Hand of Sol",
+                kind="order of knights",
+                lore_story_key="world-of-rathe/solana.md",
+                lore_fragment="the-hand-of-sol",
+            )
+        ],
+    )
+    row = db.conn.execute("SELECT lore_story_key, lore_fragment FROM groups WHERE name = 'Hand of Sol'").fetchone()
+    assert row["lore_story_key"] == "world-of-rathe/solana.md"
+    assert row["lore_fragment"] == "the-hand-of-sol"
+
+
+def test_group_documentation_survives_a_declaration_that_omits_it(db: Database) -> None:
+    """Curated fields are never cleared by a caller that leaves them out.
+
+    Same rule as notes: an empty incoming value keeps what is stored, because a
+    story declaration that merely mentions a group must not blank its link.
+    """
+    full = GroupEntry(
+        "Hand of Sol",
+        kind="order of knights",
+        lore_story_key="world-of-rathe/solana.md",
+        lore_fragment="the-hand-of-sol",
+    )
+    _story(db, groups=[full])
+    _story(db, path="src/main-story/monarch/sworn-to-protect.md", groups=[GroupEntry("Hand of Sol")])
+    row = db.conn.execute("SELECT lore_story_key, lore_fragment FROM groups WHERE name = 'Hand of Sol'").fetchone()
+    assert row["lore_story_key"] == "world-of-rathe/solana.md"
+    assert row["lore_fragment"] == "the-hand-of-sol"
+
+
+def test_group_documentation_reaches_the_csv(db: Database) -> None:
+    _story(
+        db,
+        groups=[GroupEntry("Gemini", lore_story_key="world-of-rathe/solana.md", lore_fragment="gemini")],
+    )
+    text = (db._data_dir / "csv" / "groups.csv").read_text(encoding="utf-8")
+    assert "LoreStoryKey|LoreFragment" in text
+    assert "world-of-rathe/solana.md|gemini" in text
