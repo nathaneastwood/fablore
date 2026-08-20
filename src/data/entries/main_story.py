@@ -1279,3 +1279,92 @@ db.upsert_story(
     # See the table below.
     dry_run=True,
 )
+
+db.upsert_story(
+    path="src/main-story/high-seas/captain-bones-and-the-city-of-gold.md",
+    story_type="main-story",
+    title="Captain Bones and the City of Gold",
+    authors="Robbie Wen, Edwin McRae, Rachel Rees, Alan Baxter",
+    source_link="https://fabtcg.com/articles/captain-bones-and-the-city-of-gold/",
+    publication_date="2025-06-02",
+    heroes=["gravy"],
+    npcs=[
+        npc.CHOWDER,
+        npc.CHUM,
+        npc.CUTTY,
+        # The story calls her the "Hightarn" shaman and never names her, so this row
+        # may be her people rather than her name. It predates this registration and
+        # is linked to no other story; reopened with the species values in stage 4.
+        npc.HIGHTARN,
+        npc.KELPIE,
+        npc.LIMPIT,
+        npc.MORAY_LE_FAY,
+        npc.NAILBIT_NARI,
+        npc.RIGGERMORTIS,
+        npc.SCOOBA,
+        npc.SHELLY,
+        npc.SWABBIE,
+        npc.WAILER,
+    ],
+    locations=[
+        # "Dreadfall's decaying edifices" and "explorations of Dreadfall" are this
+        # place under a shortened name, not a second one. high-seas.md has a single
+        # "Dreadfall Reach" heading.
+        loc.DREADFALL_REACH,
+        loc.GOLDEN_PORT,
+        loc.GRAYHOLLOW,
+        loc.GRAYSTONE,
+        loc.GRAYSTONE_PENITENTIARY,
+        loc.PIRATE_S_PERCH,
+        loc.PORT_CONNIVER,
+        loc.TERAMUNDR_S_TRIANGLE,
+        loc.TROPAL_DHANI,
+    ],
+    regions=[reg.HIGH_SEAS],
+    fauna=[fauna.CHIRPWHISK, fauna.HYDRA, fauna.KRAKEN],
+    food_drink=[food.SEPULCHRE_RUM],
+    # The story calls it only "an eldritch compass"; the card is unmistakably the
+    # same object, and the link is the user's call, recorded 2026-08-20.
+    equipment=["compass-of-sunken-depths"],
+    groups=[grp.KURAGHAN, grp.THE_DHANI_EMPIRE],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/armory-deck-maxx/boom-town-boom.md",
+    story_type="main-story",
+    title="Boom Town Boom",
+    source_link="https://fabtcg.com/articles/boom-town-boom/",
+    publication_date="2025-04-17",
+    heroes=["dash", "data-doll-mkii", "maxx"],
+    npcs=[
+        npc.AUDACITY,
+        npc.FERAL,
+        npc.JUICE,
+        npc.REZ,
+        npc.SYNTHEA_TEKLO,
+        npc.THIROUX,
+    ],
+    locations=[
+        loc.COPPERTOWN,
+        loc.EAST_RISE,
+        loc.EAST_RISE_POWER_STATION,
+        loc.PIT_2,
+        # Teklo Industries and The Foundry are each a group *and* a place, so both
+        # keep a locations row and are linked from both sides.
+        loc.TEKLO_INDUSTRIES,
+        loc.THE_FOUNDRY,
+        loc.VOSSEN_THEATER,
+    ],
+    regions=[reg.METRIX, reg.THE_PITS],
+    weapons=["banksy"],
+    groups=[
+        grp.COGWERX,
+        grp.MENDACITY_MEDIA,
+        grp.REGISTRY,
+        grp.STEELSTREET_ENFORCERS,
+        grp.TEKLO_INDUSTRIES,
+        grp.THE_FOUNDRY,
+    ],
+    dry_run=True,
+)

@@ -437,9 +437,10 @@
     "region": "Aria"
   },
   "The Foundry": {
-    "type": "location",
+    "type": "organisation",
     "summary": "An independent radio station, one of the few in Metrix that remains free of Mendacity control.",
-    "region": "Metrix"
+    "region": "Metrix",
+    "url": "/world-of-rathe/metrix.html#the-foundry"
   },
   "The Golden Fields": {
     "type": "location",
@@ -785,6 +786,11 @@
     "summary": "Solana's order of knights, who defend the city from outside threats.",
     "url": "/world-of-rathe/solana.html#the-hand-of-sol"
   },
+  "Kuraghan": {
+    "type": "cult",
+    "summary": "A fanatical pirate cult formed from reconditioned convicts. The Kuraghan worship the sea god Absolon and believe dying in battle earns them an afterlife of endless pleasure.",
+    "url": "/world-of-rathe/high-seas.html#the-kuraghan"
+  },
   "Mendacity Media": {
     "type": "corporation",
     "summary": "A corporation that maintains control of the media, funding almost every radio station and newspaper in the city."
@@ -793,6 +799,11 @@
     "type": "order",
     "summary": "The elite of Valahai's defenders, who communed with Galcia to gain command over Ice.",
     "url": "/world-of-rathe/aria.html#ollin"
+  },
+  "Registry": {
+    "type": "corporation",
+    "summary": "Metrix's dominant data gatherer and cybersecurity firm, which sells the personal data it collects and runs spies in every nation.",
+    "url": "/world-of-rathe/metrix.html#registry"
   },
   "Rosetta": {
     "type": "order",
@@ -810,6 +821,11 @@
     "type": "corporation",
     "summary": "A recent entrant to the steamtech industry, acclaimed for its innovative products and cutting-edge designs driven by a constantly experimenting R&D team.",
     "region": "Metrix"
+  },
+  "The Dhani Empire": {
+    "type": "empire",
+    "summary": "A matriarchal aethocracy built on the manipulation of aether, undone when its last empress unleashed forces her greatest wizard could not contain.",
+    "url": "/world-of-rathe/high-seas.html#the-dhani-empire"
   },
   "The Light of Sol": {
     "type": "order of scholars",
@@ -985,10 +1001,6 @@
     "type": "npc",
     "summary": "An illusionist, boss of the Dust Runners."
   },
-  "Kuraghan": {
-    "type": "faction",
-    "summary": "A fanatical pirate cult formed from reconditioned convicts. The Kuraghan worship the sea god Absolon and believe dying in battle earns them an afterlife of endless pleasure."
-  },
   "Lunedes": "Solanian Monday",
   "Merides": "Solanian Friday",
   "Min": {
@@ -1066,11 +1078,6 @@
     "type": "concept",
     "match": "Teklatic Dynamism",
     "summary": "Energy source invented by Professor Teklovossen."
-  },
-  "TheFoundry": {
-    "type": "organisation",
-    "match": "the Foundry",
-    "summary": "An independent radio station, one of the few in Metrix that remains free of Mendacity control."
   },
   "Thiroux": {
     "type": "npc",

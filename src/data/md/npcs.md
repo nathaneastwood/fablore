@@ -313,3 +313,4 @@
 |                     Yunkai                     |      Human     |                 Unknown                 |
 |                      Yvor                      |     Ancient    |                 Deceased                |
 |                   Írunaméabh                   |     Unkown     |                 Unknown                 |
+|                    λud@c!ty                    |     Unknown    |                 Unknown                 |

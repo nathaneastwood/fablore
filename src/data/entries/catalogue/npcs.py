@@ -20,6 +20,10 @@ AELIUS = NPCEntry("Aelius", species="Human", status="Dead")
 AESIR_OF_FLAMES = NPCEntry("Aesir of Flames", species="Aesir")
 AIOS = NPCEntry("Aios", species="Human", status="Alive")
 AKUO = NPCEntry("Akuo", species="Human")
+AUDACITY = NPCEntry("λud@c!ty")
+"""The Foundry's operator. metrix.md:201 says nobody knows "their real name,
+face, or if they're a single person or a collective of dissidents operating
+under a shared alias" — hence no species and no status."""
 ALIF = NPCEntry("Alif", species="Human", status="Alive")
 ALOSYN = NPCEntry("Alosyn", species="Human")
 AMIR = NPCEntry("Amir", species="Human")

@@ -154,10 +154,6 @@
     "type": "npc",
     "summary": "An illusionist, boss of the Dust Runners."
   },
-  "Kuraghan": {
-    "type": "faction",
-    "summary": "A fanatical pirate cult formed from reconditioned convicts. The Kuraghan worship the sea god Absolon and believe dying in battle earns them an afterlife of endless pleasure."
-  },
   "Lunedes": "Solanian Monday",
   "Merides": "Solanian Friday",
   "Min": {
@@ -241,11 +237,6 @@
     "type": "concept",
     "match": "Teklatic Dynamism",
     "summary": "Energy source invented by Professor Teklovossen."
-  },
-  "TheFoundry": {
-    "type": "organisation",
-    "match": "the Foundry",
-    "summary": "An independent radio station, one of the few in Metrix that remains free of Mendacity control."
   },
   "Thiroux": {
     "type": "npc",

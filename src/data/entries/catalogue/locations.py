@@ -95,6 +95,8 @@ CENTENNIAL_CONSUMABLES = LocationEntry("Centennial Consumables", region="Metrix"
 COGWERX_CONGLOMERATE = LocationEntry("Cogwerx Conglomerate", region="Metrix", lore_fragment="cogwerx-conglomerate")
 COPPERTOWN = LocationEntry("Coppertown", region="Metrix", lore_fragment="coppertown")
 EAST_RISE = LocationEntry("East Rise", region="Metrix", lore_fragment="east-rise")
+EAST_RISE_POWER_STATION = LocationEntry("East Rise Power Station", region="Metrix")
+PIT_2 = LocationEntry("Pit 2", region="Metrix")
 EIDOLON = LocationEntry("Eidolon", region="Metrix")
 EIGHTH_PRECINCT = LocationEntry("Eighth Precinct", region="Metrix")
 GIGADRILL_ELEVATOR = LocationEntry("Gigadrill Elevator", region="Metrix", lore_fragment="gigadrill-elevator")

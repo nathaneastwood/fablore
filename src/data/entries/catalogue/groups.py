@@ -159,6 +159,16 @@ IRON_ASSEMBLY = GroupEntry("Iron Assembly", kind="organisation")
 """Absorbs ``Iron Council``, shouted once in stroke-of-genius.md (Q2)."""
 MENDACITY_MEDIA = GroupEntry("Mendacity Media", kind="corporation")
 """Absorbs ``Mendacity``, ``Voxx`` and the ``Voxx Press`` location row (Q5)."""
+REGISTRY = GroupEntry(
+    "Registry",
+    kind="corporation",
+    lore_story_key="world-of-rathe/metrix.md",
+    lore_fragment="registry",
+)
+"""No "The" in the name: metrix.md's heading is "Registry" and the prose writes
+"the Registry" with a lowercase article, so the article is not part of the name.
+Rule N3 — follow the lore name by name. Contrast "The Foundry", whose own heading
+keeps its article."""
 STEELSTREET_ENFORCERS = GroupEntry("Steelstreet Enforcers", kind="law enforcement")
 THE_FOUNDRY = GroupEntry(
     "The Foundry",
@@ -247,7 +257,25 @@ craft section while its summary was written from the Valahai one."""
 # Unplaced
 # ---------------------------------------------------------------------------
 
-KURAGHAN = GroupEntry("Kuraghan", kind="cult")
+# ---------------------------------------------------------------------------
+# High Seas
+# ---------------------------------------------------------------------------
+
+THE_DHANI_EMPIRE = GroupEntry(
+    "The Dhani Empire",
+    kind="empire",
+    lore_story_key="world-of-rathe/high-seas.md",
+    lore_fragment="the-dhani-empire",
+)
+"""The polity, not the people. "Dhani" also runs through the archive as a folk with
+their own gods, language and dress — that sense is a species and belongs to stage 4;
+this row is the empire they built (2026-08-20)."""
+KURAGHAN = GroupEntry(
+    "Kuraghan",
+    kind="cult",
+    lore_story_key="world-of-rathe/high-seas.md",
+    lore_fragment="the-kuraghan",
+)
 THE_SPIDER = GroupEntry(
     "The Spider",
     kind="organisation",

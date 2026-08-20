@@ -14,3 +14,6 @@ from db import FoodDrinkEntry
 ALDER_CIDER = FoodDrinkEntry("Alder Cider", kind="Drink")
 BLACKJACK_S_WHISKEY = FoodDrinkEntry("Blackjack's Whiskey", kind="Drink")
 GOLDKISS_RUM = FoodDrinkEntry("Goldkiss Rum", kind="Drink")
+SEPULCHRE_RUM = FoodDrinkEntry("Sepulchre Rum", kind="Drink")
+"""kind must stay "Drink": food_drink_id hashes "name|kind", and row FDb173b37b0c
+already exists with that value. A different kind here mints a second row."""

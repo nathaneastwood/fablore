@@ -723,8 +723,32 @@ db.update_description(
 
 db.update_description(
     "group",
+    "Registry",
+    "Metrix's dominant data gatherer and cybersecurity firm, which sells the personal data it collects and runs spies in every nation.",
+)
+
+db.update_description(
+    "group",
+    "The Foundry",
+    "An independent radio station, one of the few in Metrix that remains free of Mendacity control.",
+)
+
+db.update_description(
+    "group",
     "Rosetta",
     "An Order of powerful spell weavers that once stood alongside the likes of the Ollin and the Seers.",
+)
+
+db.update_description(
+    "group",
+    "Kuraghan",
+    "A fanatical pirate cult formed from reconditioned convicts. The Kuraghan worship the sea god Absolon and believe dying in battle earns them an afterlife of endless pleasure.",
+)
+
+db.update_description(
+    "group",
+    "The Dhani Empire",
+    "A matriarchal aethocracy built on the manipulation of aether, undone when its last empress unleashed forces her greatest wizard could not contain.",
 )
 
 db.update_description(
