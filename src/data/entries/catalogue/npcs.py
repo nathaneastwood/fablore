@@ -191,6 +191,14 @@ JING = NPCEntry("Jing", species=sp.HUMAN, status="Alive")
 JUICE = NPCEntry("Juice", species=sp.HUMAN)
 JULES_TEKLOVOSSEN = NPCEntry("Jules Teklovossen", species=sp.HUMAN, status="Alive")
 KALSHARPE = NPCEntry("Kalsharpe", species=sp.HUMAN)
+KARALYN = NPCEntry("Karalyn")
+"""Was the last ``npcs.csv`` row with no constant at all — reachable from no
+declaration, so nothing could write to it. Found 2026-08-20 by the stage 4 review
+and closed by registering ``flavour/compendium-of-rathe.md``, which is the only
+page that names her: "Two worlds, one story, written in the alphabets of Aether
+and Aesir." — Aetherscribe Karalyn (PEN113). ``Aetherscribe`` is a profession and
+waits for R9; her species is unattested, and the retired column said ``Unknown``,
+which is not a fact about a character."""
 KARL = NPCEntry("Karl")
 KAYAT = NPCEntry("Kayat", status="Dead")
 KAYSIN = NPCEntry("Kaysin")
@@ -352,8 +360,13 @@ THEBASTO_MAGISTER_OF_DEFENSE = NPCEntry("Thebasto, Magister of Defense", species
 THEMIS_KEEPER_OF_THE_SCALES = NPCEntry(
     "Themis, Keeper of the Scales",
     species=sp.HERALD,
-    epithets=("Keeper of the Scales", "Archangel of Judgment"),
+    epithets=("Keeper of the Scales", "Archangel of Judgment", "Archangel of Justice"),
 )
+"""Three epithets for two titles, and that is deliberate (the user's call,
+2026-08-20). ``Archangel of Judgment`` is the form character-groups.md and the
+card text carry; ``compendium-of-rathe.md:34`` credits the same character as
+"Themis, Archangel of Justice". Both are attested in those exact words, so both
+are match strings rather than one being corrected into the other."""
 THEODORE_HAMILTON_SCARBOROUGH = NPCEntry("Theodore Hamilton Scarborough", species=sp.HUMAN)
 THE_BASTION = NPCEntry("The Bastion")
 THE_HARVESTER = NPCEntry("The Harvester", species=sp.HUMAN)

@@ -383,3 +383,55 @@ db.upsert_story(
     # TODO: needs review — Wakuro (one mention, too thin to type).
     dry_run=True,
 )
+
+# Registered 2026-08-20 to give Maela Fairmind's membership its own citation. It
+# was the page THE_MAELA's member_source had always named, and the only page that
+# names her — but nothing declared it, so she had no story link at all and the
+# citation pointed at a page the graph did not connect her to. Registering it also
+# closes npc.KARALYN, the last npcs.csv row with no catalogue constant.
+db.upsert_story(
+    path="src/flavour/compendium-of-rathe.md",
+    story_type="flavour",
+    title="Compendium of Rathe",
+    heroes=["enigma", "florian", "hala", "maxx", "uzuri"],
+    npcs=[
+        npc.ANARCH_ZEIR,
+        npc.APOSTATE,
+        npc.BATBITER,
+        npc.DAVNIR,
+        npc.DR_KREST_MORTIMER_THE_FIXER,
+        # X06: Kox is a hero and this page writes "Fightmaster Kox". The NPC row
+        # is what the other nine pages link, so this one joins them rather than
+        # starting a tenth spelling of the same person. Stage 6 re-points all ten.
+        npc.FIGHTMASTER_KOX,
+        npc.GALCIA,
+        npc.KARALYN,
+        npc.MAELA_FAIRMIND,
+        npc.SOL,
+        npc.THEMIS_KEEPER_OF_THE_SCALES,
+        npc.YVOR,
+    ],
+    locations=[
+        loc.CANDLEHOLD,
+        loc.CORALYSI,
+        loc.ENION,
+        loc.I_ARATHAEL,
+        loc.MOUNT_HEROIC,
+        loc.THE_FLOW,
+        loc.VALAHAI,
+    ],
+    regions=[reg.ARIA],
+    groups=[
+        grp.DISCIPLES_OF_PAIN,
+        grp.GEMINI,
+        grp.L_APOCALYPTA,
+        grp.MUGENSHI_CLAN,
+        grp.PROWLERS,
+        grp.ROSETTA,
+        grp.TEKLO_INDUSTRIES,
+        grp.THE_SPIDER,
+    ],
+    # Orihon of Mystic Tenets is quoted twice (PEN269, PEN273) and matches no row
+    # in any registry. Deliberately left out (the user's call, 2026-08-20).
+    dry_run=True,
+)

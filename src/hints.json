@@ -862,12 +862,14 @@
   "The Maela": {
     "type": "troupe",
     "summary": "Part of the Everfest Carnival, home to fortune tellers, seers, oracles, enchantresses, and conjurers.",
-    "region": "Aria"
+    "region": "Aria",
+    "url": "/world-of-rathe/aria.html#the-everfest-carnival"
   },
   "The Valdur": {
     "type": "troupe",
     "summary": "Part of the Everfest Carnival, known for strongmen acts and work with animals.",
-    "region": "Aria"
+    "region": "Aria",
+    "url": "/world-of-rathe/aria.html#the-everfest-carnival"
   },
   "Volcai": {
     "type": "people",

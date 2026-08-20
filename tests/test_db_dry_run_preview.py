@@ -19,6 +19,7 @@ import db._queries as q
 from db import (
     Database,
     FaunaEntry,
+    GroupEntry,
     FoodDrinkEntry,
     LocationEntry,
     NPCEntry,
@@ -283,3 +284,83 @@ def test_preview_reports_narrated_videos_being_replaced(db: Database, capsys) ->
 
     assert "St_Havock" in report, "the video being dropped is not named in the preview"
     assert "Someone Else" in report
+
+
+def test_preview_reports_group_lore_story_key_change(db: Database, capsys) -> None:
+    """A group gaining its documentation page is a write, so it must be shown.
+
+    Only ``kind`` was compared until 2026-08-20. ``upsert_group`` writes
+    ``lore_story_key`` and ``lore_fragment`` from plain strings on the entry, so
+    The Maela could gain both, change the DB, and print nothing.
+    """
+    db.upsert_story(
+        "src/main-story/x.md",
+        story_type="main-story",
+        title="X",
+        groups=[GroupEntry("The Maela", kind="troupe")],
+    )
+
+    report = _preview(
+        db,
+        capsys,
+        path="src/main-story/x.md",
+        story_type="main-story",
+        title="X",
+        groups=[
+            GroupEntry(
+                "The Maela",
+                kind="troupe",
+                lore_story_key="world-of-rathe/aria.md",
+                lore_fragment="the-everfest-carnival",
+            )
+        ],
+    )
+
+    assert "world-of-rathe/aria.md" in report, "the lore_story_key change is not shown"
+    assert "the-everfest-carnival" in report, "the lore_fragment change is not shown"
+
+
+def test_preview_reports_a_membership_changing_its_source(db: Database, capsys) -> None:
+    """The citation is a stored column, so re-sourcing a membership is a write.
+
+    The roster diff compared id sets, which are identical when only the cited
+    page moves — so the per-member source could have landed unannounced, exactly
+    the gap the emptied-roster bug had.
+    """
+    db.upsert_story(
+        "src/main-story/x.md",
+        story_type="main-story",
+        title="X",
+        groups=[
+            GroupEntry(
+                "The Maela",
+                npc_members=(NPCEntry("Kaysin"),),
+                member_source="flavour/compendium-of-rathe.md",
+            )
+        ],
+    )
+
+    report = _preview(
+        db,
+        capsys,
+        path="src/main-story/x.md",
+        story_type="main-story",
+        title="X",
+        groups=[GroupEntry("The Maela", npc_members=((NPCEntry("Kaysin"), "flavour/rosetta.md"),))],
+    )
+
+    assert "flavour/rosetta.md" in report, "the new citation is not shown"
+    assert "flavour/compendium-of-rathe.md" in report, "the old citation is not shown"
+
+
+def test_preview_stays_silent_when_a_membership_keeps_its_source(db: Database, capsys) -> None:
+    """The source diff must not fire on an unchanged roster."""
+    entry = GroupEntry(
+        "The Maela",
+        npc_members=((NPCEntry("Kaysin"), "flavour/rosetta.md"),),
+    )
+    db.upsert_story("src/main-story/x.md", story_type="main-story", title="X", groups=[entry])
+
+    report = _preview(db, capsys, path="src/main-story/x.md", story_type="main-story", title="X", groups=[entry])
+
+    assert "source" not in report, "an unchanged citation was reported as a change"

@@ -126,6 +126,57 @@ def test_npc_membership_is_written_from_the_group(db: Database) -> None:
     assert members == [(lore_character_id("Tara VanGeld"), "heroes-of-rathe/lyath-about.md")]
 
 
+def test_a_member_may_cite_its_own_page(db: Database) -> None:
+    """The Maela shape: one roster, members attested on different pages.
+
+    ``member_source`` is one string for the group, which is right for the eleven
+    rosters read off a single page and wrong for the one assembled from separate
+    attestations. A member written as an ``(npc, story_key)`` pair keeps its own.
+    """
+    entry = GroupEntry(
+        "The Maela",
+        kind="troupe",
+        npc_members=(
+            (NPCEntry("Maela Fairmind"), "flavour/compendium-of-rathe.md"),
+            (NPCEntry("Kaysin"), "flavour/rosetta.md"),
+        ),
+    )
+    _story(db, groups=[entry])
+    assert q.select_group_members(db.conn, group_id("The Maela"), "group_npcs", "character_id") == [
+        (lore_character_id("Maela Fairmind"), "flavour/compendium-of-rathe.md"),
+        (lore_character_id("Kaysin"), "flavour/rosetta.md"),
+    ]
+
+
+def test_plain_and_paired_members_mix_in_one_roster(db: Database) -> None:
+    """A pair overrides ``member_source``; a bare entry still inherits it."""
+    entry = GroupEntry(
+        "Gemini",
+        npc_members=(NPCEntry("Minerva"), (NPCEntry("Themis"), "flavour/outsiders.md")),
+        member_source="heroes-of-rathe/lyath-about.md",
+    )
+    _story(db, groups=[entry])
+    assert q.select_group_members(db.conn, group_id("Gemini"), "group_npcs", "character_id") == [
+        (lore_character_id("Minerva"), "heroes-of-rathe/lyath-about.md"),
+        (lore_character_id("Themis"), "flavour/outsiders.md"),
+    ]
+
+
+def test_a_paired_member_is_reachable_from_the_preview(db: Database) -> None:
+    """The nesting bug 2116c48e fixed must not reopen through the new pair.
+
+    ``_reachable_entities`` walks into ``npc_members`` so an epithet on a member
+    reached only through a roster is previewed. The pair wraps that member in a
+    tuple, and a walk that forgot to unwrap it would silently stop previewing.
+    """
+    entry = GroupEntry(
+        "The Maela",
+        npc_members=((NPCEntry("Kaysin", epithets=("Maela Soothsayer",)), "flavour/rosetta.md"),),
+    )
+    _story(db, groups=[entry])
+    assert q.select_npc_epithets(db.conn, lore_character_id("Kaysin")) == [("Maela Soothsayer", "epithet")]
+
+
 def test_hero_membership_resolves_slugs(db: Database) -> None:
     cid = _seed_hero(db, "kayo", "Kayo")
     _story(db, groups=[GroupEntry("Prowlers", hero_members=("kayo",))])

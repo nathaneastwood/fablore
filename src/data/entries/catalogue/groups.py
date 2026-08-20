@@ -22,6 +22,12 @@ citation is unsourced lore, so an uncited membership is left out rather than
 guessed: most groups below carry no members yet, and that is the honest state,
 not an oversight.
 
+It is the default, not the only option. A member may instead be written as an
+``(npc, story_key)`` pair when that one membership is attested somewhere else.
+Eleven of the twelve rosters here were read off a single page and use the plain
+form; ``THE_MAELA`` is the exception that needed the pair, its five seers named
+across four flavour pages with no page listing them together.
+
 Import direction is one-way — this module imports ``npcs.py`` and names hero
 slugs as strings, and nothing imports this module back — so no cycle is possible.
 """
@@ -294,23 +300,46 @@ SEERS = GroupEntry("Seers", kind="order")
 THE_MAELA = GroupEntry(
     "The Maela",
     kind="troupe",
-    npc_members=(npc.MAELA_FAIRMIND, npc.KAYSIN),
+    npc_members=(
+        (npc.MAELA_FAIRMIND, "flavour/compendium-of-rathe.md"),
+        (npc.MAELA_ISULFV, "flavour/omens-of-the-third-age.md"),
+        (npc.MAELA_ONE_EYE, "flavour/mastery-pack-guardian.md"),
+        (npc.MAELA_SHARENA, "flavour/omens-of-the-third-age.md"),
+        (npc.KAYSIN, "flavour/rosetta.md"),
+    ),
     location=loc.THE_EVERFEST_CARNIVAL,
-    member_source="flavour/compendium-of-rathe.md",
+    lore_story_key="world-of-rathe/aria.md",
+    lore_fragment="the-everfest-carnival",
 )
 """Was a locations row (G01). The Carnival link is a ``location``, not a
 ``parent`` — the Everfest Carnival is a place, and no group row exists for it.
 
-Kaysin arrived here from the species column, which read ``Maela Soothsayer`` —
-a membership and a rank written where a species goes, which is the mix-up stage 4
-unpicks. **No page calls her a Maela.** trouble-in-larinkmorth.md gives "the
-seer", "the elderly seer", a journey from Everfest and a reading of tea leaves,
-which is the Maela's whole description and nothing more; the membership is the
-user's call on that inference (2026-08-20), not an attestation. ``member_source``
-is one string for the group and still names the page that lists Maela Fairmind.
+No ``member_source``. aria.md:93 describes the Maela and names nobody, and no
+other page lists them as a roster, so there is no single page to cite — this is
+the group the per-member ``(npc, story_key)`` pair was added for. ``lore_story_key``
+carries the page that documents the group; each membership carries its own.
+
+**The name is the attestation.** Four of the five are written ``Maela <name>`` in
+the flavour credits. Kaysin is written "Kaysin, Maela Soothsayer"
+(``flavour/rosetta.md:16``) — the same construction with the rank last, and the
+exact string the retired ``Species`` column held for her. An earlier note here
+said in bold that no page called her a Maela and recorded the membership as the
+user's inference. That was wrong: rosetta.md attests it, the page is registered,
+and ``story_npcs`` has linked her to it the whole time. Corrected 2026-08-20.
+
+Isulfv, One-eye and Sharena joined at the same time, on the same reading of the
+prefix that gave ``KOTORI`` its roster (the user's call, 2026-08-20).
 ``Soothsayer`` is a rank and waits for stage 7."""
-THE_VALDUR = GroupEntry("The Valdur", kind="troupe", location=loc.THE_EVERFEST_CARNIVAL)
-"""Was a locations row (G02). See THE_MAELA on the Carnival link."""
+THE_VALDUR = GroupEntry(
+    "The Valdur",
+    kind="troupe",
+    location=loc.THE_EVERFEST_CARNIVAL,
+    lore_story_key="world-of-rathe/aria.md",
+    lore_fragment="the-everfest-carnival",
+)
+"""Was a locations row (G02). See THE_MAELA on the Carnival link, and on the
+fragment: both troupes are described in the same aria.md section and neither has
+a heading of its own, so both point at ``the-everfest-carnival``."""
 WARDENS = GroupEntry("Wardens", kind="order")
 WAYFARERS = GroupEntry(
     "Wayfarers",

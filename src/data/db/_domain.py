@@ -277,8 +277,23 @@ class GroupEntry:
     name: str
     kind: str = ""
     """Free text: ``"clan"``, ``"house"``, ``"guild"``, ``"order"``, ``"troupe"``."""
-    npc_members: tuple["NPCEntry", ...] = ()
-    """NPC roster (R1). A tuple, because the dataclass is frozen and hashable."""
+    npc_members: tuple["NPCEntry | tuple[NPCEntry, str]", ...] = ()
+    """NPC roster (R1). A tuple, because the dataclass is frozen and hashable.
+
+    An item is an :class:`NPCEntry`, or an ``(NPCEntry, story_key)`` pair when
+    that one membership is attested somewhere other than ``member_source``.
+
+    The pair exists because ``The Maela`` needed it. Eleven of the twelve rosters
+    that cite a source were read off a single page that lists the whole roster —
+    ``flavour/super-slam.md`` names the guilds, ``lyath-about.md`` names the
+    family. The Maela is not like that: five seers named across four different
+    flavour pages, and no page that lists them as a roster. One string for the
+    group could only be right for one of them.
+
+    Hero rosters take no pair. ``hero_members`` is slugs, no hero roster needs
+    one yet, and an untested second path is worse than a documented asymmetry —
+    it is listed in stage 11.
+    """
     hero_members: tuple[str, ...] = ()
     """Canonical hero slugs in the roster. Validated on upsert."""
     parent: "GroupEntry | None" = None
@@ -287,7 +302,9 @@ class GroupEntry:
     """Only when the group is *also* a place — Teklo Industries, a company and a
     works. Most groups leave this empty; a group is not a place."""
     member_source: str = ""
-    """Optional story key citing the roster (D2). Applies to every member."""
+    """Optional story key citing the roster (D2). The **default** for every member
+    that does not carry its own key in ``npc_members``; a group whose members are
+    each attested somewhere different leaves this empty and pairs them instead."""
     aliases: tuple[str, ...] = ()
     """Other names the group answers to (R6), e.g. ``"Mendacity"`` for
     ``"Mendacity Media"``. Without these the tooltip matcher only finds the full
@@ -301,6 +318,21 @@ class GroupEntry:
     lore_fragment: str = ""
     """Heading anchor on ``lore_story_key``, e.g. ``"the-hand-of-sol"``. Validated
     against the real headings on that page, exactly as location fragments are."""
+
+    def members(self) -> list[tuple["NPCEntry", str]]:
+        """The NPC roster as ``(npc, story_key)`` pairs, with the default applied.
+
+        The one place that unpacks the optional pair, so every caller reads a
+        roster the same shape whether or not a membership cites its own page.
+        """
+        pairs: list[tuple["NPCEntry", str]] = []
+        for item in self.npc_members:
+            if isinstance(item, tuple):
+                npc, source = item
+            else:
+                npc, source = item, self.member_source
+            pairs.append((npc, source))
+        return pairs
 
 
 # ---------------------------------------------------------------------------
@@ -1351,13 +1383,17 @@ class Database:
         # deletion the declaration asked for, not a no-op. Guarding these calls on a
         # truthy roster made an emptied one silently keep its rows while the dry run
         # went on printing a REMOVED line for them.
-        npc_ids = self._upsert_npcs(list(entry.npc_members))
+        roster = entry.members()
+        npc_ids = self._upsert_npcs([npc for npc, _source in roster])
         q.set_group_members(
             self.conn,
             gid,
             "group_npcs",
             "character_id",
-            [(cid, entry.member_source) for cid, _frag in npc_ids],
+            # Zip, not `entry.member_source`: `_upsert_npcs` returns ids in the
+            # order it was given, which is the order `members()` produced, so a
+            # membership that cites its own page keeps it.
+            [(cid, source) for (cid, _frag), (_npc, source) in zip(npc_ids, roster)],
         )
         hero_ids = self._resolve_heroes(list(entry.hero_members))
         q.set_group_members(
@@ -1698,7 +1734,7 @@ class Database:
                     walk_group(entry.parent)
                 if entry.location is not None:
                     walk_location(entry.location)
-                for member in entry.npc_members:
+                for member, _source in entry.members():
                     walk_npc(member)
 
             for entry in npcs or []:
@@ -1938,29 +1974,50 @@ class Database:
                     roster = len(entry.npc_members) + len(entry.hero_members)
                     lines.append(f"    + {entry.name} (new group, kind={entry.kind or '(none)'!r}, {roster} members)")
                     continue
-                for field, incoming in (("kind", entry.kind),):
+                # Every scalar `upsert_group` writes from a plain string on the
+                # entry. `kind` alone was previewed until 2026-08-20, so a group
+                # gaining its documentation page changed the DB and printed
+                # nothing — the same shape as the roster bug stage 3 fixed.
+                # `parent_group_id` and `location_id` are still unpreviewed; both
+                # need resolving rather than reading, and resolving a location
+                # writes. Stage 11.
+                for field, incoming in (
+                    ("kind", entry.kind),
+                    ("lore_story_key", entry.lore_story_key),
+                    ("lore_fragment", entry.lore_fragment),
+                ):
                     stored = row[field] or ""
                     if incoming and incoming != stored:
                         lines.append(f"    ~ {entry.name}: {field} {stored or '(none)'!r} -> {incoming!r}")
                 for table, id_col, wanted in (
-                    ("group_npcs", "character_id", [lore_character_id(m.name) for m in entry.npc_members]),
-                    ("group_heroes", "canonical_id", list(entry.hero_members)),
+                    ("group_npcs", "character_id", [(lore_character_id(m.name), src) for m, src in entry.members()]),
+                    ("group_heroes", "canonical_id", [(h, entry.member_source) for h in entry.hero_members]),
                 ):
                     # No guard. A declaration that names no members is asking for an
                     # empty roster, and the write path honours that, so the preview
                     # has to report the deletion. A group that has no stored members
                     # either produces no lines below, which is the quiet case this
                     # once tried to buy with a `continue`.
-                    stored_ids = {eid for eid, _src in q.select_group_members(self.conn, gid, table, id_col)}
-                    if table == "group_heroes":
-                        wanted_ids = set(self._resolve_heroes(wanted)) if wanted else set()
+                    stored = dict(q.select_group_members(self.conn, gid, table, id_col))
+                    if table == "group_heroes" and wanted:
+                        slugs, sources = [h for h, _s in wanted], [s for _h, s in wanted]
+                        wanted_map = dict(zip(self._resolve_heroes(slugs), sources))
                     else:
-                        wanted_ids = set(wanted)
-                    added, removed = wanted_ids - stored_ids, stored_ids - wanted_ids
+                        wanted_map = dict(wanted)
+                    added, removed = set(wanted_map) - set(stored), set(stored) - set(wanted_map)
+                    # The citation is a stored column, so a membership that keeps
+                    # its row and changes the page it cites is a write. Comparing
+                    # id sets alone made that invisible, which is how the per-member
+                    # source could have landed unannounced.
+                    resourced = sorted(i for i in set(wanted_map) & set(stored) if wanted_map[i] != stored[i])
                     if added:
                         lines.append(f"    + {entry.name}: {len(added)} member(s) added to {table}")
                     if removed:
                         lines.append(f"    - {entry.name}: {len(removed)} member(s) REMOVED from {table}")
+                    for mid in resourced:
+                        old_src = stored[mid] or "(none)"
+                        who = npc_id_to_name.get(mid, mid) if table == "group_npcs" else mid
+                        lines.append(f"    ~ {entry.name}: {who} source {old_src!r} -> {wanted_map[mid] or '(none)'!r}")
             if lines:
                 changed = True
                 out.write("  Group rows:\n")
