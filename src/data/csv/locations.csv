@@ -5,7 +5,7 @@ LO2ec34aa79a|Aldevyr|RG48803cad0f|A village in Aria.||
 LOd703dd530f|Amphitheatre|RG615666dae9|In the city proper, a space for ceremonies, public events and proclamations.||
 LOaf91be5766|Ankomeido|RGb2d75101c8|Home to the misfits and malcontents of Misteria.|ankomeido|
 LOaa1174793b|Anvilheim||Home of Rathe's finest architects and smiths, who raised the Auric Keep and forged Shyldverk's arcanite gate; now lost, but not forgotten.||
-LO89d656d928|Arcane Hall|RG63dcf97f5c|Cavernous testing chamber within the Auric Keep, converted into the laboratory where the Aetherscribes built Oscilio.|auric-keep|
+LO89d656d928|Arcane Hall|RG63dcf97f5c|Cavernous testing chamber within the Auric Keep, converted into the laboratory where the Aetherscribes built Oscilio.|auric-keep|LO1f9c8b9fc3
 LOb4dc89ff94|Arcturos|RG48803cad0f|Where Oscilio was embedded.||
 LO3c6d032a03|Arena Barracks||||
 LOe1d5c5e23e|Ashvahan|RG8e23bdd8e8|Capital of Volcor.|ashvahan|
@@ -14,7 +14,7 @@ LOfa989f1937|Astral Bridge|RG63dcf97f5c|An arcane span manifested by the Voltari
 LO707398693c|Audra|RG615666dae9|Village.||
 LO8b6cae13a8|Aui's Scales Strongholds|RG6cd31a74b6|Locations where things are concealed from the public.||
 LO1f9c8b9fc3|Auric Keep|RG63dcf97f5c|Citadel of learning the Aetherscribes built at the heart of Valahai; cast into the Nebulus Rift by the Ancients' cataclysm and later reconnected to Enion by the Astral Bridge.|auric-keep|
-LOcd01faec6c|Barthimont Manor|RG615666dae9|In the Northern Realms.||
+LOcd01faec6c|Barthimont Manor|RG615666dae9|In the Northern Realms.||LO3b30c6969f
 LO87681a5bd3|Barton's House|RGb2d75101c8|Information Dealer.||
 LOb7cf83f526|Beacon|RG58cc047b16|||
 LO70912597c6|Bellows of Hell||||
@@ -23,7 +23,7 @@ LO78b92e272a|Blackrock Quarries|RG8e23bdd8e8|In the north of Volcor.|blackrock-q
 LOda2f459c2c|Blackwater Strait|RG05a2281d01|||
 LO39f4a660ba|Blasmophet's Domain|RG8bc7b8bb1d|Separate plane.||
 LO1ba0d85dd4|Bleak Expanse|RG48803cad0f||the-bleak-expanse|
-LO538cd7834c|Blockhead Territory|RGb2d75101c8|An entire sector of The Maw.||
+LO538cd7834c|Blockhead Territory|RGb2d75101c8|An entire sector of The Maw.||LO3e4b7962a4
 LOd4ebfb0ed2|Boulderhead Island|RG48803cad0f|||
 LO35dcd7f34f|Butcher's Bin||||
 LOb35af8e7db|Candlehold|RG48803cad0f||candlehold|
@@ -85,14 +85,14 @@ LO24f58a142e|Iron Assembly|RG58cc047b16||iron-assembly|
 LO5960391805|Iron Hall|RG58cc047b16|The seat of power for Metrix's municipal government.||
 LO6db815b603|Ironsong Forge|RG615666dae9|In the city proper.||
 LO5813d4e070|Isen Ranges|RG48803cad0f|The mountain range dividing western Aria from the rest of Rathe, said to have been crafted by Isen from earth and aether; Valahai was founded behind it and Isenloft guards its only pass.||
-LO4a880fb760|Isenloft|RG48803cad0f|Mighty citadel amidst the Isen Ranges guarding the only passage into Aria; frozen at the Third Age's end, and thawing once more in recent times.||
+LO4a880fb760|Isenloft|RG48803cad0f|Mighty citadel amidst the Isen Ranges guarding the only passage into Aria; frozen at the Third Age's end, and thawing once more in recent times.||LO5813d4e070
 LO10a06fc12c|Jawbreaker Territory|RGb2d75101c8|No official territory with the exception of some houses on the water.||
 LO5624f1e30a|Kirohime Gate|RG6cd31a74b6|||
 LO2870b35930|Kraken's Barrel|RG05a2281d01|Tavern|krakens-barrel|
 LO3e219c3cb6|Kyloria's Lair|RGb2d75101c8|Deep beneath the Pits.||
 LO7f52772358|Lake Frigid|RG48803cad0f|Channel Lake Frigid||
 LO2797c773f6|Larinkmorth|RG48803cad0f||larinkmorth|
-LO7cc652d28f|Legendarium|RG48803cad0f|Part of the Everfest Carnival.|the-everfest-carnival|
+LO7cc652d28f|Legendarium|RG48803cad0f|Part of the Everfest Carnival.|the-everfest-carnival|LO6562f78c72
 LO96900f0f15|Library of Illumination|RG615666dae9|In the city proper, a public library cared for by the members of the Light of Sol.||
 LO98dc793e08|Lowlake|RG58cc047b16|||
 LOa02c20a7bf|Lunar Temple|RG6cd31a74b6||immortal-lunar-temple|
@@ -105,21 +105,21 @@ LOce6e55bb82|Mistcloak Teahouse|RG6cd31a74b6|||
 LO7781801004|Mojire||||
 LO0e33bbd4a9|Morlock Hill|RG615666dae9|Site of the Battle of Morlock Hill.||
 LOefd40a0286|Mount Heroic|RG48803cad0f|A mountain which towers above the forests of eastern Aria.||
-LO21dff30ce5|Mt. Isen|RG48803cad0f|Ageless mountain watching over Larinkmorth, untouched by the Flow; from its summit Isen is said to have crafted the Isen Ranges. Also recorded as Isen's Peak.|mount-isen|
+LO21dff30ce5|Mt. Isen|RG48803cad0f|Ageless mountain watching over Larinkmorth, untouched by the Flow; from its summit Isen is said to have crafted the Isen Ranges. Also recorded as Isen's Peak.|mount-isen|LO5813d4e070
 LO8d542316cb|Mt. Volcor|RG8e23bdd8e8|||
 LO817b25703b|Mugenshi Ancestral Shrine|RG6cd31a74b6|||
 LOcf0cab9ebb|Mugenshi Gorge|RG6cd31a74b6||mugenshi-gorge|
-LO7e38563547|Mugenshi Village|RG6cd31a74b6|Hidden village in the Mugenshi Gorge, led by Katsu.||
+LO7e38563547|Mugenshi Village|RG6cd31a74b6|Hidden village in the Mugenshi Gorge, led by Katsu.||LOcf0cab9ebb
 LOe104427645|Nasu-ka Teahouse|RG6cd31a74b6|Nuu's teahouse by Mistcloak Lake.||
 LOc14ae91285|Necropolis|RG8bc7b8bb1d|||
 LO2f4b821386|Neelasha||||
-LO610e7d8603|Neverest||Cursed tarns on the Shadowrealm's jagged heights, holding wells of necromantic potential Malice draws upon.||
+LO610e7d8603|Neverest||Cursed tarns on the Shadowrealm's jagged heights, holding wells of necromantic potential Malice draws upon.||LOc4233fa904
 LO9d006c4f90|Numbskull Territory|RGb2d75101c8|Cave network lined with skulls, resembling a catacomb.||
 LO90315ec319|Octogria|RG615666dae9|The gardens of||
 LO25ceb416fe|Octomilitia|RG615666dae9|||
 LO7a719adc16|Octotista|RG615666dae9|||
 LO15b57ad328|Old Metrix|RG58cc047b16|||
-LO725238a372|Overseer Crichton's Mansion|RGb2d75101c8|Situated in The Maw.||
+LO725238a372|Overseer Crichton's Mansion|RGb2d75101c8|Situated in The Maw.||LO3e4b7962a4
 LO839a8f6fd9|Piper's Pier|RG05a2281d01||pipers-pier|
 LOdd92d2930d|Pirate's Perch|RG05a2281d01|Filled with jungle.||
 LOdb228a6e6b|Pit 3|RG58cc047b16|||
@@ -137,15 +137,15 @@ LO2eb368953c|Sandakai|RG8e23bdd8e8|||
 LOb78dd7c62c|Seethe|RGb2d75101c8|A river.||
 LOff47f57ea9|Seetheside Docks|RGb2d75101c8|||
 LO508aad8280|Sellshore Coast|RG05a2281d01|||
-LOc4233fa904|Shadowrealm||A desolate expanse within i'Arathael, home to the Shadowrealm Walkers and traversed by Demonastery expeditions.||
+LOc4233fa904|Shadowrealm||A desolate expanse within i'Arathael, home to the Shadowrealm Walkers and traversed by Demonastery expeditions.||LO5275385b36
 LO9a3407fd64|Shuntswitch Railway Station|RGb2d75101c8|||
-LOda7dc20f64|Shyldverk|RG48803cad0f|Arcanite-forged gatehouse guarding the aetheric moat and the bridge to the Auric Keep; a surviving fragment of old Valahai.|shyldverk|
+LOda7dc20f64|Shyldverk|RG48803cad0f|Arcanite-forged gatehouse guarding the aetheric moat and the bridge to the Auric Keep; a surviving fragment of old Valahai.|shyldverk|LOb18734a689
 LO52452db6f3|Signarus|RG615666dae9|||
 LO0112129075|Silvarium|RG615666dae9|||
 LOd4d942b9a9|Skein|RGb2d75101c8|||
 LO90290c6e10|Skylark Peak|RG6cd31a74b6|||
 LO32c4e8536a|Solstice of Laurels|RG615666dae9||solstice-of-laurels|
-LO87586d511b|Sori 16|RGb2d75101c8|Location of The Leaf House.||
+LO87586d511b|Sori 16|RGb2d75101c8|A street in Ankomeido, deep in the Pits.||LOaf91be5766
 LO80942e64c1|Southmaw|RGb2d75101c8|Southmaw Asylum is a laboratory of horrors where the orphaned and discarded of the Pits beneath Metrix are subjected to nightmarish experiments.||
 LO433dd0d787|Sunvale|RG615666dae9|Village.||
 LO59f11a4ee0|Tarnish Hill||||
@@ -153,7 +153,7 @@ LO3a0f69658e|Teklo Industries|RG58cc047b16||teklo-industries|
 LOaf901ef389|Tempest Straits||||
 LOeba48851d7|Teramundr's Triangle|RG05a2281d01|||
 LO019a22bd3b|Terracette Path Academy|RG58cc047b16||terracette-path-academy|
-LO212ab1d262|The Abyss||The most sacred site in the Shadowrealm, guarded by Baalghor. No expedition to its outer reaches has ever returned.||
+LO212ab1d262|The Abyss||The most sacred site in the Shadowrealm, guarded by Baalghor. No expedition to its outer reaches has ever returned.||LOc4233fa904
 LOabadd35505|The Ash Plains|RG8e23bdd8e8|||
 LO8c71f728cf|The Awakening Ceremony|RG615666dae9||the-awakening-ceremony|
 LOf27186dbff|The Badlands|RG8e23bdd8e8|Borders the Savage Lands.||
@@ -164,12 +164,12 @@ LO6562f78c72|The Everfest Carnival|RG48803cad0f||the-everfest-carnival|
 LO838e79f0bd|The Flow|RG48803cad0f|A wild, unpredictable force of nature in Aria, the Flow shapes the landscape around it as it ebbs and flows.|the-flow|
 LOf738571d87|The Foundry|RG58cc047b16|An independent radio station, one of the few in Metrix that remains free of Mendacity control.|the-foundry|
 LO5ebb0e0557|The Golden Fields|RG615666dae9|Beyond the outer walls are grand golden fields, numerous villages and towns under the protection and guidance of Solana.||
-LO2438e70378|The Golden Gnome|RG48803cad0f|Part of the Everfest Carnival.||
+LO2438e70378|The Golden Gnome|RG48803cad0f|Part of the Everfest Carnival.||LO6562f78c72
 LO99df619cb9|The Golden Orchard Estate|RG8e23bdd8e8|||
 LOf2650073b1|The Grand Council|RG615666dae9||the-grand-council|
 LO5bcd4390d6|The Great Gates|RG615666dae9|These eight paths lead through the city to the Solarium.||
 LOfb9c32e3c0|The Korshem|RG48803cad0f|A massive tree at the heart of Aria that shelters all who live amongst its leaves.|the-korshem|
-LO02596d1255|The Leaf House|RGb2d75101c8|Restaurant run by Jemjang.||
+LO02596d1255|The Leaf House|RGb2d75101c8|Restaurant run by Jemjang.||LO87586d511b
 LO0627fa9c19|The Light of Sol|RG615666dae9||the-light-of-sol|
 LOad1f6eebc9|The Maela|RG48803cad0f|Part of the Everfest Carnival, home to fortune tellers, seers, oracles, enchantresses, and conjurers.||
 LO3e4b7962a4|The Maw|RGb2d75101c8|Entrance to the pits, traveled by mine cage|the-maw|
@@ -190,16 +190,16 @@ LOc025e6666e|The Valdur|RG48803cad0f|Part of the Everfest Carnival, known for st
 LO31ca75b500|The Venarium|RG8bc7b8bb1d|Room filled with plants.||
 LOdb916b8504|The Vitiate Gateway|RG8bc7b8bb1d|Last of the 9 portals connecting Rathe to íArathael.||
 LO6f27c455e1|Thistlefold||||
-LO18b0d9c58c|Throne Glade|RG48803cad0f|Area next to Candlehold.||
+LO18b0d9c58c|Throne Glade|RG48803cad0f|At the centre of Candlehold, where Queen Celvera slumbers upon the seat of power, entwined in roots and leaves.||LOb35af8e7db
 LO27fe08a024|Thunder Steppe|RG48803cad0f|Channel Thunder Steppe|thunder-steppe|
 LO4fc8febf5c|Torched Territory|RGb2d75101c8|Marked with trigger-sensitive flamethrowers, fire traps, lava pits, and plenty of explosives.||
 LO9b8ccbf9d3|Trōpal-Dhani|RG05a2281d01|A legendary city said to have survived the Dhani empire's collapse, hiding its lost magic and treasures in the most perilous ruins.|trōpal-dhani|
-LOaaec3dc609|Underdog Cafe|RG58cc047b16|In Coppertown.||
+LOaaec3dc609|Underdog Cafe|RG58cc047b16|In Coppertown.||LO2f893e5127
 LO279cde1c00|Urjiysa|RG8e23bdd8e8|||
-LO14218b7fa6|Valahai|RG48803cad0f|Fortress city founded on the plains of Enion, the Rathenfolk's last bastion against the Old Ones, overrun and shattered in the Third Age.|valahai|
+LO14218b7fa6|Valahai|RG48803cad0f|Fortress city founded on the plains of Enion, the Rathenfolk's last bastion against the Old Ones, overrun and shattered in the Third Age.|valahai|LOb18734a689
 LOfd66cc1c1b|Valley of Blossoms|RG6cd31a74b6|||
 LO070c2cab97|Voltaris Gem|RG63dcf97f5c||astral-bridge|
-LO793ecea506|Volthaven|RG48803cad0f|Snow-dusted village drifting through the skies of Enion, born from the storm where Yvor fell; home of Lexi and Aurora, its passage guarded by Wayfarers.|enion|
+LO793ecea506|Volthaven|RG48803cad0f|Snow-dusted village drifting through the skies of Enion, born from the storm where Yvor fell; home of Lexi and Aurora, its passage guarded by Wayfarers.|enion|LOb18734a689
 LO93ea3a21e6|Vossen Theater|RG58cc047b16|||
 LO53cb4357e1|Voxx Press|RG58cc047b16|||
 LO44a8837c0a|West Ranges||||

@@ -844,6 +844,66 @@ class Database:
                 )
         _export.export_registry_tables(self.conn, self._data_dir)
 
+    def set_location_parent(self, name: str, parent_name: str) -> None:
+        """Record that ``name`` sits *inside* ``parent_name`` (R7).
+
+        Containment is a property of the place, not of any page that mentions it,
+        so it is written here — by name, over whatever is already in the database —
+        rather than from a story declaration. ``LocationEntry.parent`` exists and
+        works, but a declaration only runs for a location some story names, and
+        five of the nineteen reviewed containments involve places no declaration
+        touches. Same split as ``notes``: the field exists on the entry class, and
+        ``descriptions.py`` owns the column.
+
+        **Containment only.** Proximity is not containment — "area next to
+        Candlehold" deliberately says *not in* Candlehold — and stays prose in
+        ``notes``. The two are indistinguishable in the data, so the split was
+        made by review, not by rule: see ``plans/location-containment-review.csv``.
+
+        Args:
+            name: Display name of the enclosed location. Must already exist.
+            parent_name: Display name of the enclosing location. Must already exist.
+
+        Raises:
+            ValueError: If either location is missing, if they are the same row,
+                or if the link would close a cycle.
+        """
+
+        def _one(label: str, wanted: str):
+            ids = q.select_location_ids_by_name(self.conn, wanted)
+            if not ids:
+                raise ValueError(f"{label} not found: {wanted!r}")
+            if len(ids) > 1:
+                raise ValueError(f"{label} {wanted!r} matches {len(ids)} rows; resolve the duplicate first")
+            return q.select_location_by_id(self.conn, ids[0])
+
+        child = _one("Location", name)
+        parent = _one("Parent location", parent_name)
+        if child["location_id"] == parent["location_id"]:
+            raise ValueError(f"A location cannot contain itself: {name!r}")
+
+        # Walk up from the proposed parent; meeting the child means a cycle.
+        seen, node = {child["location_id"]}, parent
+        while node is not None:
+            if node["location_id"] in seen and node["location_id"] != parent["location_id"]:
+                break
+            if node["parent_location_id"] == child["location_id"]:
+                raise ValueError(f"Containment cycle: {parent_name!r} is already inside {name!r}")
+            seen.add(node["location_id"])
+            nxt = node["parent_location_id"]
+            node = q.select_location_by_id(self.conn, nxt) if nxt else None
+
+        with self.conn:
+            q.set_parent(
+                self.conn,
+                "locations",
+                "location_id",
+                "parent_location_id",
+                child["location_id"],
+                parent["location_id"],
+            )
+        _export.export_registry_tables(self.conn, self._data_dir)
+
     def delete_entity(self, entity_type: str, name: str) -> None:
         """Delete a lore registry row by name, refusing if any story still links it.
 

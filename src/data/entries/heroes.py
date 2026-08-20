@@ -825,7 +825,7 @@ db.upsert_story(
         loc.THE_NORTHERN_REALMS,
     ],
     regions=[reg.THE_SAVAGE_LANDS],
-    groups=[grp.VANGELD],
+    groups=[grp.HOUSE_GOLDMANE, grp.VANGELD],
     dry_run=True,
 )
 

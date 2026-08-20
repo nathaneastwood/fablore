@@ -37,6 +37,19 @@ def _collecting_update_description(entity_type: str, name: str, text: str) -> No
 
 db.update_description = _collecting_update_description
 
+_set_location_parent = db.set_location_parent
+
+
+def _collecting_set_location_parent(name: str, parent_name: str) -> None:
+    """Apply a containment link, recording rather than raising when either side is missing."""
+    try:
+        _set_location_parent(name, parent_name)
+    except ValueError as exc:
+        _failures.append(("location parent", name, str(exc)))
+
+
+db.set_location_parent = _collecting_set_location_parent
+
 # ---------------------------------------------------------------------------
 # Monsters
 # ---------------------------------------------------------------------------
@@ -463,7 +476,7 @@ db.update_description(
     "Arcanite-forged gatehouse guarding the aetheric moat and the bridge to the Auric Keep;"
     " a surviving fragment of old Valahai.",
 )
-db.update_description("location", "Sori 16", "Location of The Leaf House.")
+db.update_description("location", "Sori 16", "A street in Ankomeido, deep in the Pits.")
 db.update_description(
     "location",
     "Southmaw",
@@ -522,7 +535,11 @@ db.update_description(
     "The Vitiate Gateway",
     "Last of the 9 portals connecting Rathe to íArathael.",
 )
-db.update_description("location", "Throne Glade", "Area next to Candlehold.")
+db.update_description(
+    "location",
+    "Throne Glade",
+    "At the centre of Candlehold, where Queen Celvera slumbers upon the seat of power, entwined in roots and leaves.",
+)
 db.update_description(
     "location",
     "Torched Territory",
@@ -560,6 +577,52 @@ db.update_description(
 # ---------------------------------------------------------------------------
 # Report
 # ---------------------------------------------------------------------------
+
+
+# ---------------------------------------------------------------------------
+# Containment — locations.parent_location_id (R7)
+# ---------------------------------------------------------------------------
+# X is *inside* Y. Written here rather than on the catalogue entries because
+# containment is a property of the place, not of any page that happens to mention
+# it: five of these nineteen involve locations no story declaration names, so a
+# `parent=` on the catalogue constant would never run for them. Same split as
+# notes above — the field exists on LocationEntry, this file owns the column.
+#
+# PROXIMITY IS NOT CONTAINMENT and is deliberately absent. Rotwood and Throne
+# Glade carry the same note text, "Area next to Candlehold", and take different
+# answers: Rotwood strayed *from* Candlehold (florian-rotwood-harbinger.md:7),
+# Throne Glade sits at its centre (aria.md:65). The two are indistinguishable in
+# the data, so all 60 candidates were reviewed by hand and only these 19 are
+# containment. See plans/location-containment-review.csv.
+
+db.set_location_parent("Arcane Hall", "Auric Keep")
+db.set_location_parent("Barthimont Manor", "The Northern Realms")
+db.set_location_parent("Blockhead Territory", "The Maw")
+db.set_location_parent("Isenloft", "Isen Ranges")
+db.set_location_parent("Legendarium", "The Everfest Carnival")
+db.set_location_parent("Mt. Isen", "Isen Ranges")
+db.set_location_parent("Mugenshi Village", "Mugenshi Gorge")
+db.set_location_parent("Overseer Crichton's Mansion", "The Maw")
+db.set_location_parent("The Golden Gnome", "The Everfest Carnival")
+db.set_location_parent("Throne Glade", "Candlehold")
+db.set_location_parent("Underdog Cafe", "Coppertown")
+
+# Enion, not Valahai, for all three. Valahai was shattered and the Auric Keep cast
+# into the Nebulus Rift; the parent column always means the PRESENT-DAY container,
+# so a departed one stays prose. aria.md:199 puts Shyldverk "now drifting as an
+# island within Enion".
+db.set_location_parent("Shyldverk", "Enion")
+db.set_location_parent("Valahai", "Enion")
+db.set_location_parent("Volthaven", "Enion")
+
+# Chains: parent before child, so each link is written against a row that already
+# has its own parent set.
+db.set_location_parent("Shadowrealm", "i'Arathael")
+db.set_location_parent("Neverest", "Shadowrealm")
+db.set_location_parent("The Abyss", "Shadowrealm")
+
+db.set_location_parent("Sori 16", "Ankomeido")
+db.set_location_parent("The Leaf House", "Sori 16")
 
 if _failures:
     print(f"descriptions.py: {len(_failures)} description(s) could not be applied:", file=sys.stderr)

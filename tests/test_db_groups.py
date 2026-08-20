@@ -293,3 +293,67 @@ def test_dry_run_flags_a_roster_that_would_shrink(db: Database, capsys) -> None:
         dry_run=True,
     )
     assert "REMOVED from group_npcs" in capsys.readouterr().out
+
+
+# ---------------------------------------------------------------------------
+# set_location_parent — containment written by name, not by declaration
+# ---------------------------------------------------------------------------
+
+
+def test_set_location_parent_writes_the_link(db: Database) -> None:
+    _story(db, locations=[LocationEntry("The Maw", region="The Pits"), LocationEntry("Sori 16", region="The Pits")])
+    db.set_location_parent("Sori 16", "The Maw")
+    row = db.conn.execute("SELECT parent_location_id FROM locations WHERE name = 'Sori 16'").fetchone()
+    assert row["parent_location_id"]
+
+
+def test_set_location_parent_does_not_need_a_declaration(db: Database) -> None:
+    """The reason containment lives here and not on the catalogue entry.
+
+    Five of the nineteen reviewed containments involve locations that no story
+    declaration names, so a `parent=` on the catalogue constant would never run.
+    Writing by name reaches every row that exists.
+    """
+    _story(db, locations=[LocationEntry("Ankomeido", region="The Pits")])
+    q.upsert_location(db.conn, location_id="LOx", name="Orphan Street", region_id="")
+    db.set_location_parent("Orphan Street", "Ankomeido")
+    row = db.conn.execute("SELECT parent_location_id FROM locations WHERE name = 'Orphan Street'").fetchone()
+    assert row["parent_location_id"]
+
+
+def test_set_location_parent_rejects_a_missing_location(db: Database) -> None:
+    _story(db, locations=[LocationEntry("The Maw", region="The Pits")])
+    with pytest.raises(ValueError, match="Location not found"):
+        db.set_location_parent("Nowhere", "The Maw")
+    with pytest.raises(ValueError, match="Parent location not found"):
+        db.set_location_parent("The Maw", "Nowhere")
+
+
+def test_set_location_parent_rejects_self_containment(db: Database) -> None:
+    _story(db, locations=[LocationEntry("The Maw", region="The Pits")])
+    with pytest.raises(ValueError, match="cannot contain itself"):
+        db.set_location_parent("The Maw", "The Maw")
+
+
+def test_set_location_parent_rejects_a_cycle(db: Database) -> None:
+    _story(
+        db,
+        locations=[
+            LocationEntry("Ankomeido", region="The Pits"),
+            LocationEntry("Sori 16", region="The Pits"),
+            LocationEntry("The Leaf House", region="The Pits"),
+        ],
+    )
+    db.set_location_parent("Sori 16", "Ankomeido")
+    db.set_location_parent("The Leaf House", "Sori 16")
+    with pytest.raises(ValueError, match="cycle"):
+        db.set_location_parent("Ankomeido", "The Leaf House")
+
+
+def test_set_location_parent_rejects_an_ambiguous_name(db: Database) -> None:
+    """Two rows under one name is the Deathmatch Arena fork; refuse rather than guess."""
+    _story(db, locations=[LocationEntry("The Maw", region="The Pits")])
+    q.upsert_location(db.conn, location_id="LOdup1", name="Twin", region_id="")
+    q.upsert_location(db.conn, location_id="LOdup2", name="Twin", region_id="RGother")
+    with pytest.raises(ValueError, match="matches 2 rows"):
+        db.set_location_parent("Twin", "The Maw")

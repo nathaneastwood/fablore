@@ -93,6 +93,7 @@ HOUSE_GOLDMANE = GroupEntry(
     hero_members=("lyath", "victor-goldmane"),
     member_source="heroes-of-rathe/lyath-about.md",
 )
+
 SISTERS_OF_OCTOTHESIA = GroupEntry("Sisters of Octothesia", kind="order")
 THE_LIGHT_OF_SOL = GroupEntry("The Light of Sol", kind="order")
 
