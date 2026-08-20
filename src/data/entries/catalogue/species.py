@@ -75,7 +75,7 @@ ZOMBIE = SpeciesEntry("Zombie")
 
 AESIR = SpeciesEntry("Aesir", aliases=("Aesirs",))
 """Absorbs the ``Aesir`` supplement entry, whose hand-written match array carried
-the plural. The three "Aesir of —" epithets are titles and wait for stage 6."""
+the plural. The three "Aesir of —" epithets are titles and wait for stage 7."""
 ANCIENT = SpeciesEntry("Ancient", aliases=("Ancients",))
 """Absorbs the ``Ancients`` supplement entry. The species value on the NPC rows is
 singular and the prose is plural, so the alias is what joins them."""

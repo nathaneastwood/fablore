@@ -1248,7 +1248,7 @@ db.upsert_story(
     # TODO: needs catalogue constant — Leander (npc), Viator (npc). See the table below.
     # X01: npc.THE_LIBRARIAN is now also a playable hero, so _upsert_npcs refuses
     # this link. The two rows are the same person at two points in time — a title
-    # relation, deferred to stage 6 — so this stays unapplied rather than merged.
+    # relation, deferred to stage 7 — so this stays unapplied rather than merged.
     dry_run=True,
 )
 

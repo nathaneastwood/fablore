@@ -164,7 +164,7 @@ GRAND_MAGISTER_THE_RADIANT = NPCEntry("Grand Magister, the Radiant", species=sp.
 GRAND_MAGISTER_THE_STEADFAST = NPCEntry("Grand Magister, The Steadfast", species=sp.HUMAN)
 """Five rows for one office, and the case drift on ``The Steadfast`` makes it six
 spellings' worth of hash. Adamant and Beloved had npcs.csv rows and no constant at
-all until stage 4 needed every species declared somewhere. Stage 6 collapses the
+all until stage 4 needed every species declared somewhere. Stage 7 collapses the
 five into one title with five holders; until then they are five NPCs."""
 GREENBIRD = NPCEntry("Greenbird", species=sp.HUMAN)
 GROTA = NPCEntry("Grota", species=sp.HUMAN, status="Alive")

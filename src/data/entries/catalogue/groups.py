@@ -145,7 +145,7 @@ DRACAI = GroupEntry("Dracai", kind="people")
 """The other half of the Volcoran split, and typed like ``Volcai`` because it is
 the same kind of fact: volcor.md draws the line at dragon's blood, not at office.
 Was ``title`` (2026-08-20) — the named offices are the titles, "Fang, Dracai of
-Blades", "Taipanis, Dracai of Judgement", and those hang off this row in stage 6.
+Blades", "Taipanis, Dracai of Judgement", and those hang off this row in stage 7.
 
 Not a species row, although a caste reads like one: every named Dracai is a
 **hero**, and ``heroes_canonical`` has three columns and no species, so a species
@@ -308,7 +308,7 @@ seer", "the elderly seer", a journey from Everfest and a reading of tea leaves,
 which is the Maela's whole description and nothing more; the membership is the
 user's call on that inference (2026-08-20), not an attestation. ``member_source``
 is one string for the group and still names the page that lists Maela Fairmind.
-``Soothsayer`` is a rank and waits for stage 6."""
+``Soothsayer`` is a rank and waits for stage 7."""
 THE_VALDUR = GroupEntry("The Valdur", kind="troupe", location=loc.THE_EVERFEST_CARNIVAL)
 """Was a locations row (G02). See THE_MAELA on the Carnival link."""
 WARDENS = GroupEntry("Wardens", kind="order")
