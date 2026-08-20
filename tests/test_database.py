@@ -20,9 +20,10 @@ from db import (
     FoodDrinkEntry,
     LocationEntry,
     MonsterEntry,
-    NarratedVideoEntry,
     NPCEntry,
+    NarratedVideoEntry,
     RegionEntry,
+    SpeciesEntry,
 )
 
 
@@ -176,12 +177,19 @@ def test_upsert_story_links_npcs(db: Database) -> None:
         "src/main-story/npc.md",
         story_type="main-story",
         title="NPC Story",
-        npcs=[NPCEntry("Guard Captain", species="Human", status="Alive")],
+        npcs=[NPCEntry("Guard Captain", species=SpeciesEntry("Human"), status="Alive")],
     )
     npc = db.conn.execute("SELECT * FROM npcs").fetchone()
     assert npc["name"] == "Guard Captain"
-    assert npc["species"] == "Human"
     assert db.conn.execute("SELECT COUNT(*) FROM story_npcs").fetchone()[0] == 1
+    # Species is a junction now, not a column on this row.
+    assert (
+        db.conn.execute(
+            "SELECT s.name FROM npc_species ns JOIN species s USING(species_id) WHERE ns.character_id = ?",
+            [npc["character_id"]],
+        ).fetchone()[0]
+        == "Human"
+    )
 
 
 def test_upsert_story_npc_replace_semantics(db: Database) -> None:

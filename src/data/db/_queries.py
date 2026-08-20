@@ -401,6 +401,81 @@ def select_group_aliases(conn: sqlite3.Connection, group_id: str) -> list[str]:
 
 
 # ---------------------------------------------------------------------------
+# Species (R2)
+# ---------------------------------------------------------------------------
+#
+# Three functions for what used to be one column. ``species`` is a registry like
+# any other; ``npc_species`` is a junction, replace-semantic on the character the
+# way a roster is on its group; ``species_aliases`` is the fourth alias table and
+# behaves exactly like the other three.
+
+
+def upsert_species(conn: sqlite3.Connection, *, species_id: str, name: str, notes: str = "") -> None:
+    """Insert or update a species row, preserving ``notes`` the caller omits.
+
+    ``notes`` follows the preserve-on-empty contract the other registries use:
+    a declaration names a species, ``descriptions.py`` writes what it is.
+    """
+    conn.execute(
+        """
+        INSERT INTO species (species_id, name, notes)
+        VALUES (?,?,?)
+        ON CONFLICT(species_id) DO UPDATE SET
+            name  = excluded.name,
+            notes = CASE WHEN excluded.notes != '' THEN excluded.notes ELSE species.notes END
+        """,
+        (species_id, name, notes),
+    )
+
+
+def select_all_species(conn: sqlite3.Connection) -> list[sqlite3.Row]:
+    return conn.execute("SELECT * FROM species ORDER BY name").fetchall()
+
+
+def update_species_notes(conn: sqlite3.Connection, species_id: str, notes: str) -> int:
+    cur = conn.execute("UPDATE species SET notes = ? WHERE species_id = ?", [notes, species_id])
+    return cur.rowcount
+
+
+def set_npc_species(conn: sqlite3.Connection, character_id: str, species_ids: list[str]) -> None:
+    """Replace every species linked to ``character_id``, in the order given."""
+    conn.execute("DELETE FROM npc_species WHERE character_id = ?", [character_id])
+    if species_ids:
+        conn.executemany(
+            "INSERT OR IGNORE INTO npc_species (character_id, species_id, sort_order) VALUES (?,?,?)",
+            [(character_id, sid, i) for i, sid in enumerate(species_ids)],
+        )
+
+
+def select_npc_species(conn: sqlite3.Connection, character_id: str) -> list[str]:
+    """Return the species ids linked to ``character_id`` in declared order."""
+    rows = conn.execute(
+        "SELECT species_id FROM npc_species WHERE character_id = ? ORDER BY sort_order, species_id",
+        [character_id],
+    ).fetchall()
+    return [r[0] for r in rows]
+
+
+def set_species_aliases(conn: sqlite3.Connection, species_id: str, aliases: list[str]) -> None:
+    """Replace every alias for ``species_id``, in the order given."""
+    conn.execute("DELETE FROM species_aliases WHERE species_id = ?", [species_id])
+    if aliases:
+        conn.executemany(
+            "INSERT OR IGNORE INTO species_aliases (species_id, alias, sort_order) VALUES (?,?,?)",
+            [(species_id, alias, i) for i, alias in enumerate(aliases)],
+        )
+
+
+def select_species_aliases(conn: sqlite3.Connection, species_id: str) -> list[str]:
+    """Return the aliases for ``species_id`` in declared order."""
+    rows = conn.execute(
+        "SELECT alias FROM species_aliases WHERE species_id = ? ORDER BY sort_order, alias",
+        [species_id],
+    ).fetchall()
+    return [r[0] for r in rows]
+
+
+# ---------------------------------------------------------------------------
 # NPCs
 # ---------------------------------------------------------------------------
 
@@ -410,50 +485,46 @@ def upsert_npc(
     *,
     character_id: str,
     name: str,
-    species: str = "",
     status: str = "",
     other_characters_story_key: str = "",
 ) -> None:
     """Insert or update an NPC, preserving curated fields the caller omits.
 
-    ``species`` and ``status`` follow the same preserve-on-empty contract as
+    ``status`` follows the same preserve-on-empty contract as
     :func:`upsert_location`'s ``notes``: an empty string means "leave whatever is
     already there", not "set it to Unknown". This matters because most callers are
     story registrations that know a character's name but not their curated lore
     status — passing a sentinel would silently replace values such as
     ``"Just a head"`` or ``"Assumed Dead"`` with ``"Unknown"``.
 
-    A brand-new NPC still lands as ``"Unknown"`` for whichever field is omitted.
+    A brand-new NPC still lands as ``"Unknown"`` for an omitted ``status``.
+
+    Species does **not** live here any more and does not follow that contract.
+    It is a junction (:func:`set_npc_species`), replace-semantic like the group
+    rosters, because one column could not hold `Zombie` and `Dog` at once.
     """
     row = conn.execute(
-        "SELECT species, status FROM npcs WHERE character_id = ?",
+        "SELECT status FROM npcs WHERE character_id = ?",
         [character_id],
     ).fetchone()
     if row is None:
         # New row — an omitted field has nothing to preserve, so seed the sentinel.
-        species = species or "Unknown"
         status = status or "Unknown"
     else:
-        for field, value in (("species", species), ("status", status)):
-            existing = row[field]
-            if not value and existing and existing != "Unknown":
-                _log.warning(
-                    "Skipping %s overwrite for npc %r — existing value %r preserved"
-                    " (pass a non-empty %s to update it)",
-                    field,
-                    character_id,
-                    existing,
-                    field,
-                )
+        existing = row["status"]
+        if not status and existing and existing != "Unknown":
+            _log.warning(
+                "Skipping status overwrite for npc %r — existing value %r preserved"
+                " (pass a non-empty status to update it)",
+                character_id,
+                existing,
+            )
     conn.execute(
         """
-        INSERT INTO npcs (character_id, name, species, status, other_characters_story_key)
-        VALUES (?,?,?,?,?)
+        INSERT INTO npcs (character_id, name, status, other_characters_story_key)
+        VALUES (?,?,?,?)
         ON CONFLICT(character_id) DO UPDATE SET
             name    = excluded.name,
-            species = CASE WHEN excluded.species != ''
-                      THEN excluded.species
-                      ELSE npcs.species END,
             status  = CASE WHEN excluded.status != ''
                       THEN excluded.status
                       ELSE npcs.status END,
@@ -463,7 +534,7 @@ def upsert_npc(
                 ELSE npcs.other_characters_story_key
             END
         """,
-        (character_id, name, species, status, other_characters_story_key),
+        (character_id, name, status, other_characters_story_key),
     )
 
 

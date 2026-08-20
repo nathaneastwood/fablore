@@ -138,7 +138,7 @@ def _supplement(tmp_path: Path, payload: dict) -> Path:
 
 
 def test_check_supplement_types_accepts_known_types(tmp_path: Path) -> None:
-    path = _supplement(tmp_path, {"Chanek": {"type": "species", "summary": "Rathenfolk of the far west."}})
+    path = _supplement(tmp_path, {"Nimby": {"type": "ship", "summary": "A vessel."}})
     assert validate_data._check_supplement_types(path) == []
 
 
@@ -166,9 +166,15 @@ def test_check_supplement_types_skips_plain_string_entries(tmp_path: Path) -> No
     assert validate_data._check_supplement_types(path) == []
 
 
-def test_species_is_a_known_type() -> None:
-    """Added 2026-08-20 so Chanek could be retyped off `faction`; it is a species."""
-    assert "species" in validate_data._SUPPLEMENT_TYPES
+def test_species_and_faction_are_not_supplement_types() -> None:
+    """Both left in stage 4, for the same reason: the DB is the writer now.
+
+    `species` was added so Chanek could be retyped off `faction`; four months
+    later Chanek is a `species.csv` row and the supplement entry is gone, so a
+    supplement entry claiming either type would be a second writer on one fact.
+    """
+    assert "species" not in validate_data._SUPPLEMENT_TYPES
+    assert "faction" not in validate_data._SUPPLEMENT_TYPES
 
 
 def test_real_supplement_has_no_unknown_types() -> None:

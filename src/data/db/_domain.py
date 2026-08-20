@@ -13,6 +13,7 @@ you never have to guess an identifier.
 from __future__ import annotations
 
 import re
+import sqlite3
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -35,6 +36,7 @@ from registry_ids import (  # noqa: E402
     lore_character_id,
     monster_id as _monster_id,
     region_row_id,
+    species_id as _species_id,
     story_id as _story_id,
 )
 from text_utils import normalize_name  # noqa: E402
@@ -62,6 +64,27 @@ def _alias_pair(alias: "str | tuple[str, str]") -> tuple[str, str]:
     return name, era
 
 
+def _species_tuple(species: "SpeciesEntry | tuple[SpeciesEntry, ...] | None") -> "tuple[SpeciesEntry, ...]":
+    """Normalise ``NPCEntry.species`` to a tuple.
+
+    One species is the overwhelmingly common case and writes as a bare constant;
+    two is rare enough that making every declaration wrap itself in a tuple would
+    be a tax on 300 rows to serve one. The same call ``LocationEntry.aliases``
+    makes for its ``(alias, era)`` form.
+    """
+    if species is None:
+        return ()
+    if isinstance(species, SpeciesEntry):
+        return (species,)
+    return tuple(species)
+
+
+def _species_name(conn: sqlite3.Connection, species_id: str) -> str:
+    """Return a stored species' display name, or its id if the row has gone."""
+    row = conn.execute("SELECT name FROM species WHERE species_id = ?", [species_id]).fetchone()
+    return row[0] if row else species_id
+
+
 def _auto_world_key(region_name: str) -> str:
     """Derive ``world-of-rathe/<slug>.md`` from a region display name, or return ``""``."""
     slug = re.sub(r"^the\s+", "", region_name.strip(), flags=re.IGNORECASE)
@@ -85,6 +108,28 @@ class NarratedVideoEntry:
 
 
 @dataclass(frozen=True)
+class SpeciesEntry:
+    """What a character is (R2) — a species, in one flat list.
+
+    Frozen and catalogued for the same reason every other entity is: the id is a
+    hash of the name at the call site, so a second literal for ``Human`` would
+    mint a second row rather than reuse the first.
+
+    There is no ``kind`` column separating species from cosmological tier.
+    Herald, Aesir, Ancient, Embra and Dragon sit beside Human and Dwarf, because
+    the line between them is a reading of the lore rather than a fact the data
+    can check, and a column nothing can validate is a column that drifts.
+    """
+
+    name: str
+    aliases: tuple[str, ...] = ()
+    """Other names this species answers to (R6), e.g. ``"Aesirs"`` for ``"Aesir"``.
+    Plurals mostly: the supplement entries these replace carried them by hand, and
+    English plurals are not mechanical enough to generate — ``Aesir`` takes an s,
+    ``Chanek`` does not, and nothing in the prose writes ``Humans``."""
+
+
+@dataclass(frozen=True)
 class NPCEntry:
     """A non-playable character to link to a story.
 
@@ -94,8 +139,16 @@ class NPCEntry:
     """
 
     name: str
-    species: str = ""
-    """Leave empty to preserve an existing NPC's species; new NPCs default to ``"Unknown"``."""
+    species: "SpeciesEntry | tuple[SpeciesEntry, ...] | None" = None
+    """What this character is (R2). One :class:`SpeciesEntry`, or a tuple where the
+    lore says two — Scooba is a ``Zombie`` and a ``Dog``, which the free-text
+    column this replaces could only write as the single value ``"Zombie Dog"``.
+
+    Replace-semantic, like the rosters and the alias tables: ``None`` and ``()``
+    both mean this character has no recorded species, and both will clear one that
+    is stored. That is a change from the column, where an omitted value meant
+    "preserve" — 32 rows carried a species no declaration named, and every one of
+    them had to be written into the catalogue before the switch."""
     status: str = ""
     """Leave empty to preserve an existing NPC's status; new NPCs default to ``"Unknown"``."""
     other_characters_story_key: str = ""
@@ -312,7 +365,7 @@ class Database:
             story_type="main-story",
             title="Foo",
             heroes=["boltyn"],
-            npcs=[NPCEntry("Guard Captain", species="Human")],
+            npcs=[NPCEntry("Guard Captain", species=SpeciesEntry("Human"))],
         )
         r.display()
     """
@@ -333,7 +386,7 @@ class Database:
             seed_from_csvs(self.conn, self._data_dir)
 
     def _needs_seed(self) -> bool:
-        for table in ("stories", "equipment_printings", "weapons_printings"):
+        for table in ("stories", "equipment_printings", "weapons_printings", "species"):
             if self.conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0] == 0:
                 return True
         return False
@@ -402,13 +455,33 @@ class Database:
         )
 
     def list_npcs(self) -> list[dict[str, str]]:
-        """Return ``[{"name": …, "species": …, "status": …}]`` for all NPCs."""
+        """Return ``[{"name": …, "species": …, "status": …}]`` for all NPCs.
+
+        ``species`` is joined from ``npc_species`` and comma-joined for display,
+        so Scooba reads ``"Zombie, Dog"``. It is a rendering of the junction, not
+        a column — nothing writes back through it.
+        """
+        names = {r["species_id"]: r["name"] for r in q.select_all_species(self.conn)}
+        joined: dict[str, list[str]] = {}
+        for cid, sid in self.conn.execute("SELECT character_id, species_id FROM npc_species ORDER BY sort_order"):
+            joined.setdefault(cid, []).append(names.get(sid, sid))
         rows = q.select_all_npcs(self.conn)
-        return [{"name": r["name"], "species": r["species"], "status": r["status"]} for r in rows]
+        return [
+            {
+                "name": r["name"],
+                "species": ", ".join(joined.get(r["character_id"], [])),
+                "status": r["status"],
+            }
+            for r in rows
+        ]
 
     def print_npcs(self, *, file: IO[str] | None = None) -> None:
         """Pretty-print all NPCs with species and status."""
         self._print_table(self.list_npcs(), ["name", "species", "status"], file=file)
+
+    def list_species(self) -> list[dict[str, str]]:
+        """Return ``[{"name": …, "notes": …}]`` for all species."""
+        return [{"name": r["name"], "notes": r["notes"]} for r in q.select_all_species(self.conn)]
 
     def list_locations(self) -> list[dict[str, str]]:
         """Return location dicts with ``name``, ``region``, ``notes``, ``lore_fragment``."""
@@ -511,9 +584,11 @@ class Database:
                 anchor id within the story for each hero, e.g.
                 ``{"dorinthea": "morlock-hill-dtd209"}``.
             npcs: NPC entries; strings in a future shorthand are not supported —
-                use :class:`NPCEntry` directly. Omit ``species``/``status`` to
-                preserve whatever an existing NPC row already has; only pass
-                them when this story is the evidence for the value.
+                use :class:`NPCEntry` directly. Omit ``status`` to preserve
+                whatever an existing NPC row already has; only pass it when this
+                story is the evidence for the value. ``species`` does **not**
+                preserve — it is replace-semantic, so an omitted one is a
+                deletion.
             locations: Location entries.
             regions: Region entries (for stories that reference a region but no
                 specific location within it).
@@ -854,16 +929,20 @@ class Database:
         """Set or update the tooltip description for an entity.
 
         Args:
-            entity_type: One of ``"monster"``, ``"fauna"``, ``"flora"``, ``"location"``
-                or ``"group"``.
+            entity_type: One of ``"monster"``, ``"fauna"``, ``"flora"``, ``"location"``,
+                ``"group"`` or ``"species"``.
             name: Display name of the entity (must already exist in the database).
-            description: Short lore summary. ``"location"`` and ``"group"`` set the
-                ``notes`` field; the others set the ``description`` field.
+            description: Short lore summary. ``"location"``, ``"group"`` and
+                ``"species"`` set the ``notes`` field; the others set ``description``.
 
         A group must already have a row before its summary can land here, and a row
         is only created by a story declaration naming it. Six catalogue constants
         have no row yet for exactly that reason, so re-point the declaration before
         adding the note rather than the other way round.
+
+        A species row is created by an NPC carrying it, with one deliberate
+        exception: ``species.csv`` is a registry seeded on its own, so ``Chanek``
+        keeps a row although no NPC is one yet.
 
         Raises:
             ValueError: If ``entity_type`` is unrecognised or the named entity does not exist.
@@ -882,6 +961,10 @@ class Database:
                 rows = q.update_group_notes(self.conn, _group_id(name), description)
                 if rows == 0:
                     raise ValueError(f"Group not found: {name!r}")
+            elif entity_type == "species":
+                rows = q.update_species_notes(self.conn, _species_id(name), description)
+                if rows == 0:
+                    raise ValueError(f"Species not found: {name!r}")
             elif entity_type in _TABLE_MAP:
                 table, id_col, id_fn = _TABLE_MAP[entity_type]
                 entity_id = id_fn(name)
@@ -890,7 +973,8 @@ class Database:
                     raise ValueError(f"{entity_type.capitalize()} not found: {name!r}")
             else:
                 raise ValueError(
-                    f"Unknown entity type: {entity_type!r}. " "Use 'monster', 'fauna', 'flora', 'location', or 'group'."
+                    f"Unknown entity type: {entity_type!r}. "
+                    "Use 'monster', 'fauna', 'flora', 'location', 'group', or 'species'."
                 )
         _export.export_registry_tables(self.conn, self._data_dir)
 
@@ -1112,7 +1196,6 @@ class Database:
                 self.conn,
                 character_id=cid,
                 name=e.name,
-                species=e.species,
                 status=e.status,
                 other_characters_story_key=e.other_characters_story_key,
             )
@@ -1124,7 +1207,18 @@ class Database:
                 cid,
                 [(n, "epithet") for n in e.epithets] + [(n, "short-name") for n in e.short_names],
             )
+            q.set_npc_species(self.conn, cid, self._upsert_species(_species_tuple(e.species)))
             ids.append((cid, e.fragment))
+        return ids
+
+    def _upsert_species(self, entries: "tuple[SpeciesEntry, ...]") -> list[str]:
+        """Upsert each species row and return its ids, in declared order."""
+        ids: list[str] = []
+        for e in entries:
+            sid = _species_id(e.name)
+            q.upsert_species(self.conn, species_id=sid, name=e.name)
+            q.set_species_aliases(self.conn, sid, list(e.aliases))
+            ids.append(sid)
         return ids
 
     def _upsert_regions(self, entries: list[RegionEntry]) -> list[str]:
@@ -1631,6 +1725,26 @@ class Database:
 
             for entry in reach_npcs:
                 cid = lore_character_id(entry.name)
+                # Species is replace-semantic too, and it is the one that used to
+                # preserve — 32 rows carried a value no declaration named, so a
+                # missing species= reads as a deletion where it once read as
+                # silence. That reversal is exactly what has to be visible.
+                stored_sp = [_species_name(self.conn, sid) for sid in q.select_npc_species(self.conn, cid)]
+                wanted_sp = [x.name for x in _species_tuple(entry.species)]
+                for name in sorted(set(wanted_sp) - set(stored_sp)):
+                    lines.append(f"    + {entry.name}: species {name!r}")
+                for name in sorted(set(stored_sp) - set(wanted_sp)):
+                    lines.append(f"    - {entry.name}: species {name!r} REMOVED")
+
+                for sp in _species_tuple(entry.species):
+                    sid = _species_id(sp.name)
+                    stored_al = set(q.select_species_aliases(self.conn, sid))
+                    wanted_al = set(sp.aliases)
+                    for alias in sorted(wanted_al - stored_al):
+                        lines.append(f"    + {sp.name}: alias {alias!r}")
+                    for alias in sorted(stored_al - wanted_al):
+                        lines.append(f"    - {sp.name}: alias {alias!r} REMOVED")
+
                 stored = set(q.select_npc_epithets(self.conn, cid))
                 wanted = {(n, "epithet") for n in entry.epithets} | {(n, "short-name") for n in entry.short_names}
                 for name, kind in sorted(wanted - stored):
@@ -1721,7 +1835,7 @@ class Database:
             npcs,
             lore_character_id,
             npc_rows,
-            ("species", "status", "other_characters_story_key"),
+            ("status", "other_characters_story_key"),
         )
         _show_attr_changes("Monster", monsters, _monster_id, monster_rows, ("description",))
         _show_attr_changes("Fauna", fauna, fauna_id_from_name, fauna_rows, ("description",))

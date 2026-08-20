@@ -10,13 +10,15 @@ Version history:
   7 — weapons_printings, equipment_printings: image_url in the primary key
   8 — groups, group_npcs, group_heroes, story_groups; locations.parent_location_id
   9 — groups: lore_story_key, lore_fragment (the page a group is documented on)
+ 10 — npc_epithets, location_aliases, group_aliases (the names that are not the name)
+ 11 — species, npc_species, species_aliases; npcs.species free text retired
 """
 
 from __future__ import annotations
 
 import sqlite3
 
-CURRENT_VERSION = 10
+CURRENT_VERSION = 11
 
 _V1_DDL = """
 CREATE TABLE IF NOT EXISTS stories (
@@ -61,10 +63,12 @@ CREATE TABLE IF NOT EXISTS locations (
     parent_location_id TEXT NOT NULL DEFAULT ''
 );
 
+-- No species column. What a character *is* lives in npc_species, because one
+-- free-text column held three different facts — species, cosmological tier and
+-- occupation — and could hold only one of them at a time. Scooba is a Zombie Dog.
 CREATE TABLE IF NOT EXISTS npcs (
     character_id TEXT PRIMARY KEY,
     name         TEXT NOT NULL,
-    species      TEXT NOT NULL DEFAULT 'Unknown',
     status       TEXT NOT NULL DEFAULT 'Unknown'
 );
 
@@ -340,6 +344,37 @@ CREATE TABLE IF NOT EXISTS group_aliases (
     sort_order INTEGER NOT NULL DEFAULT 0,
     PRIMARY KEY (group_id, alias)
 );
+
+-- What a character is (R2). One flat list: Herald sits beside Human with no
+-- `kind` column, because the species/tier line is a reading of the lore rather
+-- than a fact the data can check, and a column nobody can validate is a column
+-- that drifts.
+CREATE TABLE IF NOT EXISTS species (
+    species_id TEXT PRIMARY KEY,
+    name       TEXT NOT NULL,
+    notes      TEXT NOT NULL DEFAULT ''
+);
+
+-- Many-to-many, unlike the column it replaces. `Zombie Dog` and `Human Cleric`
+-- were single values gluing two facts together; splitting them needs somewhere
+-- for both halves to go, so Scooba holds Zombie and Dog at once.
+CREATE TABLE IF NOT EXISTS npc_species (
+    character_id TEXT NOT NULL REFERENCES npcs(character_id) ON DELETE CASCADE,
+    species_id   TEXT NOT NULL REFERENCES species(species_id) ON DELETE CASCADE,
+    sort_order   INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (character_id, species_id)
+);
+
+-- The fourth alias table (R6). The prose writes "Aesirs" and "Embras", and the
+-- supplement entries these replace carried those plurals by hand. English
+-- plurals are not mechanical enough to generate — `Aesir` takes an s, `Human`
+-- would too but nothing writes it, and `Chanek` does not.
+CREATE TABLE IF NOT EXISTS species_aliases (
+    species_id TEXT NOT NULL REFERENCES species(species_id) ON DELETE CASCADE,
+    alias      TEXT NOT NULL,
+    sort_order INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (species_id, alias)
+);
 """
 
 
@@ -514,4 +549,40 @@ def migrate(conn: sqlite3.Connection) -> None:
             """
         )
         conn.execute("PRAGMA user_version = 10")
+        conn.commit()
+    if version < 11:
+        # What a character *is* (R2). One free-text column held three different
+        # facts and could hold only one at a time: species proper (Human, Dwarf,
+        # Welkin), cosmological tier (Herald, Aesir, Ancient, Embra, Dragon),
+        # and occupation (Wizard, Witch, Diviner) — plus two memberships that had
+        # nowhere else to go, and `Unkown` next to `Unknown` ×50.
+        #
+        # No data is carried across. The database is seeded from the CSVs, and
+        # this migration empties a fact the CSVs alone can restore, so `species`
+        # joins the tables `_needs_seed` watches — the same move migration 7 made
+        # for the printings tables.
+        conn.executescript(
+            """
+            CREATE TABLE IF NOT EXISTS species (
+                species_id TEXT PRIMARY KEY,
+                name       TEXT NOT NULL,
+                notes      TEXT NOT NULL DEFAULT ''
+            );
+            CREATE TABLE IF NOT EXISTS npc_species (
+                character_id TEXT NOT NULL REFERENCES npcs(character_id) ON DELETE CASCADE,
+                species_id   TEXT NOT NULL REFERENCES species(species_id) ON DELETE CASCADE,
+                sort_order   INTEGER NOT NULL DEFAULT 0,
+                PRIMARY KEY (character_id, species_id)
+            );
+            CREATE TABLE IF NOT EXISTS species_aliases (
+                species_id TEXT NOT NULL REFERENCES species(species_id) ON DELETE CASCADE,
+                alias      TEXT NOT NULL,
+                sort_order INTEGER NOT NULL DEFAULT 0,
+                PRIMARY KEY (species_id, alias)
+            );
+            """
+        )
+        if any(r[1] == "species" for r in conn.execute("PRAGMA table_info(npcs)")):
+            conn.execute("ALTER TABLE npcs DROP COLUMN species")
+        conn.execute("PRAGMA user_version = 11")
         conn.commit()

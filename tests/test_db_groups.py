@@ -12,7 +12,7 @@ from pathlib import Path
 import pytest
 
 import db._queries as q
-from db import Database, GroupEntry, LocationEntry, NPCEntry
+from db import Database, GroupEntry, LocationEntry, NPCEntry, SpeciesEntry
 from registry_ids import canonical_id, group_id, lore_character_id
 
 
@@ -118,7 +118,7 @@ def test_npc_membership_is_written_from_the_group(db: Database) -> None:
     entry = GroupEntry(
         "VanGeld",
         kind="clan",
-        npc_members=(NPCEntry("Tara VanGeld", species="Dwarf"),),
+        npc_members=(NPCEntry("Tara VanGeld", species=SpeciesEntry("Dwarf")),),
         member_source="heroes-of-rathe/lyath-about.md",
     )
     _story(db, groups=[entry])

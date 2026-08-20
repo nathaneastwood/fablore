@@ -66,7 +66,15 @@ Add one constant to the matching module under `entries/catalogue/`, then referen
 THE_CITADEL = LocationEntry("The Citadel", region="Solana", lore_fragment="the-citadel")
 ```
 
-Aliases in the section modules: `npc`, `loc`, `reg`, `mon`, `fauna`, `flora`, `food`.
+Aliases in the section modules: `npc`, `loc`, `reg`, `mon`, `fauna`, `flora`, `food`. Species are the exception: `entries/catalogue/species.py` is imported as `sp` by `catalogue/npcs.py` and by nothing else, because a species hangs off an NPC rather than off a page.
+
+```python
+# entries/catalogue/npcs.py
+BISKI = NPCEntry("Biski", species=sp.DOG)
+SCOOBA = NPCEntry("Scooba", species=(sp.ZOMBIE, sp.DOG))   # a tuple where the lore says two
+```
+
+**`species` deletes on omission; `status` preserves.** Two neighbouring fields, opposite contracts. Species is a junction and a junction states the complete set.
 
 **Always give a location its region, and a food/drink its kind.** `LocationId` hashes name *and* region; `FoodDrinkId` hashes name *and* kind. Adding the region later does not edit the row — it mints a second one and strands the first.
 
@@ -182,7 +190,7 @@ db.upsert_story(
     story_type="main-story",
     title="Story Title",
     heroes=["rhinar"],
-    npcs=[NPCEntry("Ser Example", species="Human", status="Alive")],
+    npcs=[NPCEntry("Ser Example", status="Alive")],
     locations=[LocationEntry("The Citadel", region="Solana")],
     narrated_videos=[NarratedVideoEntry(author="LSS", source_link="https://…")],
     dry_run=True,

@@ -132,6 +132,7 @@ def export_registry_tables(conn: sqlite3.Connection, data_dir: Path) -> None:
     _export_groups(conn, csv_dir)
     _export_group_members(conn, csv_dir)
     _export_alternate_names(conn, csv_dir)
+    _export_species(conn, csv_dir)
 
 
 def export_story_junctions(conn: sqlite3.Connection, data_dir: Path) -> None:
@@ -285,13 +286,46 @@ def _export_alternate_names(conn: sqlite3.Connection, csv_dir: Path) -> None:
         _write_pipe_csv(csv_dir / csv_name, _CMD_REGISTRY, [h for _, h in cols], data)
 
 
+def _export_species(conn: sqlite3.Connection, csv_dir: Path) -> None:
+    """Write ``species.csv``, ``npc-species.csv`` and ``species-aliases.csv`` (R2).
+
+    Three files for what was one column, which is the shape of the fix: a species
+    is a registry row, a character's species is a junction, and a plural is an
+    alias.
+    """
+    rows = q.select_all_species(conn)
+    _write_pipe_csv(
+        csv_dir / "species.csv",
+        _CMD_REGISTRY,
+        ["SpeciesId", "Name", "Notes"],
+        [{"SpeciesId": r["species_id"], "Name": r["name"], "Notes": r["notes"]} for r in rows],
+    )
+    junction = conn.execute(
+        "SELECT character_id, species_id FROM npc_species ORDER BY character_id, sort_order, species_id"
+    ).fetchall()
+    _write_pipe_csv(
+        csv_dir / "npc-species.csv",
+        _CMD_REGISTRY,
+        ["CharacterId", "SpeciesId"],
+        [{"CharacterId": r[0], "SpeciesId": r[1]} for r in junction],
+    )
+    aliases = conn.execute(
+        "SELECT species_id, alias FROM species_aliases ORDER BY species_id, sort_order, alias"
+    ).fetchall()
+    _write_pipe_csv(
+        csv_dir / "species-aliases.csv",
+        _CMD_REGISTRY,
+        ["SpeciesId", "Alias"],
+        [{"SpeciesId": r[0], "Alias": r[1]} for r in aliases],
+    )
+
+
 def _export_npcs(conn: sqlite3.Connection, csv_dir: Path) -> None:
     rows = q.select_all_npcs(conn)
     data = [
         {
             "CharacterId": r["character_id"],
             "Name": r["name"],
-            "Species": r["species"],
             "Status": r["status"],
             "OtherCharactersStoryKey": r["other_characters_story_key"],
         }
@@ -300,7 +334,7 @@ def _export_npcs(conn: sqlite3.Connection, csv_dir: Path) -> None:
     _write_pipe_csv(
         csv_dir / "npcs.csv",
         _CMD_REGISTRY,
-        ["CharacterId", "Name", "Species", "Status", "OtherCharactersStoryKey"],
+        ["CharacterId", "Name", "Status", "OtherCharactersStoryKey"],
         data,
     )
 
@@ -718,6 +752,9 @@ _ALL_TABLES = [
     "npc_epithets",
     "location_aliases",
     "group_aliases",
+    "species",
+    "npc_species",
+    "species_aliases",
 ]
 
 

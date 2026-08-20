@@ -145,18 +145,13 @@ def test_export_registry_tables_locations(db: Database, tmp_path: Path) -> None:
 
 
 def test_export_registry_tables_npcs(db: Database, tmp_path: Path) -> None:
-    q.upsert_npc(
-        db.conn,
-        character_id="C1",
-        name="Ira",
-        species="Draconic",
-        status="Alive",
-    )
+    q.upsert_npc(db.conn, character_id="C1", name="Ira", status="Alive")
     _export.export_registry_tables(db.conn, tmp_path)
 
     content = (tmp_path / "csv" / "npcs.csv").read_text(encoding="utf-8")
     assert "Ira" in content
     assert "CharacterId" in content
+    assert "Species" not in content, "the free-text species column was retired in stage 4"
 
 
 def test_export_registry_tables_monsters(db: Database, tmp_path: Path) -> None:

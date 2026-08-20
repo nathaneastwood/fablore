@@ -53,7 +53,9 @@ def seed_from_csvs(conn: sqlite3.Connection, data_dir: Path) -> None:
         _seed_talents(conn, data_dir)
         _seed_regions(conn, data_dir)
         _seed_locations(conn, data_dir)
+        _seed_species(conn, data_dir)
         _seed_npcs(conn, data_dir)
+        _seed_npc_species(conn, data_dir)
         _seed_monsters(conn, data_dir)
         _seed_fauna(conn, data_dir)
         _seed_flora(conn, data_dir)
@@ -372,9 +374,40 @@ def _seed_npcs(conn: sqlite3.Connection, data_dir: Path) -> None:
             conn,
             character_id=_s(row, "CharacterId"),
             name=_s(row, "Name"),
-            species=_s(row, "Species") or "Unknown",
             status=_s(row, "Status") or "Unknown",
             other_characters_story_key=_s(row, "OtherCharactersStoryKey"),
+        )
+
+
+def _seed_species(conn: sqlite3.Connection, data_dir: Path) -> None:
+    """Seed ``species`` and its aliases (R2, R6).
+
+    Before ``_seed_npcs``, because ``npc_species`` references both registries and
+    FK enforcement is on.
+    """
+    _, rows = _csv(data_dir, "species.csv")
+    for row in rows:
+        q.upsert_species(
+            conn,
+            species_id=_s(row, "SpeciesId"),
+            name=_s(row, "Name"),
+            notes=_s(row, "Notes"),
+        )
+    _, alias_rows = _csv(data_dir, "species-aliases.csv")
+    for order, row in enumerate(alias_rows):
+        conn.execute(
+            "INSERT OR IGNORE INTO species_aliases (species_id, alias, sort_order) VALUES (?,?,?)",
+            (_s(row, "SpeciesId"), _s(row, "Alias"), order),
+        )
+
+
+def _seed_npc_species(conn: sqlite3.Connection, data_dir: Path) -> None:
+    """Seed the ``npc_species`` junction. ``sort_order`` is file order."""
+    _, rows = _csv(data_dir, "npc-species.csv")
+    for order, row in enumerate(rows):
+        conn.execute(
+            "INSERT OR IGNORE INTO npc_species (character_id, species_id, sort_order) VALUES (?,?,?)",
+            (_s(row, "CharacterId"), _s(row, "SpeciesId"), order),
         )
 
 

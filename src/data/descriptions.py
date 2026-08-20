@@ -773,10 +773,14 @@ db.update_description(
     "An independent radio station, one of the few in Metrix that remains free of Mendacity control.",
 )
 
+# Word-for-word the same as the ``Rosetta`` species below, the move ``The
+# Registry`` made. Rosetta is a people and an order at once, the two rows compete
+# for the same word, and saying the same sentence twice makes the winner moot.
 db.update_description(
     "group",
     "Rosetta",
-    "An Order of powerful spell weavers that once stood alongside the likes of the Ollin and the Seers.",
+    "A forest people, and the order of powerful spell weavers they formed, which "
+    "once stood alongside the likes of the Ollin and the Seers.",
 )
 
 db.update_description(
@@ -803,10 +807,17 @@ db.update_description(
     "The Demonastery institution devoted to harnessing pain and Shadow to destroy Solana. Chane wore its mantle until he named Vynnset his successor.",
 )
 
+# Rewritten 2026-08-20 when the row retyped from `title` to `people`. The old text
+# described the naming convention and the office; volcor.md:55 leads with the caste
+# — "an elite caste ... all descended from the Blood of the Dragon" — which is the
+# fact the badge now claims.
 db.update_description(
     "group",
     "Dracai",
-    "Bestowed names free of restrictions or stigma, the Dracai are granted positions in the Royal Court of Volcor by the Emperor.",
+    "The elite caste who enact the Emperor's will across Volcor, all descended from "
+    "the Blood of the Dragon and raised to political and military power; outwardly "
+    "united in loyalty, privately consumed by rivalry. A Volcai of exceptional "
+    "loyalty or talent may be granted the title by decree.",
 )
 
 # The Maela and the Valdur were locations rows (D4). Both are described as bodies
@@ -821,6 +832,50 @@ db.update_description(
     "group",
     "The Valdur",
     "Part of the Everfest Carnival, known for strongmen acts and work with animals.",
+)
+
+
+# ---------------------------------------------------------------------------
+# Species (R2)
+# ---------------------------------------------------------------------------
+#
+# Migrated out of hints_supplement.json, where a species tooltip was hand-written
+# beside a species column that named the same thing — the D3 two-writers shape the
+# factions had. The supplement entries are deleted; these are the only copies.
+#
+# The fourteen species with no entry here emit no tooltip, which is the honest
+# state: nothing in the lore describes a Meep.
+
+db.update_description(
+    "species",
+    "Aesir",
+    "Primordial beings of elemental force who slumber beyond the veil — worshipped "
+    "as deities such as Sol, and fought as ancient enemies in the Third Age.",
+)
+db.update_description(
+    "species",
+    "Ancient",
+    # The row is singular and the prose is plural; `Ancients` is an alias, and the
+    # supplement keeps a stub carrying only this entry's exclude_pages.
+    "Colossal elemental beings native to Rathe; Davnir, Yvor and Galcia spent their "
+    "lives in the cataclysm that broke the world of the Third Age.",
+)
+db.update_description(
+    "species",
+    "Chanek",
+    "Green-skinned, pointed-eared Rathenfolk of the far west.",
+)
+db.update_description(
+    "species",
+    "Embra",
+    "Powerful supernatural entities that feed on blood.",
+)
+# Kept identical to the ``Rosetta`` group above; see the note there.
+db.update_description(
+    "species",
+    "Rosetta",
+    "A forest people, and the order of powerful spell weavers they formed, which "
+    "once stood alongside the likes of the Ollin and the Seers.",
 )
 
 

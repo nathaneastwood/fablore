@@ -1,6 +1,7 @@
 """Generate src/hints.json from the database and src/hints_supplement.json.
 
-DB-backed entries (locations, monsters, fauna, flora, groups) are written first.
+DB-backed entries (locations, monsters, fauna, flora, groups, species) are written
+first.
 The supplement is then merged on top: supplement fields override DB fields for
 matching keys, and supplement-only keys are appended.
 
@@ -40,8 +41,8 @@ def _lore_url(story_key: str, fragment: str) -> str:
 
 
 # Emission order is the tie-break, and it is deliberate: locations are written
-# before groups, so where two entries have equally long match strings the location
-# wins. The preprocessor sorts candidates by longest match string and Python's sort
+# before groups, and groups before species, so where two entries have equally long
+# match strings the location wins and a species loses to everything. The preprocessor sorts candidates by longest match string and Python's sort
 # is stable, so the order this file writes them in survives all the way to the
 # page. `The Registry` (a place) and `Registry` (a firm) are the live example.
 # tests/test_generate_hints_json_full.py locks the order so a reshuffle here cannot
@@ -114,6 +115,41 @@ def _alias_map(conn: sqlite3.Connection, table: str, owner_col: str, name_col: s
     for owner, alias in conn.execute(sql):
         out.setdefault(owner, []).append(alias)
     return out
+
+
+def _add(hints: dict, key: str, entry: dict, source: str, taken: dict) -> None:
+    """Store ``entry`` under ``key``, keeping whichever was emitted first.
+
+    Emission order is the tie-break, and plain ``hints[key] = entry`` inverts it:
+    two registries whose rows share a name produce the *same* key, and assignment
+    hands it to whoever writes last. ``Rosetta`` is both a group and a species and
+    is the live pair, so first-wins is enforced here rather than relied on.
+
+    The loser is reported, because a row that reaches no tooltip is worth knowing
+    about even when — as with Rosetta — both rows carry the same sentence and the
+    reader cannot tell. Fields the winner does not have are carried over from it,
+    so a tie costs a row its tooltip but never costs the page a link.
+    """
+    if key in hints:
+        # Fields the winner has no way to produce are carried over rather than
+        # dropped. `The Foundry` is a location and the organisation inside it; only
+        # the group knows a `url`, and losing the tie should not lose the link.
+        missing = {f: v for f, v in entry.items() if f not in hints[key]}
+        if missing:
+            hints[key].update(missing)
+        print(
+            f"hint clash: {key!r} is emitted by {taken[key]} and by {source} — "
+            f"{taken[key]} wins"
+            + (
+                f", carrying over {sorted(missing)} from the {source} row"
+                if missing
+                else f"; the {source} row adds nothing"
+            ),
+            file=sys.stderr,
+        )
+        return
+    hints[key] = entry
+    taken[key] = source
 
 
 def _key(name: str) -> str:
@@ -231,6 +267,7 @@ def generate() -> None:
     conn.row_factory = sqlite3.Row
 
     hints: dict = {}
+    taken: dict[str, str] = {}
     regions = _region_map(conn)
 
     location_aliases = _alias_map(conn, "location_aliases", "location_id", "alias")
@@ -243,22 +280,46 @@ def generate() -> None:
         region = regions.get(row["region_id"], "")
         if region:
             entry["region"] = region
-        hints[_key(row["name"])] = _entry_with_match(row["name"], entry, location_aliases.get(row["location_id"], []))
+        _add(
+            hints,
+            _key(row["name"]),
+            _entry_with_match(row["name"], entry, location_aliases.get(row["location_id"], [])),
+            "location",
+            taken,
+        )
 
     for row in conn.execute("SELECT name, description FROM monsters ORDER BY name"):
         if not row["description"]:
             continue
-        hints[_key(row["name"])] = _entry_with_match(row["name"], {"type": "monster", "summary": row["description"]})
+        _add(
+            hints,
+            _key(row["name"]),
+            _entry_with_match(row["name"], {"type": "monster", "summary": row["description"]}),
+            "monster",
+            taken,
+        )
 
     for row in conn.execute("SELECT name, description FROM fauna ORDER BY name"):
         if not row["description"]:
             continue
-        hints[_key(row["name"])] = _entry_with_match(row["name"], {"type": "fauna", "summary": row["description"]})
+        _add(
+            hints,
+            _key(row["name"]),
+            _entry_with_match(row["name"], {"type": "fauna", "summary": row["description"]}),
+            "fauna",
+            taken,
+        )
 
     for row in conn.execute("SELECT name, description FROM flora ORDER BY name"):
         if not row["description"]:
             continue
-        hints[_key(row["name"])] = _entry_with_match(row["name"], {"type": "flora", "summary": row["description"]})
+        _add(
+            hints,
+            _key(row["name"]),
+            _entry_with_match(row["name"], {"type": "flora", "summary": row["description"]}),
+            "flora",
+            taken,
+        )
 
     # Groups. `kind` is the displayed type when it is set ("clan", "guild",
     # "order"), which reads better than a flat "group" label and matches what
@@ -291,7 +352,29 @@ def generate() -> None:
         url = _lore_url(row["lore_story_key"], row["lore_fragment"])
         if url:
             entry["url"] = url
-        hints[_key(row["name"])] = _entry_with_match(row["name"], entry, group_aliases.get(row["group_id"], []))
+        _add(
+            hints,
+            _key(row["name"]),
+            _entry_with_match(row["name"], entry, group_aliases.get(row["group_id"], [])),
+            "group",
+            taken,
+        )
+
+    # Species last. A location or a group takes any tie against one — `Rosetta`
+    # the order beats `Rosetta` the people, which is why the two rows are kept
+    # word-for-word identical rather than ranked.
+    species_aliases = _alias_map(conn, "species_aliases", "species_id", "alias")
+    for row in conn.execute("SELECT species_id, name, notes FROM species ORDER BY name"):
+        if not row["notes"]:
+            continue
+        entry = {"type": "species", "summary": row["notes"]}
+        _add(
+            hints,
+            _key(row["name"]),
+            _entry_with_match(row["name"], entry, species_aliases.get(row["species_id"], [])),
+            "species",
+            taken,
+        )
 
     conn.close()
 

@@ -443,7 +443,7 @@
     "region": "Aria"
   },
   "The Foundry": {
-    "type": "organisation",
+    "type": "location",
     "summary": "An independent radio station, one of the few in Metrix that remains free of Mendacity control.",
     "region": "Metrix",
     "url": "/world-of-rathe/metrix.html#the-foundry"
@@ -776,8 +776,8 @@
     "summary": "The Demonastery order who embrace pain to surpass mortal limits and break Solana's hold on Rathe, following whichever Apostle leads them — Chane in his day, now Vynnset, the Apostle of Agony."
   },
   "Dracai": {
-    "type": "title",
-    "summary": "Bestowed names free of restrictions or stigma, the Dracai are granted positions in the Royal Court of Volcor by the Emperor."
+    "type": "people",
+    "summary": "The elite caste who enact the Emperor's will across Volcor, all descended from the Blood of the Dragon and raised to political and military power; outwardly united in loyalty, privately consumed by rivalry. A Volcai of exceptional loyalty or talent may be granted the title by decree."
   },
   "Ezu": {
     "type": "faction",
@@ -830,7 +830,7 @@
   },
   "Rosetta": {
     "type": "order",
-    "summary": "An Order of powerful spell weavers that once stood alongside the likes of the Ollin and the Seers."
+    "summary": "A forest people, and the order of powerful spell weavers they formed, which once stood alongside the likes of the Ollin and the Seers."
   },
   "Sayashi": {
     "type": "special force",
@@ -878,6 +878,37 @@
     "type": "order",
     "summary": "Lightning-riding scouts and heralds of Valahai, who keep word flowing between the bastions.",
     "url": "/world-of-rathe/aria.html#wayfarers-1"
+  },
+  "Aesir": {
+    "match": [
+      "Aesir",
+      "Aesirs"
+    ],
+    "type": "species",
+    "summary": "Primordial beings of elemental force who slumber beyond the veil — worshipped as deities such as Sol, and fought as ancient enemies in the Third Age."
+  },
+  "Ancient": {
+    "match": [
+      "Ancient",
+      "Ancients"
+    ],
+    "type": "species",
+    "summary": "Colossal elemental beings native to Rathe; Davnir, Yvor and Galcia spent their lives in the cataclysm that broke the world of the Third Age.",
+    "exclude_pages": [
+      "world-of-rathe/aria"
+    ]
+  },
+  "Chanek": {
+    "type": "species",
+    "summary": "Green-skinned, pointed-eared Rathenfolk of the far west."
+  },
+  "Embra": {
+    "match": [
+      "Embra",
+      "Embras"
+    ],
+    "type": "species",
+    "summary": "Powerful supernatural entities that feed on blood."
   },
   "Absolon": {
     "type": "ancient",
@@ -1162,14 +1193,6 @@
     "type": "concept",
     "match": "Old Ones",
     "summary": "Ancient beings of overwhelming power from beyond Rathe who threatened to consume the world in the Third Age."
-  },
-  "Embra": {
-    "type": "concept",
-    "match": [
-      "Embra",
-      "Embras"
-    ],
-    "summary": "Powerful supernatural entities that feed on blood."
   },
   "Blasmophet": {
     "type": "embra",
@@ -1720,10 +1743,6 @@
     "type": "ancient",
     "summary": "Ancient of Ice."
   },
-  "Chanek": {
-    "type": "species",
-    "summary": "Green-skinned, pointed-eared Rathenfolk of the far west."
-  },
   "Rathenfolk": {
     "type": "concept",
     "summary": "The living peoples of Rathe, reduced by the Old Ones to survivors in Isenloft, Aldengrove and Valahai."
@@ -1788,14 +1807,6 @@
     "type": "artifact",
     "summary": "The relic set into Viserai's chest, feeding arcane energy through runic vents carved into his bone and skin."
   },
-  "Aesir": {
-    "type": "concept",
-    "match": [
-      "Aesir",
-      "Aesirs"
-    ],
-    "summary": "Primordial beings of elemental force who slumber beyond the veil — worshipped as deities such as Sol, and fought as ancient enemies in the Third Age."
-  },
   "Apostate": {
     "type": "npc",
     "summary": "The Grand Magister who denounced Sol, founded the Demonastery, and sacrificed themself to tear it from Rathe into the Nebulus Rift."
@@ -1836,13 +1847,6 @@
   "Karl": {
     "type": "npc",
     "summary": "Graverobber whose crew opened a wrathful baron's coffin; he woke alone in an open grave, soaked in his comrades' blood."
-  },
-  "Ancients": {
-    "type": "concept",
-    "summary": "Colossal elemental beings native to Rathe; Davnir, Yvor and Galcia spent their lives in the cataclysm that broke the world of the Third Age.",
-    "exclude_pages": [
-      "world-of-rathe/aria"
-    ]
   },
   "Necropolis": {
     "type": "location",

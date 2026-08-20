@@ -141,10 +141,15 @@ CINTARI = GroupEntry(
 ranks, a hero trait reads "Leader of the Cintari", and fires-of-rebellion.md:79
 has rebels wearing "Cintari disguises". None of that is true of a species, which
 is what separates this call from ``Chanek`` (2026-08-20)."""
-DRACAI = GroupEntry("Dracai", kind="title")
-"""A bestowed name granting a position in the Royal Bloodline — Fang, Dracai of
-Blades; Taipanis, Dracai of Judgement. Really a title (R3), and this row is an
-openly temporary home for it until stage 6 gives titles one."""
+DRACAI = GroupEntry("Dracai", kind="people")
+"""The other half of the Volcoran split, and typed like ``Volcai`` because it is
+the same kind of fact: volcor.md draws the line at dragon's blood, not at office.
+Was ``title`` (2026-08-20) — the named offices are the titles, "Fang, Dracai of
+Blades", "Taipanis, Dracai of Judgement", and those hang off this row in stage 6.
+
+Not a species row, although a caste reads like one: every named Dracai is a
+**hero**, and ``heroes_canonical`` has three columns and no species, so a species
+row could hold nobody. See ``catalogue/species.py``."""
 EZU = GroupEntry("Ezu", kind="faction")
 SAYASHI = GroupEntry("Sayashi", kind="special force")
 VOLCAI = GroupEntry(
@@ -289,12 +294,21 @@ SEERS = GroupEntry("Seers", kind="order")
 THE_MAELA = GroupEntry(
     "The Maela",
     kind="troupe",
-    npc_members=(npc.MAELA_FAIRMIND,),
+    npc_members=(npc.MAELA_FAIRMIND, npc.KAYSIN),
     location=loc.THE_EVERFEST_CARNIVAL,
     member_source="flavour/compendium-of-rathe.md",
 )
 """Was a locations row (G01). The Carnival link is a ``location``, not a
-``parent`` — the Everfest Carnival is a place, and no group row exists for it."""
+``parent`` — the Everfest Carnival is a place, and no group row exists for it.
+
+Kaysin arrived here from the species column, which read ``Maela Soothsayer`` —
+a membership and a rank written where a species goes, which is the mix-up stage 4
+unpicks. **No page calls her a Maela.** trouble-in-larinkmorth.md gives "the
+seer", "the elderly seer", a journey from Everfest and a reading of tea leaves,
+which is the Maela's whole description and nothing more; the membership is the
+user's call on that inference (2026-08-20), not an attestation. ``member_source``
+is one string for the group and still names the page that lists Maela Fairmind.
+``Soothsayer`` is a rank and waits for stage 6."""
 THE_VALDUR = GroupEntry("The Valdur", kind="troupe", location=loc.THE_EVERFEST_CARNIVAL)
 """Was a locations row (G02). See THE_MAELA on the Carnival link."""
 WARDENS = GroupEntry("Wardens", kind="order")

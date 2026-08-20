@@ -15,12 +15,13 @@ sys.path.insert(0, str(ROOT / "src" / "data"))
 import db._queries as q
 from db import (
     Database,
-    NPCEntry,
-    RegionEntry,
-    LocationEntry,
-    MonsterEntry,
     FaunaEntry,
     FloraEntry,
+    LocationEntry,
+    MonsterEntry,
+    NPCEntry,
+    RegionEntry,
+    SpeciesEntry,
 )
 
 
@@ -113,7 +114,7 @@ def test_list_npcs_with_data(db: Database) -> None:
         "src/main-story/n.md",
         story_type="main-story",
         title="N",
-        npcs=[NPCEntry("Guard Captain", species="Human", status="Alive")],
+        npcs=[NPCEntry("Guard Captain", species=SpeciesEntry("Human"), status="Alive")],
     )
     npcs = db.list_npcs()
     assert any(n["name"] == "Guard Captain" for n in npcs)
@@ -206,7 +207,7 @@ def test_print_npcs_with_data(db: Database) -> None:
         "src/main-story/n2.md",
         story_type="main-story",
         title="N2",
-        npcs=[NPCEntry("Ranger", species="Elf", status="Unknown")],
+        npcs=[NPCEntry("Ranger", species=SpeciesEntry("Elf"), status="Unknown")],
     )
     buf = io.StringIO()
     db.print_npcs(file=buf)
@@ -361,7 +362,7 @@ def test_display_story_with_junctions(db: Database) -> None:
         "src/main-story/foo.md",
         story_type="main-story",
         title="Junction Story",
-        npcs=[NPCEntry("Mystic", species="Unknown", status="Unknown")],
+        npcs=[NPCEntry("Mystic", species=SpeciesEntry("Unknown"), status="Unknown")],
     )
     buf = io.StringIO()
     db.display_story("src/main-story/foo.md", file=buf)
@@ -420,7 +421,7 @@ def test_delete_entity_npc_removes_orphaned_row(db: Database) -> None:
         "src/main-story/foo.md",
         story_type="main-story",
         title="Foo",
-        npcs=[NPCEntry(name="Promoted Character", species="Demon")],
+        npcs=[NPCEntry(name="Promoted Character", species=SpeciesEntry("Demon"))],
     )
     db.upsert_story(
         "src/main-story/foo.md",
@@ -441,7 +442,7 @@ def test_delete_entity_npc_refuses_when_still_linked(db: Database) -> None:
         "src/main-story/foo.md",
         story_type="main-story",
         title="Foo",
-        npcs=[NPCEntry(name="Linked Character", species="Human")],
+        npcs=[NPCEntry(name="Linked Character", species=SpeciesEntry("Human"))],
     )
     with pytest.raises(ValueError, match="still referenced"):
         db.delete_entity("npc", "Linked Character")
@@ -528,12 +529,21 @@ def test_delete_entity_location_deletes_all_duplicate_name_rows(db: Database) ->
 
 
 def _npc_row(database: Database, name: str) -> tuple[str, str]:
-    row = database.conn.execute("SELECT species, status FROM npcs WHERE name = ?", [name]).fetchone()
-    return (row["species"], row["status"])
+    """Return ``(species, status)``, with species joined back from the junction."""
+    row = database.conn.execute("SELECT character_id, status FROM npcs WHERE name = ?", [name]).fetchone()
+    species = [
+        r[0]
+        for r in database.conn.execute(
+            "SELECT s.name FROM npc_species ns JOIN species s USING(species_id)"
+            " WHERE ns.character_id = ? ORDER BY ns.sort_order",
+            [row["character_id"]],
+        )
+    ]
+    return (", ".join(species), row["status"])
 
 
-def test_upsert_npc_preserves_curated_species_and_status(db: Database) -> None:
-    """Omitting species/status must not reset a curated NPC to 'Unknown'.
+def test_upsert_npc_preserves_curated_status(db: Database) -> None:
+    """Omitting status must not reset a curated NPC to 'Unknown'.
 
     Regression: NPCEntry once defaulted both fields to the sentinel "Unknown",
     which upsert_npc wrote unconditionally. A later story registration that knew
@@ -544,7 +554,7 @@ def test_upsert_npc_preserves_curated_species_and_status(db: Database) -> None:
         "src/main-story/first.md",
         story_type="main-story",
         title="First",
-        npcs=[NPCEntry("Lord Sutcliffe", species="Human", status="Just a head")],
+        npcs=[NPCEntry("Lord Sutcliffe", species=SpeciesEntry("Human"), status="Just a head")],
     )
     assert _npc_row(db, "Lord Sutcliffe") == ("Human", "Just a head")
 
@@ -552,9 +562,43 @@ def test_upsert_npc_preserves_curated_species_and_status(db: Database) -> None:
         "src/main-story/second.md",
         story_type="main-story",
         title="Second",
-        npcs=[NPCEntry("Lord Sutcliffe")],
+        npcs=[NPCEntry("Lord Sutcliffe", species=SpeciesEntry("Human"))],
     )
     assert _npc_row(db, "Lord Sutcliffe") == ("Human", "Just a head")
+
+
+def test_species_is_replace_semantic_where_status_is_preserved(db: Database) -> None:
+    """The contract reversal stage 4 introduced, in one test.
+
+    ``status`` preserves on omission; ``species`` does not, because it is a
+    junction and a junction states the complete set. Omitting it is a deletion.
+    That is why all 32 undeclared species values had to reach the catalogue
+    before the column was retired.
+    """
+    db.upsert_story(
+        "src/main-story/first.md",
+        story_type="main-story",
+        title="First",
+        npcs=[NPCEntry("Lord Sutcliffe", species=SpeciesEntry("Human"), status="Just a head")],
+    )
+    db.upsert_story(
+        "src/main-story/second.md",
+        story_type="main-story",
+        title="Second",
+        npcs=[NPCEntry("Lord Sutcliffe")],
+    )
+    assert _npc_row(db, "Lord Sutcliffe") == ("", "Just a head")
+
+
+def test_an_npc_can_hold_two_species(db: Database) -> None:
+    """Scooba is a Zombie Dog, which the free-text column could only spell as one."""
+    db.upsert_story(
+        "src/main-story/first.md",
+        story_type="main-story",
+        title="First",
+        npcs=[NPCEntry("Scooba", species=(SpeciesEntry("Zombie"), SpeciesEntry("Dog")))],
+    )
+    assert _npc_row(db, "Scooba")[0] == "Zombie, Dog"
 
 
 def test_upsert_npc_explicit_value_still_overwrites(db: Database) -> None:
@@ -563,23 +607,27 @@ def test_upsert_npc_explicit_value_still_overwrites(db: Database) -> None:
         "src/main-story/first.md",
         story_type="main-story",
         title="First",
-        npcs=[NPCEntry("Sol", species="Unknown")],
+        npcs=[NPCEntry("Sol", species=SpeciesEntry("Human"))],
     )
     db.upsert_story(
         "src/main-story/second.md",
         story_type="main-story",
         title="Second",
-        npcs=[NPCEntry("Sol", species="Aesir")],
+        npcs=[NPCEntry("Sol", species=SpeciesEntry("Aesir"))],
     )
     assert _npc_row(db, "Sol")[0] == "Aesir"
 
 
 def test_upsert_npc_new_row_defaults_to_unknown(db: Database) -> None:
-    """A brand-new NPC has nothing to preserve, so omitted fields seed 'Unknown'."""
+    """A brand-new NPC has nothing to preserve, so an omitted status seeds 'Unknown'.
+
+    Species seeds nothing: there is no ``Unknown`` species row, because "nobody
+    said" is not a fact about a character (decided 2026-08-20).
+    """
     db.upsert_story(
         "src/main-story/first.md",
         story_type="main-story",
         title="First",
         npcs=[NPCEntry("Nameless Stranger")],
     )
-    assert _npc_row(db, "Nameless Stranger") == ("Unknown", "Unknown")
+    assert _npc_row(db, "Nameless Stranger") == ("", "Unknown")

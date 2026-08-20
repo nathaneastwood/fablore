@@ -1,317 +1,315 @@
 <!-- ### NOTE: This file should not be edited by hand. Please edit the .csv file. -->
-|                      Name                      |     Species    |                  Status                 |
-|------------------------------------------------|----------------|-----------------------------------------|
-|              Achlys, hag of Mojire             |      Human     |                 Unknown                 |
-|           Aegis, the Shield of Light           |     Herald     |                 Unknown                 |
-|                     Aelius                     |      Human     |                   Dead                  |
-|                 Aesir of Flames                |      Aesir     |                 Unknown                 |
-|                      Aios                      |      Human     |                  Alive                  |
-|                      Akuo                      |      Human     |                 Unknown                 |
-|                      Alif                      |      Human     |                  Alive                  |
-|                     Alosyn                     |      Human     |                 Unknown                 |
-|                      Amir                      |      Human     |                 Unknown                 |
-|                  Amira Surana                  |     Unknown    |                 Unknown                 |
-|                   Anarch Zeir                  |      Human     |                 Unknown                 |
-|             Anhe, Kotori Wavebender            |      Human     |                 Unknown                 |
-|                    Apostate                    |      Human     |                 Unknown                 |
-|          Arbiter, Magister of Justice          |     Unknown    |                 Unknown                 |
-|                     Astier                     |      Human     |                 Unknown                 |
-|                  Astra Morena                  |     Unknown    |                 Unknown                 |
-|                  Astrea Quazor                 |      Human     |                  Alive                  |
-|                      Ateia                     |     Unknown    |                 Unknown                 |
-|           Aurea, Champion of the Dawn          |      Human     |                 Unknown                 |
-|                    Aurelius                    |      Horse     |                 Unknown                 |
-|                  Auric Seeress                 |      Human     |                 Deceased                |
-|          Avalon, Messenger of the Dawn         |     Herald     |                 Unknown                 |
-|                     Bam Bam                    |      Brute     |                 Unknown                 |
-|                Baron the Butcher               |      Human     |                   Dead                  |
-|                     Barton                     |      Human     |                 Unknown                 |
-|               Bartrand the Bloody              |      Human     |                 Unknown                 |
-|                Barus Boldstride                |      Human     |                 Unknown                 |
-|                    Batbiter                    |     Unknown    |                 Unknown                 |
-|                      Bazz                      |      Human     |                 Deceased                |
-|                 Beezy the Brash                |      Human     |                   Dead                  |
-|           Bellona, the Wartune Herald          |     Herald     |                 Unknown                 |
-|                      Biski                     |       Dog      |                 Unknown                 |
-|                   Blasmophet                   |      Embra     |                 Unknown                 |
-|                   Blind Boggy                  |     Unknown    |                 Unknown                 |
-|               Bloodworth Goldmane              |     Unknown    |                 Unknown                 |
-|                     Bojani                     |      Human     |                   Dead                  |
-|                       Boo                      |     Unknown    |                 Unknown                 |
-|                Braumeister Balen               |      Human     |                  Alive                  |
-|                Brewmeister Marv                |      Human     |                 Unknown                 |
-|               Brutus, Summa Rudis              |     Unknown    |                 Unknown                 |
-|                   Butcher Jek                  |      Human     |                 Unknown                 |
-|                     Buttons                    |      Human     |                  Alive                  |
-|                 Captain Bludge                 |     Unknown    |                 Unknown                 |
-|Captain Cooder of the Swiftwater / Warden Cooder|      Human     |                 Unknown                 |
-|               Captain Grit Jabir               |      Human     |                 Unknown                 |
-|                  Captain Juka                  |      Human     |                 Unknown                 |
-|                  Captain Klow                  |      Human     |                 Unknown                 |
-|                  Captain Moody                 |      Human     |                   Dead                  |
-|                   Captain Rue                  |      Human     |                 Deceased                |
-|                 Captain Shevez                 |     Unknown    |                 Unknown                 |
-|                Captain Vanegull                |      Human     |                 Unknown                 |
-|                     Caylin                     |      Human     |                   Dead                  |
-|                 Caylin's mother                |      Human     |                   Dead                  |
-|           Chancellor Helena Primavera          |      Human     |                 Unknown                 |
-|               Chancellor Hypatia               |      Human     |                 Unknown                 |
-|                     Charis                     |      Human     |                 Unknown                 |
-|                    Charlotte                   |      Dogg      |                 Unknown                 |
-|                 Chiara Suncrest                |     Unknown    |                 Unknown                 |
-|                     Chowder                    |     Zombie     |                 Unknown                 |
-|                      Chum                      |     Zombie     |                   Dead                  |
-|                     Cirrus                     |      Human     |                 Unknown                 |
-|                      Cobbs                     |      Human     |                 Unknown                 |
-|                Countess Camilla                |     Unknown    |                 Unknown                 |
-|                       Cox                      |     Unknown    |                 Unknown                 |
-|                      Cutty                     |     Zombie     |                   Dead                  |
-|            Dan Lu, Kotori Galewarden           |      Human     |                 Unknown                 |
-|                 Danu Ashenguard                |      Human     |                 Unknown                 |
-|                     Darian                     |      Human     |                   Dead                  |
-|                     Darius                     |      Human     |                 Unknown                 |
-|                  Daryas Nimbus                 |     Unknown    |                 Unknown                 |
-|                     Davnir                     |     Ancient    |                 Deceased                |
-|                     Daxius                     |      Human     |                   Dead                  |
-|                    Demetrios                   |      Brute     |                   Dead                  |
-|            Dervin, Master of Beasts            |      Human     |                 Unknown                 |
-|                     Dheric                     |      Human     |                 Deceased                |
-|         Dr. Krest Mortimer, 'The Fixer'        |      Human     |                  Alive                  |
-|                 Dr. Wyverstone                 |      Human     |                 Unknown                 |
-|                   Duke Drexen                  |      Human     |                 Unknown                 |
-|                  Dunric Vargas                 |      Human     |                 Unknown                 |
-|                      Ebba                      |      Human     |                  Alive                  |
-|               Efaris Brittlebone               |      Human     |                 Unknown                 |
-|                      Einar                     |      Human     |                 Unknown                 |
-|                     Eirina                     |  Human Cleric  |                 Deceased                |
-|               Eldon, Lost Knight               |      Human     |                 Unknown                 |
-|                 Elias Edgecombe                |      Human     |                 Unknown                 |
-|                    Emeviere                    |     Unknown    |                 Unknown                 |
-|                 Enforcer Eesha                 |      Human     |                 Unknown                 |
-|                     Ersebet                    |     Unknown    |                 Unknown                 |
-|                       Eun                      |      Human     |                 Deceased                |
-|                 Executive Smyte                |      Human     |                 Unknown                 |
-|                Farin the Porter                |      Human     |                 Unknown                 |
-|                     Farris                     |      Human     |                 Unknown                 |
-|                     Fayyad                     |      Human     |                  Alive                  |
-|                      Felix                     |      Human     |                 Unknown                 |
-|                      Feral                     |      Human     |                 Unknown                 |
-|                 Fightmaster Kox                |     Goblin     |                 Unknown                 |
-|                Fightmaster Rusty               |      Dwarf     |                 Unknown                 |
-|                    Flannigan                   |      Human     |                 Unknown                 |
-|                  Foreman Pebb                  |     Unknown    |                 Unknown                 |
-|                Freya Eldingsturm               |     Unknown    |                 Unknown                 |
-|                  Fugger Grimes                 |     Unknown    |                 Unknown                 |
-|         Fyanna Redmoor, Boltyn's cousin        |      Human     |                 Unknown                 |
-|                    Galaphor                    |      Human     |                 Deceased                |
-|                     Galcia                     |     Ancient    |                 Deceased                |
-|                      Gavin                     |     Unknown    |                 Unknown                 |
-|                     Gawain                     |      Human     |                 Unknown                 |
-|                  General Chul                  |      Human     |                 Unknown                 |
-|                  General Ekoda                 |      Human     |                 Unknown                 |
-|                 General Nakami                 |      Human     |                 Unknown                 |
-|                  General Riku                  |      Human     |                   Dead                  |
-|                General Yamatoka                |      Human     |                  Alive                  |
-|                Giantslayer Crix                |      Human     |                 Unknown                 |
-|                Governor Practiss               |      Human     |                 Unknown                 |
-|               Graham the Gallant               |      Human     |                 Unknown                 |
-|          Grand Magister, The Steadfast         |      Human     |                 Unknown                 |
-|           Grand Magister, the Adamant          |      Human     |               Assumed Dead              |
-|           Grand Magister, the Beloved          |      Human     |               Assumed Dead              |
-|           Grand Magister, the Devout           |      Human     |               Assumed Dead              |
-|           Grand Magister, the Radiant          |      Human     |               Assumed Dead              |
-|                 Grandmaster Li                 |      Human     |                 Unknown                 |
-|                    Greenbird                   |      Human     |                 Unknown                 |
-|                      Grota                     |      Human     |                  Alive                  |
-|             Gudo, Mistward Pilgrim             |      Human     |                 Unknown                 |
-|                      Hank                      |      Human     |                  Alive                  |
-|                     Harland                    |     Unknown    |                 Unknown                 |
-|                Harold Honeysett                |      Human     |                 Unknown                 |
-|                      Helx                      |     Unknown    |                 Unknown                 |
-|                    Hightarn                    |      Witch     |                   Dead                  |
-|                    Hildegun                    |      Human     |                 Unknown                 |
-|                      Hirei                     |      Human     |                 Unknown                 |
-|                     Hisato                     |      Human     |                 Unknown                 |
-|                       Hog                      |      Human     |                 Unknown                 |
-|                     Huxley                     |      Human     |                 Unknown                 |
-|                     Hyrinth                    |     Diviner    |                 Unknown                 |
-|                Inquisitor Aricia               |     Unknown    |                 Unknown                 |
-|                     Jackdaw                    |      Human     |                 Unknown                 |
-|                     Jeeves                     |      Human     |                 Unknown                 |
-|                     Jemjang                    |      Human     |                   Dead                  |
-|     Jezabelle, Everfest Healer and Allsorts    |      Human     |                 Unknown                 |
-|                     Jigsaw                     |      Human     |                  Alive                  |
-|                      Jing                      |      Human     |                  Alive                  |
-|                      Juice                     |      Human     |                 Unknown                 |
-|                Jules Teklovossen               |      Human     |                  Alive                  |
-|                    Kalsharpe                   |      Human     |                 Unknown                 |
-|                     Karalyn                    |     Unknown    |                 Unknown                 |
-|                      Karl                      |     Unknown    |                 Unknown                 |
-|                      Kayat                     |   Illusionist  |                   Dead                  |
-|                     Kaysin                     |Maela Soothsayer|                 Unknown                 |
-|                      Kazuo                     |      Human     |                   Dead                  |
-|                     Kelpie                     |     Zombie     |                   Dead                  |
-|                      Kien                      |      Human     |                 Deceased                |
-|                    Kirigami                    |     Unknown    |                 Unknown                 |
-|                    Knuckles                    |      Human     |                   Dead                  |
-|                     Kossen                     |      Human     |                 Unknown                 |
-|                      Kouki                     |      Human     |                 Unknown                 |
-|                      Kyle                      |      Human     |                 Unknown                 |
-|                 Lady Barthimont                |      Human     |                 Deceased                |
-|               Lady Vera Sutcliffe              |      Human     |                 Unknown                 |
-|                   Lena Belle                   |      Human     |                 Unknown                 |
-|                      Leona                     |     Unknown    |                 Unknown                 |
-|                  Lieutenant Li                 |      Human     |                 Unknown                 |
-|               Lieutenant Timaeus               |      Human     |                 Unknown                 |
-|                Lieutenant Yamada               |      Human     |                   Dead                  |
-|                      Lilja                     |      Human     |                 Unknown                 |
-|                     Limpit                     |     Zombie     |                   Dead                  |
-|           Linnea, Mistress of Malady           |      Human     |                 Unknown                 |
-|          Lishu, Crimson Haze Vigilante         |      Human     |                 Unknown                 |
-|               Lord Merchant Savai              |      Human     |                   Dead                  |
-|                   Lord Sabuto                  |      Human     |                 Unknown                 |
-|                 Lord Sutcliffe                 |      Human     |               Just a head               |
-|                Lord Wizard Chiyo               |     Wizard     |                   Dead                  |
-|              Luca, Arena Cicerone              |      Human     |                  Alive                  |
-|             Lucilla the Setting Sun            |     Unknown    |                 Unknown                 |
-|                      Mabon                     |      Human     |                 Unknown                 |
-|                     Mad Siv                    |     Unknown    |                 Unknown                 |
-|                   Madam Rouge                  |      Human     |                   Dead                  |
-|                 Maela Fairmind                 |     Unknown    |                 Unknown                 |
-|                  Maela Isulfv                  |     Unknown    |                 Unknown                 |
-|                  Maela One-eye                 |     Unknown    |                 Unknown                 |
-|                  Maela Sharena                 |     Unknown    |                 Unknown                 |
-|                 Magistrate Chen                |      Human     |                 Unknown                 |
-|               Magnus the Vigilant              |      Human     |                 Unknown                 |
-|                     Magpie                     |      Human     |                  Alive                  |
-|                     Marbles                    |      Meep      |                 Unknown                 |
-|                     Marcus                     |      Human     |                 Unknown                 |
-|             Marcus 'Mauler' Monroe             |      Human     |                  Alive                  |
-|         Master Morita, Art of the Hand         |      Human     |                  Alive                  |
-|                  Master Saori                  |      Human     |                  Alive                  |
-|                  Master Takumi                 |      Human     |                  Alive                  |
-|                   Master Udo                   |      Human     |                 Unknown                 |
-|                     Maxwell                    |      Human     |                 Unknown                 |
-|                 Meldrick Sudds                 |      Human     |                  Alive                  |
-|                  Merlen Rivera                 |      Human     |                 Unknown                 |
-|          Metis, Archangel of Tenacity          |     Herald     |                 Unknown                 |
-|                     Mikael                     |      Human     |                 Unknown                 |
-|                      Miku                      |      Human     |                 Unknown                 |
-|           Min of the Forest of Flames          |      Human     |                 Unknown                 |
-|                 Minerva Themis                 |      Human     |                 Deceased                |
-|                     Miragai                    |     Dragon     |                 Unknown                 |
-|                     Miss Q                     |     Unknown    |                 Unknown                 |
-|                  Molly the Mop                 |      Human     |                  Alive                  |
-|                     Moloca                     |     Unknown    |                 Unknown                 |
-|                      Moray                     |      Human     |                 Unknown                 |
-|                  Moray Le Fay                  |Zombie Sea Witch|                   Dead                  |
-|      Morga, Grinning Boar Cantina Barmaid      |      Human     |                 Unknown                 |
-|                     Morgan                     |      Human     |                 Unknown                 |
-|                 Mutinous Maggie                |      Human     |                 Unknown                 |
-|                  Nailbit Nari                  |      Human     |                 Unknown                 |
-|                     Narakir                    |     Welkin     |                 Unknown                 |
-|                     Nasreth                    |      Embra     |                 Unknown                 |
-|                     Nestus                     |     Unknown    |                 Unknown                 |
-|             Ning, Kotori Moonseeker            |      Human     |                 Unknown                 |
-|                      Njeri                     |      Human     |                 Unknown                 |
-|                     One Eye                    |      Human     |                  Alive                  |
-|                      Otmar                     |      Human     |                 Unknown                 |
-|                Overseer Crichton               |      Human     |                   Dead                  |
-|                      Ozrim                     |     Rosetta    |                 Unknown                 |
-|                     Pallas                     |      Human     |                 Unknown                 |
-|                  Pearl Sandhri                 |      Human     |                  Alive                  |
-|                     Pelorus                    |      Human     |                  Alive                  |
-|                    Pinwheel                    |      Human     |                 Deceased                |
-|                  Polly Cranka                  |     Parrot     |                  Alive                  |
-|                  Professor Min                 |      Human     |                 Unknown                 |
-|               Prospector Cogmire               |      Human     |                 Unknown                 |
-|                     Quarrel                    |      Human     |                  Alive                  |
-|               Queen of Candlehold              |     Rosetta    |                   Gone                  |
-|                Ragnar Frosthelm                |      Human     |                 Unknown                 |
-|              Raven, Aesir of Chaos             |      Aesir     |                 Unknown                 |
-|                  Ray Stingeye                  |      Human     |                 Unknown                 |
-|              Reina, Spirit Caller              |      Human     |                 Unknown                 |
-|                   Rex Biggun                   |      Human     |                 Unknown                 |
-|                       Rez                      |      Human     |                 Unknown                 |
-|               Reznyr Eldingsturm               |     Unknown    |                 Unknown                 |
-|                   Ricky Royce                  |      Human     |                 Unknown                 |
-|                  Riggermortis                  |     Zombie     |                   Dead                  |
-|                      Rigo                      |      Robot     |Spider-bot assistant to Jules Teklovossen|
-|           Rupius, Auric Scrollmaster           |      Human     |                 Unknown                 |
-|                      Sada                      |    Sorceress   |                  Alive                  |
-|                Salvador Stallion               |     Unknown    |                 Unknown                 |
-|                   Sandy Shoo                   |      Human     |                 Unknown                 |
-|                      Sanni                     |      Human     |                 Unknown                 |
-|                     Satsuki                    |      Human     |                  Alive                  |
-|                  Sayashi Cara                  |      Human     |                 Unknown                 |
-|                     Scooba                     |   Zombie Dog   |                   Dead                  |
-|           Sekem, Archangel of Ravages          |     Herald     |                 Unknown                 |
-|                     Septus                     |     Unknown    |                 Unknown                 |
-|                    Seraphina                   |      Human     |                 Unknown                 |
-|                 Seto of Miharu                 |      Human     |                  Alive                  |
-|                     Shelly                     |     Zombie     |                   Dead                  |
-|                      Shio                      |      Human     |                 Unknown                 |
-|                      Shiro                     |      Human     |                  Alive                  |
-|                     Sidriz                     |     Wizard     |                 Unknown                 |
-|                 Skynda Feyscout                |     Unknown    |                 Unknown                 |
-|                  Slapstick Sal                 |     Unknown    |                 Unknown                 |
-|                     Slinger                    |      Human     |                  Alive                  |
-|                       Sol                      |      Aesir     |                 Unknown                 |
-|                      Soren                     |      Human     |                 Unknown                 |
-|                    Speakeasy                   |     Unknown    |                 Unknown                 |
-|                     Spokes                     |      Human     |                 Unknown                 |
-|                     Squidge                    |      Human     |                   Dead                  |
-|                 Sticky Fingers                 |     Octopus    |                  Alive                  |
-|                     Sumire                     |      Human     |                 Unknown                 |
-|                Suraj the Oracle                |      Human     |                 Unknown                 |
-|         Suraya, Archangel of Knowledge         |     Herald     |                 Unknown                 |
-|                     Swabbie                    |     Zombie     |                   Dead                  |
-|                Swiller Saltbeard               |      Human     |                 Unknown                 |
-|                     Syberys                    |     Wizard     |                 Unknown                 |
-|                  Synthea Teklo                 |      Human     |                 Unknown                 |
-|                     Synveri                    |      Human     |                 Unknown                 |
-|                      Taka                      |      Human     |                  Alive                  |
-|                  Tara VanGeld                  |      Dwarf     |                 Unknown                 |
-|               Tasha of Deshvahan               |     Unknown    |                 Unknown                 |
-|                Taskmaster Pyrion               |      Human     |                 Unknown                 |
-|                Templar Timaerus                |      Human     |                 Unknown                 |
-|                     Tetzuo                     |      Human     |                  Alive                  |
-|                    Thanuella                   |     Unknown    |                 Unknown                 |
-|                   The Bastion                  |     Unknown    |                 Unknown                 |
-|                  The Harvester                 |      Human     |                 Unknown                 |
-|                  The Librarian                 |     Unknown    |                 Unknown                 |
-|          Thebasto, Magister of Defense         |      Human     |                  Alive                  |
-|          Themis, Keeper of the Scales          |     Herald     |                 Unknown                 |
-|          Theodore Hamilton Scarborough         |      Human     |                 Unknown                 |
-|                     Thiroux                    |      Human     |                 Unknown                 |
-|                      Thuk                      |      Brute     |                 Unknown                 |
-|                      Tiril                     |      Human     |                 Unknown                 |
-|               Togark the Wrangler              |      Human     |                 Deceased                |
-|             Tohiro, Eternal Scribe             |      Human     |                 Unknown                 |
-|                     Tomass                     |      Human     |                 Unknown                 |
-|               Toroja of Ishigaki               |      Human     |                   Dead                  |
-|                      Ursur                     |      Embra     |                 Unknown                 |
-|                Vail the Vagrant                |      Human     |                 Unknown                 |
-|                     Valeria                    |      Human     |                 Unknown                 |
-|                Valgard Hoarfrost               |      Human     |                 Unknown                 |
-|                Vanik Silvertooth               |     Unknown    |                 Unknown                 |
-|                      Vera                      |      Human     |                 Unknown                 |
-|         Victoria, Archangel of Triumph         |     Herald     |                 Unknown                 |
-|                Vidya Willowmere                |     Unknown    |                 Unknown                 |
-|                      Vitus                     |      Human     |                 Unknown                 |
-|                Vyhara Cloudburst               |     Unknown    |                 Unknown                 |
-|                     Wailer                     |     Zombie     |                   Dead                  |
-|                     Wendryn                    |      Human     |                 Deceased                |
-|                     Wheeler                    |      Human     |                  Alive                  |
-|                Whispers of Xerys               |     Unknown    |                 Unknown                 |
-|                    Whitetail                   |      Human     |                  Alive                  |
-|                  Widow Johana                  |      Human     |                 Unknown                 |
-|                    Wynvarin                    |      Human     |                 Unknown                 |
-|                Xaine, Runescribe               |      Human     |                   Dead                  |
-|                      Xilin                     |      Human     |                   Dead                  |
-|                       Xin                      |      Human     |                 Unknown                 |
-|                      Yarin                     |      Human     |                 Unknown                 |
-|                     Yunkai                     |      Human     |                 Unknown                 |
-|                      Yvor                      |     Ancient    |                 Deceased                |
-|                   Írunaméabh                   |     Unkown     |                 Unknown                 |
-|                    λud@c!ty                    |     Unknown    |                 Unknown                 |
+|                      Name                      |                  Status                 |
+|------------------------------------------------|-----------------------------------------|
+|              Achlys, hag of Mojire             |                 Unknown                 |
+|           Aegis, the Shield of Light           |                 Unknown                 |
+|                     Aelius                     |                   Dead                  |
+|                 Aesir of Flames                |                 Unknown                 |
+|                      Aios                      |                  Alive                  |
+|                      Akuo                      |                 Unknown                 |
+|                      Alif                      |                  Alive                  |
+|                     Alosyn                     |                 Unknown                 |
+|                      Amir                      |                 Unknown                 |
+|                  Amira Surana                  |                 Unknown                 |
+|                   Anarch Zeir                  |                 Unknown                 |
+|             Anhe, Kotori Wavebender            |                 Unknown                 |
+|                    Apostate                    |                 Unknown                 |
+|                     Astier                     |                 Unknown                 |
+|                  Astra Morena                  |                 Unknown                 |
+|                  Astrea Quazor                 |                  Alive                  |
+|                      Ateia                     |                 Unknown                 |
+|           Aurea, Champion of the Dawn          |                 Unknown                 |
+|                    Aurelius                    |                 Unknown                 |
+|                  Auric Seeress                 |                 Deceased                |
+|          Avalon, Messenger of the Dawn         |                 Unknown                 |
+|                     Bam Bam                    |                 Unknown                 |
+|                Baron the Butcher               |                   Dead                  |
+|                     Barton                     |                 Unknown                 |
+|               Bartrand the Bloody              |                 Unknown                 |
+|                Barus Boldstride                |                 Unknown                 |
+|                    Batbiter                    |                 Unknown                 |
+|                      Bazz                      |                 Deceased                |
+|                 Beezy the Brash                |                   Dead                  |
+|           Bellona, the Wartune Herald          |                 Unknown                 |
+|                      Biski                     |                 Unknown                 |
+|                   Blasmophet                   |                 Unknown                 |
+|                   Blind Boggy                  |                 Unknown                 |
+|               Bloodworth Goldmane              |                 Unknown                 |
+|                     Bojani                     |                   Dead                  |
+|                       Boo                      |                 Unknown                 |
+|                Braumeister Balen               |                  Alive                  |
+|                Brewmeister Marv                |                 Unknown                 |
+|               Brutus, Summa Rudis              |                 Unknown                 |
+|                   Butcher Jek                  |                 Unknown                 |
+|                     Buttons                    |                  Alive                  |
+|                 Captain Bludge                 |                 Unknown                 |
+|Captain Cooder of the Swiftwater / Warden Cooder|                 Unknown                 |
+|               Captain Grit Jabir               |                 Unknown                 |
+|                  Captain Juka                  |                 Unknown                 |
+|                  Captain Klow                  |                 Unknown                 |
+|                  Captain Moody                 |                   Dead                  |
+|                   Captain Rue                  |                 Deceased                |
+|                 Captain Shevez                 |                 Unknown                 |
+|                Captain Vanegull                |                 Unknown                 |
+|                     Caylin                     |                   Dead                  |
+|                 Caylin's mother                |                   Dead                  |
+|           Chancellor Helena Primavera          |                 Unknown                 |
+|               Chancellor Hypatia               |                 Unknown                 |
+|                     Charis                     |                 Unknown                 |
+|                    Charlotte                   |                 Unknown                 |
+|                 Chiara Suncrest                |                 Unknown                 |
+|                     Chowder                    |                 Unknown                 |
+|                      Chum                      |                   Dead                  |
+|                     Cirrus                     |                 Unknown                 |
+|                      Cobbs                     |                 Unknown                 |
+|                Countess Camilla                |                 Unknown                 |
+|                       Cox                      |                 Unknown                 |
+|                      Cutty                     |                   Dead                  |
+|            Dan Lu, Kotori Galewarden           |                 Unknown                 |
+|                 Danu Ashenguard                |                 Unknown                 |
+|                     Darian                     |                   Dead                  |
+|                     Darius                     |                 Unknown                 |
+|                  Daryas Nimbus                 |                 Unknown                 |
+|                     Davnir                     |                 Deceased                |
+|                     Daxius                     |                   Dead                  |
+|                    Demetrios                   |                   Dead                  |
+|            Dervin, Master of Beasts            |                 Unknown                 |
+|                     Dheric                     |                 Deceased                |
+|         Dr. Krest Mortimer, 'The Fixer'        |                  Alive                  |
+|                 Dr. Wyverstone                 |                 Unknown                 |
+|                   Duke Drexen                  |                 Unknown                 |
+|                  Dunric Vargas                 |                 Unknown                 |
+|                      Ebba                      |                  Alive                  |
+|               Efaris Brittlebone               |                 Unknown                 |
+|                      Einar                     |                 Unknown                 |
+|                     Eirina                     |                 Deceased                |
+|               Eldon, Lost Knight               |                 Unknown                 |
+|                 Elias Edgecombe                |                 Unknown                 |
+|                    Emeviere                    |                 Unknown                 |
+|                 Enforcer Eesha                 |                 Unknown                 |
+|                     Ersebet                    |                 Unknown                 |
+|                       Eun                      |                 Deceased                |
+|                 Executive Smyte                |                 Unknown                 |
+|                Farin the Porter                |                 Unknown                 |
+|                     Farris                     |                 Unknown                 |
+|                     Fayyad                     |                  Alive                  |
+|                      Felix                     |                 Unknown                 |
+|                      Feral                     |                 Unknown                 |
+|                 Fightmaster Kox                |                 Unknown                 |
+|                Fightmaster Rusty               |                 Unknown                 |
+|                    Flannigan                   |                 Unknown                 |
+|                  Foreman Pebb                  |                 Unknown                 |
+|                Freya Eldingsturm               |                 Unknown                 |
+|                  Fugger Grimes                 |                 Unknown                 |
+|         Fyanna Redmoor, Boltyn's cousin        |                 Unknown                 |
+|                    Galaphor                    |                 Deceased                |
+|                     Galcia                     |                 Deceased                |
+|                      Gavin                     |                 Unknown                 |
+|                     Gawain                     |                 Unknown                 |
+|                  General Chul                  |                 Unknown                 |
+|                  General Ekoda                 |                 Unknown                 |
+|                 General Nakami                 |                 Unknown                 |
+|                  General Riku                  |                   Dead                  |
+|                General Yamatoka                |                  Alive                  |
+|                Giantslayer Crix                |                 Unknown                 |
+|                Governor Practiss               |                 Unknown                 |
+|               Graham the Gallant               |                 Unknown                 |
+|          Grand Magister, The Steadfast         |                 Unknown                 |
+|           Grand Magister, the Adamant          |               Assumed Dead              |
+|           Grand Magister, the Beloved          |               Assumed Dead              |
+|           Grand Magister, the Devout           |               Assumed Dead              |
+|           Grand Magister, the Radiant          |               Assumed Dead              |
+|                 Grandmaster Li                 |                 Unknown                 |
+|                    Greenbird                   |                 Unknown                 |
+|                      Grota                     |                  Alive                  |
+|             Gudo, Mistward Pilgrim             |                 Unknown                 |
+|                      Hank                      |                  Alive                  |
+|                     Harland                    |                 Unknown                 |
+|                Harold Honeysett                |                 Unknown                 |
+|                      Helx                      |                 Unknown                 |
+|                    Hightarn                    |                   Dead                  |
+|                    Hildegun                    |                 Unknown                 |
+|                      Hirei                     |                 Unknown                 |
+|                     Hisato                     |                 Unknown                 |
+|                       Hog                      |                 Unknown                 |
+|                     Huxley                     |                 Unknown                 |
+|                     Hyrinth                    |                 Unknown                 |
+|                Inquisitor Aricia               |                 Unknown                 |
+|                     Jackdaw                    |                 Unknown                 |
+|                     Jeeves                     |                 Unknown                 |
+|                     Jemjang                    |                   Dead                  |
+|     Jezabelle, Everfest Healer and Allsorts    |                 Unknown                 |
+|                     Jigsaw                     |                  Alive                  |
+|                      Jing                      |                  Alive                  |
+|                      Juice                     |                 Unknown                 |
+|                Jules Teklovossen               |                  Alive                  |
+|                    Kalsharpe                   |                 Unknown                 |
+|                     Karalyn                    |                 Unknown                 |
+|                      Karl                      |                 Unknown                 |
+|                      Kayat                     |                   Dead                  |
+|                     Kaysin                     |                 Unknown                 |
+|                      Kazuo                     |                   Dead                  |
+|                     Kelpie                     |                   Dead                  |
+|                      Kien                      |                 Deceased                |
+|                    Kirigami                    |                 Unknown                 |
+|                    Knuckles                    |                   Dead                  |
+|                     Kossen                     |                 Unknown                 |
+|                      Kouki                     |                 Unknown                 |
+|                      Kyle                      |                 Unknown                 |
+|                 Lady Barthimont                |                 Deceased                |
+|               Lady Vera Sutcliffe              |                 Unknown                 |
+|                   Lena Belle                   |                 Unknown                 |
+|                      Leona                     |                 Unknown                 |
+|                  Lieutenant Li                 |                 Unknown                 |
+|               Lieutenant Timaeus               |                 Unknown                 |
+|                Lieutenant Yamada               |                   Dead                  |
+|                      Lilja                     |                 Unknown                 |
+|                     Limpit                     |                   Dead                  |
+|           Linnea, Mistress of Malady           |                 Unknown                 |
+|          Lishu, Crimson Haze Vigilante         |                 Unknown                 |
+|               Lord Merchant Savai              |                   Dead                  |
+|                   Lord Sabuto                  |                 Unknown                 |
+|                 Lord Sutcliffe                 |               Just a head               |
+|                Lord Wizard Chiyo               |                   Dead                  |
+|              Luca, Arena Cicerone              |                  Alive                  |
+|             Lucilla the Setting Sun            |                 Unknown                 |
+|                      Mabon                     |                 Unknown                 |
+|                     Mad Siv                    |                 Unknown                 |
+|                   Madam Rouge                  |                   Dead                  |
+|                 Maela Fairmind                 |                 Unknown                 |
+|                  Maela Isulfv                  |                 Unknown                 |
+|                  Maela One-eye                 |                 Unknown                 |
+|                  Maela Sharena                 |                 Unknown                 |
+|                 Magistrate Chen                |                 Unknown                 |
+|               Magnus the Vigilant              |                 Unknown                 |
+|                     Magpie                     |                  Alive                  |
+|                     Marbles                    |                 Unknown                 |
+|                     Marcus                     |                 Unknown                 |
+|             Marcus 'Mauler' Monroe             |                  Alive                  |
+|         Master Morita, Art of the Hand         |                  Alive                  |
+|                  Master Saori                  |                  Alive                  |
+|                  Master Takumi                 |                  Alive                  |
+|                   Master Udo                   |                 Unknown                 |
+|                     Maxwell                    |                 Unknown                 |
+|                 Meldrick Sudds                 |                  Alive                  |
+|                  Merlen Rivera                 |                 Unknown                 |
+|          Metis, Archangel of Tenacity          |                 Unknown                 |
+|                     Mikael                     |                 Unknown                 |
+|                      Miku                      |                 Unknown                 |
+|           Min of the Forest of Flames          |                 Unknown                 |
+|                 Minerva Themis                 |                 Deceased                |
+|                     Miragai                    |                 Unknown                 |
+|                     Miss Q                     |                 Unknown                 |
+|                  Molly the Mop                 |                  Alive                  |
+|                     Moloca                     |                 Unknown                 |
+|                      Moray                     |                 Unknown                 |
+|                  Moray Le Fay                  |                   Dead                  |
+|      Morga, Grinning Boar Cantina Barmaid      |                 Unknown                 |
+|                     Morgan                     |                 Unknown                 |
+|                 Mutinous Maggie                |                 Unknown                 |
+|                  Nailbit Nari                  |                 Unknown                 |
+|                     Narakir                    |                 Unknown                 |
+|                     Nasreth                    |                 Unknown                 |
+|                     Nestus                     |                 Unknown                 |
+|             Ning, Kotori Moonseeker            |                 Unknown                 |
+|                      Njeri                     |                 Unknown                 |
+|                     One Eye                    |                  Alive                  |
+|                      Otmar                     |                 Unknown                 |
+|                Overseer Crichton               |                   Dead                  |
+|                      Ozrim                     |                 Unknown                 |
+|                     Pallas                     |                 Unknown                 |
+|                  Pearl Sandhri                 |                  Alive                  |
+|                     Pelorus                    |                  Alive                  |
+|                    Pinwheel                    |                 Deceased                |
+|                  Polly Cranka                  |                  Alive                  |
+|                  Professor Min                 |                 Unknown                 |
+|               Prospector Cogmire               |                 Unknown                 |
+|                     Quarrel                    |                  Alive                  |
+|               Queen of Candlehold              |                   Gone                  |
+|                Ragnar Frosthelm                |                 Unknown                 |
+|              Raven, Aesir of Chaos             |                 Unknown                 |
+|                  Ray Stingeye                  |                 Unknown                 |
+|              Reina, Spirit Caller              |                 Unknown                 |
+|                   Rex Biggun                   |                 Unknown                 |
+|                       Rez                      |                 Unknown                 |
+|               Reznyr Eldingsturm               |                 Unknown                 |
+|                   Ricky Royce                  |                 Unknown                 |
+|                  Riggermortis                  |                   Dead                  |
+|                      Rigo                      |Spider-bot assistant to Jules Teklovossen|
+|           Rupius, Auric Scrollmaster           |                 Unknown                 |
+|                      Sada                      |                  Alive                  |
+|                Salvador Stallion               |                 Unknown                 |
+|                   Sandy Shoo                   |                 Unknown                 |
+|                      Sanni                     |                 Unknown                 |
+|                     Satsuki                    |                  Alive                  |
+|                  Sayashi Cara                  |                 Unknown                 |
+|                     Scooba                     |                   Dead                  |
+|           Sekem, Archangel of Ravages          |                 Unknown                 |
+|                     Septus                     |                 Unknown                 |
+|                    Seraphina                   |                 Unknown                 |
+|                 Seto of Miharu                 |                  Alive                  |
+|                     Shelly                     |                   Dead                  |
+|                      Shio                      |                 Unknown                 |
+|                      Shiro                     |                  Alive                  |
+|                     Sidriz                     |                 Unknown                 |
+|                 Skynda Feyscout                |                 Unknown                 |
+|                  Slapstick Sal                 |                 Unknown                 |
+|                     Slinger                    |                  Alive                  |
+|                       Sol                      |                 Unknown                 |
+|                      Soren                     |                 Unknown                 |
+|                    Speakeasy                   |                 Unknown                 |
+|                     Spokes                     |                 Unknown                 |
+|                     Squidge                    |                   Dead                  |
+|                 Sticky Fingers                 |                  Alive                  |
+|                     Sumire                     |                 Unknown                 |
+|                Suraj the Oracle                |                 Unknown                 |
+|         Suraya, Archangel of Knowledge         |                 Unknown                 |
+|                     Swabbie                    |                   Dead                  |
+|                Swiller Saltbeard               |                 Unknown                 |
+|                     Syberys                    |                 Unknown                 |
+|                  Synthea Teklo                 |                 Unknown                 |
+|                     Synveri                    |                 Unknown                 |
+|                      Taka                      |                  Alive                  |
+|                  Tara VanGeld                  |                 Unknown                 |
+|               Tasha of Deshvahan               |                 Unknown                 |
+|                Taskmaster Pyrion               |                 Unknown                 |
+|                Templar Timaerus                |                 Unknown                 |
+|                     Tetzuo                     |                  Alive                  |
+|                    Thanuella                   |                 Unknown                 |
+|                   The Bastion                  |                 Unknown                 |
+|                  The Harvester                 |                 Unknown                 |
+|                  The Librarian                 |                 Unknown                 |
+|          Thebasto, Magister of Defense         |                  Alive                  |
+|          Themis, Keeper of the Scales          |                 Unknown                 |
+|          Theodore Hamilton Scarborough         |                 Unknown                 |
+|                     Thiroux                    |                 Unknown                 |
+|                      Thuk                      |                 Unknown                 |
+|                      Tiril                     |                 Unknown                 |
+|               Togark the Wrangler              |                 Deceased                |
+|             Tohiro, Eternal Scribe             |                 Unknown                 |
+|                     Tomass                     |                 Unknown                 |
+|               Toroja of Ishigaki               |                   Dead                  |
+|                      Ursur                     |                 Unknown                 |
+|                Vail the Vagrant                |                 Unknown                 |
+|                     Valeria                    |                 Unknown                 |
+|                Valgard Hoarfrost               |                 Unknown                 |
+|                Vanik Silvertooth               |                 Unknown                 |
+|                      Vera                      |                 Unknown                 |
+|         Victoria, Archangel of Triumph         |                 Unknown                 |
+|                Vidya Willowmere                |                 Unknown                 |
+|                      Vitus                     |                 Unknown                 |
+|                Vyhara Cloudburst               |                 Unknown                 |
+|                     Wailer                     |                   Dead                  |
+|                     Wendryn                    |                 Deceased                |
+|                     Wheeler                    |                  Alive                  |
+|                    Whitetail                   |                  Alive                  |
+|                  Widow Johana                  |                 Unknown                 |
+|                    Wynvarin                    |                 Unknown                 |
+|                Xaine, Runescribe               |                   Dead                  |
+|                      Xilin                     |                   Dead                  |
+|                       Xin                      |                 Unknown                 |
+|                      Yarin                     |                 Unknown                 |
+|                     Yunkai                     |                 Unknown                 |
+|                      Yvor                      |                 Deceased                |
+|                   Írunaméabh                   |                 Unknown                 |
+|                    λud@c!ty                    |                 Unknown                 |

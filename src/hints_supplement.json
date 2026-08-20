@@ -293,14 +293,6 @@
     "match": "Old Ones",
     "summary": "Ancient beings of overwhelming power from beyond Rathe who threatened to consume the world in the Third Age."
   },
-  "Embra": {
-    "type": "concept",
-    "match": [
-      "Embra",
-      "Embras"
-    ],
-    "summary": "Powerful supernatural entities that feed on blood."
-  },
   "Blasmophet": {
     "type": "embra",
     "summary": "The demon whose all-consuming hunger possesses Levia the Consumed."
@@ -850,10 +842,6 @@
     "type": "ancient",
     "summary": "Ancient of Ice."
   },
-  "Chanek": {
-    "type": "species",
-    "summary": "Green-skinned, pointed-eared Rathenfolk of the far west."
-  },
   "Rathenfolk": {
     "type": "concept",
     "summary": "The living peoples of Rathe, reduced by the Old Ones to survivors in Isenloft, Aldengrove and Valahai."
@@ -961,14 +949,6 @@
       "Vitr’eo"
     ]
   },
-  "Aesir": {
-    "type": "concept",
-    "match": [
-      "Aesir",
-      "Aesirs"
-    ],
-    "summary": "Primordial beings of elemental force who slumber beyond the veil — worshipped as deities such as Sol, and fought as ancient enemies in the Third Age."
-  },
   "Apostate": {
     "type": "npc",
     "summary": "The Grand Magister who denounced Sol, founded the Demonastery, and sacrificed themself to tear it from Rathe into the Nebulus Rift."
@@ -1010,9 +990,7 @@
     "type": "npc",
     "summary": "Graverobber whose crew opened a wrathful baron's coffin; he woke alone in an open grave, soaked in his comrades' blood."
   },
-  "Ancients": {
-    "type": "concept",
-    "summary": "Colossal elemental beings native to Rathe; Davnir, Yvor and Galcia spent their lives in the cataclysm that broke the world of the Third Age.",
+  "Ancient": {
     "exclude_pages": [
       "world-of-rathe/aria"
     ]

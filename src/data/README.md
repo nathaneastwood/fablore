@@ -115,7 +115,7 @@ db.upsert_story(
     story_type="main-story",
     title="Omens in the Sky",
     heroes=["boltyn"],
-    npcs=[NPCEntry("Captain Example", species="Human", status="Alive")],
+    npcs=[NPCEntry("Captain Example", status="Alive")],
     locations=[LocationEntry("The Grand Bazaar", region="Aria", lore_fragment="grand-bazaar")],
     narrated_videos=[NarratedVideoEntry(author="LSS", source_link="https://…")],
 )
@@ -175,7 +175,7 @@ db.print_heroes()     # prints slug → display name for all canonical heroes
 db.print_weapons()
 db.print_equipment()
 db.print_regions()    # region name + world lore page key
-db.print_npcs()       # name, species, status
+db.print_npcs()       # name, species (joined from npc_species), status
 db.print_locations()  # name, region, lore_fragment
 ```
 
@@ -403,8 +403,16 @@ erDiagram
     npcs {
         string CharacterId PK "LC + hash of Name"
         string Name
-        string Species
         string Status
+    }
+    species {
+        string SpeciesId PK "SP + hash of Name"
+        string Name
+        string Notes "owned by descriptions.py"
+    }
+    npc_species {
+        string CharacterId FK
+        string SpeciesId FK
     }
     locations {
         string LocationId PK "LO + hash of Name and RegionId"
@@ -517,7 +525,8 @@ All files are under `src/data/csv/` unless noted. Pipe-delimited. Empty fields a
 | `stories.csv` | `StoryId`, `StoryKey`, `StoryType`, `Title`, `Authors`, `Artists`, `SourceLink`, `PublicationDate`, `ThumbnailImageLink` | `StoryId` (`ST` + hash of `StoryKey`) | `StoryKey` = path under `src/` (navigation; not used in `story-*.csv` joins). Narrated YouTube rows are in `story-narrated-videos.csv`. | `create_stories_index.py` / `Database.upsert_story` |
 | `regions.csv` | `RegionId`, `RegionName`, `WorldOfRatheStoryKey` | `RegionId` (`RG` + hash of name) | Optional story path | `Database.upsert_story(locations=[LocationEntry(..., region=...)])` |
 | `locations.csv` | `LocationId`, `Name`, `RegionId`, `Notes`, `LoreFragment` | `LocationId` (`LO` + hash) | `RegionId` → `regions.csv` (empty = unknown region). `LoreFragment`: heading id (no `#`) on the region's `WorldOfRatheStoryKey` page for deep links. Validated against that `.md` file. | `Database.upsert_story(locations=[...])` |
-| `npcs.csv` | `CharacterId`, `Name`, `Species`, `Status` | `CharacterId` (`LC` + hash) | Appearances → `story-npcs.csv` | `Database.upsert_story(npcs=[...])` |
+| `npcs.csv` | `CharacterId`, `Name`, `Status` | `CharacterId` (`LC` + hash) | Appearances → `story-npcs.csv`; species → `npc-species.csv` | `Database.upsert_story(npcs=[...])` |
+| `species.csv` | `SpeciesId`, `Name`, `Notes` | `SpeciesId` (`SP` + hash) | Members → `npc-species.csv`; other names → `species-aliases.csv` | `NPCEntry(species=sp.HUMAN)`, notes via `descriptions.py` |
 | `monsters.csv` | `MonsterId`, `Name`, `Description` | `MonsterId` (`MO` + hash) | → `story-monsters.csv` | `Database.upsert_story(monsters=[...])` |
 | `fauna.csv` | `FaunaId`, `Name`, `Description` | `FaunaId` (`FA` + hash) | → `story-fauna.csv` | `Database.upsert_story(fauna=[...])` |
 | `flora.csv` | `FloraId`, `Name`, `Description` | `FloraId` (`FR` + hash) | → `story-flora.csv` | `Database.upsert_story(flora=[...])` |

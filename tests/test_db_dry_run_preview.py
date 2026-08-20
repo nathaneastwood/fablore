@@ -21,9 +21,10 @@ from db import (
     FaunaEntry,
     FoodDrinkEntry,
     LocationEntry,
-    NarratedVideoEntry,
     NPCEntry,
+    NarratedVideoEntry,
     RegionEntry,
+    SpeciesEntry,
 )
 
 
@@ -171,7 +172,7 @@ def test_preview_reports_npc_status_change(db: Database, capsys) -> None:
         "src/main-story/z.md",
         story_type="main-story",
         title="Z",
-        npcs=[NPCEntry("Lord Sutcliffe", species="Human", status="Just a head")],
+        npcs=[NPCEntry("Lord Sutcliffe", species=SpeciesEntry("Human"), status="Just a head")],
     )
 
     report = _preview(
@@ -180,7 +181,7 @@ def test_preview_reports_npc_status_change(db: Database, capsys) -> None:
         path="src/main-story/z.md",
         story_type="main-story",
         title="Z",
-        npcs=[NPCEntry("Lord Sutcliffe", species="Human", status="Deceased")],
+        npcs=[NPCEntry("Lord Sutcliffe", species=SpeciesEntry("Human"), status="Deceased")],
     )
 
     assert "Lord Sutcliffe" in report

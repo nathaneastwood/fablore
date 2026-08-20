@@ -117,6 +117,8 @@ def _make_db(path: Path) -> None:
     )
     conn.execute("CREATE TABLE location_aliases (location_id TEXT, alias TEXT, era TEXT, sort_order INTEGER)")
     conn.execute("CREATE TABLE group_aliases (group_id TEXT, alias TEXT, sort_order INTEGER)")
+    conn.execute("CREATE TABLE species (species_id TEXT DEFAULT '', name TEXT, notes TEXT)")
+    conn.execute("CREATE TABLE species_aliases (species_id TEXT, alias TEXT, sort_order INTEGER)")
     conn.execute("INSERT INTO regions VALUES ('R1', 'Solana')")
     conn.execute("INSERT INTO locations (name, notes, region_id) VALUES ('Grand Bazaar', 'A marketplace.', 'R1')")
     conn.execute("INSERT INTO locations (name, notes, region_id) VALUES ('Empty Place', '', 'R1')")
@@ -187,6 +189,8 @@ def test_generate_no_region_for_unknown_region_id(tmp_path, monkeypatch):
     )
     conn.execute("CREATE TABLE location_aliases (location_id TEXT, alias TEXT, era TEXT, sort_order INTEGER)")
     conn.execute("CREATE TABLE group_aliases (group_id TEXT, alias TEXT, sort_order INTEGER)")
+    conn.execute("CREATE TABLE species (species_id TEXT DEFAULT '', name TEXT, notes TEXT)")
+    conn.execute("CREATE TABLE species_aliases (species_id TEXT, alias TEXT, sort_order INTEGER)")
     # Location references a region_id not in the regions table
     conn.execute("INSERT INTO locations (name, notes, region_id) VALUES ('Lost Shrine', 'Ancient ruins.', 'UNKNOWN')")
     conn.commit()
@@ -275,6 +279,8 @@ def _make_group_db(path: Path) -> None:
     )
     conn.execute("CREATE TABLE location_aliases (location_id TEXT, alias TEXT, era TEXT, sort_order INTEGER)")
     conn.execute("CREATE TABLE group_aliases (group_id TEXT, alias TEXT, sort_order INTEGER)")
+    conn.execute("CREATE TABLE species (species_id TEXT DEFAULT '', name TEXT, notes TEXT)")
+    conn.execute("CREATE TABLE species_aliases (species_id TEXT, alias TEXT, sort_order INTEGER)")
     conn.execute("INSERT INTO regions VALUES ('R1', 'Misteria')")
     conn.execute("INSERT INTO locations (name, notes, region_id, location_id) VALUES ('Ikaru', 'A house.', 'R1', 'L1')")
     conn.execute(
@@ -446,3 +452,92 @@ def test_clash_warning_ignores_plain_substrings() -> None:
     from generate_hints_json import _warn_match_collisions
 
     assert _warn_match_collisions({"Sol": {"type": "npc"}, "Solarium": {"type": "location"}}) == []
+
+
+# ---------------------------------------------------------------------------
+# Species reach the tooltip, and lose every tie
+# ---------------------------------------------------------------------------
+
+
+def _make_species_db(path: Path) -> None:
+    conn = sqlite3.connect(path)
+    conn.execute("CREATE TABLE regions (region_id TEXT, region_name TEXT)")
+    conn.execute("CREATE TABLE locations (name TEXT, notes TEXT, region_id TEXT, location_id TEXT DEFAULT '')")
+    conn.execute("CREATE TABLE monsters (name TEXT, description TEXT)")
+    conn.execute("CREATE TABLE fauna (name TEXT, description TEXT)")
+    conn.execute("CREATE TABLE flora (name TEXT, description TEXT)")
+    conn.execute(
+        "CREATE TABLE groups (group_id TEXT DEFAULT '', name TEXT, kind TEXT, notes TEXT,"
+        " lore_story_key TEXT DEFAULT '', lore_fragment TEXT DEFAULT '', location_id TEXT DEFAULT '')"
+    )
+    conn.execute("CREATE TABLE location_aliases (location_id TEXT, alias TEXT, era TEXT, sort_order INTEGER)")
+    conn.execute("CREATE TABLE group_aliases (group_id TEXT, alias TEXT, sort_order INTEGER)")
+    conn.execute("CREATE TABLE species (species_id TEXT DEFAULT '', name TEXT, notes TEXT)")
+    conn.execute("CREATE TABLE species_aliases (species_id TEXT, alias TEXT, sort_order INTEGER)")
+    conn.commit()
+    conn.close()
+
+
+def test_a_species_becomes_a_tooltip(tmp_path: Path, monkeypatch) -> None:
+    db = tmp_path / "sp.db"
+    _make_species_db(db)
+    conn = sqlite3.connect(db)
+    conn.execute("INSERT INTO species VALUES ('SP1','Chanek','Rathenfolk of the far west.')")
+    conn.commit()
+    conn.close()
+    out = _generate_from(db, tmp_path, monkeypatch)
+    assert out["Chanek"] == {"type": "species", "summary": "Rathenfolk of the far west."}
+
+
+def test_a_species_with_no_notes_emits_nothing(tmp_path: Path, monkeypatch) -> None:
+    """Fourteen of the twenty are in this state, which is the honest one."""
+    db = tmp_path / "sp.db"
+    _make_species_db(db)
+    conn = sqlite3.connect(db)
+    conn.execute("INSERT INTO species VALUES ('SP1','Meep','')")
+    conn.commit()
+    conn.close()
+    assert "Meep" not in _generate_from(db, tmp_path, monkeypatch)
+
+
+def test_a_species_alias_becomes_a_match_string(tmp_path: Path, monkeypatch) -> None:
+    """The prose writes `Ancients`; the row is singular because the column was."""
+    db = tmp_path / "sp.db"
+    _make_species_db(db)
+    conn = sqlite3.connect(db)
+    conn.execute("INSERT INTO species VALUES ('SP1','Ancient','Colossal elemental beings.')")
+    conn.execute("INSERT INTO species_aliases VALUES ('SP1','Ancients',0)")
+    conn.commit()
+    conn.close()
+    assert _generate_from(db, tmp_path, monkeypatch)["Ancient"]["match"] == ["Ancient", "Ancients"]
+
+
+def test_a_group_beats_a_species_of_the_same_name(tmp_path: Path, monkeypatch) -> None:
+    """`Rosetta` is an order and a people. Emission order decides, and species is last."""
+    db = tmp_path / "sp.db"
+    _make_species_db(db)
+    conn = sqlite3.connect(db)
+    conn.execute("INSERT INTO groups VALUES ('GR1','Rosetta','order','An order.','','','')")
+    conn.execute("INSERT INTO species VALUES ('SP1','Rosetta','A people.')")
+    conn.commit()
+    conn.close()
+    entry = _generate_from(db, tmp_path, monkeypatch)["Rosetta"]
+    assert entry["type"] == "order"
+    assert entry["summary"] == "An order."
+
+
+def test_the_loser_of_a_key_clash_donates_fields_the_winner_lacks(tmp_path: Path, monkeypatch) -> None:
+    """`The Foundry` is a location and the station inside it; only the group has a url."""
+    db = tmp_path / "sp.db"
+    _make_species_db(db)
+    conn = sqlite3.connect(db)
+    conn.execute("INSERT INTO locations VALUES ('The Foundry','A radio station.','','LO1')")
+    conn.execute(
+        "INSERT INTO groups VALUES ('GR1','The Foundry','organisation','A radio station.',"
+        "'world-of-rathe/metrix.md','the-foundry','')"
+    )
+    conn.commit()
+    conn.close()
+    entry = _generate_from(db, tmp_path, monkeypatch)["The Foundry"]
+    assert entry["type"] == "location"
+    assert entry["url"] == "/world-of-rathe/metrix.html#the-foundry"

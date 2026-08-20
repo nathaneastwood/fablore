@@ -521,9 +521,10 @@ def _check_hero_card_name_alias_slugs_in_canonical(canonical_path: Path) -> list
 # ("order of knights", "law enforcement"), so no closed list can cover both.
 # Decided 2026-08-20.
 #
-# ``faction`` and ``organisation`` are on their way out: stage 2 of the groups
-# work migrates those 24 entries into the groups table, after which they can be
-# dropped from this list.
+# ``faction`` went in stage 4, once stage 2 had migrated the last entry using it
+# into the groups table. ``organisation`` is one entry from the same fate —
+# Braumeister, held for R9. ``species`` went the same way: species are DB-backed
+# now, so a supplement entry claiming that type would be a second writer.
 _SUPPLEMENT_TYPES = frozenset(
     {
         "aesir",
@@ -535,7 +536,6 @@ _SUPPLEMENT_TYPES = frozenset(
         # Bloodrot Pox, Frailty and Inertia.
         "disease",
         "embra",
-        "faction",
         "hero",
         "item",
         "location",
@@ -543,7 +543,6 @@ _SUPPLEMENT_TYPES = frozenset(
         "organisation",
         "region",
         "ship",
-        "species",
     }
 )
 
@@ -625,6 +624,7 @@ def _check_alias_name_collisions() -> list[str]:
         ("location-aliases.csv", "Alias", "LocationId", "locations.csv", "LocationId", "Name", "Location alias"),
         ("group-aliases.csv", "Alias", "GroupId", "groups.csv", "GroupId", "Name", "Group alias"),
         ("npc-epithets.csv", "Name", "CharacterId", "npcs.csv", "CharacterId", "Name", "NPC epithet"),
+        ("species-aliases.csv", "Alias", "SpeciesId", "species.csv", "SpeciesId", "Name", "Species alias"),
     ):
         alias_path, registry_path = DATA / f"csv/{alias_file}", DATA / f"csv/{registry_file}"
         if not (alias_path.is_file() and registry_path.is_file()):
@@ -708,6 +708,7 @@ def _check_descriptions_targets_exist(descriptions_path: Path) -> list[str]:
         "fauna": "fauna.csv",
         "flora": "flora.csv",
         "group": "groups.csv",
+        "species": "species.csv",
     }
     known = {kind: _id_set_from_column(DATA / "csv" / filename, "Name") for kind, filename in csv_for_kind.items()}
 
@@ -809,6 +810,9 @@ def collect_alerts() -> list[str]:
         (DATA / "csv/group-heroes.csv", ("GroupId", "CanonicalId"), "Group ↔ hero membership"),
         (DATA / "csv/story-groups.csv", ("StoryId", "GroupId"), "Story ↔ group links"),
         (DATA / "csv/npc-epithets.csv", ("CharacterId", "Name"), "NPC epithets"),
+        (DATA / "csv/species.csv", ("SpeciesId", "Name"), "Species"),
+        (DATA / "csv/npc-species.csv", ("CharacterId", "SpeciesId"), "NPC ↔ species"),
+        (DATA / "csv/species-aliases.csv", ("SpeciesId", "Alias"), "Species aliases"),
         (DATA / "csv/location-aliases.csv", ("LocationId", "Alias"), "Location aliases"),
         (DATA / "csv/group-aliases.csv", ("GroupId", "Alias"), "Group aliases"),
         (DATA / "csv/regions.csv", ("RegionId",), "Regions"),
@@ -1120,6 +1124,24 @@ def collect_alerts() -> list[str]:
                 group_ids,
                 "groups.csv GroupId",
                 "Group aliases",
+            )
+        )
+    # Species (R2). Both halves of the junction, and the alias table's owner.
+    species_ids = _id_set_from_column(DATA / "csv/species.csv", "SpeciesId")
+    if species_ids:
+        for child, column, label in (
+            ("npc-species.csv", "SpeciesId", "NPC ↔ species"),
+            ("species-aliases.csv", "SpeciesId", "Species aliases"),
+        ):
+            alerts.extend(_check_fk_column(DATA / f"csv/{child}", column, species_ids, "species.csv SpeciesId", label))
+    if npc_character_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/npc-species.csv",
+                "CharacterId",
+                npc_character_ids,
+                "npcs.csv CharacterId",
+                "NPC ↔ species",
             )
         )
     alerts.extend(_check_epithet_kinds(DATA / "csv/npc-epithets.csv"))

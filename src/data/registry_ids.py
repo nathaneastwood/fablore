@@ -102,6 +102,18 @@ def lore_character_id(name: str) -> str:
     return _sha256_id("LC", name.strip())
 
 
+def species_id(name: str) -> str:
+    """Return ``SpeciesId`` for a species display name.
+
+    Args:
+        name: Species name as stored in ``species.csv``, e.g. ``"Dogg"``.
+
+    Returns:
+        ``SP`` + digest id.
+    """
+    return _sha256_id("SP", name.strip())
+
+
 def monster_id(name: str) -> str:
     """Return ``MonsterId`` for a monster display name.
 
