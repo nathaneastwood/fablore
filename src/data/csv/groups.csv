@@ -12,6 +12,7 @@ GRcbdeec715f|Children of the Dragon|order|||||
 GR969341cc36|Children of the Light|people|||||
 GRab3c6e95ef|Church of Pain|institution|The Demonastery institution devoted to harnessing pain and Shadow to destroy Solana. Chane wore its mantle until he named Vynnset his successor.||||
 GRbefc4dc6c2|Cintari|clan|A group of bloodthirsty brigands who seek the thrill of battle.||||
+GRb6b0847fd6|Clan Nasu-ka|clan|||LOe104427645||
 GRc2c57e7145|Cogwerx|corporation|Credited with inventing steam technology and revolutionising Metrix through steam compression for energy, largely responsible for the city's success and development.||||
 GR4f70a18fad|Crimson Haze|rebels|A rebel group at odds with Aui's Scales for centuries, seeking to free the people of Misteria from the Great Households.||||
 GR350e80582f|Disciples of Pain|faction|The Demonastery order who embrace pain to surpass mortal limits and break Solana's hold on Rathe, following whichever Apostle leads them — Chane in his day, now Vynnset, the Apostle of Agony.|GRab3c6e95ef|||
@@ -31,13 +32,17 @@ GRaf75f09cb3|House Goldmane|house|||||
 GRf7ef0c0e25|Ikaru Clan|house|||LO0c5547da71||
 GR149286d961|Iron Assembly|organisation|||||
 GR55d0a50dc7|Jungle Slayers|guild|||||
+GR3c7db7d940|Kaigomo|order|Deploy their vigilant ronin across Misteria to ensure that peace prevails amidst its hidden valleys.||||
+GRc7d0e5c40c|Kotori|emissaries|||||
 GR203929ba2c|Kuraghan|cult|A fanatical pirate cult formed from reconditioned convicts. The Kuraghan worship the sea god Absolon and believe dying in battle earns them an afterlife of endless pleasure.|||world-of-rathe/high-seas.md|the-kuraghan
+GRf8278bd851|L'Apocalypta|cult|A cult of Chaos operating in the darkest corners of Rathe, orchestrating catastrophes in service of an apocalyptic doctrine set down by the prophet Anarch Zeir.|||world-of-rathe/pits.md|lapocalypta
 GR53a03a5dc2|Mendacity Media|corporation|A corporation that maintains control of the media, funding almost every radio station and newspaper in the city.||||
 GR308954b25d|Mugenshi Clan|clan|||||
 GR4a827402b6|Mythmakers|guild|||||
 GR877214c7ef|Ollin|order|The elite of Valahai's defenders, who communed with Galcia to gain command over Ice.|||world-of-rathe/aria.md|ollin
 GR8c8b1f4c1e|Prowlers|guild|||||
 GR872491a30d|Registry|corporation|Metrix's dominant data gatherer and cybersecurity firm, which sells the personal data it collects and runs spies in every nation.|||world-of-rathe/metrix.md|registry
+GRb97965163a|Rek'vas Bloodboars|warband|||||
 GR27c3d3b047|Rosetta|order|An Order of powerful spell weavers that once stood alongside the likes of the Ollin and the Seers.||||
 GR63c0bafa41|Sayashi|special force|Special force of loyal ninjas dedicated to hunting those responsible for the Emperor's death.||||
 GR3ecfa073f6|Seers|order|An order of prophets named alongside the Ollin and Rosetta, who read the omens and keep a script of their own.||||
@@ -50,8 +55,10 @@ GR70c44e6376|The Light of Sol|order of scholars|Solana's order of scholars — h
 GR1f0ed1ac0a|The Maela|troupe|Part of the Everfest Carnival, home to fortune tellers, seers, oracles, enchantresses, and conjurers.||LO6562f78c72||
 GReb9275cb05|The Spider|organisation|||||
 GR207a6be9e8|The Valdur|troupe|Part of the Everfest Carnival, known for strongmen acts and work with animals.||LO6562f78c72||
+GR95a3596835|Transcendents|order|||LO90290c6e10||
 GR06ce3df0b7|VanGeld|clan|||||
 GR2fc310992b|Vipressa|faction|||||
+GR9643653e79|Volcai|people|The vast majority of Volcor's population, drawn from all but the very highest avenues of life; historically loyal to the Emperor, and now increasingly in revolt against the Dracai. Their names end in -ai, marking their origin.|||world-of-rathe/volcor.md|the-volcai
 GR10d3ec88f3|Wardens|order|||||
 GR1b3c253242|Wayfarers|order|Lightning-riding scouts and heralds of Valahai, who keep word flowing between the bastions.|||world-of-rathe/aria.md|wayfarers-1
 GR12ac15004e|Wild Wonders|guild|||||

@@ -131,6 +131,7 @@ def export_registry_tables(conn: sqlite3.Connection, data_dir: Path) -> None:
     _export_food_drink(conn, csv_dir)
     _export_groups(conn, csv_dir)
     _export_group_members(conn, csv_dir)
+    _export_alternate_names(conn, csv_dir)
 
 
 def export_story_junctions(conn: sqlite3.Connection, data_dir: Path) -> None:
@@ -257,6 +258,31 @@ def _export_group_members(conn: sqlite3.Connection, csv_dir: Path) -> None:
             ["GroupId", csv_id_col, "StoryKey"],
             data,
         )
+
+
+def _export_alternate_names(conn: sqlite3.Connection, csv_dir: Path) -> None:
+    """Write the three alternate-name tables (R4, R6).
+
+    Like the membership tables, these hang off their entity rather than a story,
+    so they are not story junctions and do not belong in
+    ``_JUNCTION_EXPORT_SPECS``.
+    """
+    for table, csv_name, cols in (
+        ("npc_epithets", "npc-epithets.csv", (("character_id", "CharacterId"), ("name", "Name"), ("kind", "Kind"))),
+        (
+            "location_aliases",
+            "location-aliases.csv",
+            (("location_id", "LocationId"), ("alias", "Alias"), ("era", "Era")),
+        ),
+        ("group_aliases", "group-aliases.csv", (("group_id", "GroupId"), ("alias", "Alias"))),
+    ):
+        db_cols = [c for c, _ in cols]
+        owner = db_cols[0]
+        rows = conn.execute(
+            f"SELECT {', '.join(db_cols)} FROM {table} ORDER BY {owner}, sort_order, {db_cols[1]}"
+        ).fetchall()
+        data = [{header: r[db_col] for db_col, header in cols} for r in rows]
+        _write_pipe_csv(csv_dir / csv_name, _CMD_REGISTRY, [h for _, h in cols], data)
 
 
 def _export_npcs(conn: sqlite3.Connection, csv_dir: Path) -> None:
@@ -689,6 +715,9 @@ _ALL_TABLES = [
     "group_npcs",
     "group_heroes",
     "story_groups",
+    "npc_epithets",
+    "location_aliases",
+    "group_aliases",
 ]
 
 

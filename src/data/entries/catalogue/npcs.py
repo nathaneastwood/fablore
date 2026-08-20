@@ -14,8 +14,11 @@ from __future__ import annotations
 from db import NPCEntry
 
 
-ACHLYS_HAG_OF_MOJIRE = NPCEntry("Achlys, hag of Mojire", species="Human")
-AEGIS_THE_SHIELD_OF_LIGHT = NPCEntry("Aegis, the Shield of Light")
+ACHLYS_HAG_OF_MOJIRE = NPCEntry("Achlys, hag of Mojire", species="Human", epithets=("hag of Mojire",))
+AEGIS_THE_SHIELD_OF_LIGHT = NPCEntry(
+    "Aegis, the Shield of Light",
+    epithets=("the Shield of Light", "Archangel of Protection"),
+)
 AELIUS = NPCEntry("Aelius", species="Human", status="Dead")
 AESIR_OF_FLAMES = NPCEntry("Aesir of Flames", species="Aesir")
 AIOS = NPCEntry("Aios", species="Human", status="Alive")
@@ -36,10 +39,13 @@ ASTIER = NPCEntry("Astier", species="Human")
 ASTRA_MORENA = NPCEntry("Astra Morena")
 ASTREA_QUAZOR = NPCEntry("Astrea Quazor", species="Human", status="Alive")
 ATEIA = NPCEntry("Ateia")
-AUREA_CHAMPION_OF_THE_DAWN = NPCEntry("Aurea, Champion of the Dawn")
+AUREA_CHAMPION_OF_THE_DAWN = NPCEntry("Aurea, Champion of the Dawn", epithets=("Champion of the Dawn",))
 AURELIUS = NPCEntry("Aurelius", species="Horse")
 AURIC_SEERESS = NPCEntry("Auric Seeress", species="Human", status="Deceased")
-AVALON_MESSENGER_OF_THE_DAWN = NPCEntry("Avalon, Messenger of the Dawn")
+AVALON_MESSENGER_OF_THE_DAWN = NPCEntry(
+    "Avalon, Messenger of the Dawn",
+    epithets=("Messenger of the Dawn", "Archangel of Rebirth"),
+)
 BAM_BAM = NPCEntry("Bam Bam", species="Brute")
 BARON_THE_BUTCHER = NPCEntry("Baron the Butcher", species="Human", status="Dead")
 BARTON = NPCEntry("Barton", species="Human")
@@ -48,7 +54,11 @@ BARUS_BOLDSTRIDE = NPCEntry("Barus Boldstride", species="Human")
 BATBITER = NPCEntry("Batbiter")
 BAZZ = NPCEntry("Bazz", species="Human", status="Deceased")
 BEEZY_THE_BRASH = NPCEntry("Beezy the Brash", species="Human", status="Dead")
-BELLONA_THE_WARTUNE_HERALD = NPCEntry("Bellona, the Wartune Herald", species="Herald")
+BELLONA_THE_WARTUNE_HERALD = NPCEntry(
+    "Bellona, the Wartune Herald",
+    species="Herald",
+    epithets=("the Wartune Herald", "Archangel of War"),
+)
 BISKI = NPCEntry("Biski", species="Dog")
 BLASMOPHET = NPCEntry("Blasmophet", species="Embra")
 BLIND_BOGGY = NPCEntry("Blind Boggy")
@@ -93,9 +103,14 @@ DARYAS_NIMBUS = NPCEntry("Daryas Nimbus")
 DAVNIR = NPCEntry("Davnir", species="Ancient", status="Deceased")
 DAXIUS = NPCEntry("Daxius", species="Human", status="Dead")
 DEMETRIOS = NPCEntry("Demetrios")
-DERVIN_MASTER_OF_BEASTS = NPCEntry("Dervin, Master of Beasts", species="Human")
+DERVIN_MASTER_OF_BEASTS = NPCEntry("Dervin, Master of Beasts", species="Human", epithets=("Master of Beasts",))
 DHERIC = NPCEntry("Dheric", species="Human", status="Deceased")
-DR_KREST_MORTIMER_THE_FIXER = NPCEntry("Dr. Krest Mortimer, 'The Fixer'", species="Human")
+DR_KREST_MORTIMER_THE_FIXER = NPCEntry(
+    "Dr. Krest Mortimer, 'The Fixer'",
+    species="Human",
+    epithets=("'The Fixer'",),
+    short_names=("Mortimer",),
+)
 DR_WYVERSTONE = NPCEntry("Dr. Wyverstone", species="Human")
 DUKE_DREXEN = NPCEntry("Duke Drexen", species="Human")
 DUNRIC_VARGAS = NPCEntry("Dunric Vargas", species="Human")
@@ -103,7 +118,7 @@ EBBA = NPCEntry("Ebba", species="Human", status="Alive")
 EFARIS_BRITTLEBONE = NPCEntry("Efaris Brittlebone", species="Human")
 EINAR = NPCEntry("Einar", species="Human")
 EIRINA = NPCEntry("Eirina", species="Human Cleric", status="Deceased")
-ELDON_LOST_KNIGHT = NPCEntry("Eldon, Lost Knight", species="Human")
+ELDON_LOST_KNIGHT = NPCEntry("Eldon, Lost Knight", species="Human", epithets=("Lost Knight",))
 ELIAS_EDGECOMBE = NPCEntry("Elias Edgecombe", species="Human")
 EMEVIERE = NPCEntry("Emeviere")
 ENFORCER_EESHA = NPCEntry("Enforcer Eesha", species="Human")
@@ -132,6 +147,9 @@ GENERAL_RIKU = NPCEntry("General Riku", species="Human", status="Dead")
 GENERAL_YAMATOKA = NPCEntry("General Yamatoka", species="Human", status="Alive")
 GIANTSLAYER_CRIX = NPCEntry("Giantslayer Crix", species="Human")
 GOVERNOR_PRACTISS = NPCEntry("Governor Practiss", species="Human")
+GAVIN = NPCEntry("Gavin")
+"""Named once, at krest-mortimer.md:39 — he owes Mortimer a favour. Species and
+status are left to default rather than guessed."""
 GRAHAM_THE_GALLANT = NPCEntry("Graham the Gallant", species="Human")
 GRANDMASTER_LI = NPCEntry("Grandmaster Li", species="Human")
 GRAND_MAGISTER_THE_DEVOUT = NPCEntry("Grand Magister, the Devout", species="Human", status="Assumed Dead")
@@ -173,7 +191,12 @@ KNUCKLES = NPCEntry("Knuckles", species="Human", status="Dead")
 KOSSEN = NPCEntry("Kossen", species="Human")
 KOUKI = NPCEntry("Kouki")
 KYLE = NPCEntry("Kyle", species="Human")
-LADY_BARTHIMONT = NPCEntry("Lady Barthimont", species="Human", status="Deceased")
+LADY_BARTHIMONT = NPCEntry(
+    "Lady Barthimont",
+    species="Human",
+    status="Deceased",
+    short_names=("Barthimont",),
+)
 LADY_VERA_SUTCLIFFE = NPCEntry("Lady Vera Sutcliffe", species="Human")
 LENA_BELLE = NPCEntry("Lena Belle", species="Human")
 LEONA = NPCEntry("Leona")
@@ -182,7 +205,7 @@ LIEUTENANT_TIMAEUS = NPCEntry("Lieutenant Timaeus")
 LIEUTENANT_YAMADA = NPCEntry("Lieutenant Yamada", species="Human", status="Dead")
 LILJA = NPCEntry("Lilja", species="Human")
 LIMPIT = NPCEntry("Limpit", species="Zombie", status="Dead")
-LINNEA_MISTRESS_OF_MALADY = NPCEntry("Linnea, Mistress of Malady", species="Human")
+LINNEA_MISTRESS_OF_MALADY = NPCEntry("Linnea, Mistress of Malady", species="Human", epithets=("Mistress of Malady",))
 LISHU_CRIMSON_HAZE_VIGILANTE = NPCEntry("Lishu, Crimson Haze Vigilante", species="Human")
 LORD_MERCHANT_SAVAI = NPCEntry("Lord Merchant Savai", species="Human", status="Dead")
 LORD_SABUTO = NPCEntry("Lord Sabuto")
@@ -210,7 +233,11 @@ MASTER_UDO = NPCEntry("Master Udo")
 MAXWELL = NPCEntry("Maxwell", species="Human")
 MELDRICK_SUDDS = NPCEntry("Meldrick Sudds", species="Human", status="Alive")
 MERLEN_RIVERA = NPCEntry("Merlen Rivera")
-METIS_ARCHANGEL_OF_TENACITY = NPCEntry("Metis, Archangel of Tenacity", species="Herald")
+METIS_ARCHANGEL_OF_TENACITY = NPCEntry(
+    "Metis, Archangel of Tenacity",
+    species="Herald",
+    epithets=("Archangel of Tenacity",),
+)
 MIKAEL = NPCEntry("Mikael", species="Human")
 MIKU = NPCEntry("Miku", species="Human")
 MINERVA_THEMIS = NPCEntry(
@@ -218,6 +245,7 @@ MINERVA_THEMIS = NPCEntry(
     species="Human",
     status="Deceased",
     other_characters_story_key="other-characters/minerva-themis.md",
+    short_names=("Minerva",),
 )
 MIN_OF_THE_FOREST_OF_FLAMES = NPCEntry("Min of the Forest of Flames", species="Human")
 MIRAGAI = NPCEntry("Miragai", species="Dragon")
@@ -228,6 +256,9 @@ MORAY = NPCEntry("Moray", species="Human")
 MORAY_LE_FAY = NPCEntry("Moray Le Fay")
 MORGAN = NPCEntry("Morgan", species="Human")
 MORGA_GRINNING_BOAR_CANTINA_BARMAID = NPCEntry("Morga, Grinning Boar Cantina Barmaid", species="Human")
+"""No epithet. The glued tail is a place plus a job — the ``Grinning Boar Cantina``
+locations row and the profession ``Barmaid`` — so both halves wait for R9 rather
+than being read as a style she is known by."""
 MUTINOUS_MAGGIE = NPCEntry("Mutinous Maggie", species="Human")
 NAILBIT_NARI = NPCEntry("Nailbit Nari", species="Human")
 NARAKIR = NPCEntry("Narakir", species="Welkin")
@@ -249,9 +280,9 @@ PROSPECTOR_COGMIRE = NPCEntry("Prospector Cogmire", species="Human")
 QUARREL = NPCEntry("Quarrel", species="Human", status="Alive")
 QUEEN_OF_CANDLEHOLD = NPCEntry("Queen of Candlehold")
 RAGNAR_FROSTHELM = NPCEntry("Ragnar Frosthelm", species="Human")
-RAVEN_AESIR_OF_CHAOS = NPCEntry("Raven, Aesir of Chaos", species="Aesir")
+RAVEN_AESIR_OF_CHAOS = NPCEntry("Raven, Aesir of Chaos", species="Aesir", epithets=("Aesir of Chaos",))
 RAY_STINGEYE = NPCEntry("Ray Stingeye", species="Human")
-REINA_SPIRIT_CALLER = NPCEntry("Reina, Spirit Caller", species="Human")
+REINA_SPIRIT_CALLER = NPCEntry("Reina, Spirit Caller", species="Human", epithets=("Spirit Caller",))
 REX_BIGGUN = NPCEntry("Rex Biggun", species="Human")
 REZ = NPCEntry("Rez", species="Human")
 REZNYR_ELDINGSTURM = NPCEntry("Reznyr Eldingsturm")
@@ -266,7 +297,11 @@ SANNI = NPCEntry("Sanni")
 SATSUKI = NPCEntry("Satsuki", species="Human", status="Alive")
 SAYASHI_CARA = NPCEntry("Sayashi Cara", species="Human")
 SCOOBA = NPCEntry("Scooba")
-SEKEM_ARCHANGEL_OF_RAVAGES = NPCEntry("Sekem, Archangel of Ravages", species="Herald")
+SEKEM_ARCHANGEL_OF_RAVAGES = NPCEntry(
+    "Sekem, Archangel of Ravages",
+    species="Herald",
+    epithets=("Archangel of Ravages",),
+)
 SEPTUS = NPCEntry("Septus")
 SERAPHINA = NPCEntry("Seraphina", species="Human")
 SETO_OF_MIHARU = NPCEntry("Seto of Miharu", species="Human", status="Alive")
@@ -285,7 +320,11 @@ SQUIDGE = NPCEntry("Squidge", species="Human", status="Dead")
 STICKY_FINGERS = NPCEntry("Sticky Fingers", species="Octopus", status="Alive")
 SUMIRE = NPCEntry("Sumire", species="Human")
 SURAJ_THE_ORACLE = NPCEntry("Suraj the Oracle", species="Human")
-SURAYA_ARCHANGEL_OF_KNOWLEDGE = NPCEntry("Suraya, Archangel of Knowledge", species="Herald")
+SURAYA_ARCHANGEL_OF_KNOWLEDGE = NPCEntry(
+    "Suraya, Archangel of Knowledge",
+    species="Herald",
+    epithets=("Archangel of Knowledge", "Archangel of Erudition", "Arcane Herald"),
+)
 SWABBIE = NPCEntry("Swabbie")
 SWILLER_SALTBEARD = NPCEntry("Swiller Saltbeard", species="Human")
 SYBERYS = NPCEntry("Syberys", species="Wizard")
@@ -299,11 +338,18 @@ TEMPLAR_TIMAERUS = NPCEntry("Templar Timaerus", species="Human")
 TETZUO = NPCEntry("Tetzuo", species="Human", status="Alive")
 THANUELLA = NPCEntry("Thanuella")
 THEBASTO_MAGISTER_OF_DEFENSE = NPCEntry("Thebasto, Magister of Defense", species="Human", status="Alive")
-THEMIS_KEEPER_OF_THE_SCALES = NPCEntry("Themis, Keeper of the Scales")
+THEMIS_KEEPER_OF_THE_SCALES = NPCEntry(
+    "Themis, Keeper of the Scales",
+    epithets=("Keeper of the Scales", "Archangel of Judgment"),
+)
 THEODORE_HAMILTON_SCARBOROUGH = NPCEntry("Theodore Hamilton Scarborough")
 THE_BASTION = NPCEntry("The Bastion")
 THE_HARVESTER = NPCEntry("The Harvester", species="Human")
-THE_LIBRARIAN = NPCEntry("The Librarian", other_characters_story_key="other-characters/the-librarian.md")
+THE_LIBRARIAN = NPCEntry(
+    "The Librarian",
+    other_characters_story_key="other-characters/the-librarian.md",
+    short_names=("Librarian",),
+)
 THIROUX = NPCEntry("Thiroux", species="Human")
 THUK = NPCEntry("Thuk", species="Brute")
 TIRIL = NPCEntry("Tiril", species="Human")
@@ -317,7 +363,11 @@ VALERIA = NPCEntry("Valeria", species="Human")
 VALGARD_HOARFROST = NPCEntry("Valgard Hoarfrost", species="Human")
 VANIK_SILVERTOOTH = NPCEntry("Vanik Silvertooth")
 VERA = NPCEntry("Vera", species="Human")
-VICTORIA_ARCHANGEL_OF_TRIUMPH = NPCEntry("Victoria, Archangel of Triumph", species="Herald")
+VICTORIA_ARCHANGEL_OF_TRIUMPH = NPCEntry(
+    "Victoria, Archangel of Triumph",
+    species="Herald",
+    epithets=("Archangel of Triumph",),
+)
 VIDYA_WILLOWMERE = NPCEntry("Vidya Willowmere")
 VITUS = NPCEntry("Vitus", species="Human")
 VYHARA_CLOUDBURST = NPCEntry("Vyhara Cloudburst")

@@ -531,6 +531,9 @@ _SUPPLEMENT_TYPES = frozenset(
         "artifact",
         "concept",
         "creature",
+        # Added 2026-08-20 for the three afflictions krest-mortimer.md describes:
+        # Bloodrot Pox, Frailty and Inertia.
+        "disease",
         "embra",
         "faction",
         "hero",
@@ -578,6 +581,65 @@ def _check_supplement_types(supplement_path: Path) -> list[str]:
                 f"(expected one of {sorted(_SUPPLEMENT_TYPES)}). The tooltip prints "
                 "this verbatim, so a typo ships as a visible label."
             )
+    return alerts
+
+
+EPITHET_KINDS = frozenset({"epithet", "short-name"})
+"""The closed list for ``npc-epithets.csv`` ``Kind``.
+
+An epithet is a style the character is given; a short-name is the same character
+in fewer words. Both are match strings, so a typo here would not break anything
+loudly — it would just quietly stop a tooltip from wording itself correctly,
+which is why the list is checked rather than trusted.
+"""
+
+
+def _check_epithet_kinds(path: Path) -> list[str]:
+    """Ensure every ``npc-epithets.csv`` ``Kind`` is one of :data:`EPITHET_KINDS`."""
+    if not path.is_file():
+        return []
+    _, rows = read_pipe_csv(path)
+    alerts: list[str] = []
+    for row in rows:
+        kind = (row.get("Kind") or "").strip()
+        if kind and kind not in EPITHET_KINDS:
+            name = (row.get("Name") or "").strip()
+            alerts.append(f"npc-epithets.csv: {name!r} has Kind {kind!r}, " f"not one of {sorted(EPITHET_KINDS)}")
+    return alerts
+
+
+def _check_alias_name_collisions() -> list[str]:
+    """Catch an alias that is already the canonical name of a different row.
+
+    Two things answering to one string is the failure this whole table exists to
+    remove, so introducing one here would be self-defeating. It is also a live
+    shape in the data: ``Registry`` and ``The Registry`` are a group and a
+    location, and the longest-match-first rule silently hands the prose to
+    whichever is longer.
+
+    Returns:
+        Alert strings, one per alias that shadows another row's canonical name.
+    """
+    alerts: list[str] = []
+    for alias_file, alias_col, owner_col, registry_file, registry_id, registry_name, label in (
+        ("location-aliases.csv", "Alias", "LocationId", "locations.csv", "LocationId", "Name", "Location alias"),
+        ("group-aliases.csv", "Alias", "GroupId", "groups.csv", "GroupId", "Name", "Group alias"),
+        ("npc-epithets.csv", "Name", "CharacterId", "npcs.csv", "CharacterId", "Name", "NPC epithet"),
+    ):
+        alias_path, registry_path = DATA / f"csv/{alias_file}", DATA / f"csv/{registry_file}"
+        if not (alias_path.is_file() and registry_path.is_file()):
+            continue
+        _, registry_rows = read_pipe_csv(registry_path)
+        by_name = {(r.get(registry_name) or "").strip(): (r.get(registry_id) or "").strip() for r in registry_rows}
+        _, alias_rows = read_pipe_csv(alias_path)
+        for row in alias_rows:
+            alias = (row.get(alias_col) or "").strip()
+            owner = (row.get(owner_col) or "").strip()
+            clash = by_name.get(alias)
+            if clash and clash != owner:
+                alerts.append(
+                    f"{label} {alias!r} on {owner} is already the canonical name of " f"{clash} in {registry_file}"
+                )
     return alerts
 
 
@@ -746,6 +808,9 @@ def collect_alerts() -> list[str]:
         (DATA / "csv/group-npcs.csv", ("GroupId", "CharacterId"), "Group ↔ NPC membership"),
         (DATA / "csv/group-heroes.csv", ("GroupId", "CanonicalId"), "Group ↔ hero membership"),
         (DATA / "csv/story-groups.csv", ("StoryId", "GroupId"), "Story ↔ group links"),
+        (DATA / "csv/npc-epithets.csv", ("CharacterId", "Name"), "NPC epithets"),
+        (DATA / "csv/location-aliases.csv", ("LocationId", "Alias"), "Location aliases"),
+        (DATA / "csv/group-aliases.csv", ("GroupId", "Alias"), "Group aliases"),
         (DATA / "csv/regions.csv", ("RegionId",), "Regions"),
         (DATA / "csv/flora.csv", ("FloraId",), "Flora"),
         (DATA / "csv/fauna.csv", ("FaunaId",), "Fauna"),
@@ -999,6 +1064,66 @@ def collect_alerts() -> list[str]:
             ("story-groups.csv", "Story ↔ group links"),
         ):
             alerts.extend(_check_fk_column(DATA / f"csv/{child}", "GroupId", group_ids, "groups.csv GroupId", label))
+    # The other half of each membership row. Only GroupId was checked here, so a
+    # bad member id reached SQLite and failed the *build* at seed time instead of
+    # raising an alert — the wrong place to learn about it.
+    npc_character_ids = _id_set_from_column(DATA / "csv/npcs.csv", "CharacterId")
+    if npc_character_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/group-npcs.csv",
+                "CharacterId",
+                npc_character_ids,
+                "npcs.csv CharacterId",
+                "Group ↔ NPC membership",
+            )
+        )
+    group_hero_ids = _id_set_from_column(DATA / "csv/heroes-canonical.csv", "CanonicalId")
+    if group_hero_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/group-heroes.csv",
+                "CanonicalId",
+                group_hero_ids,
+                "heroes-canonical.csv CanonicalId",
+                "Group ↔ hero membership",
+            )
+        )
+
+    # Alternate names (R4, R6). Each row points at the entity whose other name it
+    # is, so a stale owner id leaves an alias resolving to nothing.
+    if npc_character_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/npc-epithets.csv",
+                "CharacterId",
+                npc_character_ids,
+                "npcs.csv CharacterId",
+                "NPC epithets",
+            )
+        )
+    if location_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/location-aliases.csv",
+                "LocationId",
+                location_ids,
+                "locations.csv LocationId",
+                "Location aliases",
+            )
+        )
+    if group_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/group-aliases.csv",
+                "GroupId",
+                group_ids,
+                "groups.csv GroupId",
+                "Group aliases",
+            )
+        )
+    alerts.extend(_check_epithet_kinds(DATA / "csv/npc-epithets.csv"))
+    alerts.extend(_check_alias_name_collisions())
     if location_ids and group_ids:
         alerts.extend(
             _check_fk_column(

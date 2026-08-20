@@ -118,6 +118,12 @@
     "summary": "The desert's edge."
   },
   "Coralysi": {
+    "match": [
+      "Coralysi",
+      "Fedhari",
+      "Fiddler's Green",
+      "Fiddler’s Green"
+    ],
     "type": "location",
     "summary": "Undersea seat of the merfolk, grown over the drowned Dhani city of Fedhari. Pirates of every creed call it Fiddler's Green and believe it promises them eternal bliss.",
     "region": "High Seas"
@@ -304,15 +310,15 @@
     "region": "Aria"
   },
   "Mt. Isen": {
-    "type": "location",
-    "summary": "Ageless mountain watching over Larinkmorth, untouched by the Flow; from its summit Isen is said to have crafted the Isen Ranges.",
-    "region": "Aria",
     "match": [
       "Mt. Isen",
       "Mount Isen",
       "Isen's Peak",
       "Isen’s Peak"
-    ]
+    ],
+    "type": "location",
+    "summary": "Ageless mountain watching over Larinkmorth, untouched by the Flow; from its summit Isen is said to have crafted the Isen Ranges.",
+    "region": "Aria"
   },
   "Mugenshi Village": {
     "type": "location",
@@ -786,12 +792,29 @@
     "summary": "Solana's order of knights, who defend the city from outside threats.",
     "url": "/world-of-rathe/solana.html#the-hand-of-sol"
   },
+  "Kaigomo": {
+    "type": "order",
+    "summary": "Deploy their vigilant ronin across Misteria to ensure that peace prevails amidst its hidden valleys."
+  },
   "Kuraghan": {
     "type": "cult",
     "summary": "A fanatical pirate cult formed from reconditioned convicts. The Kuraghan worship the sea god Absolon and believe dying in battle earns them an afterlife of endless pleasure.",
     "url": "/world-of-rathe/high-seas.html#the-kuraghan"
   },
+  "LApocalypta": {
+    "match": [
+      "L'Apocalypta",
+      "L’Apocalypta"
+    ],
+    "type": "cult",
+    "summary": "A cult of Chaos operating in the darkest corners of Rathe, orchestrating catastrophes in service of an apocalyptic doctrine set down by the prophet Anarch Zeir.",
+    "url": "/world-of-rathe/pits.html#lapocalypta"
+  },
   "Mendacity Media": {
+    "match": [
+      "Mendacity Media",
+      "Mendacity"
+    ],
     "type": "corporation",
     "summary": "A corporation that maintains control of the media, funding almost every radio station and newspaper in the city."
   },
@@ -841,6 +864,11 @@
     "type": "troupe",
     "summary": "Part of the Everfest Carnival, known for strongmen acts and work with animals.",
     "region": "Aria"
+  },
+  "Volcai": {
+    "type": "people",
+    "summary": "The vast majority of Volcor's population, drawn from all but the very highest avenues of life; historically loyal to the Emperor, and now increasingly in revolt against the Dracai. Their names end in -ai, marking their origin.",
+    "url": "/world-of-rathe/volcor.html#the-volcai"
   },
   "Wayfarers": {
     "type": "order",
@@ -912,11 +940,6 @@
     "summary": "Forsaken isle beyond the shores of Southern Rathe, wrapped in sea fog, where the Devout took refuge when their faith in Sol broke.",
     "url": "/world-of-rathe/demonastery.html"
   },
-  "DhaniEmpire": {
-    "type": "concept",
-    "match": "Dhani Empire",
-    "summary": "A fallen civilisation once ruled by an arcane empress, whose mastery of aether ended in cataclysmic ruin."
-  },
   "Dreadnought": {
     "type": "ship",
     "summary": "Gravy Bones' ship."
@@ -925,12 +948,6 @@
   "Fayyad": {
     "type": "npc",
     "summary": "A member of the Cintari, Kassai's close friend."
-  },
-  "FiddlersGreen": {
-    "match": [
-      "Fiddler's Green",
-      "Fiddler’s Green"
-    ]
   },
   "Fireseer": {
     "type": "concept",
@@ -1085,10 +1102,6 @@
   },
   "Verides": "Solanian Wednesday",
   "Vesperides": "Solanian Saturday",
-  "Volcai": {
-    "type": "concept",
-    "summary": "The more limited social class of Volcor; their names are homogeneous, ending in -ai as a mark of their Volcai origin status."
-  },
   "VoltarisGem": {
     "type": "artifact",
     "match": "Voltaris Gem",
@@ -1854,5 +1867,28 @@
   "Thanuella": {
     "type": "npc",
     "summary": "Dhani death-mage among whose possessions Dead Threads was found, casting doubt on the necrophage's true purpose."
+  },
+  "BloodrotPox": {
+    "type": "disease",
+    "match": "Bloodrot Pox",
+    "summary": "Not the natural mutation Metrix chemists believe, but a deliberate L'Apocalypta experiment gone wrong; it raises large boils that cause extreme pain."
+  },
+  "Frailty": {
+    "type": "disease",
+    "summary": "A neurotoxic disease Achlys developed and let spread through the underground of the Pits, for reasons that elude even Dr. Mortimer."
+  },
+  "Inertia": {
+    "type": "disease",
+    "summary": "A novel radioactive material whose proximity saps the strength and energy of the living, much like radiation sickness; Southmaw is still hunting a cure."
+  },
+  "EyeOfOphidia": {
+    "type": "artifact",
+    "match": "Eye of Ophidia",
+    "summary": "Relinquished by a keeper who watched the tides beyond Death's Knell until the great divide drew near, bequeathing the gift of its immeasurable knowledge."
+  },
+  "Velocitator60T": {
+    "type": "item",
+    "match": "Velocitator 60-T",
+    "summary": "A steam-driven Metrix product sold on the promise of turning a rival into a smear on the pavement."
   }
 }

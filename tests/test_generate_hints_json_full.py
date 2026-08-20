@@ -46,7 +46,21 @@ def test_entry_with_match_no_match_field_when_key_equals_name():
 
 def test_entry_with_match_adds_match_field_when_key_differs():
     result = _entry_with_match("Kae'io", {"type": "fauna"})
-    assert result == {"match": "Kae'io", "type": "fauna"}
+    assert result == {"match": ["Kae'io", "Kae\u2019io"], "type": "fauna"}
+
+
+def test_entry_with_match_emits_both_apostrophe_glyphs():
+    """The prose is typeset copy, so the curly form is as common as the straight one.
+
+    13 supplement entries existed solely to hand-write this second variant for a
+    name the DB already held. Generating it retires them and covers every future
+    apostrophe name without anyone remembering to.
+    """
+    assert _entry_with_match("Kraken's Barrel", {})["match"] == ["Kraken's Barrel", "Kraken\u2019s Barrel"]
+
+
+def test_entry_with_match_leaves_apostrophe_free_names_alone():
+    assert "match" not in _entry_with_match("Coralysi", {"type": "location"})
 
 
 def test_entry_with_match_does_not_mutate_base():
@@ -98,9 +112,11 @@ def _make_db(path: Path) -> None:
     conn.execute("CREATE TABLE fauna (name TEXT, description TEXT)")
     conn.execute("CREATE TABLE flora (name TEXT, description TEXT)")
     conn.execute(
-        "CREATE TABLE groups (name TEXT, kind TEXT, notes TEXT, location_id TEXT DEFAULT '',"
-        " lore_story_key TEXT DEFAULT '', lore_fragment TEXT DEFAULT '')"
+        "CREATE TABLE groups (group_id TEXT DEFAULT '', name TEXT, kind TEXT, notes TEXT,"
+        " location_id TEXT DEFAULT '', lore_story_key TEXT DEFAULT '', lore_fragment TEXT DEFAULT '')"
     )
+    conn.execute("CREATE TABLE location_aliases (location_id TEXT, alias TEXT, era TEXT, sort_order INTEGER)")
+    conn.execute("CREATE TABLE group_aliases (group_id TEXT, alias TEXT, sort_order INTEGER)")
     conn.execute("INSERT INTO regions VALUES ('R1', 'Solana')")
     conn.execute("INSERT INTO locations (name, notes, region_id) VALUES ('Grand Bazaar', 'A marketplace.', 'R1')")
     conn.execute("INSERT INTO locations (name, notes, region_id) VALUES ('Empty Place', '', 'R1')")
@@ -149,7 +165,7 @@ def test_generate_writes_output(tmp_path, monkeypatch):
     # Fauna with apostrophe: key has apostrophe stripped, match field added
     assert "Kaeio" in hints
     assert hints["Kaeio"]["type"] == "fauna"
-    assert hints["Kaeio"]["match"] == "Kae'io"
+    assert hints["Kaeio"]["match"] == ["Kae'io", "Kae\u2019io"]
 
     # Flora with empty description is skipped
     assert "Starbloom" not in hints
@@ -166,9 +182,11 @@ def test_generate_no_region_for_unknown_region_id(tmp_path, monkeypatch):
     conn.execute("CREATE TABLE fauna (name TEXT, description TEXT)")
     conn.execute("CREATE TABLE flora (name TEXT, description TEXT)")
     conn.execute(
-        "CREATE TABLE groups (name TEXT, kind TEXT, notes TEXT, location_id TEXT DEFAULT '',"
-        " lore_story_key TEXT DEFAULT '', lore_fragment TEXT DEFAULT '')"
+        "CREATE TABLE groups (group_id TEXT DEFAULT '', name TEXT, kind TEXT, notes TEXT,"
+        " location_id TEXT DEFAULT '', lore_story_key TEXT DEFAULT '', lore_fragment TEXT DEFAULT '')"
     )
+    conn.execute("CREATE TABLE location_aliases (location_id TEXT, alias TEXT, era TEXT, sort_order INTEGER)")
+    conn.execute("CREATE TABLE group_aliases (group_id TEXT, alias TEXT, sort_order INTEGER)")
     # Location references a region_id not in the regions table
     conn.execute("INSERT INTO locations (name, notes, region_id) VALUES ('Lost Shrine', 'Ancient ruins.', 'UNKNOWN')")
     conn.commit()
@@ -252,14 +270,20 @@ def _make_group_db(path: Path) -> None:
     conn.execute("CREATE TABLE fauna (name TEXT, description TEXT)")
     conn.execute("CREATE TABLE flora (name TEXT, description TEXT)")
     conn.execute(
-        "CREATE TABLE groups (name TEXT, kind TEXT, notes TEXT, location_id TEXT DEFAULT '',"
-        " lore_story_key TEXT DEFAULT '', lore_fragment TEXT DEFAULT '')"
+        "CREATE TABLE groups (group_id TEXT DEFAULT '', name TEXT, kind TEXT, notes TEXT,"
+        " location_id TEXT DEFAULT '', lore_story_key TEXT DEFAULT '', lore_fragment TEXT DEFAULT '')"
     )
+    conn.execute("CREATE TABLE location_aliases (location_id TEXT, alias TEXT, era TEXT, sort_order INTEGER)")
+    conn.execute("CREATE TABLE group_aliases (group_id TEXT, alias TEXT, sort_order INTEGER)")
     conn.execute("INSERT INTO regions VALUES ('R1', 'Misteria')")
     conn.execute("INSERT INTO locations (name, notes, region_id, location_id) VALUES ('Ikaru', 'A house.', 'R1', 'L1')")
-    conn.execute("INSERT INTO groups VALUES ('Ikaru Clan', 'house', 'One of the houses of Misteria.', 'L1', '', '')")
     conn.execute(
-        "INSERT INTO groups VALUES ('Hand of Sol', 'order of knights', \"Solana's knights.\", '',"
+        "INSERT INTO groups (group_id, name, kind, notes, location_id) VALUES"
+        " ('G1', 'Ikaru Clan', 'house', 'One of the houses of Misteria.', 'L1')"
+    )
+    conn.execute(
+        "INSERT INTO groups (group_id, name, kind, notes, lore_story_key, lore_fragment) VALUES"
+        " ('G2', 'Hand of Sol', 'order of knights', \"Solana's knights.\","
         " 'world-of-rathe/solana.md', 'the-hand-of-sol')"
     )
     conn.commit()
@@ -308,3 +332,94 @@ def test_group_tooltip_type_is_its_kind(tmp_path: Path, monkeypatch) -> None:
     _make_group_db(db_path)
     hints = _generate_from(db_path, tmp_path, monkeypatch)
     assert hints["Hand of Sol"]["type"] == "order of knights"
+
+
+# ---------------------------------------------------------------------------
+# Alias-driven match strings, ordering, and the clash warning
+# ---------------------------------------------------------------------------
+
+
+def test_aliases_become_match_strings(tmp_path: Path, monkeypatch) -> None:
+    """The canonical name still displays; every other name still finds the entity."""
+    import generate_hints_json as ghj
+
+    db_path = tmp_path / "fablore.db"
+    _make_db(db_path)
+    conn = sqlite3.connect(str(db_path))
+    conn.execute(
+        "INSERT INTO locations (name, notes, region_id, location_id) VALUES ('Coralysi', 'A trench.', 'R1', 'L9')"
+    )
+    conn.execute("INSERT INTO location_aliases VALUES ('L9', 'Fedhari', 'Dhani', 0)")
+    conn.commit()
+    conn.close()
+
+    hints = _generate_from(db_path, tmp_path, monkeypatch)
+    assert hints["Coralysi"]["match"] == ["Coralysi", "Fedhari"]
+    assert hints["Coralysi"]["summary"] == "A trench."
+
+
+def test_an_alias_with_an_apostrophe_brings_both_glyphs(tmp_path: Path, monkeypatch) -> None:
+    import generate_hints_json as ghj
+
+    db_path = tmp_path / "fablore.db"
+    _make_db(db_path)
+    conn = sqlite3.connect(str(db_path))
+    conn.execute(
+        "INSERT INTO locations (name, notes, region_id, location_id) VALUES ('Coralysi', 'A trench.', 'R1', 'L9')"
+    )
+    conn.execute("INSERT INTO location_aliases VALUES ('L9', \"Fiddler's Green\", 'pirate cant', 0)")
+    conn.commit()
+    conn.close()
+
+    hints = _generate_from(db_path, tmp_path, monkeypatch)
+    assert hints["Coralysi"]["match"] == ["Coralysi", "Fiddler's Green", "Fiddler’s Green"]
+
+
+def test_locations_are_written_before_groups(tmp_path: Path, monkeypatch) -> None:
+    """Emission order is the tie-break the preprocessor inherits.
+
+    Candidates are sorted by longest match string and Python's sort is stable, so
+    two entries of equal length keep the order this file wrote them in. `The
+    Registry` (a place) and `Registry` (a firm) are the live pair that depends on
+    it. A reshuffle here would silently hand the prose to the other one.
+    """
+    hints = _generate_from(_group_db(tmp_path), tmp_path, monkeypatch)
+    keys = list(hints)
+    assert keys.index("Ikaru") < keys.index("Ikaru Clan")
+
+
+def _group_db(tmp_path: Path) -> Path:
+    db_path = tmp_path / "order.db"
+    _make_group_db(db_path)
+    return db_path
+
+
+def test_clash_warning_names_an_exact_duplicate() -> None:
+    from generate_hints_json import _warn_match_collisions
+
+    warnings = _warn_match_collisions(
+        {
+            "A": {"type": "location", "match": "The Registry"},
+            "B": {"type": "corporation", "match": "The Registry"},
+        }
+    )
+    assert any("only the first can ever match" in w for w in warnings)
+
+
+def test_clash_warning_names_an_article_shadow() -> None:
+    from generate_hints_json import _warn_match_collisions
+
+    warnings = _warn_match_collisions(
+        {
+            "The Registry": {"type": "location"},
+            "Registry": {"type": "corporation"},
+        }
+    )
+    assert any("shadows" in w for w in warnings)
+
+
+def test_clash_warning_ignores_plain_substrings() -> None:
+    """`Sol` inside `Solarium` is what longest-first exists to resolve, not a clash."""
+    from generate_hints_json import _warn_match_collisions
+
+    assert _warn_match_collisions({"Sol": {"type": "npc"}, "Solarium": {"type": "location"}}) == []

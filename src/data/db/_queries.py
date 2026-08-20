@@ -324,6 +324,83 @@ def select_group_members(conn: sqlite3.Connection, group_id: str, table: str, id
 
 
 # ---------------------------------------------------------------------------
+# Alternate names (R4 epithets, R6 aliases)
+# ---------------------------------------------------------------------------
+#
+# One shape, three tables. Each owns a different registry, so the id column and
+# the extra columns differ, but all three are replace-semantic on their owner —
+# the same rule membership follows, for the same reason: a declaration states the
+# complete set, so a name dropped from it is a name the lore no longer supports.
+
+
+def set_npc_epithets(conn: sqlite3.Connection, character_id: str, entries: list[tuple[str, str]]) -> None:
+    """Replace every alternate name for ``character_id``.
+
+    Args:
+        entries: ``(name, kind)`` pairs in display order. ``kind`` is ``'epithet'``
+            or ``'short-name'``; ``sort_order`` follows the list order.
+    """
+    conn.execute("DELETE FROM npc_epithets WHERE character_id = ?", [character_id])
+    if entries:
+        conn.executemany(
+            "INSERT OR IGNORE INTO npc_epithets (character_id, name, kind, sort_order) VALUES (?,?,?,?)",
+            [(character_id, name, kind, i) for i, (name, kind) in enumerate(entries)],
+        )
+
+
+def select_npc_epithets(conn: sqlite3.Connection, character_id: str) -> list[tuple[str, str]]:
+    """Return ``(name, kind)`` rows for ``character_id`` in declared order."""
+    rows = conn.execute(
+        "SELECT name, kind FROM npc_epithets WHERE character_id = ? ORDER BY sort_order, name",
+        [character_id],
+    ).fetchall()
+    return [(r[0], r[1]) for r in rows]
+
+
+def set_location_aliases(conn: sqlite3.Connection, location_id: str, entries: list[tuple[str, str]]) -> None:
+    """Replace every alias for ``location_id``.
+
+    Args:
+        entries: ``(alias, era)`` pairs in display order. ``era`` may be empty
+            where the lore does not date the name.
+    """
+    conn.execute("DELETE FROM location_aliases WHERE location_id = ?", [location_id])
+    if entries:
+        conn.executemany(
+            "INSERT OR IGNORE INTO location_aliases (location_id, alias, era, sort_order) VALUES (?,?,?,?)",
+            [(location_id, alias, era, i) for i, (alias, era) in enumerate(entries)],
+        )
+
+
+def select_location_aliases(conn: sqlite3.Connection, location_id: str) -> list[tuple[str, str]]:
+    """Return ``(alias, era)`` rows for ``location_id`` in declared order."""
+    rows = conn.execute(
+        "SELECT alias, era FROM location_aliases WHERE location_id = ? ORDER BY sort_order, alias",
+        [location_id],
+    ).fetchall()
+    return [(r[0], r[1]) for r in rows]
+
+
+def set_group_aliases(conn: sqlite3.Connection, group_id: str, aliases: list[str]) -> None:
+    """Replace every alias for ``group_id``, in the order given."""
+    conn.execute("DELETE FROM group_aliases WHERE group_id = ?", [group_id])
+    if aliases:
+        conn.executemany(
+            "INSERT OR IGNORE INTO group_aliases (group_id, alias, sort_order) VALUES (?,?,?)",
+            [(group_id, alias, i) for i, alias in enumerate(aliases)],
+        )
+
+
+def select_group_aliases(conn: sqlite3.Connection, group_id: str) -> list[str]:
+    """Return the aliases for ``group_id`` in declared order."""
+    rows = conn.execute(
+        "SELECT alias FROM group_aliases WHERE group_id = ? ORDER BY sort_order, alias",
+        [group_id],
+    ).fetchall()
+    return [r[0] for r in rows]
+
+
+# ---------------------------------------------------------------------------
 # NPCs
 # ---------------------------------------------------------------------------
 

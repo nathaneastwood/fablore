@@ -228,7 +228,8 @@ db.upsert_story(
     locations=[
         loc.DAWNHAVEN,
         loc.DESHVAHAN,
-        loc.FIDDLER_S_GREEN,
+        # Was loc.FIDDLER_S_GREEN — folded into Coralysi as an alias (R6).
+        loc.CORALYSI,
         loc.NEELASHA,
         loc.OCTOMILITIA,
         loc.THE_SOLARIUM,
@@ -260,5 +261,125 @@ db.upsert_story(
     regions=[
         reg.SOLANA,
     ],
+    dry_run=True,
+)
+
+# ---------------------------------------------------------------------------
+# Registered 2026-08-20 to unstrand five NPC epithets (R4, stage 3).
+#
+# All four pages already carried links, created as a side effect of other
+# upserts rather than by any declaration, so these registrations are additive
+# over what was there: every existing link is named again, because a *present*
+# kwarg replaces the junction wholesale and an omitted entity would read as a
+# deletion. Entities the pages name that have no catalogue constant are listed
+# per page and left for their own review rather than minted here.
+# ---------------------------------------------------------------------------
+
+db.upsert_story(
+    path="src/flavour/outsiders.md",
+    story_type="flavour",
+    title="Outsiders",
+    heroes=["arakni-huntsman"],
+    # Preserved, not re-derived. An omitted hero_fragments= CLEARS the stored
+    # anchors rather than leaving them alone, which the dry run caught.
+    hero_fragments={"arakni-huntsman": "back-stab---out015016017"},
+    npcs=[
+        npc.ACHLYS_HAG_OF_MOJIRE,
+        npc.AKUO,
+        npc.DR_KREST_MORTIMER_THE_FIXER,
+        npc.LENA_BELLE,
+        npc.OTMAR,
+        npc.SURAJ_THE_ORACLE,
+    ],
+    locations=[
+        loc.FLOATING_DOJO,
+        loc.MOJIRE,
+        loc.SKYLARK_PEAK,
+    ],
+    regions=[reg.THE_PITS],
+    # Akuo is styled "Spider Operative" on OUT143.
+    groups=[grp.L_APOCALYPTA, grp.THE_SPIDER, grp.TRANSCENDENTS],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/flavour/arcane-rising.md",
+    story_type="flavour",
+    title="Arcane Rising",
+    heroes=["azalea", "dash", "kano"],
+    hero_fragments={"azalea": "three-of-a-kind---arc044", "kano": "blazing-aether---arc118"},
+    npcs=[
+        npc.ATEIA,
+        npc.DR_KREST_MORTIMER_THE_FIXER,
+        npc.ELDON_LOST_KNIGHT,
+        npc.ELIAS_EDGECOMBE,
+        npc.GRAHAM_THE_GALLANT,
+        npc.JEEVES,
+        npc.LIEUTENANT_YAMADA,
+        npc.MAXWELL,
+        npc.VERA,
+        npc.XAINE_RUNESCRIBE,
+    ],
+    locations=[loc.DEATH_S_KNELL],
+    regions=[reg.THE_PITS],
+    groups=[grp.DRACAI],
+    # TODO: needs review — Eye of Ophidia, Arknight, Velocitator 60-T.
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/flavour/crucible-of-war.md",
+    story_type="flavour",
+    title="Crucible of War",
+    heroes=["hala", "jarl", "kano", "teklovossen"],
+    hero_fragments={
+        "hala": "unified-decree---cru083",
+        "kano": "aetherize---cru164",
+        "teklovossen": "teklovossens-workshop---cru115116117",
+    },
+    npcs=[
+        npc.BUTCHER_JEK,
+        npc.GREENBIRD,
+        npc.JACKDAW,
+        npc.JULES_TEKLOVOSSEN,
+        npc.LINNEA_MISTRESS_OF_MALADY,
+        npc.SEPTUS,
+        npc.SPOKES,
+        npc.THUK,
+        npc.TOGARK_THE_WRANGLER,
+    ],
+    # CRU024 writes "Isen's Peak", which is Mt. Isen's alias (R6) — the first
+    # link the alias table has earned rather than merely recorded.
+    locations=[loc.MT_ISEN],
+    regions=[reg.ARIA, reg.THE_PITS],
+    groups=[grp.REKVAS_BLOODBOARS],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/flavour/part-the-mistveil.md",
+    story_type="flavour",
+    title="Part the Mistveil",
+    heroes=["enigma", "nuu", "zen"],
+    hero_fragments={"enigma": "deep-blue-sea---mst084"},
+    npcs=[
+        npc.ANHE_KOTORI_WAVEBENDER,
+        npc.DAN_LU_KOTORI_GALEWARDEN,
+        npc.GUDO_MISTWARD_PILGRIM,
+        npc.HIREI,
+        npc.KOUKI,
+        npc.MASTER_MORITA_ART_OF_THE_HAND,
+        npc.MIKU,
+        npc.NING_KOTORI_MOONSEEKER,
+        npc.REINA_SPIRIT_CALLER,
+        npc.SHIO,
+        npc.SOREN,
+        npc.SUMIRE,
+        npc.TOHIRO_ETERNAL_SCRIBE,
+    ],
+    locations=[loc.RYOSOZAN_PEAKS],
+    regions=[reg.MISTERIA],
+    groups=[grp.CLAN_NASU_KA, grp.KAIGOMO, grp.KOTORI, grp.VIPRESSA, grp.VOLCAI],
+    # TODO: needs review — Wakuro (one mention, too thin to type).
     dry_run=True,
 )

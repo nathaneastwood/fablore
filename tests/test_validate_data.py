@@ -223,3 +223,26 @@ def test_check_group_lore_fragments_ignores_groups_with_no_link(tmp_path: Path) 
     """Most groups carry no documentation page, and that is not an error."""
     groups, stories, src = _group_fragment_fixture(tmp_path, "", "")
     assert validate_data._check_group_lore_fragments(groups, stories, src) == []
+
+
+# ---------------------------------------------------------------------------
+# Membership and alternate-name FK checks
+# ---------------------------------------------------------------------------
+
+
+def test_epithet_kind_must_be_in_the_closed_list(tmp_path: Path) -> None:
+    from validate_data import _check_epithet_kinds
+
+    path = tmp_path / "npc-epithets.csv"
+    path.write_text("# x\nCharacterId|Name|Kind\nLC1|the Fixer|nickname\n")
+    alerts = _check_epithet_kinds(path)
+    assert len(alerts) == 1
+    assert "nickname" in alerts[0]
+
+
+def test_epithet_kind_accepts_both_valid_kinds(tmp_path: Path) -> None:
+    from validate_data import _check_epithet_kinds
+
+    path = tmp_path / "npc-epithets.csv"
+    path.write_text("# x\nCharacterId|Name|Kind\nLC1|the Fixer|epithet\nLC1|Mortimer|short-name\n")
+    assert _check_epithet_kinds(path) == []

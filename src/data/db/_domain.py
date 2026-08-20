@@ -49,6 +49,19 @@ SRC = ROOT / "src"
 DATA = ROOT / "src" / "data"
 
 
+def _alias_pair(alias: "str | tuple[str, str]") -> tuple[str, str]:
+    """Normalise a ``LocationEntry.aliases`` item to ``(alias, era)``.
+
+    A bare string is an alias the lore does not date; the two-tuple form carries
+    the era. Accepting both keeps the common case — one other name, no era — from
+    paying for the rare one.
+    """
+    if isinstance(alias, str):
+        return alias, ""
+    name, era = alias
+    return name, era
+
+
 def _auto_world_key(region_name: str) -> str:
     """Derive ``world-of-rathe/<slug>.md`` from a region display name, or return ``""``."""
     slug = re.sub(r"^the\s+", "", region_name.strip(), flags=re.IGNORECASE)
@@ -88,6 +101,15 @@ class NPCEntry:
     other_characters_story_key: str = ""
     fragment: str = ""
     """mdBook heading anchor id for a deep link into the story page, e.g. ``"morlock-hill"``."""
+    epithets: tuple[str, ...] = ()
+    """Styles the character is given (R4): ``"the Wartune Herald"``, ``"Archangel of
+    War"``. ``name`` is untouched — these are the names *besides* the display name,
+    which is why a character may hold several where the comma-glued form held one."""
+    short_names: tuple[str, ...] = ()
+    """The same character in fewer words: ``"Mortimer"`` for
+    ``"Dr. Krest Mortimer, 'The Fixer'"``. Stored alongside the epithets under
+    ``kind='short-name'`` — both are match strings, and only the wording of a
+    tooltip needs to tell them apart."""
 
 
 @dataclass(frozen=True)
@@ -125,6 +147,11 @@ class LocationEntry:
     ("area next to Candlehold") is not containment and stays prose in ``notes``;
     the two read identically in the data, which is why the split was reviewed row
     by row rather than migrated. See ``plans/location-containment-review.csv``."""
+    aliases: tuple[str | tuple[str, str], ...] = ()
+    """Other names for this same place (R6). A bare string, or ``(alias, era)``
+    where the lore dates the name — ``("Fedhari", "Dhani")``. This row stays
+    canonical and every alias resolves to it, so the Lore Graph draws one node
+    where it used to draw three."""
 
 
 @dataclass(frozen=True)
@@ -208,6 +235,10 @@ class GroupEntry:
     works. Most groups leave this empty; a group is not a place."""
     member_source: str = ""
     """Optional story key citing the roster (D2). Applies to every member."""
+    aliases: tuple[str, ...] = ()
+    """Other names the group answers to (R6), e.g. ``"Mendacity"`` for
+    ``"Mendacity Media"``. Without these the tooltip matcher only finds the full
+    canonical name, which is how bare "Mendacity" lost its tooltip in stage 2."""
     lore_story_key: str = ""
     """Story key of the page this group is **documented** on, e.g.
     ``"world-of-rathe/solana.md"``. Not where the group lives — a group moves,
@@ -1085,6 +1116,14 @@ class Database:
                 status=e.status,
                 other_characters_story_key=e.other_characters_story_key,
             )
+            # Replace-semantic and unconditional, like the group rosters. The
+            # catalogue is the single definition of an NPC, so an empty tuple is a
+            # declaration that this character answers to no other name.
+            q.set_npc_epithets(
+                self.conn,
+                cid,
+                [(n, "epithet") for n in e.epithets] + [(n, "short-name") for n in e.short_names],
+            )
             ids.append((cid, e.fragment))
         return ids
 
@@ -1149,6 +1188,7 @@ class Database:
                 lore_fragment=frag,
                 parent_location_id=parent_id,
             )
+            q.set_location_aliases(self.conn, lid, [_alias_pair(a) for a in e.aliases])
             ids.append(lid)
         return ids
 
@@ -1212,24 +1252,28 @@ class Database:
             lore_fragment=entry.lore_fragment,
         )
 
-        if entry.npc_members:
-            npc_ids = self._upsert_npcs(list(entry.npc_members))
-            q.set_group_members(
-                self.conn,
-                gid,
-                "group_npcs",
-                "character_id",
-                [(cid, entry.member_source) for cid, _frag in npc_ids],
-            )
-        if entry.hero_members:
-            hero_ids = self._resolve_heroes(list(entry.hero_members))
-            q.set_group_members(
-                self.conn,
-                gid,
-                "group_heroes",
-                "canonical_id",
-                [(hid, entry.member_source) for hid in hero_ids],
-            )
+        # Unconditional, both of them. ``set_group_members`` is replace-semantic —
+        # it deletes the stored rows before inserting — and an emptied roster is a
+        # deletion the declaration asked for, not a no-op. Guarding these calls on a
+        # truthy roster made an emptied one silently keep its rows while the dry run
+        # went on printing a REMOVED line for them.
+        npc_ids = self._upsert_npcs(list(entry.npc_members))
+        q.set_group_members(
+            self.conn,
+            gid,
+            "group_npcs",
+            "character_id",
+            [(cid, entry.member_source) for cid, _frag in npc_ids],
+        )
+        hero_ids = self._resolve_heroes(list(entry.hero_members))
+        q.set_group_members(
+            self.conn,
+            gid,
+            "group_heroes",
+            "canonical_id",
+            [(hid, entry.member_source) for hid in hero_ids],
+        )
+        q.set_group_aliases(self.conn, gid, list(entry.aliases))
         return gid
 
     def _upsert_food_drink(self, entries: list[FoodDrinkEntry]) -> list[str]:
@@ -1522,6 +1566,52 @@ class Database:
                 out.write("  Location rows:\n")
                 out.write("\n".join(lines) + "\n")
 
+        def _show_alternate_name_changes() -> None:
+            """Report epithet and alias rows this declaration would add or remove.
+
+            These are replace-semantic like the group rosters, so a name dropped
+            from a declaration is a deletion. That is precisely the change the
+            preview used to be blind to — ``member_source`` moved silently for a
+            whole session before anyone noticed — so every one of the three tables
+            is diffed here rather than trusted.
+            """
+            nonlocal changed
+            lines: list[str] = []
+
+            for entry in npcs or []:
+                cid = lore_character_id(entry.name)
+                stored = set(q.select_npc_epithets(self.conn, cid))
+                wanted = {(n, "epithet") for n in entry.epithets} | {(n, "short-name") for n in entry.short_names}
+                for name, kind in sorted(wanted - stored):
+                    lines.append(f"    + {entry.name}: {kind} {name!r}")
+                for name, kind in sorted(stored - wanted):
+                    lines.append(f"    - {entry.name}: {kind} {name!r} REMOVED")
+
+            for entry in locations or []:
+                lid = _location_id(entry.name, region_row_id(entry.region) if entry.region else "")
+                stored = set(q.select_location_aliases(self.conn, lid))
+                wanted = {_alias_pair(a) for a in entry.aliases}
+                for alias, era in sorted(wanted - stored):
+                    lines.append(f"    + {entry.name}: alias {alias!r}" + (f" (era {era!r})" if era else ""))
+                for alias, era in sorted(stored - wanted):
+                    lines.append(f"    - {entry.name}: alias {alias!r} REMOVED")
+
+            for entry in groups or []:
+                gid = _group_id(entry.name)
+                stored = set(q.select_group_aliases(self.conn, gid))
+                wanted = set(entry.aliases)
+                for alias in sorted(wanted - stored):
+                    lines.append(f"    + {entry.name}: alias {alias!r}")
+                for alias in sorted(stored - wanted):
+                    lines.append(f"    - {entry.name}: alias {alias!r} REMOVED")
+
+            if lines:
+                changed = True
+                out.write("  Alternate names:\n")
+                out.write("\n".join(lines) + "\n")
+
+        _show_alternate_name_changes()
+
         def _show_attr_changes(
             label: str,
             entries: list | None,
@@ -1691,8 +1781,11 @@ class Database:
                     ("group_npcs", "character_id", [lore_character_id(m.name) for m in entry.npc_members]),
                     ("group_heroes", "canonical_id", list(entry.hero_members)),
                 ):
-                    if not wanted and not entry.npc_members and not entry.hero_members:
-                        continue
+                    # No guard. A declaration that names no members is asking for an
+                    # empty roster, and the write path honours that, so the preview
+                    # has to report the deletion. A group that has no stored members
+                    # either produces no lines below, which is the quiet case this
+                    # once tried to buy with a `continue`.
                     stored_ids = {eid for eid, _src in q.select_group_members(self.conn, gid, table, id_col)}
                     if table == "group_heroes":
                         wanted_ids = set(self._resolve_heroes(wanted)) if wanted else set()

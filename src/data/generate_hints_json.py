@@ -39,17 +39,121 @@ def _lore_url(story_key: str, fragment: str) -> str:
     return f"{url}#{frag}" if frag else url
 
 
+# Emission order is the tie-break, and it is deliberate: locations are written
+# before groups, so where two entries have equally long match strings the location
+# wins. The preprocessor sorts candidates by longest match string and Python's sort
+# is stable, so the order this file writes them in survives all the way to the
+# page. `The Registry` (a place) and `Registry` (a firm) are the live example.
+# tests/test_generate_hints_json_full.py locks the order so a reshuffle here cannot
+# silently flip a winner.
+_LEADING_ARTICLES = ("the ", "a ", "an ")
+
+
+def _warn_match_collisions(hints: dict) -> list[str]:
+    """Report entries that compete for the same prose, and say so on every run.
+
+    Two shapes are worth a warning and no others:
+
+    * **Exact** — two entries look for the identical string. The loser can never
+      win a single page, so one of the two tooltips is dead data.
+    * **Article** — one entry's string is another's with ``the``/``a``/``an`` in
+      front. Longest-first hands the articled form every mention that carries the
+      article, which is how ``Registry`` lost "the Registry" to a location row.
+
+    Plain substring overlap is *not* warned about: ``Sol`` inside ``Solarium`` is
+    exactly what longest-first exists to resolve, and warning on it would bury the
+    two shapes above in noise.
+
+    Returns:
+        Warning lines, also written to stderr.
+    """
+    owners: dict[str, list[str]] = {}
+    for key, entry in hints.items():
+        for text in _match_strings(key, entry):
+            owners.setdefault(text.strip().lower(), []).append(key)
+
+    warnings: list[str] = []
+    for text, keys in sorted(owners.items()):
+        if len(keys) > 1:
+            warnings.append(f"hint clash: {text!r} is claimed by {sorted(keys)} — only the first can ever match")
+    for text, keys in sorted(owners.items()):
+        for article in _LEADING_ARTICLES:
+            if text.startswith(article) and text[len(article) :] in owners:
+                bare = text[len(article) :]
+                warnings.append(
+                    f"hint clash: {text!r} ({sorted(keys)}) shadows {bare!r} "
+                    f"({sorted(owners[bare])}) — the articled form wins every mention that carries it"
+                )
+    for line in warnings:
+        print(line, file=sys.stderr)
+    return warnings
+
+
+def _match_strings(key: str, entry) -> list[str]:
+    """The strings this entry looks for — its ``match`` list, or its key."""
+    if isinstance(entry, dict):
+        match = entry.get("match")
+        if match is not None:
+            return [match] if isinstance(match, str) else list(match)
+    return [key]
+
+
+def _alias_map(conn: sqlite3.Connection, table: str, owner_col: str, name_col: str) -> dict[str, list[str]]:
+    """Return ``{owner_id: [alias, ...]}`` in declared order for one alias table."""
+    out: dict[str, list[str]] = {}
+    sql = f"SELECT {owner_col}, {name_col} FROM {table} ORDER BY {owner_col}, sort_order, {name_col}"
+    for owner, alias in conn.execute(sql):
+        out.setdefault(owner, []).append(alias)
+    return out
+
+
 def _key(name: str) -> str:
     """Derive a safe hint key from a DB name: strip apostrophes."""
     return name.replace("'", "")
 
 
-def _entry_with_match(name: str, base: dict) -> dict:
-    """Add a 'match' field if the safe key differs from the original name."""
-    key = _key(name)
-    if key != name:
-        return {"match": name, **base}
-    return base
+CURLY_APOSTROPHE = "\u2019"
+
+
+def _apostrophe_variants(name: str) -> list[str]:
+    """Return the name written with each apostrophe glyph the prose actually uses.
+
+    The pages are typeset copy, so ``Kraken's Barrel`` appears as often with a
+    curly ``\u2019`` as with a straight ``'``, and the matcher compares literal text.
+    Emitting both is mechanical, which is the point: 14 supplement entries existed
+    for no other reason than to hand-write the curly form of a name the DB already
+    held, and a fifteenth was one apostrophe name away from being needed.
+    """
+    if "'" not in name:
+        return [name]
+    return [name, name.replace("'", CURLY_APOSTROPHE)]
+
+
+def _entry_with_match(name: str, base: dict, alt_names: "list[str] | None" = None) -> dict:
+    """Add a 'match' field when the key alone cannot find the entity in prose.
+
+    Two reasons it cannot. The key strips apostrophes, so an apostrophe name needs
+    an explicit match — and once one is needed, every apostrophe glyph variant
+    belongs in it. And an entity may answer to names that are not its display name
+    at all (R4, R6): ``Mendacity`` for ``Mendacity Media``, ``Isen's Peak`` for
+    ``Mt. Isen``. Those come from the alias tables and are match strings too, which
+    is the whole point of storing them — the canonical row keeps the display name
+    while every other name still resolves to it.
+
+    Args:
+        name: The entity's canonical display name.
+        base: The entry fields to carry through.
+        alt_names: Aliases or epithets, in declared order. Each contributes its own
+            apostrophe variants.
+    """
+    variants = list(_apostrophe_variants(name))
+    for alt in alt_names or []:
+        for variant in _apostrophe_variants(alt):
+            if variant not in variants:
+                variants.append(variant)
+    if len(variants) == 1 and _key(name) == name:
+        return base
+    return {"match": variants[0] if len(variants) == 1 else variants, **base}
 
 
 def _merge_entry(db_entry: dict, sup_entry: dict) -> dict:
@@ -120,14 +224,17 @@ def generate() -> None:
     hints: dict = {}
     regions = _region_map(conn)
 
-    for row in conn.execute("SELECT name, notes, region_id FROM locations ORDER BY name"):
+    location_aliases = _alias_map(conn, "location_aliases", "location_id", "alias")
+    group_aliases = _alias_map(conn, "group_aliases", "group_id", "alias")
+
+    for row in conn.execute("SELECT location_id, name, notes, region_id FROM locations ORDER BY name"):
         if not row["notes"]:
             continue
         entry: dict = {"type": "location", "summary": row["notes"]}
         region = regions.get(row["region_id"], "")
         if region:
             entry["region"] = region
-        hints[_key(row["name"])] = _entry_with_match(row["name"], entry)
+        hints[_key(row["name"])] = _entry_with_match(row["name"], entry, location_aliases.get(row["location_id"], []))
 
     for row in conn.execute("SELECT name, description FROM monsters ORDER BY name"):
         if not row["description"]:
@@ -159,7 +266,7 @@ def generate() -> None:
     # itself. A location walks region_id -> world_of_rathe_story_key to reach its
     # page; a group has no region to walk.
     group_sql = """
-        SELECT g.name, g.kind, g.notes, g.lore_story_key, g.lore_fragment,
+        SELECT g.group_id, g.name, g.kind, g.notes, g.lore_story_key, g.lore_fragment,
                l.region_id AS loc_region_id
         FROM groups g
         LEFT JOIN locations l ON l.location_id = g.location_id
@@ -175,7 +282,7 @@ def generate() -> None:
         url = _lore_url(row["lore_story_key"], row["lore_fragment"])
         if url:
             entry["url"] = url
-        hints[_key(row["name"])] = _entry_with_match(row["name"], entry)
+        hints[_key(row["name"])] = _entry_with_match(row["name"], entry, group_aliases.get(row["group_id"], []))
 
     conn.close()
 
@@ -185,6 +292,7 @@ def generate() -> None:
             supplement = json.load(f)
 
     hints = merge_supplement(hints, supplement)
+    _warn_match_collisions(hints)
 
     with OUTPUT_PATH.open("w", encoding="utf-8") as f:
         json.dump(hints, f, ensure_ascii=False, indent=2)

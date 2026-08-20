@@ -38,7 +38,7 @@ LO4caae92be3|Chrome Caverns||The desert's edge.||
 LO3beb21e1fa|Cliffhold|RG615666dae9|||
 LO0f644e8931|Cogwerx Conglomerate|RG58cc047b16||cogwerx-conglomerate|
 LO2f893e5127|Coppertown|RG58cc047b16||coppertown|
-LO91cbf27d42|Coralysi|RG05a2281d01|Home of the merfolk. Floating gardens.||
+LO91cbf27d42|Coralysi|RG05a2281d01|Undersea seat of the merfolk, grown over the drowned Dhani city of Fedhari. Pirates of every creed call it Fiddler's Green and believe it promises them eternal bliss.||
 LO87dd37ec92|Courtyard|RG8bc7b8bb1d|Enter here when using invitation||
 LOa0dd4655a8|Dagger Docks|RG05a2281d01|Shipwrights|dagger-docks|
 LOdca41ce7bd|Dawnhaven||||
@@ -57,9 +57,8 @@ LO9ceae82a7a|Eighth Precinct|RG58cc047b16|Enforcer station, down the street from
 LOb18734a689|Enion|RG48803cad0f|Armory of the ancients and training ground of champions.|enion|
 LOe210a512d5|Entrance Hall|RG8bc7b8bb1d|Location of the portal to íArathael, home of Whisper the stained glass window.||
 LOafe5d11408|Fardreyas|RG615666dae9|Village.||
-LO6a09eeb957|Fedhari|RG05a2281d01|Former Dhani city, now home to the merfolk and named Coralysi||
 LOfe45e3bd9a|Fensalir|RG48803cad0f|||
-LO746219d41b|Fiddler's Green|RG05a2281d01|The pirates' name for the sunken Dhani city beneath Coralysi, and for the afterlife the Kuraghan believe it promises them - a beautiful lie no one tells better than Cooder.||
+LOfebd814808|Floating Dojo|RG6cd31a74b6|||LO90290c6e10
 LO8f597c6d54|Forward Camps|RG8ee35f0ddd|Home to merchants, traders, adventurers, and mercenaries.||
 LO87891fd0a7|Fractal Scar|RG48803cad0f|Site of the Battle of Fractal Scar.||
 LO35a5abaa7e|Freakshow Territory|RGb2d75101c8|Deep in the Pits, composed of abandoned mineshafts.||
@@ -105,7 +104,7 @@ LOce6e55bb82|Mistcloak Teahouse|RG6cd31a74b6|||
 LO7781801004|Mojire||||
 LO0e33bbd4a9|Morlock Hill|RG615666dae9|Site of the Battle of Morlock Hill.||
 LOefd40a0286|Mount Heroic|RG48803cad0f|A mountain which towers above the forests of eastern Aria.||
-LO21dff30ce5|Mt. Isen|RG48803cad0f|Ageless mountain watching over Larinkmorth, untouched by the Flow; from its summit Isen is said to have crafted the Isen Ranges. Also recorded as Isen's Peak.|mount-isen|LO5813d4e070
+LO21dff30ce5|Mt. Isen|RG48803cad0f|Ageless mountain watching over Larinkmorth, untouched by the Flow; from its summit Isen is said to have crafted the Isen Ranges.|mount-isen|LO5813d4e070
 LO8d542316cb|Mt. Volcor|RG8e23bdd8e8|||
 LO817b25703b|Mugenshi Ancestral Shrine|RG6cd31a74b6|||
 LOcf0cab9ebb|Mugenshi Gorge|RG6cd31a74b6||mugenshi-gorge|
@@ -178,7 +177,7 @@ LO3b30c6969f|The Northern Realms|RG615666dae9|Region of Solana.|the-northern-rea
 LOf70c26b48f|The Oasis|RG8e23bdd8e8|Water from Misteria, lava from Mt. Volcor.||
 LOeb162dfa1e|The Obsidian Coast|RG8e23bdd8e8|||
 LOf2165dc0d3|The Plazas|RG615666dae9|Connect the outer city sectors, a space to gather and hear news.||
-LOd6acb52390|The Registry|RG58cc047b16|Information Center.||
+LOd6acb52390|The Registry|RG58cc047b16|Metrix's dominant data gatherer and cybersecurity firm, which sells the personal data it collects and runs spies in every nation.||
 LO5f227c8e84|The Savage Wilds|RG8ee35f0ddd|||
 LO2853f69ca8|The Shadow Crypts|RG8bc7b8bb1d|Dim halls within the Demonastery where a black mold containing warped microcosms of shifting light grows.|the-shadow-crypts|
 LO966b87b562|The Silvaris|RG615666dae9|A series of beautiful public gardens surrounding the inner sanctum of Solana.||

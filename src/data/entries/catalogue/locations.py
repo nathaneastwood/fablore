@@ -36,7 +36,14 @@ LEGENDARIUM = LocationEntry("Legendarium", region="Aria", lore_fragment="the-eve
 MIGHT_N_MEAD = LocationEntry("Might n' Mead", region="Aria")
 MILESIAN_RANGES = LocationEntry("Milesian Ranges", region="Aria")
 MOUNT_HEROIC = LocationEntry("Mount Heroic", region="Aria")
-MT_ISEN = LocationEntry("Mt. Isen", region="Aria", lore_fragment="mount-isen")
+MT_ISEN = LocationEntry(
+    "Mt. Isen",
+    region="Aria",
+    lore_fragment="mount-isen",
+    aliases=("Mount Isen", "Isen's Peak"),
+)
+"""The alias used to live twice over: as prose in the notes ("Also recorded as
+Isen's Peak") and as a hand-written match array in hints_supplement.json."""
 ROTWOOD = LocationEntry("Rotwood", region="Aria")
 SHYLDVERK = LocationEntry("Shyldverk", region="Aria", lore_fragment="shyldverk")
 THE_EVERFEST_CARNIVAL = LocationEntry("The Everfest Carnival", region="Aria", lore_fragment="the-everfest-carnival")
@@ -67,10 +74,19 @@ THE_VITIATE_GATEWAY = LocationEntry("The Vitiate Gateway", region="Demonastery")
 # -------------------------------------------------------------------------
 
 BLACKWATER_STRAIT = LocationEntry("Blackwater Strait", region="High Seas")
-CORALYSI = LocationEntry("Coralysi", region="High Seas")
+CORALYSI = LocationEntry(
+    "Coralysi",
+    region="High Seas",
+    aliases=(("Fedhari", "Dhani"), ("Fiddler's Green", "pirate cant")),
+)
+"""One place, three names (R6). ``high-seas.md:43`` states the identity outright —
+"Before it became Coralysi, home of the merfolk, this place was Fedhari" — and the
+pirates' name for it cuts sideways through the timeline rather than sitting at the
+end of it. Coralysi is canonical because it is the name the world lore heads its
+section with, which is also where a link should land. The Fedhari and Fiddler's
+Green rows are retired; the Lore Graph now draws one node where it drew three."""
 DAGGER_DOCKS = LocationEntry("Dagger Docks", region="High Seas", lore_fragment="dagger-docks")
 DREADFALL_REACH = LocationEntry("Dreadfall Reach", region="High Seas", lore_fragment="dreadfall-reach")
-FIDDLER_S_GREEN = LocationEntry("Fiddler's Green", region="High Seas")
 GOLDEN_PORT = LocationEntry("Golden Port", region="High Seas")
 GRAYHOLLOW = LocationEntry("Grayhollow", region="High Seas")
 GRAYSTONE = LocationEntry("Graystone", region="High Seas")
@@ -139,6 +155,9 @@ MUGENSHI_VILLAGE = LocationEntry("Mugenshi Village", region="Misteria")
 NASU_KA_TEAHOUSE = LocationEntry("Nasu-ka Teahouse", region="Misteria")
 RYOSOZAN_PEAKS = LocationEntry("Ryōsōzan Peaks", region="Misteria")
 SKYLARK_PEAK = LocationEntry("Skylark Peak", region="Misteria")
+FLOATING_DOJO = LocationEntry("Floating Dojo", region="Misteria", parent=SKYLARK_PEAK)
+"""Named only by the card title "Visit the Floating Dojo" (OUT055), whose text puts
+the grand masters atop Skylark Peak — hence the containment."""
 VALLEY_OF_BLOSSOMS = LocationEntry("Valley of Blossoms", region="Misteria")
 
 # -------------------------------------------------------------------------

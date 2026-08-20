@@ -32,3 +32,28 @@ from entries.catalogue import (  # noqa: F401
 # data rather than a shared entity.
 from db import NarratedVideoEntry  # noqa: F401
 from entries._runner import db
+
+
+# Registered 2026-08-20 to unstrand Achlys' and Raven's epithets (R4, stage 3).
+# Additive: the three hero links and both NPC links already existed.
+db.upsert_story(
+    path="src/other-characters/krest-mortimer.md",
+    story_type="other-characters",
+    title="Dr. Krest Mortimer, 'The Fixer'",
+    heroes=["arakni-huntsman", "arakni-solitary-confinement", "arakni-web-of-deceit"],
+    npcs=[
+        npc.ACHLYS_HAG_OF_MOJIRE,
+        npc.GAVIN,
+        npc.LENA_BELLE,
+        npc.RAVEN_AESIR_OF_CHAOS,
+    ],
+    locations=[
+        loc.MOJIRE,
+        loc.SOUTHMAW,
+    ],
+    regions=[reg.DEMONASTERY, reg.METRIX, reg.THE_PITS],
+    groups=[grp.L_APOCALYPTA],
+    # TODO: needs review — Tanner's (too vague to mint a location),
+    # Bloodrot Pox / Frailty / Inertia (concepts).
+    dry_run=True,
+)

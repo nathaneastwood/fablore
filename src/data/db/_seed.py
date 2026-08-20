@@ -70,6 +70,7 @@ def seed_from_csvs(conn: sqlite3.Connection, data_dir: Path) -> None:
         _seed_equipment_printings(conn, data_dir)
         _seed_groups(conn, data_dir)
         _seed_group_members(conn, data_dir)
+        _seed_alternate_names(conn, data_dir)
         _seed_stories(conn, data_dir)
         _seed_narrated_videos_from_csv(conn, data_dir)
         _seed_story_junctions(conn, data_dir)
@@ -335,6 +336,32 @@ def _seed_group_members(conn: sqlite3.Connection, data_dir: Path) -> None:
             conn.execute(
                 f"INSERT OR IGNORE INTO {table} (group_id, {id_col}, story_key) VALUES (?,?,?)",
                 (_s(row, "GroupId"), _s(row, id_key), _s(row, "StoryKey")),
+            )
+
+
+def _seed_alternate_names(conn: sqlite3.Connection, data_dir: Path) -> None:
+    """Seed the three alternate-name tables (R4, R6).
+
+    Kept out of the story junctions for the same reason as membership: these hang
+    off the entity, not the page. ``sort_order`` is the file order, so the CSV is
+    the record of display order and nothing has to store it twice.
+    """
+    for filename, table, cols in (
+        ("npc-epithets.csv", "npc_epithets", (("CharacterId", "character_id"), ("Name", "name"), ("Kind", "kind"))),
+        (
+            "location-aliases.csv",
+            "location_aliases",
+            (("LocationId", "location_id"), ("Alias", "alias"), ("Era", "era")),
+        ),
+        ("group-aliases.csv", "group_aliases", (("GroupId", "group_id"), ("Alias", "alias"))),
+    ):
+        _, rows = _csv(data_dir, filename)
+        db_cols = [c for _, c in cols]
+        placeholders = ",".join("?" * (len(db_cols) + 1))
+        for order, row in enumerate(rows):
+            conn.execute(
+                f"INSERT OR IGNORE INTO {table} ({', '.join(db_cols)}, sort_order) VALUES ({placeholders})",
+                (*(_s(row, header) for header, _ in cols), order),
             )
 
 

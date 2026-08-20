@@ -105,6 +105,7 @@
 |         Fyanna Redmoor, Boltyn's cousin        |      Human     |                 Unknown                 |
 |                    Galaphor                    |      Human     |                 Deceased                |
 |                     Galcia                     |     Ancient    |                 Deceased                |
+|                      Gavin                     |     Unknown    |                 Unknown                 |
 |                     Gawain                     |      Human     |                 Unknown                 |
 |                  General Chul                  |      Human     |                 Unknown                 |
 |                  General Ekoda                 |      Human     |                 Unknown                 |

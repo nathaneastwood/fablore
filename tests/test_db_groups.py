@@ -22,6 +22,11 @@ def _seed_hero(database: Database, slug: str, name: str) -> str:
     return cid
 
 
+def _location_id_for(database: Database, name: str) -> str:
+    row = database.conn.execute("SELECT location_id FROM locations WHERE name = ?", [name]).fetchone()
+    return row[0]
+
+
 def _story(database: Database, path: str = "src/main-story/super-slam/feudmasters.md", **kw):
     return database.upsert_story(path=path, story_type="main-story", title="T", **kw)
 
@@ -139,6 +144,69 @@ def test_membership_is_replace_semantic(db: Database) -> None:
     assert len(q.select_group_members(db.conn, group_id("Gemini"), "group_npcs", "character_id")) == 2
     _story(db, groups=[GroupEntry("Gemini", npc_members=(NPCEntry("Minerva"),))])
     assert len(q.select_group_members(db.conn, group_id("Gemini"), "group_npcs", "character_id")) == 1
+
+
+def test_emptied_roster_is_a_deletion_not_a_no_op(db: Database) -> None:
+    """An empty roster is still a roster, and replace-semantics must honour it.
+
+    The write path once guarded each ``set_group_members`` call on a truthy roster,
+    so emptying one left every stored member in place while the dry run went on
+    announcing their removal — the preview lying in exactly the case it exists for.
+    """
+    _story(db, groups=[GroupEntry("Gemini", npc_members=(NPCEntry("Minerva"), NPCEntry("Themis")))])
+    _story(db, groups=[GroupEntry("Gemini")])
+    assert q.select_group_members(db.conn, group_id("Gemini"), "group_npcs", "character_id") == []
+
+
+def test_one_roster_emptied_while_the_other_stands(db: Database, capsys) -> None:
+    """The original defect's exact shape: npcs cleared, heroes kept.
+
+    Here the old reporter did print a removal line — the sibling roster kept its
+    ``continue`` from firing — while the old write path skipped the delete. Preview
+    and apply now agree.
+    """
+    _seed_hero(db, "minerva", "Minerva")
+    _story(
+        db,
+        groups=[GroupEntry("Gemini", npc_members=(NPCEntry("Themis"),), hero_members=("minerva",))],
+    )
+    capsys.readouterr()
+    kept = GroupEntry("Gemini", hero_members=("minerva",))
+    db.upsert_story(
+        path="src/main-story/super-slam/feudmasters.md",
+        story_type="main-story",
+        title="T",
+        groups=[kept],
+        dry_run=True,
+    )
+    assert "1 member(s) REMOVED from group_npcs" in capsys.readouterr().out
+    _story(db, groups=[kept])
+    assert q.select_group_members(db.conn, group_id("Gemini"), "group_npcs", "character_id") == []
+    assert len(q.select_group_members(db.conn, group_id("Gemini"), "group_heroes", "canonical_id")) == 1
+
+
+def test_emptied_hero_roster_is_a_deletion_too(db: Database) -> None:
+    _seed_hero(db, "ira", "Ira")
+    _story(db, groups=[GroupEntry("Ikaru Clan", hero_members=("ira",))])
+    assert len(q.select_group_members(db.conn, group_id("Ikaru Clan"), "group_heroes", "canonical_id")) == 1
+    _story(db, groups=[GroupEntry("Ikaru Clan")])
+    assert q.select_group_members(db.conn, group_id("Ikaru Clan"), "group_heroes", "canonical_id") == []
+
+
+def test_dry_run_removal_line_matches_what_the_apply_does(db: Database, capsys) -> None:
+    """The preview and the write must agree about an emptied roster."""
+    _story(db, groups=[GroupEntry("Gemini", npc_members=(NPCEntry("Minerva"), NPCEntry("Themis")))])
+    capsys.readouterr()
+    db.upsert_story(
+        path="src/main-story/super-slam/feudmasters.md",
+        story_type="main-story",
+        title="T",
+        groups=[GroupEntry("Gemini")],
+        dry_run=True,
+    )
+    assert "2 member(s) REMOVED from group_npcs" in capsys.readouterr().out
+    _story(db, groups=[GroupEntry("Gemini")])
+    assert q.select_group_members(db.conn, group_id("Gemini"), "group_npcs", "character_id") == []
 
 
 # ---------------------------------------------------------------------------
@@ -450,3 +518,83 @@ def test_group_documentation_reaches_the_csv(db: Database) -> None:
     text = (db._data_dir / "csv" / "groups.csv").read_text(encoding="utf-8")
     assert "LoreStoryKey|LoreFragment" in text
     assert "world-of-rathe/solana.md|gemini" in text
+
+
+# ---------------------------------------------------------------------------
+# Alternate names — epithets (R4) and aliases (R6)
+# ---------------------------------------------------------------------------
+
+
+def test_npc_epithets_are_stored_with_their_kind(db: Database) -> None:
+    entry = NPCEntry("Dr. Krest Mortimer", epithets=("'The Fixer'",), short_names=("Mortimer",))
+    _story(db, npcs=[entry])
+    stored = q.select_npc_epithets(db.conn, lore_character_id("Dr. Krest Mortimer"))
+    assert stored == [("'The Fixer'", "epithet"), ("Mortimer", "short-name")]
+
+
+def test_npc_epithets_keep_declared_order(db: Database) -> None:
+    """Suraya holds three, and which one a tooltip prints first is the declared one."""
+    three = ("Archangel of Knowledge", "Archangel of Erudition", "Arcane Herald")
+    _story(db, npcs=[NPCEntry("Suraya", epithets=three)])
+    stored = q.select_npc_epithets(db.conn, lore_character_id("Suraya"))
+    assert [name for name, _kind in stored] == list(three)
+
+
+def test_epithets_are_replace_semantic(db: Database) -> None:
+    _story(db, npcs=[NPCEntry("Bellona", epithets=("the Wartune Herald", "Archangel of War"))])
+    _story(db, npcs=[NPCEntry("Bellona", epithets=("the Wartune Herald",))])
+    stored = q.select_npc_epithets(db.conn, lore_character_id("Bellona"))
+    assert [name for name, _kind in stored] == ["the Wartune Herald"]
+
+
+def test_emptied_epithets_are_a_deletion(db: Database) -> None:
+    """Same rule the rosters follow, for the same reason — and the same past bug."""
+    _story(db, npcs=[NPCEntry("Bellona", epithets=("Archangel of War",))])
+    _story(db, npcs=[NPCEntry("Bellona")])
+    assert q.select_npc_epithets(db.conn, lore_character_id("Bellona")) == []
+
+
+def test_location_alias_carries_its_era(db: Database) -> None:
+    entry = LocationEntry("Coralysi", aliases=(("Fedhari", "Dhani"), "Fiddler's Green"))
+    _story(db, locations=[entry])
+    lid = _location_id_for(db, "Coralysi")
+    assert q.select_location_aliases(db.conn, lid) == [("Fedhari", "Dhani"), ("Fiddler's Green", "")]
+
+
+def test_group_alias_is_stored(db: Database) -> None:
+    _story(db, groups=[GroupEntry("Mendacity Media", aliases=("Mendacity",))])
+    assert q.select_group_aliases(db.conn, group_id("Mendacity Media")) == ["Mendacity"]
+
+
+def test_group_aliases_are_replace_semantic(db: Database) -> None:
+    _story(db, groups=[GroupEntry("Mendacity Media", aliases=("Mendacity", "Voxx"))])
+    _story(db, groups=[GroupEntry("Mendacity Media", aliases=("Mendacity",))])
+    assert q.select_group_aliases(db.conn, group_id("Mendacity Media")) == ["Mendacity"]
+
+
+def test_dry_run_reports_an_alias_it_would_remove(db: Database, capsys) -> None:
+    _story(db, groups=[GroupEntry("Mendacity Media", aliases=("Mendacity",))])
+    capsys.readouterr()
+    db.upsert_story(
+        path="src/main-story/super-slam/feudmasters.md",
+        story_type="main-story",
+        title="T",
+        groups=[GroupEntry("Mendacity Media")],
+        dry_run=True,
+    )
+    assert "alias 'Mendacity' REMOVED" in capsys.readouterr().out
+
+
+def test_alternate_names_survive_the_csv_round_trip(db: Database, tmp_path: Path) -> None:
+    _story(
+        db,
+        npcs=[NPCEntry("Bellona", epithets=("Archangel of War",))],
+        locations=[LocationEntry("Coralysi", aliases=(("Fedhari", "Dhani"),))],
+        groups=[GroupEntry("Mendacity Media", aliases=("Mendacity",))],
+    )
+    import db._export as _export
+
+    _export.export_all(db.conn, tmp_path)
+    fresh = Database(str(tmp_path / "round-trip.db"), data_dir=tmp_path)
+    assert q.select_npc_epithets(fresh.conn, lore_character_id("Bellona")) == [("Archangel of War", "epithet")]
+    assert q.select_group_aliases(fresh.conn, group_id("Mendacity Media")) == ["Mendacity"]

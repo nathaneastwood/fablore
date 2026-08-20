@@ -291,8 +291,11 @@ db.update_description(
 db.update_description(
     "location",
     "Mt. Isen",
+    # "Also recorded as Isen's Peak" used to end this sentence. The alias is a row
+    # in location_aliases now (R6), so the prose stops carrying it — one fact, one
+    # writer. See plans/character-groups-schema-options.md §3.1.
     "Ageless mountain watching over Larinkmorth, untouched by the Flow; from its summit"
-    " Isen is said to have crafted the Isen Ranges. Also recorded as Isen's Peak.",
+    " Isen is said to have crafted the Isen Ranges.",
 )
 db.update_description(
     "location",
@@ -361,13 +364,15 @@ db.update_description(
 )
 db.update_description("location", "Charred Range", "Mountains separating Solana and Volcor.")
 db.update_description("location", "Chrome Caverns", "The desert's edge.")
-db.update_description("location", "Coralysi", "Home of the merfolk. Floating gardens.")
+# Reads under all three names, because all three resolve to this one row: the
+# place at high-seas.md:43, the Kuraghan's afterlife at high-seas.md:127, and the
+# Dhani city at mastery-pack-warrior.md:22.
 db.update_description(
     "location",
-    "Fiddler's Green",
-    "The pirates' name for the sunken Dhani city beneath Coralysi, and for the "
-    "afterlife the Kuraghan believe it promises them - a beautiful lie no one "
-    "tells better than Cooder.",
+    "Coralysi",
+    "Undersea seat of the merfolk, grown over the drowned Dhani city of Fedhari. "
+    "Pirates of every creed call it Fiddler's Green and believe it promises them "
+    "eternal bliss.",
 )
 db.update_description("location", "Death's Knell", "The Ocean.")
 db.update_description(
@@ -507,7 +512,16 @@ db.update_description(
     "The Plazas",
     "Connect the outer city sectors, a space to gather and hear news.",
 )
-db.update_description("location", "The Registry", "Information Center.")
+# Deliberately word-for-word the same as the ``Registry`` group below. The firm
+# and its building are one thing described twice, and the tooltip matcher cannot
+# tell "the Registry" in prose from "The Registry" the place — so rather than
+# rank them, both say the same sentence and it stops mattering which one wins.
+db.update_description(
+    "location",
+    "The Registry",
+    "Metrix's dominant data gatherer and cybersecurity firm, which sells the "
+    "personal data it collects and runs spies in every nation.",
+)
 db.update_description(
     "location",
     "The Silvaris",
@@ -721,10 +735,36 @@ db.update_description(
     "An order of prophets named alongside the Ollin and Rosetta, who read the omens and keep a script of their own.",
 )
 
+# Kept identical to the ``The Registry`` location above; see the note there.
+db.update_description(
+    "group",
+    "L'Apocalypta",
+    "A cult of Chaos operating in the darkest corners of Rathe, orchestrating "
+    "catastrophes in service of an apocalyptic doctrine set down by the prophet "
+    "Anarch Zeir.",
+)
+
+db.update_description(
+    "group",
+    "Volcai",
+    # Absorbs the hints_supplement.json "Volcai" entry, which used to override this
+    # one silently — the D3 shape. The -ai naming fact is the half worth keeping.
+    "The vast majority of Volcor's population, drawn from all but the very highest "
+    "avenues of life; historically loyal to the Emperor, and now increasingly in "
+    "revolt against the Dracai. Their names end in -ai, marking their origin.",
+)
+
+db.update_description(
+    "group",
+    "Kaigomo",
+    "Deploy their vigilant ronin across Misteria to ensure that peace prevails " "amidst its hidden valleys.",
+)
+
 db.update_description(
     "group",
     "Registry",
-    "Metrix's dominant data gatherer and cybersecurity firm, which sells the personal data it collects and runs spies in every nation.",
+    "Metrix's dominant data gatherer and cybersecurity firm, which sells the "
+    "personal data it collects and runs spies in every nation.",
 )
 
 db.update_description(

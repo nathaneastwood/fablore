@@ -65,11 +65,6 @@
     "summary": "Forsaken isle beyond the shores of Southern Rathe, wrapped in sea fog, where the Devout took refuge when their faith in Sol broke.",
     "url": "/world-of-rathe/demonastery.html"
   },
-  "DhaniEmpire": {
-    "type": "concept",
-    "match": "Dhani Empire",
-    "summary": "A fallen civilisation once ruled by an arcane empress, whose mastery of aether ended in cataclysmic ruin."
-  },
   "Dreadnought": {
     "type": "ship",
     "summary": "Gravy Bones' ship."
@@ -78,12 +73,6 @@
   "Fayyad": {
     "type": "npc",
     "summary": "A member of the Cintari, Kassai's close friend."
-  },
-  "FiddlersGreen": {
-    "match": [
-      "Fiddler's Green",
-      "Fiddler’s Green"
-    ]
   },
   "Fireseer": {
     "type": "concept",
@@ -244,10 +233,6 @@
   },
   "Verides": "Solanian Wednesday",
   "Vesperides": "Solanian Saturday",
-  "Volcai": {
-    "type": "concept",
-    "summary": "The more limited social class of Volcor; their names are homogeneous, ending in -ai as a mark of their Volcai origin status."
-  },
   "VoltarisGem": {
     "type": "artifact",
     "match": "Voltaris Gem",
@@ -905,14 +890,6 @@
       "main-story/omens-of-the-third-age/fall-of-valahai"
     ]
   },
-  "Mt. Isen": {
-    "match": [
-      "Mt. Isen",
-      "Mount Isen",
-      "Isen's Peak",
-      "Isen’s Peak"
-    ]
-  },
   "Neverest": {
     "exclude_pages": [
       "short-stories/usurp-the-shadow-throne/open-the-gates"
@@ -958,78 +935,6 @@
     "summary": "The Arknight Shard in Viserai's chest, corrupted by the Old Ones with the very essence of Shadow when he grasped their forbidden power in the heart of the Shadowrealm.",
     "exclude_pages": [
       "heroes-of-rathe/viserai-about"
-    ]
-  },
-  "Bartons House": {
-    "match": [
-      "Barton's House",
-      "Barton’s House"
-    ]
-  },
-  "Blackjacks Tavern": {
-    "match": [
-      "Blackjack's Tavern",
-      "Blackjack’s Tavern"
-    ]
-  },
-  "Blasmophets Domain": {
-    "match": [
-      "Blasmophet's Domain",
-      "Blasmophet’s Domain"
-    ]
-  },
-  "Deaths Knell": {
-    "match": [
-      "Death's Knell",
-      "Death’s Knell"
-    ]
-  },
-  "Krakens Barrel": {
-    "match": [
-      "Kraken's Barrel",
-      "Kraken’s Barrel"
-    ]
-  },
-  "Kylorias Lair": {
-    "match": [
-      "Kyloria's Lair",
-      "Kyloria’s Lair"
-    ]
-  },
-  "Might n Mead": {
-    "match": [
-      "Might n' Mead",
-      "Might n’ Mead"
-    ]
-  },
-  "Overseer Crichtons Mansion": {
-    "match": [
-      "Overseer Crichton's Mansion",
-      "Overseer Crichton’s Mansion"
-    ]
-  },
-  "Pirates Perch": {
-    "match": [
-      "Pirate's Perch",
-      "Pirate’s Perch"
-    ]
-  },
-  "Rhinars Territory": {
-    "match": [
-      "Rhinar's Territory",
-      "Rhinar’s Territory"
-    ]
-  },
-  "Yvors Peak": {
-    "match": [
-      "Yvor's Peak",
-      "Yvor’s Peak"
-    ]
-  },
-  "iArathael": {
-    "match": [
-      "i'Arathael",
-      "i’Arathael"
     ]
   },
   "Ankis": {
@@ -1112,12 +1017,6 @@
       "world-of-rathe/aria"
     ]
   },
-  "Auis Scales Strongholds": {
-    "match": [
-      "Aui's Scales Strongholds",
-      "Aui’s Scales Strongholds"
-    ]
-  },
   "Necropolis": {
     "type": "location",
     "summary": "Quarter of the Demonastery where its finest morticians turn sepulchral preservation to self-preservation.",
@@ -1145,5 +1044,28 @@
   "Thanuella": {
     "type": "npc",
     "summary": "Dhani death-mage among whose possessions Dead Threads was found, casting doubt on the necrophage's true purpose."
+  },
+  "BloodrotPox": {
+    "type": "disease",
+    "match": "Bloodrot Pox",
+    "summary": "Not the natural mutation Metrix chemists believe, but a deliberate L'Apocalypta experiment gone wrong; it raises large boils that cause extreme pain."
+  },
+  "Frailty": {
+    "type": "disease",
+    "summary": "A neurotoxic disease Achlys developed and let spread through the underground of the Pits, for reasons that elude even Dr. Mortimer."
+  },
+  "Inertia": {
+    "type": "disease",
+    "summary": "A novel radioactive material whose proximity saps the strength and energy of the living, much like radiation sickness; Southmaw is still hunting a cure."
+  },
+  "EyeOfOphidia": {
+    "type": "artifact",
+    "match": "Eye of Ophidia",
+    "summary": "Relinquished by a keeper who watched the tides beyond Death's Knell until the great divide drew near, bequeathing the gift of its immeasurable knowledge."
+  },
+  "Velocitator60T": {
+    "type": "item",
+    "match": "Velocitator 60-T",
+    "summary": "A steam-driven Metrix product sold on the promise of turning a rival into a smear on the pavement."
   }
 }

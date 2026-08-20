@@ -1,6 +1,6 @@
 # Boom Town Boom
 
-Maxx moves along with the crowd, a rarity for an anarchist punk like him, but necessary in the strictly monitored East Rise. He's on a recon mission, sussing out an opportunity to stick it to [Teklo Industries][~TekloIndustries].
+Maxx moves along with the crowd, a rarity for an anarchist punk like him, but necessary in the strictly monitored East Rise. He's on a recon mission, sussing out an opportunity to stick it to Teklo Industries.
 
 This particular throng of Metrix citizenry is made up of success stories. There are office and lab workers, dressed neatly for conformity. There are executive types in power casual wear, and elegantly dressed elitists from the intelligentsia. They're all here for the distracting delights of Metrix's dazzling entertainment quarter.
 

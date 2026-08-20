@@ -147,6 +147,16 @@ Blades; Taipanis, Dracai of Judgement. Really a title (R3), and this row is an
 openly temporary home for it until stage 6 gives titles one."""
 EZU = GroupEntry("Ezu", kind="faction")
 SAYASHI = GroupEntry("Sayashi", kind="special force")
+VOLCAI = GroupEntry(
+    "Volcai",
+    kind="people",
+    lore_story_key="world-of-rathe/volcor.md",
+    lore_fragment="the-volcai",
+)
+"""``Volcai``, not ``The Volcai``: volcor.md heads the section with the article but
+its prose writes "the Volcai" lowercase, so the article is not part of the name —
+rule N3, the same call that named ``Registry``. Named on thirty-odd pages; only
+the ones registered so far link it."""
 
 
 # ---------------------------------------------------------------------------
@@ -157,7 +167,25 @@ ARMS_DEALERS = GroupEntry("Arms Dealers", kind="gang")
 COGWERX = GroupEntry("Cogwerx", kind="corporation")
 IRON_ASSEMBLY = GroupEntry("Iron Assembly", kind="organisation")
 """Absorbs ``Iron Council``, shouted once in stroke-of-genius.md (Q2)."""
-MENDACITY_MEDIA = GroupEntry("Mendacity Media", kind="corporation")
+TRANSCENDENTS = GroupEntry("Transcendents", kind="order", location=loc.SKYLARK_PEAK)
+"""Named once, on flavour/outsiders.md: "Grand masters of old reside atop Skylark
+peak. Amongst these Transcendents..." The location is where they are; no page
+describes them well enough for a summary."""
+L_APOCALYPTA = GroupEntry(
+    "L'Apocalypta",
+    kind="cult",
+    lore_story_key="world-of-rathe/pits.md",
+    lore_fragment="lapocalypta",
+)
+"""Straight apostrophe, not the curly one pits.md heads its section with.
+``generate_hints_json.py`` emits both glyphs from the name, so the DB holds one
+spelling and the prose still resolves either way — the same rule ``Aui's Scales``
+follows."""
+MENDACITY_MEDIA = GroupEntry("Mendacity Media", kind="corporation", aliases=("Mendacity",))
+"""The prose says "Mendacity" far more often than the full name — metrix.md writes
+it bare six times. Migrating the supplement entry to a group renamed the tooltip
+key to the full name and took the short form's tooltip with it; the alias is what
+gives it back."""
 """Absorbs ``Mendacity``, ``Voxx`` and the ``Voxx Press`` location row (Q5)."""
 REGISTRY = GroupEntry(
     "Registry",
@@ -196,8 +224,37 @@ CRIMSON_HAZE = GroupEntry("Crimson Haze", kind="rebels")
 """At odds with Aui's Scales for centuries. The opposition between them is a
 relation with no column; it stays prose in the notes. Keeps a stub for
 ``exclude_pages``."""
+CLAN_NASU_KA = GroupEntry("Clan Nasu-ka", kind="clan", location=loc.NASU_KA_TEAHOUSE)
+"""The clan and the house it keeps, linked like Ikaru Clan to Ikaru.
+part-1-the-tiger-in-the-mist.md calls the teahouse itself "Nasu-ka", so the two
+names are close enough that keeping both rows joined is what stops them drifting."""
 HIDESHI = GroupEntry("Hideshi", kind="house")
-IKARU_CLAN = GroupEntry("Ikaru Clan", kind="house", hero_members=("ira",), location=loc.IKARU)
+KAIGOMO = GroupEntry("Kaigomo", kind="order")
+"""One mention in the whole book, on flavour/part-the-mistveil.md — enough to
+know they field ronin across Misteria, not enough for a documentation page."""
+REKVAS_BLOODBOARS = GroupEntry("Rek'vas Bloodboars", kind="warband")
+"""Named once, on flavour/crucible-of-war.md — they hear word of war and want in,
+which is what marks them as people rather than the beasts the name suggests."""
+KOTORI = GroupEntry(
+    "Kotori",
+    kind="emissaries",
+    npc_members=(
+        npc.ANHE_KOTORI_WAVEBENDER,
+        npc.DAN_LU_KOTORI_GALEWARDEN,
+        npc.NING_KOTORI_MOONSEEKER,
+    ),
+    member_source="flavour/part-the-mistveil.md",
+)
+"""No page describes the Kotori as a body; the group is inferred from three NPC
+names that all carry it — Wavebender, Galewarden, Moonseeker. Those three roles
+are ranks and wait for R3. No notes, because nothing in the lore describes them."""
+IKARU_CLAN = GroupEntry(
+    "Ikaru Clan",
+    kind="house",
+    hero_members=("ira",),
+    location=loc.IKARU,
+    member_source="heroes-of-rathe/ira-about.md",
+)
 """Absorbs ``House of Blossoms``. The location row stays as the place Ikaru (Q6)."""
 MUGENSHI_CLAN = GroupEntry("Mugenshi Clan", kind="clan", hero_members=("benji",))
 

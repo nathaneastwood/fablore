@@ -16,7 +16,7 @@ from __future__ import annotations
 
 import sqlite3
 
-CURRENT_VERSION = 9
+CURRENT_VERSION = 10
 
 _V1_DDL = """
 CREATE TABLE IF NOT EXISTS stories (
@@ -303,6 +303,43 @@ CREATE TABLE IF NOT EXISTS story_groups (
     group_id TEXT NOT NULL REFERENCES groups(group_id),
     PRIMARY KEY (story_id, group_id)
 );
+
+-- Names that are not the name (R4 epithets, R6 aliases). Three tables rather
+-- than one keyed by entity_type, matching the group_npcs / group_heroes split:
+-- each keeps a real REFERENCES to its own registry, which SQLite can enforce
+-- and a shared entity_type column cannot.
+--
+-- Display names stay untouched. Nothing here renames anything; these rows are
+-- the *other* names a thing answers to, which is what the tooltip matcher and
+-- the Lore Graph need in order to stop drawing one thing as several.
+CREATE TABLE IF NOT EXISTS npc_epithets (
+    character_id TEXT NOT NULL REFERENCES npcs(character_id) ON DELETE CASCADE,
+    name         TEXT NOT NULL,
+    -- 'epithet' is a style the character is given: "the Wartune Herald".
+    -- 'short-name' is the same character in fewer words: "Mortimer" for
+    -- "Dr. Krest Mortimer, 'The Fixer'". Both resolve to one row, and both are
+    -- match strings; the kind is what lets a tooltip word them differently.
+    kind         TEXT NOT NULL DEFAULT 'epithet',
+    sort_order   INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (character_id, name)
+);
+
+CREATE TABLE IF NOT EXISTS location_aliases (
+    location_id TEXT NOT NULL REFERENCES locations(location_id) ON DELETE CASCADE,
+    alias       TEXT NOT NULL,
+    -- Which era of the world used this name: 'Dhani', 'merfolk', 'pirate cant'.
+    -- Empty where the lore does not date it.
+    era         TEXT NOT NULL DEFAULT '',
+    sort_order  INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (location_id, alias)
+);
+
+CREATE TABLE IF NOT EXISTS group_aliases (
+    group_id   TEXT NOT NULL REFERENCES groups(group_id) ON DELETE CASCADE,
+    alias      TEXT NOT NULL,
+    sort_order INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (group_id, alias)
+);
 """
 
 
@@ -443,4 +480,38 @@ def migrate(conn: sqlite3.Connection) -> None:
             if col not in cols:
                 conn.execute(f"ALTER TABLE groups ADD COLUMN {col} TEXT NOT NULL DEFAULT ''")
         conn.execute("PRAGMA user_version = 9")
+        conn.commit()
+    if version < 10:
+        # Names that are not the name. 36 NPC names glue an epithet on after a
+        # comma, so a character can hold exactly one and the Heralds' second and
+        # third have nowhere to go. Three locations are three rows for one place
+        # (Fedhari / Coralysi / Fiddler's Green), which the Lore Graph draws as
+        # three nodes. And hints_supplement.json had begun carrying alternate
+        # spellings in `match` arrays — an alias living in the display layer,
+        # which is the D3 two-writers shape all over again.
+        conn.executescript(
+            """
+            CREATE TABLE IF NOT EXISTS npc_epithets (
+                character_id TEXT NOT NULL REFERENCES npcs(character_id) ON DELETE CASCADE,
+                name         TEXT NOT NULL,
+                kind         TEXT NOT NULL DEFAULT 'epithet',
+                sort_order   INTEGER NOT NULL DEFAULT 0,
+                PRIMARY KEY (character_id, name)
+            );
+            CREATE TABLE IF NOT EXISTS location_aliases (
+                location_id TEXT NOT NULL REFERENCES locations(location_id) ON DELETE CASCADE,
+                alias       TEXT NOT NULL,
+                era         TEXT NOT NULL DEFAULT '',
+                sort_order  INTEGER NOT NULL DEFAULT 0,
+                PRIMARY KEY (location_id, alias)
+            );
+            CREATE TABLE IF NOT EXISTS group_aliases (
+                group_id   TEXT NOT NULL REFERENCES groups(group_id) ON DELETE CASCADE,
+                alias      TEXT NOT NULL,
+                sort_order INTEGER NOT NULL DEFAULT 0,
+                PRIMARY KEY (group_id, alias)
+            );
+            """
+        )
+        conn.execute("PRAGMA user_version = 10")
         conn.commit()
