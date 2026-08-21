@@ -327,6 +327,16 @@ said in bold that no page called her a Maela and recorded the membership as the
 user's inference. That was wrong: rosetta.md attests it, the page is registered,
 and ``story_npcs`` has linked her to it the whole time. Corrected 2026-08-20.
 
+That note also carried a **second, independent trail, and it is true** — restored
+2026-08-21 after the review found the correction had thrown it out along with the
+false claim beside it. ``main-story/mastery-pack-guardian/trouble-in-larinkmorth.md``
+gives "the seer" and "the elderly seer" (:63), a journey from Everfest (:23, :37)
+and a reading of tea leaves (:63) — which is aria.md's whole description of the
+Maela, "a group of seers … respected for their talent in second-sight", and
+nothing more. It is not the membership's citation: ``rosetta.md`` names her rank
+outright and that page is what ``group_npcs`` cites. It is the fallback if the
+credit line is ever disputed, and it is recorded nowhere else.
+
 Isulfv, One-eye and Sharena joined at the same time, on the same reading of the
 prefix that gave ``KOTORI`` its roster (the user's call, 2026-08-20).
 ``Soothsayer`` is a rank and waits for stage 7."""

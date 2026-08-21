@@ -742,3 +742,30 @@ def test_preview_survives_a_parent_cycle_rather_than_looping(db: Database, capsy
         dry_run=True,
     )
     assert "DRY RUN" in capsys.readouterr().out
+
+
+def test_a_roster_may_not_name_one_npc_twice(db: Database) -> None:
+    """The pair made this reachable, and the two paths resolved it differently.
+
+    ``group_npcs`` is keyed ``(group_id, character_id)`` and written with
+    ``INSERT OR IGNORE``, so the write kept the first citation; the preview built
+    a dict from the same roster and reported the last. Neither raised. A roster
+    naming someone twice was previewed as one page and stored as another —
+    the preview/write divergence 2116c48e and 034330d7 both fixed, in a new shape.
+    """
+    entry = GroupEntry(
+        "The Maela",
+        npc_members=(
+            (NPCEntry("Kaysin"), "flavour/rosetta.md"),
+            (NPCEntry("Kaysin"), "flavour/compendium-of-rathe.md"),
+        ),
+    )
+    with pytest.raises(ValueError, match="twice in npc_members"):
+        _story(db, groups=[entry])
+
+
+def test_the_duplicate_guard_fires_on_the_preview_path_too(db: Database) -> None:
+    """A dry run must fail the same way, or the guard only moves the surprise."""
+    entry = GroupEntry("The Maela", npc_members=(NPCEntry("Kaysin"), NPCEntry("Kaysin")))
+    with pytest.raises(ValueError, match="twice in npc_members"):
+        _story(db, groups=[entry], dry_run=True)

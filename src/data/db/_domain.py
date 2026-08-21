@@ -324,13 +324,31 @@ class GroupEntry:
 
         The one place that unpacks the optional pair, so every caller reads a
         roster the same shape whether or not a membership cites its own page.
+
+        Raises:
+            ValueError: if one NPC appears twice in the roster. The pair made this
+                reachable and the two paths resolve it differently: ``group_npcs``
+                is keyed ``(group_id, character_id)`` and written with
+                ``INSERT OR IGNORE``, so the write keeps the **first** citation,
+                while the preview builds a dict and reports the **last**. Neither
+                raises, so a roster naming someone twice would be previewed as one
+                page and stored as another. Guarded here rather than in either
+                path, so both fail the same way.
         """
         pairs: list[tuple["NPCEntry", str]] = []
+        seen: dict[str, str] = {}
         for item in self.npc_members:
             if isinstance(item, tuple):
                 npc, source = item
             else:
                 npc, source = item, self.member_source
+            if npc.name in seen:
+                raise ValueError(
+                    f"{self.name!r} names {npc.name!r} twice in npc_members "
+                    f"(citing {seen[npc.name] or '(none)'!r} and {source or '(none)'!r}). "
+                    "A membership is one row; cite the page that attests it once."
+                )
+            seen[npc.name] = source
             pairs.append((npc, source))
         return pairs
 

@@ -422,16 +422,35 @@ db.upsert_story(
     ],
     regions=[reg.ARIA],
     groups=[
-        grp.DISCIPLES_OF_PAIN,
         grp.GEMINI,
         grp.L_APOCALYPTA,
-        grp.MUGENSHI_CLAN,
         grp.PROWLERS,
+        # "those Rosetta willing to embrace it" (PEN219) is the *people*, and the
+        # link is to the *order*. Both rows exist and carry a word-for-word
+        # identical summary; `species` is not a declaration parameter, so the
+        # group is the only reachable one. Forced, not chosen. Stage 6/7.
         grp.ROSETTA,
+        # Thin, and kept: "These Teklo monsters" (PEN075) is adjectival and names
+        # the brand rather than the company as an actor, but "Teklo" denotes only
+        # this company.
         grp.TEKLO_INDUSTRIES,
         grp.THE_SPIDER,
     ],
-    # Orihon of Mystic Tenets is quoted twice (PEN269, PEN273) and matches no row
-    # in any registry. Deliberately left out (the user's call, 2026-08-20).
+    # Dropped 2026-08-21 by review, both too thin to stand (the user's call):
+    #   DISCIPLES_OF_PAIN — PEN195 reads "The Disciple of Pain sought dominion,
+    #     but in desperance *he* languished". Singular, and "he": that is one
+    #     person, not the order. If it evidences anything it evidences an NPC.
+    #   MUGENSHI_CLAN — the page gives only "- Mugenshi proverb". A proverb's
+    #     attribution names a culture; the row is kind="clan" with no notes.
+    # Not dropped, but noted: the same sentence that gives "our Gemini" also gives
+    # "our Inquisitors", and that got no link because no Inquisitors row exists.
+    # What a page links is shaped by what the registry already holds.
+    # Orihon of Mystic Tenets is quoted twice (PEN269, PEN273). It matches no row
+    # in any registry because it is a *card name*, not a character name:
+    # flavour/part-the-mistveil.md:41 lists it as MST080, and the digital-tiles
+    # page has it as a heading. The character behind it would be "Orihon"; the
+    # subtitle is the card's. Deliberately left out (the user's call, 2026-08-20).
+    # Recorded in the plan as well as here, because a comment is deletable and
+    # this decision has already been re-litigated once.
     dry_run=True,
 )
