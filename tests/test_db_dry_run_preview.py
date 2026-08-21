@@ -364,3 +364,61 @@ def test_preview_stays_silent_when_a_membership_keeps_its_source(db: Database, c
     report = _preview(db, capsys, path="src/main-story/x.md", story_type="main-story", title="X", groups=[entry])
 
     assert "source" not in report, "an unchanged citation was reported as a change"
+
+
+def test_preview_reports_a_group_reached_only_as_a_parent(db: Database, capsys) -> None:
+    """A parent group is a write, so its creation and roster must be shown.
+
+    ``_show_group_changes`` iterated the ``groups`` kwarg until 2026-08-21, while
+    ``_show_alternate_name_changes`` walked the reachable chain. So a group named
+    only as another group's ``parent`` had its row created, its roster written and
+    its scalars set in silence, and the one thing that *did* print about it was an
+    alias. Stage 5's Super Slam hierarchy would have created four stable rows,
+    twelve parent links and three patron memberships behind one alias line.
+    """
+    stable = GroupEntry(
+        "Speakeasy's Guilds",
+        kind="stable",
+        npc_members=(NPCEntry("Speakeasy"),),
+        member_source="main-story/super-slam/feudmasters.md",
+    )
+    report = _preview(
+        db,
+        capsys,
+        path="src/main-story/x.md",
+        story_type="main-story",
+        title="X",
+        groups=[GroupEntry("Mythmakers", kind="guild", parent=stable)],
+    )
+
+    assert "Speakeasy's Guilds" in report, "the parent group is not previewed at all"
+    assert "new group" in report
+    assert "1 members" in report, "the parent's roster is not previewed"
+
+
+def test_preview_reports_a_group_changing_parent(db: Database, capsys) -> None:
+    """`parent_group_id` is a stored column, so re-parenting a group is a write.
+
+    It was left unpreviewed alongside `location_id` on the reasoning that both
+    "need resolving rather than reading". Only the location does: `_group_id` is a
+    pure hash, so a parent resolves without touching the database.
+    """
+    db.upsert_story(
+        "src/main-story/x.md",
+        story_type="main-story",
+        title="X",
+        groups=[GroupEntry("Heavy Metals", kind="guild")],
+    )
+
+    report = _preview(
+        db,
+        capsys,
+        path="src/main-story/x.md",
+        story_type="main-story",
+        title="X",
+        groups=[GroupEntry("Heavy Metals", kind="guild", parent=GroupEntry("Batbiter's Guilds", kind="stable"))],
+    )
+
+    assert "Heavy Metals" in report and "parent" in report, "the parent change is not shown"
+    assert "Batbiter's Guilds" in report, "the new parent is not named"
+    assert "GR" not in report.split("parent")[1][:40], "the parent is rendered as a raw id, not a name"

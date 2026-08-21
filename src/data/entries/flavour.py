@@ -454,3 +454,90 @@ db.upsert_story(
     # this decision has already been re-litigated once.
     dry_run=True,
 )
+
+# Registered 2026-08-21, stage 5. This is the page that gives eleven of the twelve
+# dragons a database row: they existed in character-groups.md and nowhere in the
+# data, and `sp.DRAGON` held only Miragai.
+#
+# **The dragons are named by the card titles, not the flavour text** — "Invoke
+# Azvolai" over "The dragon of choice, said to guard the crossroads of Sandikai."
+# Every one of the twelve is like that. Counting a card title as attestation is the
+# user's call (2026-08-21) and it is what makes this registration worth doing; read
+# without it, the page names no dragon at all. The same reading is what admits
+# npc.FYENDAL, from "Fyendal's Fighting Spirit" (UPR194).
+#
+# Deliberately left out under that same reading, because neither has a row anywhere
+# and neither is described by its own flavour line: `Vipox` (UPR188, a Spider quote
+# about something else) and the `ice nymph` of UPR144 — lower-case, generic, and in
+# the body rather than a title. Both the user's call.
+db.upsert_story(
+    path="src/flavour/uprising.md",
+    story_type="flavour",
+    title="Uprising",
+    heroes=["dromai", "fai", "victor-goldmane"],
+    # Not decoration. All three were already stored, and the first dry run of this
+    # declaration reported them as "-> cleared": hero fragments are replace-semantic,
+    # so omitting them is a deletion. Each is the card section that quotes its hero —
+    # "Burn Away" for Dromai, "Lava Vein Loyalty" for Fai, "That All You Got?" for
+    # Victor Goldmane. They were seeded rather than declared, so this is the first
+    # time upsert_story has validated them against the real headings.
+    hero_fragments={
+        "dromai": "burn-away---upr094",
+        # Corrected 2026-08-21. The seeded value was `lava-vein-loyalty---upr069`,
+        # which is not a heading on the page — the card prints three numbers, so the
+        # real id is the full run. The third stale fragment found this way; stage 3
+        # found two, and nothing validates them except upsert_story on write, so the
+        # 195 declarations that have never been written may hide more.
+        "fai": "lava-vein-loyalty---upr069070071",
+        "victor-goldmane": "that-all-you-got---upr189",
+    },
+    npcs=[
+        # "The dragon of devastation, said to serve only the Aesir of Flames"
+        # (UPR006). This row is Infernai under his epithet; the rename is stage 7.
+        npc.AESIR_OF_FLAMES,
+        npc.AZVOLAI,
+        npc.CROMAI,
+        npc.DOMINIA,
+        npc.DRACONA_OPTIMAI,
+        npc.FYENDAL,
+        npc.KYLORIA,
+        npc.MIRAGAI,
+        npc.NEKRIA,
+        npc.OUVIA,
+        npc.THEMAI,
+        npc.TOMELTAI,
+        npc.VYNSERAKAI,
+        npc.YENDURAI,
+        # "The sun is setting on this Dynasty. Tomorrow we rise up, my son."
+        npc.YUNKAI,
+    ],
+    locations=[
+        loc.BLEAK_EXPANSE,
+        loc.IMPERIAL_FURNACE,
+        loc.KYLORIA_S_LAIR,
+        loc.RED_DESERT,
+        loc.RUST_BELT,
+        loc.SANDIKAI,
+        loc.THE_ASH_PLAINS,
+    ],
+    regions=[
+        reg.ARIA,
+        reg.DEMONASTERY,
+        reg.METRIX,
+        reg.MISTERIA,
+        reg.SOLANA,
+        reg.THE_PITS,
+        reg.THE_SAVAGE_LANDS,
+        # Not named in a single line of this page. Included because the page is the
+        # Volcai uprising against the Dracai and three of the seven locations above
+        # sit in Volcor — the one region here carried by implication rather than by
+        # name, and flagged so a later reader can disagree with it.
+        reg.VOLCOR,
+    ],
+    groups=[
+        grp.DRACAI,
+        grp.THE_SPIDER,
+        grp.VOLCAI,
+    ],
+    dry_run=True,
+)

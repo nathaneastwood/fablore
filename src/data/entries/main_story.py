@@ -520,6 +520,16 @@ db.upsert_story(
     ],
     regions=[reg.THE_SAVAGE_LANDS],
     groups=[
+        # The three stables and the federation they sit in. Speakeasy's and
+        # Batbiter's are reachable anyway, as the parent of every guild below, but
+        # Moloca's has no guild to be reached through — she fronts none — so
+        # without this line her row would exist in the catalogue and never be
+        # written. Naming all four here is also the honest mention-link: this page
+        # is where the panel introduces every one of them.
+        grp.SUPER_SLAM_GUILDS,
+        grp.SPEAKEASYS_GUILDS,
+        grp.BATBITERS_GUILDS,
+        grp.MOLOCAS_GUILDS,
         grp.BALEFUL_HORDE,
         grp.BIG_BOPPERS,
         grp.BOULDERS,
@@ -1365,6 +1375,160 @@ db.upsert_story(
         grp.STEELSTREET_ENFORCERS,
         grp.TEKLO_INDUSTRIES,
         grp.THE_FOUNDRY,
+    ],
+    dry_run=True,
+)
+
+# Registered 2026-08-21, stage 5. This is the only page that attests Isen — a
+# wayfarer says "I've heard legends of the Ancients, Yvor, Davnir, Isen..." (:197) —
+# and giving him a row is why it had to be registered. He was one of the fourteen
+# names in character-groups.md with no row of any kind.
+#
+# npc.MAELA_ISULFV is linked from this page's "Isulvf", a letter-transposition of
+# the same seer. See that constant: registering the page without noticing would have
+# minted a second row for one person.
+#
+# Deliberately left out, none with a row anywhere and none describable from this
+# page: `Strale`, `the Indigo Eye`, `the Covenant`, and the `Showstopper` of the
+# Everfest poster. `Braumeister` is a profession and already waits for R9.
+db.upsert_story(
+    path="src/main-story/everfest/a-grand-adventure.md",
+    story_type="main-story",
+    title="A Grand Adventure",
+    # All four were already on the story row. Story metadata is replace-semantic,
+    # so omitting any of them is a deletion, not a silence.
+    authors="Kasharn Rao",
+    artists="Sam Yang",
+    source_link="https://fabtcg.com/articles/grand-adventure/",
+    publication_date="2021-12-25",
+    heroes=["briar", "lexi", "oldhim", "yorick"],
+    npcs=[
+        # Named in Briar's line about the Ancients, not present in the story.
+        npc.DAVNIR,
+        npc.ISEN,
+        npc.MAELA_ISULFV,
+        npc.MARA,
+        npc.QUEEN_OF_CANDLEHOLD,
+        npc.THAWNE,
+        # Also the statue at :47, "the mythical Ancient of Thunder and Ice".
+        npc.YVOR,
+    ],
+    locations=[
+        loc.CANDLEHOLD,
+        loc.ENION,
+        loc.ISENLOFT,
+        loc.THE_EVERFEST_CARNIVAL,
+        loc.THE_KORSHEM,
+        loc.VOLTHAVEN,
+        loc.YVOR_S_PEAK,
+    ],
+    regions=[reg.ARIA],
+    groups=[
+        # "The Rosetta...The Ollin..." and the queen's "the Seers...of old"; Lexi is
+        # a Wayfarer and the page calls her one repeatedly.
+        grp.OLLIN,
+        grp.ROSETTA,
+        grp.SEERS,
+        grp.WAYFARERS,
+    ],
+    weapons=["rosetta-thorn", "voltaire-strike-twice"],
+    dry_run=True,
+)
+
+# Registered 2026-08-21, stage 5. Not needed for the dragons in the end —
+# flavour/uprising.md had already given all twelve a row by the time this was
+# reached — but registered as planned, and it turned out to carry four people who
+# had no row at all. npc.XATHARI is the one that matters: the Dracai spymaster is
+# named on five pages and had never been recorded.
+#
+# The opening paragraphs before the "# Dragons of Empire" heading are Dromai's
+# hero blurb rather than the story, and the entities in them are treated the same
+# as the story's own — Torvai, Sani and Min are named nowhere else on the page.
+db.upsert_story(
+    path="src/main-story/uprising/dragons-of-empire.md",
+    story_type="main-story",
+    title="Dragons of Empire",
+    # Already on the story row; omitting it would clear it.
+    source_link="https://fabtcg.com/hero/dromai/story/dromai-story-dragons-of-empire/",
+    # The Emperor never appears — Dromai recalls "the Emperor's rare appearance that
+    # day, ten years ago" and waits on "the Emperor's thanks". A hero row exists
+    # under the slug `emperor`, so the mention links there rather than minting an
+    # NPC spelling of the same person.
+    heroes=["dromai", "emperor", "fai"],
+    npcs=[
+        # The four dragons Dromai invokes. Vynserakai, Azvolai and Nekria are all
+        # destroyed at the siege; Tomeltai carries the second half of the story.
+        npc.AZVOLAI,
+        npc.GENERAL_RIKU,
+        npc.MIN_OF_THE_FOREST_OF_FLAMES,
+        npc.NEKRIA,
+        npc.SANI,
+        npc.SILVERHAIR,
+        npc.TOMELTAI,
+        npc.TORVAI,
+        npc.VYNSERAKAI,
+        npc.XATHARI,
+    ],
+    locations=[
+        loc.ASHVAHAN,
+        loc.FOREST_OF_FLAMES,
+        loc.MT_VOLCOR,
+        loc.THE_GOLDEN_ORCHARD_ESTATE,
+    ],
+    regions=[reg.VOLCOR],
+    groups=[
+        grp.DRACAI,
+        grp.SANDFOLK,
+        grp.VOLCAI,
+    ],
+    dry_run=True,
+)
+
+# Registered 2026-08-21, stage 5. Not on the stage's own list — reached because
+# registering dragons-of-empire.md would have dropped `The Oasis`, whose only story
+# link sat on that page and whose text never names it. This is the page that does:
+# "Dromai sits in the Oasis, her feet dangling in the cave's simmering lake." The
+# link moves to the page that earns it rather than being deleted or asserted falsely.
+#
+# `The Royal Court` is deliberately not linked. It has a heading of its own on
+# world-of-rathe/volcor.md and IMPERIAL_PALACE already carries `the-royal-court` as
+# its fragment, so the institution is currently modelled as the building. "The Royal
+# Court gave her the mantle of Dracai" is the institution acting, not the place, and
+# the two are worth separating properly rather than by a link made in passing.
+db.upsert_story(
+    path="src/main-story/uprising/betrayal.md",
+    story_type="main-story",
+    title="Betrayal",
+    source_link="https://fabtcg.com/hero/dromai/story/dromai-story-betrayal/",
+    # None of the three were linked before, though the story is Dromai's throughout.
+    heroes=["dromai", "emperor", "fai"],
+    npcs=[
+        npc.EUN,
+        npc.GENERAL_RIKU,
+        npc.MIN_OF_THE_FOREST_OF_FLAMES,
+        # Killed here, off the page: Dromai is working out how to profit from his
+        # death. The row was minted for dragons-of-empire.md a moment earlier.
+        npc.XATHARI,
+    ],
+    locations=[
+        loc.ASHVAHAN,
+        # "Fai of the Forest of Flames, Slayer of Dracai."
+        loc.FOREST_OF_FLAMES,
+        loc.MT_VOLCOR,
+        loc.THE_OASIS,
+    ],
+    regions=[
+        # "The water comes from Misteria. The lava comes from Mount Volcor."
+        reg.MISTERIA,
+        reg.VOLCOR,
+    ],
+    groups=[
+        grp.DRACAI,
+        grp.VOLCAI,
+    ],
+    fauna=[
+        fauna.FLAREFISH,
+        fauna.LUMINOUS_CARP,
     ],
     dry_run=True,
 )

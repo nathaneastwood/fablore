@@ -1980,33 +1980,61 @@ class Database:
 
             The roster is the part worth previewing: membership is replace-semantic
             like a story junction, so a short ``npc_members`` silently drops people.
+
+            Walks the **reachable** groups, not the ``groups`` kwarg. Until
+            2026-08-21 it iterated the kwarg, so a group reached only as another
+            group's ``parent`` was invisible here in every respect — its creation,
+            its roster and its scalars alike — while ``_show_alternate_name_changes``
+            walked the same chain and reported its aliases. Stage 5's Super Slam
+            hierarchy is what surfaced it: declaring twelve guilds would have
+            created four stable rows, twelve parent links and three patron
+            memberships, and printed one line about an alias.
             """
             nonlocal changed
-            if not groups:
+            _, _, reach_groups = _reachable_entities()
+            if not reach_groups:
                 return
             lines: list[str] = []
-            for entry in groups:
+            for entry in reach_groups:
                 gid = _group_id(entry.name)
                 row = group_rows.get(gid)
                 if row is None:
                     roster = len(entry.npc_members) + len(entry.hero_members)
-                    lines.append(f"    + {entry.name} (new group, kind={entry.kind or '(none)'!r}, {roster} members)")
+                    parent = f", parent={entry.parent.name!r}" if entry.parent is not None else ""
+                    lines.append(
+                        f"    + {entry.name} (new group, kind={entry.kind or '(none)'!r}{parent}, {roster} members)"
+                    )
                     continue
                 # Every scalar `upsert_group` writes from a plain string on the
                 # entry. `kind` alone was previewed until 2026-08-20, so a group
                 # gaining its documentation page changed the DB and printed
                 # nothing — the same shape as the roster bug stage 3 fixed.
-                # `parent_group_id` and `location_id` are still unpreviewed; both
-                # need resolving rather than reading, and resolving a location
-                # writes. Stage 11.
+                #
+                # `parent_group_id` joined them 2026-08-21. The stage 11 note that
+                # left it out said it and `location_id` "both need resolving rather
+                # than reading, and resolving a location writes" — true of the
+                # location, false of the parent. `_group_id` is a pure hash of the
+                # name, so a parent resolves without touching the database, and the
+                # two were only ever grouped because they sit side by side on the
+                # entry. `location_id` genuinely does write and stays out.
+                parent_name = entry.parent.name if entry.parent is not None else ""
                 for field, incoming in (
                     ("kind", entry.kind),
+                    ("parent_group_id", _group_id(parent_name) if parent_name else ""),
                     ("lore_story_key", entry.lore_story_key),
                     ("lore_fragment", entry.lore_fragment),
                 ):
                     stored = row[field] or ""
                     if incoming and incoming != stored:
-                        lines.append(f"    ~ {entry.name}: {field} {stored or '(none)'!r} -> {incoming!r}")
+                        # A group id says nothing to a reader. Render both ends of
+                        # a parent change by name, falling back to the id for a
+                        # parent that does not exist yet in this same run.
+                        if field == "parent_group_id":
+                            was = group_id_to_name.get(stored, stored) if stored else "(none)"
+                            now = group_id_to_name.get(incoming, parent_name)
+                            lines.append(f"    ~ {entry.name}: parent {was!r} -> {now!r}")
+                        else:
+                            lines.append(f"    ~ {entry.name}: {field} {stored or '(none)'!r} -> {incoming!r}")
                 for table, id_col, wanted in (
                     ("group_npcs", "character_id", [(lore_character_id(m.name), src) for m, src in entry.members()]),
                     ("group_heroes", "canonical_id", [(h, entry.member_source) for h in entry.hero_members]),

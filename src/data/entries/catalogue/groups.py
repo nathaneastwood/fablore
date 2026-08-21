@@ -43,43 +43,130 @@ from . import npcs as npc
 # ---------------------------------------------------------------------------
 # Deathmatch Super Slam guilds
 # ---------------------------------------------------------------------------
-# Guild-to-fightmaster affiliation (Speakeasy's, Batbiter's, Moloca's) is a
-# group-to-person relation, not a parent group, so it is not modelled here.
+# This section used to carry the note: "Guild-to-fightmaster affiliation
+# (Speakeasy's, Batbiter's, Moloca's) is a group-to-person relation, not a parent
+# group, so it is not modelled here." **That was wrong on both halves** and is
+# replaced 2026-08-21 (the user's call).
+#
+# It is not a group-to-person relation. main-story/super-slam/feudmasters.md is a
+# panel at which each patron is handed the floor and introduces their own guilds
+# in turn, so the page states a guild-to-stable relation and the stable-to-patron
+# relation separately. And it *is* a parent group: three stables inside one
+# federation, twelve guilds inside the three stables, which `parent_group_id`
+# already models. Verified before writing that the chain holds at three levels —
+# parents are written first and only a cycle raises, there is no depth cap.
+#
+# The relation was never unmodellable. It was unmodelled because the reading came
+# from src/data/md/character-groups.md, which hedges ("mentioned in rivalry, but
+# tied to her side", "unnamed, but implied") and is **wrong twice** — see
+# HEAVY_METALS and MOLOCAS_GUILDS below. feudmasters.md, already declared at
+# entries/main_story.py:503, says it plainly.
+
+SUPER_SLAM_GUILDS = GroupEntry("Super Slam Guilds", kind="federation")
+"""The competition every stable below fights in, and the row that makes the three
+stables siblings rather than three unrelated groups. It holds no members of its
+own: a fighter belongs to a guild, and the federation is what the guilds enter."""
+
+SPEAKEASYS_GUILDS = GroupEntry(
+    "Speakeasy's Guilds",
+    kind="stable",
+    parent=SUPER_SLAM_GUILDS,
+    npc_members=(npc.SPEAKEASY,),
+    member_source="main-story/super-slam/feudmasters.md",
+)
+"""Rusty names this stable outright — the Wild Wonders are "among **Speakeasy's**
+guilds" — which is why the group is named for her rather than given an in-world
+name no page supplies.
+
+The patron sits in ``npc_members``, and that **strains the relation**: Speakeasy
+fronts the stable, she does not fight in it, and ``group_npcs`` means membership
+everywhere else in this file. It is used here because it is the only person-to-
+group relation that exists, and because the alternative — letting the group's
+*name* carry the patron — makes a rename silently drop the link. The user's call,
+2026-08-21. Recorded in stage 11."""
+
+BATBITERS_GUILDS = GroupEntry(
+    "Batbiter's Guilds",
+    kind="stable",
+    parent=SUPER_SLAM_GUILDS,
+    npc_members=(npc.BATBITER,),
+    member_source="main-story/super-slam/feudmasters.md",
+)
+"""See ``SPEAKEASYS_GUILDS`` on the patron membership. Speakeasy names this stable
+for him too — "a pack of **your** Chanek Jungle Slayers"."""
+
+MOLOCAS_GUILDS = GroupEntry(
+    "Moloca's Guilds",
+    kind="stable",
+    parent=SUPER_SLAM_GUILDS,
+    npc_members=(npc.MOLOCA,),
+    member_source="main-story/super-slam/feudmasters.md",
+)
+"""**Deliberately empty, and that is the finding.** character-groups.md gives
+Moloca a guild — "Savage Land beasts (unnamed, but implied as a competing force
+in the arena)" — and feudmasters.md gives her none. Rusty asks her outright why
+she is even on the panel and she answers "For my beasts. To find out what sort of
+meat they can look forward to consuming over the coming weeks." She fronts
+nothing.
+
+The row exists because she is still a patron and the user chose to keep her as
+one (2026-08-21). An empty stable is the only shape that can say so: a junction
+keyed ``(group, character)`` would have had no row to put her on, and she would
+have disappeared from the data entirely. That is what ruled the junction out."""
 
 BALEFUL_HORDE = GroupEntry(
     "Baleful Horde",
     kind="guild",
+    parent=BATBITERS_GUILDS,
     npc_members=(npc.FUGGER_GRIMES,),
     member_source="flavour/super-slam.md",
 )
-BIG_BOPPERS = GroupEntry("Big Boppers", kind="guild")
-BOULDERS = GroupEntry("Boulders", kind="guild")
+BIG_BOPPERS = GroupEntry("Big Boppers", kind="guild", parent=BATBITERS_GUILDS)
+BOULDERS = GroupEntry("Boulders", kind="guild", parent=SPEAKEASYS_GUILDS)
 """Absorbs ``Boulder Clan``; one guild, not a guild plus a dwarven clan (Q3)."""
 CHAMPIONS_OF_CHIVALRY = GroupEntry(
     "Champions of Chivalry",
     kind="guild",
+    parent=SPEAKEASYS_GUILDS,
     npc_members=(npc.EMEVIERE,),
     member_source="flavour/super-slam.md",
 )
-FURY_FISTS = GroupEntry("Fury Fists", kind="guild")
+FURY_FISTS = GroupEntry("Fury Fists", kind="guild", parent=SPEAKEASYS_GUILDS)
 GLORYTOWN_GLADIATORS = GroupEntry(
     "Glorytown Gladiators",
     kind="guild",
+    parent=SPEAKEASYS_GUILDS,
     npc_members=(npc.SALVADOR_STALLION,),
     member_source="flavour/super-slam.md",
 )
-GORELORDS = GroupEntry("Gorelords", kind="guild")
-HEAVY_METALS = GroupEntry("Heavy Metals", kind="guild")
+GORELORDS = GroupEntry("Gorelords", kind="guild", parent=BATBITERS_GUILDS)
+HEAVY_METALS = GroupEntry("Heavy Metals", kind="guild", parent=BATBITERS_GUILDS)
+"""**character-groups.md puts this guild on the wrong side**, under Speakeasy with
+the hedge "(mentioned in rivalry, but tied to her side)". It is Batbiter's (the
+user's call, 2026-08-21). Speakeasy is arguing that *her* guilds fight with honor
+and cites this one against him — "Isn't it true, **Batbiter**, the last time the
+Heavy Metals fought, they exploded part of the stadium, then ripped their opponent
+apart with maces" — and he answers by defending them: "An accident caused the
+stand to collapse, and the dwarves were cunning enough to take advantage."
+Nobody defends a rival's guild. Being *named by* Speakeasy is what the hand-
+written file mistook for being *hers*."""
 JUNGLE_SLAYERS = GroupEntry(
     "Jungle Slayers",
     kind="guild",
+    parent=BATBITERS_GUILDS,
+    aliases=("Chanek Jungle Slayers",),
     npc_members=(npc.HELX,),
     member_source="flavour/super-slam.md",
 )
-"""Absorbs ``Chanek Jungle Slayers``. Chanek is a species, not part of the name (Q4)."""
-MYTHMAKERS = GroupEntry("Mythmakers", kind="guild")
-PROWLERS = GroupEntry("Prowlers", kind="guild", hero_members=("kayo",))
-WILD_WONDERS = GroupEntry("Wild Wonders", kind="guild")
+"""Absorbs ``Chanek Jungle Slayers``. Chanek is a species, not part of the name
+(Q4) — so the short form stays canonical, and the long form is an **alias** as of
+2026-08-21 (the user's call) rather than being dropped. Both feudmasters.md and
+character-groups.md write the long form, so without the alias the tooltip matched
+neither of the two places the guild is actually named. The drift was already
+logged in ``.claude/rules/data-pipeline.md``."""
+MYTHMAKERS = GroupEntry("Mythmakers", kind="guild", parent=SPEAKEASYS_GUILDS)
+PROWLERS = GroupEntry("Prowlers", kind="guild", parent=BATBITERS_GUILDS, hero_members=("kayo",))
+WILD_WONDERS = GroupEntry("Wild Wonders", kind="guild", parent=SPEAKEASYS_GUILDS)
 
 
 # ---------------------------------------------------------------------------
@@ -148,6 +235,15 @@ ranks, a hero trait reads "Leader of the Cintari", and fires-of-rebellion.md:79
 has rebels wearing "Cintari disguises". None of that is true of a species, which
 is what separates this call from ``Chanek`` (2026-08-20)."""
 DRACAI = GroupEntry("Dracai", kind="people")
+SANDFOLK = GroupEntry("Sandfolk", kind="people")
+"""A people, not a species — the same call Volcai and Dracai took in stage 3, so the
+three sit in one table rather than split across two (the user's call, 2026-08-21).
+
+Dromai's mother's people: "Sani of the Sandfolk"
+(``main-story/uprising/dragons-of-empire.md``), whose illusionists hold the great
+sandstone wall against her dragons, and whose "fury continues to fester, as Xathari
+hoped it would" (``main-story/dynasty/ember-in-the-ash.md:59``). Dromai is called a
+"half-blood" for being of them and of the Dracai both."""
 """The other half of the Volcoran split, and typed like ``Volcai`` because it is
 the same kind of fact: volcor.md draws the line at dragon's blood, not at office.
 Was ``title`` (2026-08-20) — the named offices are the titles, "Fang, Dracai of
@@ -185,6 +281,8 @@ describes them well enough for a summary."""
 L_APOCALYPTA = GroupEntry(
     "L'Apocalypta",
     kind="cult",
+    npc_members=(npc.ANARCH_ZEIR,),
+    member_source="flavour/compendium-of-rathe.md",
     lore_story_key="world-of-rathe/pits.md",
     lore_fragment="lapocalypta",
 )
@@ -386,6 +484,35 @@ The alias restores the bare form. Stage 2 replaced a supplement entry matching
 ``Dhani Empire`` with this row, whose name carries the article, so the matcher
 stopped finding "a long-dead Dhani Empire" — the same loss ``Mendacity`` took, and
 one the clash warning cannot report, because a missing bare form is not a clash."""
+DEITIES = GroupEntry("Deities", kind="pantheon")
+"""**Gods are a group, not a species** (the user's call, 2026-08-21). A deity is a
+role a culture assigns, not a kind of being, so Absolon and Nocetes do not join
+``sp.AESIR``/``sp.ANCIENT``/``sp.EMBRA``/``sp.HERALD``/``sp.DRAGON`` in the species
+table the way the other cosmological tiers did in stage 4.
+
+This is also what gives the ``Gods`` section of ``character-groups.md`` its
+``Culture`` column without a new column anywhere: the culture is the **parent
+group**, so ``Dhani Deities`` inside ``Deities`` says "Dhani" and "god" in one
+chain. The same shape as ``SUPER_SLAM_GUILDS``, chosen for the same reason.
+
+Holds no members itself. Every deity belongs to a culture's pantheon, and this row
+is what makes those pantheons siblings."""
+
+DHANI_DEITIES = GroupEntry(
+    "Dhani Deities",
+    kind="pantheon",
+    parent=DEITIES,
+    npc_members=(npc.ABSOLON, npc.NOCETES),
+    member_source="world-of-rathe/high-seas.md",
+)
+"""Both gods are named on one page — ``world-of-rathe/high-seas.md``, Absolon at
+:125 and Nocetes at :143 — so the roster takes the plain ``member_source`` form
+rather than the per-member pair ``THE_MAELA`` needed.
+
+Distinct from ``THE_DHANI_EMPIRE``, which is the polity. That row's docstring
+already notes that "Dhani" also runs through the archive as a folk with their own
+**gods**, language and dress; this is that sense's pantheon."""
+
 KURAGHAN = GroupEntry(
     "Kuraghan",
     kind="cult",

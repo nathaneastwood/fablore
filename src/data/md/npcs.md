@@ -1,6 +1,7 @@
 <!-- ### NOTE: This file should not be edited by hand. Please edit the .csv file. -->
 |                      Name                      |                  Status                 |
 |------------------------------------------------|-----------------------------------------|
+|                     Absolon                    |                 Unknown                 |
 |              Achlys, hag of Mojire             |                 Unknown                 |
 |           Aegis, the Shield of Light           |                 Unknown                 |
 |                     Aelius                     |                   Dead                  |
@@ -22,6 +23,7 @@
 |                    Aurelius                    |                 Unknown                 |
 |                  Auric Seeress                 |                 Deceased                |
 |          Avalon, Messenger of the Dawn         |                 Unknown                 |
+|                     Azvolai                    |                 Unknown                 |
 |                     Bam Bam                    |                 Unknown                 |
 |                Baron the Butcher               |                   Dead                  |
 |                     Barton                     |                 Unknown                 |
@@ -64,6 +66,7 @@
 |                      Cobbs                     |                 Unknown                 |
 |                Countess Camilla                |                 Unknown                 |
 |                       Cox                      |                 Unknown                 |
+|                     Cromai                     |                 Unknown                 |
 |                      Cutty                     |                   Dead                  |
 |            Dan Lu, Kotori Galewarden           |                 Unknown                 |
 |                 Danu Ashenguard                |                 Unknown                 |
@@ -75,8 +78,10 @@
 |                    Demetrios                   |                   Dead                  |
 |            Dervin, Master of Beasts            |                 Unknown                 |
 |                     Dheric                     |                 Deceased                |
+|                     Dominia                    |                 Unknown                 |
 |         Dr. Krest Mortimer, 'The Fixer'        |                  Alive                  |
 |                 Dr. Wyverstone                 |                 Unknown                 |
+|                 Dracona Optimai                |                 Unknown                 |
 |                   Duke Drexen                  |                 Unknown                 |
 |                  Dunric Vargas                 |                 Unknown                 |
 |                      Ebba                      |                  Alive                  |
@@ -102,6 +107,7 @@
 |                Freya Eldingsturm               |                 Unknown                 |
 |                  Fugger Grimes                 |                 Unknown                 |
 |         Fyanna Redmoor, Boltyn's cousin        |                 Unknown                 |
+|                     Fyendal                    |                 Unknown                 |
 |                    Galaphor                    |                 Deceased                |
 |                     Galcia                     |                 Deceased                |
 |                      Gavin                     |                 Unknown                 |
@@ -135,6 +141,7 @@
 |                     Huxley                     |                 Unknown                 |
 |                     Hyrinth                    |                 Unknown                 |
 |                Inquisitor Aricia               |                 Unknown                 |
+|                      Isen                      |                 Unknown                 |
 |                     Jackdaw                    |                 Unknown                 |
 |                     Jeeves                     |                 Unknown                 |
 |                     Jemjang                    |                   Dead                  |
@@ -156,6 +163,7 @@
 |                     Kossen                     |                 Unknown                 |
 |                      Kouki                     |                 Unknown                 |
 |                      Kyle                      |                 Unknown                 |
+|                     Kyloria                    |                 Unknown                 |
 |                 Lady Barthimont                |                 Deceased                |
 |               Lady Vera Sutcliffe              |                 Unknown                 |
 |                   Lena Belle                   |                 Unknown                 |
@@ -207,14 +215,18 @@
 |      Morga, Grinning Boar Cantina Barmaid      |                 Unknown                 |
 |                     Morgan                     |                 Unknown                 |
 |                 Mutinous Maggie                |                 Unknown                 |
+|                      Māra                      |                 Unknown                 |
 |                  Nailbit Nari                  |                 Unknown                 |
 |                     Narakir                    |                 Unknown                 |
 |                     Nasreth                    |                 Unknown                 |
+|                     Nekria                     |                 Unknown                 |
 |                     Nestus                     |                 Unknown                 |
 |             Ning, Kotori Moonseeker            |                 Unknown                 |
 |                      Njeri                     |                 Unknown                 |
+|                     Nocetes                    |                 Unknown                 |
 |                     One Eye                    |                  Alive                  |
 |                      Otmar                     |                 Unknown                 |
+|                      Ouvia                     |                 Unknown                 |
 |                Overseer Crichton               |                   Dead                  |
 |                      Ozrim                     |                 Unknown                 |
 |                     Pallas                     |                 Unknown                 |
@@ -240,6 +252,7 @@
 |                      Sada                      |                  Alive                  |
 |                Salvador Stallion               |                 Unknown                 |
 |                   Sandy Shoo                   |                 Unknown                 |
+|                      Sani                      |                 Unknown                 |
 |                      Sanni                     |                 Unknown                 |
 |                     Satsuki                    |                  Alive                  |
 |                  Sayashi Cara                  |                 Unknown                 |
@@ -252,6 +265,7 @@
 |                      Shio                      |                 Unknown                 |
 |                      Shiro                     |                  Alive                  |
 |                     Sidriz                     |                 Unknown                 |
+|                   Silverhair                   |                 Unknown                 |
 |                 Skynda Feyscout                |                 Unknown                 |
 |                  Slapstick Sal                 |                 Unknown                 |
 |                     Slinger                    |                  Alive                  |
@@ -276,10 +290,12 @@
 |                Templar Timaerus                |                 Unknown                 |
 |                     Tetzuo                     |                  Alive                  |
 |                    Thanuella                   |                 Unknown                 |
+|                     Thawne                     |                 Unknown                 |
 |                   The Bastion                  |                 Unknown                 |
 |                  The Harvester                 |                 Unknown                 |
 |                  The Librarian                 |                 Unknown                 |
 |          Thebasto, Magister of Defense         |                  Alive                  |
+|                     Themai                     |                 Unknown                 |
 |          Themis, Keeper of the Scales          |                 Unknown                 |
 |          Theodore Hamilton Scarborough         |                 Unknown                 |
 |                     Thiroux                    |                 Unknown                 |
@@ -288,7 +304,9 @@
 |               Togark the Wrangler              |                 Deceased                |
 |             Tohiro, Eternal Scribe             |                 Unknown                 |
 |                     Tomass                     |                 Unknown                 |
+|                    Tomeltai                    |                 Unknown                 |
 |               Toroja of Ishigaki               |                   Dead                  |
+|                     Torvai                     |                 Unknown                 |
 |                      Ursur                     |                 Unknown                 |
 |                Vail the Vagrant                |                 Unknown                 |
 |                     Valeria                    |                 Unknown                 |
@@ -299,6 +317,7 @@
 |                Vidya Willowmere                |                 Unknown                 |
 |                      Vitus                     |                 Unknown                 |
 |                Vyhara Cloudburst               |                 Unknown                 |
+|                   Vynserakai                   |                 Unknown                 |
 |                     Wailer                     |                   Dead                  |
 |                     Wendryn                    |                 Deceased                |
 |                     Wheeler                    |                  Alive                  |
@@ -306,9 +325,11 @@
 |                  Widow Johana                  |                 Unknown                 |
 |                    Wynvarin                    |                 Unknown                 |
 |                Xaine, Runescribe               |                   Dead                  |
+|                     Xathari                    |                 Unknown                 |
 |                      Xilin                     |                   Dead                  |
 |                       Xin                      |                 Unknown                 |
 |                      Yarin                     |                 Unknown                 |
+|                    Yendurai                    |                 Unknown                 |
 |                     Yunkai                     |                 Unknown                 |
 |                      Yvor                      |                 Deceased                |
 |                   Írunaméabh                   |                 Unknown                 |

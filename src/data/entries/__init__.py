@@ -41,4 +41,9 @@ SECTIONS: dict[str, str] = {
     "summaries": "summaries",
     "flavour": "flavour",
     "digital_tiles": "digital-tiles",
+    # Added 2026-08-21, stage 5. `world-of-rathe` was already a valid story_type
+    # in `upsert_story` and already had all 11 pages in `stories`; only a module
+    # was missing. `archive`, `equipment` and `weapons` still have none — see
+    # `world_of_rathe.py` for why that is left rather than fixed in passing.
+    "world_of_rathe": "world-of-rathe",
 }

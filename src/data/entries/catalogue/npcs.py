@@ -21,6 +21,18 @@ AEGIS_THE_SHIELD_OF_LIGHT = NPCEntry(
     species=sp.HERALD,
     epithets=("the Shield of Light", "Archangel of Protection"),
 )
+ABSOLON = NPCEntry("Absolon", epithets=("god of the great deep",))
+"""A Dhani deity, and **not a species row** — gods are a role, not a kind of being
+(the user's call, 2026-08-21), so both gods reach the generated page through
+``grp.DHANI_DEITIES`` instead. The epithet keeps the page's own lower-case "god",
+as ``hag of Mojire`` and ``the Shield of Light`` keep theirs.
+
+Reachable only because stage 5 added ``entries/world_of_rathe.py``: he is named as
+a god on ``world-of-rathe/high-seas.md:125`` alone. The eight mentions on the
+already-declared ``captain-bones-and-the-city-of-gold.md`` are all the Kuraghan
+flagship ``Absolon's Dream``, never the god."""
+
+
 AELIUS = NPCEntry("Aelius", species=sp.HUMAN, status="Dead")
 AESIR_OF_FLAMES = NPCEntry("Aesir of Flames", species=sp.AESIR)
 AIOS = NPCEntry("Aios", species=sp.HUMAN, status="Alive")
@@ -33,7 +45,14 @@ ALIF = NPCEntry("Alif", species=sp.HUMAN, status="Alive")
 ALOSYN = NPCEntry("Alosyn", species=sp.HUMAN)
 AMIR = NPCEntry("Amir", species=sp.HUMAN)
 AMIRA_SURANA = NPCEntry("Amira Surana")
-ANARCH_ZEIR = NPCEntry("Anarch Zeir", species=sp.HUMAN)
+ANARCH_ZEIR = NPCEntry(
+    "Anarch Zeir",
+    species=sp.HUMAN,
+    epithets=("First Anarch of L'Apocalypta",),
+)
+"""``Anarch`` is already in the display name; the epithet is the full title, from
+``flavour/compendium-of-rathe.md:76`` — "Zeir, First Anarch of L'Apocalypta"
+(PEN277). He is the sole member of ``grp.L_APOCALYPTA``'s roster."""
 ANHE_KOTORI_WAVEBENDER = NPCEntry("Anhe, Kotori Wavebender", species=sp.HUMAN)
 APOSTATE = NPCEntry("Apostate", species=sp.HUMAN)
 ARBITER_MAGISTER_OF_JUSTICE = NPCEntry("Arbiter, Magister of Justice")
@@ -56,6 +75,16 @@ BARON_THE_BUTCHER = NPCEntry("Baron the Butcher", species=sp.HUMAN, status="Dead
 BARTON = NPCEntry("Barton", species=sp.HUMAN)
 BARTRAND_THE_BLOODY = NPCEntry("Bartrand the Bloody", species=sp.HUMAN)
 BARUS_BOLDSTRIDE = NPCEntry("Barus Boldstride", species=sp.HUMAN)
+AZVOLAI = NPCEntry("Azvolai", species=sp.DRAGON)
+"""One of the eleven dragons stage 5 gave a row (2026-08-21). They were the bulk
+of the fourteen names in ``src/data/md/character-groups.md`` that had no database
+row of any kind, while ``sp.DRAGON`` held only Miragai.
+
+The hand-written file also carried ``Pronounciation`` and ``Phonetic`` columns for
+each. Those are **dropped** rather than migrated (the user's call): ``npcs`` is the
+one registry with no prose column, and the identical table already lives at
+``archive/world-of-rathe/volcor/welcome-to-volcor.md:19-35`` — verified cell for
+cell, "Pronounciation" typo included, only the male-table row order differing."""
 BATBITER = NPCEntry("Batbiter")
 BAZZ = NPCEntry("Bazz", species=sp.HUMAN, status="Deceased")
 BEEZY_THE_BRASH = NPCEntry("Beezy the Brash", species=sp.HUMAN, status="Dead")
@@ -65,7 +94,7 @@ BELLONA_THE_WARTUNE_HERALD = NPCEntry(
     epithets=("the Wartune Herald", "Archangel of War"),
 )
 BISKI = NPCEntry("Biski", species=sp.DOG)
-BLASMOPHET = NPCEntry("Blasmophet", species=sp.EMBRA)
+BLASMOPHET = NPCEntry("Blasmophet", species=sp.EMBRA, epithets=("the Soul Harvester",))
 BLIND_BOGGY = NPCEntry("Blind Boggy")
 BLOODWORTH_GOLDMANE = NPCEntry("Bloodworth Goldmane")
 BOJANI = NPCEntry("Bojani", species=sp.HUMAN, status="Dead")
@@ -105,11 +134,28 @@ DAN_LU_KOTORI_GALEWARDEN = NPCEntry("Dan Lu, Kotori Galewarden", species=sp.HUMA
 DARIAN = NPCEntry("Darian", species=sp.HUMAN, status="Dead")
 DARIUS = NPCEntry("Darius", species=sp.HUMAN)
 DARYAS_NIMBUS = NPCEntry("Daryas Nimbus")
-DAVNIR = NPCEntry("Davnir", species=sp.ANCIENT, status="Deceased")
+CROMAI = NPCEntry("Cromai", species=sp.DRAGON)
+"""See ``AZVOLAI`` — one of the eleven, and the same note applies."""
+DAVNIR = NPCEntry(
+    "Davnir",
+    species=sp.ANCIENT,
+    status="Deceased",
+    epithets=("Ancient of Earth", "Ancient of Earth and Lightning"),
+)
+"""Two epithets, both attested, kept the way ``THEMIS_KEEPER_OF_THE_SCALES`` keeps
+three (the user's call, 2026-08-21). ``world-of-rathe/aria.md:167`` lists him
+alongside his siblings as "Davnir, Ancient of Earth"; ``main-story/tales-of-aria/
+amongst-the-brambles.md:9`` writes "Davnir, Ancient of Earth and Lightning". The
+hand-written character-groups.md carried only the second, so the form aria.md uses
+matched no tooltip."""
 DAXIUS = NPCEntry("Daxius", species=sp.HUMAN, status="Dead")
 DEMETRIOS = NPCEntry("Demetrios", species=sp.BRUTE)
 DERVIN_MASTER_OF_BEASTS = NPCEntry("Dervin, Master of Beasts", species=sp.HUMAN, epithets=("Master of Beasts",))
 DHERIC = NPCEntry("Dheric", species=sp.HUMAN, status="Deceased")
+DOMINIA = NPCEntry("Dominia", species=sp.DRAGON)
+"""See ``AZVOLAI`` — one of the eleven, and the same note applies."""
+DRACONA_OPTIMAI = NPCEntry("Dracona Optimai", species=sp.DRAGON)
+"""See ``AZVOLAI`` — one of the eleven, and the same note applies."""
 DR_KREST_MORTIMER_THE_FIXER = NPCEntry(
     "Dr. Krest Mortimer, 'The Fixer'",
     species=sp.HUMAN,
@@ -143,7 +189,23 @@ FREYA_ELDINGSTURM = NPCEntry("Freya Eldingsturm")
 FUGGER_GRIMES = NPCEntry("Fugger Grimes")
 FYANNA_REDMOOR_BOLTYN_S_COUSIN = NPCEntry("Fyanna Redmoor, Boltyn's cousin", species=sp.HUMAN)
 GALAPHOR = NPCEntry("Galaphor", species=sp.HUMAN, status="Deceased")
-GALCIA = NPCEntry("Galcia", species=sp.ANCIENT, status="Deceased")
+FYENDAL = NPCEntry("Fyendal")
+"""Named only by a card title — "Fyendal's Fighting Spirit" (UPR194) — whose
+flavour line, "The old ways are not forgotten.", does not mention him. Included on
+the user's call (2026-08-21), under the same reading that lets the twelve dragons
+in from ``Invoke <name>`` titles.
+
+No species and no status: nothing on the page says anything about him. The only
+other trace of the name in the registry is the equipment ``Fyendal's Spring
+Tunic``, which this page does not name."""
+
+GALCIA = NPCEntry(
+    "Galcia",
+    species=sp.ANCIENT,
+    status="Deceased",
+    epithets=("Ancient of Ice",),
+)
+"""The one Ancient whose epithet the pages and character-groups.md agree on."""
 GAWAIN = NPCEntry("Gawain", species=sp.HUMAN)
 GENERAL_CHUL = NPCEntry("General Chul", species=sp.HUMAN)
 GENERAL_EKODA = NPCEntry("General Ekoda", species=sp.HUMAN)
@@ -182,6 +244,18 @@ HUXLEY = NPCEntry("Huxley", species=sp.HUMAN)
 HYRINTH = NPCEntry("Hyrinth")
 INQUISITOR_ARICIA = NPCEntry("Inquisitor Aricia")
 IRUNAMEABH = NPCEntry("Írunaméabh")
+ISEN = NPCEntry("Isen", species=sp.ANCIENT, epithets=("Ancient of Earth and Ice",))
+"""**The epithet is on the user's authority, not a page** (2026-08-21). Every other
+Ancient's epithet is quoted somewhere; this one is quoted nowhere. Isen himself is
+attested — ``main-story/everfest/a-grand-adventure.md:197`` has a wayfarer say
+"I've heard legends of the Ancients, Yvor, Davnir, Isen..." — but that line gives
+no title, and ``world-of-rathe/aria.md:39`` says only that "Isen stood upon the
+mountain's summit and crafted the Isen Ranges with earth and aether", which is the
+reading "Earth and Ice" came from rather than an attestation of it.
+
+No ``status``, deliberately. Davnir, Yvor and Galcia are all ``Deceased`` and it
+would be easy to assume the fourth; no page says so, and "nobody said" is not a
+fact about a character."""
 JACKDAW = NPCEntry("Jackdaw", species=sp.HUMAN)
 JEEVES = NPCEntry("Jeeves", species=sp.HUMAN)
 JEMJANG = NPCEntry("Jemjang", species=sp.HUMAN, status="Dead")
@@ -210,6 +284,8 @@ KNUCKLES = NPCEntry("Knuckles", species=sp.HUMAN, status="Dead")
 KOSSEN = NPCEntry("Kossen", species=sp.HUMAN)
 KOUKI = NPCEntry("Kouki", species=sp.HUMAN)
 KYLE = NPCEntry("Kyle", species=sp.HUMAN)
+KYLORIA = NPCEntry("Kyloria", species=sp.DRAGON)
+"""See ``AZVOLAI`` — one of the eleven, and the same note applies."""
 LADY_BARTHIMONT = NPCEntry(
     "Lady Barthimont",
     species=sp.HUMAN,
@@ -235,7 +311,23 @@ LUCILLA_THE_SETTING_SUN = NPCEntry("Lucilla the Setting Sun")
 MABON = NPCEntry("Mabon", species=sp.HUMAN)
 MADAM_ROUGE = NPCEntry("Madam Rouge", species=sp.HUMAN, status="Dead")
 MAD_SIV = NPCEntry("Mad Siv")
-MAELA_ISULFV = NPCEntry("Maela Isulfv")
+MAELA_ISULFV = NPCEntry("Maela Isulfv", short_names=("Isulvf",))
+"""``Isulvf`` and ``Isulfv`` are the same seer (the user's call, 2026-08-21) — the
+spellings are letter-transpositions and both are Aria seers.
+``main-story/everfest/a-grand-adventure.md`` calls him "Isulvf, the oldest and
+wisest seer in the whole village" of Volthaven; ``flavour/omens-of-the-third-age.md``
+and the Omens tiles page credit quotes to "Maela Isulfv".
+
+Recorded as a ``short-name`` rather than fixed, because deciding which spelling is
+the typo is a rename and renames are stage 7. Both forms reach one tooltip
+meanwhile, which is the part that would otherwise be lost. Without this, registering
+a-grand-adventure.md would have minted a second row for one person — the near-
+duplicate hazard the registration rules exist to catch."""
+MARA = NPCEntry("Māra")
+"""One of Lexi's troupe in ``main-story/everfest/a-grand-adventure.md`` — "the
+aspiring magician Māra - who has a flair for the dramatic". No species: the page
+never says, and the macron is part of the name as printed."""
+
 MAELA_FAIRMIND = NPCEntry("Maela Fairmind")
 MAELA_ONE_EYE = NPCEntry("Maela One-eye")
 MAELA_SHARENA = NPCEntry("Maela Sharena")
@@ -281,12 +373,29 @@ than being read as a style she is known by."""
 MUTINOUS_MAGGIE = NPCEntry("Mutinous Maggie", species=sp.HUMAN)
 NAILBIT_NARI = NPCEntry("Nailbit Nari", species=sp.HUMAN)
 NARAKIR = NPCEntry("Narakir", species=sp.WELKIN)
-NASRETH = NPCEntry("Nasreth", species=sp.EMBRA)
+NASRETH = NPCEntry("Nasreth", species=sp.EMBRA, epithets=("the Soul Harrower",))
+NEKRIA = NPCEntry("Nekria", species=sp.DRAGON)
+"""See ``AZVOLAI`` — one of the eleven, and the same note applies."""
 NESTUS = NPCEntry("Nestus")
 NING_KOTORI_MOONSEEKER = NPCEntry("Ning, Kotori Moonseeker", species=sp.HUMAN)
 NJERI = NPCEntry("Njeri", species=sp.HUMAN)
+NOCETES = NPCEntry("Nocetes", epithets=("God of death",))
+"""A Dhani deity — see ``ABSOLON`` on why gods are a group and not a species.
+
+**The epithet is on the user's authority, not a page** (2026-08-21), kept as
+``character-groups.md`` wrote it. The pages all use a different construction:
+"thralls of Nocetes, death god of the Dhani" (``world-of-rathe/high-seas.md:143``)
+and "the Dhani death god Nocetes"
+(``main-story/high-seas/captain-bones-and-the-city-of-gold.md:67``). Unlike
+Absolon, Nocetes *is* reachable without the new module — captain-bones names the
+god outright rather than a ship.
+
+``captain-bones...:205`` writes "This was Nocetes' gift, and her curse", the only
+line that genders the deity."""
 ONE_EYE = NPCEntry("One Eye", species=sp.HUMAN, status="Alive")
 OTMAR = NPCEntry("Otmar", species=sp.HUMAN)
+OUVIA = NPCEntry("Ouvia", species=sp.DRAGON)
+"""See ``AZVOLAI`` — one of the eleven, and the same note applies."""
 OVERSEER_CRICHTON = NPCEntry("Overseer Crichton", species=sp.HUMAN, status="Dead")
 OZRIM = NPCEntry("Ozrim", species=sp.ROSETTA)
 PALLAS = NPCEntry("Pallas", species=sp.HUMAN)
@@ -312,6 +421,13 @@ RUPIUS_AURIC_SCROLLMASTER = NPCEntry("Rupius, Auric Scrollmaster", species=sp.HU
 SADA = NPCEntry("Sada", status="Alive")
 SALVADOR_STALLION = NPCEntry("Salvador Stallion")
 SANDY_SHOO = NPCEntry("Sandy Shoo", species=sp.HUMAN)
+SANI = NPCEntry("Sani")
+"""Dromai's mother, "Sani of the Sandfolk"
+(``main-story/uprising/dragons-of-empire.md``), murdered before Dromai could walk
+and appearing in the story only as a mirage the enemy illusionists summon. No
+species: half of Dromai's parentage is the point of the story and neither half is
+given as a species anywhere."""
+
 SANNI = NPCEntry("Sanni", species=sp.HUMAN)
 SATSUKI = NPCEntry("Satsuki", species=sp.HUMAN, status="Alive")
 SAYASHI_CARA = NPCEntry("Sayashi Cara", species=sp.HUMAN)
@@ -328,10 +444,22 @@ SHELLY = NPCEntry("Shelly", species=sp.ZOMBIE, status="Dead")
 SHIO = NPCEntry("Shio", species=sp.HUMAN)
 SHIRO = NPCEntry("Shiro", species=sp.HUMAN, status="Alive")
 SIDRIZ = NPCEntry("Sidriz")
+SILVERHAIR = NPCEntry("Silverhair")
+"""The rebel leader Fai carries off the hill in
+``main-story/uprising/dragons-of-empire.md``. **A name, on the user's call
+(2026-08-21)** — the page introduces her as "a silver-haired woman" and later "the
+silver-haired rebel", but uses the bare word as a name in between: "Silverhair barks
+orders", "she whips Silverhair off her feet". No other page in the repository names
+her, so nothing corroborates the reading either way."""
+
 SKYNDA_FEYSCOUT = NPCEntry("Skynda Feyscout")
 SLAPSTICK_SAL = NPCEntry("Slapstick Sal")
 SLINGER = NPCEntry("Slinger", species=sp.HUMAN, status="Alive")
-SOL = NPCEntry("Sol", species=sp.AESIR)
+SOL = NPCEntry("Sol", species=sp.AESIR, epithets=("Aesir of Light",))
+"""The epithet is never written "Sol, Aesir of Light" — both attestations use it
+as a standalone title for him: "subservience to the Aesir of Light"
+(``summaries/war-of-the-monarch-pt-1.md:5``) and "the power perhaps to consume
+even the Aesir of Light" (``main-story/usurp-the-shadow-throne/letters-from-the-beyond.md:79``)."""
 SOREN = NPCEntry("Soren", species=sp.HUMAN)
 SPEAKEASY = NPCEntry("Speakeasy")
 SPOKES = NPCEntry("Spokes", species=sp.HUMAN)
@@ -356,7 +484,14 @@ TASKMASTER_PYRION = NPCEntry("Taskmaster Pyrion", species=sp.HUMAN)
 TEMPLAR_TIMAERUS = NPCEntry("Templar Timaerus", species=sp.HUMAN)
 TETZUO = NPCEntry("Tetzuo", species=sp.HUMAN, status="Alive")
 THANUELLA = NPCEntry("Thanuella")
+THAWNE = NPCEntry("Thawne", species=sp.DWARF)
+"""One of Lexi's troupe in ``main-story/everfest/a-grand-adventure.md`` — "the gruff
+dwarven blacksmith Thawne"; the species is stated in that line. Blacksmith is a
+profession and waits for R9."""
+
 THEBASTO_MAGISTER_OF_DEFENSE = NPCEntry("Thebasto, Magister of Defense", species=sp.HUMAN, status="Alive")
+THEMAI = NPCEntry("Themai", species=sp.DRAGON)
+"""See ``AZVOLAI`` — one of the eleven, and the same note applies."""
 THEMIS_KEEPER_OF_THE_SCALES = NPCEntry(
     "Themis, Keeper of the Scales",
     species=sp.HERALD,
@@ -381,8 +516,16 @@ TIRIL = NPCEntry("Tiril", species=sp.HUMAN)
 TOGARK_THE_WRANGLER = NPCEntry("Togark the Wrangler", species=sp.HUMAN, status="Deceased")
 TOHIRO_ETERNAL_SCRIBE = NPCEntry("Tohiro, Eternal Scribe", species=sp.HUMAN)
 TOMASS = NPCEntry("Tomass", species=sp.HUMAN)
+TOMELTAI = NPCEntry("Tomeltai", species=sp.DRAGON)
+"""See ``AZVOLAI`` — one of the eleven, and the same note applies."""
+TORVAI = NPCEntry("Torvai")
+"""Dromai's father, "Torvai the Dracai"
+(``main-story/uprising/dragons-of-empire.md``), and by Dromai's account "betrayed by
+love". Also named on ``fires-of-rebellion.md`` and ``the-phoenix-and-the-dragon.md``,
+neither of which is declared, so this row starts with one link of a possible three."""
+
 TOROJA_OF_ISHIGAKI = NPCEntry("Toroja of Ishigaki", species=sp.HUMAN, status="Dead")
-URSUR = NPCEntry("Ursur", species=sp.EMBRA)
+URSUR = NPCEntry("Ursur", species=sp.EMBRA, epithets=("the Soul Reaper",))
 VAIL_THE_VAGRANT = NPCEntry("Vail the Vagrant", species=sp.HUMAN)
 VALERIA = NPCEntry("Valeria", species=sp.HUMAN)
 VALGARD_HOARFROST = NPCEntry("Valgard Hoarfrost", species=sp.HUMAN)
@@ -396,6 +539,8 @@ VICTORIA_ARCHANGEL_OF_TRIUMPH = NPCEntry(
 VIDYA_WILLOWMERE = NPCEntry("Vidya Willowmere")
 VITUS = NPCEntry("Vitus", species=sp.HUMAN)
 VYHARA_CLOUDBURST = NPCEntry("Vyhara Cloudburst")
+VYNSERAKAI = NPCEntry("Vynserakai", species=sp.DRAGON)
+"""See ``AZVOLAI`` — one of the eleven, and the same note applies."""
 WAILER = NPCEntry("Wailer", species=sp.ZOMBIE, status="Dead")
 WENDRYN = NPCEntry("Wendryn", species=sp.HUMAN, status="Deceased")
 WHEELER = NPCEntry("Wheeler", species=sp.HUMAN, status="Alive")
@@ -403,9 +548,42 @@ WHISPERS_OF_XERYS = NPCEntry("Whispers of Xerys")
 WHITETAIL = NPCEntry("Whitetail", species=sp.HUMAN, status="Alive")
 WIDOW_JOHANA = NPCEntry("Widow Johana", species=sp.HUMAN)
 WYNVARIN = NPCEntry("Wynvarin", species=sp.HUMAN)
+XATHARI = NPCEntry("Xathari")
+"""The Dracai spymaster who found Dromai and raised her to the court, whose
+"firesight allows him to read the flames like a map".
+
+**Named on five pages and given a row only now** — ``dragons-of-empire.md``,
+``emperor-the-one-emperor.md``, ``ember-in-the-ash.md``, ``tidings-in-the-light.md``
+and ``betrayal.md``. Only the first is declared here, so four of his five mentions
+still connect to nothing. The catalogue covers the pages that have declarations, not
+the pages that exist."""
+
 XAINE_RUNESCRIBE = NPCEntry("Xaine, Runescribe", species=sp.HUMAN, status="Dead")
 XILIN = NPCEntry("Xilin", species=sp.HUMAN, status="Dead")
 XIN = NPCEntry("Xin", species=sp.HUMAN)
 YARIN = NPCEntry("Yarin", species=sp.HUMAN)
 YUNKAI = NPCEntry("Yunkai", species=sp.HUMAN)
-YVOR = NPCEntry("Yvor", species=sp.ANCIENT, status="Deceased")
+YENDURAI = NPCEntry("Yendurai", species=sp.DRAGON)
+"""See ``AZVOLAI`` — one of the eleven, and the same note applies."""
+YVOR = NPCEntry(
+    "Yvor",
+    species=sp.ANCIENT,
+    status="Deceased",
+    epithets=(
+        "Ancient of Lightning",
+        "Ancient of Lightning and Ice",
+        "Ancient of Thunder and Ice",
+    ),
+)
+"""**Three** epithets, all attested, the way ``THEMIS_KEEPER_OF_THE_SCALES`` carries
+three. ``world-of-rathe/aria.md`` writes "Yvor, Ancient of Lightning" twice (:167,
+:175); ``archive/world-of-rathe/aria/the-land-of-legends.md:25`` writes "the Ancient
+of Lightning and Ice, Yvor"; and
+``main-story/tales-of-aria/wonders-of-the-wayfarer.md:7`` writes "Yvor, the mighty
+Ancient of Thunder and Ice", which ``main-story/everfest/a-grand-adventure.md:47``
+repeats.
+
+The third was found a step after the first two were agreed, by reading a page being
+registered rather than the file being replaced (2026-08-21, the user's call).
+``character-groups.md`` carried only ``Ancient of Lightning and Ice`` — the one form
+of the three whose sole source is an archive page."""

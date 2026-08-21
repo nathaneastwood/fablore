@@ -1,5 +1,6 @@
 # AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Database class in src/data/db/ (db.upsert_story).
 CharacterId|Name|Status|OtherCharactersStoryKey
+LC00a9c28b68|Absolon|Unknown|
 LCdf6740910f|Achlys, hag of Mojire|Unknown|
 LC1e8f706fca|Aegis, the Shield of Light|Unknown|
 LC54a776de1a|Aelius|Dead|
@@ -21,6 +22,7 @@ LC56f5b484c9|Aurea, Champion of the Dawn|Unknown|
 LC4e2330f32a|Aurelius|Unknown|
 LCa319679da6|Auric Seeress|Deceased|
 LC3185db92e6|Avalon, Messenger of the Dawn|Unknown|
+LCb70ab4350d|Azvolai|Unknown|
 LCb834866543|Bam Bam|Unknown|
 LC0c3b896cc5|Baron the Butcher|Dead|
 LC4a0fe7e3c9|Barton|Unknown|
@@ -63,6 +65,7 @@ LCfded586871|Cirrus|Unknown|
 LCcfa07e77b0|Cobbs|Unknown|
 LCbb2fc5d0dc|Countess Camilla|Unknown|
 LCce8cf2b15e|Cox|Unknown|
+LC7b61898fd2|Cromai|Unknown|
 LCf479f1823a|Cutty|Dead|
 LC1aa6cbc421|Dan Lu, Kotori Galewarden|Unknown|
 LC9739559960|Danu Ashenguard|Unknown|
@@ -74,8 +77,10 @@ LC0a68d90ca3|Daxius|Dead|
 LCe7b99f643d|Demetrios|Dead|
 LCf1bd74fe43|Dervin, Master of Beasts|Unknown|
 LC3e69de262d|Dheric|Deceased|
+LC5fb4211228|Dominia|Unknown|
 LC6d0dca761a|Dr. Krest Mortimer, 'The Fixer'|Alive|other-characters/krest-mortimer.md
 LCbe50c5ea7f|Dr. Wyverstone|Unknown|
+LC77e2c3ad27|Dracona Optimai|Unknown|
 LCc3ac9661d5|Duke Drexen|Unknown|
 LC7f363e11d8|Dunric Vargas|Unknown|
 LC87b280ede4|Ebba|Alive|
@@ -101,6 +106,7 @@ LCd1ffd4ce15|Foreman Pebb|Unknown|
 LC3c8d14cbde|Freya Eldingsturm|Unknown|
 LCeaf8dca6dd|Fugger Grimes|Unknown|
 LC7307fc2cbf|Fyanna Redmoor, Boltyn's cousin|Unknown|
+LC1967c6237c|Fyendal|Unknown|
 LC297e082f2b|Galaphor|Deceased|
 LC797634e498|Galcia|Deceased|
 LCe546cabfbd|Gavin|Unknown|
@@ -134,6 +140,7 @@ LC96e436883f|Hog|Unknown|
 LCdb3bed3d1e|Huxley|Unknown|
 LC009a01eae7|Hyrinth|Unknown|
 LCb2dc5301e1|Inquisitor Aricia|Unknown|
+LCc88a7317f3|Isen|Unknown|
 LC23c03436f2|Jackdaw|Unknown|
 LC035adff2ca|Jeeves|Unknown|
 LC5ee8d8a3e0|Jemjang|Dead|
@@ -155,6 +162,7 @@ LC89d47c1440|Knuckles|Dead|
 LC47e52eb469|Kossen|Unknown|
 LCd7baf408ac|Kouki|Unknown|
 LCbb44bf07cf|Kyle|Unknown|
+LC2bf60160ad|Kyloria|Unknown|
 LCec7ed74e1c|Lady Barthimont|Deceased|other-characters/lady-barthimont.md
 LCfd2eaa9c2a|Lady Vera Sutcliffe|Unknown|
 LC00b6e15f71|Lena Belle|Unknown|
@@ -206,14 +214,18 @@ LC5d1869c61a|Moray Le Fay|Dead|
 LC3b62daa8a1|Morga, Grinning Boar Cantina Barmaid|Unknown|
 LCd2a1ba7883|Morgan|Unknown|
 LC639e372062|Mutinous Maggie|Unknown|
+LCc8b6c061e8|Māra|Unknown|
 LCb84dc8ad8f|Nailbit Nari|Unknown|
 LC65e950c62c|Narakir|Unknown|
 LC5c8b232655|Nasreth|Unknown|
+LCb3a7191865|Nekria|Unknown|
 LC42314fbf25|Nestus|Unknown|
 LC194cbdcc14|Ning, Kotori Moonseeker|Unknown|
 LC5ba21fd4a7|Njeri|Unknown|
+LC9e8e6dcd4e|Nocetes|Unknown|
 LC2b8d1477e8|One Eye|Alive|
 LCc5d5e47202|Otmar|Unknown|
+LC9ff2c50e0c|Ouvia|Unknown|
 LC26ffffff1b|Overseer Crichton|Dead|
 LC3a3667de6c|Ozrim|Unknown|
 LC0573e210e2|Pallas|Unknown|
@@ -239,6 +251,7 @@ LC8a778280c3|Rupius, Auric Scrollmaster|Unknown|
 LCb25d0fd93f|Sada|Alive|
 LC081009972d|Salvador Stallion|Unknown|
 LC19d7a71e72|Sandy Shoo|Unknown|
+LCded19293f8|Sani|Unknown|
 LCa711b0f57f|Sanni|Unknown|
 LCf1763d2638|Satsuki|Alive|
 LC7cd3ab2fd8|Sayashi Cara|Unknown|
@@ -251,6 +264,7 @@ LC8f61337772|Shelly|Dead|
 LC04251c7f5f|Shio|Unknown|
 LC9107eddb94|Shiro|Alive|
 LC6072c79313|Sidriz|Unknown|
+LC9171a131b3|Silverhair|Unknown|
 LCb0c643b9f2|Skynda Feyscout|Unknown|
 LC096b229a18|Slapstick Sal|Unknown|
 LCabd83d0d17|Slinger|Alive|
@@ -275,10 +289,12 @@ LCda1c3a3f91|Taskmaster Pyrion|Unknown|
 LCbfa72c7fb4|Templar Timaerus|Unknown|
 LCcbf5f7e513|Tetzuo|Alive|
 LC69c5384fbb|Thanuella|Unknown|
+LC8c1f7c4940|Thawne|Unknown|
 LCbbf9dc1a2e|The Bastion|Unknown|
 LCca609acc12|The Harvester|Unknown|
 LC158fd93075|The Librarian|Unknown|other-characters/the-librarian.md
 LCb091dcfcd8|Thebasto, Magister of Defense|Alive|
+LCdaf5e302ce|Themai|Unknown|
 LC8eeac0e51a|Themis, Keeper of the Scales|Unknown|
 LCcd05407fea|Theodore Hamilton Scarborough|Unknown|
 LC4d5ddaaceb|Thiroux|Unknown|
@@ -287,7 +303,9 @@ LC329be61e55|Tiril|Unknown|
 LCf87c086303|Togark the Wrangler|Deceased|
 LC4aabab7242|Tohiro, Eternal Scribe|Unknown|
 LCdf8c802e41|Tomass|Unknown|
+LC7fe2f97e06|Tomeltai|Unknown|
 LC5a8977d946|Toroja of Ishigaki|Dead|
+LCf2227aaa45|Torvai|Unknown|
 LCeeefcef67b|Ursur|Unknown|
 LCfc5618e249|Vail the Vagrant|Unknown|
 LCa1c2d05656|Valeria|Unknown|
@@ -298,6 +316,7 @@ LC81f9838c84|Victoria, Archangel of Triumph|Unknown|
 LC0146024889|Vidya Willowmere|Unknown|
 LC9b5f717e90|Vitus|Unknown|
 LCc0763905e1|Vyhara Cloudburst|Unknown|
+LC7965b9eb6c|Vynserakai|Unknown|
 LC2dc65a090b|Wailer|Dead|
 LCa32b8229d1|Wendryn|Deceased|
 LC9f5ae78121|Wheeler|Alive|
@@ -305,9 +324,11 @@ LC559daabac0|Whitetail|Alive|
 LC4f715299cd|Widow Johana|Unknown|
 LC9291939a37|Wynvarin|Unknown|
 LCbb4c0f9bd3|Xaine, Runescribe|Dead|
+LC86d73c4a75|Xathari|Unknown|
 LC22b2b77838|Xilin|Dead|
 LC8dc6b9afdb|Xin|Unknown|
 LC9c7da0132c|Yarin|Unknown|
+LC46410388ae|Yendurai|Unknown|
 LCa8b0b5fa83|Yunkai|Unknown|
 LC2f810327df|Yvor|Deceased|
 LC0557749716|Írunaméabh|Unknown|

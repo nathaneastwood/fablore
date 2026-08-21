@@ -124,6 +124,9 @@ OLD_METRIX = LocationEntry("Old Metrix", region="Metrix")
 PLUMVEX_PIPES_FACTORY = LocationEntry("Plumvex Pipes factory", region="Metrix")
 ROSARIO_HILLS = LocationEntry("Rosario Hills", region="Metrix")
 ROSARIO_ORPHANAGE = LocationEntry("Rosario Orphanage", region="Metrix")
+RUST_BELT = LocationEntry("Rust Belt", region="Metrix")
+"""See ``IMPERIAL_FURNACE``. Cromai "soar[s] over the Metrix rust belt" (UPR010),
+lower-case; the stored row capitalises it."""
 TEKLO_INDUSTRIES = LocationEntry("Teklo Industries", region="Metrix", lore_fragment="teklo-industries")
 TERRACETTE_PATH_ACADEMY = LocationEntry(
     "Terracette Path Academy", region="Metrix", lore_fragment="terracette-path-academy"
@@ -209,6 +212,9 @@ BLACKJACK_S_TAVERN = LocationEntry(
     "Blackjack's Tavern", region="The Pits", lore_fragment="blackjacks-mercenary-company"
 )
 BLOCKHEAD_TERRITORY = LocationEntry("Blockhead Territory", region="The Pits")
+KYLORIA_S_LAIR = LocationEntry("Kyloria's Lair", region="The Pits")
+"""See ``IMPERIAL_FURNACE``. Kyloria "dwell[s] in her lair deep beneath the Pits"
+(UPR011), and the row's own note already reads: Deep beneath the Pits."""
 OVERSEER_CRICHTON_S_MANSION = LocationEntry("Overseer Crichton's Mansion", region="The Pits")
 SEETHE = LocationEntry("Seethe", region="The Pits")
 SEETHESIDE_DOCKS = LocationEntry("Seetheside Docks", region="The Pits")
@@ -240,11 +246,38 @@ BLACKROCK_QUARRIES = LocationEntry("Blackrock Quarries", region="Volcor", lore_f
 CHAMBER_OF_THE_DRAGON = LocationEntry("Chamber of the Dragon", region="Volcor")
 DESHVAHAN = LocationEntry("Deshvahan", region="Volcor", lore_fragment="deshvahan")
 DRAGON_S_PEAK = LocationEntry("Dragon's Peak", region="Volcor", lore_fragment="dragons-peak")
+FOREST_OF_FLAMES = LocationEntry("Forest of Flames", region="Volcor", lore_fragment="forest-of-flames")
+"""``world-of-rathe/volcor.md:99`` gives it a heading of its own and describes it as
+"a dense, vibrant woodland thriving within a volcanic landscape". Named on four
+pages before it had a row: volcor.md, ``dragons-of-empire.md``, ``betrayal.md`` and
+``fires-of-rebellion.md``. It is also half of two character names already in the
+registry — ``Min of the Forest of Flames``, and "Fai of the Forest of Flames" as
+this page writes him."""
 GRAND_ARCHWAY = LocationEntry("Grand Archway", region="Volcor")
+IMPERIAL_FURNACE = LocationEntry("Imperial Furnace", region="Volcor")
+"""Already a ``locations`` row before this constant existed (2026-08-21). Name and
+region are copied from the stored row rather than read off the page, because
+``location_id`` hashes both — a constant spelled from the prose would have minted a
+second row and stranded the first. Tomeltai "power[s] the Imperial Furnace"
+(``flavour/uprising.md``, UPR007)."""
 IMPERIAL_PALACE = LocationEntry("Imperial Palace", region="Volcor", lore_fragment="the-royal-court")
 MT_VOLCOR = LocationEntry("Mt. Volcor", region="Volcor")
 RED_DESERT = LocationEntry("Red Desert", region="Volcor", lore_fragment="the-red-desert")
 SAND_GLASS_DISTRICT = LocationEntry("Sand Glass District", region="Volcor")
+SANDIKAI = LocationEntry("Sandikai", region="Volcor")
+"""New 2026-08-21. Azvolai "guard[s] the crossroads of Sandikai"
+(``flavour/uprising.md``, UPR009), and ``digital-tiles/uprising`` carries a "Storm
+of Sandikai" tile.
+
+**The region is the user's call, not the page's** — no text places it. Volcor was
+chosen because the set is Volcor's uprising and the two dragon haunts named beside
+it, the Red Desert and the Imperial Furnace, are both Volcor. This is not a
+correctable guess: ``location_id`` hashes the region, so moving it later mints a
+second row rather than editing this one."""
+THE_ASH_PLAINS = LocationEntry("The Ash Plains", region="Volcor")
+"""See ``IMPERIAL_FURNACE`` — another row that predated its constant. The stored
+name carries the article; the page writes "the illusionists of the Ash Plains"
+(UPR030), which is why the constant is spelled from the row and not the prose."""
 THE_BADLANDS = LocationEntry("The Badlands", region="Volcor")
 THE_GOLDEN_ORCHARD_ESTATE = LocationEntry("The Golden Orchard Estate", region="Volcor")
 THE_OASIS = LocationEntry("The Oasis", region="Volcor")
