@@ -305,6 +305,23 @@ LISHU_CRIMSON_HAZE_VIGILANTE = NPCEntry("Lishu, Crimson Haze Vigilante", species
 LORD_MERCHANT_SAVAI = NPCEntry("Lord Merchant Savai", species=sp.HUMAN, status="Dead")
 LORD_SABUTO = NPCEntry("Lord Sabuto", species=sp.HUMAN)
 LORD_SUTCLIFFE = NPCEntry("Lord Sutcliffe", species=sp.HUMAN, status="Just a head")
+LORD_WIZARD_AKIHIKO = NPCEntry("Lord Wizard Akihiko", species=sp.HUMAN, status="Deceased")
+"""Kano's mentor, and the Lord Wizard who oversees the Trial of Embers.
+
+Named on three arcane-rising pages and given a row only now, on the same finding
+that turned up ``the-phoenix-and-the-dragon.md``: ``playing-with-fire.md`` runs the
+trial through him, ``smoke-and-mirrors.md`` has him attack Kano and die of the
+parasite that was already killing him, and ``from-the-ashes.md`` makes his corpse
+the evidence. **None of the three is declared**, so nothing reaches this constant
+yet and no declaration writes it.
+
+Named with the title to match ``LORD_WIZARD_CHIYO`` rather than fixing one of a
+pair; both are D5 renames and go to stage 7 together.
+
+``Deceased`` where Chiyo beside him reads ``Dead`` (the user's call, 2026-08-21).
+The two words mean the same thing and the column holds both, along with ``Gone``,
+``Just a head`` and ``Spider-bot assistant to Jules Teklovossen`` — free text doing
+the job of prose. Stage 11."""
 LORD_WIZARD_CHIYO = NPCEntry("Lord Wizard Chiyo", status="Dead")
 LUCA_ARENA_CICERONE = NPCEntry("Luca, Arena Cicerone", species=sp.HUMAN, status="Alive")
 LUCILLA_THE_SETTING_SUN = NPCEntry("Lucilla the Setting Sun")
@@ -548,7 +565,11 @@ WHISPERS_OF_XERYS = NPCEntry("Whispers of Xerys")
 WHITETAIL = NPCEntry("Whitetail", species=sp.HUMAN, status="Alive")
 WIDOW_JOHANA = NPCEntry("Widow Johana", species=sp.HUMAN)
 WYNVARIN = NPCEntry("Wynvarin", species=sp.HUMAN)
-XATHARI = NPCEntry("Xathari", epithets=("the Dracai spymaster", "Spymaster Xathari"))
+XATHARI = NPCEntry(
+    "Xathari",
+    status="Deceased",
+    epithets=("the Dracai spymaster", "Spymaster Xathari"),
+)
 """The Dracai spymaster who found Dromai and raised her to the court, whose
 "firesight allows him to read the flames like a map".
 
@@ -580,7 +601,12 @@ row and now name him; ``the-phoenix-and-the-dragon.md`` and
 
 So four of six connect, and the two that do not are undeclared pages rather than
 declarations missing a name. The catalogue covers the pages that have declarations,
-not the pages that exist."""
+not the pages that exist.
+
+``Deceased`` as of 2026-08-21 (the user's call), where the row read ``Unknown``
+before. ``the-phoenix-and-the-dragon.md:57`` has Dromai's dragon swallow him whole
+on the page, and ``tidings-in-the-light.md:85`` writes "until his untimely demise".
+Registering the page he dies on is what made the status answerable."""
 
 XAINE_RUNESCRIBE = NPCEntry("Xaine, Runescribe", species=sp.HUMAN, status="Dead")
 XILIN = NPCEntry("Xilin", species=sp.HUMAN, status="Dead")

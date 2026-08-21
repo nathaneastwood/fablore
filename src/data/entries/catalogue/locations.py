@@ -279,7 +279,15 @@ THE_ASH_PLAINS = LocationEntry("The Ash Plains", region="Volcor")
 name carries the article; the page writes "the illusionists of the Ash Plains"
 (UPR030), which is why the constant is spelled from the row and not the prose."""
 THE_BADLANDS = LocationEntry("The Badlands", region="Volcor")
-THE_GOLDEN_ORCHARD_ESTATE = LocationEntry("The Golden Orchard Estate", region="Volcor")
+THE_GOLDEN_ORCHARD_ESTATE = LocationEntry(
+    "The Golden Orchard Estate",
+    region="Volcor",
+    aliases=("Golden Orchard",),
+)
+"""The alias is the form the prose actually uses (the user's call, 2026-08-21).
+``the-phoenix-and-the-dragon.md`` writes the short "Golden Orchard" twice, at :7
+and :9, where only ``dragons-of-empire.md:87`` uses the full name. Without the
+alias the massacre both pages turn on matches nothing."""
 THE_OASIS = LocationEntry("The Oasis", region="Volcor")
 THE_OBSIDIAN_COAST = LocationEntry("The Obsidian Coast", region="Volcor")
 URJIYSA = LocationEntry("Urjiysa", region="Volcor")

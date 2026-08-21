@@ -1,6 +1,8 @@
 # AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Database class in src/data/db/ (db.upsert_story).
 GroupId|CharacterId|StoryKey
 GR06ce3df0b7|LC865b3ba732|heroes-of-rathe/lyath-about.md
+GR09da69ff05|LCba73fb74c1|main-story/arcane-rising/from-the-ashes.md
+GR09da69ff05|LCd3e64e865a|main-story/arcane-rising/playing-with-fire.md
 GR0baac8e70a|LC8f9c87c4b6|flavour/super-slam.md
 GR1f0ed1ac0a|LC2fec427363|flavour/omens-of-the-third-age.md
 GR1f0ed1ac0a|LC5621c46870|flavour/compendium-of-rathe.md

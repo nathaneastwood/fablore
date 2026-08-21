@@ -1539,3 +1539,62 @@ db.upsert_story(
     ],
     dry_run=True,
 )
+
+# Registered 2026-08-21. Found by the review of 8f8b7e1c rather than by a page
+# sweep: npc.XATHARI's docstring enumerated the five pages naming him and left this
+# one out, though it names him eight times, gives him dialogue, and is the page he
+# dies on. Registering it is what made his status answerable.
+#
+# narrated_videos is omitted, not emptied. The story row carries St_Havock's
+# reading and None leaves it alone where [] would delete it (db/_domain.py:714).
+#
+# Two things on this page are deliberately not linked, both the user's call:
+#
+#   the Phoenix     :9 "The many feathers of the Phoenix were burning bright" and
+#                   :69 "It is time for the Phoenix to rise". A symbol, not a body
+#                   — world-of-rathe/volcor.md:85 says so outright, "The phoenix is
+#                   their symbol and their accepted fate", over a rebellion the
+#                   same paragraph calls "fractured, united only by suffering".
+#                   The other two attestations are both "banner". grp.VOLCAI
+#                   already carries the rebellion. See the plan.
+#   the great       :51, unnamed here. One of the twelve, but the page never says
+#   purple dragon   which, and the roster is cited to flavour/uprising.md.
+db.upsert_story(
+    path="src/main-story/uprising/the-phoenix-and-the-dragon.md",
+    story_type="main-story",
+    title="The Phoenix and the Dragon",
+    # Already on the story row; omitting it would clear it.
+    source_link="https://fabtcg.com/hero/fai/story/fai-story-the-phoenix-and-the-dragon/",
+    # Fai is the POV throughout and Dromai is on the page. The Emperor never
+    # appears — :65, "The Emperor is blind. His dragons are turning against him."
+    heroes=["dromai", "emperor", "fai"],
+    npcs=[
+        # Eaten by Dromai's dragon at :51. Her row already read Deceased.
+        npc.EUN,
+        # Named but absent: :25, :27, :35, :61.
+        npc.MIN_OF_THE_FOREST_OF_FLAMES,
+        # Dromai's parents, both named by Eun's confession at :39-:47.
+        npc.SANI,
+        npc.TORVAI,
+        # Swallowed at :57 — this page is why his row now reads Deceased.
+        npc.XATHARI,
+    ],
+    locations=[
+        # :7 — "to infiltrate the Imperial Palace".
+        loc.IMPERIAL_PALACE,
+        # :7 and :9 write the short "Golden Orchard"; the row carries the full
+        # name and gained the short one as an alias for exactly this.
+        loc.THE_GOLDEN_ORCHARD_ESTATE,
+    ],
+    regions=[reg.VOLCOR],
+    groups=[
+        # :7 "tear the Dracai down from within", and :57 calls Xathari "The Dracai".
+        grp.DRACAI,
+        # :9 — "The Lord Wizards were growing desperate." The body at Court; the
+        # rank of the same name is R9 and waits for stage 9.
+        grp.LORD_WIZARDS_OF_THE_COURT,
+        # :9, :39, :69 — the rebellion this page turns.
+        grp.VOLCAI,
+    ],
+    dry_run=True,
+)

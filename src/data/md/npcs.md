@@ -178,6 +178,7 @@
 |               Lord Merchant Savai              |                   Dead                  |
 |                   Lord Sabuto                  |                 Unknown                 |
 |                 Lord Sutcliffe                 |               Just a head               |
+|               Lord Wizard Akihiko              |                 Deceased                |
 |                Lord Wizard Chiyo               |                   Dead                  |
 |              Luca, Arena Cicerone              |                  Alive                  |
 |             Lucilla the Setting Sun            |                 Unknown                 |
@@ -325,7 +326,7 @@
 |                  Widow Johana                  |                 Unknown                 |
 |                    Wynvarin                    |                 Unknown                 |
 |                Xaine, Runescribe               |                   Dead                  |
-|                     Xathari                    |                 Unknown                 |
+|                     Xathari                    |                 Deceased                |
 |                      Xilin                     |                   Dead                  |
 |                       Xin                      |                 Unknown                 |
 |                      Yarin                     |                 Unknown                 |

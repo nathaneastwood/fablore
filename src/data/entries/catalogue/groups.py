@@ -234,6 +234,42 @@ CINTARI = GroupEntry(
 ranks, a hero trait reads "Leader of the Cintari", and fires-of-rebellion.md:79
 has rebels wearing "Cintari disguises". None of that is true of a species, which
 is what separates this call from ``Chanek`` (2026-08-20)."""
+LORD_WIZARDS_OF_THE_COURT = GroupEntry(
+    "Lord Wizards of the Court",
+    kind="council",
+    npc_members=(
+        (npc.LORD_WIZARD_AKIHIKO, "main-story/arcane-rising/playing-with-fire.md"),
+        (npc.LORD_WIZARD_CHIYO, "main-story/arcane-rising/from-the-ashes.md"),
+    ),
+    hero_members=("kano",),
+    member_source="heroes-of-rathe/kano-about.md",
+)
+"""The body at Court, **not** the rank. The two were split deliberately and only
+this half is a group (the user's call, 2026-08-21).
+
+The name is the one phrase that names the body: ``kano-about.md:7``, "the other
+Lord Wizards **of the Court**" — which is also what puts Kano on the roster, since
+"the other" makes him one of them. He is the only hero here; the other two are
+NPCs, and each cites the page that names them in office rather than the page that
+names the body, so the roster carries pairs the way ``THE_MAELA`` does.
+
+**What forced the split.** ``ember-in-the-ash.md:3`` has a territory petition
+"**our** Lord Wizard for aid", so the office is held per-territory by many people
+at once. ``from-the-ashes.md:137`` writes "several of the **lord wizards**" and
+"the **lord wizards** have continued to monitor the court" — lowercase, twice,
+which is the N3 signal that named ``Volcai`` rather than ``The Volcai``. And
+``cindra-about.md:11`` lists "Dracai Lord Wizard" beside "Volcai farmer",
+"dust-born merchant" and "war-mongering general", which is an occupation among
+occupations. A rank many hold independently is R9 and waits for stage 9; a named
+body at Court is this row.
+
+No ``lore_story_key``. ``volcor.md:31`` heads a section "The Royal Court", but
+``IMPERIAL_PALACE`` already claims ``the-royal-court`` as its fragment and stage 11
+records that the institution/building split is unresolved — a second row pointing
+at the same anchor would deepen it rather than use it.
+
+``kind`` is the one guess in this row: no page gives the body a collective noun,
+and "council" is chosen for "monitor the court" (``from-the-ashes.md:137``)."""
 DRACAI = GroupEntry("Dracai", kind="people")
 """The other half of the Volcoran split, and typed like ``Volcai`` because it is
 the same kind of fact: volcor.md draws the line at dragon's blood, not at office.
