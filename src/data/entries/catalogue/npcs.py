@@ -548,15 +548,39 @@ WHISPERS_OF_XERYS = NPCEntry("Whispers of Xerys")
 WHITETAIL = NPCEntry("Whitetail", species=sp.HUMAN, status="Alive")
 WIDOW_JOHANA = NPCEntry("Widow Johana", species=sp.HUMAN)
 WYNVARIN = NPCEntry("Wynvarin", species=sp.HUMAN)
-XATHARI = NPCEntry("Xathari")
+XATHARI = NPCEntry("Xathari", epithets=("the Dracai spymaster", "Spymaster Xathari"))
 """The Dracai spymaster who found Dromai and raised her to the court, whose
 "firesight allows him to read the flames like a map".
 
-**Named on five pages and given a row only now** — ``dragons-of-empire.md``,
-``emperor-the-one-emperor.md``, ``ember-in-the-ash.md``, ``tidings-in-the-light.md``
-and ``betrayal.md``. Only the first is declared here, so four of his five mentions
-still connect to nothing. The catalogue covers the pages that have declarations, not
-the pages that exist."""
+**Two epithets, from three forms** (the user's call, 2026-08-21). The pages write
+the title three ways and only two of them are worth a row:
+
+- ``the Dracai spymaster`` — ``dragons-of-empire.md:37``, "wonders the Dracai
+  spymaster". Kept first: it is the fullest form and the one that says *whose*
+  spymaster he is.
+- ``Spymaster Xathari`` — ``tidings-in-the-light.md:85``, "she copied the words of
+  Spymaster Xathari until his untimely demise". Title-plus-name, the construction
+  ``Chancellor Hypatia`` and ``Lord Wizard Chiyo`` are filed under. That page has
+  no declaration, so this form is attested and unlinked.
+- ``The spymaster`` bare — ``betrayal.md:43,51`` and
+  ``the-phoenix-and-the-dragon.md:3,19``. **No row**: on its own it is a common
+  noun that would match any spymaster in the archive.
+
+**Named on six pages**, not the five this said until 2026-08-21. The list left out
+``main-story/uprising/the-phoenix-and-the-dragon.md``, which names him eight times
+and is the page he dies on — his largest appearance by some distance, and the only
+one that gives him dialogue. It has no declaration at all.
+
+The six, and where each stands: ``dragons-of-empire.md`` and ``betrayal.md``
+declared him from the day the row was minted, not the one the old wording claimed;
+``ember-in-the-ash.md`` and ``emperor-the-one-emperor.md`` both carried a
+``# TODO: needs catalogue constant — Spymaster Xathari`` waiting for exactly this
+row and now name him; ``the-phoenix-and-the-dragon.md`` and
+``tidings-in-the-light.md`` have no declaration.
+
+So four of six connect, and the two that do not are undeclared pages rather than
+declarations missing a name. The catalogue covers the pages that have declarations,
+not the pages that exist."""
 
 XAINE_RUNESCRIBE = NPCEntry("Xaine, Runescribe", species=sp.HUMAN, status="Dead")
 XILIN = NPCEntry("Xilin", species=sp.HUMAN, status="Dead")

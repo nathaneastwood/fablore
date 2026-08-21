@@ -235,6 +235,14 @@ ranks, a hero trait reads "Leader of the Cintari", and fires-of-rebellion.md:79
 has rebels wearing "Cintari disguises". None of that is true of a species, which
 is what separates this call from ``Chanek`` (2026-08-20)."""
 DRACAI = GroupEntry("Dracai", kind="people")
+"""The other half of the Volcoran split, and typed like ``Volcai`` because it is
+the same kind of fact: volcor.md draws the line at dragon's blood, not at office.
+Was ``title`` (2026-08-20) — the named offices are the titles, "Fang, Dracai of
+Blades", "Taipanis, Dracai of Judgement", and those hang off this row in stage 7.
+
+Not a species row, although a caste reads like one: every named Dracai is a
+**hero**, and ``heroes_canonical`` has three columns and no species, so a species
+row could hold nobody. See ``catalogue/species.py``."""
 SANDFOLK = GroupEntry("Sandfolk", kind="people")
 """A people, not a species — the same call Volcai and Dracai took in stage 3, so the
 three sit in one table rather than split across two (the user's call, 2026-08-21).
@@ -244,16 +252,48 @@ Dromai's mother's people: "Sani of the Sandfolk"
 sandstone wall against her dragons, and whose "fury continues to fester, as Xathari
 hoped it would" (``main-story/dynasty/ember-in-the-ash.md:59``). Dromai is called a
 "half-blood" for being of them and of the Dracai both."""
-"""The other half of the Volcoran split, and typed like ``Volcai`` because it is
-the same kind of fact: volcor.md draws the line at dragon's blood, not at office.
-Was ``title`` (2026-08-20) — the named offices are the titles, "Fang, Dracai of
-Blades", "Taipanis, Dracai of Judgement", and those hang off this row in stage 7.
-
-Not a species row, although a caste reads like one: every named Dracai is a
-**hero**, and ``heroes_canonical`` has three columns and no species, so a species
-row could hold nobody. See ``catalogue/species.py``."""
 EZU = GroupEntry("Ezu", kind="faction")
 SAYASHI = GroupEntry("Sayashi", kind="special force")
+THE_TWELVE_DRAGONS = GroupEntry(
+    "The Twelve Dragons",
+    kind="pantheon",
+    npc_members=(
+        npc.AZVOLAI,
+        npc.CROMAI,
+        npc.DOMINIA,
+        npc.DRACONA_OPTIMAI,
+        npc.KYLORIA,
+        npc.MIRAGAI,
+        npc.NEKRIA,
+        npc.OUVIA,
+        npc.THEMAI,
+        npc.TOMELTAI,
+        npc.VYNSERAKAI,
+        npc.YENDURAI,
+    ),
+    member_source="flavour/uprising.md",
+    lore_story_key="main-story/uprising/dragons-of-empire.md",
+)
+"""The collective the twelve dragon rows belong to (the user's call, 2026-08-21).
+
+**Named once in the whole repository**, and capitalised there:
+``main-story/uprising/dragons-of-empire.md:67`` has Dromai "pore over the tomes of
+The Twelve Dragons". That is the only line that treats the twelve as one named
+thing rather than as a count, so ``lore_story_key`` points at it while the roster
+cites the page that actually names the members.
+
+``member_source`` is ``flavour/uprising.md`` because that is where all twelve are
+attested — one ``Invoke <name>`` card title each, UPR006-UPR017, and nothing else
+on the page names a dragon at all. dragons-of-empire.md names only four of them
+(Azvolai, Nekria, Tomeltai, Vynserakai), so declaring the roster from the page that
+names the group would have lost two thirds of it. The count matching the name
+exactly — twelve titles, twelve rows, no thirteenth ``sp.DRAGON`` NPC anywhere — is
+what carries the inference that these twelve are those twelve.
+
+``pantheon``, the same kind ``Deities`` and ``Dhani Deities`` took: the tomes are
+studied, and dromai-about.md calls Dracona Optimai, Tomeltai and Dominia "servants
+of the Draconic Aesir". Whether that is worship or taxonomy is stage 11's problem,
+not this row's."""
 VOLCAI = GroupEntry(
     "Volcai",
     kind="people",

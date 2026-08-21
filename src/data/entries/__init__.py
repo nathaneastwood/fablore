@@ -43,7 +43,9 @@ SECTIONS: dict[str, str] = {
     "digital_tiles": "digital-tiles",
     # Added 2026-08-21, stage 5. `world-of-rathe` was already a valid story_type
     # in `upsert_story` and already had all 11 pages in `stories`; only a module
-    # was missing. `archive`, `equipment` and `weapons` still have none — see
-    # `world_of_rathe.py` for why that is left rather than fixed in passing.
+    # was missing. This row makes it eight modules for eleven story types —
+    # `archive`, `equipment` and `weapons` still have none. Scheduled 2026-08-21
+    # as a stage of its own, after stage 6: three modules plus the 63 of those 113
+    # pages that already carry seeded links nothing can currently maintain.
     "world_of_rathe": "world-of-rathe",
 }

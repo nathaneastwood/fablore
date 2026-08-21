@@ -604,8 +604,10 @@ db.upsert_story(
         npc.GENERAL_RIKU,
         npc.LORD_MERCHANT_SAVAI,
         npc.LORD_WIZARD_CHIYO,
+        # "Sandfolk fury continues to fester, as Xathari hoped it would" (:59).
+        # The TODO here waited for a constant stage 5 created and did not clear.
+        npc.XATHARI,
         # TODO: needs catalogue constant — Chancellor Yama (npc)
-        # TODO: needs catalogue constant — Spymaster Xathari (npc)
     ],
     locations=[
         loc.ASHVAHAN,
@@ -630,8 +632,8 @@ db.upsert_story(
     source_link="https://fabtcg.com/hero/emperor/story/emperor-story/",
     heroes=["emperor", "yoji"],
     npcs=[
+        npc.XATHARI,
         # TODO: needs catalogue constant — Chancellor Yama (npc)
-        # TODO: needs catalogue constant — Spymaster Xathari (npc)
     ],
     locations=[loc.MT_VOLCOR],
     regions=[reg.VOLCOR],
@@ -1479,6 +1481,11 @@ db.upsert_story(
     groups=[
         grp.DRACAI,
         grp.SANDFOLK,
+        # :67 — "she pores over the tomes of The Twelve Dragons". The only line in
+        # the repository that names the twelve as one thing (the user's call,
+        # 2026-08-21); the roster is cited to flavour/uprising.md, which is where
+        # all twelve are attested. See catalogue/groups.py.
+        grp.THE_TWELVE_DRAGONS,
         grp.VOLCAI,
     ],
     dry_run=True,

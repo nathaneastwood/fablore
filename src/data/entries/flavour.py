@@ -100,6 +100,19 @@ db.upsert_story(
         npc.SURAYA_ARCHANGEL_OF_KNOWLEDGE,
         npc.VIDYA_WILLOWMERE,
     ],
+    locations=[
+        # :83 — "Tremor of i'Arathael" (MON254/255/256). The name appears in the
+        # card title and nowhere else on the page, so this link exists only under
+        # the card-title-as-attestation reading flavour/uprising.md established
+        # (2026-08-21). It is the one already-registered flavour page that reading
+        # changes; Anvilheim and Siren are named in flavour *text* elsewhere and
+        # were plain missed links, not consequences of the precedent.
+        #
+        # `locations=` is new on this call. It deletes nothing: monarch.md carried
+        # no location links at all. i'Arathael's row has an empty region and the
+        # constant names none, so the id does not fork.
+        loc.I_ARATHAEL,
+    ],
     regions=[
         reg.SOLANA,
     ],
@@ -110,6 +123,14 @@ db.upsert_story(
     path="src/flavour/non-set-cards.md",
     story_type="flavour",
     title="Non-Set Cards",
+    # Both are card titles and nothing else: :3 — "Yorick, Weaver of Tales"
+    # (LSS004) and :57 — "Squizzy & Floof" (HER100), each printed with no flavour
+    # text under it. Both are hero rows, so this is the card-title reading applied
+    # to `heroes` rather than to a registry (2026-08-21).
+    #
+    # `heroes=` is new on this call and deletes nothing — the page had no hero
+    # links. The slug is `squizzyfloof`, not the display name.
+    heroes=["squizzyfloof", "yorick"],
     npcs=[
         npc.AEGIS_THE_SHIELD_OF_LIGHT,
         npc.AVALON_MESSENGER_OF_THE_DAWN,

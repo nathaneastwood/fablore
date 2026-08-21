@@ -14,9 +14,12 @@ docstring, and ``create_stories_index.py`` has always put all eleven pages in
 sat in the spine with nothing able to link an entity to them. That was not a
 schema limit; it was a hole in this package.
 
-``entries/`` still covers **7 of the 11 story types** the index produces.
-``archive`` (78 stories), ``equipment`` (19) and ``weapons`` (16) remain
-undeclarable — 113 pages. Only ``world-of-rathe`` was in scope here, because
+``entries/`` covers **8 of the 11 story types** the index produces — this module
+is the eighth, and ``SECTIONS`` has eight rows. The 7 this said until 2026-08-21
+was the count from *before* the module was added and was never updated when it
+landed. ``archive`` (78 stories), ``equipment`` (19) and ``weapons`` (16) remain
+undeclarable — 113 pages, and 225 entity links already sitting on 63 of them that
+no declaration can reach. Only ``world-of-rathe`` was in scope here, because
 Absolon needed it. The rest is not a bug to fix in passing; each is its own
 decision about whether those pages should assert relationships at all.
 
@@ -54,8 +57,15 @@ from entries._runner import db
 # PARTIAL BY DECISION, NOT BY OMISSION (the user's call, 2026-08-21).
 #
 # This page is 4471 words across 29 sections and names a great many locations,
-# regions and NPCs. None of them are declared here. Only the entities stage 5
-# needed are: the two gods, and the two groups this page already documents.
+# regions and NPCs. This call declares none of them. Only the entities stage 5
+# needed are here: the two gods, the two groups this page already documents by
+# lore_story_key, and Dhani Deities — three groups, not the two this said until
+# 2026-08-21. See the note on grp.DHANI_DEITIES below for why the third is here.
+#
+# The page is not link-free, though: five location links (Cogwerx Conglomerate,
+# Dagger Docks, Griefers Reef, Kraken's Barrel, Trōpal-Dhani) were seeded onto it
+# and survive because `locations=` is omitted rather than emptied. Omission
+# preserves; an empty list would delete them.
 #
 # Anyone extending this call should treat the absences as unexamined rather than
 # as decided — the opposite of every other declaration in entries/, where an
