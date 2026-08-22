@@ -314,6 +314,56 @@ def test_character_status_accepts_all_five_values(tmp_path: Path) -> None:
     assert _check_character_statuses(path) == []
 
 
+def test_kin_relation_must_be_in_the_closed_list(tmp_path: Path) -> None:
+    from validate_data import _check_kin_relations
+
+    path = tmp_path / "character-kin.csv"
+    path.write_text("# x\nCharacterId|RelativeId|Relation|StoryKey\nLC1|LC2|stepfather|\n")
+    alerts = _check_kin_relations(path)
+    assert len(alerts) == 1
+    assert "stepfather" in alerts[0]
+
+
+def test_kin_relation_accepts_all_six_values(tmp_path: Path) -> None:
+    from validate_data import _check_kin_relations
+
+    path = tmp_path / "character-kin.csv"
+    path.write_text(
+        "# x\nCharacterId|RelativeId|Relation|StoryKey\n"
+        "LC1|LC2|father|\nLC1|LC3|mother|\nLC1|LC4|parent|\n"
+        "LC1|LC5|sibling|\nLC1|LC6|spouse|\nLC2|LC1|child|\n"
+    )
+    assert _check_kin_relations(path) == []
+
+
+def test_no_self_kin_flags_a_character_named_as_its_own_relative(tmp_path: Path) -> None:
+    from validate_data import _check_no_self_kin
+
+    path = tmp_path / "character-kin.csv"
+    path.write_text("# x\nCharacterId|RelativeId|Relation|StoryKey\nLC1|LC1|sibling|\n")
+    alerts = _check_no_self_kin(path)
+    assert len(alerts) == 1
+    assert "LC1" in alerts[0]
+
+
+def test_no_self_kin_accepts_two_different_characters(tmp_path: Path) -> None:
+    from validate_data import _check_no_self_kin
+
+    path = tmp_path / "character-kin.csv"
+    path.write_text("# x\nCharacterId|RelativeId|Relation|StoryKey\nLC1|LC2|sibling|\n")
+    assert _check_no_self_kin(path) == []
+
+
+def test_character_kin_fk_flags_an_unknown_relative(tmp_path: Path) -> None:
+    from validate_data import _check_fk_column
+
+    path = tmp_path / "character-kin.csv"
+    path.write_text("# x\nCharacterId|RelativeId|Relation|StoryKey\nLC1|LCbogus0001|father|\n")
+    alerts = _check_fk_column(path, "RelativeId", {"LCreal000001"}, "characters.csv CharacterId", "Character kin")
+    assert len(alerts) == 1
+    assert "LCbogus0001" in alerts[0]
+
+
 def test_character_heroes_fk_flags_an_unknown_hero(tmp_path: Path) -> None:
     from validate_data import _check_fk_column
 

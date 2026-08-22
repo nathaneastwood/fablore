@@ -137,6 +137,7 @@ def export_registry_tables(conn: sqlite3.Connection, data_dir: Path) -> None:
     _export_species(conn, csv_dir)
     _export_titles(conn, csv_dir)
     _export_title_holders(conn, csv_dir)
+    _export_character_kin(conn, csv_dir)
 
 
 def export_story_junctions(conn: sqlite3.Connection, data_dir: Path) -> None:
@@ -366,6 +367,36 @@ def _export_title_holders(conn: sqlite3.Connection, csv_dir: Path) -> None:
         csv_dir / "title-holders.csv",
         _CMD_REGISTRY,
         ["TitleId", "CharacterId", "Ordinal", "StoryKey"],
+        data,
+    )
+
+
+def _export_character_kin(conn: sqlite3.Connection, csv_dir: Path) -> None:
+    """Write ``character-kin.csv`` (R8).
+
+    Not part of ``_JUNCTION_EXPORT_SPECS``: this hangs off a character, not a
+    story, and its ``StoryKey`` is evidence for the kin fact (like
+    ``group-npcs.csv``'s), not the link itself. Only the stated direction is
+    ever written — the inverse is derived at read time and never stored, so
+    this file can never disagree with itself about who is whose parent.
+    """
+    rows = conn.execute(
+        "SELECT character_id, relative_id, relation, story_key FROM character_kin "
+        "ORDER BY character_id, relative_id, relation"
+    ).fetchall()
+    data = [
+        {
+            "CharacterId": r["character_id"],
+            "RelativeId": r["relative_id"],
+            "Relation": r["relation"],
+            "StoryKey": r["story_key"],
+        }
+        for r in rows
+    ]
+    _write_pipe_csv(
+        csv_dir / "character-kin.csv",
+        _CMD_REGISTRY,
+        ["CharacterId", "RelativeId", "Relation", "StoryKey"],
         data,
     )
 
@@ -816,6 +847,7 @@ _ALL_TABLES = [
     "titles",
     "title_holders",
     "story_titles",
+    "character_kin",
     "npc_epithets",
     "location_aliases",
     "group_aliases",

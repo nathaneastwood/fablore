@@ -19,13 +19,16 @@ Version history:
  13 — titles, title_holders, story_titles: offices (Grand Magister, Dracai of
       Aether) with ordered or concurrent holders, resolved through
       character_heroes so a hero and an NPC can share one title_holders row
+ 14 — character_kin: kinship facts (father, mother, parent, sibling, spouse,
+      child), one row per stated fact; the inverse is derived at read time,
+      never stored
 """
 
 from __future__ import annotations
 
 import sqlite3
 
-CURRENT_VERSION = 13
+CURRENT_VERSION = 14
 
 _V1_DDL = """
 CREATE TABLE IF NOT EXISTS stories (
@@ -376,6 +379,27 @@ CREATE TABLE IF NOT EXISTS story_titles (
     story_id TEXT NOT NULL REFERENCES stories(story_id) ON DELETE CASCADE,
     title_id TEXT NOT NULL REFERENCES titles(title_id),
     PRIMARY KEY (story_id, title_id)
+);
+
+-- Kinship (R8). "Lyath's father is Bloodworth Goldmane" is one row, not two.
+-- Storing the inverse too ("Bloodworth's child is Lyath") would let the two
+-- halves disagree with each other with nothing to say which is right, so only
+-- the stated direction is ever written; db._queries.select_character_kin_both_directions
+-- derives "who are Bloodworth's children" at read time instead, via
+-- db._queries.KIN_INVERSE. No kin_id: this is a junction, not a registry, the
+-- same shape as group_npcs.
+--
+-- relation is a closed vocabulary, checked in validate_data.py rather than by
+-- SQLite (the same split status and npc_epithets.kind follow):
+-- 'father'/'mother'/'parent' invert to 'child'; 'child' inverts to 'parent',
+-- not a gender, because the data does not know which parent; 'sibling' and
+-- 'spouse' are their own inverse.
+CREATE TABLE IF NOT EXISTS character_kin (
+    character_id TEXT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
+    relative_id  TEXT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
+    relation     TEXT NOT NULL,
+    story_key    TEXT NOT NULL DEFAULT '',
+    PRIMARY KEY (character_id, relative_id, relation)
 );
 
 -- Names that are not the name (R4 epithets, R6 aliases). Three tables rather
@@ -733,4 +757,28 @@ def migrate(conn: sqlite3.Connection) -> None:
             """
         )
         conn.execute("PRAGMA user_version = 13")
+        conn.commit()
+    if version < 14:
+        # Kinship (R8). One row per stated fact; the inverse is derived at read
+        # time by db._queries.select_character_kin_both_directions, never
+        # stored, so "Lyath's father is Bloodworth" and "Bloodworth's child is
+        # Lyath" cannot come to disagree with each other.
+        #
+        # No table-name ambiguity to guard here, unlike migration 11's
+        # npcs/characters rename: this is one brand-new table, and
+        # CREATE TABLE IF NOT EXISTS is correct whether this runs against a
+        # database that just applied migration 13 or a from-scratch build
+        # that already created it via _V1_DDL.
+        conn.executescript(
+            """
+            CREATE TABLE IF NOT EXISTS character_kin (
+                character_id TEXT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
+                relative_id  TEXT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
+                relation     TEXT NOT NULL,
+                story_key    TEXT NOT NULL DEFAULT '',
+                PRIMARY KEY (character_id, relative_id, relation)
+            );
+            """
+        )
+        conn.execute("PRAGMA user_version = 14")
         conn.commit()

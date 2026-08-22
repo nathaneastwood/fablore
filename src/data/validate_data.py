@@ -53,6 +53,10 @@ from registry_ids import (  # noqa: E402
 
 from text_utils import normalize_name  # noqa: E402
 
+# The kin vocabulary is this map's keys — see KIN_RELATIONS below for why it is
+# imported rather than restated.
+from db._queries import KIN_INVERSE  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "src/data"
 SRC = ROOT / "src"
@@ -675,6 +679,57 @@ def _check_epithet_kinds(path: Path) -> list[str]:
     return alerts
 
 
+KIN_RELATIONS = frozenset(KIN_INVERSE)
+"""The closed list for ``character-kin.csv`` ``Relation`` (migration 14, R8).
+
+**Derived from ``db._queries.KIN_INVERSE``, not written out again.** That map
+says how each relation reads from the other end (``father`` -> ``child``,
+``child`` -> ``parent``, ``sibling``/``spouse`` -> themselves), and
+``character_kin`` stores one row per stated fact and derives the reverse at
+read time. So a relation this list allowed but that map did not hold would
+raise ``KeyError`` in the derivation — the two must be the same set by
+construction rather than by two people keeping two literals in step.
+
+``parent``/``child`` sit alongside the gendered pair because a page may state
+a parent without saying which, and the data should not have to guess."""
+
+
+def _check_kin_relations(path: Path) -> list[str]:
+    """Ensure every ``character-kin.csv`` ``Relation`` is one of :data:`KIN_RELATIONS`."""
+    if not path.is_file():
+        return []
+    _, rows = read_pipe_csv(path)
+    alerts: list[str] = []
+    for row in rows:
+        relation = (row.get("Relation") or "").strip()
+        if relation and relation not in KIN_RELATIONS:
+            cid = (row.get("CharacterId") or "").strip()
+            alerts.append(f"character-kin.csv: {cid!r} has Relation {relation!r}, not one of {sorted(KIN_RELATIONS)}")
+    return alerts
+
+
+def _check_no_self_kin(path: Path) -> list[str]:
+    """Flag a ``character-kin.csv`` row where ``CharacterId`` equals ``RelativeId``.
+
+    No SQL constraint stops a character being their own relative. The write
+    path guards it too (``Database._resolve_kin_relatives``, on both the real
+    write and the dry-run preview) — this is the belt-and-braces half,
+    catching a hand-edited or otherwise drifted CSV that never went through
+    it, the same shape :func:`_check_self_parent` gives locations and groups.
+    """
+    if not path.is_file():
+        return []
+    _, rows = read_pipe_csv(path)
+    alerts: list[str] = []
+    for row in rows:
+        cid = (row.get("CharacterId") or "").strip()
+        rid = (row.get("RelativeId") or "").strip()
+        if cid and cid == rid:
+            relation = (row.get("Relation") or "").strip()
+            alerts.append(f"character-kin.csv: {cid!r} is its own RelativeId (relation {relation!r})")
+    return alerts
+
+
 def _check_alias_name_collisions() -> list[str]:
     """Catch an alias that is already the canonical name of a different row.
 
@@ -892,6 +947,7 @@ def collect_alerts() -> list[str]:
         (DATA / "csv/titles.csv", ("TitleId", "Name"), "Titles"),
         (DATA / "csv/title-holders.csv", ("TitleId", "CharacterId"), "Title ↔ holder links"),
         (DATA / "csv/story-titles.csv", ("StoryId", "TitleId"), "Story ↔ title links"),
+        (DATA / "csv/character-kin.csv", ("CharacterId", "RelativeId", "Relation"), "Character kin"),
         (DATA / "csv/regions.csv", ("RegionId",), "Regions"),
         (DATA / "csv/flora.csv", ("FloraId",), "Flora"),
         (DATA / "csv/fauna.csv", ("FaunaId",), "Fauna"),
@@ -1201,6 +1257,23 @@ def collect_alerts() -> list[str]:
                 "Title ↔ group link",
             )
         )
+
+    # Kinship (R8). Both halves of every character-kin.csv row key on
+    # characters.csv CharacterId, the same shape group-npcs.csv and
+    # title-holders.csv both need checked in both directions.
+    if npc_character_ids:
+        for column in ("CharacterId", "RelativeId"):
+            alerts.extend(
+                _check_fk_column(
+                    DATA / "csv/character-kin.csv",
+                    column,
+                    npc_character_ids,
+                    "characters.csv CharacterId",
+                    "Character kin",
+                )
+            )
+    alerts.extend(_check_kin_relations(DATA / "csv/character-kin.csv"))
+    alerts.extend(_check_no_self_kin(DATA / "csv/character-kin.csv"))
 
     # Identity spine (migration 12). Both halves of character_heroes: a stale
     # CanonicalId means a hero that no longer exists still claims an identity,

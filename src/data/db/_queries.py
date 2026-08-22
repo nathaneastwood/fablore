@@ -402,6 +402,87 @@ def select_title_holders(conn: sqlite3.Connection, title_id: str) -> list[tuple[
 
 
 # ---------------------------------------------------------------------------
+# Kinship (R8)
+# ---------------------------------------------------------------------------
+
+KIN_INVERSE = {
+    "father": "child",
+    "mother": "child",
+    "parent": "child",
+    "child": "parent",
+    "sibling": "sibling",
+    "spouse": "spouse",
+}
+"""How a stored relation reads from the *other* end.
+
+``character_kin`` stores one row per stated fact — "Lyath's father is
+Bloodworth" — and never the inverse. A fact stored twice could disagree with
+itself and nothing would say which half was right, so the second half is
+derived here instead, at read time. ``father``/``mother``/``parent`` all
+invert to ``child``; ``child`` inverts to ``parent`` rather than a gender,
+because a row that only says "parent" does not know which one. ``sibling``
+and ``spouse`` invert to themselves.
+"""
+
+
+def set_character_kin(conn: sqlite3.Connection, character_id: str, kin: list[tuple[str, str, str]]) -> None:
+    """Replace every kin row stated *by* ``character_id``.
+
+    Args:
+        kin: ``(relative_id, relation, story_key)`` triples. Replace-semantic,
+            like the group rosters and ``npc_species``: this is the complete
+            set of kin facts this declaration states, so an omitted fact is a
+            deletion, not a preserved value.
+    """
+    conn.execute("DELETE FROM character_kin WHERE character_id = ?", [character_id])
+    if kin:
+        conn.executemany(
+            "INSERT OR IGNORE INTO character_kin (character_id, relative_id, relation, story_key) VALUES (?,?,?,?)",
+            [(character_id, rid, relation, story_key) for rid, relation, story_key in kin],
+        )
+
+
+def select_character_kin(conn: sqlite3.Connection, character_id: str) -> list[tuple[str, str, str]]:
+    """Return ``(relative_id, relation, story_key)`` rows stated *by* ``character_id``, sorted.
+
+    Only the stored direction — the same half :func:`set_character_kin` writes.
+    Use :func:`select_character_kin_both_directions` to also see facts stated
+    *about* this character by someone else.
+    """
+    rows = conn.execute(
+        "SELECT relative_id, relation, story_key FROM character_kin WHERE character_id = ? ORDER BY relative_id, relation",
+        [character_id],
+    ).fetchall()
+    return [(r[0], r[1], r[2]) for r in rows]
+
+
+def select_character_kin_both_directions(conn: sqlite3.Connection, character_id: str) -> list[tuple[str, str, str]]:
+    """Return this character's kin in both directions, relation as seen from ``character_id``.
+
+    ``character_kin`` stores one row per stated fact and never its inverse (see
+    :data:`KIN_INVERSE`), so "who are Bloodworth's children" has no row to
+    select directly. This derives it: rows ``character_id`` stated directly,
+    plus rows stated *about* ``character_id`` by someone else, inverted through
+    :data:`KIN_INVERSE` so every relation reads correctly from this character's
+    own perspective.
+
+    Returns:
+        ``(relative_id, relation, story_key)`` triples, unsorted union of both halves.
+    """
+    direct = conn.execute(
+        "SELECT relative_id, relation, story_key FROM character_kin WHERE character_id = ? ORDER BY relative_id, relation",
+        [character_id],
+    ).fetchall()
+    inverse = conn.execute(
+        "SELECT character_id, relation, story_key FROM character_kin WHERE relative_id = ? ORDER BY character_id, relation",
+        [character_id],
+    ).fetchall()
+    result = [(r[0], r[1], r[2]) for r in direct]
+    result.extend((r[0], KIN_INVERSE[r[1]], r[2]) for r in inverse)
+    return result
+
+
+# ---------------------------------------------------------------------------
 # Alternate names (R4 epithets, R6 aliases)
 # ---------------------------------------------------------------------------
 #

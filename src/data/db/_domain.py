@@ -65,6 +65,22 @@ def _alias_pair(alias: "str | tuple[str, str]") -> tuple[str, str]:
     return name, era
 
 
+def _kin_triple(item: "tuple") -> "tuple[NPCEntry | str, str, str]":
+    """Normalise an ``NPCEntry.kin`` item to ``(relative, relation, story_key)``.
+
+    An item is a bare ``(relative, relation)`` pair — the common case, and the
+    only shape the prompting case ("Their father is Bloodworth Goldmane")
+    needs — or a ``(relative, relation, story_key)`` triple when that one fact
+    is attested somewhere worth citing. Mirrors ``GroupEntry.npc_members``'s
+    optional ``(npc, story_key)`` pair, one field further because a kin fact
+    needs a relation as well as a relative.
+    """
+    if len(item) == 3:
+        return item
+    relative, relation = item
+    return relative, relation, ""
+
+
 def _species_tuple(species: "SpeciesEntry | tuple[SpeciesEntry, ...] | None") -> "tuple[SpeciesEntry, ...]":
     """Normalise ``NPCEntry.species`` to a tuple.
 
@@ -181,6 +197,47 @@ class NPCEntry:
     the guard in ``GroupEntry.members()``, which raises on a repeated NPC for
     the same reason: the write and the preview would otherwise resolve the
     clash differently and neither would say so."""
+    kin: "tuple[tuple[NPCEntry | str, str] | tuple[NPCEntry | str, str, str], ...]" = ()
+    """Kinship facts (R8): ``((relative, relation), ...)`` pairs, or
+    ``(relative, relation, story_key)`` triples when one fact is attested
+    somewhere worth citing (see :func:`_kin_triple`). ``relative`` is an
+    :class:`NPCEntry` or a canonical hero slug string, resolved through
+    ``character_heroes`` exactly as ``TitleEntry.hero_holders`` resolves one —
+    after migration 12 both a hero and an NPC land in the same ``characters``
+    row, so one column, and one type here, holds either::
+
+        NPCEntry("Lyath", kin=((npc.BLOODWORTH_GOLDMANE, "father"), ("victor", "sibling")))
+
+    ``relation`` is a closed vocabulary, checked in ``validate_data.py`` rather
+    than here (the same split ``status`` and epithet ``kind`` follow):
+    ``father``, ``mother``, ``parent``, ``sibling``, ``spouse``, ``child``.
+    ``parent``/``child`` exist alongside the gendered pair because a page may
+    state a parent without saying which — the data should not have to guess.
+
+    One row per stated fact — declaring Lyath's father as Bloodworth writes
+    **only** that row. Nothing here writes "Bloodworth's child is Lyath"; the
+    query layer derives it (``db._queries.select_character_kin_both_directions``),
+    because a fact stored twice could disagree with itself and nothing would
+    say which half was right.
+
+    **Replace-semantic**, like ``species`` and unlike ``status``/``hero_slug``:
+    ``kin=()`` clears whatever kin is stored for this character.
+    ``character_kin`` is a junction, not a scalar column, and this codebase's
+    rule for a junction is that a declaration states the complete set (see
+    ``species``'s docstring for the same reasoning applied to a different
+    field). The alternative — preserving on empty, as ``hero_slug`` does
+    because an identity claim should never un-happen — does not fit a kin fact
+    the way it fits an identity claim: kinship is read off a page and a
+    correction to what was read (a mis-transcribed relation, a merged
+    duplicate) has to be able to remove a row, not just add better ones beside
+    the wrong one forever with no way to retract it.
+
+    Raises ``ValueError`` for a repeated ``(relative, relation)`` pair —
+    naming the same person as a relative under the same relation twice,
+    including once as an :class:`NPCEntry` and once as a hero slug, the same
+    hazard ``GroupEntry.members()`` and ``TitleEntry``'s holder resolution
+    guard against — for an unknown hero slug, and for a character named as
+    their own relative."""
 
 
 @dataclass(frozen=True)
@@ -1308,7 +1365,7 @@ class Database:
                     f"Known ids: {format_fragment_suggestion(ids_on_page)}"
                 )
 
-    def _upsert_npcs(self, entries: list[NPCEntry]) -> list[tuple[str, str]]:
+    def _upsert_npcs(self, entries: list[NPCEntry], _seen: "frozenset[str]" = frozenset()) -> list[tuple[str, str]]:
         # Guard against accidentally storing playable heroes as NPCs — unless the
         # entry itself claims the identity via hero_slug (NPCEntry.hero_slug),
         # which is the NPC saying "yes, I know, I am that hero".
@@ -1350,6 +1407,51 @@ class Database:
                 seen_slugs[e.hero_slug] = e.name
                 canonical_id = self._resolve_heroes([e.hero_slug])[0]
                 q.set_character_hero(self.conn, canonical_id, cid)
+
+            # Kin (R8). Resolves and raises before any downstream write —
+            # mirrors _upsert_one_title's use of _resolve_title_holders.
+            resolved_kin = self._resolve_kin_relatives(e)
+
+            if e.name not in _seen:
+                # NPC relatives named in .kin need a character row of their own
+                # before character_kin.relative_id can reference them — mirrors
+                # the group roster's / title holder's _upsert_npcs call.
+                #
+                # Guarded by _seen (this recursion's own visited set, not a
+                # cross-call cache) so two people who each name the other as
+                # kin — siblings, spouses — do not recurse forever. That is
+                # ordinary domain data, not a cycle error, unlike a location's
+                # or group's parent chain, so it is skipped rather than raised.
+                next_seen = _seen | {e.name}
+                kin_relatives = [
+                    relative
+                    for relative, _relation, _story_key in (_kin_triple(item) for item in e.kin)
+                    if not isinstance(relative, str)
+                ]
+                if kin_relatives:
+                    self._upsert_npcs(kin_relatives, next_seen)
+                # Hero-slug relatives need a character_heroes row too. An
+                # existing link always wins; this only fills a gap — the same
+                # INSERT-OR-IGNORE contract _self_heal_character_heroes uses at
+                # seed time, mirroring _upsert_one_title's hero holder block.
+                for relative, _relation, _story_key in (_kin_triple(item) for item in e.kin):
+                    if isinstance(relative, str):
+                        canonical_id = self._resolve_heroes([relative])[0]
+                        if not q.select_character_id_for_hero(self.conn, canonical_id):
+                            row = self.conn.execute(
+                                "SELECT canonical_hero FROM heroes_canonical WHERE canonical_id = ?",
+                                [canonical_id],
+                            ).fetchone()
+                            hero_name = row["canonical_hero"] if row else ""
+                            new_cid = lore_character_id(hero_name)
+                            q.upsert_npc(self.conn, character_id=new_cid, name=hero_name)
+                            q.set_character_hero(self.conn, canonical_id, new_cid)
+
+            q.set_character_kin(
+                self.conn,
+                cid,
+                [(rid, relation, story_key) for rid, relation, story_key, _origin in resolved_kin],
+            )
             ids.append((cid, e.fragment))
         return ids
 
@@ -1533,6 +1635,67 @@ class Database:
         ).fetchone()
         hero_name = row["canonical_hero"] if row else ""
         return lore_character_id(hero_name)
+
+    def _resolve_kin_relatives(self, entry: NPCEntry) -> list[tuple[str, str, str, str]]:
+        """Resolve every kin fact on ``entry`` to ``(relative_id, relation, story_key, origin)``.
+
+        Read-only, so the dry-run preview can call this too — mirrors
+        :meth:`_resolve_title_holders`. A relative may be named as an
+        :class:`NPCEntry` or a hero slug, and migration 12's identity spine
+        means both can resolve to the same ``character_id``, so the same
+        person named twice under the same relation, once each way, must be
+        caught as a repeat before either write happens. Keyed on
+        ``(relative_id, relation)`` rather than ``relative_id`` alone, because
+        ``character_kin`` is keyed on all three columns — unlike
+        ``title_holders``, the same relative legitimately appears twice under
+        two different relations.
+
+        Raises:
+            ValueError: for a repeated ``(relative_id, relation)`` pair, an
+                unknown hero slug (via :meth:`_resolve_heroes`), a character
+                named as their own relative, or a relation outside
+                :data:`~db._queries.KIN_INVERSE`.
+
+        The relation is checked *here*, unlike ``status`` and
+        ``npc_epithets.kind``, which are left to ``validate_data.py``. Those
+        two are only ever read back as text, so a typo is a wrong label until
+        the next hook run. ``relation`` is different: it is used as a key into
+        ``KIN_INVERSE`` to derive the other end of the fact, so a bad value
+        raises ``KeyError`` inside a query — during an ``mdbook build``, long
+        before a pre-commit hook would see the CSV. The vocabulary is
+        ``KIN_INVERSE``'s own keys rather than a second list, so the check and
+        the derivation cannot disagree.
+        """
+        own_cid = lore_character_id(entry.name)
+        resolved: list[tuple[str, str, str, str]] = []
+        seen: dict[tuple[str, str], str] = {}
+        for item in entry.kin:
+            relative, relation, story_key = _kin_triple(item)
+            if relation not in q.KIN_INVERSE:
+                raise ValueError(
+                    f"{entry.name!r} states an unknown kin relation {relation!r}. "
+                    f"Use one of {sorted(q.KIN_INVERSE)}."
+                )
+            if isinstance(relative, str):
+                canonical_id = self._resolve_heroes([relative])[0]
+                rid = self._predict_hero_character_id(canonical_id)
+                origin = f"hero_slug {relative!r}"
+            else:
+                rid = lore_character_id(relative.name)
+                origin = relative.name
+            if rid == own_cid:
+                raise ValueError(
+                    f"{entry.name!r} cannot be their own relative (named as {origin}, relation {relation!r})"
+                )
+            key = (rid, relation)
+            if key in seen:
+                raise ValueError(
+                    f"{entry.name!r} names {seen[key]!r} and {origin} as {relation!r} twice "
+                    f"(character_id {rid!r}). A kin fact is one row; state it once."
+                )
+            seen[key] = origin
+            resolved.append((rid, relation, story_key, origin))
+        return resolved
 
     def _resolve_title_holders(self, entry: TitleEntry) -> list[tuple[str, int, str, str]]:
         """Resolve every holder to ``(character_id, ordinal, story_key, origin)``.
@@ -1960,7 +2123,17 @@ class Database:
             seen_title: dict[str, Any] = {}
 
             def walk_npc(entry) -> None:
-                seen_npc.setdefault(entry.name, entry)
+                # Guard first, then recurse: an NPC's kin relatives may name
+                # each other back (siblings, spouses), and _upsert_npcs skips
+                # re-processing an already-seen name for the same reason —
+                # this is ordinary domain data, not a cycle to raise on.
+                if entry.name in seen_npc:
+                    return
+                seen_npc[entry.name] = entry
+                for item in entry.kin:
+                    relative, _relation, _story_key = _kin_triple(item)
+                    if not isinstance(relative, str):
+                        walk_npc(relative)
 
             def walk_location(entry) -> None:
                 key = (entry.name, entry.region)
@@ -2140,6 +2313,53 @@ class Database:
                 out.write("\n".join(lines) + "\n")
 
         _show_hero_slug_changes()
+
+        def _show_kin_changes() -> None:
+            """Report ``character_kin`` rows a kin declaration would add or remove.
+
+            Replace-semantic, like species and the epithet tables: an omitted
+            kin fact is a deletion, not a preserved value (see ``NPCEntry.kin``'s
+            docstring for the reasoning). Walks the **reachable** NPCs
+            (``_reachable_entities()``), not the ``npcs`` kwarg, for the same
+            reason ``_show_hero_slug_changes`` does — a kin fact declared on an
+            NPC reached only through a group roster must not be invisible here.
+
+            Resolves through ``_resolve_kin_relatives``, which raises on a
+            repeated ``(relative, relation)`` pair, an unknown hero slug, or a
+            self-relative claim — on this preview path too, before any diff is
+            computed, so a bad declaration fails the same way here as it would
+            on the real write.
+            """
+            nonlocal changed
+            reach_npcs, _, _, _, _ = _reachable_entities()
+            lines: list[str] = []
+            for entry in reach_npcs:
+                cid = lore_character_id(entry.name)
+                resolved = self._resolve_kin_relatives(entry)
+                origin_by_key = {(rid, relation): origin for rid, relation, _sk, origin in resolved}
+                wanted_map = {(rid, relation): sk for rid, relation, sk, _origin in resolved}
+                stored_map = {(rid, relation): sk for rid, relation, sk in q.select_character_kin(self.conn, cid)}
+                added = set(wanted_map) - set(stored_map)
+                removed = set(stored_map) - set(wanted_map)
+                resourced = sorted(k for k in set(wanted_map) & set(stored_map) if wanted_map[k] != stored_map[k])
+                for rid, relation in sorted(added):
+                    who = origin_by_key.get((rid, relation), npc_id_to_name.get(rid, rid))
+                    lines.append(f"    + {entry.name}: {relation} {who!r}")
+                for rid, relation in sorted(removed):
+                    who = npc_id_to_name.get(rid, rid)
+                    lines.append(f"    - {entry.name}: {relation} {who!r} REMOVED")
+                for rid, relation in resourced:
+                    who = npc_id_to_name.get(rid, rid)
+                    lines.append(
+                        f"    ~ {entry.name}: {relation} {who!r} source "
+                        f"{stored_map[(rid, relation)] or '(none)'!r} -> {wanted_map[(rid, relation)] or '(none)'!r}"
+                    )
+            if lines:
+                changed = True
+                out.write("  Kin:\n")
+                out.write("\n".join(lines) + "\n")
+
+        _show_kin_changes()
 
         def _show_attr_changes(
             label: str,

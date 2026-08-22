@@ -77,6 +77,7 @@ def seed_from_csvs(conn: sqlite3.Connection, data_dir: Path) -> None:
         _seed_alternate_names(conn, data_dir)
         _seed_titles(conn, data_dir)
         _seed_title_holders(conn, data_dir)
+        _seed_character_kin(conn, data_dir)
         _seed_stories(conn, data_dir)
         _seed_narrated_videos_from_csv(conn, data_dir)
         _seed_story_junctions(conn, data_dir)
@@ -534,6 +535,19 @@ def _seed_title_holders(conn: sqlite3.Connection, data_dir: Path) -> None:
 # ---------------------------------------------------------------------------
 # Stories + narrated videos
 # ---------------------------------------------------------------------------
+
+
+def _seed_character_kin(conn: sqlite3.Connection, data_dir: Path) -> None:
+    """Seed ``character_kin`` (R8). Kept separate from the story junctions for
+    the same reason ``group_npcs``/``title_holders`` are: this hangs off the
+    character, not a page, and its ``StoryKey`` is evidence for the kin fact,
+    not the link itself."""
+    _, rows = _csv(data_dir, "character-kin.csv")
+    for row in rows:
+        conn.execute(
+            "INSERT OR IGNORE INTO character_kin (character_id, relative_id, relation, story_key) VALUES (?,?,?,?)",
+            (_s(row, "CharacterId"), _s(row, "RelativeId"), _s(row, "Relation"), _s(row, "StoryKey")),
+        )
 
 
 def _seed_stories(conn: sqlite3.Connection, data_dir: Path) -> None:
