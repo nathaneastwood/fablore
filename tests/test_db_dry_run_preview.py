@@ -396,6 +396,169 @@ def test_preview_reports_a_group_reached_only_as_a_parent(db: Database, capsys) 
     assert "1 members" in report, "the parent's roster is not previewed"
 
 
+def test_preview_reports_npc_status_change_for_a_roster_member(db: Database, capsys) -> None:
+    """``_upsert_one_group`` writes ``status``/``other_characters_story_key`` for
+    roster NPCs too, via ``_upsert_npcs`` — so an overwrite reached only through
+    a group roster must be shown, not just one named in the top-level ``npcs=``.
+    """
+    db.upsert_story(
+        "src/main-story/x.md",
+        story_type="main-story",
+        title="X",
+        groups=[
+            GroupEntry(
+                "The Maela",
+                npc_members=(NPCEntry("Kaysin", status="Just a head"),),
+                member_source="flavour/compendium-of-rathe.md",
+            )
+        ],
+    )
+
+    report = _preview(
+        db,
+        capsys,
+        path="src/main-story/x.md",
+        story_type="main-story",
+        title="X",
+        groups=[
+            GroupEntry(
+                "The Maela",
+                npc_members=(NPCEntry("Kaysin", status="Deceased"),),
+                member_source="flavour/compendium-of-rathe.md",
+            )
+        ],
+    )
+
+    assert "Kaysin" in report
+    assert "Just a head" in report and "Deceased" in report, "the roster NPC's status overwrite is not shown"
+
+
+def test_preview_warns_when_a_group_location_forks_a_new_row(db: Database, capsys) -> None:
+    """A group's own location can fork too, and a ``groups=``-only declaration
+    (no top-level ``locations=``) must still catch it.
+
+    ``_upsert_one_group`` writes ``group.location`` through the same
+    ``_upsert_locations`` a top-level entry uses, so a region added to a
+    previously-regionless group location mints a second row exactly like a
+    top-level one does — but ``_show_location_changes`` only walked the
+    ``locations`` kwarg, which this declaration never sets.
+    """
+    db.upsert_story(
+        "src/main-story/x.md",
+        story_type="main-story",
+        title="X",
+        groups=[GroupEntry("Teklo Industries", location=LocationEntry("Teklo Industries"))],
+    )
+
+    report = _preview(
+        db,
+        capsys,
+        path="src/main-story/x.md",
+        story_type="main-story",
+        title="X",
+        groups=[GroupEntry("Teklo Industries", location=LocationEntry("Teklo Industries", region="Aria"))],
+    )
+
+    assert "Teklo Industries" in report
+    assert "NEW ROW" in report, "the group's forked location is not warned about"
+
+
+def test_preview_reports_region_world_key_change_named_only_by_a_location(db: Database, capsys) -> None:
+    """A region named only as ``LocationEntry(region=...)`` still gets a world-key write.
+
+    ``_upsert_locations`` calls the same ``q.upsert_region`` an explicit
+    ``RegionEntry`` does, so this overwrite applied in total silence when no page
+    ever names the region directly through ``regions=``.
+    """
+    db.upsert_story(
+        "src/main-story/x.md",
+        story_type="main-story",
+        title="X",
+        locations=[LocationEntry("Enion", region="Aria", world_of_rathe_story_key="world-of-rathe/aria.md")],
+    )
+
+    report = _preview(
+        db,
+        capsys,
+        path="src/main-story/x.md",
+        story_type="main-story",
+        title="X",
+        locations=[LocationEntry("Enion", region="Aria", world_of_rathe_story_key="world-of-rathe/wrong.md")],
+    )
+
+    assert "Aria" in report
+    assert "world-of-rathe/wrong.md" in report, "the world key overwrite via a location is not shown"
+
+
+def test_preview_reports_npc_created_only_through_a_group_roster(db: Database, capsys) -> None:
+    """An NPC with no species, epithets or short names is invisible except via the
+    roster's member count.
+
+    ``_show_attr_changes`` returns early on a row that does not exist yet, and
+    ``_show_links_diff("NPCs")`` only walks the ``npcs`` kwarg — so an NPC
+    introduced purely through a group roster, with nothing else to surface it in
+    the alternate-names diff, was created in total silence under a group line
+    reading "1 members".
+    """
+    report = _preview(
+        db,
+        capsys,
+        path="src/main-story/x.md",
+        story_type="main-story",
+        title="X",
+        groups=[
+            GroupEntry(
+                "The Maela",
+                npc_members=(NPCEntry("Plain Seer"),),
+                member_source="flavour/x.md",
+            )
+        ],
+    )
+
+    assert "Plain Seer" in report, "the roster-created NPC is not named anywhere in the preview"
+
+
+def test_preview_reports_an_npc_added_to_an_existing_page_s_roster(db: Database, capsys) -> None:
+    """The same silence on an UPDATE, which is the more dangerous half.
+
+    On an INSERT the whole declaration is new and the reader is already reading
+    closely. On an UPDATE the story row reports "no scalar field changes" and the
+    group line moves from "1 members" to "2 members" — a new person entering the
+    database behind a digit. The added NPC carries no species, no epithets and no
+    short names, so nothing else in the report mentions them.
+    """
+    db.upsert_story(
+        "src/main-story/x.md",
+        story_type="main-story",
+        title="X",
+        groups=[
+            GroupEntry(
+                "The Maela",
+                npc_members=(NPCEntry("Kaysin"),),
+                member_source="flavour/x.md",
+            )
+        ],
+    )
+
+    report = _preview(
+        db,
+        capsys,
+        path="src/main-story/x.md",
+        story_type="main-story",
+        title="X",
+        groups=[
+            GroupEntry(
+                "The Maela",
+                npc_members=(NPCEntry("Kaysin"), NPCEntry("Plain Seer")),
+                member_source="flavour/x.md",
+            )
+        ],
+    )
+
+    assert "Plain Seer" in report, "the NPC added to an existing roster is announced by nothing"
+    assert "Kaysin" not in report.split("New NPCs:")[1].split("\n\n")[0], "a stored roster NPC is reported as new"
+
+
 def test_preview_reports_a_group_changing_parent(db: Database, capsys) -> None:
     """`parent_group_id` is a stored column, so re-parenting a group is a write.
 

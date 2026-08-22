@@ -112,8 +112,10 @@ class SpeciesEntry:
     """What a character is (R2) — a species, in one flat list.
 
     Frozen and catalogued for the same reason every other entity is: the id is a
-    hash of the name at the call site, so a second literal for ``Human`` would
-    mint a second row rather than reuse the first.
+    hash of the name at the call site, so a second literal for ``Human`` reuses
+    this row rather than minting a second one. The real trap is a *changed*
+    name — that mints a new row and strands the old one, the same as every
+    other registry id.
 
     There is no ``kind`` column separating species from cosmological tier.
     Herald, Aesir, Ancient, Embra and Dragon sit beside Human and Dwarf, because
@@ -1676,16 +1678,31 @@ class Database:
             strands the first. The membership diff above compares display names,
             which are identical before and after, so it stays silent. Without
             this block the preview shows a clean no-op for a row-orphaning change.
+
+            Walks the **reachable** locations, not the ``locations`` kwarg.
+            ``_upsert_one_group`` writes ``group.location`` and ``_upsert_locations``
+            writes ``location.parent`` through the same call, so either can fork a
+            row exactly as a top-level entry does. A ``groups=`` declaration with
+            no ``locations=`` at all must still be checked, so the guard below
+            drops the old ``locations is None`` shortcut and gates only on the
+            story already existing — forking is a property of the row, not of
+            which kwarg named it.
             """
             nonlocal changed
-            if locations is None or not existing:
+            if not existing:
                 return
-            linked_ids = q.select_story_junction(self.conn, story_id, "story_locations", "location_id")
+            _, reach_locations, _, _ = _reachable_entities()
+            if not reach_locations:
+                return
             lines: list[str] = []
-            for entry in locations:
+            for entry in reach_locations:
                 eff_region = region_row_id(entry.region) if entry.region else ""
                 new_id = _location_id(entry.name, eff_region)
-                superseded = [lid for lid in linked_ids if loc_id_to_name.get(lid) == entry.name and lid != new_id]
+                # A global scan, not one scoped to this story's own linked rows:
+                # a group's location is never linked through story_locations at
+                # all, so scoping to that junction would make this a no-op for
+                # exactly the case this walk exists to catch.
+                superseded = [lid for lid, name in loc_id_to_name.items() if name == entry.name and lid != new_id]
                 if superseded:
                     old_id = superseded[0]
                     old_row = q.select_location_by_id(self.conn, old_id)
@@ -1714,8 +1731,11 @@ class Database:
                 out.write("  Location rows:\n")
                 out.write("\n".join(lines) + "\n")
 
-        def _reachable_entities() -> tuple[list, list, list]:
-            """Return every NPC, location and group this declaration would write.
+        # Single-slot memo for _reachable_entities(); see its docstring.
+        _reach_cache: list[tuple[list, list, list, list[str]]] = []
+
+        def _reachable_entities() -> tuple[list, list, list, list[str]]:
+            """Return every NPC, location, group and region name this declaration would write.
 
             The kwargs are not the whole list. ``_upsert_one_group`` walks into
             ``parent``, ``location`` and ``npc_members``, and ``_upsert_locations``
@@ -1725,13 +1745,27 @@ class Database:
             this preview exists to catch: Ozrim and Maela Fairmind are reachable
             through a group roster and through nothing else.
 
+            Region names are gathered the same way: from the ``regions`` kwarg,
+            and from every reachable location's ``.region`` string — ``LocationEntry``
+            names a region as a bare string, and ``_upsert_locations`` writes that
+            region's row (including its ``world_of_rathe_story_key``) whether or
+            not any ``RegionEntry`` ever names it.
+
             The seen sets double as the cycle guard. ``_upsert_locations`` and
             ``_upsert_one_group`` raise on a cycle, but they raise during the
             *write*, and this runs first.
+
+            Memoised. Six of the report blocks below need this walk and the
+            kwargs cannot change between them, so recomputing it each time only
+            re-walked the same rosters. The cache is per-preview, living as long
+            as the enclosing call.
             """
+            if _reach_cache:
+                return _reach_cache[0]
             seen_npc: dict[str, Any] = {}
             seen_loc: dict[tuple[str, str], Any] = {}
             seen_grp: dict[str, Any] = {}
+            seen_region: dict[str, None] = {}
 
             def walk_npc(entry) -> None:
                 seen_npc.setdefault(entry.name, entry)
@@ -1741,6 +1775,8 @@ class Database:
                 if key in seen_loc:
                     return
                 seen_loc[key] = entry
+                if entry.region:
+                    seen_region.setdefault(entry.region, None)
                 if entry.parent is not None:
                     walk_location(entry.parent)
 
@@ -1761,7 +1797,17 @@ class Database:
                 walk_location(entry)
             for entry in groups or []:
                 walk_group(entry)
-            return list(seen_npc.values()), list(seen_loc.values()), list(seen_grp.values())
+            for entry in regions or []:
+                seen_region.setdefault(entry.name, None)
+            _reach_cache.append(
+                (
+                    list(seen_npc.values()),
+                    list(seen_loc.values()),
+                    list(seen_grp.values()),
+                    list(seen_region.keys()),
+                )
+            )
+            return _reach_cache[0]
 
         def _show_alternate_name_changes() -> None:
             """Report epithet and alias rows this declaration would add or remove.
@@ -1775,7 +1821,7 @@ class Database:
             """
             nonlocal changed
             lines: list[str] = []
-            reach_npcs, reach_locations, reach_groups = _reachable_entities()
+            reach_npcs, reach_locations, reach_groups, _reach_regions = _reachable_entities()
 
             for entry in reach_npcs:
                 cid = lore_character_id(entry.name)
@@ -1831,6 +1877,31 @@ class Database:
 
         _show_alternate_name_changes()
 
+        def _show_npc_creations() -> None:
+            """Report a reachable NPC that has no stored row yet.
+
+            ``_show_attr_changes`` skips a row that does not exist —
+            "new row: nothing to overwrite" — and ``_show_links_diff("NPCs")``
+            only walks the ``npcs`` kwarg, not the reachable set. An NPC
+            introduced purely through a group roster, carrying no species, no
+            epithets and no short names, has nothing left to surface it in the
+            alternate-names diff either, so it was created in total silence
+            under a group line reading "N members". This is that creation's
+            only announcement.
+            """
+            nonlocal changed
+            reach_npcs, _, _, _ = _reachable_entities()
+            lines: list[str] = []
+            for entry in reach_npcs:
+                if npc_rows.get(lore_character_id(entry.name)) is None:
+                    lines.append(f"    + {entry.name}")
+            if lines:
+                changed = True
+                out.write("  New NPCs:\n")
+                out.write("\n".join(lines) + "\n")
+
+        _show_npc_creations()
+
         def _show_attr_changes(
             label: str,
             entries: list | None,
@@ -1884,9 +1955,15 @@ class Database:
                 out.write("\n".join(lines) + "\n")
 
         _show_location_changes()
+        # Reachable, not the `npcs` kwarg: `_upsert_one_group` writes `status` and
+        # `other_characters_story_key` for roster NPCs too, via `_upsert_npcs`, so
+        # an overwrite reached only through a group roster must be shown here —
+        # Monster/Fauna/Flora stay on their own kwargs below, since none of them
+        # is reachable through a group.
+        reach_npcs_for_attrs, _, _, _ = _reachable_entities()
         _show_attr_changes(
             "NPC",
-            npcs,
+            reach_npcs_for_attrs,
             lore_character_id,
             npc_rows,
             ("status", "other_characters_story_key"),
@@ -1896,21 +1973,42 @@ class Database:
         _show_attr_changes("Flora", flora, flora_id, flora_rows, ("description",))
 
         def _show_region_changes() -> None:
-            """Report a region's world_of_rathe_story_key being overwritten in place."""
+            """Report a region's world_of_rathe_story_key being overwritten in place.
+
+            A region named only as a ``LocationEntry(region="…")`` string is
+            written by ``_upsert_locations`` exactly the way an explicit
+            ``RegionEntry`` is — including its own ``_auto_world_key`` fallback —
+            so it is walked here too via ``_reachable_entities()``'s region
+            names, or the overwrite applies in silence on a page that never
+            names the region directly.
+            """
             nonlocal changed
-            if regions is None or not existing:
+            if not existing:
                 return
+            _, reach_locations, _, reach_region_names = _reachable_entities()
+            if not reach_region_names:
+                return
+            # Last-wins, matching write order: the real upsert_story() writes
+            # `regions` via `_upsert_regions` before `locations` via
+            # `_upsert_locations`, so a location's region key overwrites an
+            # explicit RegionEntry naming the same region.
+            incoming_by_name: dict[str, str] = {}
+            for entry in regions or []:
+                incoming_by_name[entry.name] = entry.world_of_rathe_story_key or _auto_world_key(entry.name)
+            for loc in reach_locations:
+                if loc.region:
+                    incoming_by_name[loc.region] = loc.world_of_rathe_story_key or _auto_world_key(loc.region)
             lines: list[str] = []
-            for entry in regions:
-                rid = region_row_id(entry.name)
+            for name in sorted(reach_region_names):
+                rid = region_row_id(name)
                 row = q.select_region_by_id(self.conn, rid)
                 if row is None:
                     continue
-                incoming = entry.world_of_rathe_story_key or _auto_world_key(entry.name)
+                incoming = incoming_by_name.get(name, "")
                 stored = row["world_of_rathe_story_key"] or ""
                 if not incoming or incoming == stored:
                     continue
-                lines.append(f"    ~ {entry.name}: world_of_rathe_story_key {stored or '(none)'!r} -> {incoming!r}")
+                lines.append(f"    ~ {name}: world_of_rathe_story_key {stored or '(none)'!r} -> {incoming!r}")
             if lines:
                 changed = True
                 out.write("  Region rows:\n")
@@ -1991,7 +2089,7 @@ class Database:
             memberships, and printed one line about an alias.
             """
             nonlocal changed
-            _, _, reach_groups = _reachable_entities()
+            _, _, reach_groups, _ = _reachable_entities()
             if not reach_groups:
                 return
             lines: list[str] = []
