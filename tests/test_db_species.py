@@ -57,19 +57,19 @@ def test_npcs_has_no_species_column(db: Database) -> None:
 
 
 def test_a_species_is_written_from_a_declaration(db: Database) -> None:
-    _story(db, npcs=[NPCEntry("Biski", species=SpeciesEntry("Dog"))])
+    _story(db, characters=[NPCEntry("Biski", species=SpeciesEntry("Dog"))])
     assert _species_of(db, "Biski") == ["Dog"]
 
 
 def test_an_npc_holds_two_species_in_declared_order(db: Database) -> None:
     """`Zombie Dog` was one value gluing two facts; splitting it needs both halves."""
-    _story(db, npcs=[NPCEntry("Scooba", species=(SpeciesEntry("Zombie"), SpeciesEntry("Dog")))])
+    _story(db, characters=[NPCEntry("Scooba", species=(SpeciesEntry("Zombie"), SpeciesEntry("Dog")))])
     assert _species_of(db, "Scooba") == ["Zombie", "Dog"]
 
 
 def test_species_is_replace_semantic(db: Database) -> None:
-    _story(db, npcs=[NPCEntry("Scooba", species=(SpeciesEntry("Zombie"), SpeciesEntry("Dog")))])
-    _story(db, npcs=[NPCEntry("Scooba", species=SpeciesEntry("Zombie"))])
+    _story(db, characters=[NPCEntry("Scooba", species=(SpeciesEntry("Zombie"), SpeciesEntry("Dog")))])
+    _story(db, characters=[NPCEntry("Scooba", species=SpeciesEntry("Zombie"))])
     assert _species_of(db, "Scooba") == ["Zombie"]
 
 
@@ -79,8 +79,8 @@ def test_an_omitted_species_is_a_deletion(db: Database) -> None:
     This is the behaviour that made 32 undeclared species values a migration
     problem rather than a rename.
     """
-    _story(db, npcs=[NPCEntry("Swabbie", species=SpeciesEntry("Zombie"))])
-    _story(db, npcs=[NPCEntry("Swabbie")])
+    _story(db, characters=[NPCEntry("Swabbie", species=SpeciesEntry("Zombie"))])
+    _story(db, characters=[NPCEntry("Swabbie")])
     assert _species_of(db, "Swabbie") == []
 
 
@@ -88,7 +88,7 @@ def test_two_npcs_share_one_species_row(db: Database) -> None:
     """The point of a registry: `Human` is one row, not 207 strings."""
     _story(
         db,
-        npcs=[
+        characters=[
             NPCEntry("Aios", species=SpeciesEntry("Human")),
             NPCEntry("Akuo", species=SpeciesEntry("Human")),
         ],
@@ -97,9 +97,9 @@ def test_two_npcs_share_one_species_row(db: Database) -> None:
 
 
 def test_species_aliases_are_stored_and_replace_semantic(db: Database) -> None:
-    _story(db, npcs=[NPCEntry("Sol", species=SpeciesEntry("Aesir", aliases=("Aesirs",)))])
+    _story(db, characters=[NPCEntry("Sol", species=SpeciesEntry("Aesir", aliases=("Aesirs",)))])
     assert q.select_species_aliases(db.conn, species_id("Aesir")) == ["Aesirs"]
-    _story(db, npcs=[NPCEntry("Sol", species=SpeciesEntry("Aesir"))])
+    _story(db, characters=[NPCEntry("Sol", species=SpeciesEntry("Aesir"))])
     assert q.select_species_aliases(db.conn, species_id("Aesir")) == []
 
 
@@ -109,13 +109,13 @@ def test_species_aliases_are_stored_and_replace_semantic(db: Database) -> None:
 
 
 def test_dry_run_reports_a_species_it_would_add(db: Database, capsys) -> None:
-    _story(db, npcs=[NPCEntry("Biski")])
+    _story(db, characters=[NPCEntry("Biski")])
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
         story_type="main-story",
         title="T",
-        npcs=[NPCEntry("Biski", species=SpeciesEntry("Dog"))],
+        characters=[NPCEntry("Biski", species=SpeciesEntry("Dog"))],
         dry_run=True,
     )
     assert "Biski: species 'Dog'" in capsys.readouterr().out
@@ -123,13 +123,13 @@ def test_dry_run_reports_a_species_it_would_add(db: Database, capsys) -> None:
 
 def test_dry_run_reports_a_species_it_would_remove(db: Database, capsys) -> None:
     """An omitted species is a deletion, so the preview has to say so."""
-    _story(db, npcs=[NPCEntry("Swabbie", species=SpeciesEntry("Zombie"))])
+    _story(db, characters=[NPCEntry("Swabbie", species=SpeciesEntry("Zombie"))])
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
         story_type="main-story",
         title="T",
-        npcs=[NPCEntry("Swabbie")],
+        characters=[NPCEntry("Swabbie")],
         dry_run=True,
     )
     assert "Swabbie: species 'Zombie' REMOVED" in capsys.readouterr().out
@@ -159,7 +159,7 @@ def test_dry_run_reports_a_species_on_a_group_member(db: Database, capsys) -> No
 def test_species_survive_the_csv_round_trip(db: Database, tmp_path: Path) -> None:
     _story(
         db,
-        npcs=[
+        characters=[
             NPCEntry("Scooba", species=(SpeciesEntry("Zombie"), SpeciesEntry("Dog"))),
             NPCEntry("Sol", species=SpeciesEntry("Aesir", aliases=("Aesirs",))),
         ],
@@ -176,7 +176,7 @@ def test_species_survive_the_csv_round_trip(db: Database, tmp_path: Path) -> Non
 
 
 def test_update_description_writes_species_notes(db: Database) -> None:
-    _story(db, npcs=[NPCEntry("Ozrim", species=SpeciesEntry("Chanek"))])
+    _story(db, characters=[NPCEntry("Ozrim", species=SpeciesEntry("Chanek"))])
     db.update_description("species", "Chanek", "Green-skinned, pointed-eared Rathenfolk of the far west.")
     row = db.conn.execute("SELECT notes FROM species WHERE name = 'Chanek'").fetchone()
     assert row["notes"].startswith("Green-skinned")

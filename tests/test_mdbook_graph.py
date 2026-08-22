@@ -74,7 +74,13 @@ def src_root(tmp_path: Path) -> Path:
         "CharacterId|Name|Species|Status|OtherCharactersStoryKey\n"
         "LC1|Minerva Themis|Human|Alive|other-characters/minerva-themis.md\n"
         "LC2|Nameless|Human|Unknown|\n"
+        # Self-healed identity rows (migration 12) for the two heroes below —
+        # every hero has a characters.csv row, minted by _self_heal_character_heroes,
+        # which is what the story-characters.csv junction's CharacterId actually references.
+        "LC10|Dorinthea|Human|Unknown|\n"
+        "LC11|Pageless Hero|Human|Unknown|\n"
     )
+    (csv_dir / "character-heroes.csv").write_text("# AUTO-GENERATED\nCanonicalId|CharacterId\nCN1|LC10\nCN2|LC11\n")
     (csv_dir / "weapons-canonical.csv").write_text(
         "# AUTO-GENERATED\n" "CanonicalWeaponId|CanonicalSlug|CanonicalWeapon\n" "CW1|dawnblade|Dawnblade\n"
     )
@@ -95,18 +101,19 @@ def src_root(tmp_path: Path) -> Path:
     )
 
     # Junctions. ST3/ST4 rows must be dropped with their stories.
-    (csv_dir / "story-heroes.csv").write_text(
+    (csv_dir / "story-characters.csv").write_text(
         "# AUTO-GENERATED\n"
-        "StoryId|CanonicalId|Fragment\n"
-        "ST1|CN1|\n"
-        "ST2|CN1|\n"
-        "ST2|CN2|\n"
-        "ST3|CN1|\n"
-        "ST4|CN1|\n"
+        "StoryId|CharacterId|Fragment\n"
+        "ST1|LC10|\n"
+        "ST1|LC1|\n"
+        "ST1|LC2|\n"
+        "ST2|LC10|\n"
+        "ST2|LC11|\n"
+        "ST3|LC10|\n"
+        "ST4|LC10|\n"
     )
     (csv_dir / "story-regions.csv").write_text("# AUTO-GENERATED\nStoryId|RegionId\nST1|RG1\nST2|RG2\n")
     (csv_dir / "story-locations.csv").write_text("# AUTO-GENERATED\nStoryId|LocationId\nST1|LO1\nST2|LO2\n")
-    (csv_dir / "story-npcs.csv").write_text("# AUTO-GENERATED\nStoryId|CharacterId|Fragment\nST1|LC1|\nST1|LC2|\n")
     (csv_dir / "story-weapons.csv").write_text("# AUTO-GENERATED\nStoryId|CanonicalWeaponId\nST1|CW1\n")
     (csv_dir / "story-fauna.csv").write_text("# AUTO-GENERATED\nStoryId|FaunaId\nST2|FA1\n")
     return tmp_path
@@ -295,6 +302,48 @@ def test_links_are_deduplicated_and_indices_are_in_range(src_root: Path) -> None
         assert 0 <= a < len(graph["nodes"])
         assert 0 <= b < len(graph["nodes"])
         assert a != b
+
+
+def test_hero_and_npc_same_person_draws_as_one_node(tmp_path: Path) -> None:
+    """The point of the story_characters merge (migration 17): a person who is
+    both a hero and an ``NPCEntry(hero_slug=...)`` resolves to one
+    ``character_id`` and must draw as one node, not two.
+
+    Before the merge, ``story-heroes.csv`` (keyed on ``canonical_id``) and
+    ``story-npcs.csv`` (keyed on ``character_id``) put the same person under
+    two different node ids even when they were the same row in ``characters``
+    — this is exactly that bug, closed by keying every story-character edge
+    on ``character_id`` alone via ``story-characters.csv``.
+    """
+    src = tmp_path / "src"
+    (src / "heroes-of-rathe").mkdir(parents=True)
+    (src / "heroes-of-rathe" / "kano-about.md").write_text("# Kano\n")
+
+    csv_dir = tmp_path / "data" / "csv"
+    csv_dir.mkdir(parents=True)
+    (csv_dir / "stories.csv").write_text(
+        "# AUTO-GENERATED\n"
+        "StoryId|StoryKey|StoryType|Title|Authors|Artists|SourceLink|PublicationDate|ThumbnailImageLink\n"
+        "ST1|main-story/a.md|main-story|A|||||\n"
+    )
+    (csv_dir / "heroes-canonical.csv").write_text(
+        "# AUTO-GENERATED\nCanonicalId|CanonicalSlug|CanonicalHero\nCN1|kano|Kano\n"
+    )
+    (csv_dir / "characters.csv").write_text(
+        "# AUTO-GENERATED\nCharacterId|Name|Species|Status|OtherCharactersStoryKey\nLC1|Kano|Human|Alive|\n"
+    )
+    (csv_dir / "character-heroes.csv").write_text("# AUTO-GENERATED\nCanonicalId|CharacterId\nCN1|LC1\n")
+    # One story-characters.csv row: a hero slug and an NPCEntry for the same
+    # person resolve to the same character_id — LC1 is Kano's character_id
+    # whichever way he is named.
+    (csv_dir / "story-characters.csv").write_text("# AUTO-GENERATED\nStoryId|CharacterId|Fragment\nST1|LC1|\n")
+
+    graph = build_graph(tmp_path / "data", src)
+
+    kano_nodes = [n for n in graph["nodes"] if n["n"] == "Kano"]
+    assert len(kano_nodes) == 1, f"expected one Kano node, got {len(kano_nodes)}"
+    assert kano_nodes[0]["k"] == "hero"
+    assert kano_nodes[0]["u"] == "heroes-of-rathe/kano-about.html"
 
 
 def test_missing_csv_files_do_not_raise(tmp_path: Path) -> None:
@@ -532,7 +581,13 @@ def printings_root(tmp_path: Path) -> Path:
     )
     # CN1 is written into Monarch only; CN2 into Uprising only; CN3 nowhere, so
     # it never becomes a node.
-    (csv_dir / "story-heroes.csv").write_text("# AUTO-GENERATED\nStoryId|CanonicalId|Fragment\nST1|CN1|\nST2|CN2|\n")
+    (csv_dir / "characters.csv").write_text(
+        "# AUTO-GENERATED\nCharacterId|Name|Species|Status|OtherCharactersStoryKey\nLC1|Dorinthea|Human|Unknown|\nLC2|Rhinar|Human|Unknown|\n"
+    )
+    (csv_dir / "character-heroes.csv").write_text("# AUTO-GENERATED\nCanonicalId|CharacterId\nCN1|LC1\nCN2|LC2\n")
+    (csv_dir / "story-characters.csv").write_text(
+        "# AUTO-GENERATED\nStoryId|CharacterId|Fragment\nST1|LC1|\nST2|LC2|\n"
+    )
     (csv_dir / "heroes-game.csv").write_text(
         "# AUTO-GENERATED\n"
         "HeroGameId|CardName|CanonicalId|ClassIds|TalentIds|Health|Intellect|AbilityText|YoungHero\n"

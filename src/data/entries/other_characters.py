@@ -40,8 +40,10 @@ db.upsert_story(
     path="src/other-characters/krest-mortimer.md",
     story_type="other-characters",
     title="Dr. Krest Mortimer, 'The Fixer'",
-    heroes=["arakni-huntsman", "arakni-solitary-confinement", "arakni-web-of-deceit"],
-    npcs=[
+    characters=[
+        "arakni-huntsman",
+        "arakni-solitary-confinement",
+        "arakni-web-of-deceit",
         npc.ACHLYS_HAG_OF_MOJIRE,
         npc.GAVIN,
         npc.LENA_BELLE,

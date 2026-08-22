@@ -73,9 +73,11 @@ def test_profession_id_hashes_the_name_alone(db: Database) -> None:
 
 
 def test_second_literal_for_the_same_name_reuses_the_row(db: Database) -> None:
-    _story(db, npcs=[NPCEntry("Aeric", professions=ProfessionEntry("Braumeister"))])
+    _story(db, characters=[NPCEntry("Aeric", professions=ProfessionEntry("Braumeister"))])
     _story(
-        db, path="src/world-of-rathe/aria.md", npcs=[NPCEntry("Bellwyn", professions=ProfessionEntry("Braumeister"))]
+        db,
+        path="src/world-of-rathe/aria.md",
+        characters=[NPCEntry("Bellwyn", professions=ProfessionEntry("Braumeister"))],
     )
     assert db.conn.execute("SELECT COUNT(*) FROM professions WHERE name = 'Braumeister'").fetchone()[0] == 1
 
@@ -86,34 +88,34 @@ def test_second_literal_for_the_same_name_reuses_the_row(db: Database) -> None:
 
 
 def test_a_profession_is_written_from_a_declaration(db: Database) -> None:
-    _story(db, npcs=[NPCEntry("Aeric", professions=ProfessionEntry("Braumeister"))])
+    _story(db, characters=[NPCEntry("Aeric", professions=ProfessionEntry("Braumeister"))])
     assert _professions_of(db, "Aeric") == ["Braumeister"]
 
 
 def test_a_character_holds_two_professions_in_declared_order(db: Database) -> None:
     entry = NPCEntry("Aeric", professions=(ProfessionEntry("Braumeister"), ProfessionEntry("Shieldbearer")))
-    _story(db, npcs=[entry])
+    _story(db, characters=[entry])
     assert _professions_of(db, "Aeric") == ["Braumeister", "Shieldbearer"]
 
 
 def test_professions_is_replace_semantic(db: Database) -> None:
     entry = NPCEntry("Aeric", professions=(ProfessionEntry("Braumeister"), ProfessionEntry("Shieldbearer")))
-    _story(db, npcs=[entry])
-    _story(db, npcs=[NPCEntry("Aeric", professions=ProfessionEntry("Braumeister"))])
+    _story(db, characters=[entry])
+    _story(db, characters=[NPCEntry("Aeric", professions=ProfessionEntry("Braumeister"))])
     assert _professions_of(db, "Aeric") == ["Braumeister"]
 
 
 def test_an_omitted_profession_is_a_deletion(db: Database) -> None:
     """Like species, and unlike status: a junction states the complete set."""
-    _story(db, npcs=[NPCEntry("Aeric", professions=ProfessionEntry("Braumeister"))])
-    _story(db, npcs=[NPCEntry("Aeric")])
+    _story(db, characters=[NPCEntry("Aeric", professions=ProfessionEntry("Braumeister"))])
+    _story(db, characters=[NPCEntry("Aeric")])
     assert _professions_of(db, "Aeric") == []
 
 
 def test_two_characters_share_one_profession_row(db: Database) -> None:
     _story(
         db,
-        npcs=[
+        characters=[
             NPCEntry("Aeric", professions=ProfessionEntry("Braumeister")),
             NPCEntry("Bellwyn", professions=ProfessionEntry("Braumeister")),
         ],
@@ -128,13 +130,13 @@ def test_a_repeated_profession_on_one_entry_raises(db: Database) -> None:
     keeps the first) than on a preview that diffed a dict (last wins)."""
     entry = NPCEntry("Aeric", professions=(ProfessionEntry("Braumeister"), ProfessionEntry("Braumeister")))
     with pytest.raises(ValueError, match="Braumeister"):
-        _story(db, npcs=[entry])
+        _story(db, characters=[entry])
 
 
 def test_the_duplicate_guard_fires_on_the_preview_path_too(db: Database) -> None:
     entry = NPCEntry("Aeric", professions=(ProfessionEntry("Braumeister"), ProfessionEntry("Braumeister")))
     with pytest.raises(ValueError, match="Braumeister"):
-        _story(db, npcs=[entry], dry_run=True)
+        _story(db, characters=[entry], dry_run=True)
 
 
 def test_dry_run_reports_a_profession_on_a_group_member(db: Database, capsys) -> None:
@@ -157,26 +159,26 @@ def test_dry_run_reports_a_profession_on_a_group_member(db: Database, capsys) ->
 
 
 def test_dry_run_reports_a_profession_it_would_add(db: Database, capsys) -> None:
-    _story(db, npcs=[NPCEntry("Aeric")])
+    _story(db, characters=[NPCEntry("Aeric")])
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
         story_type="main-story",
         title="T",
-        npcs=[NPCEntry("Aeric", professions=ProfessionEntry("Braumeister"))],
+        characters=[NPCEntry("Aeric", professions=ProfessionEntry("Braumeister"))],
         dry_run=True,
     )
     assert "Aeric: profession 'Braumeister'" in capsys.readouterr().out
 
 
 def test_dry_run_reports_a_profession_it_would_remove(db: Database, capsys) -> None:
-    _story(db, npcs=[NPCEntry("Aeric", professions=ProfessionEntry("Braumeister"))])
+    _story(db, characters=[NPCEntry("Aeric", professions=ProfessionEntry("Braumeister"))])
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
         story_type="main-story",
         title="T",
-        npcs=[NPCEntry("Aeric")],
+        characters=[NPCEntry("Aeric")],
         dry_run=True,
     )
     assert "Aeric: profession 'Braumeister' REMOVED" in capsys.readouterr().out
@@ -187,7 +189,7 @@ def test_dry_run_does_not_write_professions(db: Database) -> None:
         path="src/main-story/super-slam/feudmasters.md",
         story_type="main-story",
         title="T",
-        npcs=[NPCEntry("Aeric", professions=ProfessionEntry("Braumeister"))],
+        characters=[NPCEntry("Aeric", professions=ProfessionEntry("Braumeister"))],
         dry_run=True,
     )
     assert db.conn.execute("SELECT COUNT(*) FROM professions").fetchone()[0] == 0
@@ -216,7 +218,7 @@ def test_a_profession_attaches_to_a_hero_through_its_character_row(db: Database)
     into `character_professions` has to exist.
     """
     hid = _seed_hero(db, "kano", "Kano")
-    _story(db, npcs=[NPCEntry("Kano", hero_slug="kano", professions=ProfessionEntry("Lord Wizard"))])
+    _story(db, characters=[NPCEntry("Kano", hero_slug="kano", professions=ProfessionEntry("Lord Wizard"))])
 
     minted = lore_character_id("Kano")
     assert q.select_character_id_for_hero(db.conn, hid) == minted
@@ -232,13 +234,13 @@ def test_the_hero_name_guard_still_refuses_an_undeclared_claim(db: Database) -> 
     """
     _seed_hero(db, "kano", "Kano")
     with pytest.raises(ValueError, match="playable hero name"):
-        _story(db, npcs=[NPCEntry("Kano", professions=ProfessionEntry("Lord Wizard"))])
+        _story(db, characters=[NPCEntry("Kano", professions=ProfessionEntry("Lord Wizard"))])
 
 
 def test_a_hero_profession_self_heals_the_character_heroes_link(db: Database) -> None:
     hid = _seed_hero(db, "kano", "Kano")
     assert q.select_character_id_for_hero(db.conn, hid) is None
-    _story(db, npcs=[NPCEntry("Kano", hero_slug="kano", professions=ProfessionEntry("Lord Wizard"))])
+    _story(db, characters=[NPCEntry("Kano", hero_slug="kano", professions=ProfessionEntry("Lord Wizard"))])
     assert q.select_character_id_for_hero(db.conn, hid) is not None
 
 
@@ -246,7 +248,7 @@ def test_a_hero_profession_is_replace_semantic_like_any_other(db: Database) -> N
     _seed_hero(db, "kano", "Kano")
     _story(
         db,
-        npcs=[
+        characters=[
             NPCEntry(
                 "Kano",
                 hero_slug="kano",
@@ -257,7 +259,7 @@ def test_a_hero_profession_is_replace_semantic_like_any_other(db: Database) -> N
     _story(
         db,
         path="src/world-of-rathe/aria.md",
-        npcs=[NPCEntry("Kano", hero_slug="kano", professions=ProfessionEntry("Lord Wizard"))],
+        characters=[NPCEntry("Kano", hero_slug="kano", professions=ProfessionEntry("Lord Wizard"))],
     )
     assert _professions_of(db, "Kano") == ["Lord Wizard"]
 
@@ -268,7 +270,7 @@ def test_a_dry_run_writes_neither_the_hero_link_nor_the_profession(db: Database,
         path="src/main-story/super-slam/feudmasters.md",
         story_type="main-story",
         title="T",
-        npcs=[NPCEntry("Kano", hero_slug="kano", professions=ProfessionEntry("Lord Wizard"))],
+        characters=[NPCEntry("Kano", hero_slug="kano", professions=ProfessionEntry("Lord Wizard"))],
         dry_run=True,
     )
     capsys.readouterr()
@@ -282,7 +284,7 @@ def test_a_dry_run_reports_the_hero_profession_it_would_add(db: Database, capsys
         path="src/main-story/super-slam/feudmasters.md",
         story_type="main-story",
         title="T",
-        npcs=[NPCEntry("Kano", hero_slug="kano", professions=ProfessionEntry("Lord Wizard"))],
+        characters=[NPCEntry("Kano", hero_slug="kano", professions=ProfessionEntry("Lord Wizard"))],
         dry_run=True,
     )
     assert "profession 'Lord Wizard'" in capsys.readouterr().out
@@ -296,7 +298,7 @@ def test_a_dry_run_reports_the_hero_profession_it_would_add(db: Database, capsys
 def test_professions_survive_the_csv_round_trip(db: Database, tmp_path: Path) -> None:
     _story(
         db,
-        npcs=[
+        characters=[
             NPCEntry("Aeric", professions=(ProfessionEntry("Braumeister"), ProfessionEntry("Shieldbearer"))),
         ],
     )
@@ -316,7 +318,7 @@ def test_professions_survive_the_csv_round_trip(db: Database, tmp_path: Path) ->
 
 
 def test_update_description_writes_profession_notes(db: Database) -> None:
-    _story(db, npcs=[NPCEntry("Aeric", professions=ProfessionEntry("Braumeister"))])
+    _story(db, characters=[NPCEntry("Aeric", professions=ProfessionEntry("Braumeister"))])
     db.update_description("profession", "Braumeister", "The elite of the brewer's trade.")
     row = db.conn.execute("SELECT notes FROM professions WHERE name = 'Braumeister'").fetchone()
     assert row["notes"] == "The elite of the brewer's trade."

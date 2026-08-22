@@ -37,7 +37,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/aurora-about.md",
     story_type="heroes-of-rathe",
     title="Aurora",
-    heroes=["aurora"],
+    characters=["aurora"],
     locations=[
         loc.ENION,
         loc.VOLTHAVEN,
@@ -51,7 +51,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/oscilio-about.md",
     story_type="heroes-of-rathe",
     title="Oscilio",
-    heroes=["oscilio"],
+    characters=["oscilio"],
     locations=[
         loc.ENION,
     ],
@@ -65,7 +65,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/zyggy-about.md",
     story_type="heroes-of-rathe",
     title="Zyggy Starlight",
-    heroes=["zyggy", "oscilio"],
+    characters=["zyggy", "oscilio"],
     regions=[reg.NEBULUS_RIFT],
     locations=[
         loc.VALAHAI,
@@ -79,7 +79,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/blaze-about.md",
     story_type="heroes-of-rathe",
     title="Blaze",
-    heroes=["blaze"],
+    characters=["blaze"],
     regions=[reg.VOLCOR],
     locations=[
         loc.IMPERIAL_PALACE,
@@ -92,7 +92,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/dorinthea-about.md",
     story_type="heroes-of-rathe",
     title="Dorinthea",
-    heroes=["dorinthea", "hala"],
+    characters=["dorinthea", "hala"],
     locations=[
         loc.DIMENXXIONAL_GATEWAY,
         loc.THE_GOLDEN_FIELDS,
@@ -111,7 +111,7 @@ db.upsert_story(
     story_type="heroes-of-rathe",
     title="Baalghor",
     source_link="https://fabtcg.com/hero/baalghor/",
-    heroes=["baalghor"],
+    characters=["baalghor"],
     locations=[
         loc.I_ARATHAEL,
         loc.SHADOWREALM,
@@ -139,7 +139,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/arakni-about.md",
     story_type="heroes-of-rathe",
     title="Arakni, Huntsman",
-    heroes=["arakni-huntsman"],
+    characters=["arakni-huntsman"],
     regions=[reg.THE_PITS],
     dry_run=True,
 )
@@ -148,7 +148,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/benji-about.md",
     story_type="heroes-of-rathe",
     title="Benji, The Piercing Wind",
-    heroes=["benji"],
+    characters=["benji"],
     locations=[
         loc.GORGE_OF_A_THOUSAND_WINDS,
         loc.MISTCLOAK_GULLY,
@@ -162,7 +162,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/bravo-about.md",
     story_type="heroes-of-rathe",
     title="Bravo, Showstopper",
-    heroes=["bravo"],
+    characters=["bravo"],
     locations=[
         loc.FRACTAL_SCAR,
         loc.LEGENDARIUM,
@@ -177,7 +177,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/briar-about.md",
     story_type="heroes-of-rathe",
     title="Briar, Warden of Thorns",
-    heroes=["briar"],
+    characters=["briar"],
     locations=[loc.CANDLEHOLD],
     regions=[reg.ARIA],
     dry_run=True,
@@ -187,7 +187,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/cindra-about.md",
     story_type="heroes-of-rathe",
     title="Cindra, Dracai of Retribution",
-    heroes=["cindra", "emperor"],
+    characters=["cindra", "emperor"],
     regions=[reg.VOLCOR],
     groups=[grp.SAYASHI],
     dry_run=True,
@@ -197,7 +197,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/dromai-about.md",
     story_type="heroes-of-rathe",
     title="Dromai, Ash Artist",
-    heroes=["dromai"],
+    characters=["dromai"],
     locations=[loc.MT_VOLCOR],
     regions=[reg.VOLCOR],
     dry_run=True,
@@ -207,7 +207,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/emperor-about.md",
     story_type="heroes-of-rathe",
     title="Emperor, Dracai of Aesir",
-    heroes=["emperor"],
+    characters=["emperor"],
     locations=[loc.MT_VOLCOR],
     regions=[reg.VOLCOR],
     dry_run=True,
@@ -217,7 +217,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/enigma-about.md",
     story_type="heroes-of-rathe",
     title="Enigma, Ledger of Ancestry",
-    heroes=["enigma"],
+    characters=["enigma"],
     locations=[loc.LUNAR_TEMPLE],
     regions=[reg.MISTERIA],
     dry_run=True,
@@ -227,8 +227,10 @@ db.upsert_story(
     path="src/heroes-of-rathe/fai-about.md",
     story_type="heroes-of-rathe",
     title="Fai, Rising Rebellion",
-    heroes=["fai"],
-    npcs=[npc.EUN],
+    characters=[
+        "fai",
+        npc.EUN,
+    ],
     locations=[
         loc.ASHVAHAN,
         loc.RED_DESERT,
@@ -241,7 +243,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/ira-about.md",
     story_type="heroes-of-rathe",
     title="Ira, Crimson Haze",
-    heroes=["ira"],
+    characters=["ira"],
     locations=[
         loc.VALLEY_OF_BLOSSOMS,
         loc.IKARU,
@@ -255,7 +257,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/lexi-about.md",
     story_type="heroes-of-rathe",
     title="Lexi, Livewire",
-    heroes=["lexi"],
+    characters=["lexi"],
     locations=[
         loc.ENION,
         loc.VOLTHAVEN,
@@ -269,8 +271,7 @@ db.upsert_story(
     story_type="heroes-of-rathe",
     title="Viserai",
     source_link="https://fabtcg.com/hero/viserai-the-forsaken/",
-    heroes=["chane", "viserai"],
-    npcs=[npc.LORD_SUTCLIFFE, npc.URSUR],
+    characters=["chane", "viserai", npc.LORD_SUTCLIFFE, npc.URSUR],
     locations=[
         loc.I_ARATHAEL,
         loc.SHADOWREALM,
@@ -283,7 +284,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/azalea-about.md",
     story_type="heroes-of-rathe",
     title="Azalea",
-    heroes=["azalea"],
+    characters=["azalea"],
     locations=[
         loc.BLACKJACK_S_TAVERN,
     ],
@@ -296,8 +297,8 @@ db.upsert_story(
     path="src/heroes-of-rathe/boltyn-about.md",
     story_type="heroes-of-rathe",
     title="Boltyn",
-    heroes=["boltyn"],
-    npcs=[
+    characters=[
+        "boltyn",
         npc.EIRINA,
         npc.AIOS,
         npc.FYANNA_REDMOOR_BOLTYN_S_COUSIN,
@@ -319,7 +320,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/fang-about.md",
     story_type="heroes-of-rathe",
     title="Fang",
-    heroes=["fang", "emperor"],
+    characters=["fang", "emperor"],
     regions=[reg.VOLCOR],
     groups=[grp.CHILDREN_OF_THE_DRAGON],
     dry_run=True,
@@ -329,8 +330,8 @@ db.upsert_story(
     path="src/heroes-of-rathe/hala-about.md",
     story_type="heroes-of-rathe",
     title="Hala",
-    heroes=["hala"],
-    npcs=[
+    characters=[
+        "hala",
         npc.GRAND_MAGISTER_THE_STEADFAST,
     ],
     locations=[
@@ -354,7 +355,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/katsu-about.md",
     story_type="heroes-of-rathe",
     title="Katsu",
-    heroes=["katsu"],
+    characters=["katsu"],
     locations=[
         loc.MUGENSHI_GORGE,
     ],
@@ -366,7 +367,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/kayo-about.md",
     story_type="heroes-of-rathe",
     title="Kayo",
-    heroes=["kayo", "kassai"],
+    characters=["kayo", "kassai"],
     locations=[
         loc.DEATHMATCH_ARENA,
         loc.THE_BADLANDS,
@@ -380,7 +381,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/melody-about.md",
     story_type="heroes-of-rathe",
     title="Melody",
-    heroes=["melody"],
+    characters=["melody"],
     locations=[
         loc.THE_FLOW,
     ],
@@ -392,7 +393,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/oldhim-about.md",
     story_type="heroes-of-rathe",
     title="Oldhim",
-    heroes=["oldhim"],
+    characters=["oldhim"],
     locations=[
         # Open question: should ISENLOFT carry lore_fragment="mount-isen"? Uncertain
         # match. It is a one-line edit in catalogue/locations.py now, and it would
@@ -410,8 +411,8 @@ db.upsert_story(
     path="src/heroes-of-rathe/puffin-about.md",
     story_type="heroes-of-rathe",
     title="Puffin",
-    heroes=["puffin"],
-    npcs=[
+    characters=[
+        "puffin",
         npc.POLLY_CRANKA,
         npc.CAPTAIN_RUE,
     ],
@@ -427,7 +428,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/shiyana-about.md",
     story_type="heroes-of-rathe",
     title="Shiyana",
-    heroes=["shiyana"],
+    characters=["shiyana"],
     regions=[reg.SOLANA],
     dry_run=True,
 )
@@ -436,8 +437,9 @@ db.upsert_story(
     path="src/heroes-of-rathe/verdance-about.md",
     story_type="heroes-of-rathe",
     title="Verdance",
-    heroes=["verdance", "florian"],
-    npcs=[
+    characters=[
+        "verdance",
+        "florian",
         npc.DAVNIR,
     ],
     locations=[
@@ -452,8 +454,8 @@ db.upsert_story(
     path="src/heroes-of-rathe/vynnset-about.md",
     story_type="heroes-of-rathe",
     title="Vynnset",
-    heroes=["vynnset"],
-    npcs=[
+    characters=[
+        "vynnset",
         npc.NASRETH,
     ],
     regions=[reg.DEMONASTERY, reg.SOLANA],
@@ -464,8 +466,8 @@ db.upsert_story(
     path="src/heroes-of-rathe/arakni-5l!p3d-7hru-7h3-cr4x-about.md",
     story_type="heroes-of-rathe",
     title="Arakni, Solitary Confinement",
-    heroes=["arakni-solitary-confinement"],
-    npcs=[
+    characters=[
+        "arakni-solitary-confinement",
         npc.DR_KREST_MORTIMER_THE_FIXER,
     ],
     locations=[
@@ -480,7 +482,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/betsy-about.md",
     story_type="heroes-of-rathe",
     title="Betsy, Skin in the Game",
-    heroes=["betsy"],
+    characters=["betsy"],
     locations=[
         loc.DEATHMATCH_ARENA,
     ],
@@ -491,7 +493,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/chane-about.md",
     story_type="heroes-of-rathe",
     title="Chane, Bound by Shadow",
-    heroes=["chane"],
+    characters=["chane"],
     locations=[
         loc.I_ARATHAEL,
     ],
@@ -503,7 +505,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/genis-about.md",
     story_type="heroes-of-rathe",
     title="Genis Wotchuneed",
-    heroes=["genis"],
+    characters=["genis"],
     locations=[
         loc.THE_EVERFEST_CARNIVAL,
     ],
@@ -515,7 +517,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/iyslander-about.md",
     story_type="heroes-of-rathe",
     title="Iyslander, Stormbind",
-    heroes=["iyslander"],
+    characters=["iyslander"],
     locations=[
         loc.BLEAK_EXPANSE,
     ],
@@ -527,7 +529,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/jarl-about.md",
     story_type="heroes-of-rathe",
     title="Jarl Vetreiði",
-    heroes=["jarl"],
+    characters=["jarl"],
     locations=[
         loc.ISENLOFT,
         loc.ISEN_RANGES,
@@ -541,7 +543,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/kano-about.md",
     story_type="heroes-of-rathe",
     title="Kano, Dracai of Aether",
-    heroes=["kano"],
+    characters=["kano"],
     regions=[reg.VOLCOR],
     dry_run=True,
 )
@@ -550,7 +552,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/nuu-about.md",
     story_type="heroes-of-rathe",
     title="Nuu, Alluring Desire",
-    heroes=["nuu"],
+    characters=["nuu"],
     locations=[
         loc.MISTCLOAK_GULLY,
         loc.MISTCLOAK_TEAHOUSE,
@@ -564,8 +566,9 @@ db.upsert_story(
     path="src/heroes-of-rathe/prism-about.md",
     story_type="heroes-of-rathe",
     title="Prism, Sculptor of Arc Light",
-    heroes=["prism", "the-librarian"],
-    npcs=[
+    characters=[
+        "prism",
+        "the-librarian",
         npc.SURAYA_ARCHANGEL_OF_KNOWLEDGE,
     ],
     locations=[
@@ -579,7 +582,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/terra-about.md",
     story_type="heroes-of-rathe",
     title="Terra",
-    heroes=["terra"],
+    characters=["terra"],
     locations=[
         loc.THE_KORSHEM,
         loc.MOUNT_HEROIC,
@@ -592,7 +595,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/tuffnut-about.md",
     story_type="heroes-of-rathe",
     title="Tuffnut, Bumbling Hulkster",
-    heroes=["tuffnut"],
+    characters=["tuffnut"],
     locations=[
         loc.DEATHMATCH_ARENA,
     ],
@@ -603,7 +606,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/uzuri-about.md",
     story_type="heroes-of-rathe",
     title="Uzuri, Switchblade",
-    heroes=["uzuri"],
+    characters=["uzuri"],
     regions=[
         reg.METRIX,
         reg.MISTERIA,
@@ -617,7 +620,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/arakni-marionette-about.md",
     story_type="heroes-of-rathe",
     title="Arakni, Marionette",
-    heroes=["arakni-web-of-deceit"],
+    characters=["arakni-web-of-deceit"],
     dry_run=True,
 )
 
@@ -625,7 +628,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/brevant-about.md",
     story_type="heroes-of-rathe",
     title="Brevant, Civic Protector",
-    heroes=["brevant"],
+    characters=["brevant"],
     # Explicitly empty, not omitted. Hand of Sol was this page's only location and
     # is now a group; an omitted kwarg means "leave the junction alone", so the
     # stale story_locations row would have survived the move in silence.
@@ -639,7 +642,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/florian-about.md",
     story_type="heroes-of-rathe",
     title="Florian, Rotwood Harbinger",
-    heroes=["florian"],
+    characters=["florian"],
     locations=[
         loc.CANDLEHOLD,
         loc.ROTWOOD,
@@ -651,7 +654,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/frankie-about.md",
     story_type="heroes-of-rathe",
     title="Frankie, Make Ends Meat",
-    heroes=["frankie"],
+    characters=["frankie"],
     dry_run=True,
 )
 
@@ -659,7 +662,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/gravy-about.md",
     story_type="heroes-of-rathe",
     title="Gravy Bones, Shipwrecked Looter",
-    heroes=["gravy"],
+    characters=["gravy"],
     locations=[
         loc.DREADFALL_REACH,
     ],
@@ -670,7 +673,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/kavdaen-about.md",
     story_type="heroes-of-rathe",
     title="Kavdaen, Trader of Skins",
-    heroes=["kavdaen"],
+    characters=["kavdaen"],
     regions=[reg.THE_PITS],
     locations=[
         loc.THE_MAW,
@@ -682,8 +685,8 @@ db.upsert_story(
     path="src/heroes-of-rathe/levia-about.md",
     story_type="heroes-of-rathe",
     title="Levia, Shadowborn Abomination",
-    heroes=["levia"],
-    npcs=[
+    characters=[
+        "levia",
         npc.LADY_BARTHIMONT,
     ],
     regions=[reg.DEMONASTERY],
@@ -699,7 +702,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/rhinar-about.md",
     story_type="heroes-of-rathe",
     title="Rhinar, Reckless Rampage",
-    heroes=["rhinar"],
+    characters=["rhinar"],
     regions=[reg.THE_SAVAGE_LANDS],
     locations=[
         loc.DEATHMATCH_ARENA,
@@ -711,8 +714,8 @@ db.upsert_story(
     path="src/heroes-of-rathe/scurv-about.md",
     story_type="heroes-of-rathe",
     title="Scurv, Stowaway",
-    heroes=["scurv"],
-    npcs=[
+    characters=[
+        "scurv",
         npc.STICKY_FINGERS,
     ],
     locations=[
@@ -727,7 +730,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/teklovossen-about.md",
     story_type="heroes-of-rathe",
     title="Teklovossen, Esteemed Magnate",
-    heroes=["teklovossen"],
+    characters=["teklovossen"],
     regions=[reg.METRIX],
     locations=[
         loc.TEKLO_INDUSTRIES,
@@ -743,8 +746,8 @@ db.upsert_story(
     path="src/heroes-of-rathe/valda-about.md",
     story_type="heroes-of-rathe",
     title="Valda Brightaxe",
-    heroes=["valda"],
-    npcs=[
+    characters=[
+        "valda",
         npc.BRAUMEISTER_BALEN,
     ],
     regions=[reg.ARIA],
@@ -762,8 +765,8 @@ db.upsert_story(
     path="src/heroes-of-rathe/yoji-about.md",
     story_type="heroes-of-rathe",
     title="Yoji, Royal Protector",
-    heroes=["yoji"],
-    npcs=[
+    characters=[
+        "yoji",
         npc.LORD_WIZARD_CHIYO,
     ],
     regions=[reg.VOLCOR],
@@ -778,8 +781,11 @@ db.upsert_story(
     path="src/heroes-of-rathe/dash-about.md",
     story_type="heroes-of-rathe",
     title="Dash, Inventor Extraordinaire",
-    heroes=["dash", "data-doll-mkii", "maxx", "teklovossen"],
-    npcs=[
+    characters=[
+        "dash",
+        "data-doll-mkii",
+        "maxx",
+        "teklovossen",
         npc.JULES_TEKLOVOSSEN,
     ],
     locations=[
@@ -798,7 +804,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/data-doll-mkii-about.md",
     story_type="heroes-of-rathe",
     title="Data Doll, MKII",
-    heroes=["data-doll-mkii"],
+    characters=["data-doll-mkii"],
     locations=[
         loc.IRON_ASSEMBLY,
     ],
@@ -810,7 +816,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/kassai-about.md",
     story_type="heroes-of-rathe",
     title="Kassai, Cintari Sellsword",
-    heroes=["kassai"],
+    characters=["kassai"],
     locations=[
         loc.DEATHMATCH_ARENA,
     ],
@@ -823,8 +829,9 @@ db.upsert_story(
     path="src/heroes-of-rathe/lyath-about.md",
     story_type="heroes-of-rathe",
     title="Lyath Goldmane, Vile Savant",
-    heroes=["lyath", "victor-goldmane"],
-    npcs=[
+    characters=[
+        "lyath",
+        "victor-goldmane",
         npc.BLOODWORTH_GOLDMANE,
         npc.TARA_VANGELD,
     ],
@@ -841,8 +848,8 @@ db.upsert_story(
     path="src/heroes-of-rathe/marlynn-about.md",
     story_type="heroes-of-rathe",
     title="Marlynn, Treasure Hunter",
-    heroes=["marlynn"],
-    npcs=[
+    characters=[
+        "marlynn",
         npc.CAPTAIN_COODER_OF_THE_SWIFTWATER_WARDEN_COODER,
     ],
     fauna=[fauna.KRAKEN],
@@ -854,7 +861,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/maxx-about.md",
     story_type="heroes-of-rathe",
     title="Maxx 'The Hype' Nitro",
-    heroes=["maxx"],
+    characters=["maxx"],
     locations=[
         loc.COGWERX_CONGLOMERATE,
     ],
@@ -867,8 +874,8 @@ db.upsert_story(
     path="src/heroes-of-rathe/olympia-about.md",
     story_type="heroes-of-rathe",
     title="Olympia, Prized Fighter",
-    heroes=["olympia"],
-    npcs=[
+    characters=[
+        "olympia",
         npc.COX,
     ],
     locations=[
@@ -882,7 +889,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/other.md",
     story_type="heroes-of-rathe",
     title="Others",
-    heroes=["ruudi", "taipanis", "taylor", "yorick"],
+    characters=["ruudi", "taipanis", "taylor", "yorick"],
     dry_run=True,
 )
 
@@ -890,7 +897,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/pleiades-about.md",
     story_type="heroes-of-rathe",
     title="Pleiades, Superstar",
-    heroes=["pleiades"],
+    characters=["pleiades"],
     locations=[
         loc.THE_NORTHERN_REALMS,
         loc.GOUGEMOOR,
@@ -903,7 +910,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/riptide-about.md",
     story_type="heroes-of-rathe",
     title="Riptide, Lurker of the Deep",
-    heroes=["riptide"],
+    characters=["riptide"],
     locations=[
         loc.SEETHESIDE_DOCKS,
     ],
@@ -915,7 +922,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/victor-goldmane-about.md",
     story_type="heroes-of-rathe",
     title="Victor Goldmane, High and Mighty",
-    heroes=["victor-goldmane"],
+    characters=["victor-goldmane"],
     regions=[reg.SOLANA],
     dry_run=True,
 )
@@ -924,7 +931,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/zen-about.md",
     story_type="heroes-of-rathe",
     title="Zen, Tamer of Purpose",
-    heroes=["zen"],
+    characters=["zen"],
     regions=[reg.MISTERIA],
     dry_run=True,
 )

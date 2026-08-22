@@ -94,7 +94,7 @@ db.upsert_story(
     # links that no declaration has ever had to preserve before, this module
     # being the first that can touch them.
     source_link="https://fabtcg.com/world-of-rathe/high-seas/",
-    npcs=[
+    characters=[
         npc.ABSOLON,
         npc.NOCETES,
     ],

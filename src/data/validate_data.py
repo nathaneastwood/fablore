@@ -958,12 +958,7 @@ def collect_alerts() -> list[str]:
         (DATA / "csv/food-and-drink.csv", ("FoodDrinkId",), "Food and drink"),
         (DATA / "csv/monsters.csv", ("MonsterId",), "Monsters"),
         (DATA / "csv/stories.csv", ("StoryId", "StoryKey", "StoryType"), "Stories"),
-        (DATA / "csv/story-npcs.csv", ("StoryId", "CharacterId"), "Story ↔ NPC links"),
-        (
-            DATA / "csv/story-heroes.csv",
-            ("StoryId", "CanonicalId"),
-            "Story ↔ hero links",
-        ),
+        (DATA / "csv/story-characters.csv", ("StoryId", "CharacterId"), "Story ↔ character links"),
         (
             DATA / "csv/story-locations.csv",
             ("StoryId", "LocationId"),
@@ -1031,19 +1026,24 @@ def collect_alerts() -> list[str]:
     canonical_path = DATA / "csv/heroes-canonical.csv"
     game_path = DATA / "csv/heroes-game.csv"
     printings_path = DATA / "csv/heroes-printings.csv"
-    story_heroes_path = DATA / "csv/story-heroes.csv"
+    story_characters_path = DATA / "csv/story-characters.csv"
 
     canonical_ids = _id_set_from_column(canonical_path, "CanonicalId")
     hero_game_ids = _id_set_from_column(game_path, "HeroGameId")
-
-    if canonical_ids:
+    # Every characters= link (hero slug or NPCEntry) writes the same
+    # story-characters.csv junction (migration 17), so its FK target is
+    # characters.csv, not heroes-canonical.csv — a hero's CharacterId is the
+    # identity-spine row character-heroes.csv points at, never the
+    # CanonicalId itself.
+    story_character_ids = _id_set_from_column(DATA / "csv/characters.csv", "CharacterId")
+    if story_character_ids:
         alerts.extend(
             _check_fk_column(
-                story_heroes_path,
-                "CanonicalId",
-                canonical_ids,
-                "heroes-canonical.csv CanonicalId",
-                "Story ↔ hero links",
+                story_characters_path,
+                "CharacterId",
+                story_character_ids,
+                "characters.csv CharacterId",
+                "Story ↔ character links",
             )
         )
     if hero_game_ids:

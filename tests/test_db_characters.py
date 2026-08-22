@@ -71,7 +71,7 @@ def test_character_heroes_canonical_id_is_the_primary_key(db: Database) -> None:
 
 def test_hero_slug_links_the_npc_row_to_the_hero(db: Database) -> None:
     hid = _seed_hero(db, "kox", "Fightmaster Kox")
-    _story(db, npcs=[NPCEntry("Fightmaster Kox", hero_slug="kox")])
+    _story(db, characters=[NPCEntry("Fightmaster Kox", hero_slug="kox")])
     cid = lore_character_id("Fightmaster Kox")
     row = db.conn.execute("SELECT character_id FROM character_heroes WHERE canonical_id = ?", [hid]).fetchone()
     assert row is not None
@@ -87,9 +87,9 @@ def test_hero_slug_preserves_on_empty(db: Database) -> None:
     that would omit it is refused outright.
     """
     hid = _seed_hero(db, "kox", "Fightmaster Kox")
-    _story(db, npcs=[NPCEntry("Fightmaster Kox", hero_slug="kox")])
+    _story(db, characters=[NPCEntry("Fightmaster Kox", hero_slug="kox")])
     with pytest.raises(ValueError, match="Fightmaster Kox"):
-        _story(db, path="src/main-story/monarch/other-page.md", npcs=[NPCEntry("Fightmaster Kox")])
+        _story(db, path="src/main-story/monarch/other-page.md", characters=[NPCEntry("Fightmaster Kox")])
     # The stored claim survived the refused declaration untouched.
     cid = lore_character_id("Fightmaster Kox")
     row = db.conn.execute("SELECT character_id FROM character_heroes WHERE canonical_id = ?", [hid]).fetchone()
@@ -99,13 +99,13 @@ def test_hero_slug_preserves_on_empty(db: Database) -> None:
 
 def test_hero_slug_empty_is_a_no_op_for_an_ordinary_npc(db: Database) -> None:
     """The overwhelmingly common case: an NPC whose name matches no hero."""
-    _story(db, npcs=[NPCEntry("Some Ordinary Guard")])
+    _story(db, characters=[NPCEntry("Some Ordinary Guard")])
     assert db.conn.execute("SELECT COUNT(*) FROM character_heroes").fetchone()[0] == 0
 
 
 def test_unknown_hero_slug_raises(db: Database) -> None:
     with pytest.raises(ValueError, match="kox"):
-        _story(db, npcs=[NPCEntry("Fightmaster Kox", hero_slug="kox")])
+        _story(db, characters=[NPCEntry("Fightmaster Kox", hero_slug="kox")])
 
 
 def test_two_npcs_claiming_the_same_slug_raises(db: Database) -> None:
@@ -113,7 +113,7 @@ def test_two_npcs_claiming_the_same_slug_raises(db: Database) -> None:
     with pytest.raises(ValueError, match="kox"):
         _story(
             db,
-            npcs=[
+            characters=[
                 NPCEntry("Fightmaster Kox", hero_slug="kox"),
                 NPCEntry("Some Other Name", hero_slug="kox"),
             ],
@@ -128,12 +128,12 @@ def test_two_npcs_claiming_the_same_slug_raises(db: Database) -> None:
 def test_npc_matching_a_hero_name_without_hero_slug_still_raises(db: Database) -> None:
     _seed_hero(db, "kox", "Fightmaster Kox")
     with pytest.raises(ValueError, match="Fightmaster Kox"):
-        _story(db, npcs=[NPCEntry("Fightmaster Kox")])
+        _story(db, characters=[NPCEntry("Fightmaster Kox")])
 
 
 def test_npc_matching_a_hero_name_with_hero_slug_is_allowed(db: Database) -> None:
     _seed_hero(db, "kox", "Fightmaster Kox")
-    record = _story(db, npcs=[NPCEntry("Fightmaster Kox", hero_slug="kox")])
+    record = _story(db, characters=[NPCEntry("Fightmaster Kox", hero_slug="kox")])
     assert record is not None
 
 
@@ -222,7 +222,7 @@ def test_status_column_lives_on_characters(db: Database) -> None:
 
 def test_dry_run_reports_a_hero_slug_claim(db: Database, capsys) -> None:
     _seed_hero(db, "kox", "Fightmaster Kox")
-    _story(db, npcs=[NPCEntry("Fightmaster Kox", hero_slug="kox")], dry_run=True)
+    _story(db, characters=[NPCEntry("Fightmaster Kox", hero_slug="kox")], dry_run=True)
     out = capsys.readouterr().out
     assert "kox" in out.lower()
 
@@ -246,7 +246,7 @@ def test_update_description_writes_a_character_summary(db: Database) -> None:
         path="src/world-of-rathe/solana.md",
         story_type="world-of-rathe",
         title="T",
-        npcs=[NPCEntry("Xathari")],
+        characters=[NPCEntry("Xathari")],
     )
     db.update_description("character", "Xathari", "The Dracai spymaster.")
     row = db.conn.execute(
@@ -273,20 +273,33 @@ def test_no_declaration_can_write_a_summary(db: Database) -> None:
         NPCEntry("Xathari", summary="nope")
 
 
+def test_no_npc_entry_can_carry_its_own_fragment(db: Database) -> None:
+    """`NPCEntry.fragment` is retired (stage 6b): it was set zero times in the
+    whole catalogue and had zero story_npcs rows, and a heading anchor is now
+    named through `upsert_story(fragments={key: anchor})` instead — the same
+    surface a hero slug already used, since a hero slug and an NPCEntry write
+    the same `story_characters` junction. Passing it must be a TypeError, not
+    a silent no-op, the same guard `summary` gets above.
+    """
+    assert "fragment" not in {f.name for f in dataclasses.fields(NPCEntry)}
+    with pytest.raises(TypeError):
+        NPCEntry("Xathari", fragment="nope")
+
+
 def test_a_registration_preserves_a_summary_it_does_not_mention(db: Database) -> None:
     """A story registration must never clear curated lore text, like `status`."""
     db.upsert_story(
         path="src/world-of-rathe/solana.md",
         story_type="world-of-rathe",
         title="T",
-        npcs=[NPCEntry("Xathari")],
+        characters=[NPCEntry("Xathari")],
     )
     db.update_description("character", "Xathari", "The Dracai spymaster.")
     db.upsert_story(
         path="src/world-of-rathe/volcor.md",
         story_type="world-of-rathe",
         title="T2",
-        npcs=[NPCEntry("Xathari", status="Dead")],
+        characters=[NPCEntry("Xathari", status="Dead")],
     )
     row = db.conn.execute(
         "SELECT summary, status FROM characters WHERE character_id = ?", [lore_character_id("Xathari")]
@@ -300,7 +313,7 @@ def test_a_summary_round_trips_through_the_csv(db: Database, tmp_path) -> None:
         path="src/world-of-rathe/solana.md",
         story_type="world-of-rathe",
         title="T",
-        npcs=[NPCEntry("Xathari")],
+        characters=[NPCEntry("Xathari")],
     )
     db.update_description("character", "Xathari", "The Dracai spymaster.")
     text = (db._data_dir / "csv" / "characters.csv").read_text(encoding="utf-8")

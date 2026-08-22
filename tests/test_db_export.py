@@ -195,7 +195,13 @@ def test_export_registry_tables_food_drink(db: Database, tmp_path: Path) -> None
 # ---------------------------------------------------------------------------
 
 
-def test_export_story_junctions_heroes(db: Database, tmp_path: Path) -> None:
+def test_export_story_junctions_characters(db: Database, tmp_path: Path) -> None:
+    """story_characters exports to story-characters.csv (migration 17 merge).
+
+    A hero slug and an NPCEntry both resolve to a character_id and write the
+    same junction, so one export test covers a hero-resolved row (via
+    character_heroes) and a plain NPC row side by side.
+    """
     q.upsert_story(
         db.conn,
         story_id="S1",
@@ -209,31 +215,18 @@ def test_export_story_junctions_heroes(db: Database, tmp_path: Path) -> None:
         canonical_slug="boltyn",
         canonical_hero="Boltyn",
     )
-    q.set_story_heroes(db.conn, "S1", [("CN1", "")])
-    _export.export_story_junctions(db.conn, tmp_path)
-
-    content = (tmp_path / "csv" / "story-heroes.csv").read_text(encoding="utf-8")
-    assert "S1" in content
-    assert "CN1" in content
-    assert "StoryId" in content
-    assert "CanonicalId" in content
-
-
-def test_export_story_junctions_npcs(db: Database, tmp_path: Path) -> None:
-    q.upsert_story(
-        db.conn,
-        story_id="S1",
-        story_key="main-story/foo.md",
-        story_type="main-story",
-        title="Foo",
-    )
+    q.upsert_npc(db.conn, character_id="LC_BOLTYN", name="Boltyn")
+    q.set_character_hero(db.conn, "CN1", "LC_BOLTYN")
     q.upsert_npc(db.conn, character_id="C1", name="Guard")
-    q.set_story_npcs(db.conn, "S1", [("C1", "intro")])
+    q.set_story_characters(db.conn, "S1", [("LC_BOLTYN", ""), ("C1", "intro")])
     _export.export_story_junctions(db.conn, tmp_path)
 
-    content = (tmp_path / "csv" / "story-npcs.csv").read_text(encoding="utf-8")
+    content = (tmp_path / "csv" / "story-characters.csv").read_text(encoding="utf-8")
     assert "S1" in content
+    assert "LC_BOLTYN" in content
     assert "C1" in content
+    assert "intro" in content
+    assert "StoryId" in content
     assert "CharacterId" in content
     assert "Fragment" in content
 
@@ -261,8 +254,7 @@ def test_export_story_junctions_creates_all_files(db: Database, tmp_path: Path) 
 
     csv_dir = tmp_path / "csv"
     for fname in (
-        "story-heroes.csv",
-        "story-npcs.csv",
+        "story-characters.csv",
         "story-locations.csv",
         "story-regions.csv",
         "story-monsters.csv",
@@ -437,7 +429,7 @@ def test_dump_to_json_empty_tables_are_valid_json(db: Database, tmp_path: Path) 
     json_dir = tmp_path / "json"
     _export.dump_to_json(db.conn, json_dir)
 
-    for table in ("stories", "characters", "monsters", "story_heroes", "story_npcs"):
+    for table in ("stories", "characters", "monsters", "story_characters"):
         path = json_dir / f"{table}.json"
         assert path.exists()
         data = json.loads(path.read_text(encoding="utf-8"))

@@ -670,22 +670,19 @@ _JUNCTION_SPECS: tuple[tuple[str, str, str, str], ...] = (
 
 
 def _seed_story_junctions(conn: sqlite3.Connection, data_dir: Path) -> None:
-    # story_heroes and story_npcs carry an extra Fragment column.
-    for csv_name, table, csv_id_col, db_id_col in (
-        ("story-heroes.csv", "story_heroes", "CanonicalId", "canonical_id"),
-        ("story-npcs.csv", "story_npcs", "CharacterId", "character_id"),
-    ):
-        _, rows = _csv(data_dir, csv_name)
-        triples = [
-            (_s(row, "StoryId"), _s(row, csv_id_col), _s(row, "Fragment"))
-            for row in rows
-            if _s(row, "StoryId") and _s(row, csv_id_col)
-        ]
-        if triples:
-            conn.executemany(
-                f"INSERT OR IGNORE INTO {table}" f" (story_id, {db_id_col}, fragment) VALUES (?,?,?)",
-                triples,
-            )
+    # story_characters carries an extra Fragment column, unlike the plain
+    # (story_id, entity_id) junctions in _JUNCTION_SPECS below.
+    _, rows = _csv(data_dir, "story-characters.csv")
+    triples = [
+        (_s(row, "StoryId"), _s(row, "CharacterId"), _s(row, "Fragment"))
+        for row in rows
+        if _s(row, "StoryId") and _s(row, "CharacterId")
+    ]
+    if triples:
+        conn.executemany(
+            "INSERT OR IGNORE INTO story_characters (story_id, character_id, fragment) VALUES (?,?,?)",
+            triples,
+        )
 
     for csv_name, table, csv_col, db_col in _JUNCTION_SPECS:
         _, rows = _csv(data_dir, csv_name)

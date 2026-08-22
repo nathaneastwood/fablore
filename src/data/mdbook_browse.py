@@ -90,9 +90,21 @@ def build_index(data_dir: Path) -> dict:
         if rid and name:
             region_name[rid] = name
 
-    for r in _rows(data_dir / "csv" / "story-heroes.csv"):
+    # character_id -> canonical_id (migration 17's identity spine): every
+    # character= link (hero slug or NPCEntry) writes the same
+    # story-characters.csv junction, so a row there is a "hero" for this
+    # index only when its character_id also has a character-heroes.csv row.
+    char_to_canon: dict[str, str] = {}
+    for r in _rows(data_dir / "csv" / "character-heroes.csv"):
+        canon_id = (r.get("CanonicalId") or "").strip()
+        char_id = (r.get("CharacterId") or "").strip()
+        if canon_id and char_id:
+            char_to_canon[char_id] = canon_id
+
+    for r in _rows(data_dir / "csv" / "story-characters.csv"):
         sid = (r.get("StoryId") or "").strip()
-        cid = (r.get("CanonicalId") or "").strip()
+        char_id = (r.get("CharacterId") or "").strip()
+        cid = char_to_canon.get(char_id, "")
         if sid in stories_by_id and cid in hero_name:
             name = hero_name[cid]
             if name not in stories_by_id[sid]["h"]:

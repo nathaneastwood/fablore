@@ -252,8 +252,6 @@ class NPCEntry:
     status: str = ""
     """Leave empty to preserve an existing NPC's status; new NPCs default to ``"Unknown"``."""
     other_characters_story_key: str = ""
-    fragment: str = ""
-    """mdBook heading anchor id for a deep link into the story page, e.g. ``"morlock-hill"``."""
     epithets: tuple[str, ...] = ()
     """Styles the character is given (R4): ``"the Wartune Herald"``, ``"Archangel of
     War"``. ``name`` is untouched — these are the names *besides* the display name,
@@ -273,8 +271,9 @@ class NPCEntry:
     deliberately no way to clear an identity claim through a declaration — a
     person does not stop having been a hero.
 
-    Raises ``ValueError`` for an unknown slug, the same way ``heroes=`` does,
-    and when two different NPCs in one call claim the same slug — the shape of
+    Raises ``ValueError`` for an unknown slug, the same way a slug in
+    ``characters=`` does, and when two different NPCs in one call claim the
+    same slug — the shape of
     the guard in ``GroupEntry.members()``, which raises on a repeated NPC for
     the same reason: the write and the preview would otherwise resolve the
     clash differently and neither would say so."""
@@ -548,8 +547,8 @@ class TitleEntry:
     concurrently). ``story_key`` cites the page that attests the holder."""
     hero_holders: tuple[tuple[str, int, str], ...] = ()
     """``(hero_slug, ordinal, story_key)`` triples, resolved through
-    ``character_heroes``. An unknown slug raises, the same as ``heroes=`` and
-    ``NPCEntry.hero_slug``."""
+    ``character_heroes``. An unknown slug raises, the same as a slug in
+    ``characters=`` and ``NPCEntry.hero_slug``."""
 
 
 # ---------------------------------------------------------------------------
@@ -613,8 +612,7 @@ class Database:
             "src/main-story/foo.md",
             story_type="main-story",
             title="Foo",
-            heroes=["boltyn"],
-            npcs=[NPCEntry("Guard Captain", species=SpeciesEntry("Human"))],
+            characters=["boltyn", NPCEntry("Guard Captain", species=SpeciesEntry("Human"))],
         )
         r.display()
     """
@@ -792,9 +790,8 @@ class Database:
         thumbnail_image_link: str = "",
         narrated_videos: list[NarratedVideoEntry] | None = None,
         *,
-        heroes: list[str] | None = None,
-        hero_fragments: dict[str, str] | None = None,
-        npcs: list[NPCEntry] | None = None,
+        characters: "list[NPCEntry | str] | None" = None,
+        fragments: dict[str, str] | None = None,
         locations: list[LocationEntry] | None = None,
         regions: list[RegionEntry] | None = None,
         monsters: list[MonsterEntry] | None = None,
@@ -829,16 +826,41 @@ class Database:
             publication_date: ISO date string e.g. ``"2025-07-12"``.
             thumbnail_image_link: Public URL for a thumbnail image.
             narrated_videos: Narrated video entries; ``None`` = leave unchanged.
-            heroes: Canonical hero slugs (see :meth:`print_heroes`).
-            hero_fragments: Optional ``{slug: fragment}`` map giving a heading
-                anchor id within the story for each hero, e.g.
-                ``{"dorinthea": "morlock-hill-dtd209"}``.
-            npcs: NPC entries; strings in a future shorthand are not supported —
-                use :class:`NPCEntry` directly. Omit ``status`` to preserve
-                whatever an existing NPC row already has; only pass it when this
-                story is the evidence for the value. ``species`` does **not**
-                preserve — it is replace-semantic, so an omitted one is a
-                deletion.
+            characters: A mixed list of canonical hero slugs (see
+                :meth:`print_heroes`) and :class:`NPCEntry` instances — a hero
+                is not a different kind of thing any more, it is a character
+                that happens to have a row in ``character_heroes``, so one
+                parameter names both. A slug is resolved through
+                ``character_heroes`` to a ``character_id`` (minting the
+                identity link if this is the first time the hero has one — the
+                same gap-fill ``_upsert_one_title`` does for a hero holder) and
+                raises ``ValueError`` if unknown, exactly as the old
+                ``heroes=`` did. An :class:`NPCEntry` resolves through the same
+                path :class:`NPCEntry` always has — omit ``status`` to preserve
+                whatever an existing NPC row already has; only pass it when
+                this story is the evidence for the value. ``species`` does
+                **not** preserve — it is replace-semantic, so an omitted one is
+                a deletion. Both land in the same ``story_characters`` row, a
+                plain replace-semantic junction parameter like every other one:
+                ``None`` leaves the story's character links unchanged, ``[]``
+                removes them all, ``[...]`` makes the stored set exactly this
+                list.
+
+                **A slug and an ``NPCEntry`` naming the same person in one
+                list raises**, naming the story, both origins and the shared
+                ``character_id`` — the same guard shape
+                ``GroupEntry.members()`` and ``_resolve_title_holders`` use for
+                a repeated member. A story used to be able to name one person
+                through ``heroes=`` and again through ``npcs=`` and have them
+                collapse to one row; that only worked because they were two
+                lists with different jobs. Within one ``characters=`` list a
+                repeat is a mistake, not a merge.
+            fragments: Optional ``{key: anchor}`` map giving a heading anchor id
+                within the story for a hero or an NPC, e.g.
+                ``{"dorinthea": "morlock-hill-dtd209", "Guard Captain": "intro"}``.
+                A key is a canonical hero slug or an NPC display name declared
+                in ``characters=`` for this same call — a key matching no one
+                declared this call raises.
             locations: Location entries.
             regions: Region entries (for stories that reference a region but no
                 specific location within it).
@@ -869,10 +891,13 @@ class Database:
         story_key = _story_key_from_path(path)
         story_id = _story_id(story_key)
 
-        # Resolve hero ids eagerly so we fail fast before writing anything.
-        hero_ids = self._resolve_heroes(heroes) if heroes is not None else None
-        if hero_ids is not None:
-            self._validate_hero_fragments(story_key, heroes or [], hero_ids, hero_fragments or {})
+        # Resolve characters eagerly so we fail fast before writing anything —
+        # an unknown hero slug or a person named twice (once as a slug, once
+        # as an NPCEntry) must not get partway through a write first.
+        if characters is not None:
+            self._resolve_characters(story_key, characters)
+        if fragments:
+            self._validate_fragments(story_key, characters, fragments)
         weapon_ids = self._resolve_weapons(weapons) if weapons is not None else None
         equip_ids = self._resolve_equipment(equipment) if equipment is not None else None
 
@@ -888,9 +913,8 @@ class Database:
                 publication_date=publication_date,
                 thumbnail_image_link=thumbnail_image_link,
                 narrated_videos=narrated_videos,
-                hero_ids=hero_ids,
-                hero_fragments=hero_fragments,
-                npcs=npcs,
+                characters=characters,
+                fragments=fragments,
                 locations=locations,
                 regions=regions,
                 monsters=monsters,
@@ -922,13 +946,8 @@ class Database:
                     story_id,
                     [(v.author, v.source_link, v.channel_link) for v in narrated_videos],
                 )
-            if hero_ids is not None:
-                frags = hero_fragments or {}
-                entries = [(cid, frags.get(slug, "")) for slug, cid in zip(heroes or [], hero_ids)]
-                q.set_story_heroes(self.conn, story_id, entries)
-            if npcs is not None:
-                npc_entries = self._upsert_npcs(npcs)
-                q.set_story_npcs(self.conn, story_id, npc_entries)
+            if characters is not None:
+                self._write_story_characters(story_id, story_key, characters, fragments or {})
             if regions is not None:
                 region_ids = self._upsert_regions(regions)
                 q.set_story_junction(self.conn, story_id, "story_regions", "region_id", region_ids)
@@ -1104,15 +1123,9 @@ class Database:
 
     def _display_junctions(self, story_id: str, out: IO[str]) -> None:
         sections = [
-            (
-                "Heroes",
-                "story_heroes",
-                "canonical_id",
-                "heroes_canonical",
-                "canonical_id",
-                "canonical_hero",
-            ),
-            ("NPCs", "story_npcs", "character_id", "characters", "character_id", "name"),
+            # Heroes and NPCs merged (migration 17) — one junction, keyed on
+            # character_id, reaches both, so one section lists both.
+            ("Characters", "story_characters", "character_id", "characters", "character_id", "name"),
             (
                 "Locations",
                 "story_locations",
@@ -1342,7 +1355,7 @@ class Database:
             "monster": ("monsters", "monster_id", "story_monsters", _monster_id),
             "fauna": ("fauna", "fauna_id", "story_fauna", fauna_id_from_name),
             "flora": ("flora", "flora_id", "story_flora", flora_id),
-            "npc": ("characters", "character_id", "story_npcs", lore_character_id),
+            "npc": ("characters", "character_id", "story_characters", lore_character_id),
         }
         with self.conn:
             if entity_type == "location":
@@ -1432,21 +1445,45 @@ class Database:
             ids.append(row["canonical_equipment_id"])
         return ids
 
-    def _validate_hero_fragments(
+    def _validate_fragments(
         self,
         story_key: str,
-        slugs: list[str],
-        hero_ids: list[str],  # noqa: ARG002 — reserved for future per-hero path lookup
+        characters: "list[NPCEntry | str] | None",
         frags: dict[str, str],
     ) -> None:
+        """Validate ``fragments={key: anchor}`` before any write.
+
+        A key must match exactly one of: a hero slug or an NPC display name
+        declared in *this* call's ``characters=`` — ``characters=None``
+        declares no one, so every key raises in that case. Raises on a key
+        matching both a slug and an NPC name (ambiguous) or neither (typo, or
+        naming someone not declared this call). Every non-empty anchor is then
+        checked against the real headings on the story's page, as before.
+        """
         if not frags:
             return
+        hero_slugs = {c for c in (characters or []) if isinstance(c, str)}
+        npc_names = {c.name for c in (characters or []) if not isinstance(c, str)}
+        for key in frags:
+            in_hero = key in hero_slugs
+            in_npc = key in npc_names
+            if in_hero and in_npc:
+                raise ValueError(
+                    f"fragments key {key!r} names both a declared hero slug and a declared NPC "
+                    f"for {story_key!r}; give the NPC a different display name or drop one "
+                    "declaration."
+                )
+            if not in_hero and not in_npc:
+                raise ValueError(
+                    f"fragments key {key!r} matches no hero slug or NPC name declared for "
+                    f"{story_key!r} in this call."
+                )
+
         md_path = (SRC / story_key).resolve()
         if not md_path.is_file():
             return
         ids_on_page: set[str] | None = None
-        for slug in slugs:
-            frag = frags.get(slug, "")
+        for key, frag in frags.items():
             if not frag:
                 continue
             if ids_on_page is None:
@@ -1454,11 +1491,11 @@ class Database:
             if frag not in ids_on_page:
                 rel = md_path.relative_to(SRC).as_posix()
                 raise ValueError(
-                    f"Hero fragment {frag!r} for slug {slug!r} not found in {rel}. "
+                    f"Fragment {frag!r} for {key!r} not found in {rel}. "
                     f"Known ids: {format_fragment_suggestion(ids_on_page)}"
                 )
 
-    def _upsert_npcs(self, entries: list[NPCEntry], _seen: "frozenset[str]" = frozenset()) -> list[tuple[str, str]]:
+    def _upsert_npcs(self, entries: list[NPCEntry], _seen: "frozenset[str]" = frozenset()) -> list[str]:
         # Guard against accidentally storing playable heroes as NPCs — unless the
         # entry itself claims the identity via hero_slug (NPCEntry.hero_slug),
         # which is the NPC saying "yes, I know, I am that hero".
@@ -1551,8 +1588,91 @@ class Database:
                 cid,
                 [(rid, relation, story_key) for rid, relation, story_key, _origin in resolved_kin],
             )
-            ids.append((cid, e.fragment))
+            ids.append(cid)
         return ids
+
+    def _resolve_characters(
+        self, story_key: str, characters: "list[NPCEntry | str]"
+    ) -> "list[tuple[str, str, NPCEntry | str]]":
+        """Resolve ``characters=`` to ``(character_id, origin, item)`` triples, read-only.
+
+        Read-only, so the dry-run preview can call this too — mirrors
+        :meth:`_resolve_kin_relatives` and :meth:`_resolve_title_holders`. A
+        slug resolves via :meth:`_predict_hero_character_id` (never
+        :meth:`_ensure_hero_character_id`, which writes); an
+        :class:`NPCEntry` resolves via a bare ``lore_character_id`` hash of
+        its name.
+
+        Raises:
+            ValueError: for an unknown hero slug (via :meth:`_resolve_heroes`),
+                or when the same person is named twice in this one list — as
+                two slugs, two ``NPCEntry`` instances, or once each way —
+                naming the story, both origins and the shared ``character_id``.
+                A story used to be able to name one person through ``heroes=``
+                and again through ``npcs=`` and have the two collapse into one
+                row; that only worked because they were two lists with
+                different jobs. Within one ``characters=`` list a repeat is a
+                mistake, the same shape ``GroupEntry.members()`` and
+                ``_resolve_title_holders`` guard against for a repeated member.
+        """
+        resolved: list[tuple[str, str, "NPCEntry | str"]] = []
+        seen: dict[str, str] = {}
+        for item in characters:
+            if isinstance(item, str):
+                canonical_id = self._resolve_heroes([item])[0]
+                cid = self._predict_hero_character_id(canonical_id)
+                origin = f"hero {item!r}"
+            else:
+                cid = lore_character_id(item.name)
+                origin = f"NPC {item.name!r}"
+            if cid in seen:
+                raise ValueError(
+                    f"{story_key!r} names {seen[cid]} and {origin} in characters=, but both "
+                    f"resolve to the same person (character_id {cid!r}). A story link is one "
+                    "row; name this person once."
+                )
+            seen[cid] = origin
+            resolved.append((cid, origin, item))
+        return resolved
+
+    def _write_story_characters(
+        self,
+        story_id: str,
+        story_key: str,
+        characters: "list[NPCEntry | str]",
+        frags: dict[str, str],
+    ) -> None:
+        """Write ``characters=`` into the ``story_characters`` junction.
+
+        Plain replace-semantic junction parameter, like every other one: the
+        stored set becomes exactly this list. A slug resolves through
+        ``character_heroes`` to a ``character_id``, minting the identity link
+        if this is the first time the hero has one
+        (:meth:`_ensure_hero_character_id`); an :class:`NPCEntry` resolves
+        through :meth:`_upsert_npcs`. Both land in the same
+        ``story_characters`` row.
+
+        :meth:`_resolve_characters` raises before any write here if the same
+        person is named twice — once as a slug and once as an
+        :class:`NPCEntry`, or twice the same way — naming the story, both
+        origins and the shared ``character_id``.
+        """
+        self._resolve_characters(story_key, characters)
+
+        npc_items = [c for c in characters if not isinstance(c, str)]
+        npc_ids = dict(zip((e.name for e in npc_items), self._upsert_npcs(npc_items)))
+
+        merged: dict[str, str] = {}
+        for item in characters:
+            if isinstance(item, str):
+                canonical_id = self._resolve_heroes([item])[0]
+                cid = self._ensure_hero_character_id(canonical_id)
+                merged[cid] = frags.get(item, "")
+            else:
+                cid = npc_ids[item.name]
+                merged[cid] = frags.get(item.name, "")
+
+        q.set_story_characters(self.conn, story_id, list(merged.items()))
 
     def _upsert_species(self, entries: "tuple[SpeciesEntry, ...]") -> list[str]:
         """Upsert each species row and return its ids, in declared order."""
@@ -1751,7 +1871,7 @@ class Database:
             # Zip, not `entry.member_source`: `_upsert_npcs` returns ids in the
             # order it was given, which is the order `members()` produced, so a
             # membership that cites its own page keeps it.
-            [(cid, source) for (cid, _frag), (_npc, source) in zip(npc_ids, roster)],
+            [(cid, source) for cid, (_npc, source) in zip(npc_ids, roster)],
         )
         hero_ids = self._resolve_heroes(list(entry.hero_members))
         q.set_group_members(
@@ -1781,6 +1901,31 @@ class Database:
         ).fetchone()
         hero_name = row["canonical_hero"] if row else ""
         return lore_character_id(hero_name)
+
+    def _ensure_hero_character_id(self, canonical_id: str) -> str:
+        """Return the ``character_id`` a hero resolves to, minting the identity link if missing.
+
+        Writes, unlike :meth:`_predict_hero_character_id`: mirrors
+        ``_upsert_one_title``'s hero-holder gap-fill and
+        ``_self_heal_character_heroes``'s seed-time contract — INSERT OR IGNORE
+        throughout, so an existing ``character_heroes`` row always wins and this
+        only ever fills a gap. Called from ``upsert_story``'s ``characters=``
+        write path (:meth:`_write_story_characters`) so a hero named for the
+        first time still gets a ``characters`` row for ``story_characters``
+        to reference.
+        """
+        existing = q.select_character_id_for_hero(self.conn, canonical_id)
+        if existing:
+            return existing
+        row = self.conn.execute(
+            "SELECT canonical_hero FROM heroes_canonical WHERE canonical_id = ?",
+            [canonical_id],
+        ).fetchone()
+        hero_name = row["canonical_hero"] if row else ""
+        new_cid = lore_character_id(hero_name)
+        q.upsert_npc(self.conn, character_id=new_cid, name=hero_name)
+        q.set_character_hero(self.conn, canonical_id, new_cid)
+        return new_cid
 
     def _resolve_kin_relatives(self, entry: NPCEntry) -> list[tuple[str, str, str, str]]:
         """Resolve every kin fact on ``entry`` to ``(relative_id, relation, story_key, origin)``.
@@ -1972,9 +2117,8 @@ class Database:
         publication_date: str,
         thumbnail_image_link: str,
         narrated_videos: list[NarratedVideoEntry] | None,
-        hero_ids: list[str] | None,
-        hero_fragments: dict[str, str] | None = None,
-        npcs: list[NPCEntry] | None,
+        characters: "list[NPCEntry | str] | None" = None,
+        fragments: dict[str, str] | None = None,
         locations: list[LocationEntry] | None,
         regions: list[RegionEntry] | None,
         monsters: list[MonsterEntry] | None,
@@ -2117,48 +2261,74 @@ class Database:
                     for name in sorted(incoming_names):
                         out.write(f"    + {name}\n")
 
-        _show_links_diff(
-            "Heroes",
-            hero_ids,
-            [hero_id_to_slug.get(hid, hid) for hid in (hero_ids or [])],
-            "story_heroes",
-            "canonical_id",
-            hero_id_to_slug,
-        )
-        if hero_ids is not None and existing:
-            # set_story_heroes() replaces (canonical_id, fragment) pairs wholesale, so a
-            # declaration that lists heroes without a matching hero_fragments= blanks
-            # every curated anchor. Membership is unchanged in that case, so the
-            # membership diff above stays silent — this is the only warning.
-            old_frags = q.select_story_hero_fragments(self.conn, story_id)
-            new_frags = hero_fragments or {}
-            frag_lines: list[str] = []
-            for cid in hero_ids:
-                slug = hero_id_to_slug.get(cid, cid)
-                was = old_frags.get(cid, "")
-                now = new_frags.get(slug, "")
-                if was == now:
-                    continue
-                if was and not now:
-                    frag_lines.append(f"    ~ {slug}: fragment {was!r} -> cleared")
-                elif not was:
-                    frag_lines.append(f"    ~ {slug}: fragment -> {now!r}")
+        # Heroes and NPCs merged (migration 17) into one story_characters
+        # junction, and stage 6b's heroes=/npcs= two-kwarg surface merged
+        # (2026-08-22) into the one characters= list this mirrors. Plain
+        # replace-semantic preview like every other junction: no partition,
+        # nothing carried over from the old state. Read-only —
+        # _resolve_characters calls _predict_hero_character_id and a bare
+        # lore_character_id hash, never _ensure_hero_character_id /
+        # _upsert_npcs, since a preview must not write. It also raises here,
+        # before any diff below, if the same person is named twice.
+        if characters is not None:
+            old_char_state = q.select_story_character_fragments(self.conn, story_id) if existing else {}
+            hero_id_to_hero_name = {
+                r["canonical_id"]: r["canonical_hero"] for r in q.select_all_heroes_canonical(self.conn)
+            }
+
+            new_char_state: dict[str, str] = {}
+            char_display_name: dict[str, str] = {}
+
+            for cid, _origin, item in self._resolve_characters(story_key, characters):
+                if isinstance(item, str):
+                    canonical_id = self._resolve_heroes([item])[0]
+                    new_char_state[cid] = (fragments or {}).get(item, "")
+                    char_display_name[cid] = hero_id_to_hero_name.get(canonical_id, item)
                 else:
-                    frag_lines.append(f"    ~ {slug}: fragment {was!r} -> {now!r}")
-            if frag_lines:
-                changed = True
-                out.write("  Hero fragments:\n")
-                out.write("\n".join(frag_lines) + "\n")
-        elif hero_fragments:
-            out.write(f"  HeroFragments: {hero_fragments}\n")
-        _show_links_diff(
-            "NPCs",
-            npcs,
-            [e.name for e in (npcs or [])],
-            "story_npcs",
-            "character_id",
-            npc_id_to_name,
-        )
+                    new_char_state[cid] = (fragments or {}).get(item.name, "")
+                    char_display_name[cid] = item.name
+
+            old_char_names = {npc_id_to_name.get(cid, cid) for cid in old_char_state}
+            new_char_names = {char_display_name.get(cid, npc_id_to_name.get(cid, cid)) for cid in new_char_state}
+            if existing:
+                added = sorted(new_char_names - old_char_names)
+                removed = sorted(old_char_names - new_char_names)
+                if added or removed:
+                    changed = True
+                    out.write("  Characters:\n")
+                    for name in added:
+                        out.write(f"    + {name}\n")
+                    for name in removed:
+                        out.write(f"    - {name}\n")
+            elif new_char_names:
+                out.write("  Characters:\n")
+                for name in sorted(new_char_names):
+                    out.write(f"    + {name}\n")
+
+            if existing:
+                # A declaration that repeats membership without repeating a
+                # fragment blanks it — set_story_characters() replaces
+                # (character_id, fragment) rows wholesale. Membership is
+                # unchanged in that case, so the diff above stays silent —
+                # this is the only warning.
+                frag_lines: list[str] = []
+                for cid, now in new_char_state.items():
+                    was = old_char_state.get(cid, "")
+                    if was == now:
+                        continue
+                    label = char_display_name.get(cid, npc_id_to_name.get(cid, cid))
+                    if was and not now:
+                        frag_lines.append(f"    ~ {label}: fragment {was!r} -> cleared")
+                    elif not was:
+                        frag_lines.append(f"    ~ {label}: fragment -> {now!r}")
+                    else:
+                        frag_lines.append(f"    ~ {label}: fragment {was!r} -> {now!r}")
+                if frag_lines:
+                    changed = True
+                    out.write("  Character fragments:\n")
+                    out.write("\n".join(frag_lines) + "\n")
+            elif fragments:
+                out.write(f"  Fragments: {fragments}\n")
         _show_links_diff(
             "Locations",
             locations,
@@ -2311,8 +2481,9 @@ class Database:
                 for npc_entry, _ordinal, _source in entry.npc_holders:
                     walk_npc(npc_entry)
 
-            for entry in npcs or []:
-                walk_npc(entry)
+            for entry in characters or []:
+                if not isinstance(entry, str):
+                    walk_npc(entry)
             for entry in locations or []:
                 walk_location(entry)
             for entry in groups or []:
@@ -2369,7 +2540,7 @@ class Database:
                         lines.append(f"    - {sp.name}: alias {alias!r} REMOVED")
 
                 # Professions (R9), reported the same shape as species just
-                # above — walked over reach_npcs, not the npcs kwarg, so a
+                # above — walked over reach_npcs, not the characters= kwarg, so a
                 # profession reached only through a group roster or a title
                 # holder is visible here too. _resolve_professions raises on a
                 # repeated profession on this entry, on the preview path too,
@@ -2421,8 +2592,8 @@ class Database:
             """Report a reachable NPC that has no stored row yet.
 
             ``_show_attr_changes`` skips a row that does not exist —
-            "new row: nothing to overwrite" — and ``_show_links_diff("NPCs")``
-            only walks the ``npcs`` kwarg, not the reachable set. An NPC
+            "new row: nothing to overwrite" — and the Characters diff above
+            only walks the ``characters=`` kwarg, not the reachable set. An NPC
             introduced purely through a group roster, carrying no species, no
             epithets and no short names, has nothing left to surface it in the
             alternate-names diff either, so it was created in total silence
@@ -2447,7 +2618,7 @@ class Database:
 
             ``hero_slug`` preserves on empty and writes ``character_heroes`` as a
             side effect of ``_upsert_npcs``, so this walks the **reachable** NPCs
-            (``_reachable_entities()``), not the ``npcs`` kwarg — a claim made
+            (``_reachable_entities()``), not the ``characters=`` kwarg — a claim made
             through a group roster must be visible here too, exactly like a
             species or an epithet reached the same way.
             """
@@ -2483,7 +2654,7 @@ class Database:
             Replace-semantic, like species and the epithet tables: an omitted
             kin fact is a deletion, not a preserved value (see ``NPCEntry.kin``'s
             docstring for the reasoning). Walks the **reachable** NPCs
-            (``_reachable_entities()``), not the ``npcs`` kwarg, for the same
+            (``_reachable_entities()``), not the ``characters=`` kwarg, for the same
             reason ``_show_hero_slug_changes`` does — a kin fact declared on an
             NPC reached only through a group roster must not be invisible here.
 
@@ -2577,7 +2748,7 @@ class Database:
                 out.write("\n".join(lines) + "\n")
 
         _show_location_changes()
-        # Reachable, not the `npcs` kwarg: `_upsert_one_group` writes `status` and
+        # Reachable, not the `characters=` kwarg: `_upsert_one_group` writes `status` and
         # `other_characters_story_key` for roster NPCs too, via `_upsert_npcs`, so
         # an overwrite reached only through a group roster must be shown here —
         # Monster/Fauna/Flora stay on their own kwargs below, since none of them

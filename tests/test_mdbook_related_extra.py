@@ -29,14 +29,15 @@ def _maps(**kwargs) -> RelatedMaps:
         story_id_to_key={},
         story_id_to_title={},
         story_id_to_type={},
-        story_heroes={},
-        story_npcs={},
+        story_characters={},
         story_locations={},
         story_regions={},
         canonical_hero={},
         npc_row={},
         location_row={},
         region_row={},
+        canonical_id_to_character_id={},
+        character_id_to_canonical_id={},
         hero_canonical_to_stories={},
         npc_char_to_stories={},
         npc_src_to_char_ids={},
@@ -139,7 +140,9 @@ def test_build_character_stories_fragment_appends_hero_junction_fragment(
         hero_canonical_to_stories={"CN1": frozenset(["S1"])},
         story_id_to_key={"S1": "digital-tiles/tile.md"},
         story_id_to_title={"S1": "Tile"},
-        hero_junction_fragment={("S1", "CN1"): "some-card"},
+        # hero_junction_fragment keys on character_id since migration 17.
+        canonical_id_to_character_id={"CN1": "LC1"},
+        hero_junction_fragment={("S1", "LC1"): "some-card"},
     )
     result = build_character_stories_fragment(
         maps,
@@ -262,7 +265,7 @@ def test_build_related_fragment_npc_card(tmp_path: Path) -> None:
 
     maps = _maps(
         story_key_to_id={"main-story/x.md": "ST1"},
-        story_npcs={"ST1": frozenset({"C1"})},
+        story_characters={"ST1": frozenset({"C1"})},
         npc_row={"C1": ("Nefarius", "other-characters/npc-page.md")},
     )
     html = build_related_fragment(
@@ -283,7 +286,7 @@ def test_build_related_fragment_npc_skips_empty_story_key(tmp_path: Path) -> Non
 
     maps = _maps(
         story_key_to_id={"main-story/x.md": "ST1"},
-        story_npcs={"ST1": frozenset({"C1"})},
+        story_characters={"ST1": frozenset({"C1"})},
         npc_row={"C1": ("NoLink NPC", "")},
     )
     html = build_related_fragment(
@@ -302,7 +305,7 @@ def test_build_related_fragment_npc_skips_missing_file(tmp_path: Path) -> None:
 
     maps = _maps(
         story_key_to_id={"main-story/x.md": "ST1"},
-        story_npcs={"ST1": frozenset({"C1"})},
+        story_characters={"ST1": frozenset({"C1"})},
         npc_row={"C1": ("Phantom NPC", "other-characters/missing.md")},
     )
     html = build_related_fragment(
@@ -322,7 +325,7 @@ def test_build_related_fragment_npc_skips_self(tmp_path: Path) -> None:
 
     maps = _maps(
         story_key_to_id={"other-characters/npc-page.md": "ST1"},
-        story_npcs={"ST1": frozenset({"C1"})},
+        story_characters={"ST1": frozenset({"C1"})},
         npc_row={"C1": ("Self NPC", "other-characters/npc-page.md")},
     )
     html = build_related_fragment(
@@ -347,7 +350,9 @@ def test_build_related_fragment_hero_no_lore_file_omits_and_warns(tmp_path: Path
 
     maps = _maps(
         story_key_to_id={"main-story/x.md": "ST1"},
-        story_heroes={"ST1": frozenset({"CN1"})},
+        story_characters={"ST1": frozenset({"LC1"})},
+        canonical_id_to_character_id={"CN1": "LC1"},
+        character_id_to_canonical_id={"LC1": "CN1"},
         canonical_hero={"CN1": ("phantom", "Phantom Hero")},
     )
     html = build_related_fragment(
@@ -466,7 +471,9 @@ def test_build_related_fragment_spacer_between_groups(tmp_path: Path) -> None:
 
     maps = _maps(
         story_key_to_id={"main-story/x.md": "ST1"},
-        story_heroes={"ST1": frozenset({"CN1"})},
+        story_characters={"ST1": frozenset({"LC1"})},
+        canonical_id_to_character_id={"CN1": "LC1"},
+        character_id_to_canonical_id={"LC1": "CN1"},
         story_locations={"ST1": frozenset({"LO1"})},
         canonical_hero={"CN1": ("boltyn", "Boltyn")},
         location_row={"LO1": ("Beacon", "RG1", "beacon")},
@@ -612,7 +619,9 @@ def test_build_related_fragment_hero_src_map_with_fragment(tmp_path: Path) -> No
         story_id_to_title={"ST2": "Other Story"},
         story_id_to_type={"ST2": "main-story"},
         hero_canonical_to_stories={"CN1": frozenset(["ST1", "ST2"])},
-        hero_junction_fragment={("ST2", "CN1"): "my-section"},
+        # hero_junction_fragment keys on character_id since migration 17.
+        canonical_id_to_character_id={"CN1": "LC1"},
+        hero_junction_fragment={("ST2", "LC1"): "my-section"},
         npc_src_to_char_ids={},
         npc_char_to_stories={},
     )
@@ -702,7 +711,9 @@ def test_process_chapter_content_story_page_injects_related(tmp_path: Path) -> N
 
     maps = _maps(
         story_key_to_id={"main-story/x.md": "ST1"},
-        story_heroes={"ST1": frozenset({"CN1"})},
+        story_characters={"ST1": frozenset({"LC1"})},
+        canonical_id_to_character_id={"CN1": "LC1"},
+        character_id_to_canonical_id={"LC1": "CN1"},
         canonical_hero={"CN1": ("boltyn", "Boltyn")},
     )
     result = process_chapter_content(
@@ -754,7 +765,9 @@ def test_walk_mutate_sections_updates_chapter(tmp_path: Path) -> None:
 
     maps = _maps(
         story_key_to_id={"main-story/x.md": "ST1"},
-        story_heroes={"ST1": frozenset({"CN1"})},
+        story_characters={"ST1": frozenset({"LC1"})},
+        canonical_id_to_character_id={"CN1": "LC1"},
+        character_id_to_canonical_id={"LC1": "CN1"},
         canonical_hero={"CN1": ("boltyn", "Boltyn")},
     )
     sections = [
@@ -807,7 +820,9 @@ def test_walk_mutate_sections_recurses_sub_items(tmp_path: Path) -> None:
 
     maps = _maps(
         story_key_to_id={"main-story/sub/x.md": "ST1"},
-        story_heroes={"ST1": frozenset({"CN1"})},
+        story_characters={"ST1": frozenset({"LC1"})},
+        canonical_id_to_character_id={"CN1": "LC1"},
+        character_id_to_canonical_id={"LC1": "CN1"},
         canonical_hero={"CN1": ("boltyn", "Boltyn")},
     )
     sub_chapter = {
@@ -827,8 +842,8 @@ def test_walk_mutate_sections_recurses_sub_items(tmp_path: Path) -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_load_related_maps_loads_story_npcs(tmp_path: Path) -> None:
-    """load_related_maps populates story_npcs from story-npcs.csv."""
+def test_load_related_maps_loads_story_characters(tmp_path: Path) -> None:
+    """load_related_maps populates story_characters from story-characters.csv."""
     data = tmp_path / "data"
     csv = data / "csv"
     csv.mkdir(parents=True)
@@ -836,14 +851,13 @@ def test_load_related_maps_loads_story_npcs(tmp_path: Path) -> None:
         "StoryId|StoryKey|StoryType|Title\nST1|main-story/x.md|main-story|X\n",
         encoding="utf-8",
     )
-    (csv / "story-heroes.csv").write_text("StoryId|CanonicalId\n", encoding="utf-8")
     (csv / "story-locations.csv").write_text("StoryId|LocationId\n", encoding="utf-8")
-    (csv / "story-npcs.csv").write_text("StoryId|CharacterId|Fragment\nST1|C1|\n", encoding="utf-8")
+    (csv / "story-characters.csv").write_text("StoryId|CharacterId|Fragment\nST1|C1|\n", encoding="utf-8")
     (csv / "heroes-canonical.csv").write_text("CanonicalId|CanonicalSlug|CanonicalHero\n", encoding="utf-8")
     (csv / "locations.csv").write_text("LocationId|Name|RegionId\n", encoding="utf-8")
     (csv / "regions.csv").write_text("RegionId|RegionName|WorldOfRatheStoryKey\n", encoding="utf-8")
     m = load_related_maps(data)
-    assert m.story_npcs["ST1"] == frozenset({"C1"})
+    assert m.story_characters["ST1"] == frozenset({"C1"})
     assert "C1" in m.npc_char_to_stories
     assert "ST1" in m.npc_char_to_stories["C1"]
 
@@ -857,9 +871,8 @@ def test_load_related_maps_loads_npc_junction_fragment(tmp_path: Path) -> None:
         "StoryId|StoryKey|StoryType|Title\nST1|main-story/x.md|main-story|X\n",
         encoding="utf-8",
     )
-    (csv / "story-heroes.csv").write_text("StoryId|CanonicalId\n", encoding="utf-8")
     (csv / "story-locations.csv").write_text("StoryId|LocationId\n", encoding="utf-8")
-    (csv / "story-npcs.csv").write_text("StoryId|CharacterId|Fragment\nST1|C1|my-fragment\n", encoding="utf-8")
+    (csv / "story-characters.csv").write_text("StoryId|CharacterId|Fragment\nST1|C1|my-fragment\n", encoding="utf-8")
     (csv / "heroes-canonical.csv").write_text("CanonicalId|CanonicalSlug|CanonicalHero\n", encoding="utf-8")
     (csv / "locations.csv").write_text("LocationId|Name|RegionId\n", encoding="utf-8")
     (csv / "regions.csv").write_text("RegionId|RegionName|WorldOfRatheStoryKey\n", encoding="utf-8")
@@ -873,7 +886,7 @@ def test_load_related_maps_loads_npc_src_map(tmp_path: Path) -> None:
     csv = data / "csv"
     csv.mkdir(parents=True)
     (csv / "stories.csv").write_text("StoryId|StoryKey|StoryType|Title\n", encoding="utf-8")
-    (csv / "story-heroes.csv").write_text("StoryId|CanonicalId\n", encoding="utf-8")
+    (csv / "story-characters.csv").write_text("StoryId|CharacterId\n", encoding="utf-8")
     (csv / "story-locations.csv").write_text("StoryId|LocationId\n", encoding="utf-8")
     (csv / "heroes-canonical.csv").write_text("CanonicalId|CanonicalSlug|CanonicalHero\n", encoding="utf-8")
     (csv / "locations.csv").write_text("LocationId|Name|RegionId\n", encoding="utf-8")

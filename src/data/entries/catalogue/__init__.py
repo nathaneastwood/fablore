@@ -19,8 +19,8 @@ raises. Monsters, fauna and flora hash the name alone and so cannot fork on a
 second field, but they are catalogued too: a rule with exceptions is one every
 new declaration has to re-derive. Referencing a shared constant
 makes that impossible, and turns a typo into an ``AttributeError`` on import —
-the same protection ``heroes=``/``weapons=``/``equipment=`` already get from
-raising on an unknown canonical slug.
+the same protection a hero slug in ``characters=``/``weapons=``/``equipment=``
+already gets from raising on an unknown canonical slug.
 
 ``tests/test_data_entry.py`` enforces both halves: no section module may
 construct one of these types, and no two constants here may hash to the same id.

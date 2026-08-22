@@ -31,13 +31,21 @@ Version history:
       existed generate_hints_json.py emitted nothing for people at all and
       hints_supplement.json was the sole writer of every one, which also left
       the npc_epithets rows stage 3 created rendering nowhere.
+ 17 — story_npcs + story_heroes merge into story_characters: after migration
+      12's identity spine a hero and an NPC are rows of the same `characters`
+      table, so one junction (keyed on character_id, still carrying
+      fragment) reaches both, exactly as title_holders (13) and
+      character_professions (15) already read through character_heroes for
+      the same reason. A person declared through both paths for one story
+      collapses to one row; see the migration block for the fragment
+      tie-break.
 """
 
 from __future__ import annotations
 
 import sqlite3
 
-CURRENT_VERSION = 16
+CURRENT_VERSION = 17
 
 _V1_DDL = """
 CREATE TABLE IF NOT EXISTS stories (
@@ -287,16 +295,19 @@ CREATE TABLE IF NOT EXISTS group_heroes (
 );
 
 -- Story junction tables (all cascade-delete when a story is removed)
-CREATE TABLE IF NOT EXISTS story_npcs (
+--
+-- Merges story_npcs and story_heroes (migration 17). A hero and an NPC are
+-- rows of the same `characters` table since migration 12, so every entry in
+-- upsert_story()'s characters= list — a hero slug or an NPCEntry — resolves
+-- to a character_id and writes here, one row per (story, person). fragment
+-- carries the mdBook heading anchor either kind of entry can give it; see
+-- Database.upsert_story's fragments= docstring for how a declaration names
+-- one.
+CREATE TABLE IF NOT EXISTS story_characters (
     story_id     TEXT NOT NULL REFERENCES stories(story_id) ON DELETE CASCADE,
     character_id TEXT NOT NULL REFERENCES characters(character_id),
+    fragment     TEXT NOT NULL DEFAULT '',
     PRIMARY KEY (story_id, character_id)
-);
-
-CREATE TABLE IF NOT EXISTS story_heroes (
-    story_id     TEXT NOT NULL REFERENCES stories(story_id) ON DELETE CASCADE,
-    canonical_id TEXT NOT NULL REFERENCES heroes_canonical(canonical_id),
-    PRIMARY KEY (story_id, canonical_id)
 );
 
 CREATE TABLE IF NOT EXISTS story_locations (
@@ -533,8 +544,17 @@ def migrate(conn: sqlite3.Connection) -> None:
         conn.execute("PRAGMA user_version = 3")
         conn.commit()
     if version < 4:
-        conn.execute("ALTER TABLE story_heroes ADD COLUMN fragment TEXT NOT NULL DEFAULT ''")
-        conn.execute("ALTER TABLE story_npcs ADD COLUMN fragment TEXT NOT NULL DEFAULT ''")
+        # Guarded by existence (migration 17): a from-scratch build no longer
+        # creates story_heroes/story_npcs at all — _V1_DDL creates
+        # story_characters directly, with fragment already on it — so this
+        # step has nothing to ALTER on that path. A real database still
+        # sitting below version 4 has both tables and gets the column added,
+        # same as before.
+        tables = {r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+        if "story_heroes" in tables:
+            conn.execute("ALTER TABLE story_heroes ADD COLUMN fragment TEXT NOT NULL DEFAULT ''")
+        if "story_npcs" in tables:
+            conn.execute("ALTER TABLE story_npcs ADD COLUMN fragment TEXT NOT NULL DEFAULT ''")
         conn.execute("PRAGMA user_version = 4")
         conn.commit()
     if version < 5:
@@ -868,4 +888,124 @@ def migrate(conn: sqlite3.Connection) -> None:
             if "summary" not in cols:
                 conn.execute(f"ALTER TABLE {target} ADD COLUMN summary TEXT NOT NULL DEFAULT ''")
         conn.execute("PRAGMA user_version = 16")
+        conn.commit()
+    if version < 17:
+        # story_npcs (character_id) and story_heroes (canonical_id) both carry a
+        # fragment column and both key a story to a person. After migration 12's
+        # identity spine a hero and an NPC are rows of the same `characters`
+        # table, so one junction — keyed on character_id — reaches both, the
+        # same move title_holders (13) and character_professions (15) already
+        # made for a different relationship.
+        #
+        # THE TRAP: character_heroes is populated by a *seed-time* self-heal
+        # (_self_heal_character_heroes in db/_seed.py), not by migration 12
+        # itself. Database.__init__ runs every pending migration back-to-back
+        # before it ever checks whether a seed is needed (see open_db), so a
+        # database sitting below version 12 that opens after this migration
+        # exists runs migrations 12..17 in one call with character_heroes
+        # completely empty throughout. Resolving story_heroes.canonical_id
+        # through character_heroes and skipping what does not match would
+        # silently drop every hero story link. Instead this mints the missing
+        # link itself, exactly as Database._upsert_one_title does for a hero
+        # holder at write time: look up heroes_canonical.canonical_hero, hash
+        # it with lore_character_id, insert the characters row if absent, and
+        # insert the character_heroes link — INSERT OR IGNORE throughout, so an
+        # existing link (or an existing character row) always wins.
+        #
+        # Resolved by whichever name the character table currently has, like
+        # migrations 11/12/16: by the time this block runs, migration 12 has
+        # already executed earlier in the same migrate() call for any database
+        # starting below version 12, so the table is "characters" in every
+        # reachable case — this still checks rather than assumes it, matching
+        # every other migration's guard style in this file.
+        tables = {r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+        char_table = "characters" if "characters" in tables else "npcs"
+
+        conn.execute(
+            f"""
+            CREATE TABLE IF NOT EXISTS story_characters (
+                story_id     TEXT NOT NULL REFERENCES stories(story_id) ON DELETE CASCADE,
+                character_id TEXT NOT NULL REFERENCES {char_table}(character_id),
+                fragment     TEXT NOT NULL DEFAULT '',
+                PRIMARY KEY (story_id, character_id)
+            )
+            """
+        )
+
+        if "story_heroes" in tables or "story_npcs" in tables:
+            # Local, function-scoped import: _schema.py carries no sys.path
+            # bootstrap of its own (unlike _domain.py / _seed.py), and
+            # db/_seed.py's own self-heal takes the same local-import shape
+            # for the same reason — this module can be imported before
+            # src/data is on sys.path, so the bootstrap has to happen here,
+            # right before the one place that needs registry_ids.
+            import sys as _sys
+            from pathlib import Path as _Path
+
+            _script_dir = _Path(__file__).resolve().parents[1]
+            if str(_script_dir) not in _sys.path:
+                _sys.path.insert(0, str(_script_dir))
+            from registry_ids import lore_character_id  # noqa: PLC0415
+
+            hero_character_id: dict[str, str] = {}
+            if "character_heroes" in tables:
+                hero_character_id = {
+                    row[0]: row[1] for row in conn.execute("SELECT canonical_id, character_id FROM character_heroes")
+                }
+
+            def _character_id_for_hero(canonical_id: str) -> str:
+                cid = hero_character_id.get(canonical_id)
+                if cid:
+                    return cid
+                row = conn.execute(
+                    "SELECT canonical_hero FROM heroes_canonical WHERE canonical_id = ?",
+                    [canonical_id],
+                ).fetchone()
+                hero_name = row[0] if row else ""
+                new_cid = lore_character_id(hero_name)
+                conn.execute(
+                    f"INSERT OR IGNORE INTO {char_table} (character_id, name, status) VALUES (?,?,'Unknown')",
+                    (new_cid, hero_name),
+                )
+                conn.execute(
+                    "INSERT OR IGNORE INTO character_heroes (canonical_id, character_id) VALUES (?,?)",
+                    (canonical_id, new_cid),
+                )
+                hero_character_id[canonical_id] = new_cid
+                return new_cid
+
+            # (story_id, character_id) -> fragment. A non-empty fragment
+            # always beats an empty one whichever side carries it, and where
+            # both sides carry a real anchor story_heroes wins — see the
+            # docstring on Database.upsert_story's fragments= for why the
+            # *write* path raises on that contradiction and this historical
+            # migration does not: story-npcs.csv carries zero non-empty
+            # fragments (verified against the committed file), so a genuine
+            # disagreement is not a case the CSVs contain. The empty-beats-
+            # nothing rule is here so that a database whose story_npcs rows
+            # did not come from those CSVs cannot lose an anchor silently.
+            merged: dict[tuple[str, str], str] = {}
+            if "story_heroes" in tables:
+                for story_id, canonical_id, fragment in conn.execute(
+                    "SELECT story_id, canonical_id, fragment FROM story_heroes"
+                ):
+                    character_id = _character_id_for_hero(canonical_id)
+                    merged[(story_id, character_id)] = fragment or ""
+            if "story_npcs" in tables:
+                for story_id, character_id, fragment in conn.execute(
+                    "SELECT story_id, character_id, fragment FROM story_npcs"
+                ):
+                    key = (story_id, character_id)
+                    if not merged.get(key):
+                        merged[key] = fragment or ""
+
+            if merged:
+                conn.executemany(
+                    "INSERT OR IGNORE INTO story_characters (story_id, character_id, fragment) VALUES (?,?,?)",
+                    [(sid, cid, frag) for (sid, cid), frag in merged.items()],
+                )
+
+            conn.executescript("DROP TABLE IF EXISTS story_heroes; DROP TABLE IF EXISTS story_npcs;")
+
+        conn.execute("PRAGMA user_version = 17")
         conn.commit()

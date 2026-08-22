@@ -48,8 +48,8 @@ db.upsert_story(
     story_type="main-story",
     title="Edge of Autumn",
     source_link="https://fabtcg.com/hero/ira-3/story/edge-of-autumn/",
-    heroes=["ira"],
-    npcs=[
+    characters=[
+        "ira",
         npc.JING,
         npc.XILIN,
     ],
@@ -73,8 +73,8 @@ db.upsert_story(
             channel_link="https://www.youtube.com/@St_Havock",
         )
     ],
-    heroes=["bravo"],
-    npcs=[
+    characters=[
+        "bravo",
         npc.MAGNUS_THE_VIGILANT,
         npc.GAWAIN,
         npc.MORGAN,
@@ -121,8 +121,9 @@ db.upsert_story(
             channel_link="https://www.youtube.com/@St_Havock",
         )
     ],
-    heroes=["dorinthea", "hala"],
-    npcs=[
+    characters=[
+        "dorinthea",
+        "hala",
         npc.MINERVA_THEMIS,
         # TODO: Does fragment link to world lore? If so, how?
         npc.GRAND_MAGISTER_THE_STEADFAST,
@@ -175,8 +176,9 @@ db.upsert_story(
             channel_link="https://www.youtube.com/@St_Havock",
         )
     ],
-    heroes=["rhinar"],
-    npcs=[],
+    characters=[
+        "rhinar",
+    ],
     locations=[
         loc.THE_GOLDEN_FIELDS,
         loc.RHINAR_S_TERRITORY,
@@ -214,8 +216,8 @@ db.upsert_story(
             channel_link="https://www.youtube.com/@St_Havock",
         )
     ],
-    heroes=["katsu"],
-    npcs=[
+    characters=[
+        "katsu",
         npc.MASTER_TAKUMI,
         npc.MASTER_SAORI,
     ],
@@ -248,8 +250,10 @@ db.upsert_story(
             channel_link="https://www.youtube.com/@St_Havock",
         )
     ],
-    heroes=["azalea"],
-    npcs=[npc.JACKDAW],
+    characters=[
+        "azalea",
+        npc.JACKDAW,
+    ],
     locations=[loc.BLACKJACK_S_TAVERN],
     regions=[reg.THE_PITS, reg.METRIX],
     monsters=[mon.DREGS],
@@ -270,8 +274,8 @@ db.upsert_story(
             channel_link="https://www.youtube.com/@St_Havock",
         )
     ],
-    heroes=["azalea"],
-    npcs=[
+    characters=[
+        "azalea",
         npc.MORAY,
         npc.GREENBIRD,
     ],  # TODO: fragment to the tavern?
@@ -302,8 +306,8 @@ db.upsert_story(
             channel_link="https://www.youtube.com/@St_Havock",
         )
     ],
-    heroes=["azalea"],
-    npcs=[
+    characters=[
+        "azalea",
         npc.LENA_BELLE,
         npc.GREENBIRD,  # TODO: fragment to the tavern?
         npc.BARTON,
@@ -341,7 +345,7 @@ db.upsert_story(
             channel_link="https://www.youtube.com/@St_Havock",
         )
     ],
-    heroes=["oscilio", "zyggy", "aurora"],
+    characters=["oscilio", "zyggy", "aurora"],
     locations=[
         loc.ENION,
         loc.THE_FLOW,
@@ -375,8 +379,9 @@ db.upsert_story(
     artists="Narendra B Adi, Federico Musetti, Olga Tereshenko, Simon Wong, Carlos Cruchaga",
     source_link="https://fabtcg.com/articles/fall-of-valahai/",
     publication_date="2026-06-09",
-    heroes=["zyggy", "oscilio"],
-    npcs=[
+    characters=[
+        "zyggy",
+        "oscilio",
         npc.WENDRYN,
         npc.ASTREA_QUAZOR,
         npc.AURIC_SEERESS,
@@ -418,8 +423,10 @@ db.upsert_story(
     artists="Sebastian Giacobino",
     source_link="https://fabtcg.com/articles/letters-from-the-beyond/",
     publication_date="2026-07-07",
-    heroes=["baalghor", "chane", "vynnset"],
-    npcs=[
+    characters=[
+        "baalghor",
+        "chane",
+        "vynnset",
         npc.KIEN,
         npc.URSUR,
     ],
@@ -449,8 +456,11 @@ db.upsert_story(
     artists="Olga Tereshenko, Dominik Mayer, Simon Dominic, Isuardi Therianto",
     source_link="https://fabtcg.com/articles/agony-in-light/",
     publication_date="2026-07-31",
-    heroes=["vynnset", "boltyn", "dorinthea", "levia"],
-    npcs=[
+    characters=[
+        "vynnset",
+        "boltyn",
+        "dorinthea",
+        "levia",
         npc.NASRETH,
         npc.BLASMOPHET,
         npc.BELLONA_THE_WARTUNE_HERALD,
@@ -476,8 +486,11 @@ db.upsert_story(
     artists="Nikolay Moskvin, Bramasta Aji",
     publication_date="2020-08-14",
     source_link="https://fabtcg.com/articles/no-smoke-without-fire/",
-    heroes=["dorinthea", "kassai"],
-    npcs=[npc.TAKA],
+    characters=[
+        "dorinthea",
+        "kassai",
+        npc.TAKA,
+    ],
     locations=[
         loc.THE_SOLARIUM,
         loc.MT_VOLCOR,
@@ -490,8 +503,8 @@ db.upsert_story(
     path="src/main-story/crucible-of-war/sutcliffes-research-notes.md",
     story_type="main-story",
     title="Sutcliffe's Research Notes",
-    heroes=["viserai"],
-    npcs=[
+    characters=[
+        "viserai",
         npc.LORD_SUTCLIFFE,
         npc.LEONA,
     ],
@@ -503,8 +516,8 @@ db.upsert_story(
     path="src/main-story/super-slam/feudmasters.md",
     story_type="main-story",
     title="Feudmasters",
-    heroes=["betsy"],
-    npcs=[
+    characters=[
+        "betsy",
         npc.BATBITER,
         npc.EMEVIERE,
         npc.FIGHTMASTER_RUSTY,
@@ -552,8 +565,8 @@ db.upsert_story(
     title="Amongst the Brambles",
     artists="Nikolay Moskvin",
     source_link="https://fabtcg.com/hero/briar/story/briar-story/",
-    heroes=["briar"],
-    npcs=[
+    characters=[
+        "briar",
         npc.DAVNIR,
         npc.QUEEN_OF_CANDLEHOLD,
     ],
@@ -569,7 +582,7 @@ db.upsert_story(
     title="The Broken Covenant",
     artists="Sam Yang",
     source_link="https://fabtcg.com/hero/oldhim-2/story/oldhim/",
-    heroes=["oldhim"],
+    characters=["oldhim"],
     groups=[grp.SEERS],
     dry_run=True,
 )
@@ -580,8 +593,8 @@ db.upsert_story(
     title="Wonders of the Wayfarer",
     artists="Sam Yang",
     source_link="https://fabtcg.com/hero/lexi/story/lexi-story/",
-    heroes=["lexi"],
-    npcs=[
+    characters=[
+        "lexi",
         npc.YVOR,
     ],
     # TODO: needs catalogue constant — Lake Frigid (loc)
@@ -599,8 +612,10 @@ db.upsert_story(
     artists="Sam Yang",
     publication_date="2022-10-27",
     source_link="https://fabtcg.com/articles/ember-ash/",
-    heroes=["dromai", "emperor", "fai"],
-    npcs=[
+    characters=[
+        "dromai",
+        "emperor",
+        "fai",
         npc.GENERAL_RIKU,
         npc.LORD_MERCHANT_SAVAI,
         npc.LORD_WIZARD_CHIYO,
@@ -630,8 +645,9 @@ db.upsert_story(
     story_type="main-story",
     title="The One Emperor",
     source_link="https://fabtcg.com/hero/emperor/story/emperor-story/",
-    heroes=["emperor", "yoji"],
-    npcs=[
+    characters=[
+        "emperor",
+        "yoji",
         npc.XATHARI,
         # TODO: needs catalogue constant — Chancellor Yama (npc)
     ],
@@ -646,7 +662,7 @@ db.upsert_story(
     story_type="main-story",
     title="The Blood Stained Web",
     source_link="https://fabtcg.com/articles/story/the-bloodstained-web/",
-    heroes=["emperor"],
+    characters=["emperor"],
     locations=[
         loc.IMPERIAL_PALACE,
         loc.THE_GOLDEN_ORCHARD_ESTATE,
@@ -662,8 +678,9 @@ db.upsert_story(
     authors="Edwin McRae, Rachel Rees",
     artists="Sam Yang",
     source_link="https://fabtcg.com/hero/yoji/story/yoji-story/",
-    heroes=["emperor", "yoji"],
-    npcs=[
+    characters=[
+        "emperor",
+        "yoji",
         # TODO: needs catalogue constant — Chancellor Yama (npc)
     ],
     locations=[
@@ -684,8 +701,8 @@ db.upsert_story(
     authors="Edwin McRae, Rachel Rees",
     artists="Henrique Lindner",
     source_link="https://fabtcg.com/hero/vynnset/story/anointed-in-shadow/",
-    heroes=["vynnset"],
-    npcs=[
+    characters=[
+        "vynnset",
         npc.NASRETH,
     ],
     regions=[reg.DEMONASTERY, reg.SOLANA, reg.THE_SAVAGE_LANDS],
@@ -701,8 +718,16 @@ db.upsert_story(
     artists="Sam Yang",
     source_link="https://fabtcg.com/articles/falling-in-darkness/",
     publication_date="2023-07-01",
-    heroes=["boltyn", "bravo", "briar", "dorinthea", "levia", "lexi", "oldhim", "prism", "shiyana"],
-    npcs=[
+    characters=[
+        "boltyn",
+        "bravo",
+        "briar",
+        "dorinthea",
+        "levia",
+        "lexi",
+        "oldhim",
+        "prism",
+        "shiyana",
         npc.APOSTATE,
         npc.CAYLIN,
         npc.CAYLIN_S_MOTHER,
@@ -730,7 +755,7 @@ db.upsert_story(
     path="src/main-story/dusk-till-dawn/prism-awakener-of-sol.md",
     story_type="main-story",
     title="Prism, Awakener of Sol",
-    heroes=["boltyn", "dorinthea", "levia", "prism", "shiyana", "vynnset"],
+    characters=["boltyn", "dorinthea", "levia", "prism", "shiyana", "vynnset"],
     locations=[loc.DIMENXXIONAL_GATEWAY, loc.I_ARATHAEL],
     regions=[reg.DEMONASTERY, reg.SOLANA],
     dry_run=True,
@@ -744,7 +769,7 @@ db.upsert_story(
     artists="Jessketchin",
     source_link="https://fabtcg.com/articles/unity-in-light/",
     publication_date="2023-06-30",
-    heroes=[
+    characters=[
         "boltyn",
         "bravo",
         "briar",
@@ -754,8 +779,6 @@ db.upsert_story(
         "prism",
         "shiyana",
         "yorick",
-    ],
-    npcs=[
         npc.ONE_EYE,
     ],
     locations=[
@@ -778,8 +801,8 @@ db.upsert_story(
     title="Another Day, Another Title",
     publication_date="2023-12-22",
     source_link="https://fabtcg.com/hero/olympia/story/olympia/",
-    heroes=["olympia"],
-    npcs=[
+    characters=[
+        "olympia",
         npc.DEMETRIOS,
     ],
     locations=[
@@ -796,7 +819,7 @@ db.upsert_story(
     path="src/main-story/heavy-hitters/arena-announcements.md",
     story_type="main-story",
     title="Arena Announcements",
-    heroes=["betsy", "kassai", "kayo", "oldhim", "rhinar", "victor-goldmane"],
+    characters=["betsy", "kassai", "kayo", "oldhim", "rhinar", "victor-goldmane"],
     regions=[reg.SOLANA, reg.THE_SAVAGE_LANDS],
     dry_run=True,
 )
@@ -807,8 +830,13 @@ db.upsert_story(
     title="Bloodied Sands",
     publication_date="2024-08-16",
     source_link="https://fabtcg.com/articles/bloodied-sands/",
-    heroes=["betsy", "kassai", "kayo", "olympia", "rhinar", "victor-goldmane"],
-    npcs=[
+    characters=[
+        "betsy",
+        "kassai",
+        "kayo",
+        "olympia",
+        "rhinar",
+        "victor-goldmane",
         npc.ALIF,
         npc.AMIR,
         npc.FAYYAD,
@@ -828,8 +856,8 @@ db.upsert_story(
     title="Deathmatch Wrecking Ball",
     publication_date="2023-12-20",
     source_link="https://fabtcg.com/hero/betsy/story/46529-2/",
-    heroes=["betsy"],
-    npcs=[
+    characters=[
+        "betsy",
         npc.EBBA,
         npc.HANK,
         npc.MARCUS_MAULER_MONROE,
@@ -847,7 +875,7 @@ db.upsert_story(
     story_type="main-story",
     title="The Golden Son",
     source_link="https://fabtcg.com/hero/victor/story/victor/",
-    heroes=["victor-goldmane"],
+    characters=["victor-goldmane"],
     dry_run=True,
 )
 
@@ -857,8 +885,8 @@ db.upsert_story(
     title="Thirst For Revenge",
     publication_date="2024-01-24",
     source_link="https://fabtcg.com/hero/kassai-3/story/thirst-for-revenge/",
-    heroes=["kassai"],
-    npcs=[
+    characters=[
+        "kassai",
         npc.ALIF,
         npc.FAYYAD,
         npc.FIGHTMASTER_KOX,
@@ -874,8 +902,8 @@ db.upsert_story(
     title="Untamed and Unbroken",
     publication_date="2023-12-27",
     source_link="https://fabtcg.com/hero/kayo-br/story/kayo-story/",
-    heroes=["kayo"],
-    npcs=[
+    characters=[
+        "kayo",
         npc.DERVIN_MASTER_OF_BEASTS,
         npc.FIGHTMASTER_KOX,
         npc.YARIN,
@@ -893,8 +921,9 @@ db.upsert_story(
     story_type="main-story",
     title="Part 1: The Tiger in the Mist",
     source_link="https://fabtcg.com/hero/zen-tamer-of-purpose/story/part-1-the-tiger-in-the-mist/",
-    heroes=["nuu", "zen"],
-    npcs=[
+    characters=[
+        "nuu",
+        "zen",
         npc.SATSUKI,
         npc.SETO_OF_MIHARU,
         npc.TOROJA_OF_ISHIGAKI,
@@ -917,8 +946,8 @@ db.upsert_story(
     story_type="main-story",
     title="Part 2: The Tapestry Unfolds",
     source_link="https://fabtcg.com/hero/zen-tamer-of-purpose/story/part-2-the-tapestry-unfolds/",
-    heroes=["enigma"],
-    npcs=[
+    characters=[
+        "enigma",
         npc.KOUKI,
     ],
     locations=[loc.LUNAR_TEMPLE, loc.MISTCLOAK_LAKE, loc.MISTCLOAK_GULLY, loc.NASU_KA_TEAHOUSE],
@@ -933,8 +962,9 @@ db.upsert_story(
     story_type="main-story",
     title="Part 3: The Serpent's Strike",
     source_link="https://fabtcg.com/hero/zen-tamer-of-purpose/story/part-3-the-serpents-strike/",
-    heroes=["nuu", "zen"],
-    npcs=[
+    characters=[
+        "nuu",
+        "zen",
         npc.BOJANI,
         npc.SATSUKI,
         npc.SETO_OF_MIHARU,
@@ -949,8 +979,10 @@ db.upsert_story(
     path="src/main-story/part-the-mistveil/part-4-the-hare-and-the-snake.md",
     story_type="main-story",
     title="Part 4: The Hare and the Snake",
-    heroes=["enigma", "nuu", "zen"],
-    npcs=[
+    characters=[
+        "enigma",
+        "nuu",
+        "zen",
         npc.KOUKI,
     ],
     locations=[loc.LUNAR_TEMPLE, loc.MISTCLOAK_GULLY],
@@ -965,8 +997,10 @@ db.upsert_story(
     authors="Nicola Price",
     artists="MJ Fetesio",
     source_link="https://fabtcg.com/hero/viserai/story/viserai-story/",
-    heroes=["viserai"],
-    npcs=[npc.LORD_SUTCLIFFE],
+    characters=[
+        "viserai",
+        npc.LORD_SUTCLIFFE,
+    ],
     locations=[
         loc.ENTRANCE_HALL,
     ],
@@ -981,8 +1015,11 @@ db.upsert_story(
     story_type="main-story",
     title="From the Ashes",
     source_link="https://fabtcg.com/hero/kano/story/from-the-ashes/",
-    heroes=["kano", "emperor"],
-    npcs=[npc.LORD_WIZARD_CHIYO],
+    characters=[
+        "kano",
+        "emperor",
+        npc.LORD_WIZARD_CHIYO,
+    ],
     locations=[
         loc.CHAMBER_OF_THE_DRAGON,
         loc.IMPERIAL_PALACE,
@@ -1001,8 +1038,8 @@ db.upsert_story(
     story_type="main-story",
     title="Full Steam Ahead",
     source_link="https://fabtcg.com/hero/dash/story/full-steam-ahead/",
-    heroes=["dash"],
-    npcs=[
+    characters=[
+        "dash",
         npc.RICKY_ROYCE,
         npc.THIROUX,
     ],
@@ -1032,8 +1069,10 @@ db.upsert_story(
     story_type="main-story",
     title="Needle in a Haystack",
     source_link="https://fabtcg.com/hero/dash/story/needle-in-a-haystack/",
-    heroes=["dash"],
-    npcs=[npc.RICKY_ROYCE],
+    characters=[
+        "dash",
+        npc.RICKY_ROYCE,
+    ],
     locations=[
         loc.BEACON,
         loc.COPPERTOWN,
@@ -1059,7 +1098,7 @@ db.upsert_story(
     story_type="main-story",
     title="Playing with Fire",
     source_link="https://fabtcg.com/hero/kano/story/playing-with-fire/",
-    heroes=["emperor", "kano"],
+    characters=["emperor", "kano"],
     locations=[
         loc.CHAMBER_OF_THE_DRAGON,
         loc.IMPERIAL_PALACE,
@@ -1080,7 +1119,7 @@ db.upsert_story(
     artists="Nikolay Moskvin",
     publication_date="2020-08-12",
     source_link="https://fabtcg.com/articles/return-shadow/",
-    heroes=["viserai"],
+    characters=["viserai"],
     locations=[
         loc.ENTRANCE_HALL,
         loc.I_ARATHAEL,
@@ -1097,8 +1136,10 @@ db.upsert_story(
     story_type="main-story",
     title="Smoke and Mirrors",
     source_link="https://fabtcg.com/hero/kano/story/smoke-and-mirrors/",
-    heroes=["kano"],
-    npcs=[npc.LORD_WIZARD_CHIYO],
+    characters=[
+        "kano",
+        npc.LORD_WIZARD_CHIYO,
+    ],
     locations=[
         loc.CHAMBER_OF_THE_DRAGON,
         loc.IMPERIAL_PALACE,
@@ -1115,8 +1156,8 @@ db.upsert_story(
     story_type="main-story",
     title="Stroke of Genius",
     source_link="https://fabtcg.com/hero/dash/story/stroke-of-genius/",
-    heroes=["dash"],
-    npcs=[
+    characters=[
+        "dash",
         npc.DR_WYVERSTONE,
         npc.THIROUX,
     ],
@@ -1142,8 +1183,8 @@ db.upsert_story(
     authors="Nicola Price, Tarryn Thomas",
     artists="Iain Miki",
     source_link="https://fabtcg.com/hero/levia/story/levia-story-destroy-and-consume/",
-    heroes=["levia"],
-    npcs=[
+    characters=[
+        "levia",
         npc.LADY_BARTHIMONT,
         npc.LORD_SUTCLIFFE,
     ],
@@ -1167,8 +1208,10 @@ db.upsert_story(
     authors="Nicola Price, Tarryn Thomas",
     artists="Nikolay Moskvin",
     source_link="https://fabtcg.com/hero/chane/story/chane-story/",
-    heroes=["chane"],
-    npcs=[npc.URSUR],
+    characters=[
+        "chane",
+        npc.URSUR,
+    ],
     locations=[
         loc.I_ARATHAEL,
     ],
@@ -1186,8 +1229,8 @@ db.upsert_story(
     authors="Nicola Price, Tarryn Thomas",
     artists="Sam Yang",
     source_link="https://fabtcg.com/hero/prism-soa/story/prism-story-stories-of-illumination/",
-    heroes=["prism"],
-    npcs=[
+    characters=[
+        "prism",
         npc.AEGIS_THE_SHIELD_OF_LIGHT,
         npc.AVALON_MESSENGER_OF_THE_DAWN,
         npc.BELLONA_THE_WARTUNE_HERALD,
@@ -1214,8 +1257,8 @@ db.upsert_story(
     authors="Nicola Price, Tarryn Thomas",
     artists="Nikolay Moskvin",
     source_link="https://fabtcg.com/hero/boltyn-3/story/ser-story/",
-    heroes=["boltyn"],
-    npcs=[
+    characters=[
+        "boltyn",
         npc.AIOS,
         npc.BELLONA_THE_WARTUNE_HERALD,
         npc.EIRINA,
@@ -1241,8 +1284,9 @@ db.upsert_story(
     artists="Sam Yang",
     publication_date="2021-04-20",
     source_link="https://fabtcg.com/articles/step-into-light/",
-    heroes=["boltyn", "prism"],
-    npcs=[
+    characters=[
+        "boltyn",
+        "prism",
         npc.AIOS,
         npc.APOSTATE,
         npc.BELLONA_THE_WARTUNE_HERALD,
@@ -1273,8 +1317,9 @@ db.upsert_story(
     artists="Nikolay Moskvin",
     publication_date="2021-04-15",
     source_link="https://fabtcg.com/articles/harbinger-abyss/",
-    heroes=["chane", "levia"],
-    npcs=[
+    characters=[
+        "chane",
+        "levia",
         npc.BLASMOPHET,
         npc.LADY_BARTHIMONT,
         npc.LORD_SUTCLIFFE,
@@ -1300,8 +1345,8 @@ db.upsert_story(
     authors="Robbie Wen, Edwin McRae, Rachel Rees, Alan Baxter",
     source_link="https://fabtcg.com/articles/captain-bones-and-the-city-of-gold/",
     publication_date="2025-06-02",
-    heroes=["gravy"],
-    npcs=[
+    characters=[
+        "gravy",
         npc.CHOWDER,
         npc.CHUM,
         npc.CUTTY,
@@ -1349,8 +1394,10 @@ db.upsert_story(
     title="Boom Town Boom",
     source_link="https://fabtcg.com/articles/boom-town-boom/",
     publication_date="2025-04-17",
-    heroes=["dash", "data-doll-mkii", "maxx"],
-    npcs=[
+    characters=[
+        "dash",
+        "data-doll-mkii",
+        "maxx",
         npc.AUDACITY,
         npc.FERAL,
         npc.JUICE,
@@ -1404,8 +1451,11 @@ db.upsert_story(
     artists="Sam Yang",
     source_link="https://fabtcg.com/articles/grand-adventure/",
     publication_date="2021-12-25",
-    heroes=["briar", "lexi", "oldhim", "yorick"],
-    npcs=[
+    characters=[
+        "briar",
+        "lexi",
+        "oldhim",
+        "yorick",
         # Named in Briar's line about the Ancients, not present in the story.
         npc.DAVNIR,
         npc.ISEN,
@@ -1457,8 +1507,10 @@ db.upsert_story(
     # day, ten years ago" and waits on "the Emperor's thanks". A hero row exists
     # under the slug `emperor`, so the mention links there rather than minting an
     # NPC spelling of the same person.
-    heroes=["dromai", "emperor", "fai"],
-    npcs=[
+    characters=[
+        "dromai",
+        "emperor",
+        "fai",
         # The four dragons Dromai invokes. Vynserakai, Azvolai and Nekria are all
         # destroyed at the siege; Tomeltai carries the second half of the story.
         npc.AZVOLAI,
@@ -1509,8 +1561,10 @@ db.upsert_story(
     title="Betrayal",
     source_link="https://fabtcg.com/hero/dromai/story/dromai-story-betrayal/",
     # None of the three were linked before, though the story is Dromai's throughout.
-    heroes=["dromai", "emperor", "fai"],
-    npcs=[
+    characters=[
+        "dromai",
+        "emperor",
+        "fai",
         npc.EUN,
         npc.GENERAL_RIKU,
         npc.MIN_OF_THE_FOREST_OF_FLAMES,
@@ -1568,8 +1622,10 @@ db.upsert_story(
     source_link="https://fabtcg.com/hero/fai/story/fai-story-the-phoenix-and-the-dragon/",
     # Fai is the POV throughout and Dromai is on the page. The Emperor never
     # appears — :65, "The Emperor is blind. His dragons are turning against him."
-    heroes=["dromai", "emperor", "fai"],
-    npcs=[
+    characters=[
+        "dromai",
+        "emperor",
+        "fai",
         # Eaten by Dromai's dragon at :51. Her row already read Deceased.
         npc.EUN,
         # Named but absent: :25, :27, :35, :61.

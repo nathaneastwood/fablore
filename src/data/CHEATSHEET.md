@@ -40,8 +40,10 @@ db.upsert_story(
     path="src/main-story/set-name/story-slug.md",
     story_type="main-story",
     title="Story Title",
-    heroes=["rhinar"],                  # canonical slug — raises on an unknown one
-    npcs=[npc.SER_EXAMPLE],             # from entries/catalogue/npcs.py
+    characters=[
+        "rhinar",              # canonical slug — raises on an unknown one
+        npc.SER_EXAMPLE,       # from entries/catalogue/npcs.py
+    ],
     locations=[loc.THE_CITADEL],
     regions=[reg.SOLANA],
     dry_run=True,
@@ -189,8 +191,7 @@ db.upsert_story(
     "src/main-story/set-name/story-slug.md",
     story_type="main-story",
     title="Story Title",
-    heroes=["rhinar"],
-    npcs=[NPCEntry("Ser Example", status="Alive")],
+    characters=["rhinar", NPCEntry("Ser Example", status="Alive")],
     locations=[LocationEntry("The Citadel", region="Solana")],
     narrated_videos=[NarratedVideoEntry(author="LSS", source_link="https://…")],
     dry_run=True,

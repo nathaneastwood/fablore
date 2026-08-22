@@ -7,7 +7,7 @@ inline ``<script>`` carrying the node/link payload plus the canvas shell that
 ``theme/graph.js`` renders into.
 
 The graph is bipartite: every story is a node, every registry entity that a story
-links to is a node, and every row of the ten ``story-*`` junction CSVs is an edge.
+links to is a node, and every row of the nine ``story-*`` junction CSVs is an edge.
 Entities that no story references are left out — they would render as isolated
 dots. Story types that exist only as reference pages (``heroes-of-rathe``,
 ``other-characters``, ``weapons``, ``equipment``) are skipped as *story* nodes
@@ -395,6 +395,19 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
         if cid and slug:
             heroes[cid] = (name or slug, slug)
 
+    # character_id -> canonical_id (migration 17's identity spine). This is
+    # what makes a hero and an NPC draw as one node: story-characters.csv
+    # keys every link on character_id regardless of which side declared it,
+    # so as long as the node id used below is always character_id, the same
+    # person can never mint two nodes the way story-heroes.csv (keyed on
+    # canonical_id) and story-npcs.csv (keyed on character_id) used to.
+    char_to_canon: dict[str, str] = {}
+    for r in _rows(csv_dir / "character-heroes.csv"):
+        canon_id = (r.get("CanonicalId") or "").strip()
+        char_id = (r.get("CharacterId") or "").strip()
+        if canon_id and char_id:
+            char_to_canon[char_id] = canon_id
+
     weapons = {
         cid: (name, slug)
         for cid, name, slug in (
@@ -446,13 +459,23 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
 
     # --- Junction tables ---------------------------------------------------
     # (csv file, entity id column, kind, resolver -> (name, url) or None)
-    def _hero(eid: str):
-        row = heroes.get(eid)
-        return None if row is None else (row[0], resolve_hero_url(src_root, row[1]))
+    def _character(eid: str):
+        """Resolve a story-characters.csv row to (name, url, kind).
 
-    def _npc(eid: str):
+        One node id (character_id) for a hero and an NPC alike — that is the
+        whole fix. kind is derived the same way stage 10 derives the hints
+        badge: "hero" when character_id has a character-heroes.csv row, else
+        "npc". A 3-tuple return overrides the junction's default kind below.
+        """
         row = npcs.get(eid)
-        return None if row is None else (row[0], _html_url(row[1]))
+        if row is None:
+            return None
+        name, other_characters_key = row
+        canon_id = char_to_canon.get(eid)
+        hero_row = heroes.get(canon_id) if canon_id is not None else None
+        if hero_row is not None:
+            return (hero_row[0] or name, resolve_hero_url(src_root, hero_row[1]), "hero")
+        return (name, _html_url(other_characters_key), "npc")
 
     def _location(eid: str):
         row = locations.get(eid)
@@ -488,8 +511,7 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
         return resolve
 
     junctions = (
-        ("story-heroes.csv", "CanonicalId", "hero", _hero),
-        ("story-npcs.csv", "CharacterId", "npc", _npc),
+        ("story-characters.csv", "CharacterId", "npc", _character),
         ("story-locations.csv", "LocationId", "location", _location),
         ("story-regions.csv", "RegionId", "region", _region),
         ("story-weapons.csv", "CanonicalWeaponId", "weapon", _weapon),
@@ -510,8 +532,15 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
             resolved = resolve(eid)
             if resolved is None:
                 continue
-            name, url = resolved
-            b.add_edge(story_idx[sid], b.add_node(eid, name, kind, url))
+            # Most resolvers return (name, url) and take their kind from the
+            # junction tuple above; _character returns a 3-tuple with its own
+            # per-row kind ("hero" or "npc"), since one file now carries both.
+            if len(resolved) == 3:
+                name, url, row_kind = resolved
+            else:
+                name, url = resolved
+                row_kind = kind
+            b.add_edge(story_idx[sid], b.add_node(eid, name, row_kind, url))
 
     # Stories that ended up with no edge are dots with nothing to say.
     linked: set[int] = set()
@@ -534,7 +563,15 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
         if new is None:
             continue
         node_kind = nodes[new]["k"]
-        if node_kind in _PRINTED_KINDS:
+        if node_kind == "hero":
+            # Hero nodes are keyed on character_id since migration 17 (so a
+            # hero-and-NPC person is one node), but build_printing_edges joins
+            # heroes-printings.csv through heroes-game.csv's CanonicalId — so
+            # card_node needs the canonical id here, not the node id.
+            canonical_id = char_to_canon.get(node_id)
+            if canonical_id is not None:
+                card_node[canonical_id] = new
+        elif node_kind in _PRINTED_KINDS:
             card_node[node_id] = new
         elif node_kind == "set" and node_id.startswith("SET"):
             set_node[node_id[len("SET") :]] = new

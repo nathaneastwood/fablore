@@ -38,8 +38,10 @@ db.upsert_story(
     story_type="short-stories",
     title="Open the Gates",
     publication_date="2026-07-16",
-    heroes=["viserai", "levia", "malice"],
-    npcs=[
+    characters=[
+        "viserai",
+        "levia",
+        "malice",
         npc.BLASMOPHET,
     ],
     locations=[
@@ -60,7 +62,7 @@ db.upsert_story(
     path="src/short-stories/armory-deck-pleiades/pleiades.md",
     story_type="short-stories",
     title="Build The Arena Atmosphere Like A Superstar!",
-    heroes=["pleiades"],
+    characters=["pleiades"],
     dry_run=True,
 )
 
@@ -69,8 +71,8 @@ db.upsert_story(
     story_type="short-stories",
     title="Wings of Wisdom",
     source_link="https://fabtcg.com/articles/wings-of-wisdom/",
-    heroes=["prism"],
-    npcs=[
+    characters=[
+        "prism",
         npc.SEKEM_ARCHANGEL_OF_RAVAGES,
     ],
     regions=[reg.SOLANA],
@@ -81,8 +83,13 @@ db.upsert_story(
     path="src/short-stories/heavy-hitters/kassais-diary.md",
     story_type="short-stories",
     title="Kassai's Diary",
-    heroes=["betsy", "kassai", "kayo", "olympia", "rhinar", "victor-goldmane"],
-    npcs=[
+    characters=[
+        "betsy",
+        "kassai",
+        "kayo",
+        "olympia",
+        "rhinar",
+        "victor-goldmane",
         npc.FIGHTMASTER_KOX,
         npc.GENERAL_CHUL,
         npc.SADA,
@@ -108,7 +115,7 @@ db.upsert_story(
     story_type="short-stories",
     title="Surging to Success",
     source_link="https://fabtcg.com/articles/surging-success/",
-    heroes=["katsu"],
+    characters=["katsu"],
     dry_run=True,
 )
 
@@ -116,7 +123,7 @@ db.upsert_story(
     path="src/short-stories/roll-of-honour/ira-crimson-haze.md",
     story_type="short-stories",
     title="Roll of Honor: Ira, Crimson Haze",
-    heroes=["ira"],
+    characters=["ira"],
     dry_run=True,
 )
 
@@ -124,7 +131,7 @@ db.upsert_story(
     path="src/short-stories/roll-of-honour/kassai-cintari-sellsword.md",
     story_type="short-stories",
     title="Roll of Honor: Kassai, Cintari Sellsword",
-    heroes=["kassai"],
+    characters=["kassai"],
     dry_run=True,
 )
 
@@ -132,8 +139,9 @@ db.upsert_story(
     path="src/short-stories/rosetta/oscilio-constella-intelligence.md",
     story_type="short-stories",
     title="Oscilio, Constella Intelligence",
-    heroes=["aurora", "oscilio"],
-    npcs=[
+    characters=[
+        "aurora",
+        "oscilio",
         npc.QUEEN_OF_CANDLEHOLD,
     ],
     locations=[
@@ -149,7 +157,7 @@ db.upsert_story(
     path="src/short-stories/armory-deck-gravy-bones/gravy-bones.md",
     story_type="short-stories",
     title="Rise From The Depths And Terrorize The High Seas",
-    heroes=["gravy"],
+    characters=["gravy"],
     locations=[loc.DREADFALL_REACH],
     regions=[reg.HIGH_SEAS],
     dry_run=True,
@@ -159,7 +167,7 @@ db.upsert_story(
     path="src/short-stories/armory-deck-rhinar/rhinar.md",
     story_type="short-stories",
     title="Reclaim Your Territory! Rip Your Foes Apart!",
-    heroes=["rhinar"],
+    characters=["rhinar"],
     locations=[loc.DEATHMATCH_ARENA],
     regions=[reg.THE_SAVAGE_LANDS],
     dry_run=True,
@@ -170,8 +178,10 @@ db.upsert_story(
     story_type="short-stories",
     title="Living on a Prayer",
     source_link="https://fabtcg.com/articles/living-on-a-prayer/",
-    heroes=["boltyn"],
-    npcs=[npc.GALAPHOR],
+    characters=[
+        "boltyn",
+        npc.GALAPHOR,
+    ],
     regions=[reg.DEMONASTERY, reg.SOLANA],
     weapons=["raydn-duskbane"],
     dry_run=True,
@@ -182,8 +192,8 @@ db.upsert_story(
     story_type="short-stories",
     title="No Pain No Gain",
     source_link="https://fabtcg.com/articles/no-pain-no-gain/",
-    heroes=["vynnset"],
-    npcs=[
+    characters=[
+        "vynnset",
         npc.DARIAN,
         npc.DAXIUS,
         npc.DHERIC,
@@ -195,8 +205,10 @@ db.upsert_story(
     path="src/short-stories/heavy-hitters/victor.md",
     story_type="short-stories",
     title="Victor",
-    heroes=["victor-goldmane"],
-    npcs=[npc.HOG],
+    characters=[
+        "victor-goldmane",
+        npc.HOG,
+    ],
     dry_run=True,
 )
 
@@ -205,7 +217,7 @@ db.upsert_story(
     story_type="short-stories",
     title="Bait and Switch",
     source_link="https://fabtcg.com/articles/bait-and-switch/",
-    heroes=["uzuri"],
+    characters=["uzuri"],
     dry_run=True,
 )
 
@@ -214,7 +226,7 @@ db.upsert_story(
     story_type="short-stories",
     title="Cornering Your Prey",
     source_link="https://fabtcg.com/articles/cornering-your-prey/",
-    heroes=["arakni-huntsman"],
+    characters=["arakni-huntsman"],
     dry_run=True,
 )
 
@@ -222,7 +234,7 @@ db.upsert_story(
     path="src/short-stories/roll-of-honour/chane.md",
     story_type="short-stories",
     title="Roll of Honor: Chane",
-    heroes=["chane"],
+    characters=["chane"],
     regions=[reg.DEMONASTERY, reg.SOLANA],
     dry_run=True,
 )
@@ -231,7 +243,7 @@ db.upsert_story(
     path="src/short-stories/roll-of-honour/lexi-livewire.md",
     story_type="short-stories",
     title="Roll of Honor: Lexi, Livewire",
-    heroes=["briar", "lexi", "yorick"],
+    characters=["briar", "lexi", "yorick"],
     locations=[
         loc.CANDLEHOLD,
         loc.ENION,
@@ -245,7 +257,7 @@ db.upsert_story(
     path="src/short-stories/roll-of-honour/rhinar.md",
     story_type="short-stories",
     title="Roll of Honor: Rhinar",
-    npcs=[
+    characters=[
         npc.LUCA_ARENA_CICERONE,
         npc.TOGARK_THE_WRANGLER,
     ],
@@ -264,7 +276,7 @@ db.upsert_story(
     path="src/short-stories/rosetta/aurora-shooting-star.md",
     story_type="short-stories",
     title="Aurora, Shooting Star",
-    heroes=["aurora"],
+    characters=["aurora"],
     locations=[loc.ENION],
     dry_run=True,
 )
@@ -273,7 +285,7 @@ db.upsert_story(
     path="src/short-stories/rosetta/verdance-thorn-of-the-rose.md",
     story_type="short-stories",
     title="Verdance, Thorn of the Rose",
-    heroes=["florian", "verdance"],
+    characters=["florian", "verdance"],
     locations=[loc.CANDLEHOLD],
     regions=[reg.ARIA],
     groups=[grp.ROSETTA],
@@ -284,8 +296,10 @@ db.upsert_story(
     path="src/short-stories/round-the-table/brevant-civic-protector.md",
     story_type="short-stories",
     title="Brevant, Civic Protector",
-    heroes=["brevant"],
-    npcs=[npc.THEBASTO_MAGISTER_OF_DEFENSE],
+    characters=[
+        "brevant",
+        npc.THEBASTO_MAGISTER_OF_DEFENSE,
+    ],
     locations=[
         loc.CHARRED_RANGE,
     ],
@@ -298,7 +312,7 @@ db.upsert_story(
     path="src/short-stories/armory-deck-arakni/arakni-5l!p3d-7hru-7h3-cr4x.md",
     story_type="short-stories",
     title="5l!p 7hru 7h3 Cr4x 4nd Unh!ng3 Your V!c7!m",
-    heroes=["arakni-solitary-confinement"],
+    characters=["arakni-solitary-confinement"],
     dry_run=True,
 )
 
@@ -306,7 +320,7 @@ db.upsert_story(
     path="src/short-stories/armory-deck-hala/hala.md",
     story_type="short-stories",
     title="Armory Deck Origins: Hala",
-    heroes=["hala"],
+    characters=["hala"],
     dry_run=True,
 )
 
@@ -314,7 +328,7 @@ db.upsert_story(
     path="src/short-stories/bright-lights/maxx-imum-hype.md",
     story_type="short-stories",
     title="Maxx-imum Hype",
-    heroes=["maxx"],
+    characters=["maxx"],
     weapons=["banksy"],
     dry_run=True,
 )
@@ -323,7 +337,7 @@ db.upsert_story(
     path="src/short-stories/heavy-hitters/kassai.md",
     story_type="short-stories",
     title="Kassai",
-    heroes=["kassai"],
+    characters=["kassai"],
     locations=[loc.THE_MOAT],
     weapons=["cintari-saber"],
     dry_run=True,
@@ -333,7 +347,7 @@ db.upsert_story(
     path="src/short-stories/heavy-hitters/kayo.md",
     story_type="short-stories",
     title="Kayo",
-    heroes=["kayo"],
+    characters=["kayo"],
     regions=[reg.THE_SAVAGE_LANDS],
     dry_run=True,
 )
@@ -343,8 +357,8 @@ db.upsert_story(
     story_type="short-stories",
     title="Aiming High",
     source_link="https://fabtcg.com/articles/aiming-high/",
-    heroes=["azalea"],
-    npcs=[
+    characters=[
+        "azalea",
         npc.BAZZ,
         npc.PINWHEEL,
     ],
@@ -357,7 +371,7 @@ db.upsert_story(
     path="src/short-stories/roll-of-honour/briar-warden-of-thorns.md",
     story_type="short-stories",
     title="Roll of Honor: Briar, Warden of Thorns",
-    heroes=["briar"],
+    characters=["briar"],
     dry_run=True,
 )
 
@@ -365,8 +379,8 @@ db.upsert_story(
     path="src/short-stories/roll-of-honour/dash.md",
     story_type="short-stories",
     title="Roll of Honor: Dash",
-    heroes=["dash"],
-    npcs=[
+    characters=[
+        "dash",
         npc.DR_WYVERSTONE,
         npc.RICKY_ROYCE,
         npc.THIROUX,
@@ -386,7 +400,7 @@ db.upsert_story(
     path="src/short-stories/roll-of-honour/iyslander-stormbind.md",
     story_type="short-stories",
     title="Roll of Honor: Iyslander, Stormbind",
-    heroes=["iyslander"],
+    characters=["iyslander"],
     regions=[reg.VOLCOR],
     dry_run=True,
 )
@@ -395,7 +409,7 @@ db.upsert_story(
     path="src/short-stories/roll-of-honour/kano.md",
     story_type="short-stories",
     title="Roll of Honor: Kano",
-    heroes=["kano"],
+    characters=["kano"],
     dry_run=True,
 )
 
@@ -404,7 +418,7 @@ db.upsert_story(
     story_type="short-stories",
     title="Roll of Honor: Oldhim, Grandfather of Eternity",
     source_link="https://fabtcg.com/articles/roll-of-honor-oldhim-grandfather-of-eternity/",
-    heroes=["oldhim"],
+    characters=["oldhim"],
     dry_run=True,
 )
 
@@ -413,7 +427,7 @@ db.upsert_story(
     story_type="short-stories",
     title="Roll of Honor: Oldhim",
     source_link="https://fabtcg.com/articles/roll-honor-oldhim/",
-    heroes=["oldhim"],
+    characters=["oldhim"],
     locations=[loc.ISENLOFT],
     regions=[reg.ARIA],
     weapons=["winters-wail"],
@@ -425,8 +439,8 @@ db.upsert_story(
     path="src/short-stories/roll-of-honour/victor-goldmane.md",
     story_type="short-stories",
     title="Roll of Honor: Victor Goldmane",
-    heroes=["victor-goldmane"],
-    npcs=[
+    characters=[
+        "victor-goldmane",
         npc.AURELIUS,
         npc.DUKE_DREXEN,
     ],
@@ -442,7 +456,7 @@ db.upsert_story(
     path="src/short-stories/bright-lights/dash-through-data.md",
     story_type="short-stories",
     title="Dash Through Data",
-    heroes=["dash", "data-doll-mkii"],
+    characters=["dash", "data-doll-mkii"],
     dry_run=True,
 )
 
@@ -450,7 +464,7 @@ db.upsert_story(
     path="src/short-stories/bright-lights/more-than-human.md",
     story_type="short-stories",
     title="More Than Human",
-    heroes=["teklovossen"],
+    characters=["teklovossen"],
     locations=[loc.EAST_RISE],
     regions=[reg.METRIX],
     equipment=["evo-face-breaker"],
@@ -474,7 +488,7 @@ db.upsert_story(
     path="src/short-stories/heavy-hitters/betsy.md",
     story_type="short-stories",
     title="Betsy",
-    heroes=["betsy"],
+    characters=["betsy"],
     dry_run=True,
 )
 
@@ -489,7 +503,7 @@ db.upsert_story(
     path="src/short-stories/heavy-hitters/rhinar.md",
     story_type="short-stories",
     title="Rhinar",
-    npcs=[npc.FIGHTMASTER_KOX],
+    characters=[npc.FIGHTMASTER_KOX],
     locations=[
         loc.TARNISH_HILL,
         loc.THISTLEFOLD,
@@ -504,7 +518,7 @@ db.upsert_story(
     story_type="short-stories",
     title="A Thousand Cuts",
     source_link="https://fabtcg.com/articles/thousand-cuts/",
-    heroes=["benji"],
+    characters=["benji"],
     regions=[reg.THE_PITS],
     weapons=["zephyr-needle"],
     dry_run=True,
@@ -515,8 +529,10 @@ db.upsert_story(
     story_type="short-stories",
     title="It's a Trap!",
     source_link="https://fabtcg.com/articles/its-trap/",
-    heroes=["riptide"],
-    npcs=[npc.SQUIDGE],
+    characters=[
+        "riptide",
+        npc.SQUIDGE,
+    ],
     dry_run=True,
 )
 
@@ -524,8 +540,8 @@ db.upsert_story(
     path="src/short-stories/roll-of-honour/briar.md",
     story_type="short-stories",
     title="Roll of Honor: Briar",
-    heroes=["briar"],
-    npcs=[
+    characters=[
+        "briar",
         npc.DAVNIR,
         npc.YVOR,
     ],
@@ -543,7 +559,7 @@ db.upsert_story(
     story_type="short-stories",
     title="Roll of Honor: Iyslander",
     source_link="https://fabtcg.com/articles/roll-honor-iyslander/",
-    heroes=["iyslander"],
+    characters=["iyslander"],
     locations=[loc.BLEAK_EXPANSE],
     regions=[reg.ARIA],
     dry_run=True,
@@ -553,8 +569,10 @@ db.upsert_story(
     path="src/short-stories/roll-of-honour/zen.md",
     story_type="short-stories",
     title="Roll of Honor: Zen",
-    heroes=["zen"],
-    npcs=[npc.MASTER_MORITA_ART_OF_THE_HAND],
+    characters=[
+        "zen",
+        npc.MASTER_MORITA_ART_OF_THE_HAND,
+    ],
     regions=[reg.MISTERIA],
     dry_run=True,
 )
@@ -563,7 +581,7 @@ db.upsert_story(
     path="src/short-stories/rosetta/florian-rotwood-harbinger.md",
     story_type="short-stories",
     title="Florian, Rotwood Harbinger",
-    heroes=["florian"],
+    characters=["florian"],
     locations=[
         loc.CANDLEHOLD,
         loc.ROTWOOD,
@@ -576,7 +594,7 @@ db.upsert_story(
     path="src/short-stories/round-the-table/melody-sing-along.md",
     story_type="short-stories",
     title="Melody, Sing-along",
-    heroes=["melody"],
+    characters=["melody"],
     locations=[
         loc.ASKRAWELD,
         loc.FENSALIR,

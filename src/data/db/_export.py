@@ -809,21 +809,18 @@ _JUNCTION_EXPORT_SPECS: tuple[tuple[str, str, str, str, str], ...] = (
 
 
 def _export_story_junctions(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    # story_heroes and story_npcs carry an extra Fragment column.
-    for table, csv_name, db_col, csv_id_col in (
-        ("story_heroes", "story-heroes.csv", "canonical_id", "CanonicalId"),
-        ("story_npcs", "story-npcs.csv", "character_id", "CharacterId"),
-    ):
-        rows = conn.execute(
-            f"SELECT story_id, {db_col}, fragment" f" FROM {table} ORDER BY story_id, {db_col}"
-        ).fetchall()
-        data = [{"StoryId": r["story_id"], csv_id_col: r[db_col], "Fragment": r["fragment"]} for r in rows]
-        _write_pipe_csv(
-            csv_dir / csv_name,
-            _CMD_JUNCTIONS,
-            ["StoryId", csv_id_col, "Fragment"],
-            data,
-        )
+    # story_characters carries an extra Fragment column, unlike the plain
+    # (story_id, entity_id) junctions in _JUNCTION_EXPORT_SPECS below.
+    rows = conn.execute(
+        "SELECT story_id, character_id, fragment FROM story_characters ORDER BY story_id, character_id"
+    ).fetchall()
+    data = [{"StoryId": r["story_id"], "CharacterId": r["character_id"], "Fragment": r["fragment"]} for r in rows]
+    _write_pipe_csv(
+        csv_dir / "story-characters.csv",
+        _CMD_JUNCTIONS,
+        ["StoryId", "CharacterId", "Fragment"],
+        data,
+    )
 
     for table, csv_name, db_col, csv_sid, csv_eid in _JUNCTION_EXPORT_SPECS:
         rows = conn.execute(f"SELECT story_id, {db_col} FROM {table} ORDER BY story_id, {db_col}").fetchall()
@@ -859,8 +856,7 @@ _ALL_TABLES = [
     "talents",
     "sets",
     "set_types",
-    "story_npcs",
-    "story_heroes",
+    "story_characters",
     "story_locations",
     "story_regions",
     "story_monsters",

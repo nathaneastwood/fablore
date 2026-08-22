@@ -170,7 +170,7 @@ def test_a_holder_may_not_be_named_twice_as_hero_slug(db: Database) -> None:
 def test_the_same_person_may_not_be_named_as_both_npc_and_hero(db: Database) -> None:
     """The hazard migration 12 makes reachable: one character_id, two spellings."""
     _seed_hero(db, "kano", "Kano")
-    _story(db, npcs=[NPCEntry("Kano", hero_slug="kano")])
+    _story(db, characters=[NPCEntry("Kano", hero_slug="kano")])
     entry = TitleEntry(
         "Dracai of Aether",
         npc_holders=((NPCEntry("Kano"), 0, "x.md"),),

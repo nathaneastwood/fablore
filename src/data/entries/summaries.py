@@ -37,7 +37,7 @@ db.upsert_story(
     path="src/summaries/war-of-the-monarch-pt-1.md",
     story_type="summaries",
     title="War of the Monarch, Part 1",
-    heroes=[
+    characters=[
         "viserai",
         "chane",
         "levia",
@@ -46,8 +46,6 @@ db.upsert_story(
         "boltyn",
         "dorinthea",
         "shiyana",
-    ],
-    npcs=[
         npc.GRAND_MAGISTER_THE_DEVOUT,
         npc.APOSTATE,
         npc.LORD_SUTCLIFFE,
@@ -83,7 +81,7 @@ db.upsert_story(
     authors="Rachel Rees, Kasharn Rao, Aidan Kwasneski, Edwin McRae",
     source_link="https://fabtcg.com/usurp-the-shadow-throne-lore-recap/",
     publication_date="2026-07-17",
-    heroes=[
+    characters=[
         "viserai",
         "chane",
         "levia",
@@ -96,8 +94,6 @@ db.upsert_story(
         "dorinthea",
         "boltyn",
         "hala",
-    ],
-    npcs=[
         npc.APOSTATE,
         npc.LORD_SUTCLIFFE,
         npc.URSUR,

@@ -114,8 +114,7 @@ db.upsert_story(
     "src/main-story/omens-of-the-third-age/omens-in-the-sky.md",
     story_type="main-story",
     title="Omens in the Sky",
-    heroes=["boltyn"],
-    npcs=[NPCEntry("Captain Example", status="Alive")],
+    characters=["boltyn", NPCEntry("Captain Example", status="Alive")],
     locations=[LocationEntry("The Grand Bazaar", region="Aria", lore_fragment="grand-bazaar")],
     narrated_videos=[NarratedVideoEntry(author="LSS", source_link="https://…")],
 )
@@ -130,8 +129,10 @@ db.upsert_story(
     path="src/main-story/omens-of-the-third-age/omens-in-the-sky.md",
     story_type="main-story",
     title="Omens in the Sky",
-    heroes=["boltyn"],              # canonical slug — raises on an unknown one
-    npcs=[npc.CAPTAIN_EXAMPLE],     # defined once in entries/catalogue/npcs.py
+    characters=[
+        "boltyn",              # canonical slug — raises on an unknown one
+        npc.CAPTAIN_EXAMPLE,   # defined once in entries/catalogue/npcs.py
+    ],
     locations=[loc.THE_GRAND_BAZAAR],
     regions=[reg.ARIA],
     dry_run=True,
@@ -155,8 +156,7 @@ Each declaration carries its own `dry_run=` flag: leave it `True` to preview, se
 
 | Entity | In a declaration | Identifier |
 |--------|------------------|------------|
-| `heroes` | `list[str]` of canonical slugs | looked up in `heroes_canonical`; raises `ValueError` with hint to call `db.print_heroes()` if not found |
-| `npcs` | `[npc.NAME]` from `catalogue/npcs.py` | `LC` + hash of the name |
+| `characters` | `list[str \| NPCEntry]` mixing canonical hero slugs and `[npc.NAME]` from `catalogue/npcs.py`, freely | a slug is looked up in `heroes_canonical` (raises `ValueError` with hint to call `db.print_heroes()` if not found) and resolved through `character_heroes`; an `NPCEntry` resolves to `LC` + hash of the name. A slug and an `NPCEntry` naming the same person in one list raises, naming both. |
 | `regions` | `[reg.NAME]` from `catalogue/regions.py` | `RG` + hash of the name |
 | `locations` | `[loc.NAME]` from `catalogue/locations.py` | `LO` + hash of **name and region**; `lore_fragment` (if set) validated against the world lore `.md` file |
 | `monsters` / `fauna` / `flora` | `[mon.NAME]` / `[fauna.NAME]` / `[flora.NAME]` | `MO` / `FA` / `FR` + hash of the name |
@@ -215,9 +215,9 @@ The same three-layer idea applies to heroes, weapons, and equipment:
 |-------|----------------|--------|---------|-----------|
 | Game (cards) | Rows derived from the sibling `flesh-and-blood-cards` export (`card.csv`, printings, sets). Stats, card names, which sets a card appears in. | `heroes-canonical.csv`, `heroes-game.csv`, `heroes-printings.csv` | `weapons-canonical.csv`, `weapons-game.csv`, `weapons-printings.csv` | `equipment-canonical.csv`, `equipment-game.csv`, `equipment-printings.csv` |
 | Dedicated lore | Markdown under `src/` that focuses on that identity (world-building, art, prose). Not emitted from the card generators. | e.g. `src/heroes-of-rathe/` | e.g. `src/weapons/` | e.g. `src/equipment/` |
-| Story appearances | Any tracked narrative `*.md` (e.g. `src/main-story/`) registered in `stories.csv`. Junction rows record "this story mentions that entity." | `story-heroes.csv`: `StoryId` + `CanonicalId` → `heroes-canonical.csv` | `story-weapons.csv`: `StoryId` + `CanonicalWeaponId` → `weapons-canonical.csv` | `story-equipment.csv`: `StoryId` + `CanonicalEquipmentId` → `equipment-canonical.csv` |
+| Story appearances | Any tracked narrative `*.md` (e.g. `src/main-story/`) registered in `stories.csv`. Junction rows record "this story mentions that entity." | `story-characters.csv`: `StoryId` + `CharacterId` → `characters.csv`. A hero slug resolves through `character-heroes.csv` to its `CharacterId` first — a hero slug and an `NPCEntry` write this one junction, since a hero and an NPC are rows of the same `characters` table (migration 12). | `story-weapons.csv`: `StoryId` + `CanonicalWeaponId` → `weapons-canonical.csv` | `story-equipment.csv`: `StoryId` + `CanonicalEquipmentId` → `equipment-canonical.csv` |
 
-Unified link model: `upsert_story(heroes=[...], weapons=[...], equipment=[...])` all take canonical slugs that must match a row in the corresponding canonical table. The junction stores the stable canonical id, which is also the foreign key used by `heroes-game.csv`, `weapons-game.csv`, and `equipment-game.csv`. Dedicated lore markdown (`heroes-of-rathe/`, `weapons/`, `equipment/`) stays separate: filenames and slugs usually align (e.g. `nebula-blade` ↔ `src/weapons/nebula-blade.md`), but the data join is always through the canonical tables.
+Unified link model: hero slugs (whether standalone in `weapons=[...]`/`equipment=[...]` or mixed into `characters=[...]`) all resolve against canonical slug tables, raising on an unknown one. The junction stores the stable canonical id, which is also the foreign key used by `heroes-game.csv`, `weapons-game.csv`, and `equipment-game.csv`. Dedicated lore markdown (`heroes-of-rathe/`, `weapons/`, `equipment/`) stays separate: filenames and slugs usually align (e.g. `nebula-blade` ↔ `src/weapons/nebula-blade.md`), but the data join is always through the canonical tables.
 
 Validation: `validate_data.py` checks that story junction ids resolve to canonical rows (and runs the usual game FK checks). For heroes it also replays `create_heroes_csv` name→slug resolution so each `heroes-game.csv` `CardName` maps to that row's `CanonicalId`. Each `stories.csv` `StoryType` must be one of `validate_data.ALLOWED_STORY_TYPES` (top-level lore folders under `src/`).
 
@@ -346,7 +346,7 @@ Lore CSVs tie markdown articles under `src/` to entities (NPCs, places, creature
 |-------|------|-------------------|
 | Story spine | `stories.csv` — one row per tracked `*.md` story file (`StoryKey`, `StoryId`, `StoryType`, `Title`, `Authors`, `Artists`, `SourceLink`, `PublicationDate`, `ThumbnailImageLink`) | `create_stories_index.py` rescans configured roots, UPSERTs into DB, exports to CSV (keeps `Title` when not the auto stem placeholder; otherwise first H1 or title-cased filename). `Database.upsert_story` upserts one row at a time. |
 | Narrated videos | `story-narrated-videos.csv` + `narrated_videos` table — one row per YouTube reading (`StoryId`, `Author`, `SourceLink`) | Parsed from `### Narrated Video by […](…)` + iframe `src` in each `main-story/**/*.md` by `create_stories_index.py`; reseeded from the CSV on DB bootstrap. Manual edits: `Database.upsert_story(narrated_videos=[NarratedVideoEntry(...)])`. |
-| Story ↔ entity junctions | `story-npcs.csv`, `story-heroes.csv`, `story-locations.csv`, `story-regions.csv`, `story-monsters.csv`, `story-fauna.csv`, `story-flora.csv`, `story-food-drink.csv`, `story-weapons.csv`, `story-equipment.csv`, `story-narrated-videos.csv` | Each `story-*.csv` row is `StoryId` plus an entity id (or, for narrated videos, `Author` + `SourceLink`). `Database.upsert_story` with entity lists replaces all junction rows for that story and entity type. |
+| Story ↔ entity junctions | `story-characters.csv`, `story-locations.csv`, `story-regions.csv`, `story-monsters.csv`, `story-fauna.csv`, `story-flora.csv`, `story-food-drink.csv`, `story-weapons.csv`, `story-equipment.csv`, `story-narrated-videos.csv` | Each `story-*.csv` row is `StoryId` plus an entity id (or, for narrated videos, `Author` + `SourceLink`). `Database.upsert_story` with entity lists replaces all junction rows for that story and entity type. |
 | Lore entity registries | `characters.csv`, `monsters.csv`, `fauna.csv`, `flora.csv`, `food-and-drink.csv`, `locations.csv`, `regions.csv` | Upserted automatically when passed to `Database.upsert_story`. `regions.csv` is updated when a `LocationEntry` includes a `region` name. Empty `RegionId` means unknown region. |
 | Identity spine | `character-heroes.csv` — `heroes_canonical` and `characters` are two registries for one person | `NPCEntry(hero_slug=...)` writes it; seed time self-heals any hero not yet covered by minting a `characters` row and linking it. |
 
@@ -370,19 +370,18 @@ Lore side. Every `story_*` table is a pure join table: a `StoryId` plus one enti
 
 ```mermaid
 erDiagram
-    stories ||--o{ story_npcs : ""
+    stories ||--o{ story_characters : ""
     stories ||--o{ story_locations : ""
     stories ||--o{ story_regions : ""
     stories ||--o{ story_monsters : ""
     stories ||--o{ story_fauna : ""
     stories ||--o{ story_flora : ""
     stories ||--o{ story_food_drink : ""
-    stories ||--o{ story_heroes : ""
     stories ||--o{ story_weapons : ""
     stories ||--o{ story_equipment : ""
     stories ||--o{ narrated_videos : ""
 
-    characters     ||--o{ story_npcs : ""
+    characters     ||--o{ story_characters : ""
     heroes_canonical ||--o{ character_heroes : ""
     characters     ||--o{ character_heroes : ""
     locations      ||--o{ story_locations : ""
@@ -393,7 +392,6 @@ erDiagram
     food_and_drink ||--o{ story_food_drink : ""
     regions        ||--o{ locations : "may belong to"
 
-    heroes_canonical    ||--o{ story_heroes : ""
     weapons_canonical   ||--o{ story_weapons : ""
     equipment_canonical ||--o{ story_equipment : ""
 
@@ -504,7 +502,7 @@ Every id above is a **hash of the fields shown in the key comment**, recomputed 
 1. **A second literal for the same entity does not update its row — it creates a second one, and nothing raises.** `Legendarium` / `Bravo's Legendarium` and `The Shadow Crypts` each became two rows this way.
 2. **For locations and food/drink the hash covers more than the name.** `LocationId` is `hash(Name|RegionId)` and `FoodDrinkId` is `hash(Name|Type)`, so writing the same place once with a region and once without gives two rows. `Deathmatch Arena` and `The Moat` were declared inconsistently for months before this was caught.
 
-`entries/catalogue/` removes the possibility: each entity is defined exactly once and referenced everywhere else, so there is no second literal to disagree with the first. The entry classes are deliberately **not imported** into the section modules, which makes `LocationEntry(...)` in a declaration a `NameError` rather than a silent new row, and `tests/test_data_entry.py` fails the build if one appears. A misspelled reference is an `AttributeError` at import — the same protection `heroes=` / `weapons=` / `equipment=` already get by raising on an unknown canonical slug.
+`entries/catalogue/` removes the possibility: each entity is defined exactly once and referenced everywhere else, so there is no second literal to disagree with the first. The entry classes are deliberately **not imported** into the section modules, which makes `LocationEntry(...)` in a declaration a `NameError` rather than a silent new row, and `tests/test_data_entry.py` fails the build if one appears. A misspelled reference is an `AttributeError` at import — the same protection a hero slug in `characters=` / `weapons=` / `equipment=` already gets by raising on an unknown canonical slug.
 
 `validate_data.py` backs this with warning-only checks: near-identical names within a registry, names differing only by a leading article, and catalogue constants that have no registry row yet but closely match one that does — the last being the only check that runs *before* the duplicate row is created. Pairs you have judged genuinely distinct go in `csv/reviewed-name-pairs.csv` and stop being reported.
 
@@ -532,15 +530,14 @@ All files are under `src/data/csv/` unless noted. Pipe-delimited. Empty fields a
 | `stories.csv` | `StoryId`, `StoryKey`, `StoryType`, `Title`, `Authors`, `Artists`, `SourceLink`, `PublicationDate`, `ThumbnailImageLink` | `StoryId` (`ST` + hash of `StoryKey`) | `StoryKey` = path under `src/` (navigation; not used in `story-*.csv` joins). Narrated YouTube rows are in `story-narrated-videos.csv`. | `create_stories_index.py` / `Database.upsert_story` |
 | `regions.csv` | `RegionId`, `RegionName`, `WorldOfRatheStoryKey` | `RegionId` (`RG` + hash of name) | Optional story path | `Database.upsert_story(locations=[LocationEntry(..., region=...)])` |
 | `locations.csv` | `LocationId`, `Name`, `RegionId`, `Notes`, `LoreFragment` | `LocationId` (`LO` + hash) | `RegionId` → `regions.csv` (empty = unknown region). `LoreFragment`: heading id (no `#`) on the region's `WorldOfRatheStoryKey` page for deep links. Validated against that `.md` file. | `Database.upsert_story(locations=[...])` |
-| `characters.csv` | `CharacterId`, `Name`, `Status` | `CharacterId` (`LC` + hash) | Appearances → `story-npcs.csv`; species → `npc-species.csv`; hero identity → `character-heroes.csv` | `Database.upsert_story(npcs=[...])` |
+| `characters.csv` | `CharacterId`, `Name`, `Status` | `CharacterId` (`LC` + hash) | Appearances → `story-characters.csv`; species → `npc-species.csv`; hero identity → `character-heroes.csv` | `Database.upsert_story(characters=[NPCEntry(...)])` |
 | `character-heroes.csv` | `CanonicalId`, `CharacterId` | `CanonicalId` PK (a hero is one person) | → `heroes-canonical.csv`, `characters.csv` | `NPCEntry(hero_slug=...)`; self-heals at seed time for any hero not yet linked |
 | `species.csv` | `SpeciesId`, `Name`, `Notes` | `SpeciesId` (`SP` + hash) | Members → `npc-species.csv`; other names → `species-aliases.csv` | `NPCEntry(species=sp.HUMAN)`, notes via `descriptions.py` |
 | `monsters.csv` | `MonsterId`, `Name`, `Description` | `MonsterId` (`MO` + hash) | → `story-monsters.csv` | `Database.upsert_story(monsters=[...])` |
 | `fauna.csv` | `FaunaId`, `Name`, `Description` | `FaunaId` (`FA` + hash) | → `story-fauna.csv` | `Database.upsert_story(fauna=[...])` |
 | `flora.csv` | `FloraId`, `Name`, `Description` | `FloraId` (`FR` + hash) | → `story-flora.csv` | `Database.upsert_story(flora=[...])` |
 | `food-and-drink.csv` | `FoodDrinkId`, `Name`, `Type` | `FoodDrinkId` (`FD` + hash) | → `story-food-drink.csv` | `Database.upsert_story(food_drink=[...])` |
-| `story-npcs.csv` | `StoryId`, `CharacterId` | composite | → `stories`, `characters` | `Database.upsert_story` |
-| `story-heroes.csv` | `StoryId`, `CanonicalId` | composite | → `stories`, `heroes-canonical` | `Database.upsert_story` |
+| `story-characters.csv` | `StoryId`, `CharacterId`, `Fragment` | composite | → `stories`, `characters`. A hero slug resolves through `character-heroes.csv` first — a hero slug and an `NPCEntry` write this one junction (migration 17). | `Database.upsert_story(characters=[...])` |
 | `story-locations.csv` | `StoryId`, `LocationId` | composite | → `stories`, `locations` | `Database.upsert_story` |
 | `story-regions.csv` | `StoryId`, `RegionId` | composite | → `stories`, `regions` | `Database.upsert_story` |
 | `story-monsters.csv` | `StoryId`, `MonsterId` | composite | → `stories`, `monsters` | `Database.upsert_story` |

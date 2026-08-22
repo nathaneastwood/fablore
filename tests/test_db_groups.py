@@ -578,7 +578,7 @@ def test_group_documentation_reaches_the_csv(db: Database) -> None:
 
 def test_npc_epithets_are_stored_with_their_kind(db: Database) -> None:
     entry = NPCEntry("Dr. Krest Mortimer", epithets=("'The Fixer'",), short_names=("Mortimer",))
-    _story(db, npcs=[entry])
+    _story(db, characters=[entry])
     stored = q.select_npc_epithets(db.conn, lore_character_id("Dr. Krest Mortimer"))
     assert stored == [("'The Fixer'", "epithet"), ("Mortimer", "short-name")]
 
@@ -586,22 +586,22 @@ def test_npc_epithets_are_stored_with_their_kind(db: Database) -> None:
 def test_npc_epithets_keep_declared_order(db: Database) -> None:
     """Suraya holds three, and which one a tooltip prints first is the declared one."""
     three = ("Archangel of Knowledge", "Archangel of Erudition", "Arcane Herald")
-    _story(db, npcs=[NPCEntry("Suraya", epithets=three)])
+    _story(db, characters=[NPCEntry("Suraya", epithets=three)])
     stored = q.select_npc_epithets(db.conn, lore_character_id("Suraya"))
     assert [name for name, _kind in stored] == list(three)
 
 
 def test_epithets_are_replace_semantic(db: Database) -> None:
-    _story(db, npcs=[NPCEntry("Bellona", epithets=("the Wartune Herald", "Archangel of War"))])
-    _story(db, npcs=[NPCEntry("Bellona", epithets=("the Wartune Herald",))])
+    _story(db, characters=[NPCEntry("Bellona", epithets=("the Wartune Herald", "Archangel of War"))])
+    _story(db, characters=[NPCEntry("Bellona", epithets=("the Wartune Herald",))])
     stored = q.select_npc_epithets(db.conn, lore_character_id("Bellona"))
     assert [name for name, _kind in stored] == ["the Wartune Herald"]
 
 
 def test_emptied_epithets_are_a_deletion(db: Database) -> None:
     """Same rule the rosters follow, for the same reason — and the same past bug."""
-    _story(db, npcs=[NPCEntry("Bellona", epithets=("Archangel of War",))])
-    _story(db, npcs=[NPCEntry("Bellona")])
+    _story(db, characters=[NPCEntry("Bellona", epithets=("Archangel of War",))])
+    _story(db, characters=[NPCEntry("Bellona")])
     assert q.select_npc_epithets(db.conn, lore_character_id("Bellona")) == []
 
 
@@ -639,7 +639,7 @@ def test_dry_run_reports_an_alias_it_would_remove(db: Database, capsys) -> None:
 def test_alternate_names_survive_the_csv_round_trip(db: Database, tmp_path: Path) -> None:
     _story(
         db,
-        npcs=[NPCEntry("Bellona", epithets=("Archangel of War",))],
+        characters=[NPCEntry("Bellona", epithets=("Archangel of War",))],
         locations=[LocationEntry("Coralysi", aliases=(("Fedhari", "Dhani"),))],
         groups=[GroupEntry("Mendacity Media", aliases=("Mendacity",))],
     )

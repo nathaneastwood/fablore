@@ -50,10 +50,10 @@ def _preview(database: Database, capsys, **kwargs) -> str:
 
 
 def test_preview_reports_hero_fragment_being_cleared(db: Database, capsys) -> None:
-    """Dropping hero_fragments clears the anchor column; the preview must say so.
+    """Dropping fragments= clears the anchor column; the preview must say so.
 
-    set_story_heroes() replaces (canonical_id, fragment) pairs wholesale, so a
-    declaration listing heroes without a matching hero_fragments= blanks every
+    set_story_characters() replaces (character_id, fragment) rows wholesale, so
+    a declaration listing heroes without a matching fragments= blanks every
     curated anchor. Membership is unchanged, so nothing else in the report moves.
     """
     _seed_hero(db, "dash", "Dash")
@@ -61,8 +61,8 @@ def test_preview_reports_hero_fragment_being_cleared(db: Database, capsys) -> No
         "src/digital-tiles/bright-lights/bright-lights.md",
         story_type="digital-tiles",
         title="Bright Lights",
-        heroes=["dash"],
-        hero_fragments={"dash": "dash-io"},
+        characters=["dash"],
+        fragments={"dash": "dash-io"},
     )
 
     report = _preview(
@@ -71,7 +71,7 @@ def test_preview_reports_hero_fragment_being_cleared(db: Database, capsys) -> No
         path="src/digital-tiles/bright-lights/bright-lights.md",
         story_type="digital-tiles",
         title="Bright Lights",
-        heroes=["dash"],
+        characters=["dash"],
     )
 
     assert "dash" in report
@@ -173,7 +173,7 @@ def test_preview_reports_npc_status_change(db: Database, capsys) -> None:
         "src/main-story/z.md",
         story_type="main-story",
         title="Z",
-        npcs=[NPCEntry("Lord Sutcliffe", species=SpeciesEntry("Human"), status="Just a head")],
+        characters=[NPCEntry("Lord Sutcliffe", species=SpeciesEntry("Human"), status="Just a head")],
     )
 
     report = _preview(
@@ -182,7 +182,7 @@ def test_preview_reports_npc_status_change(db: Database, capsys) -> None:
         path="src/main-story/z.md",
         story_type="main-story",
         title="Z",
-        npcs=[NPCEntry("Lord Sutcliffe", species=SpeciesEntry("Human"), status="Deceased")],
+        characters=[NPCEntry("Lord Sutcliffe", species=SpeciesEntry("Human"), status="Deceased")],
     )
 
     assert "Lord Sutcliffe" in report
@@ -399,7 +399,7 @@ def test_preview_reports_a_group_reached_only_as_a_parent(db: Database, capsys) 
 def test_preview_reports_npc_status_change_for_a_roster_member(db: Database, capsys) -> None:
     """``_upsert_one_group`` writes ``status``/``other_characters_story_key`` for
     roster NPCs too, via ``_upsert_npcs`` — so an overwrite reached only through
-    a group roster must be shown, not just one named in the top-level ``npcs=``.
+    a group roster must be shown, not just one named in the top-level ``characters=``.
     """
     db.upsert_story(
         "src/main-story/x.md",

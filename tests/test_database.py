@@ -172,16 +172,16 @@ def test_get_story_returns_none_for_unknown(db: Database) -> None:
 
 
 def test_upsert_story_links_npcs(db: Database) -> None:
-    """NPCEntry creates an npc row and a story_npcs junction."""
+    """NPCEntry creates an npc row and a story_characters junction."""
     db.upsert_story(
         "src/main-story/npc.md",
         story_type="main-story",
         title="NPC Story",
-        npcs=[NPCEntry("Guard Captain", species=SpeciesEntry("Human"), status="Alive")],
+        characters=[NPCEntry("Guard Captain", species=SpeciesEntry("Human"), status="Alive")],
     )
     npc = db.conn.execute("SELECT * FROM characters").fetchone()
     assert npc["name"] == "Guard Captain"
-    assert db.conn.execute("SELECT COUNT(*) FROM story_npcs").fetchone()[0] == 1
+    assert db.conn.execute("SELECT COUNT(*) FROM story_characters").fetchone()[0] == 1
     # Species is a junction now, not a column on this row.
     assert (
         db.conn.execute(
@@ -193,27 +193,27 @@ def test_upsert_story_links_npcs(db: Database) -> None:
 
 
 def test_upsert_story_npc_replace_semantics(db: Database) -> None:
-    """Passing npcs=[] removes all existing NPC links."""
+    """Passing characters=[] removes all existing character links."""
     db.upsert_story(
         "src/main-story/x.md",
         story_type="main-story",
         title="X",
-        npcs=[NPCEntry("Soldier")],
+        characters=[NPCEntry("Soldier")],
     )
-    db.upsert_story("src/main-story/x.md", story_type="main-story", title="X", npcs=[])
-    assert db.conn.execute("SELECT COUNT(*) FROM story_npcs").fetchone()[0] == 0
+    db.upsert_story("src/main-story/x.md", story_type="main-story", title="X", characters=[])
+    assert db.conn.execute("SELECT COUNT(*) FROM story_characters").fetchone()[0] == 0
 
 
 def test_upsert_story_npc_none_leaves_existing(db: Database) -> None:
-    """Passing npcs=None leaves existing NPC links unchanged."""
+    """Passing characters=None leaves existing character links unchanged."""
     db.upsert_story(
         "src/main-story/x.md",
         story_type="main-story",
         title="X",
-        npcs=[NPCEntry("Soldier")],
+        characters=[NPCEntry("Soldier")],
     )
-    db.upsert_story("src/main-story/x.md", story_type="main-story", title="X", npcs=None)
-    assert db.conn.execute("SELECT COUNT(*) FROM story_npcs").fetchone()[0] == 1
+    db.upsert_story("src/main-story/x.md", story_type="main-story", title="X", characters=None)
+    assert db.conn.execute("SELECT COUNT(*) FROM story_characters").fetchone()[0] == 1
 
 
 # ---------------------------------------------------------------------------
@@ -222,15 +222,15 @@ def test_upsert_story_npc_none_leaves_existing(db: Database) -> None:
 
 
 def test_upsert_story_links_heroes(db: Database) -> None:
-    """Hero canonical slugs are resolved and stored in story_heroes."""
+    """Hero canonical slugs are resolved (through character_heroes) and stored in story_characters."""
     _seed_hero(db, "boltyn", "Boltyn")
     db.upsert_story(
         "src/main-story/hero.md",
         story_type="main-story",
         title="Hero",
-        heroes=["boltyn"],
+        characters=["boltyn"],
     )
-    assert db.conn.execute("SELECT COUNT(*) FROM story_heroes").fetchone()[0] == 1
+    assert db.conn.execute("SELECT COUNT(*) FROM story_characters").fetchone()[0] == 1
 
 
 def test_upsert_story_unknown_hero_raises(db: Database) -> None:
@@ -240,7 +240,7 @@ def test_upsert_story_unknown_hero_raises(db: Database) -> None:
             "src/main-story/hero.md",
             story_type="main-story",
             title="H",
-            heroes=["nonexistent-slug"],
+            characters=["nonexistent-slug"],
         )
     assert db.conn.execute("SELECT COUNT(*) FROM stories").fetchone()[0] == 0
 
@@ -476,7 +476,7 @@ def test_remove_story_dry_run(db: Database) -> None:
         "src/archive/sample.md",
         story_type="archive",
         title="Sample",
-        npcs=[NPCEntry("Guard")],
+        characters=[NPCEntry("Guard")],
     )
     buf = io.StringIO()
     report = db.remove_story("src/archive/sample.md", dry_run=True, file=buf)
@@ -484,7 +484,7 @@ def test_remove_story_dry_run(db: Database) -> None:
     assert report["dry_run"] is True
     assert "sample.md" in report["story_key"]
     assert report["story_deleted"] is False
-    assert report["junctions"]["story_npcs"] == 1
+    assert report["junctions"]["story_characters"] == 1
     assert "DRY RUN" in buf.getvalue()
     assert db.conn.execute("SELECT COUNT(*) FROM stories").fetchone()[0] == 1
 
@@ -495,14 +495,14 @@ def test_remove_story_actual(db: Database) -> None:
         "src/main-story/x.md",
         story_type="main-story",
         title="X",
-        npcs=[NPCEntry("Soldier")],
+        characters=[NPCEntry("Soldier")],
     )
     report = db.remove_story("src/main-story/x.md", file=io.StringIO())
 
     assert report["dry_run"] is False
     assert report["story_deleted"] is True
     assert db.conn.execute("SELECT COUNT(*) FROM stories").fetchone()[0] == 0
-    assert db.conn.execute("SELECT COUNT(*) FROM story_npcs").fetchone()[0] == 0
+    assert db.conn.execute("SELECT COUNT(*) FROM story_characters").fetchone()[0] == 0
 
 
 def test_remove_story_second_pass_is_no_op(db: Database) -> None:
@@ -511,7 +511,7 @@ def test_remove_story_second_pass_is_no_op(db: Database) -> None:
         "src/flavour/twice.md",
         story_type="flavour",
         title="Twice",
-        npcs=[NPCEntry("Guard")],
+        characters=[NPCEntry("Guard")],
     )
     db.remove_story("src/flavour/twice.md", file=io.StringIO())
     report = db.remove_story("src/flavour/twice.md", file=io.StringIO())

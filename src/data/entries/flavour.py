@@ -37,8 +37,9 @@ db.upsert_story(
     path="src/flavour/omens-of-the-third-age.md",
     story_type="flavour",
     title="Omens of the Third Age",
-    heroes=["aurora", "lexi"],
-    npcs=[
+    characters=[
+        "aurora",
+        "lexi",
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
         npc.ASTREA_QUAZOR,
@@ -77,9 +78,8 @@ db.upsert_story(
     path="src/flavour/monarch.md",
     story_type="flavour",
     title="Monarch",
-    heroes=["prism"],
-    hero_fragments={"prism": "celestial-cataclysm---mon062"},
-    npcs=[
+    characters=[
+        "prism",
         npc.AMIRA_SURANA,
         npc.ASTRA_MORENA,
         npc.AUREA_CHAMPION_OF_THE_DAWN,
@@ -100,6 +100,7 @@ db.upsert_story(
         npc.SURAYA_ARCHANGEL_OF_KNOWLEDGE,
         npc.VIDYA_WILLOWMERE,
     ],
+    fragments={"prism": "celestial-cataclysm---mon062"},
     locations=[
         # :83 — "Tremor of i'Arathael" (MON254/255/256). The name appears in the
         # card title and nowhere else on the page, so this link exists only under
@@ -126,12 +127,13 @@ db.upsert_story(
     # Both are card titles and nothing else: :3 — "Yorick, Weaver of Tales"
     # (LSS004) and :57 — "Squizzy & Floof" (HER100), each printed with no flavour
     # text under it. Both are hero rows, so this is the card-title reading applied
-    # to `heroes` rather than to a registry (2026-08-21).
+    # to a hero slug rather than to a registry (2026-08-21).
     #
-    # `heroes=` is new on this call and deletes nothing — the page had no hero
-    # links. The slug is `squizzyfloof`, not the display name.
-    heroes=["squizzyfloof", "yorick"],
-    npcs=[
+    # The hero slugs are new on this call and delete nothing — the page had no
+    # hero links. The slug is `squizzyfloof`, not the display name.
+    characters=[
+        "squizzyfloof",
+        "yorick",
         npc.AEGIS_THE_SHIELD_OF_LIGHT,
         npc.AVALON_MESSENGER_OF_THE_DAWN,
         npc.BELLONA_THE_WARTUNE_HERALD,
@@ -154,8 +156,12 @@ db.upsert_story(
     path="src/flavour/super-slam.md",
     story_type="flavour",
     title="Super Slam",
-    heroes=["kayo", "lyath", "pleiades", "tuffnut", "victor-goldmane"],
-    npcs=[
+    characters=[
+        "kayo",
+        "lyath",
+        "pleiades",
+        "tuffnut",
+        "victor-goldmane",
         # Already curated — named here only to link them to this page. The DB holds
         # the fightmasters under their bare names, not the "Fightmaster X" form the
         # cards use.
@@ -205,8 +211,9 @@ db.upsert_story(
     path="src/flavour/mastery-pack-guardian.md",
     story_type="flavour",
     title="Mastery Pack Guardian",
-    heroes=["fai", "valda"],
-    npcs=[
+    characters=[
+        "fai",
+        "valda",
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
         # MPG029 prints "Archangel Aegis"; that is a new epithet for the Herald of
@@ -230,7 +237,7 @@ db.upsert_story(
     path="src/flavour/mastery-pack-warrior.md",
     story_type="flavour",
     title="Mastery Pack Warrior",
-    npcs=[
+    characters=[
         # Already curated — named here only to link them to this page.
         # MPW048 prints "Lieutenant Farris"; Pride of the Ironsongs introduces the
         # same Solanian lieutenant on the same Savage Lands frontier.
@@ -300,11 +307,8 @@ db.upsert_story(
     path="src/flavour/outsiders.md",
     story_type="flavour",
     title="Outsiders",
-    heroes=["arakni-huntsman"],
-    # Preserved, not re-derived. An omitted hero_fragments= CLEARS the stored
-    # anchors rather than leaving them alone, which the dry run caught.
-    hero_fragments={"arakni-huntsman": "back-stab---out015016017"},
-    npcs=[
+    characters=[
+        "arakni-huntsman",
         npc.ACHLYS_HAG_OF_MOJIRE,
         npc.AKUO,
         npc.DR_KREST_MORTIMER_THE_FIXER,
@@ -312,6 +316,9 @@ db.upsert_story(
         npc.OTMAR,
         npc.SURAJ_THE_ORACLE,
     ],
+    # Preserved, not re-derived. An omitted fragments= CLEARS the stored
+    # anchors rather than leaving them alone, which the dry run caught.
+    fragments={"arakni-huntsman": "back-stab---out015016017"},
     locations=[
         loc.FLOATING_DOJO,
         loc.MOJIRE,
@@ -327,9 +334,10 @@ db.upsert_story(
     path="src/flavour/arcane-rising.md",
     story_type="flavour",
     title="Arcane Rising",
-    heroes=["azalea", "dash", "kano"],
-    hero_fragments={"azalea": "three-of-a-kind---arc044", "kano": "blazing-aether---arc118"},
-    npcs=[
+    characters=[
+        "azalea",
+        "dash",
+        "kano",
         npc.ATEIA,
         npc.DR_KREST_MORTIMER_THE_FIXER,
         npc.ELDON_LOST_KNIGHT,
@@ -341,6 +349,7 @@ db.upsert_story(
         npc.VERA,
         npc.XAINE_RUNESCRIBE,
     ],
+    fragments={"azalea": "three-of-a-kind---arc044", "kano": "blazing-aether---arc118"},
     locations=[loc.DEATH_S_KNELL],
     regions=[reg.THE_PITS],
     groups=[grp.DRACAI],
@@ -352,13 +361,11 @@ db.upsert_story(
     path="src/flavour/crucible-of-war.md",
     story_type="flavour",
     title="Crucible of War",
-    heroes=["hala", "jarl", "kano", "teklovossen"],
-    hero_fragments={
-        "hala": "unified-decree---cru083",
-        "kano": "aetherize---cru164",
-        "teklovossen": "teklovossens-workshop---cru115116117",
-    },
-    npcs=[
+    characters=[
+        "hala",
+        "jarl",
+        "kano",
+        "teklovossen",
         npc.BUTCHER_JEK,
         npc.GREENBIRD,
         npc.JACKDAW,
@@ -369,6 +376,11 @@ db.upsert_story(
         npc.THUK,
         npc.TOGARK_THE_WRANGLER,
     ],
+    fragments={
+        "hala": "unified-decree---cru083",
+        "kano": "aetherize---cru164",
+        "teklovossen": "teklovossens-workshop---cru115116117",
+    },
     # CRU024 writes "Isen's Peak", which is Mt. Isen's alias (R6) — the first
     # link the alias table has earned rather than merely recorded.
     locations=[loc.MT_ISEN],
@@ -381,9 +393,10 @@ db.upsert_story(
     path="src/flavour/part-the-mistveil.md",
     story_type="flavour",
     title="Part the Mistveil",
-    heroes=["enigma", "nuu", "zen"],
-    hero_fragments={"enigma": "deep-blue-sea---mst084"},
-    npcs=[
+    characters=[
+        "enigma",
+        "nuu",
+        "zen",
         npc.ANHE_KOTORI_WAVEBENDER,
         npc.DAN_LU_KOTORI_GALEWARDEN,
         npc.GUDO_MISTWARD_PILGRIM,
@@ -398,6 +411,7 @@ db.upsert_story(
         npc.SUMIRE,
         npc.TOHIRO_ETERNAL_SCRIBE,
     ],
+    fragments={"enigma": "deep-blue-sea---mst084"},
     locations=[loc.RYOSOZAN_PEAKS],
     regions=[reg.MISTERIA],
     groups=[grp.CLAN_NASU_KA, grp.KAIGOMO, grp.KOTORI, grp.VIPRESSA, grp.VOLCAI],
@@ -414,8 +428,12 @@ db.upsert_story(
     path="src/flavour/compendium-of-rathe.md",
     story_type="flavour",
     title="Compendium of Rathe",
-    heroes=["enigma", "florian", "hala", "maxx", "uzuri"],
-    npcs=[
+    characters=[
+        "enigma",
+        "florian",
+        "hala",
+        "maxx",
+        "uzuri",
         npc.ANARCH_ZEIR,
         npc.APOSTATE,
         npc.BATBITER,
@@ -495,24 +513,10 @@ db.upsert_story(
     path="src/flavour/uprising.md",
     story_type="flavour",
     title="Uprising",
-    heroes=["dromai", "fai", "victor-goldmane"],
-    # Not decoration. All three were already stored, and the first dry run of this
-    # declaration reported them as "-> cleared": hero fragments are replace-semantic,
-    # so omitting them is a deletion. Each is the card section that quotes its hero —
-    # "Burn Away" for Dromai, "Lava Vein Loyalty" for Fai, "That All You Got?" for
-    # Victor Goldmane. They were seeded rather than declared, so this is the first
-    # time upsert_story has validated them against the real headings.
-    hero_fragments={
-        "dromai": "burn-away---upr094",
-        # Corrected 2026-08-21. The seeded value was `lava-vein-loyalty---upr069`,
-        # which is not a heading on the page — the card prints three numbers, so the
-        # real id is the full run. The third stale fragment found this way; stage 3
-        # found two, and nothing validates them except upsert_story on write, so the
-        # 195 declarations that have never been written may hide more.
-        "fai": "lava-vein-loyalty---upr069070071",
-        "victor-goldmane": "that-all-you-got---upr189",
-    },
-    npcs=[
+    characters=[
+        "dromai",
+        "fai",
+        "victor-goldmane",
         # "The dragon of devastation, said to serve only the Aesir of Flames"
         # (UPR006). This row is Infernai under his epithet; the rename is stage 7.
         npc.AESIR_OF_FLAMES,
@@ -532,6 +536,22 @@ db.upsert_story(
         # "The sun is setting on this Dynasty. Tomorrow we rise up, my son."
         npc.YUNKAI,
     ],
+    # Not decoration. All three were already stored, and the first dry run of this
+    # declaration reported them as "-> cleared": hero fragments are replace-semantic,
+    # so omitting them is a deletion. Each is the card section that quotes its hero —
+    # "Burn Away" for Dromai, "Lava Vein Loyalty" for Fai, "That All You Got?" for
+    # Victor Goldmane. They were seeded rather than declared, so this is the first
+    # time upsert_story has validated them against the real headings.
+    fragments={
+        "dromai": "burn-away---upr094",
+        # Corrected 2026-08-21. The seeded value was `lava-vein-loyalty---upr069`,
+        # which is not a heading on the page — the card prints three numbers, so the
+        # real id is the full run. The third stale fragment found this way; stage 3
+        # found two, and nothing validates them except upsert_story on write, so the
+        # 195 declarations that have never been written may hide more.
+        "fai": "lava-vein-loyalty---upr069070071",
+        "victor-goldmane": "that-all-you-got---upr189",
+    },
     locations=[
         loc.BLEAK_EXPANSE,
         loc.IMPERIAL_FURNACE,

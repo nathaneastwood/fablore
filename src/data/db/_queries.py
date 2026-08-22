@@ -1352,44 +1352,39 @@ def select_all_equipment_printings(conn: sqlite3.Connection) -> list[sqlite3.Row
 # ---------------------------------------------------------------------------
 
 
-def select_story_hero_fragments(conn: sqlite3.Connection, story_id: str) -> dict[str, str]:
-    """Return ``{canonical_id: fragment}`` for a story's hero links.
+def select_story_character_fragments(conn: sqlite3.Connection, story_id: str) -> dict[str, str]:
+    """Return ``{character_id: fragment}`` for a story's character links.
 
-    Fragments live in the ``story_heroes`` junction rather than on a registry
-    row, so :func:`select_story_junction` cannot see them. The dry-run preview
-    needs them to report an anchor that a declaration is about to clear.
+    Fragments live in the ``story_characters`` junction rather than on a
+    registry row, so :func:`select_story_junction` cannot see them. The
+    dry-run preview needs them to report an anchor that a declaration is
+    about to clear.
     """
     rows = conn.execute(
-        "SELECT canonical_id, fragment FROM story_heroes WHERE story_id = ?",
+        "SELECT character_id, fragment FROM story_characters WHERE story_id = ?",
         [story_id],
     ).fetchall()
-    return {r["canonical_id"]: (r["fragment"] or "") for r in rows}
+    return {r["character_id"]: (r["fragment"] or "") for r in rows}
 
 
-def set_story_heroes(
+def set_story_characters(
     conn: sqlite3.Connection,
     story_id: str,
     entries: list[tuple[str, str]],
 ) -> None:
-    """Replace all story_heroes rows for ``story_id`` with ``(canonical_id, fragment)`` pairs."""
-    conn.execute("DELETE FROM story_heroes WHERE story_id = ?", [story_id])
+    """Replace all story_characters rows for ``story_id`` with ``(character_id, fragment)`` pairs.
+
+    Replace-semantic like every other story junction: the caller passes the
+    complete set for this story — see ``Database.upsert_story``'s
+    ``characters=`` docstring. ``entries`` must not contain the same
+    ``character_id`` twice; ``_resolve_characters`` raises before this is
+    ever called if a slug and an ``NPCEntry`` (or two of either) name the
+    same person.
+    """
+    conn.execute("DELETE FROM story_characters WHERE story_id = ?", [story_id])
     if entries:
         conn.executemany(
-            "INSERT OR IGNORE INTO story_heroes (story_id, canonical_id, fragment)" " VALUES (?,?,?)",
-            [(story_id, cid, frag) for cid, frag in entries],
-        )
-
-
-def set_story_npcs(
-    conn: sqlite3.Connection,
-    story_id: str,
-    entries: list[tuple[str, str]],
-) -> None:
-    """Replace all story_npcs rows for ``story_id`` with ``(character_id, fragment)`` pairs."""
-    conn.execute("DELETE FROM story_npcs WHERE story_id = ?", [story_id])
-    if entries:
-        conn.executemany(
-            "INSERT OR IGNORE INTO story_npcs (story_id, character_id, fragment)" " VALUES (?,?,?)",
+            "INSERT OR IGNORE INTO story_characters (story_id, character_id, fragment)" " VALUES (?,?,?)",
             [(story_id, cid, frag) for cid, frag in entries],
         )
 
@@ -1431,8 +1426,7 @@ def delete_all_story_junctions(conn: sqlite3.Connection, story_id: str) -> dict[
     row is deleted, but this is useful for dry-run inspection.
     """
     junctions = [
-        ("story_npcs", "character_id"),
-        ("story_heroes", "canonical_id"),
+        ("story_characters", "character_id"),
         ("story_locations", "location_id"),
         ("story_regions", "region_id"),
         ("story_monsters", "monster_id"),
@@ -1469,8 +1463,7 @@ def delete_entity_row(conn: sqlite3.Connection, table: str, id_column: str, enti
 def count_story_junctions(conn: sqlite3.Connection, story_id: str) -> dict[str, int]:
     """Return a count of linked entities per junction table (for dry-run output)."""
     junctions = [
-        "story_npcs",
-        "story_heroes",
+        "story_characters",
         "story_locations",
         "story_regions",
         "story_monsters",

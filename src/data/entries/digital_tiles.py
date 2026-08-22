@@ -37,8 +37,10 @@ db.upsert_story(
     path="src/digital-tiles/omens-of-the-third-age/omens-of-the-third-age.md",
     story_type="digital-tiles",
     title="Omens of the Third Age",
-    heroes=["aurora", "oscilio", "zyggy"],
-    npcs=[
+    characters=[
+        "aurora",
+        "oscilio",
+        "zyggy",
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
         npc.MAELA_ISULFV,
@@ -66,8 +68,8 @@ db.upsert_story(
     title="Bright Lights",
     # The Fabricate tile is signed "Jules Teklovossen" — that is the hero
     # Teklovossen under his full name, not the separate NPC row of that name.
-    heroes=["dash", "teklovossen"],
-    hero_fragments={"dash": "dash-io", "teklovossen": "fabricate"},
+    characters=["dash", "teklovossen"],
+    fragments={"dash": "dash-io", "teklovossen": "fabricate"},
     locations=[
         loc.COGWERX_CONGLOMERATE,
         # New with this set. The realm of data made manifest, reached through Teklo's
@@ -89,8 +91,9 @@ db.upsert_story(
     path="src/digital-tiles/compendium-of-rathe/compendium-of-rathe.md",
     story_type="digital-tiles",
     title="Compendium of Rathe",
-    heroes=["dorinthea", "jarl"],
-    npcs=[
+    characters=[
+        "dorinthea",
+        "jarl",
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
         npc.BELLONA_THE_WARTUNE_HERALD,
@@ -122,14 +125,12 @@ db.upsert_story(
     path="src/digital-tiles/crucible-of-war/crucible-of-war.md",
     story_type="digital-tiles",
     title="Crucible of War",
-    heroes=["azalea", "dorinthea", "emperor", "kassai", "teklovossen"],
-    hero_fragments={
-        "dorinthea": "courage-of-bladehold",
-        "emperor": "cindering-foresight",
-        "kassai": "cintari-saber",
-        "teklovossen": "teklovossens-workshop",
-    },
-    npcs=[
+    characters=[
+        "azalea",
+        "dorinthea",
+        "emperor",
+        "kassai",
+        "teklovossen",
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
         npc.GENERAL_EKODA,
@@ -140,6 +141,12 @@ db.upsert_story(
         npc.THEODORE_HAMILTON_SCARBOROUGH,
         npc.IRUNAMEABH,
     ],
+    fragments={
+        "dorinthea": "courage-of-bladehold",
+        "emperor": "cindering-foresight",
+        "kassai": "cintari-saber",
+        "teklovossen": "teklovossens-workshop",
+    },
     locations=[
         loc.ANVILHEIM,
         loc.IMPERIAL_PALACE,
@@ -191,15 +198,15 @@ db.upsert_story(
     path="src/digital-tiles/everfest/everfest.md",
     story_type="digital-tiles",
     title="Everfest",
-    heroes=["boltyn"],
-    hero_fragments={"boltyn": "swarming-gloomveil"},
-    npcs=[
+    characters=[
+        "boltyn",
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
         npc.JEZABELLE_EVERFEST_HEALER_AND_ALLSORTS,
         npc.LORD_SUTCLIFFE,
         npc.SOL,
     ],
+    fragments={"boltyn": "swarming-gloomveil"},
     locations=[
         loc.ISENLOFT,
         loc.SKYLARK_PEAK,
@@ -244,13 +251,16 @@ db.upsert_story(
     story_type="digital-tiles",
     title="Heavy Hitters",
     # Hood of Red Sand names "The Terror of the Golden Sands" — that is Kassai.
-    heroes=["kassai", "olympia", "rhinar", "victor-goldmane"],
-    hero_fragments={"rhinar": "show-no-mercy", "victor-goldmane": "aurum-aegis"},
-    npcs=[
+    characters=[
+        "kassai",
+        "olympia",
+        "rhinar",
+        "victor-goldmane",
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
         npc.DEMETRIOS,
     ],
+    fragments={"rhinar": "show-no-mercy", "victor-goldmane": "aurum-aegis"},
     locations=[
         # New, though it is named on eleven other pages already. Region is left
         # blank to match its siblings (The Moat, The Undercroft, Arena Barracks).
@@ -264,8 +274,8 @@ db.upsert_story(
     path="src/digital-tiles/high-seas/high-seas.md",
     story_type="digital-tiles",
     title="High Seas",
-    heroes=["gravy"],
-    npcs=[
+    characters=[
+        "gravy",
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
         npc.KELPIE,
@@ -303,15 +313,15 @@ db.upsert_story(
     path="src/digital-tiles/monarch/monarch.md",
     story_type="digital-tiles",
     title="Monarch",
-    heroes=["boltyn"],
-    hero_fragments={"boltyn": "seek-enlightenment"},
-    npcs=[
+    characters=[
+        "boltyn",
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
         npc.BLASMOPHET,
         npc.SOL,
         npc.URSUR,
     ],
+    fragments={"boltyn": "seek-enlightenment"},
     locations=[
         loc.BLASMOPHET_S_DOMAIN,
         loc.THE_GOLDEN_FIELDS,
@@ -331,9 +341,9 @@ db.upsert_story(
     path="src/digital-tiles/part-the-mistveil/part-the-mistveil.md",
     story_type="digital-tiles",
     title="Part the Mistveil",
-    heroes=["enigma", "nuu"],
-    hero_fragments={"enigma": "10000-year-reunion"},
-    npcs=[
+    characters=[
+        "enigma",
+        "nuu",
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
         npc.DAN_LU_KOTORI_GALEWARDEN,
@@ -343,6 +353,7 @@ db.upsert_story(
         npc.SHIO,
         npc.XIN,
     ],
+    fragments={"enigma": "10000-year-reunion"},
     locations=[
         # Spelled to match the live row that Wanderings in the Mists registers.
         # "Aui's Scale Strongholds" is an unlinked duplicate awaiting deletion.
@@ -364,15 +375,19 @@ db.upsert_story(
     path="src/digital-tiles/rosetta/rosetta.md",
     story_type="digital-tiles",
     title="Rosetta",
-    heroes=["aurora", "florian", "melody", "oscilio", "verdance"],
-    hero_fragments={"aurora": "aurora-shooting-star", "melody": "sanctuary-of-aria"},
-    npcs=[
+    characters=[
+        "aurora",
+        "florian",
+        "melody",
+        "oscilio",
+        "verdance",
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
         npc.DAVNIR,
         npc.QUEEN_OF_CANDLEHOLD,
         npc.YVOR,
     ],
+    fragments={"aurora": "aurora-shooting-star", "melody": "sanctuary-of-aria"},
     locations=[
         loc.ANVILHEIM,
         loc.CANDLEHOLD,
@@ -397,7 +412,7 @@ db.upsert_story(
     path="src/digital-tiles/tales-of-aria/tales-of-aria.md",
     story_type="digital-tiles",
     title="Tales of Aria",
-    npcs=[
+    characters=[
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
         npc.DAVNIR,
@@ -422,13 +437,16 @@ db.upsert_story(
     path="src/digital-tiles/the-hunted/the-hunted.md",
     story_type="digital-tiles",
     title="The Hunted",
-    heroes=["arakni-huntsman", "cindra", "emperor", "taipanis"],
-    hero_fragments={"cindra": "wrath-of-retribution"},
-    npcs=[
+    characters=[
+        "arakni-huntsman",
+        "cindra",
+        "emperor",
+        "taipanis",
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
         npc.DR_KREST_MORTIMER_THE_FIXER,
     ],
+    fragments={"cindra": "wrath-of-retribution"},
     locations=[
         loc.ASHVAHAN,
         loc.DESHVAHAN,
@@ -451,7 +469,7 @@ db.upsert_story(
     path="src/digital-tiles/uprising/uprising.md",
     story_type="digital-tiles",
     title="Uprising",
-    heroes=["dromai", "emperor", "fai"],
+    characters=["dromai", "emperor", "fai"],
     locations=[
         loc.ZANCARO,
     ],

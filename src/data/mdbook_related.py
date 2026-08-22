@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """mdBook preprocessor: append a Related Lore section from story junction CSVs.
 
-Reads ``stories.csv`` and ``story-heroes.csv`` / ``story-locations.csv`` /
+Reads ``stories.csv`` and ``story-characters.csv`` / ``story-locations.csv`` /
 ``story-regions.csv`` (plus canonical registries), matches each chapter's path to
 ``StoryKey``, and appends HTML cards with relative ``.md`` links to hero and
 world-of-rathe pages.
@@ -68,14 +68,15 @@ class RelatedMaps:
     story_id_to_key: dict[str, str]
     story_id_to_title: dict[str, str]
     story_id_to_type: dict[str, str]
-    story_heroes: dict[str, frozenset[str]]
-    story_npcs: dict[str, frozenset[str]]
+    story_characters: dict[str, frozenset[str]]
     story_locations: dict[str, frozenset[str]]
     story_regions: dict[str, frozenset[str]]
     canonical_hero: dict[str, tuple[str, str]]
     npc_row: dict[str, tuple[str, str]]
     location_row: dict[str, tuple[str, str, str]]
     region_row: dict[str, tuple[str, str]]
+    canonical_id_to_character_id: dict[str, str]
+    character_id_to_canonical_id: dict[str, str]
     hero_canonical_to_stories: dict[str, frozenset[str]]
     npc_char_to_stories: dict[str, frozenset[str]]
     npc_src_to_char_ids: dict[str, frozenset[str]]
@@ -118,37 +119,42 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
         if sid and stype:
             id_to_type[sid] = stype
 
-    sh: dict[str, set[str]] = {}
-    hero_frag: dict[tuple[str, str], str] = {}
-    for r in rows(data_dir / "csv" / "story-heroes.csv"):
-        sid = (r.get("StoryId") or "").strip()
-        hid = (r.get("CanonicalId") or "").strip()
-        frag = (r.get("Fragment") or "").strip()
-        if sid and hid:
-            sh.setdefault(sid, set()).add(hid)
-            if frag:
-                hero_frag[(sid, hid)] = frag
+    # character_id -> canonical_id (migration 17's identity spine), needed to
+    # translate a canonical hero id into the character_id story_characters.csv
+    # actually keys on — a hero and an NPC are rows of the same `characters`
+    # table, so one junction (below) reaches both.
+    canon_to_char: dict[str, str] = {}
+    for r in rows(data_dir / "csv" / "character-heroes.csv"):
+        canon_id = (r.get("CanonicalId") or "").strip()
+        char_id = (r.get("CharacterId") or "").strip()
+        if canon_id and char_id:
+            canon_to_char[canon_id] = char_id
 
-    hero_to_stories: dict[str, set[str]] = {}
-    for sid, hids in sh.items():
-        for hid in hids:
-            hero_to_stories.setdefault(hid, set()).add(sid)
-
-    sn: dict[str, set[str]] = {}
-    npc_frag: dict[tuple[str, str], str] = {}
-    for r in rows(data_dir / "csv" / "story-npcs.csv"):
+    sc: dict[str, set[str]] = {}
+    char_frag: dict[tuple[str, str], str] = {}
+    for r in rows(data_dir / "csv" / "story-characters.csv"):
         sid = (r.get("StoryId") or "").strip()
         cid = (r.get("CharacterId") or "").strip()
         frag = (r.get("Fragment") or "").strip()
         if sid and cid:
-            sn.setdefault(sid, set()).add(cid)
+            sc.setdefault(sid, set()).add(cid)
             if frag:
-                npc_frag[(sid, cid)] = frag
+                char_frag[(sid, cid)] = frag
 
     char_to_stories: dict[str, set[str]] = {}
-    for sid, cids in sn.items():
+    for sid, cids in sc.items():
         for cid in cids:
             char_to_stories.setdefault(cid, set()).add(sid)
+
+    # canonical_id -> stories, via character_id — the reverse lookup used to
+    # go straight from story-heroes.csv; now it has to hop through
+    # character-heroes.csv first, since the junction no longer keys on
+    # canonical_id at all.
+    hero_to_stories: dict[str, set[str]] = {}
+    for canon_id, char_id in canon_to_char.items():
+        stories = char_to_stories.get(char_id)
+        if stories:
+            hero_to_stories[canon_id] = set(stories)
 
     sl: dict[str, set[str]] = {}
     for r in rows(data_dir / "csv" / "story-locations.csv"):
@@ -207,19 +213,26 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
         story_id_to_key=id_to_key,
         story_id_to_title=id_to_title,
         story_id_to_type=id_to_type,
-        story_heroes={k: frozenset(v) for k, v in sh.items()},
-        story_npcs={k: frozenset(v) for k, v in sn.items()},
+        story_characters={k: frozenset(v) for k, v in sc.items()},
         story_locations={k: frozenset(v) for k, v in sl.items()},
         story_regions={k: frozenset(v) for k, v in sr.items()},
         canonical_hero=canonical,
         npc_row=npc,
         location_row=loc,
         region_row=reg,
+        canonical_id_to_character_id=canon_to_char,
+        character_id_to_canonical_id={v: k for k, v in canon_to_char.items()},
         hero_canonical_to_stories={k: frozenset(v) for k, v in hero_to_stories.items()},
         npc_char_to_stories={k: frozenset(v) for k, v in char_to_stories.items()},
         npc_src_to_char_ids={k: frozenset(v) for k, v in npc_src_map.items()},
-        hero_junction_fragment=hero_frag,
-        npc_junction_fragment=npc_frag,
+        # Both fields now source from the one story-characters.csv junction,
+        # keyed on (story_id, character_id) — hero_junction_fragment used to
+        # key on canonical_id, back when story-heroes.csv was a separate
+        # table; see build_character_stories_fragment / build_related_fragment
+        # for where a canonical_id gets translated to a character_id before
+        # either map is consulted.
+        hero_junction_fragment=char_frag,
+        npc_junction_fragment=char_frag,
     )
 
 
@@ -310,7 +323,10 @@ def build_character_stories_fragment(
             continue
         frag = ""
         for cid in chapter_hero_cids:
-            frag = maps.hero_junction_fragment.get((sid, cid), "")
+            # hero_junction_fragment keys on character_id since migration 17;
+            # cid here is still a canonical_id (from hero_src_map).
+            char_id = maps.canonical_id_to_character_id.get(cid)
+            frag = maps.hero_junction_fragment.get((sid, char_id), "") if char_id else ""
             if frag:
                 break
         if not frag:
@@ -406,8 +422,14 @@ def build_related_fragment(
         is the same as ``chapter_src_path`` are omitted (no self-links on world
         lore pages or a hero's own about page).
     """
-    hero_ids = sorted(maps.story_heroes.get(story_id, frozenset()))
-    npc_ids = sorted(maps.story_npcs.get(story_id, frozenset()))
+    # story_npcs and story_heroes merged into one junction (migration 17): a
+    # character_id is a "hero" here when it has a character-heroes.csv row,
+    # matching how mdbook_graph derives its node kind.
+    character_ids = sorted(maps.story_characters.get(story_id, frozenset()))
+    hero_ids = [
+        maps.character_id_to_canonical_id[cid] for cid in character_ids if cid in maps.character_id_to_canonical_id
+    ]
+    npc_ids = [cid for cid in character_ids if cid not in maps.character_id_to_canonical_id]
     loc_ids = sorted(maps.story_locations.get(story_id, frozenset()))
     reg_ids = sorted(maps.story_regions.get(story_id, frozenset()))
 
@@ -522,7 +544,10 @@ def build_related_fragment(
                 continue
             frag = ""
             for cid in chapter_hero_cids:
-                frag = maps.hero_junction_fragment.get((sid, cid), "")
+                # hero_junction_fragment keys on character_id since migration
+                # 17; cid here is still a canonical_id (from hero_src_map).
+                char_id = maps.canonical_id_to_character_id.get(cid)
+                frag = maps.hero_junction_fragment.get((sid, char_id), "") if char_id else ""
                 if frag:
                     break
             if not frag:
