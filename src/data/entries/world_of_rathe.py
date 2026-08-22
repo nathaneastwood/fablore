@@ -14,14 +14,16 @@ docstring, and ``create_stories_index.py`` has always put all eleven pages in
 sat in the spine with nothing able to link an entity to them. That was not a
 schema limit; it was a hole in this package.
 
-``entries/`` covers **8 of the 11 story types** the index produces — this module
-is the eighth, and ``SECTIONS`` has eight rows. The 7 this said until 2026-08-21
-was the count from *before* the module was added and was never updated when it
-landed. ``archive`` (78 stories), ``equipment`` (19) and ``weapons`` (16) remain
-undeclarable — 113 pages, and 225 entity links already sitting on 63 of them that
-no declaration can reach. Only ``world-of-rathe`` was in scope here, because
-Absolon needed it. The rest is not a bug to fix in passing; each is its own
-decision about whether those pages should assert relationships at all.
+This module was the **eighth** of the eleven ``SECTIONS`` rows, added because
+Absolon needed it and nothing else was in scope at the time. ``archive`` (78
+stories), ``equipment`` (19) and ``weapons`` (16) stayed undeclarable until
+stage 12 (2026-08-22) gave each one a module of its own, so ``entries/`` now
+covers **11 of the 11 story types** the index produces.
+
+Those three modules are scaffolding and carry no declarations. The 63 of their
+113 pages that already hold seeded entity links remain undeclared, and that is
+not a bug to fix in passing: each is its own decision about whether an archived
+or reference page should assert a relationship at all.
 
 This module starts with **one declaration of eleven pages**, and that is
 deliberate rather than unfinished. ``high-seas.md`` is declared for the entities

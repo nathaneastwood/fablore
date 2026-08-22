@@ -74,6 +74,21 @@ def test_no_section_module_is_unlisted() -> None:
     assert on_disk == set(SECTIONS), f"entries/ modules not listed in SECTIONS: {on_disk - set(SECTIONS)}"
 
 
+def test_sections_cover_every_story_type() -> None:
+    """A story type with no SECTIONS row has nowhere a declaration can live.
+
+    ``create_stories_index.py`` is the source of truth for which story types
+    exist — ``STORY_ROOTS`` is the list of content roots it scans. Every one of
+    them must map to a module here, or that root's pages can declare nothing.
+    """
+    from create_stories_index import STORY_ROOTS
+
+    assert set(SECTIONS.values()) == set(STORY_ROOTS), (
+        f"SECTIONS is missing: {set(STORY_ROOTS) - set(SECTIONS.values())}; "
+        f"SECTIONS has extra: {set(SECTIONS.values()) - set(STORY_ROOTS)}"
+    )
+
+
 def test_declarations_were_found() -> None:
     """Guard the AST matcher itself: a rename would otherwise make every test below vacuous."""
     assert len(ALL_DECLARATIONS) > 0
