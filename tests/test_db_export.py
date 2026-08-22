@@ -108,7 +108,7 @@ def test_export_registry_tables_creates_all_files(db: Database, tmp_path: Path) 
     for fname in (
         "regions.csv",
         "locations.csv",
-        "npcs.csv",
+        "characters.csv",
         "monsters.csv",
         "fauna.csv",
         "flora.csv",
@@ -148,7 +148,7 @@ def test_export_registry_tables_npcs(db: Database, tmp_path: Path) -> None:
     q.upsert_npc(db.conn, character_id="C1", name="Ira", status="Alive")
     _export.export_registry_tables(db.conn, tmp_path)
 
-    content = (tmp_path / "csv" / "npcs.csv").read_text(encoding="utf-8")
+    content = (tmp_path / "csv" / "characters.csv").read_text(encoding="utf-8")
     assert "Ira" in content
     assert "CharacterId" in content
     assert "Species" not in content, "the free-text species column was retired in stage 4"
@@ -337,11 +337,11 @@ def test_export_all_creates_stories_and_registry_files(db: Database, tmp_path: P
     assert (csv_dir / "stories.csv").exists()
     assert (csv_dir / "regions.csv").exists()
     assert (csv_dir / "locations.csv").exists()
-    assert (csv_dir / "npcs.csv").exists()
+    assert (csv_dir / "characters.csv").exists()
     assert "All Story" in (csv_dir / "stories.csv").read_text(encoding="utf-8")
     assert "Solana" in (csv_dir / "regions.csv").read_text(encoding="utf-8")
     assert "The Cathedral" in (csv_dir / "locations.csv").read_text(encoding="utf-8")
-    assert "The High Lord" in (csv_dir / "npcs.csv").read_text(encoding="utf-8")
+    assert "The High Lord" in (csv_dir / "characters.csv").read_text(encoding="utf-8")
 
 
 def test_export_all_creates_heroes_and_weapons_files(db: Database, tmp_path: Path) -> None:
@@ -376,7 +376,7 @@ def test_dump_to_json_creates_json_files(db: Database, tmp_path: Path) -> None:
     _export.dump_to_json(db.conn, json_dir)
 
     assert json_dir.exists()
-    for table in ("stories", "regions", "npcs", "monsters", "fauna", "flora"):
+    for table in ("stories", "regions", "characters", "monsters", "fauna", "flora"):
         assert (json_dir / f"{table}.json").exists(), f"Missing {table}.json"
 
 
@@ -437,7 +437,7 @@ def test_dump_to_json_empty_tables_are_valid_json(db: Database, tmp_path: Path) 
     json_dir = tmp_path / "json"
     _export.dump_to_json(db.conn, json_dir)
 
-    for table in ("stories", "npcs", "monsters", "story_heroes", "story_npcs"):
+    for table in ("stories", "characters", "monsters", "story_heroes", "story_npcs"):
         path = json_dir / f"{table}.json"
         assert path.exists()
         data = json.loads(path.read_text(encoding="utf-8"))

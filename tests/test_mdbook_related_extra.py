@@ -868,7 +868,7 @@ def test_load_related_maps_loads_npc_junction_fragment(tmp_path: Path) -> None:
 
 
 def test_load_related_maps_loads_npc_src_map(tmp_path: Path) -> None:
-    """load_related_maps builds npc_src_to_char_ids from npcs.csv OtherCharactersStoryKey."""
+    """load_related_maps builds npc_src_to_char_ids from characters.csv OtherCharactersStoryKey."""
     data = tmp_path / "data"
     csv = data / "csv"
     csv.mkdir(parents=True)
@@ -878,7 +878,7 @@ def test_load_related_maps_loads_npc_src_map(tmp_path: Path) -> None:
     (csv / "heroes-canonical.csv").write_text("CanonicalId|CanonicalSlug|CanonicalHero\n", encoding="utf-8")
     (csv / "locations.csv").write_text("LocationId|Name|RegionId\n", encoding="utf-8")
     (csv / "regions.csv").write_text("RegionId|RegionName|WorldOfRatheStoryKey\n", encoding="utf-8")
-    (csv / "npcs.csv").write_text(
+    (csv / "characters.csv").write_text(
         "CharacterId|Name|OtherCharactersStoryKey\nC1|The Villain|other-characters/villain.md\n",
         encoding="utf-8",
     )

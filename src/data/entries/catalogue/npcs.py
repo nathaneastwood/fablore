@@ -64,7 +64,7 @@ AUREA_CHAMPION_OF_THE_DAWN = NPCEntry(
     "Aurea, Champion of the Dawn", species=sp.HUMAN, epithets=("Champion of the Dawn",)
 )
 AURELIUS = NPCEntry("Aurelius", species=sp.HORSE)
-AURIC_SEERESS = NPCEntry("Auric Seeress", species=sp.HUMAN, status="Deceased")
+AURIC_SEERESS = NPCEntry("Auric Seeress", species=sp.HUMAN, status="Dead")
 AVALON_MESSENGER_OF_THE_DAWN = NPCEntry(
     "Avalon, Messenger of the Dawn",
     species=sp.HERALD,
@@ -86,7 +86,7 @@ one registry with no prose column, and the identical table already lives at
 ``archive/world-of-rathe/volcor/welcome-to-volcor.md:19-35`` — verified cell for
 cell, "Pronounciation" typo included, only the male-table row order differing."""
 BATBITER = NPCEntry("Batbiter")
-BAZZ = NPCEntry("Bazz", species=sp.HUMAN, status="Deceased")
+BAZZ = NPCEntry("Bazz", species=sp.HUMAN, status="Dead")
 BEEZY_THE_BRASH = NPCEntry("Beezy the Brash", species=sp.HUMAN, status="Dead")
 BELLONA_THE_WARTUNE_HERALD = NPCEntry(
     "Bellona, the Wartune Herald",
@@ -112,7 +112,7 @@ CAPTAIN_GRIT_JABIR = NPCEntry("Captain Grit Jabir", species=sp.HUMAN)
 CAPTAIN_JUKA = NPCEntry("Captain Juka", species=sp.HUMAN)
 CAPTAIN_KLOW = NPCEntry("Captain Klow", species=sp.HUMAN)
 CAPTAIN_MOODY = NPCEntry("Captain Moody", species=sp.HUMAN, status="Dead")
-CAPTAIN_RUE = NPCEntry("Captain Rue", species=sp.HUMAN, status="Deceased")
+CAPTAIN_RUE = NPCEntry("Captain Rue", species=sp.HUMAN, status="Dead")
 CAPTAIN_SHEVEZ = NPCEntry("Captain Shevez")
 CAPTAIN_VANEGULL = NPCEntry("Captain Vanegull", species=sp.HUMAN)
 CAYLIN = NPCEntry("Caylin", species=sp.HUMAN, status="Dead")
@@ -139,7 +139,7 @@ CROMAI = NPCEntry("Cromai", species=sp.DRAGON)
 DAVNIR = NPCEntry(
     "Davnir",
     species=sp.ANCIENT,
-    status="Deceased",
+    status="Dead",
     epithets=("Ancient of Earth", "Ancient of Earth and Lightning"),
 )
 """Two epithets, both attested, kept the way ``THEMIS_KEEPER_OF_THE_SCALES`` keeps
@@ -151,7 +151,7 @@ matched no tooltip."""
 DAXIUS = NPCEntry("Daxius", species=sp.HUMAN, status="Dead")
 DEMETRIOS = NPCEntry("Demetrios", species=sp.BRUTE)
 DERVIN_MASTER_OF_BEASTS = NPCEntry("Dervin, Master of Beasts", species=sp.HUMAN, epithets=("Master of Beasts",))
-DHERIC = NPCEntry("Dheric", species=sp.HUMAN, status="Deceased")
+DHERIC = NPCEntry("Dheric", species=sp.HUMAN, status="Dead")
 DOMINIA = NPCEntry("Dominia", species=sp.DRAGON)
 """See ``AZVOLAI`` — one of the eleven, and the same note applies."""
 DRACONA_OPTIMAI = NPCEntry("Dracona Optimai", species=sp.DRAGON)
@@ -168,13 +168,13 @@ DUNRIC_VARGAS = NPCEntry("Dunric Vargas", species=sp.HUMAN)
 EBBA = NPCEntry("Ebba", species=sp.HUMAN, status="Alive")
 EFARIS_BRITTLEBONE = NPCEntry("Efaris Brittlebone", species=sp.HUMAN)
 EINAR = NPCEntry("Einar", species=sp.HUMAN)
-EIRINA = NPCEntry("Eirina", species=sp.HUMAN, status="Deceased")
+EIRINA = NPCEntry("Eirina", species=sp.HUMAN, status="Dead")
 ELDON_LOST_KNIGHT = NPCEntry("Eldon, Lost Knight", species=sp.HUMAN, epithets=("Lost Knight",))
 ELIAS_EDGECOMBE = NPCEntry("Elias Edgecombe", species=sp.HUMAN)
 EMEVIERE = NPCEntry("Emeviere")
 ENFORCER_EESHA = NPCEntry("Enforcer Eesha", species=sp.HUMAN)
 ERSEBET = NPCEntry("Ersebet")
-EUN = NPCEntry("Eun", species=sp.HUMAN, status="Deceased")
+EUN = NPCEntry("Eun", species=sp.HUMAN, status="Dead")
 EXECUTIVE_SMYTE = NPCEntry("Executive Smyte", species=sp.HUMAN)
 FARIN_THE_PORTER = NPCEntry("Farin the Porter", species=sp.HUMAN)
 FARRIS = NPCEntry("Farris", species=sp.HUMAN)
@@ -188,7 +188,7 @@ FOREMAN_PEBB = NPCEntry("Foreman Pebb")
 FREYA_ELDINGSTURM = NPCEntry("Freya Eldingsturm")
 FUGGER_GRIMES = NPCEntry("Fugger Grimes")
 FYANNA_REDMOOR_BOLTYN_S_COUSIN = NPCEntry("Fyanna Redmoor, Boltyn's cousin", species=sp.HUMAN)
-GALAPHOR = NPCEntry("Galaphor", species=sp.HUMAN, status="Deceased")
+GALAPHOR = NPCEntry("Galaphor", species=sp.HUMAN, status="Dead")
 FYENDAL = NPCEntry("Fyendal")
 """Named only by a card title — "Fyendal's Fighting Spirit" (UPR194) — whose
 flavour line, "The old ways are not forgotten.", does not mention him. Included on
@@ -202,7 +202,7 @@ Tunic``, which this page does not name."""
 GALCIA = NPCEntry(
     "Galcia",
     species=sp.ANCIENT,
-    status="Deceased",
+    status="Dead",
     epithets=("Ancient of Ice",),
 )
 """The one Ancient whose epithet the pages and character-groups.md agree on."""
@@ -278,7 +278,7 @@ KAYAT = NPCEntry("Kayat", status="Dead")
 KAYSIN = NPCEntry("Kaysin")
 KAZUO = NPCEntry("Kazuo", species=sp.HUMAN)
 KELPIE = NPCEntry("Kelpie", species=sp.ZOMBIE)
-KIEN = NPCEntry("Kien", species=sp.HUMAN, status="Deceased")
+KIEN = NPCEntry("Kien", species=sp.HUMAN, status="Dead")
 KIRIGAMI = NPCEntry("Kirigami")
 KNUCKLES = NPCEntry("Knuckles", species=sp.HUMAN, status="Dead")
 KOSSEN = NPCEntry("Kossen", species=sp.HUMAN)
@@ -289,7 +289,7 @@ KYLORIA = NPCEntry("Kyloria", species=sp.DRAGON)
 LADY_BARTHIMONT = NPCEntry(
     "Lady Barthimont",
     species=sp.HUMAN,
-    status="Deceased",
+    status="Dead",
     short_names=("Barthimont",),
 )
 LADY_VERA_SUTCLIFFE = NPCEntry("Lady Vera Sutcliffe", species=sp.HUMAN)
@@ -304,8 +304,8 @@ LINNEA_MISTRESS_OF_MALADY = NPCEntry("Linnea, Mistress of Malady", species=sp.HU
 LISHU_CRIMSON_HAZE_VIGILANTE = NPCEntry("Lishu, Crimson Haze Vigilante", species=sp.HUMAN)
 LORD_MERCHANT_SAVAI = NPCEntry("Lord Merchant Savai", species=sp.HUMAN, status="Dead")
 LORD_SABUTO = NPCEntry("Lord Sabuto", species=sp.HUMAN)
-LORD_SUTCLIFFE = NPCEntry("Lord Sutcliffe", species=sp.HUMAN, status="Just a head")
-LORD_WIZARD_AKIHIKO = NPCEntry("Lord Wizard Akihiko", species=sp.HUMAN, status="Deceased")
+LORD_SUTCLIFFE = NPCEntry("Lord Sutcliffe", species=sp.HUMAN, status="Unknown")
+LORD_WIZARD_AKIHIKO = NPCEntry("Lord Wizard Akihiko", species=sp.HUMAN, status="Dead")
 """Kano's mentor, and the Lord Wizard who oversees the Trial of Embers.
 
 Named on three arcane-rising pages and given a row only now, on the same finding
@@ -318,10 +318,13 @@ yet and no declaration writes it.
 Named with the title to match ``LORD_WIZARD_CHIYO`` rather than fixing one of a
 pair; both are D5 renames and go to stage 7 together.
 
-``Deceased`` where Chiyo beside him reads ``Dead`` (the user's call, 2026-08-21).
-The two words mean the same thing and the column holds both, along with ``Gone``,
-``Just a head`` and ``Spider-bot assistant to Jules Teklovossen`` — free text doing
-the job of prose. Stage 11."""
+Read ``Deceased`` here until migration 12, where ``Chiyo`` beside him already read
+``Dead`` — the two words meant the same thing and the column held both, along
+with ``Gone``, ``Just a head`` and ``Spider-bot assistant to Jules
+Teklovossen``: free text doing the job of prose. ``status`` is now a closed
+five-value vocabulary (``Unknown``, ``Alive``, ``Dead``, ``Assumed Dead``,
+``Missing``); the two sentence-shaped values folded to ``Unknown`` for now —
+the sentence belongs in the ``summary`` column a later stage adds."""
 LORD_WIZARD_CHIYO = NPCEntry("Lord Wizard Chiyo", status="Dead")
 LUCA_ARENA_CICERONE = NPCEntry("Luca, Arena Cicerone", species=sp.HUMAN, status="Alive")
 LUCILLA_THE_SETTING_SUN = NPCEntry("Lucilla the Setting Sun")
@@ -371,7 +374,7 @@ MIKU = NPCEntry("Miku", species=sp.HUMAN)
 MINERVA_THEMIS = NPCEntry(
     "Minerva Themis",
     species=sp.HUMAN,
-    status="Deceased",
+    status="Dead",
     other_characters_story_key="other-characters/minerva-themis.md",
     short_names=("Minerva",),
 )
@@ -418,7 +421,7 @@ OZRIM = NPCEntry("Ozrim", species=sp.ROSETTA)
 PALLAS = NPCEntry("Pallas", species=sp.HUMAN)
 PEARL_SANDHRI = NPCEntry("Pearl Sandhri", species=sp.HUMAN, status="Alive")
 PELORUS = NPCEntry("Pelorus", species=sp.HUMAN, status="Alive")
-PINWHEEL = NPCEntry("Pinwheel", species=sp.HUMAN, status="Deceased")
+PINWHEEL = NPCEntry("Pinwheel", species=sp.HUMAN, status="Dead")
 POLLY_CRANKA = NPCEntry("Polly Cranka", species=sp.PARROT, status="Alive")
 PROFESSOR_MIN = NPCEntry("Professor Min", species=sp.HUMAN)
 PROSPECTOR_COGMIRE = NPCEntry("Prospector Cogmire", species=sp.HUMAN)
@@ -433,7 +436,7 @@ REZ = NPCEntry("Rez", species=sp.HUMAN)
 REZNYR_ELDINGSTURM = NPCEntry("Reznyr Eldingsturm")
 RICKY_ROYCE = NPCEntry("Ricky Royce", species=sp.HUMAN)
 RIGGERMORTIS = NPCEntry("Riggermortis", species=sp.ZOMBIE, status="Dead")
-RIGO = NPCEntry("Rigo", species=sp.ROBOT, status="Spider-bot assistant to Jules Teklovossen")
+RIGO = NPCEntry("Rigo", species=sp.ROBOT, status="Unknown")
 RUPIUS_AURIC_SCROLLMASTER = NPCEntry("Rupius, Auric Scrollmaster", species=sp.HUMAN)
 SADA = NPCEntry("Sada", status="Alive")
 SALVADOR_STALLION = NPCEntry("Salvador Stallion")
@@ -526,11 +529,17 @@ THE_LIBRARIAN = NPCEntry(
     "The Librarian",
     other_characters_story_key="other-characters/the-librarian.md",
     short_names=("Librarian",),
+    hero_slug="the-librarian",
 )
+"""X01: The Librarian is also a playable hero — the two rows were the same
+person at two points in time (a title relation, deferred to stage 7), and the
+identity spine (migration 12) dissolves the split: the hero and the NPC now
+share one character row, keyed the same way they always hashed to the same
+``lore_character_id``. See ``step-into-the-light.md`` in ``main_story.py``."""
 THIROUX = NPCEntry("Thiroux", species=sp.HUMAN)
 THUK = NPCEntry("Thuk", species=sp.BRUTE)
 TIRIL = NPCEntry("Tiril", species=sp.HUMAN)
-TOGARK_THE_WRANGLER = NPCEntry("Togark the Wrangler", species=sp.HUMAN, status="Deceased")
+TOGARK_THE_WRANGLER = NPCEntry("Togark the Wrangler", species=sp.HUMAN, status="Dead")
 TOHIRO_ETERNAL_SCRIBE = NPCEntry("Tohiro, Eternal Scribe", species=sp.HUMAN)
 TOMASS = NPCEntry("Tomass", species=sp.HUMAN)
 TOMELTAI = NPCEntry("Tomeltai", species=sp.DRAGON)
@@ -559,7 +568,7 @@ VYHARA_CLOUDBURST = NPCEntry("Vyhara Cloudburst")
 VYNSERAKAI = NPCEntry("Vynserakai", species=sp.DRAGON)
 """See ``AZVOLAI`` — one of the eleven, and the same note applies."""
 WAILER = NPCEntry("Wailer", species=sp.ZOMBIE, status="Dead")
-WENDRYN = NPCEntry("Wendryn", species=sp.HUMAN, status="Deceased")
+WENDRYN = NPCEntry("Wendryn", species=sp.HUMAN, status="Dead")
 WHEELER = NPCEntry("Wheeler", species=sp.HUMAN, status="Alive")
 WHISPERS_OF_XERYS = NPCEntry("Whispers of Xerys")
 WHITETAIL = NPCEntry("Whitetail", species=sp.HUMAN, status="Alive")
@@ -567,7 +576,7 @@ WIDOW_JOHANA = NPCEntry("Widow Johana", species=sp.HUMAN)
 WYNVARIN = NPCEntry("Wynvarin", species=sp.HUMAN)
 XATHARI = NPCEntry(
     "Xathari",
-    status="Deceased",
+    status="Dead",
     epithets=("the Dracai spymaster", "Spymaster Xathari"),
 )
 """The Dracai spymaster who found Dromai and raised her to the court, whose
@@ -618,7 +627,7 @@ YENDURAI = NPCEntry("Yendurai", species=sp.DRAGON)
 YVOR = NPCEntry(
     "Yvor",
     species=sp.ANCIENT,
-    status="Deceased",
+    status="Dead",
     epithets=(
         "Ancient of Lightning",
         "Ancient of Lightning and Ice",

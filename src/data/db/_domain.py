@@ -165,6 +165,21 @@ class NPCEntry:
     ``"Dr. Krest Mortimer, 'The Fixer'"``. Stored alongside the epithets under
     ``kind='short-name'`` — both are match strings, and only the wording of a
     tooltip needs to tell them apart."""
+    hero_slug: str = ""
+    """Declares that this NPC *is* that playable hero (identity spine, migration
+    12): ``NPCEntry("Fightmaster Kox", hero_slug="kox")`` makes this NPC's row
+    the hero's character row, writing ``character_heroes``.
+
+    Preserves on empty, like ``status`` and unlike ``species``: ``""`` means
+    "leave whatever is stored" rather than "this NPC is not a hero". There is
+    deliberately no way to clear an identity claim through a declaration — a
+    person does not stop having been a hero.
+
+    Raises ``ValueError`` for an unknown slug, the same way ``heroes=`` does,
+    and when two different NPCs in one call claim the same slug — the shape of
+    the guard in ``GroupEntry.members()``, which raises on a repeated NPC for
+    the same reason: the write and the preview would otherwise resolve the
+    clash differently and neither would say so."""
 
 
 @dataclass(frozen=True)
@@ -438,7 +453,7 @@ class Database:
             seed_from_csvs(self.conn, self._data_dir)
 
     def _needs_seed(self) -> bool:
-        for table in ("stories", "equipment_printings", "weapons_printings", "species"):
+        for table in ("stories", "equipment_printings", "weapons_printings", "species", "character_heroes"):
             if self.conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0] == 0:
                 return True
         return False
@@ -906,7 +921,7 @@ class Database:
                 "canonical_id",
                 "canonical_hero",
             ),
-            ("NPCs", "story_npcs", "character_id", "npcs", "character_id", "name"),
+            ("NPCs", "story_npcs", "character_id", "characters", "character_id", "name"),
             (
                 "Locations",
                 "story_locations",
@@ -1119,7 +1134,7 @@ class Database:
             "monster": ("monsters", "monster_id", "story_monsters", _monster_id),
             "fauna": ("fauna", "fauna_id", "story_fauna", fauna_id_from_name),
             "flora": ("flora", "flora_id", "story_flora", flora_id),
-            "npc": ("npcs", "character_id", "story_npcs", lore_character_id),
+            "npc": ("characters", "character_id", "story_npcs", lore_character_id),
         }
         with self.conn:
             if entity_type == "location":
@@ -1236,12 +1251,15 @@ class Database:
                 )
 
     def _upsert_npcs(self, entries: list[NPCEntry]) -> list[tuple[str, str]]:
-        # Guard against accidentally storing playable heroes as NPCs
+        # Guard against accidentally storing playable heroes as NPCs — unless the
+        # entry itself claims the identity via hero_slug (NPCEntry.hero_slug),
+        # which is the NPC saying "yes, I know, I am that hero".
         hero_names: set[str] = {normalize_name(r["canonical_hero"]) for r in q.select_all_heroes_canonical(self.conn)}
         ids: list[tuple[str, str]] = []
+        seen_slugs: dict[str, str] = {}
         for e in entries:
             norm = normalize_name(e.name)
-            if norm in hero_names:
+            if norm in hero_names and not e.hero_slug:
                 raise ValueError(f"Refusing NPC link for playable hero name: {e.name!r}")
             cid = lore_character_id(e.name)
             q.upsert_npc(
@@ -1260,6 +1278,20 @@ class Database:
                 [(n, "epithet") for n in e.epithets] + [(n, "short-name") for n in e.short_names],
             )
             q.set_npc_species(self.conn, cid, self._upsert_species(_species_tuple(e.species)))
+            if e.hero_slug:
+                # Same shape as the guard in GroupEntry.members(): the write
+                # (character_heroes.canonical_id is the primary key, so it would
+                # keep the first) and a preview that reported the last would
+                # otherwise resolve a doubled claim two different ways, and
+                # neither would raise. Guarded here so both fail the same way.
+                if e.hero_slug in seen_slugs:
+                    raise ValueError(
+                        f"hero_slug {e.hero_slug!r} claimed by both {seen_slugs[e.hero_slug]!r} and "
+                        f"{e.name!r}. An identity claim is one row; give the hero only one NPC."
+                    )
+                seen_slugs[e.hero_slug] = e.name
+                canonical_id = self._resolve_heroes([e.hero_slug])[0]
+                q.set_character_hero(self.conn, canonical_id, cid)
             ids.append((cid, e.fragment))
         return ids
 
@@ -1901,6 +1933,41 @@ class Database:
                 out.write("\n".join(lines) + "\n")
 
         _show_npc_creations()
+
+        def _show_hero_slug_changes() -> None:
+            """Report a character_heroes link a ``hero_slug`` claim would write.
+
+            ``hero_slug`` preserves on empty and writes ``character_heroes`` as a
+            side effect of ``_upsert_npcs``, so this walks the **reachable** NPCs
+            (``_reachable_entities()``), not the ``npcs`` kwarg — a claim made
+            through a group roster must be visible here too, exactly like a
+            species or an epithet reached the same way.
+            """
+            nonlocal changed
+            reach_npcs, _, _, _ = _reachable_entities()
+            lines: list[str] = []
+            for entry in reach_npcs:
+                if not entry.hero_slug:
+                    continue
+                hero_row = q.select_hero_by_slug(self.conn, entry.hero_slug)
+                if hero_row is None:
+                    continue  # unknown slug: the real write raises via _resolve_heroes
+                canonical_id = hero_row["canonical_id"]
+                cid = lore_character_id(entry.name)
+                stored_character_id = q.select_character_id_for_hero(self.conn, canonical_id)
+                if stored_character_id == cid:
+                    continue
+                if stored_character_id:
+                    was = npc_id_to_name.get(stored_character_id, stored_character_id)
+                    lines.append(f"    ~ {entry.name}: hero_slug {entry.hero_slug!r} {was!r} -> {entry.name!r}")
+                else:
+                    lines.append(f"    + {entry.name}: hero_slug {entry.hero_slug!r} -> character_heroes")
+            if lines:
+                changed = True
+                out.write("  character_heroes:\n")
+                out.write("\n".join(lines) + "\n")
+
+        _show_hero_slug_changes()
 
         def _show_attr_changes(
             label: str,

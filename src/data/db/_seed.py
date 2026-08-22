@@ -61,6 +61,8 @@ def seed_from_csvs(conn: sqlite3.Connection, data_dir: Path) -> None:
         _seed_flora(conn, data_dir)
         _seed_food_drink(conn, data_dir)
         _seed_heroes_canonical(conn, data_dir)
+        _seed_character_heroes(conn, data_dir)
+        _self_heal_character_heroes(conn)
         _seed_heroes_game(conn, data_dir)
         _seed_heroes_printings(conn, data_dir)
         _seed_heroes_ll(conn, data_dir)
@@ -368,7 +370,7 @@ def _seed_alternate_names(conn: sqlite3.Connection, data_dir: Path) -> None:
 
 
 def _seed_npcs(conn: sqlite3.Connection, data_dir: Path) -> None:
-    _, rows = _csv(data_dir, "npcs.csv")
+    _, rows = _csv(data_dir, "characters.csv")
     for row in rows:
         q.upsert_npc(
             conn,
@@ -376,6 +378,48 @@ def _seed_npcs(conn: sqlite3.Connection, data_dir: Path) -> None:
             name=_s(row, "Name"),
             status=_s(row, "Status") or "Unknown",
             other_characters_story_key=_s(row, "OtherCharactersStoryKey"),
+        )
+
+
+def _seed_character_heroes(conn: sqlite3.Connection, data_dir: Path) -> None:
+    """Seed the character_heroes junction — the identity spine (migration 12).
+
+    Followed by :func:`_self_heal_character_heroes`, which mints a character
+    row for any hero this CSV does not yet cover, so a hero added later by
+    ``create_heroes_csv.py`` can never end up without an identity.
+    """
+    _, rows = _csv(data_dir, "character-heroes.csv")
+    for row in rows:
+        conn.execute(
+            "INSERT OR IGNORE INTO character_heroes (canonical_id, character_id) VALUES (?,?)",
+            (_s(row, "CanonicalId"), _s(row, "CharacterId")),
+        )
+
+
+def _self_heal_character_heroes(conn: sqlite3.Connection) -> None:
+    """Mint and link a character row for every hero not yet in character_heroes.
+
+    Runs after both ``heroes_canonical`` and ``characters`` are seeded. An
+    existing ``character_heroes`` row always wins — this only fills gaps, it
+    never overwrites an explicit resolution (such as ``NPCEntry(hero_slug=...)``
+    or a hand-curated CSV row), the same ``INSERT OR IGNORE`` contract every
+    other seed step in this module uses.
+    """
+    from registry_ids import lore_character_id
+
+    linked = {r[0] for r in conn.execute("SELECT canonical_id FROM character_heroes")}
+    for row in conn.execute("SELECT canonical_id, canonical_hero FROM heroes_canonical"):
+        canonical_id, hero_name = row["canonical_id"], row["canonical_hero"]
+        if canonical_id in linked or not hero_name:
+            continue
+        character_id = lore_character_id(hero_name)
+        conn.execute(
+            "INSERT OR IGNORE INTO characters (character_id, name, status) VALUES (?,?,'Unknown')",
+            (character_id, hero_name),
+        )
+        conn.execute(
+            "INSERT OR IGNORE INTO character_heroes (canonical_id, character_id) VALUES (?,?)",
+            (canonical_id, character_id),
         )
 
 

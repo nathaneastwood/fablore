@@ -380,7 +380,7 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
             locations[lid] = (name, rid, frag)
 
     npcs: dict[str, tuple[str, str]] = {}
-    for r in _rows(csv_dir / "npcs.csv"):
+    for r in _rows(csv_dir / "characters.csv"):
         cid = (r.get("CharacterId") or "").strip()
         name = (r.get("Name") or "").strip()
         key = (r.get("OtherCharactersStoryKey") or "").strip()

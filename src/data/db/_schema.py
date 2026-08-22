@@ -12,13 +12,17 @@ Version history:
   9 — groups: lore_story_key, lore_fragment (the page a group is documented on)
  10 — npc_epithets, location_aliases, group_aliases (the names that are not the name)
  11 — species, npc_species, species_aliases; npcs.species free text retired
+ 12 — npcs renamed to characters (character_id unchanged); character_heroes
+      links a canonical hero to its character row; every hero gets a
+      character row, self-healing at seed time; status becomes a closed
+      five-value vocabulary
 """
 
 from __future__ import annotations
 
 import sqlite3
 
-CURRENT_VERSION = 11
+CURRENT_VERSION = 12
 
 _V1_DDL = """
 CREATE TABLE IF NOT EXISTS stories (
@@ -66,11 +70,34 @@ CREATE TABLE IF NOT EXISTS locations (
 -- No species column. What a character *is* lives in npc_species, because one
 -- free-text column held three different facts — species, cosmological tier and
 -- occupation — and could hold only one of them at a time. Scooba is a Zombie Dog.
-CREATE TABLE IF NOT EXISTS npcs (
+--
+-- Renamed from npcs in migration 12. character_id is unchanged: it is still
+-- LC + SHA-256 of normalize_name(name), the same lore_character_id() every
+-- caller already used, so no row's id moved. Like every registry id in this
+-- file, it is a hash of the name at the call site — editing a stored name here
+-- does not update the row, it mints a second one and strands the first.
+CREATE TABLE IF NOT EXISTS characters (
     character_id TEXT PRIMARY KEY,
     name         TEXT NOT NULL,
     status       TEXT NOT NULL DEFAULT 'Unknown'
 );
+
+-- Identity spine (migration 12). heroes_canonical and characters are two
+-- registries for one person — a hero is exactly one character, so
+-- canonical_id is the primary key here, not character_id. A person may be
+-- several heroes in principle (character_id is not unique), though nothing
+-- exercises that yet.
+--
+-- Populated two ways: NPCEntry(hero_slug=...) declares "this NPC row is that
+-- hero", and seed time self-heals every hero this table does not yet cover by
+-- minting a character row (status 'Unknown') and linking it — so a hero added
+-- later by create_heroes_csv.py can never end up without an identity. An
+-- existing row here always wins over the self-heal.
+CREATE TABLE IF NOT EXISTS character_heroes (
+    canonical_id TEXT PRIMARY KEY REFERENCES heroes_canonical(canonical_id) ON DELETE CASCADE,
+    character_id TEXT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE
+);
+CREATE INDEX IF NOT EXISTS idx_character_heroes_character_id ON character_heroes(character_id);
 
 CREATE TABLE IF NOT EXISTS monsters (
     monster_id  TEXT PRIMARY KEY,
@@ -227,7 +254,7 @@ CREATE TABLE IF NOT EXISTS groups (
 -- evidence column from D2 — an uncited membership is unsourced lore.
 CREATE TABLE IF NOT EXISTS group_npcs (
     group_id     TEXT NOT NULL REFERENCES groups(group_id) ON DELETE CASCADE,
-    character_id TEXT NOT NULL REFERENCES npcs(character_id),
+    character_id TEXT NOT NULL REFERENCES characters(character_id),
     story_key    TEXT NOT NULL DEFAULT '',
     PRIMARY KEY (group_id, character_id)
 );
@@ -242,7 +269,7 @@ CREATE TABLE IF NOT EXISTS group_heroes (
 -- Story junction tables (all cascade-delete when a story is removed)
 CREATE TABLE IF NOT EXISTS story_npcs (
     story_id     TEXT NOT NULL REFERENCES stories(story_id) ON DELETE CASCADE,
-    character_id TEXT NOT NULL REFERENCES npcs(character_id),
+    character_id TEXT NOT NULL REFERENCES characters(character_id),
     PRIMARY KEY (story_id, character_id)
 );
 
@@ -317,7 +344,7 @@ CREATE TABLE IF NOT EXISTS story_groups (
 -- the *other* names a thing answers to, which is what the tooltip matcher and
 -- the Lore Graph need in order to stop drawing one thing as several.
 CREATE TABLE IF NOT EXISTS npc_epithets (
-    character_id TEXT NOT NULL REFERENCES npcs(character_id) ON DELETE CASCADE,
+    character_id TEXT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
     name         TEXT NOT NULL,
     -- 'epithet' is a style the character is given: "the Wartune Herald".
     -- 'short-name' is the same character in fewer words: "Mortimer" for
@@ -359,7 +386,7 @@ CREATE TABLE IF NOT EXISTS species (
 -- were single values gluing two facts together; splitting them needs somewhere
 -- for both halves to go, so Scooba holds Zombie and Dog at once.
 CREATE TABLE IF NOT EXISTS npc_species (
-    character_id TEXT NOT NULL REFERENCES npcs(character_id) ON DELETE CASCADE,
+    character_id TEXT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
     species_id   TEXT NOT NULL REFERENCES species(species_id) ON DELETE CASCADE,
     sort_order   INTEGER NOT NULL DEFAULT 0,
     PRIMARY KEY (character_id, species_id)
@@ -397,7 +424,11 @@ def migrate(conn: sqlite3.Connection) -> None:
         conn.execute("PRAGMA user_version = 2")
         conn.commit()
     if version < 3:
-        conn.execute("ALTER TABLE npcs" " ADD COLUMN other_characters_story_key TEXT NOT NULL DEFAULT ''")
+        # Targets "characters", the migration-12 name, so a from-scratch build
+        # (which creates "characters" directly via _V1_DDL) can run this block
+        # too — this step never touches the real npcs-named table on disk,
+        # because that database is already past version 3.
+        conn.execute("ALTER TABLE characters" " ADD COLUMN other_characters_story_key TEXT NOT NULL DEFAULT ''")
         conn.execute("PRAGMA user_version = 3")
         conn.commit()
     if version < 4:
@@ -582,7 +613,46 @@ def migrate(conn: sqlite3.Connection) -> None:
             );
             """
         )
-        if any(r[1] == "species" for r in conn.execute("PRAGMA table_info(npcs)")):
-            conn.execute("ALTER TABLE npcs DROP COLUMN species")
+        # Resolve the table by whichever name it currently has. A from-scratch
+        # build already created it as "characters" via _V1_DDL; a database
+        # sitting at version 10 still calls it "npcs", because the rename is
+        # migration 12 and has not run yet. Naming only one of the two would
+        # make PRAGMA table_info report zero rows for the other and skip the
+        # DROP silently — which would carry the retired free-text species
+        # column through the rename and undo stage 4 on exactly the databases
+        # that had not caught up yet.
+        _t = {r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+        _npc_table = "characters" if "characters" in _t else "npcs"
+        if any(r[1] == "species" for r in conn.execute(f"PRAGMA table_info({_npc_table})")):
+            conn.execute(f"ALTER TABLE {_npc_table} DROP COLUMN species")
         conn.execute("PRAGMA user_version = 11")
+        conn.commit()
+    if version < 12:
+        # Identity spine. heroes_canonical (78 rows) and npcs (334 rows) were
+        # two registries for one thing: a person. The split ran through four
+        # places — group_npcs/group_heroes and story_npcs/story_heroes are
+        # matched pairs, while npc_epithets and npc_species had no hero half
+        # at all, which is why a species row could never be created for
+        # Volcai or Dracai: every named Volcoran is a hero, and
+        # heroes_canonical has three columns and no species.
+        #
+        # npcs is renamed to characters — same character_id, same
+        # lore_character_id() hashing, no id changes — and character_heroes
+        # links a canonical hero to its character row. Guarded so this is
+        # safe to run against either starting point: an existing database
+        # still has the table under its old name, while a from-scratch build
+        # already created "characters" directly via _V1_DDL.
+        tables = {r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+        if "npcs" in tables and "characters" not in tables:
+            conn.execute("ALTER TABLE npcs RENAME TO characters")
+        conn.executescript(
+            """
+            CREATE TABLE IF NOT EXISTS character_heroes (
+                canonical_id TEXT PRIMARY KEY REFERENCES heroes_canonical(canonical_id) ON DELETE CASCADE,
+                character_id TEXT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE
+            );
+            CREATE INDEX IF NOT EXISTS idx_character_heroes_character_id ON character_heroes(character_id);
+            """
+        )
+        conn.execute("PRAGMA user_version = 12")
         conn.commit()

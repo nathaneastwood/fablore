@@ -173,7 +173,7 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
             canonical[cid] = (slug, name or slug)
 
     npc: dict[str, tuple[str, str]] = {}
-    for r in rows(data_dir / "csv" / "npcs.csv"):
+    for r in rows(data_dir / "csv" / "characters.csv"):
         cid = (r.get("CharacterId") or "").strip()
         name = (r.get("Name") or "").strip()
         sk = (r.get("OtherCharactersStoryKey") or "").strip()

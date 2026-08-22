@@ -1258,9 +1258,10 @@ db.upsert_story(
     ],
     regions=[reg.DEMONASTERY, reg.SOLANA],
     # TODO: needs catalogue constant — Leander (npc), Viator (npc). See the table below.
-    # X01: npc.THE_LIBRARIAN is now also a playable hero, so _upsert_npcs refuses
-    # this link. The two rows are the same person at two points in time — a title
-    # relation, deferred to stage 7 — so this stays unapplied rather than merged.
+    # X01: the guard is gone. npc.THE_LIBRARIAN now carries hero_slug="the-librarian",
+    # so this link is allowed — the hero and the NPC are one character row, not two.
+    # Held at dry_run=True regardless: the pending Leander/Viator catalogue
+    # constants above are the reason this declaration isn't applied yet.
     dry_run=True,
 )
 

@@ -16,7 +16,7 @@ fi
 python3 src/data/create_md.py
 
 MD_FILES=(
-  src/data/md/npcs.md
+  src/data/md/characters.md
   src/data/md/fauna.md
   src/data/md/flora.md
   src/data/md/food-and-drink.md

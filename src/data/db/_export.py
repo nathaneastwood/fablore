@@ -101,6 +101,7 @@ def export_all(conn: sqlite3.Connection, data_dir: Path) -> None:
     _export_flora(conn, csv_dir)
     _export_food_drink(conn, csv_dir)
     _export_heroes_canonical(conn, csv_dir)
+    _export_character_heroes(conn, csv_dir)
     _export_heroes_game(conn, csv_dir)
     _export_heroes_printings(conn, csv_dir)
     _export_weapons_canonical(conn, csv_dir)
@@ -125,6 +126,7 @@ def export_registry_tables(conn: sqlite3.Connection, data_dir: Path) -> None:
     _export_regions(conn, csv_dir)
     _export_locations(conn, csv_dir)
     _export_npcs(conn, csv_dir)
+    _export_character_heroes(conn, csv_dir)
     _export_monsters(conn, csv_dir)
     _export_fauna(conn, csv_dir)
     _export_flora(conn, csv_dir)
@@ -332,9 +334,21 @@ def _export_npcs(conn: sqlite3.Connection, csv_dir: Path) -> None:
         for r in rows
     ]
     _write_pipe_csv(
-        csv_dir / "npcs.csv",
+        csv_dir / "characters.csv",
         _CMD_REGISTRY,
         ["CharacterId", "Name", "Status", "OtherCharactersStoryKey"],
+        data,
+    )
+
+
+def _export_character_heroes(conn: sqlite3.Connection, csv_dir: Path) -> None:
+    """Write ``character-heroes.csv`` — the identity spine (migration 12)."""
+    rows = q.select_all_character_heroes(conn)
+    data = [{"CanonicalId": r["canonical_id"], "CharacterId": r["character_id"]} for r in rows]
+    _write_pipe_csv(
+        csv_dir / "character-heroes.csv",
+        _CMD_REGISTRY,
+        ["CanonicalId", "CharacterId"],
         data,
     )
 
@@ -717,7 +731,8 @@ _ALL_TABLES = [
     "narrated_videos",
     "regions",
     "locations",
-    "npcs",
+    "characters",
+    "character_heroes",
     "monsters",
     "fauna",
     "flora",

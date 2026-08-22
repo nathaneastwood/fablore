@@ -2,7 +2,7 @@
 
 Writes ``*.md`` files under ``src/data/`` for human review (mirrors of lore
 registries). Technical ``*Id`` columns are omitted from the tables. Each listed
-CSV is rendered to a sibling ``*.md`` with the same basename (``npcs.md``,
+CSV is rendered to a sibling ``*.md`` with the same basename (``characters.md``,
 ``fauna.md``, ``flora.md``, etc.). Requires:
 
     pip install numpy pandas py-markdown-table
@@ -104,11 +104,11 @@ def create_md_file(
 def main() -> None:
     """Regenerate Markdown mirrors for lore registry CSVs under ``src/data/``.
 
-    Emits ``npcs.md`` from ``npcs.csv`` and one ``*.md`` per other listed CSV
-    matching its basename.
+    Emits ``characters.md`` from ``characters.csv`` and one ``*.md`` per other
+    listed CSV matching its basename.
     """
     jobs: tuple[tuple[Path, str, Path | None], ...] = (
-        (DATA / "csv" / "npcs.csv", "Name", DATA / "md" / "npcs.md"),
+        (DATA / "csv" / "characters.csv", "Name", DATA / "md" / "characters.md"),
         (DATA / "csv" / "fauna.csv", "Name", DATA / "md" / "fauna.md"),
         (DATA / "csv" / "flora.csv", "Name", DATA / "md" / "flora.md"),
         (

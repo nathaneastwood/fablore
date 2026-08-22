@@ -252,7 +252,7 @@ For bulk lore edits you can still edit `csv/` directly, delete `fablore.db`, and
 
 ## Creating the .md Files
 
-`create_md.py` writes Markdown tables into `src/data/md/` for browsing in GitHub or editors. `npcs.md`, `fauna.md`, `flora.md`, `food-and-drink.md`, `locations.md`, and `monsters.md` each match their CSV basenames. Registry columns whose names end in `Id` are left out of the markdown; `locations.md` includes `RegionName` (from `regions.csv`) instead of `RegionId`.
+`create_md.py` writes Markdown tables into `src/data/md/` for browsing in GitHub or editors. `characters.md`, `fauna.md`, `flora.md`, `food-and-drink.md`, `locations.md`, and `monsters.md` each match their CSV basenames. Registry columns whose names end in `Id` are left out of the markdown; `locations.md` includes `RegionName` (from `regions.csv`) instead of `RegionId`.
 
 ```bash
 python3 src/data/create_md.py
@@ -347,7 +347,8 @@ Lore CSVs tie markdown articles under `src/` to entities (NPCs, places, creature
 | Story spine | `stories.csv` — one row per tracked `*.md` story file (`StoryKey`, `StoryId`, `StoryType`, `Title`, `Authors`, `Artists`, `SourceLink`, `PublicationDate`, `ThumbnailImageLink`) | `create_stories_index.py` rescans configured roots, UPSERTs into DB, exports to CSV (keeps `Title` when not the auto stem placeholder; otherwise first H1 or title-cased filename). `Database.upsert_story` upserts one row at a time. |
 | Narrated videos | `story-narrated-videos.csv` + `narrated_videos` table — one row per YouTube reading (`StoryId`, `Author`, `SourceLink`) | Parsed from `### Narrated Video by […](…)` + iframe `src` in each `main-story/**/*.md` by `create_stories_index.py`; reseeded from the CSV on DB bootstrap. Manual edits: `Database.upsert_story(narrated_videos=[NarratedVideoEntry(...)])`. |
 | Story ↔ entity junctions | `story-npcs.csv`, `story-heroes.csv`, `story-locations.csv`, `story-regions.csv`, `story-monsters.csv`, `story-fauna.csv`, `story-flora.csv`, `story-food-drink.csv`, `story-weapons.csv`, `story-equipment.csv`, `story-narrated-videos.csv` | Each `story-*.csv` row is `StoryId` plus an entity id (or, for narrated videos, `Author` + `SourceLink`). `Database.upsert_story` with entity lists replaces all junction rows for that story and entity type. |
-| Lore entity registries | `npcs.csv`, `monsters.csv`, `fauna.csv`, `flora.csv`, `food-and-drink.csv`, `locations.csv`, `regions.csv` | Upserted automatically when passed to `Database.upsert_story`. `regions.csv` is updated when a `LocationEntry` includes a `region` name. Empty `RegionId` means unknown region. |
+| Lore entity registries | `characters.csv`, `monsters.csv`, `fauna.csv`, `flora.csv`, `food-and-drink.csv`, `locations.csv`, `regions.csv` | Upserted automatically when passed to `Database.upsert_story`. `regions.csv` is updated when a `LocationEntry` includes a `region` name. Empty `RegionId` means unknown region. |
+| Identity spine | `character-heroes.csv` — `heroes_canonical` and `characters` are two registries for one person | `NPCEntry(hero_slug=...)` writes it; seed time self-heals any hero not yet covered by minting a `characters` row and linking it. |
 
 Foreign keys (lore side, simplified):
 
@@ -381,7 +382,9 @@ erDiagram
     stories ||--o{ story_equipment : ""
     stories ||--o{ narrated_videos : ""
 
-    npcs           ||--o{ story_npcs : ""
+    characters     ||--o{ story_npcs : ""
+    heroes_canonical ||--o{ character_heroes : ""
+    characters     ||--o{ character_heroes : ""
     locations      ||--o{ story_locations : ""
     regions        ||--o{ story_regions : ""
     monsters       ||--o{ story_monsters : ""
@@ -400,10 +403,14 @@ erDiagram
         string StoryType
         string Title
     }
-    npcs {
+    characters {
         string CharacterId PK "LC + hash of Name"
         string Name
         string Status
+    }
+    character_heroes {
+        string CanonicalId PK "a hero is one person"
+        string CharacterId FK
     }
     species {
         string SpeciesId PK "SP + hash of Name"
@@ -525,13 +532,14 @@ All files are under `src/data/csv/` unless noted. Pipe-delimited. Empty fields a
 | `stories.csv` | `StoryId`, `StoryKey`, `StoryType`, `Title`, `Authors`, `Artists`, `SourceLink`, `PublicationDate`, `ThumbnailImageLink` | `StoryId` (`ST` + hash of `StoryKey`) | `StoryKey` = path under `src/` (navigation; not used in `story-*.csv` joins). Narrated YouTube rows are in `story-narrated-videos.csv`. | `create_stories_index.py` / `Database.upsert_story` |
 | `regions.csv` | `RegionId`, `RegionName`, `WorldOfRatheStoryKey` | `RegionId` (`RG` + hash of name) | Optional story path | `Database.upsert_story(locations=[LocationEntry(..., region=...)])` |
 | `locations.csv` | `LocationId`, `Name`, `RegionId`, `Notes`, `LoreFragment` | `LocationId` (`LO` + hash) | `RegionId` → `regions.csv` (empty = unknown region). `LoreFragment`: heading id (no `#`) on the region's `WorldOfRatheStoryKey` page for deep links. Validated against that `.md` file. | `Database.upsert_story(locations=[...])` |
-| `npcs.csv` | `CharacterId`, `Name`, `Status` | `CharacterId` (`LC` + hash) | Appearances → `story-npcs.csv`; species → `npc-species.csv` | `Database.upsert_story(npcs=[...])` |
+| `characters.csv` | `CharacterId`, `Name`, `Status` | `CharacterId` (`LC` + hash) | Appearances → `story-npcs.csv`; species → `npc-species.csv`; hero identity → `character-heroes.csv` | `Database.upsert_story(npcs=[...])` |
+| `character-heroes.csv` | `CanonicalId`, `CharacterId` | `CanonicalId` PK (a hero is one person) | → `heroes-canonical.csv`, `characters.csv` | `NPCEntry(hero_slug=...)`; self-heals at seed time for any hero not yet linked |
 | `species.csv` | `SpeciesId`, `Name`, `Notes` | `SpeciesId` (`SP` + hash) | Members → `npc-species.csv`; other names → `species-aliases.csv` | `NPCEntry(species=sp.HUMAN)`, notes via `descriptions.py` |
 | `monsters.csv` | `MonsterId`, `Name`, `Description` | `MonsterId` (`MO` + hash) | → `story-monsters.csv` | `Database.upsert_story(monsters=[...])` |
 | `fauna.csv` | `FaunaId`, `Name`, `Description` | `FaunaId` (`FA` + hash) | → `story-fauna.csv` | `Database.upsert_story(fauna=[...])` |
 | `flora.csv` | `FloraId`, `Name`, `Description` | `FloraId` (`FR` + hash) | → `story-flora.csv` | `Database.upsert_story(flora=[...])` |
 | `food-and-drink.csv` | `FoodDrinkId`, `Name`, `Type` | `FoodDrinkId` (`FD` + hash) | → `story-food-drink.csv` | `Database.upsert_story(food_drink=[...])` |
-| `story-npcs.csv` | `StoryId`, `CharacterId` | composite | → `stories`, `npcs` | `Database.upsert_story` |
+| `story-npcs.csv` | `StoryId`, `CharacterId` | composite | → `stories`, `characters` | `Database.upsert_story` |
 | `story-heroes.csv` | `StoryId`, `CanonicalId` | composite | → `stories`, `heroes-canonical` | `Database.upsert_story` |
 | `story-locations.csv` | `StoryId`, `LocationId` | composite | → `stories`, `locations` | `Database.upsert_story` |
 | `story-regions.csv` | `StoryId`, `RegionId` | composite | → `stories`, `regions` | `Database.upsert_story` |
@@ -576,7 +584,7 @@ All files are under `src/data/csv/` unless noted. Pipe-delimited. Empty fields a
 | `pipe_csv_io.py` | Pipe read/write, `auto_gen_banner`, `REGENERATE_*` hints |
 | `game_class_talent_csv.py` | Merges shared `classes.csv` / `talents.csv` for generators |
 | `card_types_extract.py` | Parses card `Types` into class vs talent names |
-| `create_md.py` | Markdown tables into `md/`: `npcs.md`, `fauna.md`, `flora.md`, `food-and-drink.md`, `locations.md`, `monsters.md` (needs pandas / extras from `requirements-data.txt`) |
+| `create_md.py` | Markdown tables into `md/`: `characters.md`, `fauna.md`, `flora.md`, `food-and-drink.md`, `locations.md`, `monsters.md` (needs pandas / extras from `requirements-data.txt`) |
 | `validate_data.py` | Read-only checks on ids and FKs; hero `CardName` vs `CanonicalId` consistency; `stories.csv` `StoryType` allowlist (`ALLOWED_STORY_TYPES`) |
 
 Run `python3 src/data/validate_data.py` after any generator or after `Database` changes to lore CSVs.

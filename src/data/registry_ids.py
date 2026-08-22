@@ -94,7 +94,7 @@ def lore_character_id(name: str) -> str:
     """Return deterministic ``LC`` + 10 hex chars from SHA-256 of :func:`normalize_name`.
 
     Args:
-        name: Character display name as stored in ``npcs.csv``.
+        name: Character display name as stored in ``characters.csv``.
 
     Returns:
         Primary key string ``LC`` + digest, stable for a given spelling.

@@ -156,7 +156,7 @@ A new entry in `hints_supplement.json` often renders nothing at first. That is u
 
 To force a link the heuristics skip, write it as `[Text](~Key)`, where `Key` is the `hints_supplement.json` key. To suppress one on a single page, add that page's slug (its path minus `src/` and `.md`) to the entity's `exclude_pages`. That is meant for the page that introduces and describes the entity.
 
-Pages under `data/` are never linked, so `data/md/npcs.md` and its siblings do not tooltip each row against itself. See `_is_generated_page`.
+Pages under `data/` are never linked, so `data/md/characters.md` and its siblings do not tooltip each row against itself. See `_is_generated_page`.
 
 A supplement entry can also override `type` so the tooltip label reads correctly. `Hand of Sol`, for example, is a `locations` row displayed as a `faction`. This changes the label only and never disables detection.
 

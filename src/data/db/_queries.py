@@ -504,7 +504,7 @@ def upsert_npc(
     rosters, because one column could not hold `Zombie` and `Dog` at once.
     """
     row = conn.execute(
-        "SELECT status FROM npcs WHERE character_id = ?",
+        "SELECT status FROM characters WHERE character_id = ?",
         [character_id],
     ).fetchone()
     if row is None:
@@ -521,17 +521,17 @@ def upsert_npc(
             )
     conn.execute(
         """
-        INSERT INTO npcs (character_id, name, status, other_characters_story_key)
+        INSERT INTO characters (character_id, name, status, other_characters_story_key)
         VALUES (?,?,?,?)
         ON CONFLICT(character_id) DO UPDATE SET
             name    = excluded.name,
             status  = CASE WHEN excluded.status != ''
                       THEN excluded.status
-                      ELSE npcs.status END,
+                      ELSE characters.status END,
             other_characters_story_key = CASE
                 WHEN excluded.other_characters_story_key != ''
                     THEN excluded.other_characters_story_key
-                ELSE npcs.other_characters_story_key
+                ELSE characters.other_characters_story_key
             END
         """,
         (character_id, name, status, other_characters_story_key),
@@ -539,7 +539,42 @@ def upsert_npc(
 
 
 def select_all_npcs(conn: sqlite3.Connection) -> list[sqlite3.Row]:
-    return conn.execute("SELECT * FROM npcs ORDER BY name").fetchall()
+    return conn.execute("SELECT * FROM characters ORDER BY name").fetchall()
+
+
+# ---------------------------------------------------------------------------
+# character_heroes — the identity spine (R... migration 12)
+# ---------------------------------------------------------------------------
+
+
+def set_character_hero(conn: sqlite3.Connection, canonical_id: str, character_id: str) -> None:
+    """Insert or update the character_heroes row for ``canonical_id``.
+
+    ``canonical_id`` is the primary key — a hero is exactly one person — so this
+    upserts by hero, overwriting a stale ``character_id`` the way every other
+    upsert in this module overwrites a stale scalar.
+    """
+    conn.execute(
+        """
+        INSERT INTO character_heroes (canonical_id, character_id)
+        VALUES (?,?)
+        ON CONFLICT(canonical_id) DO UPDATE SET
+            character_id = excluded.character_id
+        """,
+        (canonical_id, character_id),
+    )
+
+
+def select_character_id_for_hero(conn: sqlite3.Connection, canonical_id: str) -> str | None:
+    row = conn.execute(
+        "SELECT character_id FROM character_heroes WHERE canonical_id = ?",
+        [canonical_id],
+    ).fetchone()
+    return row[0] if row else None
+
+
+def select_all_character_heroes(conn: sqlite3.Connection) -> list[sqlite3.Row]:
+    return conn.execute("SELECT * FROM character_heroes ORDER BY canonical_id").fetchall()
 
 
 # ---------------------------------------------------------------------------

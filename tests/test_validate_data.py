@@ -252,3 +252,89 @@ def test_epithet_kind_accepts_both_valid_kinds(tmp_path: Path) -> None:
     path = tmp_path / "npc-epithets.csv"
     path.write_text("# x\nCharacterId|Name|Kind\nLC1|the Fixer|epithet\nLC1|Mortimer|short-name\n")
     assert _check_epithet_kinds(path) == []
+
+
+def test_character_status_must_be_in_the_closed_list(tmp_path: Path) -> None:
+    from validate_data import _check_character_statuses
+
+    path = tmp_path / "characters.csv"
+    path.write_text("# x\nCharacterId|Name|Status|OtherCharactersStoryKey\nLC1|Lord Sutcliffe|Deceased|\n")
+    alerts = _check_character_statuses(path)
+    assert len(alerts) == 1
+    assert "Deceased" in alerts[0]
+
+
+def test_character_status_accepts_all_five_values(tmp_path: Path) -> None:
+    from validate_data import _check_character_statuses
+
+    path = tmp_path / "characters.csv"
+    path.write_text(
+        "# x\nCharacterId|Name|Status|OtherCharactersStoryKey\n"
+        "LC1|A|Unknown|\nLC2|B|Alive|\nLC3|C|Dead|\nLC4|D|Assumed Dead|\nLC5|E|Missing|\n"
+    )
+    assert _check_character_statuses(path) == []
+
+
+def test_character_heroes_fk_flags_an_unknown_hero(tmp_path: Path) -> None:
+    from validate_data import _check_fk_column
+
+    path = tmp_path / "character-heroes.csv"
+    path.write_text("# x\nCanonicalId|CharacterId\nCNbogus0001|LC1\n")
+    alerts = _check_fk_column(path, "CanonicalId", {"CNreal000001"}, "heroes-canonical.csv CanonicalId", "label")
+    assert len(alerts) == 1
+    assert "CNbogus0001" in alerts[0]
+
+
+def test_character_heroes_fk_flags_an_unknown_character(tmp_path: Path) -> None:
+    from validate_data import _check_fk_column
+
+    path = tmp_path / "character-heroes.csv"
+    path.write_text("# x\nCanonicalId|CharacterId\nCN1|LCbogus0001\n")
+    alerts = _check_fk_column(path, "CharacterId", {"LCreal000001"}, "characters.csv CharacterId", "label")
+    assert len(alerts) == 1
+    assert "LCbogus0001" in alerts[0]
+
+
+def _stranded_fixture(tmp_path: Path, characters: str, links: str) -> tuple[Path, Path, Path]:
+    """Write the three CSVs the stranded-hero check reads, and return their paths."""
+    chars = tmp_path / "characters.csv"
+    chars.write_text("# x\nCharacterId|Name|Status|OtherCharactersStoryKey\n" + characters)
+    canonical = tmp_path / "heroes-canonical.csv"
+    canonical.write_text("# x\nCanonicalId|CanonicalSlug|CanonicalHero\nCN1|kox|Kox\n")
+    link = tmp_path / "character-heroes.csv"
+    link.write_text("# x\nCanonicalId|CharacterId\n" + links)
+    return chars, canonical, link
+
+
+def test_a_hero_named_character_with_no_link_is_reported_as_stranded(tmp_path: Path) -> None:
+    """Resolving an identity pair re-points the hero and leaves the minted row behind."""
+    from validate_data import _check_no_stranded_hero_character
+
+    paths = _stranded_fixture(
+        tmp_path,
+        characters="LC1|Kox|Unknown|\nLC2|Fightmaster Kox|Unknown|\n",
+        links="CN1|LC2\n",
+    )
+    alerts = _check_no_stranded_hero_character(*paths)
+    assert len(alerts) == 1
+    assert "'Kox'" in alerts[0] and "LC1" in alerts[0]
+
+
+def test_a_hero_named_character_that_still_holds_its_link_is_not_reported(tmp_path: Path) -> None:
+    """The unresolved state is the normal one and must stay silent."""
+    from validate_data import _check_no_stranded_hero_character
+
+    paths = _stranded_fixture(tmp_path, characters="LC1|Kox|Unknown|\n", links="CN1|LC1\n")
+    assert _check_no_stranded_hero_character(*paths) == []
+
+
+def test_an_ordinary_npc_is_never_reported_as_stranded(tmp_path: Path) -> None:
+    """The signature is 'named after a hero', so an unlinked ordinary NPC is fine."""
+    from validate_data import _check_no_stranded_hero_character
+
+    paths = _stranded_fixture(
+        tmp_path,
+        characters="LC1|Kox|Unknown|\nLC9|Xathari|Dead|\n",
+        links="CN1|LC1\n",
+    )
+    assert _check_no_stranded_hero_character(*paths) == []

@@ -272,7 +272,7 @@ def compute_single_page_keys(chapters: list[tuple[str, str]], hints: dict) -> fr
 def _is_generated_page(slug: str) -> bool:
     """True for generated reference tables, which list every entity by name.
 
-    ``data/md/npcs.md`` and friends are produced by ``create_md.py``. Auto-linking
+    ``data/md/characters.md`` and friends are produced by ``create_md.py``. Auto-linking
     there would make each row link to a tooltip describing itself, and would also
     inflate the mention count so that genuinely single-page entities look shared.
     """

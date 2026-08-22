@@ -593,6 +593,73 @@ which is why the list is checked rather than trusted.
 """
 
 
+CHARACTER_STATUSES = frozenset({"Unknown", "Alive", "Dead", "Assumed Dead", "Missing"})
+"""The closed list for ``characters.csv`` ``Status`` (migration 12).
+
+The column used to be free text and had drifted to two spellings of the same
+fact (``Deceased`` next to ``Dead``, ``Gone`` next to nothing) and three rows
+carrying a sentence instead of a status. The value reaches the tooltip badge
+verbatim (``theme/hints.js``), so a typo here ships as a visible label — the
+same reasoning that makes :data:`EPITHET_KINDS` a checked set rather than a
+trusted one."""
+
+
+def _check_character_statuses(path: Path) -> list[str]:
+    """Ensure every ``characters.csv`` ``Status`` is one of :data:`CHARACTER_STATUSES`."""
+    if not path.is_file():
+        return []
+    _, rows = read_pipe_csv(path)
+    alerts: list[str] = []
+    for row in rows:
+        status = (row.get("Status") or "").strip()
+        if status and status not in CHARACTER_STATUSES:
+            name = (row.get("Name") or "").strip()
+            alerts.append(f"characters.csv: {name!r} has Status {status!r}, not one of {sorted(CHARACTER_STATUSES)}")
+    return alerts
+
+
+def _check_no_stranded_hero_character(characters_path: Path, canonical_path: Path, links_path: Path) -> list[str]:
+    """Catch the character row an identity resolution leaves behind.
+
+    Seeding mints a character row for every hero it finds no ``character_heroes``
+    row for, named after the hero. Resolving one of the hero/NPC identity pairs
+    re-points that link at the NPC's row instead — ``NPCEntry("Fightmaster Kox",
+    hero_slug="kox")`` — and the auto-minted ``Kox`` row is then a second row for
+    a person who now has one, holding nothing and linked to nothing.
+
+    Nothing else would report it: it breaks no foreign key, it is not a
+    near-duplicate by string similarity (``Kox`` against ``Fightmaster Kox``
+    scores far below the threshold), and the self-heal will not re-link it
+    because the hero is already covered. The signature is exact — a character
+    named after a hero that no longer claims it — so this cannot fire on an
+    ordinary NPC.
+    """
+    for path in (characters_path, canonical_path, links_path):
+        if not path.is_file():
+            return []
+    _, character_rows = read_pipe_csv(characters_path)
+    _, canonical_rows = read_pipe_csv(canonical_path)
+    _, link_rows = read_pipe_csv(links_path)
+
+    hero_names = {normalize_name((r.get("CanonicalHero") or "").strip()) for r in canonical_rows}
+    hero_names.discard("")
+    linked = {(r.get("CharacterId") or "").strip() for r in link_rows}
+
+    alerts: list[str] = []
+    for row in character_rows:
+        name = (row.get("Name") or "").strip()
+        cid = (row.get("CharacterId") or "").strip()
+        if not name or not cid:
+            continue
+        if normalize_name(name) in hero_names and cid not in linked:
+            alerts.append(
+                f"characters.csv: {name!r} ({cid}) is named after a playable hero but holds no "
+                f"character-heroes.csv link. An identity resolution re-pointed the hero at another "
+                f"row and left this one stranded — delete it and repoint anything that references it."
+            )
+    return alerts
+
+
 def _check_epithet_kinds(path: Path) -> list[str]:
     """Ensure every ``npc-epithets.csv`` ``Kind`` is one of :data:`EPITHET_KINDS`."""
     if not path.is_file():
@@ -623,7 +690,7 @@ def _check_alias_name_collisions() -> list[str]:
     for alias_file, alias_col, owner_col, registry_file, registry_id, registry_name, label in (
         ("location-aliases.csv", "Alias", "LocationId", "locations.csv", "LocationId", "Name", "Location alias"),
         ("group-aliases.csv", "Alias", "GroupId", "groups.csv", "GroupId", "Name", "Group alias"),
-        ("npc-epithets.csv", "Name", "CharacterId", "npcs.csv", "CharacterId", "Name", "NPC epithet"),
+        ("npc-epithets.csv", "Name", "CharacterId", "characters.csv", "CharacterId", "Name", "NPC epithet"),
         ("species-aliases.csv", "Alias", "SpeciesId", "species.csv", "SpeciesId", "Name", "Species alias"),
     ):
         alias_path, registry_path = DATA / f"csv/{alias_file}", DATA / f"csv/{registry_file}"
@@ -803,7 +870,12 @@ def collect_alerts() -> list[str]:
             ("EquipmentGameId", "SetId", "CardId"),
             "Equipment printings",
         ),
-        (DATA / "csv/npcs.csv", ("CharacterId", "Name", "Status"), "NPCs"),
+        (DATA / "csv/characters.csv", ("CharacterId", "Name", "Status"), "NPCs"),
+        (
+            DATA / "csv/character-heroes.csv",
+            ("CanonicalId", "CharacterId"),
+            "Character ↔ hero links",
+        ),
         (DATA / "csv/locations.csv", ("LocationId", "Name"), "Locations"),
         (DATA / "csv/groups.csv", ("GroupId", "Name"), "Groups"),
         (DATA / "csv/group-npcs.csv", ("GroupId", "CharacterId"), "Group ↔ NPC membership"),
@@ -1071,14 +1143,14 @@ def collect_alerts() -> list[str]:
     # The other half of each membership row. Only GroupId was checked here, so a
     # bad member id reached SQLite and failed the *build* at seed time instead of
     # raising an alert — the wrong place to learn about it.
-    npc_character_ids = _id_set_from_column(DATA / "csv/npcs.csv", "CharacterId")
+    npc_character_ids = _id_set_from_column(DATA / "csv/characters.csv", "CharacterId")
     if npc_character_ids:
         alerts.extend(
             _check_fk_column(
                 DATA / "csv/group-npcs.csv",
                 "CharacterId",
                 npc_character_ids,
-                "npcs.csv CharacterId",
+                "characters.csv CharacterId",
                 "Group ↔ NPC membership",
             )
         )
@@ -1094,6 +1166,32 @@ def collect_alerts() -> list[str]:
             )
         )
 
+    # Identity spine (migration 12). Both halves of character_heroes: a stale
+    # CanonicalId means a hero that no longer exists still claims an identity,
+    # and a stale CharacterId means the character row it points at is gone —
+    # either one reaches SQLite as an FK violation at seed time instead of an
+    # alert, the same gap the group membership checks above close.
+    if group_hero_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/character-heroes.csv",
+                "CanonicalId",
+                group_hero_ids,
+                "heroes-canonical.csv CanonicalId",
+                "Character ↔ hero links",
+            )
+        )
+    if npc_character_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/character-heroes.csv",
+                "CharacterId",
+                npc_character_ids,
+                "characters.csv CharacterId",
+                "Character ↔ hero links",
+            )
+        )
+
     # Alternate names (R4, R6). Each row points at the entity whose other name it
     # is, so a stale owner id leaves an alias resolving to nothing.
     if npc_character_ids:
@@ -1102,7 +1200,7 @@ def collect_alerts() -> list[str]:
                 DATA / "csv/npc-epithets.csv",
                 "CharacterId",
                 npc_character_ids,
-                "npcs.csv CharacterId",
+                "characters.csv CharacterId",
                 "NPC epithets",
             )
         )
@@ -1140,11 +1238,19 @@ def collect_alerts() -> list[str]:
                 DATA / "csv/npc-species.csv",
                 "CharacterId",
                 npc_character_ids,
-                "npcs.csv CharacterId",
+                "characters.csv CharacterId",
                 "NPC ↔ species",
             )
         )
     alerts.extend(_check_epithet_kinds(DATA / "csv/npc-epithets.csv"))
+    alerts.extend(_check_character_statuses(DATA / "csv/characters.csv"))
+    alerts.extend(
+        _check_no_stranded_hero_character(
+            DATA / "csv/characters.csv",
+            DATA / "csv/heroes-canonical.csv",
+            DATA / "csv/character-heroes.csv",
+        )
+    )
     alerts.extend(_check_alias_name_collisions())
     if location_ids and group_ids:
         alerts.extend(
@@ -1164,7 +1270,9 @@ def collect_alerts() -> list[str]:
         _check_location_lore_fragments_match_headings(DATA / "csv/locations.csv", DATA / "csv/regions.csv", SRC)
     )
 
-    alerts.extend(_check_id_hash_drift(DATA / "csv/npcs.csv", "CharacterId", "Name", lore_character_id, "npcs.csv"))
+    alerts.extend(
+        _check_id_hash_drift(DATA / "csv/characters.csv", "CharacterId", "Name", lore_character_id, "characters.csv")
+    )
     alerts.extend(_check_id_hash_drift(DATA / "csv/monsters.csv", "MonsterId", "Name", monster_id, "monsters.csv"))
     alerts.extend(_check_id_hash_drift(DATA / "csv/fauna.csv", "FaunaId", "Name", fauna_id_from_name, "fauna.csv"))
     alerts.extend(_check_id_hash_drift(DATA / "csv/flora.csv", "FloraId", "Name", flora_id, "flora.csv"))
@@ -1341,7 +1449,7 @@ def collect_warnings() -> list[str]:
       as a side effect of an unrelated commit, so it's reported without
       blocking until a dedicated migration lands.
     - Near-duplicate entity names (see :func:`_check_near_duplicate_names`)
-      across ``locations.csv`` (compared within each region), ``npcs.csv``,
+      across ``locations.csv`` (compared within each region), ``characters.csv``,
       ``monsters.csv``, ``fauna.csv``, and ``flora.csv``. Warning-only
       because similarity matching has false positives (e.g. ``East Rise``
       vs ``West Rise``) that need a human to dismiss.
@@ -1359,7 +1467,7 @@ def collect_warnings() -> list[str]:
             group_column="RegionId",
         )
     )
-    warnings.extend(_check_near_duplicate_names(DATA / "csv/npcs.csv", "CharacterId", "Name", "npcs.csv"))
+    warnings.extend(_check_near_duplicate_names(DATA / "csv/characters.csv", "CharacterId", "Name", "characters.csv"))
     warnings.extend(_check_near_duplicate_names(DATA / "csv/monsters.csv", "MonsterId", "Name", "monsters.csv"))
     warnings.extend(_check_near_duplicate_names(DATA / "csv/fauna.csv", "FaunaId", "Name", "fauna.csv"))
     warnings.extend(_check_near_duplicate_names(DATA / "csv/flora.csv", "FloraId", "Name", "flora.csv"))
@@ -1395,7 +1503,7 @@ def _check_new_catalogue_names(reviewed: dict[frozenset, str]) -> list[str]:
             "LocationId",
             lambda e: location_id(e.name, region_row_id(e.region) if e.region else ""),
         ),
-        (npcs, "csv/npcs.csv", "CharacterId", lambda e: lore_character_id(e.name)),
+        (npcs, "csv/characters.csv", "CharacterId", lambda e: lore_character_id(e.name)),
         (monsters, "csv/monsters.csv", "MonsterId", lambda e: monster_id(e.name)),
         (fauna, "csv/fauna.csv", "FaunaId", lambda e: fauna_id_from_name(e.name)),
         (flora, "csv/flora.csv", "FloraId", lambda e: flora_id(e.name)),
@@ -1438,7 +1546,7 @@ def _all_registry_ids() -> set[str]:
     ids: set[str] = set()
     for name, column in (
         ("locations.csv", "LocationId"),
-        ("npcs.csv", "CharacterId"),
+        ("characters.csv", "CharacterId"),
         ("monsters.csv", "MonsterId"),
         ("fauna.csv", "FaunaId"),
         ("flora.csv", "FloraId"),

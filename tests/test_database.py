@@ -179,7 +179,7 @@ def test_upsert_story_links_npcs(db: Database) -> None:
         title="NPC Story",
         npcs=[NPCEntry("Guard Captain", species=SpeciesEntry("Human"), status="Alive")],
     )
-    npc = db.conn.execute("SELECT * FROM npcs").fetchone()
+    npc = db.conn.execute("SELECT * FROM characters").fetchone()
     assert npc["name"] == "Guard Captain"
     assert db.conn.execute("SELECT COUNT(*) FROM story_npcs").fetchone()[0] == 1
     # Species is a junction now, not a column on this row.

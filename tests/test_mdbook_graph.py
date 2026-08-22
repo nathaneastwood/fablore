@@ -69,7 +69,7 @@ def src_root(tmp_path: Path) -> Path:
         "LO1|Enion|RG1||enion\n"
         "LO2|Unplaced|RG2||\n"
     )
-    (csv_dir / "npcs.csv").write_text(
+    (csv_dir / "characters.csv").write_text(
         "# AUTO-GENERATED\n"
         "CharacterId|Name|Species|Status|OtherCharactersStoryKey\n"
         "LC1|Minerva Themis|Human|Alive|other-characters/minerva-themis.md\n"
@@ -216,6 +216,33 @@ def test_npc_and_weapon_urls(src_root: Path) -> None:
     assert names["Minerva Themis"]["u"] == "other-characters/minerva-themis.html"
     assert names["Nameless"]["u"] == ""
     assert names["Dawnblade"]["u"] == "weapons/dawnblade.html"
+
+
+def test_a_hero_character_row_with_no_story_link_gains_no_node(src_root: Path) -> None:
+    """characters.csv rows minted for the identity spine (migration 12) must
+    never become graph nodes on their own.
+
+    Nodes come only from the story-npcs.csv junction; characters.csv is used
+    purely as a name lookup. A hero-minted character row (like Dorinthea's,
+    which shares its name with the existing hero node) carries no story-npcs
+    row, so the node count must not move when one is added.
+    """
+    before = build_graph(src_root / "data", src_root)
+    before_count = len(before["nodes"])
+
+    csv_dir = src_root / "data" / "csv"
+    characters_csv = csv_dir / "characters.csv"
+    characters_csv.write_text(
+        characters_csv.read_text(encoding="utf-8") + "LC3|Dorinthea|Human|Unknown|\n",
+        encoding="utf-8",
+    )
+
+    after = build_graph(src_root / "data", src_root)
+    assert len(after["nodes"]) == before_count
+    # Exactly one "Dorinthea" node (the hero), never a second npc node for it.
+    dorintheas = [n for n in after["nodes"] if n["n"] == "Dorinthea"]
+    assert len(dorintheas) == 1
+    assert dorintheas[0]["k"] == "hero"
 
 
 def test_colour_groups_fold_the_sparse_kinds(src_root: Path) -> None:

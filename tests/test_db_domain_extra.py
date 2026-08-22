@@ -429,11 +429,11 @@ def test_delete_entity_npc_removes_orphaned_row(db: Database) -> None:
         title="Foo",
         npcs=[],
     )
-    cur = db.conn.execute("SELECT COUNT(*) FROM npcs WHERE name = ?", ["Promoted Character"])
+    cur = db.conn.execute("SELECT COUNT(*) FROM characters WHERE name = ?", ["Promoted Character"])
     assert cur.fetchone()[0] == 1  # sanity: row survives the unlink
 
     db.delete_entity("npc", "Promoted Character")
-    cur = db.conn.execute("SELECT COUNT(*) FROM npcs WHERE name = ?", ["Promoted Character"])
+    cur = db.conn.execute("SELECT COUNT(*) FROM characters WHERE name = ?", ["Promoted Character"])
     assert cur.fetchone()[0] == 0
 
 
@@ -446,7 +446,7 @@ def test_delete_entity_npc_refuses_when_still_linked(db: Database) -> None:
     )
     with pytest.raises(ValueError, match="still referenced"):
         db.delete_entity("npc", "Linked Character")
-    cur = db.conn.execute("SELECT COUNT(*) FROM npcs WHERE name = ?", ["Linked Character"])
+    cur = db.conn.execute("SELECT COUNT(*) FROM characters WHERE name = ?", ["Linked Character"])
     assert cur.fetchone()[0] == 1
 
 
@@ -530,7 +530,7 @@ def test_delete_entity_location_deletes_all_duplicate_name_rows(db: Database) ->
 
 def _npc_row(database: Database, name: str) -> tuple[str, str]:
     """Return ``(species, status)``, with species joined back from the junction."""
-    row = database.conn.execute("SELECT character_id, status FROM npcs WHERE name = ?", [name]).fetchone()
+    row = database.conn.execute("SELECT character_id, status FROM characters WHERE name = ?", [name]).fetchone()
     species = [
         r[0]
         for r in database.conn.execute(
