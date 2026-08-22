@@ -247,24 +247,22 @@ def _export_groups(conn: sqlite3.Connection, csv_dir: Path) -> None:
 
 
 def _export_group_members(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    """Write the two membership tables (R1).
+    """Write the membership table (R1).
 
-    Not part of ``_JUNCTION_EXPORT_SPECS``: these hang off a group, not a story,
-    and their ``StoryKey`` is evidence for the membership (D2) rather than the
-    link itself.
+    Not part of ``_JUNCTION_EXPORT_SPECS``: this hangs off a group, not a story,
+    and its ``StoryKey`` is evidence for the membership (D2) rather than the
+    link itself. One table since migration 18.
     """
-    for table, csv_name, db_col, csv_id_col in (
-        ("group_npcs", "group-npcs.csv", "character_id", "CharacterId"),
-        ("group_heroes", "group-heroes.csv", "canonical_id", "CanonicalId"),
-    ):
-        rows = conn.execute(f"SELECT group_id, {db_col}, story_key FROM {table} ORDER BY group_id, {db_col}").fetchall()
-        data = [{"GroupId": r["group_id"], csv_id_col: r[db_col], "StoryKey": r["story_key"]} for r in rows]
-        _write_pipe_csv(
-            csv_dir / csv_name,
-            _CMD_REGISTRY,
-            ["GroupId", csv_id_col, "StoryKey"],
-            data,
-        )
+    rows = conn.execute(
+        "SELECT group_id, character_id, story_key FROM group_characters ORDER BY group_id, character_id"
+    ).fetchall()
+    data = [{"GroupId": r["group_id"], "CharacterId": r["character_id"], "StoryKey": r["story_key"]} for r in rows]
+    _write_pipe_csv(
+        csv_dir / "group-characters.csv",
+        _CMD_REGISTRY,
+        ["GroupId", "CharacterId", "StoryKey"],
+        data,
+    )
 
 
 def _export_alternate_names(conn: sqlite3.Connection, csv_dir: Path) -> None:
@@ -866,8 +864,7 @@ _ALL_TABLES = [
     "story_weapons",
     "story_equipment",
     "groups",
-    "group_npcs",
-    "group_heroes",
+    "group_characters",
     "story_groups",
     "titles",
     "title_holders",

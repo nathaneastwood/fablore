@@ -71,15 +71,15 @@ SPEAKEASYS_GUILDS = GroupEntry(
     "Speakeasy's Guilds",
     kind="stable",
     parent=SUPER_SLAM_GUILDS,
-    npc_members=(npc.SPEAKEASY,),
+    members=(npc.SPEAKEASY,),
     member_source="main-story/super-slam/feudmasters.md",
 )
 """Rusty names this stable outright — the Wild Wonders are "among **Speakeasy's**
 guilds" — which is why the group is named for her rather than given an in-world
 name no page supplies.
 
-The patron sits in ``npc_members``, and that **strains the relation**: Speakeasy
-fronts the stable, she does not fight in it, and ``group_npcs`` means membership
+The patron sits in ``members``, and that **strains the relation**: Speakeasy
+fronts the stable, she does not fight in it, and ``group_characters`` means membership
 everywhere else in this file. It is used here because it is the only person-to-
 group relation that exists, and because the alternative — letting the group's
 *name* carry the patron — makes a rename silently drop the link. The user's call,
@@ -89,7 +89,7 @@ BATBITERS_GUILDS = GroupEntry(
     "Batbiter's Guilds",
     kind="stable",
     parent=SUPER_SLAM_GUILDS,
-    npc_members=(npc.BATBITER,),
+    members=(npc.BATBITER,),
     member_source="main-story/super-slam/feudmasters.md",
 )
 """See ``SPEAKEASYS_GUILDS`` on the patron membership. Speakeasy names this stable
@@ -99,7 +99,7 @@ MOLOCAS_GUILDS = GroupEntry(
     "Moloca's Guilds",
     kind="stable",
     parent=SUPER_SLAM_GUILDS,
-    npc_members=(npc.MOLOCA,),
+    members=(npc.MOLOCA,),
     member_source="main-story/super-slam/feudmasters.md",
 )
 """**Deliberately empty, and that is the finding.** character-groups.md gives
@@ -118,7 +118,7 @@ BALEFUL_HORDE = GroupEntry(
     "Baleful Horde",
     kind="guild",
     parent=BATBITERS_GUILDS,
-    npc_members=(npc.FUGGER_GRIMES,),
+    members=(npc.FUGGER_GRIMES,),
     member_source="flavour/super-slam.md",
 )
 BIG_BOPPERS = GroupEntry("Big Boppers", kind="guild", parent=BATBITERS_GUILDS)
@@ -128,7 +128,7 @@ CHAMPIONS_OF_CHIVALRY = GroupEntry(
     "Champions of Chivalry",
     kind="guild",
     parent=SPEAKEASYS_GUILDS,
-    npc_members=(npc.EMEVIERE,),
+    members=(npc.EMEVIERE,),
     member_source="flavour/super-slam.md",
 )
 FURY_FISTS = GroupEntry("Fury Fists", kind="guild", parent=SPEAKEASYS_GUILDS)
@@ -136,7 +136,7 @@ GLORYTOWN_GLADIATORS = GroupEntry(
     "Glorytown Gladiators",
     kind="guild",
     parent=SPEAKEASYS_GUILDS,
-    npc_members=(npc.SALVADOR_STALLION,),
+    members=(npc.SALVADOR_STALLION,),
     member_source="flavour/super-slam.md",
 )
 GORELORDS = GroupEntry("Gorelords", kind="guild", parent=BATBITERS_GUILDS)
@@ -155,7 +155,7 @@ JUNGLE_SLAYERS = GroupEntry(
     kind="guild",
     parent=BATBITERS_GUILDS,
     aliases=("Chanek Jungle Slayers",),
-    npc_members=(npc.HELX,),
+    members=(npc.HELX,),
     member_source="flavour/super-slam.md",
 )
 """Absorbs ``Chanek Jungle Slayers``. Chanek is a species, not part of the name
@@ -165,7 +165,7 @@ character-groups.md write the long form, so without the alias the tooltip matche
 neither of the two places the guild is actually named. The drift was already
 logged in ``.claude/rules/data-pipeline.md``."""
 MYTHMAKERS = GroupEntry("Mythmakers", kind="guild", parent=SPEAKEASYS_GUILDS)
-PROWLERS = GroupEntry("Prowlers", kind="guild", parent=BATBITERS_GUILDS, hero_members=("kayo",))
+PROWLERS = GroupEntry("Prowlers", kind="guild", parent=BATBITERS_GUILDS, members=("kayo",))
 WILD_WONDERS = GroupEntry("Wild Wonders", kind="guild", parent=SPEAKEASYS_GUILDS)
 
 
@@ -186,12 +186,11 @@ HAND_OF_SOL = GroupEntry(
 """Was a locations row with 9 story links. An order of knights is not a place, so
 the row is dropped; ``lore_story_key`` is what keeps its link to solana.md alive,
 which is the only reason it was ever a location."""
-HOUSE_ASHWOOD = GroupEntry("House Ashwood", kind="house", hero_members=("pleiades",))
+HOUSE_ASHWOOD = GroupEntry("House Ashwood", kind="house", members=("pleiades",))
 HOUSE_GOLDMANE = GroupEntry(
     "House Goldmane",
     kind="house",
-    npc_members=(npc.BLOODWORTH_GOLDMANE,),
-    hero_members=("lyath", "victor-goldmane"),
+    members=("lyath", "victor-goldmane", npc.BLOODWORTH_GOLDMANE),
     member_source="heroes-of-rathe/lyath-about.md",
 )
 
@@ -214,7 +213,7 @@ CHURCH_OF_PAIN = GroupEntry("Church of Pain", kind="institution")
 """The institution; the Disciples are its followers. Two rows, not one: the
 supplement described both and they are not the same thing (2026-08-20)."""
 DISCIPLES_OF_PAIN = GroupEntry("Disciples of Pain", kind="faction", parent=CHURCH_OF_PAIN)
-GLOOMBLADES = GroupEntry("Gloomblades", kind="faction", hero_members=("viserai",))
+GLOOMBLADES = GroupEntry("Gloomblades", kind="faction", members=("viserai",))
 
 
 # ---------------------------------------------------------------------------
@@ -222,12 +221,11 @@ GLOOMBLADES = GroupEntry("Gloomblades", kind="faction", hero_members=("viserai",
 # ---------------------------------------------------------------------------
 
 ALSHONI = GroupEntry("Alshoni", kind="faction")
-CHILDREN_OF_THE_DRAGON = GroupEntry("Children of the Dragon", kind="order", hero_members=("fang",))
+CHILDREN_OF_THE_DRAGON = GroupEntry("Children of the Dragon", kind="order", members=("fang",))
 CINTARI = GroupEntry(
     "Cintari",
     kind="clan",
-    npc_members=(npc.ALIF, npc.FAYYAD, npc.SADA),
-    hero_members=("kassai",),
+    members=("kassai", npc.ALIF, npc.FAYYAD, npc.SADA),
     member_source="main-story/heavy-hitters/thirst-for-revenge.md",
 )
 """A clan, not a people: kassai-about.md:11 has them *induct* Kassai into their
@@ -237,11 +235,11 @@ is what separates this call from ``Chanek`` (2026-08-20)."""
 LORD_WIZARDS_OF_THE_COURT = GroupEntry(
     "Lord Wizards of the Court",
     kind="council",
-    npc_members=(
+    members=(
+        "kano",
         (npc.LORD_WIZARD_AKIHIKO, "main-story/arcane-rising/playing-with-fire.md"),
         (npc.LORD_WIZARD_CHIYO, "main-story/arcane-rising/from-the-ashes.md"),
     ),
-    hero_members=("kano",),
     member_source="heroes-of-rathe/kano-about.md",
 )
 """The body at Court, **not** the rank. The two were split deliberately and only
@@ -293,7 +291,7 @@ SAYASHI = GroupEntry("Sayashi", kind="special force")
 THE_TWELVE_DRAGONS = GroupEntry(
     "The Twelve Dragons",
     kind="pantheon",
-    npc_members=(
+    members=(
         npc.AZVOLAI,
         npc.CROMAI,
         npc.DOMINIA,
@@ -357,7 +355,7 @@ describes them well enough for a summary."""
 L_APOCALYPTA = GroupEntry(
     "L'Apocalypta",
     kind="cult",
-    npc_members=(npc.ANARCH_ZEIR,),
+    members=(npc.ANARCH_ZEIR,),
     member_source="flavour/compendium-of-rathe.md",
     lore_story_key="world-of-rathe/pits.md",
     lore_fragment="lapocalypta",
@@ -423,7 +421,7 @@ which is what marks them as people rather than the beasts the name suggests."""
 KOTORI = GroupEntry(
     "Kotori",
     kind="emissaries",
-    npc_members=(
+    members=(
         npc.ANHE_KOTORI_WAVEBENDER,
         npc.DAN_LU_KOTORI_GALEWARDEN,
         npc.NING_KOTORI_MOONSEEKER,
@@ -436,12 +434,12 @@ are ranks and wait for R3. No notes, because nothing in the lore describes them.
 IKARU_CLAN = GroupEntry(
     "Ikaru Clan",
     kind="house",
-    hero_members=("ira",),
+    members=("ira",),
     location=loc.IKARU,
     member_source="heroes-of-rathe/ira-about.md",
 )
 """Absorbs ``House of Blossoms``. The location row stays as the place Ikaru (Q6)."""
-MUGENSHI_CLAN = GroupEntry("Mugenshi Clan", kind="clan", hero_members=("benji",))
+MUGENSHI_CLAN = GroupEntry("Mugenshi Clan", kind="clan", members=("benji",))
 
 
 # ---------------------------------------------------------------------------
@@ -464,7 +462,7 @@ OLLIN = GroupEntry(
 ROSETTA = GroupEntry(
     "Rosetta",
     kind="order",
-    npc_members=(npc.OZRIM, npc.QUEEN_OF_CANDLEHOLD),
+    members=(npc.OZRIM, npc.QUEEN_OF_CANDLEHOLD),
     member_source="short-stories/rosetta/verdance-thorn-of-the-rose.md",
 )
 """``Rosetta`` is also the ``Species`` value on both of these NPCs, which is the
@@ -474,7 +472,7 @@ SEERS = GroupEntry("Seers", kind="order")
 THE_MAELA = GroupEntry(
     "The Maela",
     kind="troupe",
-    npc_members=(
+    members=(
         (npc.MAELA_FAIRMIND, "flavour/compendium-of-rathe.md"),
         (npc.MAELA_ISULFV, "flavour/omens-of-the-third-age.md"),
         (npc.MAELA_ONE_EYE, "flavour/mastery-pack-guardian.md"),
@@ -508,7 +506,7 @@ gives "the seer" and "the elderly seer" (:63), a journey from Everfest (:23, :37
 and a reading of tea leaves (:63) — which is aria.md's whole description of the
 Maela, "a group of seers … respected for their talent in second-sight", and
 nothing more. It is not the membership's citation: ``rosetta.md`` names her rank
-outright and that page is what ``group_npcs`` cites. It is the fallback if the
+outright and that page is what ``group_characters`` cites. It is the fallback if the
 credit line is ever disputed, and it is recorded nowhere else.
 
 Isulfv, One-eye and Sharena joined at the same time, on the same reading of the
@@ -578,7 +576,7 @@ DHANI_DEITIES = GroupEntry(
     "Dhani Deities",
     kind="pantheon",
     parent=DEITIES,
-    npc_members=(npc.ABSOLON, npc.NOCETES),
+    members=(npc.ABSOLON, npc.NOCETES),
     member_source="world-of-rathe/high-seas.md",
 )
 """Both gods are named on one page — ``world-of-rathe/high-seas.md``, Absolon at
@@ -598,13 +596,13 @@ KURAGHAN = GroupEntry(
 THE_SPIDER = GroupEntry(
     "The Spider",
     kind="organisation",
-    hero_members=("uzuri", "arakni-solitary-confinement"),
+    members=("uzuri", "arakni-solitary-confinement"),
     member_source="heroes-of-rathe/uzuri-about.md",
 )
 VANGELD = GroupEntry(
     "VanGeld",
     kind="clan",
-    npc_members=(npc.TARA_VANGELD,),
+    members=(npc.TARA_VANGELD,),
     member_source="heroes-of-rathe/lyath-about.md",
 )
 """No "clan" in the name: lyath-about.md writes it as a common noun, and ``kind``

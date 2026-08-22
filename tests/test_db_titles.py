@@ -4,7 +4,7 @@ Mirrors ``test_db_groups.py``. The one new hazard titles introduce that groups
 never had: a holder may be named as an NPC *or* as a hero slug, and migration
 12's identity spine means both can resolve to the same ``character_id`` — so a
 person named once each way must be caught as a repeat, the same way
-``GroupEntry.members()`` catches a repeated NPC.
+``GroupEntry.member_pairs()`` catches a repeated NPC.
 """
 
 from __future__ import annotations
@@ -369,7 +369,7 @@ def test_dry_run_reports_a_new_npc_created_only_through_a_title(db: Database, ca
 
 def test_dry_run_reaches_a_titles_group(db: Database, capsys) -> None:
     """A title's group is a GroupEntry — walking the title must also walk it."""
-    grp = GroupEntry("Dracai Council", npc_members=(NPCEntry("Emissary"),), member_source="x.md")
+    grp = GroupEntry("Dracai Council", members=(NPCEntry("Emissary"),), member_source="x.md")
     db.upsert_story(
         path="src/world-of-rathe/solana.md",
         story_type="world-of-rathe",

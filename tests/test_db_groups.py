@@ -38,7 +38,8 @@ def _story(database: Database, path: str = "src/main-story/super-slam/feudmaster
 
 def test_migration_creates_group_tables_and_parent_column(db: Database) -> None:
     tables = {r[0] for r in db.conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
-    assert {"groups", "group_npcs", "group_heroes", "story_groups"} <= tables
+    assert {"groups", "group_characters", "story_groups"} <= tables
+    assert not {"group_npcs", "group_heroes"} & tables
     cols = {r[1] for r in db.conn.execute("PRAGMA table_info(locations)")}
     assert "parent_location_id" in cols
 
@@ -114,15 +115,15 @@ def test_groups_empty_list_clears_links(db: Database) -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_npc_membership_is_written_from_the_group(db: Database) -> None:
+def test_member_rows_are_written_from_the_group(db: Database) -> None:
     entry = GroupEntry(
         "VanGeld",
         kind="clan",
-        npc_members=(NPCEntry("Tara VanGeld", species=SpeciesEntry("Dwarf")),),
+        members=(NPCEntry("Tara VanGeld", species=SpeciesEntry("Dwarf")),),
         member_source="heroes-of-rathe/lyath-about.md",
     )
     _story(db, groups=[entry])
-    members = q.select_group_members(db.conn, group_id("VanGeld"), "group_npcs", "character_id")
+    members = q.select_group_members(db.conn, group_id("VanGeld"), "group_characters", "character_id")
     assert members == [(lore_character_id("Tara VanGeld"), "heroes-of-rathe/lyath-about.md")]
 
 
@@ -136,13 +137,13 @@ def test_a_member_may_cite_its_own_page(db: Database) -> None:
     entry = GroupEntry(
         "The Maela",
         kind="troupe",
-        npc_members=(
+        members=(
             (NPCEntry("Maela Fairmind"), "flavour/compendium-of-rathe.md"),
             (NPCEntry("Kaysin"), "flavour/rosetta.md"),
         ),
     )
     _story(db, groups=[entry])
-    assert q.select_group_members(db.conn, group_id("The Maela"), "group_npcs", "character_id") == [
+    assert q.select_group_members(db.conn, group_id("The Maela"), "group_characters", "character_id") == [
         (lore_character_id("Maela Fairmind"), "flavour/compendium-of-rathe.md"),
         (lore_character_id("Kaysin"), "flavour/rosetta.md"),
     ]
@@ -152,11 +153,11 @@ def test_plain_and_paired_members_mix_in_one_roster(db: Database) -> None:
     """A pair overrides ``member_source``; a bare entry still inherits it."""
     entry = GroupEntry(
         "Gemini",
-        npc_members=(NPCEntry("Minerva"), (NPCEntry("Themis"), "flavour/outsiders.md")),
+        members=(NPCEntry("Minerva"), (NPCEntry("Themis"), "flavour/outsiders.md")),
         member_source="heroes-of-rathe/lyath-about.md",
     )
     _story(db, groups=[entry])
-    assert q.select_group_members(db.conn, group_id("Gemini"), "group_npcs", "character_id") == [
+    assert q.select_group_members(db.conn, group_id("Gemini"), "group_characters", "character_id") == [
         (lore_character_id("Minerva"), "heroes-of-rathe/lyath-about.md"),
         (lore_character_id("Themis"), "flavour/outsiders.md"),
     ]
@@ -165,36 +166,47 @@ def test_plain_and_paired_members_mix_in_one_roster(db: Database) -> None:
 def test_a_paired_member_is_reachable_from_the_preview(db: Database) -> None:
     """The nesting bug 2116c48e fixed must not reopen through the new pair.
 
-    ``_reachable_entities`` walks into ``npc_members`` so an epithet on a member
+    ``_reachable_entities`` walks into ``members`` so an epithet on a member
     reached only through a roster is previewed. The pair wraps that member in a
     tuple, and a walk that forgot to unwrap it would silently stop previewing.
     """
     entry = GroupEntry(
         "The Maela",
-        npc_members=((NPCEntry("Kaysin", epithets=("Maela Soothsayer",)), "flavour/rosetta.md"),),
+        members=((NPCEntry("Kaysin", epithets=("Maela Soothsayer",)), "flavour/rosetta.md"),),
     )
     _story(db, groups=[entry])
     assert q.select_npc_epithets(db.conn, lore_character_id("Kaysin")) == [("Maela Soothsayer", "epithet")]
 
 
-def test_hero_membership_resolves_slugs(db: Database) -> None:
-    cid = _seed_hero(db, "kayo", "Kayo")
-    _story(db, groups=[GroupEntry("Prowlers", hero_members=("kayo",))])
-    assert q.select_group_members(db.conn, group_id("Prowlers"), "group_heroes", "canonical_id") == [(cid, "")]
+def test_a_hero_slug_member_resolves_to_a_character_row(db: Database) -> None:
+    """A slug lands in the same column an NPCEntry does (migration 18).
+
+    Before it, a hero member was a ``canonical_id`` in ``group_heroes`` and an
+    NPC member a ``character_id`` in ``group_npcs``. Now the slug resolves
+    through ``character_heroes``, so the stored id is the person's, not the
+    hero row's, and the two are different values.
+    """
+    canonical = _seed_hero(db, "kayo", "Kayo")
+    _story(db, groups=[GroupEntry("Prowlers", members=("kayo",))])
+    character = q.select_character_id_for_hero(db.conn, canonical)
+    assert character and character != canonical
+    assert q.select_group_members(db.conn, group_id("Prowlers"), "group_characters", "character_id") == [
+        (character, "")
+    ]
 
 
 def test_unknown_hero_slug_raises(db: Database) -> None:
     with pytest.raises(ValueError):
-        _story(db, groups=[GroupEntry("Prowlers", hero_members=("no-such-hero",))])
+        _story(db, groups=[GroupEntry("Prowlers", members=("no-such-hero",))])
 
 
 def test_membership_is_replace_semantic(db: Database) -> None:
     """A short roster drops people, which is why the dry run reports removals."""
-    two = GroupEntry("Gemini", npc_members=(NPCEntry("Minerva"), NPCEntry("Themis")))
+    two = GroupEntry("Gemini", members=(NPCEntry("Minerva"), NPCEntry("Themis")))
     _story(db, groups=[two])
-    assert len(q.select_group_members(db.conn, group_id("Gemini"), "group_npcs", "character_id")) == 2
-    _story(db, groups=[GroupEntry("Gemini", npc_members=(NPCEntry("Minerva"),))])
-    assert len(q.select_group_members(db.conn, group_id("Gemini"), "group_npcs", "character_id")) == 1
+    assert len(q.select_group_members(db.conn, group_id("Gemini"), "group_characters", "character_id")) == 2
+    _story(db, groups=[GroupEntry("Gemini", members=(NPCEntry("Minerva"),))])
+    assert len(q.select_group_members(db.conn, group_id("Gemini"), "group_characters", "character_id")) == 1
 
 
 def test_emptied_roster_is_a_deletion_not_a_no_op(db: Database) -> None:
@@ -204,25 +216,23 @@ def test_emptied_roster_is_a_deletion_not_a_no_op(db: Database) -> None:
     so emptying one left every stored member in place while the dry run went on
     announcing their removal — the preview lying in exactly the case it exists for.
     """
-    _story(db, groups=[GroupEntry("Gemini", npc_members=(NPCEntry("Minerva"), NPCEntry("Themis")))])
+    _story(db, groups=[GroupEntry("Gemini", members=(NPCEntry("Minerva"), NPCEntry("Themis")))])
     _story(db, groups=[GroupEntry("Gemini")])
-    assert q.select_group_members(db.conn, group_id("Gemini"), "group_npcs", "character_id") == []
+    assert q.select_group_members(db.conn, group_id("Gemini"), "group_characters", "character_id") == []
 
 
 def test_one_roster_emptied_while_the_other_stands(db: Database, capsys) -> None:
-    """The original defect's exact shape: npcs cleared, heroes kept.
+    """The original defect's exact shape: the NPC member cleared, the hero kept.
 
     Here the old reporter did print a removal line — the sibling roster kept its
     ``continue`` from firing — while the old write path skipped the delete. Preview
-    and apply now agree.
+    and apply now agree. Since migration 18 both members are rows of one table, so
+    the assertion is on the surviving row rather than on which junction it is in.
     """
-    _seed_hero(db, "minerva", "Minerva")
-    _story(
-        db,
-        groups=[GroupEntry("Gemini", npc_members=(NPCEntry("Themis"),), hero_members=("minerva",))],
-    )
+    hero_cid = _seed_hero(db, "minerva", "Minerva")
+    _story(db, groups=[GroupEntry("Gemini", members=("minerva", NPCEntry("Themis")))])
     capsys.readouterr()
-    kept = GroupEntry("Gemini", hero_members=("minerva",))
+    kept = GroupEntry("Gemini", members=("minerva",))
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
         story_type="main-story",
@@ -230,23 +240,23 @@ def test_one_roster_emptied_while_the_other_stands(db: Database, capsys) -> None
         groups=[kept],
         dry_run=True,
     )
-    assert "1 member(s) REMOVED from group_npcs" in capsys.readouterr().out
+    assert "1 member(s) REMOVED from group_characters" in capsys.readouterr().out
     _story(db, groups=[kept])
-    assert q.select_group_members(db.conn, group_id("Gemini"), "group_npcs", "character_id") == []
-    assert len(q.select_group_members(db.conn, group_id("Gemini"), "group_heroes", "canonical_id")) == 1
+    stored = q.select_group_members(db.conn, group_id("Gemini"), "group_characters", "character_id")
+    assert stored == [(q.select_character_id_for_hero(db.conn, hero_cid), "")]
 
 
 def test_emptied_hero_roster_is_a_deletion_too(db: Database) -> None:
     _seed_hero(db, "ira", "Ira")
-    _story(db, groups=[GroupEntry("Ikaru Clan", hero_members=("ira",))])
-    assert len(q.select_group_members(db.conn, group_id("Ikaru Clan"), "group_heroes", "canonical_id")) == 1
+    _story(db, groups=[GroupEntry("Ikaru Clan", members=("ira",))])
+    assert len(q.select_group_members(db.conn, group_id("Ikaru Clan"), "group_characters", "character_id")) == 1
     _story(db, groups=[GroupEntry("Ikaru Clan")])
-    assert q.select_group_members(db.conn, group_id("Ikaru Clan"), "group_heroes", "canonical_id") == []
+    assert q.select_group_members(db.conn, group_id("Ikaru Clan"), "group_characters", "character_id") == []
 
 
 def test_dry_run_removal_line_matches_what_the_apply_does(db: Database, capsys) -> None:
     """The preview and the write must agree about an emptied roster."""
-    _story(db, groups=[GroupEntry("Gemini", npc_members=(NPCEntry("Minerva"), NPCEntry("Themis")))])
+    _story(db, groups=[GroupEntry("Gemini", members=(NPCEntry("Minerva"), NPCEntry("Themis")))])
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
@@ -255,9 +265,9 @@ def test_dry_run_removal_line_matches_what_the_apply_does(db: Database, capsys) 
         groups=[GroupEntry("Gemini")],
         dry_run=True,
     )
-    assert "2 member(s) REMOVED from group_npcs" in capsys.readouterr().out
+    assert "2 member(s) REMOVED from group_characters" in capsys.readouterr().out
     _story(db, groups=[GroupEntry("Gemini")])
-    assert q.select_group_members(db.conn, group_id("Gemini"), "group_npcs", "character_id") == []
+    assert q.select_group_members(db.conn, group_id("Gemini"), "group_characters", "character_id") == []
 
 
 # ---------------------------------------------------------------------------
@@ -335,7 +345,7 @@ def test_groups_survive_the_csv_round_trip(db: Database, tmp_path: Path) -> None
         db,
         groups=[
             GroupEntry("Boulders", kind="guild", parent=parent),
-            GroupEntry("Prowlers", kind="guild", hero_members=("kayo",), member_source="x.md"),
+            GroupEntry("Prowlers", kind="guild", members=("kayo",), member_source="x.md"),
         ],
     )
     ex.export_registry_tables(db.conn, tmp_path)
@@ -348,7 +358,10 @@ def test_groups_survive_the_csv_round_trip(db: Database, tmp_path: Path) -> None
     assert [r["name"] for r in q.select_all_groups(fresh.conn)] == ["Boulder Clan", "Boulders", "Prowlers"]
     row = fresh.conn.execute("SELECT parent_group_id FROM groups WHERE group_id = ?", [group_id("Boulders")]).fetchone()
     assert row["parent_group_id"] == group_id("Boulder Clan")
-    assert q.select_group_members(fresh.conn, group_id("Prowlers"), "group_heroes", "canonical_id") == [(cid, "x.md")]
+    hero_character = q.select_character_id_for_hero(fresh.conn, cid)
+    assert q.select_group_members(fresh.conn, group_id("Prowlers"), "group_characters", "character_id") == [
+        (hero_character, "x.md")
+    ]
 
 
 def test_seeding_wires_parents_even_when_the_child_is_read_first(db: Database, tmp_path: Path) -> None:
@@ -402,16 +415,16 @@ def test_dry_run_reports_new_groups_and_writes_nothing(db: Database, capsys) -> 
 
 def test_dry_run_flags_a_roster_that_would_shrink(db: Database, capsys) -> None:
     """The removal line is the point: membership replaces, so a short roster drops people."""
-    _story(db, groups=[GroupEntry("Gemini", npc_members=(NPCEntry("Minerva"), NPCEntry("Themis")))])
+    _story(db, groups=[GroupEntry("Gemini", members=(NPCEntry("Minerva"), NPCEntry("Themis")))])
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
         story_type="main-story",
         title="T",
-        groups=[GroupEntry("Gemini", npc_members=(NPCEntry("Minerva"),))],
+        groups=[GroupEntry("Gemini", members=(NPCEntry("Minerva"),))],
         dry_run=True,
     )
-    assert "REMOVED from group_npcs" in capsys.readouterr().out
+    assert "REMOVED from group_characters" in capsys.readouterr().out
 
 
 # ---------------------------------------------------------------------------
@@ -655,7 +668,7 @@ def test_alternate_names_survive_the_csv_round_trip(db: Database, tmp_path: Path
 # The preview reaches as far as the write does
 # ---------------------------------------------------------------------------
 #
-# ``_upsert_one_group`` walks into ``parent``, ``location`` and ``npc_members``,
+# ``_upsert_one_group`` walks into ``parent``, ``location`` and ``members``,
 # and ``_upsert_locations`` walks into ``parent``. Each of those writes the
 # entity's alternate names, so a preview that read only the kwargs left a nested
 # change applying in silence — the same shape as the guarded roster it replaced.
@@ -663,13 +676,13 @@ def test_alternate_names_survive_the_csv_round_trip(db: Database, tmp_path: Path
 
 
 def test_dry_run_reports_an_epithet_on_a_group_member(db: Database, capsys) -> None:
-    _story(db, groups=[GroupEntry("Rosetta", npc_members=(NPCEntry("Ozrim"),))])
+    _story(db, groups=[GroupEntry("Rosetta", members=(NPCEntry("Ozrim"),))])
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
         story_type="main-story",
         title="T",
-        groups=[GroupEntry("Rosetta", npc_members=(NPCEntry("Ozrim", epithets=("Keeper of the Script",)),))],
+        groups=[GroupEntry("Rosetta", members=(NPCEntry("Ozrim", epithets=("Keeper of the Script",)),))],
         dry_run=True,
     )
     assert "Ozrim: epithet 'Keeper of the Script'" in capsys.readouterr().out
@@ -747,7 +760,7 @@ def test_preview_survives_a_parent_cycle_rather_than_looping(db: Database, capsy
 def test_a_roster_may_not_name_one_npc_twice(db: Database) -> None:
     """The pair made this reachable, and the two paths resolved it differently.
 
-    ``group_npcs`` is keyed ``(group_id, character_id)`` and written with
+    ``group_characters`` is keyed ``(group_id, character_id)`` and written with
     ``INSERT OR IGNORE``, so the write kept the first citation; the preview built
     a dict from the same roster and reported the last. Neither raised. A roster
     naming someone twice was previewed as one page and stored as another —
@@ -755,17 +768,76 @@ def test_a_roster_may_not_name_one_npc_twice(db: Database) -> None:
     """
     entry = GroupEntry(
         "The Maela",
-        npc_members=(
+        members=(
             (NPCEntry("Kaysin"), "flavour/rosetta.md"),
             (NPCEntry("Kaysin"), "flavour/compendium-of-rathe.md"),
         ),
     )
-    with pytest.raises(ValueError, match="twice in npc_members"):
+    with pytest.raises(ValueError, match="twice in members"):
         _story(db, groups=[entry])
 
 
 def test_the_duplicate_guard_fires_on_the_preview_path_too(db: Database) -> None:
     """A dry run must fail the same way, or the guard only moves the surprise."""
-    entry = GroupEntry("The Maela", npc_members=(NPCEntry("Kaysin"), NPCEntry("Kaysin")))
-    with pytest.raises(ValueError, match="twice in npc_members"):
+    entry = GroupEntry("The Maela", members=(NPCEntry("Kaysin"), NPCEntry("Kaysin")))
+    with pytest.raises(ValueError, match="twice in members"):
         _story(db, groups=[entry], dry_run=True)
+
+
+def test_a_roster_may_not_name_one_person_as_a_slug_and_an_entry(db: Database) -> None:
+    """The clash ``member_pairs()`` cannot see, so ``_resolve_group_members`` raises it.
+
+    Migration 12 made it reachable: a hero slug and an NPCEntry both resolve
+    into the same ``characters`` row, and migration 18 put them in the same
+    ``group_characters`` row too. ``member_pairs()`` compares declaration
+    forms — the slug ``"kayo"`` and the name ``"Kayo"`` are different strings —
+    so only a resolver holding ``character_heroes`` can tell they are one
+    person. Same guard shape as ``_resolve_title_holders`` and
+    ``_resolve_characters``.
+    """
+    canonical = _seed_hero(db, "kayo", "Kayo")
+    # Make the NPC row *be* the hero, the way NPCEntry(hero_slug=...) does.
+    q.upsert_npc(db.conn, character_id=lore_character_id("Kayo"), name="Kayo")
+    q.set_character_hero(db.conn, canonical, lore_character_id("Kayo"))
+    entry = GroupEntry("Prowlers", members=("kayo", NPCEntry("Kayo")))
+    with pytest.raises(ValueError, match="resolve to the same person"):
+        _story(db, groups=[entry])
+
+
+def test_the_slug_and_entry_clash_is_reported_by_the_preview_too(db: Database) -> None:
+    """Preview and write must fail the same way — the divergence this repo keeps hitting."""
+    canonical = _seed_hero(db, "kayo", "Kayo")
+    q.upsert_npc(db.conn, character_id=lore_character_id("Kayo"), name="Kayo")
+    q.set_character_hero(db.conn, canonical, lore_character_id("Kayo"))
+    with pytest.raises(ValueError, match="resolve to the same person"):
+        db.upsert_story(
+            path="src/main-story/super-slam/feudmasters.md",
+            story_type="main-story",
+            title="T",
+            groups=[GroupEntry("Prowlers", members=("kayo", NPCEntry("Kayo")))],
+            dry_run=True,
+        )
+
+
+def test_a_hero_member_may_cite_its_own_page(db: Database) -> None:
+    """The asymmetry migration 18 closed.
+
+    ``hero_members`` was a bare tuple of slugs, so only an NPC member could
+    carry the ``(member, story_key)`` pair The Maela needed. One ``members``
+    field gives both kinds the pair.
+    """
+    canonical = _seed_hero(db, "kayo", "Kayo")
+    _story(
+        db,
+        groups=[
+            GroupEntry(
+                "Prowlers",
+                members=(("kayo", "flavour/super-slam.md"),),
+                member_source="world-of-rathe/aria.md",
+            )
+        ],
+    )
+    character = q.select_character_id_for_hero(db.conn, canonical)
+    assert q.select_group_members(db.conn, group_id("Prowlers"), "group_characters", "character_id") == [
+        (character, "flavour/super-slam.md")
+    ]

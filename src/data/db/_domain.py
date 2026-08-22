@@ -72,7 +72,7 @@ def _kin_triple(item: "tuple") -> "tuple[NPCEntry | str, str, str]":
     An item is a bare ``(relative, relation)`` pair — the common case, and the
     only shape the prompting case ("Their father is Bloodworth Goldmane")
     needs — or a ``(relative, relation, story_key)`` triple when that one fact
-    is attested somewhere worth citing. Mirrors ``GroupEntry.npc_members``'s
+    is attested somewhere worth citing. Mirrors ``GroupEntry.members``'s
     optional ``(npc, story_key)`` pair, one field further because a kin fact
     needs a relation as well as a relative.
     """
@@ -235,7 +235,7 @@ class NPCEntry:
     is a junction, and a junction states the complete set.
 
     Raises ``ValueError`` for a repeated profession on one entry — naming it —
-    the same guard shape ``GroupEntry.members()``, ``_resolve_title_holders`` and
+    the same guard shape ``GroupEntry.member_pairs()``, ``_resolve_title_holders`` and
     ``_resolve_kin_relatives`` all use: two entries naming the same profession
     would otherwise resolve differently on the write path (``INSERT OR IGNORE``
     keeps the first) than on a preview that diffed a dict (last wins).
@@ -274,7 +274,7 @@ class NPCEntry:
     Raises ``ValueError`` for an unknown slug, the same way a slug in
     ``characters=`` does, and when two different NPCs in one call claim the
     same slug — the shape of
-    the guard in ``GroupEntry.members()``, which raises on a repeated NPC for
+    the guard in ``GroupEntry.member_pairs()``, which raises on a repeated NPC for
     the same reason: the write and the preview would otherwise resolve the
     clash differently and neither would say so."""
     kin: "tuple[tuple[NPCEntry | str, str] | tuple[NPCEntry | str, str, str], ...]" = ()
@@ -315,7 +315,7 @@ class NPCEntry:
     Raises ``ValueError`` for a repeated ``(relative, relation)`` pair —
     naming the same person as a relative under the same relation twice,
     including once as an :class:`NPCEntry` and once as a hero slug, the same
-    hazard ``GroupEntry.members()`` and ``TitleEntry``'s holder resolution
+    hazard ``GroupEntry.member_pairs()`` and ``TitleEntry``'s holder resolution
     guard against — for an unknown hero slug, and for a character named as
     their own relative."""
 
@@ -432,25 +432,28 @@ class GroupEntry:
     name: str
     kind: str = ""
     """Free text: ``"clan"``, ``"house"``, ``"guild"``, ``"order"``, ``"troupe"``."""
-    npc_members: tuple["NPCEntry | tuple[NPCEntry, str]", ...] = ()
-    """NPC roster (R1). A tuple, because the dataclass is frozen and hashable.
+    members: tuple["NPCEntry | str | tuple[NPCEntry | str, str]", ...] = ()
+    """The roster (R1). A tuple, because the dataclass is frozen and hashable.
 
-    An item is an :class:`NPCEntry`, or an ``(NPCEntry, story_key)`` pair when
-    that one membership is attested somewhere other than ``member_source``.
+    An item is a **person** — an :class:`NPCEntry` or a canonical hero slug
+    string — or a ``(person, story_key)`` pair when that one membership is
+    attested somewhere other than ``member_source``. One field holds both kinds
+    because after migration 12 a hero and an NPC are rows of the same
+    ``characters`` table, and migration 18 gave them one junction to sit in;
+    the ``NPCEntry | str`` item type is the one ``NPCEntry.kin`` and
+    ``upsert_story``'s ``characters=`` already use for the same reason.
 
     The pair exists because ``The Maela`` needed it. Eleven of the twelve rosters
     that cite a source were read off a single page that lists the whole roster —
     ``flavour/super-slam.md`` names the guilds, ``lyath-about.md`` names the
     family. The Maela is not like that: five seers named across four different
     flavour pages, and no page that lists them as a roster. One string for the
-    group could only be right for one of them.
+    group could only be right for one of them. A hero member could not carry
+    that pair while the hero roster was a bare tuple of slugs; it can now, and
+    that documented asymmetry is gone rather than merely narrowed.
 
-    Hero rosters take no pair. ``hero_members`` is slugs, no hero roster needs
-    one yet, and an untested second path is worse than a documented asymmetry —
-    it is listed in stage 11.
+    An unknown hero slug raises, exactly as it does in ``characters=``.
     """
-    hero_members: tuple[str, ...] = ()
-    """Canonical hero slugs in the roster. Validated on upsert."""
     parent: "GroupEntry | None" = None
     """Enclosing group, e.g. a Super Slam guild inside the clan it draws from."""
     location: "LocationEntry | None" = None
@@ -458,7 +461,7 @@ class GroupEntry:
     works. Most groups leave this empty; a group is not a place."""
     member_source: str = ""
     """Optional story key citing the roster (D2). The **default** for every member
-    that does not carry its own key in ``npc_members``; a group whose members are
+    that does not carry its own key in ``members``; a group whose members are
     each attested somewhere different leaves this empty and pairs them instead."""
     aliases: tuple[str, ...] = ()
     """Other names the group answers to (R6), e.g. ``"Mendacity"`` for
@@ -474,37 +477,53 @@ class GroupEntry:
     """Heading anchor on ``lore_story_key``, e.g. ``"the-hand-of-sol"``. Validated
     against the real headings on that page, exactly as location fragments are."""
 
-    def members(self) -> list[tuple["NPCEntry", str]]:
-        """The NPC roster as ``(npc, story_key)`` pairs, with the default applied.
+    def member_pairs(self) -> list[tuple["NPCEntry | str", str]]:
+        """The roster as ``(person, story_key)`` pairs, with the default applied.
 
         The one place that unpacks the optional pair, so every caller reads a
         roster the same shape whether or not a membership cites its own page.
+        ``person`` is whatever the declaration gave — an :class:`NPCEntry` or a
+        hero slug string; resolving either to a ``character_id`` needs the
+        database and therefore happens in
+        :meth:`Database._resolve_group_members`, not here.
+
+        Named ``member_pairs`` rather than ``members`` only because ``members``
+        is now the field.
 
         Raises:
-            ValueError: if one NPC appears twice in the roster. The pair made this
-                reachable and the two paths resolve it differently: ``group_npcs``
-                is keyed ``(group_id, character_id)`` and written with
+            ValueError: if one person appears twice **under the same
+                declaration form** — the same NPC name twice, or the same slug
+                twice. The pair made this reachable and the two paths resolve it
+                differently: ``group_characters`` is keyed
+                ``(group_id, character_id)`` and written with
                 ``INSERT OR IGNORE``, so the write keeps the **first** citation,
                 while the preview builds a dict and reports the **last**. Neither
                 raises, so a roster naming someone twice would be previewed as one
                 page and stored as another. Guarded here rather than in either
                 path, so both fail the same way.
+
+                A slug and an :class:`NPCEntry` naming *one* person is the other
+                half of the same clash, and it cannot be seen from here — it
+                needs ``character_heroes``. ``_resolve_group_members`` raises on
+                it, so this class stays a pure frozen dataclass with no database
+                of its own.
         """
-        pairs: list[tuple["NPCEntry", str]] = []
+        pairs: list[tuple["NPCEntry | str", str]] = []
         seen: dict[str, str] = {}
-        for item in self.npc_members:
+        for item in self.members:
             if isinstance(item, tuple):
-                npc, source = item
+                person, source = item
             else:
-                npc, source = item, self.member_source
-            if npc.name in seen:
+                person, source = item, self.member_source
+            key = person if isinstance(person, str) else person.name
+            if key in seen:
                 raise ValueError(
-                    f"{self.name!r} names {npc.name!r} twice in npc_members "
-                    f"(citing {seen[npc.name] or '(none)'!r} and {source or '(none)'!r}). "
+                    f"{self.name!r} names {key!r} twice in members "
+                    f"(citing {seen[key] or '(none)'!r} and {source or '(none)'!r}). "
                     "A membership is one row; cite the page that attests it once."
                 )
-            seen[npc.name] = source
-            pairs.append((npc, source))
+            seen[key] = source
+            pairs.append((person, source))
         return pairs
 
 
@@ -526,14 +545,15 @@ class TitleEntry:
     ``character_heroes`` rather than through a second junction table. That is
     the first thing migration 12's identity spine makes possible: a hero and an
     NPC can land in the *same* ``title_holders.character_id`` column, because a
-    hero and an NPC are now rows of the same ``characters`` table. ``GroupEntry``
-    still needs ``group_npcs`` and ``group_heroes`` as two tables because it
-    predates that merge; ``TitleEntry`` does not.
+    hero and an NPC are now rows of the same ``characters`` table.
+    ``GroupEntry`` reached the same shape in migration 18, one ``members``
+    field feeding ``group_characters``; ``TitleEntry`` was built after the
+    merge and never needed a hero half at all.
 
     Holders are **replace-semantic**, like a group roster: a short holder list
     replaces the stored one, so a dropped holder is a silent deletion. The dry
     run reports a ``REMOVED`` line for exactly this reason — see
-    ``GroupEntry.members()`` and ``_show_group_changes`` for the precedent.
+    ``GroupEntry.member_pairs()`` and ``_show_group_changes`` for the precedent.
     """
 
     name: str
@@ -849,7 +869,7 @@ class Database:
                 **A slug and an ``NPCEntry`` naming the same person in one
                 list raises**, naming the story, both origins and the shared
                 ``character_id`` — the same guard shape
-                ``GroupEntry.members()`` and ``_resolve_title_holders`` use for
+                ``GroupEntry.member_pairs()`` and ``_resolve_title_holders`` use for
                 a repeated member. A story used to be able to name one person
                 through ``heroes=`` and again through ``npcs=`` and have them
                 collapse to one row; that only worked because they were two
@@ -1530,7 +1550,7 @@ class Database:
                 self.conn, cid, self._upsert_professions(e.name, _professions_tuple(e.professions))
             )
             if e.hero_slug:
-                # Same shape as the guard in GroupEntry.members(): the write
+                # Same shape as the guard in GroupEntry.member_pairs(): the write
                 # (character_heroes.canonical_id is the primary key, so it would
                 # keep the first) and a preview that reported the last would
                 # otherwise resolve a doubled claim two different ways, and
@@ -1612,7 +1632,7 @@ class Database:
                 and again through ``npcs=`` and have the two collapse into one
                 row; that only worked because they were two lists with
                 different jobs. Within one ``characters=`` list a repeat is a
-                mistake, the same shape ``GroupEntry.members()`` and
+                mistake, the same shape ``GroupEntry.member_pairs()`` and
                 ``_resolve_title_holders`` guard against for a repeated member.
         """
         resolved: list[tuple[str, str, "NPCEntry | str"]] = []
@@ -1691,7 +1711,7 @@ class Database:
         :meth:`_resolve_kin_relatives` and :meth:`_resolve_title_holders`.
         Unlike ``species`` (which never guards a repeat — ``INSERT OR IGNORE``
         just collapses it in silence), a profession raises on a repeat within
-        ``entries``, the same guard shape ``GroupEntry.members()``,
+        ``entries``, the same guard shape ``GroupEntry.member_pairs()``,
         ``_resolve_title_holders`` and ``_resolve_kin_relatives`` all use: two
         entries naming the same profession would otherwise resolve differently
         on the write path (``INSERT OR IGNORE`` keeps the first) than on a
@@ -1856,33 +1876,94 @@ class Database:
             lore_fragment=entry.lore_fragment,
         )
 
-        # Unconditional, both of them. ``set_group_members`` is replace-semantic —
-        # it deletes the stored rows before inserting — and an emptied roster is a
-        # deletion the declaration asked for, not a no-op. Guarding these calls on a
-        # truthy roster made an emptied one silently keep its rows while the dry run
+        # Unconditional. ``set_group_members`` is replace-semantic — it deletes
+        # the stored rows before inserting — and an emptied roster is a deletion
+        # the declaration asked for, not a no-op. Guarding this call on a truthy
+        # roster made an emptied one silently keep its rows while the dry run
         # went on printing a REMOVED line for them.
-        roster = entry.members()
-        npc_ids = self._upsert_npcs([npc for npc, _source in roster])
+        #
+        # Raises on a person named twice before anything is written.
+        resolved = self._resolve_group_members(entry)
+
+        # NPC member rows must exist before group_characters.character_id can
+        # reference them; a hero member's row is minted by
+        # _ensure_hero_character_id inside the resolver. Mirrors the title
+        # holder's _upsert_npcs call.
+        self._upsert_npcs([person for person, _source in entry.member_pairs() if not isinstance(person, str)])
+
         q.set_group_members(
             self.conn,
             gid,
-            "group_npcs",
+            "group_characters",
             "character_id",
-            # Zip, not `entry.member_source`: `_upsert_npcs` returns ids in the
-            # order it was given, which is the order `members()` produced, so a
-            # membership that cites its own page keeps it.
-            [(cid, source) for cid, (_npc, source) in zip(npc_ids, roster)],
-        )
-        hero_ids = self._resolve_heroes(list(entry.hero_members))
-        q.set_group_members(
-            self.conn,
-            gid,
-            "group_heroes",
-            "canonical_id",
-            [(hid, entry.member_source) for hid in hero_ids],
+            [(cid, source) for cid, source, _origin in resolved],
         )
         q.set_group_aliases(self.conn, gid, list(entry.aliases))
         return gid
+
+    def _resolve_group_members(self, entry: GroupEntry) -> list[tuple[str, str, str]]:
+        """Resolve every roster member to ``(character_id, story_key, origin)``.
+
+        Writes only the identity link a hero member needs
+        (:meth:`_ensure_hero_character_id`); the NPC rows themselves are
+        upserted by the caller. :meth:`_dry_run_group_members` is the read-only
+        twin the preview uses.
+
+        Raises:
+            ValueError: when two members resolve to the same ``character_id`` —
+                the clash :meth:`GroupEntry.member_pairs` cannot see, because a
+                hero slug and an :class:`NPCEntry` naming one person only
+                collide once ``character_heroes`` joins them. Same guard shape
+                as :meth:`_resolve_characters` and :meth:`_resolve_title_holders`.
+        """
+        resolved: list[tuple[str, str, str]] = []
+        seen: dict[str, str] = {}
+        for person, source in entry.member_pairs():
+            if isinstance(person, str):
+                cid = self._ensure_hero_character_id(self._resolve_heroes([person])[0])
+                origin = f"hero {person!r}"
+            else:
+                cid = lore_character_id(person.name)
+                origin = f"NPC {person.name!r}"
+            if cid in seen:
+                raise ValueError(
+                    f"{entry.name!r} names {seen[cid]} and {origin} in members, but both "
+                    f"resolve to the same person (character_id {cid!r}). A membership is "
+                    "one row; name this person once."
+                )
+            seen[cid] = origin
+            resolved.append((cid, source, origin))
+        return resolved
+
+    def _dry_run_group_members(self, entry: GroupEntry) -> list[tuple[str, str, str]]:
+        """Read-only twin of :meth:`_resolve_group_members`, for the preview.
+
+        Identical except that a hero member resolves through
+        :meth:`_predict_hero_character_id`, which reads, rather than
+        :meth:`_ensure_hero_character_id`, which mints. The two agree on every
+        input: both return the stored ``character_heroes`` link when there is
+        one and the ``lore_character_id`` hash of the canonical hero name when
+        there is not, which is precisely the id the write path would mint. Same
+        split ``_resolve_characters`` uses for ``characters=``.
+        """
+        resolved: list[tuple[str, str, str]] = []
+        seen: dict[str, str] = {}
+        for person, source in entry.member_pairs():
+            if isinstance(person, str):
+                cid = self._predict_hero_character_id(self._resolve_heroes([person])[0])
+                origin = f"hero {person!r}"
+            else:
+                cid = lore_character_id(person.name)
+                origin = f"NPC {person.name!r}"
+            if cid in seen:
+                raise ValueError(
+                    f"{entry.name!r} names {seen[cid]} and {origin} in members, but both "
+                    f"resolve to the same person (character_id {cid!r}). A membership is "
+                    "one row; name this person once."
+                )
+            seen[cid] = origin
+            resolved.append((cid, source, origin))
+        return resolved
 
     def _predict_hero_character_id(self, canonical_id: str) -> str:
         """Return the ``character_id`` a hero resolves to via ``character_heroes``.
@@ -1993,7 +2074,7 @@ class Database:
 
         Read-only, so the dry-run preview can call this too. Raises when two
         holders resolve to the same ``character_id`` — ``title_holders`` is keyed
-        ``(title_id, character_id)``, the same hazard ``GroupEntry.members()``
+        ``(title_id, character_id)``, the same hazard ``GroupEntry.member_pairs()``
         guards for a repeated NPC, extended here to a person named once as an NPC
         and once as a hero slug: the case migration 12's identity spine makes
         reachable, since both now resolve into the same ``characters`` row.
@@ -2407,7 +2488,7 @@ class Database:
             declaration would write.
 
             The kwargs are not the whole list. ``_upsert_one_group`` walks into
-            ``parent``, ``location`` and ``npc_members``, ``_upsert_locations``
+            ``parent``, ``location`` and ``members``, ``_upsert_locations``
             walks into ``parent``, and ``_upsert_one_title`` walks into ``group``
             and ``npc_holders`` — each of those writes the entity's alternate
             names just as a top-level one does. Reporting only the kwargs would
@@ -2469,8 +2550,9 @@ class Database:
                     walk_group(entry.parent)
                 if entry.location is not None:
                     walk_location(entry.location)
-                for member, _source in entry.members():
-                    walk_npc(member)
+                for member, _source in entry.member_pairs():
+                    if not isinstance(member, str):
+                        walk_npc(member)
 
             def walk_title(entry) -> None:
                 if entry.name in seen_title:
@@ -2870,7 +2952,7 @@ class Database:
             """Report roster and attribute changes a group declaration would write.
 
             The roster is the part worth previewing: membership is replace-semantic
-            like a story junction, so a short ``npc_members`` silently drops people.
+            like a story junction, so a short ``members`` silently drops people.
 
             Walks the **reachable** groups, not the ``groups`` kwarg. Until
             2026-08-21 it iterated the kwarg, so a group reached only as another
@@ -2889,8 +2971,17 @@ class Database:
             for entry in reach_groups:
                 gid = _group_id(entry.name)
                 row = group_rows.get(gid)
+                # Resolved before the new-group branch, not inside the diff
+                # below it: a roster naming one person as a slug and as an
+                # NPCEntry raises here, and a *new* group never reaches the
+                # diff, so leaving this until then let the write raise on a
+                # clash the preview had just reported as fine. The count is the
+                # resolved one for the same reason — it is the number of rows
+                # that would be written, which len(entry.members) is not once
+                # two items can name one person.
+                wanted_map = {cid: src for cid, src, _origin in self._dry_run_group_members(entry)}
                 if row is None:
-                    roster = len(entry.npc_members) + len(entry.hero_members)
+                    roster = len(wanted_map)
                     parent = f", parent={entry.parent.name!r}" if entry.parent is not None else ""
                     lines.append(
                         f"    + {entry.name} (new group, kind={entry.kind or '(none)'!r}{parent}, {roster} members)"
@@ -2926,35 +3017,30 @@ class Database:
                             lines.append(f"    ~ {entry.name}: parent {was!r} -> {now!r}")
                         else:
                             lines.append(f"    ~ {entry.name}: {field} {stored or '(none)'!r} -> {incoming!r}")
-                for table, id_col, wanted in (
-                    ("group_npcs", "character_id", [(lore_character_id(m.name), src) for m, src in entry.members()]),
-                    ("group_heroes", "canonical_id", [(h, entry.member_source) for h in entry.hero_members]),
-                ):
-                    # No guard. A declaration that names no members is asking for an
-                    # empty roster, and the write path honours that, so the preview
-                    # has to report the deletion. A group that has no stored members
-                    # either produces no lines below, which is the quiet case this
-                    # once tried to buy with a `continue`.
-                    stored = dict(q.select_group_members(self.conn, gid, table, id_col))
-                    if table == "group_heroes" and wanted:
-                        slugs, sources = [h for h, _s in wanted], [s for _h, s in wanted]
-                        wanted_map = dict(zip(self._resolve_heroes(slugs), sources))
-                    else:
-                        wanted_map = dict(wanted)
-                    added, removed = set(wanted_map) - set(stored), set(stored) - set(wanted_map)
-                    # The citation is a stored column, so a membership that keeps
-                    # its row and changes the page it cites is a write. Comparing
-                    # id sets alone made that invisible, which is how the per-member
-                    # source could have landed unannounced.
-                    resourced = sorted(i for i in set(wanted_map) & set(stored) if wanted_map[i] != stored[i])
-                    if added:
-                        lines.append(f"    + {entry.name}: {len(added)} member(s) added to {table}")
-                    if removed:
-                        lines.append(f"    - {entry.name}: {len(removed)} member(s) REMOVED from {table}")
-                    for mid in resourced:
-                        old_src = stored[mid] or "(none)"
-                        who = npc_id_to_name.get(mid, mid) if table == "group_npcs" else mid
-                        lines.append(f"    ~ {entry.name}: {who} source {old_src!r} -> {wanted_map[mid] or '(none)'!r}")
+                # One roster table since migration 18, so one added/removed
+                # line rather than the pair this printed while a hero member
+                # and an NPC member lived in different junctions.
+                #
+                # No guard. A declaration that names no members is asking for an
+                # empty roster, and the write path honours that, so the preview
+                # has to report the deletion. A group that has no stored members
+                # either produces no lines below, which is the quiet case this
+                # once tried to buy with a `continue`.
+                stored = dict(q.select_group_members(self.conn, gid, "group_characters", "character_id"))
+                added, removed = set(wanted_map) - set(stored), set(stored) - set(wanted_map)
+                # The citation is a stored column, so a membership that keeps
+                # its row and changes the page it cites is a write. Comparing
+                # id sets alone made that invisible, which is how the per-member
+                # source could have landed unannounced.
+                resourced = sorted(i for i in set(wanted_map) & set(stored) if wanted_map[i] != stored[i])
+                if added:
+                    lines.append(f"    + {entry.name}: {len(added)} member(s) added to group_characters")
+                if removed:
+                    lines.append(f"    - {entry.name}: {len(removed)} member(s) REMOVED from group_characters")
+                for mid in resourced:
+                    old_src = stored[mid] or "(none)"
+                    who = npc_id_to_name.get(mid, mid)
+                    lines.append(f"    ~ {entry.name}: {who} source {old_src!r} -> {wanted_map[mid] or '(none)'!r}")
             if lines:
                 changed = True
                 out.write("  Group rows:\n")

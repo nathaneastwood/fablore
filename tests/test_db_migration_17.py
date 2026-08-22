@@ -108,7 +108,7 @@ def test_migrate_from_version_11_preserves_hero_and_npc_fragments() -> None:
 
     migrate(conn)
 
-    assert conn.execute("PRAGMA user_version").fetchone()[0] == CURRENT_VERSION == 17
+    assert conn.execute("PRAGMA user_version").fetchone()[0] == CURRENT_VERSION
     tables = {r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
     assert "story_characters" in tables
     assert "story_heroes" not in tables
@@ -184,7 +184,7 @@ def test_migrate_from_version_1_from_scratch_build_reaches_17_cleanly() -> None:
 
     migrate(conn)
 
-    assert conn.execute("PRAGMA user_version").fetchone()[0] == CURRENT_VERSION == 17
+    assert conn.execute("PRAGMA user_version").fetchone()[0] == CURRENT_VERSION
     tables = {r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
     assert "story_characters" in tables
     assert "story_heroes" not in tables

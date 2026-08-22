@@ -45,7 +45,7 @@ def test_schema_version_matches_constant(db: Database) -> None:
 
 
 def test_character_kin_has_no_id_column(db: Database) -> None:
-    """A junction, like group_npcs — no kin_id is minted for it."""
+    """A junction, like group_characters — no kin_id is minted for it."""
     cols = {r[1] for r in db.conn.execute("PRAGMA table_info(character_kin)")}
     assert cols == {"character_id", "relative_id", "relation", "story_key"}
 
@@ -280,7 +280,7 @@ def test_dry_run_reaches_a_kin_fact_declared_only_through_a_group_roster(db: Dat
     functions that walked the ``npcs`` kwarg instead of the reachable set."""
     grp = GroupEntry(
         "House Goldmane",
-        npc_members=(NPCEntry("Lyath", kin=((NPCEntry("Bloodworth Goldmane"), "father"),)),),
+        members=(NPCEntry("Lyath", kin=((NPCEntry("Bloodworth Goldmane"), "father"),)),),
         member_source="heroes-of-rathe/lyath-about.md",
     )
     capsys.readouterr()

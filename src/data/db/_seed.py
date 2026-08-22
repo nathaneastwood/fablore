@@ -330,22 +330,19 @@ def _seed_groups(conn: sqlite3.Connection, data_dir: Path) -> None:
 
 
 def _seed_group_members(conn: sqlite3.Connection, data_dir: Path) -> None:
-    """Seed the two membership tables (R1).
+    """Seed the membership table (R1).
 
     Kept separate from the story junctions because membership is not a story
     link: it hangs off the group, and its ``story_key`` is evidence (D2), not
-    the owner of the row.
+    the owner of the row. One table since migration 18 — a hero member and an
+    NPC member are both a ``character_id``.
     """
-    for filename, table, id_key, id_col in (
-        ("group-npcs.csv", "group_npcs", "CharacterId", "character_id"),
-        ("group-heroes.csv", "group_heroes", "CanonicalId", "canonical_id"),
-    ):
-        _, rows = _csv(data_dir, filename)
-        for row in rows:
-            conn.execute(
-                f"INSERT OR IGNORE INTO {table} (group_id, {id_col}, story_key) VALUES (?,?,?)",
-                (_s(row, "GroupId"), _s(row, id_key), _s(row, "StoryKey")),
-            )
+    _, rows = _csv(data_dir, "group-characters.csv")
+    for row in rows:
+        conn.execute(
+            "INSERT OR IGNORE INTO group_characters (group_id, character_id, story_key) VALUES (?,?,?)",
+            (_s(row, "GroupId"), _s(row, "CharacterId"), _s(row, "StoryKey")),
+        )
 
 
 def _seed_alternate_names(conn: sqlite3.Connection, data_dir: Path) -> None:
@@ -524,7 +521,7 @@ def _seed_titles(conn: sqlite3.Connection, data_dir: Path) -> None:
 
 def _seed_title_holders(conn: sqlite3.Connection, data_dir: Path) -> None:
     """Seed ``title_holders``. Kept separate from the story junctions for the same
-    reason ``group_npcs``/``group_heroes`` are: this hangs off the title, not a
+    reason ``group_characters`` is: this hangs off the title, not a
     page, and its ``StoryKey`` is evidence for the holder, not the link itself."""
     _, rows = _csv(data_dir, "title-holders.csv")
     for row in rows:
@@ -546,7 +543,7 @@ def _seed_title_holders(conn: sqlite3.Connection, data_dir: Path) -> None:
 
 def _seed_character_kin(conn: sqlite3.Connection, data_dir: Path) -> None:
     """Seed ``character_kin`` (R8). Kept separate from the story junctions for
-    the same reason ``group_npcs``/``title_holders`` are: this hangs off the
+    the same reason ``group_characters``/``title_holders`` are: this hangs off the
     character, not a page, and its ``StoryKey`` is evidence for the kin fact,
     not the link itself."""
     _, rows = _csv(data_dir, "character-kin.csv")

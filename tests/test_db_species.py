@@ -139,13 +139,13 @@ def test_dry_run_reports_a_species_on_a_group_member(db: Database, capsys) -> No
     """Ozrim is reachable through the Rosetta roster and through nothing else."""
     from db import GroupEntry
 
-    _story(db, groups=[GroupEntry("Rosetta", npc_members=(NPCEntry("Ozrim"),))])
+    _story(db, groups=[GroupEntry("Rosetta", members=(NPCEntry("Ozrim"),))])
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
         story_type="main-story",
         title="T",
-        groups=[GroupEntry("Rosetta", npc_members=(NPCEntry("Ozrim", species=SpeciesEntry("Rosetta")),))],
+        groups=[GroupEntry("Rosetta", members=(NPCEntry("Ozrim", species=SpeciesEntry("Rosetta")),))],
         dry_run=True,
     )
     assert "Ozrim: species 'Rosetta'" in capsys.readouterr().out

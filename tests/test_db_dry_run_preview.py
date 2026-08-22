@@ -334,7 +334,7 @@ def test_preview_reports_a_membership_changing_its_source(db: Database, capsys) 
         groups=[
             GroupEntry(
                 "The Maela",
-                npc_members=(NPCEntry("Kaysin"),),
+                members=(NPCEntry("Kaysin"),),
                 member_source="flavour/compendium-of-rathe.md",
             )
         ],
@@ -346,7 +346,7 @@ def test_preview_reports_a_membership_changing_its_source(db: Database, capsys) 
         path="src/main-story/x.md",
         story_type="main-story",
         title="X",
-        groups=[GroupEntry("The Maela", npc_members=((NPCEntry("Kaysin"), "flavour/rosetta.md"),))],
+        groups=[GroupEntry("The Maela", members=((NPCEntry("Kaysin"), "flavour/rosetta.md"),))],
     )
 
     assert "flavour/rosetta.md" in report, "the new citation is not shown"
@@ -357,7 +357,7 @@ def test_preview_stays_silent_when_a_membership_keeps_its_source(db: Database, c
     """The source diff must not fire on an unchanged roster."""
     entry = GroupEntry(
         "The Maela",
-        npc_members=((NPCEntry("Kaysin"), "flavour/rosetta.md"),),
+        members=((NPCEntry("Kaysin"), "flavour/rosetta.md"),),
     )
     db.upsert_story("src/main-story/x.md", story_type="main-story", title="X", groups=[entry])
 
@@ -379,7 +379,7 @@ def test_preview_reports_a_group_reached_only_as_a_parent(db: Database, capsys) 
     stable = GroupEntry(
         "Speakeasy's Guilds",
         kind="stable",
-        npc_members=(NPCEntry("Speakeasy"),),
+        members=(NPCEntry("Speakeasy"),),
         member_source="main-story/super-slam/feudmasters.md",
     )
     report = _preview(
@@ -408,7 +408,7 @@ def test_preview_reports_npc_status_change_for_a_roster_member(db: Database, cap
         groups=[
             GroupEntry(
                 "The Maela",
-                npc_members=(NPCEntry("Kaysin", status="Just a head"),),
+                members=(NPCEntry("Kaysin", status="Just a head"),),
                 member_source="flavour/compendium-of-rathe.md",
             )
         ],
@@ -423,7 +423,7 @@ def test_preview_reports_npc_status_change_for_a_roster_member(db: Database, cap
         groups=[
             GroupEntry(
                 "The Maela",
-                npc_members=(NPCEntry("Kaysin", status="Deceased"),),
+                members=(NPCEntry("Kaysin", status="Deceased"),),
                 member_source="flavour/compendium-of-rathe.md",
             )
         ],
@@ -509,7 +509,7 @@ def test_preview_reports_npc_created_only_through_a_group_roster(db: Database, c
         groups=[
             GroupEntry(
                 "The Maela",
-                npc_members=(NPCEntry("Plain Seer"),),
+                members=(NPCEntry("Plain Seer"),),
                 member_source="flavour/x.md",
             )
         ],
@@ -534,7 +534,7 @@ def test_preview_reports_an_npc_added_to_an_existing_page_s_roster(db: Database,
         groups=[
             GroupEntry(
                 "The Maela",
-                npc_members=(NPCEntry("Kaysin"),),
+                members=(NPCEntry("Kaysin"),),
                 member_source="flavour/x.md",
             )
         ],
@@ -549,7 +549,7 @@ def test_preview_reports_an_npc_added_to_an_existing_page_s_roster(db: Database,
         groups=[
             GroupEntry(
                 "The Maela",
-                npc_members=(NPCEntry("Kaysin"), NPCEntry("Plain Seer")),
+                members=(NPCEntry("Kaysin"), NPCEntry("Plain Seer")),
                 member_source="flavour/x.md",
             )
         ],

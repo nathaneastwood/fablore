@@ -937,8 +937,7 @@ def collect_alerts() -> list[str]:
         ),
         (DATA / "csv/locations.csv", ("LocationId", "Name"), "Locations"),
         (DATA / "csv/groups.csv", ("GroupId", "Name"), "Groups"),
-        (DATA / "csv/group-npcs.csv", ("GroupId", "CharacterId"), "Group ↔ NPC membership"),
-        (DATA / "csv/group-heroes.csv", ("GroupId", "CanonicalId"), "Group ↔ hero membership"),
+        (DATA / "csv/group-characters.csv", ("GroupId", "CharacterId"), "Group ↔ member links"),
         (DATA / "csv/story-groups.csv", ("StoryId", "GroupId"), "Story ↔ group links"),
         (DATA / "csv/npc-epithets.csv", ("CharacterId", "Name"), "NPC epithets"),
         (DATA / "csv/species.csv", ("SpeciesId", "Name"), "Species"),
@@ -1200,8 +1199,7 @@ def collect_alerts() -> list[str]:
             )
         )
         for child, label in (
-            ("group-npcs.csv", "Group ↔ NPC membership"),
-            ("group-heroes.csv", "Group ↔ hero membership"),
+            ("group-characters.csv", "Group ↔ member links"),
             ("story-groups.csv", "Story ↔ group links"),
         ):
             alerts.extend(_check_fk_column(DATA / f"csv/{child}", "GroupId", group_ids, "groups.csv GroupId", label))
@@ -1212,11 +1210,11 @@ def collect_alerts() -> list[str]:
     if npc_character_ids:
         alerts.extend(
             _check_fk_column(
-                DATA / "csv/group-npcs.csv",
+                DATA / "csv/group-characters.csv",
                 "CharacterId",
                 npc_character_ids,
                 "characters.csv CharacterId",
-                "Group ↔ NPC membership",
+                "Group ↔ member links",
             )
         )
         alerts.extend(
@@ -1228,18 +1226,6 @@ def collect_alerts() -> list[str]:
                 "Title ↔ holder links",
             )
         )
-    group_hero_ids = _id_set_from_column(DATA / "csv/heroes-canonical.csv", "CanonicalId")
-    if group_hero_ids:
-        alerts.extend(
-            _check_fk_column(
-                DATA / "csv/group-heroes.csv",
-                "CanonicalId",
-                group_hero_ids,
-                "heroes-canonical.csv CanonicalId",
-                "Group ↔ hero membership",
-            )
-        )
-
     # titles (R3): title_holders.CharacterId is checked below, alongside
     # npc_character_ids. GroupId defaults to '' for a title with no parent body,
     # the same shape as groups.parent_group_id — no SQL REFERENCES, so it is
@@ -1263,7 +1249,7 @@ def collect_alerts() -> list[str]:
         )
 
     # Kinship (R8). Both halves of every character-kin.csv row key on
-    # characters.csv CharacterId, the same shape group-npcs.csv and
+    # characters.csv CharacterId, the same shape group-characters.csv and
     # title-holders.csv both need checked in both directions.
     if npc_character_ids:
         for column in ("CharacterId", "RelativeId"):
@@ -1284,12 +1270,17 @@ def collect_alerts() -> list[str]:
     # and a stale CharacterId means the character row it points at is gone —
     # either one reaches SQLite as an FK violation at seed time instead of an
     # alert, the same gap the group membership checks above close.
-    if group_hero_ids:
+    #
+    # This set was read for group-heroes.csv too until migration 18 merged that
+    # file into group-characters.csv, where a hero member is a CharacterId and
+    # is checked against characters.csv with every other member.
+    hero_canonical_ids = _id_set_from_column(DATA / "csv/heroes-canonical.csv", "CanonicalId")
+    if hero_canonical_ids:
         alerts.extend(
             _check_fk_column(
                 DATA / "csv/character-heroes.csv",
                 "CanonicalId",
-                group_hero_ids,
+                hero_canonical_ids,
                 "heroes-canonical.csv CanonicalId",
                 "Character ↔ hero links",
             )

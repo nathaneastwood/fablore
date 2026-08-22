@@ -206,11 +206,11 @@ def _seed_super_slam(database) -> None:
 
     speakeasy_id = lore_character_id("Speakeasy")
     q.upsert_npc(database.conn, character_id=speakeasy_id, name="Speakeasy")
-    q.set_group_members(database.conn, speakeasy_stable, "group_npcs", "character_id", [(speakeasy_id, "")])
+    q.set_group_members(database.conn, speakeasy_stable, "group_characters", "character_id", [(speakeasy_id, "")])
 
     moloca_id = lore_character_id("Moloca")
     q.upsert_npc(database.conn, character_id=moloca_id, name="Moloca")
-    q.set_group_members(database.conn, moloca_stable, "group_npcs", "character_id", [(moloca_id, "")])
+    q.set_group_members(database.conn, moloca_stable, "group_characters", "character_id", [(moloca_id, "")])
 
     boulders = group_id("Boulders")
     q.upsert_group(database.conn, group_id=boulders, name="Boulders", kind="guild", parent_group_id=speakeasy_stable)

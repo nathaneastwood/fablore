@@ -1,7 +1,7 @@
 """Generate ``src/data/md/character-groups.md`` from the database.
 
 Unlike every other file under ``src/data/md/``, this page has no CSV source —
-it is a join across ``groups``, ``group_npcs``, ``characters``, ``npc_epithets``,
+it is a join across ``groups``, ``group_characters``, ``characters``, ``npc_epithets``,
 ``npc_species``, ``species`` and ``titles``/``title_holders``, with parent
 nesting that recurses (``groups.parent_group_id``). ``create_md.py`` renders one
 flat CSV per table; this page cannot be that shape, so it gets its own
@@ -191,7 +191,7 @@ def _group_person_rows(conn: sqlite3.Connection, group_id: str) -> list[list[str
     rows = conn.execute(
         """
         SELECT c.character_id, c.name
-        FROM group_npcs gn
+        FROM group_characters gn
         JOIN characters c ON c.character_id = gn.character_id
         WHERE gn.group_id = ?
         ORDER BY c.name
@@ -225,7 +225,7 @@ def _section_gods(conn: sqlite3.Connection) -> str:
 
 # ---------------------------------------------------------------------------
 # Deathmatch Super Slam Guilds — three levels: a federation holds stables,
-# each fronted by a patron (group_npcs on the stable itself) who does not
+# each fronted by a patron (group_characters on the stable itself) who does not
 # fight in it, and each stable holds guilds. A patron is rendered as a prose
 # line, never as a row in the guild-name table — the word "member" strains
 # there and a table row would say it anyway.
@@ -249,7 +249,7 @@ def _section_super_slam(conn: sqlite3.Connection) -> str:
         patrons = conn.execute(
             """
             SELECT c.name
-            FROM group_npcs gn
+            FROM group_characters gn
             JOIN characters c ON c.character_id = gn.character_id
             WHERE gn.group_id = ?
             ORDER BY c.name

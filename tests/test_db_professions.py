@@ -124,7 +124,7 @@ def test_two_characters_share_one_profession_row(db: Database) -> None:
 
 
 def test_a_repeated_profession_on_one_entry_raises(db: Database) -> None:
-    """The guard shape GroupEntry.members(), _resolve_title_holders and
+    """The guard shape GroupEntry.member_pairs(), _resolve_title_holders and
     _resolve_kin_relatives all use: two entries naming the same profession
     would otherwise resolve differently on the write path (INSERT OR IGNORE
     keeps the first) than on a preview that diffed a dict (last wins)."""
@@ -141,13 +141,13 @@ def test_the_duplicate_guard_fires_on_the_preview_path_too(db: Database) -> None
 
 def test_dry_run_reports_a_profession_on_a_group_member(db: Database, capsys) -> None:
     """Reached through a group roster and through nothing else — mirrors species."""
-    _story(db, groups=[GroupEntry("Rosetta", npc_members=(NPCEntry("Ozrim"),))])
+    _story(db, groups=[GroupEntry("Rosetta", members=(NPCEntry("Ozrim"),))])
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
         story_type="main-story",
         title="T",
-        groups=[GroupEntry("Rosetta", npc_members=(NPCEntry("Ozrim", professions=ProfessionEntry("Braumeister")),))],
+        groups=[GroupEntry("Rosetta", members=(NPCEntry("Ozrim", professions=ProfessionEntry("Braumeister")),))],
         dry_run=True,
     )
     assert "Ozrim: profession 'Braumeister'" in capsys.readouterr().out

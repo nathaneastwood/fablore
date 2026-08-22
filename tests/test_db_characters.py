@@ -3,8 +3,8 @@ NPCEntry.hero_slug, the hero-name guard's new escape hatch, and the closed
 status vocabulary.
 
 heroes_canonical and npcs/characters are two registries for one person. This
-stage links them without touching story_npcs/story_heroes or group_npcs/
-group_heroes beyond what the npcs -> characters rename forces.
+stage links them without touching the story or group junctions beyond what the
+npcs -> characters rename forces. Migrations 17 and 18 have since merged both.
 """
 
 from __future__ import annotations
@@ -230,7 +230,7 @@ def test_dry_run_reports_a_hero_slug_claim(db: Database, capsys) -> None:
 def test_dry_run_reports_a_hero_slug_claim_reached_only_through_a_group_roster(db: Database, capsys) -> None:
     """``_reachable_entities()`` must be walked, not just the ``npcs`` kwarg."""
     _seed_hero(db, "kox", "Fightmaster Kox")
-    group = GroupEntry("Boulders", npc_members=(NPCEntry("Fightmaster Kox", hero_slug="kox"),), member_source="x.md")
+    group = GroupEntry("Boulders", members=(NPCEntry("Fightmaster Kox", hero_slug="kox"),), member_source="x.md")
     _story(db, groups=[group], dry_run=True)
     out = capsys.readouterr().out
     assert "kox" in out.lower()

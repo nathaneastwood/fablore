@@ -39,13 +39,18 @@ Version history:
       the same reason. A person declared through both paths for one story
       collapses to one row; see the migration block for the fragment
       tie-break.
+ 18 — group_npcs + group_heroes merge into group_characters: the roster half
+      of the same move 17 made for story links. GroupEntry loses npc_members
+      and hero_members for one `members` tuple that takes an NPCEntry or a
+      canonical hero slug, which also gives a hero member the
+      (member, story_key) citation pair only an NPC member could carry.
 """
 
 from __future__ import annotations
 
 import sqlite3
 
-CURRENT_VERSION = 17
+CURRENT_VERSION = 18
 
 _V1_DDL = """
 CREATE TABLE IF NOT EXISTS stories (
@@ -280,18 +285,17 @@ CREATE TABLE IF NOT EXISTS groups (
 -- the story: "Tara VanGeld is a VanGeld" is a world fact, not a page fact. See
 -- D1 in plans/character-groups-schema-options.md. story_key is the optional
 -- evidence column from D2 — an uncited membership is unsourced lore.
-CREATE TABLE IF NOT EXISTS group_npcs (
+--
+-- Merges group_npcs and group_heroes (migration 18), the roster half of the
+-- move migration 17 made for story links: a hero and an NPC are rows of the
+-- same `characters` table, so one junction keyed on character_id holds a
+-- whole roster. GroupEntry.members takes an NPCEntry or a canonical hero slug
+-- and both land here. story_key stays the per-membership evidence column.
+CREATE TABLE IF NOT EXISTS group_characters (
     group_id     TEXT NOT NULL REFERENCES groups(group_id) ON DELETE CASCADE,
     character_id TEXT NOT NULL REFERENCES characters(character_id),
     story_key    TEXT NOT NULL DEFAULT '',
     PRIMARY KEY (group_id, character_id)
-);
-
-CREATE TABLE IF NOT EXISTS group_heroes (
-    group_id     TEXT NOT NULL REFERENCES groups(group_id) ON DELETE CASCADE,
-    canonical_id TEXT NOT NULL REFERENCES heroes_canonical(canonical_id),
-    story_key    TEXT NOT NULL DEFAULT '',
-    PRIMARY KEY (group_id, canonical_id)
 );
 
 -- Story junction tables (all cascade-delete when a story is removed)
@@ -358,7 +362,7 @@ CREATE TABLE IF NOT EXISTS story_equipment (
     PRIMARY KEY (story_id, canonical_equipment_id)
 );
 
--- Mentions (R5): this page names the Prowlers. Separate from group_npcs, which
+-- Mentions (R5): this page names the Prowlers. Separate from group_characters, which
 -- is membership. Both are needed and they answer different questions.
 CREATE TABLE IF NOT EXISTS story_groups (
     story_id TEXT NOT NULL REFERENCES stories(story_id) ON DELETE CASCADE,
@@ -384,7 +388,7 @@ CREATE TABLE IF NOT EXISTS titles (
 
 -- Holders (R3). character_id is what migration 12's identity spine makes
 -- possible: a hero and an NPC can be the same row of this column, with no
--- second table the way group_npcs/group_heroes need one — Kano the hero and
+-- second table the way group_npcs/group_heroes needed one before migration 18 — Kano the hero and
 -- the five Grand Magister NPCs share one junction.
 CREATE TABLE IF NOT EXISTS title_holders (
     title_id     TEXT NOT NULL REFERENCES titles(title_id) ON DELETE CASCADE,
@@ -412,7 +416,7 @@ CREATE TABLE IF NOT EXISTS story_titles (
 -- the stated direction is ever written; db._queries.select_character_kin_both_directions
 -- derives "who are Bloodworth's children" at read time instead, via
 -- db._queries.KIN_INVERSE. No kin_id: this is a junction, not a registry, the
--- same shape as group_npcs.
+-- same shape as group_characters.
 --
 -- relation is a closed vocabulary, checked in validate_data.py rather than by
 -- SQLite (the same split status and npc_epithets.kind follow):
@@ -428,7 +432,8 @@ CREATE TABLE IF NOT EXISTS character_kin (
 );
 
 -- Names that are not the name (R4 epithets, R6 aliases). Three tables rather
--- than one keyed by entity_type, matching the group_npcs / group_heroes split:
+-- than one keyed by entity_type, matching the group_npcs / group_heroes split that
+-- migration 18 has since closed:
 -- each keeps a real REFERENCES to its own registry, which SQLite can enforce
 -- and a shared entity_type column cannot.
 --
@@ -1008,4 +1013,100 @@ def migrate(conn: sqlite3.Connection) -> None:
             conn.executescript("DROP TABLE IF EXISTS story_heroes; DROP TABLE IF EXISTS story_npcs;")
 
         conn.execute("PRAGMA user_version = 17")
+        conn.commit()
+    if version < 18:
+        # The roster half of migration 17. group_npcs (character_id) and
+        # group_heroes (canonical_id) both key a group to a person and both
+        # carry the same story_key evidence column, so after migration 12's
+        # identity spine they are one junction keyed on character_id.
+        #
+        # THE SAME TRAP AS 17, and it is not solved by 17 having run first.
+        # character_heroes is filled by a seed-time self-heal, not by migration
+        # 12, and migrate() runs every pending block before Database.__init__
+        # ever checks whether a seed is needed. Migration 17 mints a link for
+        # every hero that had a *story* row; a hero with a group row and no
+        # story row still has none, so this block must mint its own too rather
+        # than lean on its predecessor. Same INSERT OR IGNORE contract: an
+        # existing link, or an existing characters row, always wins.
+        tables = {r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+        char_table = "characters" if "characters" in tables else "npcs"
+
+        conn.execute(
+            f"""
+            CREATE TABLE IF NOT EXISTS group_characters (
+                group_id     TEXT NOT NULL REFERENCES groups(group_id) ON DELETE CASCADE,
+                character_id TEXT NOT NULL REFERENCES {char_table}(character_id),
+                story_key    TEXT NOT NULL DEFAULT '',
+                PRIMARY KEY (group_id, character_id)
+            )
+            """
+        )
+
+        if "group_heroes" in tables or "group_npcs" in tables:
+            # Function-scoped import for the reason migration 17 gives: this
+            # module carries no sys.path bootstrap of its own.
+            import sys as _sys
+            from pathlib import Path as _Path
+
+            _script_dir = _Path(__file__).resolve().parents[1]
+            if str(_script_dir) not in _sys.path:
+                _sys.path.insert(0, str(_script_dir))
+            from registry_ids import lore_character_id  # noqa: PLC0415
+
+            hero_character_id: dict[str, str] = {}
+            if "character_heroes" in tables:
+                hero_character_id = {
+                    row[0]: row[1] for row in conn.execute("SELECT canonical_id, character_id FROM character_heroes")
+                }
+
+            def _group_character_id_for_hero(canonical_id: str) -> str:
+                cid = hero_character_id.get(canonical_id)
+                if cid:
+                    return cid
+                row = conn.execute(
+                    "SELECT canonical_hero FROM heroes_canonical WHERE canonical_id = ?",
+                    [canonical_id],
+                ).fetchone()
+                hero_name = row[0] if row else ""
+                new_cid = lore_character_id(hero_name)
+                conn.execute(
+                    f"INSERT OR IGNORE INTO {char_table} (character_id, name, status) VALUES (?,?,'Unknown')",
+                    (new_cid, hero_name),
+                )
+                conn.execute(
+                    "INSERT OR IGNORE INTO character_heroes (canonical_id, character_id) VALUES (?,?)",
+                    (canonical_id, new_cid),
+                )
+                hero_character_id[canonical_id] = new_cid
+                return new_cid
+
+            # (group_id, character_id) -> story_key. A cited membership beats an
+            # uncited one whichever side carries it, and where both cite a page
+            # group_npcs wins. Unlike the write path, which raises when one
+            # roster names a person twice, a historical migration takes the row
+            # it is given: the committed CSVs contain no group named on both
+            # sides, so a genuine disagreement is not a case that reaches here.
+            merged: dict[tuple[str, str], str] = {}
+            if "group_npcs" in tables:
+                for group_id, character_id, story_key in conn.execute(
+                    "SELECT group_id, character_id, story_key FROM group_npcs"
+                ):
+                    merged[(group_id, character_id)] = story_key or ""
+            if "group_heroes" in tables:
+                for group_id, canonical_id, story_key in conn.execute(
+                    "SELECT group_id, canonical_id, story_key FROM group_heroes"
+                ):
+                    key = (group_id, _group_character_id_for_hero(canonical_id))
+                    if not merged.get(key):
+                        merged[key] = story_key or ""
+
+            if merged:
+                conn.executemany(
+                    "INSERT OR IGNORE INTO group_characters (group_id, character_id, story_key) VALUES (?,?,?)",
+                    [(gid, cid, key) for (gid, cid), key in merged.items()],
+                )
+
+            conn.executescript("DROP TABLE IF EXISTS group_npcs; DROP TABLE IF EXISTS group_heroes;")
+
+        conn.execute("PRAGMA user_version = 18")
         conn.commit()
