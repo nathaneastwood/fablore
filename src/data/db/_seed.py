@@ -78,6 +78,8 @@ def seed_from_csvs(conn: sqlite3.Connection, data_dir: Path) -> None:
         _seed_titles(conn, data_dir)
         _seed_title_holders(conn, data_dir)
         _seed_character_kin(conn, data_dir)
+        _seed_professions(conn, data_dir)
+        _seed_character_professions(conn, data_dir)
         _seed_stories(conn, data_dir)
         _seed_narrated_videos_from_csv(conn, data_dir)
         _seed_story_junctions(conn, data_dir)
@@ -547,6 +549,35 @@ def _seed_character_kin(conn: sqlite3.Connection, data_dir: Path) -> None:
         conn.execute(
             "INSERT OR IGNORE INTO character_kin (character_id, relative_id, relation, story_key) VALUES (?,?,?,?)",
             (_s(row, "CharacterId"), _s(row, "RelativeId"), _s(row, "Relation"), _s(row, "StoryKey")),
+        )
+
+
+def _seed_professions(conn: sqlite3.Connection, data_dir: Path) -> None:
+    """Seed ``professions`` (R9). Before ``_seed_character_professions``, which
+    references it, and placed alongside ``_seed_titles``/``_seed_character_kin``
+    rather than beside ``_seed_species`` — ``character_professions`` can name a
+    hero-only self-healed character row (``_upsert_hero_professions``), the same
+    hazard ``title_holders`` and ``character_kin`` have and ``npc_species``
+    does not, so it seeds after ``_self_heal_character_heroes`` runs."""
+    _, rows = _csv(data_dir, "professions.csv")
+    for row in rows:
+        q.upsert_profession(
+            conn,
+            profession_id=_s(row, "ProfessionId"),
+            name=_s(row, "Name"),
+            notes=_s(row, "Notes"),
+        )
+
+
+def _seed_character_professions(conn: sqlite3.Connection, data_dir: Path) -> None:
+    """Seed the ``character_professions`` junction. Unlike ``npc-species.csv``,
+    ``SortOrder`` is an explicit column rather than file order, so a re-export
+    that reorders unrelated rows cannot silently reorder someone's professions."""
+    _, rows = _csv(data_dir, "character-professions.csv")
+    for row in rows:
+        conn.execute(
+            "INSERT OR IGNORE INTO character_professions (character_id, profession_id, sort_order) VALUES (?,?,?)",
+            (_s(row, "CharacterId"), _s(row, "ProfessionId"), int(_s(row, "SortOrder") or 0)),
         )
 
 

@@ -138,6 +138,7 @@ def export_registry_tables(conn: sqlite3.Connection, data_dir: Path) -> None:
     _export_titles(conn, csv_dir)
     _export_title_holders(conn, csv_dir)
     _export_character_kin(conn, csv_dir)
+    _export_professions(conn, csv_dir)
 
 
 def export_story_junctions(conn: sqlite3.Connection, data_dir: Path) -> None:
@@ -398,6 +399,33 @@ def _export_character_kin(conn: sqlite3.Connection, csv_dir: Path) -> None:
         _CMD_REGISTRY,
         ["CharacterId", "RelativeId", "Relation", "StoryKey"],
         data,
+    )
+
+
+def _export_professions(conn: sqlite3.Connection, csv_dir: Path) -> None:
+    """Write ``professions.csv`` and ``character-professions.csv`` (R9).
+
+    Two files, not three: a profession is a registry row and a character's
+    profession is a junction, the same split ``species.csv``/``npc-species.csv``
+    make — but there is no third, alias file. See
+    ``entries/catalogue/professions.py`` for why.
+    """
+    rows = q.select_all_professions(conn)
+    _write_pipe_csv(
+        csv_dir / "professions.csv",
+        _CMD_REGISTRY,
+        ["ProfessionId", "Name", "Notes"],
+        [{"ProfessionId": r["profession_id"], "Name": r["name"], "Notes": r["notes"]} for r in rows],
+    )
+    junction = conn.execute(
+        "SELECT character_id, profession_id, sort_order FROM character_professions "
+        "ORDER BY character_id, sort_order, profession_id"
+    ).fetchall()
+    _write_pipe_csv(
+        csv_dir / "character-professions.csv",
+        _CMD_REGISTRY,
+        ["CharacterId", "ProfessionId", "SortOrder"],
+        [{"CharacterId": r[0], "ProfessionId": r[1], "SortOrder": r[2]} for r in junction],
     )
 
 
@@ -854,6 +882,8 @@ _ALL_TABLES = [
     "species",
     "npc_species",
     "species_aliases",
+    "professions",
+    "character_professions",
 ]
 
 

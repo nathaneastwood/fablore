@@ -22,13 +22,18 @@ Version history:
  14 — character_kin: kinship facts (father, mother, parent, sibling, spouse,
       child), one row per stated fact; the inverse is derived at read time,
       never stored
+ 15 — professions, character_professions: a trade many hold independently
+      (Braumeister, shieldbearer) — unbounded and unsourceable, unlike a
+      group's roster, so there is no ``member_source`` and no citation column.
+      Resolved through ``character_heroes`` exactly as ``title_holders`` is, so
+      a profession reaches a hero with no NPC row of its own.
 """
 
 from __future__ import annotations
 
 import sqlite3
 
-CURRENT_VERSION = 14
+CURRENT_VERSION = 15
 
 _V1_DDL = """
 CREATE TABLE IF NOT EXISTS stories (
@@ -469,6 +474,26 @@ CREATE TABLE IF NOT EXISTS species_aliases (
     sort_order INTEGER NOT NULL DEFAULT 0,
     PRIMARY KEY (species_id, alias)
 );
+
+-- A trade many hold independently (R9): Braumeister, shieldbearer. Unlike a
+-- group's roster there is no member_source column here — "who is a
+-- Braumeister" is unbounded and unsourceable, which is exactly what a group's
+-- member_source exists to prevent, so a profession never gets one.
+CREATE TABLE IF NOT EXISTS professions (
+    profession_id TEXT PRIMARY KEY,
+    name          TEXT NOT NULL,
+    notes         TEXT NOT NULL DEFAULT ''
+);
+
+-- Many-to-many against `characters`, not `npcs` — after migration 12's identity
+-- spine, a hero and an NPC are rows of the same table, so one junction reaches
+-- both. Kano is a hero with no NPC row; his profession still lands here.
+CREATE TABLE IF NOT EXISTS character_professions (
+    character_id  TEXT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
+    profession_id TEXT NOT NULL REFERENCES professions(profession_id) ON DELETE CASCADE,
+    sort_order    INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (character_id, profession_id)
+);
 """
 
 
@@ -781,4 +806,36 @@ def migrate(conn: sqlite3.Connection) -> None:
             """
         )
         conn.execute("PRAGMA user_version = 14")
+        conn.commit()
+    if version < 15:
+        # Professions (R9): a trade many hold independently, unbounded and
+        # unsourceable — Braumeister is "the elite of their trade", not a named
+        # roster, which is why there is no member_source here the way groups.py
+        # has one. character_professions references `characters`, matching
+        # title_holders and character_kin (both post-date migration 12's
+        # rename), rather than the legacy `npc_species` shape that still says
+        # "npc" in its own name for a table that has referenced `characters`
+        # since migration 12.
+        #
+        # No table-name ambiguity to guard here, unlike migration 11's
+        # npcs/characters rename: these are two brand-new tables, and
+        # CREATE TABLE IF NOT EXISTS is correct whether this runs against a
+        # database sitting at any earlier version or a from-scratch build that
+        # already created them via _V1_DDL.
+        conn.executescript(
+            """
+            CREATE TABLE IF NOT EXISTS professions (
+                profession_id TEXT PRIMARY KEY,
+                name          TEXT NOT NULL,
+                notes         TEXT NOT NULL DEFAULT ''
+            );
+            CREATE TABLE IF NOT EXISTS character_professions (
+                character_id  TEXT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
+                profession_id TEXT NOT NULL REFERENCES professions(profession_id) ON DELETE CASCADE,
+                sort_order    INTEGER NOT NULL DEFAULT 0,
+                PRIMARY KEY (character_id, profession_id)
+            );
+            """
+        )
+        conn.execute("PRAGMA user_version = 15")
         conn.commit()

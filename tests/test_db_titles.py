@@ -41,8 +41,8 @@ def test_migration_creates_title_tables(db: Database) -> None:
 def test_schema_version_matches_constant(db: Database) -> None:
     from db._schema import CURRENT_VERSION
 
-    assert CURRENT_VERSION == 14
-    assert db.conn.execute("PRAGMA user_version").fetchone()[0] == 14
+    assert CURRENT_VERSION == 15
+    assert db.conn.execute("PRAGMA user_version").fetchone()[0] == 15
 
 
 def test_group_id_column_accepts_empty_string(db: Database) -> None:

@@ -41,8 +41,8 @@ def test_migration_creates_character_kin_table(db: Database) -> None:
 def test_schema_version_matches_constant(db: Database) -> None:
     from db._schema import CURRENT_VERSION
 
-    assert CURRENT_VERSION == 14
-    assert db.conn.execute("PRAGMA user_version").fetchone()[0] == 14
+    assert CURRENT_VERSION == 15
+    assert db.conn.execute("PRAGMA user_version").fetchone()[0] == 15
 
 
 def test_character_kin_has_no_id_column(db: Database) -> None:

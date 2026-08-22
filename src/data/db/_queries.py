@@ -635,6 +635,62 @@ def select_species_aliases(conn: sqlite3.Connection, species_id: str) -> list[st
 
 
 # ---------------------------------------------------------------------------
+# Professions (R9)
+# ---------------------------------------------------------------------------
+#
+# A trade many hold independently, not a roster: "who is a Braumeister" is
+# unbounded and unsourceable, which is exactly what a group's member_source
+# exists to prevent, so there is no source column here and no alias table —
+# unlike species, no plural or supplement entry has needed one yet.
+
+
+def upsert_profession(conn: sqlite3.Connection, *, profession_id: str, name: str, notes: str = "") -> None:
+    """Insert or update a profession row, preserving ``notes`` the caller omits.
+
+    ``notes`` follows the preserve-on-empty contract the other registries use:
+    a declaration names a profession, ``descriptions.py`` writes what it is.
+    """
+    conn.execute(
+        """
+        INSERT INTO professions (profession_id, name, notes)
+        VALUES (?,?,?)
+        ON CONFLICT(profession_id) DO UPDATE SET
+            name  = excluded.name,
+            notes = CASE WHEN excluded.notes != '' THEN excluded.notes ELSE professions.notes END
+        """,
+        (profession_id, name, notes),
+    )
+
+
+def select_all_professions(conn: sqlite3.Connection) -> list[sqlite3.Row]:
+    return conn.execute("SELECT * FROM professions ORDER BY name").fetchall()
+
+
+def update_profession_notes(conn: sqlite3.Connection, profession_id: str, notes: str) -> int:
+    cur = conn.execute("UPDATE professions SET notes = ? WHERE profession_id = ?", [notes, profession_id])
+    return cur.rowcount
+
+
+def set_character_professions(conn: sqlite3.Connection, character_id: str, profession_ids: list[str]) -> None:
+    """Replace every profession linked to ``character_id``, in the order given."""
+    conn.execute("DELETE FROM character_professions WHERE character_id = ?", [character_id])
+    if profession_ids:
+        conn.executemany(
+            "INSERT OR IGNORE INTO character_professions (character_id, profession_id, sort_order) VALUES (?,?,?)",
+            [(character_id, pid, i) for i, pid in enumerate(profession_ids)],
+        )
+
+
+def select_character_professions(conn: sqlite3.Connection, character_id: str) -> list[str]:
+    """Return the profession ids linked to ``character_id`` in declared order."""
+    rows = conn.execute(
+        "SELECT profession_id FROM character_professions WHERE character_id = ? ORDER BY sort_order, profession_id",
+        [character_id],
+    ).fetchall()
+    return [r[0] for r in rows]
+
+
+# ---------------------------------------------------------------------------
 # NPCs
 # ---------------------------------------------------------------------------
 

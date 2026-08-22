@@ -47,6 +47,7 @@ from registry_ids import (  # noqa: E402
     lore_character_id,
     monster_id,
     group_id,
+    profession_id,
     region_row_id,
     title_id,
 )
@@ -833,6 +834,7 @@ def _check_descriptions_targets_exist(descriptions_path: Path) -> list[str]:
         "group": "groups.csv",
         "species": "species.csv",
         "title": "titles.csv",
+        "profession": "professions.csv",
     }
     known = {kind: _id_set_from_column(DATA / "csv" / filename, "Name") for kind, filename in csv_for_kind.items()}
 
@@ -948,6 +950,8 @@ def collect_alerts() -> list[str]:
         (DATA / "csv/title-holders.csv", ("TitleId", "CharacterId"), "Title ↔ holder links"),
         (DATA / "csv/story-titles.csv", ("StoryId", "TitleId"), "Story ↔ title links"),
         (DATA / "csv/character-kin.csv", ("CharacterId", "RelativeId", "Relation"), "Character kin"),
+        (DATA / "csv/professions.csv", ("ProfessionId", "Name"), "Professions"),
+        (DATA / "csv/character-professions.csv", ("CharacterId", "ProfessionId"), "Character ↔ profession links"),
         (DATA / "csv/regions.csv", ("RegionId",), "Regions"),
         (DATA / "csv/flora.csv", ("FloraId",), "Flora"),
         (DATA / "csv/fauna.csv", ("FaunaId",), "Fauna"),
@@ -1351,6 +1355,30 @@ def collect_alerts() -> list[str]:
                 "NPC ↔ species",
             )
         )
+    # Professions (R9). Both halves of the junction; no alias table (see
+    # entries/catalogue/professions.py — no plural or dated alternate name has
+    # needed one yet, unlike species).
+    profession_ids = _id_set_from_column(DATA / "csv/professions.csv", "ProfessionId")
+    if profession_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/character-professions.csv",
+                "ProfessionId",
+                profession_ids,
+                "professions.csv ProfessionId",
+                "Character ↔ profession links",
+            )
+        )
+    if npc_character_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/character-professions.csv",
+                "CharacterId",
+                npc_character_ids,
+                "characters.csv CharacterId",
+                "Character ↔ profession links",
+            )
+        )
     alerts.extend(_check_epithet_kinds(DATA / "csv/npc-epithets.csv"))
     alerts.extend(_check_character_statuses(DATA / "csv/characters.csv"))
     alerts.extend(
@@ -1387,6 +1415,9 @@ def collect_alerts() -> list[str]:
     alerts.extend(_check_id_hash_drift(DATA / "csv/flora.csv", "FloraId", "Name", flora_id, "flora.csv"))
     alerts.extend(_check_id_hash_drift(DATA / "csv/groups.csv", "GroupId", "Name", group_id, "groups.csv"))
     alerts.extend(_check_id_hash_drift(DATA / "csv/titles.csv", "TitleId", "Name", title_id, "titles.csv"))
+    alerts.extend(
+        _check_id_hash_drift(DATA / "csv/professions.csv", "ProfessionId", "Name", profession_id, "professions.csv")
+    )
     alerts.extend(
         _check_id_hash_drift(
             DATA / "csv/regions.csv",

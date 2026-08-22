@@ -35,6 +35,7 @@ from registry_ids import (  # noqa: E402
     location_id as _location_id,
     lore_character_id,
     monster_id as _monster_id,
+    profession_id as _profession_id,
     region_row_id,
     species_id as _species_id,
     story_id as _story_id,
@@ -102,6 +103,27 @@ def _species_name(conn: sqlite3.Connection, species_id: str) -> str:
     return row[0] if row else species_id
 
 
+def _professions_tuple(
+    professions: "ProfessionEntry | tuple[ProfessionEntry, ...] | None",
+) -> "tuple[ProfessionEntry, ...]":
+    """Normalise ``NPCEntry.professions`` to a tuple.
+
+    Mirrors :func:`_species_tuple`: one profession is the common case and writes
+    as a bare constant; a tuple is for the rare character with more than one.
+    """
+    if professions is None:
+        return ()
+    if isinstance(professions, ProfessionEntry):
+        return (professions,)
+    return tuple(professions)
+
+
+def _profession_name(conn: sqlite3.Connection, profession_id: str) -> str:
+    """Return a stored profession's display name, or its id if the row has gone."""
+    row = conn.execute("SELECT name FROM professions WHERE profession_id = ?", [profession_id]).fetchone()
+    return row[0] if row else profession_id
+
+
 def _auto_world_key(region_name: str) -> str:
     """Derive ``world-of-rathe/<slug>.md`` from a region display name, or return ``""``."""
     slug = re.sub(r"^the\s+", "", region_name.strip(), flags=re.IGNORECASE)
@@ -149,6 +171,38 @@ class SpeciesEntry:
 
 
 @dataclass(frozen=True)
+class ProfessionEntry:
+    """A trade many hold independently (R9) — Braumeister, shieldbearer.
+
+    Three axes describe a body of people, and a profession is the one with no
+    roster:
+
+    - A **group** (``GroupEntry``) is a named body that acts as one — bounded,
+      citable, so its roster lives on the catalogue entry.
+    - A **title** (``TitleEntry``) is an office one person holds at a time —
+      ordered holders, resolved through ``character_heroes``.
+    - A **profession** is a trade many hold independently, with no roster at
+      all. "Braumeisters are the elite of their trade" (``world-of-rathe/aria.md``)
+      says what the trade is, not who is in it — "who is a Braumeister" is
+      **unbounded and unsourceable**, which is exactly what a group's
+      ``member_source`` exists to prevent. Forcing it into ``groups`` would put
+      an uncitable membership in the one table built to refuse them.
+
+    Frozen and catalogued for the same reason every other entity is: the id is
+    a hash of the name at the call site (``registry_ids.profession_id``), so a
+    second literal for ``Braumeister`` reuses this row rather than minting a
+    second one. The real trap is a *changed* name — that mints a new row and
+    strands the old one, the same as every other registry id.
+
+    No ``aliases`` field and no ``profession_aliases`` table: unlike a species,
+    no profession has yet needed a plural or a dated alternate name in the
+    prose. Add the table when one does, not before.
+    """
+
+    name: str
+
+
+@dataclass(frozen=True)
 class NPCEntry:
     """A non-playable character to link to a story.
 
@@ -168,6 +222,33 @@ class NPCEntry:
     is stored. That is a change from the column, where an omitted value meant
     "preserve" — 32 rows carried a species no declaration named, and every one of
     them had to be written into the catalogue before the switch."""
+    professions: "ProfessionEntry | tuple[ProfessionEntry, ...] | None" = None
+    """Trades this character holds (R9): ``NPCEntry("Balen", professions=prof.BRAUMEISTER)``.
+    One :class:`ProfessionEntry`, or a tuple where the lore names more than one.
+
+    **Replace-semantic, like ``species`` and unlike ``status``/``hero_slug``.**
+    ``species`` and ``status`` sit next to each other on this dataclass following
+    *opposite* contracts — ``status=""`` preserves, an omitted ``species`` is a
+    deletion — so this docstring says which one ``professions`` follows: the
+    ``species`` contract. ``None`` and ``()`` both mean this character has no
+    recorded profession, and both clear one that is stored; ``character_professions``
+    is a junction, and a junction states the complete set.
+
+    Raises ``ValueError`` for a repeated profession on one entry — naming it —
+    the same guard shape ``GroupEntry.members()``, ``_resolve_title_holders`` and
+    ``_resolve_kin_relatives`` all use: two entries naming the same profession
+    would otherwise resolve differently on the write path (``INSERT OR IGNORE``
+    keeps the first) than on a preview that diffed a dict (last wins).
+
+    **A hero's profession goes here too, and there is no hero-shaped second
+    path** (the user's call, 2026-08-22). A hero is the game-side row — a
+    canonical slug and the cards printed for it — while a character is the
+    lore-side person, and a trade is a fact about the person. So
+    ``heroes_canonical`` joins through ``character_heroes`` to read it, rather
+    than carrying its own copy. Kano is a hero and a Lord Wizard with no
+    ``NPCEntry`` of his own; the way to say so is ``NPCEntry("Kano",
+    hero_slug="kano", professions=prof.LORD_WIZARD)``, which migration 12 built
+    ``hero_slug`` for. The same reasoning applies to ``species`` and ``kin``."""
     status: str = ""
     """Leave empty to preserve an existing NPC's status; new NPCs default to ``"Unknown"``."""
     other_characters_story_key: str = ""
@@ -1107,11 +1188,11 @@ class Database:
 
         Args:
             entity_type: One of ``"monster"``, ``"fauna"``, ``"flora"``, ``"location"``,
-                ``"group"``, ``"species"`` or ``"title"``.
+                ``"group"``, ``"species"``, ``"title"`` or ``"profession"``.
             name: Display name of the entity (must already exist in the database).
             description: Short lore summary. ``"location"``, ``"group"``,
-                ``"species"`` and ``"title"`` set the ``notes`` field; the others
-                set ``description``.
+                ``"species"``, ``"title"`` and ``"profession"`` set the ``notes``
+                field; the others set ``description``.
 
         A group must already have a row before its summary can land here, and a row
         is only created by a story declaration naming it. Six catalogue constants
@@ -1120,7 +1201,10 @@ class Database:
 
         A species row is created by an NPC carrying it, with one deliberate
         exception: ``species.csv`` is a registry seeded on its own, so ``Chanek``
-        keeps a row although no NPC is one yet.
+        keeps a row although no NPC is one yet. A profession row is created the
+        same way species is — by a character carrying it, through
+        ``NPCEntry(professions=…)`` — with no ``Chanek``-style exception, since
+        nothing has attested a profession with no one holding it yet.
 
         Raises:
             ValueError: If ``entity_type`` is unrecognised or the named entity does not exist.
@@ -1147,6 +1231,10 @@ class Database:
                 rows = q.update_title_notes(self.conn, _title_id(name), description)
                 if rows == 0:
                     raise ValueError(f"Title not found: {name!r}")
+            elif entity_type == "profession":
+                rows = q.update_profession_notes(self.conn, _profession_id(name), description)
+                if rows == 0:
+                    raise ValueError(f"Profession not found: {name!r}")
             elif entity_type in _TABLE_MAP:
                 table, id_col, id_fn = _TABLE_MAP[entity_type]
                 entity_id = id_fn(name)
@@ -1156,7 +1244,7 @@ class Database:
             else:
                 raise ValueError(
                     f"Unknown entity type: {entity_type!r}. "
-                    "Use 'monster', 'fauna', 'flora', 'location', 'group', 'species', or 'title'."
+                    "Use 'monster', 'fauna', 'flora', 'location', 'group', 'species', 'title', or 'profession'."
                 )
         _export.export_registry_tables(self.conn, self._data_dir)
 
@@ -1393,6 +1481,12 @@ class Database:
                 [(n, "epithet") for n in e.epithets] + [(n, "short-name") for n in e.short_names],
             )
             q.set_npc_species(self.conn, cid, self._upsert_species(_species_tuple(e.species)))
+            # Professions (R9). Resolves and raises on a repeated profession
+            # before any downstream write — mirrors kin's use of
+            # _resolve_kin_relatives just below.
+            q.set_character_professions(
+                self.conn, cid, self._upsert_professions(e.name, _professions_tuple(e.professions))
+            )
             if e.hero_slug:
                 # Same shape as the guard in GroupEntry.members(): the write
                 # (character_heroes.canonical_id is the primary key, so it would
@@ -1464,6 +1558,53 @@ class Database:
             q.set_species_aliases(self.conn, sid, list(e.aliases))
             ids.append(sid)
         return ids
+
+    def _resolve_professions(self, owner_name: str, entries: "tuple[ProfessionEntry, ...]") -> list[tuple[str, str]]:
+        """Resolve a tuple of :class:`ProfessionEntry` to ``(profession_id, name)`` pairs.
+
+        Read-only, so the dry-run preview can call this too — mirrors
+        :meth:`_resolve_kin_relatives` and :meth:`_resolve_title_holders`.
+        Unlike ``species`` (which never guards a repeat — ``INSERT OR IGNORE``
+        just collapses it in silence), a profession raises on a repeat within
+        ``entries``, the same guard shape ``GroupEntry.members()``,
+        ``_resolve_title_holders`` and ``_resolve_kin_relatives`` all use: two
+        entries naming the same profession would otherwise resolve differently
+        on the write path (``INSERT OR IGNORE`` keeps the first) than on a
+        preview that diffed a dict (last wins).
+
+        Args:
+            owner_name: The character or hero slug this tuple belongs to, named
+                in the error.
+            entries: The tuple to resolve, already normalised by
+                :func:`_professions_tuple`.
+
+        Raises:
+            ValueError: if two entries resolve to the same ``profession_id``.
+        """
+        resolved: list[tuple[str, str]] = []
+        seen: dict[str, str] = {}
+        for p in entries:
+            pid = _profession_id(p.name)
+            if pid in seen:
+                raise ValueError(
+                    f"{owner_name!r} names profession {p.name!r} twice "
+                    f"(as {seen[pid]!r} and {p.name!r}). A profession claim is one row; state it once."
+                )
+            seen[pid] = p.name
+            resolved.append((pid, p.name))
+        return resolved
+
+    def _upsert_professions(self, owner_name: str, entries: "tuple[ProfessionEntry, ...]") -> list[str]:
+        """Upsert each profession row and return its ids, in declared order.
+
+        Raises before writing anything if two entries in ``entries`` name the
+        same profession — see :meth:`_resolve_professions`, which this calls
+        first.
+        """
+        resolved = self._resolve_professions(owner_name, entries)
+        for pid, name in resolved:
+            q.upsert_profession(self.conn, profession_id=pid, name=name)
+        return [pid for pid, _name in resolved]
 
     def _upsert_regions(self, entries: list[RegionEntry]) -> list[str]:
         ids: list[str] = []
@@ -2221,6 +2362,23 @@ class Database:
                         lines.append(f"    + {sp.name}: alias {alias!r}")
                     for alias in sorted(stored_al - wanted_al):
                         lines.append(f"    - {sp.name}: alias {alias!r} REMOVED")
+
+                # Professions (R9), reported the same shape as species just
+                # above — walked over reach_npcs, not the npcs kwarg, so a
+                # profession reached only through a group roster or a title
+                # holder is visible here too. _resolve_professions raises on a
+                # repeated profession on this entry, on the preview path too,
+                # before any diff below is computed — the same guard the write
+                # path applies via _upsert_professions.
+                resolved_prof = self._resolve_professions(entry.name, _professions_tuple(entry.professions))
+                stored_prof = [
+                    _profession_name(self.conn, pid) for pid in q.select_character_professions(self.conn, cid)
+                ]
+                wanted_prof = [name for _pid, name in resolved_prof]
+                for name in sorted(set(wanted_prof) - set(stored_prof)):
+                    lines.append(f"    + {entry.name}: profession {name!r}")
+                for name in sorted(set(stored_prof) - set(wanted_prof)):
+                    lines.append(f"    - {entry.name}: profession {name!r} REMOVED")
 
                 stored = set(q.select_npc_epithets(self.conn, cid))
                 wanted = {(n, "epithet") for n in entry.epithets} | {(n, "short-name") for n in entry.short_names}
