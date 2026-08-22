@@ -16,13 +16,16 @@ Version history:
       links a canonical hero to its character row; every hero gets a
       character row, self-healing at seed time; status becomes a closed
       five-value vocabulary
+ 13 — titles, title_holders, story_titles: offices (Grand Magister, Dracai of
+      Aether) with ordered or concurrent holders, resolved through
+      character_heroes so a hero and an NPC can share one title_holders row
 """
 
 from __future__ import annotations
 
 import sqlite3
 
-CURRENT_VERSION = 12
+CURRENT_VERSION = 13
 
 _V1_DDL = """
 CREATE TABLE IF NOT EXISTS stories (
@@ -333,6 +336,46 @@ CREATE TABLE IF NOT EXISTS story_groups (
     story_id TEXT NOT NULL REFERENCES stories(story_id) ON DELETE CASCADE,
     group_id TEXT NOT NULL REFERENCES groups(group_id),
     PRIMARY KEY (story_id, group_id)
+);
+
+-- An office: Grand Magister, Dracai of Aether, Soothsayer. A person may hold
+-- several titles and a title may have several holders at once — the Dracai are
+-- distinct offices held concurrently, the five Grand Magisters are one office
+-- held in succession.
+CREATE TABLE IF NOT EXISTS titles (
+    title_id   TEXT PRIMARY KEY,
+    name       TEXT NOT NULL,
+    -- The body this office belongs to, if any: Dracai of Aether hangs off the
+    -- Dracai, Soothsayer hangs off nothing. Defaults to '' and carries no SQL
+    -- REFERENCES, the same shape as groups.parent_group_id and
+    -- locations.parent_location_id: '' can never satisfy a foreign key, so
+    -- validate_data.py checks it instead.
+    group_id   TEXT NOT NULL DEFAULT '',
+    notes      TEXT NOT NULL DEFAULT ''
+);
+
+-- Holders (R3). character_id is what migration 12's identity spine makes
+-- possible: a hero and an NPC can be the same row of this column, with no
+-- second table the way group_npcs/group_heroes need one — Kano the hero and
+-- the five Grand Magister NPCs share one junction.
+CREATE TABLE IF NOT EXISTS title_holders (
+    title_id     TEXT NOT NULL REFERENCES titles(title_id) ON DELETE CASCADE,
+    character_id TEXT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
+    -- Records a succession where the lore gives one (Grand Magister 1-5) and is
+    -- 0 where it does not. Not unique: several holders may share an ordinal
+    -- (the Dracai, held concurrently) or all carry 0.
+    ordinal      INTEGER NOT NULL DEFAULT 0,
+    story_key    TEXT NOT NULL DEFAULT '',
+    PRIMARY KEY (title_id, character_id)
+);
+
+-- Mentions (R5), mirroring story_groups: this page names the Grand Magisters.
+-- Separate from title_holders, which is who held the office. Both are needed
+-- and they answer different questions.
+CREATE TABLE IF NOT EXISTS story_titles (
+    story_id TEXT NOT NULL REFERENCES stories(story_id) ON DELETE CASCADE,
+    title_id TEXT NOT NULL REFERENCES titles(title_id),
+    PRIMARY KEY (story_id, title_id)
 );
 
 -- Names that are not the name (R4 epithets, R6 aliases). Three tables rather
@@ -655,4 +698,39 @@ def migrate(conn: sqlite3.Connection) -> None:
             """
         )
         conn.execute("PRAGMA user_version = 12")
+        conn.commit()
+    if version < 13:
+        # Titles and their holders (Option D, stage 7). A person may hold
+        # several titles and a title may have several holders at once — the
+        # Dracai are distinct offices held concurrently, the Grand Magisters
+        # are one office held in succession.
+        #
+        # No table-name ambiguity to guard here, unlike migration 11's
+        # npcs/characters rename: these are three brand-new tables, and
+        # CREATE TABLE IF NOT EXISTS is correct whether this runs against a
+        # database that just applied migration 12 or a from-scratch build
+        # that already created them via _V1_DDL.
+        conn.executescript(
+            """
+            CREATE TABLE IF NOT EXISTS titles (
+                title_id   TEXT PRIMARY KEY,
+                name       TEXT NOT NULL,
+                group_id   TEXT NOT NULL DEFAULT '',
+                notes      TEXT NOT NULL DEFAULT ''
+            );
+            CREATE TABLE IF NOT EXISTS title_holders (
+                title_id     TEXT NOT NULL REFERENCES titles(title_id) ON DELETE CASCADE,
+                character_id TEXT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
+                ordinal      INTEGER NOT NULL DEFAULT 0,
+                story_key    TEXT NOT NULL DEFAULT '',
+                PRIMARY KEY (title_id, character_id)
+            );
+            CREATE TABLE IF NOT EXISTS story_titles (
+                story_id TEXT NOT NULL REFERENCES stories(story_id) ON DELETE CASCADE,
+                title_id TEXT NOT NULL REFERENCES titles(title_id),
+                PRIMARY KEY (story_id, title_id)
+            );
+            """
+        )
+        conn.execute("PRAGMA user_version = 13")
         conn.commit()

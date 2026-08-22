@@ -324,6 +324,84 @@ def select_group_members(conn: sqlite3.Connection, group_id: str, table: str, id
 
 
 # ---------------------------------------------------------------------------
+# Titles (R3)
+# ---------------------------------------------------------------------------
+
+
+def upsert_title(
+    conn: sqlite3.Connection,
+    *,
+    title_id: str,
+    name: str,
+    group_id: str = "",
+    notes: str = "",
+) -> None:
+    """Insert or update a title, preserving curated fields the caller omits.
+
+    ``group_id`` follows the same preserve-on-empty rule as
+    ``groups.parent_group_id``: an empty incoming value never clears a stored
+    link. ``notes`` follows the same rule as group notes — ``descriptions.py``
+    is the only writer that should be setting it.
+    """
+    if not notes:
+        row = conn.execute("SELECT notes FROM titles WHERE title_id = ?", [title_id]).fetchone()
+        if row and row[0]:
+            _log.warning(
+                "Skipping notes overwrite for title %r — existing notes preserved"
+                " (pass non-empty notes to update them)",
+                title_id,
+            )
+    conn.execute(
+        """
+        INSERT INTO titles (title_id, name, group_id, notes)
+        VALUES (?,?,?,?)
+        ON CONFLICT(title_id) DO UPDATE SET
+            name     = excluded.name,
+            group_id = CASE WHEN excluded.group_id != ''
+                       THEN excluded.group_id
+                       ELSE titles.group_id END,
+            notes    = CASE WHEN excluded.notes != ''
+                       THEN excluded.notes
+                       ELSE titles.notes END
+        """,
+        (title_id, name, group_id, notes),
+    )
+
+
+def select_all_titles(conn: sqlite3.Connection) -> list[sqlite3.Row]:
+    return conn.execute("SELECT * FROM titles ORDER BY name").fetchall()
+
+
+def update_title_notes(conn: sqlite3.Connection, title_id: str, notes: str) -> int:
+    """Update the notes (tooltip summary) for a single title. Returns rows affected."""
+    cur = conn.execute("UPDATE titles SET notes = ? WHERE title_id = ?", (notes, title_id))
+    return cur.rowcount
+
+
+def set_title_holders(
+    conn: sqlite3.Connection,
+    title_id: str,
+    holders: list[tuple[str, int, str]],
+) -> None:
+    """Replace all holder rows for ``title_id`` with ``(character_id, ordinal, story_key)`` triples."""
+    conn.execute("DELETE FROM title_holders WHERE title_id = ?", [title_id])
+    if holders:
+        conn.executemany(
+            "INSERT OR IGNORE INTO title_holders (title_id, character_id, ordinal, story_key) VALUES (?,?,?,?)",
+            [(title_id, cid, ordinal, story_key) for cid, ordinal, story_key in holders],
+        )
+
+
+def select_title_holders(conn: sqlite3.Connection, title_id: str) -> list[tuple[str, int, str]]:
+    """Return ``(character_id, ordinal, story_key)`` holder rows for ``title_id``, sorted."""
+    rows = conn.execute(
+        "SELECT character_id, ordinal, story_key FROM title_holders WHERE title_id = ? ORDER BY ordinal, character_id",
+        [title_id],
+    ).fetchall()
+    return [(r[0], r[1], r[2]) for r in rows]
+
+
+# ---------------------------------------------------------------------------
 # Alternate names (R4 epithets, R6 aliases)
 # ---------------------------------------------------------------------------
 #

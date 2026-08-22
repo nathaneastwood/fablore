@@ -1,11 +1,11 @@
 """Deterministic primary keys for lore and game registry CSVs (pipe-delimited).
 
-Lore-side ids (``LC``, ``MO``, ``FA``, ``FR``, ``FD``, ``RG``, ``LO``, ``GR``, ``ST``) use
-SHA-256 over :func:`text_utils.normalize_name` of the source string. Game-side ids
-(``CN``, ``HG``, ``WG``, ``EG``, ``CW``, ``CE``, ``CL``, ``TL``, ``TY``) use
-:func:`make_hash_id` (SHA-1) over a caller-supplied stable key (slug, name, or
-composite). Two algorithms remain for backwards compatibility with the original
-generator output; both are deterministic.
+Lore-side ids (``LC``, ``MO``, ``FA``, ``FR``, ``FD``, ``RG``, ``LO``, ``GR``, ``SP``,
+``ST``, ``TI``) use SHA-256 over :func:`text_utils.normalize_name` of the source
+string. Game-side ids (``CN``, ``HG``, ``WG``, ``EG``, ``CW``, ``CE``, ``CL``, ``TL``,
+``TY``) use :func:`make_hash_id` (SHA-1) over a caller-supplied stable key (slug,
+name, or composite). Two algorithms remain for backwards compatibility with the
+original generator output; both are deterministic.
 """
 
 from __future__ import annotations
@@ -196,6 +196,23 @@ def group_id(name: str) -> str:
         ``GR`` + digest id.
     """
     return _sha256_id("GR", name.strip())
+
+
+def title_id(name: str) -> str:
+    """Return ``TitleId`` for a title display name.
+
+    Hashes the name alone, like :func:`group_id`: a second literal for the same
+    name *reuses* this row. The trap is a *changed* name — that mints a new row
+    and strands the old one, the same as every other registry id in this module.
+
+    Args:
+        name: Title display name as stored in ``titles.csv``, e.g. ``"Grand
+            Magister"``.
+
+    Returns:
+        ``TI`` + digest id.
+    """
+    return _sha256_id("TI", name.strip())
 
 
 def location_id(name: str, region_id: str) -> str:

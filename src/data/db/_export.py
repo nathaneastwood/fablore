@@ -135,6 +135,8 @@ def export_registry_tables(conn: sqlite3.Connection, data_dir: Path) -> None:
     _export_group_members(conn, csv_dir)
     _export_alternate_names(conn, csv_dir)
     _export_species(conn, csv_dir)
+    _export_titles(conn, csv_dir)
+    _export_title_holders(conn, csv_dir)
 
 
 def export_story_junctions(conn: sqlite3.Connection, data_dir: Path) -> None:
@@ -319,6 +321,52 @@ def _export_species(conn: sqlite3.Connection, csv_dir: Path) -> None:
         _CMD_REGISTRY,
         ["SpeciesId", "Alias"],
         [{"SpeciesId": r[0], "Alias": r[1]} for r in aliases],
+    )
+
+
+def _export_titles(conn: sqlite3.Connection, csv_dir: Path) -> None:
+    rows = q.select_all_titles(conn)
+    data = [
+        {
+            "TitleId": r["title_id"],
+            "Name": r["name"],
+            "GroupId": r["group_id"],
+            "Notes": r["notes"],
+        }
+        for r in rows
+    ]
+    _write_pipe_csv(
+        csv_dir / "titles.csv",
+        _CMD_REGISTRY,
+        ["TitleId", "Name", "GroupId", "Notes"],
+        data,
+    )
+
+
+def _export_title_holders(conn: sqlite3.Connection, csv_dir: Path) -> None:
+    """Write ``title-holders.csv`` (R3).
+
+    Not part of ``_JUNCTION_EXPORT_SPECS``: this hangs off a title, not a story,
+    and its ``StoryKey`` is evidence for the holder (like ``group-npcs.csv``'s),
+    not the link itself.
+    """
+    rows = conn.execute(
+        "SELECT title_id, character_id, ordinal, story_key FROM title_holders ORDER BY title_id, ordinal, character_id"
+    ).fetchall()
+    data = [
+        {
+            "TitleId": r["title_id"],
+            "CharacterId": r["character_id"],
+            "Ordinal": r["ordinal"],
+            "StoryKey": r["story_key"],
+        }
+        for r in rows
+    ]
+    _write_pipe_csv(
+        csv_dir / "title-holders.csv",
+        _CMD_REGISTRY,
+        ["TitleId", "CharacterId", "Ordinal", "StoryKey"],
+        data,
     )
 
 
@@ -696,6 +744,7 @@ _JUNCTION_EXPORT_SPECS: tuple[tuple[str, str, str, str, str], ...] = (
         "CanonicalEquipmentId",
     ),
     ("story_groups", "story-groups.csv", "group_id", "StoryId", "GroupId"),
+    ("story_titles", "story-titles.csv", "title_id", "StoryId", "TitleId"),
 )
 
 
@@ -764,6 +813,9 @@ _ALL_TABLES = [
     "group_npcs",
     "group_heroes",
     "story_groups",
+    "titles",
+    "title_holders",
+    "story_titles",
     "npc_epithets",
     "location_aliases",
     "group_aliases",

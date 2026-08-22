@@ -75,6 +75,8 @@ def seed_from_csvs(conn: sqlite3.Connection, data_dir: Path) -> None:
         _seed_groups(conn, data_dir)
         _seed_group_members(conn, data_dir)
         _seed_alternate_names(conn, data_dir)
+        _seed_titles(conn, data_dir)
+        _seed_title_holders(conn, data_dir)
         _seed_stories(conn, data_dir)
         _seed_narrated_videos_from_csv(conn, data_dir)
         _seed_story_junctions(conn, data_dir)
@@ -499,6 +501,36 @@ def _seed_food_drink(conn: sqlite3.Connection, data_dir: Path) -> None:
         )
 
 
+def _seed_titles(conn: sqlite3.Connection, data_dir: Path) -> None:
+    """Seed ``titles`` (R3). Before ``_seed_title_holders``, which references it."""
+    _, rows = _csv(data_dir, "titles.csv")
+    for row in rows:
+        q.upsert_title(
+            conn,
+            title_id=_s(row, "TitleId"),
+            name=_s(row, "Name"),
+            group_id=_s(row, "GroupId"),
+            notes=_s(row, "Notes"),
+        )
+
+
+def _seed_title_holders(conn: sqlite3.Connection, data_dir: Path) -> None:
+    """Seed ``title_holders``. Kept separate from the story junctions for the same
+    reason ``group_npcs``/``group_heroes`` are: this hangs off the title, not a
+    page, and its ``StoryKey`` is evidence for the holder, not the link itself."""
+    _, rows = _csv(data_dir, "title-holders.csv")
+    for row in rows:
+        conn.execute(
+            "INSERT OR IGNORE INTO title_holders (title_id, character_id, ordinal, story_key) VALUES (?,?,?,?)",
+            (
+                _s(row, "TitleId"),
+                _s(row, "CharacterId"),
+                int(_s(row, "Ordinal") or 0),
+                _s(row, "StoryKey"),
+            ),
+        )
+
+
 # ---------------------------------------------------------------------------
 # Stories + narrated videos
 # ---------------------------------------------------------------------------
@@ -583,6 +615,7 @@ _JUNCTION_SPECS: tuple[tuple[str, str, str, str], ...] = (
         "canonical_equipment_id",
     ),
     ("story-groups.csv", "story_groups", "GroupId", "group_id"),
+    ("story-titles.csv", "story_titles", "TitleId", "title_id"),
 )
 
 

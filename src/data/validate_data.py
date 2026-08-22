@@ -48,6 +48,7 @@ from registry_ids import (  # noqa: E402
     monster_id,
     group_id,
     region_row_id,
+    title_id,
 )
 
 from text_utils import normalize_name  # noqa: E402
@@ -776,6 +777,7 @@ def _check_descriptions_targets_exist(descriptions_path: Path) -> list[str]:
         "flora": "flora.csv",
         "group": "groups.csv",
         "species": "species.csv",
+        "title": "titles.csv",
     }
     known = {kind: _id_set_from_column(DATA / "csv" / filename, "Name") for kind, filename in csv_for_kind.items()}
 
@@ -887,6 +889,9 @@ def collect_alerts() -> list[str]:
         (DATA / "csv/species-aliases.csv", ("SpeciesId", "Alias"), "Species aliases"),
         (DATA / "csv/location-aliases.csv", ("LocationId", "Alias"), "Location aliases"),
         (DATA / "csv/group-aliases.csv", ("GroupId", "Alias"), "Group aliases"),
+        (DATA / "csv/titles.csv", ("TitleId", "Name"), "Titles"),
+        (DATA / "csv/title-holders.csv", ("TitleId", "CharacterId"), "Title ↔ holder links"),
+        (DATA / "csv/story-titles.csv", ("StoryId", "TitleId"), "Story ↔ title links"),
         (DATA / "csv/regions.csv", ("RegionId",), "Regions"),
         (DATA / "csv/flora.csv", ("FloraId",), "Flora"),
         (DATA / "csv/fauna.csv", ("FaunaId",), "Fauna"),
@@ -1154,6 +1159,15 @@ def collect_alerts() -> list[str]:
                 "Group ↔ NPC membership",
             )
         )
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/title-holders.csv",
+                "CharacterId",
+                npc_character_ids,
+                "characters.csv CharacterId",
+                "Title ↔ holder links",
+            )
+        )
     group_hero_ids = _id_set_from_column(DATA / "csv/heroes-canonical.csv", "CanonicalId")
     if group_hero_ids:
         alerts.extend(
@@ -1163,6 +1177,28 @@ def collect_alerts() -> list[str]:
                 group_hero_ids,
                 "heroes-canonical.csv CanonicalId",
                 "Group ↔ hero membership",
+            )
+        )
+
+    # titles (R3): title_holders.CharacterId is checked below, alongside
+    # npc_character_ids. GroupId defaults to '' for a title with no parent body,
+    # the same shape as groups.parent_group_id — no SQL REFERENCES, so it is
+    # checked here rather than enforced by SQLite.
+    title_ids = _id_set_from_column(DATA / "csv/titles.csv", "TitleId")
+    if title_ids:
+        for child, label in (
+            ("title-holders.csv", "Title ↔ holder links"),
+            ("story-titles.csv", "Story ↔ title links"),
+        ):
+            alerts.extend(_check_fk_column(DATA / f"csv/{child}", "TitleId", title_ids, "titles.csv TitleId", label))
+    if group_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/titles.csv",
+                "GroupId",
+                group_ids,
+                "groups.csv GroupId",
+                "Title ↔ group link",
             )
         )
 
@@ -1277,6 +1313,7 @@ def collect_alerts() -> list[str]:
     alerts.extend(_check_id_hash_drift(DATA / "csv/fauna.csv", "FaunaId", "Name", fauna_id_from_name, "fauna.csv"))
     alerts.extend(_check_id_hash_drift(DATA / "csv/flora.csv", "FloraId", "Name", flora_id, "flora.csv"))
     alerts.extend(_check_id_hash_drift(DATA / "csv/groups.csv", "GroupId", "Name", group_id, "groups.csv"))
+    alerts.extend(_check_id_hash_drift(DATA / "csv/titles.csv", "TitleId", "Name", title_id, "titles.csv"))
     alerts.extend(
         _check_id_hash_drift(
             DATA / "csv/regions.csv",

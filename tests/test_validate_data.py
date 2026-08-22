@@ -25,6 +25,45 @@ def test_check_location_lore_fragments_rejects_unsafe_ids(tmp_path: Path) -> Non
     assert "bad frag" in alerts[0]
 
 
+def test_title_id_hash_drift_flags_stale_id(tmp_path: Path) -> None:
+    from registry_ids import title_id
+
+    path = tmp_path / "titles.csv"
+    path.write_text(
+        "# banner\nTitleId|Name|GroupId|Notes\nTIdeadbeef01|Grand Magister||\n",
+        encoding="utf-8",
+    )
+    alerts = validate_data._check_id_hash_drift(path, "TitleId", "Name", title_id, "titles.csv")
+    assert len(alerts) == 1
+    assert "Grand Magister" in alerts[0]
+
+
+def test_title_group_id_fk_tolerates_empty_string(tmp_path: Path) -> None:
+    """titles.GroupId carries no SQL REFERENCES — '' must never be flagged."""
+    path = tmp_path / "titles.csv"
+    path.write_text("# banner\nTitleId|Name|GroupId|Notes\nTI1|Soothsayer||\n", encoding="utf-8")
+    alerts = validate_data._check_fk_column(path, "GroupId", {"GRreal"}, "groups.csv GroupId", "Title <-> group link")
+    assert alerts == []
+
+
+def test_title_holders_fk_flags_an_unknown_title(tmp_path: Path) -> None:
+    path = tmp_path / "title-holders.csv"
+    path.write_text("# banner\nTitleId|CharacterId|Ordinal|StoryKey\nTIbogus001|LC1|0|\n", encoding="utf-8")
+    alerts = validate_data._check_fk_column(path, "TitleId", {"TIreal00001"}, "titles.csv TitleId", "label")
+    assert len(alerts) == 1
+    assert "TIbogus001" in alerts[0]
+
+
+def test_title_holders_fk_flags_an_unknown_character(tmp_path: Path) -> None:
+    path = tmp_path / "title-holders.csv"
+    path.write_text("# banner\nTitleId|CharacterId|Ordinal|StoryKey\nTI1|LCbogus0001|0|\n", encoding="utf-8")
+    alerts = validate_data._check_fk_column(
+        path, "CharacterId", {"LCreal000001"}, "characters.csv CharacterId", "label"
+    )
+    assert len(alerts) == 1
+    assert "LCbogus0001" in alerts[0]
+
+
 def test_collect_warnings_does_not_raise_or_block() -> None:
     """``collect_warnings`` is informational only; must always return a list."""
     warnings = validate_data.collect_warnings()

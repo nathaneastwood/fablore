@@ -39,10 +39,16 @@ def test_migration_renames_npcs_to_characters_and_adds_character_heroes(db: Data
 
 
 def test_schema_version_is_12(db: Database) -> None:
+    """Migration 12 is applied, whether or not later migrations have run since.
+
+    Not a check that ``CURRENT_VERSION`` still equals 12 — it does not, once a
+    later migration (e.g. 13, titles) lands. ``PRAGMA user_version`` is a single
+    forward-only counter, so being at any version >= 12 means 12 already ran.
+    """
     from db._schema import CURRENT_VERSION
 
-    assert CURRENT_VERSION == 12
-    assert db.conn.execute("PRAGMA user_version").fetchone()[0] == 12
+    assert CURRENT_VERSION >= 12
+    assert db.conn.execute("PRAGMA user_version").fetchone()[0] >= 12
 
 
 def test_character_id_column_still_the_primary_key(db: Database) -> None:

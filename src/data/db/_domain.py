@@ -38,6 +38,7 @@ from registry_ids import (  # noqa: E402
     region_row_id,
     species_id as _species_id,
     story_id as _story_id,
+    title_id as _title_id,
 )
 from text_utils import normalize_name  # noqa: E402
 
@@ -370,6 +371,49 @@ class GroupEntry:
         return pairs
 
 
+@dataclass(frozen=True)
+class TitleEntry:
+    """An office — Grand Magister, Dracai of Aether, Soothsayer — with its holders.
+
+    Frozen and shared; the constants will live in ``entries/catalogue/titles.py``
+    (a later task fills them in — this class only builds the surface). ``title_id``
+    hashes ``name`` alone, like :class:`GroupEntry`'s ``group_id``.
+
+    This is the second place ``entries/catalogue/`` holds a relationship rather
+    than identity alone — :class:`GroupEntry` is the first, for the same reason
+    given there: "Kano held the Dracai of Aether" is a world fact with no page to
+    hang it from, so no ``upsert_story()`` call could assert it on its own.
+    Mentions stay on the story, via ``upsert_story(titles=[...])``.
+
+    ``hero_holders`` takes canonical hero slugs and resolves them through
+    ``character_heroes`` rather than through a second junction table. That is
+    the first thing migration 12's identity spine makes possible: a hero and an
+    NPC can land in the *same* ``title_holders.character_id`` column, because a
+    hero and an NPC are now rows of the same ``characters`` table. ``GroupEntry``
+    still needs ``group_npcs`` and ``group_heroes`` as two tables because it
+    predates that merge; ``TitleEntry`` does not.
+
+    Holders are **replace-semantic**, like a group roster: a short holder list
+    replaces the stored one, so a dropped holder is a silent deletion. The dry
+    run reports a ``REMOVED`` line for exactly this reason — see
+    ``GroupEntry.members()`` and ``_show_group_changes`` for the precedent.
+    """
+
+    name: str
+    group: "GroupEntry | None" = None
+    """The body this office belongs to, if any: ``Dracai of Aether`` hangs off
+    the Dracai; ``Soothsayer`` hangs off nothing."""
+    npc_holders: tuple[tuple["NPCEntry", int, str], ...] = ()
+    """``(npc, ordinal, story_key)`` triples. ``ordinal`` records a succession
+    where the lore gives one (Grand Magister 1-5) and is ``0`` where it does
+    not — it is not unique, and several holders may share one (the Dracai, held
+    concurrently). ``story_key`` cites the page that attests the holder."""
+    hero_holders: tuple[tuple[str, int, str], ...] = ()
+    """``(hero_slug, ordinal, story_key)`` triples, resolved through
+    ``character_heroes``. An unknown slug raises, the same as ``heroes=`` and
+    ``NPCEntry.hero_slug``."""
+
+
 # ---------------------------------------------------------------------------
 # StoryRecord
 # ---------------------------------------------------------------------------
@@ -622,6 +666,7 @@ class Database:
         weapons: list[str] | None = None,
         equipment: list[str] | None = None,
         groups: list[GroupEntry] | None = None,
+        titles: list[TitleEntry] | None = None,
         dry_run: bool = False,
     ) -> StoryRecord:
         """Register or update a story and declare its linked entities.
@@ -670,6 +715,10 @@ class Database:
                 ``entries/catalogue/groups.py``. Upserting a group here also
                 upserts its roster, so a page can introduce a group without a
                 separate pass.
+            titles: Title entries this page *mentions* (R5). Like ``groups``,
+                this does not say who held the office — holders are declared on
+                the title itself, in ``entries/catalogue/titles.py``. Upserting
+                a title here also upserts its holders.
             dry_run: Print a diff and return the record without writing anything.
 
         Returns:
@@ -713,6 +762,7 @@ class Database:
                 weapon_ids=weapon_ids,
                 equip_ids=equip_ids,
                 groups=groups,
+                titles=titles,
             )
 
         with self.conn:
@@ -790,6 +840,9 @@ class Database:
             if groups is not None:
                 group_ids = self._upsert_groups(groups)
                 q.set_story_junction(self.conn, story_id, "story_groups", "group_id", group_ids)
+            if titles is not None:
+                title_ids = self._upsert_titles(titles)
+                q.set_story_junction(self.conn, story_id, "story_titles", "title_id", title_ids)
 
         # Write-through: regenerate affected CSVs so git stays in sync.
         _export.export_stories(self.conn, self._data_dir)
@@ -997,10 +1050,11 @@ class Database:
 
         Args:
             entity_type: One of ``"monster"``, ``"fauna"``, ``"flora"``, ``"location"``,
-                ``"group"`` or ``"species"``.
+                ``"group"``, ``"species"`` or ``"title"``.
             name: Display name of the entity (must already exist in the database).
-            description: Short lore summary. ``"location"``, ``"group"`` and
-                ``"species"`` set the ``notes`` field; the others set ``description``.
+            description: Short lore summary. ``"location"``, ``"group"``,
+                ``"species"`` and ``"title"`` set the ``notes`` field; the others
+                set ``description``.
 
         A group must already have a row before its summary can land here, and a row
         is only created by a story declaration naming it. Six catalogue constants
@@ -1032,6 +1086,10 @@ class Database:
                 rows = q.update_species_notes(self.conn, _species_id(name), description)
                 if rows == 0:
                     raise ValueError(f"Species not found: {name!r}")
+            elif entity_type == "title":
+                rows = q.update_title_notes(self.conn, _title_id(name), description)
+                if rows == 0:
+                    raise ValueError(f"Title not found: {name!r}")
             elif entity_type in _TABLE_MAP:
                 table, id_col, id_fn = _TABLE_MAP[entity_type]
                 entity_id = id_fn(name)
@@ -1041,7 +1099,7 @@ class Database:
             else:
                 raise ValueError(
                     f"Unknown entity type: {entity_type!r}. "
-                    "Use 'monster', 'fauna', 'flora', 'location', 'group', or 'species'."
+                    "Use 'monster', 'fauna', 'flora', 'location', 'group', 'species', or 'title'."
                 )
         _export.export_registry_tables(self.conn, self._data_dir)
 
@@ -1458,6 +1516,102 @@ class Database:
         q.set_group_aliases(self.conn, gid, list(entry.aliases))
         return gid
 
+    def _predict_hero_character_id(self, canonical_id: str) -> str:
+        """Return the ``character_id`` a hero resolves to via ``character_heroes``.
+
+        Reads only. When no ``character_heroes`` row exists yet, predicts the id
+        self-healing would mint at seed time — ``lore_character_id`` of the
+        hero's ``canonical_hero`` name — without writing anything, so a dry run
+        can preview a hero holder before any row for them exists.
+        """
+        existing = q.select_character_id_for_hero(self.conn, canonical_id)
+        if existing:
+            return existing
+        row = self.conn.execute(
+            "SELECT canonical_hero FROM heroes_canonical WHERE canonical_id = ?",
+            [canonical_id],
+        ).fetchone()
+        hero_name = row["canonical_hero"] if row else ""
+        return lore_character_id(hero_name)
+
+    def _resolve_title_holders(self, entry: TitleEntry) -> list[tuple[str, int, str, str]]:
+        """Resolve every holder to ``(character_id, ordinal, story_key, origin)``.
+
+        Read-only, so the dry-run preview can call this too. Raises when two
+        holders resolve to the same ``character_id`` — ``title_holders`` is keyed
+        ``(title_id, character_id)``, the same hazard ``GroupEntry.members()``
+        guards for a repeated NPC, extended here to a person named once as an NPC
+        and once as a hero slug: the case migration 12's identity spine makes
+        reachable, since both now resolve into the same ``characters`` row.
+        """
+        resolved: list[tuple[str, int, str, str]] = []
+        seen: dict[str, str] = {}
+        for npc_entry, ordinal, story_key in entry.npc_holders:
+            cid = lore_character_id(npc_entry.name)
+            origin = npc_entry.name
+            if cid in seen:
+                raise ValueError(
+                    f"{entry.name!r} names {seen[cid]!r} and {origin!r} as the same title holder "
+                    f"(character_id {cid!r}). A holder is one row; give this person one entry."
+                )
+            seen[cid] = origin
+            resolved.append((cid, ordinal, story_key, origin))
+        for slug, ordinal, story_key in entry.hero_holders:
+            canonical_id = self._resolve_heroes([slug])[0]
+            cid = self._predict_hero_character_id(canonical_id)
+            origin = f"hero_slug {slug!r}"
+            if cid in seen:
+                raise ValueError(
+                    f"{entry.name!r} names {seen[cid]!r} and {origin} as the same title holder "
+                    f"(character_id {cid!r}). A holder is one row; give this person one entry."
+                )
+            seen[cid] = origin
+            resolved.append((cid, ordinal, story_key, origin))
+        return resolved
+
+    def _upsert_titles(self, entries: list[TitleEntry]) -> list[str]:
+        """Upsert each title, its group and its holders. Returns ids in call order."""
+        return [self._upsert_one_title(e) for e in entries]
+
+    def _upsert_one_title(self, entry: TitleEntry) -> str:
+        tid = _title_id(entry.name)
+
+        group_id_val = ""
+        if entry.group is not None:
+            group_id_val = self._upsert_one_group(entry.group)
+
+        q.upsert_title(self.conn, title_id=tid, name=entry.name, group_id=group_id_val)
+
+        # Raises on a repeated holder before anything downstream writes.
+        resolved = self._resolve_title_holders(entry)
+
+        # NPC holder rows must exist before title_holders.character_id can
+        # reference them — mirrors the group roster's _upsert_npcs call.
+        self._upsert_npcs([npc for npc, _ordinal, _source in entry.npc_holders])
+
+        # Hero holder rows must exist too. An existing character_heroes link
+        # always wins; this only fills a gap, the same INSERT-OR-IGNORE
+        # contract _self_heal_character_heroes uses at seed time — so a title
+        # naming a hero with no character row yet still resolves cleanly.
+        for slug, _ordinal, _source in entry.hero_holders:
+            canonical_id = self._resolve_heroes([slug])[0]
+            if not q.select_character_id_for_hero(self.conn, canonical_id):
+                row = self.conn.execute(
+                    "SELECT canonical_hero FROM heroes_canonical WHERE canonical_id = ?",
+                    [canonical_id],
+                ).fetchone()
+                hero_name = row["canonical_hero"] if row else ""
+                new_cid = lore_character_id(hero_name)
+                q.upsert_npc(self.conn, character_id=new_cid, name=hero_name)
+                q.set_character_hero(self.conn, canonical_id, new_cid)
+
+        q.set_title_holders(
+            self.conn,
+            tid,
+            [(cid, ordinal, story_key) for cid, ordinal, story_key, _origin in resolved],
+        )
+        return tid
+
     def _upsert_food_drink(self, entries: list[FoodDrinkEntry]) -> list[str]:
         ids: list[str] = []
         for e in entries:
@@ -1521,6 +1675,7 @@ class Database:
         weapon_ids: list[str] | None,
         equip_ids: list[str] | None,
         groups: list[GroupEntry] | None = None,
+        titles: list[TitleEntry] | None = None,
         file: IO[str] | None = None,
     ) -> StoryRecord:
         import sys as _sys
@@ -1620,6 +1775,8 @@ class Database:
         food_id_to_name = {r["food_drink_id"]: r["name"] for r in q.select_all_food_drink(self.conn)}
         group_rows = {r["group_id"]: r for r in q.select_all_groups(self.conn)}
         group_id_to_name = {r["group_id"]: r["name"] for r in q.select_all_groups(self.conn)}
+        title_rows = {r["title_id"]: r for r in q.select_all_titles(self.conn)}
+        title_id_to_name = {r["title_id"]: r["name"] for r in q.select_all_titles(self.conn)}
 
         def _show_links_diff(
             label: str,
@@ -1723,7 +1880,7 @@ class Database:
             nonlocal changed
             if not existing:
                 return
-            _, reach_locations, _, _ = _reachable_entities()
+            _, reach_locations, _, _, _ = _reachable_entities()
             if not reach_locations:
                 return
             lines: list[str] = []
@@ -1764,14 +1921,16 @@ class Database:
                 out.write("\n".join(lines) + "\n")
 
         # Single-slot memo for _reachable_entities(); see its docstring.
-        _reach_cache: list[tuple[list, list, list, list[str]]] = []
+        _reach_cache: list[tuple[list, list, list, list[str], list]] = []
 
-        def _reachable_entities() -> tuple[list, list, list, list[str]]:
-            """Return every NPC, location, group and region name this declaration would write.
+        def _reachable_entities() -> tuple[list, list, list, list[str], list]:
+            """Return every NPC, location, group, region name and title this
+            declaration would write.
 
             The kwargs are not the whole list. ``_upsert_one_group`` walks into
-            ``parent``, ``location`` and ``npc_members``, and ``_upsert_locations``
-            walks into ``parent`` — each of those writes the entity's alternate
+            ``parent``, ``location`` and ``npc_members``, ``_upsert_locations``
+            walks into ``parent``, and ``_upsert_one_title`` walks into ``group``
+            and ``npc_holders`` — each of those writes the entity's alternate
             names just as a top-level one does. Reporting only the kwargs would
             leave a nested change applying in silence, which is the exact shape
             this preview exists to catch: Ozrim and Maela Fairmind are reachable
@@ -1787,7 +1946,7 @@ class Database:
             ``_upsert_one_group`` raise on a cycle, but they raise during the
             *write*, and this runs first.
 
-            Memoised. Six of the report blocks below need this walk and the
+            Memoised. Several of the report blocks below need this walk and the
             kwargs cannot change between them, so recomputing it each time only
             re-walked the same rosters. The cache is per-preview, living as long
             as the enclosing call.
@@ -1798,6 +1957,7 @@ class Database:
             seen_loc: dict[tuple[str, str], Any] = {}
             seen_grp: dict[str, Any] = {}
             seen_region: dict[str, None] = {}
+            seen_title: dict[str, Any] = {}
 
             def walk_npc(entry) -> None:
                 seen_npc.setdefault(entry.name, entry)
@@ -1823,6 +1983,15 @@ class Database:
                 for member, _source in entry.members():
                     walk_npc(member)
 
+            def walk_title(entry) -> None:
+                if entry.name in seen_title:
+                    return
+                seen_title[entry.name] = entry
+                if entry.group is not None:
+                    walk_group(entry.group)
+                for npc_entry, _ordinal, _source in entry.npc_holders:
+                    walk_npc(npc_entry)
+
             for entry in npcs or []:
                 walk_npc(entry)
             for entry in locations or []:
@@ -1831,12 +2000,15 @@ class Database:
                 walk_group(entry)
             for entry in regions or []:
                 seen_region.setdefault(entry.name, None)
+            for entry in titles or []:
+                walk_title(entry)
             _reach_cache.append(
                 (
                     list(seen_npc.values()),
                     list(seen_loc.values()),
                     list(seen_grp.values()),
                     list(seen_region.keys()),
+                    list(seen_title.values()),
                 )
             )
             return _reach_cache[0]
@@ -1853,7 +2025,7 @@ class Database:
             """
             nonlocal changed
             lines: list[str] = []
-            reach_npcs, reach_locations, reach_groups, _reach_regions = _reachable_entities()
+            reach_npcs, reach_locations, reach_groups, _reach_regions, _reach_titles = _reachable_entities()
 
             for entry in reach_npcs:
                 cid = lore_character_id(entry.name)
@@ -1922,7 +2094,7 @@ class Database:
             only announcement.
             """
             nonlocal changed
-            reach_npcs, _, _, _ = _reachable_entities()
+            reach_npcs, _, _, _, _ = _reachable_entities()
             lines: list[str] = []
             for entry in reach_npcs:
                 if npc_rows.get(lore_character_id(entry.name)) is None:
@@ -1944,7 +2116,7 @@ class Database:
             species or an epithet reached the same way.
             """
             nonlocal changed
-            reach_npcs, _, _, _ = _reachable_entities()
+            reach_npcs, _, _, _, _ = _reachable_entities()
             lines: list[str] = []
             for entry in reach_npcs:
                 if not entry.hero_slug:
@@ -2027,7 +2199,7 @@ class Database:
         # an overwrite reached only through a group roster must be shown here —
         # Monster/Fauna/Flora stay on their own kwargs below, since none of them
         # is reachable through a group.
-        reach_npcs_for_attrs, _, _, _ = _reachable_entities()
+        reach_npcs_for_attrs, _, _, _, _ = _reachable_entities()
         _show_attr_changes(
             "NPC",
             reach_npcs_for_attrs,
@@ -2052,7 +2224,7 @@ class Database:
             nonlocal changed
             if not existing:
                 return
-            _, reach_locations, _, reach_region_names = _reachable_entities()
+            _, reach_locations, _, reach_region_names, _ = _reachable_entities()
             if not reach_region_names:
                 return
             # Last-wins, matching write order: the real upsert_story() writes
@@ -2156,7 +2328,7 @@ class Database:
             memberships, and printed one line about an alias.
             """
             nonlocal changed
-            _, _, reach_groups, _ = _reachable_entities()
+            _, _, reach_groups, _, _ = _reachable_entities()
             if not reach_groups:
                 return
             lines: list[str] = []
@@ -2242,6 +2414,84 @@ class Database:
             "story_groups",
             "group_id",
             group_id_to_name,
+        )
+
+        def _show_title_changes() -> None:
+            """Report holder and scalar changes a title declaration would write.
+
+            Mirrors ``_show_group_changes``: holders are replace-semantic like a
+            group roster, so a short holder list silently drops people, and the
+            preview must say so. Unlike a group, a title has one holder table
+            rather than two (``title_holders`` covers NPCs and heroes alike,
+            migration 12's identity spine), so there is one added/removed line
+            per title rather than one per table.
+
+            Walks the **reachable** titles, not the ``titles`` kwarg, for the
+            same reason ``_show_group_changes`` walks reachable groups — a title
+            reached only through another entity must not be invisible here.
+            """
+            nonlocal changed
+            _, _, _, _, reach_titles = _reachable_entities()
+            if not reach_titles:
+                return
+            lines: list[str] = []
+            for entry in reach_titles:
+                tid = _title_id(entry.name)
+                row = title_rows.get(tid)
+                group_name = entry.group.name if entry.group is not None else ""
+                incoming_group_id = _group_id(group_name) if group_name else ""
+
+                # Raises here too, on the preview path — before the new/existing
+                # branch below, so a doubled holder on a brand-new title fails
+                # the same way it would on the real write, rather than being
+                # skipped by the "nothing to diff yet" shortcut.
+                resolved = self._resolve_title_holders(entry)
+
+                if row is None:
+                    n_holders = len(entry.npc_holders) + len(entry.hero_holders)
+                    grp = f", group={group_name!r}" if group_name else ""
+                    lines.append(f"    + {entry.name} (new title{grp}, {n_holders} holder(s))")
+                    continue
+                stored_group = row["group_id"] or ""
+                if incoming_group_id and incoming_group_id != stored_group:
+                    was = group_id_to_name.get(stored_group, stored_group) if stored_group else "(none)"
+                    now = group_id_to_name.get(incoming_group_id, group_name)
+                    lines.append(f"    ~ {entry.name}: group {was!r} -> {now!r}")
+
+                wanted_map = {cid: (ordinal, story_key) for cid, ordinal, story_key, _origin in resolved}
+                stored_map = {
+                    cid: (ordinal, story_key) for cid, ordinal, story_key in q.select_title_holders(self.conn, tid)
+                }
+                added = set(wanted_map) - set(stored_map)
+                removed = set(stored_map) - set(wanted_map)
+                resourced = sorted(
+                    cid for cid in set(wanted_map) & set(stored_map) if wanted_map[cid] != stored_map[cid]
+                )
+                if added:
+                    lines.append(f"    + {entry.name}: {len(added)} holder(s) added to title_holders")
+                if removed:
+                    lines.append(f"    - {entry.name}: {len(removed)} holder(s) REMOVED from title_holders")
+                for cid in resourced:
+                    who = npc_id_to_name.get(cid, cid)
+                    old_ordinal, old_source = stored_map[cid]
+                    new_ordinal, new_source = wanted_map[cid]
+                    lines.append(
+                        f"    ~ {entry.name}: {who} ordinal {old_ordinal} -> {new_ordinal}, "
+                        f"source {old_source or '(none)'!r} -> {new_source or '(none)'!r}"
+                    )
+            if lines:
+                changed = True
+                out.write("  Title rows:\n")
+                out.write("\n".join(lines) + "\n")
+
+        _show_title_changes()
+        _show_links_diff(
+            "Titles",
+            titles,
+            [e.name for e in (titles or [])],
+            "story_titles",
+            "title_id",
+            title_id_to_name,
         )
 
         self._last_dry_run_changed = changed
