@@ -9,6 +9,8 @@ group_heroes beyond what the npcs -> characters rename forces.
 
 from __future__ import annotations
 
+import dataclasses
+
 import pytest
 
 import db._queries as q
@@ -232,3 +234,75 @@ def test_dry_run_reports_a_hero_slug_claim_reached_only_through_a_group_roster(d
     _story(db, groups=[group], dry_run=True)
     out = capsys.readouterr().out
     assert "kox" in out.lower()
+
+
+# ---------------------------------------------------------------------------
+# characters.summary (migration 16)
+# ---------------------------------------------------------------------------
+
+
+def test_update_description_writes_a_character_summary(db: Database) -> None:
+    db.upsert_story(
+        path="src/world-of-rathe/solana.md",
+        story_type="world-of-rathe",
+        title="T",
+        npcs=[NPCEntry("Xathari")],
+    )
+    db.update_description("character", "Xathari", "The Dracai spymaster.")
+    row = db.conn.execute(
+        "SELECT summary FROM characters WHERE character_id = ?", [lore_character_id("Xathari")]
+    ).fetchone()
+    assert row["summary"] == "The Dracai spymaster."
+
+
+def test_update_description_raises_for_an_unknown_character(db: Database) -> None:
+    with pytest.raises(ValueError, match="Character not found"):
+        db.update_description("character", "Nobody At All", "x")
+
+
+def test_no_declaration_can_write_a_summary(db: Database) -> None:
+    """Lore text belongs to descriptions.py, and only to descriptions.py.
+
+    `NPCEntry` deliberately has no `summary` field: a catalogue constant that
+    could carry one would make `entries/catalogue/` a second writer of lore
+    text, which is the hazard the faction and species summaries were migrated
+    out of. Passing one must be a TypeError, not a silent no-op.
+    """
+    assert "summary" not in {f.name for f in dataclasses.fields(NPCEntry)}
+    with pytest.raises(TypeError):
+        NPCEntry("Xathari", summary="nope")
+
+
+def test_a_registration_preserves_a_summary_it_does_not_mention(db: Database) -> None:
+    """A story registration must never clear curated lore text, like `status`."""
+    db.upsert_story(
+        path="src/world-of-rathe/solana.md",
+        story_type="world-of-rathe",
+        title="T",
+        npcs=[NPCEntry("Xathari")],
+    )
+    db.update_description("character", "Xathari", "The Dracai spymaster.")
+    db.upsert_story(
+        path="src/world-of-rathe/volcor.md",
+        story_type="world-of-rathe",
+        title="T2",
+        npcs=[NPCEntry("Xathari", status="Dead")],
+    )
+    row = db.conn.execute(
+        "SELECT summary, status FROM characters WHERE character_id = ?", [lore_character_id("Xathari")]
+    ).fetchone()
+    assert row["summary"] == "The Dracai spymaster."
+    assert row["status"] == "Dead"
+
+
+def test_a_summary_round_trips_through_the_csv(db: Database, tmp_path) -> None:
+    db.upsert_story(
+        path="src/world-of-rathe/solana.md",
+        story_type="world-of-rathe",
+        title="T",
+        npcs=[NPCEntry("Xathari")],
+    )
+    db.update_description("character", "Xathari", "The Dracai spymaster.")
+    text = (db._data_dir / "csv" / "characters.csv").read_text(encoding="utf-8")
+    assert "Summary" in text.splitlines()[1]
+    assert "The Dracai spymaster." in text

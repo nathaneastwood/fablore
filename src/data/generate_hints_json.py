@@ -1,7 +1,7 @@
 """Generate src/hints.json from the database and src/hints_supplement.json.
 
-DB-backed entries (locations, monsters, fauna, flora, groups, species) are written
-first.
+DB-backed entries (locations, characters, monsters, fauna, flora, groups, species)
+are written first, in that order.
 The supplement is then merged on top: supplement fields override DB fields for
 matching keys, and supplement-only keys are appended.
 
@@ -41,8 +41,9 @@ def _lore_url(story_key: str, fragment: str) -> str:
 
 
 # Emission order is the tie-break, and it is deliberate: locations are written
-# before groups, and groups before species, so where two entries have equally long
-# match strings the location wins and a species loses to everything. The preprocessor sorts candidates by longest match string and Python's sort
+# before characters, characters before the categories, and groups before species,
+# so where two entries have equally long match strings a place beats a person, a
+# person beats a kind of thing, and a species loses to everything. The preprocessor sorts candidates by longest match string and Python's sort
 # is stable, so the order this file writes them in survives all the way to the
 # page. `The Registry` (a place) and `Registry` (a firm) are the live example.
 # tests/test_generate_hints_json_full.py locks the order so a reshuffle here cannot
@@ -285,6 +286,65 @@ def generate() -> None:
             _key(row["name"]),
             _entry_with_match(row["name"], entry, location_aliases.get(row["location_id"], [])),
             "location",
+            taken,
+        )
+
+    # Characters, second — after locations, ahead of every category.
+    #
+    # A person is a named individual, so it outranks a kind of thing: if a page
+    # writes "Bellona", it means the Herald, not a class of them. Locations keep
+    # their existing precedence, so nothing already emitted changes rank.
+    #
+    # Measured before choosing, 2026-08-22: all 411 character names and all 43
+    # epithet and short-name strings are distinct from every location, monster,
+    # fauna, flora, group and species name. So this position is unobservable
+    # today and was picked on principle rather than to dodge a live collision.
+    # `_warn_match_collisions` reports the first one that appears.
+    #
+    # `type` is derived, never hand-classified (the user's call, 2026-08-22): a
+    # character linked to a hero emits "hero", one without emits "npc". The
+    # value goes straight onto the badge through theme/hints.js, and deriving it
+    # means resolving an identity pair later moves the badge with no edit here.
+    character_epithets = _alias_map(conn, "npc_epithets", "character_id", "name")
+    character_species: dict[str, list[str]] = {}
+    for cid, species_name in conn.execute(
+        """
+        SELECT ns.character_id, s.name
+        FROM npc_species ns JOIN species s ON s.species_id = ns.species_id
+        ORDER BY ns.character_id, ns.sort_order, s.name
+        """
+    ):
+        character_species.setdefault(cid, []).append(species_name)
+
+    character_sql = """
+        SELECT c.character_id, c.name, c.status, c.summary,
+               ch.canonical_id AS hero_canonical_id
+        FROM characters c
+        LEFT JOIN character_heroes ch ON ch.character_id = c.character_id
+        ORDER BY c.name
+    """
+    for row in conn.execute(character_sql):
+        if not row["summary"]:
+            continue
+        entry = {
+            "type": "hero" if row["hero_canonical_id"] else "npc",
+            "summary": row["summary"],
+        }
+        # theme/hints.js has read entry.species for the badge since stage 4 and
+        # no entry has ever carried it. Two species are joined rather than
+        # ranked — Scooba is a Zombie and a Dog, and neither is the lesser half.
+        species_names = character_species.get(row["character_id"], [])
+        if species_names:
+            entry["species"] = ", ".join(species_names)
+        # hints.js skips "Unknown", so emitting it costs nothing and a real
+        # status reaches the badge.
+        if row["status"]:
+            entry["status"] = row["status"]
+        _add(
+            hints,
+            _key(row["name"]),
+            _entry_with_match(row["name"], entry, character_epithets.get(row["character_id"], [])),
+            "character",
             taken,
         )
 

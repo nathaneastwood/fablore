@@ -103,9 +103,20 @@ def test_region_map_empty_table():
 # ---------------------------------------------------------------------------
 
 
-def _make_db(path: Path) -> None:
-    """Create a minimal fablore DB at *path*."""
-    conn = sqlite3.connect(str(path))
+def _create_hint_tables(conn: sqlite3.Connection) -> None:
+    """Create every table generate_hints_json.py reads, with no rows.
+
+    This block was copied out four times — three identical, one with the
+    `groups` columns in a different order — and the duplication had a cost: it
+    is why adding the character emission was put off once, since four schemas
+    had to change or the suite died on `no such table`. One definition now, so
+    the next registry that learns to emit a tooltip is a one-line change here.
+
+    Deliberately loose about types and constraints: these fixtures exist to
+    exercise the generator's SELECTs, not to mirror the real schema, which
+    `db._schema` owns and `Database` builds. The column order the four copies
+    disagreed about never mattered, because every SELECT names its columns.
+    """
     conn.execute("CREATE TABLE regions (region_id TEXT, region_name TEXT)")
     conn.execute("CREATE TABLE locations (name TEXT, notes TEXT, region_id TEXT, location_id TEXT DEFAULT '')")
     conn.execute("CREATE TABLE monsters (name TEXT, description TEXT)")
@@ -119,6 +130,19 @@ def _make_db(path: Path) -> None:
     conn.execute("CREATE TABLE group_aliases (group_id TEXT, alias TEXT, sort_order INTEGER)")
     conn.execute("CREATE TABLE species (species_id TEXT DEFAULT '', name TEXT, notes TEXT)")
     conn.execute("CREATE TABLE species_aliases (species_id TEXT, alias TEXT, sort_order INTEGER)")
+    conn.execute(
+        "CREATE TABLE characters (character_id TEXT DEFAULT '', name TEXT, status TEXT DEFAULT '',"
+        " summary TEXT DEFAULT '')"
+    )
+    conn.execute("CREATE TABLE character_heroes (canonical_id TEXT, character_id TEXT)")
+    conn.execute("CREATE TABLE npc_epithets (character_id TEXT, name TEXT, kind TEXT, sort_order INTEGER)")
+    conn.execute("CREATE TABLE npc_species (character_id TEXT, species_id TEXT, sort_order INTEGER)")
+
+
+def _make_db(path: Path) -> None:
+    """Create a minimal fablore DB at *path*."""
+    conn = sqlite3.connect(str(path))
+    _create_hint_tables(conn)
     conn.execute("INSERT INTO regions VALUES ('R1', 'Solana')")
     conn.execute("INSERT INTO locations (name, notes, region_id) VALUES ('Grand Bazaar', 'A marketplace.', 'R1')")
     conn.execute("INSERT INTO locations (name, notes, region_id) VALUES ('Empty Place', '', 'R1')")
@@ -178,19 +202,7 @@ def test_generate_no_region_for_unknown_region_id(tmp_path, monkeypatch):
 
     db_path = tmp_path / "fablore.db"
     conn = sqlite3.connect(str(db_path))
-    conn.execute("CREATE TABLE regions (region_id TEXT, region_name TEXT)")
-    conn.execute("CREATE TABLE locations (name TEXT, notes TEXT, region_id TEXT, location_id TEXT DEFAULT '')")
-    conn.execute("CREATE TABLE monsters (name TEXT, description TEXT)")
-    conn.execute("CREATE TABLE fauna (name TEXT, description TEXT)")
-    conn.execute("CREATE TABLE flora (name TEXT, description TEXT)")
-    conn.execute(
-        "CREATE TABLE groups (group_id TEXT DEFAULT '', name TEXT, kind TEXT, notes TEXT,"
-        " location_id TEXT DEFAULT '', lore_story_key TEXT DEFAULT '', lore_fragment TEXT DEFAULT '')"
-    )
-    conn.execute("CREATE TABLE location_aliases (location_id TEXT, alias TEXT, era TEXT, sort_order INTEGER)")
-    conn.execute("CREATE TABLE group_aliases (group_id TEXT, alias TEXT, sort_order INTEGER)")
-    conn.execute("CREATE TABLE species (species_id TEXT DEFAULT '', name TEXT, notes TEXT)")
-    conn.execute("CREATE TABLE species_aliases (species_id TEXT, alias TEXT, sort_order INTEGER)")
+    _create_hint_tables(conn)
     # Location references a region_id not in the regions table
     conn.execute("INSERT INTO locations (name, notes, region_id) VALUES ('Lost Shrine', 'Ancient ruins.', 'UNKNOWN')")
     conn.commit()
@@ -268,19 +280,7 @@ def test_generate_output_is_valid_json(tmp_path, monkeypatch):
 def _make_group_db(path: Path) -> None:
     """A DB holding one group tied to a place and one that is not."""
     conn = sqlite3.connect(str(path))
-    conn.execute("CREATE TABLE regions (region_id TEXT, region_name TEXT)")
-    conn.execute("CREATE TABLE locations (name TEXT, notes TEXT, region_id TEXT, location_id TEXT DEFAULT '')")
-    conn.execute("CREATE TABLE monsters (name TEXT, description TEXT)")
-    conn.execute("CREATE TABLE fauna (name TEXT, description TEXT)")
-    conn.execute("CREATE TABLE flora (name TEXT, description TEXT)")
-    conn.execute(
-        "CREATE TABLE groups (group_id TEXT DEFAULT '', name TEXT, kind TEXT, notes TEXT,"
-        " location_id TEXT DEFAULT '', lore_story_key TEXT DEFAULT '', lore_fragment TEXT DEFAULT '')"
-    )
-    conn.execute("CREATE TABLE location_aliases (location_id TEXT, alias TEXT, era TEXT, sort_order INTEGER)")
-    conn.execute("CREATE TABLE group_aliases (group_id TEXT, alias TEXT, sort_order INTEGER)")
-    conn.execute("CREATE TABLE species (species_id TEXT DEFAULT '', name TEXT, notes TEXT)")
-    conn.execute("CREATE TABLE species_aliases (species_id TEXT, alias TEXT, sort_order INTEGER)")
+    _create_hint_tables(conn)
     conn.execute("INSERT INTO regions VALUES ('R1', 'Misteria')")
     conn.execute("INSERT INTO locations (name, notes, region_id, location_id) VALUES ('Ikaru', 'A house.', 'R1', 'L1')")
     conn.execute(
@@ -461,19 +461,7 @@ def test_clash_warning_ignores_plain_substrings() -> None:
 
 def _make_species_db(path: Path) -> None:
     conn = sqlite3.connect(path)
-    conn.execute("CREATE TABLE regions (region_id TEXT, region_name TEXT)")
-    conn.execute("CREATE TABLE locations (name TEXT, notes TEXT, region_id TEXT, location_id TEXT DEFAULT '')")
-    conn.execute("CREATE TABLE monsters (name TEXT, description TEXT)")
-    conn.execute("CREATE TABLE fauna (name TEXT, description TEXT)")
-    conn.execute("CREATE TABLE flora (name TEXT, description TEXT)")
-    conn.execute(
-        "CREATE TABLE groups (group_id TEXT DEFAULT '', name TEXT, kind TEXT, notes TEXT,"
-        " lore_story_key TEXT DEFAULT '', lore_fragment TEXT DEFAULT '', location_id TEXT DEFAULT '')"
-    )
-    conn.execute("CREATE TABLE location_aliases (location_id TEXT, alias TEXT, era TEXT, sort_order INTEGER)")
-    conn.execute("CREATE TABLE group_aliases (group_id TEXT, alias TEXT, sort_order INTEGER)")
-    conn.execute("CREATE TABLE species (species_id TEXT DEFAULT '', name TEXT, notes TEXT)")
-    conn.execute("CREATE TABLE species_aliases (species_id TEXT, alias TEXT, sort_order INTEGER)")
+    _create_hint_tables(conn)
     conn.commit()
     conn.close()
 
@@ -517,7 +505,7 @@ def test_a_group_beats_a_species_of_the_same_name(tmp_path: Path, monkeypatch) -
     db = tmp_path / "sp.db"
     _make_species_db(db)
     conn = sqlite3.connect(db)
-    conn.execute("INSERT INTO groups VALUES ('GR1','Rosetta','order','An order.','','','')")
+    conn.execute("INSERT INTO groups (group_id, name, kind, notes) VALUES ('GR1','Rosetta','order','An order.')")
     conn.execute("INSERT INTO species VALUES ('SP1','Rosetta','A people.')")
     conn.commit()
     conn.close()
@@ -533,11 +521,141 @@ def test_the_loser_of_a_key_clash_donates_fields_the_winner_lacks(tmp_path: Path
     conn = sqlite3.connect(db)
     conn.execute("INSERT INTO locations VALUES ('The Foundry','A radio station.','','LO1')")
     conn.execute(
-        "INSERT INTO groups VALUES ('GR1','The Foundry','organisation','A radio station.',"
-        "'world-of-rathe/metrix.md','the-foundry','')"
+        "INSERT INTO groups (group_id, name, kind, notes, lore_story_key, lore_fragment)"
+        " VALUES ('GR1','The Foundry','organisation','A radio station.',"
+        "'world-of-rathe/metrix.md','the-foundry')"
     )
     conn.commit()
     conn.close()
     entry = _generate_from(db, tmp_path, monkeypatch)["The Foundry"]
     assert entry["type"] == "location"
     assert entry["url"] == "/world-of-rathe/metrix.html#the-foundry"
+
+
+# ---------------------------------------------------------------------------
+# Characters reach the tooltip (migration 16)
+# ---------------------------------------------------------------------------
+# Until `characters.summary` existed the generator emitted nothing for people at
+# all: hints_supplement.json hand-wrote every one, and the npc_epithets rows
+# stage 3 created were correct data that rendered nowhere.
+
+
+def _make_character_db(path: Path) -> sqlite3.Connection:
+    """Return an open connection to a fixture DB with the hint tables created."""
+    conn = sqlite3.connect(path)
+    _create_hint_tables(conn)
+    return conn
+
+
+def test_a_character_with_a_summary_becomes_a_tooltip(tmp_path: Path, monkeypatch) -> None:
+    db = tmp_path / "c.db"
+    conn = _make_character_db(db)
+    conn.execute(
+        "INSERT INTO characters (character_id, name, status, summary)"
+        " VALUES ('LC1','Bellona','Alive','An Archangel.')"
+    )
+    conn.commit()
+    conn.close()
+    entry = _generate_from(db, tmp_path, monkeypatch)["Bellona"]
+    assert entry["summary"] == "An Archangel."
+    assert entry["status"] == "Alive"
+
+
+def test_a_character_with_no_summary_emits_nothing(tmp_path: Path, monkeypatch) -> None:
+    """Same contract as a species with no notes — an empty tooltip is worse than none."""
+    db = tmp_path / "c.db"
+    conn = _make_character_db(db)
+    conn.execute("INSERT INTO characters (character_id, name, summary) VALUES ('LC1','Nobody','')")
+    conn.commit()
+    conn.close()
+    assert "Nobody" not in _generate_from(db, tmp_path, monkeypatch)
+
+
+def test_a_character_with_no_hero_link_is_badged_npc(tmp_path: Path, monkeypatch) -> None:
+    db = tmp_path / "c.db"
+    conn = _make_character_db(db)
+    conn.execute("INSERT INTO characters (character_id, name, summary) VALUES ('LC1','Xathari','A spymaster.')")
+    conn.commit()
+    conn.close()
+    assert _generate_from(db, tmp_path, monkeypatch)["Xathari"]["type"] == "npc"
+
+
+def test_a_character_linked_to_a_hero_is_badged_hero(tmp_path: Path, monkeypatch) -> None:
+    """The badge is derived from character_heroes, never hand-classified.
+
+    So resolving one of the hero/NPC identity pairs later moves the badge with
+    no edit to the generator or to any hand-written entry.
+    """
+    db = tmp_path / "c.db"
+    conn = _make_character_db(db)
+    conn.execute("INSERT INTO characters (character_id, name, summary) VALUES ('LC1','Kano','A Lord Wizard.')")
+    conn.execute("INSERT INTO character_heroes VALUES ('CN1','LC1')")
+    conn.commit()
+    conn.close()
+    assert _generate_from(db, tmp_path, monkeypatch)["Kano"]["type"] == "hero"
+
+
+def test_epithets_and_short_names_become_match_strings(tmp_path: Path, monkeypatch) -> None:
+    """The 25 epithet rows stage 3 wrote reach a reader for the first time."""
+    db = tmp_path / "c.db"
+    conn = _make_character_db(db)
+    conn.execute("INSERT INTO characters (character_id, name, summary) VALUES ('LC1','Bellona','An Archangel.')")
+    conn.executemany(
+        "INSERT INTO npc_epithets VALUES (?,?,?,?)",
+        [("LC1", "the Wartune Herald", "epithet", 0), ("LC1", "Archangel of War", "epithet", 1)],
+    )
+    conn.commit()
+    conn.close()
+    match = _generate_from(db, tmp_path, monkeypatch)["Bellona"]["match"]
+    assert "Bellona" in match
+    assert "the Wartune Herald" in match
+    assert "Archangel of War" in match
+
+
+def test_a_character_species_reaches_the_badge(tmp_path: Path, monkeypatch) -> None:
+    """theme/hints.js has read entry.species since stage 4 and no entry ever carried it."""
+    db = tmp_path / "c.db"
+    conn = _make_character_db(db)
+    conn.execute("INSERT INTO characters (character_id, name, summary) VALUES ('LC1','Biski','A dog.')")
+    conn.execute("INSERT INTO species (species_id, name, notes) VALUES ('SP1','Dog','')")
+    conn.execute("INSERT INTO npc_species VALUES ('LC1','SP1',0)")
+    conn.commit()
+    conn.close()
+    assert _generate_from(db, tmp_path, monkeypatch)["Biski"]["species"] == "Dog"
+
+
+def test_two_species_are_joined_not_ranked(tmp_path: Path, monkeypatch) -> None:
+    """Scooba is a Zombie and a Dog, and neither is the lesser half."""
+    db = tmp_path / "c.db"
+    conn = _make_character_db(db)
+    conn.execute("INSERT INTO characters (character_id, name, summary) VALUES ('LC1','Scooba','A zombie dog.')")
+    conn.executemany(
+        "INSERT INTO species (species_id, name, notes) VALUES (?,?,'')",
+        [("SP1", "Zombie"), ("SP2", "Dog")],
+    )
+    conn.executemany("INSERT INTO npc_species VALUES (?,?,?)", [("LC1", "SP1", 0), ("LC1", "SP2", 1)])
+    conn.commit()
+    conn.close()
+    assert _generate_from(db, tmp_path, monkeypatch)["Scooba"]["species"] == "Zombie, Dog"
+
+
+def test_a_location_beats_a_character_of_the_same_name(tmp_path: Path, monkeypatch) -> None:
+    """Emission order is the tie-break, and characters are written after locations."""
+    db = tmp_path / "c.db"
+    conn = _make_character_db(db)
+    conn.execute("INSERT INTO locations (name, notes, region_id, location_id) VALUES ('Sol','A place.','','LO1')")
+    conn.execute("INSERT INTO characters (character_id, name, summary) VALUES ('LC1','Sol','A person.')")
+    conn.commit()
+    conn.close()
+    assert _generate_from(db, tmp_path, monkeypatch)["Sol"]["type"] == "location"
+
+
+def test_a_character_beats_a_group_of_the_same_name(tmp_path: Path, monkeypatch) -> None:
+    """A named individual outranks a kind of thing: characters precede groups."""
+    db = tmp_path / "c.db"
+    conn = _make_character_db(db)
+    conn.execute("INSERT INTO characters (character_id, name, summary) VALUES ('LC1','Rosetta','A person.')")
+    conn.execute("INSERT INTO groups (group_id, name, kind, notes) VALUES ('GR1','Rosetta','order','An order.')")
+    conn.commit()
+    conn.close()
+    assert _generate_from(db, tmp_path, monkeypatch)["Rosetta"]["type"] == "npc"

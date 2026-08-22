@@ -753,6 +753,21 @@ def upsert_npc(
     )
 
 
+def update_character_summary(conn: sqlite3.Connection, character_id: str, summary: str) -> int:
+    """Set a character's tooltip summary. Returns the number of rows updated.
+
+    Called only by ``descriptions.py`` through ``Database.update_description``,
+    which owns every registry's lore text. ``entries/catalogue/`` deliberately
+    has no way to reach this: two writers for one summary is the hazard the
+    faction and species entries had to be migrated out of.
+    """
+    cur = conn.execute(
+        "UPDATE characters SET summary = ? WHERE character_id = ?",
+        [summary, character_id],
+    )
+    return cur.rowcount
+
+
 def select_all_npcs(conn: sqlite3.Connection) -> list[sqlite3.Row]:
     return conn.execute("SELECT * FROM characters ORDER BY name").fetchall()
 

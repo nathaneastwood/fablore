@@ -384,6 +384,11 @@ def _seed_npcs(conn: sqlite3.Connection, data_dir: Path) -> None:
             status=_s(row, "Status") or "Unknown",
             other_characters_story_key=_s(row, "OtherCharactersStoryKey"),
         )
+        # summary is not an upsert_npc parameter: that function is the story
+        # registration path, and a registration must never touch lore text.
+        summary = _s(row, "Summary")
+        if summary:
+            q.update_character_summary(conn, _s(row, "CharacterId"), summary)
 
 
 def _seed_character_heroes(conn: sqlite3.Connection, data_dir: Path) -> None:

@@ -27,13 +27,17 @@ Version history:
       group's roster, so there is no ``member_source`` and no citation column.
       Resolved through ``character_heroes`` exactly as ``title_holders`` is, so
       a profession reaches a hero with no NPC row of its own.
+ 16 — characters.summary: the tooltip text for a person. Until this column
+      existed generate_hints_json.py emitted nothing for people at all and
+      hints_supplement.json was the sole writer of every one, which also left
+      the npc_epithets rows stage 3 created rendering nowhere.
 """
 
 from __future__ import annotations
 
 import sqlite3
 
-CURRENT_VERSION = 15
+CURRENT_VERSION = 16
 
 _V1_DDL = """
 CREATE TABLE IF NOT EXISTS stories (
@@ -90,7 +94,12 @@ CREATE TABLE IF NOT EXISTS locations (
 CREATE TABLE IF NOT EXISTS characters (
     character_id TEXT PRIMARY KEY,
     name         TEXT NOT NULL,
-    status       TEXT NOT NULL DEFAULT 'Unknown'
+    status       TEXT NOT NULL DEFAULT 'Unknown',
+    -- Tooltip text (migration 16). Owned by descriptions.py like every other
+    -- registry's lore text, never by entries/catalogue/ — two writers for one
+    -- summary is the hazard the faction and species entries were migrated out
+    -- of. Preserve-on-empty, like status and locations.notes.
+    summary      TEXT NOT NULL DEFAULT ''
 );
 
 -- Identity spine (migration 12). heroes_canonical and characters are two
@@ -838,4 +847,25 @@ def migrate(conn: sqlite3.Connection) -> None:
             """
         )
         conn.execute("PRAGMA user_version = 15")
+        conn.commit()
+    if version < 16:
+        # The tooltip text for a person. generate_hints_json.py emitted entries
+        # for locations, monsters, fauna, flora, groups and species, and nothing
+        # at all for people, because there was nowhere to put the sentence — so
+        # hints_supplement.json hand-wrote all 39 NPC and 65 hero tooltips, and
+        # the 25 npc_epithets rows stage 3 created were correct data that
+        # rendered nowhere.
+        #
+        # Guarded by name like migration 12's ALTER, and resolved against
+        # whichever name the table currently has, for the reason migration 11
+        # had to be corrected: a database that has not reached the rename yet
+        # still calls this table `npcs`, and naming only one of the two would
+        # skip the column silently on exactly the databases that were behind.
+        tables = {r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+        target = "characters" if "characters" in tables else "npcs"
+        if target in tables:
+            cols = {r[1] for r in conn.execute(f"PRAGMA table_info({target})")}
+            if "summary" not in cols:
+                conn.execute(f"ALTER TABLE {target} ADD COLUMN summary TEXT NOT NULL DEFAULT ''")
+        conn.execute("PRAGMA user_version = 16")
         conn.commit()

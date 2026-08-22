@@ -59,3 +59,32 @@ def test_create_md_locations_includes_region_name_not_ids(tmp_path: Path) -> Non
     assert "LocationId" not in text and "RegionId" not in text
     assert "LObbbbbbbbbb" not in text and "RGaaaaaaaaaa" not in text
     assert "Test Region" in text and "Zed Town" in text
+
+
+def test_the_sync_hook_triggers_on_files_that_actually_exist() -> None:
+    """Every path in the ensure-create-md-sync trigger must be a real file.
+
+    Migration 12 renamed `npcs.csv` to `characters.csv` and `npcs.md` to
+    `characters.md`, updated `MD_FILES` in the script, and left this regex
+    naming the old paths. The hook then stopped firing for the largest registry
+    in the repo — a rename cannot break a mirror check loudly, so it broke it
+    silently, and the mirror could drift exactly as the hand-written
+    character-groups page once did.
+    """
+    import re
+
+    root = Path(__file__).resolve().parent.parent
+    config = (root / ".pre-commit-config.yaml").read_text(encoding="utf-8")
+    hook = config[config.index("id: ensure-create-md-sync") :]
+    line = next(x for x in hook.splitlines() if x.strip().startswith("files:"))
+    pattern = line.split("files:", 1)[1].strip()
+
+    # Pull the alternations back out of the anchored regex and rebuild the paths.
+    stems = re.findall(r"\(([a-z0-9|+-]+)\)\\\.(csv|md)", pattern)
+    missing = []
+    for group, ext in stems:
+        folder = "csv" if ext == "csv" else "md"
+        for stem in group.split("|"):
+            if not (root / "src" / "data" / folder / f"{stem}.{ext}").is_file():
+                missing.append(f"src/data/{folder}/{stem}.{ext}")
+    assert not missing, f"ensure-create-md-sync triggers on files that do not exist: {missing}"

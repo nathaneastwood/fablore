@@ -1227,6 +1227,10 @@ class Database:
                 rows = q.update_species_notes(self.conn, _species_id(name), description)
                 if rows == 0:
                     raise ValueError(f"Species not found: {name!r}")
+            elif entity_type == "character":
+                rows = q.update_character_summary(self.conn, lore_character_id(name), description)
+                if rows == 0:
+                    raise ValueError(f"Character not found: {name!r}")
             elif entity_type == "title":
                 rows = q.update_title_notes(self.conn, _title_id(name), description)
                 if rows == 0:
@@ -1244,7 +1248,8 @@ class Database:
             else:
                 raise ValueError(
                     f"Unknown entity type: {entity_type!r}. "
-                    "Use 'monster', 'fauna', 'flora', 'location', 'group', 'species', 'title', or 'profession'."
+                    "Use 'monster', 'fauna', 'flora', 'location', 'group', 'species', "
+                    "'title', 'profession' or 'character'."
                 )
         _export.export_registry_tables(self.conn, self._data_dir)
 
