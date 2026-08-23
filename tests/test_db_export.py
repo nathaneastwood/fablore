@@ -358,6 +358,29 @@ def test_export_all_creates_heroes_and_weapons_files(db: Database, tmp_path: Pat
         assert (csv_dir / fname).exists(), f"Missing {fname}"
 
 
+def test_export_all_covers_every_file_the_narrower_exports_write(db: Database, tmp_path: Path) -> None:
+    """``export_all`` must be a superset of the narrower public exporters.
+
+    Its docstring promises "every CSV file in ``data_dir/csv/``", and callers
+    read it that way. It once skipped the eight registry tables that only
+    ``export_registry_tables`` wrote — groups, group members, the three alias
+    tables, species, titles, title holders, kin and professions — so an export
+    could run clean and leave those CSVs stale. Comparing the file sets keeps
+    a new exporter from being added to one function and forgotten in the other.
+    """
+    narrow = tmp_path / "narrow"
+    _export.export_stories(db.conn, narrow)
+    _export.export_registry_tables(db.conn, narrow)
+    _export.export_story_junctions(db.conn, narrow)
+
+    wide = tmp_path / "wide"
+    _export.export_all(db.conn, wide)
+
+    narrow_files = {p.name for p in (narrow / "csv").glob("*.csv")}
+    wide_files = {p.name for p in (wide / "csv").glob("*.csv")}
+    assert narrow_files - wide_files == set()
+
+
 # ---------------------------------------------------------------------------
 # dump_to_json
 # ---------------------------------------------------------------------------

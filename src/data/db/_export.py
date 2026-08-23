@@ -84,7 +84,19 @@ def _export_story_narrated_videos(conn: sqlite3.Connection, csv_dir: Path) -> No
 
 
 def export_all(conn: sqlite3.Connection, data_dir: Path) -> None:
-    """Regenerate every CSV file in ``data_dir/csv/`` from the database.
+    """Regenerate every database-backed CSV file in ``data_dir/csv/``.
+
+    Four CSVs in that directory have no table behind them and are never written
+    here: ``story-arcs.csv`` and ``reviewed-name-pairs.csv`` are hand-maintained,
+    and ``heroes-ll.csv`` / ``hero-card-name-aliases.csv`` are inputs to
+    ``create_heroes_csv.py``. Everything else is exported.
+
+    Superset of :func:`export_stories`, :func:`export_registry_tables` and
+    :func:`export_story_junctions`. It skipped the eight registry tables only
+    ``export_registry_tables`` wrote until the docstring was made true, which
+    let an export run clean and leave groups, aliases, species, titles, kin and
+    professions stale. ``tests/test_db_export.py`` compares the file sets, so a
+    new exporter added to one of the narrower functions cannot be forgotten here.
 
     Args:
         conn: Open database connection.
@@ -100,6 +112,14 @@ def export_all(conn: sqlite3.Connection, data_dir: Path) -> None:
     _export_fauna(conn, csv_dir)
     _export_flora(conn, csv_dir)
     _export_food_drink(conn, csv_dir)
+    _export_groups(conn, csv_dir)
+    _export_group_members(conn, csv_dir)
+    _export_alternate_names(conn, csv_dir)
+    _export_species(conn, csv_dir)
+    _export_titles(conn, csv_dir)
+    _export_title_holders(conn, csv_dir)
+    _export_character_kin(conn, csv_dir)
+    _export_professions(conn, csv_dir)
     _export_heroes_canonical(conn, csv_dir)
     _export_character_heroes(conn, csv_dir)
     _export_heroes_game(conn, csv_dir)
