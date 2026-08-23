@@ -207,7 +207,7 @@ class CharacterEntry:
     """A non-playable character to link to a story.
 
     Frozen because the canonical definition of each character lives in
-    ``entries/catalogue/npcs.py`` and one instance is shared by every story that
+    ``entries/catalogue/characters.py`` and one instance is shared by every story that
     links it — a mutation would silently rewrite the entity for unrelated pages.
     """
 
@@ -282,7 +282,7 @@ class CharacterEntry:
     ``(relative, relation, story_key)`` triples when one fact is attested
     somewhere worth citing (see :func:`_kin_triple`). ``relative`` is an
     :class:`CharacterEntry` or a canonical hero slug string, resolved through
-    ``character_heroes`` exactly as ``TitleEntry.hero_holders`` resolves one —
+    ``character_heroes`` exactly as a slug in ``TitleEntry.holders`` resolves one —
     after migration 12 both a hero and an ordinary character land in the same ``characters``
     row, so one column, and one type here, holds either::
 
@@ -426,7 +426,7 @@ class GroupEntry:
     name this group". See D1 in ``plans/character-groups-schema-options.md``.
 
     Import direction is one-way — ``catalogue/groups.py`` imports
-    ``catalogue/npcs.py``, never the reverse — so no cycle is possible.
+    ``catalogue/characters.py``, never the reverse — so no cycle is possible.
     """
 
     name: str
@@ -541,14 +541,13 @@ class TitleEntry:
     hang it from, so no ``upsert_story()`` call could assert it on its own.
     Mentions stay on the story, via ``upsert_story(titles=[...])``.
 
-    ``hero_holders`` takes canonical hero slugs and resolves them through
-    ``character_heroes`` rather than through a second junction table. That is
-    the first thing migration 12's identity spine makes possible: a hero and an
-    ordinary character can land in the *same* ``title_holders.character_id`` column, because a
-    hero and an ordinary character are now rows of the same ``characters`` table.
-    ``GroupEntry`` reached the same shape in migration 18, one ``members``
-    field feeding ``group_characters``; ``TitleEntry`` was built after the
-    merge and never needed a hero half at all.
+    ``holders`` takes a :class:`CharacterEntry` or a canonical hero slug in one
+    list, resolving a slug through ``character_heroes`` rather than through a
+    second junction table. That is the first thing migration 12's identity
+    spine makes possible: a hero and an ordinary character land in the *same*
+    ``title_holders.character_id`` column, because they are rows of the same
+    ``characters`` table. ``GroupEntry`` reached the same shape in migration 18,
+    one ``members`` field feeding ``group_characters``.
 
     Holders are **replace-semantic**, like a group roster: a short holder list
     replaces the stored one, so a dropped holder is a silent deletion. The dry
@@ -560,15 +559,21 @@ class TitleEntry:
     group: "GroupEntry | None" = None
     """The body this office belongs to, if any: ``Dracai of Aether`` hangs off
     the Dracai; ``Soothsayer`` hangs off nothing."""
-    npc_holders: tuple[tuple["CharacterEntry", int, str], ...] = ()
-    """``(npc, ordinal, story_key)`` triples. ``ordinal`` records a succession
-    where the lore gives one (Grand Magister 1-5) and is ``0`` where it does
-    not — it is not unique, and several holders may share one (the Dracai, held
-    concurrently). ``story_key`` cites the page that attests the holder."""
-    hero_holders: tuple[tuple[str, int, str], ...] = ()
-    """``(hero_slug, ordinal, story_key)`` triples, resolved through
-    ``character_heroes``. An unknown slug raises, the same as a slug in
-    ``characters=`` and ``CharacterEntry.hero_slug``."""
+    holders: tuple[tuple["CharacterEntry | str", int, str], ...] = ()
+    """``(person, ordinal, story_key)`` triples.
+
+    ``person`` is a :class:`CharacterEntry` or a canonical hero slug string —
+    one field for both, the item type ``GroupEntry.members``,
+    ``CharacterEntry.kin`` and ``upsert_story``'s ``characters=`` already share.
+    ``title_holders`` has one ``character_id`` column, so the two forms were
+    never two kinds of holder; they are two ways of naming a row in
+    ``characters``, and an unknown slug raises exactly as it does in
+    ``characters=``.
+
+    ``ordinal`` records a succession where the lore gives one (Grand Magister
+    1-5) and is ``0`` where it does not — it is not unique, and several holders
+    may share one (the Dracai, held concurrently). ``story_key`` cites the page
+    that attests the holder."""
 
 
 # ---------------------------------------------------------------------------
@@ -2082,23 +2087,17 @@ class Database:
         """
         resolved: list[tuple[str, int, str, str]] = []
         seen: dict[str, str] = {}
-        for character_entry, ordinal, story_key in entry.npc_holders:
-            cid = lore_character_id(character_entry.name)
-            origin = character_entry.name
+        for person, ordinal, story_key in entry.holders:
+            if isinstance(person, str):
+                canonical_id = self._resolve_heroes([person])[0]
+                cid = self._predict_hero_character_id(canonical_id)
+                origin = f"hero_slug {person!r}"
+            else:
+                cid = lore_character_id(person.name)
+                origin = repr(person.name)
             if cid in seen:
                 raise ValueError(
-                    f"{entry.name!r} names {seen[cid]!r} and {origin!r} as the same title holder "
-                    f"(character_id {cid!r}). A holder is one row; give this person one entry."
-                )
-            seen[cid] = origin
-            resolved.append((cid, ordinal, story_key, origin))
-        for slug, ordinal, story_key in entry.hero_holders:
-            canonical_id = self._resolve_heroes([slug])[0]
-            cid = self._predict_hero_character_id(canonical_id)
-            origin = f"hero_slug {slug!r}"
-            if cid in seen:
-                raise ValueError(
-                    f"{entry.name!r} names {seen[cid]!r} and {origin} as the same title holder "
+                    f"{entry.name!r} names {seen[cid]} and {origin} as the same title holder "
                     f"(character_id {cid!r}). A holder is one row; give this person one entry."
                 )
             seen[cid] = origin
@@ -2123,13 +2122,15 @@ class Database:
 
         # Holder rows must exist before title_holders.character_id can
         # reference them — mirrors the group roster's _upsert_characters call.
-        self._upsert_characters([person for person, _ordinal, _source in entry.npc_holders])
+        self._upsert_characters([p for p, _ordinal, _source in entry.holders if not isinstance(p, str)])
 
-        # Hero holder rows must exist too. An existing character_heroes link
+        # A slug holder's row must exist too. An existing character_heroes link
         # always wins; this only fills a gap, the same INSERT-OR-IGNORE
         # contract _self_heal_character_heroes uses at seed time — so a title
         # naming a hero with no character row yet still resolves cleanly.
-        for slug, _ordinal, _source in entry.hero_holders:
+        for slug, _ordinal, _source in entry.holders:
+            if not isinstance(slug, str):
+                continue
             canonical_id = self._resolve_heroes([slug])[0]
             if not q.select_character_id_for_hero(self.conn, canonical_id):
                 row = self.conn.execute(
@@ -2491,7 +2492,7 @@ class Database:
             The kwargs are not the whole list. ``_upsert_one_group`` walks into
             ``parent``, ``location`` and ``members``, ``_upsert_locations``
             walks into ``parent``, and ``_upsert_one_title`` walks into ``group``
-            and ``npc_holders`` — each of those writes the entity's alternate
+            and ``holders`` — each of those writes the entity's alternate
             names just as a top-level one does. Reporting only the kwargs would
             leave a nested change applying in silence, which is the exact shape
             this preview exists to catch: Ozrim and Maela Fairmind are reachable
@@ -2561,8 +2562,9 @@ class Database:
                 seen_title[entry.name] = entry
                 if entry.group is not None:
                     walk_group(entry.group)
-                for character_entry, _ordinal, _source in entry.npc_holders:
-                    walk_character(character_entry)
+                for person, _ordinal, _source in entry.holders:
+                    if not isinstance(person, str):
+                        walk_character(person)
 
             for entry in characters or []:
                 if not isinstance(entry, str):
@@ -3089,7 +3091,7 @@ class Database:
                 resolved = self._resolve_title_holders(entry)
 
                 if row is None:
-                    n_holders = len(entry.npc_holders) + len(entry.hero_holders)
+                    n_holders = len(entry.holders)
                     grp = f", group={group_name!r}" if group_name else ""
                     lines.append(f"    + {entry.name} (new title{grp}, {n_holders} holder(s))")
                     continue

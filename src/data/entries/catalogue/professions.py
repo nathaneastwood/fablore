@@ -5,7 +5,7 @@ second ``ProfessionEntry`` literal for the same trade reuses this row rather
 than minting a second one. The real trap is a *changed* name — that mints a
 new row and strands the old one, the same as every other registry id.
 
-``catalogue/npcs.py`` will reference these as ``prof.NAME`` once the first
+``catalogue/characters.py`` will reference these as ``prof.NAME`` once the first
 profession lands; nothing else should import this module. See
 ``entries/catalogue/species.py`` for the same one-way shape.
 

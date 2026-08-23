@@ -104,7 +104,7 @@ def test_titles_empty_list_clears_links(db: Database) -> None:
 def test_an_entry_holder_is_written_from_the_title(db: Database) -> None:
     entry = TitleEntry(
         "Grand Magister",
-        npc_holders=((CharacterEntry("Aeric"), 1, "world-of-rathe/solana.md"),),
+        holders=((CharacterEntry("Aeric"), 1, "world-of-rathe/solana.md"),),
     )
     _story(db, titles=[entry])
     holders = q.select_title_holders(db.conn, title_id("Grand Magister"))
@@ -118,7 +118,7 @@ def test_hero_holder_resolves_through_character_heroes(db: Database) -> None:
     q.upsert_character(db.conn, character_id=resolved_character_id, name="Kano")
     q.set_character_hero(db.conn, hid, resolved_character_id)
 
-    entry = TitleEntry("Dracai of Aether", hero_holders=(("kano", 0, "heroes-of-rathe/kano-about.md"),))
+    entry = TitleEntry("Dracai of Aether", holders=(("kano", 0, "heroes-of-rathe/kano-about.md"),))
     _story(db, titles=[entry])
     holders = q.select_title_holders(db.conn, title_id("Dracai of Aether"))
     assert holders == [(resolved_character_id, 0, "heroes-of-rathe/kano-about.md")]
@@ -129,7 +129,7 @@ def test_hero_holder_self_heals_character_heroes_when_missing(db: Database) -> N
     hid = _seed_hero(db, "kano", "Kano")
     assert q.select_character_id_for_hero(db.conn, hid) is None
 
-    entry = TitleEntry("Dracai of Aether", hero_holders=(("kano", 0, "x.md"),))
+    entry = TitleEntry("Dracai of Aether", holders=(("kano", 0, "x.md"),))
     _story(db, titles=[entry])
 
     minted = lore_character_id("Kano")
@@ -139,13 +139,13 @@ def test_hero_holder_self_heals_character_heroes_when_missing(db: Database) -> N
 
 def test_unknown_hero_slug_raises(db: Database) -> None:
     with pytest.raises(ValueError):
-        _story(db, titles=[TitleEntry("Dracai of Aether", hero_holders=(("no-such-hero", 0, "x.md"),))])
+        _story(db, titles=[TitleEntry("Dracai of Aether", holders=(("no-such-hero", 0, "x.md"),))])
 
 
 def test_a_holder_may_not_be_named_twice_as_an_entry(db: Database) -> None:
     entry = TitleEntry(
         "Grand Magister",
-        npc_holders=(
+        holders=(
             (CharacterEntry("Aeric"), 1, "x.md"),
             (CharacterEntry("Aeric"), 2, "y.md"),
         ),
@@ -158,7 +158,7 @@ def test_a_holder_may_not_be_named_twice_as_hero_slug(db: Database) -> None:
     _seed_hero(db, "kano", "Kano")
     entry = TitleEntry(
         "Dracai of Aether",
-        hero_holders=(
+        holders=(
             ("kano", 0, "x.md"),
             ("kano", 1, "y.md"),
         ),
@@ -173,17 +173,40 @@ def test_the_same_person_may_not_be_named_as_both_entry_and_hero(db: Database) -
     _story(db, characters=[CharacterEntry("Kano", hero_slug="kano")])
     entry = TitleEntry(
         "Dracai of Aether",
-        npc_holders=((CharacterEntry("Kano"), 0, "x.md"),),
-        hero_holders=(("kano", 0, "y.md"),),
+        holders=((CharacterEntry("Kano"), 0, "x.md"), ("kano", 0, "y.md")),
     )
     with pytest.raises(ValueError, match="Kano"):
         _story(db, titles=[entry])
 
 
+def test_holders_mixes_a_hero_slug_and_a_character_entry_in_one_list(db: Database) -> None:
+    """One field takes both forms, the way ``GroupEntry.members`` does.
+
+    ``title_holders`` has one ``character_id`` column, so the two declaration
+    forms were never two kinds of holder — they were two ways of naming a row in
+    ``characters``. Splitting them across ``npc_holders`` and ``hero_holders``
+    made the caller decide which list a person belonged in before the database
+    cared.
+    """
+    _seed_hero(db, "kano", "Kano")
+    entry = TitleEntry(
+        "Dracai of Aether",
+        holders=(
+            (CharacterEntry("Aeric"), 1, "x.md"),
+            ("kano", 2, "y.md"),
+        ),
+    )
+    _story(db, titles=[entry])
+
+    rows = q.select_title_holders(db.conn, title_id("Dracai of Aether"))
+    assert len(rows) == 2
+    assert {r[1] for r in rows} == {1, 2}
+
+
 def test_the_duplicate_guard_fires_on_the_preview_path_too(db: Database) -> None:
     entry = TitleEntry(
         "Grand Magister",
-        npc_holders=((CharacterEntry("Aeric"), 1, "x.md"), (CharacterEntry("Aeric"), 2, "y.md")),
+        holders=((CharacterEntry("Aeric"), 1, "x.md"), (CharacterEntry("Aeric"), 2, "y.md")),
     )
     with pytest.raises(ValueError, match="Aeric"):
         _story(db, titles=[entry], dry_run=True)
@@ -192,18 +215,18 @@ def test_the_duplicate_guard_fires_on_the_preview_path_too(db: Database) -> None
 def test_holders_are_replace_semantic(db: Database) -> None:
     two = TitleEntry(
         "Grand Magister",
-        npc_holders=((CharacterEntry("Aeric"), 1, "x.md"), (CharacterEntry("Bellwyn"), 2, "x.md")),
+        holders=((CharacterEntry("Aeric"), 1, "x.md"), (CharacterEntry("Bellwyn"), 2, "x.md")),
     )
     _story(db, titles=[two])
     assert len(q.select_title_holders(db.conn, title_id("Grand Magister"))) == 2
-    _story(db, titles=[TitleEntry("Grand Magister", npc_holders=((CharacterEntry("Aeric"), 1, "x.md"),))])
+    _story(db, titles=[TitleEntry("Grand Magister", holders=((CharacterEntry("Aeric"), 1, "x.md"),))])
     assert len(q.select_title_holders(db.conn, title_id("Grand Magister"))) == 1
 
 
 def test_emptied_holders_is_a_deletion_not_a_no_op(db: Database) -> None:
     _story(
         db,
-        titles=[TitleEntry("Grand Magister", npc_holders=((CharacterEntry("Aeric"), 1, "x.md"),))],
+        titles=[TitleEntry("Grand Magister", holders=((CharacterEntry("Aeric"), 1, "x.md"),))],
     )
     _story(db, titles=[TitleEntry("Grand Magister")])
     assert q.select_title_holders(db.conn, title_id("Grand Magister")) == []
@@ -213,7 +236,7 @@ def test_ordinal_records_succession_and_is_not_unique(db: Database) -> None:
     """The Dracai shape: several holders, all ordinal 0, held concurrently."""
     entry = TitleEntry(
         "Dracai",
-        npc_holders=((CharacterEntry("Aeric"), 0, "x.md"), (CharacterEntry("Bellwyn"), 0, "x.md")),
+        holders=((CharacterEntry("Aeric"), 0, "x.md"), (CharacterEntry("Bellwyn"), 0, "x.md")),
     )
     _story(db, titles=[entry])
     holders = q.select_title_holders(db.conn, title_id("Dracai"))
@@ -222,7 +245,7 @@ def test_ordinal_records_succession_and_is_not_unique(db: Database) -> None:
 
 
 def test_dry_run_removal_line_matches_what_the_apply_does(db: Database, capsys) -> None:
-    _story(db, titles=[TitleEntry("Grand Magister", npc_holders=((CharacterEntry("Aeric"), 1, "x.md"),))])
+    _story(db, titles=[TitleEntry("Grand Magister", holders=((CharacterEntry("Aeric"), 1, "x.md"),))])
     capsys.readouterr()
     db.upsert_story(
         path="src/world-of-rathe/solana.md",
@@ -282,8 +305,7 @@ def test_titles_survive_the_csv_round_trip(db: Database, tmp_path: Path) -> None
     entry = TitleEntry(
         "Dracai of Aether",
         group=GroupEntry("Dracai Council"),
-        npc_holders=((CharacterEntry("Aeric"), 1, "x.md"),),
-        hero_holders=(("kano", 0, "y.md"),),
+        holders=((CharacterEntry("Aeric"), 1, "x.md"), ("kano", 0, "y.md")),
     )
     _story(db, titles=[entry])
     ex.export_registry_tables(db.conn, tmp_path)
@@ -322,7 +344,7 @@ def test_dry_run_reports_new_titles_and_writes_nothing(db: Database, capsys) -> 
 def test_dry_run_flags_a_holder_list_that_would_shrink(db: Database, capsys) -> None:
     entry = TitleEntry(
         "Grand Magister",
-        npc_holders=((CharacterEntry("Aeric"), 1, "x.md"), (CharacterEntry("Bellwyn"), 2, "x.md")),
+        holders=((CharacterEntry("Aeric"), 1, "x.md"), (CharacterEntry("Bellwyn"), 2, "x.md")),
     )
     _story(db, titles=[entry])
     capsys.readouterr()
@@ -330,15 +352,15 @@ def test_dry_run_flags_a_holder_list_that_would_shrink(db: Database, capsys) -> 
         path="src/world-of-rathe/solana.md",
         story_type="world-of-rathe",
         title="T",
-        titles=[TitleEntry("Grand Magister", npc_holders=((CharacterEntry("Aeric"), 1, "x.md"),))],
+        titles=[TitleEntry("Grand Magister", holders=((CharacterEntry("Aeric"), 1, "x.md"),))],
         dry_run=True,
     )
     assert "REMOVED from title_holders" in capsys.readouterr().out
 
 
 def test_dry_run_reports_an_epithet_on_a_title_holder(db: Database, capsys) -> None:
-    """The preview reaches into npc_holders, the same way it reaches group rosters."""
-    entry = TitleEntry("Grand Magister", npc_holders=((CharacterEntry("Aeric"), 1, "x.md"),))
+    """The preview reaches into holders, the same way it reaches group rosters."""
+    entry = TitleEntry("Grand Magister", holders=((CharacterEntry("Aeric"), 1, "x.md"),))
     _story(db, titles=[entry])
     capsys.readouterr()
     db.upsert_story(
@@ -348,7 +370,7 @@ def test_dry_run_reports_an_epithet_on_a_title_holder(db: Database, capsys) -> N
         titles=[
             TitleEntry(
                 "Grand Magister",
-                npc_holders=((CharacterEntry("Aeric", epithets=("Keeper of the Light",)), 1, "x.md"),),
+                holders=((CharacterEntry("Aeric", epithets=("Keeper of the Light",)), 1, "x.md"),),
             )
         ],
         dry_run=True,
@@ -361,7 +383,7 @@ def test_dry_run_reports_a_new_character_created_only_through_a_title(db: Databa
         path="src/world-of-rathe/solana.md",
         story_type="world-of-rathe",
         title="T",
-        titles=[TitleEntry("Grand Magister", npc_holders=((CharacterEntry("Aeric"), 1, "x.md"),))],
+        titles=[TitleEntry("Grand Magister", holders=((CharacterEntry("Aeric"), 1, "x.md"),))],
         dry_run=True,
     )
     assert "+ Aeric" in capsys.readouterr().out
@@ -387,7 +409,7 @@ def test_preview_survives_the_dry_run_without_writing_a_hero_link(db: Database, 
         path="src/world-of-rathe/solana.md",
         story_type="world-of-rathe",
         title="T",
-        titles=[TitleEntry("Dracai of Aether", hero_holders=(("kano", 0, "x.md"),))],
+        titles=[TitleEntry("Dracai of Aether", holders=(("kano", 0, "x.md"),))],
         dry_run=True,
     )
     capsys.readouterr()

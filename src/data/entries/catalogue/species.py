@@ -8,7 +8,7 @@ check, and a column nothing can validate is a column that drifts.
 ``species_id`` is a hash of the name, so a second ``SpeciesEntry`` literal for
 ``Human`` reuses this row rather than minting a second one. The real trap is a
 *changed* name — that mints a new row and strands the old one, the same as
-every other registry id. ``catalogue/npcs.py`` references these as ``sp.NAME``;
+every other registry id. ``catalogue/characters.py`` references these as ``sp.NAME``;
 nothing else does, so no section module needs the import.
 
 The **notes** live in ``descriptions.py``, like every other registry's lore text.
