@@ -352,6 +352,57 @@ def test_missing_csv_files_do_not_raise(tmp_path: Path) -> None:
     assert graph == {"nodes": [], "links": [], "prints": [], "groups": [], "subs": []}
 
 
+def test_the_module_docstring_counts_its_own_junction_tuple() -> None:
+    """The number the module docstring gives must match the `junctions` tuple.
+
+    The docstring said "ten" against eleven entries before the story junction
+    merge, and "nine" against ten after it — a count written in prose drifts
+    every time a junction is added or two are folded together, and nothing
+    fails. Reading the tuple out of the source with `ast` holds the two
+    together without importing `build_graph`'s locals.
+    """
+    import ast
+    import re
+
+    import mdbook_graph
+
+    tree = ast.parse(Path(mdbook_graph.__file__).read_text(encoding="utf-8"))
+    sizes = [
+        len(node.value.elts)
+        for node in ast.walk(tree)
+        if isinstance(node, ast.Assign)
+        and len(node.targets) == 1
+        and isinstance(node.targets[0], ast.Name)
+        and node.targets[0].id == "junctions"
+        and isinstance(node.value, ast.Tuple)
+    ]
+    assert len(sizes) == 1, f"expected one `junctions` tuple, found {len(sizes)}"
+
+    words = {
+        "one": 1,
+        "two": 2,
+        "three": 3,
+        "four": 4,
+        "five": 5,
+        "six": 6,
+        "seven": 7,
+        "eight": 8,
+        "nine": 9,
+        "ten": 10,
+        "eleven": 11,
+        "twelve": 12,
+        "thirteen": 13,
+        "fourteen": 14,
+        "fifteen": 15,
+    }
+    doc = ast.get_docstring(tree) or ""
+    match = re.search(r"the (\w+) ``story-\*`` junction CSVs", doc)
+    assert match, "the module docstring no longer counts the junction CSVs"
+    stated = words.get(match.group(1))
+    assert stated is not None, f"unrecognised number word {match.group(1)!r}"
+    assert stated == sizes[0], f"docstring says {match.group(1)}, tuple has {sizes[0]}"
+
+
 # ---------------------------------------------------------------------------
 # Sets
 # ---------------------------------------------------------------------------

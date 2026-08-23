@@ -7,7 +7,7 @@ inline ``<script>`` carrying the node/link payload plus the canvas shell that
 ``theme/graph.js`` renders into.
 
 The graph is bipartite: every story is a node, every registry entity that a story
-links to is a node, and every row of the nine ``story-*`` junction CSVs is an edge.
+links to is a node, and every row of the ten ``story-*`` junction CSVs is an edge.
 Entities that no story references are left out — they would render as isolated
 dots. Story types that exist only as reference pages (``heroes-of-rathe``,
 ``other-characters``, ``weapons``, ``equipment``) are skipped as *story* nodes
