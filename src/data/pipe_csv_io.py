@@ -18,20 +18,9 @@ REGENERATE_CREATE_STORIES_INDEX = "python3 src/data/create_stories_index.py"
 REGENERATE_CREATE_WEAPONS = "python3 src/data/create_weapons_csv.py"
 REGENERATE_CREATE_EQUIPMENT = "python3 src/data/create_equipment_csv.py"
 REGENERATE_CLASSES_TALENTS = "python3 src/data/create_classes_talents_csv.py"
-REGENERATE_STORY_CLASS = "Use the Story class in src/data/story.py."
-# Lore registry CSVs upserted by ``Story.link_npc``, ``link_monster``, ``link_fauna``,
-# ``link_flora``, ``link_food_drink``, ``link_location`` (and ``regions.csv`` when
-# ``link_location`` or ``link_region`` is given ``region_name``);
-# ``npc_lore.write_npc_rows`` for NPCs.
-REGENERATE_STORY_REGISTRY = (
-    "Use the Story class in src/data/story.py (Story.link_npc / link_monster / link_fauna / "
-    "link_flora / link_food_drink / link_location / link_region — link_location and "
-    "link_region upsert regions.csv when region_name is set)."
-)
-# Banner hint for ``story-*.csv`` junction files (written by ``story.py`` and first-run
-# ``create_stories_index.ensure_junction_headers``).
-REGENERATE_STORY_JUNCTIONS = "Use the Story class in src/data/story.py (Story.link_* / Story.remove)."
-REGENERATE_HEROES_CANONICAL = "Story.add_canonical_hero (src/data/story.py) or python3 src/data/create_heroes_csv.py"
+# The registry and junction banners live in db/_export.py as _CMD_REGISTRY and
+# _CMD_JUNCTIONS — those files are written by the exporter, not by a generator
+# that reads from here.
 
 
 def auto_gen_banner(regenerate_command: str) -> str:
