@@ -12,7 +12,7 @@ repos:
         entry: bash scripts/ensure-hints-json-sync.sh
         language: system
         pass_filenames: false
-        files: ^(src/hints_supplement\.json|src/data/(generate_hints_json\.py|descriptions\.py|csv/(locations|monsters|fauna|flora)\.csv))$
+        files: ^(src/hints_supplement\.json|src/data/(generate_hints_json\.py|descriptions\.py|csv/(character-heroes|characters|fauna|flora|group-aliases|groups|location-aliases|locations|monsters|npc-epithets|npc-species|regions|species|species-aliases)\.csv))$
       - id: validate-data
         name: validate-data
         entry: python3 src/data/validate_data.py
