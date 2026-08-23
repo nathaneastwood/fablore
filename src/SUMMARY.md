@@ -327,7 +327,7 @@
     - [Non-Set Cards](flavour/non-set-cards.md)
 
 - [Data](data/data.md)
-    - [NPCs](data/md/characters.md)
+    - [Characters](data/md/characters.md)
     - [Character Groups](data/md/character-groups.md)
     - [Fauna](data/md/fauna.md)
     - [Flora](data/md/flora.md)
