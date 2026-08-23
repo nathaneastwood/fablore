@@ -22,7 +22,7 @@ from db import (
     GroupEntry,
     FoodDrinkEntry,
     LocationEntry,
-    NPCEntry,
+    CharacterEntry,
     NarratedVideoEntry,
     RegionEntry,
     SpeciesEntry,
@@ -167,13 +167,13 @@ def test_preview_stays_silent_when_omitted_field_is_preserved(db: Database, caps
     assert "A city." not in report
 
 
-def test_preview_reports_npc_status_change(db: Database, capsys) -> None:
-    """Overwriting a curated NPC status is a write the preview must show."""
+def test_preview_reports_character_status_change(db: Database, capsys) -> None:
+    """Overwriting a curated character status is a write the preview must show."""
     db.upsert_story(
         "src/main-story/z.md",
         story_type="main-story",
         title="Z",
-        characters=[NPCEntry("Lord Sutcliffe", species=SpeciesEntry("Human"), status="Just a head")],
+        characters=[CharacterEntry("Lord Sutcliffe", species=SpeciesEntry("Human"), status="Just a head")],
     )
 
     report = _preview(
@@ -182,7 +182,7 @@ def test_preview_reports_npc_status_change(db: Database, capsys) -> None:
         path="src/main-story/z.md",
         story_type="main-story",
         title="Z",
-        characters=[NPCEntry("Lord Sutcliffe", species=SpeciesEntry("Human"), status="Deceased")],
+        characters=[CharacterEntry("Lord Sutcliffe", species=SpeciesEntry("Human"), status="Deceased")],
     )
 
     assert "Lord Sutcliffe" in report
@@ -334,7 +334,7 @@ def test_preview_reports_a_membership_changing_its_source(db: Database, capsys) 
         groups=[
             GroupEntry(
                 "The Maela",
-                members=(NPCEntry("Kaysin"),),
+                members=(CharacterEntry("Kaysin"),),
                 member_source="flavour/compendium-of-rathe.md",
             )
         ],
@@ -346,7 +346,7 @@ def test_preview_reports_a_membership_changing_its_source(db: Database, capsys) 
         path="src/main-story/x.md",
         story_type="main-story",
         title="X",
-        groups=[GroupEntry("The Maela", members=((NPCEntry("Kaysin"), "flavour/rosetta.md"),))],
+        groups=[GroupEntry("The Maela", members=((CharacterEntry("Kaysin"), "flavour/rosetta.md"),))],
     )
 
     assert "flavour/rosetta.md" in report, "the new citation is not shown"
@@ -357,7 +357,7 @@ def test_preview_stays_silent_when_a_membership_keeps_its_source(db: Database, c
     """The source diff must not fire on an unchanged roster."""
     entry = GroupEntry(
         "The Maela",
-        members=((NPCEntry("Kaysin"), "flavour/rosetta.md"),),
+        members=((CharacterEntry("Kaysin"), "flavour/rosetta.md"),),
     )
     db.upsert_story("src/main-story/x.md", story_type="main-story", title="X", groups=[entry])
 
@@ -379,7 +379,7 @@ def test_preview_reports_a_group_reached_only_as_a_parent(db: Database, capsys) 
     stable = GroupEntry(
         "Speakeasy's Guilds",
         kind="stable",
-        members=(NPCEntry("Speakeasy"),),
+        members=(CharacterEntry("Speakeasy"),),
         member_source="main-story/super-slam/feudmasters.md",
     )
     report = _preview(
@@ -396,9 +396,9 @@ def test_preview_reports_a_group_reached_only_as_a_parent(db: Database, capsys) 
     assert "1 members" in report, "the parent's roster is not previewed"
 
 
-def test_preview_reports_npc_status_change_for_a_roster_member(db: Database, capsys) -> None:
+def test_preview_reports_character_status_change_for_a_roster_member(db: Database, capsys) -> None:
     """``_upsert_one_group`` writes ``status``/``other_characters_story_key`` for
-    roster NPCs too, via ``_upsert_npcs`` — so an overwrite reached only through
+    roster characters too, via ``_upsert_characters`` — so an overwrite reached only through
     a group roster must be shown, not just one named in the top-level ``characters=``.
     """
     db.upsert_story(
@@ -408,7 +408,7 @@ def test_preview_reports_npc_status_change_for_a_roster_member(db: Database, cap
         groups=[
             GroupEntry(
                 "The Maela",
-                members=(NPCEntry("Kaysin", status="Just a head"),),
+                members=(CharacterEntry("Kaysin", status="Just a head"),),
                 member_source="flavour/compendium-of-rathe.md",
             )
         ],
@@ -423,14 +423,14 @@ def test_preview_reports_npc_status_change_for_a_roster_member(db: Database, cap
         groups=[
             GroupEntry(
                 "The Maela",
-                members=(NPCEntry("Kaysin", status="Deceased"),),
+                members=(CharacterEntry("Kaysin", status="Deceased"),),
                 member_source="flavour/compendium-of-rathe.md",
             )
         ],
     )
 
     assert "Kaysin" in report
-    assert "Just a head" in report and "Deceased" in report, "the roster NPC's status overwrite is not shown"
+    assert "Just a head" in report and "Deceased" in report, "the roster character's status overwrite is not shown"
 
 
 def test_preview_warns_when_a_group_location_forks_a_new_row(db: Database, capsys) -> None:
@@ -490,12 +490,12 @@ def test_preview_reports_region_world_key_change_named_only_by_a_location(db: Da
     assert "world-of-rathe/wrong.md" in report, "the world key overwrite via a location is not shown"
 
 
-def test_preview_reports_npc_created_only_through_a_group_roster(db: Database, capsys) -> None:
-    """An NPC with no species, epithets or short names is invisible except via the
+def test_preview_reports_a_character_created_only_through_a_group_roster(db: Database, capsys) -> None:
+    """A character with no species, epithets or short names is invisible except via the
     roster's member count.
 
     ``_show_attr_changes`` returns early on a row that does not exist yet, and
-    ``_show_links_diff("NPCs")`` only walks the ``npcs`` kwarg — so an NPC
+    ``_show_links_diff("Characters")`` only walks the ``characters=`` kwarg — so a character
     introduced purely through a group roster, with nothing else to surface it in
     the alternate-names diff, was created in total silence under a group line
     reading "1 members".
@@ -509,22 +509,22 @@ def test_preview_reports_npc_created_only_through_a_group_roster(db: Database, c
         groups=[
             GroupEntry(
                 "The Maela",
-                members=(NPCEntry("Plain Seer"),),
+                members=(CharacterEntry("Plain Seer"),),
                 member_source="flavour/x.md",
             )
         ],
     )
 
-    assert "Plain Seer" in report, "the roster-created NPC is not named anywhere in the preview"
+    assert "Plain Seer" in report, "the roster-created character is not named anywhere in the preview"
 
 
-def test_preview_reports_an_npc_added_to_an_existing_page_s_roster(db: Database, capsys) -> None:
+def test_preview_reports_a_character_added_to_an_existing_page_s_roster(db: Database, capsys) -> None:
     """The same silence on an UPDATE, which is the more dangerous half.
 
     On an INSERT the whole declaration is new and the reader is already reading
     closely. On an UPDATE the story row reports "no scalar field changes" and the
     group line moves from "1 members" to "2 members" — a new person entering the
-    database behind a digit. The added NPC carries no species, no epithets and no
+    database behind a digit. The added character carries no species, no epithets and no
     short names, so nothing else in the report mentions them.
     """
     db.upsert_story(
@@ -534,7 +534,7 @@ def test_preview_reports_an_npc_added_to_an_existing_page_s_roster(db: Database,
         groups=[
             GroupEntry(
                 "The Maela",
-                members=(NPCEntry("Kaysin"),),
+                members=(CharacterEntry("Kaysin"),),
                 member_source="flavour/x.md",
             )
         ],
@@ -549,14 +549,16 @@ def test_preview_reports_an_npc_added_to_an_existing_page_s_roster(db: Database,
         groups=[
             GroupEntry(
                 "The Maela",
-                members=(NPCEntry("Kaysin"), NPCEntry("Plain Seer")),
+                members=(CharacterEntry("Kaysin"), CharacterEntry("Plain Seer")),
                 member_source="flavour/x.md",
             )
         ],
     )
 
-    assert "Plain Seer" in report, "the NPC added to an existing roster is announced by nothing"
-    assert "Kaysin" not in report.split("New NPCs:")[1].split("\n\n")[0], "a stored roster NPC is reported as new"
+    assert "Plain Seer" in report, "the character added to an existing roster is announced by nothing"
+    assert (
+        "Kaysin" not in report.split("New characters:")[1].split("\n\n")[0]
+    ), "a stored roster character is reported as new"
 
 
 def test_preview_reports_a_group_changing_parent(db: Database, capsys) -> None:

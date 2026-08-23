@@ -1,7 +1,7 @@
 """Validate pipe-delimited data CSVs under ``src/data/``.
 
 Checks that required identifier columns are non-empty on data rows, and that
-selected foreign keys resolve (e.g. story junctions to NPCs, heroes, locations, weapons, equipment).
+selected foreign keys resolve (e.g. story junctions to characters, heroes, locations, weapons, equipment).
 For heroes, each ``heroes-game.csv`` ``CardName`` must resolve to the same ``CanonicalId`` as
 ``create_heroes_csv.generate_heroes_csv`` would assign given ``heroes-canonical.csv`` (display
 ``CanonicalHero`` and slug/alias rules); printed titles need not match ``CanonicalHero`` verbatim.
@@ -628,8 +628,8 @@ def _check_no_stranded_hero_character(characters_path: Path, canonical_path: Pat
     """Catch the character row an identity resolution leaves behind.
 
     Seeding mints a character row for every hero it finds no ``character_heroes``
-    row for, named after the hero. Resolving one of the hero/NPC identity pairs
-    re-points that link at the NPC's row instead — ``NPCEntry("Fightmaster Kox",
+    row for, named after the hero. Resolving one of the hero/ordinary-character identity pairs
+    re-points that link at the declared character's row instead — ``CharacterEntry("Fightmaster Kox",
     hero_slug="kox")`` — and the auto-minted ``Kox`` row is then a second row for
     a person who now has one, holding nothing and linked to nothing.
 
@@ -638,7 +638,7 @@ def _check_no_stranded_hero_character(characters_path: Path, canonical_path: Pat
     scores far below the threshold), and the self-heal will not re-link it
     because the hero is already covered. The signature is exact — a character
     named after a hero that no longer claims it — so this cannot fire on an
-    ordinary NPC.
+    ordinary character.
     """
     for path in (characters_path, canonical_path, links_path):
         if not path.is_file():
@@ -929,7 +929,7 @@ def collect_alerts() -> list[str]:
             ("EquipmentGameId", "SetId", "CardId"),
             "Equipment printings",
         ),
-        (DATA / "csv/characters.csv", ("CharacterId", "Name", "Status"), "NPCs"),
+        (DATA / "csv/characters.csv", ("CharacterId", "Name", "Status"), "Characters"),
         (
             DATA / "csv/character-heroes.csv",
             ("CanonicalId", "CharacterId"),
@@ -1029,7 +1029,7 @@ def collect_alerts() -> list[str]:
 
     canonical_ids = _id_set_from_column(canonical_path, "CanonicalId")
     hero_game_ids = _id_set_from_column(game_path, "HeroGameId")
-    # Every characters= link (hero slug or NPCEntry) writes the same
+    # Every characters= link (hero slug or CharacterEntry) writes the same
     # story-characters.csv junction (migration 17), so its FK target is
     # characters.csv, not heroes-canonical.csv — a hero's CharacterId is the
     # identity-spine row character-heroes.csv points at, never the
@@ -1206,13 +1206,13 @@ def collect_alerts() -> list[str]:
     # The other half of each membership row. Only GroupId was checked here, so a
     # bad member id reached SQLite and failed the *build* at seed time instead of
     # raising an alert — the wrong place to learn about it.
-    npc_character_ids = _id_set_from_column(DATA / "csv/characters.csv", "CharacterId")
-    if npc_character_ids:
+    character_ids = _id_set_from_column(DATA / "csv/characters.csv", "CharacterId")
+    if character_ids:
         alerts.extend(
             _check_fk_column(
                 DATA / "csv/group-characters.csv",
                 "CharacterId",
-                npc_character_ids,
+                character_ids,
                 "characters.csv CharacterId",
                 "Group ↔ member links",
             )
@@ -1221,13 +1221,13 @@ def collect_alerts() -> list[str]:
             _check_fk_column(
                 DATA / "csv/title-holders.csv",
                 "CharacterId",
-                npc_character_ids,
+                character_ids,
                 "characters.csv CharacterId",
                 "Title ↔ holder links",
             )
         )
     # titles (R3): title_holders.CharacterId is checked below, alongside
-    # npc_character_ids. GroupId defaults to '' for a title with no parent body,
+    # character_ids. GroupId defaults to '' for a title with no parent body,
     # the same shape as groups.parent_group_id — no SQL REFERENCES, so it is
     # checked here rather than enforced by SQLite.
     title_ids = _id_set_from_column(DATA / "csv/titles.csv", "TitleId")
@@ -1251,13 +1251,13 @@ def collect_alerts() -> list[str]:
     # Kinship (R8). Both halves of every character-kin.csv row key on
     # characters.csv CharacterId, the same shape group-characters.csv and
     # title-holders.csv both need checked in both directions.
-    if npc_character_ids:
+    if character_ids:
         for column in ("CharacterId", "RelativeId"):
             alerts.extend(
                 _check_fk_column(
                     DATA / "csv/character-kin.csv",
                     column,
-                    npc_character_ids,
+                    character_ids,
                     "characters.csv CharacterId",
                     "Character kin",
                 )
@@ -1285,12 +1285,12 @@ def collect_alerts() -> list[str]:
                 "Character ↔ hero links",
             )
         )
-    if npc_character_ids:
+    if character_ids:
         alerts.extend(
             _check_fk_column(
                 DATA / "csv/character-heroes.csv",
                 "CharacterId",
-                npc_character_ids,
+                character_ids,
                 "characters.csv CharacterId",
                 "Character ↔ hero links",
             )
@@ -1298,12 +1298,12 @@ def collect_alerts() -> list[str]:
 
     # Alternate names (R4, R6). Each row points at the entity whose other name it
     # is, so a stale owner id leaves an alias resolving to nothing.
-    if npc_character_ids:
+    if character_ids:
         alerts.extend(
             _check_fk_column(
                 DATA / "csv/npc-epithets.csv",
                 "CharacterId",
-                npc_character_ids,
+                character_ids,
                 "characters.csv CharacterId",
                 "NPC epithets",
             )
@@ -1336,12 +1336,12 @@ def collect_alerts() -> list[str]:
             ("species-aliases.csv", "SpeciesId", "Species aliases"),
         ):
             alerts.extend(_check_fk_column(DATA / f"csv/{child}", column, species_ids, "species.csv SpeciesId", label))
-    if npc_character_ids:
+    if character_ids:
         alerts.extend(
             _check_fk_column(
                 DATA / "csv/npc-species.csv",
                 "CharacterId",
-                npc_character_ids,
+                character_ids,
                 "characters.csv CharacterId",
                 "NPC ↔ species",
             )
@@ -1360,12 +1360,12 @@ def collect_alerts() -> list[str]:
                 "Character ↔ profession links",
             )
         )
-    if npc_character_ids:
+    if character_ids:
         alerts.extend(
             _check_fk_column(
                 DATA / "csv/character-professions.csv",
                 "CharacterId",
-                npc_character_ids,
+                character_ids,
                 "characters.csv CharacterId",
                 "Character ↔ profession links",
             )

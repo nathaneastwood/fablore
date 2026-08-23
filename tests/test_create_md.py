@@ -12,7 +12,7 @@ if str(_DATA_DIR) not in sys.path:
     sys.path.insert(0, str(_DATA_DIR))
 
 
-def test_create_md_npcs_md_from_npcs_csv(tmp_path: Path) -> None:
+def test_create_md_characters_md_from_characters_csv(tmp_path: Path) -> None:
     """npcs.csv can be rendered to npcs.md via output_md."""
     pytest.importorskip("pandas")
     pytest.importorskip("py_markdown_table")
@@ -21,13 +21,13 @@ def test_create_md_npcs_md_from_npcs_csv(tmp_path: Path) -> None:
 
     data = tmp_path / "data"
     data.mkdir(parents=True)
-    npcs = data / "npcs.csv"
-    npcs.write_text(
+    characters = data / "characters.csv"
+    characters.write_text(
         "# comment\nCharacterId|Name|Species|Status\n" "LCbbbbbbbbbb|Zed|Human|Alive\n" "LCaaaaaaaaaa|Amy|Elf|Dead\n",
         encoding="utf-8",
     )
-    out = data / "npcs.md"
-    create_md.create_md_file(npcs, "Name", output_md=out)
+    out = data / "characters.md"
+    create_md.create_md_file(characters, "Name", output_md=out)
     text = out.read_text(encoding="utf-8")
     assert "<!-- ### NOTE:" in text
     assert "CharacterId" not in text

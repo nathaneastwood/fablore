@@ -17,13 +17,13 @@ from __future__ import annotations
 # entries/catalogue/; none of the entry classes are imported here, so writing
 # LocationEntry(...) is a NameError rather than a silent new row.
 from entries.catalogue import (  # noqa: F401
+    characters as people,
     fauna,
     flora,
     food_drink as food,
     groups as grp,
     locations as loc,
     monsters as mon,
-    npcs as npc,
     regions as reg,
 )
 
@@ -126,7 +126,7 @@ db.upsert_story(
     story_type="heroes-of-rathe",
     title="Malice",
     source_link="https://fabtcg.com/hero/malice/",
-    heroes=["malice", "viserai"],
+    characters=["malice", "viserai"],
     locations=[
         loc.I_ARATHAEL,
         loc.SHADOWREALM,
@@ -229,7 +229,7 @@ db.upsert_story(
     title="Fai, Rising Rebellion",
     characters=[
         "fai",
-        npc.EUN,
+        people.EUN,
     ],
     locations=[
         loc.ASHVAHAN,
@@ -271,7 +271,7 @@ db.upsert_story(
     story_type="heroes-of-rathe",
     title="Viserai",
     source_link="https://fabtcg.com/hero/viserai-the-forsaken/",
-    characters=["chane", "viserai", npc.LORD_SUTCLIFFE, npc.URSUR],
+    characters=["chane", "viserai", people.LORD_SUTCLIFFE, people.URSUR],
     locations=[
         loc.I_ARATHAEL,
         loc.SHADOWREALM,
@@ -299,11 +299,11 @@ db.upsert_story(
     title="Boltyn",
     characters=[
         "boltyn",
-        npc.EIRINA,
-        npc.AIOS,
-        npc.FYANNA_REDMOOR_BOLTYN_S_COUSIN,
-        npc.BELLONA_THE_WARTUNE_HERALD,
-        npc.MINERVA_THEMIS,
+        people.EIRINA,
+        people.AIOS,
+        people.FYANNA_REDMOOR_BOLTYN_S_COUSIN,
+        people.BELLONA_THE_WARTUNE_HERALD,
+        people.MINERVA_THEMIS,
     ],
     locations=[
         loc.THE_NORTHERN_REALMS,
@@ -332,7 +332,7 @@ db.upsert_story(
     title="Hala",
     characters=[
         "hala",
-        npc.GRAND_MAGISTER_THE_STEADFAST,
+        people.GRAND_MAGISTER_THE_STEADFAST,
     ],
     locations=[
         loc.OCTOMILITIA,
@@ -413,8 +413,8 @@ db.upsert_story(
     title="Puffin",
     characters=[
         "puffin",
-        npc.POLLY_CRANKA,
-        npc.CAPTAIN_RUE,
+        people.POLLY_CRANKA,
+        people.CAPTAIN_RUE,
     ],
     locations=[
         loc.PIPER_S_PIER,
@@ -440,7 +440,7 @@ db.upsert_story(
     characters=[
         "verdance",
         "florian",
-        npc.DAVNIR,
+        people.DAVNIR,
     ],
     locations=[
         loc.CANDLEHOLD,
@@ -456,7 +456,7 @@ db.upsert_story(
     title="Vynnset",
     characters=[
         "vynnset",
-        npc.NASRETH,
+        people.NASRETH,
     ],
     regions=[reg.DEMONASTERY, reg.SOLANA],
     dry_run=True,
@@ -468,7 +468,7 @@ db.upsert_story(
     title="Arakni, Solitary Confinement",
     characters=[
         "arakni-solitary-confinement",
-        npc.DR_KREST_MORTIMER_THE_FIXER,
+        people.DR_KREST_MORTIMER_THE_FIXER,
     ],
     locations=[
         loc.SOUTHMAW,
@@ -569,7 +569,7 @@ db.upsert_story(
     characters=[
         "prism",
         "the-librarian",
-        npc.SURAYA_ARCHANGEL_OF_KNOWLEDGE,
+        people.SURAYA_ARCHANGEL_OF_KNOWLEDGE,
     ],
     locations=[
         loc.LIBRARY_OF_ILLUMINATION,
@@ -687,7 +687,7 @@ db.upsert_story(
     title="Levia, Shadowborn Abomination",
     characters=[
         "levia",
-        npc.LADY_BARTHIMONT,
+        people.LADY_BARTHIMONT,
     ],
     regions=[reg.DEMONASTERY],
     locations=[
@@ -716,7 +716,7 @@ db.upsert_story(
     title="Scurv, Stowaway",
     characters=[
         "scurv",
-        npc.STICKY_FINGERS,
+        people.STICKY_FINGERS,
     ],
     locations=[
         loc.GRAYSTONE_PENITENTIARY,
@@ -748,7 +748,7 @@ db.upsert_story(
     title="Valda Brightaxe",
     characters=[
         "valda",
-        npc.BRAUMEISTER_BALEN,
+        people.BRAUMEISTER_BALEN,
     ],
     regions=[reg.ARIA],
     locations=[
@@ -767,7 +767,7 @@ db.upsert_story(
     title="Yoji, Royal Protector",
     characters=[
         "yoji",
-        npc.LORD_WIZARD_CHIYO,
+        people.LORD_WIZARD_CHIYO,
     ],
     regions=[reg.VOLCOR],
     locations=[
@@ -786,7 +786,7 @@ db.upsert_story(
         "data-doll-mkii",
         "maxx",
         "teklovossen",
-        npc.JULES_TEKLOVOSSEN,
+        people.JULES_TEKLOVOSSEN,
     ],
     locations=[
         loc.TEKLO_INDUSTRIES,
@@ -832,8 +832,8 @@ db.upsert_story(
     characters=[
         "lyath",
         "victor-goldmane",
-        npc.BLOODWORTH_GOLDMANE,
-        npc.TARA_VANGELD,
+        people.BLOODWORTH_GOLDMANE,
+        people.TARA_VANGELD,
     ],
     locations=[
         loc.ANVILHEIM,
@@ -850,7 +850,7 @@ db.upsert_story(
     title="Marlynn, Treasure Hunter",
     characters=[
         "marlynn",
-        npc.CAPTAIN_COODER_OF_THE_SWIFTWATER_WARDEN_COODER,
+        people.CAPTAIN_COODER_OF_THE_SWIFTWATER_WARDEN_COODER,
     ],
     fauna=[fauna.KRAKEN],
     regions=[reg.HIGH_SEAS],
@@ -876,7 +876,7 @@ db.upsert_story(
     title="Olympia, Prized Fighter",
     characters=[
         "olympia",
-        npc.COX,
+        people.COX,
     ],
     locations=[
         loc.DEATHMATCH_ARENA,

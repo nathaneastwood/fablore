@@ -1,10 +1,10 @@
 """Tests for the titles schema (migration 13): titles, title_holders, story_titles.
 
 Mirrors ``test_db_groups.py``. The one new hazard titles introduce that groups
-never had: a holder may be named as an NPC *or* as a hero slug, and migration
+never had: a holder may be named as a ``CharacterEntry`` *or* as a hero slug, and migration
 12's identity spine means both can resolve to the same ``character_id`` — so a
 person named once each way must be caught as a repeat, the same way
-``GroupEntry.member_pairs()`` catches a repeated NPC.
+``GroupEntry.member_pairs()`` catches a repeated character.
 """
 
 from __future__ import annotations
@@ -14,7 +14,7 @@ from pathlib import Path
 import pytest
 
 import db._queries as q
-from db import Database, GroupEntry, NPCEntry, TitleEntry
+from db import Database, GroupEntry, CharacterEntry, TitleEntry
 from registry_ids import canonical_id, group_id, lore_character_id, title_id
 
 
@@ -101,10 +101,10 @@ def test_titles_empty_list_clears_links(db: Database) -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_npc_holder_is_written_from_the_title(db: Database) -> None:
+def test_an_entry_holder_is_written_from_the_title(db: Database) -> None:
     entry = TitleEntry(
         "Grand Magister",
-        npc_holders=((NPCEntry("Aeric"), 1, "world-of-rathe/solana.md"),),
+        npc_holders=((CharacterEntry("Aeric"), 1, "world-of-rathe/solana.md"),),
     )
     _story(db, titles=[entry])
     holders = q.select_title_holders(db.conn, title_id("Grand Magister"))
@@ -112,10 +112,10 @@ def test_npc_holder_is_written_from_the_title(db: Database) -> None:
 
 
 def test_hero_holder_resolves_through_character_heroes(db: Database) -> None:
-    """The point of the identity spine: a hero slug lands in the same column an NPC would."""
+    """The point of the identity spine: a hero slug lands in the same column an entry-named character would."""
     hid = _seed_hero(db, "kano", "Kano")
     resolved_character_id = "LCmanualoverride0"
-    q.upsert_npc(db.conn, character_id=resolved_character_id, name="Kano")
+    q.upsert_character(db.conn, character_id=resolved_character_id, name="Kano")
     q.set_character_hero(db.conn, hid, resolved_character_id)
 
     entry = TitleEntry("Dracai of Aether", hero_holders=(("kano", 0, "heroes-of-rathe/kano-about.md"),))
@@ -142,12 +142,12 @@ def test_unknown_hero_slug_raises(db: Database) -> None:
         _story(db, titles=[TitleEntry("Dracai of Aether", hero_holders=(("no-such-hero", 0, "x.md"),))])
 
 
-def test_a_holder_may_not_be_named_twice_as_npc(db: Database) -> None:
+def test_a_holder_may_not_be_named_twice_as_an_entry(db: Database) -> None:
     entry = TitleEntry(
         "Grand Magister",
         npc_holders=(
-            (NPCEntry("Aeric"), 1, "x.md"),
-            (NPCEntry("Aeric"), 2, "y.md"),
+            (CharacterEntry("Aeric"), 1, "x.md"),
+            (CharacterEntry("Aeric"), 2, "y.md"),
         ),
     )
     with pytest.raises(ValueError, match="Aeric"):
@@ -167,13 +167,13 @@ def test_a_holder_may_not_be_named_twice_as_hero_slug(db: Database) -> None:
         _story(db, titles=[entry])
 
 
-def test_the_same_person_may_not_be_named_as_both_npc_and_hero(db: Database) -> None:
+def test_the_same_person_may_not_be_named_as_both_entry_and_hero(db: Database) -> None:
     """The hazard migration 12 makes reachable: one character_id, two spellings."""
     _seed_hero(db, "kano", "Kano")
-    _story(db, characters=[NPCEntry("Kano", hero_slug="kano")])
+    _story(db, characters=[CharacterEntry("Kano", hero_slug="kano")])
     entry = TitleEntry(
         "Dracai of Aether",
-        npc_holders=((NPCEntry("Kano"), 0, "x.md"),),
+        npc_holders=((CharacterEntry("Kano"), 0, "x.md"),),
         hero_holders=(("kano", 0, "y.md"),),
     )
     with pytest.raises(ValueError, match="Kano"):
@@ -183,7 +183,7 @@ def test_the_same_person_may_not_be_named_as_both_npc_and_hero(db: Database) -> 
 def test_the_duplicate_guard_fires_on_the_preview_path_too(db: Database) -> None:
     entry = TitleEntry(
         "Grand Magister",
-        npc_holders=((NPCEntry("Aeric"), 1, "x.md"), (NPCEntry("Aeric"), 2, "y.md")),
+        npc_holders=((CharacterEntry("Aeric"), 1, "x.md"), (CharacterEntry("Aeric"), 2, "y.md")),
     )
     with pytest.raises(ValueError, match="Aeric"):
         _story(db, titles=[entry], dry_run=True)
@@ -192,18 +192,18 @@ def test_the_duplicate_guard_fires_on_the_preview_path_too(db: Database) -> None
 def test_holders_are_replace_semantic(db: Database) -> None:
     two = TitleEntry(
         "Grand Magister",
-        npc_holders=((NPCEntry("Aeric"), 1, "x.md"), (NPCEntry("Bellwyn"), 2, "x.md")),
+        npc_holders=((CharacterEntry("Aeric"), 1, "x.md"), (CharacterEntry("Bellwyn"), 2, "x.md")),
     )
     _story(db, titles=[two])
     assert len(q.select_title_holders(db.conn, title_id("Grand Magister"))) == 2
-    _story(db, titles=[TitleEntry("Grand Magister", npc_holders=((NPCEntry("Aeric"), 1, "x.md"),))])
+    _story(db, titles=[TitleEntry("Grand Magister", npc_holders=((CharacterEntry("Aeric"), 1, "x.md"),))])
     assert len(q.select_title_holders(db.conn, title_id("Grand Magister"))) == 1
 
 
 def test_emptied_holders_is_a_deletion_not_a_no_op(db: Database) -> None:
     _story(
         db,
-        titles=[TitleEntry("Grand Magister", npc_holders=((NPCEntry("Aeric"), 1, "x.md"),))],
+        titles=[TitleEntry("Grand Magister", npc_holders=((CharacterEntry("Aeric"), 1, "x.md"),))],
     )
     _story(db, titles=[TitleEntry("Grand Magister")])
     assert q.select_title_holders(db.conn, title_id("Grand Magister")) == []
@@ -213,7 +213,7 @@ def test_ordinal_records_succession_and_is_not_unique(db: Database) -> None:
     """The Dracai shape: several holders, all ordinal 0, held concurrently."""
     entry = TitleEntry(
         "Dracai",
-        npc_holders=((NPCEntry("Aeric"), 0, "x.md"), (NPCEntry("Bellwyn"), 0, "x.md")),
+        npc_holders=((CharacterEntry("Aeric"), 0, "x.md"), (CharacterEntry("Bellwyn"), 0, "x.md")),
     )
     _story(db, titles=[entry])
     holders = q.select_title_holders(db.conn, title_id("Dracai"))
@@ -222,7 +222,7 @@ def test_ordinal_records_succession_and_is_not_unique(db: Database) -> None:
 
 
 def test_dry_run_removal_line_matches_what_the_apply_does(db: Database, capsys) -> None:
-    _story(db, titles=[TitleEntry("Grand Magister", npc_holders=((NPCEntry("Aeric"), 1, "x.md"),))])
+    _story(db, titles=[TitleEntry("Grand Magister", npc_holders=((CharacterEntry("Aeric"), 1, "x.md"),))])
     capsys.readouterr()
     db.upsert_story(
         path="src/world-of-rathe/solana.md",
@@ -282,7 +282,7 @@ def test_titles_survive_the_csv_round_trip(db: Database, tmp_path: Path) -> None
     entry = TitleEntry(
         "Dracai of Aether",
         group=GroupEntry("Dracai Council"),
-        npc_holders=((NPCEntry("Aeric"), 1, "x.md"),),
+        npc_holders=((CharacterEntry("Aeric"), 1, "x.md"),),
         hero_holders=(("kano", 0, "y.md"),),
     )
     _story(db, titles=[entry])
@@ -322,7 +322,7 @@ def test_dry_run_reports_new_titles_and_writes_nothing(db: Database, capsys) -> 
 def test_dry_run_flags_a_holder_list_that_would_shrink(db: Database, capsys) -> None:
     entry = TitleEntry(
         "Grand Magister",
-        npc_holders=((NPCEntry("Aeric"), 1, "x.md"), (NPCEntry("Bellwyn"), 2, "x.md")),
+        npc_holders=((CharacterEntry("Aeric"), 1, "x.md"), (CharacterEntry("Bellwyn"), 2, "x.md")),
     )
     _story(db, titles=[entry])
     capsys.readouterr()
@@ -330,7 +330,7 @@ def test_dry_run_flags_a_holder_list_that_would_shrink(db: Database, capsys) -> 
         path="src/world-of-rathe/solana.md",
         story_type="world-of-rathe",
         title="T",
-        titles=[TitleEntry("Grand Magister", npc_holders=((NPCEntry("Aeric"), 1, "x.md"),))],
+        titles=[TitleEntry("Grand Magister", npc_holders=((CharacterEntry("Aeric"), 1, "x.md"),))],
         dry_run=True,
     )
     assert "REMOVED from title_holders" in capsys.readouterr().out
@@ -338,7 +338,7 @@ def test_dry_run_flags_a_holder_list_that_would_shrink(db: Database, capsys) -> 
 
 def test_dry_run_reports_an_epithet_on_a_title_holder(db: Database, capsys) -> None:
     """The preview reaches into npc_holders, the same way it reaches group rosters."""
-    entry = TitleEntry("Grand Magister", npc_holders=((NPCEntry("Aeric"), 1, "x.md"),))
+    entry = TitleEntry("Grand Magister", npc_holders=((CharacterEntry("Aeric"), 1, "x.md"),))
     _story(db, titles=[entry])
     capsys.readouterr()
     db.upsert_story(
@@ -348,7 +348,7 @@ def test_dry_run_reports_an_epithet_on_a_title_holder(db: Database, capsys) -> N
         titles=[
             TitleEntry(
                 "Grand Magister",
-                npc_holders=((NPCEntry("Aeric", epithets=("Keeper of the Light",)), 1, "x.md"),),
+                npc_holders=((CharacterEntry("Aeric", epithets=("Keeper of the Light",)), 1, "x.md"),),
             )
         ],
         dry_run=True,
@@ -356,12 +356,12 @@ def test_dry_run_reports_an_epithet_on_a_title_holder(db: Database, capsys) -> N
     assert "Aeric: epithet 'Keeper of the Light'" in capsys.readouterr().out
 
 
-def test_dry_run_reports_a_new_npc_created_only_through_a_title(db: Database, capsys) -> None:
+def test_dry_run_reports_a_new_character_created_only_through_a_title(db: Database, capsys) -> None:
     db.upsert_story(
         path="src/world-of-rathe/solana.md",
         story_type="world-of-rathe",
         title="T",
-        titles=[TitleEntry("Grand Magister", npc_holders=((NPCEntry("Aeric"), 1, "x.md"),))],
+        titles=[TitleEntry("Grand Magister", npc_holders=((CharacterEntry("Aeric"), 1, "x.md"),))],
         dry_run=True,
     )
     assert "+ Aeric" in capsys.readouterr().out
@@ -369,7 +369,7 @@ def test_dry_run_reports_a_new_npc_created_only_through_a_title(db: Database, ca
 
 def test_dry_run_reaches_a_titles_group(db: Database, capsys) -> None:
     """A title's group is a GroupEntry — walking the title must also walk it."""
-    grp = GroupEntry("Dracai Council", members=(NPCEntry("Emissary"),), member_source="x.md")
+    grp = GroupEntry("Dracai Council", members=(CharacterEntry("Emissary"),), member_source="x.md")
     db.upsert_story(
         path="src/world-of-rathe/solana.md",
         story_type="world-of-rathe",

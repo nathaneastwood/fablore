@@ -3,7 +3,7 @@
 Three files own three different things, and keeping them apart is what stops the
 database growing duplicate rows for one in-world thing:
 
-* **``entries/catalogue/``** (here) — *what an entity is*. One constant per NPC,
+* **``entries/catalogue/``** (here) — *what an entity is*. One constant per character,
   location, region, monster, fauna, flora and food/drink item, carrying the
   fields that make up its identity.
 * **``entries/*.py``** — *which page links to what*. Relationships only; the
@@ -12,7 +12,7 @@ database growing duplicate rows for one in-world thing:
   flora ``description``). It writes the same rows and must stay the only writer.
 
 Why references rather than literals: every registry id is a hash of the fields
-written at the call site — an NPC *is* its name, a location *is* its name and its
+written at the call site — a character *is* its name, a location *is* its name and its
 region, a food or drink *is* its name and its kind. A second literal for the same
 entity therefore does not reuse the first row, it mints a second one, and nothing
 raises. Monsters, fauna and flora hash the name alone and so cannot fork on a

@@ -17,13 +17,13 @@ from __future__ import annotations
 # entries/catalogue/; none of the entry classes are imported here, so writing
 # LocationEntry(...) is a NameError rather than a silent new row.
 from entries.catalogue import (  # noqa: F401
+    characters as people,
     fauna,
     flora,
     food_drink as food,
     groups as grp,
     locations as loc,
     monsters as mon,
-    npcs as npc,
     regions as reg,
 )
 
@@ -35,7 +35,7 @@ from entries._runner import db
 
 
 # Registered 2026-08-20 to unstrand Achlys' and Raven's epithets (R4, stage 3).
-# Additive: the three hero links and both NPC links already existed.
+# Additive: the three hero links and both entry-named links already existed.
 db.upsert_story(
     path="src/other-characters/krest-mortimer.md",
     story_type="other-characters",
@@ -44,10 +44,10 @@ db.upsert_story(
         "arakni-huntsman",
         "arakni-solitary-confinement",
         "arakni-web-of-deceit",
-        npc.ACHLYS_HAG_OF_MOJIRE,
-        npc.GAVIN,
-        npc.LENA_BELLE,
-        npc.RAVEN_AESIR_OF_CHAOS,
+        people.ACHLYS_HAG_OF_MOJIRE,
+        people.GAVIN,
+        people.LENA_BELLE,
+        people.RAVEN_AESIR_OF_CHAOS,
     ],
     locations=[
         loc.MOJIRE,

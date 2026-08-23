@@ -17,13 +17,13 @@ from __future__ import annotations
 # entries/catalogue/; none of the entry classes are imported here, so writing
 # LocationEntry(...) is a NameError rather than a silent new row.
 from entries.catalogue import (  # noqa: F401
+    characters as people,
     fauna,
     flora,
     food_drink as food,
     groups as grp,
     locations as loc,
     monsters as mon,
-    npcs as npc,
     regions as reg,
 )
 
@@ -42,20 +42,20 @@ db.upsert_story(
         "lexi",
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        npc.ASTREA_QUAZOR,
-        npc.AURIC_SEERESS,
-        npc.LORD_SUTCLIFFE,
-        npc.RUPIUS_AURIC_SCROLLMASTER,
-        npc.YVOR,
+        people.ASTREA_QUAZOR,
+        people.AURIC_SEERESS,
+        people.LORD_SUTCLIFFE,
+        people.RUPIUS_AURIC_SCROLLMASTER,
+        people.YVOR,
         # New with this set. Species is unattested in the flavour text, so it is
         # left to default to "Unknown" rather than being guessed.
-        npc.DARYAS_NIMBUS,
-        npc.FREYA_ELDINGSTURM,
-        npc.MAELA_ISULFV,
-        npc.MAELA_SHARENA,
-        npc.REZNYR_ELDINGSTURM,
-        npc.SKYNDA_FEYSCOUT,
-        npc.VYHARA_CLOUDBURST,
+        people.DARYAS_NIMBUS,
+        people.FREYA_ELDINGSTURM,
+        people.MAELA_ISULFV,
+        people.MAELA_SHARENA,
+        people.REZNYR_ELDINGSTURM,
+        people.SKYNDA_FEYSCOUT,
+        people.VYHARA_CLOUDBURST,
     ],
     locations=[
         loc.ENION,
@@ -80,25 +80,25 @@ db.upsert_story(
     title="Monarch",
     characters=[
         "prism",
-        npc.AMIRA_SURANA,
-        npc.ASTRA_MORENA,
-        npc.AUREA_CHAMPION_OF_THE_DAWN,
-        npc.BELLONA_THE_WARTUNE_HERALD,
-        npc.CHANCELLOR_HELENA_PRIMAVERA,
-        npc.CHANCELLOR_HYPATIA,
-        npc.CHIARA_SUNCREST,
-        npc.DANU_ASHENGUARD,
-        npc.ERSEBET,
-        npc.GRAND_MAGISTER_THE_RADIANT,
-        npc.HARLAND,
-        npc.HAROLD_HONEYSETT,
-        npc.JACKDAW,
-        npc.KIRIGAMI,
-        npc.MERLEN_RIVERA,
-        npc.NESTUS,
-        npc.SANNI,
-        npc.SURAYA_ARCHANGEL_OF_KNOWLEDGE,
-        npc.VIDYA_WILLOWMERE,
+        people.AMIRA_SURANA,
+        people.ASTRA_MORENA,
+        people.AUREA_CHAMPION_OF_THE_DAWN,
+        people.BELLONA_THE_WARTUNE_HERALD,
+        people.CHANCELLOR_HELENA_PRIMAVERA,
+        people.CHANCELLOR_HYPATIA,
+        people.CHIARA_SUNCREST,
+        people.DANU_ASHENGUARD,
+        people.ERSEBET,
+        people.GRAND_MAGISTER_THE_RADIANT,
+        people.HARLAND,
+        people.HAROLD_HONEYSETT,
+        people.JACKDAW,
+        people.KIRIGAMI,
+        people.MERLEN_RIVERA,
+        people.NESTUS,
+        people.SANNI,
+        people.SURAYA_ARCHANGEL_OF_KNOWLEDGE,
+        people.VIDYA_WILLOWMERE,
     ],
     fragments={"prism": "celestial-cataclysm---mon062"},
     locations=[
@@ -134,11 +134,11 @@ db.upsert_story(
     characters=[
         "squizzyfloof",
         "yorick",
-        npc.AEGIS_THE_SHIELD_OF_LIGHT,
-        npc.AVALON_MESSENGER_OF_THE_DAWN,
-        npc.BELLONA_THE_WARTUNE_HERALD,
-        npc.THEMIS_KEEPER_OF_THE_SCALES,
-        npc.YVOR,
+        people.AEGIS_THE_SHIELD_OF_LIGHT,
+        people.AVALON_MESSENGER_OF_THE_DAWN,
+        people.BELLONA_THE_WARTUNE_HERALD,
+        people.THEMIS_KEEPER_OF_THE_SCALES,
+        people.YVOR,
     ],
     locations=[
         loc.AURIC_KEEP,
@@ -165,19 +165,19 @@ db.upsert_story(
         # Already curated — named here only to link them to this page. The DB holds
         # the fightmasters under their bare names, not the "Fightmaster X" form the
         # cards use.
-        npc.BATBITER,
-        npc.EMEVIERE,
-        npc.FIGHTMASTER_KOX,
-        npc.FIGHTMASTER_RUSTY,
-        npc.LUCA_ARENA_CICERONE,
-        npc.MOLOCA,
-        npc.SLAPSTICK_SAL,
-        npc.SPEAKEASY,
+        people.BATBITER,
+        people.EMEVIERE,
+        people.FIGHTMASTER_KOX,
+        people.FIGHTMASTER_RUSTY,
+        people.LUCA_ARENA_CICERONE,
+        people.MOLOCA,
+        people.SLAPSTICK_SAL,
+        people.SPEAKEASY,
         # New with this set. Species is unattested in the flavour text.
-        npc.FOREMAN_PEBB,
-        npc.FUGGER_GRIMES,
-        npc.HELX,
-        npc.SALVADOR_STALLION,
+        people.FOREMAN_PEBB,
+        people.FUGGER_GRIMES,
+        people.HELX,
+        people.SALVADOR_STALLION,
     ],
     locations=[
         loc.ANVILHEIM,
@@ -218,10 +218,10 @@ db.upsert_story(
         # status are left empty so the existing curated values are preserved.
         # MPG029 prints "Archangel Aegis"; that is a new epithet for the Herald of
         # Protection already registered under her Monarch title, not a new character.
-        npc.AEGIS_THE_SHIELD_OF_LIGHT,
+        people.AEGIS_THE_SHIELD_OF_LIGHT,
         # New with this set. Species is unattested in the flavour text, so it is
         # left to default to "Unknown" rather than being guessed.
-        npc.MAELA_ONE_EYE,
+        people.MAELA_ONE_EYE,
     ],
     locations=[
         loc.ANVILHEIM,
@@ -241,17 +241,17 @@ db.upsert_story(
         # Already curated — named here only to link them to this page.
         # MPW048 prints "Lieutenant Farris"; Pride of the Ironsongs introduces the
         # same Solanian lieutenant on the same Savage Lands frontier.
-        npc.FARRIS,
-        npc.FIGHTMASTER_KOX,
-        npc.FIGHTMASTER_RUSTY,
-        npc.LIEUTENANT_TIMAEUS,
+        people.FARRIS,
+        people.FIGHTMASTER_KOX,
+        people.FIGHTMASTER_RUSTY,
+        people.LIEUTENANT_TIMAEUS,
         # New with this set. Species is unattested in the flavour text.
-        npc.CAPTAIN_SHEVEZ,
-        npc.INQUISITOR_ARICIA,
-        npc.LUCILLA_THE_SETTING_SUN,
-        npc.TASHA_OF_DESHVAHAN,
-        npc.THE_BASTION,
-        npc.VANIK_SILVERTOOTH,
+        people.CAPTAIN_SHEVEZ,
+        people.INQUISITOR_ARICIA,
+        people.LUCILLA_THE_SETTING_SUN,
+        people.TASHA_OF_DESHVAHAN,
+        people.THE_BASTION,
+        people.VANIK_SILVERTOOTH,
     ],
     locations=[
         loc.DAWNHAVEN,
@@ -276,12 +276,16 @@ db.upsert_story(
     path="src/flavour/usurp-the-shadow-throne.md",
     story_type="flavour",
     title="Usurp the Shadow Throne",
-    heroes=["malice", "chane", "levia", "vynnset", "viserai"],
-    npcs=[
-        npc.BLASMOPHET,
-        npc.SOL,
-        npc.ARBITER_MAGISTER_OF_JUSTICE,
-        npc.WHISPERS_OF_XERYS,
+    characters=[
+        "malice",
+        "chane",
+        "levia",
+        "vynnset",
+        "viserai",
+        people.BLASMOPHET,
+        people.SOL,
+        people.ARBITER_MAGISTER_OF_JUSTICE,
+        people.WHISPERS_OF_XERYS,
     ],
     locations=[
         loc.SHADOWREALM,
@@ -309,12 +313,12 @@ db.upsert_story(
     title="Outsiders",
     characters=[
         "arakni-huntsman",
-        npc.ACHLYS_HAG_OF_MOJIRE,
-        npc.AKUO,
-        npc.DR_KREST_MORTIMER_THE_FIXER,
-        npc.LENA_BELLE,
-        npc.OTMAR,
-        npc.SURAJ_THE_ORACLE,
+        people.ACHLYS_HAG_OF_MOJIRE,
+        people.AKUO,
+        people.DR_KREST_MORTIMER_THE_FIXER,
+        people.LENA_BELLE,
+        people.OTMAR,
+        people.SURAJ_THE_ORACLE,
     ],
     # Preserved, not re-derived. An omitted fragments= CLEARS the stored
     # anchors rather than leaving them alone, which the dry run caught.
@@ -338,16 +342,16 @@ db.upsert_story(
         "azalea",
         "dash",
         "kano",
-        npc.ATEIA,
-        npc.DR_KREST_MORTIMER_THE_FIXER,
-        npc.ELDON_LOST_KNIGHT,
-        npc.ELIAS_EDGECOMBE,
-        npc.GRAHAM_THE_GALLANT,
-        npc.JEEVES,
-        npc.LIEUTENANT_YAMADA,
-        npc.MAXWELL,
-        npc.VERA,
-        npc.XAINE_RUNESCRIBE,
+        people.ATEIA,
+        people.DR_KREST_MORTIMER_THE_FIXER,
+        people.ELDON_LOST_KNIGHT,
+        people.ELIAS_EDGECOMBE,
+        people.GRAHAM_THE_GALLANT,
+        people.JEEVES,
+        people.LIEUTENANT_YAMADA,
+        people.MAXWELL,
+        people.VERA,
+        people.XAINE_RUNESCRIBE,
     ],
     fragments={"azalea": "three-of-a-kind---arc044", "kano": "blazing-aether---arc118"},
     locations=[loc.DEATH_S_KNELL],
@@ -366,15 +370,15 @@ db.upsert_story(
         "jarl",
         "kano",
         "teklovossen",
-        npc.BUTCHER_JEK,
-        npc.GREENBIRD,
-        npc.JACKDAW,
-        npc.JULES_TEKLOVOSSEN,
-        npc.LINNEA_MISTRESS_OF_MALADY,
-        npc.SEPTUS,
-        npc.SPOKES,
-        npc.THUK,
-        npc.TOGARK_THE_WRANGLER,
+        people.BUTCHER_JEK,
+        people.GREENBIRD,
+        people.JACKDAW,
+        people.JULES_TEKLOVOSSEN,
+        people.LINNEA_MISTRESS_OF_MALADY,
+        people.SEPTUS,
+        people.SPOKES,
+        people.THUK,
+        people.TOGARK_THE_WRANGLER,
     ],
     fragments={
         "hala": "unified-decree---cru083",
@@ -397,19 +401,19 @@ db.upsert_story(
         "enigma",
         "nuu",
         "zen",
-        npc.ANHE_KOTORI_WAVEBENDER,
-        npc.DAN_LU_KOTORI_GALEWARDEN,
-        npc.GUDO_MISTWARD_PILGRIM,
-        npc.HIREI,
-        npc.KOUKI,
-        npc.MASTER_MORITA_ART_OF_THE_HAND,
-        npc.MIKU,
-        npc.NING_KOTORI_MOONSEEKER,
-        npc.REINA_SPIRIT_CALLER,
-        npc.SHIO,
-        npc.SOREN,
-        npc.SUMIRE,
-        npc.TOHIRO_ETERNAL_SCRIBE,
+        people.ANHE_KOTORI_WAVEBENDER,
+        people.DAN_LU_KOTORI_GALEWARDEN,
+        people.GUDO_MISTWARD_PILGRIM,
+        people.HIREI,
+        people.KOUKI,
+        people.MASTER_MORITA_ART_OF_THE_HAND,
+        people.MIKU,
+        people.NING_KOTORI_MOONSEEKER,
+        people.REINA_SPIRIT_CALLER,
+        people.SHIO,
+        people.SOREN,
+        people.SUMIRE,
+        people.TOHIRO_ETERNAL_SCRIBE,
     ],
     fragments={"enigma": "deep-blue-sea---mst084"},
     locations=[loc.RYOSOZAN_PEAKS],
@@ -423,7 +427,7 @@ db.upsert_story(
 # was the page THE_MAELA's member_source had always named, and the only page that
 # names her — but nothing declared it, so she had no story link at all and the
 # citation pointed at a page the graph did not connect her to. Registering it also
-# closes npc.KARALYN, the last npcs.csv row with no catalogue constant.
+# closes people.KARALYN, the last npcs.csv row with no catalogue constant.
 db.upsert_story(
     path="src/flavour/compendium-of-rathe.md",
     story_type="flavour",
@@ -434,21 +438,21 @@ db.upsert_story(
         "hala",
         "maxx",
         "uzuri",
-        npc.ANARCH_ZEIR,
-        npc.APOSTATE,
-        npc.BATBITER,
-        npc.DAVNIR,
-        npc.DR_KREST_MORTIMER_THE_FIXER,
-        # X06: Kox is a hero and this page writes "Fightmaster Kox". The NPC row
+        people.ANARCH_ZEIR,
+        people.APOSTATE,
+        people.BATBITER,
+        people.DAVNIR,
+        people.DR_KREST_MORTIMER_THE_FIXER,
+        # X06: Kox is a hero and this page writes "Fightmaster Kox". The character row
         # is what the other nine pages link, so this one joins them rather than
         # starting a tenth spelling of the same person. Stage 6 re-points all ten.
-        npc.FIGHTMASTER_KOX,
-        npc.GALCIA,
-        npc.KARALYN,
-        npc.MAELA_FAIRMIND,
-        npc.SOL,
-        npc.THEMIS_KEEPER_OF_THE_SCALES,
-        npc.YVOR,
+        people.FIGHTMASTER_KOX,
+        people.GALCIA,
+        people.KARALYN,
+        people.MAELA_FAIRMIND,
+        people.SOL,
+        people.THEMIS_KEEPER_OF_THE_SCALES,
+        people.YVOR,
     ],
     locations=[
         loc.CANDLEHOLD,
@@ -478,7 +482,7 @@ db.upsert_story(
     # Dropped 2026-08-21 by review, both too thin to stand (the user's call):
     #   DISCIPLES_OF_PAIN — PEN195 reads "The Disciple of Pain sought dominion,
     #     but in desperance *he* languished". Singular, and "he": that is one
-    #     person, not the order. If it evidences anything it evidences an NPC.
+    #     person, not the order. If it evidences anything it evidences an ordinary character.
     #   MUGENSHI_CLAN — the page gives only "- Mugenshi proverb". A proverb's
     #     attribution names a culture; the row is kind="clan" with no notes.
     # Not dropped, but noted: the same sentence that gives "our Gemini" also gives
@@ -503,7 +507,7 @@ db.upsert_story(
 # Every one of the twelve is like that. Counting a card title as attestation is the
 # user's call (2026-08-21) and it is what makes this registration worth doing; read
 # without it, the page names no dragon at all. The same reading is what admits
-# npc.FYENDAL, from "Fyendal's Fighting Spirit" (UPR194).
+# people.FYENDAL, from "Fyendal's Fighting Spirit" (UPR194).
 #
 # Deliberately left out under that same reading, because neither has a row anywhere
 # and neither is described by its own flavour line: `Vipox` (UPR188, a Spider quote
@@ -519,22 +523,22 @@ db.upsert_story(
         "victor-goldmane",
         # "The dragon of devastation, said to serve only the Aesir of Flames"
         # (UPR006). This row is Infernai under his epithet; the rename is stage 7.
-        npc.AESIR_OF_FLAMES,
-        npc.AZVOLAI,
-        npc.CROMAI,
-        npc.DOMINIA,
-        npc.DRACONA_OPTIMAI,
-        npc.FYENDAL,
-        npc.KYLORIA,
-        npc.MIRAGAI,
-        npc.NEKRIA,
-        npc.OUVIA,
-        npc.THEMAI,
-        npc.TOMELTAI,
-        npc.VYNSERAKAI,
-        npc.YENDURAI,
+        people.AESIR_OF_FLAMES,
+        people.AZVOLAI,
+        people.CROMAI,
+        people.DOMINIA,
+        people.DRACONA_OPTIMAI,
+        people.FYENDAL,
+        people.KYLORIA,
+        people.MIRAGAI,
+        people.NEKRIA,
+        people.OUVIA,
+        people.THEMAI,
+        people.TOMELTAI,
+        people.VYNSERAKAI,
+        people.YENDURAI,
         # "The sun is setting on this Dynasty. Tomorrow we rise up, my son."
-        npc.YUNKAI,
+        people.YUNKAI,
     ],
     # Not decoration. All three were already stored, and the first dry run of this
     # declaration reported them as "-> cleared": hero fragments are replace-semantic,

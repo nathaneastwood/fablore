@@ -72,16 +72,16 @@ class RelatedMaps:
     story_locations: dict[str, frozenset[str]]
     story_regions: dict[str, frozenset[str]]
     canonical_hero: dict[str, tuple[str, str]]
-    npc_row: dict[str, tuple[str, str]]
+    character_row: dict[str, tuple[str, str]]
     location_row: dict[str, tuple[str, str, str]]
     region_row: dict[str, tuple[str, str]]
     canonical_id_to_character_id: dict[str, str]
     character_id_to_canonical_id: dict[str, str]
     hero_canonical_to_stories: dict[str, frozenset[str]]
-    npc_char_to_stories: dict[str, frozenset[str]]
-    npc_src_to_char_ids: dict[str, frozenset[str]]
+    character_to_stories: dict[str, frozenset[str]]
+    other_page_to_char_ids: dict[str, frozenset[str]]
     hero_junction_fragment: dict[tuple[str, str], str]
-    npc_junction_fragment: dict[tuple[str, str], str]
+    character_junction_fragment: dict[tuple[str, str], str]
 
 
 def load_related_maps(data_dir: Path) -> RelatedMaps:
@@ -121,7 +121,7 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
 
     # character_id -> canonical_id (migration 17's identity spine), needed to
     # translate a canonical hero id into the character_id story_characters.csv
-    # actually keys on — a hero and an NPC are rows of the same `characters`
+    # actually keys on — a hero and an ordinary character are rows of the same `characters`
     # table, so one junction (below) reaches both.
     canon_to_char: dict[str, str] = {}
     for r in rows(data_dir / "csv" / "character-heroes.csv"):
@@ -178,18 +178,18 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
         if cid and slug:
             canonical[cid] = (slug, name or slug)
 
-    npc: dict[str, tuple[str, str]] = {}
+    character_row: dict[str, tuple[str, str]] = {}
     for r in rows(data_dir / "csv" / "characters.csv"):
         cid = (r.get("CharacterId") or "").strip()
         name = (r.get("Name") or "").strip()
         sk = (r.get("OtherCharactersStoryKey") or "").strip()
         if cid and name:
-            npc[cid] = (name, sk)
+            character_row[cid] = (name, sk)
 
-    npc_src_map: dict[str, set[str]] = {}
-    for cid, (_name, story_key) in npc.items():
+    other_page_map: dict[str, set[str]] = {}
+    for cid, (_name, story_key) in character_row.items():
         if story_key:
-            npc_src_map.setdefault(Path(story_key).as_posix(), set()).add(cid)
+            other_page_map.setdefault(Path(story_key).as_posix(), set()).add(cid)
 
     loc: dict[str, tuple[str, str, str]] = {}
     for r in rows(data_dir / "csv" / "locations.csv"):
@@ -217,14 +217,14 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
         story_locations={k: frozenset(v) for k, v in sl.items()},
         story_regions={k: frozenset(v) for k, v in sr.items()},
         canonical_hero=canonical,
-        npc_row=npc,
+        character_row=character_row,
         location_row=loc,
         region_row=reg,
         canonical_id_to_character_id=canon_to_char,
         character_id_to_canonical_id={v: k for k, v in canon_to_char.items()},
         hero_canonical_to_stories={k: frozenset(v) for k, v in hero_to_stories.items()},
-        npc_char_to_stories={k: frozenset(v) for k, v in char_to_stories.items()},
-        npc_src_to_char_ids={k: frozenset(v) for k, v in npc_src_map.items()},
+        character_to_stories={k: frozenset(v) for k, v in char_to_stories.items()},
+        other_page_to_char_ids={k: frozenset(v) for k, v in other_page_map.items()},
         # Both fields now source from the one story-characters.csv junction,
         # keyed on (story_id, character_id) — hero_junction_fragment used to
         # key on canonical_id, back when story-heroes.csv was a separate
@@ -232,7 +232,7 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
         # for where a canonical_id gets translated to a character_id before
         # either map is consulted.
         hero_junction_fragment=char_frag,
-        npc_junction_fragment=char_frag,
+        character_junction_fragment=char_frag,
     )
 
 
@@ -284,7 +284,7 @@ def build_character_stories_fragment(
     src_root: Path,
     hero_src_map: dict[str, frozenset[str]],
 ) -> str:
-    """Build a Related Lore HTML fragment listing stories featuring this hero or NPC.
+    """Build a Related Lore HTML fragment listing stories featuring this hero or ordinary character.
 
     Args:
         maps: Loaded registry maps.
@@ -297,14 +297,14 @@ def build_character_stories_fragment(
     """
     chapter_posix = Path(chapter_src_path).as_posix()
     chapter_hero_cids = hero_src_map.get(chapter_posix, frozenset())
-    chapter_npc_cids = maps.npc_src_to_char_ids.get(chapter_posix, frozenset())
+    chapter_other_cids = maps.other_page_to_char_ids.get(chapter_posix, frozenset())
     story_ids: set[str] = set()
 
     for cid in chapter_hero_cids:
         story_ids |= maps.hero_canonical_to_stories.get(cid, frozenset())
 
-    for cid in chapter_npc_cids:
-        story_ids |= maps.npc_char_to_stories.get(cid, frozenset())
+    for cid in chapter_other_cids:
+        story_ids |= maps.character_to_stories.get(cid, frozenset())
 
     if not story_ids:
         return ""
@@ -330,8 +330,8 @@ def build_character_stories_fragment(
             if frag:
                 break
         if not frag:
-            for cid in chapter_npc_cids:
-                frag = maps.npc_junction_fragment.get((sid, cid), "")
+            for cid in chapter_other_cids:
+                frag = maps.character_junction_fragment.get((sid, cid), "")
                 if frag:
                     break
         rel = relative_md_href(chapter_src_path, key)
@@ -429,12 +429,12 @@ def build_related_fragment(
     hero_ids = [
         maps.character_id_to_canonical_id[cid] for cid in character_ids if cid in maps.character_id_to_canonical_id
     ]
-    npc_ids = [cid for cid in character_ids if cid not in maps.character_id_to_canonical_id]
+    non_hero_ids = [cid for cid in character_ids if cid not in maps.character_id_to_canonical_id]
     loc_ids = sorted(maps.story_locations.get(story_id, frozenset()))
     reg_ids = sorted(maps.story_regions.get(story_id, frozenset()))
 
     hero_cards: list[tuple[str, str, str, str]] = []
-    npc_cards: list[tuple[str, str, str, str]] = []
+    character_cards: list[tuple[str, str, str, str]] = []
     loc_cards: list[tuple[str, str, str, str]] = []
     reg_cards: list[tuple[str, str, str, str]] = []
     # (kind_label, title, subtitle, href). Only href-populated rows become cards.
@@ -456,8 +456,8 @@ def build_related_fragment(
         href = html.escape(relative_md_href(chapter_src_path, target))
         hero_cards.append(("Hero", display, "", href))
 
-    for cid in npc_ids:
-        row = maps.npc_row.get(cid)
+    for cid in non_hero_ids:
+        row = maps.character_row.get(cid)
         if not row:
             continue
         name, story_key = row
@@ -469,7 +469,7 @@ def build_related_fragment(
         if _same_src_markdown(chapter_src_path, wk):
             continue
         href = html.escape(relative_md_href(chapter_src_path, wk))
-        npc_cards.append(("Character", name, "", href))
+        character_cards.append(("Character", name, "", href))
 
     for lid in loc_ids:
         loc = maps.location_row.get(lid)
@@ -524,12 +524,12 @@ def build_related_fragment(
     if hero_src_map is not None:
         chapter_posix = Path(chapter_src_path).as_posix()
         chapter_hero_cids = hero_src_map.get(chapter_posix, frozenset())
-        chapter_npc_cids = maps.npc_src_to_char_ids.get(chapter_posix, frozenset())
+        chapter_other_cids = maps.other_page_to_char_ids.get(chapter_posix, frozenset())
         reverse_story_ids: set[str] = set()
         for cid in chapter_hero_cids:
             reverse_story_ids |= maps.hero_canonical_to_stories.get(cid, frozenset())
-        for cid in chapter_npc_cids:
-            reverse_story_ids |= maps.npc_char_to_stories.get(cid, frozenset())
+        for cid in chapter_other_cids:
+            reverse_story_ids |= maps.character_to_stories.get(cid, frozenset())
         reverse_story_ids.discard(story_id)
         for sid in reverse_story_ids:
             key = maps.story_id_to_key.get(sid)
@@ -551,8 +551,8 @@ def build_related_fragment(
                 if frag:
                     break
             if not frag:
-                for cid in chapter_npc_cids:
-                    frag = maps.npc_junction_fragment.get((sid, cid), "")
+                for cid in chapter_other_cids:
+                    frag = maps.character_junction_fragment.get((sid, cid), "")
                     if frag:
                         break
             rel = relative_md_href(chapter_src_path, key)
@@ -561,7 +561,7 @@ def build_related_fragment(
 
     by_kind: dict[str, list[tuple[str, str, str, str]]] = {
         "Hero": [c for c in hero_cards if c[3]],
-        "Character": [c for c in npc_cards if c[3]],
+        "Character": [c for c in character_cards if c[3]],
         "Location": [c for c in loc_cards if c[3]],
         "Region": [c for c in reg_cards if c[3]],
     }

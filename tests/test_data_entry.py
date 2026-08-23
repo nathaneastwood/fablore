@@ -146,7 +146,7 @@ def test_story_type_matches_path_and_module(module, path, story_type, lineno) ->
 # Every entity type that has a registry table and a derived id. NarratedVideoEntry
 # is deliberately absent: it has neither, so it is per-declaration data.
 CATALOGUED = (
-    "NPCEntry",
+    "CharacterEntry",
     "LocationEntry",
     "RegionEntry",
     "MonsterEntry",
@@ -172,7 +172,7 @@ def _constructor_calls(module: str) -> list[tuple[str, int]]:
 def test_section_modules_reference_entities_rather_than_construct_them(module) -> None:
     """A second literal for one entity does not reuse its row, it mints another.
 
-    Every registry id is a hash of the fields written at the call site — an NPC
+    Every registry id is a hash of the fields written at the call site — a character
     *is* its name, a location *is* its name and its region, a food or drink *is*
     its name and its kind — so two literals for one entity give two rows and
     nothing raises. ``Legendarium`` and ``The Shadow Crypts`` each became two rows
@@ -202,7 +202,7 @@ def test_catalogue_constants_have_distinct_ids() -> None:
 
     sys.path.insert(0, str(ROOT / "src" / "data"))
     from db._domain import _location_id, _monster_id
-    from entries.catalogue import fauna, flora, food_drink, groups, locations, monsters, npcs, regions
+    from entries.catalogue import characters, fauna, flora, food_drink, groups, locations, monsters, regions
     from registry_ids import (
         fauna_id_from_name,
         flora_id,
@@ -214,7 +214,7 @@ def test_catalogue_constants_have_distinct_ids() -> None:
 
     collisions: list[str] = []
     for module, id_fn in (
-        (npcs, lambda e: lore_character_id(e.name)),
+        (characters, lambda e: lore_character_id(e.name)),
         (locations, lambda e: _location_id(e.name, region_row_id(e.region) if e.region else "")),
         (regions, lambda e: region_row_id(e.name)),
         (monsters, lambda e: _monster_id(e.name)),

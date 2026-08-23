@@ -17,13 +17,13 @@ from __future__ import annotations
 # entries/catalogue/; none of the entry classes are imported here, so writing
 # LocationEntry(...) is a NameError rather than a silent new row.
 from entries.catalogue import (  # noqa: F401
+    characters as people,
     fauna,
     flora,
     food_drink as food,
     groups as grp,
     locations as loc,
     monsters as mon,
-    npcs as npc,
     regions as reg,
 )
 
@@ -43,10 +43,10 @@ db.upsert_story(
         "zyggy",
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        npc.MAELA_ISULFV,
-        npc.YVOR,
+        people.MAELA_ISULFV,
+        people.YVOR,
         # New with this set.
-        npc.KARL,
+        people.KARL,
     ],
     locations=[
         loc.ASTRAL_BRIDGE,
@@ -67,7 +67,7 @@ db.upsert_story(
     story_type="digital-tiles",
     title="Bright Lights",
     # The Fabricate tile is signed "Jules Teklovossen" — that is the hero
-    # Teklovossen under his full name, not the separate NPC row of that name.
+    # Teklovossen under his full name, not the separate character row of that name.
     characters=["dash", "teklovossen"],
     fragments={"dash": "dash-io", "teklovossen": "fabricate"},
     locations=[
@@ -96,14 +96,14 @@ db.upsert_story(
         "jarl",
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        npc.BELLONA_THE_WARTUNE_HERALD,
-        npc.SOL,
+        people.BELLONA_THE_WARTUNE_HERALD,
+        people.SOL,
         # New with this set. Species is unattested in the flavour text, so it is
         # left to default to "Unknown" rather than being guessed.
-        npc.BOO,
+        people.BOO,
         # A dragon, not a person — there is no dragons table, so it is carried
-        # as an NPC row and relabelled to "creature" in hints_supplement.json.
-        npc.MIRAGAI,
+        # as a character row and relabelled to "creature" in hints_supplement.json.
+        people.MIRAGAI,
     ],
     locations=[
         # New with this set. The Demonastery's mortuary quarter.
@@ -133,13 +133,13 @@ db.upsert_story(
         "teklovossen",
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        npc.GENERAL_EKODA,
-        npc.LORD_SABUTO,
-        npc.LORD_SUTCLIFFE,
-        npc.MAGNUS_THE_VIGILANT,
-        npc.SOL,
-        npc.THEODORE_HAMILTON_SCARBOROUGH,
-        npc.IRUNAMEABH,
+        people.GENERAL_EKODA,
+        people.LORD_SABUTO,
+        people.LORD_SUTCLIFFE,
+        people.MAGNUS_THE_VIGILANT,
+        people.SOL,
+        people.THEODORE_HAMILTON_SCARBOROUGH,
+        people.IRUNAMEABH,
     ],
     fragments={
         "dorinthea": "courage-of-bladehold",
@@ -202,9 +202,9 @@ db.upsert_story(
         "boltyn",
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        npc.JEZABELLE_EVERFEST_HEALER_AND_ALLSORTS,
-        npc.LORD_SUTCLIFFE,
-        npc.SOL,
+        people.JEZABELLE_EVERFEST_HEALER_AND_ALLSORTS,
+        people.LORD_SUTCLIFFE,
+        people.SOL,
     ],
     fragments={"boltyn": "swarming-gloomveil"},
     locations=[
@@ -258,7 +258,7 @@ db.upsert_story(
         "victor-goldmane",
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        npc.DEMETRIOS,
+        people.DEMETRIOS,
     ],
     fragments={"rhinar": "show-no-mercy", "victor-goldmane": "aurum-aegis"},
     locations=[
@@ -278,16 +278,16 @@ db.upsert_story(
         "gravy",
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        npc.KELPIE,
-        npc.MORAY_LE_FAY,
-        npc.SCOOBA,
-        npc.SWABBIE,
+        people.KELPIE,
+        people.MORAY_LE_FAY,
+        people.SCOOBA,
+        people.SWABBIE,
         # New with this set.
-        npc.CAPTAIN_BLUDGE,
-        npc.CHOWDER,
+        people.CAPTAIN_BLUDGE,
+        people.CHOWDER,
         # "Dhani death-mage" — Dhani is the culture, not a species, so species is
         # left to default to "Unknown".
-        npc.THANUELLA,
+        people.THANUELLA,
     ],
     locations=[
         loc.DREADFALL_REACH,
@@ -317,9 +317,9 @@ db.upsert_story(
         "boltyn",
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        npc.BLASMOPHET,
-        npc.SOL,
-        npc.URSUR,
+        people.BLASMOPHET,
+        people.SOL,
+        people.URSUR,
     ],
     fragments={"boltyn": "seek-enlightenment"},
     locations=[
@@ -346,12 +346,12 @@ db.upsert_story(
         "nuu",
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        npc.DAN_LU_KOTORI_GALEWARDEN,
-        npc.KAZUO,
-        npc.KOUKI,
-        npc.MASTER_UDO,
-        npc.SHIO,
-        npc.XIN,
+        people.DAN_LU_KOTORI_GALEWARDEN,
+        people.KAZUO,
+        people.KOUKI,
+        people.MASTER_UDO,
+        people.SHIO,
+        people.XIN,
     ],
     fragments={"enigma": "10000-year-reunion"},
     locations=[
@@ -361,7 +361,7 @@ db.upsert_story(
         loc.KIROHIME_GATE,
         loc.MISTCLOAK_GULLY,
         # Murky Water's "Butcher" is the hero Riptide; deliberately not linked, as
-        # the tile never names him and the DB holds two unrelated Butcher NPCs.
+        # the tile never names him and the DB holds two unrelated Butcher character rows.
         loc.SEETHE,
     ],
     regions=[
@@ -383,9 +383,9 @@ db.upsert_story(
         "verdance",
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        npc.DAVNIR,
-        npc.QUEEN_OF_CANDLEHOLD,
-        npc.YVOR,
+        people.DAVNIR,
+        people.QUEEN_OF_CANDLEHOLD,
+        people.YVOR,
     ],
     fragments={"aurora": "aurora-shooting-star", "melody": "sanctuary-of-aria"},
     locations=[
@@ -415,9 +415,9 @@ db.upsert_story(
     characters=[
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        npc.DAVNIR,
-        npc.QUEEN_OF_CANDLEHOLD,
-        npc.YVOR,
+        people.DAVNIR,
+        people.QUEEN_OF_CANDLEHOLD,
+        people.YVOR,
     ],
     locations=[
         loc.CANDLEHOLD,
@@ -444,7 +444,7 @@ db.upsert_story(
         "taipanis",
         # Already curated — named here only to link them to this page. Species and
         # status are left empty so the existing curated values are preserved.
-        npc.DR_KREST_MORTIMER_THE_FIXER,
+        people.DR_KREST_MORTIMER_THE_FIXER,
     ],
     fragments={"cindra": "wrath-of-retribution"},
     locations=[

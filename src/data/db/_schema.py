@@ -18,7 +18,7 @@ Version history:
       five-value vocabulary
  13 — titles, title_holders, story_titles: offices (Grand Magister, Dracai of
       Aether) with ordered or concurrent holders, resolved through
-      character_heroes so a hero and an NPC can share one title_holders row
+      character_heroes so a hero and an ordinary character can share one title_holders row
  14 — character_kin: kinship facts (father, mother, parent, sibling, spouse,
       child), one row per stated fact; the inverse is derived at read time,
       never stored
@@ -26,13 +26,13 @@ Version history:
       (Braumeister, shieldbearer) — unbounded and unsourceable, unlike a
       group's roster, so there is no ``member_source`` and no citation column.
       Resolved through ``character_heroes`` exactly as ``title_holders`` is, so
-      a profession reaches a hero with no NPC row of its own.
+      a profession reaches a hero with no ``CharacterEntry`` of its own.
  16 — characters.summary: the tooltip text for a person. Until this column
       existed generate_hints_json.py emitted nothing for people at all and
       hints_supplement.json was the sole writer of every one, which also left
       the npc_epithets rows stage 3 created rendering nowhere.
  17 — story_npcs + story_heroes merge into story_characters: after migration
-      12's identity spine a hero and an NPC are rows of the same `characters`
+      12's identity spine a hero and an ordinary character are rows of the same `characters`
       table, so one junction (keyed on character_id, still carrying
       fragment) reaches both, exactly as title_holders (13) and
       character_professions (15) already read through character_heroes for
@@ -40,10 +40,10 @@ Version history:
       collapses to one row; see the migration block for the fragment
       tie-break.
  18 — group_npcs + group_heroes merge into group_characters: the roster half
-      of the same move 17 made for story links. GroupEntry loses npc_members
-      and hero_members for one `members` tuple that takes an NPCEntry or a
+      of the same move 17 made for story links. GroupEntry loses character_members
+      and hero_members for one `members` tuple that takes a CharacterEntry or a
       canonical hero slug, which also gives a hero member the
-      (member, story_key) citation pair only an NPC member could carry.
+      (member, story_key) citation pair only a ``CharacterEntry`` member could carry.
 """
 
 from __future__ import annotations
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS characters (
 -- several heroes in principle (character_id is not unique), though nothing
 -- exercises that yet.
 --
--- Populated two ways: NPCEntry(hero_slug=...) declares "this NPC row is that
+-- Populated two ways: CharacterEntry(hero_slug=...) declares "this character row is that
 -- hero", and seed time self-heals every hero this table does not yet cover by
 -- minting a character row (status 'Unknown') and linking it — so a hero added
 -- later by create_heroes_csv.py can never end up without an identity. An
@@ -287,9 +287,9 @@ CREATE TABLE IF NOT EXISTS groups (
 -- evidence column from D2 — an uncited membership is unsourced lore.
 --
 -- Merges group_npcs and group_heroes (migration 18), the roster half of the
--- move migration 17 made for story links: a hero and an NPC are rows of the
+-- move migration 17 made for story links: a hero and an ordinary character are rows of the
 -- same `characters` table, so one junction keyed on character_id holds a
--- whole roster. GroupEntry.members takes an NPCEntry or a canonical hero slug
+-- whole roster. GroupEntry.members takes a CharacterEntry or a canonical hero slug
 -- and both land here. story_key stays the per-membership evidence column.
 CREATE TABLE IF NOT EXISTS group_characters (
     group_id     TEXT NOT NULL REFERENCES groups(group_id) ON DELETE CASCADE,
@@ -300,9 +300,9 @@ CREATE TABLE IF NOT EXISTS group_characters (
 
 -- Story junction tables (all cascade-delete when a story is removed)
 --
--- Merges story_npcs and story_heroes (migration 17). A hero and an NPC are
+-- Merges story_npcs and story_heroes (migration 17). A hero and an ordinary character are
 -- rows of the same `characters` table since migration 12, so every entry in
--- upsert_story()'s characters= list — a hero slug or an NPCEntry — resolves
+-- upsert_story()'s characters= list — a hero slug or a CharacterEntry — resolves
 -- to a character_id and writes here, one row per (story, person). fragment
 -- carries the mdBook heading anchor either kind of entry can give it; see
 -- Database.upsert_story's fragments= docstring for how a declaration names
@@ -387,9 +387,9 @@ CREATE TABLE IF NOT EXISTS titles (
 );
 
 -- Holders (R3). character_id is what migration 12's identity spine makes
--- possible: a hero and an NPC can be the same row of this column, with no
+-- possible: a hero and an ordinary character can be the same row of this column, with no
 -- second table the way group_npcs/group_heroes needed one before migration 18 — Kano the hero and
--- the five Grand Magister NPCs share one junction.
+-- the five Grand Magister characters share one junction.
 CREATE TABLE IF NOT EXISTS title_holders (
     title_id     TEXT NOT NULL REFERENCES titles(title_id) ON DELETE CASCADE,
     character_id TEXT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
@@ -511,8 +511,8 @@ CREATE TABLE IF NOT EXISTS professions (
 );
 
 -- Many-to-many against `characters`, not `npcs` — after migration 12's identity
--- spine, a hero and an NPC are rows of the same table, so one junction reaches
--- both. Kano is a hero with no NPC row; his profession still lands here.
+-- spine, a hero and an ordinary character are rows of the same table, so one junction reaches
+-- both. Kano is a hero with no ``CharacterEntry``; his profession still lands here.
 CREATE TABLE IF NOT EXISTS character_professions (
     character_id  TEXT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
     profession_id TEXT NOT NULL REFERENCES professions(profession_id) ON DELETE CASCADE,
@@ -674,7 +674,7 @@ def migrate(conn: sqlite3.Connection) -> None:
         conn.execute("PRAGMA user_version = 9")
         conn.commit()
     if version < 10:
-        # Names that are not the name. 36 NPC names glue an epithet on after a
+        # Names that are not the name. 36 character names glue an epithet on after a
         # comma, so a character can hold exactly one and the Heralds' second and
         # third have nowhere to go. Three locations are three rows for one place
         # (Fedhari / Coralysi / Fiddler's Green), which the Lore Graph draws as
@@ -877,7 +877,7 @@ def migrate(conn: sqlite3.Connection) -> None:
         # The tooltip text for a person. generate_hints_json.py emitted entries
         # for locations, monsters, fauna, flora, groups and species, and nothing
         # at all for people, because there was nowhere to put the sentence — so
-        # hints_supplement.json hand-wrote all 39 NPC and 65 hero tooltips, and
+        # hints_supplement.json hand-wrote all 39 ordinary-character and 65 hero tooltips, and
         # the 25 npc_epithets rows stage 3 created were correct data that
         # rendered nowhere.
         #
@@ -897,7 +897,7 @@ def migrate(conn: sqlite3.Connection) -> None:
     if version < 17:
         # story_npcs (character_id) and story_heroes (canonical_id) both carry a
         # fragment column and both key a story to a person. After migration 12's
-        # identity spine a hero and an NPC are rows of the same `characters`
+        # identity spine a hero and an ordinary character are rows of the same `characters`
         # table, so one junction — keyed on character_id — reaches both, the
         # same move title_holders (13) and character_professions (15) already
         # made for a different relationship.

@@ -26,13 +26,13 @@ from __future__ import annotations
 # entries/catalogue/; none of the entry classes are imported here, so writing
 # LocationEntry(...) is a NameError rather than a silent new row.
 from entries.catalogue import (  # noqa: F401
+    characters as people,
     fauna,
     flora,
     food_drink as food,
     groups as grp,
     locations as loc,
     monsters as mon,
-    npcs as npc,
     regions as reg,
 )
 

@@ -24,7 +24,7 @@ What is *not* here:
   to be both, and both rows exist. ``Maela Soothsayer`` was only ever a
   membership, and Kaysin is on The Maela's roster instead.
 * **Volcai and Dracai.** Volcoran castes, and every named Volcoran is a hero
-  rather than an NPC — ``heroes_canonical`` has three columns and no species, so
+  rather than a character — ``heroes_canonical`` has three columns and no species, so
   a species row could hold nobody. They stay group rows.
 * **Rathenfolk.** A generic term for the peoples of Rathe, so it sits above
   these rather than beside them. Still a ``concept`` in ``hints_supplement.json``.
@@ -44,7 +44,7 @@ BRUTE = SpeciesEntry("Brute")
 our more amiable Brutes" — two peoples staffing one guild, which is what marks
 this a species rather than a build (the user's call, 2026-08-20)."""
 CHANEK = SpeciesEntry("Chanek")
-"""The green-skinned, pointed-eared Rathenfolk of the far west. No NPC row
+"""The green-skinned, pointed-eared Rathenfolk of the far west. No character row
 carries it yet; the species is attested and the characters are not."""
 DOG = SpeciesEntry("Dog")
 DOGG = SpeciesEntry("Dogg")
@@ -78,11 +78,11 @@ AESIR = SpeciesEntry("Aesir", aliases=("Aesirs",))
 """Absorbs the ``Aesir`` supplement entry, whose hand-written match array carried
 the plural. The three "Aesir of —" epithets are titles and wait for stage 7."""
 ANCIENT = SpeciesEntry("Ancient", aliases=("Ancients",))
-"""Absorbs the ``Ancients`` supplement entry. The species value on the NPC rows is
+"""Absorbs the ``Ancients`` supplement entry. The species value on the character rows is
 singular and the prose is plural, so the alias is what joins them."""
 DRAGON = SpeciesEntry("Dragon")
 EMBRA = SpeciesEntry("Embra", aliases=("Embras",))
 """Absorbs the ``Embra`` supplement entry and its plural."""
 HERALD = SpeciesEntry("Herald")
-"""Eight NPCs, every one of them carrying at least one Archangel epithet. No
+"""Eight characters, every one of them carrying at least one Archangel epithet. No
 supplement entry ever existed, so this row has no notes and no tooltip yet."""

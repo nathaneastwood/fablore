@@ -140,7 +140,7 @@ def test_migrate_from_version_11_preserves_hero_and_npc_fragments() -> None:
 
 
 def test_migrate_from_version_11_collapses_a_person_named_on_both_sides() -> None:
-    """A hero and an NPC that are the same person collapse to one row.
+    """A hero and an ordinary character that are the same person collapse to one row.
 
     Simulates the real-world shape this merge exists for: an NPC row whose
     name coincides with a hero's canonical name (the pre-migration-12
@@ -167,7 +167,7 @@ def test_migrate_from_version_11_collapses_a_person_named_on_both_sides() -> Non
     migrate(conn)
 
     rows = conn.execute("SELECT character_id, fragment FROM story_characters WHERE story_id = 'ST1'").fetchall()
-    assert len(rows) == 1, "hero and NPC sides of the same person did not collapse to one row"
+    assert len(rows) == 1, "hero and ordinary-character sides of the same person did not collapse to one row"
     assert rows[0]["character_id"] == shared_id
     # story_heroes wins the tie per the migration's documented tie-break.
     assert rows[0]["fragment"] == "hero-anchor"
@@ -192,7 +192,7 @@ def test_migrate_from_version_1_from_scratch_build_reaches_17_cleanly() -> None:
 
 
 def test_migrate_from_version_11_hero_with_no_npc_row_still_mints_identity() -> None:
-    """A hero with no matching NPC row at all still gets a character + link."""
+    """A hero with no matching character row at all still gets a character + link."""
     conn = _conn()
     _build_version_11_schema(conn)
     conn.execute(

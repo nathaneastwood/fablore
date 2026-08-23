@@ -17,13 +17,13 @@ from __future__ import annotations
 # entries/catalogue/; none of the entry classes are imported here, so writing
 # LocationEntry(...) is a NameError rather than a silent new row.
 from entries.catalogue import (  # noqa: F401
+    characters as people,
     fauna,
     flora,
     food_drink as food,
     groups as grp,
     locations as loc,
     monsters as mon,
-    npcs as npc,
     regions as reg,
 )
 
@@ -42,7 +42,7 @@ db.upsert_story(
         "viserai",
         "levia",
         "malice",
-        npc.BLASMOPHET,
+        people.BLASMOPHET,
     ],
     locations=[
         loc.THE_ABYSS,
@@ -73,7 +73,7 @@ db.upsert_story(
     source_link="https://fabtcg.com/articles/wings-of-wisdom/",
     characters=[
         "prism",
-        npc.SEKEM_ARCHANGEL_OF_RAVAGES,
+        people.SEKEM_ARCHANGEL_OF_RAVAGES,
     ],
     regions=[reg.SOLANA],
     dry_run=True,
@@ -90,11 +90,11 @@ db.upsert_story(
         "olympia",
         "rhinar",
         "victor-goldmane",
-        npc.FIGHTMASTER_KOX,
-        npc.GENERAL_CHUL,
-        npc.SADA,
-        npc.ALIF,
-        npc.FAYYAD,
+        people.FIGHTMASTER_KOX,
+        people.GENERAL_CHUL,
+        people.SADA,
+        people.ALIF,
+        people.FAYYAD,
     ],
     locations=[
         loc.DESHVAHAN,
@@ -142,7 +142,7 @@ db.upsert_story(
     characters=[
         "aurora",
         "oscilio",
-        npc.QUEEN_OF_CANDLEHOLD,
+        people.QUEEN_OF_CANDLEHOLD,
     ],
     locations=[
         loc.ARCTUROS,
@@ -180,7 +180,7 @@ db.upsert_story(
     source_link="https://fabtcg.com/articles/living-on-a-prayer/",
     characters=[
         "boltyn",
-        npc.GALAPHOR,
+        people.GALAPHOR,
     ],
     regions=[reg.DEMONASTERY, reg.SOLANA],
     weapons=["raydn-duskbane"],
@@ -194,9 +194,9 @@ db.upsert_story(
     source_link="https://fabtcg.com/articles/no-pain-no-gain/",
     characters=[
         "vynnset",
-        npc.DARIAN,
-        npc.DAXIUS,
-        npc.DHERIC,
+        people.DARIAN,
+        people.DAXIUS,
+        people.DHERIC,
     ],
     dry_run=True,
 )
@@ -207,7 +207,7 @@ db.upsert_story(
     title="Victor",
     characters=[
         "victor-goldmane",
-        npc.HOG,
+        people.HOG,
     ],
     dry_run=True,
 )
@@ -258,8 +258,8 @@ db.upsert_story(
     story_type="short-stories",
     title="Roll of Honor: Rhinar",
     characters=[
-        npc.LUCA_ARENA_CICERONE,
-        npc.TOGARK_THE_WRANGLER,
+        people.LUCA_ARENA_CICERONE,
+        people.TOGARK_THE_WRANGLER,
     ],
     locations=[
         loc.GOUGEMOOR,
@@ -298,7 +298,7 @@ db.upsert_story(
     title="Brevant, Civic Protector",
     characters=[
         "brevant",
-        npc.THEBASTO_MAGISTER_OF_DEFENSE,
+        people.THEBASTO_MAGISTER_OF_DEFENSE,
     ],
     locations=[
         loc.CHARRED_RANGE,
@@ -359,8 +359,8 @@ db.upsert_story(
     source_link="https://fabtcg.com/articles/aiming-high/",
     characters=[
         "azalea",
-        npc.BAZZ,
-        npc.PINWHEEL,
+        people.BAZZ,
+        people.PINWHEEL,
     ],
     locations=[loc.BLOCKHEAD_TERRITORY],
     regions=[reg.THE_PITS],
@@ -381,9 +381,9 @@ db.upsert_story(
     title="Roll of Honor: Dash",
     characters=[
         "dash",
-        npc.DR_WYVERSTONE,
-        npc.RICKY_ROYCE,
-        npc.THIROUX,
+        people.DR_WYVERSTONE,
+        people.RICKY_ROYCE,
+        people.THIROUX,
     ],
     locations=[
         loc.TEKLO_INDUSTRIES,
@@ -441,8 +441,8 @@ db.upsert_story(
     title="Roll of Honor: Victor Goldmane",
     characters=[
         "victor-goldmane",
-        npc.AURELIUS,
-        npc.DUKE_DREXEN,
+        people.AURELIUS,
+        people.DUKE_DREXEN,
     ],
     locations=[
         loc.CLIFFHOLD,
@@ -503,7 +503,7 @@ db.upsert_story(
     path="src/short-stories/heavy-hitters/rhinar.md",
     story_type="short-stories",
     title="Rhinar",
-    characters=[npc.FIGHTMASTER_KOX],
+    characters=[people.FIGHTMASTER_KOX],
     locations=[
         loc.TARNISH_HILL,
         loc.THISTLEFOLD,
@@ -531,7 +531,7 @@ db.upsert_story(
     source_link="https://fabtcg.com/articles/its-trap/",
     characters=[
         "riptide",
-        npc.SQUIDGE,
+        people.SQUIDGE,
     ],
     dry_run=True,
 )
@@ -542,8 +542,8 @@ db.upsert_story(
     title="Roll of Honor: Briar",
     characters=[
         "briar",
-        npc.DAVNIR,
-        npc.YVOR,
+        people.DAVNIR,
+        people.YVOR,
     ],
     locations=[
         loc.CANDLEHOLD,
@@ -571,7 +571,7 @@ db.upsert_story(
     title="Roll of Honor: Zen",
     characters=[
         "zen",
-        npc.MASTER_MORITA_ART_OF_THE_HAND,
+        people.MASTER_MORITA_ART_OF_THE_HAND,
     ],
     regions=[reg.MISTERIA],
     dry_run=True,

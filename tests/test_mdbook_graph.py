@@ -217,7 +217,7 @@ def test_location_url_deep_links_into_its_region_page(src_root: Path) -> None:
     assert names["Nowhere"]["u"] == ""
 
 
-def test_npc_and_weapon_urls(src_root: Path) -> None:
+def test_character_and_weapon_urls(src_root: Path) -> None:
     graph = build_graph(src_root / "data", src_root)
     names = _by_name(graph)
     assert names["Minerva Themis"]["u"] == "other-characters/minerva-themis.html"
@@ -304,9 +304,9 @@ def test_links_are_deduplicated_and_indices_are_in_range(src_root: Path) -> None
         assert a != b
 
 
-def test_hero_and_npc_same_person_draws_as_one_node(tmp_path: Path) -> None:
+def test_hero_and_ordinary_character_same_person_draws_as_one_node(tmp_path: Path) -> None:
     """The point of the story_characters merge (migration 17): a person who is
-    both a hero and an ``NPCEntry(hero_slug=...)`` resolves to one
+    both a hero and a ``CharacterEntry(hero_slug=...)`` resolves to one
     ``character_id`` and must draw as one node, not two.
 
     Before the merge, ``story-heroes.csv`` (keyed on ``canonical_id``) and
@@ -333,7 +333,7 @@ def test_hero_and_npc_same_person_draws_as_one_node(tmp_path: Path) -> None:
         "# AUTO-GENERATED\nCharacterId|Name|Species|Status|OtherCharactersStoryKey\nLC1|Kano|Human|Alive|\n"
     )
     (csv_dir / "character-heroes.csv").write_text("# AUTO-GENERATED\nCanonicalId|CharacterId\nCN1|LC1\n")
-    # One story-characters.csv row: a hero slug and an NPCEntry for the same
+    # One story-characters.csv row: a hero slug and a CharacterEntry for the same
     # person resolve to the same character_id — LC1 is Kano's character_id
     # whichever way he is named.
     (csv_dir / "story-characters.csv").write_text("# AUTO-GENERATED\nStoryId|CharacterId|Fragment\nST1|LC1|\n")

@@ -19,7 +19,7 @@ from db import (
     FloraEntry,
     LocationEntry,
     MonsterEntry,
-    NPCEntry,
+    CharacterEntry,
     RegionEntry,
     SpeciesEntry,
 )
@@ -86,7 +86,7 @@ def test_list_equipment_with_data(db: Database) -> None:
 
 
 # ---------------------------------------------------------------------------
-# list_regions / list_npcs / list_locations
+# list_regions / list_characters / list_locations
 # ---------------------------------------------------------------------------
 
 
@@ -105,18 +105,18 @@ def test_list_regions_with_data(db: Database) -> None:
     assert any(r["region_name"] == "Solana" for r in regions)
 
 
-def test_list_npcs_empty(db: Database) -> None:
-    assert db.list_npcs() == []
+def test_list_characters_empty(db: Database) -> None:
+    assert db.list_characters() == []
 
 
-def test_list_npcs_with_data(db: Database) -> None:
+def test_list_characters_with_data(db: Database) -> None:
     db.upsert_story(
         "src/main-story/n.md",
         story_type="main-story",
         title="N",
-        characters=[NPCEntry("Guard Captain", species=SpeciesEntry("Human"), status="Alive")],
+        characters=[CharacterEntry("Guard Captain", species=SpeciesEntry("Human"), status="Alive")],
     )
-    npcs = db.list_npcs()
+    npcs = db.list_characters()
     assert any(n["name"] == "Guard Captain" for n in npcs)
     assert all("name" in n and "species" in n and "status" in n for n in npcs)
 
@@ -138,7 +138,7 @@ def test_list_locations_with_data(db: Database) -> None:
 
 
 # ---------------------------------------------------------------------------
-# print_heroes / print_weapons / print_equipment / print_regions / print_npcs / print_locations
+# print_heroes / print_weapons / print_equipment / print_regions / print_characters / print_locations
 # ---------------------------------------------------------------------------
 
 
@@ -196,21 +196,21 @@ def test_print_regions_with_data(db: Database) -> None:
     assert "Aria" in buf.getvalue()
 
 
-def test_print_npcs_empty(db: Database) -> None:
+def test_print_characters_empty(db: Database) -> None:
     buf = io.StringIO()
-    db.print_npcs(file=buf)
+    db.print_characters(file=buf)
     assert "(none)" in buf.getvalue()
 
 
-def test_print_npcs_with_data(db: Database) -> None:
+def test_print_characters_with_data(db: Database) -> None:
     db.upsert_story(
         "src/main-story/n2.md",
         story_type="main-story",
         title="N2",
-        characters=[NPCEntry("Ranger", species=SpeciesEntry("Elf"), status="Unknown")],
+        characters=[CharacterEntry("Ranger", species=SpeciesEntry("Elf"), status="Unknown")],
     )
     buf = io.StringIO()
-    db.print_npcs(file=buf)
+    db.print_characters(file=buf)
     assert "Ranger" in buf.getvalue()
 
 
@@ -362,7 +362,7 @@ def test_display_story_with_junctions(db: Database) -> None:
         "src/main-story/foo.md",
         story_type="main-story",
         title="Junction Story",
-        characters=[NPCEntry("Mystic", species=SpeciesEntry("Unknown"), status="Unknown")],
+        characters=[CharacterEntry("Mystic", species=SpeciesEntry("Unknown"), status="Unknown")],
     )
     buf = io.StringIO()
     db.display_story("src/main-story/foo.md", file=buf)
@@ -411,17 +411,17 @@ def test_delete_entity_unknown_entity_type(db: Database) -> None:
         db.delete_entity("weapon", "Something")
 
 
-def test_delete_entity_npc_removes_orphaned_row(db: Database) -> None:
-    """An NPC promoted to hero leaves an orphaned registry row behind.
+def test_delete_entity_character_removes_orphaned_row(db: Database) -> None:
+    """An ordinary character promoted to hero leaves an orphaned registry row behind.
 
-    Dropping the ``NPCEntry`` removes the story link, not the row, so the
+    Dropping the ``CharacterEntry`` removes the story link, not the row, so the
     orphan otherwise survives every export.
     """
     db.upsert_story(
         "src/main-story/foo.md",
         story_type="main-story",
         title="Foo",
-        characters=[NPCEntry(name="Promoted Character", species=SpeciesEntry("Demon"))],
+        characters=[CharacterEntry(name="Promoted Character", species=SpeciesEntry("Demon"))],
     )
     db.upsert_story(
         "src/main-story/foo.md",
@@ -432,27 +432,27 @@ def test_delete_entity_npc_removes_orphaned_row(db: Database) -> None:
     cur = db.conn.execute("SELECT COUNT(*) FROM characters WHERE name = ?", ["Promoted Character"])
     assert cur.fetchone()[0] == 1  # sanity: row survives the unlink
 
-    db.delete_entity("npc", "Promoted Character")
+    db.delete_entity("character", "Promoted Character")
     cur = db.conn.execute("SELECT COUNT(*) FROM characters WHERE name = ?", ["Promoted Character"])
     assert cur.fetchone()[0] == 0
 
 
-def test_delete_entity_npc_refuses_when_still_linked(db: Database) -> None:
+def test_delete_entity_character_refuses_when_still_linked(db: Database) -> None:
     db.upsert_story(
         "src/main-story/foo.md",
         story_type="main-story",
         title="Foo",
-        characters=[NPCEntry(name="Linked Character", species=SpeciesEntry("Human"))],
+        characters=[CharacterEntry(name="Linked Character", species=SpeciesEntry("Human"))],
     )
     with pytest.raises(ValueError, match="still referenced"):
-        db.delete_entity("npc", "Linked Character")
+        db.delete_entity("character", "Linked Character")
     cur = db.conn.execute("SELECT COUNT(*) FROM characters WHERE name = ?", ["Linked Character"])
     assert cur.fetchone()[0] == 1
 
 
-def test_delete_entity_npc_not_found(db: Database) -> None:
+def test_delete_entity_character_not_found(db: Database) -> None:
     with pytest.raises(ValueError, match="not found"):
-        db.delete_entity("npc", "No Such Character")
+        db.delete_entity("character", "No Such Character")
 
 
 def test_delete_entity_monster_removes_orphaned_row(db: Database) -> None:
@@ -524,11 +524,11 @@ def test_delete_entity_location_deletes_all_duplicate_name_rows(db: Database) ->
 
 
 # ---------------------------------------------------------------------------
-# NPC curated-field preservation
+# Character curated-field preservation
 # ---------------------------------------------------------------------------
 
 
-def _npc_row(database: Database, name: str) -> tuple[str, str]:
+def _character_row(database: Database, name: str) -> tuple[str, str]:
     """Return ``(species, status)``, with species joined back from the junction."""
     row = database.conn.execute("SELECT character_id, status FROM characters WHERE name = ?", [name]).fetchone()
     species = [
@@ -542,11 +542,11 @@ def _npc_row(database: Database, name: str) -> tuple[str, str]:
     return (", ".join(species), row["status"])
 
 
-def test_upsert_npc_preserves_curated_status(db: Database) -> None:
-    """Omitting status must not reset a curated NPC to 'Unknown'.
+def test_upsert_character_preserves_curated_status(db: Database) -> None:
+    """Omitting status must not reset a curated character to 'Unknown'.
 
-    Regression: NPCEntry once defaulted both fields to the sentinel "Unknown",
-    which upsert_npc wrote unconditionally. A later story registration that knew
+    Regression: CharacterEntry once defaulted both fields to the sentinel "Unknown",
+    which upsert_character wrote unconditionally. A later story registration that knew
     a character's name but not their lore status silently replaced values such as
     "Just a head" with "Unknown".
     """
@@ -554,17 +554,17 @@ def test_upsert_npc_preserves_curated_status(db: Database) -> None:
         "src/main-story/first.md",
         story_type="main-story",
         title="First",
-        characters=[NPCEntry("Lord Sutcliffe", species=SpeciesEntry("Human"), status="Just a head")],
+        characters=[CharacterEntry("Lord Sutcliffe", species=SpeciesEntry("Human"), status="Just a head")],
     )
-    assert _npc_row(db, "Lord Sutcliffe") == ("Human", "Just a head")
+    assert _character_row(db, "Lord Sutcliffe") == ("Human", "Just a head")
 
     db.upsert_story(
         "src/main-story/second.md",
         story_type="main-story",
         title="Second",
-        characters=[NPCEntry("Lord Sutcliffe", species=SpeciesEntry("Human"))],
+        characters=[CharacterEntry("Lord Sutcliffe", species=SpeciesEntry("Human"))],
     )
-    assert _npc_row(db, "Lord Sutcliffe") == ("Human", "Just a head")
+    assert _character_row(db, "Lord Sutcliffe") == ("Human", "Just a head")
 
 
 def test_species_is_replace_semantic_where_status_is_preserved(db: Database) -> None:
@@ -579,47 +579,47 @@ def test_species_is_replace_semantic_where_status_is_preserved(db: Database) -> 
         "src/main-story/first.md",
         story_type="main-story",
         title="First",
-        characters=[NPCEntry("Lord Sutcliffe", species=SpeciesEntry("Human"), status="Just a head")],
+        characters=[CharacterEntry("Lord Sutcliffe", species=SpeciesEntry("Human"), status="Just a head")],
     )
     db.upsert_story(
         "src/main-story/second.md",
         story_type="main-story",
         title="Second",
-        characters=[NPCEntry("Lord Sutcliffe")],
+        characters=[CharacterEntry("Lord Sutcliffe")],
     )
-    assert _npc_row(db, "Lord Sutcliffe") == ("", "Just a head")
+    assert _character_row(db, "Lord Sutcliffe") == ("", "Just a head")
 
 
-def test_an_npc_can_hold_two_species(db: Database) -> None:
+def test_a_character_can_hold_two_species(db: Database) -> None:
     """Scooba is a Zombie Dog, which the free-text column could only spell as one."""
     db.upsert_story(
         "src/main-story/first.md",
         story_type="main-story",
         title="First",
-        characters=[NPCEntry("Scooba", species=(SpeciesEntry("Zombie"), SpeciesEntry("Dog")))],
+        characters=[CharacterEntry("Scooba", species=(SpeciesEntry("Zombie"), SpeciesEntry("Dog")))],
     )
-    assert _npc_row(db, "Scooba")[0] == "Zombie, Dog"
+    assert _character_row(db, "Scooba")[0] == "Zombie, Dog"
 
 
-def test_upsert_npc_explicit_value_still_overwrites(db: Database) -> None:
+def test_upsert_character_explicit_value_still_overwrites(db: Database) -> None:
     """Preservation applies to omitted fields only — an explicit value always wins."""
     db.upsert_story(
         "src/main-story/first.md",
         story_type="main-story",
         title="First",
-        characters=[NPCEntry("Sol", species=SpeciesEntry("Human"))],
+        characters=[CharacterEntry("Sol", species=SpeciesEntry("Human"))],
     )
     db.upsert_story(
         "src/main-story/second.md",
         story_type="main-story",
         title="Second",
-        characters=[NPCEntry("Sol", species=SpeciesEntry("Aesir"))],
+        characters=[CharacterEntry("Sol", species=SpeciesEntry("Aesir"))],
     )
-    assert _npc_row(db, "Sol")[0] == "Aesir"
+    assert _character_row(db, "Sol")[0] == "Aesir"
 
 
-def test_upsert_npc_new_row_defaults_to_unknown(db: Database) -> None:
-    """A brand-new NPC has nothing to preserve, so an omitted status seeds 'Unknown'.
+def test_upsert_character_new_row_defaults_to_unknown(db: Database) -> None:
+    """A brand-new character has nothing to preserve, so an omitted status seeds 'Unknown'.
 
     Species seeds nothing: there is no ``Unknown`` species row, because "nobody
     said" is not a fact about a character (decided 2026-08-20).
@@ -628,6 +628,6 @@ def test_upsert_npc_new_row_defaults_to_unknown(db: Database) -> None:
         "src/main-story/first.md",
         story_type="main-story",
         title="First",
-        characters=[NPCEntry("Nameless Stranger")],
+        characters=[CharacterEntry("Nameless Stranger")],
     )
-    assert _npc_row(db, "Nameless Stranger") == ("", "Unknown")
+    assert _character_row(db, "Nameless Stranger") == ("", "Unknown")

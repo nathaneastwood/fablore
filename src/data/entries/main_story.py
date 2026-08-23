@@ -17,13 +17,13 @@ from __future__ import annotations
 # entries/catalogue/; none of the entry classes are imported here, so writing
 # LocationEntry(...) is a NameError rather than a silent new row.
 from entries.catalogue import (  # noqa: F401
+    characters as people,
     fauna,
     flora,
     food_drink as food,
     groups as grp,
     locations as loc,
     monsters as mon,
-    npcs as npc,
     regions as reg,
 )
 
@@ -50,8 +50,8 @@ db.upsert_story(
     source_link="https://fabtcg.com/hero/ira-3/story/edge-of-autumn/",
     characters=[
         "ira",
-        npc.JING,
-        npc.XILIN,
+        people.JING,
+        people.XILIN,
     ],
     locations=[loc.IKARU],
     regions=[reg.MISTERIA],
@@ -75,11 +75,11 @@ db.upsert_story(
     ],
     characters=[
         "bravo",
-        npc.MAGNUS_THE_VIGILANT,
-        npc.GAWAIN,
-        npc.MORGAN,
-        npc.MARBLES,
-        npc.MIKAEL,
+        people.MAGNUS_THE_VIGILANT,
+        people.GAWAIN,
+        people.MORGAN,
+        people.MARBLES,
+        people.MIKAEL,
     ],
     locations=[
         loc.THE_FLOW,
@@ -124,18 +124,18 @@ db.upsert_story(
     characters=[
         "dorinthea",
         "hala",
-        npc.MINERVA_THEMIS,
+        people.MINERVA_THEMIS,
         # TODO: Does fragment link to world lore? If so, how?
-        npc.GRAND_MAGISTER_THE_STEADFAST,
-        npc.SOL,
-        npc.VALERIA,
-        npc.FELIX,
-        npc.CHARIS,
-        npc.FARRIS,
-        npc.VITUS,
-        npc.PALLAS,
-        npc.DARIUS,
-        npc.MARCUS,
+        people.GRAND_MAGISTER_THE_STEADFAST,
+        people.SOL,
+        people.VALERIA,
+        people.FELIX,
+        people.CHARIS,
+        people.FARRIS,
+        people.VITUS,
+        people.PALLAS,
+        people.DARIUS,
+        people.MARCUS,
     ],
     locations=[
         loc.GOLDEN_CHARIOT,
@@ -218,8 +218,8 @@ db.upsert_story(
     ],
     characters=[
         "katsu",
-        npc.MASTER_TAKUMI,
-        npc.MASTER_SAORI,
+        people.MASTER_TAKUMI,
+        people.MASTER_SAORI,
     ],
     locations=[
         loc.MUGENSHI_GORGE,
@@ -252,7 +252,7 @@ db.upsert_story(
     ],
     characters=[
         "azalea",
-        npc.JACKDAW,
+        people.JACKDAW,
     ],
     locations=[loc.BLACKJACK_S_TAVERN],
     regions=[reg.THE_PITS, reg.METRIX],
@@ -276,8 +276,8 @@ db.upsert_story(
     ],
     characters=[
         "azalea",
-        npc.MORAY,
-        npc.GREENBIRD,
+        people.MORAY,
+        people.GREENBIRD,
     ],  # TODO: fragment to the tavern?
     locations=[
         loc.THE_MAW,
@@ -308,14 +308,14 @@ db.upsert_story(
     ],
     characters=[
         "azalea",
-        npc.LENA_BELLE,
-        npc.GREENBIRD,  # TODO: fragment to the tavern?
-        npc.BARTON,
-        npc.THE_HARVESTER,
-        npc.HOG,
-        npc.MORAY,
-        npc.JACKDAW,
-        npc.COBBS,
+        people.LENA_BELLE,
+        people.GREENBIRD,  # TODO: fragment to the tavern?
+        people.BARTON,
+        people.THE_HARVESTER,
+        people.HOG,
+        people.MORAY,
+        people.JACKDAW,
+        people.COBBS,
     ],
     locations=[
         loc.BLACKJACK_S_TAVERN,
@@ -382,13 +382,13 @@ db.upsert_story(
     characters=[
         "zyggy",
         "oscilio",
-        npc.WENDRYN,
-        npc.ASTREA_QUAZOR,
-        npc.AURIC_SEERESS,
-        npc.WYNVARIN,
-        npc.YVOR,
-        npc.DAVNIR,
-        npc.GALCIA,
+        people.WENDRYN,
+        people.ASTREA_QUAZOR,
+        people.AURIC_SEERESS,
+        people.WYNVARIN,
+        people.YVOR,
+        people.DAVNIR,
+        people.GALCIA,
     ],
     locations=[
         loc.VALAHAI,
@@ -427,8 +427,8 @@ db.upsert_story(
         "baalghor",
         "chane",
         "vynnset",
-        npc.KIEN,
-        npc.URSUR,
+        people.KIEN,
+        people.URSUR,
     ],
     locations=[
         loc.I_ARATHAEL,
@@ -461,11 +461,11 @@ db.upsert_story(
         "boltyn",
         "dorinthea",
         "levia",
-        npc.NASRETH,
-        npc.BLASMOPHET,
-        npc.BELLONA_THE_WARTUNE_HERALD,
-        npc.EIRINA,
-        npc.SOL,
+        people.NASRETH,
+        people.BLASMOPHET,
+        people.BELLONA_THE_WARTUNE_HERALD,
+        people.EIRINA,
+        people.SOL,
     ],
     locations=[
         loc.I_ARATHAEL,
@@ -489,7 +489,7 @@ db.upsert_story(
     characters=[
         "dorinthea",
         "kassai",
-        npc.TAKA,
+        people.TAKA,
     ],
     locations=[
         loc.THE_SOLARIUM,
@@ -505,8 +505,8 @@ db.upsert_story(
     title="Sutcliffe's Research Notes",
     characters=[
         "viserai",
-        npc.LORD_SUTCLIFFE,
-        npc.LEONA,
+        people.LORD_SUTCLIFFE,
+        people.LEONA,
     ],
     regions=[reg.SOLANA, reg.VOLCOR],
     dry_run=True,
@@ -518,14 +518,14 @@ db.upsert_story(
     title="Feudmasters",
     characters=[
         "betsy",
-        npc.BATBITER,
-        npc.EMEVIERE,
-        npc.FIGHTMASTER_RUSTY,
-        npc.MOLOCA,
-        npc.MORGA_GRINNING_BOAR_CANTINA_BARMAID,
-        npc.SLAPSTICK_SAL,
-        npc.SPEAKEASY,
-        npc.FUGGER_GRIMES,
+        people.BATBITER,
+        people.EMEVIERE,
+        people.FIGHTMASTER_RUSTY,
+        people.MOLOCA,
+        people.MORGA_GRINNING_BOAR_CANTINA_BARMAID,
+        people.SLAPSTICK_SAL,
+        people.SPEAKEASY,
+        people.FUGGER_GRIMES,
     ],
     locations=[
         loc.GRINNING_BOAR_CANTINA,
@@ -567,8 +567,8 @@ db.upsert_story(
     source_link="https://fabtcg.com/hero/briar/story/briar-story/",
     characters=[
         "briar",
-        npc.DAVNIR,
-        npc.QUEEN_OF_CANDLEHOLD,
+        people.DAVNIR,
+        people.QUEEN_OF_CANDLEHOLD,
     ],
     locations=[loc.CANDLEHOLD, loc.THE_FLOW],
     regions=[reg.ARIA],
@@ -595,7 +595,7 @@ db.upsert_story(
     source_link="https://fabtcg.com/hero/lexi/story/lexi-story/",
     characters=[
         "lexi",
-        npc.YVOR,
+        people.YVOR,
     ],
     # TODO: needs catalogue constant — Lake Frigid (loc)
     locations=[loc.ENION, loc.VOLTHAVEN, loc.THE_KORSHEM],
@@ -616,12 +616,12 @@ db.upsert_story(
         "dromai",
         "emperor",
         "fai",
-        npc.GENERAL_RIKU,
-        npc.LORD_MERCHANT_SAVAI,
-        npc.LORD_WIZARD_CHIYO,
+        people.GENERAL_RIKU,
+        people.LORD_MERCHANT_SAVAI,
+        people.LORD_WIZARD_CHIYO,
         # "Sandfolk fury continues to fester, as Xathari hoped it would" (:59).
         # The TODO here waited for a constant stage 5 created and did not clear.
-        npc.XATHARI,
+        people.XATHARI,
         # TODO: needs catalogue constant — Chancellor Yama (npc)
     ],
     locations=[
@@ -648,7 +648,7 @@ db.upsert_story(
     characters=[
         "emperor",
         "yoji",
-        npc.XATHARI,
+        people.XATHARI,
         # TODO: needs catalogue constant — Chancellor Yama (npc)
     ],
     locations=[loc.MT_VOLCOR],
@@ -703,7 +703,7 @@ db.upsert_story(
     source_link="https://fabtcg.com/hero/vynnset/story/anointed-in-shadow/",
     characters=[
         "vynnset",
-        npc.NASRETH,
+        people.NASRETH,
     ],
     regions=[reg.DEMONASTERY, reg.SOLANA, reg.THE_SAVAGE_LANDS],
     groups=[grp.SISTERS_OF_OCTOTHESIA],
@@ -728,13 +728,13 @@ db.upsert_story(
         "oldhim",
         "prism",
         "shiyana",
-        npc.APOSTATE,
-        npc.CAYLIN,
-        npc.CAYLIN_S_MOTHER,
-        npc.MINERVA_THEMIS,
-        npc.THEBASTO_MAGISTER_OF_DEFENSE,
-        npc.NASRETH,
-        npc.BLASMOPHET,
+        people.APOSTATE,
+        people.CAYLIN,
+        people.CAYLIN_S_MOTHER,
+        people.MINERVA_THEMIS,
+        people.THEBASTO_MAGISTER_OF_DEFENSE,
+        people.NASRETH,
+        people.BLASMOPHET,
     ],
     locations=[
         loc.DIMENXXIONAL_GATEWAY,
@@ -779,7 +779,7 @@ db.upsert_story(
         "prism",
         "shiyana",
         "yorick",
-        npc.ONE_EYE,
+        people.ONE_EYE,
     ],
     locations=[
         loc.THE_KORSHEM,
@@ -803,7 +803,7 @@ db.upsert_story(
     source_link="https://fabtcg.com/hero/olympia/story/olympia/",
     characters=[
         "olympia",
-        npc.DEMETRIOS,
+        people.DEMETRIOS,
     ],
     locations=[
         loc.ARENA_BARRACKS,
@@ -837,12 +837,12 @@ db.upsert_story(
         "olympia",
         "rhinar",
         "victor-goldmane",
-        npc.ALIF,
-        npc.AMIR,
-        npc.FAYYAD,
-        npc.FIGHTMASTER_KOX,
-        npc.GENERAL_CHUL,
-        npc.SADA,
+        people.ALIF,
+        people.AMIR,
+        people.FAYYAD,
+        people.FIGHTMASTER_KOX,
+        people.GENERAL_CHUL,
+        people.SADA,
     ],
     locations=[loc.THE_UNDERCROFT],
     regions=[reg.THE_SAVAGE_LANDS, reg.VOLCOR],
@@ -858,9 +858,9 @@ db.upsert_story(
     source_link="https://fabtcg.com/hero/betsy/story/46529-2/",
     characters=[
         "betsy",
-        npc.EBBA,
-        npc.HANK,
-        npc.MARCUS_MAULER_MONROE,
+        people.EBBA,
+        people.HANK,
+        people.MARCUS_MAULER_MONROE,
     ],
     locations=[
         loc.FORWARD_CAMPS,
@@ -887,10 +887,10 @@ db.upsert_story(
     source_link="https://fabtcg.com/hero/kassai-3/story/thirst-for-revenge/",
     characters=[
         "kassai",
-        npc.ALIF,
-        npc.FAYYAD,
-        npc.FIGHTMASTER_KOX,
-        npc.SADA,
+        people.ALIF,
+        people.FAYYAD,
+        people.FIGHTMASTER_KOX,
+        people.SADA,
     ],
     weapons=["cintari-saber"],
     dry_run=True,
@@ -904,9 +904,9 @@ db.upsert_story(
     source_link="https://fabtcg.com/hero/kayo-br/story/kayo-story/",
     characters=[
         "kayo",
-        npc.DERVIN_MASTER_OF_BEASTS,
-        npc.FIGHTMASTER_KOX,
-        npc.YARIN,
+        people.DERVIN_MASTER_OF_BEASTS,
+        people.FIGHTMASTER_KOX,
+        people.YARIN,
     ],
     locations=[
         loc.THE_BADLANDS,
@@ -924,9 +924,9 @@ db.upsert_story(
     characters=[
         "nuu",
         "zen",
-        npc.SATSUKI,
-        npc.SETO_OF_MIHARU,
-        npc.TOROJA_OF_ISHIGAKI,
+        people.SATSUKI,
+        people.SETO_OF_MIHARU,
+        people.TOROJA_OF_ISHIGAKI,
     ],
     locations=[
         loc.MISTCLOAK_LAKE,
@@ -948,7 +948,7 @@ db.upsert_story(
     source_link="https://fabtcg.com/hero/zen-tamer-of-purpose/story/part-2-the-tapestry-unfolds/",
     characters=[
         "enigma",
-        npc.KOUKI,
+        people.KOUKI,
     ],
     locations=[loc.LUNAR_TEMPLE, loc.MISTCLOAK_LAKE, loc.MISTCLOAK_GULLY, loc.NASU_KA_TEAHOUSE],
     regions=[reg.MISTERIA],
@@ -965,10 +965,10 @@ db.upsert_story(
     characters=[
         "nuu",
         "zen",
-        npc.BOJANI,
-        npc.SATSUKI,
-        npc.SETO_OF_MIHARU,
-        npc.TOROJA_OF_ISHIGAKI,
+        people.BOJANI,
+        people.SATSUKI,
+        people.SETO_OF_MIHARU,
+        people.TOROJA_OF_ISHIGAKI,
     ],
     locations=[loc.NASU_KA_TEAHOUSE, loc.MISTCLOAK_GULLY],
     regions=[reg.MISTERIA],
@@ -983,7 +983,7 @@ db.upsert_story(
         "enigma",
         "nuu",
         "zen",
-        npc.KOUKI,
+        people.KOUKI,
     ],
     locations=[loc.LUNAR_TEMPLE, loc.MISTCLOAK_GULLY],
     regions=[reg.MISTERIA],
@@ -999,7 +999,7 @@ db.upsert_story(
     source_link="https://fabtcg.com/hero/viserai/story/viserai-story/",
     characters=[
         "viserai",
-        npc.LORD_SUTCLIFFE,
+        people.LORD_SUTCLIFFE,
     ],
     locations=[
         loc.ENTRANCE_HALL,
@@ -1018,7 +1018,7 @@ db.upsert_story(
     characters=[
         "kano",
         "emperor",
-        npc.LORD_WIZARD_CHIYO,
+        people.LORD_WIZARD_CHIYO,
     ],
     locations=[
         loc.CHAMBER_OF_THE_DRAGON,
@@ -1040,8 +1040,8 @@ db.upsert_story(
     source_link="https://fabtcg.com/hero/dash/story/full-steam-ahead/",
     characters=[
         "dash",
-        npc.RICKY_ROYCE,
-        npc.THIROUX,
+        people.RICKY_ROYCE,
+        people.THIROUX,
     ],
     locations=[
         loc.COPPERTOWN,
@@ -1071,7 +1071,7 @@ db.upsert_story(
     source_link="https://fabtcg.com/hero/dash/story/needle-in-a-haystack/",
     characters=[
         "dash",
-        npc.RICKY_ROYCE,
+        people.RICKY_ROYCE,
     ],
     locations=[
         loc.BEACON,
@@ -1138,7 +1138,7 @@ db.upsert_story(
     source_link="https://fabtcg.com/hero/kano/story/smoke-and-mirrors/",
     characters=[
         "kano",
-        npc.LORD_WIZARD_CHIYO,
+        people.LORD_WIZARD_CHIYO,
     ],
     locations=[
         loc.CHAMBER_OF_THE_DRAGON,
@@ -1158,8 +1158,8 @@ db.upsert_story(
     source_link="https://fabtcg.com/hero/dash/story/stroke-of-genius/",
     characters=[
         "dash",
-        npc.DR_WYVERSTONE,
-        npc.THIROUX,
+        people.DR_WYVERSTONE,
+        people.THIROUX,
     ],
     locations=[
         loc.CENTENNIAL_CONSUMABLES,
@@ -1185,8 +1185,8 @@ db.upsert_story(
     source_link="https://fabtcg.com/hero/levia/story/levia-story-destroy-and-consume/",
     characters=[
         "levia",
-        npc.LADY_BARTHIMONT,
-        npc.LORD_SUTCLIFFE,
+        people.LADY_BARTHIMONT,
+        people.LORD_SUTCLIFFE,
     ],
     locations=[
         loc.BARTHIMONT_MANOR,
@@ -1210,7 +1210,7 @@ db.upsert_story(
     source_link="https://fabtcg.com/hero/chane/story/chane-story/",
     characters=[
         "chane",
-        npc.URSUR,
+        people.URSUR,
     ],
     locations=[
         loc.I_ARATHAEL,
@@ -1231,14 +1231,14 @@ db.upsert_story(
     source_link="https://fabtcg.com/hero/prism-soa/story/prism-story-stories-of-illumination/",
     characters=[
         "prism",
-        npc.AEGIS_THE_SHIELD_OF_LIGHT,
-        npc.AVALON_MESSENGER_OF_THE_DAWN,
-        npc.BELLONA_THE_WARTUNE_HERALD,
-        npc.METIS_ARCHANGEL_OF_TENACITY,
-        npc.SEKEM_ARCHANGEL_OF_RAVAGES,
-        npc.SURAYA_ARCHANGEL_OF_KNOWLEDGE,
-        npc.THEMIS_KEEPER_OF_THE_SCALES,
-        npc.VICTORIA_ARCHANGEL_OF_TRIUMPH,
+        people.AEGIS_THE_SHIELD_OF_LIGHT,
+        people.AVALON_MESSENGER_OF_THE_DAWN,
+        people.BELLONA_THE_WARTUNE_HERALD,
+        people.METIS_ARCHANGEL_OF_TENACITY,
+        people.SEKEM_ARCHANGEL_OF_RAVAGES,
+        people.SURAYA_ARCHANGEL_OF_KNOWLEDGE,
+        people.THEMIS_KEEPER_OF_THE_SCALES,
+        people.VICTORIA_ARCHANGEL_OF_TRIUMPH,
     ],
     locations=[
         loc.LIBRARY_OF_ILLUMINATION,
@@ -1259,10 +1259,10 @@ db.upsert_story(
     source_link="https://fabtcg.com/hero/boltyn-3/story/ser-story/",
     characters=[
         "boltyn",
-        npc.AIOS,
-        npc.BELLONA_THE_WARTUNE_HERALD,
-        npc.EIRINA,
-        npc.MINERVA_THEMIS,
+        people.AIOS,
+        people.BELLONA_THE_WARTUNE_HERALD,
+        people.EIRINA,
+        people.MINERVA_THEMIS,
     ],
     locations=[
         loc.GOLDEN_CHARIOT,
@@ -1287,11 +1287,11 @@ db.upsert_story(
     characters=[
         "boltyn",
         "prism",
-        npc.AIOS,
-        npc.APOSTATE,
-        npc.BELLONA_THE_WARTUNE_HERALD,
-        npc.SURAYA_ARCHANGEL_OF_KNOWLEDGE,
-        npc.THE_LIBRARIAN,
+        people.AIOS,
+        people.APOSTATE,
+        people.BELLONA_THE_WARTUNE_HERALD,
+        people.SURAYA_ARCHANGEL_OF_KNOWLEDGE,
+        people.THE_LIBRARIAN,
     ],
     locations=[
         loc.AMPHITHEATRE,
@@ -1302,8 +1302,8 @@ db.upsert_story(
     ],
     regions=[reg.DEMONASTERY, reg.SOLANA],
     # TODO: needs catalogue constant — Leander (npc), Viator (npc). See the table below.
-    # X01: the guard is gone. npc.THE_LIBRARIAN now carries hero_slug="the-librarian",
-    # so this link is allowed — the hero and the NPC are one character row, not two.
+    # X01: the guard is gone. people.THE_LIBRARIAN now carries hero_slug="the-librarian",
+    # so this link is allowed — the hero and the ordinary character are one character row, not two.
     # Held at dry_run=True regardless: the pending Leander/Viator catalogue
     # constants above are the reason this declaration isn't applied yet.
     dry_run=True,
@@ -1320,9 +1320,9 @@ db.upsert_story(
     characters=[
         "chane",
         "levia",
-        npc.BLASMOPHET,
-        npc.LADY_BARTHIMONT,
-        npc.LORD_SUTCLIFFE,
+        people.BLASMOPHET,
+        people.LADY_BARTHIMONT,
+        people.LORD_SUTCLIFFE,
     ],
     locations=[
         loc.BARTHIMONT_MANOR,
@@ -1347,22 +1347,22 @@ db.upsert_story(
     publication_date="2025-06-02",
     characters=[
         "gravy",
-        npc.CHOWDER,
-        npc.CHUM,
-        npc.CUTTY,
+        people.CHOWDER,
+        people.CHUM,
+        people.CUTTY,
         # The story calls her the "Hightarn" shaman and never names her, so this row
         # may be her people rather than her name. It predates this registration and
         # is linked to no other story; reopened with the species values in stage 4.
-        npc.HIGHTARN,
-        npc.KELPIE,
-        npc.LIMPIT,
-        npc.MORAY_LE_FAY,
-        npc.NAILBIT_NARI,
-        npc.RIGGERMORTIS,
-        npc.SCOOBA,
-        npc.SHELLY,
-        npc.SWABBIE,
-        npc.WAILER,
+        people.HIGHTARN,
+        people.KELPIE,
+        people.LIMPIT,
+        people.MORAY_LE_FAY,
+        people.NAILBIT_NARI,
+        people.RIGGERMORTIS,
+        people.SCOOBA,
+        people.SHELLY,
+        people.SWABBIE,
+        people.WAILER,
     ],
     locations=[
         # "Dreadfall's decaying edifices" and "explorations of Dreadfall" are this
@@ -1398,12 +1398,12 @@ db.upsert_story(
         "dash",
         "data-doll-mkii",
         "maxx",
-        npc.AUDACITY,
-        npc.FERAL,
-        npc.JUICE,
-        npc.REZ,
-        npc.SYNTHEA_TEKLO,
-        npc.THIROUX,
+        people.AUDACITY,
+        people.FERAL,
+        people.JUICE,
+        people.REZ,
+        people.SYNTHEA_TEKLO,
+        people.THIROUX,
     ],
     locations=[
         loc.COPPERTOWN,
@@ -1434,7 +1434,7 @@ db.upsert_story(
 # and giving him a row is why it had to be registered. He was one of the fourteen
 # names in character-groups.md with no row of any kind.
 #
-# npc.MAELA_ISULFV is linked from this page's "Isulvf", a letter-transposition of
+# people.MAELA_ISULFV is linked from this page's "Isulvf", a letter-transposition of
 # the same seer. See that constant: registering the page without noticing would have
 # minted a second row for one person.
 #
@@ -1457,14 +1457,14 @@ db.upsert_story(
         "oldhim",
         "yorick",
         # Named in Briar's line about the Ancients, not present in the story.
-        npc.DAVNIR,
-        npc.ISEN,
-        npc.MAELA_ISULFV,
-        npc.MARA,
-        npc.QUEEN_OF_CANDLEHOLD,
-        npc.THAWNE,
+        people.DAVNIR,
+        people.ISEN,
+        people.MAELA_ISULFV,
+        people.MARA,
+        people.QUEEN_OF_CANDLEHOLD,
+        people.THAWNE,
         # Also the statue at :47, "the mythical Ancient of Thunder and Ice".
-        npc.YVOR,
+        people.YVOR,
     ],
     locations=[
         loc.CANDLEHOLD,
@@ -1491,7 +1491,7 @@ db.upsert_story(
 # Registered 2026-08-21, stage 5. Not needed for the dragons in the end —
 # flavour/uprising.md had already given all twelve a row by the time this was
 # reached — but registered as planned, and it turned out to carry four people who
-# had no row at all. npc.XATHARI is the one that matters: the Dracai spymaster is
+# had no row at all. people.XATHARI is the one that matters: the Dracai spymaster is
 # named on five pages and had never been recorded.
 #
 # The opening paragraphs before the "# Dragons of Empire" heading are Dromai's
@@ -1506,23 +1506,23 @@ db.upsert_story(
     # The Emperor never appears — Dromai recalls "the Emperor's rare appearance that
     # day, ten years ago" and waits on "the Emperor's thanks". A hero row exists
     # under the slug `emperor`, so the mention links there rather than minting an
-    # NPC spelling of the same person.
+    # ordinary-character spelling of the same person.
     characters=[
         "dromai",
         "emperor",
         "fai",
         # The four dragons Dromai invokes. Vynserakai, Azvolai and Nekria are all
         # destroyed at the siege; Tomeltai carries the second half of the story.
-        npc.AZVOLAI,
-        npc.GENERAL_RIKU,
-        npc.MIN_OF_THE_FOREST_OF_FLAMES,
-        npc.NEKRIA,
-        npc.SANI,
-        npc.SILVERHAIR,
-        npc.TOMELTAI,
-        npc.TORVAI,
-        npc.VYNSERAKAI,
-        npc.XATHARI,
+        people.AZVOLAI,
+        people.GENERAL_RIKU,
+        people.MIN_OF_THE_FOREST_OF_FLAMES,
+        people.NEKRIA,
+        people.SANI,
+        people.SILVERHAIR,
+        people.TOMELTAI,
+        people.TORVAI,
+        people.VYNSERAKAI,
+        people.XATHARI,
     ],
     locations=[
         loc.ASHVAHAN,
@@ -1565,12 +1565,12 @@ db.upsert_story(
         "dromai",
         "emperor",
         "fai",
-        npc.EUN,
-        npc.GENERAL_RIKU,
-        npc.MIN_OF_THE_FOREST_OF_FLAMES,
+        people.EUN,
+        people.GENERAL_RIKU,
+        people.MIN_OF_THE_FOREST_OF_FLAMES,
         # Killed here, off the page: Dromai is working out how to profit from his
         # death. The row was minted for dragons-of-empire.md a moment earlier.
-        npc.XATHARI,
+        people.XATHARI,
     ],
     locations=[
         loc.ASHVAHAN,
@@ -1596,7 +1596,7 @@ db.upsert_story(
 )
 
 # Registered 2026-08-21. Found by the review of 8f8b7e1c rather than by a page
-# sweep: npc.XATHARI's docstring enumerated the five pages naming him and left this
+# sweep: people.XATHARI's docstring enumerated the five pages naming him and left this
 # one out, though it names him eight times, gives him dialogue, and is the page he
 # dies on. Registering it is what made his status answerable.
 #
@@ -1627,14 +1627,14 @@ db.upsert_story(
         "emperor",
         "fai",
         # Eaten by Dromai's dragon at :51. Her row already read Deceased.
-        npc.EUN,
+        people.EUN,
         # Named but absent: :25, :27, :35, :61.
-        npc.MIN_OF_THE_FOREST_OF_FLAMES,
+        people.MIN_OF_THE_FOREST_OF_FLAMES,
         # Dromai's parents, both named by Eun's confession at :39-:47.
-        npc.SANI,
-        npc.TORVAI,
+        people.SANI,
+        people.TORVAI,
         # Swallowed at :57 — this page is why his row now reads Deceased.
-        npc.XATHARI,
+        people.XATHARI,
     ],
     locations=[
         # :7 — "to infiltrate the Imperial Palace".

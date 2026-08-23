@@ -23,7 +23,7 @@ guessed: most groups below carry no members yet, and that is the honest state,
 not an oversight.
 
 It is the default, not the only option. A member may instead be written as an
-``(npc, story_key)`` pair when that one membership is attested somewhere else.
+``(character, story_key)`` pair when that one membership is attested somewhere else.
 Eleven of the twelve rosters here were read off a single page and use the plain
 form; ``THE_MAELA`` is the exception that needed the pair, its five seers named
 across four flavour pages with no page listing them together.
@@ -36,8 +36,8 @@ from __future__ import annotations
 
 from db import GroupEntry
 
+from . import characters as people
 from . import locations as loc
-from . import npcs as npc
 
 
 # ---------------------------------------------------------------------------
@@ -71,7 +71,7 @@ SPEAKEASYS_GUILDS = GroupEntry(
     "Speakeasy's Guilds",
     kind="stable",
     parent=SUPER_SLAM_GUILDS,
-    members=(npc.SPEAKEASY,),
+    members=(people.SPEAKEASY,),
     member_source="main-story/super-slam/feudmasters.md",
 )
 """Rusty names this stable outright — the Wild Wonders are "among **Speakeasy's**
@@ -89,7 +89,7 @@ BATBITERS_GUILDS = GroupEntry(
     "Batbiter's Guilds",
     kind="stable",
     parent=SUPER_SLAM_GUILDS,
-    members=(npc.BATBITER,),
+    members=(people.BATBITER,),
     member_source="main-story/super-slam/feudmasters.md",
 )
 """See ``SPEAKEASYS_GUILDS`` on the patron membership. Speakeasy names this stable
@@ -99,7 +99,7 @@ MOLOCAS_GUILDS = GroupEntry(
     "Moloca's Guilds",
     kind="stable",
     parent=SUPER_SLAM_GUILDS,
-    members=(npc.MOLOCA,),
+    members=(people.MOLOCA,),
     member_source="main-story/super-slam/feudmasters.md",
 )
 """**Deliberately empty, and that is the finding.** character-groups.md gives
@@ -118,7 +118,7 @@ BALEFUL_HORDE = GroupEntry(
     "Baleful Horde",
     kind="guild",
     parent=BATBITERS_GUILDS,
-    members=(npc.FUGGER_GRIMES,),
+    members=(people.FUGGER_GRIMES,),
     member_source="flavour/super-slam.md",
 )
 BIG_BOPPERS = GroupEntry("Big Boppers", kind="guild", parent=BATBITERS_GUILDS)
@@ -128,7 +128,7 @@ CHAMPIONS_OF_CHIVALRY = GroupEntry(
     "Champions of Chivalry",
     kind="guild",
     parent=SPEAKEASYS_GUILDS,
-    members=(npc.EMEVIERE,),
+    members=(people.EMEVIERE,),
     member_source="flavour/super-slam.md",
 )
 FURY_FISTS = GroupEntry("Fury Fists", kind="guild", parent=SPEAKEASYS_GUILDS)
@@ -136,7 +136,7 @@ GLORYTOWN_GLADIATORS = GroupEntry(
     "Glorytown Gladiators",
     kind="guild",
     parent=SPEAKEASYS_GUILDS,
-    members=(npc.SALVADOR_STALLION,),
+    members=(people.SALVADOR_STALLION,),
     member_source="flavour/super-slam.md",
 )
 GORELORDS = GroupEntry("Gorelords", kind="guild", parent=BATBITERS_GUILDS)
@@ -155,7 +155,7 @@ JUNGLE_SLAYERS = GroupEntry(
     kind="guild",
     parent=BATBITERS_GUILDS,
     aliases=("Chanek Jungle Slayers",),
-    members=(npc.HELX,),
+    members=(people.HELX,),
     member_source="flavour/super-slam.md",
 )
 """Absorbs ``Chanek Jungle Slayers``. Chanek is a species, not part of the name
@@ -190,7 +190,7 @@ HOUSE_ASHWOOD = GroupEntry("House Ashwood", kind="house", members=("pleiades",))
 HOUSE_GOLDMANE = GroupEntry(
     "House Goldmane",
     kind="house",
-    members=("lyath", "victor-goldmane", npc.BLOODWORTH_GOLDMANE),
+    members=("lyath", "victor-goldmane", people.BLOODWORTH_GOLDMANE),
     member_source="heroes-of-rathe/lyath-about.md",
 )
 
@@ -225,7 +225,7 @@ CHILDREN_OF_THE_DRAGON = GroupEntry("Children of the Dragon", kind="order", memb
 CINTARI = GroupEntry(
     "Cintari",
     kind="clan",
-    members=("kassai", npc.ALIF, npc.FAYYAD, npc.SADA),
+    members=("kassai", people.ALIF, people.FAYYAD, people.SADA),
     member_source="main-story/heavy-hitters/thirst-for-revenge.md",
 )
 """A clan, not a people: kassai-about.md:11 has them *induct* Kassai into their
@@ -237,8 +237,8 @@ LORD_WIZARDS_OF_THE_COURT = GroupEntry(
     kind="council",
     members=(
         "kano",
-        (npc.LORD_WIZARD_AKIHIKO, "main-story/arcane-rising/playing-with-fire.md"),
-        (npc.LORD_WIZARD_CHIYO, "main-story/arcane-rising/from-the-ashes.md"),
+        (people.LORD_WIZARD_AKIHIKO, "main-story/arcane-rising/playing-with-fire.md"),
+        (people.LORD_WIZARD_CHIYO, "main-story/arcane-rising/from-the-ashes.md"),
     ),
     member_source="heroes-of-rathe/kano-about.md",
 )
@@ -248,7 +248,7 @@ this half is a group (the user's call, 2026-08-21).
 The name is the one phrase that names the body: ``kano-about.md:7``, "the other
 Lord Wizards **of the Court**" — which is also what puts Kano on the roster, since
 "the other" makes him one of them. He is the only hero here; the other two are
-NPCs, and each cites the page that names them in office rather than the page that
+characters, and each cites the page that names them in office rather than the page that
 names the body, so the roster carries pairs the way ``THE_MAELA`` does.
 
 **What forced the split.** ``ember-in-the-ash.md:3`` has a territory petition
@@ -292,18 +292,18 @@ THE_TWELVE_DRAGONS = GroupEntry(
     "The Twelve Dragons",
     kind="pantheon",
     members=(
-        npc.AZVOLAI,
-        npc.CROMAI,
-        npc.DOMINIA,
-        npc.DRACONA_OPTIMAI,
-        npc.KYLORIA,
-        npc.MIRAGAI,
-        npc.NEKRIA,
-        npc.OUVIA,
-        npc.THEMAI,
-        npc.TOMELTAI,
-        npc.VYNSERAKAI,
-        npc.YENDURAI,
+        people.AZVOLAI,
+        people.CROMAI,
+        people.DOMINIA,
+        people.DRACONA_OPTIMAI,
+        people.KYLORIA,
+        people.MIRAGAI,
+        people.NEKRIA,
+        people.OUVIA,
+        people.THEMAI,
+        people.TOMELTAI,
+        people.VYNSERAKAI,
+        people.YENDURAI,
     ),
     member_source="flavour/uprising.md",
     lore_story_key="main-story/uprising/dragons-of-empire.md",
@@ -321,7 +321,7 @@ attested — one ``Invoke <name>`` card title each, UPR006-UPR017, and nothing e
 on the page names a dragon at all. dragons-of-empire.md names only four of them
 (Azvolai, Nekria, Tomeltai, Vynserakai), so declaring the roster from the page that
 names the group would have lost two thirds of it. The count matching the name
-exactly — twelve titles, twelve rows, no thirteenth ``sp.DRAGON`` NPC anywhere — is
+exactly — twelve titles, twelve rows, no thirteenth ``sp.DRAGON`` character anywhere — is
 what carries the inference that these twelve are those twelve.
 
 ``pantheon``, the same kind ``Deities`` and ``Dhani Deities`` took: the tomes are
@@ -355,7 +355,7 @@ describes them well enough for a summary."""
 L_APOCALYPTA = GroupEntry(
     "L'Apocalypta",
     kind="cult",
-    members=(npc.ANARCH_ZEIR,),
+    members=(people.ANARCH_ZEIR,),
     member_source="flavour/compendium-of-rathe.md",
     lore_story_key="world-of-rathe/pits.md",
     lore_fragment="lapocalypta",
@@ -422,13 +422,13 @@ KOTORI = GroupEntry(
     "Kotori",
     kind="emissaries",
     members=(
-        npc.ANHE_KOTORI_WAVEBENDER,
-        npc.DAN_LU_KOTORI_GALEWARDEN,
-        npc.NING_KOTORI_MOONSEEKER,
+        people.ANHE_KOTORI_WAVEBENDER,
+        people.DAN_LU_KOTORI_GALEWARDEN,
+        people.NING_KOTORI_MOONSEEKER,
     ),
     member_source="flavour/part-the-mistveil.md",
 )
-"""No page describes the Kotori as a body; the group is inferred from three NPC
+"""No page describes the Kotori as a body; the group is inferred from three character
 names that all carry it — Wavebender, Galewarden, Moonseeker. Those three roles
 are ranks and wait for R3. No notes, because nothing in the lore describes them."""
 IKARU_CLAN = GroupEntry(
@@ -462,10 +462,10 @@ OLLIN = GroupEntry(
 ROSETTA = GroupEntry(
     "Rosetta",
     kind="order",
-    members=(npc.OZRIM, npc.QUEEN_OF_CANDLEHOLD),
+    members=(people.OZRIM, people.QUEEN_OF_CANDLEHOLD),
     member_source="short-stories/rosetta/verdance-thorn-of-the-rose.md",
 )
-"""``Rosetta`` is also the ``Species`` value on both of these NPCs, which is the
+"""``Rosetta`` is also the ``Species`` value on both of these characters, which is the
 species column holding a membership — the mix-up stage 4 exists to unpick. The
 group is the truth; the species values are wrong (2026-08-20)."""
 SEERS = GroupEntry("Seers", kind="order")
@@ -473,11 +473,11 @@ THE_MAELA = GroupEntry(
     "The Maela",
     kind="troupe",
     members=(
-        (npc.MAELA_FAIRMIND, "flavour/compendium-of-rathe.md"),
-        (npc.MAELA_ISULFV, "flavour/omens-of-the-third-age.md"),
-        (npc.MAELA_ONE_EYE, "flavour/mastery-pack-guardian.md"),
-        (npc.MAELA_SHARENA, "flavour/omens-of-the-third-age.md"),
-        (npc.KAYSIN, "flavour/rosetta.md"),
+        (people.MAELA_FAIRMIND, "flavour/compendium-of-rathe.md"),
+        (people.MAELA_ISULFV, "flavour/omens-of-the-third-age.md"),
+        (people.MAELA_ONE_EYE, "flavour/mastery-pack-guardian.md"),
+        (people.MAELA_SHARENA, "flavour/omens-of-the-third-age.md"),
+        (people.KAYSIN, "flavour/rosetta.md"),
     ),
     location=loc.THE_EVERFEST_CARNIVAL,
     lore_story_key="world-of-rathe/aria.md",
@@ -488,7 +488,7 @@ THE_MAELA = GroupEntry(
 
 No ``member_source``. aria.md:93 describes the Maela and names nobody, and no
 other page lists them as a roster, so there is no single page to cite — this is
-the group the per-member ``(npc, story_key)`` pair was added for. ``lore_story_key``
+the group the per-member ``(character, story_key)`` pair was added for. ``lore_story_key``
 carries the page that documents the group; each membership carries its own.
 
 **The name is the attestation.** Four of the five are written ``Maela <name>`` in
@@ -576,7 +576,7 @@ DHANI_DEITIES = GroupEntry(
     "Dhani Deities",
     kind="pantheon",
     parent=DEITIES,
-    members=(npc.ABSOLON, npc.NOCETES),
+    members=(people.ABSOLON, people.NOCETES),
     member_source="world-of-rathe/high-seas.md",
 )
 """Both gods are named on one page — ``world-of-rathe/high-seas.md``, Absolon at
@@ -602,7 +602,7 @@ THE_SPIDER = GroupEntry(
 VANGELD = GroupEntry(
     "VanGeld",
     kind="clan",
-    members=(npc.TARA_VANGELD,),
+    members=(people.TARA_VANGELD,),
     member_source="heroes-of-rathe/lyath-about.md",
 )
 """No "clan" in the name: lyath-about.md writes it as a common noun, and ``kind``

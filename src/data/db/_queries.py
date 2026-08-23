@@ -691,11 +691,11 @@ def select_character_professions(conn: sqlite3.Connection, character_id: str) ->
 
 
 # ---------------------------------------------------------------------------
-# NPCs
+# Characters
 # ---------------------------------------------------------------------------
 
 
-def upsert_npc(
+def upsert_character(
     conn: sqlite3.Connection,
     *,
     character_id: str,
@@ -703,7 +703,7 @@ def upsert_npc(
     status: str = "",
     other_characters_story_key: str = "",
 ) -> None:
-    """Insert or update an NPC, preserving curated fields the caller omits.
+    """Insert or update a character, preserving curated fields the caller omits.
 
     ``status`` follows the same preserve-on-empty contract as
     :func:`upsert_location`'s ``notes``: an empty string means "leave whatever is
@@ -712,7 +712,7 @@ def upsert_npc(
     status — passing a sentinel would silently replace values such as
     ``"Just a head"`` or ``"Assumed Dead"`` with ``"Unknown"``.
 
-    A brand-new NPC still lands as ``"Unknown"`` for an omitted ``status``.
+    A brand-new character still lands as ``"Unknown"`` for an omitted ``status``.
 
     Species does **not** live here any more and does not follow that contract.
     It is a junction (:func:`set_npc_species`), replace-semantic like the group
@@ -768,7 +768,7 @@ def update_character_summary(conn: sqlite3.Connection, character_id: str, summar
     return cur.rowcount
 
 
-def select_all_npcs(conn: sqlite3.Connection) -> list[sqlite3.Row]:
+def select_all_characters(conn: sqlite3.Connection) -> list[sqlite3.Row]:
     return conn.execute("SELECT * FROM characters ORDER BY name").fetchall()
 
 
@@ -1378,7 +1378,7 @@ def set_story_characters(
     complete set for this story — see ``Database.upsert_story``'s
     ``characters=`` docstring. ``entries`` must not contain the same
     ``character_id`` twice; ``_resolve_characters`` raises before this is
-    ever called if a slug and an ``NPCEntry`` (or two of either) name the
+    ever called if a slug and a ``CharacterEntry`` (or two of either) name the
     same person.
     """
     conn.execute("DELETE FROM story_characters WHERE story_id = ?", [story_id])

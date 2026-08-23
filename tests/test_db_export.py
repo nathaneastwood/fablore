@@ -144,8 +144,8 @@ def test_export_registry_tables_locations(db: Database, tmp_path: Path) -> None:
     assert "LocationId" in content
 
 
-def test_export_registry_tables_npcs(db: Database, tmp_path: Path) -> None:
-    q.upsert_npc(db.conn, character_id="C1", name="Ira", status="Alive")
+def test_export_registry_tables_characters(db: Database, tmp_path: Path) -> None:
+    q.upsert_character(db.conn, character_id="C1", name="Ira", status="Alive")
     _export.export_registry_tables(db.conn, tmp_path)
 
     content = (tmp_path / "csv" / "characters.csv").read_text(encoding="utf-8")
@@ -198,9 +198,9 @@ def test_export_registry_tables_food_drink(db: Database, tmp_path: Path) -> None
 def test_export_story_junctions_characters(db: Database, tmp_path: Path) -> None:
     """story_characters exports to story-characters.csv (migration 17 merge).
 
-    A hero slug and an NPCEntry both resolve to a character_id and write the
+    A hero slug and a CharacterEntry both resolve to a character_id and write the
     same junction, so one export test covers a hero-resolved row (via
-    character_heroes) and a plain NPC row side by side.
+    character_heroes) and a plain character row side by side.
     """
     q.upsert_story(
         db.conn,
@@ -215,9 +215,9 @@ def test_export_story_junctions_characters(db: Database, tmp_path: Path) -> None
         canonical_slug="boltyn",
         canonical_hero="Boltyn",
     )
-    q.upsert_npc(db.conn, character_id="LC_BOLTYN", name="Boltyn")
+    q.upsert_character(db.conn, character_id="LC_BOLTYN", name="Boltyn")
     q.set_character_hero(db.conn, "CN1", "LC_BOLTYN")
-    q.upsert_npc(db.conn, character_id="C1", name="Guard")
+    q.upsert_character(db.conn, character_id="C1", name="Guard")
     q.set_story_characters(db.conn, "S1", [("LC_BOLTYN", ""), ("C1", "intro")])
     _export.export_story_junctions(db.conn, tmp_path)
 
@@ -321,7 +321,7 @@ def test_export_all_creates_stories_and_registry_files(db: Database, tmp_path: P
     )
     q.upsert_region(db.conn, region_id="R1", region_name="Solana")
     q.upsert_location(db.conn, location_id="L1", name="The Cathedral", region_id="R1")
-    q.upsert_npc(db.conn, character_id="C1", name="The High Lord")
+    q.upsert_character(db.conn, character_id="C1", name="The High Lord")
 
     _export.export_all(db.conn, tmp_path)
 

@@ -417,8 +417,8 @@ def test_a_hero_named_character_that_still_holds_its_link_is_not_reported(tmp_pa
     assert _check_no_stranded_hero_character(*paths) == []
 
 
-def test_an_ordinary_npc_is_never_reported_as_stranded(tmp_path: Path) -> None:
-    """The signature is 'named after a hero', so an unlinked ordinary NPC is fine."""
+def test_an_ordinary_character_is_never_reported_as_stranded(tmp_path: Path) -> None:
+    """The signature is 'named after a hero', so an unlinked ordinary character is fine."""
     from validate_data import _check_no_stranded_hero_character
 
     paths = _stranded_fixture(

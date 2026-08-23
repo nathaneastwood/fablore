@@ -12,7 +12,7 @@ from pathlib import Path
 import pytest
 
 import db._queries as q
-from db import Database, GroupEntry, LocationEntry, NPCEntry, SpeciesEntry
+from db import Database, GroupEntry, LocationEntry, CharacterEntry, SpeciesEntry
 from registry_ids import canonical_id, group_id, lore_character_id
 
 
@@ -119,7 +119,7 @@ def test_member_rows_are_written_from_the_group(db: Database) -> None:
     entry = GroupEntry(
         "VanGeld",
         kind="clan",
-        members=(NPCEntry("Tara VanGeld", species=SpeciesEntry("Dwarf")),),
+        members=(CharacterEntry("Tara VanGeld", species=SpeciesEntry("Dwarf")),),
         member_source="heroes-of-rathe/lyath-about.md",
     )
     _story(db, groups=[entry])
@@ -138,8 +138,8 @@ def test_a_member_may_cite_its_own_page(db: Database) -> None:
         "The Maela",
         kind="troupe",
         members=(
-            (NPCEntry("Maela Fairmind"), "flavour/compendium-of-rathe.md"),
-            (NPCEntry("Kaysin"), "flavour/rosetta.md"),
+            (CharacterEntry("Maela Fairmind"), "flavour/compendium-of-rathe.md"),
+            (CharacterEntry("Kaysin"), "flavour/rosetta.md"),
         ),
     )
     _story(db, groups=[entry])
@@ -153,7 +153,7 @@ def test_plain_and_paired_members_mix_in_one_roster(db: Database) -> None:
     """A pair overrides ``member_source``; a bare entry still inherits it."""
     entry = GroupEntry(
         "Gemini",
-        members=(NPCEntry("Minerva"), (NPCEntry("Themis"), "flavour/outsiders.md")),
+        members=(CharacterEntry("Minerva"), (CharacterEntry("Themis"), "flavour/outsiders.md")),
         member_source="heroes-of-rathe/lyath-about.md",
     )
     _story(db, groups=[entry])
@@ -172,14 +172,14 @@ def test_a_paired_member_is_reachable_from_the_preview(db: Database) -> None:
     """
     entry = GroupEntry(
         "The Maela",
-        members=((NPCEntry("Kaysin", epithets=("Maela Soothsayer",)), "flavour/rosetta.md"),),
+        members=((CharacterEntry("Kaysin", epithets=("Maela Soothsayer",)), "flavour/rosetta.md"),),
     )
     _story(db, groups=[entry])
     assert q.select_npc_epithets(db.conn, lore_character_id("Kaysin")) == [("Maela Soothsayer", "epithet")]
 
 
 def test_a_hero_slug_member_resolves_to_a_character_row(db: Database) -> None:
-    """A slug lands in the same column an NPCEntry does (migration 18).
+    """A slug lands in the same column a CharacterEntry does (migration 18).
 
     Before it, a hero member was a ``canonical_id`` in ``group_heroes`` and an
     NPC member a ``character_id`` in ``group_npcs``. Now the slug resolves
@@ -202,10 +202,10 @@ def test_unknown_hero_slug_raises(db: Database) -> None:
 
 def test_membership_is_replace_semantic(db: Database) -> None:
     """A short roster drops people, which is why the dry run reports removals."""
-    two = GroupEntry("Gemini", members=(NPCEntry("Minerva"), NPCEntry("Themis")))
+    two = GroupEntry("Gemini", members=(CharacterEntry("Minerva"), CharacterEntry("Themis")))
     _story(db, groups=[two])
     assert len(q.select_group_members(db.conn, group_id("Gemini"), "group_characters", "character_id")) == 2
-    _story(db, groups=[GroupEntry("Gemini", members=(NPCEntry("Minerva"),))])
+    _story(db, groups=[GroupEntry("Gemini", members=(CharacterEntry("Minerva"),))])
     assert len(q.select_group_members(db.conn, group_id("Gemini"), "group_characters", "character_id")) == 1
 
 
@@ -216,13 +216,13 @@ def test_emptied_roster_is_a_deletion_not_a_no_op(db: Database) -> None:
     so emptying one left every stored member in place while the dry run went on
     announcing their removal — the preview lying in exactly the case it exists for.
     """
-    _story(db, groups=[GroupEntry("Gemini", members=(NPCEntry("Minerva"), NPCEntry("Themis")))])
+    _story(db, groups=[GroupEntry("Gemini", members=(CharacterEntry("Minerva"), CharacterEntry("Themis")))])
     _story(db, groups=[GroupEntry("Gemini")])
     assert q.select_group_members(db.conn, group_id("Gemini"), "group_characters", "character_id") == []
 
 
 def test_one_roster_emptied_while_the_other_stands(db: Database, capsys) -> None:
-    """The original defect's exact shape: the NPC member cleared, the hero kept.
+    """The original defect's exact shape: the entry-named member cleared, the hero kept.
 
     Here the old reporter did print a removal line — the sibling roster kept its
     ``continue`` from firing — while the old write path skipped the delete. Preview
@@ -230,7 +230,7 @@ def test_one_roster_emptied_while_the_other_stands(db: Database, capsys) -> None
     the assertion is on the surviving row rather than on which junction it is in.
     """
     hero_cid = _seed_hero(db, "minerva", "Minerva")
-    _story(db, groups=[GroupEntry("Gemini", members=("minerva", NPCEntry("Themis")))])
+    _story(db, groups=[GroupEntry("Gemini", members=("minerva", CharacterEntry("Themis")))])
     capsys.readouterr()
     kept = GroupEntry("Gemini", members=("minerva",))
     db.upsert_story(
@@ -256,7 +256,7 @@ def test_emptied_hero_roster_is_a_deletion_too(db: Database) -> None:
 
 def test_dry_run_removal_line_matches_what_the_apply_does(db: Database, capsys) -> None:
     """The preview and the write must agree about an emptied roster."""
-    _story(db, groups=[GroupEntry("Gemini", members=(NPCEntry("Minerva"), NPCEntry("Themis")))])
+    _story(db, groups=[GroupEntry("Gemini", members=(CharacterEntry("Minerva"), CharacterEntry("Themis")))])
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
@@ -415,13 +415,13 @@ def test_dry_run_reports_new_groups_and_writes_nothing(db: Database, capsys) -> 
 
 def test_dry_run_flags_a_roster_that_would_shrink(db: Database, capsys) -> None:
     """The removal line is the point: membership replaces, so a short roster drops people."""
-    _story(db, groups=[GroupEntry("Gemini", members=(NPCEntry("Minerva"), NPCEntry("Themis")))])
+    _story(db, groups=[GroupEntry("Gemini", members=(CharacterEntry("Minerva"), CharacterEntry("Themis")))])
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
         story_type="main-story",
         title="T",
-        groups=[GroupEntry("Gemini", members=(NPCEntry("Minerva"),))],
+        groups=[GroupEntry("Gemini", members=(CharacterEntry("Minerva"),))],
         dry_run=True,
     )
     assert "REMOVED from group_characters" in capsys.readouterr().out
@@ -590,7 +590,7 @@ def test_group_documentation_reaches_the_csv(db: Database) -> None:
 
 
 def test_npc_epithets_are_stored_with_their_kind(db: Database) -> None:
-    entry = NPCEntry("Dr. Krest Mortimer", epithets=("'The Fixer'",), short_names=("Mortimer",))
+    entry = CharacterEntry("Dr. Krest Mortimer", epithets=("'The Fixer'",), short_names=("Mortimer",))
     _story(db, characters=[entry])
     stored = q.select_npc_epithets(db.conn, lore_character_id("Dr. Krest Mortimer"))
     assert stored == [("'The Fixer'", "epithet"), ("Mortimer", "short-name")]
@@ -599,22 +599,22 @@ def test_npc_epithets_are_stored_with_their_kind(db: Database) -> None:
 def test_npc_epithets_keep_declared_order(db: Database) -> None:
     """Suraya holds three, and which one a tooltip prints first is the declared one."""
     three = ("Archangel of Knowledge", "Archangel of Erudition", "Arcane Herald")
-    _story(db, characters=[NPCEntry("Suraya", epithets=three)])
+    _story(db, characters=[CharacterEntry("Suraya", epithets=three)])
     stored = q.select_npc_epithets(db.conn, lore_character_id("Suraya"))
     assert [name for name, _kind in stored] == list(three)
 
 
 def test_epithets_are_replace_semantic(db: Database) -> None:
-    _story(db, characters=[NPCEntry("Bellona", epithets=("the Wartune Herald", "Archangel of War"))])
-    _story(db, characters=[NPCEntry("Bellona", epithets=("the Wartune Herald",))])
+    _story(db, characters=[CharacterEntry("Bellona", epithets=("the Wartune Herald", "Archangel of War"))])
+    _story(db, characters=[CharacterEntry("Bellona", epithets=("the Wartune Herald",))])
     stored = q.select_npc_epithets(db.conn, lore_character_id("Bellona"))
     assert [name for name, _kind in stored] == ["the Wartune Herald"]
 
 
 def test_emptied_epithets_are_a_deletion(db: Database) -> None:
     """Same rule the rosters follow, for the same reason — and the same past bug."""
-    _story(db, characters=[NPCEntry("Bellona", epithets=("Archangel of War",))])
-    _story(db, characters=[NPCEntry("Bellona")])
+    _story(db, characters=[CharacterEntry("Bellona", epithets=("Archangel of War",))])
+    _story(db, characters=[CharacterEntry("Bellona")])
     assert q.select_npc_epithets(db.conn, lore_character_id("Bellona")) == []
 
 
@@ -652,7 +652,7 @@ def test_dry_run_reports_an_alias_it_would_remove(db: Database, capsys) -> None:
 def test_alternate_names_survive_the_csv_round_trip(db: Database, tmp_path: Path) -> None:
     _story(
         db,
-        characters=[NPCEntry("Bellona", epithets=("Archangel of War",))],
+        characters=[CharacterEntry("Bellona", epithets=("Archangel of War",))],
         locations=[LocationEntry("Coralysi", aliases=(("Fedhari", "Dhani"),))],
         groups=[GroupEntry("Mendacity Media", aliases=("Mendacity",))],
     )
@@ -676,13 +676,13 @@ def test_alternate_names_survive_the_csv_round_trip(db: Database, tmp_path: Path
 
 
 def test_dry_run_reports_an_epithet_on_a_group_member(db: Database, capsys) -> None:
-    _story(db, groups=[GroupEntry("Rosetta", members=(NPCEntry("Ozrim"),))])
+    _story(db, groups=[GroupEntry("Rosetta", members=(CharacterEntry("Ozrim"),))])
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
         story_type="main-story",
         title="T",
-        groups=[GroupEntry("Rosetta", members=(NPCEntry("Ozrim", epithets=("Keeper of the Script",)),))],
+        groups=[GroupEntry("Rosetta", members=(CharacterEntry("Ozrim", epithets=("Keeper of the Script",)),))],
         dry_run=True,
     )
     assert "Ozrim: epithet 'Keeper of the Script'" in capsys.readouterr().out
@@ -757,7 +757,7 @@ def test_preview_survives_a_parent_cycle_rather_than_looping(db: Database, capsy
     assert "DRY RUN" in capsys.readouterr().out
 
 
-def test_a_roster_may_not_name_one_npc_twice(db: Database) -> None:
+def test_a_roster_may_not_name_one_character_twice(db: Database) -> None:
     """The pair made this reachable, and the two paths resolved it differently.
 
     ``group_characters`` is keyed ``(group_id, character_id)`` and written with
@@ -769,8 +769,8 @@ def test_a_roster_may_not_name_one_npc_twice(db: Database) -> None:
     entry = GroupEntry(
         "The Maela",
         members=(
-            (NPCEntry("Kaysin"), "flavour/rosetta.md"),
-            (NPCEntry("Kaysin"), "flavour/compendium-of-rathe.md"),
+            (CharacterEntry("Kaysin"), "flavour/rosetta.md"),
+            (CharacterEntry("Kaysin"), "flavour/compendium-of-rathe.md"),
         ),
     )
     with pytest.raises(ValueError, match="twice in members"):
@@ -779,7 +779,7 @@ def test_a_roster_may_not_name_one_npc_twice(db: Database) -> None:
 
 def test_the_duplicate_guard_fires_on_the_preview_path_too(db: Database) -> None:
     """A dry run must fail the same way, or the guard only moves the surprise."""
-    entry = GroupEntry("The Maela", members=(NPCEntry("Kaysin"), NPCEntry("Kaysin")))
+    entry = GroupEntry("The Maela", members=(CharacterEntry("Kaysin"), CharacterEntry("Kaysin")))
     with pytest.raises(ValueError, match="twice in members"):
         _story(db, groups=[entry], dry_run=True)
 
@@ -787,7 +787,7 @@ def test_the_duplicate_guard_fires_on_the_preview_path_too(db: Database) -> None
 def test_a_roster_may_not_name_one_person_as_a_slug_and_an_entry(db: Database) -> None:
     """The clash ``member_pairs()`` cannot see, so ``_resolve_group_members`` raises it.
 
-    Migration 12 made it reachable: a hero slug and an NPCEntry both resolve
+    Migration 12 made it reachable: a hero slug and a CharacterEntry both resolve
     into the same ``characters`` row, and migration 18 put them in the same
     ``group_characters`` row too. ``member_pairs()`` compares declaration
     forms — the slug ``"kayo"`` and the name ``"Kayo"`` are different strings —
@@ -796,10 +796,10 @@ def test_a_roster_may_not_name_one_person_as_a_slug_and_an_entry(db: Database) -
     ``_resolve_characters``.
     """
     canonical = _seed_hero(db, "kayo", "Kayo")
-    # Make the NPC row *be* the hero, the way NPCEntry(hero_slug=...) does.
-    q.upsert_npc(db.conn, character_id=lore_character_id("Kayo"), name="Kayo")
+    # Make the character row *be* the hero, the way CharacterEntry(hero_slug=...) does.
+    q.upsert_character(db.conn, character_id=lore_character_id("Kayo"), name="Kayo")
     q.set_character_hero(db.conn, canonical, lore_character_id("Kayo"))
-    entry = GroupEntry("Prowlers", members=("kayo", NPCEntry("Kayo")))
+    entry = GroupEntry("Prowlers", members=("kayo", CharacterEntry("Kayo")))
     with pytest.raises(ValueError, match="resolve to the same person"):
         _story(db, groups=[entry])
 
@@ -807,14 +807,14 @@ def test_a_roster_may_not_name_one_person_as_a_slug_and_an_entry(db: Database) -
 def test_the_slug_and_entry_clash_is_reported_by_the_preview_too(db: Database) -> None:
     """Preview and write must fail the same way — the divergence this repo keeps hitting."""
     canonical = _seed_hero(db, "kayo", "Kayo")
-    q.upsert_npc(db.conn, character_id=lore_character_id("Kayo"), name="Kayo")
+    q.upsert_character(db.conn, character_id=lore_character_id("Kayo"), name="Kayo")
     q.set_character_hero(db.conn, canonical, lore_character_id("Kayo"))
     with pytest.raises(ValueError, match="resolve to the same person"):
         db.upsert_story(
             path="src/main-story/super-slam/feudmasters.md",
             story_type="main-story",
             title="T",
-            groups=[GroupEntry("Prowlers", members=("kayo", NPCEntry("Kayo")))],
+            groups=[GroupEntry("Prowlers", members=("kayo", CharacterEntry("Kayo")))],
             dry_run=True,
         )
 
@@ -822,7 +822,7 @@ def test_the_slug_and_entry_clash_is_reported_by_the_preview_too(db: Database) -
 def test_a_hero_member_may_cite_its_own_page(db: Database) -> None:
     """The asymmetry migration 18 closed.
 
-    ``hero_members`` was a bare tuple of slugs, so only an NPC member could
+    ``hero_members`` was a bare tuple of slugs, so only a ``CharacterEntry`` member could
     carry the ``(member, story_key)`` pair The Maela needed. One ``members``
     field gives both kinds the pair.
     """

@@ -20,7 +20,7 @@ from db import (
     FoodDrinkEntry,
     LocationEntry,
     MonsterEntry,
-    NPCEntry,
+    CharacterEntry,
     NarratedVideoEntry,
     RegionEntry,
     SpeciesEntry,
@@ -167,17 +167,17 @@ def test_get_story_returns_none_for_unknown(db: Database) -> None:
 
 
 # ---------------------------------------------------------------------------
-# NPC links
+# Character links
 # ---------------------------------------------------------------------------
 
 
-def test_upsert_story_links_npcs(db: Database) -> None:
-    """NPCEntry creates an npc row and a story_characters junction."""
+def test_upsert_story_links_characters(db: Database) -> None:
+    """CharacterEntry creates an npc row and a story_characters junction."""
     db.upsert_story(
         "src/main-story/npc.md",
         story_type="main-story",
-        title="NPC Story",
-        characters=[NPCEntry("Guard Captain", species=SpeciesEntry("Human"), status="Alive")],
+        title="Character Story",
+        characters=[CharacterEntry("Guard Captain", species=SpeciesEntry("Human"), status="Alive")],
     )
     npc = db.conn.execute("SELECT * FROM characters").fetchone()
     assert npc["name"] == "Guard Captain"
@@ -192,25 +192,25 @@ def test_upsert_story_links_npcs(db: Database) -> None:
     )
 
 
-def test_upsert_story_npc_replace_semantics(db: Database) -> None:
+def test_upsert_story_characters_replace_semantics(db: Database) -> None:
     """Passing characters=[] removes all existing character links."""
     db.upsert_story(
         "src/main-story/x.md",
         story_type="main-story",
         title="X",
-        characters=[NPCEntry("Soldier")],
+        characters=[CharacterEntry("Soldier")],
     )
     db.upsert_story("src/main-story/x.md", story_type="main-story", title="X", characters=[])
     assert db.conn.execute("SELECT COUNT(*) FROM story_characters").fetchone()[0] == 0
 
 
-def test_upsert_story_npc_none_leaves_existing(db: Database) -> None:
+def test_upsert_story_characters_none_leaves_existing(db: Database) -> None:
     """Passing characters=None leaves existing character links unchanged."""
     db.upsert_story(
         "src/main-story/x.md",
         story_type="main-story",
         title="X",
-        characters=[NPCEntry("Soldier")],
+        characters=[CharacterEntry("Soldier")],
     )
     db.upsert_story("src/main-story/x.md", story_type="main-story", title="X", characters=None)
     assert db.conn.execute("SELECT COUNT(*) FROM story_characters").fetchone()[0] == 1
@@ -476,7 +476,7 @@ def test_remove_story_dry_run(db: Database) -> None:
         "src/archive/sample.md",
         story_type="archive",
         title="Sample",
-        characters=[NPCEntry("Guard")],
+        characters=[CharacterEntry("Guard")],
     )
     buf = io.StringIO()
     report = db.remove_story("src/archive/sample.md", dry_run=True, file=buf)
@@ -495,7 +495,7 @@ def test_remove_story_actual(db: Database) -> None:
         "src/main-story/x.md",
         story_type="main-story",
         title="X",
-        characters=[NPCEntry("Soldier")],
+        characters=[CharacterEntry("Soldier")],
     )
     report = db.remove_story("src/main-story/x.md", file=io.StringIO())
 
@@ -511,7 +511,7 @@ def test_remove_story_second_pass_is_no_op(db: Database) -> None:
         "src/flavour/twice.md",
         story_type="flavour",
         title="Twice",
-        characters=[NPCEntry("Guard")],
+        characters=[CharacterEntry("Guard")],
     )
     db.remove_story("src/flavour/twice.md", file=io.StringIO())
     report = db.remove_story("src/flavour/twice.md", file=io.StringIO())

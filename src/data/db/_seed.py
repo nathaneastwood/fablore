@@ -54,7 +54,7 @@ def seed_from_csvs(conn: sqlite3.Connection, data_dir: Path) -> None:
         _seed_regions(conn, data_dir)
         _seed_locations(conn, data_dir)
         _seed_species(conn, data_dir)
-        _seed_npcs(conn, data_dir)
+        _seed_characters(conn, data_dir)
         _seed_npc_species(conn, data_dir)
         _seed_monsters(conn, data_dir)
         _seed_fauna(conn, data_dir)
@@ -335,7 +335,7 @@ def _seed_group_members(conn: sqlite3.Connection, data_dir: Path) -> None:
     Kept separate from the story junctions because membership is not a story
     link: it hangs off the group, and its ``story_key`` is evidence (D2), not
     the owner of the row. One table since migration 18 — a hero member and an
-    NPC member are both a ``character_id``.
+    entry-named member are both a ``character_id``.
     """
     _, rows = _csv(data_dir, "group-characters.csv")
     for row in rows:
@@ -371,17 +371,17 @@ def _seed_alternate_names(conn: sqlite3.Connection, data_dir: Path) -> None:
             )
 
 
-def _seed_npcs(conn: sqlite3.Connection, data_dir: Path) -> None:
+def _seed_characters(conn: sqlite3.Connection, data_dir: Path) -> None:
     _, rows = _csv(data_dir, "characters.csv")
     for row in rows:
-        q.upsert_npc(
+        q.upsert_character(
             conn,
             character_id=_s(row, "CharacterId"),
             name=_s(row, "Name"),
             status=_s(row, "Status") or "Unknown",
             other_characters_story_key=_s(row, "OtherCharactersStoryKey"),
         )
-        # summary is not an upsert_npc parameter: that function is the story
+        # summary is not an upsert_character parameter: that function is the story
         # registration path, and a registration must never touch lore text.
         summary = _s(row, "Summary")
         if summary:
@@ -408,7 +408,7 @@ def _self_heal_character_heroes(conn: sqlite3.Connection) -> None:
 
     Runs after both ``heroes_canonical`` and ``characters`` are seeded. An
     existing ``character_heroes`` row always wins — this only fills gaps, it
-    never overwrites an explicit resolution (such as ``NPCEntry(hero_slug=...)``
+    never overwrites an explicit resolution (such as ``CharacterEntry(hero_slug=...)``
     or a hand-curated CSV row), the same ``INSERT OR IGNORE`` contract every
     other seed step in this module uses.
     """
@@ -433,7 +433,7 @@ def _self_heal_character_heroes(conn: sqlite3.Connection) -> None:
 def _seed_species(conn: sqlite3.Connection, data_dir: Path) -> None:
     """Seed ``species`` and its aliases (R2, R6).
 
-    Before ``_seed_npcs``, because ``npc_species`` references both registries and
+    Before ``_seed_characters``, because ``npc_species`` references both registries and
     FK enforcement is on.
     """
     _, rows = _csv(data_dir, "species.csv")

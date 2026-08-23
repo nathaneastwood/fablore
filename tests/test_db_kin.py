@@ -1,7 +1,7 @@
 """Tests for the kinship schema (migration 14): character_kin.
 
 Mirrors ``test_db_titles.py``. The hazard titles introduced carries over
-unchanged — a relative may be named as an NPC *or* as a hero slug, and both
+unchanged — a relative may be named as a ``CharacterEntry`` *or* as a hero slug, and both
 can resolve to the same ``character_id`` (migration 12's identity spine) — but
 ``character_kin`` adds one of its own: only the *stated* direction is ever
 written. "Lyath's father is Bloodworth" is one row; "Bloodworth's child is
@@ -14,7 +14,7 @@ from __future__ import annotations
 import pytest
 
 import db._queries as q
-from db import Database, GroupEntry, NPCEntry
+from db import Database, GroupEntry, CharacterEntry
 from registry_ids import canonical_id, lore_character_id
 
 
@@ -51,8 +51,8 @@ def test_character_kin_has_no_id_column(db: Database) -> None:
 
 
 def test_character_kin_primary_key_rejects_a_repeated_row(db: Database) -> None:
-    q.upsert_npc(db.conn, character_id="LC1", name="Lyath")
-    q.upsert_npc(db.conn, character_id="LC2", name="Bloodworth")
+    q.upsert_character(db.conn, character_id="LC1", name="Lyath")
+    q.upsert_character(db.conn, character_id="LC2", name="Bloodworth")
     db.conn.execute(
         "INSERT INTO character_kin (character_id, relative_id, relation) VALUES (?,?,?)",
         ("LC1", "LC2", "father"),
@@ -65,7 +65,7 @@ def test_character_kin_primary_key_rejects_a_repeated_row(db: Database) -> None:
 
 
 def test_character_kin_relative_id_has_a_foreign_key(db: Database) -> None:
-    q.upsert_npc(db.conn, character_id="LC1", name="Lyath")
+    q.upsert_character(db.conn, character_id="LC1", name="Lyath")
     with pytest.raises(Exception):
         db.conn.execute(
             "INSERT INTO character_kin (character_id, relative_id, relation) VALUES (?,?,?)",
@@ -78,8 +78,8 @@ def test_character_kin_relative_id_has_a_foreign_key(db: Database) -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_npc_relative_is_written_from_a_single_stated_fact(db: Database) -> None:
-    entry = NPCEntry("Lyath", kin=((NPCEntry("Bloodworth Goldmane"), "father"),))
+def test_a_relative_is_written_from_a_single_stated_fact(db: Database) -> None:
+    entry = CharacterEntry("Lyath", kin=((CharacterEntry("Bloodworth Goldmane"), "father"),))
     _story(db, characters=[entry])
     rows = q.select_character_kin(db.conn, lore_character_id("Lyath"))
     assert rows == [(lore_character_id("Bloodworth Goldmane"), "father", "")]
@@ -88,19 +88,19 @@ def test_npc_relative_is_written_from_a_single_stated_fact(db: Database) -> None
 def test_the_inverse_is_not_also_written(db: Database) -> None:
     """Storing "Lyath's father is Bloodworth" must not also write "Bloodworth's
     child is Lyath" — see the table comment in ``_schema.py`` for why."""
-    entry = NPCEntry("Lyath", kin=((NPCEntry("Bloodworth Goldmane"), "father"),))
+    entry = CharacterEntry("Lyath", kin=((CharacterEntry("Bloodworth Goldmane"), "father"),))
     _story(db, characters=[entry])
     assert q.select_character_kin(db.conn, lore_character_id("Bloodworth Goldmane")) == []
 
 
 def test_hero_relative_resolves_through_character_heroes(db: Database) -> None:
-    """The point of the identity spine: a hero slug lands in the same column an NPC would."""
+    """The point of the identity spine: a hero slug lands in the same column an entry-named character would."""
     hid = _seed_hero(db, "victor", "Victor")
     resolved_character_id = "LCmanualoverride0"
-    q.upsert_npc(db.conn, character_id=resolved_character_id, name="Victor")
+    q.upsert_character(db.conn, character_id=resolved_character_id, name="Victor")
     q.set_character_hero(db.conn, hid, resolved_character_id)
 
-    entry = NPCEntry("Lyath", kin=(("victor", "sibling"),))
+    entry = CharacterEntry("Lyath", kin=(("victor", "sibling"),))
     _story(db, characters=[entry])
     rows = q.select_character_kin(db.conn, lore_character_id("Lyath"))
     assert rows == [(resolved_character_id, "sibling", "")]
@@ -111,7 +111,7 @@ def test_hero_relative_self_heals_character_heroes_when_missing(db: Database) ->
     hid = _seed_hero(db, "victor", "Victor")
     assert q.select_character_id_for_hero(db.conn, hid) is None
 
-    entry = NPCEntry("Lyath", kin=(("victor", "sibling"),))
+    entry = CharacterEntry("Lyath", kin=(("victor", "sibling"),))
     _story(db, characters=[entry])
 
     minted = lore_character_id("Victor")
@@ -121,13 +121,13 @@ def test_hero_relative_self_heals_character_heroes_when_missing(db: Database) ->
 
 def test_unknown_hero_slug_raises(db: Database) -> None:
     with pytest.raises(ValueError):
-        _story(db, characters=[NPCEntry("Lyath", kin=(("no-such-hero", "sibling"),))])
+        _story(db, characters=[CharacterEntry("Lyath", kin=(("no-such-hero", "sibling"),))])
 
 
 def test_kin_carries_an_optional_citation(db: Database) -> None:
-    entry = NPCEntry(
+    entry = CharacterEntry(
         "Lyath",
-        kin=((NPCEntry("Bloodworth Goldmane"), "father", "heroes-of-rathe/lyath-about.md"),),
+        kin=((CharacterEntry("Bloodworth Goldmane"), "father", "heroes-of-rathe/lyath-about.md"),),
     )
     _story(db, characters=[entry])
     rows = q.select_character_kin(db.conn, lore_character_id("Lyath"))
@@ -135,8 +135,8 @@ def test_kin_carries_an_optional_citation(db: Database) -> None:
 
 
 def test_a_relative_creates_its_own_character_row(db: Database) -> None:
-    """The relative NPC must get a row of its own, not just an id in character_kin."""
-    entry = NPCEntry("Lyath", kin=((NPCEntry("Bloodworth Goldmane"), "father"),))
+    """The relative must get a row of its own of its own, not just an id in character_kin."""
+    entry = CharacterEntry("Lyath", kin=((CharacterEntry("Bloodworth Goldmane"), "father"),))
     _story(db, characters=[entry])
     row = db.conn.execute(
         "SELECT name FROM characters WHERE character_id = ?",
@@ -148,9 +148,9 @@ def test_a_relative_creates_its_own_character_row(db: Database) -> None:
 def test_mutual_kin_references_do_not_recurse_forever(db: Database) -> None:
     """Two people naming each other as kin — siblings, spouses — is normal
     domain data, not a cycle error; it must terminate, not raise."""
-    lyath = NPCEntry("Lyath")
-    victor = NPCEntry("Victor", kin=((lyath, "sibling"),))
-    lyath_with_kin = NPCEntry("Lyath", kin=((victor, "sibling"),))
+    lyath = CharacterEntry("Lyath")
+    victor = CharacterEntry("Victor", kin=((lyath, "sibling"),))
+    lyath_with_kin = CharacterEntry("Lyath", kin=((victor, "sibling"),))
     _story(db, characters=[lyath_with_kin])
     assert q.select_character_kin(db.conn, lore_character_id("Lyath")) == [(lore_character_id("Victor"), "sibling", "")]
     assert q.select_character_kin(db.conn, lore_character_id("Victor")) == [(lore_character_id("Lyath"), "sibling", "")]
@@ -162,25 +162,25 @@ def test_mutual_kin_references_do_not_recurse_forever(db: Database) -> None:
 
 
 def test_a_relative_may_not_be_named_twice_with_the_same_relation(db: Database) -> None:
-    entry = NPCEntry(
+    entry = CharacterEntry(
         "Lyath",
         kin=(
-            (NPCEntry("Bloodworth Goldmane"), "father"),
-            (NPCEntry("Bloodworth Goldmane"), "father"),
+            (CharacterEntry("Bloodworth Goldmane"), "father"),
+            (CharacterEntry("Bloodworth Goldmane"), "father"),
         ),
     )
     with pytest.raises(ValueError, match="Bloodworth Goldmane"):
         _story(db, characters=[entry])
 
 
-def test_the_same_person_may_not_be_named_as_both_npc_and_hero_slug(db: Database) -> None:
+def test_the_same_person_may_not_be_named_as_both_entry_and_hero_slug(db: Database) -> None:
     """The hazard migration 12 makes reachable: one character_id, two spellings."""
     _seed_hero(db, "victor", "Victor")
-    _story(db, characters=[NPCEntry("Victor", hero_slug="victor")])
-    entry = NPCEntry(
+    _story(db, characters=[CharacterEntry("Victor", hero_slug="victor")])
+    entry = CharacterEntry(
         "Lyath",
         kin=(
-            (NPCEntry("Victor"), "sibling"),
+            (CharacterEntry("Victor"), "sibling"),
             ("victor", "sibling"),
         ),
     )
@@ -189,11 +189,11 @@ def test_the_same_person_may_not_be_named_as_both_npc_and_hero_slug(db: Database
 
 
 def test_the_duplicate_guard_fires_on_the_preview_path_too(db: Database) -> None:
-    entry = NPCEntry(
+    entry = CharacterEntry(
         "Lyath",
         kin=(
-            (NPCEntry("Bloodworth Goldmane"), "father"),
-            (NPCEntry("Bloodworth Goldmane"), "father"),
+            (CharacterEntry("Bloodworth Goldmane"), "father"),
+            (CharacterEntry("Bloodworth Goldmane"), "father"),
         ),
     )
     with pytest.raises(ValueError, match="Bloodworth Goldmane"):
@@ -201,7 +201,7 @@ def test_the_duplicate_guard_fires_on_the_preview_path_too(db: Database) -> None
 
 
 def test_a_character_cannot_be_their_own_relative(db: Database) -> None:
-    entry = NPCEntry("Lyath", kin=((NPCEntry("Lyath"), "sibling"),))
+    entry = CharacterEntry("Lyath", kin=((CharacterEntry("Lyath"), "sibling"),))
     with pytest.raises(ValueError, match="Lyath"):
         _story(db, characters=[entry])
 
@@ -211,13 +211,13 @@ def test_self_relative_guard_fires_via_a_hero_slug_prediction(db: Database) -> N
     self-healing would mint — lore_character_id of the hero's own name — so
     the self-relative guard fires without ever writing a row."""
     _seed_hero(db, "lyath", "Lyath")
-    entry = NPCEntry("Lyath", kin=(("lyath", "sibling"),))
+    entry = CharacterEntry("Lyath", kin=(("lyath", "sibling"),))
     with pytest.raises(ValueError, match="Lyath"):
         _story(db, characters=[entry])
 
 
 def test_self_relative_guard_fires_on_the_preview_path_too(db: Database) -> None:
-    entry = NPCEntry("Lyath", kin=((NPCEntry("Lyath"), "sibling"),))
+    entry = CharacterEntry("Lyath", kin=((CharacterEntry("Lyath"), "sibling"),))
     with pytest.raises(ValueError, match="Lyath"):
         _story(db, characters=[entry], dry_run=True)
 
@@ -228,34 +228,34 @@ def test_self_relative_guard_fires_on_the_preview_path_too(db: Database) -> None
 
 
 def test_kin_is_replace_semantic(db: Database) -> None:
-    two = NPCEntry(
+    two = CharacterEntry(
         "Lyath",
-        kin=((NPCEntry("Bloodworth Goldmane"), "father"), (NPCEntry("Tara VanGeld"), "mother")),
+        kin=((CharacterEntry("Bloodworth Goldmane"), "father"), (CharacterEntry("Tara VanGeld"), "mother")),
     )
     _story(db, characters=[two])
     assert len(q.select_character_kin(db.conn, lore_character_id("Lyath"))) == 2
-    _story(db, characters=[NPCEntry("Lyath", kin=((NPCEntry("Bloodworth Goldmane"), "father"),))])
+    _story(db, characters=[CharacterEntry("Lyath", kin=((CharacterEntry("Bloodworth Goldmane"), "father"),))])
     assert len(q.select_character_kin(db.conn, lore_character_id("Lyath"))) == 1
 
 
 def test_emptied_kin_is_a_deletion_not_a_no_op(db: Database) -> None:
-    _story(db, characters=[NPCEntry("Lyath", kin=((NPCEntry("Bloodworth Goldmane"), "father"),))])
-    _story(db, characters=[NPCEntry("Lyath")])
+    _story(db, characters=[CharacterEntry("Lyath", kin=((CharacterEntry("Bloodworth Goldmane"), "father"),))])
+    _story(db, characters=[CharacterEntry("Lyath")])
     assert q.select_character_kin(db.conn, lore_character_id("Lyath")) == []
 
 
 def test_dry_run_removal_line_matches_what_the_apply_does(db: Database, capsys) -> None:
-    _story(db, characters=[NPCEntry("Lyath", kin=((NPCEntry("Bloodworth Goldmane"), "father"),))])
+    _story(db, characters=[CharacterEntry("Lyath", kin=((CharacterEntry("Bloodworth Goldmane"), "father"),))])
     capsys.readouterr()
     db.upsert_story(
         path="src/world-of-rathe/solana.md",
         story_type="world-of-rathe",
         title="T",
-        characters=[NPCEntry("Lyath")],
+        characters=[CharacterEntry("Lyath")],
         dry_run=True,
     )
     assert "REMOVED" in capsys.readouterr().out
-    _story(db, characters=[NPCEntry("Lyath")])
+    _story(db, characters=[CharacterEntry("Lyath")])
     assert q.select_character_kin(db.conn, lore_character_id("Lyath")) == []
 
 
@@ -265,7 +265,7 @@ def test_dry_run_reports_a_new_kin_fact(db: Database, capsys) -> None:
         path="src/world-of-rathe/solana.md",
         story_type="world-of-rathe",
         title="T",
-        characters=[NPCEntry("Lyath", kin=((NPCEntry("Bloodworth Goldmane"), "father"),))],
+        characters=[CharacterEntry("Lyath", kin=((CharacterEntry("Bloodworth Goldmane"), "father"),))],
         dry_run=True,
     )
     out = capsys.readouterr().out
@@ -275,12 +275,12 @@ def test_dry_run_reports_a_new_kin_fact(db: Database, capsys) -> None:
 
 
 def test_dry_run_reaches_a_kin_fact_declared_only_through_a_group_roster(db: Database, capsys) -> None:
-    """A kin fact declared on an NPC reached only through a group roster must
+    """A kin fact declared on a character reached only through a group roster must
     not be invisible — the same hazard commit 433d5015 fixed for four other
     functions that walked the ``npcs`` kwarg instead of the reachable set."""
     grp = GroupEntry(
         "House Goldmane",
-        members=(NPCEntry("Lyath", kin=((NPCEntry("Bloodworth Goldmane"), "father"),)),),
+        members=(CharacterEntry("Lyath", kin=((CharacterEntry("Bloodworth Goldmane"), "father"),)),),
         member_source="heroes-of-rathe/lyath-about.md",
     )
     capsys.readouterr()
@@ -316,7 +316,7 @@ def test_kin_inverse_map(relation: str, expected_inverse: str) -> None:
 
 
 def test_both_directions_query_derives_the_inverse(db: Database) -> None:
-    entry = NPCEntry("Lyath", kin=((NPCEntry("Bloodworth Goldmane"), "father"),))
+    entry = CharacterEntry("Lyath", kin=((CharacterEntry("Bloodworth Goldmane"), "father"),))
     _story(db, characters=[entry])
     lyath_id = lore_character_id("Lyath")
     bloodworth_id = lore_character_id("Bloodworth Goldmane")
@@ -331,8 +331,8 @@ def test_both_directions_query_combines_stated_and_derived(db: Database) -> None
     _story(
         db,
         characters=[
-            NPCEntry("Lyath", kin=((NPCEntry("Bloodworth Goldmane"), "father"),)),
-            NPCEntry("Bloodworth Goldmane", kin=((NPCEntry("Tara VanGeld"), "spouse"),)),
+            CharacterEntry("Lyath", kin=((CharacterEntry("Bloodworth Goldmane"), "father"),)),
+            CharacterEntry("Bloodworth Goldmane", kin=((CharacterEntry("Tara VanGeld"), "spouse"),)),
         ],
     )
     bloodworth_id = lore_character_id("Bloodworth Goldmane")
@@ -343,7 +343,7 @@ def test_both_directions_query_combines_stated_and_derived(db: Database) -> None
 
 
 def test_sibling_and_spouse_are_their_own_inverse(db: Database) -> None:
-    _story(db, characters=[NPCEntry("Lyath", kin=((NPCEntry("Victor"), "sibling"),))])
+    _story(db, characters=[CharacterEntry("Lyath", kin=((CharacterEntry("Victor"), "sibling"),))])
     victor_id = lore_character_id("Victor")
     lyath_id = lore_character_id("Lyath")
     assert q.select_character_kin_both_directions(db.conn, victor_id) == [(lyath_id, "sibling", "")]
@@ -358,9 +358,9 @@ def test_kin_survives_the_csv_round_trip(db: Database, tmp_path) -> None:
     import db._export as ex
     from db._seed import seed_from_csvs
 
-    entry = NPCEntry(
+    entry = CharacterEntry(
         "Lyath",
-        kin=((NPCEntry("Bloodworth Goldmane"), "father", "heroes-of-rathe/lyath-about.md"),),
+        kin=((CharacterEntry("Bloodworth Goldmane"), "father", "heroes-of-rathe/lyath-about.md"),),
     )
     _story(db, characters=[entry])
     ex.export_registry_tables(db.conn, tmp_path)
@@ -400,13 +400,13 @@ def test_character_kin_csv_has_headers_and_no_data_rows_in_the_committed_data() 
 
 def test_an_unknown_relation_raises_at_declaration_time(db: Database) -> None:
     with pytest.raises(ValueError, match="unknown kin relation"):
-        _story(db, characters=[NPCEntry("Lyath", kin=((NPCEntry("Bloodworth Goldmane"), "faher"),))])
+        _story(db, characters=[CharacterEntry("Lyath", kin=((CharacterEntry("Bloodworth Goldmane"), "faher"),))])
 
 
 def test_the_error_names_the_relations_that_are_allowed(db: Database) -> None:
     """A closed vocabulary is only usable if the failure says what it is."""
     with pytest.raises(ValueError) as excinfo:
-        _story(db, characters=[NPCEntry("Lyath", kin=((NPCEntry("Bloodworth Goldmane"), "stepfather"),))])
+        _story(db, characters=[CharacterEntry("Lyath", kin=((CharacterEntry("Bloodworth Goldmane"), "stepfather"),))])
     message = str(excinfo.value)
     for relation in ("father", "mother", "parent", "sibling", "spouse", "child"):
         assert relation in message
@@ -415,7 +415,7 @@ def test_the_error_names_the_relations_that_are_allowed(db: Database) -> None:
 def test_a_bad_relation_writes_nothing(db: Database) -> None:
     """The guard runs during resolution, before any row is written."""
     with pytest.raises(ValueError):
-        _story(db, characters=[NPCEntry("Lyath", kin=((NPCEntry("Bloodworth Goldmane"), "faher"),))])
+        _story(db, characters=[CharacterEntry("Lyath", kin=((CharacterEntry("Bloodworth Goldmane"), "faher"),))])
     assert db.conn.execute("SELECT COUNT(*) FROM character_kin").fetchone()[0] == 0
 
 

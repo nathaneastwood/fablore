@@ -29,7 +29,7 @@ Outside this folder, `src/hints_supplement.json` is hand-written.
 
 ---
 
-## Lore data (stories, NPCs, locations, etc.)
+## Lore data (stories, characters, locations, etc.)
 
 ### Register or update a story
 
@@ -42,7 +42,7 @@ db.upsert_story(
     title="Story Title",
     characters=[
         "rhinar",              # canonical slug — raises on an unknown one
-        npc.SER_EXAMPLE,       # from entries/catalogue/npcs.py
+        people.SER_EXAMPLE,       # from entries/catalogue/characters.py
     ],
     locations=[loc.THE_CITADEL],
     regions=[reg.SOLANA],
@@ -68,12 +68,12 @@ Add one constant to the matching module under `entries/catalogue/`, then referen
 THE_CITADEL = LocationEntry("The Citadel", region="Solana", lore_fragment="the-citadel")
 ```
 
-Aliases in the section modules: `npc`, `loc`, `reg`, `mon`, `fauna`, `flora`, `food`. Species are the exception: `entries/catalogue/species.py` is imported as `sp` by `catalogue/npcs.py` and by nothing else, because a species hangs off an NPC rather than off a page.
+Aliases in the section modules: `people`, `loc`, `reg`, `mon`, `fauna`, `flora`, `food`. Species are the exception: `entries/catalogue/species.py` is imported as `sp` by `catalogue/characters.py` and by nothing else, because a species hangs off a character rather than off a page.
 
 ```python
-# entries/catalogue/npcs.py
-BISKI = NPCEntry("Biski", species=sp.DOG)
-SCOOBA = NPCEntry("Scooba", species=(sp.ZOMBIE, sp.DOG))   # a tuple where the lore says two
+# entries/catalogue/characters.py
+BISKI = CharacterEntry("Biski", species=sp.DOG)
+SCOOBA = CharacterEntry("Scooba", species=(sp.ZOMBIE, sp.DOG))   # a tuple where the lore says two
 ```
 
 **`species` deletes on omission; `status` preserves.** Two neighbouring fields, opposite contracts. Species is a junction and a junction states the complete set.
@@ -114,7 +114,7 @@ db.remove_story("src/main-story/set-name/story-slug.md")
 db.print_heroes()      # slug → display name
 db.print_weapons()
 db.print_equipment()
-db.print_npcs()
+db.print_characters()
 db.print_locations()
 db.print_regions()
 ```
@@ -184,14 +184,14 @@ The `Database` API still takes the dataclasses directly. This is fine for a thro
 
 ```python
 import sys; sys.path.insert(0, "src/data")
-from db import Database, NPCEntry, LocationEntry, NarratedVideoEntry
+from db import Database, CharacterEntry, LocationEntry, NarratedVideoEntry
 
 db = Database("src/data/fablore.db")
 db.upsert_story(
     "src/main-story/set-name/story-slug.md",
     story_type="main-story",
     title="Story Title",
-    characters=["rhinar", NPCEntry("Ser Example", status="Alive")],
+    characters=["rhinar", CharacterEntry("Ser Example", status="Alive")],
     locations=[LocationEntry("The Citadel", region="Solana")],
     narrated_videos=[NarratedVideoEntry(author="LSS", source_link="https://…")],
     dry_run=True,

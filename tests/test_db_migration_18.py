@@ -143,7 +143,7 @@ def test_a_cited_membership_beats_an_uncited_one_whichever_side_carries_it() -> 
     conn.execute(
         "INSERT INTO heroes_canonical (canonical_id, canonical_slug, canonical_hero) VALUES ('CN1', 'kano', 'Kano')"
     )
-    # The NPC row *is* the hero's character row: same name, so same hash.
+    # The character row *is* the hero's character row: same name, so same hash.
     conn.execute(
         "INSERT INTO npcs (character_id, name, status) VALUES (?, 'Kano', 'Alive')",
         [lore_character_id("Kano")],

@@ -33,16 +33,16 @@ def _maps(**kwargs) -> RelatedMaps:
         story_locations={},
         story_regions={},
         canonical_hero={},
-        npc_row={},
+        character_row={},
         location_row={},
         region_row={},
         canonical_id_to_character_id={},
         character_id_to_canonical_id={},
         hero_canonical_to_stories={},
-        npc_char_to_stories={},
-        npc_src_to_char_ids={},
+        character_to_stories={},
+        other_page_to_char_ids={},
         hero_junction_fragment={},
-        npc_junction_fragment={},
+        character_junction_fragment={},
     )
     return RelatedMaps(**{**defaults, **kwargs})
 
@@ -111,8 +111,8 @@ def test_build_character_stories_fragment_returns_story_card(tmp_path: Path) -> 
         hero_canonical_to_stories={"CN1": frozenset(["S1"])},
         story_id_to_key={"S1": "main-story/foo.md"},
         story_id_to_title={"S1": "Foo Story"},
-        npc_src_to_char_ids={},
-        npc_char_to_stories={},
+        other_page_to_char_ids={},
+        character_to_stories={},
     )
     hero_src_map = {hero_page: frozenset(["CN1"])}
     result = build_character_stories_fragment(
@@ -153,24 +153,24 @@ def test_build_character_stories_fragment_appends_hero_junction_fragment(
     assert "digital-tiles/tile.md#some-card" in result
 
 
-def test_build_character_stories_fragment_npc_page(tmp_path: Path) -> None:
-    """NPC page shows cards for stories via npc_src_to_char_ids."""
+def test_build_character_stories_fragment_other_characters_page(tmp_path: Path) -> None:
+    """An other-characters page shows cards for stories via other_page_to_char_ids."""
     src = tmp_path / "src"
     story_file = src / "main-story" / "bar.md"
     story_file.parent.mkdir(parents=True)
     story_file.write_text("# Bar Story", encoding="utf-8")
 
-    npc_page = "other-characters/npc-one.md"
+    character_page = "other-characters/npc-one.md"
     maps = _maps(
-        npc_src_to_char_ids={npc_page: frozenset(["C1"])},
-        npc_char_to_stories={"C1": frozenset(["S2"])},
+        other_page_to_char_ids={character_page: frozenset(["C1"])},
+        character_to_stories={"C1": frozenset(["S2"])},
         story_id_to_key={"S2": "main-story/bar.md"},
         story_id_to_title={"S2": "Bar Story"},
         hero_canonical_to_stories={},
     )
     result = build_character_stories_fragment(
         maps,
-        chapter_src_path=npc_page,
+        chapter_src_path=character_page,
         src_root=src,
         hero_src_map={},
     )
@@ -202,8 +202,8 @@ def test_build_character_stories_fragment_omits_missing_file(tmp_path: Path, cap
         hero_canonical_to_stories={"CN1": frozenset(["S1"])},
         story_id_to_key={"S1": "main-story/ghost.md"},
         story_id_to_title={"S1": "Ghost Story"},
-        npc_src_to_char_ids={},
-        npc_char_to_stories={},
+        other_page_to_char_ids={},
+        character_to_stories={},
     )
     result = build_character_stories_fragment(
         maps,
@@ -237,8 +237,8 @@ def test_build_character_stories_fragment_sorts_by_title(tmp_path: Path) -> None
             "S2": "Zeta Tale",
             "S3": "Mango Tale",
         },
-        npc_src_to_char_ids={},
-        npc_char_to_stories={},
+        other_page_to_char_ids={},
+        character_to_stories={},
     )
     result = build_character_stories_fragment(
         maps,
@@ -253,20 +253,20 @@ def test_build_character_stories_fragment_sorts_by_title(tmp_path: Path) -> None
 
 
 # ---------------------------------------------------------------------------
-# build_related_fragment — NPC cards
+# build_related_fragment — other-character cards
 # ---------------------------------------------------------------------------
 
 
-def test_build_related_fragment_npc_card(tmp_path: Path) -> None:
-    """NPC with a valid story_key produces a Character card."""
+def test_build_related_fragment_character_card(tmp_path: Path) -> None:
+    """A character with a valid story_key produces a Character card."""
     src = tmp_path / "src"
     (src / "other-characters").mkdir(parents=True)
-    (src / "other-characters" / "npc-page.md").write_text("# NPC", encoding="utf-8")
+    (src / "other-characters" / "npc-page.md").write_text("# Character", encoding="utf-8")
 
     maps = _maps(
         story_key_to_id={"main-story/x.md": "ST1"},
         story_characters={"ST1": frozenset({"C1"})},
-        npc_row={"C1": ("Nefarius", "other-characters/npc-page.md")},
+        character_row={"C1": ("Nefarius", "other-characters/npc-page.md")},
     )
     html = build_related_fragment(
         maps,
@@ -279,15 +279,15 @@ def test_build_related_fragment_npc_card(tmp_path: Path) -> None:
     assert "other-characters/npc-page.md" in html
 
 
-def test_build_related_fragment_npc_skips_empty_story_key(tmp_path: Path) -> None:
-    """NPC row with no OtherCharactersStoryKey is omitted."""
+def test_build_related_fragment_character_skips_empty_story_key(tmp_path: Path) -> None:
+    """A character row with no OtherCharactersStoryKey is omitted."""
     src = tmp_path / "src"
     src.mkdir()
 
     maps = _maps(
         story_key_to_id={"main-story/x.md": "ST1"},
         story_characters={"ST1": frozenset({"C1"})},
-        npc_row={"C1": ("NoLink NPC", "")},
+        character_row={"C1": ("NoLink Character", "")},
     )
     html = build_related_fragment(
         maps,
@@ -298,15 +298,15 @@ def test_build_related_fragment_npc_skips_empty_story_key(tmp_path: Path) -> Non
     assert html == ""
 
 
-def test_build_related_fragment_npc_skips_missing_file(tmp_path: Path) -> None:
-    """NPC whose story key file doesn't exist on disk is omitted."""
+def test_build_related_fragment_character_skips_missing_file(tmp_path: Path) -> None:
+    """A character whose story key file doesn't exist on disk is omitted."""
     src = tmp_path / "src"
     src.mkdir()
 
     maps = _maps(
         story_key_to_id={"main-story/x.md": "ST1"},
         story_characters={"ST1": frozenset({"C1"})},
-        npc_row={"C1": ("Phantom NPC", "other-characters/missing.md")},
+        character_row={"C1": ("Phantom Character", "other-characters/missing.md")},
     )
     html = build_related_fragment(
         maps,
@@ -317,16 +317,16 @@ def test_build_related_fragment_npc_skips_missing_file(tmp_path: Path) -> None:
     assert html == ""
 
 
-def test_build_related_fragment_npc_skips_self(tmp_path: Path) -> None:
-    """NPC card whose story key equals chapter_src_path is omitted."""
+def test_build_related_fragment_character_skips_self(tmp_path: Path) -> None:
+    """A character card whose story key equals chapter_src_path is omitted."""
     src = tmp_path / "src"
     (src / "other-characters").mkdir(parents=True)
-    (src / "other-characters" / "npc-page.md").write_text("# NPC", encoding="utf-8")
+    (src / "other-characters" / "npc-page.md").write_text("# Character", encoding="utf-8")
 
     maps = _maps(
         story_key_to_id={"other-characters/npc-page.md": "ST1"},
         story_characters={"ST1": frozenset({"C1"})},
-        npc_row={"C1": ("Self NPC", "other-characters/npc-page.md")},
+        character_row={"C1": ("Self Character", "other-characters/npc-page.md")},
     )
     html = build_related_fragment(
         maps,
@@ -528,8 +528,8 @@ def test_build_related_fragment_hero_src_map_adds_story_cards(tmp_path: Path) ->
         story_id_to_title={"ST2": "Other Story"},
         story_id_to_type={"ST2": "main-story"},
         hero_canonical_to_stories={"CN1": frozenset(["ST1", "ST2"])},
-        npc_src_to_char_ids={},
-        npc_char_to_stories={},
+        other_page_to_char_ids={},
+        character_to_stories={},
     )
     # chapter is main-story/current.md (a hero's story page)
     # hero_src_map says this story is for CN1, so reverse lookup finds ST2
@@ -562,8 +562,8 @@ def test_build_related_fragment_hero_src_map_skips_skip_types(tmp_path: Path) ->
         story_id_to_title={"ST2": "Hero Bio"},
         story_id_to_type={"ST2": "heroes-of-rathe"},  # in _STORY_TYPES_SKIP
         hero_canonical_to_stories={"CN1": frozenset(["ST1", "ST2"])},
-        npc_src_to_char_ids={},
-        npc_char_to_stories={},
+        other_page_to_char_ids={},
+        character_to_stories={},
     )
     html = build_related_fragment(
         maps,
@@ -575,33 +575,33 @@ def test_build_related_fragment_hero_src_map_skips_skip_types(tmp_path: Path) ->
     assert "Hero Bio" not in html
 
 
-def test_build_related_fragment_hero_src_map_npc_path(tmp_path: Path) -> None:
-    """NPC character IDs from npc_src_to_char_ids drive reverse story lookup."""
+def test_build_related_fragment_hero_src_map_other_characters_path(tmp_path: Path) -> None:
+    """Character IDs from other_page_to_char_ids drive reverse story lookup."""
     src = tmp_path / "src"
     (src / "main-story").mkdir(parents=True)
-    (src / "main-story" / "other.md").write_text("# Other NPC Story", encoding="utf-8")
+    (src / "main-story" / "other.md").write_text("# Other Character Story", encoding="utf-8")
 
-    npc_page = "other-characters/npc-page.md"
+    character_page = "other-characters/npc-page.md"
     maps = _maps(
         story_key_to_id={
             "main-story/current.md": "ST1",
             "main-story/other.md": "ST2",
         },
         story_id_to_key={"ST1": "main-story/current.md", "ST2": "main-story/other.md"},
-        story_id_to_title={"ST2": "NPC Adventure"},
+        story_id_to_title={"ST2": "Character Adventure"},
         story_id_to_type={"ST2": "main-story"},
-        npc_src_to_char_ids={npc_page: frozenset(["C1"])},
-        npc_char_to_stories={"C1": frozenset(["ST1", "ST2"])},
+        other_page_to_char_ids={character_page: frozenset(["C1"])},
+        character_to_stories={"C1": frozenset(["ST1", "ST2"])},
         hero_canonical_to_stories={},
     )
     html = build_related_fragment(
         maps,
         story_id="ST1",
-        chapter_src_path=npc_page,
+        chapter_src_path=character_page,
         src_root=src,
         hero_src_map={},
     )
-    assert "NPC Adventure" in html
+    assert "Character Adventure" in html
 
 
 def test_build_related_fragment_hero_src_map_with_fragment(tmp_path: Path) -> None:
@@ -622,8 +622,8 @@ def test_build_related_fragment_hero_src_map_with_fragment(tmp_path: Path) -> No
         # hero_junction_fragment keys on character_id since migration 17.
         canonical_id_to_character_id={"CN1": "LC1"},
         hero_junction_fragment={("ST2", "LC1"): "my-section"},
-        npc_src_to_char_ids={},
-        npc_char_to_stories={},
+        other_page_to_char_ids={},
+        character_to_stories={},
     )
     html = build_related_fragment(
         maps,
@@ -738,8 +738,8 @@ def test_process_chapter_content_hero_page_with_stories(tmp_path: Path) -> None:
         hero_canonical_to_stories={"CN1": frozenset(["S1"])},
         story_id_to_key={"S1": "main-story/foo.md"},
         story_id_to_title={"S1": "Foo Story"},
-        npc_src_to_char_ids={},
-        npc_char_to_stories={},
+        other_page_to_char_ids={},
+        character_to_stories={},
     )
     result = process_chapter_content(
         "# Hero\n",
@@ -838,7 +838,7 @@ def test_walk_mutate_sections_recurses_sub_items(tmp_path: Path) -> None:
 
 
 # ---------------------------------------------------------------------------
-# load_related_maps — NPC junction loading
+# load_related_maps — character junction loading
 # ---------------------------------------------------------------------------
 
 
@@ -858,12 +858,12 @@ def test_load_related_maps_loads_story_characters(tmp_path: Path) -> None:
     (csv / "regions.csv").write_text("RegionId|RegionName|WorldOfRatheStoryKey\n", encoding="utf-8")
     m = load_related_maps(data)
     assert m.story_characters["ST1"] == frozenset({"C1"})
-    assert "C1" in m.npc_char_to_stories
-    assert "ST1" in m.npc_char_to_stories["C1"]
+    assert "C1" in m.character_to_stories
+    assert "ST1" in m.character_to_stories["C1"]
 
 
-def test_load_related_maps_loads_npc_junction_fragment(tmp_path: Path) -> None:
-    """load_related_maps populates npc_junction_fragment for non-empty Fragment."""
+def test_load_related_maps_loads_character_junction_fragment(tmp_path: Path) -> None:
+    """load_related_maps populates character_junction_fragment for non-empty Fragment."""
     data = tmp_path / "data"
     csv = data / "csv"
     csv.mkdir(parents=True)
@@ -877,11 +877,11 @@ def test_load_related_maps_loads_npc_junction_fragment(tmp_path: Path) -> None:
     (csv / "locations.csv").write_text("LocationId|Name|RegionId\n", encoding="utf-8")
     (csv / "regions.csv").write_text("RegionId|RegionName|WorldOfRatheStoryKey\n", encoding="utf-8")
     m = load_related_maps(data)
-    assert m.npc_junction_fragment[("ST1", "C1")] == "my-fragment"
+    assert m.character_junction_fragment[("ST1", "C1")] == "my-fragment"
 
 
-def test_load_related_maps_loads_npc_src_map(tmp_path: Path) -> None:
-    """load_related_maps builds npc_src_to_char_ids from characters.csv OtherCharactersStoryKey."""
+def test_load_related_maps_loads_the_other_page_map(tmp_path: Path) -> None:
+    """load_related_maps builds other_page_to_char_ids from characters.csv OtherCharactersStoryKey."""
     data = tmp_path / "data"
     csv = data / "csv"
     csv.mkdir(parents=True)
@@ -896,6 +896,6 @@ def test_load_related_maps_loads_npc_src_map(tmp_path: Path) -> None:
         encoding="utf-8",
     )
     m = load_related_maps(data)
-    assert "other-characters/villain.md" in m.npc_src_to_char_ids
-    assert "C1" in m.npc_src_to_char_ids["other-characters/villain.md"]
-    assert m.npc_row["C1"] == ("The Villain", "other-characters/villain.md")
+    assert "other-characters/villain.md" in m.other_page_to_char_ids
+    assert "C1" in m.other_page_to_char_ids["other-characters/villain.md"]
+    assert m.character_row["C1"] == ("The Villain", "other-characters/villain.md")

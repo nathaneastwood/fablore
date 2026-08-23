@@ -583,7 +583,7 @@ def test_a_character_with_no_hero_link_is_badged_npc(tmp_path: Path, monkeypatch
 def test_a_character_linked_to_a_hero_is_badged_hero(tmp_path: Path, monkeypatch) -> None:
     """The badge is derived from character_heroes, never hand-classified.
 
-    So resolving one of the hero/NPC identity pairs later moves the badge with
+    So resolving one of the hero/ordinary-character identity pairs later moves the badge with
     no edit to the generator or to any hand-written entry.
     """
     db = tmp_path / "c.db"

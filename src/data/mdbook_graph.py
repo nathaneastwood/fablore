@@ -396,7 +396,7 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
             heroes[cid] = (name or slug, slug)
 
     # character_id -> canonical_id (migration 17's identity spine). This is
-    # what makes a hero and an NPC draw as one node: story-characters.csv
+    # what makes a hero and an ordinary character draw as one node: story-characters.csv
     # keys every link on character_id regardless of which side declared it,
     # so as long as the node id used below is always character_id, the same
     # person can never mint two nodes the way story-heroes.csv (keyed on
@@ -462,7 +462,7 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
     def _character(eid: str):
         """Resolve a story-characters.csv row to (name, url, kind).
 
-        One node id (character_id) for a hero and an NPC alike — that is the
+        One node id (character_id) for a hero and an ordinary character alike — that is the
         whole fix. kind is derived the same way stage 10 derives the hints
         badge: "hero" when character_id has a character-heroes.csv row, else
         "npc". A 3-tuple return overrides the junction's default kind below.
@@ -565,7 +565,7 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
         node_kind = nodes[new]["k"]
         if node_kind == "hero":
             # Hero nodes are keyed on character_id since migration 17 (so a
-            # hero-and-NPC person is one node), but build_printing_edges joins
+            # hero-and-ordinary-character person is one node), but build_printing_edges joins
             # heroes-printings.csv through heroes-game.csv's CanonicalId — so
             # card_node needs the canonical id here, not the node id.
             canonical_id = char_to_canon.get(node_id)

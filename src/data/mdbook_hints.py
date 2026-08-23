@@ -48,7 +48,7 @@ _SECTION_HEADINGS = re.compile(r"^#{2,3}[^\S\n]+(.+?)(?:[^\S\n]*#+)?\s*$", re.MU
 _OLD_HINT = re.compile(r"\[([^\]]+)\]\(~([^)]+)\)")
 
 # Entity type no longer gates auto-detection. It used to: only DB-backed types
-# (location/monster/fauna/flora) were eligible, on the grounds that NPCs, factions
+# (location/monster/fauna/flora) were eligible, on the grounds that characters, factions
 # and the like are introduced and described in-story. That reasoning is sound but
 # applies to the *page* that introduces an entity, not to the entity forever — it
 # left long-established characters such as Nasreth with no tooltip on any of the

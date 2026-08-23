@@ -107,7 +107,7 @@ def export_all(conn: sqlite3.Connection, data_dir: Path) -> None:
     _export_story_narrated_videos(conn, csv_dir)
     _export_regions(conn, csv_dir)
     _export_locations(conn, csv_dir)
-    _export_npcs(conn, csv_dir)
+    _export_characters(conn, csv_dir)
     _export_monsters(conn, csv_dir)
     _export_fauna(conn, csv_dir)
     _export_flora(conn, csv_dir)
@@ -145,7 +145,7 @@ def export_registry_tables(conn: sqlite3.Connection, data_dir: Path) -> None:
     csv_dir = data_dir / "csv"
     _export_regions(conn, csv_dir)
     _export_locations(conn, csv_dir)
-    _export_npcs(conn, csv_dir)
+    _export_characters(conn, csv_dir)
     _export_character_heroes(conn, csv_dir)
     _export_monsters(conn, csv_dir)
     _export_fauna(conn, csv_dir)
@@ -447,8 +447,8 @@ def _export_professions(conn: sqlite3.Connection, csv_dir: Path) -> None:
     )
 
 
-def _export_npcs(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_npcs(conn)
+def _export_characters(conn: sqlite3.Connection, csv_dir: Path) -> None:
+    rows = q.select_all_characters(conn)
     data = [
         {
             "CharacterId": r["character_id"],

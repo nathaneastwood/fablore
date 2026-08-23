@@ -54,12 +54,12 @@ def test_aesir_section_lists_species_members_with_joined_epithets(db) -> None:
     q.upsert_species(db.conn, species_id=sp_id, name="Aesir")
 
     sol_id = lore_character_id("Sol")
-    q.upsert_npc(db.conn, character_id=sol_id, name="Sol")
+    q.upsert_character(db.conn, character_id=sol_id, name="Sol")
     q.set_npc_species(db.conn, sol_id, [sp_id])
     q.set_npc_epithets(db.conn, sol_id, [("Aesir of Light", "epithet")])
 
     raven_id = lore_character_id("Raven, Aesir of Chaos")
-    q.upsert_npc(db.conn, character_id=raven_id, name="Raven, Aesir of Chaos")
+    q.upsert_character(db.conn, character_id=raven_id, name="Raven, Aesir of Chaos")
     q.set_npc_species(db.conn, raven_id, [sp_id])
     q.set_npc_epithets(db.conn, raven_id, [("Aesir of Chaos", "epithet")])
 
@@ -84,7 +84,7 @@ def test_character_with_no_epithet_row_renders_with_a_blank_epithets_cell(db) ->
     sp_id = species_id("Aesir")
     q.upsert_species(db.conn, species_id=sp_id, name="Aesir")
     cid = lore_character_id("Aesir of Flames")
-    q.upsert_npc(db.conn, character_id=cid, name="Aesir of Flames")
+    q.upsert_character(db.conn, character_id=cid, name="Aesir of Flames")
     q.set_npc_species(db.conn, cid, [sp_id])
 
     text = gen.render_markdown(db.conn)
@@ -99,7 +99,7 @@ def test_multiple_epithets_on_one_character_are_comma_joined_in_sort_order(db) -
     sp_id = species_id("Ancient")
     q.upsert_species(db.conn, species_id=sp_id, name="Ancient")
     cid = lore_character_id("Yvor")
-    q.upsert_npc(db.conn, character_id=cid, name="Yvor")
+    q.upsert_character(db.conn, character_id=cid, name="Yvor")
     q.set_npc_species(db.conn, cid, [sp_id])
     q.set_npc_epithets(
         db.conn,
@@ -153,14 +153,14 @@ def test_seeding_titles_and_holders_makes_both_sections_appear(db) -> None:
     aether_title = title_id("Dracai of Aether")
     q.upsert_title(db.conn, title_id=aether_title, name="Dracai of Aether", group_id=dracai_group)
     kano_id = lore_character_id("Kano")
-    q.upsert_npc(db.conn, character_id=kano_id, name="Kano")
+    q.upsert_character(db.conn, character_id=kano_id, name="Kano")
     q.set_title_holders(db.conn, aether_title, [(kano_id, 0, "")])
 
     # Grand Magister: one office, ordered succession.
     gm_title = title_id("Grand Magister")
     q.upsert_title(db.conn, title_id=gm_title, name="Grand Magister")
     devout_id = lore_character_id("The Devout")
-    q.upsert_npc(db.conn, character_id=devout_id, name="The Devout")
+    q.upsert_character(db.conn, character_id=devout_id, name="The Devout")
     q.set_title_holders(db.conn, gm_title, [(devout_id, 1, "")])
 
     text = gen.render_markdown(db.conn)
@@ -205,11 +205,11 @@ def _seed_super_slam(database) -> None:
     )
 
     speakeasy_id = lore_character_id("Speakeasy")
-    q.upsert_npc(database.conn, character_id=speakeasy_id, name="Speakeasy")
+    q.upsert_character(database.conn, character_id=speakeasy_id, name="Speakeasy")
     q.set_group_members(database.conn, speakeasy_stable, "group_characters", "character_id", [(speakeasy_id, "")])
 
     moloca_id = lore_character_id("Moloca")
-    q.upsert_npc(database.conn, character_id=moloca_id, name="Moloca")
+    q.upsert_character(database.conn, character_id=moloca_id, name="Moloca")
     q.set_group_members(database.conn, moloca_stable, "group_characters", "character_id", [(moloca_id, "")])
 
     boulders = group_id("Boulders")
@@ -263,7 +263,7 @@ def test_dragons_section_has_no_pronunciation_or_phonetic_columns(db) -> None:
     sp_id = species_id("Dragon")
     q.upsert_species(db.conn, species_id=sp_id, name="Dragon")
     cid = lore_character_id("Azvolai")
-    q.upsert_npc(db.conn, character_id=cid, name="Azvolai")
+    q.upsert_character(db.conn, character_id=cid, name="Azvolai")
     q.set_npc_species(db.conn, cid, [sp_id])
 
     text = gen.render_markdown(db.conn)

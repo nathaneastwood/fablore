@@ -10,9 +10,9 @@ sets lore text — location ``notes`` and monster/fauna/flora ``description``
 values are owned exclusively by ``descriptions.py``, which writes the same
 database columns. See that file's header for the reasoning.
 
-**References, not definitions.** Every entity with a registry table — NPCs,
+**References, not definitions.** Every entity with a registry table — characters,
 locations, regions, monsters, fauna, flora, food and drink — is defined once in
-``entries/catalogue/`` and referenced here as ``npc.NAME``, ``loc.NAME``,
+``entries/catalogue/`` and referenced here as ``people.NAME``, ``loc.NAME``,
 ``reg.NAME``, ``mon.NAME``, ``fauna.NAME``, ``flora.NAME`` or ``food.NAME``.
 Their ids are hashes of the fields written at the call site, so a literal here
 would not reuse the entity's row — it would mint a second one, and nothing would

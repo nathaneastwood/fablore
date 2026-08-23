@@ -40,13 +40,13 @@ from __future__ import annotations
 # entries/catalogue/; none of the entry classes are imported here, so writing
 # LocationEntry(...) is a NameError rather than a silent new row.
 from entries.catalogue import (  # noqa: F401
+    characters as people,
     fauna,
     flora,
     food_drink as food,
     groups as grp,
     locations as loc,
     monsters as mon,
-    npcs as npc,
     regions as reg,
 )
 
@@ -59,7 +59,7 @@ from entries._runner import db
 # PARTIAL BY DECISION, NOT BY OMISSION (the user's call, 2026-08-21).
 #
 # This page is 4471 words across 29 sections and names a great many locations,
-# regions and NPCs. This call declares none of them. Only the entities stage 5
+# regions and characters. This call declares none of them. Only the entities stage 5
 # needed are here: the two gods, the two groups this page already documents by
 # lore_story_key, and Dhani Deities — three groups, not the two this said until
 # 2026-08-21. See the note on grp.DHANI_DEITIES below for why the third is here.
@@ -95,8 +95,8 @@ db.upsert_story(
     # being the first that can touch them.
     source_link="https://fabtcg.com/world-of-rathe/high-seas/",
     characters=[
-        npc.ABSOLON,
-        npc.NOCETES,
+        people.ABSOLON,
+        people.NOCETES,
     ],
     groups=[
         # Both already carry lore_story_key pointing at this page, so the page

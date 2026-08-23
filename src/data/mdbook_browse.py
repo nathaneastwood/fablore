@@ -91,7 +91,7 @@ def build_index(data_dir: Path) -> dict:
             region_name[rid] = name
 
     # character_id -> canonical_id (migration 17's identity spine): every
-    # character= link (hero slug or NPCEntry) writes the same
+    # character= link (hero slug or CharacterEntry) writes the same
     # story-characters.csv junction, so a row there is a "hero" for this
     # index only when its character_id also has a character-heroes.csv row.
     char_to_canon: dict[str, str] = {}
