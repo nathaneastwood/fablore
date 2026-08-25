@@ -1623,9 +1623,13 @@ def _check_new_catalogue_names(reviewed: dict[frozenset, str]) -> list[str]:
     check that runs before the row is created.
     """
     try:
-        from entries.catalogue import fauna, flora, food_drink, locations, monsters, npcs
-    except Exception:  # noqa: BLE001 — a validator must not fail on an import problem
-        return []
+        from entries.catalogue import characters, fauna, flora, food_drink, locations, monsters
+    except Exception as exc:  # noqa: BLE001 — a validator must not fail on an import problem
+        # Returning [] here read as a clean pass for the whole check. When
+        # catalogue/npcs.py became characters.py the import broke and all six
+        # specs stopped running, silently, while validate_data still printed OK.
+        # A validator that cannot run must say so.
+        return [f"catalogue: could not import entries.catalogue, so no new-name check ran ({exc})"]
 
     from registry_ids import food_drink_id
 
@@ -1636,7 +1640,7 @@ def _check_new_catalogue_names(reviewed: dict[frozenset, str]) -> list[str]:
             "LocationId",
             lambda e: location_id(e.name, region_row_id(e.region) if e.region else ""),
         ),
-        (npcs, "csv/characters.csv", "CharacterId", lambda e: lore_character_id(e.name)),
+        (characters, "csv/characters.csv", "CharacterId", lambda e: lore_character_id(e.name)),
         (monsters, "csv/monsters.csv", "MonsterId", lambda e: monster_id(e.name)),
         (fauna, "csv/fauna.csv", "FaunaId", lambda e: fauna_id_from_name(e.name)),
         (flora, "csv/flora.csv", "FloraId", lambda e: flora_id(e.name)),

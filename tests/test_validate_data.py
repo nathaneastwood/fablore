@@ -427,3 +427,47 @@ def test_an_ordinary_character_is_never_reported_as_stranded(tmp_path: Path) -> 
         links="CN1|LC1\n",
     )
     assert _check_no_stranded_hero_character(*paths) == []
+
+
+def test_the_catalogue_check_reaches_all_six_registries(monkeypatch) -> None:
+    """The check must open every registry CSV, not return ``[]`` on a bad import.
+
+    The bare ``except`` around the import turned a renamed module into a clean
+    pass: ``catalogue/npcs.py`` became ``characters.py`` and all six specs
+    stopped running, silently, while ``validate_data`` still printed OK. Count
+    the CSVs the check opens — zero means it never got past the import.
+    """
+    opened: list[str] = []
+    real = validate_data.read_pipe_csv
+
+    def record(path, *args, **kwargs):
+        opened.append(Path(path).name)
+        return real(path, *args, **kwargs)
+
+    monkeypatch.setattr(validate_data, "read_pipe_csv", record)
+    validate_data._check_new_catalogue_names({})
+    assert set(opened) == {
+        "locations.csv",
+        "characters.csv",
+        "monsters.csv",
+        "fauna.csv",
+        "flora.csv",
+        "food-and-drink.csv",
+    }
+
+
+def test_a_broken_catalogue_import_warns_instead_of_passing_quietly(monkeypatch) -> None:
+    """An import the check cannot satisfy must reach the operator as a warning."""
+    import builtins
+
+    real_import = builtins.__import__
+
+    def refuse_the_catalogue(name, *args, **kwargs):
+        if name == "entries.catalogue":
+            raise ImportError("no catalogue here")
+        return real_import(name, *args, **kwargs)
+
+    monkeypatch.setattr(builtins, "__import__", refuse_the_catalogue)
+    alerts = validate_data._check_new_catalogue_names({})
+    assert len(alerts) == 1
+    assert "could not import" in alerts[0]
