@@ -785,7 +785,6 @@ db.upsert_story(
         "dash",
         "data-doll-mkii",
         "maxx",
-        "teklovossen",
         people.JULES_TEKLOVOSSEN,
     ],
     locations=[

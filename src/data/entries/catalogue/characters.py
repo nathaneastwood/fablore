@@ -263,7 +263,17 @@ JEZABELLE_EVERFEST_HEALER_AND_ALLSORTS = CharacterEntry("Jezabelle, Everfest Hea
 JIGSAW = CharacterEntry("Jigsaw", species=sp.HUMAN, status="Alive")
 JING = CharacterEntry("Jing", species=sp.HUMAN, status="Alive")
 JUICE = CharacterEntry("Juice", species=sp.HUMAN)
-JULES_TEKLOVOSSEN = CharacterEntry("Jules Teklovossen", species=sp.HUMAN, status="Alive")
+JULES_TEKLOVOSSEN = CharacterEntry(
+    "Jules Teklovossen",
+    species=sp.HUMAN,
+    status="Alive",
+    hero_slug="teklovossen",
+    short_names=("Teklovossen",),
+)
+"""One person, not two. The card name is the short one and the lore name is the
+full one, so the hero row and the prose row were two `characters` rows for a
+man who is both. `hero_slug` folds them onto one `character_id`; `Teklovossen`
+becomes the short-name it always was."""
 KALSHARPE = CharacterEntry("Kalsharpe", species=sp.HUMAN)
 KARALYN = CharacterEntry("Karalyn")
 """Was the last ``npcs.csv`` row with no constant at all — reachable from no

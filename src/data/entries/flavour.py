@@ -369,7 +369,6 @@ db.upsert_story(
         "hala",
         "jarl",
         "kano",
-        "teklovossen",
         people.BUTCHER_JEK,
         people.GREENBIRD,
         people.JACKDAW,
@@ -383,7 +382,7 @@ db.upsert_story(
     fragments={
         "hala": "unified-decree---cru083",
         "kano": "aetherize---cru164",
-        "teklovossen": "teklovossens-workshop---cru115116117",
+        "Jules Teklovossen": "teklovossens-workshop---cru115116117",
     },
     # CRU024 writes "Isen's Peak", which is Mt. Isen's alias (R6) — the first
     # link the alias table has earned rather than merely recorded.

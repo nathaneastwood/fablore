@@ -351,7 +351,6 @@
 |               Tasha of Deshvahan               |   Unknown  |       |
 |                Taskmaster Pyrion               |   Unknown  |       |
 |                     Taylor                     |   Unknown  |       |
-|                   Teklovossen                  |   Unknown  |       |
 |                Templar Timaerus                |   Unknown  |       |
 |                      Terra                     |   Unknown  |       |
 |                     Tetzuo                     |    Alive   |       |
