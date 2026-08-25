@@ -23,7 +23,7 @@ def test_create_md_characters_md_from_characters_csv(tmp_path: Path) -> None:
     data.mkdir(parents=True)
     characters = data / "characters.csv"
     characters.write_text(
-        "# comment\nCharacterId|Name|Species|Status\n" "LCbbbbbbbbbb|Zed|Human|Alive\n" "LCaaaaaaaaaa|Amy|Elf|Dead\n",
+        "# comment\nCharacterId|Name|Kind|Status\n" "LCbbbbbbbbbb|Zed|Human|Alive\n" "LCaaaaaaaaaa|Amy|Elf|Dead\n",
         encoding="utf-8",
     )
     out = data / "characters.md"

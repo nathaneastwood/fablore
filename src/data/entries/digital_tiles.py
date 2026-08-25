@@ -41,7 +41,7 @@ db.upsert_story(
         "aurora",
         "oscilio",
         "zyggy",
-        # Already curated — named here only to link them to this page. Species and
+        # Already curated — named here only to link them to this page. Kind and
         # status are left empty so the existing curated values are preserved.
         people.MAELA_ISULFV,
         people.YVOR,
@@ -94,11 +94,11 @@ db.upsert_story(
     characters=[
         "dorinthea",
         "jarl",
-        # Already curated — named here only to link them to this page. Species and
+        # Already curated — named here only to link them to this page. Kind and
         # status are left empty so the existing curated values are preserved.
         people.BELLONA_THE_WARTUNE_HERALD,
         people.SOL,
-        # New with this set. Species is unattested in the flavour text, so it is
+        # New with this set. Kind is unattested in the flavour text, so it is
         # left to default to "Unknown" rather than being guessed.
         people.BOO,
         # A dragon, not a person — there is no dragons table, so it is carried
@@ -131,7 +131,7 @@ db.upsert_story(
         "emperor",
         "kassai",
         "teklovossen",
-        # Already curated — named here only to link them to this page. Species and
+        # Already curated — named here only to link them to this page. Kind and
         # status are left empty so the existing curated values are preserved.
         people.GENERAL_EKODA,
         people.LORD_SABUTO,
@@ -200,7 +200,7 @@ db.upsert_story(
     title="Everfest",
     characters=[
         "boltyn",
-        # Already curated — named here only to link them to this page. Species and
+        # Already curated — named here only to link them to this page. Kind and
         # status are left empty so the existing curated values are preserved.
         people.JEZABELLE_EVERFEST_HEALER_AND_ALLSORTS,
         people.LORD_SUTCLIFFE,
@@ -256,7 +256,7 @@ db.upsert_story(
         "olympia",
         "rhinar",
         "victor-goldmane",
-        # Already curated — named here only to link them to this page. Species and
+        # Already curated — named here only to link them to this page. Kind and
         # status are left empty so the existing curated values are preserved.
         people.DEMETRIOS,
     ],
@@ -276,7 +276,7 @@ db.upsert_story(
     title="High Seas",
     characters=[
         "gravy",
-        # Already curated — named here only to link them to this page. Species and
+        # Already curated — named here only to link them to this page. Kind and
         # status are left empty so the existing curated values are preserved.
         people.KELPIE,
         people.MORAY_LE_FAY,
@@ -285,7 +285,7 @@ db.upsert_story(
         # New with this set.
         people.CAPTAIN_BLUDGE,
         people.CHOWDER,
-        # "Dhani death-mage" — Dhani is the culture, not a species, so species is
+        # "Dhani death-mage" — Dhani is the culture, not a kind, so kind is
         # left to default to "Unknown".
         people.THANUELLA,
     ],
@@ -315,7 +315,7 @@ db.upsert_story(
     title="Monarch",
     characters=[
         "boltyn",
-        # Already curated — named here only to link them to this page. Species and
+        # Already curated — named here only to link them to this page. Kind and
         # status are left empty so the existing curated values are preserved.
         people.BLASMOPHET,
         people.SOL,
@@ -344,7 +344,7 @@ db.upsert_story(
     characters=[
         "enigma",
         "nuu",
-        # Already curated — named here only to link them to this page. Species and
+        # Already curated — named here only to link them to this page. Kind and
         # status are left empty so the existing curated values are preserved.
         people.DAN_LU_KOTORI_GALEWARDEN,
         people.KAZUO,
@@ -381,7 +381,7 @@ db.upsert_story(
         "melody",
         "oscilio",
         "verdance",
-        # Already curated — named here only to link them to this page. Species and
+        # Already curated — named here only to link them to this page. Kind and
         # status are left empty so the existing curated values are preserved.
         people.DAVNIR,
         people.QUEEN_OF_CANDLEHOLD,
@@ -413,7 +413,7 @@ db.upsert_story(
     story_type="digital-tiles",
     title="Tales of Aria",
     characters=[
-        # Already curated — named here only to link them to this page. Species and
+        # Already curated — named here only to link them to this page. Kind and
         # status are left empty so the existing curated values are preserved.
         people.DAVNIR,
         people.QUEEN_OF_CANDLEHOLD,
@@ -442,7 +442,7 @@ db.upsert_story(
         "cindra",
         "emperor",
         "taipanis",
-        # Already curated — named here only to link them to this page. Species and
+        # Already curated — named here only to link them to this page. Kind and
         # status are left empty so the existing curated values are preserved.
         people.DR_KREST_MORTIMER_THE_FIXER,
     ],

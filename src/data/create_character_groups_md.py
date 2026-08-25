@@ -2,7 +2,7 @@
 
 Unlike every other file under ``src/data/md/``, this page has no CSV source —
 it is a join across ``groups``, ``group_characters``, ``characters``, ``character_epithets``,
-``character_kinds``, ``species`` and ``titles``/``title_holders``, with parent
+``character_kinds``, ``kind`` and ``titles``/``title_holders``, with parent
 nesting that recurses (``groups.parent_group_id``). ``create_md.py`` renders one
 flat CSV per table; this page cannot be that shape, so it gets its own
 generator that reads ``fablore.db`` directly.
@@ -26,7 +26,7 @@ data entry stand between it and the swap:
   ``character_epithets`` rows already exist, so each renders its epithet twice — once
   inside the name and once in the Epithets column.
 - **``titles`` is empty**, so ``Dracai`` and ``Grand Magisters`` do not render.
-- **``Anarchs of L'Apocalypta`` has no data path.** Zeir's species is ``Human``,
+- **``Anarchs of L'Apocalypta`` has no data path.** Zeir's kind is ``Human``,
   not ``Aesir``, and the ``L'Apocalypta`` group carries no ``parent_group_id``
   tying it to anything. Reproducing that section needs a lore decision, not code.
 - **Dragons cannot be split by sex.** No registry table has such a column, so the
@@ -83,8 +83,8 @@ def _epithets_for(conn: sqlite3.Connection, character_id: str) -> str:
     return ", ".join(r["name"] for r in rows)
 
 
-def _species_members(conn: sqlite3.Connection, species_name: str) -> list[sqlite3.Row]:
-    """Characters carrying ``species_name``, sorted by name for determinism."""
+def _kind_members(conn: sqlite3.Connection, kind_name: str) -> list[sqlite3.Row]:
+    """Characters carrying ``kind_name``, sorted by name for determinism."""
     return conn.execute(
         """
         SELECT c.character_id, c.name
@@ -94,12 +94,12 @@ def _species_members(conn: sqlite3.Connection, species_name: str) -> list[sqlite
         WHERE s.name = ?
         ORDER BY c.name
         """,
-        (species_name,),
+        (kind_name,),
     ).fetchall()
 
 
-def _section_species(conn: sqlite3.Connection, heading: str, species_name: str) -> str:
-    members = _species_members(conn, species_name)
+def _section_kinds(conn: sqlite3.Connection, heading: str, kind_name: str) -> str:
+    members = _kind_members(conn, kind_name)
     if not members:
         return ""
     rows = [[m["name"], _epithets_for(conn, m["character_id"])] for m in members]
@@ -108,7 +108,7 @@ def _section_species(conn: sqlite3.Connection, heading: str, species_name: str) 
 
 
 def _section_dragons(conn: sqlite3.Connection) -> str:
-    members = _species_members(conn, "Dragon")
+    members = _kind_members(conn, "Dragon")
     if not members:
         return ""
     table = _md_table(["Name"], [[m["name"]] for m in members])
@@ -288,14 +288,14 @@ def render_markdown(conn: sqlite3.Connection) -> str:
     """
     # Hand-written page's own section order.
     sections: list[str] = [
-        _section_species(conn, "Aesir", "Aesir"),
-        _section_species(conn, "Ancients", "Ancient"),
+        _section_kinds(conn, "Aesir", "Aesir"),
+        _section_kinds(conn, "Ancients", "Ancient"),
         _section_dracai(conn),
         _section_dragons(conn),
-        _section_species(conn, "Embra", "Embra"),
+        _section_kinds(conn, "Embra", "Embra"),
         _section_grand_magisters(conn),
         _section_gods(conn),
-        _section_species(conn, "Heralds", "Herald"),
+        _section_kinds(conn, "Heralds", "Herald"),
         _section_super_slam(conn),
     ]
 

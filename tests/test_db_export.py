@@ -151,7 +151,7 @@ def test_export_registry_tables_characters(db: Database, tmp_path: Path) -> None
     content = (tmp_path / "csv" / "characters.csv").read_text(encoding="utf-8")
     assert "Ira" in content
     assert "CharacterId" in content
-    assert "Species" not in content, "the free-text species column was retired in stage 4"
+    assert "Kind" not in content, "the free-text kind column was retired in stage 4"
 
 
 def test_export_registry_tables_monsters(db: Database, tmp_path: Path) -> None:
@@ -364,7 +364,7 @@ def test_export_all_covers_every_file_the_narrower_exports_write(db: Database, t
     Its docstring promises "every CSV file in ``data_dir/csv/``", and callers
     read it that way. It once skipped the eight registry tables that only
     ``export_registry_tables`` wrote — groups, group members, the three alias
-    tables, species, titles, title holders, kin and professions — so an export
+    tables, kind, titles, title holders, kin and professions — so an export
     could run clean and leave those CSVs stale. Comparing the file sets keeps
     a new exporter from being added to one function and forgotten in the other.
     """

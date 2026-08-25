@@ -103,10 +103,10 @@ def lore_character_id(name: str) -> str:
 
 
 def kind_id(name: str) -> str:
-    """Return ``KindId`` for a species display name.
+    """Return ``KindId`` for a kind display name.
 
     Args:
-        name: Species name as stored in ``kinds.csv``, e.g. ``"Dogg"``.
+        name: Kind name as stored in ``kinds.csv``, e.g. ``"Dogg"``.
 
     Returns:
         ``SP`` + digest id.

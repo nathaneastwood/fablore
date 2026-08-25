@@ -560,20 +560,20 @@ def select_group_aliases(conn: sqlite3.Connection, group_id: str) -> list[str]:
 
 
 # ---------------------------------------------------------------------------
-# Species (R2)
+# Kinds (R2)
 # ---------------------------------------------------------------------------
 #
-# Three functions for what used to be one column. ``species`` is a registry like
+# Three functions for what used to be one column. ``kinds`` is a registry like
 # any other; ``character_kinds`` is a junction, replace-semantic on the character the
 # way a roster is on its group; ``kind_aliases`` is the fourth alias table and
 # behaves exactly like the other three.
 
 
 def upsert_kind(conn: sqlite3.Connection, *, kind_id: str, name: str, notes: str = "") -> None:
-    """Insert or update a species row, preserving ``notes`` the caller omits.
+    """Insert or update a kind row, preserving ``notes`` the caller omits.
 
     ``notes`` follows the preserve-on-empty contract the other registries use:
-    a declaration names a species, ``descriptions.py`` writes what it is.
+    a declaration names a kind, ``descriptions.py`` writes what it is.
     """
     conn.execute(
         """
@@ -597,7 +597,7 @@ def update_kind_notes(conn: sqlite3.Connection, kind_id: str, notes: str) -> int
 
 
 def set_character_kinds(conn: sqlite3.Connection, character_id: str, kind_ids: list[str]) -> None:
-    """Replace every species linked to ``character_id``, in the order given."""
+    """Replace every kind linked to ``character_id``, in the order given."""
     conn.execute("DELETE FROM character_kinds WHERE character_id = ?", [character_id])
     if kind_ids:
         conn.executemany(
@@ -607,7 +607,7 @@ def set_character_kinds(conn: sqlite3.Connection, character_id: str, kind_ids: l
 
 
 def select_character_kinds(conn: sqlite3.Connection, character_id: str) -> list[str]:
-    """Return the species ids linked to ``character_id`` in declared order."""
+    """Return the kind ids linked to ``character_id`` in declared order."""
     rows = conn.execute(
         "SELECT kind_id FROM character_kinds WHERE character_id = ? ORDER BY sort_order, kind_id",
         [character_id],
@@ -641,7 +641,7 @@ def select_kind_aliases(conn: sqlite3.Connection, kind_id: str) -> list[str]:
 # A trade many hold independently, not a roster: "who is a Braumeister" is
 # unbounded and unsourceable, which is exactly what a group's member_source
 # exists to prevent, so there is no source column here and no alias table —
-# unlike species, no plural or supplement entry has needed one yet.
+# unlike a kind, no plural or supplement entry has needed one yet.
 
 
 def upsert_profession(conn: sqlite3.Connection, *, profession_id: str, name: str, notes: str = "") -> None:
@@ -714,7 +714,7 @@ def upsert_character(
 
     A brand-new character still lands as ``"Unknown"`` for an omitted ``status``.
 
-    Species does **not** live here any more and does not follow that contract.
+    The kind does **not** live here any more and does not follow that contract.
     It is a junction (:func:`set_character_kinds`), replace-semantic like the group
     rosters, because one column could not hold `Zombie` and `Dog` at once.
     """
@@ -759,7 +759,7 @@ def update_character_summary(conn: sqlite3.Connection, character_id: str, summar
     Called only by ``descriptions.py`` through ``Database.update_description``,
     which owns every registry's lore text. ``entries/catalogue/`` deliberately
     has no way to reach this: two writers for one summary is the hazard the
-    faction and species entries had to be migrated out of.
+    faction and kind entries had to be migrated out of.
     """
     cur = conn.execute(
         "UPDATE characters SET summary = ? WHERE character_id = ?",

@@ -1,9 +1,9 @@
-"""Tests for the species tables (migration 11) — R2.
+"""Tests for the kind tables (migration 11) — R2.
 
 One free-text column held three different facts and could hold only one of them
 at a time. These cover the three things that made the split worth doing: a
-character with two species, a plural that reaches the tooltip, and the contract
-reversal — species is replace-semantic where status preserves.
+character with two kinds, a plural that reaches the tooltip, and the contract
+reversal — kind is replace-semantic where status preserves.
 """
 
 from __future__ import annotations
@@ -13,7 +13,7 @@ from pathlib import Path
 import pytest
 
 import db._queries as q
-from db import Database, CharacterEntry, SpeciesEntry
+from db import Database, CharacterEntry, KindEntry
 from registry_ids import lore_character_id, kind_id
 
 
@@ -23,7 +23,7 @@ def _story(database: Database, **kw):
     )
 
 
-def _species_of(database: Database, name: str) -> list[str]:
+def _kind_of(database: Database, name: str) -> list[str]:
     cid = lore_character_id(name)
     return [
         r[0]
@@ -45,7 +45,7 @@ def test_migration_creates_the_kind_tables(db: Database) -> None:
     assert {"kinds", "character_kinds", "kind_aliases"} <= tables
 
 
-def test_characters_has_no_species_column(db: Database) -> None:
+def test_characters_has_no_kind_column(db: Database) -> None:
     """Retired in stage 4. Two writers on one fact is what this stage ended.
 
     Named the ``npcs`` table until stage 6d. Migration 12 had renamed it to
@@ -54,7 +54,7 @@ def test_characters_has_no_species_column(db: Database) -> None:
     """
     cols = {r[1] for r in db.conn.execute("PRAGMA table_info(characters)")}
     assert cols, "characters table has no columns — the PRAGMA named the wrong table"
-    assert "species" not in cols
+    assert "kind" not in cols
 
 
 # ---------------------------------------------------------------------------
@@ -62,50 +62,50 @@ def test_characters_has_no_species_column(db: Database) -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_a_species_is_written_from_a_declaration(db: Database) -> None:
-    _story(db, characters=[CharacterEntry("Biski", species=SpeciesEntry("Dog"))])
-    assert _species_of(db, "Biski") == ["Dog"]
+def test_a_kind_is_written_from_a_declaration(db: Database) -> None:
+    _story(db, characters=[CharacterEntry("Biski", kinds=KindEntry("Dog"))])
+    assert _kind_of(db, "Biski") == ["Dog"]
 
 
-def test_a_character_holds_two_species_in_declared_order(db: Database) -> None:
+def test_a_character_holds_two_kind_in_declared_order(db: Database) -> None:
     """`Zombie Dog` was one value gluing two facts; splitting it needs both halves."""
-    _story(db, characters=[CharacterEntry("Scooba", species=(SpeciesEntry("Zombie"), SpeciesEntry("Dog")))])
-    assert _species_of(db, "Scooba") == ["Zombie", "Dog"]
+    _story(db, characters=[CharacterEntry("Scooba", kinds=(KindEntry("Zombie"), KindEntry("Dog")))])
+    assert _kind_of(db, "Scooba") == ["Zombie", "Dog"]
 
 
-def test_species_is_replace_semantic(db: Database) -> None:
-    _story(db, characters=[CharacterEntry("Scooba", species=(SpeciesEntry("Zombie"), SpeciesEntry("Dog")))])
-    _story(db, characters=[CharacterEntry("Scooba", species=SpeciesEntry("Zombie"))])
-    assert _species_of(db, "Scooba") == ["Zombie"]
+def test_kind_is_replace_semantic(db: Database) -> None:
+    _story(db, characters=[CharacterEntry("Scooba", kinds=(KindEntry("Zombie"), KindEntry("Dog")))])
+    _story(db, characters=[CharacterEntry("Scooba", kinds=KindEntry("Zombie"))])
+    assert _kind_of(db, "Scooba") == ["Zombie"]
 
 
-def test_an_omitted_species_is_a_deletion(db: Database) -> None:
+def test_an_omitted_kind_is_a_deletion(db: Database) -> None:
     """The reversal. ``status`` preserves on omission; a junction cannot.
 
-    This is the behaviour that made 32 undeclared species values a migration
+    This is the behaviour that made 32 undeclared kind values a migration
     problem rather than a rename.
     """
-    _story(db, characters=[CharacterEntry("Swabbie", species=SpeciesEntry("Zombie"))])
+    _story(db, characters=[CharacterEntry("Swabbie", kinds=KindEntry("Zombie"))])
     _story(db, characters=[CharacterEntry("Swabbie")])
-    assert _species_of(db, "Swabbie") == []
+    assert _kind_of(db, "Swabbie") == []
 
 
-def test_two_characters_share_one_species_row(db: Database) -> None:
+def test_two_characters_share_one_kind_row(db: Database) -> None:
     """The point of a registry: `Human` is one row, not 207 strings."""
     _story(
         db,
         characters=[
-            CharacterEntry("Aios", species=SpeciesEntry("Human")),
-            CharacterEntry("Akuo", species=SpeciesEntry("Human")),
+            CharacterEntry("Aios", kinds=KindEntry("Human")),
+            CharacterEntry("Akuo", kinds=KindEntry("Human")),
         ],
     )
     assert db.conn.execute("SELECT COUNT(*) FROM kinds WHERE name = 'Human'").fetchone()[0] == 1
 
 
 def test_kind_aliases_are_stored_and_replace_semantic(db: Database) -> None:
-    _story(db, characters=[CharacterEntry("Sol", species=SpeciesEntry("Aesir", aliases=("Aesirs",)))])
+    _story(db, characters=[CharacterEntry("Sol", kinds=KindEntry("Aesir", aliases=("Aesirs",)))])
     assert q.select_kind_aliases(db.conn, kind_id("Aesir")) == ["Aesirs"]
-    _story(db, characters=[CharacterEntry("Sol", species=SpeciesEntry("Aesir"))])
+    _story(db, characters=[CharacterEntry("Sol", kinds=KindEntry("Aesir"))])
     assert q.select_kind_aliases(db.conn, kind_id("Aesir")) == []
 
 
@@ -114,22 +114,22 @@ def test_kind_aliases_are_stored_and_replace_semantic(db: Database) -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_dry_run_reports_a_species_it_would_add(db: Database, capsys) -> None:
+def test_dry_run_reports_a_kind_it_would_add(db: Database, capsys) -> None:
     _story(db, characters=[CharacterEntry("Biski")])
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
         story_type="main-story",
         title="T",
-        characters=[CharacterEntry("Biski", species=SpeciesEntry("Dog"))],
+        characters=[CharacterEntry("Biski", kinds=KindEntry("Dog"))],
         dry_run=True,
     )
-    assert "Biski: species 'Dog'" in capsys.readouterr().out
+    assert "Biski: kind 'Dog'" in capsys.readouterr().out
 
 
-def test_dry_run_reports_a_species_it_would_remove(db: Database, capsys) -> None:
-    """An omitted species is a deletion, so the preview has to say so."""
-    _story(db, characters=[CharacterEntry("Swabbie", species=SpeciesEntry("Zombie"))])
+def test_dry_run_reports_a_kind_it_would_remove(db: Database, capsys) -> None:
+    """An omitted kind is a deletion, so the preview has to say so."""
+    _story(db, characters=[CharacterEntry("Swabbie", kinds=KindEntry("Zombie"))])
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
@@ -138,10 +138,10 @@ def test_dry_run_reports_a_species_it_would_remove(db: Database, capsys) -> None
         characters=[CharacterEntry("Swabbie")],
         dry_run=True,
     )
-    assert "Swabbie: species 'Zombie' REMOVED" in capsys.readouterr().out
+    assert "Swabbie: kind 'Zombie' REMOVED" in capsys.readouterr().out
 
 
-def test_dry_run_reports_a_species_on_a_group_member(db: Database, capsys) -> None:
+def test_dry_run_reports_a_kind_on_a_group_member(db: Database, capsys) -> None:
     """Ozrim is reachable through the Rosetta roster and through nothing else."""
     from db import GroupEntry
 
@@ -151,10 +151,10 @@ def test_dry_run_reports_a_species_on_a_group_member(db: Database, capsys) -> No
         path="src/main-story/super-slam/feudmasters.md",
         story_type="main-story",
         title="T",
-        groups=[GroupEntry("Rosetta", members=(CharacterEntry("Ozrim", species=SpeciesEntry("Rosetta")),))],
+        groups=[GroupEntry("Rosetta", members=(CharacterEntry("Ozrim", kinds=KindEntry("Rosetta")),))],
         dry_run=True,
     )
-    assert "Ozrim: species 'Rosetta'" in capsys.readouterr().out
+    assert "Ozrim: kind 'Rosetta'" in capsys.readouterr().out
 
 
 # ---------------------------------------------------------------------------
@@ -162,12 +162,12 @@ def test_dry_run_reports_a_species_on_a_group_member(db: Database, capsys) -> No
 # ---------------------------------------------------------------------------
 
 
-def test_species_survive_the_csv_round_trip(db: Database, tmp_path: Path) -> None:
+def test_kind_survive_the_csv_round_trip(db: Database, tmp_path: Path) -> None:
     _story(
         db,
         characters=[
-            CharacterEntry("Scooba", species=(SpeciesEntry("Zombie"), SpeciesEntry("Dog"))),
-            CharacterEntry("Sol", species=SpeciesEntry("Aesir", aliases=("Aesirs",))),
+            CharacterEntry("Scooba", kinds=(KindEntry("Zombie"), KindEntry("Dog"))),
+            CharacterEntry("Sol", kinds=KindEntry("Aesir", aliases=("Aesirs",))),
         ],
     )
     import db._export as _export
@@ -182,7 +182,7 @@ def test_species_survive_the_csv_round_trip(db: Database, tmp_path: Path) -> Non
 
 
 def test_update_description_writes_kind_notes(db: Database) -> None:
-    _story(db, characters=[CharacterEntry("Ozrim", species=SpeciesEntry("Chanek"))])
+    _story(db, characters=[CharacterEntry("Ozrim", kinds=KindEntry("Chanek"))])
     db.update_description("kind", "Chanek", "Green-skinned, pointed-eared Rathenfolk of the far west.")
     row = db.conn.execute("SELECT notes FROM kinds WHERE name = 'Chanek'").fetchone()
     assert row["notes"].startswith("Green-skinned")

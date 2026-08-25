@@ -25,7 +25,7 @@ from db import (
     CharacterEntry,
     NarratedVideoEntry,
     RegionEntry,
-    SpeciesEntry,
+    KindEntry,
 )
 
 
@@ -173,7 +173,7 @@ def test_preview_reports_character_status_change(db: Database, capsys) -> None:
         "src/main-story/z.md",
         story_type="main-story",
         title="Z",
-        characters=[CharacterEntry("Lord Sutcliffe", species=SpeciesEntry("Human"), status="Just a head")],
+        characters=[CharacterEntry("Lord Sutcliffe", kinds=KindEntry("Human"), status="Just a head")],
     )
 
     report = _preview(
@@ -182,7 +182,7 @@ def test_preview_reports_character_status_change(db: Database, capsys) -> None:
         path="src/main-story/z.md",
         story_type="main-story",
         title="Z",
-        characters=[CharacterEntry("Lord Sutcliffe", species=SpeciesEntry("Human"), status="Deceased")],
+        characters=[CharacterEntry("Lord Sutcliffe", kinds=KindEntry("Human"), status="Deceased")],
     )
 
     assert "Lord Sutcliffe" in report
@@ -491,7 +491,7 @@ def test_preview_reports_region_world_key_change_named_only_by_a_location(db: Da
 
 
 def test_preview_reports_a_character_created_only_through_a_group_roster(db: Database, capsys) -> None:
-    """A character with no species, epithets or short names is invisible except via the
+    """A character with no kind, epithets or short names is invisible except via the
     roster's member count.
 
     ``_show_attr_changes`` returns early on a row that does not exist yet, and
@@ -524,7 +524,7 @@ def test_preview_reports_a_character_added_to_an_existing_page_s_roster(db: Data
     On an INSERT the whole declaration is new and the reader is already reading
     closely. On an UPDATE the story row reports "no scalar field changes" and the
     group line moves from "1 members" to "2 members" — a new person entering the
-    database behind a digit. The added character carries no species, no epithets and no
+    database behind a digit. The added character carries no kind, no epithets and no
     short names, so nothing else in the report mentions them.
     """
     db.upsert_story(

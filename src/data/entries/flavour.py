@@ -40,14 +40,14 @@ db.upsert_story(
     characters=[
         "aurora",
         "lexi",
-        # Already curated — named here only to link them to this page. Species and
+        # Already curated — named here only to link them to this page. Kind and
         # status are left empty so the existing curated values are preserved.
         people.ASTREA_QUAZOR,
         people.AURIC_SEERESS,
         people.LORD_SUTCLIFFE,
         people.RUPIUS_AURIC_SCROLLMASTER,
         people.YVOR,
-        # New with this set. Species is unattested in the flavour text, so it is
+        # New with this set. Kind is unattested in the flavour text, so it is
         # left to default to "Unknown" rather than being guessed.
         people.DARYAS_NIMBUS,
         people.FREYA_ELDINGSTURM,
@@ -173,7 +173,7 @@ db.upsert_story(
         people.MOLOCA,
         people.SLAPSTICK_SAL,
         people.SPEAKEASY,
-        # New with this set. Species is unattested in the flavour text.
+        # New with this set. Kind is unattested in the flavour text.
         people.FOREMAN_PEBB,
         people.FUGGER_GRIMES,
         people.HELX,
@@ -214,12 +214,12 @@ db.upsert_story(
     characters=[
         "fai",
         "valda",
-        # Already curated — named here only to link them to this page. Species and
+        # Already curated — named here only to link them to this page. Kind and
         # status are left empty so the existing curated values are preserved.
         # MPG029 prints "Archangel Aegis"; that is a new epithet for the Herald of
         # Protection already registered under her Monarch title, not a new character.
         people.AEGIS_THE_SHIELD_OF_LIGHT,
-        # New with this set. Species is unattested in the flavour text, so it is
+        # New with this set. Kind is unattested in the flavour text, so it is
         # left to default to "Unknown" rather than being guessed.
         people.MAELA_ONE_EYE,
     ],
@@ -245,7 +245,7 @@ db.upsert_story(
         people.FIGHTMASTER_KOX,
         people.FIGHTMASTER_RUSTY,
         people.LIEUTENANT_TIMAEUS,
-        # New with this set. Species is unattested in the flavour text.
+        # New with this set. Kind is unattested in the flavour text.
         people.CAPTAIN_SHEVEZ,
         people.INQUISITOR_ARICIA,
         people.LUCILLA_THE_SETTING_SUN,
@@ -469,7 +469,7 @@ db.upsert_story(
         grp.PROWLERS,
         # "those Rosetta willing to embrace it" (PEN219) is the *people*, and the
         # link is to the *order*. Both rows exist and carry a word-for-word
-        # identical summary; `species` is not a declaration parameter, so the
+        # identical summary; `kind` is not a declaration parameter, so the
         # group is the only reachable one. Forced, not chosen. Stage 6/7.
         grp.ROSETTA,
         # Thin, and kept: "These Teklo monsters" (PEN075) is adjectival and names
@@ -499,7 +499,7 @@ db.upsert_story(
 
 # Registered 2026-08-21, stage 5. This is the page that gives eleven of the twelve
 # dragons a database row: they existed in character-groups.md and nowhere in the
-# data, and `sp.DRAGON` held only Miragai.
+# data, and `kind.DRAGON` held only Miragai.
 #
 # **The dragons are named by the card titles, not the flavour text** — "Invoke
 # Azvolai" over "The dragon of choice, said to guard the crossroads of Sandikai."

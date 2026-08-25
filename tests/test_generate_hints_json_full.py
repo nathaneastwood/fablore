@@ -455,11 +455,11 @@ def test_clash_warning_ignores_plain_substrings() -> None:
 
 
 # ---------------------------------------------------------------------------
-# Species reach the tooltip, and lose every tie
+# Kind reach the tooltip, and lose every tie
 # ---------------------------------------------------------------------------
 
 
-def _make_species_db(path: Path) -> None:
+def _make_kind_db(path: Path) -> None:
     conn = sqlite3.connect(path)
     _create_hint_tables(conn)
     conn.commit()
@@ -468,7 +468,7 @@ def _make_species_db(path: Path) -> None:
 
 def test_a_kind_becomes_a_tooltip(tmp_path: Path, monkeypatch) -> None:
     db = tmp_path / "sp.db"
-    _make_species_db(db)
+    _make_kind_db(db)
     conn = sqlite3.connect(db)
     conn.execute("INSERT INTO kinds VALUES ('SP1','Chanek','Rathenfolk of the far west.')")
     conn.commit()
@@ -477,10 +477,10 @@ def test_a_kind_becomes_a_tooltip(tmp_path: Path, monkeypatch) -> None:
     assert out["Chanek"] == {"type": "kind", "summary": "Rathenfolk of the far west."}
 
 
-def test_a_species_with_no_notes_emits_nothing(tmp_path: Path, monkeypatch) -> None:
+def test_a_kind_with_no_notes_emits_nothing(tmp_path: Path, monkeypatch) -> None:
     """Fourteen of the twenty are in this state, which is the honest one."""
     db = tmp_path / "sp.db"
-    _make_species_db(db)
+    _make_kind_db(db)
     conn = sqlite3.connect(db)
     conn.execute("INSERT INTO kinds VALUES ('SP1','Meep','')")
     conn.commit()
@@ -488,10 +488,10 @@ def test_a_species_with_no_notes_emits_nothing(tmp_path: Path, monkeypatch) -> N
     assert "Meep" not in _generate_from(db, tmp_path, monkeypatch)
 
 
-def test_a_species_alias_becomes_a_match_string(tmp_path: Path, monkeypatch) -> None:
+def test_a_kind_alias_becomes_a_match_string(tmp_path: Path, monkeypatch) -> None:
     """The prose writes `Ancients`; the row is singular because the column was."""
     db = tmp_path / "sp.db"
-    _make_species_db(db)
+    _make_kind_db(db)
     conn = sqlite3.connect(db)
     conn.execute("INSERT INTO kinds VALUES ('SP1','Ancient','Colossal elemental beings.')")
     conn.execute("INSERT INTO kind_aliases VALUES ('SP1','Ancients',0)")
@@ -500,10 +500,10 @@ def test_a_species_alias_becomes_a_match_string(tmp_path: Path, monkeypatch) -> 
     assert _generate_from(db, tmp_path, monkeypatch)["Ancient"]["match"] == ["Ancient", "Ancients"]
 
 
-def test_a_group_beats_a_species_of_the_same_name(tmp_path: Path, monkeypatch) -> None:
-    """`Rosetta` is an order and a people. Emission order decides, and species is last."""
+def test_a_group_beats_a_kind_of_the_same_name(tmp_path: Path, monkeypatch) -> None:
+    """`Rosetta` is an order and a people. Emission order decides, and kind is last."""
     db = tmp_path / "sp.db"
-    _make_species_db(db)
+    _make_kind_db(db)
     conn = sqlite3.connect(db)
     conn.execute("INSERT INTO groups (group_id, name, kind, notes) VALUES ('GR1','Rosetta','order','An order.')")
     conn.execute("INSERT INTO kinds VALUES ('SP1','Rosetta','A people.')")
@@ -517,7 +517,7 @@ def test_a_group_beats_a_species_of_the_same_name(tmp_path: Path, monkeypatch) -
 def test_the_loser_of_a_key_clash_donates_fields_the_winner_lacks(tmp_path: Path, monkeypatch) -> None:
     """`The Foundry` is a location and the station inside it; only the group has a url."""
     db = tmp_path / "sp.db"
-    _make_species_db(db)
+    _make_kind_db(db)
     conn = sqlite3.connect(db)
     conn.execute("INSERT INTO locations VALUES ('The Foundry','A radio station.','','LO1')")
     conn.execute(
@@ -562,7 +562,7 @@ def test_a_character_with_a_summary_becomes_a_tooltip(tmp_path: Path, monkeypatc
 
 
 def test_a_character_with_no_summary_emits_nothing(tmp_path: Path, monkeypatch) -> None:
-    """Same contract as a species with no notes — an empty tooltip is worse than none."""
+    """Same contract as a kind with no notes — an empty tooltip is worse than none."""
     db = tmp_path / "c.db"
     conn = _make_character_db(db)
     conn.execute("INSERT INTO characters (character_id, name, summary) VALUES ('LC1','Nobody','')")
@@ -613,7 +613,7 @@ def test_epithets_and_short_names_become_match_strings(tmp_path: Path, monkeypat
 
 
 def test_a_character_kind_reaches_the_badge(tmp_path: Path, monkeypatch) -> None:
-    """theme/hints.js has read entry.species since stage 4 and no entry ever carried it."""
+    """theme/hints.js has read entry.kinds since stage 4 and no entry ever carried it."""
     db = tmp_path / "c.db"
     conn = _make_character_db(db)
     conn.execute("INSERT INTO characters (character_id, name, summary) VALUES ('LC1','Biski','A dog.')")

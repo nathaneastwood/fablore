@@ -68,15 +68,15 @@ Add one constant to the matching module under `entries/catalogue/`, then referen
 THE_CITADEL = LocationEntry("The Citadel", region="Solana", lore_fragment="the-citadel")
 ```
 
-Aliases in the section modules: `people`, `loc`, `reg`, `mon`, `fauna`, `flora`, `food`. Species are the exception: `entries/catalogue/species.py` is imported as `sp` by `catalogue/characters.py` and by nothing else, because a species hangs off a character rather than off a page.
+Aliases in the section modules: `people`, `loc`, `reg`, `mon`, `fauna`, `flora`, `food`. Kinds are the exception: `entries/catalogue/kinds.py` is imported as `kind` by `catalogue/characters.py` and by nothing else, because a kind hangs off a character rather than off a page.
 
 ```python
 # entries/catalogue/characters.py
-BISKI = CharacterEntry("Biski", species=sp.DOG)
-SCOOBA = CharacterEntry("Scooba", species=(sp.ZOMBIE, sp.DOG))   # a tuple where the lore says two
+BISKI = CharacterEntry("Biski", kinds=kind.DOG)
+SCOOBA = CharacterEntry("Scooba", kinds=(kind.ZOMBIE, kind.DOG))   # a tuple where the lore says two
 ```
 
-**`species` deletes on omission; `status` preserves.** Two neighbouring fields, opposite contracts. Species is a junction and a junction states the complete set.
+**`kinds` deletes on omission; `status` preserves.** Two neighbouring fields, opposite contracts. `kinds` is a junction and a junction states the complete set.
 
 **Always give a location its region, and a food/drink its kind.** `LocationId` hashes name *and* region; `FoodDrinkId` hashes name *and* kind. Adding the region later does not edit the row — it mints a second one and strands the first.
 

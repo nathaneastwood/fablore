@@ -7,7 +7,7 @@ new row and strands the old one, the same as every other registry id.
 
 ``catalogue/characters.py`` will reference these as ``prof.NAME`` once the first
 profession lands; nothing else should import this module. See
-``entries/catalogue/species.py`` for the same one-way shape.
+``entries/catalogue/kind.py`` for the same one-way shape.
 
 The **notes** live in ``descriptions.py``, like every other registry's lore
 text.

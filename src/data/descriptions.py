@@ -158,7 +158,7 @@ db.update_description(
 db.update_description(
     "fauna",
     "Sailorbane Coral",
-    "A predatory species, Sailorbane Coral grows from the rocky banks of channels,"
+    "A predatory kind, Sailorbane Coral grows from the rocky banks of channels,"
     " remaining submerged to conceal its presence.",
 )
 db.update_description(
@@ -222,7 +222,7 @@ db.update_description(
 db.update_description(
     "fauna",
     "Welkin",
-    "A wyvern species native to Aria. At first glance, the welkin resembles large, winged lizards."
+    "A wyvern kind native to Aria. At first glance, the welkin resembles large, winged lizards."
     " They have a leathery skin that, like the chameleon, changes color with variations in the Flow.",
 )
 
@@ -773,7 +773,7 @@ db.update_description(
     "An independent radio station, one of the few in Metrix that remains free of Mendacity control.",
 )
 
-# Word-for-word the same as the ``Rosetta`` species below, the move ``The
+# Word-for-word the same as the ``Rosetta`` kind below, the move ``The
 # Registry`` made. Rosetta is a people and an order at once, the two rows compete
 # for the same word, and saying the same sentence twice makes the winner moot.
 db.update_description(
@@ -836,14 +836,14 @@ db.update_description(
 
 
 # ---------------------------------------------------------------------------
-# Species (R2)
+# Kinds (R2)
 # ---------------------------------------------------------------------------
 #
-# Migrated out of hints_supplement.json, where a species tooltip was hand-written
-# beside a species column that named the same thing — the D3 two-writers shape the
+# Migrated out of hints_supplement.json, where a kind tooltip was hand-written
+# beside a kind column that named the same thing — the D3 two-writers shape the
 # factions had. The supplement entries are deleted; these are the only copies.
 #
-# The fourteen species with no entry here emit no tooltip, which is the honest
+# The fourteen kind with no entry here emit no tooltip, which is the honest
 # state: nothing in the lore describes a Meep.
 
 db.update_description(

@@ -158,7 +158,7 @@ JUNGLE_SLAYERS = GroupEntry(
     members=(people.HELX,),
     member_source="flavour/super-slam.md",
 )
-"""Absorbs ``Chanek Jungle Slayers``. Chanek is a species, not part of the name
+"""Absorbs ``Chanek Jungle Slayers``. Chanek is a kind, not part of the name
 (Q4) — so the short form stays canonical, and the long form is an **alias** as of
 2026-08-21 (the user's call) rather than being dropped. Both feudmasters.md and
 character-groups.md write the long form, so without the alias the tooltip matched
@@ -230,7 +230,7 @@ CINTARI = GroupEntry(
 )
 """A clan, not a people: kassai-about.md:11 has them *induct* Kassai into their
 ranks, a hero trait reads "Leader of the Cintari", and fires-of-rebellion.md:79
-has rebels wearing "Cintari disguises". None of that is true of a species, which
+has rebels wearing "Cintari disguises". None of that is true of a kind, which
 is what separates this call from ``Chanek`` (2026-08-20)."""
 LORD_WIZARDS_OF_THE_COURT = GroupEntry(
     "Lord Wizards of the Court",
@@ -274,11 +274,11 @@ the same kind of fact: volcor.md draws the line at dragon's blood, not at office
 Was ``title`` (2026-08-20) — the named offices are the titles, "Fang, Dracai of
 Blades", "Taipanis, Dracai of Judgement", and those hang off this row in stage 7.
 
-Not a species row, although a caste reads like one: every named Dracai is a
-**hero**, and ``heroes_canonical`` has three columns and no species, so a species
-row could hold nobody. See ``catalogue/species.py``."""
+Not a kind row, although a caste reads like one: every named Dracai is a
+**hero**, and ``heroes_canonical`` has three columns and no kind, so a kind
+row could hold nobody. See ``catalogue/kind.py``."""
 SANDFOLK = GroupEntry("Sandfolk", kind="people")
-"""A people, not a species — the same call Volcai and Dracai took in stage 3, so the
+"""A people, not a kind — the same call Volcai and Dracai took in stage 3, so the
 three sit in one table rather than split across two (the user's call, 2026-08-21).
 
 Dromai's mother's people: "Sani of the Sandfolk"
@@ -321,7 +321,7 @@ attested — one ``Invoke <name>`` card title each, UPR006-UPR017, and nothing e
 on the page names a dragon at all. dragons-of-empire.md names only four of them
 (Azvolai, Nekria, Tomeltai, Vynserakai), so declaring the roster from the page that
 names the group would have lost two thirds of it. The count matching the name
-exactly — twelve titles, twelve rows, no thirteenth ``sp.DRAGON`` character anywhere — is
+exactly — twelve titles, twelve rows, no thirteenth ``kind.DRAGON`` character anywhere — is
 what carries the inference that these twelve are those twelve.
 
 ``pantheon``, the same kind ``Deities`` and ``Dhani Deities`` took: the tomes are
@@ -465,9 +465,9 @@ ROSETTA = GroupEntry(
     members=(people.OZRIM, people.QUEEN_OF_CANDLEHOLD),
     member_source="short-stories/rosetta/verdance-thorn-of-the-rose.md",
 )
-"""``Rosetta`` is also the ``Species`` value on both of these characters, which is the
-species column holding a membership — the mix-up stage 4 exists to unpick. The
-group is the truth; the species values are wrong (2026-08-20)."""
+"""``Rosetta`` is also the ``Kind`` value on both of these characters, which is the
+kind column holding a membership — the mix-up stage 4 exists to unpick. The
+group is the truth; the kind values are wrong (2026-08-20)."""
 SEERS = GroupEntry("Seers", kind="order")
 THE_MAELA = GroupEntry(
     "The Maela",
@@ -494,7 +494,7 @@ carries the page that documents the group; each membership carries its own.
 **The name is the attestation.** Four of the five are written ``Maela <name>`` in
 the flavour credits. Kaysin is written "Kaysin, Maela Soothsayer"
 (``flavour/rosetta.md:16``) — the same construction with the rank last, and the
-exact string the retired ``Species`` column held for her. An earlier note here
+exact string the retired ``Kind`` column held for her. An earlier note here
 said in bold that no page called her a Maela and recorded the membership as the
 user's inference. That was wrong: rosetta.md attests it, the page is registered,
 and ``story_npcs`` has linked her to it the whole time. Corrected 2026-08-20.
@@ -551,7 +551,7 @@ THE_DHANI_EMPIRE = GroupEntry(
     lore_fragment="the-dhani-empire",
 )
 """The polity, not the people. "Dhani" also runs through the archive as a folk with
-their own gods, language and dress — that sense is a species and belongs to stage 4;
+their own gods, language and dress — that sense is a kind and belongs to stage 4;
 this row is the empire they built (2026-08-20).
 
 The alias restores the bare form. Stage 2 replaced a supplement entry matching
@@ -559,9 +559,9 @@ The alias restores the bare form. Stage 2 replaced a supplement entry matching
 stopped finding "a long-dead Dhani Empire" — the same loss ``Mendacity`` took, and
 one the clash warning cannot report, because a missing bare form is not a clash."""
 DEITIES = GroupEntry("Deities", kind="pantheon")
-"""**Gods are a group, not a species** (the user's call, 2026-08-21). A deity is a
+"""**Gods are a group, not a kind** (the user's call, 2026-08-21). A deity is a
 role a culture assigns, not a kind of being, so Absolon and Nocetes do not join
-``sp.AESIR``/``sp.ANCIENT``/``sp.EMBRA``/``sp.HERALD``/``sp.DRAGON`` in the species
+``kind.AESIR``/``kind.ANCIENT``/``kind.EMBRA``/``kind.HERALD``/``kind.DRAGON`` in the kind
 table the way the other cosmological tiers did in stage 4.
 
 This is also what gives the ``Gods`` section of ``character-groups.md`` its

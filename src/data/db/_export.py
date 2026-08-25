@@ -94,7 +94,7 @@ def export_all(conn: sqlite3.Connection, data_dir: Path) -> None:
     Superset of :func:`export_stories`, :func:`export_registry_tables` and
     :func:`export_story_junctions`. It skipped the eight registry tables only
     ``export_registry_tables`` wrote until the docstring was made true, which
-    let an export run clean and leave groups, aliases, species, titles, kin and
+    let an export run clean and leave groups, aliases, kind, titles, kin and
     professions stale. ``tests/test_db_export.py`` compares the file sets, so a
     new exporter added to one of the narrower functions cannot be forgotten here.
 
@@ -317,8 +317,8 @@ def _export_alternate_names(conn: sqlite3.Connection, csv_dir: Path) -> None:
 def _export_kinds(conn: sqlite3.Connection, csv_dir: Path) -> None:
     """Write ``kinds.csv``, ``character-kinds.csv`` and ``kind-aliases.csv`` (R2).
 
-    Three files for what was one column, which is the shape of the fix: a species
-    is a registry row, a character's species is a junction, and a plural is an
+    Three files for what was one column, which is the shape of the fix: a kind
+    is a registry row, a character's kind is a junction, and a plural is an
     alias.
     """
     rows = q.select_all_kinds(conn)

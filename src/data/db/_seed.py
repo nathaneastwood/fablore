@@ -435,7 +435,7 @@ def _self_heal_character_heroes(conn: sqlite3.Connection) -> None:
 
 
 def _seed_kinds(conn: sqlite3.Connection, data_dir: Path) -> None:
-    """Seed ``species`` and its aliases (R2, R6).
+    """Seed ``kinds`` and its aliases (R2, R6).
 
     Before ``_seed_characters``, because ``character_kinds`` references both registries and
     FK enforcement is on.

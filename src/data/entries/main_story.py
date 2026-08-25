@@ -1352,7 +1352,7 @@ db.upsert_story(
         people.CUTTY,
         # The story calls her the "Hightarn" shaman and never names her, so this row
         # may be her people rather than her name. It predates this registration and
-        # is linked to no other story; reopened with the species values in stage 4.
+        # is linked to no other story; reopened with the kind values in stage 4.
         people.HIGHTARN,
         people.KELPIE,
         people.LIMPIT,

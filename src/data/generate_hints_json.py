@@ -1,6 +1,6 @@
 """Generate src/hints.json from the database and src/hints_supplement.json.
 
-DB-backed entries (locations, characters, monsters, fauna, flora, groups, species)
+DB-backed entries (locations, characters, monsters, fauna, flora, groups, kind)
 are written first, in that order.
 The supplement is then merged on top: supplement fields override DB fields for
 matching keys, and supplement-only keys are appended.
@@ -41,9 +41,9 @@ def _lore_url(story_key: str, fragment: str) -> str:
 
 
 # Emission order is the tie-break, and it is deliberate: locations are written
-# before characters, characters before the categories, and groups before species,
+# before characters, characters before the categories, and groups before kind,
 # so where two entries have equally long match strings a place beats a person, a
-# person beats a kind of thing, and a species loses to everything. The preprocessor sorts candidates by longest match string and Python's sort
+# person beats a kind of thing, and a kind loses to everything. The preprocessor sorts candidates by longest match string and Python's sort
 # is stable, so the order this file writes them in survives all the way to the
 # page. `The Registry` (a place) and `Registry` (a firm) are the live example.
 # tests/test_generate_hints_json_full.py locks the order so a reshuffle here cannot
@@ -123,7 +123,7 @@ def _add(hints: dict, key: str, entry: dict, source: str, taken: dict) -> None:
 
     Emission order is the tie-break, and plain ``hints[key] = entry`` inverts it:
     two registries whose rows share a name produce the *same* key, and assignment
-    hands it to whoever writes last. ``Rosetta`` is both a group and a species and
+    hands it to whoever writes last. ``Rosetta`` is both a group and a kind and
     is the live pair, so first-wins is enforced here rather than relied on.
 
     The loser is reported, because a row that reaches no tooltip is worth knowing
@@ -297,7 +297,7 @@ def generate() -> None:
     #
     # Measured before choosing, 2026-08-22: all 411 character names and all 43
     # epithet and short-name strings are distinct from every location, monster,
-    # fauna, flora, group and species name. So this position is unobservable
+    # fauna, flora, group and kind name. So this position is unobservable
     # today and was picked on principle rather than to dodge a live collision.
     # `_warn_match_collisions` reports the first one that appears.
     #
@@ -307,14 +307,14 @@ def generate() -> None:
     # means resolving an identity pair later moves the badge with no edit here.
     character_epithets = _alias_map(conn, "character_epithets", "character_id", "name")
     character_kinds: dict[str, list[str]] = {}
-    for cid, species_name in conn.execute(
+    for cid, kind_name in conn.execute(
         """
         SELECT ns.character_id, s.name
         FROM character_kinds ns JOIN kinds s ON s.kind_id = ns.kind_id
         ORDER BY ns.character_id, ns.sort_order, s.name
         """
     ):
-        character_kinds.setdefault(cid, []).append(species_name)
+        character_kinds.setdefault(cid, []).append(kind_name)
 
     character_sql = """
         SELECT c.character_id, c.name, c.status, c.summary,
@@ -330,8 +330,8 @@ def generate() -> None:
             "type": "hero" if row["hero_canonical_id"] else "npc",
             "summary": row["summary"],
         }
-        # theme/hints.js has read entry.species for the badge since stage 4 and
-        # no entry has ever carried it. Two species are joined rather than
+        # theme/hints.js has read entry.kinds for the badge since stage 4 and
+        # no entry has ever carried it. Two kinds are joined rather than
         # ranked — Scooba is a Zombie and a Dog, and neither is the lesser half.
         kind_names = character_kinds.get(row["character_id"], [])
         if kind_names:
@@ -420,7 +420,7 @@ def generate() -> None:
             taken,
         )
 
-    # Species last. A location or a group takes any tie against one — `Rosetta`
+    # Kind last. A location or a group takes any tie against one — `Rosetta`
     # the order beats `Rosetta` the people, which is why the two rows are kept
     # word-for-word identical rather than ranked.
     kind_aliases = _alias_map(conn, "kind_aliases", "kind_id", "alias")

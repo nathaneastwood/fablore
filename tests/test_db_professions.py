@@ -7,9 +7,9 @@ what a group's ``member_source`` exists to prevent, so a profession never gets
 one: there is no roster, only a registry (``professions``) and a junction
 (``character_professions``) that any character may join independently.
 
-Mirrors ``test_db_species.py`` for the registry + junction shape, and borrows
+Mirrors ``test_db_kind.py`` for the registry + junction shape, and borrows
 the hero-resolution tests from ``test_db_titles.py`` for the one hazard a
-profession introduces that species never had to: attaching to a hero with no
+profession introduces that kind never had to: attaching to a hero with no
 ``CharacterEntry`` of its own (Kano is a hero and a Lord Wizard, with no ``CharacterEntry``).
 """
 
@@ -106,7 +106,7 @@ def test_professions_is_replace_semantic(db: Database) -> None:
 
 
 def test_an_omitted_profession_is_a_deletion(db: Database) -> None:
-    """Like species, and unlike status: a junction states the complete set."""
+    """Like kind, and unlike status: a junction states the complete set."""
     _story(db, characters=[CharacterEntry("Aeric", professions=ProfessionEntry("Braumeister"))])
     _story(db, characters=[CharacterEntry("Aeric")])
     assert _professions_of(db, "Aeric") == []
@@ -140,7 +140,7 @@ def test_the_duplicate_guard_fires_on_the_preview_path_too(db: Database) -> None
 
 
 def test_dry_run_reports_a_profession_on_a_group_member(db: Database, capsys) -> None:
-    """Reached through a group roster and through nothing else — mirrors species."""
+    """Reached through a group roster and through nothing else — mirrors kind."""
     _story(db, groups=[GroupEntry("Rosetta", members=(CharacterEntry("Ozrim"),))])
     capsys.readouterr()
     db.upsert_story(
@@ -199,7 +199,7 @@ def test_dry_run_does_not_write_professions(db: Database) -> None:
 # Attaching to a hero (the point of this stage)
 # ---------------------------------------------------------------------------
 # A hero is the game-side row: a canonical slug and the cards printed for it.
-# A character is the lore-side person. Species, profession, kin and titles are
+# A character is the lore-side person. Kind, profession, kin and titles are
 # facts about the person, so they hang off `characters`, and `heroes_canonical`
 # joins through `character_heroes` to read them (the user's call, 2026-08-22).
 #

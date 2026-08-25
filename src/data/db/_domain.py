@@ -37,7 +37,7 @@ from registry_ids import (  # noqa: E402
     monster_id as _monster_id,
     profession_id as _profession_id,
     region_row_id,
-    kind_id as _species_id,
+    kind_id as _kind_id,
     story_id as _story_id,
     title_id as _title_id,
 )
@@ -82,23 +82,23 @@ def _kin_triple(item: "tuple") -> "tuple[CharacterEntry | str, str, str]":
     return relative, relation, ""
 
 
-def _species_tuple(species: "SpeciesEntry | tuple[SpeciesEntry, ...] | None") -> "tuple[SpeciesEntry, ...]":
-    """Normalise ``CharacterEntry.species`` to a tuple.
+def _kind_tuple(kind: "KindEntry | tuple[KindEntry, ...] | None") -> "tuple[KindEntry, ...]":
+    """Normalise ``CharacterEntry.kinds`` to a tuple.
 
-    One species is the overwhelmingly common case and writes as a bare constant;
+    One kind is the overwhelmingly common case and writes as a bare constant;
     two is rare enough that making every declaration wrap itself in a tuple would
     be a tax on 300 rows to serve one. The same call ``LocationEntry.aliases``
     makes for its ``(alias, era)`` form.
     """
-    if species is None:
+    if kind is None:
         return ()
-    if isinstance(species, SpeciesEntry):
-        return (species,)
-    return tuple(species)
+    if isinstance(kind, KindEntry):
+        return (kind,)
+    return tuple(kind)
 
 
-def _species_name(conn: sqlite3.Connection, kind_id: str) -> str:
-    """Return a stored species' display name, or its id if the row has gone."""
+def _kind_name(conn: sqlite3.Connection, kind_id: str) -> str:
+    """Return a stored kind's display name, or its id if the row has gone."""
     row = conn.execute("SELECT name FROM kinds WHERE kind_id = ?", [kind_id]).fetchone()
     return row[0] if row else kind_id
 
@@ -108,7 +108,7 @@ def _professions_tuple(
 ) -> "tuple[ProfessionEntry, ...]":
     """Normalise ``CharacterEntry.professions`` to a tuple.
 
-    Mirrors :func:`_species_tuple`: one profession is the common case and writes
+    Mirrors :func:`_kind_tuple`: one profession is the common case and writes
     as a bare constant; a tuple is for the rare character with more than one.
     """
     if professions is None:
@@ -147,8 +147,8 @@ class NarratedVideoEntry:
 
 
 @dataclass(frozen=True)
-class SpeciesEntry:
-    """What a character is (R2) — a species, in one flat list.
+class KindEntry:
+    """What a character *is* (R2) — a kind, in one flat list.
 
     Frozen and catalogued for the same reason every other entity is: the id is a
     hash of the name at the call site, so a second literal for ``Human`` reuses
@@ -156,7 +156,7 @@ class SpeciesEntry:
     name — that mints a new row and strands the old one, the same as every
     other registry id.
 
-    There is no ``kind`` column separating species from cosmological tier.
+    There is no sub-column separating a people from an order of being.
     Herald, Aesir, Ancient, Embra and Dragon sit beside Human and Dwarf, because
     the line between them is a reading of the lore rather than a fact the data
     can check, and a column nothing can validate is a column that drifts.
@@ -164,7 +164,7 @@ class SpeciesEntry:
 
     name: str
     aliases: tuple[str, ...] = ()
-    """Other names this species answers to (R6), e.g. ``"Aesirs"`` for ``"Aesir"``.
+    """Other names this kind answers to (R6), e.g. ``"Aesirs"`` for ``"Aesir"``.
     Plurals mostly: the supplement entries these replace carried them by hand, and
     English plurals are not mechanical enough to generate — ``Aesir`` takes an s,
     ``Chanek`` does not, and nothing in the prose writes ``Humans``."""
@@ -194,7 +194,7 @@ class ProfessionEntry:
     second one. The real trap is a *changed* name — that mints a new row and
     strands the old one, the same as every other registry id.
 
-    No ``aliases`` field and no ``profession_aliases`` table: unlike a species,
+    No ``aliases`` field and no ``profession_aliases`` table: unlike a kind,
     no profession has yet needed a plural or a dated alternate name in the
     prose. Add the table when one does, not before.
     """
@@ -212,25 +212,25 @@ class CharacterEntry:
     """
 
     name: str
-    species: "SpeciesEntry | tuple[SpeciesEntry, ...] | None" = None
-    """What this character is (R2). One :class:`SpeciesEntry`, or a tuple where the
+    kinds: "KindEntry | tuple[KindEntry, ...] | None" = None
+    """What this character is (R2). One :class:`KindEntry`, or a tuple where the
     lore says two — Scooba is a ``Zombie`` and a ``Dog``, which the free-text
     column this replaces could only write as the single value ``"Zombie Dog"``.
 
     Replace-semantic, like the rosters and the alias tables: ``None`` and ``()``
-    both mean this character has no recorded species, and both will clear one that
+    both mean this character has no recorded kind, and both will clear one that
     is stored. That is a change from the column, where an omitted value meant
-    "preserve" — 32 rows carried a species no declaration named, and every one of
+    "preserve" — 32 rows carried a kind no declaration named, and every one of
     them had to be written into the catalogue before the switch."""
     professions: "ProfessionEntry | tuple[ProfessionEntry, ...] | None" = None
     """Trades this character holds (R9): ``CharacterEntry("Balen", professions=prof.BRAUMEISTER)``.
     One :class:`ProfessionEntry`, or a tuple where the lore names more than one.
 
-    **Replace-semantic, like ``species`` and unlike ``status``/``hero_slug``.**
-    ``species`` and ``status`` sit next to each other on this dataclass following
-    *opposite* contracts — ``status=""`` preserves, an omitted ``species`` is a
+    **Replace-semantic, like ``kinds`` and unlike ``status``/``hero_slug``.**
+    ``kinds`` and ``status`` sit next to each other on this dataclass following
+    *opposite* contracts — ``status=""`` preserves, an omitted ``kinds`` is a
     deletion — so this docstring says which one ``professions`` follows: the
-    ``species`` contract. ``None`` and ``()`` both mean this character has no
+    ``kinds`` contract. ``None`` and ``()`` both mean this character has no
     recorded profession, and both clear one that is stored; ``character_professions``
     is a junction, and a junction states the complete set.
 
@@ -248,7 +248,7 @@ class CharacterEntry:
     than carrying its own copy. Kano is a hero and a Lord Wizard with no
     ``CharacterEntry`` of his own; the way to say so is ``CharacterEntry("Kano",
     hero_slug="kano", professions=prof.LORD_WIZARD)``, which migration 12 built
-    ``hero_slug`` for. The same reasoning applies to ``species`` and ``kin``."""
+    ``hero_slug`` for. The same reasoning applies to ``kinds`` and ``kin``."""
     status: str = ""
     """Leave empty to preserve an existing character's status; new characters default to ``"Unknown"``."""
     other_characters_story_key: str = ""
@@ -266,7 +266,7 @@ class CharacterEntry:
     12): ``CharacterEntry("Fightmaster Kox", hero_slug="kox")`` makes this character's row
     the hero's character row, writing ``character_heroes``.
 
-    Preserves on empty, like ``status`` and unlike ``species``: ``""`` means
+    Preserves on empty, like ``status`` and unlike ``kinds``: ``""`` means
     "leave whatever is stored" rather than "this character is not a hero". There is
     deliberately no way to clear an identity claim through a declaration — a
     person does not stop having been a hero.
@@ -300,11 +300,11 @@ class CharacterEntry:
     because a fact stored twice could disagree with itself and nothing would
     say which half was right.
 
-    **Replace-semantic**, like ``species`` and unlike ``status``/``hero_slug``:
+    **Replace-semantic**, like ``kinds`` and unlike ``status``/``hero_slug``:
     ``kin=()`` clears whatever kin is stored for this character.
     ``character_kin`` is a junction, not a scalar column, and this codebase's
     rule for a junction is that a declaration states the complete set (see
-    ``species``'s docstring for the same reasoning applied to a different
+    ``kinds``'s docstring for the same reasoning applied to a different
     field). The alternative — preserving on empty, as ``hero_slug`` does
     because an identity claim should never un-happen — does not fit a kin fact
     the way it fits an identity claim: kinship is read off a page and a
@@ -637,7 +637,7 @@ class Database:
             "src/main-story/foo.md",
             story_type="main-story",
             title="Foo",
-            characters=["boltyn", CharacterEntry("Guard Captain", species=SpeciesEntry("Human"))],
+            characters=["boltyn", CharacterEntry("Guard Captain", kinds=KindEntry("Human"))],
         )
         r.display()
     """
@@ -748,11 +748,11 @@ class Database:
         ]
 
     def print_characters(self, *, file: IO[str] | None = None) -> None:
-        """Pretty-print all characters with species and status."""
+        """Pretty-print all characters with kinds and status."""
         self._print_table(self.list_characters(), ["name", "kinds", "status"], file=file)
 
     def list_kinds(self) -> list[dict[str, str]]:
-        """Return ``[{"name": …, "notes": …}]`` for all species."""
+        """Return ``[{"name": …, "notes": …}]`` for every kind."""
         return [{"name": r["name"], "notes": r["notes"]} for r in q.select_all_kinds(self.conn)]
 
     def list_locations(self) -> list[dict[str, str]]:
@@ -863,7 +863,7 @@ class Database:
                 ``heroes=`` did. An :class:`CharacterEntry` resolves through the same
                 path :class:`CharacterEntry` always has — omit ``status`` to preserve
                 whatever an existing character row already has; only pass it when
-                this story is the evidence for the value. ``species`` does
+                this story is the evidence for the value. ``kinds`` does
                 **not** preserve — it is replace-semantic, so an omitted one is
                 a deletion. Both land in the same ``story_characters`` row, a
                 plain replace-semantic junction parameter like every other one:
@@ -1237,10 +1237,10 @@ class Database:
         have no row yet for exactly that reason, so re-point the declaration before
         adding the note rather than the other way round.
 
-        A species row is created by a character carrying it, with one deliberate
+        A kind row is created by a character carrying it, with one deliberate
         exception: ``kinds.csv`` is a registry seeded on its own, so ``Chanek``
         keeps a row although no character is one yet. A profession row is created the
-        same way species is — by a character carrying it, through
+        same way a kind is — by a character carrying it, through
         ``CharacterEntry(professions=…)`` — with no ``Chanek``-style exception, since
         nothing has attested a profession with no one holding it yet.
 
@@ -1262,7 +1262,7 @@ class Database:
                 if rows == 0:
                     raise ValueError(f"Group not found: {name!r}")
             elif entity_type == "kind":
-                rows = q.update_kind_notes(self.conn, _species_id(name), description)
+                rows = q.update_kind_notes(self.conn, _kind_id(name), description)
                 if rows == 0:
                     raise ValueError(f"Kind not found: {name!r}")
             elif entity_type == "character":
@@ -1548,7 +1548,7 @@ class Database:
                 cid,
                 [(n, "epithet") for n in e.epithets] + [(n, "short-name") for n in e.short_names],
             )
-            q.set_character_kinds(self.conn, cid, self._upsert_kinds(_species_tuple(e.species)))
+            q.set_character_kinds(self.conn, cid, self._upsert_kinds(_kind_tuple(e.kinds)))
             # Professions (R9). Resolves and raises on a repeated profession
             # before any downstream write — mirrors kin's use of
             # _resolve_kin_relatives just below.
@@ -1700,11 +1700,11 @@ class Database:
 
         q.set_story_characters(self.conn, story_id, list(merged.items()))
 
-    def _upsert_kinds(self, entries: "tuple[SpeciesEntry, ...]") -> list[str]:
-        """Upsert each species row and return its ids, in declared order."""
+    def _upsert_kinds(self, entries: "tuple[KindEntry, ...]") -> list[str]:
+        """Upsert each kind row and return its ids, in declared order."""
         ids: list[str] = []
         for e in entries:
-            sid = _species_id(e.name)
+            sid = _kind_id(e.name)
             q.upsert_kind(self.conn, kind_id=sid, name=e.name)
             q.set_kind_aliases(self.conn, sid, list(e.aliases))
             ids.append(sid)
@@ -1715,7 +1715,7 @@ class Database:
 
         Read-only, so the dry-run preview can call this too — mirrors
         :meth:`_resolve_kin_relatives` and :meth:`_resolve_title_holders`.
-        Unlike ``species`` (which never guards a repeat — ``INSERT OR IGNORE``
+        Unlike ``kinds`` (which never guards a repeat — ``INSERT OR IGNORE``
         just collapses it in silence), a profession raises on a repeat within
         ``entries``, the same guard shape ``GroupEntry.member_pairs()``,
         ``_resolve_title_holders`` and ``_resolve_kin_relatives`` all use: two
@@ -2615,19 +2615,19 @@ class Database:
 
             for entry in reach_characters:
                 cid = lore_character_id(entry.name)
-                # Species is replace-semantic too, and it is the one that used to
+                # Kind is replace-semantic too, and it is the one that used to
                 # preserve — 32 rows carried a value no declaration named, so a
-                # missing species= reads as a deletion where it once read as
+                # missing kinds= reads as a deletion where it once read as
                 # silence. That reversal is exactly what has to be visible.
-                stored_sp = [_species_name(self.conn, sid) for sid in q.select_character_kinds(self.conn, cid)]
-                wanted_sp = [x.name for x in _species_tuple(entry.species)]
+                stored_sp = [_kind_name(self.conn, sid) for sid in q.select_character_kinds(self.conn, cid)]
+                wanted_sp = [x.name for x in _kind_tuple(entry.kinds)]
                 for name in sorted(set(wanted_sp) - set(stored_sp)):
-                    lines.append(f"    + {entry.name}: species {name!r}")
+                    lines.append(f"    + {entry.name}: kind {name!r}")
                 for name in sorted(set(stored_sp) - set(wanted_sp)):
-                    lines.append(f"    - {entry.name}: species {name!r} REMOVED")
+                    lines.append(f"    - {entry.name}: kind {name!r} REMOVED")
 
-                for sp in _species_tuple(entry.species):
-                    sid = _species_id(sp.name)
+                for sp in _kind_tuple(entry.kinds):
+                    sid = _kind_id(sp.name)
                     stored_al = set(q.select_kind_aliases(self.conn, sid))
                     wanted_al = set(sp.aliases)
                     for alias in sorted(wanted_al - stored_al):
@@ -2635,7 +2635,7 @@ class Database:
                     for alias in sorted(stored_al - wanted_al):
                         lines.append(f"    - {sp.name}: alias {alias!r} REMOVED")
 
-                # Professions (R9), reported the same shape as species just
+                # Professions (R9), reported the same shape as kind just
                 # above — walked over reach_characters, not the characters= kwarg, so a
                 # profession reached only through a group roster or a title
                 # holder is visible here too. _resolve_professions raises on a
@@ -2690,7 +2690,7 @@ class Database:
             ``_show_attr_changes`` skips a row that does not exist —
             "new row: nothing to overwrite" — and the Characters diff above
             only walks the ``characters=`` kwarg, not the reachable set. A character
-            introduced purely through a group roster, carrying no species, no
+            introduced purely through a group roster, carrying no kind, no
             epithets and no short names, has nothing left to surface it in the
             alternate-names diff either, so it was created in total silence
             under a group line reading "N members". This is that creation's
@@ -2716,7 +2716,7 @@ class Database:
             side effect of ``_upsert_characters``, so this walks the **reachable** characters
             (``_reachable_entities()``), not the ``characters=`` kwarg — a claim made
             through a group roster must be visible here too, exactly like a
-            species or an epithet reached the same way.
+            kind or an epithet reached the same way.
             """
             nonlocal changed
             reach_characters, _, _, _, _ = _reachable_entities()
@@ -2747,7 +2747,7 @@ class Database:
         def _show_kin_changes() -> None:
             """Report ``character_kin`` rows a kin declaration would add or remove.
 
-            Replace-semantic, like species and the epithet tables: an omitted
+            Replace-semantic, like kind and the epithet tables: an omitted
             kin fact is a deletion, not a preserved value (see ``CharacterEntry.kin``'s
             docstring for the reasoning). Walks the **reachable** characters
             (``_reachable_entities()``), not the ``characters=`` kwarg, for the same

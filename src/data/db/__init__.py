@@ -14,7 +14,7 @@ Import :class:`Database` and the entity dataclasses from here::
         CharacterEntry,
         ProfessionEntry,
         RegionEntry,
-        SpeciesEntry,
+        KindEntry,
         StoryRecord,
         TitleEntry,
     )
@@ -32,7 +32,7 @@ from db._domain import (  # noqa: F401
     CharacterEntry,
     ProfessionEntry,
     RegionEntry,
-    SpeciesEntry,
+    KindEntry,
     StoryRecord,
     TitleEntry,
 )

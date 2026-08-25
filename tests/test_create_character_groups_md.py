@@ -41,11 +41,11 @@ def test_render_markdown_on_empty_database_has_title_and_no_sections(db) -> None
 
 
 # ---------------------------------------------------------------------------
-# Species-driven sections
+# Kind-driven sections
 # ---------------------------------------------------------------------------
 
 
-def test_aesir_section_lists_species_members_with_joined_epithets(db) -> None:
+def test_aesir_section_lists_kind_members_with_joined_epithets(db) -> None:
     import db._queries as q
     from registry_ids import lore_character_id, kind_id
 
@@ -116,7 +116,7 @@ def test_multiple_epithets_on_one_character_are_comma_joined_in_sort_order(db) -
     assert "Ancient of Lightning, Ancient of Lightning and Ice" in block
 
 
-def test_species_with_no_members_emits_no_section(db) -> None:
+def test_kind_with_no_members_emits_no_section(db) -> None:
     import db._queries as q
     from registry_ids import kind_id
 

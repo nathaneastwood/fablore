@@ -79,7 +79,7 @@ def test_hero_slug_links_the_character_row_to_the_hero(db: Database) -> None:
 
 
 def test_hero_slug_preserves_on_empty(db: Database) -> None:
-    """Unlike species, there is no way to *clear* a stored identity claim.
+    """Unlike kind, there is no way to *clear* a stored identity claim.
 
     A name that matches a hero always needs hero_slug repeated (the guard
     below raises otherwise), so the claim can never be silently dropped — the
@@ -265,7 +265,7 @@ def test_no_declaration_can_write_a_summary(db: Database) -> None:
 
     `CharacterEntry` deliberately has no `summary` field: a catalogue constant that
     could carry one would make `entries/catalogue/` a second writer of lore
-    text, which is the hazard the faction and species summaries were migrated
+    text, which is the hazard the faction and kind summaries were migrated
     out of. Passing one must be a TypeError, not a silent no-op.
     """
     assert "summary" not in {f.name for f in dataclasses.fields(CharacterEntry)}

@@ -21,7 +21,7 @@ from db import (
     MonsterEntry,
     CharacterEntry,
     RegionEntry,
-    SpeciesEntry,
+    KindEntry,
 )
 
 
@@ -114,7 +114,7 @@ def test_list_characters_with_data(db: Database) -> None:
         "src/main-story/n.md",
         story_type="main-story",
         title="N",
-        characters=[CharacterEntry("Guard Captain", species=SpeciesEntry("Human"), status="Alive")],
+        characters=[CharacterEntry("Guard Captain", kinds=KindEntry("Human"), status="Alive")],
     )
     npcs = db.list_characters()
     assert any(n["name"] == "Guard Captain" for n in npcs)
@@ -207,7 +207,7 @@ def test_print_characters_with_data(db: Database) -> None:
         "src/main-story/n2.md",
         story_type="main-story",
         title="N2",
-        characters=[CharacterEntry("Ranger", species=SpeciesEntry("Elf"), status="Unknown")],
+        characters=[CharacterEntry("Ranger", kinds=KindEntry("Elf"), status="Unknown")],
     )
     buf = io.StringIO()
     db.print_characters(file=buf)
@@ -362,7 +362,7 @@ def test_display_story_with_junctions(db: Database) -> None:
         "src/main-story/foo.md",
         story_type="main-story",
         title="Junction Story",
-        characters=[CharacterEntry("Mystic", species=SpeciesEntry("Unknown"), status="Unknown")],
+        characters=[CharacterEntry("Mystic", kinds=KindEntry("Unknown"), status="Unknown")],
     )
     buf = io.StringIO()
     db.display_story("src/main-story/foo.md", file=buf)
@@ -421,7 +421,7 @@ def test_delete_entity_character_removes_orphaned_row(db: Database) -> None:
         "src/main-story/foo.md",
         story_type="main-story",
         title="Foo",
-        characters=[CharacterEntry(name="Promoted Character", species=SpeciesEntry("Demon"))],
+        characters=[CharacterEntry(name="Promoted Character", kinds=KindEntry("Demon"))],
     )
     db.upsert_story(
         "src/main-story/foo.md",
@@ -442,7 +442,7 @@ def test_delete_entity_character_refuses_when_still_linked(db: Database) -> None
         "src/main-story/foo.md",
         story_type="main-story",
         title="Foo",
-        characters=[CharacterEntry(name="Linked Character", species=SpeciesEntry("Human"))],
+        characters=[CharacterEntry(name="Linked Character", kinds=KindEntry("Human"))],
     )
     with pytest.raises(ValueError, match="still referenced"):
         db.delete_entity("character", "Linked Character")
@@ -529,9 +529,9 @@ def test_delete_entity_location_deletes_all_duplicate_name_rows(db: Database) ->
 
 
 def _character_row(database: Database, name: str) -> tuple[str, str]:
-    """Return ``(species, status)``, with species joined back from the junction."""
+    """Return ``(kind, status)``, with kind joined back from the junction."""
     row = database.conn.execute("SELECT character_id, status FROM characters WHERE name = ?", [name]).fetchone()
-    species = [
+    kind = [
         r[0]
         for r in database.conn.execute(
             "SELECT s.name FROM character_kinds ns JOIN kinds s USING(kind_id)"
@@ -539,7 +539,7 @@ def _character_row(database: Database, name: str) -> tuple[str, str]:
             [row["character_id"]],
         )
     ]
-    return (", ".join(species), row["status"])
+    return (", ".join(kind), row["status"])
 
 
 def test_upsert_character_preserves_curated_status(db: Database) -> None:
@@ -554,7 +554,7 @@ def test_upsert_character_preserves_curated_status(db: Database) -> None:
         "src/main-story/first.md",
         story_type="main-story",
         title="First",
-        characters=[CharacterEntry("Lord Sutcliffe", species=SpeciesEntry("Human"), status="Just a head")],
+        characters=[CharacterEntry("Lord Sutcliffe", kinds=KindEntry("Human"), status="Just a head")],
     )
     assert _character_row(db, "Lord Sutcliffe") == ("Human", "Just a head")
 
@@ -562,24 +562,24 @@ def test_upsert_character_preserves_curated_status(db: Database) -> None:
         "src/main-story/second.md",
         story_type="main-story",
         title="Second",
-        characters=[CharacterEntry("Lord Sutcliffe", species=SpeciesEntry("Human"))],
+        characters=[CharacterEntry("Lord Sutcliffe", kinds=KindEntry("Human"))],
     )
     assert _character_row(db, "Lord Sutcliffe") == ("Human", "Just a head")
 
 
-def test_species_is_replace_semantic_where_status_is_preserved(db: Database) -> None:
+def test_kind_is_replace_semantic_where_status_is_preserved(db: Database) -> None:
     """The contract reversal stage 4 introduced, in one test.
 
-    ``status`` preserves on omission; ``species`` does not, because it is a
+    ``status`` preserves on omission; ``kinds`` does not, because it is a
     junction and a junction states the complete set. Omitting it is a deletion.
-    That is why all 32 undeclared species values had to reach the catalogue
+    That is why all 32 undeclared kind values had to reach the catalogue
     before the column was retired.
     """
     db.upsert_story(
         "src/main-story/first.md",
         story_type="main-story",
         title="First",
-        characters=[CharacterEntry("Lord Sutcliffe", species=SpeciesEntry("Human"), status="Just a head")],
+        characters=[CharacterEntry("Lord Sutcliffe", kinds=KindEntry("Human"), status="Just a head")],
     )
     db.upsert_story(
         "src/main-story/second.md",
@@ -590,13 +590,13 @@ def test_species_is_replace_semantic_where_status_is_preserved(db: Database) -> 
     assert _character_row(db, "Lord Sutcliffe") == ("", "Just a head")
 
 
-def test_a_character_can_hold_two_species(db: Database) -> None:
+def test_a_character_can_hold_two_kind(db: Database) -> None:
     """Scooba is a Zombie Dog, which the free-text column could only spell as one."""
     db.upsert_story(
         "src/main-story/first.md",
         story_type="main-story",
         title="First",
-        characters=[CharacterEntry("Scooba", species=(SpeciesEntry("Zombie"), SpeciesEntry("Dog")))],
+        characters=[CharacterEntry("Scooba", kinds=(KindEntry("Zombie"), KindEntry("Dog")))],
     )
     assert _character_row(db, "Scooba")[0] == "Zombie, Dog"
 
@@ -607,13 +607,13 @@ def test_upsert_character_explicit_value_still_overwrites(db: Database) -> None:
         "src/main-story/first.md",
         story_type="main-story",
         title="First",
-        characters=[CharacterEntry("Sol", species=SpeciesEntry("Human"))],
+        characters=[CharacterEntry("Sol", kinds=KindEntry("Human"))],
     )
     db.upsert_story(
         "src/main-story/second.md",
         story_type="main-story",
         title="Second",
-        characters=[CharacterEntry("Sol", species=SpeciesEntry("Aesir"))],
+        characters=[CharacterEntry("Sol", kinds=KindEntry("Aesir"))],
     )
     assert _character_row(db, "Sol")[0] == "Aesir"
 
@@ -621,7 +621,7 @@ def test_upsert_character_explicit_value_still_overwrites(db: Database) -> None:
 def test_upsert_character_new_row_defaults_to_unknown(db: Database) -> None:
     """A brand-new character has nothing to preserve, so an omitted status seeds 'Unknown'.
 
-    Species seeds nothing: there is no ``Unknown`` species row, because "nobody
+    Kind seeds nothing: there is no ``Unknown`` kind row, because "nobody
     said" is not a fact about a character (decided 2026-08-20).
     """
     db.upsert_story(

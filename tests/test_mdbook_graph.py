@@ -71,7 +71,7 @@ def src_root(tmp_path: Path) -> Path:
     )
     (csv_dir / "characters.csv").write_text(
         "# AUTO-GENERATED\n"
-        "CharacterId|Name|Species|Status|OtherCharactersStoryKey\n"
+        "CharacterId|Name|Kind|Status|OtherCharactersStoryKey\n"
         "LC1|Minerva Themis|Human|Alive|other-characters/minerva-themis.md\n"
         "LC2|Nameless|Human|Unknown|\n"
         # Self-healed identity rows (migration 12) for the two heroes below —
@@ -330,7 +330,7 @@ def test_hero_and_ordinary_character_same_person_draws_as_one_node(tmp_path: Pat
         "# AUTO-GENERATED\nCanonicalId|CanonicalSlug|CanonicalHero\nCN1|kano|Kano\n"
     )
     (csv_dir / "characters.csv").write_text(
-        "# AUTO-GENERATED\nCharacterId|Name|Species|Status|OtherCharactersStoryKey\nLC1|Kano|Human|Alive|\n"
+        "# AUTO-GENERATED\nCharacterId|Name|Kind|Status|OtherCharactersStoryKey\nLC1|Kano|Human|Alive|\n"
     )
     (csv_dir / "character-heroes.csv").write_text("# AUTO-GENERATED\nCanonicalId|CharacterId\nCN1|LC1\n")
     # One story-characters.csv row: a hero slug and a CharacterEntry for the same
@@ -633,7 +633,7 @@ def printings_root(tmp_path: Path) -> Path:
     # CN1 is written into Monarch only; CN2 into Uprising only; CN3 nowhere, so
     # it never becomes a node.
     (csv_dir / "characters.csv").write_text(
-        "# AUTO-GENERATED\nCharacterId|Name|Species|Status|OtherCharactersStoryKey\nLC1|Dorinthea|Human|Unknown|\nLC2|Rhinar|Human|Unknown|\n"
+        "# AUTO-GENERATED\nCharacterId|Name|Kind|Status|OtherCharactersStoryKey\nLC1|Dorinthea|Human|Unknown|\nLC2|Rhinar|Human|Unknown|\n"
     )
     (csv_dir / "character-heroes.csv").write_text("# AUTO-GENERATED\nCanonicalId|CharacterId\nCN1|LC1\nCN2|LC2\n")
     (csv_dir / "story-characters.csv").write_text(

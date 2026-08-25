@@ -23,7 +23,7 @@ from db import (
     CharacterEntry,
     NarratedVideoEntry,
     RegionEntry,
-    SpeciesEntry,
+    KindEntry,
 )
 
 
@@ -177,12 +177,12 @@ def test_upsert_story_links_characters(db: Database) -> None:
         "src/main-story/npc.md",
         story_type="main-story",
         title="Character Story",
-        characters=[CharacterEntry("Guard Captain", species=SpeciesEntry("Human"), status="Alive")],
+        characters=[CharacterEntry("Guard Captain", kinds=KindEntry("Human"), status="Alive")],
     )
     npc = db.conn.execute("SELECT * FROM characters").fetchone()
     assert npc["name"] == "Guard Captain"
     assert db.conn.execute("SELECT COUNT(*) FROM story_characters").fetchone()[0] == 1
-    # Species is a junction now, not a column on this row.
+    # Kind is a junction now, not a column on this row.
     assert (
         db.conn.execute(
             "SELECT s.name FROM character_kinds ns JOIN kinds s USING(kind_id) WHERE ns.character_id = ?",
