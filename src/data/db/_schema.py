@@ -12,8 +12,6 @@ Version history:
   9 — groups: lore_story_key, lore_fragment (the page a group is documented on)
  10 — npc_epithets, location_aliases, group_aliases (the names that are not the name)
  11 — species, npc_species, species_aliases; npcs.species free text retired
- 19 — species -> kinds, npc_species -> character_kinds, species_aliases ->
-      kind_aliases, npc_epithets -> character_epithets; species_id -> kind_id
  12 — npcs renamed to characters (character_id unchanged); character_heroes
       links a canonical hero to its character row; every hero gets a
       character row, self-healing at seed time; status becomes a closed
@@ -46,6 +44,10 @@ Version history:
       and hero_members for one `members` tuple that takes a CharacterEntry or a
       canonical hero slug, which also gives a hero member the
       (member, story_key) citation pair only a ``CharacterEntry`` member could carry.
+ 19 — species -> kinds, npc_species -> character_kinds, species_aliases ->
+      kind_aliases, npc_epithets -> character_epithets; species_id -> kind_id.
+      The declaration surface followed in the same sprint: SpeciesEntry became
+      KindEntry and CharacterEntry(species=) became CharacterEntry(kinds=).
 """
 
 from __future__ import annotations
@@ -97,7 +99,7 @@ CREATE TABLE IF NOT EXISTS locations (
     parent_location_id TEXT NOT NULL DEFAULT ''
 );
 
--- No species column. What a character *is* lives in npc_species, because one
+-- No species column. What a character *is* lives in character_kinds, because one
 -- free-text column held three different facts — species, cosmological tier and
 -- occupation — and could hold only one of them at a time. Scooba is a Zombie Dog.
 --

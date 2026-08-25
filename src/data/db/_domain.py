@@ -286,7 +286,7 @@ class CharacterEntry:
     after migration 12 both a hero and an ordinary character land in the same ``characters``
     row, so one column, and one type here, holds either::
 
-        CharacterEntry("Lyath", kin=((npc.BLOODWORTH_GOLDMANE, "father"), ("victor", "sibling")))
+        CharacterEntry("Lyath", kin=((people.BLOODWORTH_GOLDMANE, "father"), ("victor", "sibling")))
 
     ``relation`` is a closed vocabulary, checked in ``validate_data.py`` rather
     than here (the same split ``status`` and epithet ``kind`` follow):

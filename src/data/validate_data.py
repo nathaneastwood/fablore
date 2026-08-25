@@ -748,7 +748,7 @@ def _check_alias_name_collisions() -> list[str]:
     for alias_file, alias_col, owner_col, registry_file, registry_id, registry_name, label in (
         ("location-aliases.csv", "Alias", "LocationId", "locations.csv", "LocationId", "Name", "Location alias"),
         ("group-aliases.csv", "Alias", "GroupId", "groups.csv", "GroupId", "Name", "Group alias"),
-        ("character-epithets.csv", "Name", "CharacterId", "characters.csv", "CharacterId", "Name", "NPC epithet"),
+        ("character-epithets.csv", "Name", "CharacterId", "characters.csv", "CharacterId", "Name", "Character epithet"),
         ("kind-aliases.csv", "Alias", "KindId", "kinds.csv", "KindId", "Name", "Kind alias"),
     ):
         alias_path, registry_path = DATA / f"csv/{alias_file}", DATA / f"csv/{registry_file}"
@@ -940,9 +940,9 @@ def collect_alerts() -> list[str]:
         (DATA / "csv/groups.csv", ("GroupId", "Name"), "Groups"),
         (DATA / "csv/group-characters.csv", ("GroupId", "CharacterId"), "Group ↔ member links"),
         (DATA / "csv/story-groups.csv", ("StoryId", "GroupId"), "Story ↔ group links"),
-        (DATA / "csv/character-epithets.csv", ("CharacterId", "Name"), "NPC epithets"),
-        (DATA / "csv/kinds.csv", ("KindId", "Name"), "Kind"),
-        (DATA / "csv/character-kinds.csv", ("CharacterId", "KindId"), "NPC ↔ kind"),
+        (DATA / "csv/character-epithets.csv", ("CharacterId", "Name"), "Character epithets"),
+        (DATA / "csv/kinds.csv", ("KindId", "Name"), "Kinds"),
+        (DATA / "csv/character-kinds.csv", ("CharacterId", "KindId"), "Character ↔ kind"),
         (DATA / "csv/kind-aliases.csv", ("KindId", "Alias"), "Kind aliases"),
         (DATA / "csv/location-aliases.csv", ("LocationId", "Alias"), "Location aliases"),
         (DATA / "csv/group-aliases.csv", ("GroupId", "Alias"), "Group aliases"),
@@ -1306,7 +1306,7 @@ def collect_alerts() -> list[str]:
                 "CharacterId",
                 character_ids,
                 "characters.csv CharacterId",
-                "NPC epithets",
+                "Character epithets",
             )
         )
     if location_ids:
@@ -1333,7 +1333,7 @@ def collect_alerts() -> list[str]:
     kind_ids = _id_set_from_column(DATA / "csv/kinds.csv", "KindId")
     if kind_ids:
         for child, column, label in (
-            ("character-kinds.csv", "KindId", "NPC ↔ kind"),
+            ("character-kinds.csv", "KindId", "Character ↔ kind"),
             ("kind-aliases.csv", "KindId", "Kind aliases"),
         ):
             alerts.extend(_check_fk_column(DATA / f"csv/{child}", column, kind_ids, "kinds.csv KindId", label))
@@ -1344,7 +1344,7 @@ def collect_alerts() -> list[str]:
                 "CharacterId",
                 character_ids,
                 "characters.csv CharacterId",
-                "NPC ↔ kind",
+                "Character ↔ kind",
             )
         )
     # Professions (R9). Both halves of the junction; no alias table (see

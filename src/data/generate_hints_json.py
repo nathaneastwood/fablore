@@ -330,7 +330,7 @@ def generate() -> None:
             "type": "hero" if row["hero_canonical_id"] else "npc",
             "summary": row["summary"],
         }
-        # theme/hints.js has read entry.kinds for the badge since stage 4 and
+        # theme/hints.js has read entry.kind for the badge since stage 4 and
         # no entry has ever carried it. Two kinds are joined rather than
         # ranked — Scooba is a Zombie and a Dog, and neither is the lesser half.
         kind_names = character_kinds.get(row["character_id"], [])
