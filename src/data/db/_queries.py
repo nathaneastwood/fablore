@@ -292,28 +292,33 @@ def update_group_notes(conn: sqlite3.Connection, group_id: str, notes: str) -> i
 def set_group_members(
     conn: sqlite3.Connection,
     group_id: str,
-    table: str,
-    id_col: str,
     members: list[tuple[str, str]],
 ) -> None:
     """Replace all membership rows for ``group_id`` with ``members``.
+
+    Always writes ``group_characters``/``character_id`` — migration 18 merged
+    ``group_npcs`` and ``group_heroes`` into one junction, so there is no
+    longer a second table or id column any caller could pass.
 
     Args:
         members: ``(entity_id, story_key)`` pairs. ``story_key`` is the optional
             evidence citation (D2) and may be empty.
     """
-    conn.execute(f"DELETE FROM {table} WHERE group_id = ?", [group_id])
+    conn.execute("DELETE FROM group_characters WHERE group_id = ?", [group_id])
     if members:
         conn.executemany(
-            f"INSERT OR IGNORE INTO {table} (group_id, {id_col}, story_key) VALUES (?,?,?)",
+            "INSERT OR IGNORE INTO group_characters (group_id, character_id, story_key) VALUES (?,?,?)",
             [(group_id, eid, key) for eid, key in members],
         )
 
 
-def select_group_members(conn: sqlite3.Connection, group_id: str, table: str, id_col: str) -> list[tuple[str, str]]:
-    """Return ``(entity_id, story_key)`` membership rows for ``group_id``, sorted."""
+def select_group_members(conn: sqlite3.Connection, group_id: str) -> list[tuple[str, str]]:
+    """Return ``(entity_id, story_key)`` membership rows for ``group_id``, sorted.
+
+    Always reads ``group_characters``/``character_id`` — see :func:`set_group_members`.
+    """
     rows = conn.execute(
-        f"SELECT {id_col}, story_key FROM {table} WHERE group_id = ? ORDER BY {id_col}",
+        "SELECT character_id, story_key FROM group_characters WHERE group_id = ? ORDER BY character_id",
         [group_id],
     ).fetchall()
     return [(r[0], r[1]) for r in rows]

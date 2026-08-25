@@ -45,7 +45,7 @@ from text_utils import normalize_name  # noqa: E402
 
 import db._queries as q  # noqa: E402
 from db._connection import open_db  # noqa: E402
-from db._seed import seed_from_csvs  # noqa: E402
+from db._seed import needs_seed, seed_from_csvs  # noqa: E402
 import db._export as _export  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -640,16 +640,10 @@ class Database:
         self._last_dry_run_changed = False
         self.conn = open_db(self._path)
         # Auto-seed when the database is empty, or when a migration has emptied a
-        # derived game-data table that only the CSVs can repopulate (migration 7
-        # rebuilds both printings tables to widen their primary key).
-        if self._path != Path(":memory:") and self._needs_seed():
+        # derived game-data table that only the CSVs can repopulate — see
+        # db._seed.needs_seed for which tables trigger this and why.
+        if self._path != Path(":memory:") and needs_seed(self.conn):
             seed_from_csvs(self.conn, self._data_dir)
-
-    def _needs_seed(self) -> bool:
-        for table in ("stories", "equipment_printings", "weapons_printings", "kinds", "character_heroes"):
-            if self.conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0] == 0:
-                return True
-        return False
 
     @classmethod
     def from_csv(
@@ -742,6 +736,10 @@ class Database:
     def list_kinds(self) -> list[dict[str, str]]:
         """Return ``[{"name": …, "notes": …}]`` for every kind."""
         return [{"name": r["name"], "notes": r["notes"]} for r in q.select_all_kinds(self.conn)]
+
+    def print_kinds(self, *, file: IO[str] | None = None) -> None:
+        """Pretty-print all kinds with their notes."""
+        self._print_table(self.list_kinds(), ["name", "notes"], file=file)
 
     def list_locations(self) -> list[dict[str, str]]:
         """Return location dicts with ``name``, ``region``, ``notes``, ``lore_fragment``."""
@@ -1528,7 +1526,7 @@ class Database:
                 cid,
                 [(n, "epithet") for n in e.epithets] + [(n, "short-name") for n in e.short_names],
             )
-            q.set_character_kinds(self.conn, cid, self._upsert_kinds(_kind_tuple(e.kinds)))
+            q.set_character_kinds(self.conn, cid, self._upsert_kinds(e.name, _kind_tuple(e.kinds)))
             # Professions (R9). Resolves and raises on a repeated profession
             # before any downstream write — mirrors kin's use of
             # _resolve_kin_relatives just below.
@@ -1665,8 +1663,47 @@ class Database:
 
         q.set_story_characters(self.conn, story_id, list(merged.items()))
 
-    def _upsert_kinds(self, entries: "tuple[KindEntry, ...]") -> list[str]:
-        """Upsert each kind row and return its ids, in declared order."""
+    def _resolve_kinds(self, owner_name: str, entries: "tuple[KindEntry, ...]") -> list[tuple[str, str]]:
+        """Resolve a tuple of :class:`KindEntry` to ``(kind_id, name)`` pairs.
+
+        Read-only, so the dry-run preview can call this too — mirrors
+        :meth:`_resolve_professions`, :meth:`_resolve_kin_relatives` and
+        :meth:`_resolve_title_holders`. Raises on a repeat within ``entries``,
+        the same guard shape ``GroupEntry.member_pairs()``, ``_resolve_professions``,
+        ``_resolve_title_holders`` and ``_resolve_kin_relatives`` all use: two
+        entries naming the same kind would otherwise resolve differently on
+        the write path (``INSERT OR IGNORE`` keeps the first) than on a
+        preview that diffed a set (silently deduplicated).
+
+        Args:
+            owner_name: The character or hero slug this tuple belongs to, named
+                in the error.
+            entries: The tuple to resolve, already normalised by
+                :func:`_kind_tuple`.
+
+        Raises:
+            ValueError: if two entries resolve to the same ``kind_id``.
+        """
+        resolved: list[tuple[str, str]] = []
+        seen: dict[str, str] = {}
+        for k in entries:
+            kid = _kind_id(k.name)
+            if kid in seen:
+                raise ValueError(
+                    f"{owner_name!r} names kind {k.name!r} twice "
+                    f"(as {seen[kid]!r} and {k.name!r}). A kind claim is one row; state it once."
+                )
+            seen[kid] = k.name
+            resolved.append((kid, k.name))
+        return resolved
+
+    def _upsert_kinds(self, owner_name: str, entries: "tuple[KindEntry, ...]") -> list[str]:
+        """Upsert each kind row and return its ids, in declared order.
+
+        Raises before writing anything if two entries in ``entries`` name the
+        same kind — see :meth:`_resolve_kinds`, which this calls first.
+        """
+        self._resolve_kinds(owner_name, entries)
         ids: list[str] = []
         for e in entries:
             sid = _kind_id(e.name)
@@ -1679,14 +1716,14 @@ class Database:
         """Resolve a tuple of :class:`ProfessionEntry` to ``(profession_id, name)`` pairs.
 
         Read-only, so the dry-run preview can call this too — mirrors
-        :meth:`_resolve_kin_relatives` and :meth:`_resolve_title_holders`.
-        Unlike ``kinds`` (which never guards a repeat — ``INSERT OR IGNORE``
-        just collapses it in silence), a profession raises on a repeat within
+        :meth:`_resolve_kinds`, :meth:`_resolve_kin_relatives` and
+        :meth:`_resolve_title_holders`. A profession raises on a repeat within
         ``entries``, the same guard shape ``GroupEntry.member_pairs()``,
-        ``_resolve_title_holders`` and ``_resolve_kin_relatives`` all use: two
-        entries naming the same profession would otherwise resolve differently
-        on the write path (``INSERT OR IGNORE`` keeps the first) than on a
-        preview that diffed a dict (last wins).
+        ``_resolve_kinds``, ``_resolve_title_holders`` and
+        ``_resolve_kin_relatives`` all use: two entries naming the same
+        profession would otherwise resolve differently on the write path
+        (``INSERT OR IGNORE`` keeps the first) than on a preview that diffed a
+        dict (last wins).
 
         Args:
             owner_name: The character or hero slug this tuple belongs to, named
@@ -1863,8 +1900,6 @@ class Database:
         q.set_group_members(
             self.conn,
             gid,
-            "group_characters",
-            "character_id",
             [(cid, source) for cid, source, _origin in resolved],
         )
         q.set_group_aliases(self.conn, gid, list(entry.aliases))
@@ -2589,8 +2624,12 @@ class Database:
                 # preserve — 32 rows carried a value no declaration named, so a
                 # missing kinds= reads as a deletion where it once read as
                 # silence. That reversal is exactly what has to be visible.
+                # _resolve_kinds raises on a repeated kind on this entry, on the
+                # preview path too, before any diff below is computed — the
+                # same guard the write path applies via _upsert_kinds.
+                resolved_kind = self._resolve_kinds(entry.name, _kind_tuple(entry.kinds))
                 stored_sp = {kind_names.get(sid, sid) for sid in q.select_character_kinds(self.conn, cid)}
-                wanted_sp = {x.name for x in _kind_tuple(entry.kinds)}
+                wanted_sp = {name for _kid, name in resolved_kind}
                 _diff_names(entry.name, "kind", stored_sp, wanted_sp)
 
                 for sp in _kind_tuple(entry.kinds):
@@ -2992,7 +3031,7 @@ class Database:
                 # has to report the deletion. A group that has no stored members
                 # either produces no lines below, which is the quiet case this
                 # once tried to buy with a `continue`.
-                stored = dict(q.select_group_members(self.conn, gid, "group_characters", "character_id"))
+                stored = dict(q.select_group_members(self.conn, gid))
                 added, removed = set(wanted_map) - set(stored), set(stored) - set(wanted_map)
                 # The citation is a stored column, so a membership that keeps
                 # its row and changes the page it cites is a write. Comparing

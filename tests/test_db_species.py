@@ -109,6 +109,23 @@ def test_kind_aliases_are_stored_and_replace_semantic(db: Database) -> None:
     assert q.select_kind_aliases(db.conn, kind_id("Aesir")) == []
 
 
+def test_a_repeated_kind_on_one_entry_raises(db: Database) -> None:
+    """The guard shape _resolve_professions, GroupEntry.member_pairs(),
+    _resolve_title_holders and _resolve_kin_relatives all use: two entries
+    naming the same kind would otherwise resolve differently on the write
+    path (INSERT OR IGNORE keeps the first) than on a preview that diffed a
+    set (silently deduplicated)."""
+    entry = CharacterEntry("Scooba", kinds=(KindEntry("Zombie"), KindEntry("Zombie")))
+    with pytest.raises(ValueError, match="Zombie"):
+        _story(db, characters=[entry])
+
+
+def test_the_duplicate_kind_guard_fires_on_the_preview_path_too(db: Database) -> None:
+    entry = CharacterEntry("Scooba", kinds=(KindEntry("Zombie"), KindEntry("Zombie")))
+    with pytest.raises(ValueError, match="Zombie"):
+        _story(db, characters=[entry], dry_run=True)
+
+
 # ---------------------------------------------------------------------------
 # Preview
 # ---------------------------------------------------------------------------

@@ -32,6 +32,23 @@ def _csv(data_dir: Path, name: str) -> tuple[list[str], list[dict[str, str]]]:
     return read_pipe_csv(data_dir / "csv" / name)
 
 
+# Tables ``needs_seed`` checks to decide whether the database is empty, or a
+# migration has emptied a derived game-data table that only the CSVs can
+# repopulate (migration 7 rebuilds both printings tables to widen their
+# primary key; migration 19 added ``kinds``; migration 12 added
+# ``character_heroes``). A future migration that needs the same treatment
+# adds its table here.
+_SEED_TRIGGER_TABLES = ("stories", "equipment_printings", "weapons_printings", "kinds", "character_heroes")
+
+
+def needs_seed(conn: sqlite3.Connection) -> bool:
+    """Return ``True`` if any table in :data:`_SEED_TRIGGER_TABLES` is empty."""
+    for table in _SEED_TRIGGER_TABLES:
+        if conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0] == 0:
+            return True
+    return False
+
+
 def _s(row: dict[str, str], key: str) -> str:
     return (row.get(key) or "").strip()
 

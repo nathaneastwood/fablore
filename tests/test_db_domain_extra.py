@@ -121,6 +121,22 @@ def test_list_characters_with_data(db: Database) -> None:
     assert all("name" in n and "kinds" in n and "status" in n for n in npcs)
 
 
+def test_list_kinds_empty(db: Database) -> None:
+    assert db.list_kinds() == []
+
+
+def test_list_kinds_with_data(db: Database) -> None:
+    db.upsert_story(
+        "src/main-story/n3.md",
+        story_type="main-story",
+        title="N3",
+        characters=[CharacterEntry("Biski", kinds=KindEntry("Dog"))],
+    )
+    kinds = db.list_kinds()
+    assert any(k["name"] == "Dog" for k in kinds)
+    assert all("name" in k and "notes" in k for k in kinds)
+
+
 def test_list_locations_empty(db: Database) -> None:
     assert db.list_locations() == []
 
@@ -212,6 +228,24 @@ def test_print_characters_with_data(db: Database) -> None:
     buf = io.StringIO()
     db.print_characters(file=buf)
     assert "Ranger" in buf.getvalue()
+
+
+def test_print_kinds_empty(db: Database) -> None:
+    buf = io.StringIO()
+    db.print_kinds(file=buf)
+    assert "(none)" in buf.getvalue()
+
+
+def test_print_kinds_with_data(db: Database) -> None:
+    db.upsert_story(
+        "src/main-story/n4.md",
+        story_type="main-story",
+        title="N4",
+        characters=[CharacterEntry("Biski", kinds=KindEntry("Dog"))],
+    )
+    buf = io.StringIO()
+    db.print_kinds(file=buf)
+    assert "Dog" in buf.getvalue()
 
 
 def test_print_locations_empty(db: Database) -> None:

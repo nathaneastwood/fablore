@@ -727,8 +727,8 @@ def migrate(conn: sqlite3.Connection) -> None:
         #
         # No data is carried across. The database is seeded from the CSVs, and
         # this migration empties a fact the CSVs alone can restore, so `species`
-        # joins the tables `_needs_seed` watches — the same move migration 7 made
-        # for the printings tables.
+        # joins the tables `db._seed.needs_seed` watches — the same move
+        # migration 7 made for the printings tables.
         conn.executescript(
             """
             CREATE TABLE IF NOT EXISTS species (

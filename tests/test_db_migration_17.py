@@ -4,7 +4,7 @@ Seam: raw ``sqlite3.Connection`` + ``db._schema.migrate()``, not ``Database`` â€
 the trap this migration has to survive is specifically that
 ``Database.__init__`` runs every pending migration before it ever seeds
 (``open_db`` calls ``migrate()``; seeding happens afterwards, only if
-``_needs_seed()``), so ``character_heroes`` is empty throughout a multi-version
+``db._seed.needs_seed()``), so ``character_heroes`` is empty throughout a multi-version
 jump. Going through ``Database`` would seed in between and hide exactly that.
 
 Two starting points are exercised, for the reason the module docstring on this

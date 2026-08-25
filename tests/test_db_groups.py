@@ -123,7 +123,22 @@ def test_member_rows_are_written_from_the_group(db: Database) -> None:
         member_source="heroes-of-rathe/lyath-about.md",
     )
     _story(db, groups=[entry])
-    members = q.select_group_members(db.conn, group_id("VanGeld"), "group_characters", "character_id")
+    members = q.select_group_members(db.conn, group_id("VanGeld"))
+    assert members == [(lore_character_id("Tara VanGeld"), "heroes-of-rathe/lyath-about.md")]
+
+
+def test_select_group_members_takes_no_table_or_id_col(db: Database) -> None:
+    """table/id_col were always "group_characters"/"character_id" after
+    migration 18 merged group_npcs and group_heroes into one junction — the
+    parameters were dead weight every caller passed the same two literals to."""
+    entry = GroupEntry(
+        "VanGeld",
+        kind="clan",
+        members=(CharacterEntry("Tara VanGeld", kinds=KindEntry("Dwarf")),),
+        member_source="heroes-of-rathe/lyath-about.md",
+    )
+    _story(db, groups=[entry])
+    members = q.select_group_members(db.conn, group_id("VanGeld"))
     assert members == [(lore_character_id("Tara VanGeld"), "heroes-of-rathe/lyath-about.md")]
 
 
@@ -143,7 +158,7 @@ def test_a_member_may_cite_its_own_page(db: Database) -> None:
         ),
     )
     _story(db, groups=[entry])
-    assert q.select_group_members(db.conn, group_id("The Maela"), "group_characters", "character_id") == [
+    assert q.select_group_members(db.conn, group_id("The Maela")) == [
         (lore_character_id("Maela Fairmind"), "flavour/compendium-of-rathe.md"),
         (lore_character_id("Kaysin"), "flavour/rosetta.md"),
     ]
@@ -157,7 +172,7 @@ def test_plain_and_paired_members_mix_in_one_roster(db: Database) -> None:
         member_source="heroes-of-rathe/lyath-about.md",
     )
     _story(db, groups=[entry])
-    assert q.select_group_members(db.conn, group_id("Gemini"), "group_characters", "character_id") == [
+    assert q.select_group_members(db.conn, group_id("Gemini")) == [
         (lore_character_id("Minerva"), "heroes-of-rathe/lyath-about.md"),
         (lore_character_id("Themis"), "flavour/outsiders.md"),
     ]
@@ -190,9 +205,7 @@ def test_a_hero_slug_member_resolves_to_a_character_row(db: Database) -> None:
     _story(db, groups=[GroupEntry("Prowlers", members=("kayo",))])
     character = q.select_character_id_for_hero(db.conn, canonical)
     assert character and character != canonical
-    assert q.select_group_members(db.conn, group_id("Prowlers"), "group_characters", "character_id") == [
-        (character, "")
-    ]
+    assert q.select_group_members(db.conn, group_id("Prowlers")) == [(character, "")]
 
 
 def test_unknown_hero_slug_raises(db: Database) -> None:
@@ -204,9 +217,9 @@ def test_membership_is_replace_semantic(db: Database) -> None:
     """A short roster drops people, which is why the dry run reports removals."""
     two = GroupEntry("Gemini", members=(CharacterEntry("Minerva"), CharacterEntry("Themis")))
     _story(db, groups=[two])
-    assert len(q.select_group_members(db.conn, group_id("Gemini"), "group_characters", "character_id")) == 2
+    assert len(q.select_group_members(db.conn, group_id("Gemini"))) == 2
     _story(db, groups=[GroupEntry("Gemini", members=(CharacterEntry("Minerva"),))])
-    assert len(q.select_group_members(db.conn, group_id("Gemini"), "group_characters", "character_id")) == 1
+    assert len(q.select_group_members(db.conn, group_id("Gemini"))) == 1
 
 
 def test_emptied_roster_is_a_deletion_not_a_no_op(db: Database) -> None:
@@ -218,7 +231,7 @@ def test_emptied_roster_is_a_deletion_not_a_no_op(db: Database) -> None:
     """
     _story(db, groups=[GroupEntry("Gemini", members=(CharacterEntry("Minerva"), CharacterEntry("Themis")))])
     _story(db, groups=[GroupEntry("Gemini")])
-    assert q.select_group_members(db.conn, group_id("Gemini"), "group_characters", "character_id") == []
+    assert q.select_group_members(db.conn, group_id("Gemini")) == []
 
 
 def test_one_roster_emptied_while_the_other_stands(db: Database, capsys) -> None:
@@ -242,16 +255,16 @@ def test_one_roster_emptied_while_the_other_stands(db: Database, capsys) -> None
     )
     assert "1 member(s) REMOVED from group_characters" in capsys.readouterr().out
     _story(db, groups=[kept])
-    stored = q.select_group_members(db.conn, group_id("Gemini"), "group_characters", "character_id")
+    stored = q.select_group_members(db.conn, group_id("Gemini"))
     assert stored == [(q.select_character_id_for_hero(db.conn, hero_cid), "")]
 
 
 def test_emptied_hero_roster_is_a_deletion_too(db: Database) -> None:
     _seed_hero(db, "ira", "Ira")
     _story(db, groups=[GroupEntry("Ikaru Clan", members=("ira",))])
-    assert len(q.select_group_members(db.conn, group_id("Ikaru Clan"), "group_characters", "character_id")) == 1
+    assert len(q.select_group_members(db.conn, group_id("Ikaru Clan"))) == 1
     _story(db, groups=[GroupEntry("Ikaru Clan")])
-    assert q.select_group_members(db.conn, group_id("Ikaru Clan"), "group_characters", "character_id") == []
+    assert q.select_group_members(db.conn, group_id("Ikaru Clan")) == []
 
 
 def test_dry_run_removal_line_matches_what_the_apply_does(db: Database, capsys) -> None:
@@ -267,7 +280,7 @@ def test_dry_run_removal_line_matches_what_the_apply_does(db: Database, capsys) 
     )
     assert "2 member(s) REMOVED from group_characters" in capsys.readouterr().out
     _story(db, groups=[GroupEntry("Gemini")])
-    assert q.select_group_members(db.conn, group_id("Gemini"), "group_characters", "character_id") == []
+    assert q.select_group_members(db.conn, group_id("Gemini")) == []
 
 
 # ---------------------------------------------------------------------------
@@ -359,9 +372,7 @@ def test_groups_survive_the_csv_round_trip(db: Database, tmp_path: Path) -> None
     row = fresh.conn.execute("SELECT parent_group_id FROM groups WHERE group_id = ?", [group_id("Boulders")]).fetchone()
     assert row["parent_group_id"] == group_id("Boulder Clan")
     hero_character = q.select_character_id_for_hero(fresh.conn, cid)
-    assert q.select_group_members(fresh.conn, group_id("Prowlers"), "group_characters", "character_id") == [
-        (hero_character, "x.md")
-    ]
+    assert q.select_group_members(fresh.conn, group_id("Prowlers")) == [(hero_character, "x.md")]
 
 
 def test_seeding_wires_parents_even_when_the_child_is_read_first(db: Database, tmp_path: Path) -> None:
@@ -838,6 +849,4 @@ def test_a_hero_member_may_cite_its_own_page(db: Database) -> None:
         ],
     )
     character = q.select_character_id_for_hero(db.conn, canonical)
-    assert q.select_group_members(db.conn, group_id("Prowlers"), "group_characters", "character_id") == [
-        (character, "flavour/super-slam.md")
-    ]
+    assert q.select_group_members(db.conn, group_id("Prowlers")) == [(character, "flavour/super-slam.md")]
