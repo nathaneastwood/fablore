@@ -61,7 +61,7 @@ HINTS = {
 def test_single_page_entity_is_suppressed():
     """An entity named on one page only is introduced there; no tooltip anywhere."""
     chapters = [("a", "Kien volunteered as a sacrifice."), ("b", "Nothing relevant here.")]
-    hints = {"Kien": {"type": "npc", "summary": "A Disciple of Pain."}}
+    hints = {"Kien": {"type": "character", "summary": "A Disciple of Pain."}}
     assert compute_single_page_keys(chapters, hints) == {"Kien"}
 
 
@@ -74,7 +74,7 @@ def test_multi_page_entity_is_not_suppressed():
 
 def test_single_page_count_is_case_insensitive_and_uses_match_strings():
     chapters = [("a", "the steadfast nods."), ("b", "They turn to The Steadfast.")]
-    hints = {"GMS": {"match": ["The Steadfast"], "type": "npc", "summary": "Grand Magister."}}
+    hints = {"GMS": {"match": ["The Steadfast"], "type": "character", "summary": "Grand Magister."}}
     assert compute_single_page_keys(chapters, hints) == frozenset()
 
 

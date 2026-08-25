@@ -69,7 +69,7 @@ def test_supplement_only_key_appended():
 def test_match_field_not_in_db_does_not_merge():
     # supplement "match" points to something not in hints — treat as new entry
     hints = {"Brawnhide": {"type": "fauna", "summary": "A beast."}}
-    supplement = {"SomeKey": {"match": "Unknown Entity", "type": "npc", "summary": "..."}}
+    supplement = {"SomeKey": {"match": "Unknown Entity", "type": "character", "summary": "..."}}
     result = merge_supplement(hints, supplement)
     assert "SomeKey" in result
     assert "Unknown Entity" not in result
@@ -144,3 +144,21 @@ def test_the_hints_sync_hook_triggers_on_every_csv_the_generator_reads() -> None
     stems, pattern = _hints_hook_csv_stems()
     untriggered = sorted(wanted - stems)
     assert not untriggered, f"ensure-hints-json-sync does not fire for: {untriggered}\n{pattern}"
+
+
+def test_no_hint_badge_still_reads_npc() -> None:
+    """The badge prints ``type`` verbatim, so a retired word ships as a label.
+
+    Migration 19 finished the vocabulary in the schema, but ``hints.json`` kept
+    emitting ``"npc"`` for a character with no hero link — 39 tooltips on the
+    live site. A character that is a hero says so; every other one says
+    ``character``.
+    """
+    import json
+    from pathlib import Path
+
+    root = Path(__file__).resolve().parents[1]
+    for name in ("hints.json", "hints_supplement.json"):
+        entries = json.loads((root / "src" / name).read_text(encoding="utf-8"))
+        offenders = [key for key, value in entries.items() if isinstance(value, dict) and value.get("type") == "npc"]
+        assert offenders == [], f"{name} still types {len(offenders)} entries as npc"

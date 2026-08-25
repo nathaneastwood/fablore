@@ -537,6 +537,7 @@ _SUPPLEMENT_TYPES = frozenset(
         "aesir",
         "ancient",
         "artifact",
+        "character",
         "concept",
         "creature",
         # Added 2026-08-20 for the three afflictions krest-mortimer.md describes:
@@ -546,7 +547,6 @@ _SUPPLEMENT_TYPES = frozenset(
         "hero",
         "item",
         "location",
-        "npc",
         "organisation",
         "region",
         "ship",

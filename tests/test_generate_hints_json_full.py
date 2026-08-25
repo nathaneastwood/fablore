@@ -451,7 +451,7 @@ def test_clash_warning_ignores_plain_substrings() -> None:
     """`Sol` inside `Solarium` is what longest-first exists to resolve, not a clash."""
     from generate_hints_json import _warn_match_collisions
 
-    assert _warn_match_collisions({"Sol": {"type": "npc"}, "Solarium": {"type": "location"}}) == []
+    assert _warn_match_collisions({"Sol": {"type": "character"}, "Solarium": {"type": "location"}}) == []
 
 
 # ---------------------------------------------------------------------------
@@ -571,13 +571,13 @@ def test_a_character_with_no_summary_emits_nothing(tmp_path: Path, monkeypatch) 
     assert "Nobody" not in _generate_from(db, tmp_path, monkeypatch)
 
 
-def test_a_character_with_no_hero_link_is_badged_npc(tmp_path: Path, monkeypatch) -> None:
+def test_a_character_with_no_hero_link_is_badged_character(tmp_path: Path, monkeypatch) -> None:
     db = tmp_path / "c.db"
     conn = _make_character_db(db)
     conn.execute("INSERT INTO characters (character_id, name, summary) VALUES ('LC1','Xathari','A spymaster.')")
     conn.commit()
     conn.close()
-    assert _generate_from(db, tmp_path, monkeypatch)["Xathari"]["type"] == "npc"
+    assert _generate_from(db, tmp_path, monkeypatch)["Xathari"]["type"] == "character"
 
 
 def test_a_character_linked_to_a_hero_is_badged_hero(tmp_path: Path, monkeypatch) -> None:
@@ -658,4 +658,4 @@ def test_a_character_beats_a_group_of_the_same_name(tmp_path: Path, monkeypatch)
     conn.execute("INSERT INTO groups (group_id, name, kind, notes) VALUES ('GR1','Rosetta','order','An order.')")
     conn.commit()
     conn.close()
-    assert _generate_from(db, tmp_path, monkeypatch)["Rosetta"]["type"] == "npc"
+    assert _generate_from(db, tmp_path, monkeypatch)["Rosetta"]["type"] == "character"

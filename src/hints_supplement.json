@@ -17,7 +17,7 @@
   },
   "Aedes": "Solanian Tuesday",
   "Alif": {
-    "type": "npc",
+    "type": "character",
     "summary": "A member of the Cintari, Kassai's close friend."
   },
   "ArbiterMagisterOfJustice": {
@@ -35,7 +35,7 @@
     ]
   },
   "Bellona": {
-    "type": "npc",
+    "type": "character",
     "summary": "The Wartune Herald."
   },
   "Braumeister": {
@@ -43,11 +43,11 @@
     "summary": "Elite brewers of Aria making spirits which possess unique effects."
   },
   "Chiyo": {
-    "type": "npc",
+    "type": "character",
     "summary": "Lord Wizard, Head of the Alshoni faction and cousin to the Emperor."
   },
   "Chul": {
-    "type": "npc",
+    "type": "character",
     "summary": "General who betrayed Kassai's family."
   },
   "CrimsonHaze": {
@@ -71,7 +71,7 @@
   },
   "Exorides": "Solanian Thursday",
   "Fayyad": {
-    "type": "npc",
+    "type": "character",
     "summary": "A member of the Cintari, Kassai's close friend."
   },
   "Fireseer": {
@@ -93,16 +93,16 @@
     "summary": "Bright with a rich golden flavour, the most popular drink served at the Kraken's Barrel."
   },
   "Gawain": {
-    "type": "npc",
+    "type": "character",
     "summary": "A reserved, taciturn strongman of the Valdur who joined Bravo's Legendarium, wielding a finely crafted greataxe."
   },
   "GrandMagister": {
-    "type": "npc",
+    "type": "character",
     "match": "Grand Magister",
     "summary": "Serves the city of Solana as the highest representation of Sol."
   },
   "GrandMagisterTheSteadfast": {
-    "type": "npc",
+    "type": "character",
     "match": [
       "Grand Magister, The Steadfast",
       "The Steadfast"
@@ -124,33 +124,33 @@
     "summary": "Epithet of Infernai."
   },
   "Jing": {
-    "type": "npc",
+    "type": "character",
     "summary": "Xilin and Ira's brother."
   },
   "Magnus the Vigilant": {
-    "type": "npc",
+    "type": "character",
     "summary": "The hero of one of Aria's most beloved old legends, first brought to the stage by a young Bravo and his fellow performers."
   },
   "Marbles": {
-    "type": "npc",
+    "type": "character",
     "summary": "A meep who joined Bravo on his journey to the Fractal Scar, drawn to the glint of the wayfarers' dowsing discs and prone to darting off with shiny trinkets."
   },
   "Mikael": {
-    "type": "npc",
+    "type": "character",
     "summary": "The Legendarium's bard, always brimming with new stories gathered from his travels."
   },
   "Kayat": {
-    "type": "npc",
+    "type": "character",
     "summary": "An illusionist, boss of the Dust Runners."
   },
   "Lunedes": "Solanian Monday",
   "Merides": "Solanian Friday",
   "Min": {
-    "type": "npc",
+    "type": "character",
     "summary": "Fai's mother, Min of the Forest of Flames."
   },
   "Morgan": {
-    "type": "npc",
+    "type": "character",
     "summary": "The more talkative of two Valdur strongmen who joined Bravo's Legendarium, wielding a finely crafted greataxe."
   },
   "Nasreth": {
@@ -171,15 +171,15 @@
     "summary": "Epithet of Raven."
   },
   "Redmoor": {
-    "type": "npc",
+    "type": "character",
     "summary": "The Redmoors are Boltyn's cousins."
   },
   "Sada": {
-    "type": "npc",
+    "type": "character",
     "summary": "Kassai's sorceress friend and member of the Cintari."
   },
   "Savai": {
-    "type": "npc",
+    "type": "character",
     "summary": "Lord Merchant of Deshvahan."
   },
   "Seikan": {
@@ -210,11 +210,11 @@
     "summary": "A deadly combat tournament where fighters battle in the Deathmatch Arena for glory and bloodsport."
   },
   "Sutcliffe": {
-    "type": "npc",
+    "type": "character",
     "summary": "Pursued arcane knowledge despite lacking aether affinity, creating the Arknight project to unlock magical abilities. Betrayed by his creation, Viserai, he was killed and now exists trapped in a skull, tormented and longing for revenge."
   },
   "SyntheaTeklo": {
-    "type": "npc",
+    "type": "character",
     "match": "Synthea Teklo",
     "summary": "Teklo Industries CEO."
   },
@@ -228,7 +228,7 @@
     "summary": "Energy source invented by Professor Teklovossen."
   },
   "Thiroux": {
-    "type": "npc",
+    "type": "character",
     "summary": "Dash's mother."
   },
   "Verides": "Solanian Wednesday",
@@ -239,11 +239,11 @@
     "summary": "A powerful artifact said to have an entire storm trapped within its crystalline walls."
   },
   "Xilin": {
-    "type": "npc",
+    "type": "character",
     "summary": "Ira and Jing's brother."
   },
   "Yama": {
-    "type": "npc",
+    "type": "character",
     "summary": "Lord Chancellor and Head of the Ezu faction."
   },
   "Yvor": {
@@ -270,7 +270,7 @@
     ]
   },
   "Kien": {
-    "type": "npc",
+    "type": "character",
     "summary": "A Disciple of Pain who volunteered as a blood sacrifice for Chane during an expedition into i'Arathael."
   },
   "Ursur": {
@@ -298,7 +298,7 @@
     "summary": "The demon whose all-consuming hunger possesses Levia the Consumed."
   },
   "Eirina": {
-    "type": "npc",
+    "type": "character",
     "summary": "Boltyn's beloved, a cleric he prays to for courage in battle."
   },
   "Arakni": {
@@ -847,17 +847,17 @@
     "summary": "The living peoples of Rathe, reduced by the Old Ones to survivors in Isenloft, Aldengrove and Valahai."
   },
   "Wendryn": {
-    "type": "npc",
+    "type": "character",
     "summary": "Scarred veteran Wayfarer of Valahai, lost holding the Shyldverk against the ravenirs."
   },
   "AstreaQuazor": {
     "match": "Astrea Quazor",
-    "type": "npc",
+    "type": "character",
     "summary": "The Auric Keep's finest surgeon, whose knowledge of aether saved Zyggy after Yvor's detonation."
   },
   "AuricSeeress": {
     "match": "Auric Seeress",
-    "type": "npc",
+    "type": "character",
     "summary": "Prophetess who trained Zyggy; she foresaw the end and died in Valahai's fall."
   },
   "WhispersOfXerys": {
@@ -866,7 +866,7 @@
     "summary": "A mysterious voice that addresses Viserai, the Arknight, urging him toward the power hidden within his grasp."
   },
   "Wynvarin": {
-    "type": "npc",
+    "type": "character",
     "summary": "The first Wayfarer, remembered for the saying “the lightning shall carry me before the storm.”"
   },
   "Isenloft": {
@@ -950,11 +950,11 @@
     ]
   },
   "Apostate": {
-    "type": "npc",
+    "type": "character",
     "summary": "The Grand Magister who denounced Sol, founded the Demonastery, and sacrificed themself to tear it from Rathe into the Nebulus Rift."
   },
   "LadyBarthimont": {
-    "type": "npc",
+    "type": "character",
     "match": "Barthimont",
     "summary": "Northern Realms noblewoman who turned to the Shadow through a gifted grimoire, bleeding her servants in rituals to buy power; strangled by the servant who stole the entity she meant to summon.",
     "exclude_pages": [
@@ -962,7 +962,7 @@
     ]
   },
   "KrestMortimer": {
-    "type": "npc",
+    "type": "character",
     "match": "Mortimer",
     "summary": "Scientist cast out of a Metrix institute for extreme experiments, now director of Southmaw asylum in the Pits and a student of Inertia and the Bloodrot Pox.",
     "exclude_pages": [
@@ -970,7 +970,7 @@
     ]
   },
   "TheLibrarian": {
-    "type": "npc",
+    "type": "character",
     "match": "Librarian",
     "summary": "The Magister who keeps the Library of Illumination in Solana — a timeless, dignified custodian who guides its patrons and hunts the truth behind the Shadow's onslaught.",
     "exclude_pages": [
@@ -979,7 +979,7 @@
     ]
   },
   "MinervaThemis": {
-    "type": "npc",
+    "type": "character",
     "match": "Minerva",
     "summary": "Orphan turned Gemini spy who lost her twin Mercurius to an ambush, and now keeps the Golden Chariot inn in Solana, listening to travellers and offering counsel.",
     "exclude_pages": [
@@ -987,7 +987,7 @@
     ]
   },
   "Karl": {
-    "type": "npc",
+    "type": "character",
     "summary": "Graverobber whose crew opened a wrathful baron's coffin; he woke alone in an open grave, soaked in his comrades' blood."
   },
   "Ancient": {
@@ -1003,7 +1003,7 @@
     ]
   },
   "Boo": {
-    "type": "npc",
+    "type": "character",
     "summary": "Cheery cabin-boy phantom of the High Seas, who swabs the decks of undead crews and haunts alongside his captain."
   },
   "Miragai": {
@@ -1011,16 +1011,16 @@
     "summary": "A dragon who called on the spirits of Rain, Wind, River and Mountain to bring harmony back to the Mistveil."
   },
   "CaptainBludge": {
-    "type": "npc",
+    "type": "character",
     "match": "Captain Bludge",
     "summary": "Deranged sky-pirate who rams airship into airship, terrorising the merchant zeppelins of Piper's Pier."
   },
   "Chowder": {
-    "type": "npc",
+    "type": "character",
     "summary": "Chief cook aboard Gravy Bones' ship, whose Menu de Morbid feeds a crew whose appetites death has changed."
   },
   "Thanuella": {
-    "type": "npc",
+    "type": "character",
     "summary": "Dhani death-mage among whose possessions Dead Threads was found, casting doubt on the necrophage's true purpose."
   },
   "BloodrotPox": {

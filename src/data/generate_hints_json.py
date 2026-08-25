@@ -302,7 +302,8 @@ def generate() -> None:
     # `_warn_match_collisions` reports the first one that appears.
     #
     # `type` is derived, never hand-classified (the user's call, 2026-08-22): a
-    # character linked to a hero emits "hero", one without emits "npc". The
+    # character linked to a hero emits "hero", one without emits "character".
+    # The
     # value goes straight onto the badge through theme/hints.js, and deriving it
     # means resolving an identity pair later moves the badge with no edit here.
     character_epithets = _alias_map(conn, "character_epithets", "character_id", "name")
@@ -327,7 +328,7 @@ def generate() -> None:
         if not row["summary"]:
             continue
         entry = {
-            "type": "hero" if row["hero_canonical_id"] else "npc",
+            "type": "hero" if row["hero_canonical_id"] else "character",
             "summary": row["summary"],
         }
         # theme/hints.js has read entry.kind for the badge since stage 4 and
