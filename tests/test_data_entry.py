@@ -174,7 +174,7 @@ def test_section_modules_reference_entities_rather_than_construct_them(module) -
 
     Every registry id is a hash of the fields written at the call site — a character
     *is* its name, a location *is* its name and its region, a food or drink *is*
-    its name and its kind — so two literals for one entity give two rows and
+    its name and its form — so two literals for one entity give two rows and
     nothing raises. ``Legendarium`` and ``The Shadow Crypts`` each became two rows
     that way; ``Deathmatch Arena`` and ``The Moat`` were declared inconsistently
     and would have followed.
@@ -220,7 +220,7 @@ def test_catalogue_constants_have_distinct_ids() -> None:
         (monsters, lambda e: _monster_id(e.name)),
         (fauna, lambda e: fauna_id_from_name(e.name)),
         (flora, lambda e: flora_id(e.name)),
-        (food_drink, lambda e: food_drink_id(e.name, e.kind)),
+        (food_drink, lambda e: food_drink_id(e.name, e.form)),
         (groups, lambda e: group_id(e.name)),
     ):
         seen: dict[str, str] = {}

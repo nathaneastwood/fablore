@@ -54,7 +54,7 @@ from __future__ import annotations
 
 import sqlite3
 
-CURRENT_VERSION = 19
+CURRENT_VERSION = 20
 
 _V1_DDL = """
 CREATE TABLE IF NOT EXISTS stories (
@@ -266,7 +266,10 @@ CREATE TABLE IF NOT EXISTS equipment_printings (
 CREATE TABLE IF NOT EXISTS groups (
     group_id        TEXT PRIMARY KEY,
     name            TEXT NOT NULL,
-    kind            TEXT NOT NULL DEFAULT '',
+    -- What sort of body this is: 'clan', 'house', 'guild', 'order'. Renamed
+    -- from 'kind' in migration 20 — 'kind' now means only the character
+    -- sense (what a character *is*); this is what body a group belongs to.
+    category        TEXT NOT NULL DEFAULT '',
     notes           TEXT NOT NULL DEFAULT '',
     -- A group inside a group: Boulders inside a clan, a guild inside a carnival.
     -- Both id columns default to '' and so carry no SQL REFERENCES; see the note
@@ -423,7 +426,7 @@ CREATE TABLE IF NOT EXISTS story_titles (
 -- same shape as group_characters.
 --
 -- relation is a closed vocabulary, checked in validate_data.py rather than by
--- SQLite (the same split status and npc_epithets.kind follow):
+-- SQLite (the same split status and character_epithets.label follow):
 -- 'father'/'mother'/'parent' invert to 'child'; 'child' inverts to 'parent',
 -- not a gender, because the data does not know which parent; 'sibling' and
 -- 'spouse' are their own inverse.
@@ -450,8 +453,10 @@ CREATE TABLE IF NOT EXISTS character_epithets (
     -- 'epithet' is a style the character is given: "the Wartune Herald".
     -- 'short-name' is the same character in fewer words: "Mortimer" for
     -- "Dr. Krest Mortimer, 'The Fixer'". Both resolve to one row, and both are
-    -- match strings; the kind is what lets a tooltip word them differently.
-    kind         TEXT NOT NULL DEFAULT 'epithet',
+    -- match strings; the label is what lets a tooltip word them differently.
+    -- Renamed from 'kind' in migration 20 — 'kind' now means only what a
+    -- character *is*, and this is a style of alternate name, not that.
+    label        TEXT NOT NULL DEFAULT 'epithet',
     sort_order   INTEGER NOT NULL DEFAULT 0,
     PRIMARY KEY (character_id, name)
 );
@@ -1179,4 +1184,38 @@ def migrate(conn: sqlite3.Connection) -> None:
                 conn.execute(f"ALTER TABLE {table} RENAME COLUMN species_id TO kind_id")
 
         conn.execute("PRAGMA user_version = 19")
+        conn.commit()
+
+    if version < 20:
+        # `kind` carried four unrelated meanings: what a character *is*
+        # (character_kinds / kinds — the real, intrinsic sense, and the one
+        # that keeps the name), what body a group belongs to, whether a
+        # food/drink item is food or drink, and the style of an alternate
+        # character name. This block renames the three that are not the
+        # character sense, so `kind` means only that from here on:
+        #
+        #   groups.kind             -> groups.category
+        #   character_epithets.kind -> character_epithets.label
+        #
+        # food_and_drink carries no `kind` column on disk — its column has
+        # always been `type` — so there is nothing to rename there; only the
+        # Python-side FoodDrinkEntry.kind attribute is renamed (to `form`),
+        # which is not a schema change and needs no migration.
+        #
+        # Both tables are already current by the time this block can run —
+        # migration 19 is what folds npc_epithets into character_epithets —
+        # so a plain column rename is enough; no FK toggling like 19 needed,
+        # since neither table is dropped or recreated here.
+        #
+        # _V1_DDL already creates both tables with the new column names, so a
+        # from-scratch build never has a `kind` column on either and this is
+        # a no-op for it, exactly like the species_id check in 19 above.
+        for table, old_col, new_col in (
+            ("groups", "kind", "category"),
+            ("character_epithets", "kind", "label"),
+        ):
+            if old_col in {r[1] for r in conn.execute(f"PRAGMA table_info({table})")}:
+                conn.execute(f"ALTER TABLE {table} RENAME COLUMN {old_col} TO {new_col}")
+
+        conn.execute("PRAGMA user_version = 20")
         conn.commit()

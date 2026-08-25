@@ -232,7 +232,7 @@ def _group_fragment_fixture(tmp_path: Path, lore_story_key: str, lore_fragment: 
     groups = tmp_path / "groups.csv"
     groups.write_text(
         "# banner\n"
-        "GroupId|Name|Kind|Notes|ParentGroupId|LocationId|LoreStoryKey|LoreFragment\n"
+        "GroupId|Name|Category|Notes|ParentGroupId|LocationId|LoreStoryKey|LoreFragment\n"
         f"GR1|Hand of Sol|order|||| {lore_story_key}|{lore_fragment}\n".replace("| ", "|"),
         encoding="utf-8",
     )
@@ -275,22 +275,22 @@ def test_check_group_lore_fragments_ignores_groups_with_no_link(tmp_path: Path) 
 # ---------------------------------------------------------------------------
 
 
-def test_epithet_kind_must_be_in_the_closed_list(tmp_path: Path) -> None:
-    from validate_data import _check_epithet_kinds
+def test_epithet_label_must_be_in_the_closed_list(tmp_path: Path) -> None:
+    from validate_data import _check_epithet_labels
 
     path = tmp_path / "character-epithets.csv"
-    path.write_text("# x\nCharacterId|Name|Kind\nLC1|the Fixer|nickname\n")
-    alerts = _check_epithet_kinds(path)
+    path.write_text("# x\nCharacterId|Name|Label\nLC1|the Fixer|nickname\n")
+    alerts = _check_epithet_labels(path)
     assert len(alerts) == 1
     assert "nickname" in alerts[0]
 
 
-def test_epithet_kind_accepts_both_valid_kinds(tmp_path: Path) -> None:
-    from validate_data import _check_epithet_kinds
+def test_epithet_label_accepts_both_valid_labels(tmp_path: Path) -> None:
+    from validate_data import _check_epithet_labels
 
     path = tmp_path / "character-epithets.csv"
-    path.write_text("# x\nCharacterId|Name|Kind\nLC1|the Fixer|epithet\nLC1|Mortimer|short-name\n")
-    assert _check_epithet_kinds(path) == []
+    path.write_text("# x\nCharacterId|Name|Label\nLC1|the Fixer|epithet\nLC1|Mortimer|short-name\n")
+    assert _check_epithet_labels(path) == []
 
 
 def test_character_status_must_be_in_the_closed_list(tmp_path: Path) -> None:

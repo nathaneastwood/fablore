@@ -1,5 +1,5 @@
 # AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Database class in src/data/db/ (db.upsert_story).
-CharacterId|Name|Kind
+CharacterId|Name|Label
 LC00a9c28b68|god of the great deep|epithet
 LC06fe4efa62|Mistress of Malady|epithet
 LC1e8f706fca|the Shield of Light|epithet

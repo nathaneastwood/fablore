@@ -150,17 +150,17 @@ def flora_id(name: str) -> str:
     return _sha256_id("FR", name.strip())
 
 
-def food_drink_id(name: str, kind: str) -> str:
-    """Return ``FoodDrinkId`` from name and type/kind.
+def food_drink_id(name: str, form: str) -> str:
+    """Return ``FoodDrinkId`` from name and type/form.
 
     Args:
         name: Item display name.
-        kind: ``Type`` column value.
+        form: ``Type`` column value.
 
     Returns:
-        ``FD`` + digest of ``name|kind``.
+        ``FD`` + digest of ``name|form``.
     """
-    composite = f"{name.strip()}|{kind.strip()}"
+    composite = f"{name.strip()}|{form.strip()}"
     return _sha256_id("FD", composite)
 
 

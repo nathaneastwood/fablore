@@ -222,7 +222,7 @@ def upsert_group(
     *,
     group_id: str,
     name: str,
-    kind: str = "",
+    category: str = "",
     notes: str = "",
     parent_group_id: str = "",
     location_id: str = "",
@@ -246,14 +246,14 @@ def upsert_group(
     conn.execute(
         """
         INSERT INTO groups
-            (group_id, name, kind, notes, parent_group_id, location_id,
+            (group_id, name, category, notes, parent_group_id, location_id,
              lore_story_key, lore_fragment)
         VALUES (?,?,?,?,?,?,?,?)
         ON CONFLICT(group_id) DO UPDATE SET
             name            = excluded.name,
-            kind            = CASE WHEN excluded.kind != ''
-                              THEN excluded.kind
-                              ELSE groups.kind END,
+            category        = CASE WHEN excluded.category != ''
+                              THEN excluded.category
+                              ELSE groups.category END,
             notes           = CASE WHEN excluded.notes != ''
                               THEN excluded.notes
                               ELSE groups.notes END,
@@ -270,7 +270,7 @@ def upsert_group(
                               THEN excluded.lore_fragment
                               ELSE groups.lore_fragment END
         """,
-        (group_id, name, kind, notes, parent_group_id, location_id, lore_story_key, lore_fragment),
+        (group_id, name, category, notes, parent_group_id, location_id, lore_story_key, lore_fragment),
     )
 
 
@@ -497,21 +497,21 @@ def set_character_epithets(conn: sqlite3.Connection, character_id: str, entries:
     """Replace every alternate name for ``character_id``.
 
     Args:
-        entries: ``(name, kind)`` pairs in display order. ``kind`` is ``'epithet'``
+        entries: ``(name, label)`` pairs in display order. ``label`` is ``'epithet'``
             or ``'short-name'``; ``sort_order`` follows the list order.
     """
     conn.execute("DELETE FROM character_epithets WHERE character_id = ?", [character_id])
     if entries:
         conn.executemany(
-            "INSERT OR IGNORE INTO character_epithets (character_id, name, kind, sort_order) VALUES (?,?,?,?)",
-            [(character_id, name, kind, i) for i, (name, kind) in enumerate(entries)],
+            "INSERT OR IGNORE INTO character_epithets (character_id, name, label, sort_order) VALUES (?,?,?,?)",
+            [(character_id, name, label, i) for i, (name, label) in enumerate(entries)],
         )
 
 
 def select_character_epithets(conn: sqlite3.Connection, character_id: str) -> list[tuple[str, str]]:
-    """Return ``(name, kind)`` rows for ``character_id`` in declared order."""
+    """Return ``(name, label)`` rows for ``character_id`` in declared order."""
     rows = conn.execute(
-        "SELECT name, kind FROM character_epithets WHERE character_id = ? ORDER BY sort_order, name",
+        "SELECT name, label FROM character_epithets WHERE character_id = ? ORDER BY sort_order, name",
         [character_id],
     ).fetchall()
     return [(r[0], r[1]) for r in rows]

@@ -248,7 +248,7 @@ class CharacterEntry:
     short_names: tuple[str, ...] = ()
     """The same character in fewer words: ``"Mortimer"`` for
     ``"Dr. Krest Mortimer, 'The Fixer'"``. Stored alongside the epithets under
-    ``kind='short-name'`` — both are match strings, and only the wording of a
+    ``label='short-name'`` — both are match strings, and only the wording of a
     tooltip needs to tell them apart."""
     hero_slug: str = ""
     """Declares that this character *is* that playable hero (identity spine, migration
@@ -278,7 +278,7 @@ class CharacterEntry:
         CharacterEntry("Lyath", kin=((people.BLOODWORTH_GOLDMANE, "father"), ("victor", "sibling")))
 
     ``relation`` is a closed vocabulary, checked in ``validate_data.py`` rather
-    than here (the same split ``status`` and epithet ``kind`` follow):
+    than here (the same split ``status`` and epithet ``label`` follow):
     ``father``, ``mother``, ``parent``, ``sibling``, ``spouse``, ``child``.
     ``parent``/``child`` exist alongside the gendered pair because a page may
     state a parent without saying which — the data should not have to guess.
@@ -389,13 +389,13 @@ class FoodDrinkEntry:
     """A food or drink item to link to a story (upserted into food_and_drink table).
 
     Frozen and shared — the constants live in ``entries/catalogue/food_drink.py``.
-    ``food_drink_id`` hashes ``"name|kind"``, so ``kind`` is part of the identity
+    ``food_drink_id`` hashes ``"name|form"``, so ``form`` is part of the identity
     the way a location's ``region`` is: change it at one call site and you get a
     second row, not an edited one.
     """
 
     name: str
-    kind: str
+    form: str
     """Type category, e.g. ``"Drink"`` or ``"Food"``."""
 
 
@@ -419,7 +419,7 @@ class GroupEntry:
     """
 
     name: str
-    kind: str = ""
+    category: str = ""
     """Free text: ``"clan"``, ``"house"``, ``"guild"``, ``"order"``, ``"troupe"``."""
     members: tuple["CharacterEntry | str | tuple[CharacterEntry | str, str]", ...] = ()
     """The roster (R1). A tuple, because the dataclass is frozen and hashable.
@@ -1130,10 +1130,10 @@ class _DryRunReport:
 
             stored = set(q.select_character_epithets(self.conn, cid))
             wanted = {(n, "epithet") for n in entry.epithets} | {(n, "short-name") for n in entry.short_names}
-            for name, kind in sorted(wanted - stored):
-                lines.append(f"    + {entry.name}: {kind} {name!r}")
-            for name, kind in sorted(stored - wanted):
-                lines.append(f"    - {entry.name}: {kind} {name!r} REMOVED")
+            for name, label in sorted(wanted - stored):
+                lines.append(f"    + {entry.name}: {label} {name!r}")
+            for name, label in sorted(stored - wanted):
+                lines.append(f"    - {entry.name}: {label} {name!r} REMOVED")
 
         for entry in reach_locations:
             lid = _location_id(entry.name, region_row_id(entry.region) if entry.region else "")
@@ -1270,17 +1270,17 @@ class _DryRunReport:
             self.out.write("\n".join(lines) + "\n")
 
     def show_food_drink_changes(self, food_drink: "list[FoodDrinkEntry] | None") -> None:
-        """Warn when a kind change forks a row, as ``food_drink_id`` hashes name|kind."""
+        """Warn when a form change forks a row, as ``food_drink_id`` hashes name|form."""
         if food_drink is None or not self.existing:
             return
         linked_ids = q.select_story_junction(self.conn, self.story_id, "story_food_drink", "food_drink_id")
         lines: list[str] = []
         for entry in food_drink:
-            new_id = food_drink_id(entry.name, entry.kind)
+            new_id = food_drink_id(entry.name, entry.form)
             superseded = [fid for fid in linked_ids if self.food_id_to_name.get(fid) == entry.name and fid != new_id]
             if not superseded:
                 continue
-            lines.append(f"    ~ {entry.name}: kind -> {entry.kind!r}")
+            lines.append(f"    ~ {entry.name}: form -> {entry.form!r}")
             lines.append(f"      NEW ROW {superseded[0]} -> {new_id}; the old row is orphaned, not updated")
         if lines:
             self.changed = True
@@ -1354,12 +1354,12 @@ class _DryRunReport:
                 roster = len(wanted_map)
                 parent = f", parent={entry.parent.name!r}" if entry.parent is not None else ""
                 lines.append(
-                    f"    + {entry.name} (new group, kind={entry.kind or '(none)'!r}{parent}, {roster} members)"
+                    f"    + {entry.name} (new group, category={entry.category or '(none)'!r}{parent}, {roster} members)"
                 )
                 continue
             parent_name = entry.parent.name if entry.parent is not None else ""
             for field, incoming in (
-                ("kind", entry.kind),
+                ("category", entry.category),
                 ("parent_group_id", _group_id(parent_name) if parent_name else ""),
                 ("lore_story_key", entry.lore_story_key),
                 ("lore_fragment", entry.lore_fragment),
@@ -2733,7 +2733,7 @@ class Database:
             self.conn,
             group_id=gid,
             name=entry.name,
-            kind=entry.kind,
+            category=entry.category,
             parent_group_id=parent_id,
             location_id=loc_id,
             lore_story_key=entry.lore_story_key,
@@ -2899,7 +2899,7 @@ class Database:
                 :data:`~db._queries.KIN_INVERSE`.
 
         The relation is checked *here*, unlike ``status`` and
-        ``character_epithets.kind``, which are left to ``validate_data.py``. Those
+        ``character_epithets.label``, which are left to ``validate_data.py``. Those
         two are only ever read back as text, so a typo is a wrong label until
         the next hook run. ``relation`` is different: it is used as a key into
         ``KIN_INVERSE`` to derive the other end of the fact, so a bad value
@@ -2994,8 +2994,8 @@ class Database:
     def _upsert_food_drink(self, entries: list[FoodDrinkEntry]) -> list[str]:
         ids: list[str] = []
         for e in entries:
-            fid = food_drink_id(e.name, e.kind)
-            q.upsert_food_drink(self.conn, food_drink_id=fid, name=e.name, type_=e.kind)
+            fid = food_drink_id(e.name, e.form)
+            q.upsert_food_drink(self.conn, food_drink_id=fid, name=e.name, type_=e.form)
             ids.append(fid)
         return ids
 

@@ -62,14 +62,14 @@ from . import locations as loc
 # HEAVY_METALS and MOLOCAS_GUILDS below. feudmasters.md, already declared at
 # entries/main_story.py:503, says it plainly.
 
-SUPER_SLAM_GUILDS = GroupEntry("Super Slam Guilds", kind="federation")
+SUPER_SLAM_GUILDS = GroupEntry("Super Slam Guilds", category="federation")
 """The competition every stable below fights in, and the row that makes the three
 stables siblings rather than three unrelated groups. It holds no members of its
 own: a fighter belongs to a guild, and the federation is what the guilds enter."""
 
 SPEAKEASYS_GUILDS = GroupEntry(
     "Speakeasy's Guilds",
-    kind="stable",
+    category="stable",
     parent=SUPER_SLAM_GUILDS,
     members=(people.SPEAKEASY,),
     member_source="main-story/super-slam/feudmasters.md",
@@ -87,7 +87,7 @@ group relation that exists, and because the alternative — letting the group's
 
 BATBITERS_GUILDS = GroupEntry(
     "Batbiter's Guilds",
-    kind="stable",
+    category="stable",
     parent=SUPER_SLAM_GUILDS,
     members=(people.BATBITER,),
     member_source="main-story/super-slam/feudmasters.md",
@@ -97,7 +97,7 @@ for him too — "a pack of **your** Chanek Jungle Slayers"."""
 
 MOLOCAS_GUILDS = GroupEntry(
     "Moloca's Guilds",
-    kind="stable",
+    category="stable",
     parent=SUPER_SLAM_GUILDS,
     members=(people.MOLOCA,),
     member_source="main-story/super-slam/feudmasters.md",
@@ -116,31 +116,31 @@ have disappeared from the data entirely. That is what ruled the junction out."""
 
 BALEFUL_HORDE = GroupEntry(
     "Baleful Horde",
-    kind="guild",
+    category="guild",
     parent=BATBITERS_GUILDS,
     members=(people.FUGGER_GRIMES,),
     member_source="flavour/super-slam.md",
 )
-BIG_BOPPERS = GroupEntry("Big Boppers", kind="guild", parent=BATBITERS_GUILDS)
-BOULDERS = GroupEntry("Boulders", kind="guild", parent=SPEAKEASYS_GUILDS)
+BIG_BOPPERS = GroupEntry("Big Boppers", category="guild", parent=BATBITERS_GUILDS)
+BOULDERS = GroupEntry("Boulders", category="guild", parent=SPEAKEASYS_GUILDS)
 """Absorbs ``Boulder Clan``; one guild, not a guild plus a dwarven clan (Q3)."""
 CHAMPIONS_OF_CHIVALRY = GroupEntry(
     "Champions of Chivalry",
-    kind="guild",
+    category="guild",
     parent=SPEAKEASYS_GUILDS,
     members=(people.EMEVIERE,),
     member_source="flavour/super-slam.md",
 )
-FURY_FISTS = GroupEntry("Fury Fists", kind="guild", parent=SPEAKEASYS_GUILDS)
+FURY_FISTS = GroupEntry("Fury Fists", category="guild", parent=SPEAKEASYS_GUILDS)
 GLORYTOWN_GLADIATORS = GroupEntry(
     "Glorytown Gladiators",
-    kind="guild",
+    category="guild",
     parent=SPEAKEASYS_GUILDS,
     members=(people.SALVADOR_STALLION,),
     member_source="flavour/super-slam.md",
 )
-GORELORDS = GroupEntry("Gorelords", kind="guild", parent=BATBITERS_GUILDS)
-HEAVY_METALS = GroupEntry("Heavy Metals", kind="guild", parent=BATBITERS_GUILDS)
+GORELORDS = GroupEntry("Gorelords", category="guild", parent=BATBITERS_GUILDS)
+HEAVY_METALS = GroupEntry("Heavy Metals", category="guild", parent=BATBITERS_GUILDS)
 """**character-groups.md puts this guild on the wrong side**, under Speakeasy with
 the hedge "(mentioned in rivalry, but tied to her side)". It is Batbiter's (the
 user's call, 2026-08-21). Speakeasy is arguing that *her* guilds fight with honor
@@ -152,7 +152,7 @@ Nobody defends a rival's guild. Being *named by* Speakeasy is what the hand-
 written file mistook for being *hers*."""
 JUNGLE_SLAYERS = GroupEntry(
     "Jungle Slayers",
-    kind="guild",
+    category="guild",
     parent=BATBITERS_GUILDS,
     aliases=("Chanek Jungle Slayers",),
     members=(people.HELX,),
@@ -164,40 +164,40 @@ JUNGLE_SLAYERS = GroupEntry(
 character-groups.md write the long form, so without the alias the tooltip matched
 neither of the two places the guild is actually named. The drift was already
 logged in ``.claude/rules/data-pipeline.md``."""
-MYTHMAKERS = GroupEntry("Mythmakers", kind="guild", parent=SPEAKEASYS_GUILDS)
-PROWLERS = GroupEntry("Prowlers", kind="guild", parent=BATBITERS_GUILDS, members=("kayo",))
-WILD_WONDERS = GroupEntry("Wild Wonders", kind="guild", parent=SPEAKEASYS_GUILDS)
+MYTHMAKERS = GroupEntry("Mythmakers", category="guild", parent=SPEAKEASYS_GUILDS)
+PROWLERS = GroupEntry("Prowlers", category="guild", parent=BATBITERS_GUILDS, members=("kayo",))
+WILD_WONDERS = GroupEntry("Wild Wonders", category="guild", parent=SPEAKEASYS_GUILDS)
 
 
 # ---------------------------------------------------------------------------
 # Solana
 # ---------------------------------------------------------------------------
 
-CHILDREN_OF_THE_LIGHT = GroupEntry("Children of the Light", kind="people")
+CHILDREN_OF_THE_LIGHT = GroupEntry("Children of the Light", category="people")
 """Every citizen inside the walls (solana.md:21). Deliberately rosterless: the
 membership is unbounded, so this row exists for mentions only (Q11)."""
-GEMINI = GroupEntry("Gemini", kind="order")
+GEMINI = GroupEntry("Gemini", category="order")
 HAND_OF_SOL = GroupEntry(
     "Hand of Sol",
-    kind="order of knights",
+    category="order of knights",
     lore_story_key="world-of-rathe/solana.md",
     lore_fragment="the-hand-of-sol",
 )
 """Was a locations row with 9 story links. An order of knights is not a place, so
 the row is dropped; ``lore_story_key`` is what keeps its link to solana.md alive,
 which is the only reason it was ever a location."""
-HOUSE_ASHWOOD = GroupEntry("House Ashwood", kind="house", members=("pleiades",))
+HOUSE_ASHWOOD = GroupEntry("House Ashwood", category="house", members=("pleiades",))
 HOUSE_GOLDMANE = GroupEntry(
     "House Goldmane",
-    kind="house",
+    category="house",
     members=("lyath", "victor-goldmane", people.BLOODWORTH_GOLDMANE),
     member_source="heroes-of-rathe/lyath-about.md",
 )
 
-SISTERS_OF_OCTOTHESIA = GroupEntry("Sisters of Octothesia", kind="order")
+SISTERS_OF_OCTOTHESIA = GroupEntry("Sisters of Octothesia", category="order")
 THE_LIGHT_OF_SOL = GroupEntry(
     "The Light of Sol",
-    kind="order of scholars",
+    category="order of scholars",
     lore_story_key="world-of-rathe/solana.md",
     lore_fragment="the-light-of-sol",
 )
@@ -209,22 +209,22 @@ and treated the same way."""
 # Demonastery / Shadow
 # ---------------------------------------------------------------------------
 
-CHURCH_OF_PAIN = GroupEntry("Church of Pain", kind="institution")
+CHURCH_OF_PAIN = GroupEntry("Church of Pain", category="institution")
 """The institution; the Disciples are its followers. Two rows, not one: the
 supplement described both and they are not the same thing (2026-08-20)."""
-DISCIPLES_OF_PAIN = GroupEntry("Disciples of Pain", kind="faction", parent=CHURCH_OF_PAIN)
-GLOOMBLADES = GroupEntry("Gloomblades", kind="faction", members=("viserai",))
+DISCIPLES_OF_PAIN = GroupEntry("Disciples of Pain", category="faction", parent=CHURCH_OF_PAIN)
+GLOOMBLADES = GroupEntry("Gloomblades", category="faction", members=("viserai",))
 
 
 # ---------------------------------------------------------------------------
 # Volcor
 # ---------------------------------------------------------------------------
 
-ALSHONI = GroupEntry("Alshoni", kind="faction")
-CHILDREN_OF_THE_DRAGON = GroupEntry("Children of the Dragon", kind="order", members=("fang",))
+ALSHONI = GroupEntry("Alshoni", category="faction")
+CHILDREN_OF_THE_DRAGON = GroupEntry("Children of the Dragon", category="order", members=("fang",))
 CINTARI = GroupEntry(
     "Cintari",
-    kind="clan",
+    category="clan",
     members=("kassai", people.ALIF, people.FAYYAD, people.SADA),
     member_source="main-story/heavy-hitters/thirst-for-revenge.md",
 )
@@ -234,7 +234,7 @@ has rebels wearing "Cintari disguises". None of that is true of a kind, which
 is what separates this call from ``Chanek`` (2026-08-20)."""
 LORD_WIZARDS_OF_THE_COURT = GroupEntry(
     "Lord Wizards of the Court",
-    kind="council",
+    category="council",
     members=(
         "kano",
         (people.LORD_WIZARD_AKIHIKO, "main-story/arcane-rising/playing-with-fire.md"),
@@ -266,9 +266,9 @@ No ``lore_story_key``. ``volcor.md:31`` heads a section "The Royal Court", but
 records that the institution/building split is unresolved — a second row pointing
 at the same anchor would deepen it rather than use it.
 
-``kind`` is the one guess in this row: no page gives the body a collective noun,
-and "council" is chosen for "monitor the court" (``from-the-ashes.md:137``)."""
-DRACAI = GroupEntry("Dracai", kind="people")
+``category`` is the one guess in this row: no page gives the body a collective
+noun, and "council" is chosen for "monitor the court" (``from-the-ashes.md:137``)."""
+DRACAI = GroupEntry("Dracai", category="people")
 """The other half of the Volcoran split, and typed like ``Volcai`` because it is
 the same kind of fact: volcor.md draws the line at dragon's blood, not at office.
 Was ``title`` (2026-08-20) — the named offices are the titles, "Fang, Dracai of
@@ -277,7 +277,7 @@ Blades", "Taipanis, Dracai of Judgement", and those hang off this row in stage 7
 Not a kind row, although a caste reads like one: every named Dracai is a
 **hero**, and ``heroes_canonical`` has three columns and no kind, so a kind
 row could hold nobody. See ``catalogue/kind.py``."""
-SANDFOLK = GroupEntry("Sandfolk", kind="people")
+SANDFOLK = GroupEntry("Sandfolk", category="people")
 """A people, not a kind — the same call Volcai and Dracai took in stage 3, so the
 three sit in one table rather than split across two (the user's call, 2026-08-21).
 
@@ -286,11 +286,11 @@ Dromai's mother's people: "Sani of the Sandfolk"
 sandstone wall against her dragons, and whose "fury continues to fester, as Xathari
 hoped it would" (``main-story/dynasty/ember-in-the-ash.md:59``). Dromai is called a
 "half-blood" for being of them and of the Dracai both."""
-EZU = GroupEntry("Ezu", kind="faction")
-SAYASHI = GroupEntry("Sayashi", kind="special force")
+EZU = GroupEntry("Ezu", category="faction")
+SAYASHI = GroupEntry("Sayashi", category="special force")
 THE_TWELVE_DRAGONS = GroupEntry(
     "The Twelve Dragons",
-    kind="pantheon",
+    category="pantheon",
     members=(
         people.AZVOLAI,
         people.CROMAI,
@@ -324,13 +324,13 @@ names the group would have lost two thirds of it. The count matching the name
 exactly — twelve titles, twelve rows, no thirteenth ``kind.DRAGON`` character anywhere — is
 what carries the inference that these twelve are those twelve.
 
-``pantheon``, the same kind ``Deities`` and ``Dhani Deities`` took: the tomes are
+``pantheon``, the same category ``Deities`` and ``Dhani Deities`` took: the tomes are
 studied, and dromai-about.md calls Dracona Optimai, Tomeltai and Dominia "servants
 of the Draconic Aesir". Whether that is worship or taxonomy is stage 11's problem,
 not this row's."""
 VOLCAI = GroupEntry(
     "Volcai",
-    kind="people",
+    category="people",
     lore_story_key="world-of-rathe/volcor.md",
     lore_fragment="the-volcai",
 )
@@ -344,17 +344,17 @@ the ones registered so far link it."""
 # Metrix / The Pits
 # ---------------------------------------------------------------------------
 
-ARMS_DEALERS = GroupEntry("Arms Dealers", kind="gang")
-COGWERX = GroupEntry("Cogwerx", kind="corporation")
-IRON_ASSEMBLY = GroupEntry("Iron Assembly", kind="organisation")
+ARMS_DEALERS = GroupEntry("Arms Dealers", category="gang")
+COGWERX = GroupEntry("Cogwerx", category="corporation")
+IRON_ASSEMBLY = GroupEntry("Iron Assembly", category="organisation")
 """Absorbs ``Iron Council``, shouted once in stroke-of-genius.md (Q2)."""
-TRANSCENDENTS = GroupEntry("Transcendents", kind="order", location=loc.SKYLARK_PEAK)
+TRANSCENDENTS = GroupEntry("Transcendents", category="order", location=loc.SKYLARK_PEAK)
 """Named once, on flavour/outsiders.md: "Grand masters of old reside atop Skylark
 peak. Amongst these Transcendents..." The location is where they are; no page
 describes them well enough for a summary."""
 L_APOCALYPTA = GroupEntry(
     "L'Apocalypta",
-    kind="cult",
+    category="cult",
     members=(people.ANARCH_ZEIR,),
     member_source="flavour/compendium-of-rathe.md",
     lore_story_key="world-of-rathe/pits.md",
@@ -364,7 +364,7 @@ L_APOCALYPTA = GroupEntry(
 ``generate_hints_json.py`` emits both glyphs from the name, so the DB holds one
 spelling and the prose still resolves either way — the same rule ``Aui's Scales``
 follows."""
-MENDACITY_MEDIA = GroupEntry("Mendacity Media", kind="corporation", aliases=("Mendacity",))
+MENDACITY_MEDIA = GroupEntry("Mendacity Media", category="corporation", aliases=("Mendacity",))
 """The prose says "Mendacity" far more often than the full name — metrix.md writes
 it bare six times. Migrating the supplement entry to a group renamed the tooltip
 key to the full name and took the short form's tooltip with it; the alias is what
@@ -372,7 +372,7 @@ gives it back."""
 """Absorbs ``Mendacity``, ``Voxx`` and the ``Voxx Press`` location row (Q5)."""
 REGISTRY = GroupEntry(
     "Registry",
-    kind="corporation",
+    category="corporation",
     lore_story_key="world-of-rathe/metrix.md",
     lore_fragment="registry",
 )
@@ -380,17 +380,17 @@ REGISTRY = GroupEntry(
 "the Registry" with a lowercase article, so the article is not part of the name.
 Rule N3 — follow the lore name by name. Contrast "The Foundry", whose own heading
 keeps its article."""
-STEELSTREET_ENFORCERS = GroupEntry("Steelstreet Enforcers", kind="law enforcement")
+STEELSTREET_ENFORCERS = GroupEntry("Steelstreet Enforcers", category="law enforcement")
 THE_FOUNDRY = GroupEntry(
     "The Foundry",
-    kind="organisation",
+    category="organisation",
     location=loc.THE_FOUNDRY,
     lore_story_key="world-of-rathe/metrix.md",
     lore_fragment="the-foundry",
 )
 """A station and a place, so it keeps its locations row and links to it, the same
 shape as Teklo Industries."""
-TEKLO_INDUSTRIES = GroupEntry("Teklo Industries", kind="corporation", location=loc.TEKLO_INDUSTRIES)
+TEKLO_INDUSTRIES = GroupEntry("Teklo Industries", category="corporation", location=loc.TEKLO_INDUSTRIES)
 """The one group that is genuinely also a place: a company and a works, with 14
 story links to the location, which is why the location row stays (G05)."""
 
@@ -399,28 +399,28 @@ story links to the location, which is why the location row stays (G05)."""
 # Misteria
 # ---------------------------------------------------------------------------
 
-AUIS_SCALES = GroupEntry("Aui's Scales", kind="organisation")
+AUIS_SCALES = GroupEntry("Aui's Scales", category="organisation")
 """Keeps an override-only supplement stub: its ``exclude_pages`` suppression on
 wanderings-in-the-mists and its two ``match`` spellings (straight and curly
 apostrophe) are display facts no column models."""
-CRIMSON_HAZE = GroupEntry("Crimson Haze", kind="rebels")
+CRIMSON_HAZE = GroupEntry("Crimson Haze", category="rebels")
 """At odds with Aui's Scales for centuries. The opposition between them is a
 relation with no column; it stays prose in the notes. Keeps a stub for
 ``exclude_pages``."""
-CLAN_NASU_KA = GroupEntry("Clan Nasu-ka", kind="clan", location=loc.NASU_KA_TEAHOUSE)
+CLAN_NASU_KA = GroupEntry("Clan Nasu-ka", category="clan", location=loc.NASU_KA_TEAHOUSE)
 """The clan and the house it keeps, linked like Ikaru Clan to Ikaru.
 part-1-the-tiger-in-the-mist.md calls the teahouse itself "Nasu-ka", so the two
 names are close enough that keeping both rows joined is what stops them drifting."""
-HIDESHI = GroupEntry("Hideshi", kind="house")
-KAIGOMO = GroupEntry("Kaigomo", kind="order")
+HIDESHI = GroupEntry("Hideshi", category="house")
+KAIGOMO = GroupEntry("Kaigomo", category="order")
 """One mention in the whole book, on flavour/part-the-mistveil.md — enough to
 know they field ronin across Misteria, not enough for a documentation page."""
-REKVAS_BLOODBOARS = GroupEntry("Rek'vas Bloodboars", kind="warband")
+REKVAS_BLOODBOARS = GroupEntry("Rek'vas Bloodboars", category="warband")
 """Named once, on flavour/crucible-of-war.md — they hear word of war and want in,
 which is what marks them as people rather than the beasts the name suggests."""
 KOTORI = GroupEntry(
     "Kotori",
-    kind="emissaries",
+    category="emissaries",
     members=(
         people.ANHE_KOTORI_WAVEBENDER,
         people.DAN_LU_KOTORI_GALEWARDEN,
@@ -433,13 +433,13 @@ names that all carry it — Wavebender, Galewarden, Moonseeker. Those three role
 are ranks and wait for R3. No notes, because nothing in the lore describes them."""
 IKARU_CLAN = GroupEntry(
     "Ikaru Clan",
-    kind="house",
+    category="house",
     members=("ira",),
     location=loc.IKARU,
     member_source="heroes-of-rathe/ira-about.md",
 )
 """Absorbs ``House of Blossoms``. The location row stays as the place Ikaru (Q6)."""
-MUGENSHI_CLAN = GroupEntry("Mugenshi Clan", kind="clan", members=("benji",))
+MUGENSHI_CLAN = GroupEntry("Mugenshi Clan", category="clan", members=("benji",))
 
 
 # ---------------------------------------------------------------------------
@@ -448,30 +448,30 @@ MUGENSHI_CLAN = GroupEntry("Mugenshi Clan", kind="clan", members=("benji",))
 
 AETHERSCRIBES = GroupEntry(
     "Aetherscribes",
-    kind="collective",
+    category="collective",
     lore_story_key="world-of-rathe/aria.md",
     lore_fragment="aetherscribes",
 )
-GUARDIANS = GroupEntry("Guardians", kind="order")
+GUARDIANS = GroupEntry("Guardians", category="order")
 OLLIN = GroupEntry(
     "Ollin",
-    kind="order",
+    category="order",
     lore_story_key="world-of-rathe/aria.md",
     lore_fragment="ollin",
 )
 ROSETTA = GroupEntry(
     "Rosetta",
-    kind="order",
+    category="order",
     members=(people.OZRIM, people.QUEEN_OF_CANDLEHOLD),
     member_source="short-stories/rosetta/verdance-thorn-of-the-rose.md",
 )
 """``Rosetta`` is also the ``Kind`` value on both of these characters, which is the
 kind column holding a membership — the mix-up stage 4 exists to unpick. The
 group is the truth; the kind values are wrong (2026-08-20)."""
-SEERS = GroupEntry("Seers", kind="order")
+SEERS = GroupEntry("Seers", category="order")
 THE_MAELA = GroupEntry(
     "The Maela",
-    kind="troupe",
+    category="troupe",
     members=(
         (people.MAELA_FAIRMIND, "flavour/compendium-of-rathe.md"),
         (people.MAELA_ISULFV, "flavour/omens-of-the-third-age.md"),
@@ -514,7 +514,7 @@ prefix that gave ``KOTORI`` its roster (the user's call, 2026-08-20).
 ``Soothsayer`` is a rank and waits for stage 7."""
 THE_VALDUR = GroupEntry(
     "The Valdur",
-    kind="troupe",
+    category="troupe",
     location=loc.THE_EVERFEST_CARNIVAL,
     lore_story_key="world-of-rathe/aria.md",
     lore_fragment="the-everfest-carnival",
@@ -522,10 +522,10 @@ THE_VALDUR = GroupEntry(
 """Was a locations row (G02). See THE_MAELA on the Carnival link, and on the
 fragment: both troupes are described in the same aria.md section and neither has
 a heading of its own, so both point at ``the-everfest-carnival``."""
-WARDENS = GroupEntry("Wardens", kind="order")
+WARDENS = GroupEntry("Wardens", category="order")
 WAYFARERS = GroupEntry(
     "Wayfarers",
-    kind="order",
+    category="order",
     lore_story_key="world-of-rathe/aria.md",
     lore_fragment="wayfarers-1",
 )
@@ -545,7 +545,7 @@ craft section while its summary was written from the Valahai one."""
 
 THE_DHANI_EMPIRE = GroupEntry(
     "The Dhani Empire",
-    kind="empire",
+    category="empire",
     aliases=("Dhani Empire",),
     lore_story_key="world-of-rathe/high-seas.md",
     lore_fragment="the-dhani-empire",
@@ -558,7 +558,7 @@ The alias restores the bare form. Stage 2 replaced a supplement entry matching
 ``Dhani Empire`` with this row, whose name carries the article, so the matcher
 stopped finding "a long-dead Dhani Empire" — the same loss ``Mendacity`` took, and
 one the clash warning cannot report, because a missing bare form is not a clash."""
-DEITIES = GroupEntry("Deities", kind="pantheon")
+DEITIES = GroupEntry("Deities", category="pantheon")
 """**Gods are a group, not a kind** (the user's call, 2026-08-21). A deity is a
 role a culture assigns, not a kind of being, so Absolon and Nocetes do not join
 ``kind.AESIR``/``kind.ANCIENT``/``kind.EMBRA``/``kind.HERALD``/``kind.DRAGON`` in the kind
@@ -574,7 +574,7 @@ is what makes those pantheons siblings."""
 
 DHANI_DEITIES = GroupEntry(
     "Dhani Deities",
-    kind="pantheon",
+    category="pantheon",
     parent=DEITIES,
     members=(people.ABSOLON, people.NOCETES),
     member_source="world-of-rathe/high-seas.md",
@@ -589,23 +589,24 @@ already notes that "Dhani" also runs through the archive as a folk with their ow
 
 KURAGHAN = GroupEntry(
     "Kuraghan",
-    kind="cult",
+    category="cult",
     lore_story_key="world-of-rathe/high-seas.md",
     lore_fragment="the-kuraghan",
 )
 THE_SPIDER = GroupEntry(
     "The Spider",
-    kind="organisation",
+    category="organisation",
     members=("uzuri", "arakni-solitary-confinement"),
     member_source="heroes-of-rathe/uzuri-about.md",
 )
 VANGELD = GroupEntry(
     "VanGeld",
-    kind="clan",
+    category="clan",
     members=(people.TARA_VANGELD,),
     member_source="heroes-of-rathe/lyath-about.md",
 )
-"""No "clan" in the name: lyath-about.md writes it as a common noun, and ``kind``
-holds it. Sits beside ``Mugenshi Clan``, which keeps its kind word because the
-lore always writes it that way — rule N3, follow the lore name by name (Q13)."""
-VIPRESSA = GroupEntry("Vipressa", kind="faction")
+"""No "clan" in the name: lyath-about.md writes it as a common noun, and
+``category`` holds it. Sits beside ``Mugenshi Clan``, which keeps its category
+word because the lore always writes it that way — rule N3, follow the lore
+name by name (Q13)."""
+VIPRESSA = GroupEntry("Vipressa", category="faction")

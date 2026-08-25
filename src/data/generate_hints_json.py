@@ -382,7 +382,7 @@ def generate() -> None:
             taken,
         )
 
-    # Groups. `kind` is the displayed type when it is set ("clan", "guild",
+    # Groups. `category` is the displayed type when it is set ("clan", "guild",
     # "order"), which reads better than a flat "group" label and matches what
     # hints_supplement.json has been doing by hand with `faction` /
     # `organisation`. Rows with empty notes are skipped like every other
@@ -397,7 +397,7 @@ def generate() -> None:
     # itself. A location walks region_id -> world_of_rathe_story_key to reach its
     # page; a group has no region to walk.
     group_sql = """
-        SELECT g.group_id, g.name, g.kind, g.notes, g.lore_story_key, g.lore_fragment,
+        SELECT g.group_id, g.name, g.category, g.notes, g.lore_story_key, g.lore_fragment,
                l.region_id AS loc_region_id
         FROM groups g
         LEFT JOIN locations l ON l.location_id = g.location_id
@@ -406,7 +406,7 @@ def generate() -> None:
     for row in conn.execute(group_sql):
         if not row["notes"]:
             continue
-        entry = {"type": row["kind"] or "group", "summary": row["notes"]}
+        entry = {"type": row["category"] or "group", "summary": row["notes"]}
         region = regions.get(row["loc_region_id"] or "", "")
         if region:
             entry["region"] = region

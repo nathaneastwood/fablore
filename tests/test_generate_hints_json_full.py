@@ -123,7 +123,7 @@ def _create_hint_tables(conn: sqlite3.Connection) -> None:
     conn.execute("CREATE TABLE fauna (name TEXT, description TEXT)")
     conn.execute("CREATE TABLE flora (name TEXT, description TEXT)")
     conn.execute(
-        "CREATE TABLE groups (group_id TEXT DEFAULT '', name TEXT, kind TEXT, notes TEXT,"
+        "CREATE TABLE groups (group_id TEXT DEFAULT '', name TEXT, category TEXT, notes TEXT,"
         " location_id TEXT DEFAULT '', lore_story_key TEXT DEFAULT '', lore_fragment TEXT DEFAULT '')"
     )
     conn.execute("CREATE TABLE location_aliases (location_id TEXT, alias TEXT, era TEXT, sort_order INTEGER)")
@@ -135,7 +135,7 @@ def _create_hint_tables(conn: sqlite3.Connection) -> None:
         " summary TEXT DEFAULT '')"
     )
     conn.execute("CREATE TABLE character_heroes (canonical_id TEXT, character_id TEXT)")
-    conn.execute("CREATE TABLE character_epithets (character_id TEXT, name TEXT, kind TEXT, sort_order INTEGER)")
+    conn.execute("CREATE TABLE character_epithets (character_id TEXT, name TEXT, label TEXT, sort_order INTEGER)")
     conn.execute("CREATE TABLE character_kinds (character_id TEXT, kind_id TEXT, sort_order INTEGER)")
 
 
@@ -284,11 +284,11 @@ def _make_group_db(path: Path) -> None:
     conn.execute("INSERT INTO regions VALUES ('R1', 'Misteria')")
     conn.execute("INSERT INTO locations (name, notes, region_id, location_id) VALUES ('Ikaru', 'A house.', 'R1', 'L1')")
     conn.execute(
-        "INSERT INTO groups (group_id, name, kind, notes, location_id) VALUES"
+        "INSERT INTO groups (group_id, name, category, notes, location_id) VALUES"
         " ('G1', 'Ikaru Clan', 'house', 'One of the houses of Misteria.', 'L1')"
     )
     conn.execute(
-        "INSERT INTO groups (group_id, name, kind, notes, lore_story_key, lore_fragment) VALUES"
+        "INSERT INTO groups (group_id, name, category, notes, lore_story_key, lore_fragment) VALUES"
         " ('G2', 'Hand of Sol', 'order of knights', \"Solana's knights.\","
         " 'world-of-rathe/solana.md', 'the-hand-of-sol')"
     )
@@ -332,8 +332,8 @@ def test_group_url_comes_from_its_own_documentation_page(tmp_path: Path, monkeyp
     assert hints["Hand of Sol"]["url"] == "/world-of-rathe/solana.html#the-hand-of-sol"
 
 
-def test_group_tooltip_type_is_its_kind(tmp_path: Path, monkeypatch) -> None:
-    """Decided 2026-08-20: the label carries the kind, not a flat 'group'."""
+def test_group_tooltip_type_is_its_category(tmp_path: Path, monkeypatch) -> None:
+    """Decided 2026-08-20: the label carries the category, not a flat 'group'."""
     db_path = tmp_path / "fablore.db"
     _make_group_db(db_path)
     hints = _generate_from(db_path, tmp_path, monkeypatch)
@@ -505,7 +505,7 @@ def test_a_group_beats_a_kind_of_the_same_name(tmp_path: Path, monkeypatch) -> N
     db = tmp_path / "sp.db"
     _make_kind_db(db)
     conn = sqlite3.connect(db)
-    conn.execute("INSERT INTO groups (group_id, name, kind, notes) VALUES ('GR1','Rosetta','order','An order.')")
+    conn.execute("INSERT INTO groups (group_id, name, category, notes) VALUES ('GR1','Rosetta','order','An order.')")
     conn.execute("INSERT INTO kinds VALUES ('SP1','Rosetta','A people.')")
     conn.commit()
     conn.close()
@@ -521,7 +521,7 @@ def test_the_loser_of_a_key_clash_donates_fields_the_winner_lacks(tmp_path: Path
     conn = sqlite3.connect(db)
     conn.execute("INSERT INTO locations VALUES ('The Foundry','A radio station.','','LO1')")
     conn.execute(
-        "INSERT INTO groups (group_id, name, kind, notes, lore_story_key, lore_fragment)"
+        "INSERT INTO groups (group_id, name, category, notes, lore_story_key, lore_fragment)"
         " VALUES ('GR1','The Foundry','organisation','A radio station.',"
         "'world-of-rathe/metrix.md','the-foundry')"
     )
@@ -655,7 +655,7 @@ def test_a_character_beats_a_group_of_the_same_name(tmp_path: Path, monkeypatch)
     db = tmp_path / "c.db"
     conn = _make_character_db(db)
     conn.execute("INSERT INTO characters (character_id, name, summary) VALUES ('LC1','Rosetta','A person.')")
-    conn.execute("INSERT INTO groups (group_id, name, kind, notes) VALUES ('GR1','Rosetta','order','An order.')")
+    conn.execute("INSERT INTO groups (group_id, name, category, notes) VALUES ('GR1','Rosetta','order','An order.')")
     conn.commit()
     conn.close()
     assert _generate_from(db, tmp_path, monkeypatch)["Rosetta"]["type"] == "character"

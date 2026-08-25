@@ -522,10 +522,10 @@ def _check_hero_card_name_alias_slugs_in_canonical(canonical_path: Path) -> list
 # value verbatim as the tooltip label, so a typo ships as a visible label rather
 # than failing anything — which is the whole reason this list exists.
 #
-# It covers the SUPPLEMENT ONLY. ``groups.kind`` also reaches the tooltip as a
-# type (generate_hints_json.py), but kinds are deliberately bespoke per group
-# ("order of knights", "law enforcement"), so no closed list can cover both.
-# Decided 2026-08-20.
+# It covers the SUPPLEMENT ONLY. ``groups.category`` also reaches the tooltip as
+# a type (generate_hints_json.py), but categories are deliberately bespoke per
+# group ("order of knights", "law enforcement"), so no closed list can cover
+# both. Decided 2026-08-20.
 #
 # ``faction`` went in stage 4, once stage 2 had migrated the last entry using it
 # into the groups table. ``organisation`` is one entry from the same fate —
@@ -590,8 +590,8 @@ def _check_supplement_types(supplement_path: Path) -> list[str]:
     return alerts
 
 
-EPITHET_KINDS = frozenset({"epithet", "short-name"})
-"""The closed list for ``character-epithets.csv`` ``Kind``.
+EPITHET_LABELS = frozenset({"epithet", "short-name"})
+"""The closed list for ``character-epithets.csv`` ``Label``.
 
 An epithet is a style the character is given; a short-name is the same character
 in fewer words. Both are match strings, so a typo here would not break anything
@@ -607,7 +607,7 @@ The column used to be free text and had drifted to two spellings of the same
 fact (``Deceased`` next to ``Dead``, ``Gone`` next to nothing) and three rows
 carrying a sentence instead of a status. The value reaches the tooltip badge
 verbatim (``theme/hints.js``), so a typo here ships as a visible label — the
-same reasoning that makes :data:`EPITHET_KINDS` a checked set rather than a
+same reasoning that makes :data:`EPITHET_LABELS` a checked set rather than a
 trusted one."""
 
 
@@ -667,17 +667,19 @@ def _check_no_stranded_hero_character(characters_path: Path, canonical_path: Pat
     return alerts
 
 
-def _check_epithet_kinds(path: Path) -> list[str]:
-    """Ensure every ``character-epithets.csv`` ``Kind`` is one of :data:`EPITHET_KINDS`."""
+def _check_epithet_labels(path: Path) -> list[str]:
+    """Ensure every ``character-epithets.csv`` ``Label`` is one of :data:`EPITHET_LABELS`."""
     if not path.is_file():
         return []
     _, rows = read_pipe_csv(path)
     alerts: list[str] = []
     for row in rows:
-        kind = (row.get("Kind") or "").strip()
-        if kind and kind not in EPITHET_KINDS:
+        label = (row.get("Label") or "").strip()
+        if label and label not in EPITHET_LABELS:
             name = (row.get("Name") or "").strip()
-            alerts.append(f"character-epithets.csv: {name!r} has Kind {kind!r}, " f"not one of {sorted(EPITHET_KINDS)}")
+            alerts.append(
+                f"character-epithets.csv: {name!r} has Label {label!r}, " f"not one of {sorted(EPITHET_LABELS)}"
+            )
     return alerts
 
 
@@ -1371,7 +1373,7 @@ def collect_alerts() -> list[str]:
                 "Character ↔ profession links",
             )
         )
-    alerts.extend(_check_epithet_kinds(DATA / "csv/character-epithets.csv"))
+    alerts.extend(_check_epithet_labels(DATA / "csv/character-epithets.csv"))
     alerts.extend(_check_character_statuses(DATA / "csv/characters.csv"))
     alerts.extend(
         _check_no_stranded_hero_character(
@@ -1644,7 +1646,7 @@ def _check_new_catalogue_names(reviewed: dict[frozenset, str]) -> list[str]:
         (monsters, "csv/monsters.csv", "MonsterId", lambda e: monster_id(e.name)),
         (fauna, "csv/fauna.csv", "FaunaId", lambda e: fauna_id_from_name(e.name)),
         (flora, "csv/flora.csv", "FloraId", lambda e: flora_id(e.name)),
-        (food_drink, "csv/food-and-drink.csv", "FoodDrinkId", lambda e: food_drink_id(e.name, e.kind)),
+        (food_drink, "csv/food-and-drink.csv", "FoodDrinkId", lambda e: food_drink_id(e.name, e.form)),
     ]
     alerts: list[str] = []
     for module, csv_name, id_column, id_fn in specs:

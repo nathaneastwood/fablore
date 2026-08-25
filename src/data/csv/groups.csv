@@ -1,5 +1,5 @@
 # AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Database class in src/data/db/ (db.upsert_story).
-GroupId|Name|Kind|Notes|ParentGroupId|LocationId|LoreStoryKey|LoreFragment
+GroupId|Name|Category|Notes|ParentGroupId|LocationId|LoreStoryKey|LoreFragment
 GR3dd3b41cf0|Aetherscribes|collective|A learned collective of scholars and seers devoted to the survival of all Rathenfolk.|||world-of-rathe/aria.md|aetherscribes
 GRb6d0274aec|Alshoni|faction|A faction founded by a particular branch of the Royal Bloodline, brought together by blood ties, headed up by Lord Wizard Chiyo, cousin to the Emperor.||||
 GR3cffa0a7e5|Arms Dealers|gang|||||

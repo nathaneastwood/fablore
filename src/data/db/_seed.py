@@ -329,7 +329,7 @@ def _seed_groups(conn: sqlite3.Connection, data_dir: Path) -> None:
             conn,
             group_id=_s(row, "GroupId"),
             name=_s(row, "Name"),
-            kind=_s(row, "Kind"),
+            category=_s(row, "Category"),
             notes=_s(row, "Notes"),
             location_id=_s(row, "LocationId"),
             lore_story_key=_s(row, "LoreStoryKey"),
@@ -373,7 +373,7 @@ def _seed_alternate_names(conn: sqlite3.Connection, data_dir: Path) -> None:
         (
             "character-epithets.csv",
             "character_epithets",
-            (("CharacterId", "character_id"), ("Name", "name"), ("Kind", "kind")),
+            (("CharacterId", "character_id"), ("Name", "name"), ("Label", "label")),
         ),
         (
             "location-aliases.csv",

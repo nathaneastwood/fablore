@@ -483,7 +483,7 @@ db.upsert_story(
     #     but in desperance *he* languished". Singular, and "he": that is one
     #     person, not the order. If it evidences anything it evidences an ordinary character.
     #   MUGENSHI_CLAN — the page gives only "- Mugenshi proverb". A proverb's
-    #     attribution names a culture; the row is kind="clan" with no notes.
+    #     attribution names a culture; the row is category="clan" with no notes.
     # Not dropped, but noted: the same sentence that gives "our Gemini" also gives
     # "our Inquisitors", and that got no link because no Inquisitors row exists.
     # What a page links is shaped by what the registry already holds.

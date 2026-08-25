@@ -13,7 +13,7 @@ database growing duplicate rows for one in-world thing:
 
 Why references rather than literals: every registry id is a hash of the fields
 written at the call site — a character *is* its name, a location *is* its name and its
-region, a food or drink *is* its name and its kind. A second literal for the same
+region, a food or drink *is* its name and its form. A second literal for the same
 entity therefore does not reuse the first row, it mints a second one, and nothing
 raises. Monsters, fauna and flora hash the name alone and so cannot fork on a
 second field, but they are catalogued too: a rule with exceptions is one every

@@ -249,7 +249,7 @@ def _export_groups(conn: sqlite3.Connection, csv_dir: Path) -> None:
         {
             "GroupId": r["group_id"],
             "Name": r["name"],
-            "Kind": r["kind"],
+            "Category": r["category"],
             "Notes": r["notes"],
             "ParentGroupId": r["parent_group_id"],
             "LocationId": r["location_id"],
@@ -261,7 +261,7 @@ def _export_groups(conn: sqlite3.Connection, csv_dir: Path) -> None:
     _write_pipe_csv(
         csv_dir / "groups.csv",
         _CMD_REGISTRY,
-        ["GroupId", "Name", "Kind", "Notes", "ParentGroupId", "LocationId", "LoreStoryKey", "LoreFragment"],
+        ["GroupId", "Name", "Category", "Notes", "ParentGroupId", "LocationId", "LoreStoryKey", "LoreFragment"],
         data,
     )
 
@@ -296,7 +296,7 @@ def _export_alternate_names(conn: sqlite3.Connection, csv_dir: Path) -> None:
         (
             "character_epithets",
             "character-epithets.csv",
-            (("character_id", "CharacterId"), ("name", "Name"), ("kind", "Kind")),
+            (("character_id", "CharacterId"), ("name", "Name"), ("label", "Label")),
         ),
         (
             "location_aliases",

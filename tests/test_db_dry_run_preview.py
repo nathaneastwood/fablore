@@ -211,13 +211,13 @@ def test_preview_reports_fauna_description_change(db: Database, capsys) -> None:
     assert "A chittering pickpocket." in report, "the description overwrite is not shown"
 
 
-def test_preview_warns_when_changing_kind_forks_a_food_drink_row(db: Database, capsys) -> None:
-    """food_drink_id hashes name|kind, so changing kind forks a row like locations do."""
+def test_preview_warns_when_changing_form_forks_a_food_drink_row(db: Database, capsys) -> None:
+    """food_drink_id hashes name|form, so changing form forks a row like locations do."""
     db.upsert_story(
         "src/main-story/d.md",
         story_type="main-story",
         title="D",
-        food_drink=[FoodDrinkEntry("Alder Cider", kind="Food")],
+        food_drink=[FoodDrinkEntry("Alder Cider", form="Food")],
     )
 
     report = _preview(
@@ -226,11 +226,11 @@ def test_preview_warns_when_changing_kind_forks_a_food_drink_row(db: Database, c
         path="src/main-story/d.md",
         story_type="main-story",
         title="D",
-        food_drink=[FoodDrinkEntry("Alder Cider", kind="Drink")],
+        food_drink=[FoodDrinkEntry("Alder Cider", form="Drink")],
     )
 
     assert "Alder Cider" in report
-    assert "NEW ROW" in report, "the preview does not warn that changing kind forks a row"
+    assert "NEW ROW" in report, "the preview does not warn that changing form forks a row"
 
 
 def test_preview_reports_region_world_key_change(db: Database, capsys) -> None:
@@ -289,7 +289,7 @@ def test_preview_reports_narrated_videos_being_replaced(db: Database, capsys) ->
 def test_preview_reports_group_lore_story_key_change(db: Database, capsys) -> None:
     """A group gaining its documentation page is a write, so it must be shown.
 
-    Only ``kind`` was compared until 2026-08-20. ``upsert_group`` writes
+    Only ``category`` was compared until 2026-08-20. ``upsert_group`` writes
     ``lore_story_key`` and ``lore_fragment`` from plain strings on the entry, so
     The Maela could gain both, change the DB, and print nothing.
     """
@@ -297,7 +297,7 @@ def test_preview_reports_group_lore_story_key_change(db: Database, capsys) -> No
         "src/main-story/x.md",
         story_type="main-story",
         title="X",
-        groups=[GroupEntry("The Maela", kind="troupe")],
+        groups=[GroupEntry("The Maela", category="troupe")],
     )
 
     report = _preview(
@@ -309,7 +309,7 @@ def test_preview_reports_group_lore_story_key_change(db: Database, capsys) -> No
         groups=[
             GroupEntry(
                 "The Maela",
-                kind="troupe",
+                category="troupe",
                 lore_story_key="world-of-rathe/aria.md",
                 lore_fragment="the-everfest-carnival",
             )
@@ -378,7 +378,7 @@ def test_preview_reports_a_group_reached_only_as_a_parent(db: Database, capsys) 
     """
     stable = GroupEntry(
         "Speakeasy's Guilds",
-        kind="stable",
+        category="stable",
         members=(CharacterEntry("Speakeasy"),),
         member_source="main-story/super-slam/feudmasters.md",
     )
@@ -388,7 +388,7 @@ def test_preview_reports_a_group_reached_only_as_a_parent(db: Database, capsys) 
         path="src/main-story/x.md",
         story_type="main-story",
         title="X",
-        groups=[GroupEntry("Mythmakers", kind="guild", parent=stable)],
+        groups=[GroupEntry("Mythmakers", category="guild", parent=stable)],
     )
 
     assert "Speakeasy's Guilds" in report, "the parent group is not previewed at all"
@@ -572,7 +572,7 @@ def test_preview_reports_a_group_changing_parent(db: Database, capsys) -> None:
         "src/main-story/x.md",
         story_type="main-story",
         title="X",
-        groups=[GroupEntry("Heavy Metals", kind="guild")],
+        groups=[GroupEntry("Heavy Metals", category="guild")],
     )
 
     report = _preview(
@@ -581,7 +581,9 @@ def test_preview_reports_a_group_changing_parent(db: Database, capsys) -> None:
         path="src/main-story/x.md",
         story_type="main-story",
         title="X",
-        groups=[GroupEntry("Heavy Metals", kind="guild", parent=GroupEntry("Batbiter's Guilds", kind="stable"))],
+        groups=[
+            GroupEntry("Heavy Metals", category="guild", parent=GroupEntry("Batbiter's Guilds", category="stable"))
+        ],
     )
 
     assert "Heavy Metals" in report and "parent" in report, "the parent change is not shown"

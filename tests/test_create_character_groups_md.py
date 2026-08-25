@@ -149,7 +149,7 @@ def test_seeding_titles_and_holders_makes_both_sections_appear(db) -> None:
 
     # Dracai: an office hanging off the Dracai people-group.
     dracai_group = group_id("Dracai")
-    q.upsert_group(db.conn, group_id=dracai_group, name="Dracai", kind="people")
+    q.upsert_group(db.conn, group_id=dracai_group, name="Dracai", category="people")
     aether_title = title_id("Dracai of Aether")
     q.upsert_title(db.conn, title_id=aether_title, name="Dracai of Aether", group_id=dracai_group)
     kano_id = lore_character_id("Kano")
@@ -185,14 +185,14 @@ def _seed_super_slam(database) -> None:
     from registry_ids import group_id, lore_character_id
 
     federation = group_id("Super Slam Guilds")
-    q.upsert_group(database.conn, group_id=federation, name="Super Slam Guilds", kind="federation")
+    q.upsert_group(database.conn, group_id=federation, name="Super Slam Guilds", category="federation")
 
     speakeasy_stable = group_id("Speakeasy's Guilds")
     q.upsert_group(
         database.conn,
         group_id=speakeasy_stable,
         name="Speakeasy's Guilds",
-        kind="stable",
+        category="stable",
         parent_group_id=federation,
     )
     moloca_stable = group_id("Moloca's Guilds")
@@ -200,7 +200,7 @@ def _seed_super_slam(database) -> None:
         database.conn,
         group_id=moloca_stable,
         name="Moloca's Guilds",
-        kind="stable",
+        category="stable",
         parent_group_id=federation,
     )
 
@@ -213,7 +213,9 @@ def _seed_super_slam(database) -> None:
     q.set_group_members(database.conn, moloca_stable, [(moloca_id, "")])
 
     boulders = group_id("Boulders")
-    q.upsert_group(database.conn, group_id=boulders, name="Boulders", kind="guild", parent_group_id=speakeasy_stable)
+    q.upsert_group(
+        database.conn, group_id=boulders, name="Boulders", category="guild", parent_group_id=speakeasy_stable
+    )
 
 
 def test_super_slam_patron_is_prose_not_a_guild_table_row(db) -> None:

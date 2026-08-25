@@ -79,8 +79,8 @@ def test_second_spelling_mints_a_second_row(db: Database) -> None:
     This is why plans/group-canonical-names.md exists and why every name is
     written once in entries/catalogue/groups.py.
     """
-    _story(db, groups=[GroupEntry("Boulders", kind="guild")])
-    _story(db, groups=[GroupEntry("Boulder Clan", kind="guild")])
+    _story(db, groups=[GroupEntry("Boulders", category="guild")])
+    _story(db, groups=[GroupEntry("Boulder Clan", category="guild")])
     names = [r["name"] for r in q.select_all_groups(db.conn)]
     assert names == ["Boulder Clan", "Boulders"]
 
@@ -118,7 +118,7 @@ def test_groups_empty_list_clears_links(db: Database) -> None:
 def test_member_rows_are_written_from_the_group(db: Database) -> None:
     entry = GroupEntry(
         "VanGeld",
-        kind="clan",
+        category="clan",
         members=(CharacterEntry("Tara VanGeld", kinds=KindEntry("Dwarf")),),
         member_source="heroes-of-rathe/lyath-about.md",
     )
@@ -133,7 +133,7 @@ def test_select_group_members_takes_no_table_or_id_col(db: Database) -> None:
     parameters were dead weight every caller passed the same two literals to."""
     entry = GroupEntry(
         "VanGeld",
-        kind="clan",
+        category="clan",
         members=(CharacterEntry("Tara VanGeld", kinds=KindEntry("Dwarf")),),
         member_source="heroes-of-rathe/lyath-about.md",
     )
@@ -151,7 +151,7 @@ def test_a_member_may_cite_its_own_page(db: Database) -> None:
     """
     entry = GroupEntry(
         "The Maela",
-        kind="troupe",
+        category="troupe",
         members=(
             (CharacterEntry("Maela Fairmind"), "flavour/compendium-of-rathe.md"),
             (CharacterEntry("Kaysin"), "flavour/rosetta.md"),
@@ -289,8 +289,8 @@ def test_dry_run_removal_line_matches_what_the_apply_does(db: Database, capsys) 
 
 
 def test_parent_group_is_upserted_before_the_child(db: Database) -> None:
-    parent = GroupEntry("Boulder Clan", kind="clan")
-    child = GroupEntry("Boulders", kind="guild", parent=parent)
+    parent = GroupEntry("Boulder Clan", category="clan")
+    child = GroupEntry("Boulders", category="guild", parent=parent)
     _story(db, groups=[child])
     row = db.conn.execute("SELECT parent_group_id FROM groups WHERE group_id = ?", [group_id("Boulders")]).fetchone()
     assert row["parent_group_id"] == group_id("Boulder Clan")
@@ -307,7 +307,7 @@ def test_group_parent_cycle_raises_rather_than_looping(db: Database) -> None:
 def test_group_location_link_is_stored(db: Database) -> None:
     """Teklo Industries is the one group that is genuinely also a place."""
     entry = GroupEntry(
-        "Teklo Industries", kind="corporation", location=LocationEntry("Teklo Industries", region="Metrix")
+        "Teklo Industries", category="corporation", location=LocationEntry("Teklo Industries", region="Metrix")
     )
     _story(db, groups=[entry])
     row = db.conn.execute("SELECT location_id FROM groups").fetchone()
@@ -353,12 +353,12 @@ def test_groups_survive_the_csv_round_trip(db: Database, tmp_path: Path) -> None
     from db._seed import seed_from_csvs
 
     cid = _seed_hero(db, "kayo", "Kayo")
-    parent = GroupEntry("Boulder Clan", kind="clan")
+    parent = GroupEntry("Boulder Clan", category="clan")
     _story(
         db,
         groups=[
-            GroupEntry("Boulders", kind="guild", parent=parent),
-            GroupEntry("Prowlers", kind="guild", members=("kayo",), member_source="x.md"),
+            GroupEntry("Boulders", category="guild", parent=parent),
+            GroupEntry("Prowlers", category="guild", members=("kayo",), member_source="x.md"),
         ],
     )
     ex.export_registry_tables(db.conn, tmp_path)
@@ -415,7 +415,7 @@ def test_dry_run_reports_new_groups_and_writes_nothing(db: Database, capsys) -> 
         path="src/main-story/super-slam/feudmasters.md",
         story_type="main-story",
         title="T",
-        groups=[GroupEntry("Prowlers", kind="guild")],
+        groups=[GroupEntry("Prowlers", category="guild")],
         dry_run=True,
     )
     printed = capsys.readouterr().out
@@ -514,7 +514,7 @@ def test_update_description_writes_group_notes(db: Database) -> None:
     that place, so the supplement entry can be deleted in the same commit without
     the tooltip going dark.
     """
-    _story(db, groups=[GroupEntry("Hand of Sol", kind="order")])
+    _story(db, groups=[GroupEntry("Hand of Sol", category="order")])
     db.update_description("group", "Hand of Sol", "Solana's order of knights.")
     row = db.conn.execute("SELECT notes FROM groups WHERE name = 'Hand of Sol'").fetchone()
     assert row["notes"] == "Solana's order of knights."
@@ -532,7 +532,7 @@ def test_update_description_rejects_a_group_with_no_row(db: Database) -> None:
 
 
 def test_update_description_group_notes_reach_the_csv(db: Database) -> None:
-    _story(db, groups=[GroupEntry("Wardens", kind="order")])
+    _story(db, groups=[GroupEntry("Wardens", category="order")])
     db.update_description("group", "Wardens", "Keepers of the wood.")
     text = (db._data_dir / "csv" / "groups.csv").read_text(encoding="utf-8")
     assert "Keepers of the wood." in text
@@ -555,7 +555,7 @@ def test_group_carries_its_own_documentation_page(db: Database) -> None:
         groups=[
             GroupEntry(
                 "Hand of Sol",
-                kind="order of knights",
+                category="order of knights",
                 lore_story_key="world-of-rathe/solana.md",
                 lore_fragment="the-hand-of-sol",
             )
@@ -574,7 +574,7 @@ def test_group_documentation_survives_a_declaration_that_omits_it(db: Database) 
     """
     full = GroupEntry(
         "Hand of Sol",
-        kind="order of knights",
+        category="order of knights",
         lore_story_key="world-of-rathe/solana.md",
         lore_fragment="the-hand-of-sol",
     )
@@ -600,7 +600,7 @@ def test_group_documentation_reaches_the_csv(db: Database) -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_character_epithets_are_stored_with_their_kind(db: Database) -> None:
+def test_character_epithets_are_stored_with_their_label(db: Database) -> None:
     entry = CharacterEntry("Dr. Krest Mortimer", epithets=("'The Fixer'",), short_names=("Mortimer",))
     _story(db, characters=[entry])
     stored = q.select_character_epithets(db.conn, lore_character_id("Dr. Krest Mortimer"))
@@ -612,14 +612,14 @@ def test_character_epithets_keep_declared_order(db: Database) -> None:
     three = ("Archangel of Knowledge", "Archangel of Erudition", "Arcane Herald")
     _story(db, characters=[CharacterEntry("Suraya", epithets=three)])
     stored = q.select_character_epithets(db.conn, lore_character_id("Suraya"))
-    assert [name for name, _kind in stored] == list(three)
+    assert [name for name, _label in stored] == list(three)
 
 
 def test_epithets_are_replace_semantic(db: Database) -> None:
     _story(db, characters=[CharacterEntry("Bellona", epithets=("the Wartune Herald", "Archangel of War"))])
     _story(db, characters=[CharacterEntry("Bellona", epithets=("the Wartune Herald",))])
     stored = q.select_character_epithets(db.conn, lore_character_id("Bellona"))
-    assert [name for name, _kind in stored] == ["the Wartune Herald"]
+    assert [name for name, _label in stored] == ["the Wartune Herald"]
 
 
 def test_emptied_epithets_are_a_deletion(db: Database) -> None:

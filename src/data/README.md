@@ -160,7 +160,7 @@ Each declaration carries its own `dry_run=` flag: leave it `True` to preview, se
 | `regions` | `[reg.NAME]` from `catalogue/regions.py` | `RG` + hash of the name |
 | `locations` | `[loc.NAME]` from `catalogue/locations.py` | `LO` + hash of **name and region**; `lore_fragment` (if set) validated against the world lore `.md` file |
 | `monsters` / `fauna` / `flora` | `[mon.NAME]` / `[fauna.NAME]` / `[flora.NAME]` | `MO` / `FA` / `FR` + hash of the name |
-| `food_drink` | `[food.NAME]` from `catalogue/food_drink.py` | `FD` + hash of **name and kind** |
+| `food_drink` | `[food.NAME]` from `catalogue/food_drink.py` | `FD` + hash of **name and form** |
 | `weapons` / `equipment` | `list[str]` of canonical slugs | looked up in canonical tables; raises `ValueError` with hint to call `db.print_weapons()` / `db.print_equipment()` |
 | `narrated_videos` | `list[NarratedVideoEntry]`, written inline | no id — rows belong to the one story |
 
@@ -517,13 +517,16 @@ and "these legendary beings", which is an order of being, like Aesir.
 being is, and it is culture-relative — one people's god is another's Ancient.
 Absolon is "god of the great deep" only in the sentence naming the Dhani cult
 that worshipped him. A pantheon is a **group**: `The Twelve Dragons` is already
-`kind="pantheon"` and `Children of the Dragon` is an `order`. Do not add a
+`category="pantheon"` and `Children of the Dragon` is an `order`. Do not add a
 `God` or `Deity` kind.
 
 **"Species" was the wrong word and "race" would have been worse.** The table held
 peoples, animals, orders of being, an acquired condition that stacks (Scooba is a
 Zombie *and* a Dog) and one manufactured being. `kind` is the only word true of
-all of them, and it matches `groups.kind` already in the schema.
+all of them. Migration 20 later renamed the non-character senses of `kind` —
+`groups.kind` became `groups.category`, `character_epithets.kind` became
+`character_epithets.label`, and `FoodDrinkEntry.kind` became
+`FoodDrinkEntry.form` — so `kind` now means only this sense.
 
 ### Entity identity — why the catalogue exists
 

@@ -460,7 +460,7 @@ def test_upsert_story_food_drink(db: Database) -> None:
         "src/main-story/fd.md",
         story_type="main-story",
         title="Fd",
-        food_drink=[FoodDrinkEntry("Ember Ale", kind="Drink")],
+        food_drink=[FoodDrinkEntry("Ember Ale", form="Drink")],
     )
     assert db.conn.execute("SELECT COUNT(*) FROM food_and_drink").fetchone()[0] == 1
 
