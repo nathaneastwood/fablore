@@ -6,7 +6,6 @@
 | Brute |                                                                                                                                                     |
 | Chanek|                                               Green-skinned, pointed-eared Rathenfolk of the far west.                                              |
 |  Dog  |                                                                                                                                                     |
-|  Dogg |                                                                                                                                                     |
 | Dragon|                                                                                                                                                     |
 | Dwarf |                                                                                                                                                     |
 | Embra |                                                  Powerful supernatural entities that feed on blood.                                                 |

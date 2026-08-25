@@ -48,10 +48,6 @@ CHANEK = KindEntry("Chanek")
 """The green-skinned, pointed-eared Rathenfolk of the far west. No character row
 carries it yet; the kind is attested and the characters are not."""
 DOG = KindEntry("Dog")
-DOGG = KindEntry("Dogg")
-"""Not a misspelling of ``Dog``. metrix.md:91 writes it twice — "his trusty (and
-rusty) pet junkyard dogg Charlotte", "The dogg is just faster" — against Biski,
-whom his own page calls one of Farin the Porter's sled dogs."""
 DWARF = KindEntry("Dwarf")
 GOBLIN = KindEntry("Goblin")
 HORSE = KindEntry("Horse")
@@ -84,6 +80,17 @@ singular and the prose is plural, so the alias is what joins them."""
 DRAGON = KindEntry("Dragon")
 EMBRA = KindEntry("Embra", aliases=("Embras",))
 """Absorbs the ``Embra`` supplement entry and its plural."""
-HERALD = KindEntry("Herald")
-"""Eight characters, every one of them carrying at least one Archangel epithet. No
-supplement entry ever existed, so this row has no notes and no tooltip yet."""
+HERALD = KindEntry("Herald", aliases=("Angel",))
+"""Eight characters, every one of them carrying at least one Archangel epithet —
+four wear it as their display name and four carry it as an epithet row, so the
+rank is uniform across the order rather than dividing it.
+
+A kind and not a title (the user's call, 2026-08-25). Nobody *becomes* a Herald:
+prism-about.md:9 calls them "Sol's golden emissaries" and
+stories-of-illumination.md:23 "emissaries of Sol, bastions of the Light", and
+prism-about.md:11 calls them "these legendary beings" whose forms Prism learns to
+conjure. That is an order of being, like Aesir. `Angel` is an alias rather than
+the name because the lore says Herald throughout; the game's "Angel Ally" is the
+other name it answers to, which is exactly what an alias is for.
+
+No supplement entry ever existed, so this row has no notes and no tooltip yet."""

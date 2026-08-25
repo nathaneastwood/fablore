@@ -120,7 +120,11 @@ CAYLIN_S_MOTHER = CharacterEntry("Caylin's mother", kinds=kind.HUMAN, status="De
 CHANCELLOR_HELENA_PRIMAVERA = CharacterEntry("Chancellor Helena Primavera", kinds=kind.HUMAN)
 CHANCELLOR_HYPATIA = CharacterEntry("Chancellor Hypatia", kinds=kind.HUMAN)
 CHARIS = CharacterEntry("Charis", kinds=kind.HUMAN)
-CHARLOTTE = CharacterEntry("Charlotte", kinds=kind.DOGG)
+CHARLOTTE = CharacterEntry("Charlotte", kinds=kind.ROBOT)
+"""A robot, not a dog (the user's call, 2026-08-25, read off the card art).
+metrix.md:91 calls her "his trusty (and rusty) pet junkyard dogg" — *rusty* is
+the tell, and `Dogg` was a kind of one member that recorded what she looks like
+rather than what she is."""
 CHIARA_SUNCREST = CharacterEntry("Chiara Suncrest")
 CHOWDER = CharacterEntry("Chowder", kinds=kind.ZOMBIE)
 CHUM = CharacterEntry("Chum", kinds=kind.ZOMBIE, status="Dead")
