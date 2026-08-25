@@ -154,6 +154,7 @@ CATALOGUED = (
     "FloraEntry",
     "FoodDrinkEntry",
     "GroupEntry",
+    "TitleEntry",
 )
 
 

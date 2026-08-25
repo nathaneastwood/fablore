@@ -544,6 +544,10 @@ _SUPPLEMENT_TYPES = frozenset(
         # Bloodrot Pox, Frailty and Inertia.
         "disease",
         "embra",
+        # Godhood is a display label, never a kind: it records who venerates a
+        # being, not what it is, and it is culture-relative. See the kind/title/
+        # group rule — there is no God kind and no god row anywhere.
+        "god",
         "hero",
         "item",
         "location",

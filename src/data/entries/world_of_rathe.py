@@ -48,6 +48,7 @@ from entries.catalogue import (  # noqa: F401
     locations as loc,
     monsters as mon,
     regions as reg,
+    titles as ttl,
 )
 
 # NarratedVideoEntry is the one exception: a narrated reading belongs to one
@@ -111,5 +112,28 @@ db.upsert_story(
         # declaration naming it the pantheon would exist only in the catalogue.
         grp.DHANI_DEITIES,
     ],
+    dry_run=True,
+)
+
+
+# Registered 2026-08-25 (the user's call) to give the Grand Magister office a
+# title row instead of five character rows with the office in their names.
+#
+# TITLES ONLY, DELIBERATELY. This page names dozens of entities and declares
+# none of them — it is one of the ~184 pages carrying stored links that no
+# declaration reproduces. Every other kwarg is omitted rather than guessed,
+# and an omitted kwarg preserves: `characters=` is replace-semantic, so a
+# partial list here would delete rather than add. Declaring the rest of this
+# page is its own lore exercise.
+db.upsert_story(
+    path="src/world-of-rathe/solana.md",
+    story_type="world-of-rathe",
+    title="Solana",
+    # source_link is restated because it does NOT preserve on omission — the
+    # first dry run of this declaration reported "Cleared: - Source", which is
+    # how that was caught. Authors, artists, date and thumbnail are empty on
+    # this row already, so omitting them costs nothing.
+    source_link="https://fabtcg.com/world-of-rathe/solana/",
+    titles=[ttl.GRAND_MAGISTER],
     dry_run=True,
 )

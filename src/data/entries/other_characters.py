@@ -25,6 +25,7 @@ from entries.catalogue import (  # noqa: F401
     locations as loc,
     monsters as mon,
     regions as reg,
+    titles as ttl,
 )
 
 # NarratedVideoEntry is the one exception: a narrated reading belongs to one
@@ -57,5 +58,27 @@ db.upsert_story(
     groups=[grp.L_APOCALYPTA],
     # TODO: needs review — Tanner's (too vague to mint a location),
     # Bloodrot Pox / Frailty / Inertia (concepts).
+    dry_run=True,
+)
+
+
+# Registered 2026-08-25 (the user's call) alongside the Grand Magister, to
+# record that the Librarian holds one of Solana's eight Magister seats — a
+# different office, not a lesser grade of the same one. See catalogue/titles.py.
+#
+# Titles only: the stored Prism link and Solana region link are left alone by
+# omitting their kwargs, which preserves. This page is undeclared for the same
+# reason solana.md is.
+db.upsert_story(
+    path="src/other-characters/the-librarian.md",
+    story_type="other-characters",
+    title="The Librarian",
+    # Restated for the same reason as solana.md: these do not preserve on
+    # omission, and dropping them would be a silent deletion.
+    authors="Nicola Price, Tarryn Thomas",
+    artists="Federico Musetti",
+    source_link="https://fabtcg.com/articles/librarian/",
+    publication_date="2021-05-24",
+    titles=[ttl.MAGISTER],
     dry_run=True,
 )
