@@ -158,7 +158,7 @@ db.update_description(
 db.update_description(
     "fauna",
     "Sailorbane Coral",
-    "A predatory kind, Sailorbane Coral grows from the rocky banks of channels,"
+    "A predatory species, Sailorbane Coral grows from the rocky banks of channels,"
     " remaining submerged to conceal its presence.",
 )
 db.update_description(
@@ -222,7 +222,7 @@ db.update_description(
 db.update_description(
     "fauna",
     "Welkin",
-    "A wyvern kind native to Aria. At first glance, the welkin resembles large, winged lizards."
+    "A wyvern species native to Aria. At first glance, the welkin resembles large, winged lizards."
     " They have a leathery skin that, like the chameleon, changes color with variations in the Flow.",
 )
 
@@ -843,7 +843,7 @@ db.update_description(
 # beside a kind column that named the same thing — the D3 two-writers shape the
 # factions had. The supplement entries are deleted; these are the only copies.
 #
-# The fourteen kind with no entry here emit no tooltip, which is the honest
+# The fourteen kinds with no entry here emit no tooltip, which is the honest
 # state: nothing in the lore describes a Meep.
 
 db.update_description(
