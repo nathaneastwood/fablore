@@ -626,3 +626,61 @@ def test_preview_is_silent_when_a_hero_slug_link_is_already_stored(db: Database,
     assert "Characters:" not in report, report
     assert "+ Teklovossen" not in report, report
     assert "- Jules Teklovossen" not in report, report
+
+
+# ---------------------------------------------------------------------------
+# Weapon / equipment link diffs on an existing story
+# ---------------------------------------------------------------------------
+
+
+def _seed_canonical(database, kind: str, slug: str, name: str) -> str:
+    """Create one canonical weapon or equipment row and return its id."""
+    import db._queries as _q
+    from registry_ids import make_hash_id
+
+    if kind == "weapon":
+        wid = make_hash_id("CW", slug)
+        _q.upsert_weapon_canonical(database.conn, canonical_weapon_id=wid, canonical_slug=slug, canonical_weapon=name)
+        return wid
+    eid = make_hash_id("CE", slug)
+    _q.upsert_equipment_canonical(
+        database.conn, canonical_equipment_id=eid, canonical_slug=slug, canonical_equipment=name
+    )
+    return eid
+
+
+def test_previewing_a_weapon_change_on_an_existing_story_renders_the_diff(db, capsys) -> None:
+    """The Weapons diff only runs for a story that already exists.
+
+    Nothing exercised this path, so ``show_links_diff`` could be — and briefly
+    was — broken for weapons and equipment while the whole suite stayed green.
+    A new story returns before reading the slug map; only an update reaches it.
+    """
+    _seed_canonical(db, "weapon", "dawnblade", "Dawnblade")
+    _seed_canonical(db, "weapon", "nebula-blade", "Nebula Blade")
+    path = "src/main-story/foo/bar.md"
+    db.upsert_story(path=path, story_type="main-story", title="Bar", weapons=["dawnblade"])
+    capsys.readouterr()
+
+    db.upsert_story(path=path, story_type="main-story", title="Bar", weapons=["nebula-blade"], dry_run=True)
+    out = capsys.readouterr().out
+
+    assert "Weapons:" in out
+    assert "+ nebula-blade" in out
+    assert "- dawnblade" in out
+
+
+def test_previewing_an_equipment_change_on_an_existing_story_renders_the_diff(db, capsys) -> None:
+    """Same path, the equipment half — it reads its own slug map."""
+    _seed_canonical(db, "equipment", "helm-of-isen", "Helm of Isen's Peak")
+    _seed_canonical(db, "equipment", "nullrune-hood", "Nullrune Hood")
+    path = "src/main-story/foo/baz.md"
+    db.upsert_story(path=path, story_type="main-story", title="Baz", equipment=["helm-of-isen"])
+    capsys.readouterr()
+
+    db.upsert_story(path=path, story_type="main-story", title="Baz", equipment=["nullrune-hood"], dry_run=True)
+    out = capsys.readouterr().out
+
+    assert "Equipment:" in out
+    assert "+ nullrune-hood" in out
+    assert "- helm-of-isen" in out

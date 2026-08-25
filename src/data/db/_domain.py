@@ -16,8 +16,9 @@ import re
 import sqlite3
 import sys
 from dataclasses import dataclass
+from functools import cached_property
 from pathlib import Path
-from typing import IO, Any
+from typing import IO, Any, Callable
 
 _SCRIPT_DIR = Path(__file__).resolve().parents[1]
 if str(_SCRIPT_DIR) not in sys.path:
@@ -599,6 +600,863 @@ class StoryRecord:
             Report dict matching :meth:`Database.remove_story`.
         """
         return self._db.remove_story(self.story_key, dry_run=dry_run)
+
+
+# ---------------------------------------------------------------------------
+# _DryRunReport
+# ---------------------------------------------------------------------------
+
+
+class _DryRunReport:
+    """Builds the preview ``Database._dry_run_upsert`` prints.
+
+    ``_dry_run_upsert`` used to hold roughly eleven ``_show_*`` closures
+    nested inside it, all reading and writing one shared scope — the
+    connection, the output stream, a ``changed`` flag flipped via
+    ``nonlocal``, and a dozen ``*_rows`` / ``*_id_to_name`` maps built
+    unconditionally at the top of the function, whether or not any closure
+    below went on to use them. That shape is what let two real defects ship
+    unseen: six registries scanned twice (once for the ``*_rows`` dict, once
+    for an ``*_id_to_name`` map derivable from those same rows), and two
+    helpers issuing one ``SELECT`` per stored id inside a loop over every
+    reachable character. Both were fixed, but they were *writable* mistakes
+    because nothing about the shape of a closure forces it to declare what it
+    reads — it can just reach for whatever ambient name is in scope.
+
+    This class copies only what actually outlives one diff — the connection,
+    the output stream, whether the story row already exists, and its id.
+    Every id → name/slug map is a ``functools.cached_property``: reading a
+    registry happens at most once per preview, and only for a registry some
+    section of the report actually renders, so a preview that names no
+    titles or no food never issues a ``SELECT`` against those tables. Each
+    ``*_id_to_name`` property reads its own ``*_rows`` property rather than
+    querying again, which is what keeps the double-scan defect from
+    reappearing: writing it again means adding a second query next to a
+    property that already holds the answer, not reaching for an unrelated
+    name that happened to be in scope.
+
+    Each former closure is now a method that takes what it diffs as
+    parameters — ``show_location_changes(reach_locations)``, not a closure
+    reading a ``locations`` free variable three scopes up. Reading a method's
+    signature now tells you everything it depends on. This does not make the
+    duplicate-scan or per-row-``SELECT`` mistakes *impossible* — a method
+    could still write its own query where a ``cached_property`` already sits
+    in scope — but it does make that mistake visibly redundant at the call
+    site instead of invisible inside a shared closure, which is the
+    difference that let the original two ship unnoticed.
+    """
+
+    def __init__(self, db: "Database", conn: sqlite3.Connection, out: IO[str], existing: Any, story_id: str) -> None:
+        self.db = db
+        self.conn = conn
+        self.out = out
+        self.existing = existing
+        self.story_id = story_id
+        self.changed = not existing
+        self._reach: "tuple[list, list, list, list[str], list] | None" = None
+
+    # ------------------------------------------------------------------
+    # Lazy id -> name / slug maps. Each ``*_rows`` property is the one query
+    # for that registry; every ``*_id_to_name`` map below reads it back
+    # rather than querying again — the fix for the double-scan defect this
+    # class exists to make hard to repeat.
+    # ------------------------------------------------------------------
+
+    @cached_property
+    def hero_rows(self) -> dict[str, Any]:
+        return {r["canonical_id"]: r for r in q.select_all_heroes_canonical(self.conn)}
+
+    @cached_property
+    def hero_id_to_slug(self) -> dict[str, str]:
+        return {cid: r["canonical_slug"] for cid, r in self.hero_rows.items()}
+
+    @cached_property
+    def hero_id_to_hero_name(self) -> dict[str, str]:
+        return {cid: r["canonical_hero"] for cid, r in self.hero_rows.items()}
+
+    @cached_property
+    def character_rows(self) -> dict[str, Any]:
+        return {r["character_id"]: r for r in q.select_all_characters(self.conn)}
+
+    @cached_property
+    def character_id_to_name(self) -> dict[str, str]:
+        return {cid: r["name"] for cid, r in self.character_rows.items()}
+
+    @cached_property
+    def monster_rows(self) -> dict[str, Any]:
+        return {r["monster_id"]: r for r in q.select_all_monsters(self.conn)}
+
+    @cached_property
+    def monster_id_to_name(self) -> dict[str, str]:
+        return {mid: r["name"] for mid, r in self.monster_rows.items()}
+
+    @cached_property
+    def fauna_rows(self) -> dict[str, Any]:
+        return {r["fauna_id"]: r for r in q.select_all_fauna(self.conn)}
+
+    @cached_property
+    def fauna_id_to_name(self) -> dict[str, str]:
+        return {fid: r["name"] for fid, r in self.fauna_rows.items()}
+
+    @cached_property
+    def flora_rows(self) -> dict[str, Any]:
+        return {r["flora_id"]: r for r in q.select_all_flora(self.conn)}
+
+    @cached_property
+    def flora_id_to_name(self) -> dict[str, str]:
+        return {fid: r["name"] for fid, r in self.flora_rows.items()}
+
+    @cached_property
+    def group_rows(self) -> dict[str, Any]:
+        return {r["group_id"]: r for r in q.select_all_groups(self.conn)}
+
+    @cached_property
+    def group_id_to_name(self) -> dict[str, str]:
+        return {gid: r["name"] for gid, r in self.group_rows.items()}
+
+    @cached_property
+    def title_rows(self) -> dict[str, Any]:
+        return {r["title_id"]: r for r in q.select_all_titles(self.conn)}
+
+    @cached_property
+    def title_id_to_name(self) -> dict[str, str]:
+        return {tid: r["name"] for tid, r in self.title_rows.items()}
+
+    @cached_property
+    def weapon_id_to_slug(self) -> dict[str, str]:
+        return {r["canonical_weapon_id"]: r["canonical_slug"] for r in q.select_all_weapons_canonical(self.conn)}
+
+    @cached_property
+    def equip_id_to_slug(self) -> dict[str, str]:
+        return {r["canonical_equipment_id"]: r["canonical_slug"] for r in q.select_all_equipment_canonical(self.conn)}
+
+    @cached_property
+    def loc_id_to_name(self) -> dict[str, str]:
+        return {r["location_id"]: r["name"] for r in q.select_all_locations(self.conn)}
+
+    @cached_property
+    def region_id_to_name(self) -> dict[str, str]:
+        return {r["region_id"]: r["region_name"] for r in q.select_all_regions(self.conn)}
+
+    @cached_property
+    def food_id_to_name(self) -> dict[str, str]:
+        return {r["food_drink_id"]: r["name"] for r in q.select_all_food_drink(self.conn)}
+
+    @cached_property
+    def kind_names(self) -> dict[str, str]:
+        return {r["kind_id"]: r["name"] for r in q.select_all_kinds(self.conn)}
+
+    @cached_property
+    def profession_names(self) -> dict[str, str]:
+        return {r["profession_id"]: r["name"] for r in q.select_all_professions(self.conn)}
+
+    # ------------------------------------------------------------------
+    # Report sections, in the order ``_dry_run_upsert`` renders them.
+    # ------------------------------------------------------------------
+
+    def show_scalar_fields(self, scalar_fields: list[tuple[str, str, str]]) -> None:
+        """Report the story row's own scalar columns (title, authors, ...)."""
+        if self.existing:
+            added: list[str] = []
+            removed: list[str] = []
+            for db_col, label, new_val in scalar_fields:
+                old_val = self.existing[db_col] or ""
+                if old_val == new_val:
+                    continue
+                if old_val and not new_val:
+                    removed.append(f"    - {label}: {old_val!r}")
+                elif not old_val:
+                    added.append(f"    + {label}: {new_val!r}")
+                else:
+                    added.append(f"    + {label}: {new_val!r}  (was: {old_val!r})")
+            if added:
+                self.changed = True
+                self.out.write("  Added / changed:\n")
+                self.out.write("\n".join(added) + "\n")
+            if removed:
+                self.changed = True
+                self.out.write("  Cleared:\n")
+                self.out.write("\n".join(removed) + "\n")
+            if not added and not removed:
+                self.out.write("  (story row: no scalar field changes)\n")
+        else:
+            for _, label, val in scalar_fields:
+                if val:
+                    self.out.write(f"  {label}: {val}\n")
+
+    def show_narrated_videos(self, narrated_videos: "list[NarratedVideoEntry] | None") -> None:
+        """Report narrated-video rows; ``set_narrated_videos`` replaces the whole set."""
+        if narrated_videos is None:
+            return
+        incoming_videos = [(v.author, v.source_link) for v in narrated_videos]
+        stored_videos = (
+            [(r["author"], r["source_link"]) for r in q.select_narrated_videos(self.conn, self.story_id)]
+            if self.existing
+            else []
+        )
+        if incoming_videos != stored_videos:
+            self.changed = True
+            self.out.write("  NarratedVideos:\n")
+            for author, link in stored_videos:
+                if (author, link) not in incoming_videos:
+                    self.out.write(f"    - {author} ({link})\n")
+            for author, link in incoming_videos:
+                if (author, link) not in stored_videos:
+                    self.out.write(f"    + {author} ({link})\n")
+        else:
+            self.out.write(f"  NarratedVideos: {len(narrated_videos)} entries (unchanged)\n")
+
+    def show_character_links(
+        self,
+        story_key: str,
+        characters: "list[CharacterEntry | str] | None",
+        fragments: "dict[str, str] | None",
+    ) -> None:
+        """Report ``story_characters`` membership and fragment changes.
+
+        Diffs on ``character_id``, never on display name — the stored side
+        reads its name from ``characters.name``, the incoming side from a
+        slug's ``heroes_canonical.canonical_hero``, and those differ for any
+        hero whose lore name is fuller than the one on the card.
+        """
+        if characters is None:
+            return
+        old_char_state = q.select_story_character_fragments(self.conn, self.story_id) if self.existing else {}
+        new_char_state: dict[str, str] = {}
+        char_display_name: dict[str, str] = {}
+
+        for cid, _origin, item in self.db._resolve_characters(story_key, characters):
+            if isinstance(item, str):
+                canonical_id = self.db._resolve_heroes([item])[0]
+                new_char_state[cid] = (fragments or {}).get(item, "")
+                char_display_name[cid] = self.hero_id_to_hero_name.get(canonical_id, item)
+            else:
+                new_char_state[cid] = (fragments or {}).get(item.name, "")
+                char_display_name[cid] = item.name
+
+        def _label(cid: str) -> str:
+            return char_display_name.get(cid, self.character_id_to_name.get(cid, cid))
+
+        new_char_names = {_label(cid) for cid in new_char_state}
+        if self.existing:
+            added = sorted(_label(cid) for cid in set(new_char_state) - set(old_char_state))
+            removed = sorted(
+                self.character_id_to_name.get(cid, cid) for cid in set(old_char_state) - set(new_char_state)
+            )
+            if added or removed:
+                self.changed = True
+                self.out.write("  Characters:\n")
+                for name in added:
+                    self.out.write(f"    + {name}\n")
+                for name in removed:
+                    self.out.write(f"    - {name}\n")
+        elif new_char_names:
+            self.out.write("  Characters:\n")
+            for name in sorted(new_char_names):
+                self.out.write(f"    + {name}\n")
+
+        if self.existing:
+            # A declaration that repeats membership without repeating a
+            # fragment blanks it — set_story_characters() replaces
+            # (character_id, fragment) rows wholesale. Membership is
+            # unchanged in that case, so the diff above stays silent — this
+            # is the only warning.
+            frag_lines: list[str] = []
+            for cid, now in new_char_state.items():
+                was = old_char_state.get(cid, "")
+                if was == now:
+                    continue
+                label = char_display_name.get(cid, self.character_id_to_name.get(cid, cid))
+                if was and not now:
+                    frag_lines.append(f"    ~ {label}: fragment {was!r} -> cleared")
+                elif not was:
+                    frag_lines.append(f"    ~ {label}: fragment -> {now!r}")
+                else:
+                    frag_lines.append(f"    ~ {label}: fragment {was!r} -> {now!r}")
+            if frag_lines:
+                self.changed = True
+                self.out.write("  Character fragments:\n")
+                self.out.write("\n".join(frag_lines) + "\n")
+        elif fragments:
+            self.out.write(f"  Fragments: {fragments}\n")
+
+    def show_links_diff(
+        self,
+        label: str,
+        incoming: "list | None",
+        incoming_names: list[str],
+        junction_table: str,
+        junction_id_col: str,
+        id_to_name: "Callable[[], dict[str, str]]",
+    ) -> None:
+        """Report a plain replace-semantic story junction (Locations, Weapons, ...).
+
+        ``id_to_name`` is a callable returning the display-name map, not the map
+        itself: an argument is evaluated when this is called whether or not it
+        turns out to be needed, so passing the dict directly would force every
+        one of this method's ten call sites to build its map regardless of
+        whether the story names that entity type at all. Calling it inside the
+        ``if self.existing`` branch below defers the query to the one call that
+        actually needs it.
+        """
+        if incoming is None:
+            return  # None = leave unchanged
+        incoming_set = set(incoming_names)
+        if self.existing:
+            existing_ids = q.select_story_junction(self.conn, self.story_id, junction_table, junction_id_col)
+            names = id_to_name()
+            existing_set = {names.get(eid, eid) for eid in existing_ids}
+            link_added = sorted(incoming_set - existing_set)
+            link_removed = sorted(existing_set - incoming_set)
+            if link_added or link_removed:
+                self.changed = True
+                self.out.write(f"  {label}:\n")
+                for name in link_added:
+                    self.out.write(f"    + {name}\n")
+                for name in link_removed:
+                    self.out.write(f"    - {name}\n")
+        else:
+            if incoming_names:
+                self.out.write(f"  {label}:\n")
+                for name in sorted(incoming_names):
+                    self.out.write(f"    + {name}\n")
+
+    def reachable_entities(
+        self,
+        characters: "list[CharacterEntry | str] | None",
+        locations: "list[LocationEntry] | None",
+        groups: "list[GroupEntry] | None",
+        regions: "list[RegionEntry] | None",
+        titles: "list[TitleEntry] | None",
+    ) -> "tuple[list, list, list, list[str], list]":
+        """Return every character, location, group, region name and title this
+        declaration would write.
+
+        The kwargs are not the whole list. ``_upsert_one_group`` walks into
+        ``parent``, ``location`` and ``members``, ``_upsert_locations`` walks
+        into ``parent``, and ``_upsert_one_title`` walks into ``group`` and
+        ``holders`` — each of those writes the entity's alternate names just
+        as a top-level one does. Reporting only the kwargs would leave a
+        nested change applying in silence, which is the exact shape this
+        preview exists to catch: Ozrim and Maela Fairmind are reachable
+        through a group roster and through nothing else.
+
+        Region names are gathered the same way: from the ``regions`` kwarg,
+        and from every reachable location's ``.region`` string —
+        ``LocationEntry`` names a region as a bare string, and
+        ``_upsert_locations`` writes that region's row (including its
+        ``world_of_rathe_story_key``) whether or not any ``RegionEntry`` ever
+        names it.
+
+        The seen sets double as the cycle guard. ``_upsert_locations`` and
+        ``_upsert_one_group`` raise on a cycle, but they raise during the
+        *write*, and this runs first.
+
+        Memoised on the report instance, not just within one call: several
+        report sections need this same walk and the kwargs cannot change
+        between them, so a second call returns the cached result rather than
+        re-walking the same rosters.
+        """
+        if self._reach is not None:
+            return self._reach
+        seen_character: dict[str, Any] = {}
+        seen_loc: dict[tuple[str, str], Any] = {}
+        seen_grp: dict[str, Any] = {}
+        seen_region: dict[str, None] = {}
+        seen_title: dict[str, Any] = {}
+
+        def walk_character(entry) -> None:
+            # Guard first, then recurse: a character's kin relatives may name
+            # each other back (siblings, spouses), and _upsert_characters
+            # skips re-processing an already-seen name for the same reason —
+            # this is ordinary domain data, not a cycle to raise on.
+            if entry.name in seen_character:
+                return
+            seen_character[entry.name] = entry
+            for item in entry.kin:
+                relative, _relation, _story_key = _kin_triple(item)
+                if not isinstance(relative, str):
+                    walk_character(relative)
+
+        def walk_location(entry) -> None:
+            key = (entry.name, entry.region)
+            if key in seen_loc:
+                return
+            seen_loc[key] = entry
+            if entry.region:
+                seen_region.setdefault(entry.region, None)
+            if entry.parent is not None:
+                walk_location(entry.parent)
+
+        def walk_group(entry) -> None:
+            if entry.name in seen_grp:
+                return
+            seen_grp[entry.name] = entry
+            if entry.parent is not None:
+                walk_group(entry.parent)
+            if entry.location is not None:
+                walk_location(entry.location)
+            for member, _source in entry.member_pairs():
+                if not isinstance(member, str):
+                    walk_character(member)
+
+        def walk_title(entry) -> None:
+            if entry.name in seen_title:
+                return
+            seen_title[entry.name] = entry
+            if entry.group is not None:
+                walk_group(entry.group)
+            for person, _ordinal, _source in entry.holders:
+                if not isinstance(person, str):
+                    walk_character(person)
+
+        for entry in characters or []:
+            if not isinstance(entry, str):
+                walk_character(entry)
+        for entry in locations or []:
+            walk_location(entry)
+        for entry in groups or []:
+            walk_group(entry)
+        for entry in regions or []:
+            seen_region.setdefault(entry.name, None)
+        for entry in titles or []:
+            walk_title(entry)
+        self._reach = (
+            list(seen_character.values()),
+            list(seen_loc.values()),
+            list(seen_grp.values()),
+            list(seen_region.keys()),
+            list(seen_title.values()),
+        )
+        return self._reach
+
+    def show_location_changes(self, reach_locations: list) -> None:
+        """Report location rows this declaration would fork or re-attribute.
+
+        ``location_id`` is a hash of ``name|region_id``, so changing a
+        location's region does not edit the row — it mints a second one and
+        strands the first. The membership diff in ``show_links_diff`` compares
+        display names, which are identical before and after, so it stays
+        silent. Without this the preview shows a clean no-op for a
+        row-orphaning change.
+
+        Takes the **reachable** locations, not the ``locations`` kwarg —
+        ``_upsert_one_group`` writes ``group.location`` and
+        ``_upsert_locations`` writes ``location.parent`` through the same
+        call, so either can fork a row exactly as a top-level entry does.
+        """
+        if not self.existing:
+            return
+        if not reach_locations:
+            return
+        lines: list[str] = []
+        for entry in reach_locations:
+            eff_region = region_row_id(entry.region) if entry.region else ""
+            new_id = _location_id(entry.name, eff_region)
+            # A global scan, not one scoped to this story's own linked rows: a
+            # group's location is never linked through story_locations at
+            # all, so scoping to that junction would make this a no-op for
+            # exactly the case this walk exists to catch.
+            superseded = [lid for lid, name in self.loc_id_to_name.items() if name == entry.name and lid != new_id]
+            if superseded:
+                old_id = superseded[0]
+                old_row = q.select_location_by_id(self.conn, old_id)
+                old_region = ""
+                if old_row is not None and old_row["region_id"]:
+                    old_region = self.region_id_to_name.get(old_row["region_id"], old_row["region_id"])
+                lines.append(f"    ~ {entry.name}: region {old_region or '(none)'!r} -> {entry.region or '(none)'!r}")
+                lines.append(f"      NEW ROW {old_id} -> {new_id}; the old row is orphaned, not updated")
+                continue
+
+            # Same row: report the columns this declaration would overwrite.
+            # notes and lore_fragment both preserve-on-empty, so an omitted
+            # value is not a change and must not be reported as one.
+            row = q.select_location_by_id(self.conn, new_id)
+            if row is None:
+                continue
+            for field, incoming in (("notes", entry.notes), ("lore_fragment", entry.lore_fragment)):
+                stored = row[field] or ""
+                if not incoming or incoming == stored:
+                    continue
+                lines.append(f"    ~ {entry.name}: {field} {stored or '(none)'!r} -> {incoming!r}")
+        if lines:
+            self.changed = True
+            self.out.write("  Location rows:\n")
+            self.out.write("\n".join(lines) + "\n")
+
+    def show_alternate_name_changes(self, reach_characters: list, reach_locations: list, reach_groups: list) -> None:
+        """Report epithet and alias rows this declaration would add or remove.
+
+        These are replace-semantic like the group rosters, so a name dropped
+        from a declaration is a deletion. Diffed over every reachable entity,
+        not the kwargs alone — see ``reachable_entities``.
+        """
+        lines: list[str] = []
+
+        def _diff_names(owner: str, label: str, stored: set, wanted: set) -> None:
+            """Append the +/- REMOVED lines for one replace-semantic name set."""
+            for name in sorted(wanted - stored):
+                lines.append(f"    + {owner}: {label} {name!r}")
+            for name in sorted(stored - wanted):
+                lines.append(f"    - {owner}: {label} {name!r} REMOVED")
+
+        for entry in reach_characters:
+            cid = lore_character_id(entry.name)
+            # Kind is replace-semantic too, and it is the one that used to
+            # preserve — 32 rows carried a value no declaration named, so a
+            # missing kinds= reads as a deletion where it once read as
+            # silence. _resolve_kinds raises on a repeated kind on this
+            # entry, on the preview path too, before any diff below is
+            # computed — the same guard the write path applies.
+            resolved_kind = self.db._resolve_kinds(entry.name, _kind_tuple(entry.kinds))
+            stored_sp = {self.kind_names.get(sid, sid) for sid in q.select_character_kinds(self.conn, cid)}
+            wanted_sp = {name for _kid, name in resolved_kind}
+            _diff_names(entry.name, "kind", stored_sp, wanted_sp)
+
+            for sp in _kind_tuple(entry.kinds):
+                sid = _kind_id(sp.name)
+                _diff_names(sp.name, "alias", set(q.select_kind_aliases(self.conn, sid)), set(sp.aliases))
+
+            # Professions (R9), reported the same shape as kind just above —
+            # walked over reach_characters, not the characters= kwarg, so a
+            # profession reached only through a group roster or a title
+            # holder is visible here too.
+            resolved_prof = self.db._resolve_professions(entry.name, _professions_tuple(entry.professions))
+            stored_prof = {
+                self.profession_names.get(pid, pid) for pid in q.select_character_professions(self.conn, cid)
+            }
+            wanted_prof = {name for _pid, name in resolved_prof}
+            _diff_names(entry.name, "profession", stored_prof, wanted_prof)
+
+            stored = set(q.select_character_epithets(self.conn, cid))
+            wanted = {(n, "epithet") for n in entry.epithets} | {(n, "short-name") for n in entry.short_names}
+            for name, kind in sorted(wanted - stored):
+                lines.append(f"    + {entry.name}: {kind} {name!r}")
+            for name, kind in sorted(stored - wanted):
+                lines.append(f"    - {entry.name}: {kind} {name!r} REMOVED")
+
+        for entry in reach_locations:
+            lid = _location_id(entry.name, region_row_id(entry.region) if entry.region else "")
+            stored = set(q.select_location_aliases(self.conn, lid))
+            wanted = {_alias_pair(a) for a in entry.aliases}
+            for alias, era in sorted(wanted - stored):
+                lines.append(f"    + {entry.name}: alias {alias!r}" + (f" (era {era!r})" if era else ""))
+            for alias, era in sorted(stored - wanted):
+                lines.append(f"    - {entry.name}: alias {alias!r} REMOVED")
+
+        for entry in reach_groups:
+            gid = _group_id(entry.name)
+            _diff_names(entry.name, "alias", set(q.select_group_aliases(self.conn, gid)), set(entry.aliases))
+
+        if lines:
+            self.changed = True
+            self.out.write("  Alternate names:\n")
+            self.out.write("\n".join(lines) + "\n")
+
+    def show_character_creations(self, reach_characters: list) -> None:
+        """Report a reachable character that has no stored row yet.
+
+        A character introduced purely through a group roster, carrying no
+        kind, no epithets and no short names, has nothing left to surface it
+        in the alternate-names diff — this is that creation's only
+        announcement.
+        """
+        lines: list[str] = []
+        for entry in reach_characters:
+            if self.character_rows.get(lore_character_id(entry.name)) is None:
+                lines.append(f"    + {entry.name}")
+        if lines:
+            self.changed = True
+            self.out.write("  New characters:\n")
+            self.out.write("\n".join(lines) + "\n")
+
+    def show_hero_slug_changes(self, reach_characters: list) -> None:
+        """Report a ``character_heroes`` link a ``hero_slug`` claim would write.
+
+        Takes the **reachable** characters, not the ``characters=`` kwarg — a
+        claim made through a group roster must be visible here too.
+        """
+        lines: list[str] = []
+        for entry in reach_characters:
+            if not entry.hero_slug:
+                continue
+            hero_row = q.select_hero_by_slug(self.conn, entry.hero_slug)
+            if hero_row is None:
+                continue  # unknown slug: the real write raises via _resolve_heroes
+            canonical_id = hero_row["canonical_id"]
+            cid = lore_character_id(entry.name)
+            stored_character_id = q.select_character_id_for_hero(self.conn, canonical_id)
+            if stored_character_id == cid:
+                continue
+            if stored_character_id:
+                was = self.character_id_to_name.get(stored_character_id, stored_character_id)
+                lines.append(f"    ~ {entry.name}: hero_slug {entry.hero_slug!r} {was!r} -> {entry.name!r}")
+            else:
+                lines.append(f"    + {entry.name}: hero_slug {entry.hero_slug!r} -> character_heroes")
+        if lines:
+            self.changed = True
+            self.out.write("  character_heroes:\n")
+            self.out.write("\n".join(lines) + "\n")
+
+    def show_kin_changes(self, reach_characters: list) -> None:
+        """Report ``character_kin`` rows a kin declaration would add or remove.
+
+        Replace-semantic, like kind and the epithet tables. Resolves through
+        ``_resolve_kin_relatives``, which raises on a repeated
+        ``(relative, relation)`` pair, an unknown hero slug, or a
+        self-relative claim, on this preview path too.
+        """
+        lines: list[str] = []
+        for entry in reach_characters:
+            cid = lore_character_id(entry.name)
+            resolved = self.db._resolve_kin_relatives(entry)
+            origin_by_key = {(rid, relation): origin for rid, relation, _sk, origin in resolved}
+            wanted_map = {(rid, relation): sk for rid, relation, sk, _origin in resolved}
+            stored_map = {(rid, relation): sk for rid, relation, sk in q.select_character_kin(self.conn, cid)}
+            added = set(wanted_map) - set(stored_map)
+            removed = set(stored_map) - set(wanted_map)
+            resourced = sorted(k for k in set(wanted_map) & set(stored_map) if wanted_map[k] != stored_map[k])
+            for rid, relation in sorted(added):
+                who = origin_by_key.get((rid, relation), self.character_id_to_name.get(rid, rid))
+                lines.append(f"    + {entry.name}: {relation} {who!r}")
+            for rid, relation in sorted(removed):
+                who = self.character_id_to_name.get(rid, rid)
+                lines.append(f"    - {entry.name}: {relation} {who!r} REMOVED")
+            for rid, relation in resourced:
+                who = self.character_id_to_name.get(rid, rid)
+                lines.append(
+                    f"    ~ {entry.name}: {relation} {who!r} source "
+                    f"{stored_map[(rid, relation)] or '(none)'!r} -> {wanted_map[(rid, relation)] or '(none)'!r}"
+                )
+        if lines:
+            self.changed = True
+            self.out.write("  Kin:\n")
+            self.out.write("\n".join(lines) + "\n")
+
+    def show_attr_changes(
+        self,
+        label: str,
+        entries: "list | None",
+        id_fn: Any,
+        rows_by_id: "Callable[[], dict[str, Any]]",
+        fields: tuple[str, ...],
+    ) -> None:
+        """Report registry columns this declaration would overwrite.
+
+        Every one of these columns preserves-on-empty, so an omitted value
+        leaves the stored one alone and is not a change; only a non-empty,
+        differing value is shown. ``rows_by_id`` is a callable returning the
+        stored rows, for the same laziness reason ``show_links_diff``'s
+        ``id_to_name`` is — this guard returns before calling it when
+        ``entries`` is ``None`` or the story is new.
+        """
+        if entries is None or not self.existing:
+            return
+        rows = rows_by_id()
+        lines: list[str] = []
+        for entry in entries:
+            row = rows.get(id_fn(entry.name))
+            if row is None:
+                continue  # new row: nothing to overwrite
+            for field in fields:
+                incoming = getattr(entry, field, "") or ""
+                stored = row[field] or ""
+                if not incoming or incoming == stored:
+                    continue
+                lines.append(f"    ~ {entry.name}: {field} {stored or '(none)'!r} -> {incoming!r}")
+        if lines:
+            self.changed = True
+            self.out.write(f"  {label} rows:\n")
+            self.out.write("\n".join(lines) + "\n")
+
+    def show_food_drink_changes(self, food_drink: "list[FoodDrinkEntry] | None") -> None:
+        """Warn when a kind change forks a row, as ``food_drink_id`` hashes name|kind."""
+        if food_drink is None or not self.existing:
+            return
+        linked_ids = q.select_story_junction(self.conn, self.story_id, "story_food_drink", "food_drink_id")
+        lines: list[str] = []
+        for entry in food_drink:
+            new_id = food_drink_id(entry.name, entry.kind)
+            superseded = [fid for fid in linked_ids if self.food_id_to_name.get(fid) == entry.name and fid != new_id]
+            if not superseded:
+                continue
+            lines.append(f"    ~ {entry.name}: kind -> {entry.kind!r}")
+            lines.append(f"      NEW ROW {superseded[0]} -> {new_id}; the old row is orphaned, not updated")
+        if lines:
+            self.changed = True
+            self.out.write("  Food & Drink rows:\n")
+            self.out.write("\n".join(lines) + "\n")
+
+    def show_region_changes(
+        self,
+        regions: "list[RegionEntry] | None",
+        reach_locations: list,
+        reach_region_names: list[str],
+    ) -> None:
+        """Report a region's ``world_of_rathe_story_key`` being overwritten in place.
+
+        A region named only as a ``LocationEntry(region="…")`` string is
+        written by ``_upsert_locations`` exactly the way an explicit
+        ``RegionEntry`` is, so it is walked here too via the reachable region
+        names, or the overwrite applies in silence on a page that never names
+        the region directly.
+        """
+        if not self.existing:
+            return
+        if not reach_region_names:
+            return
+        # Last-wins, matching write order: the real upsert_story() writes
+        # `regions` via `_upsert_regions` before `locations` via
+        # `_upsert_locations`, so a location's region key overwrites an
+        # explicit RegionEntry naming the same region.
+        incoming_by_name: dict[str, str] = {}
+        for entry in regions or []:
+            incoming_by_name[entry.name] = entry.world_of_rathe_story_key or _auto_world_key(entry.name)
+        for loc in reach_locations:
+            if loc.region:
+                incoming_by_name[loc.region] = loc.world_of_rathe_story_key or _auto_world_key(loc.region)
+        lines: list[str] = []
+        for name in sorted(reach_region_names):
+            rid = region_row_id(name)
+            row = q.select_region_by_id(self.conn, rid)
+            if row is None:
+                continue
+            incoming = incoming_by_name.get(name, "")
+            stored = row["world_of_rathe_story_key"] or ""
+            if not incoming or incoming == stored:
+                continue
+            lines.append(f"    ~ {name}: world_of_rathe_story_key {stored or '(none)'!r} -> {incoming!r}")
+        if lines:
+            self.changed = True
+            self.out.write("  Region rows:\n")
+            self.out.write("\n".join(lines) + "\n")
+
+    def show_group_changes(self, reach_groups: list) -> None:
+        """Report roster and attribute changes a group declaration would write.
+
+        Takes the **reachable** groups, not the ``groups`` kwarg — a group
+        reached only as another group's ``parent`` must be visible here too,
+        in its creation, its roster and its scalars alike.
+        """
+        if not reach_groups:
+            return
+        lines: list[str] = []
+        for entry in reach_groups:
+            gid = _group_id(entry.name)
+            row = self.group_rows.get(gid)
+            # Resolved before the new-group branch, not inside the diff below
+            # it: a roster naming one person as a slug and as a
+            # CharacterEntry raises here, and a *new* group never reaches the
+            # diff, so leaving this until then let the write raise on a clash
+            # the preview had just reported as fine.
+            wanted_map = {cid: src for cid, src, _origin in self.db._resolve_group_members(entry, mint=False)}
+            if row is None:
+                roster = len(wanted_map)
+                parent = f", parent={entry.parent.name!r}" if entry.parent is not None else ""
+                lines.append(
+                    f"    + {entry.name} (new group, kind={entry.kind or '(none)'!r}{parent}, {roster} members)"
+                )
+                continue
+            parent_name = entry.parent.name if entry.parent is not None else ""
+            for field, incoming in (
+                ("kind", entry.kind),
+                ("parent_group_id", _group_id(parent_name) if parent_name else ""),
+                ("lore_story_key", entry.lore_story_key),
+                ("lore_fragment", entry.lore_fragment),
+            ):
+                stored = row[field] or ""
+                if incoming and incoming != stored:
+                    # A group id says nothing to a reader. Render both ends
+                    # of a parent change by name, falling back to the id for
+                    # a parent that does not exist yet in this same run.
+                    if field == "parent_group_id":
+                        was = self.group_id_to_name.get(stored, stored) if stored else "(none)"
+                        now = self.group_id_to_name.get(incoming, parent_name)
+                        lines.append(f"    ~ {entry.name}: parent {was!r} -> {now!r}")
+                    else:
+                        lines.append(f"    ~ {entry.name}: {field} {stored or '(none)'!r} -> {incoming!r}")
+            # One roster table since migration 18, so one added/removed line
+            # rather than the pair this printed while a hero member and an
+            # entry-named member lived in different junctions. No guard: a
+            # declaration that names no members is asking for an empty
+            # roster, and the write path honours that, so the preview has to
+            # report the deletion.
+            stored = dict(q.select_group_members(self.conn, gid))
+            added, removed = set(wanted_map) - set(stored), set(stored) - set(wanted_map)
+            # The citation is a stored column, so a membership that keeps its
+            # row and changes the page it cites is a write. Comparing id sets
+            # alone made that invisible.
+            resourced = sorted(i for i in set(wanted_map) & set(stored) if wanted_map[i] != stored[i])
+            if added:
+                lines.append(f"    + {entry.name}: {len(added)} member(s) added to group_characters")
+            if removed:
+                lines.append(f"    - {entry.name}: {len(removed)} member(s) REMOVED from group_characters")
+            for mid in resourced:
+                old_src = stored[mid] or "(none)"
+                who = self.character_id_to_name.get(mid, mid)
+                lines.append(f"    ~ {entry.name}: {who} source {old_src!r} -> {wanted_map[mid] or '(none)'!r}")
+        if lines:
+            self.changed = True
+            self.out.write("  Group rows:\n")
+            self.out.write("\n".join(lines) + "\n")
+
+    def show_title_changes(self, reach_titles: list) -> None:
+        """Report holder and scalar changes a title declaration would write.
+
+        Mirrors ``show_group_changes``: holders are replace-semantic like a
+        group roster, so a short holder list silently drops people, and the
+        preview must say so. Takes the **reachable** titles, not the
+        ``titles`` kwarg, for the same reason ``show_group_changes`` takes
+        reachable groups.
+        """
+        if not reach_titles:
+            return
+        lines: list[str] = []
+        for entry in reach_titles:
+            tid = _title_id(entry.name)
+            row = self.title_rows.get(tid)
+            group_name = entry.group.name if entry.group is not None else ""
+            incoming_group_id = _group_id(group_name) if group_name else ""
+
+            # Raises here too, on the preview path — before the new/existing
+            # branch below, so a doubled holder on a brand-new title fails
+            # the same way it would on the real write.
+            resolved = self.db._resolve_title_holders(entry)
+
+            if row is None:
+                n_holders = len(entry.holders)
+                grp = f", group={group_name!r}" if group_name else ""
+                lines.append(f"    + {entry.name} (new title{grp}, {n_holders} holder(s))")
+                continue
+            stored_group = row["group_id"] or ""
+            if incoming_group_id and incoming_group_id != stored_group:
+                was = self.group_id_to_name.get(stored_group, stored_group) if stored_group else "(none)"
+                now = self.group_id_to_name.get(incoming_group_id, group_name)
+                lines.append(f"    ~ {entry.name}: group {was!r} -> {now!r}")
+
+            wanted_map = {cid: (ordinal, story_key) for cid, ordinal, story_key, _origin in resolved}
+            stored_map = {
+                cid: (ordinal, story_key) for cid, ordinal, story_key in q.select_title_holders(self.conn, tid)
+            }
+            added = set(wanted_map) - set(stored_map)
+            removed = set(stored_map) - set(wanted_map)
+            resourced = sorted(cid for cid in set(wanted_map) & set(stored_map) if wanted_map[cid] != stored_map[cid])
+            if added:
+                lines.append(f"    + {entry.name}: {len(added)} holder(s) added to title_holders")
+            if removed:
+                lines.append(f"    - {entry.name}: {len(removed)} holder(s) REMOVED from title_holders")
+            for cid in resourced:
+                who = self.character_id_to_name.get(cid, cid)
+                old_ordinal, old_source = stored_map[cid]
+                new_ordinal, new_source = wanted_map[cid]
+                lines.append(
+                    f"    ~ {entry.name}: {who} ordinal {old_ordinal} -> {new_ordinal}, "
+                    f"source {old_source or '(none)'!r} -> {new_source or '(none)'!r}"
+                )
+        if lines:
+            self.changed = True
+            self.out.write("  Title rows:\n")
+            self.out.write("\n".join(lines) + "\n")
 
 
 # ---------------------------------------------------------------------------
@@ -2198,6 +3056,15 @@ class Database:
         titles: list[TitleEntry] | None = None,
         file: IO[str] | None = None,
     ) -> StoryRecord:
+        """Print the preview :class:`_DryRunReport` builds and return a would-be record.
+
+        This method is the orchestrator: it fixes the order the report's
+        sections render in (matching what the write path in ``upsert_story``
+        actually does, section for section) and hands each section exactly
+        the kwargs it diffs. All the diffing logic itself — the lazy id/name
+        maps, the reachable-entities walk, and the render for each entity
+        type — lives on :class:`_DryRunReport`.
+        """
         import sys as _sys
 
         out = file or _sys.stdout
@@ -2205,15 +3072,11 @@ class Database:
         existing = q.select_story_by_key(self.conn, story_key)
         op = "UPDATE" if existing else "INSERT"
 
-        # Recorded on the instance as last_dry_run_changed so a caller running
-        # many declarations can tell a real diff from a no-op and stay silent
-        # about the rest. An INSERT is a change by definition.
-        changed = not existing
-        self._last_dry_run_changed = changed
-
         out.write(f"DRY RUN — {op} story\n")
         out.write(f"  StoryKey: {story_key}\n")
         out.write(f"  StoryId:  {story_id}\n")
+
+        report = _DryRunReport(self, self.conn, out, existing, story_id)
 
         scalar_fields: list[tuple[str, str, str]] = [
             ("title", "Title", title),
@@ -2224,922 +3087,139 @@ class Database:
             ("source_link", "Source", source_link),
             ("thumbnail_image_link", "Thumb", thumbnail_image_link),
         ]
+        report.show_scalar_fields(scalar_fields)
+        report.show_narrated_videos(narrated_videos)
 
-        if existing:
-            added: list[str] = []
-            removed: list[str] = []
-            for db_col, label, new_val in scalar_fields:
-                old_val = existing[db_col] or ""
-                if old_val == new_val:
-                    continue
-                if old_val and not new_val:
-                    removed.append(f"    - {label}: {old_val!r}")
-                elif not old_val:
-                    added.append(f"    + {label}: {new_val!r}")
-                else:
-                    added.append(f"    + {label}: {new_val!r}  (was: {old_val!r})")
-            if added:
-                changed = True
-                out.write("  Added / changed:\n")
-                out.write("\n".join(added) + "\n")
-            if removed:
-                changed = True
-                out.write("  Cleared:\n")
-                out.write("\n".join(removed) + "\n")
-            if not added and not removed:
-                out.write("  (story row: no scalar field changes)\n")
-        else:
-            for _, label, val in scalar_fields:
-                if val:
-                    out.write(f"  {label}: {val}\n")
+        # Heroes and ordinary characters merged (migration 17) into one
+        # story_characters junction, and stage 6b's heroes=/npcs= two-kwarg
+        # surface merged (2026-08-22) into the one characters= list this
+        # mirrors. Read-only — _resolve_characters calls
+        # _predict_hero_character_id and a bare lore_character_id hash,
+        # never _ensure_hero_character_id / _upsert_characters, since a
+        # preview must not write. It also raises here, before any diff
+        # below, if the same person is named twice.
+        report.show_character_links(story_key, characters, fragments)
 
-        if narrated_videos is not None:
-            # set_narrated_videos() deletes and re-inserts the whole set, so a bare
-            # count reads identically for a no-op and for a total replacement.
-            incoming_videos = [(v.author, v.source_link) for v in narrated_videos]
-            stored_videos = (
-                [(r["author"], r["source_link"]) for r in q.select_narrated_videos(self.conn, story_id)]
-                if existing
-                else []
-            )
-            if incoming_videos != stored_videos:
-                changed = True
-                out.write("  NarratedVideos:\n")
-                for author, link in stored_videos:
-                    if (author, link) not in incoming_videos:
-                        out.write(f"    - {author} ({link})\n")
-                for author, link in incoming_videos:
-                    if (author, link) not in stored_videos:
-                        out.write(f"    + {author} ({link})\n")
-            else:
-                out.write(f"  NarratedVideos: {len(narrated_videos)} entries (unchanged)\n")
-
-        # Build id → display name maps so diffs show readable slugs/names. Each
-        # registry is scanned once and every map derived from those rows: the
-        # *_rows dicts and the *_id_to_name dicts used to be two scans of the
-        # same table, and the name is a column of the row already in hand.
-        hero_rows = {r["canonical_id"]: r for r in q.select_all_heroes_canonical(self.conn)}
-        character_rows = {r["character_id"]: r for r in q.select_all_characters(self.conn)}
-        monster_rows = {r["monster_id"]: r for r in q.select_all_monsters(self.conn)}
-        fauna_rows = {r["fauna_id"]: r for r in q.select_all_fauna(self.conn)}
-        flora_rows = {r["flora_id"]: r for r in q.select_all_flora(self.conn)}
-        group_rows = {r["group_id"]: r for r in q.select_all_groups(self.conn)}
-        title_rows = {r["title_id"]: r for r in q.select_all_titles(self.conn)}
-
-        hero_id_to_slug = {cid: r["canonical_slug"] for cid, r in hero_rows.items()}
-        hero_id_to_hero_name = {cid: r["canonical_hero"] for cid, r in hero_rows.items()}
-        character_id_to_name = {cid: r["name"] for cid, r in character_rows.items()}
-        monster_id_to_name = {mid: r["name"] for mid, r in monster_rows.items()}
-        fauna_id_to_name = {fid: r["name"] for fid, r in fauna_rows.items()}
-        flora_id_to_name = {fid: r["name"] for fid, r in flora_rows.items()}
-        group_id_to_name = {gid: r["name"] for gid, r in group_rows.items()}
-        title_id_to_name = {tid: r["name"] for tid, r in title_rows.items()}
-
-        weapon_id_to_slug = {
-            r["canonical_weapon_id"]: r["canonical_slug"] for r in q.select_all_weapons_canonical(self.conn)
-        }
-        equip_id_to_slug = {
-            r["canonical_equipment_id"]: r["canonical_slug"] for r in q.select_all_equipment_canonical(self.conn)
-        }
-        loc_id_to_name = {r["location_id"]: r["name"] for r in q.select_all_locations(self.conn)}
-        region_id_to_name = {r["region_id"]: r["region_name"] for r in q.select_all_regions(self.conn)}
-        food_id_to_name = {r["food_drink_id"]: r["name"] for r in q.select_all_food_drink(self.conn)}
-
-        def _show_links_diff(
-            label: str,
-            incoming: list | None,
-            incoming_names: list[str],
-            junction_table: str,
-            junction_id_col: str,
-            id_to_name: dict[str, str],
-        ) -> None:
-            nonlocal changed
-            if incoming is None:
-                return  # None = leave unchanged
-            incoming_set = set(incoming_names)
-            if existing:
-                existing_ids = q.select_story_junction(self.conn, story_id, junction_table, junction_id_col)
-                existing_set = {id_to_name.get(eid, eid) for eid in existing_ids}
-                link_added = sorted(incoming_set - existing_set)
-                link_removed = sorted(existing_set - incoming_set)
-                if link_added or link_removed:
-                    changed = True
-                    out.write(f"  {label}:\n")
-                    for name in link_added:
-                        out.write(f"    + {name}\n")
-                    for name in link_removed:
-                        out.write(f"    - {name}\n")
-            else:
-                if incoming_names:
-                    out.write(f"  {label}:\n")
-                    for name in sorted(incoming_names):
-                        out.write(f"    + {name}\n")
-
-        # Heroes and ordinary characters merged (migration 17) into one story_characters
-        # junction, and stage 6b's heroes=/npcs= two-kwarg surface merged
-        # (2026-08-22) into the one characters= list this mirrors. Plain
-        # replace-semantic preview like every other junction: no partition,
-        # nothing carried over from the old state. Read-only —
-        # _resolve_characters calls _predict_hero_character_id and a bare
-        # lore_character_id hash, never _ensure_hero_character_id /
-        # _upsert_characters, since a preview must not write. It also raises here,
-        # before any diff below, if the same person is named twice.
-        if characters is not None:
-            old_char_state = q.select_story_character_fragments(self.conn, story_id) if existing else {}
-            new_char_state: dict[str, str] = {}
-            char_display_name: dict[str, str] = {}
-
-            for cid, _origin, item in self._resolve_characters(story_key, characters):
-                if isinstance(item, str):
-                    canonical_id = self._resolve_heroes([item])[0]
-                    new_char_state[cid] = (fragments or {}).get(item, "")
-                    char_display_name[cid] = hero_id_to_hero_name.get(canonical_id, item)
-                else:
-                    new_char_state[cid] = (fragments or {}).get(item.name, "")
-                    char_display_name[cid] = item.name
-
-            # Diff on character_id, never on the display name. The two sides
-            # read their names from different tables — the stored side from
-            # `characters.name`, the incoming side from a slug's
-            # `heroes_canonical.canonical_hero` — and those differ for any hero
-            # whose lore name is fuller than the name on the card. Comparing
-            # names reported one unchanged link as a remove plus an add of the
-            # same id, and the page then read as pending on every replay.
-            def _label(cid: str) -> str:
-                return char_display_name.get(cid, character_id_to_name.get(cid, cid))
-
-            new_char_names = {_label(cid) for cid in new_char_state}
-            if existing:
-                added = sorted(_label(cid) for cid in set(new_char_state) - set(old_char_state))
-                removed = sorted(
-                    character_id_to_name.get(cid, cid) for cid in set(old_char_state) - set(new_char_state)
-                )
-                if added or removed:
-                    changed = True
-                    out.write("  Characters:\n")
-                    for name in added:
-                        out.write(f"    + {name}\n")
-                    for name in removed:
-                        out.write(f"    - {name}\n")
-            elif new_char_names:
-                out.write("  Characters:\n")
-                for name in sorted(new_char_names):
-                    out.write(f"    + {name}\n")
-
-            if existing:
-                # A declaration that repeats membership without repeating a
-                # fragment blanks it — set_story_characters() replaces
-                # (character_id, fragment) rows wholesale. Membership is
-                # unchanged in that case, so the diff above stays silent —
-                # this is the only warning.
-                frag_lines: list[str] = []
-                for cid, now in new_char_state.items():
-                    was = old_char_state.get(cid, "")
-                    if was == now:
-                        continue
-                    label = char_display_name.get(cid, character_id_to_name.get(cid, cid))
-                    if was and not now:
-                        frag_lines.append(f"    ~ {label}: fragment {was!r} -> cleared")
-                    elif not was:
-                        frag_lines.append(f"    ~ {label}: fragment -> {now!r}")
-                    else:
-                        frag_lines.append(f"    ~ {label}: fragment {was!r} -> {now!r}")
-                if frag_lines:
-                    changed = True
-                    out.write("  Character fragments:\n")
-                    out.write("\n".join(frag_lines) + "\n")
-            elif fragments:
-                out.write(f"  Fragments: {fragments}\n")
-        _show_links_diff(
+        report.show_links_diff(
             "Locations",
             locations,
             [e.name for e in (locations or [])],
             "story_locations",
             "location_id",
-            loc_id_to_name,
+            lambda: report.loc_id_to_name,
         )
 
-        def _show_location_changes() -> None:
-            """Report location rows this declaration would fork or re-attribute.
+        reach_characters, reach_locations, reach_groups, reach_region_names, reach_titles = report.reachable_entities(
+            characters, locations, groups, regions, titles
+        )
 
-            ``location_id`` is a hash of ``name|region_id``, so changing a
-            location's region does not edit the row — it mints a second one and
-            strands the first. The membership diff above compares display names,
-            which are identical before and after, so it stays silent. Without
-            this block the preview shows a clean no-op for a row-orphaning change.
+        report.show_alternate_name_changes(reach_characters, reach_locations, reach_groups)
+        report.show_character_creations(reach_characters)
+        report.show_hero_slug_changes(reach_characters)
+        report.show_kin_changes(reach_characters)
+        report.show_location_changes(reach_locations)
 
-            Walks the **reachable** locations, not the ``locations`` kwarg.
-            ``_upsert_one_group`` writes ``group.location`` and ``_upsert_locations``
-            writes ``location.parent`` through the same call, so either can fork a
-            row exactly as a top-level entry does. A ``groups=`` declaration with
-            no ``locations=`` at all must still be checked, so the guard below
-            drops the old ``locations is None`` shortcut and gates only on the
-            story already existing — forking is a property of the row, not of
-            which kwarg named it.
-            """
-            nonlocal changed
-            if not existing:
-                return
-            _, reach_locations, _, _, _ = _reachable_entities()
-            if not reach_locations:
-                return
-            lines: list[str] = []
-            for entry in reach_locations:
-                eff_region = region_row_id(entry.region) if entry.region else ""
-                new_id = _location_id(entry.name, eff_region)
-                # A global scan, not one scoped to this story's own linked rows:
-                # a group's location is never linked through story_locations at
-                # all, so scoping to that junction would make this a no-op for
-                # exactly the case this walk exists to catch.
-                superseded = [lid for lid, name in loc_id_to_name.items() if name == entry.name and lid != new_id]
-                if superseded:
-                    old_id = superseded[0]
-                    old_row = q.select_location_by_id(self.conn, old_id)
-                    old_region = ""
-                    if old_row is not None and old_row["region_id"]:
-                        old_region = region_id_to_name.get(old_row["region_id"], old_row["region_id"])
-                    lines.append(
-                        f"    ~ {entry.name}: region {old_region or '(none)'!r} -> {entry.region or '(none)'!r}"
-                    )
-                    lines.append(f"      NEW ROW {old_id} -> {new_id}; the old row is orphaned, not updated")
-                    continue
-
-                # Same row: report the columns this declaration would overwrite.
-                # notes and lore_fragment both preserve-on-empty, so an omitted
-                # value is not a change and must not be reported as one.
-                row = q.select_location_by_id(self.conn, new_id)
-                if row is None:
-                    continue
-                for field, incoming in (("notes", entry.notes), ("lore_fragment", entry.lore_fragment)):
-                    stored = row[field] or ""
-                    if not incoming or incoming == stored:
-                        continue
-                    lines.append(f"    ~ {entry.name}: {field} {stored or '(none)'!r} -> {incoming!r}")
-            if lines:
-                changed = True
-                out.write("  Location rows:\n")
-                out.write("\n".join(lines) + "\n")
-
-        # Single-slot memo for _reachable_entities(); see its docstring.
-        _reach_cache: list[tuple[list, list, list, list[str], list]] = []
-
-        def _reachable_entities() -> tuple[list, list, list, list[str], list]:
-            """Return every character, location, group, region name and title this
-            declaration would write.
-
-            The kwargs are not the whole list. ``_upsert_one_group`` walks into
-            ``parent``, ``location`` and ``members``, ``_upsert_locations``
-            walks into ``parent``, and ``_upsert_one_title`` walks into ``group``
-            and ``holders`` — each of those writes the entity's alternate
-            names just as a top-level one does. Reporting only the kwargs would
-            leave a nested change applying in silence, which is the exact shape
-            this preview exists to catch: Ozrim and Maela Fairmind are reachable
-            through a group roster and through nothing else.
-
-            Region names are gathered the same way: from the ``regions`` kwarg,
-            and from every reachable location's ``.region`` string — ``LocationEntry``
-            names a region as a bare string, and ``_upsert_locations`` writes that
-            region's row (including its ``world_of_rathe_story_key``) whether or
-            not any ``RegionEntry`` ever names it.
-
-            The seen sets double as the cycle guard. ``_upsert_locations`` and
-            ``_upsert_one_group`` raise on a cycle, but they raise during the
-            *write*, and this runs first.
-
-            Memoised. Several of the report blocks below need this walk and the
-            kwargs cannot change between them, so recomputing it each time only
-            re-walked the same rosters. The cache is per-preview, living as long
-            as the enclosing call.
-            """
-            if _reach_cache:
-                return _reach_cache[0]
-            seen_character: dict[str, Any] = {}
-            seen_loc: dict[tuple[str, str], Any] = {}
-            seen_grp: dict[str, Any] = {}
-            seen_region: dict[str, None] = {}
-            seen_title: dict[str, Any] = {}
-
-            def walk_character(entry) -> None:
-                # Guard first, then recurse: a character's kin relatives may name
-                # each other back (siblings, spouses), and _upsert_characters skips
-                # re-processing an already-seen name for the same reason —
-                # this is ordinary domain data, not a cycle to raise on.
-                if entry.name in seen_character:
-                    return
-                seen_character[entry.name] = entry
-                for item in entry.kin:
-                    relative, _relation, _story_key = _kin_triple(item)
-                    if not isinstance(relative, str):
-                        walk_character(relative)
-
-            def walk_location(entry) -> None:
-                key = (entry.name, entry.region)
-                if key in seen_loc:
-                    return
-                seen_loc[key] = entry
-                if entry.region:
-                    seen_region.setdefault(entry.region, None)
-                if entry.parent is not None:
-                    walk_location(entry.parent)
-
-            def walk_group(entry) -> None:
-                if entry.name in seen_grp:
-                    return
-                seen_grp[entry.name] = entry
-                if entry.parent is not None:
-                    walk_group(entry.parent)
-                if entry.location is not None:
-                    walk_location(entry.location)
-                for member, _source in entry.member_pairs():
-                    if not isinstance(member, str):
-                        walk_character(member)
-
-            def walk_title(entry) -> None:
-                if entry.name in seen_title:
-                    return
-                seen_title[entry.name] = entry
-                if entry.group is not None:
-                    walk_group(entry.group)
-                for person, _ordinal, _source in entry.holders:
-                    if not isinstance(person, str):
-                        walk_character(person)
-
-            for entry in characters or []:
-                if not isinstance(entry, str):
-                    walk_character(entry)
-            for entry in locations or []:
-                walk_location(entry)
-            for entry in groups or []:
-                walk_group(entry)
-            for entry in regions or []:
-                seen_region.setdefault(entry.name, None)
-            for entry in titles or []:
-                walk_title(entry)
-            _reach_cache.append(
-                (
-                    list(seen_character.values()),
-                    list(seen_loc.values()),
-                    list(seen_grp.values()),
-                    list(seen_region.keys()),
-                    list(seen_title.values()),
-                )
-            )
-            return _reach_cache[0]
-
-        def _show_alternate_name_changes() -> None:
-            """Report epithet and alias rows this declaration would add or remove.
-
-            These are replace-semantic like the group rosters, so a name dropped
-            from a declaration is a deletion. That is precisely the change the
-            preview used to be blind to — ``member_source`` moved silently for a
-            whole session before anyone noticed — so every one of the three tables
-            is diffed here rather than trusted, over every entity the write path
-            reaches rather than over the kwargs alone.
-            """
-            nonlocal changed
-            lines: list[str] = []
-            reach_characters, reach_locations, reach_groups, _reach_regions, _reach_titles = _reachable_entities()
-
-            def _diff_names(owner: str, label: str, stored: set[str], wanted: set[str]) -> None:
-                """Append the +/- REMOVED lines for one replace-semantic name set.
-
-                Four of the diffs below are this exact shape. Keeping the REMOVED
-                wording in one place is the point: it is the line a reader has to
-                trust before answering yes, and it used to be spelled out at every
-                call site.
-                """
-                for name in sorted(wanted - stored):
-                    lines.append(f"    + {owner}: {label} {name!r}")
-                for name in sorted(stored - wanted):
-                    lines.append(f"    - {owner}: {label} {name!r} REMOVED")
-
-            # One scan each, rather than a lookup per stored id per character:
-            # both were a SELECT inside the loop over every reachable character.
-            kind_names = {r["kind_id"]: r["name"] for r in q.select_all_kinds(self.conn)}
-            profession_names = {r["profession_id"]: r["name"] for r in q.select_all_professions(self.conn)}
-
-            for entry in reach_characters:
-                cid = lore_character_id(entry.name)
-                # Kind is replace-semantic too, and it is the one that used to
-                # preserve — 32 rows carried a value no declaration named, so a
-                # missing kinds= reads as a deletion where it once read as
-                # silence. That reversal is exactly what has to be visible.
-                # _resolve_kinds raises on a repeated kind on this entry, on the
-                # preview path too, before any diff below is computed — the
-                # same guard the write path applies via _upsert_kinds.
-                resolved_kind = self._resolve_kinds(entry.name, _kind_tuple(entry.kinds))
-                stored_sp = {kind_names.get(sid, sid) for sid in q.select_character_kinds(self.conn, cid)}
-                wanted_sp = {name for _kid, name in resolved_kind}
-                _diff_names(entry.name, "kind", stored_sp, wanted_sp)
-
-                for sp in _kind_tuple(entry.kinds):
-                    sid = _kind_id(sp.name)
-                    _diff_names(sp.name, "alias", set(q.select_kind_aliases(self.conn, sid)), set(sp.aliases))
-
-                # Professions (R9), reported the same shape as kind just
-                # above — walked over reach_characters, not the characters= kwarg, so a
-                # profession reached only through a group roster or a title
-                # holder is visible here too. _resolve_professions raises on a
-                # repeated profession on this entry, on the preview path too,
-                # before any diff below is computed — the same guard the write
-                # path applies via _upsert_professions.
-                resolved_prof = self._resolve_professions(entry.name, _professions_tuple(entry.professions))
-                stored_prof = {profession_names.get(pid, pid) for pid in q.select_character_professions(self.conn, cid)}
-                wanted_prof = {name for _pid, name in resolved_prof}
-                _diff_names(entry.name, "profession", stored_prof, wanted_prof)
-
-                stored = set(q.select_character_epithets(self.conn, cid))
-                wanted = {(n, "epithet") for n in entry.epithets} | {(n, "short-name") for n in entry.short_names}
-                for name, kind in sorted(wanted - stored):
-                    lines.append(f"    + {entry.name}: {kind} {name!r}")
-                for name, kind in sorted(stored - wanted):
-                    lines.append(f"    - {entry.name}: {kind} {name!r} REMOVED")
-
-            for entry in reach_locations:
-                lid = _location_id(entry.name, region_row_id(entry.region) if entry.region else "")
-                stored = set(q.select_location_aliases(self.conn, lid))
-                wanted = {_alias_pair(a) for a in entry.aliases}
-                for alias, era in sorted(wanted - stored):
-                    lines.append(f"    + {entry.name}: alias {alias!r}" + (f" (era {era!r})" if era else ""))
-                for alias, era in sorted(stored - wanted):
-                    lines.append(f"    - {entry.name}: alias {alias!r} REMOVED")
-
-            for entry in reach_groups:
-                gid = _group_id(entry.name)
-                _diff_names(entry.name, "alias", set(q.select_group_aliases(self.conn, gid)), set(entry.aliases))
-
-            if lines:
-                changed = True
-                out.write("  Alternate names:\n")
-                out.write("\n".join(lines) + "\n")
-
-        _show_alternate_name_changes()
-
-        def _show_character_creations() -> None:
-            """Report a reachable character that has no stored row yet.
-
-            ``_show_attr_changes`` skips a row that does not exist —
-            "new row: nothing to overwrite" — and the Characters diff above
-            only walks the ``characters=`` kwarg, not the reachable set. A character
-            introduced purely through a group roster, carrying no kind, no
-            epithets and no short names, has nothing left to surface it in the
-            alternate-names diff either, so it was created in total silence
-            under a group line reading "N members". This is that creation's
-            only announcement.
-            """
-            nonlocal changed
-            reach_characters, _, _, _, _ = _reachable_entities()
-            lines: list[str] = []
-            for entry in reach_characters:
-                if character_rows.get(lore_character_id(entry.name)) is None:
-                    lines.append(f"    + {entry.name}")
-            if lines:
-                changed = True
-                out.write("  New characters:\n")
-                out.write("\n".join(lines) + "\n")
-
-        _show_character_creations()
-
-        def _show_hero_slug_changes() -> None:
-            """Report a character_heroes link a ``hero_slug`` claim would write.
-
-            ``hero_slug`` preserves on empty and writes ``character_heroes`` as a
-            side effect of ``_upsert_characters``, so this walks the **reachable** characters
-            (``_reachable_entities()``), not the ``characters=`` kwarg — a claim made
-            through a group roster must be visible here too, exactly like a
-            kind or an epithet reached the same way.
-            """
-            nonlocal changed
-            reach_characters, _, _, _, _ = _reachable_entities()
-            lines: list[str] = []
-            for entry in reach_characters:
-                if not entry.hero_slug:
-                    continue
-                hero_row = q.select_hero_by_slug(self.conn, entry.hero_slug)
-                if hero_row is None:
-                    continue  # unknown slug: the real write raises via _resolve_heroes
-                canonical_id = hero_row["canonical_id"]
-                cid = lore_character_id(entry.name)
-                stored_character_id = q.select_character_id_for_hero(self.conn, canonical_id)
-                if stored_character_id == cid:
-                    continue
-                if stored_character_id:
-                    was = character_id_to_name.get(stored_character_id, stored_character_id)
-                    lines.append(f"    ~ {entry.name}: hero_slug {entry.hero_slug!r} {was!r} -> {entry.name!r}")
-                else:
-                    lines.append(f"    + {entry.name}: hero_slug {entry.hero_slug!r} -> character_heroes")
-            if lines:
-                changed = True
-                out.write("  character_heroes:\n")
-                out.write("\n".join(lines) + "\n")
-
-        _show_hero_slug_changes()
-
-        def _show_kin_changes() -> None:
-            """Report ``character_kin`` rows a kin declaration would add or remove.
-
-            Replace-semantic, like kind and the epithet tables: an omitted
-            kin fact is a deletion, not a preserved value (see ``CharacterEntry.kin``'s
-            docstring for the reasoning). Walks the **reachable** characters
-            (``_reachable_entities()``), not the ``characters=`` kwarg, for the same
-            reason ``_show_hero_slug_changes`` does — a kin fact declared on an
-            character reached only through a group roster must not be invisible here.
-
-            Resolves through ``_resolve_kin_relatives``, which raises on a
-            repeated ``(relative, relation)`` pair, an unknown hero slug, or a
-            self-relative claim — on this preview path too, before any diff is
-            computed, so a bad declaration fails the same way here as it would
-            on the real write.
-            """
-            nonlocal changed
-            reach_characters, _, _, _, _ = _reachable_entities()
-            lines: list[str] = []
-            for entry in reach_characters:
-                cid = lore_character_id(entry.name)
-                resolved = self._resolve_kin_relatives(entry)
-                origin_by_key = {(rid, relation): origin for rid, relation, _sk, origin in resolved}
-                wanted_map = {(rid, relation): sk for rid, relation, sk, _origin in resolved}
-                stored_map = {(rid, relation): sk for rid, relation, sk in q.select_character_kin(self.conn, cid)}
-                added = set(wanted_map) - set(stored_map)
-                removed = set(stored_map) - set(wanted_map)
-                resourced = sorted(k for k in set(wanted_map) & set(stored_map) if wanted_map[k] != stored_map[k])
-                for rid, relation in sorted(added):
-                    who = origin_by_key.get((rid, relation), character_id_to_name.get(rid, rid))
-                    lines.append(f"    + {entry.name}: {relation} {who!r}")
-                for rid, relation in sorted(removed):
-                    who = character_id_to_name.get(rid, rid)
-                    lines.append(f"    - {entry.name}: {relation} {who!r} REMOVED")
-                for rid, relation in resourced:
-                    who = character_id_to_name.get(rid, rid)
-                    lines.append(
-                        f"    ~ {entry.name}: {relation} {who!r} source "
-                        f"{stored_map[(rid, relation)] or '(none)'!r} -> {wanted_map[(rid, relation)] or '(none)'!r}"
-                    )
-            if lines:
-                changed = True
-                out.write("  Kin:\n")
-                out.write("\n".join(lines) + "\n")
-
-        _show_kin_changes()
-
-        def _show_attr_changes(
-            label: str,
-            entries: list | None,
-            id_fn: Any,
-            rows_by_id: dict[str, Any],
-            fields: tuple[str, ...],
-        ) -> None:
-            """Report registry columns this declaration would overwrite.
-
-            Every one of these columns preserves-on-empty, so an omitted value
-            leaves the stored one alone and is not a change. Reporting it as a
-            clear would be a false alarm, which trains the reader to skim past
-            the section — so only a non-empty, differing value is shown.
-            """
-            nonlocal changed
-            if entries is None or not existing:
-                return
-            lines: list[str] = []
-            for entry in entries:
-                row = rows_by_id.get(id_fn(entry.name))
-                if row is None:
-                    continue  # new row: nothing to overwrite
-                for field in fields:
-                    incoming = getattr(entry, field, "") or ""
-                    stored = row[field] or ""
-                    if not incoming or incoming == stored:
-                        continue
-                    lines.append(f"    ~ {entry.name}: {field} {stored or '(none)'!r} -> {incoming!r}")
-            if lines:
-                changed = True
-                out.write(f"  {label} rows:\n")
-                out.write("\n".join(lines) + "\n")
-
-        def _show_food_drink_changes() -> None:
-            """Warn when a kind change forks a row, as ``food_drink_id`` hashes name|kind."""
-            nonlocal changed
-            if food_drink is None or not existing:
-                return
-            linked_ids = q.select_story_junction(self.conn, story_id, "story_food_drink", "food_drink_id")
-            lines: list[str] = []
-            for entry in food_drink:
-                new_id = food_drink_id(entry.name, entry.kind)
-                superseded = [fid for fid in linked_ids if food_id_to_name.get(fid) == entry.name and fid != new_id]
-                if not superseded:
-                    continue
-                lines.append(f"    ~ {entry.name}: kind -> {entry.kind!r}")
-                lines.append(f"      NEW ROW {superseded[0]} -> {new_id}; the old row is orphaned, not updated")
-            if lines:
-                changed = True
-                out.write("  Food & Drink rows:\n")
-                out.write("\n".join(lines) + "\n")
-
-        _show_location_changes()
-        # Reachable, not the `characters=` kwarg: `_upsert_one_group` writes `status` and
-        # `other_characters_story_key` for roster characters too, via `_upsert_characters`, so
-        # an overwrite reached only through a group roster must be shown here —
-        # Monster/Fauna/Flora stay on their own kwargs below, since none of them
-        # is reachable through a group.
-        reach_characters_for_attrs, _, _, _, _ = _reachable_entities()
-        _show_attr_changes(
+        # Reachable, not the `characters=` kwarg: `_upsert_one_group` writes
+        # `status` and `other_characters_story_key` for roster characters
+        # too, via `_upsert_characters`, so an overwrite reached only
+        # through a group roster must be shown here — Monster/Fauna/Flora
+        # stay on their own kwargs below, since none of them is reachable
+        # through a group.
+        report.show_attr_changes(
             "Character",
-            reach_characters_for_attrs,
+            reach_characters,
             lore_character_id,
-            character_rows,
+            lambda: report.character_rows,
             ("status", "other_characters_story_key"),
         )
-        _show_attr_changes("Monster", monsters, _monster_id, monster_rows, ("description",))
-        _show_attr_changes("Fauna", fauna, fauna_id_from_name, fauna_rows, ("description",))
-        _show_attr_changes("Flora", flora, flora_id, flora_rows, ("description",))
+        report.show_attr_changes("Monster", monsters, _monster_id, lambda: report.monster_rows, ("description",))
+        report.show_attr_changes("Fauna", fauna, fauna_id_from_name, lambda: report.fauna_rows, ("description",))
+        report.show_attr_changes("Flora", flora, flora_id, lambda: report.flora_rows, ("description",))
 
-        def _show_region_changes() -> None:
-            """Report a region's world_of_rathe_story_key being overwritten in place.
-
-            A region named only as a ``LocationEntry(region="…")`` string is
-            written by ``_upsert_locations`` exactly the way an explicit
-            ``RegionEntry`` is — including its own ``_auto_world_key`` fallback —
-            so it is walked here too via ``_reachable_entities()``'s region
-            names, or the overwrite applies in silence on a page that never
-            names the region directly.
-            """
-            nonlocal changed
-            if not existing:
-                return
-            _, reach_locations, _, reach_region_names, _ = _reachable_entities()
-            if not reach_region_names:
-                return
-            # Last-wins, matching write order: the real upsert_story() writes
-            # `regions` via `_upsert_regions` before `locations` via
-            # `_upsert_locations`, so a location's region key overwrites an
-            # explicit RegionEntry naming the same region.
-            incoming_by_name: dict[str, str] = {}
-            for entry in regions or []:
-                incoming_by_name[entry.name] = entry.world_of_rathe_story_key or _auto_world_key(entry.name)
-            for loc in reach_locations:
-                if loc.region:
-                    incoming_by_name[loc.region] = loc.world_of_rathe_story_key or _auto_world_key(loc.region)
-            lines: list[str] = []
-            for name in sorted(reach_region_names):
-                rid = region_row_id(name)
-                row = q.select_region_by_id(self.conn, rid)
-                if row is None:
-                    continue
-                incoming = incoming_by_name.get(name, "")
-                stored = row["world_of_rathe_story_key"] or ""
-                if not incoming or incoming == stored:
-                    continue
-                lines.append(f"    ~ {name}: world_of_rathe_story_key {stored or '(none)'!r} -> {incoming!r}")
-            if lines:
-                changed = True
-                out.write("  Region rows:\n")
-                out.write("\n".join(lines) + "\n")
-
-        _show_food_drink_changes()
-        _show_region_changes()
-        _show_links_diff(
+        report.show_food_drink_changes(food_drink)
+        report.show_region_changes(regions, reach_locations, reach_region_names)
+        report.show_links_diff(
             "Regions",
             regions,
             [e.name for e in (regions or [])],
             "story_regions",
             "region_id",
-            region_id_to_name,
+            lambda: report.region_id_to_name,
         )
-        _show_links_diff(
+        report.show_links_diff(
             "Monsters",
             monsters,
             [e.name for e in (monsters or [])],
             "story_monsters",
             "monster_id",
-            monster_id_to_name,
+            lambda: report.monster_id_to_name,
         )
-        _show_links_diff(
+        report.show_links_diff(
             "Fauna",
             fauna,
             [e.name for e in (fauna or [])],
             "story_fauna",
             "fauna_id",
-            fauna_id_to_name,
+            lambda: report.fauna_id_to_name,
         )
-        _show_links_diff(
+        report.show_links_diff(
             "Flora",
             flora,
             [e.name for e in (flora or [])],
             "story_flora",
             "flora_id",
-            flora_id_to_name,
+            lambda: report.flora_id_to_name,
         )
-        _show_links_diff(
+        report.show_links_diff(
             "Food & Drink",
             food_drink,
             [e.name for e in (food_drink or [])],
             "story_food_drink",
             "food_drink_id",
-            food_id_to_name,
+            lambda: report.food_id_to_name,
         )
-        _show_links_diff(
+        report.show_links_diff(
             "Weapons",
             weapon_ids,
-            [weapon_id_to_slug.get(wid, wid) for wid in (weapon_ids or [])],
+            [report.weapon_id_to_slug.get(wid, wid) for wid in (weapon_ids or [])],
             "story_weapons",
             "canonical_weapon_id",
-            weapon_id_to_slug,
+            lambda: report.weapon_id_to_slug,
         )
-        _show_links_diff(
+        report.show_links_diff(
             "Equipment",
             equip_ids,
-            [equip_id_to_slug.get(eid, eid) for eid in (equip_ids or [])],
+            [report.equip_id_to_slug.get(eid, eid) for eid in (equip_ids or [])],
             "story_equipment",
             "canonical_equipment_id",
-            equip_id_to_slug,
+            lambda: report.equip_id_to_slug,
         )
 
-        def _show_group_changes() -> None:
-            """Report roster and attribute changes a group declaration would write.
-
-            The roster is the part worth previewing: membership is replace-semantic
-            like a story junction, so a short ``members`` silently drops people.
-
-            Walks the **reachable** groups, not the ``groups`` kwarg. Until
-            2026-08-21 it iterated the kwarg, so a group reached only as another
-            group's ``parent`` was invisible here in every respect — its creation,
-            its roster and its scalars alike — while ``_show_alternate_name_changes``
-            walked the same chain and reported its aliases. Stage 5's Super Slam
-            hierarchy is what surfaced it: declaring twelve guilds would have
-            created four stable rows, twelve parent links and three patron
-            memberships, and printed one line about an alias.
-            """
-            nonlocal changed
-            _, _, reach_groups, _, _ = _reachable_entities()
-            if not reach_groups:
-                return
-            lines: list[str] = []
-            for entry in reach_groups:
-                gid = _group_id(entry.name)
-                row = group_rows.get(gid)
-                # Resolved before the new-group branch, not inside the diff
-                # below it: a roster naming one person as a slug and as an
-                # CharacterEntry raises here, and a *new* group never reaches the
-                # diff, so leaving this until then let the write raise on a
-                # clash the preview had just reported as fine. The count is the
-                # resolved one for the same reason — it is the number of rows
-                # that would be written, which len(entry.members) is not once
-                # two items can name one person.
-                wanted_map = {cid: src for cid, src, _origin in self._resolve_group_members(entry, mint=False)}
-                if row is None:
-                    roster = len(wanted_map)
-                    parent = f", parent={entry.parent.name!r}" if entry.parent is not None else ""
-                    lines.append(
-                        f"    + {entry.name} (new group, kind={entry.kind or '(none)'!r}{parent}, {roster} members)"
-                    )
-                    continue
-                # Every scalar `upsert_group` writes from a plain string on the
-                # entry. `kind` alone was previewed until 2026-08-20, so a group
-                # gaining its documentation page changed the DB and printed
-                # nothing — the same shape as the roster bug stage 3 fixed.
-                #
-                # `parent_group_id` joined them 2026-08-21. The stage 11 note that
-                # left it out said it and `location_id` "both need resolving rather
-                # than reading, and resolving a location writes" — true of the
-                # location, false of the parent. `_group_id` is a pure hash of the
-                # name, so a parent resolves without touching the database, and the
-                # two were only ever grouped because they sit side by side on the
-                # entry. `location_id` genuinely does write and stays out.
-                parent_name = entry.parent.name if entry.parent is not None else ""
-                for field, incoming in (
-                    ("kind", entry.kind),
-                    ("parent_group_id", _group_id(parent_name) if parent_name else ""),
-                    ("lore_story_key", entry.lore_story_key),
-                    ("lore_fragment", entry.lore_fragment),
-                ):
-                    stored = row[field] or ""
-                    if incoming and incoming != stored:
-                        # A group id says nothing to a reader. Render both ends of
-                        # a parent change by name, falling back to the id for a
-                        # parent that does not exist yet in this same run.
-                        if field == "parent_group_id":
-                            was = group_id_to_name.get(stored, stored) if stored else "(none)"
-                            now = group_id_to_name.get(incoming, parent_name)
-                            lines.append(f"    ~ {entry.name}: parent {was!r} -> {now!r}")
-                        else:
-                            lines.append(f"    ~ {entry.name}: {field} {stored or '(none)'!r} -> {incoming!r}")
-                # One roster table since migration 18, so one added/removed
-                # line rather than the pair this printed while a hero member
-                # and an entry-named member lived in different junctions.
-                #
-                # No guard. A declaration that names no members is asking for an
-                # empty roster, and the write path honours that, so the preview
-                # has to report the deletion. A group that has no stored members
-                # either produces no lines below, which is the quiet case this
-                # once tried to buy with a `continue`.
-                stored = dict(q.select_group_members(self.conn, gid))
-                added, removed = set(wanted_map) - set(stored), set(stored) - set(wanted_map)
-                # The citation is a stored column, so a membership that keeps
-                # its row and changes the page it cites is a write. Comparing
-                # id sets alone made that invisible, which is how the per-member
-                # source could have landed unannounced.
-                resourced = sorted(i for i in set(wanted_map) & set(stored) if wanted_map[i] != stored[i])
-                if added:
-                    lines.append(f"    + {entry.name}: {len(added)} member(s) added to group_characters")
-                if removed:
-                    lines.append(f"    - {entry.name}: {len(removed)} member(s) REMOVED from group_characters")
-                for mid in resourced:
-                    old_src = stored[mid] or "(none)"
-                    who = character_id_to_name.get(mid, mid)
-                    lines.append(f"    ~ {entry.name}: {who} source {old_src!r} -> {wanted_map[mid] or '(none)'!r}")
-            if lines:
-                changed = True
-                out.write("  Group rows:\n")
-                out.write("\n".join(lines) + "\n")
-
-        _show_group_changes()
-        _show_links_diff(
+        report.show_group_changes(reach_groups)
+        report.show_links_diff(
             "Groups",
             groups,
             [e.name for e in (groups or [])],
             "story_groups",
             "group_id",
-            group_id_to_name,
+            lambda: report.group_id_to_name,
         )
 
-        def _show_title_changes() -> None:
-            """Report holder and scalar changes a title declaration would write.
-
-            Mirrors ``_show_group_changes``: holders are replace-semantic like a
-            group roster, so a short holder list silently drops people, and the
-            preview must say so. Unlike a group, a title has one holder table
-            rather than two (``title_holders`` covers ordinary characters and heroes alike,
-            migration 12's identity spine), so there is one added/removed line
-            per title rather than one per table.
-
-            Walks the **reachable** titles, not the ``titles`` kwarg, for the
-            same reason ``_show_group_changes`` walks reachable groups — a title
-            reached only through another entity must not be invisible here.
-            """
-            nonlocal changed
-            _, _, _, _, reach_titles = _reachable_entities()
-            if not reach_titles:
-                return
-            lines: list[str] = []
-            for entry in reach_titles:
-                tid = _title_id(entry.name)
-                row = title_rows.get(tid)
-                group_name = entry.group.name if entry.group is not None else ""
-                incoming_group_id = _group_id(group_name) if group_name else ""
-
-                # Raises here too, on the preview path — before the new/existing
-                # branch below, so a doubled holder on a brand-new title fails
-                # the same way it would on the real write, rather than being
-                # skipped by the "nothing to diff yet" shortcut.
-                resolved = self._resolve_title_holders(entry)
-
-                if row is None:
-                    n_holders = len(entry.holders)
-                    grp = f", group={group_name!r}" if group_name else ""
-                    lines.append(f"    + {entry.name} (new title{grp}, {n_holders} holder(s))")
-                    continue
-                stored_group = row["group_id"] or ""
-                if incoming_group_id and incoming_group_id != stored_group:
-                    was = group_id_to_name.get(stored_group, stored_group) if stored_group else "(none)"
-                    now = group_id_to_name.get(incoming_group_id, group_name)
-                    lines.append(f"    ~ {entry.name}: group {was!r} -> {now!r}")
-
-                wanted_map = {cid: (ordinal, story_key) for cid, ordinal, story_key, _origin in resolved}
-                stored_map = {
-                    cid: (ordinal, story_key) for cid, ordinal, story_key in q.select_title_holders(self.conn, tid)
-                }
-                added = set(wanted_map) - set(stored_map)
-                removed = set(stored_map) - set(wanted_map)
-                resourced = sorted(
-                    cid for cid in set(wanted_map) & set(stored_map) if wanted_map[cid] != stored_map[cid]
-                )
-                if added:
-                    lines.append(f"    + {entry.name}: {len(added)} holder(s) added to title_holders")
-                if removed:
-                    lines.append(f"    - {entry.name}: {len(removed)} holder(s) REMOVED from title_holders")
-                for cid in resourced:
-                    who = character_id_to_name.get(cid, cid)
-                    old_ordinal, old_source = stored_map[cid]
-                    new_ordinal, new_source = wanted_map[cid]
-                    lines.append(
-                        f"    ~ {entry.name}: {who} ordinal {old_ordinal} -> {new_ordinal}, "
-                        f"source {old_source or '(none)'!r} -> {new_source or '(none)'!r}"
-                    )
-            if lines:
-                changed = True
-                out.write("  Title rows:\n")
-                out.write("\n".join(lines) + "\n")
-
-        _show_title_changes()
-        _show_links_diff(
+        report.show_title_changes(reach_titles)
+        report.show_links_diff(
             "Titles",
             titles,
             [e.name for e in (titles or [])],
             "story_titles",
             "title_id",
-            title_id_to_name,
+            lambda: report.title_id_to_name,
         )
 
-        self._last_dry_run_changed = changed
+        # Recorded on the instance as last_dry_run_changed so a caller
+        # running many declarations can tell a real diff from a no-op and
+        # stay silent about the rest. An INSERT is a change by definition —
+        # report.changed starts out True in that case.
+        self._last_dry_run_changed = report.changed
         out.write("\n(no changes written)\n")
 
         # Return a StoryRecord reflecting the would-be state
