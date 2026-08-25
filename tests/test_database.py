@@ -185,7 +185,7 @@ def test_upsert_story_links_characters(db: Database) -> None:
     # Species is a junction now, not a column on this row.
     assert (
         db.conn.execute(
-            "SELECT s.name FROM npc_species ns JOIN species s USING(species_id) WHERE ns.character_id = ?",
+            "SELECT s.name FROM character_kinds ns JOIN kinds s USING(kind_id) WHERE ns.character_id = ?",
             [npc["character_id"]],
         ).fetchone()[0]
         == "Human"

@@ -6,13 +6,13 @@ repos:
         entry: bash scripts/ensure-create-md-sync.sh
         language: system
         pass_filenames: false
-        files: ^src/data/(create_md\.py|csv/(characters|fauna|flora|food-and-drink|locations|monsters|species)\.csv|md/(characters|fauna|flora|food-and-drink|locations|monsters|species)\.md)$
+        files: ^src/data/(create_md\.py|csv/(characters|fauna|flora|food-and-drink|kinds|locations|monsters)\.csv|md/(characters|fauna|flora|food-and-drink|kinds|locations|monsters)\.md)$
       - id: ensure-hints-json-sync
         name: ensure-hints-json-sync
         entry: bash scripts/ensure-hints-json-sync.sh
         language: system
         pass_filenames: false
-        files: ^(src/hints_supplement\.json|src/data/(generate_hints_json\.py|descriptions\.py|csv/(character-heroes|characters|fauna|flora|group-aliases|groups|location-aliases|locations|monsters|npc-epithets|npc-species|regions|species|species-aliases)\.csv))$
+        files: ^(src/hints_supplement\.json|src/data/(generate_hints_json\.py|descriptions\.py|csv/(character-epithets|character-heroes|character-kinds|characters|fauna|flora|group-aliases|groups|kind-aliases|kinds|location-aliases|locations|monsters|regions)\.csv))$
       - id: validate-data
         name: validate-data
         entry: python3 src/data/validate_data.py

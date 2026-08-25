@@ -886,7 +886,7 @@
       "Aesir",
       "Aesirs"
     ],
-    "type": "species",
+    "type": "kind",
     "summary": "Primordial beings of elemental force who slumber beyond the veil — worshipped as deities such as Sol, and fought as ancient enemies in the Third Age."
   },
   "Ancient": {
@@ -894,14 +894,14 @@
       "Ancient",
       "Ancients"
     ],
-    "type": "species",
+    "type": "kind",
     "summary": "Colossal elemental beings native to Rathe; Davnir, Yvor and Galcia spent their lives in the cataclysm that broke the world of the Third Age.",
     "exclude_pages": [
       "world-of-rathe/aria"
     ]
   },
   "Chanek": {
-    "type": "species",
+    "type": "kind",
     "summary": "Green-skinned, pointed-eared Rathenfolk of the far west."
   },
   "Embra": {
@@ -909,7 +909,7 @@
       "Embra",
       "Embras"
     ],
-    "type": "species",
+    "type": "kind",
     "summary": "Powerful supernatural entities that feed on blood."
   },
   "Absolon": {

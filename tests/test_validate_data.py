@@ -209,7 +209,7 @@ def test_species_and_faction_are_not_supplement_types() -> None:
     """Both left in stage 4, for the same reason: the DB is the writer now.
 
     `species` was added so Chanek could be retyped off `faction`; four months
-    later Chanek is a `species.csv` row and the supplement entry is gone, so a
+    later Chanek is a `kinds.csv` row and the supplement entry is gone, so a
     supplement entry claiming either type would be a second writer on one fact.
     """
     assert "species" not in validate_data._SUPPLEMENT_TYPES
@@ -278,7 +278,7 @@ def test_check_group_lore_fragments_ignores_groups_with_no_link(tmp_path: Path) 
 def test_epithet_kind_must_be_in_the_closed_list(tmp_path: Path) -> None:
     from validate_data import _check_epithet_kinds
 
-    path = tmp_path / "npc-epithets.csv"
+    path = tmp_path / "character-epithets.csv"
     path.write_text("# x\nCharacterId|Name|Kind\nLC1|the Fixer|nickname\n")
     alerts = _check_epithet_kinds(path)
     assert len(alerts) == 1
@@ -288,7 +288,7 @@ def test_epithet_kind_must_be_in_the_closed_list(tmp_path: Path) -> None:
 def test_epithet_kind_accepts_both_valid_kinds(tmp_path: Path) -> None:
     from validate_data import _check_epithet_kinds
 
-    path = tmp_path / "npc-epithets.csv"
+    path = tmp_path / "character-epithets.csv"
     path.write_text("# x\nCharacterId|Name|Kind\nLC1|the Fixer|epithet\nLC1|Mortimer|short-name\n")
     assert _check_epithet_kinds(path) == []
 

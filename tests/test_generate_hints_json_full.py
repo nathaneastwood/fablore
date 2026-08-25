@@ -128,15 +128,15 @@ def _create_hint_tables(conn: sqlite3.Connection) -> None:
     )
     conn.execute("CREATE TABLE location_aliases (location_id TEXT, alias TEXT, era TEXT, sort_order INTEGER)")
     conn.execute("CREATE TABLE group_aliases (group_id TEXT, alias TEXT, sort_order INTEGER)")
-    conn.execute("CREATE TABLE species (species_id TEXT DEFAULT '', name TEXT, notes TEXT)")
-    conn.execute("CREATE TABLE species_aliases (species_id TEXT, alias TEXT, sort_order INTEGER)")
+    conn.execute("CREATE TABLE kinds (kind_id TEXT DEFAULT '', name TEXT, notes TEXT)")
+    conn.execute("CREATE TABLE kind_aliases (kind_id TEXT, alias TEXT, sort_order INTEGER)")
     conn.execute(
         "CREATE TABLE characters (character_id TEXT DEFAULT '', name TEXT, status TEXT DEFAULT '',"
         " summary TEXT DEFAULT '')"
     )
     conn.execute("CREATE TABLE character_heroes (canonical_id TEXT, character_id TEXT)")
-    conn.execute("CREATE TABLE npc_epithets (character_id TEXT, name TEXT, kind TEXT, sort_order INTEGER)")
-    conn.execute("CREATE TABLE npc_species (character_id TEXT, species_id TEXT, sort_order INTEGER)")
+    conn.execute("CREATE TABLE character_epithets (character_id TEXT, name TEXT, kind TEXT, sort_order INTEGER)")
+    conn.execute("CREATE TABLE character_kinds (character_id TEXT, kind_id TEXT, sort_order INTEGER)")
 
 
 def _make_db(path: Path) -> None:
@@ -466,15 +466,15 @@ def _make_species_db(path: Path) -> None:
     conn.close()
 
 
-def test_a_species_becomes_a_tooltip(tmp_path: Path, monkeypatch) -> None:
+def test_a_kind_becomes_a_tooltip(tmp_path: Path, monkeypatch) -> None:
     db = tmp_path / "sp.db"
     _make_species_db(db)
     conn = sqlite3.connect(db)
-    conn.execute("INSERT INTO species VALUES ('SP1','Chanek','Rathenfolk of the far west.')")
+    conn.execute("INSERT INTO kinds VALUES ('SP1','Chanek','Rathenfolk of the far west.')")
     conn.commit()
     conn.close()
     out = _generate_from(db, tmp_path, monkeypatch)
-    assert out["Chanek"] == {"type": "species", "summary": "Rathenfolk of the far west."}
+    assert out["Chanek"] == {"type": "kind", "summary": "Rathenfolk of the far west."}
 
 
 def test_a_species_with_no_notes_emits_nothing(tmp_path: Path, monkeypatch) -> None:
@@ -482,7 +482,7 @@ def test_a_species_with_no_notes_emits_nothing(tmp_path: Path, monkeypatch) -> N
     db = tmp_path / "sp.db"
     _make_species_db(db)
     conn = sqlite3.connect(db)
-    conn.execute("INSERT INTO species VALUES ('SP1','Meep','')")
+    conn.execute("INSERT INTO kinds VALUES ('SP1','Meep','')")
     conn.commit()
     conn.close()
     assert "Meep" not in _generate_from(db, tmp_path, monkeypatch)
@@ -493,8 +493,8 @@ def test_a_species_alias_becomes_a_match_string(tmp_path: Path, monkeypatch) -> 
     db = tmp_path / "sp.db"
     _make_species_db(db)
     conn = sqlite3.connect(db)
-    conn.execute("INSERT INTO species VALUES ('SP1','Ancient','Colossal elemental beings.')")
-    conn.execute("INSERT INTO species_aliases VALUES ('SP1','Ancients',0)")
+    conn.execute("INSERT INTO kinds VALUES ('SP1','Ancient','Colossal elemental beings.')")
+    conn.execute("INSERT INTO kind_aliases VALUES ('SP1','Ancients',0)")
     conn.commit()
     conn.close()
     assert _generate_from(db, tmp_path, monkeypatch)["Ancient"]["match"] == ["Ancient", "Ancients"]
@@ -506,7 +506,7 @@ def test_a_group_beats_a_species_of_the_same_name(tmp_path: Path, monkeypatch) -
     _make_species_db(db)
     conn = sqlite3.connect(db)
     conn.execute("INSERT INTO groups (group_id, name, kind, notes) VALUES ('GR1','Rosetta','order','An order.')")
-    conn.execute("INSERT INTO species VALUES ('SP1','Rosetta','A people.')")
+    conn.execute("INSERT INTO kinds VALUES ('SP1','Rosetta','A people.')")
     conn.commit()
     conn.close()
     entry = _generate_from(db, tmp_path, monkeypatch)["Rosetta"]
@@ -536,7 +536,7 @@ def test_the_loser_of_a_key_clash_donates_fields_the_winner_lacks(tmp_path: Path
 # Characters reach the tooltip (migration 16)
 # ---------------------------------------------------------------------------
 # Until `characters.summary` existed the generator emitted nothing for people at
-# all: hints_supplement.json hand-wrote every one, and the npc_epithets rows
+# all: hints_supplement.json hand-wrote every one, and the character_epithets rows
 # stage 3 created were correct data that rendered nowhere.
 
 
@@ -601,7 +601,7 @@ def test_epithets_and_short_names_become_match_strings(tmp_path: Path, monkeypat
     conn = _make_character_db(db)
     conn.execute("INSERT INTO characters (character_id, name, summary) VALUES ('LC1','Bellona','An Archangel.')")
     conn.executemany(
-        "INSERT INTO npc_epithets VALUES (?,?,?,?)",
+        "INSERT INTO character_epithets VALUES (?,?,?,?)",
         [("LC1", "the Wartune Herald", "epithet", 0), ("LC1", "Archangel of War", "epithet", 1)],
     )
     conn.commit()
@@ -612,31 +612,31 @@ def test_epithets_and_short_names_become_match_strings(tmp_path: Path, monkeypat
     assert "Archangel of War" in match
 
 
-def test_a_character_species_reaches_the_badge(tmp_path: Path, monkeypatch) -> None:
+def test_a_character_kind_reaches_the_badge(tmp_path: Path, monkeypatch) -> None:
     """theme/hints.js has read entry.species since stage 4 and no entry ever carried it."""
     db = tmp_path / "c.db"
     conn = _make_character_db(db)
     conn.execute("INSERT INTO characters (character_id, name, summary) VALUES ('LC1','Biski','A dog.')")
-    conn.execute("INSERT INTO species (species_id, name, notes) VALUES ('SP1','Dog','')")
-    conn.execute("INSERT INTO npc_species VALUES ('LC1','SP1',0)")
+    conn.execute("INSERT INTO kinds (kind_id, name, notes) VALUES ('SP1','Dog','')")
+    conn.execute("INSERT INTO character_kinds VALUES ('LC1','SP1',0)")
     conn.commit()
     conn.close()
-    assert _generate_from(db, tmp_path, monkeypatch)["Biski"]["species"] == "Dog"
+    assert _generate_from(db, tmp_path, monkeypatch)["Biski"]["kind"] == "Dog"
 
 
-def test_two_species_are_joined_not_ranked(tmp_path: Path, monkeypatch) -> None:
+def test_two_kinds_are_joined_not_ranked(tmp_path: Path, monkeypatch) -> None:
     """Scooba is a Zombie and a Dog, and neither is the lesser half."""
     db = tmp_path / "c.db"
     conn = _make_character_db(db)
     conn.execute("INSERT INTO characters (character_id, name, summary) VALUES ('LC1','Scooba','A zombie dog.')")
     conn.executemany(
-        "INSERT INTO species (species_id, name, notes) VALUES (?,?,'')",
+        "INSERT INTO kinds (kind_id, name, notes) VALUES (?,?,'')",
         [("SP1", "Zombie"), ("SP2", "Dog")],
     )
-    conn.executemany("INSERT INTO npc_species VALUES (?,?,?)", [("LC1", "SP1", 0), ("LC1", "SP2", 1)])
+    conn.executemany("INSERT INTO character_kinds VALUES (?,?,?)", [("LC1", "SP1", 0), ("LC1", "SP2", 1)])
     conn.commit()
     conn.close()
-    assert _generate_from(db, tmp_path, monkeypatch)["Scooba"]["species"] == "Zombie, Dog"
+    assert _generate_from(db, tmp_path, monkeypatch)["Scooba"]["kind"] == "Zombie, Dog"
 
 
 def test_a_location_beats_a_character_of_the_same_name(tmp_path: Path, monkeypatch) -> None:

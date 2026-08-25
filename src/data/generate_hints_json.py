@@ -305,16 +305,16 @@ def generate() -> None:
     # character linked to a hero emits "hero", one without emits "npc". The
     # value goes straight onto the badge through theme/hints.js, and deriving it
     # means resolving an identity pair later moves the badge with no edit here.
-    character_epithets = _alias_map(conn, "npc_epithets", "character_id", "name")
-    character_species: dict[str, list[str]] = {}
+    character_epithets = _alias_map(conn, "character_epithets", "character_id", "name")
+    character_kinds: dict[str, list[str]] = {}
     for cid, species_name in conn.execute(
         """
         SELECT ns.character_id, s.name
-        FROM npc_species ns JOIN species s ON s.species_id = ns.species_id
+        FROM character_kinds ns JOIN kinds s ON s.kind_id = ns.kind_id
         ORDER BY ns.character_id, ns.sort_order, s.name
         """
     ):
-        character_species.setdefault(cid, []).append(species_name)
+        character_kinds.setdefault(cid, []).append(species_name)
 
     character_sql = """
         SELECT c.character_id, c.name, c.status, c.summary,
@@ -333,9 +333,9 @@ def generate() -> None:
         # theme/hints.js has read entry.species for the badge since stage 4 and
         # no entry has ever carried it. Two species are joined rather than
         # ranked — Scooba is a Zombie and a Dog, and neither is the lesser half.
-        species_names = character_species.get(row["character_id"], [])
-        if species_names:
-            entry["species"] = ", ".join(species_names)
+        kind_names = character_kinds.get(row["character_id"], [])
+        if kind_names:
+            entry["kind"] = ", ".join(kind_names)
         # hints.js skips "Unknown", so emitting it costs nothing and a real
         # status reaches the badge.
         if row["status"]:
@@ -423,16 +423,16 @@ def generate() -> None:
     # Species last. A location or a group takes any tie against one — `Rosetta`
     # the order beats `Rosetta` the people, which is why the two rows are kept
     # word-for-word identical rather than ranked.
-    species_aliases = _alias_map(conn, "species_aliases", "species_id", "alias")
-    for row in conn.execute("SELECT species_id, name, notes FROM species ORDER BY name"):
+    kind_aliases = _alias_map(conn, "kind_aliases", "kind_id", "alias")
+    for row in conn.execute("SELECT kind_id, name, notes FROM kinds ORDER BY name"):
         if not row["notes"]:
             continue
-        entry = {"type": "species", "summary": row["notes"]}
+        entry = {"type": "kind", "summary": row["notes"]}
         _add(
             hints,
             _key(row["name"]),
-            _entry_with_match(row["name"], entry, species_aliases.get(row["species_id"], [])),
-            "species",
+            _entry_with_match(row["name"], entry, kind_aliases.get(row["kind_id"], [])),
+            "kind",
             taken,
         )
 

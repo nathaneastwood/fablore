@@ -12,6 +12,8 @@ Version history:
   9 — groups: lore_story_key, lore_fragment (the page a group is documented on)
  10 — npc_epithets, location_aliases, group_aliases (the names that are not the name)
  11 — species, npc_species, species_aliases; npcs.species free text retired
+ 19 — species -> kinds, npc_species -> character_kinds, species_aliases ->
+      kind_aliases, npc_epithets -> character_epithets; species_id -> kind_id
  12 — npcs renamed to characters (character_id unchanged); character_heroes
       links a canonical hero to its character row; every hero gets a
       character row, self-healing at seed time; status becomes a closed
@@ -50,7 +52,7 @@ from __future__ import annotations
 
 import sqlite3
 
-CURRENT_VERSION = 18
+CURRENT_VERSION = 19
 
 _V1_DDL = """
 CREATE TABLE IF NOT EXISTS stories (
@@ -440,7 +442,7 @@ CREATE TABLE IF NOT EXISTS character_kin (
 -- Display names stay untouched. Nothing here renames anything; these rows are
 -- the *other* names a thing answers to, which is what the tooltip matcher and
 -- the Lore Graph need in order to stop drawing one thing as several.
-CREATE TABLE IF NOT EXISTS npc_epithets (
+CREATE TABLE IF NOT EXISTS character_epithets (
     character_id TEXT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
     name         TEXT NOT NULL,
     -- 'epithet' is a style the character is given: "the Wartune Herald".
@@ -469,35 +471,42 @@ CREATE TABLE IF NOT EXISTS group_aliases (
     PRIMARY KEY (group_id, alias)
 );
 
--- What a character is (R2). One flat list: Herald sits beside Human with no
--- `kind` column, because the species/tier line is a reading of the lore rather
--- than a fact the data can check, and a column nobody can validate is a column
--- that drifts.
-CREATE TABLE IF NOT EXISTS species (
-    species_id TEXT PRIMARY KEY,
-    name       TEXT NOT NULL,
-    notes      TEXT NOT NULL DEFAULT ''
+-- What a character *is* (R2). One flat list: Herald sits beside Human and beside
+-- Parrot, because the line between a people, an order of being and an animal is
+-- a reading of the lore rather than a fact the data can check, and a column
+-- nobody can validate is a column that drifts.
+--
+-- Called `species` until migration 19, which was the wrong word for most of what
+-- it held: Dragon, Herald, Aesir, Ancient and Embra are orders of being, Zombie
+-- is an acquired condition that stacks, and Robot is manufactured. "Kind" is the
+-- only word true of all of them at once. `kind_id` keeps the `SP` prefix its
+-- hash was minted with — the prefix is stored data, so renaming it would move
+-- every id and every foreign key with it.
+CREATE TABLE IF NOT EXISTS kinds (
+    kind_id TEXT PRIMARY KEY,
+    name    TEXT NOT NULL,
+    notes   TEXT NOT NULL DEFAULT ''
 );
 
 -- Many-to-many, unlike the column it replaces. `Zombie Dog` and `Human Cleric`
 -- were single values gluing two facts together; splitting them needs somewhere
 -- for both halves to go, so Scooba holds Zombie and Dog at once.
-CREATE TABLE IF NOT EXISTS npc_species (
+CREATE TABLE IF NOT EXISTS character_kinds (
     character_id TEXT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
-    species_id   TEXT NOT NULL REFERENCES species(species_id) ON DELETE CASCADE,
+    kind_id      TEXT NOT NULL REFERENCES kinds(kind_id) ON DELETE CASCADE,
     sort_order   INTEGER NOT NULL DEFAULT 0,
-    PRIMARY KEY (character_id, species_id)
+    PRIMARY KEY (character_id, kind_id)
 );
 
 -- The fourth alias table (R6). The prose writes "Aesirs" and "Embras", and the
 -- supplement entries these replace carried those plurals by hand. English
 -- plurals are not mechanical enough to generate — `Aesir` takes an s, `Human`
 -- would too but nothing writes it, and `Chanek` does not.
-CREATE TABLE IF NOT EXISTS species_aliases (
-    species_id TEXT NOT NULL REFERENCES species(species_id) ON DELETE CASCADE,
+CREATE TABLE IF NOT EXISTS kind_aliases (
+    kind_id    TEXT NOT NULL REFERENCES kinds(kind_id) ON DELETE CASCADE,
     alias      TEXT NOT NULL,
     sort_order INTEGER NOT NULL DEFAULT 0,
-    PRIMARY KEY (species_id, alias)
+    PRIMARY KEY (kind_id, alias)
 );
 
 -- A trade many hold independently (R9): Braumeister, shieldbearer. Unlike a
@@ -1109,4 +1118,63 @@ def migrate(conn: sqlite3.Connection) -> None:
             conn.executescript("DROP TABLE IF EXISTS group_npcs; DROP TABLE IF EXISTS group_heroes;")
 
         conn.execute("PRAGMA user_version = 18")
+        conn.commit()
+
+    if version < 19:
+        # "Species" was the wrong word for most of what the table held. Twenty
+        # rows covered five incompatible kinds of fact: peoples (Human, Dwarf,
+        # Welkin), animals (Dog, Horse, Parrot), orders of being (Dragon,
+        # Herald, Aesir, Ancient, Embra), an acquired condition (Zombie, which
+        # stacks — Scooba is a Zombie and a Dog) and one manufactured being
+        # (Robot). "Race" would have been worse: it fits the animals and the
+        # tiers no better and buys no precision anywhere. "Kind" is true of all
+        # of them, and matches `groups.kind` already in the schema.
+        #
+        # npc_epithets comes along because it was the last table still carrying
+        # the retired NPC vocabulary, and because the Teklovossen merge just
+        # before this put its first row on a hero. Heroes have epithets and
+        # kinds; the foreign keys never said otherwise.
+        #
+        # Blocks 10 and 11 still create these under their original names,
+        # because that is what they did and an old database migrating forward
+        # needs the shape it actually had. So a from-scratch build arrives here
+        # with BOTH sets: the new names from _V1_DDL and the old ones re-made
+        # empty by 10 and 11. Renaming onto an existing table fails, so where
+        # both exist the legacy table is folded in and dropped. Migration 4's
+        # crash was this same from-scratch/legacy split.
+        # The legacy tables blocks 10 and 11 create still carry
+        # `REFERENCES npcs(...)`, and migration 12 renamed `npcs` away. SQLite
+        # refuses to DROP a table whose foreign-key parent is missing, so
+        # enforcement goes off for the fold and back on after. The pragma is a
+        # no-op inside a transaction, hence the commit either side.
+        conn.commit()
+        conn.execute("PRAGMA foreign_keys = OFF")
+
+        tables = {r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+        for old_name, new_name in (
+            ("npc_epithets", "character_epithets"),
+            ("species", "kinds"),
+            ("npc_species", "character_kinds"),
+            ("species_aliases", "kind_aliases"),
+        ):
+            if old_name not in tables:
+                continue
+            if new_name in tables:
+                if conn.execute(f"SELECT COUNT(*) FROM {old_name}").fetchone()[0]:
+                    cols = ", ".join(r[1] for r in conn.execute(f"PRAGMA table_info({old_name})"))
+                    conn.execute(f"INSERT OR IGNORE INTO {new_name} SELECT {cols} FROM {old_name}")
+                conn.execute(f"DROP TABLE {old_name}")
+            else:
+                conn.execute(f"ALTER TABLE {old_name} RENAME TO {new_name}")
+
+        conn.commit()
+        conn.execute("PRAGMA foreign_keys = ON")
+
+        # The id prefix stays `SP`: it is part of every stored kind_id, so
+        # renaming it would move every id and every foreign key with it.
+        for table in ("kinds", "character_kinds", "kind_aliases"):
+            if "species_id" in {r[1] for r in conn.execute(f"PRAGMA table_info({table})")}:
+                conn.execute(f"ALTER TABLE {table} RENAME COLUMN species_id TO kind_id")
+
+        conn.execute("PRAGMA user_version = 19")
         conn.commit()

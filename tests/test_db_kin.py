@@ -391,7 +391,7 @@ def test_character_kin_csv_has_headers_and_no_data_rows_in_the_committed_data() 
 # ---------------------------------------------------------------------------
 # The relation vocabulary, checked at write time
 # ---------------------------------------------------------------------------
-# `status` and `npc_epithets.kind` are checked only by validate_data.py, because
+# `status` and `character_epithets.kind` are checked only by validate_data.py, because
 # both are read back as text and a typo is a wrong label until the next hook run.
 # `relation` cannot be left that late: it keys into KIN_INVERSE to derive the
 # other end of the fact, so a bad value raises KeyError inside a query — during

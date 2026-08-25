@@ -53,9 +53,9 @@ def seed_from_csvs(conn: sqlite3.Connection, data_dir: Path) -> None:
         _seed_talents(conn, data_dir)
         _seed_regions(conn, data_dir)
         _seed_locations(conn, data_dir)
-        _seed_species(conn, data_dir)
+        _seed_kinds(conn, data_dir)
         _seed_characters(conn, data_dir)
-        _seed_npc_species(conn, data_dir)
+        _seed_character_kinds(conn, data_dir)
         _seed_monsters(conn, data_dir)
         _seed_fauna(conn, data_dir)
         _seed_flora(conn, data_dir)
@@ -353,7 +353,11 @@ def _seed_alternate_names(conn: sqlite3.Connection, data_dir: Path) -> None:
     the record of display order and nothing has to store it twice.
     """
     for filename, table, cols in (
-        ("npc-epithets.csv", "npc_epithets", (("CharacterId", "character_id"), ("Name", "name"), ("Kind", "kind"))),
+        (
+            "character-epithets.csv",
+            "character_epithets",
+            (("CharacterId", "character_id"), ("Name", "name"), ("Kind", "kind")),
+        ),
         (
             "location-aliases.csv",
             "location_aliases",
@@ -430,35 +434,35 @@ def _self_heal_character_heroes(conn: sqlite3.Connection) -> None:
         )
 
 
-def _seed_species(conn: sqlite3.Connection, data_dir: Path) -> None:
+def _seed_kinds(conn: sqlite3.Connection, data_dir: Path) -> None:
     """Seed ``species`` and its aliases (R2, R6).
 
-    Before ``_seed_characters``, because ``npc_species`` references both registries and
+    Before ``_seed_characters``, because ``character_kinds`` references both registries and
     FK enforcement is on.
     """
-    _, rows = _csv(data_dir, "species.csv")
+    _, rows = _csv(data_dir, "kinds.csv")
     for row in rows:
-        q.upsert_species(
+        q.upsert_kind(
             conn,
-            species_id=_s(row, "SpeciesId"),
+            kind_id=_s(row, "KindId"),
             name=_s(row, "Name"),
             notes=_s(row, "Notes"),
         )
-    _, alias_rows = _csv(data_dir, "species-aliases.csv")
+    _, alias_rows = _csv(data_dir, "kind-aliases.csv")
     for order, row in enumerate(alias_rows):
         conn.execute(
-            "INSERT OR IGNORE INTO species_aliases (species_id, alias, sort_order) VALUES (?,?,?)",
-            (_s(row, "SpeciesId"), _s(row, "Alias"), order),
+            "INSERT OR IGNORE INTO kind_aliases (kind_id, alias, sort_order) VALUES (?,?,?)",
+            (_s(row, "KindId"), _s(row, "Alias"), order),
         )
 
 
-def _seed_npc_species(conn: sqlite3.Connection, data_dir: Path) -> None:
-    """Seed the ``npc_species`` junction. ``sort_order`` is file order."""
-    _, rows = _csv(data_dir, "npc-species.csv")
+def _seed_character_kinds(conn: sqlite3.Connection, data_dir: Path) -> None:
+    """Seed the ``character_kinds`` junction. ``sort_order`` is file order."""
+    _, rows = _csv(data_dir, "character-kinds.csv")
     for order, row in enumerate(rows):
         conn.execute(
-            "INSERT OR IGNORE INTO npc_species (character_id, species_id, sort_order) VALUES (?,?,?)",
-            (_s(row, "CharacterId"), _s(row, "SpeciesId"), order),
+            "INSERT OR IGNORE INTO character_kinds (character_id, kind_id, sort_order) VALUES (?,?,?)",
+            (_s(row, "CharacterId"), _s(row, "KindId"), order),
         )
 
 
@@ -557,9 +561,9 @@ def _seed_character_kin(conn: sqlite3.Connection, data_dir: Path) -> None:
 def _seed_professions(conn: sqlite3.Connection, data_dir: Path) -> None:
     """Seed ``professions`` (R9). Before ``_seed_character_professions``, which
     references it, and placed alongside ``_seed_titles``/``_seed_character_kin``
-    rather than beside ``_seed_species`` — ``character_professions`` can name a
+    rather than beside ``_seed_kinds`` — ``character_professions`` can name a
     hero-only self-healed character row (``_upsert_hero_professions``), the same
-    hazard ``title_holders`` and ``character_kin`` have and ``npc_species``
+    hazard ``title_holders`` and ``character_kin`` have and ``character_kinds``
     does not, so it seeds after ``_self_heal_character_heroes`` runs."""
     _, rows = _csv(data_dir, "professions.csv")
     for row in rows:
@@ -572,7 +576,7 @@ def _seed_professions(conn: sqlite3.Connection, data_dir: Path) -> None:
 
 
 def _seed_character_professions(conn: sqlite3.Connection, data_dir: Path) -> None:
-    """Seed the ``character_professions`` junction. Unlike ``npc-species.csv``,
+    """Seed the ``character_professions`` junction. Unlike ``character-kinds.csv``,
     ``SortOrder`` is an explicit column rather than file order, so a re-export
     that reorders unrelated rows cannot silently reorder someone's professions."""
     _, rows = _csv(data_dir, "character-professions.csv")

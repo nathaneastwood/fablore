@@ -590,7 +590,7 @@ def _check_supplement_types(supplement_path: Path) -> list[str]:
 
 
 EPITHET_KINDS = frozenset({"epithet", "short-name"})
-"""The closed list for ``npc-epithets.csv`` ``Kind``.
+"""The closed list for ``character-epithets.csv`` ``Kind``.
 
 An epithet is a style the character is given; a short-name is the same character
 in fewer words. Both are match strings, so a typo here would not break anything
@@ -667,7 +667,7 @@ def _check_no_stranded_hero_character(characters_path: Path, canonical_path: Pat
 
 
 def _check_epithet_kinds(path: Path) -> list[str]:
-    """Ensure every ``npc-epithets.csv`` ``Kind`` is one of :data:`EPITHET_KINDS`."""
+    """Ensure every ``character-epithets.csv`` ``Kind`` is one of :data:`EPITHET_KINDS`."""
     if not path.is_file():
         return []
     _, rows = read_pipe_csv(path)
@@ -676,7 +676,7 @@ def _check_epithet_kinds(path: Path) -> list[str]:
         kind = (row.get("Kind") or "").strip()
         if kind and kind not in EPITHET_KINDS:
             name = (row.get("Name") or "").strip()
-            alerts.append(f"npc-epithets.csv: {name!r} has Kind {kind!r}, " f"not one of {sorted(EPITHET_KINDS)}")
+            alerts.append(f"character-epithets.csv: {name!r} has Kind {kind!r}, " f"not one of {sorted(EPITHET_KINDS)}")
     return alerts
 
 
@@ -747,8 +747,8 @@ def _check_alias_name_collisions() -> list[str]:
     for alias_file, alias_col, owner_col, registry_file, registry_id, registry_name, label in (
         ("location-aliases.csv", "Alias", "LocationId", "locations.csv", "LocationId", "Name", "Location alias"),
         ("group-aliases.csv", "Alias", "GroupId", "groups.csv", "GroupId", "Name", "Group alias"),
-        ("npc-epithets.csv", "Name", "CharacterId", "characters.csv", "CharacterId", "Name", "NPC epithet"),
-        ("species-aliases.csv", "Alias", "SpeciesId", "species.csv", "SpeciesId", "Name", "Species alias"),
+        ("character-epithets.csv", "Name", "CharacterId", "characters.csv", "CharacterId", "Name", "NPC epithet"),
+        ("kind-aliases.csv", "Alias", "KindId", "kinds.csv", "KindId", "Name", "Species alias"),
     ):
         alias_path, registry_path = DATA / f"csv/{alias_file}", DATA / f"csv/{registry_file}"
         if not (alias_path.is_file() and registry_path.is_file()):
@@ -832,7 +832,7 @@ def _check_descriptions_targets_exist(descriptions_path: Path) -> list[str]:
         "fauna": "fauna.csv",
         "flora": "flora.csv",
         "group": "groups.csv",
-        "species": "species.csv",
+        "kind": "kinds.csv",
         "title": "titles.csv",
         "profession": "professions.csv",
     }
@@ -939,10 +939,10 @@ def collect_alerts() -> list[str]:
         (DATA / "csv/groups.csv", ("GroupId", "Name"), "Groups"),
         (DATA / "csv/group-characters.csv", ("GroupId", "CharacterId"), "Group ↔ member links"),
         (DATA / "csv/story-groups.csv", ("StoryId", "GroupId"), "Story ↔ group links"),
-        (DATA / "csv/npc-epithets.csv", ("CharacterId", "Name"), "NPC epithets"),
-        (DATA / "csv/species.csv", ("SpeciesId", "Name"), "Species"),
-        (DATA / "csv/npc-species.csv", ("CharacterId", "SpeciesId"), "NPC ↔ species"),
-        (DATA / "csv/species-aliases.csv", ("SpeciesId", "Alias"), "Species aliases"),
+        (DATA / "csv/character-epithets.csv", ("CharacterId", "Name"), "NPC epithets"),
+        (DATA / "csv/kinds.csv", ("KindId", "Name"), "Species"),
+        (DATA / "csv/character-kinds.csv", ("CharacterId", "KindId"), "NPC ↔ species"),
+        (DATA / "csv/kind-aliases.csv", ("KindId", "Alias"), "Species aliases"),
         (DATA / "csv/location-aliases.csv", ("LocationId", "Alias"), "Location aliases"),
         (DATA / "csv/group-aliases.csv", ("GroupId", "Alias"), "Group aliases"),
         (DATA / "csv/titles.csv", ("TitleId", "Name"), "Titles"),
@@ -1301,7 +1301,7 @@ def collect_alerts() -> list[str]:
     if character_ids:
         alerts.extend(
             _check_fk_column(
-                DATA / "csv/npc-epithets.csv",
+                DATA / "csv/character-epithets.csv",
                 "CharacterId",
                 character_ids,
                 "characters.csv CharacterId",
@@ -1329,17 +1329,17 @@ def collect_alerts() -> list[str]:
             )
         )
     # Species (R2). Both halves of the junction, and the alias table's owner.
-    species_ids = _id_set_from_column(DATA / "csv/species.csv", "SpeciesId")
-    if species_ids:
+    kind_ids = _id_set_from_column(DATA / "csv/kinds.csv", "KindId")
+    if kind_ids:
         for child, column, label in (
-            ("npc-species.csv", "SpeciesId", "NPC ↔ species"),
-            ("species-aliases.csv", "SpeciesId", "Species aliases"),
+            ("character-kinds.csv", "KindId", "NPC ↔ species"),
+            ("kind-aliases.csv", "KindId", "Species aliases"),
         ):
-            alerts.extend(_check_fk_column(DATA / f"csv/{child}", column, species_ids, "species.csv SpeciesId", label))
+            alerts.extend(_check_fk_column(DATA / f"csv/{child}", column, kind_ids, "kinds.csv KindId", label))
     if character_ids:
         alerts.extend(
             _check_fk_column(
-                DATA / "csv/npc-species.csv",
+                DATA / "csv/character-kinds.csv",
                 "CharacterId",
                 character_ids,
                 "characters.csv CharacterId",
@@ -1370,7 +1370,7 @@ def collect_alerts() -> list[str]:
                 "Character ↔ profession links",
             )
         )
-    alerts.extend(_check_epithet_kinds(DATA / "csv/npc-epithets.csv"))
+    alerts.extend(_check_epithet_kinds(DATA / "csv/character-epithets.csv"))
     alerts.extend(_check_character_statuses(DATA / "csv/characters.csv"))
     alerts.extend(
         _check_no_stranded_hero_character(

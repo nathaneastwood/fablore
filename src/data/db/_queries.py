@@ -430,7 +430,7 @@ def set_character_kin(conn: sqlite3.Connection, character_id: str, kin: list[tup
 
     Args:
         kin: ``(relative_id, relation, story_key)`` triples. Replace-semantic,
-            like the group rosters and ``npc_species``: this is the complete
+            like the group rosters and ``character_kinds``: this is the complete
             set of kin facts this declaration states, so an omitted fact is a
             deletion, not a preserved value.
     """
@@ -492,25 +492,25 @@ def select_character_kin_both_directions(conn: sqlite3.Connection, character_id:
 # complete set, so a name dropped from it is a name the lore no longer supports.
 
 
-def set_npc_epithets(conn: sqlite3.Connection, character_id: str, entries: list[tuple[str, str]]) -> None:
+def set_character_epithets(conn: sqlite3.Connection, character_id: str, entries: list[tuple[str, str]]) -> None:
     """Replace every alternate name for ``character_id``.
 
     Args:
         entries: ``(name, kind)`` pairs in display order. ``kind`` is ``'epithet'``
             or ``'short-name'``; ``sort_order`` follows the list order.
     """
-    conn.execute("DELETE FROM npc_epithets WHERE character_id = ?", [character_id])
+    conn.execute("DELETE FROM character_epithets WHERE character_id = ?", [character_id])
     if entries:
         conn.executemany(
-            "INSERT OR IGNORE INTO npc_epithets (character_id, name, kind, sort_order) VALUES (?,?,?,?)",
+            "INSERT OR IGNORE INTO character_epithets (character_id, name, kind, sort_order) VALUES (?,?,?,?)",
             [(character_id, name, kind, i) for i, (name, kind) in enumerate(entries)],
         )
 
 
-def select_npc_epithets(conn: sqlite3.Connection, character_id: str) -> list[tuple[str, str]]:
+def select_character_epithets(conn: sqlite3.Connection, character_id: str) -> list[tuple[str, str]]:
     """Return ``(name, kind)`` rows for ``character_id`` in declared order."""
     rows = conn.execute(
-        "SELECT name, kind FROM npc_epithets WHERE character_id = ? ORDER BY sort_order, name",
+        "SELECT name, kind FROM character_epithets WHERE character_id = ? ORDER BY sort_order, name",
         [character_id],
     ).fetchall()
     return [(r[0], r[1]) for r in rows]
@@ -564,12 +564,12 @@ def select_group_aliases(conn: sqlite3.Connection, group_id: str) -> list[str]:
 # ---------------------------------------------------------------------------
 #
 # Three functions for what used to be one column. ``species`` is a registry like
-# any other; ``npc_species`` is a junction, replace-semantic on the character the
-# way a roster is on its group; ``species_aliases`` is the fourth alias table and
+# any other; ``character_kinds`` is a junction, replace-semantic on the character the
+# way a roster is on its group; ``kind_aliases`` is the fourth alias table and
 # behaves exactly like the other three.
 
 
-def upsert_species(conn: sqlite3.Connection, *, species_id: str, name: str, notes: str = "") -> None:
+def upsert_kind(conn: sqlite3.Connection, *, kind_id: str, name: str, notes: str = "") -> None:
     """Insert or update a species row, preserving ``notes`` the caller omits.
 
     ``notes`` follows the preserve-on-empty contract the other registries use:
@@ -577,59 +577,59 @@ def upsert_species(conn: sqlite3.Connection, *, species_id: str, name: str, note
     """
     conn.execute(
         """
-        INSERT INTO species (species_id, name, notes)
+        INSERT INTO kinds (kind_id, name, notes)
         VALUES (?,?,?)
-        ON CONFLICT(species_id) DO UPDATE SET
+        ON CONFLICT(kind_id) DO UPDATE SET
             name  = excluded.name,
-            notes = CASE WHEN excluded.notes != '' THEN excluded.notes ELSE species.notes END
+            notes = CASE WHEN excluded.notes != '' THEN excluded.notes ELSE kinds.notes END
         """,
-        (species_id, name, notes),
+        (kind_id, name, notes),
     )
 
 
-def select_all_species(conn: sqlite3.Connection) -> list[sqlite3.Row]:
-    return conn.execute("SELECT * FROM species ORDER BY name").fetchall()
+def select_all_kinds(conn: sqlite3.Connection) -> list[sqlite3.Row]:
+    return conn.execute("SELECT * FROM kinds ORDER BY name").fetchall()
 
 
-def update_species_notes(conn: sqlite3.Connection, species_id: str, notes: str) -> int:
-    cur = conn.execute("UPDATE species SET notes = ? WHERE species_id = ?", [notes, species_id])
+def update_kind_notes(conn: sqlite3.Connection, kind_id: str, notes: str) -> int:
+    cur = conn.execute("UPDATE kinds SET notes = ? WHERE kind_id = ?", [notes, kind_id])
     return cur.rowcount
 
 
-def set_npc_species(conn: sqlite3.Connection, character_id: str, species_ids: list[str]) -> None:
+def set_character_kinds(conn: sqlite3.Connection, character_id: str, kind_ids: list[str]) -> None:
     """Replace every species linked to ``character_id``, in the order given."""
-    conn.execute("DELETE FROM npc_species WHERE character_id = ?", [character_id])
-    if species_ids:
+    conn.execute("DELETE FROM character_kinds WHERE character_id = ?", [character_id])
+    if kind_ids:
         conn.executemany(
-            "INSERT OR IGNORE INTO npc_species (character_id, species_id, sort_order) VALUES (?,?,?)",
-            [(character_id, sid, i) for i, sid in enumerate(species_ids)],
+            "INSERT OR IGNORE INTO character_kinds (character_id, kind_id, sort_order) VALUES (?,?,?)",
+            [(character_id, sid, i) for i, sid in enumerate(kind_ids)],
         )
 
 
-def select_npc_species(conn: sqlite3.Connection, character_id: str) -> list[str]:
+def select_character_kinds(conn: sqlite3.Connection, character_id: str) -> list[str]:
     """Return the species ids linked to ``character_id`` in declared order."""
     rows = conn.execute(
-        "SELECT species_id FROM npc_species WHERE character_id = ? ORDER BY sort_order, species_id",
+        "SELECT kind_id FROM character_kinds WHERE character_id = ? ORDER BY sort_order, kind_id",
         [character_id],
     ).fetchall()
     return [r[0] for r in rows]
 
 
-def set_species_aliases(conn: sqlite3.Connection, species_id: str, aliases: list[str]) -> None:
-    """Replace every alias for ``species_id``, in the order given."""
-    conn.execute("DELETE FROM species_aliases WHERE species_id = ?", [species_id])
+def set_kind_aliases(conn: sqlite3.Connection, kind_id: str, aliases: list[str]) -> None:
+    """Replace every alias for ``kind_id``, in the order given."""
+    conn.execute("DELETE FROM kind_aliases WHERE kind_id = ?", [kind_id])
     if aliases:
         conn.executemany(
-            "INSERT OR IGNORE INTO species_aliases (species_id, alias, sort_order) VALUES (?,?,?)",
-            [(species_id, alias, i) for i, alias in enumerate(aliases)],
+            "INSERT OR IGNORE INTO kind_aliases (kind_id, alias, sort_order) VALUES (?,?,?)",
+            [(kind_id, alias, i) for i, alias in enumerate(aliases)],
         )
 
 
-def select_species_aliases(conn: sqlite3.Connection, species_id: str) -> list[str]:
-    """Return the aliases for ``species_id`` in declared order."""
+def select_kind_aliases(conn: sqlite3.Connection, kind_id: str) -> list[str]:
+    """Return the aliases for ``kind_id`` in declared order."""
     rows = conn.execute(
-        "SELECT alias FROM species_aliases WHERE species_id = ? ORDER BY sort_order, alias",
-        [species_id],
+        "SELECT alias FROM kind_aliases WHERE kind_id = ? ORDER BY sort_order, alias",
+        [kind_id],
     ).fetchall()
     return [r[0] for r in rows]
 
@@ -715,7 +715,7 @@ def upsert_character(
     A brand-new character still lands as ``"Unknown"`` for an omitted ``status``.
 
     Species does **not** live here any more and does not follow that contract.
-    It is a junction (:func:`set_npc_species`), replace-semantic like the group
+    It is a junction (:func:`set_character_kinds`), replace-semantic like the group
     rosters, because one column could not hold `Zombie` and `Dog` at once.
     """
     row = conn.execute(

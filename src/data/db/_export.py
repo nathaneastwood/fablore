@@ -115,7 +115,7 @@ def export_all(conn: sqlite3.Connection, data_dir: Path) -> None:
     _export_groups(conn, csv_dir)
     _export_group_members(conn, csv_dir)
     _export_alternate_names(conn, csv_dir)
-    _export_species(conn, csv_dir)
+    _export_kinds(conn, csv_dir)
     _export_titles(conn, csv_dir)
     _export_title_holders(conn, csv_dir)
     _export_character_kin(conn, csv_dir)
@@ -154,7 +154,7 @@ def export_registry_tables(conn: sqlite3.Connection, data_dir: Path) -> None:
     _export_groups(conn, csv_dir)
     _export_group_members(conn, csv_dir)
     _export_alternate_names(conn, csv_dir)
-    _export_species(conn, csv_dir)
+    _export_kinds(conn, csv_dir)
     _export_titles(conn, csv_dir)
     _export_title_holders(conn, csv_dir)
     _export_character_kin(conn, csv_dir)
@@ -293,7 +293,11 @@ def _export_alternate_names(conn: sqlite3.Connection, csv_dir: Path) -> None:
     ``_JUNCTION_EXPORT_SPECS``.
     """
     for table, csv_name, cols in (
-        ("npc_epithets", "npc-epithets.csv", (("character_id", "CharacterId"), ("name", "Name"), ("kind", "Kind"))),
+        (
+            "character_epithets",
+            "character-epithets.csv",
+            (("character_id", "CharacterId"), ("name", "Name"), ("kind", "Kind")),
+        ),
         (
             "location_aliases",
             "location-aliases.csv",
@@ -310,37 +314,35 @@ def _export_alternate_names(conn: sqlite3.Connection, csv_dir: Path) -> None:
         _write_pipe_csv(csv_dir / csv_name, _CMD_REGISTRY, [h for _, h in cols], data)
 
 
-def _export_species(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    """Write ``species.csv``, ``npc-species.csv`` and ``species-aliases.csv`` (R2).
+def _export_kinds(conn: sqlite3.Connection, csv_dir: Path) -> None:
+    """Write ``kinds.csv``, ``character-kinds.csv`` and ``kind-aliases.csv`` (R2).
 
     Three files for what was one column, which is the shape of the fix: a species
     is a registry row, a character's species is a junction, and a plural is an
     alias.
     """
-    rows = q.select_all_species(conn)
+    rows = q.select_all_kinds(conn)
     _write_pipe_csv(
-        csv_dir / "species.csv",
+        csv_dir / "kinds.csv",
         _CMD_REGISTRY,
-        ["SpeciesId", "Name", "Notes"],
-        [{"SpeciesId": r["species_id"], "Name": r["name"], "Notes": r["notes"]} for r in rows],
+        ["KindId", "Name", "Notes"],
+        [{"KindId": r["kind_id"], "Name": r["name"], "Notes": r["notes"]} for r in rows],
     )
     junction = conn.execute(
-        "SELECT character_id, species_id FROM npc_species ORDER BY character_id, sort_order, species_id"
+        "SELECT character_id, kind_id FROM character_kinds ORDER BY character_id, sort_order, kind_id"
     ).fetchall()
     _write_pipe_csv(
-        csv_dir / "npc-species.csv",
+        csv_dir / "character-kinds.csv",
         _CMD_REGISTRY,
-        ["CharacterId", "SpeciesId"],
-        [{"CharacterId": r[0], "SpeciesId": r[1]} for r in junction],
+        ["CharacterId", "KindId"],
+        [{"CharacterId": r[0], "KindId": r[1]} for r in junction],
     )
-    aliases = conn.execute(
-        "SELECT species_id, alias FROM species_aliases ORDER BY species_id, sort_order, alias"
-    ).fetchall()
+    aliases = conn.execute("SELECT kind_id, alias FROM kind_aliases ORDER BY kind_id, sort_order, alias").fetchall()
     _write_pipe_csv(
-        csv_dir / "species-aliases.csv",
+        csv_dir / "kind-aliases.csv",
         _CMD_REGISTRY,
-        ["SpeciesId", "Alias"],
-        [{"SpeciesId": r[0], "Alias": r[1]} for r in aliases],
+        ["KindId", "Alias"],
+        [{"KindId": r[0], "Alias": r[1]} for r in aliases],
     )
 
 
@@ -424,7 +426,7 @@ def _export_professions(conn: sqlite3.Connection, csv_dir: Path) -> None:
     """Write ``professions.csv`` and ``character-professions.csv`` (R9).
 
     Two files, not three: a profession is a registry row and a character's
-    profession is a junction, the same split ``species.csv``/``npc-species.csv``
+    profession is a junction, the same split ``kinds.csv``/``character-kinds.csv``
     make — but there is no third, alias file. See
     ``entries/catalogue/professions.py`` for why.
     """
@@ -890,12 +892,12 @@ _ALL_TABLES = [
     "title_holders",
     "story_titles",
     "character_kin",
-    "npc_epithets",
+    "character_epithets",
     "location_aliases",
     "group_aliases",
-    "species",
-    "npc_species",
-    "species_aliases",
+    "kinds",
+    "character_kinds",
+    "kind_aliases",
     "professions",
     "character_professions",
 ]

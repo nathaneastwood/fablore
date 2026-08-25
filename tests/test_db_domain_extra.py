@@ -118,7 +118,7 @@ def test_list_characters_with_data(db: Database) -> None:
     )
     npcs = db.list_characters()
     assert any(n["name"] == "Guard Captain" for n in npcs)
-    assert all("name" in n and "species" in n and "status" in n for n in npcs)
+    assert all("name" in n and "kinds" in n and "status" in n for n in npcs)
 
 
 def test_list_locations_empty(db: Database) -> None:
@@ -534,7 +534,7 @@ def _character_row(database: Database, name: str) -> tuple[str, str]:
     species = [
         r[0]
         for r in database.conn.execute(
-            "SELECT s.name FROM npc_species ns JOIN species s USING(species_id)"
+            "SELECT s.name FROM character_kinds ns JOIN kinds s USING(kind_id)"
             " WHERE ns.character_id = ? ORDER BY ns.sort_order",
             [row["character_id"]],
         )

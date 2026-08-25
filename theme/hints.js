@@ -14,7 +14,7 @@ async function getHints() {
 function buildBadgeText(entry) {
   const parts = [entry.type];
   if (entry.region) parts.push(entry.region);
-  if (entry.species) parts.push(entry.species);
+  if (entry.kind) parts.push(entry.kind);
   if (entry.status && entry.status !== "Unknown") parts.push(entry.status);
   return parts.join(" · ");
 }

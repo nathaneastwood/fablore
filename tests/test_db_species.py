@@ -14,7 +14,7 @@ import pytest
 
 import db._queries as q
 from db import Database, CharacterEntry, SpeciesEntry
-from registry_ids import lore_character_id, species_id
+from registry_ids import lore_character_id, kind_id
 
 
 def _story(database: Database, **kw):
@@ -28,7 +28,7 @@ def _species_of(database: Database, name: str) -> list[str]:
     return [
         r[0]
         for r in database.conn.execute(
-            "SELECT s.name FROM npc_species ns JOIN species s USING(species_id)"
+            "SELECT s.name FROM character_kinds ns JOIN kinds s USING(kind_id)"
             " WHERE ns.character_id = ? ORDER BY ns.sort_order",
             [cid],
         )
@@ -40,9 +40,9 @@ def _species_of(database: Database, name: str) -> list[str]:
 # ---------------------------------------------------------------------------
 
 
-def test_migration_creates_the_species_tables(db: Database) -> None:
+def test_migration_creates_the_kind_tables(db: Database) -> None:
     tables = {r[0] for r in db.conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
-    assert {"species", "npc_species", "species_aliases"} <= tables
+    assert {"kinds", "character_kinds", "kind_aliases"} <= tables
 
 
 def test_characters_has_no_species_column(db: Database) -> None:
@@ -99,14 +99,14 @@ def test_two_characters_share_one_species_row(db: Database) -> None:
             CharacterEntry("Akuo", species=SpeciesEntry("Human")),
         ],
     )
-    assert db.conn.execute("SELECT COUNT(*) FROM species WHERE name = 'Human'").fetchone()[0] == 1
+    assert db.conn.execute("SELECT COUNT(*) FROM kinds WHERE name = 'Human'").fetchone()[0] == 1
 
 
-def test_species_aliases_are_stored_and_replace_semantic(db: Database) -> None:
+def test_kind_aliases_are_stored_and_replace_semantic(db: Database) -> None:
     _story(db, characters=[CharacterEntry("Sol", species=SpeciesEntry("Aesir", aliases=("Aesirs",)))])
-    assert q.select_species_aliases(db.conn, species_id("Aesir")) == ["Aesirs"]
+    assert q.select_kind_aliases(db.conn, kind_id("Aesir")) == ["Aesirs"]
     _story(db, characters=[CharacterEntry("Sol", species=SpeciesEntry("Aesir"))])
-    assert q.select_species_aliases(db.conn, species_id("Aesir")) == []
+    assert q.select_kind_aliases(db.conn, kind_id("Aesir")) == []
 
 
 # ---------------------------------------------------------------------------
@@ -174,20 +174,20 @@ def test_species_survive_the_csv_round_trip(db: Database, tmp_path: Path) -> Non
 
     _export.export_all(db.conn, tmp_path)
     fresh = Database(str(tmp_path / "round-trip.db"), data_dir=tmp_path)
-    assert q.select_npc_species(fresh.conn, lore_character_id("Scooba")) == [
-        species_id("Zombie"),
-        species_id("Dog"),
+    assert q.select_character_kinds(fresh.conn, lore_character_id("Scooba")) == [
+        kind_id("Zombie"),
+        kind_id("Dog"),
     ]
-    assert q.select_species_aliases(fresh.conn, species_id("Aesir")) == ["Aesirs"]
+    assert q.select_kind_aliases(fresh.conn, kind_id("Aesir")) == ["Aesirs"]
 
 
-def test_update_description_writes_species_notes(db: Database) -> None:
+def test_update_description_writes_kind_notes(db: Database) -> None:
     _story(db, characters=[CharacterEntry("Ozrim", species=SpeciesEntry("Chanek"))])
-    db.update_description("species", "Chanek", "Green-skinned, pointed-eared Rathenfolk of the far west.")
-    row = db.conn.execute("SELECT notes FROM species WHERE name = 'Chanek'").fetchone()
+    db.update_description("kind", "Chanek", "Green-skinned, pointed-eared Rathenfolk of the far west.")
+    row = db.conn.execute("SELECT notes FROM kinds WHERE name = 'Chanek'").fetchone()
     assert row["notes"].startswith("Green-skinned")
 
 
-def test_update_description_rejects_a_species_with_no_row(db: Database) -> None:
-    with pytest.raises(ValueError, match="Species not found"):
-        db.update_description("species", "Nonesuch", "…")
+def test_update_description_rejects_a_kind_with_no_row(db: Database) -> None:
+    with pytest.raises(ValueError, match="Kind not found"):
+        db.update_description("kind", "Nonesuch", "…")

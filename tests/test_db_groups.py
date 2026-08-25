@@ -175,7 +175,7 @@ def test_a_paired_member_is_reachable_from_the_preview(db: Database) -> None:
         members=((CharacterEntry("Kaysin", epithets=("Maela Soothsayer",)), "flavour/rosetta.md"),),
     )
     _story(db, groups=[entry])
-    assert q.select_npc_epithets(db.conn, lore_character_id("Kaysin")) == [("Maela Soothsayer", "epithet")]
+    assert q.select_character_epithets(db.conn, lore_character_id("Kaysin")) == [("Maela Soothsayer", "epithet")]
 
 
 def test_a_hero_slug_member_resolves_to_a_character_row(db: Database) -> None:
@@ -589,25 +589,25 @@ def test_group_documentation_reaches_the_csv(db: Database) -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_npc_epithets_are_stored_with_their_kind(db: Database) -> None:
+def test_character_epithets_are_stored_with_their_kind(db: Database) -> None:
     entry = CharacterEntry("Dr. Krest Mortimer", epithets=("'The Fixer'",), short_names=("Mortimer",))
     _story(db, characters=[entry])
-    stored = q.select_npc_epithets(db.conn, lore_character_id("Dr. Krest Mortimer"))
+    stored = q.select_character_epithets(db.conn, lore_character_id("Dr. Krest Mortimer"))
     assert stored == [("'The Fixer'", "epithet"), ("Mortimer", "short-name")]
 
 
-def test_npc_epithets_keep_declared_order(db: Database) -> None:
+def test_character_epithets_keep_declared_order(db: Database) -> None:
     """Suraya holds three, and which one a tooltip prints first is the declared one."""
     three = ("Archangel of Knowledge", "Archangel of Erudition", "Arcane Herald")
     _story(db, characters=[CharacterEntry("Suraya", epithets=three)])
-    stored = q.select_npc_epithets(db.conn, lore_character_id("Suraya"))
+    stored = q.select_character_epithets(db.conn, lore_character_id("Suraya"))
     assert [name for name, _kind in stored] == list(three)
 
 
 def test_epithets_are_replace_semantic(db: Database) -> None:
     _story(db, characters=[CharacterEntry("Bellona", epithets=("the Wartune Herald", "Archangel of War"))])
     _story(db, characters=[CharacterEntry("Bellona", epithets=("the Wartune Herald",))])
-    stored = q.select_npc_epithets(db.conn, lore_character_id("Bellona"))
+    stored = q.select_character_epithets(db.conn, lore_character_id("Bellona"))
     assert [name for name, _kind in stored] == ["the Wartune Herald"]
 
 
@@ -615,7 +615,7 @@ def test_emptied_epithets_are_a_deletion(db: Database) -> None:
     """Same rule the rosters follow, for the same reason — and the same past bug."""
     _story(db, characters=[CharacterEntry("Bellona", epithets=("Archangel of War",))])
     _story(db, characters=[CharacterEntry("Bellona")])
-    assert q.select_npc_epithets(db.conn, lore_character_id("Bellona")) == []
+    assert q.select_character_epithets(db.conn, lore_character_id("Bellona")) == []
 
 
 def test_location_alias_carries_its_era(db: Database) -> None:
@@ -660,7 +660,7 @@ def test_alternate_names_survive_the_csv_round_trip(db: Database, tmp_path: Path
 
     _export.export_all(db.conn, tmp_path)
     fresh = Database(str(tmp_path / "round-trip.db"), data_dir=tmp_path)
-    assert q.select_npc_epithets(fresh.conn, lore_character_id("Bellona")) == [("Archangel of War", "epithet")]
+    assert q.select_character_epithets(fresh.conn, lore_character_id("Bellona")) == [("Archangel of War", "epithet")]
     assert q.select_group_aliases(fresh.conn, group_id("Mendacity Media")) == ["Mendacity"]
 
 

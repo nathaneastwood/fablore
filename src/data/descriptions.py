@@ -847,13 +847,13 @@ db.update_description(
 # state: nothing in the lore describes a Meep.
 
 db.update_description(
-    "species",
+    "kind",
     "Aesir",
     "Primordial beings of elemental force who slumber beyond the veil — worshipped "
     "as deities such as Sol, and fought as ancient enemies in the Third Age.",
 )
 db.update_description(
-    "species",
+    "kind",
     "Ancient",
     # The row is singular and the prose is plural; `Ancients` is an alias, and the
     # supplement keeps a stub carrying only this entry's exclude_pages.
@@ -861,18 +861,18 @@ db.update_description(
     "lives in the cataclysm that broke the world of the Third Age.",
 )
 db.update_description(
-    "species",
+    "kind",
     "Chanek",
     "Green-skinned, pointed-eared Rathenfolk of the far west.",
 )
 db.update_description(
-    "species",
+    "kind",
     "Embra",
     "Powerful supernatural entities that feed on blood.",
 )
 # Kept identical to the ``Rosetta`` group above; see the note there.
 db.update_description(
-    "species",
+    "kind",
     "Rosetta",
     "A forest people, and the order of powerful spell weavers they formed, which "
     "once stood alongside the likes of the Ollin and the Seers.",

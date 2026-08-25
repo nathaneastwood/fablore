@@ -114,7 +114,7 @@ def test_the_hints_sync_hook_triggers_on_every_csv_the_generator_reads() -> None
     """Every table `generate_hints_json.py` reads must reach the hook's trigger.
 
     Stage 10 gave the generator two new sources — `characters` and
-    `npc_epithets` — and left this regex naming only locations, monsters, fauna
+    `character_epithets` — and left this regex naming only locations, monsters, fauna
     and flora. Editing either new source therefore did not fire the check, and
     `src/hints.json` could go stale in a commit that nothing complained about.
     That is the same shape as the `ensure-create-md-sync` bug that named

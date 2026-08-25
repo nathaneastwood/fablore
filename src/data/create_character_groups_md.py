@@ -1,8 +1,8 @@
 """Generate ``src/data/md/character-groups.md`` from the database.
 
 Unlike every other file under ``src/data/md/``, this page has no CSV source —
-it is a join across ``groups``, ``group_characters``, ``characters``, ``npc_epithets``,
-``npc_species``, ``species`` and ``titles``/``title_holders``, with parent
+it is a join across ``groups``, ``group_characters``, ``characters``, ``character_epithets``,
+``character_kinds``, ``species`` and ``titles``/``title_holders``, with parent
 nesting that recurses (``groups.parent_group_id``). ``create_md.py`` renders one
 flat CSV per table; this page cannot be that shape, so it gets its own
 generator that reads ``fablore.db`` directly.
@@ -23,7 +23,7 @@ data entry stand between it and the swap:
   his name — so the Aesir section renders that name against a blank epithet cell.
 - **Nine comma-tails are still glued into ``characters.name``**: the eight
   Heralds (``Aegis, the Shield of Light``) and ``Raven, Aesir of Chaos``. Their
-  ``npc_epithets`` rows already exist, so each renders its epithet twice — once
+  ``character_epithets`` rows already exist, so each renders its epithet twice — once
   inside the name and once in the Epithets column.
 - **``titles`` is empty**, so ``Dracai`` and ``Grand Magisters`` do not render.
 - **``Anarchs of L'Apocalypta`` has no data path.** Zeir's species is ``Human``,
@@ -77,7 +77,7 @@ def _md_table(headers: list[str], rows: list[list[str]]) -> str:
 def _epithets_for(conn: sqlite3.Connection, character_id: str) -> str:
     """Comma-join a character's alternate names in declared (sort_order) order."""
     rows = conn.execute(
-        "SELECT name FROM npc_epithets WHERE character_id = ? ORDER BY sort_order, name",
+        "SELECT name FROM character_epithets WHERE character_id = ? ORDER BY sort_order, name",
         (character_id,),
     ).fetchall()
     return ", ".join(r["name"] for r in rows)
@@ -88,8 +88,8 @@ def _species_members(conn: sqlite3.Connection, species_name: str) -> list[sqlite
     return conn.execute(
         """
         SELECT c.character_id, c.name
-        FROM npc_species ns
-        JOIN species s ON s.species_id = ns.species_id
+        FROM character_kinds ns
+        JOIN kinds s ON s.kind_id = ns.kind_id
         JOIN characters c ON c.character_id = ns.character_id
         WHERE s.name = ?
         ORDER BY c.name

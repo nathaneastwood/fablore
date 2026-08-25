@@ -1,5 +1,5 @@
 # AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Database class in src/data/db/ (db.upsert_story).
-CharacterId|SpeciesId
+CharacterId|KindId
 LC00b6e15f71|SP79a5478768
 LC035adff2ca|SP79a5478768
 LC04251c7f5f|SP79a5478768

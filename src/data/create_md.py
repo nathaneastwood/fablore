@@ -118,7 +118,7 @@ def main() -> None:
         ),
         (DATA / "csv" / "locations.csv", "Name", DATA / "md" / "locations.md"),
         (DATA / "csv" / "monsters.csv", "Name", DATA / "md" / "monsters.md"),
-        (DATA / "csv" / "species.csv", "Name", DATA / "md" / "species.md"),
+        (DATA / "csv" / "kinds.csv", "Name", DATA / "md" / "kinds.md"),
     )
     for csv_path, sort_col, out_md in jobs:
         create_md_file(csv_path, sort_col, output_md=out_md)

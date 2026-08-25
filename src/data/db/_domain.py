@@ -37,7 +37,7 @@ from registry_ids import (  # noqa: E402
     monster_id as _monster_id,
     profession_id as _profession_id,
     region_row_id,
-    species_id as _species_id,
+    kind_id as _species_id,
     story_id as _story_id,
     title_id as _title_id,
 )
@@ -97,10 +97,10 @@ def _species_tuple(species: "SpeciesEntry | tuple[SpeciesEntry, ...] | None") ->
     return tuple(species)
 
 
-def _species_name(conn: sqlite3.Connection, species_id: str) -> str:
+def _species_name(conn: sqlite3.Connection, kind_id: str) -> str:
     """Return a stored species' display name, or its id if the row has gone."""
-    row = conn.execute("SELECT name FROM species WHERE species_id = ?", [species_id]).fetchone()
-    return row[0] if row else species_id
+    row = conn.execute("SELECT name FROM kinds WHERE kind_id = ?", [kind_id]).fetchone()
+    return row[0] if row else kind_id
 
 
 def _professions_tuple(
@@ -658,7 +658,7 @@ class Database:
             seed_from_csvs(self.conn, self._data_dir)
 
     def _needs_seed(self) -> bool:
-        for table in ("stories", "equipment_printings", "weapons_printings", "species", "character_heroes"):
+        for table in ("stories", "equipment_printings", "weapons_printings", "kinds", "character_heroes"):
             if self.conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0] == 0:
                 return True
         return False
@@ -727,21 +727,21 @@ class Database:
         )
 
     def list_characters(self) -> list[dict[str, str]]:
-        """Return ``[{"name": …, "species": …, "status": …}]`` for every character.
+        """Return ``[{"name": …, "kinds": …, "status": …}]`` for every character.
 
-        ``species`` is joined from ``npc_species`` and comma-joined for display,
+        ``kinds`` is joined from ``character_kinds`` and comma-joined for display,
         so Scooba reads ``"Zombie, Dog"``. It is a rendering of the junction, not
         a column — nothing writes back through it.
         """
-        names = {r["species_id"]: r["name"] for r in q.select_all_species(self.conn)}
+        names = {r["kind_id"]: r["name"] for r in q.select_all_kinds(self.conn)}
         joined: dict[str, list[str]] = {}
-        for cid, sid in self.conn.execute("SELECT character_id, species_id FROM npc_species ORDER BY sort_order"):
+        for cid, sid in self.conn.execute("SELECT character_id, kind_id FROM character_kinds ORDER BY sort_order"):
             joined.setdefault(cid, []).append(names.get(sid, sid))
         rows = q.select_all_characters(self.conn)
         return [
             {
                 "name": r["name"],
-                "species": ", ".join(joined.get(r["character_id"], [])),
+                "kinds": ", ".join(joined.get(r["character_id"], [])),
                 "status": r["status"],
             }
             for r in rows
@@ -749,11 +749,11 @@ class Database:
 
     def print_characters(self, *, file: IO[str] | None = None) -> None:
         """Pretty-print all characters with species and status."""
-        self._print_table(self.list_characters(), ["name", "species", "status"], file=file)
+        self._print_table(self.list_characters(), ["name", "kinds", "status"], file=file)
 
-    def list_species(self) -> list[dict[str, str]]:
+    def list_kinds(self) -> list[dict[str, str]]:
         """Return ``[{"name": …, "notes": …}]`` for all species."""
-        return [{"name": r["name"], "notes": r["notes"]} for r in q.select_all_species(self.conn)]
+        return [{"name": r["name"], "notes": r["notes"]} for r in q.select_all_kinds(self.conn)]
 
     def list_locations(self) -> list[dict[str, str]]:
         """Return location dicts with ``name``, ``region``, ``notes``, ``lore_fragment``."""
@@ -1226,10 +1226,10 @@ class Database:
 
         Args:
             entity_type: One of ``"monster"``, ``"fauna"``, ``"flora"``, ``"location"``,
-                ``"group"``, ``"species"``, ``"title"`` or ``"profession"``.
+                ``"group"``, ``"kind"``, ``"title"`` or ``"profession"``.
             name: Display name of the entity (must already exist in the database).
             description: Short lore summary. ``"location"``, ``"group"``,
-                ``"species"``, ``"title"`` and ``"profession"`` set the ``notes``
+                ``"kind"``, ``"title"`` and ``"profession"`` set the ``notes``
                 field; the others set ``description``.
 
         A group must already have a row before its summary can land here, and a row
@@ -1238,7 +1238,7 @@ class Database:
         adding the note rather than the other way round.
 
         A species row is created by a character carrying it, with one deliberate
-        exception: ``species.csv`` is a registry seeded on its own, so ``Chanek``
+        exception: ``kinds.csv`` is a registry seeded on its own, so ``Chanek``
         keeps a row although no character is one yet. A profession row is created the
         same way species is — by a character carrying it, through
         ``CharacterEntry(professions=…)`` — with no ``Chanek``-style exception, since
@@ -1261,10 +1261,10 @@ class Database:
                 rows = q.update_group_notes(self.conn, _group_id(name), description)
                 if rows == 0:
                     raise ValueError(f"Group not found: {name!r}")
-            elif entity_type == "species":
-                rows = q.update_species_notes(self.conn, _species_id(name), description)
+            elif entity_type == "kind":
+                rows = q.update_kind_notes(self.conn, _species_id(name), description)
                 if rows == 0:
-                    raise ValueError(f"Species not found: {name!r}")
+                    raise ValueError(f"Kind not found: {name!r}")
             elif entity_type == "character":
                 rows = q.update_character_summary(self.conn, lore_character_id(name), description)
                 if rows == 0:
@@ -1286,7 +1286,7 @@ class Database:
             else:
                 raise ValueError(
                     f"Unknown entity type: {entity_type!r}. "
-                    "Use 'monster', 'fauna', 'flora', 'location', 'group', 'species', "
+                    "Use 'monster', 'fauna', 'flora', 'location', 'group', 'kind', "
                     "'title', 'profession' or 'character'."
                 )
         _export.export_registry_tables(self.conn, self._data_dir)
@@ -1543,12 +1543,12 @@ class Database:
             # Replace-semantic and unconditional, like the group rosters. The
             # catalogue is the single definition of a character, so an empty tuple is a
             # declaration that this character answers to no other name.
-            q.set_npc_epithets(
+            q.set_character_epithets(
                 self.conn,
                 cid,
                 [(n, "epithet") for n in e.epithets] + [(n, "short-name") for n in e.short_names],
             )
-            q.set_npc_species(self.conn, cid, self._upsert_species(_species_tuple(e.species)))
+            q.set_character_kinds(self.conn, cid, self._upsert_kinds(_species_tuple(e.species)))
             # Professions (R9). Resolves and raises on a repeated profession
             # before any downstream write — mirrors kin's use of
             # _resolve_kin_relatives just below.
@@ -1700,13 +1700,13 @@ class Database:
 
         q.set_story_characters(self.conn, story_id, list(merged.items()))
 
-    def _upsert_species(self, entries: "tuple[SpeciesEntry, ...]") -> list[str]:
+    def _upsert_kinds(self, entries: "tuple[SpeciesEntry, ...]") -> list[str]:
         """Upsert each species row and return its ids, in declared order."""
         ids: list[str] = []
         for e in entries:
             sid = _species_id(e.name)
-            q.upsert_species(self.conn, species_id=sid, name=e.name)
-            q.set_species_aliases(self.conn, sid, list(e.aliases))
+            q.upsert_kind(self.conn, kind_id=sid, name=e.name)
+            q.set_kind_aliases(self.conn, sid, list(e.aliases))
             ids.append(sid)
         return ids
 
@@ -2035,7 +2035,7 @@ class Database:
                 :data:`~db._queries.KIN_INVERSE`.
 
         The relation is checked *here*, unlike ``status`` and
-        ``npc_epithets.kind``, which are left to ``validate_data.py``. Those
+        ``character_epithets.kind``, which are left to ``validate_data.py``. Those
         two are only ever read back as text, so a typo is a wrong label until
         the next hook run. ``relation`` is different: it is used as a key into
         ``KIN_INVERSE`` to derive the other end of the fact, so a bad value
@@ -2619,7 +2619,7 @@ class Database:
                 # preserve — 32 rows carried a value no declaration named, so a
                 # missing species= reads as a deletion where it once read as
                 # silence. That reversal is exactly what has to be visible.
-                stored_sp = [_species_name(self.conn, sid) for sid in q.select_npc_species(self.conn, cid)]
+                stored_sp = [_species_name(self.conn, sid) for sid in q.select_character_kinds(self.conn, cid)]
                 wanted_sp = [x.name for x in _species_tuple(entry.species)]
                 for name in sorted(set(wanted_sp) - set(stored_sp)):
                     lines.append(f"    + {entry.name}: species {name!r}")
@@ -2628,7 +2628,7 @@ class Database:
 
                 for sp in _species_tuple(entry.species):
                     sid = _species_id(sp.name)
-                    stored_al = set(q.select_species_aliases(self.conn, sid))
+                    stored_al = set(q.select_kind_aliases(self.conn, sid))
                     wanted_al = set(sp.aliases)
                     for alias in sorted(wanted_al - stored_al):
                         lines.append(f"    + {sp.name}: alias {alias!r}")
@@ -2652,7 +2652,7 @@ class Database:
                 for name in sorted(set(stored_prof) - set(wanted_prof)):
                     lines.append(f"    - {entry.name}: profession {name!r} REMOVED")
 
-                stored = set(q.select_npc_epithets(self.conn, cid))
+                stored = set(q.select_character_epithets(self.conn, cid))
                 wanted = {(n, "epithet") for n in entry.epithets} | {(n, "short-name") for n in entry.short_names}
                 for name, kind in sorted(wanted - stored):
                     lines.append(f"    + {entry.name}: {kind} {name!r}")

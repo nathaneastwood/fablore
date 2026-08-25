@@ -47,21 +47,21 @@ def test_render_markdown_on_empty_database_has_title_and_no_sections(db) -> None
 
 def test_aesir_section_lists_species_members_with_joined_epithets(db) -> None:
     import db._queries as q
-    from registry_ids import lore_character_id, species_id
+    from registry_ids import lore_character_id, kind_id
 
     gen = _import_generator()
-    sp_id = species_id("Aesir")
-    q.upsert_species(db.conn, species_id=sp_id, name="Aesir")
+    sp_id = kind_id("Aesir")
+    q.upsert_kind(db.conn, kind_id=sp_id, name="Aesir")
 
     sol_id = lore_character_id("Sol")
     q.upsert_character(db.conn, character_id=sol_id, name="Sol")
-    q.set_npc_species(db.conn, sol_id, [sp_id])
-    q.set_npc_epithets(db.conn, sol_id, [("Aesir of Light", "epithet")])
+    q.set_character_kinds(db.conn, sol_id, [sp_id])
+    q.set_character_epithets(db.conn, sol_id, [("Aesir of Light", "epithet")])
 
     raven_id = lore_character_id("Raven, Aesir of Chaos")
     q.upsert_character(db.conn, character_id=raven_id, name="Raven, Aesir of Chaos")
-    q.set_npc_species(db.conn, raven_id, [sp_id])
-    q.set_npc_epithets(db.conn, raven_id, [("Aesir of Chaos", "epithet")])
+    q.set_character_kinds(db.conn, raven_id, [sp_id])
+    q.set_character_epithets(db.conn, raven_id, [("Aesir of Chaos", "epithet")])
 
     text = gen.render_markdown(db.conn)
     assert "## Aesir" in text
@@ -76,16 +76,16 @@ def test_aesir_section_lists_species_members_with_joined_epithets(db) -> None:
 
 def test_character_with_no_epithet_row_renders_with_a_blank_epithets_cell(db) -> None:
     """The Aesir-of-Flames/Infernai case: a character whose stored name IS the
-    epithet has no separate npc_epithets row, so the Epithets cell is blank."""
+    epithet has no separate character_epithets row, so the Epithets cell is blank."""
     import db._queries as q
-    from registry_ids import lore_character_id, species_id
+    from registry_ids import lore_character_id, kind_id
 
     gen = _import_generator()
-    sp_id = species_id("Aesir")
-    q.upsert_species(db.conn, species_id=sp_id, name="Aesir")
+    sp_id = kind_id("Aesir")
+    q.upsert_kind(db.conn, kind_id=sp_id, name="Aesir")
     cid = lore_character_id("Aesir of Flames")
     q.upsert_character(db.conn, character_id=cid, name="Aesir of Flames")
-    q.set_npc_species(db.conn, cid, [sp_id])
+    q.set_character_kinds(db.conn, cid, [sp_id])
 
     text = gen.render_markdown(db.conn)
     assert "Aesir of Flames" in text
@@ -93,15 +93,15 @@ def test_character_with_no_epithet_row_renders_with_a_blank_epithets_cell(db) ->
 
 def test_multiple_epithets_on_one_character_are_comma_joined_in_sort_order(db) -> None:
     import db._queries as q
-    from registry_ids import lore_character_id, species_id
+    from registry_ids import lore_character_id, kind_id
 
     gen = _import_generator()
-    sp_id = species_id("Ancient")
-    q.upsert_species(db.conn, species_id=sp_id, name="Ancient")
+    sp_id = kind_id("Ancient")
+    q.upsert_kind(db.conn, kind_id=sp_id, name="Ancient")
     cid = lore_character_id("Yvor")
     q.upsert_character(db.conn, character_id=cid, name="Yvor")
-    q.set_npc_species(db.conn, cid, [sp_id])
-    q.set_npc_epithets(
+    q.set_character_kinds(db.conn, cid, [sp_id])
+    q.set_character_epithets(
         db.conn,
         cid,
         [
@@ -118,10 +118,10 @@ def test_multiple_epithets_on_one_character_are_comma_joined_in_sort_order(db) -
 
 def test_species_with_no_members_emits_no_section(db) -> None:
     import db._queries as q
-    from registry_ids import species_id
+    from registry_ids import kind_id
 
     gen = _import_generator()
-    q.upsert_species(db.conn, species_id=species_id("Embra"), name="Embra")
+    q.upsert_kind(db.conn, kind_id=kind_id("Embra"), name="Embra")
 
     text = gen.render_markdown(db.conn)
     assert "## Embra" not in text
@@ -257,14 +257,14 @@ def test_super_slam_group_with_no_data_emits_no_section(db) -> None:
 
 def test_dragons_section_has_no_pronunciation_or_phonetic_columns(db) -> None:
     import db._queries as q
-    from registry_ids import lore_character_id, species_id
+    from registry_ids import lore_character_id, kind_id
 
     gen = _import_generator()
-    sp_id = species_id("Dragon")
-    q.upsert_species(db.conn, species_id=sp_id, name="Dragon")
+    sp_id = kind_id("Dragon")
+    q.upsert_kind(db.conn, kind_id=sp_id, name="Dragon")
     cid = lore_character_id("Azvolai")
     q.upsert_character(db.conn, character_id=cid, name="Azvolai")
-    q.set_npc_species(db.conn, cid, [sp_id])
+    q.set_character_kinds(db.conn, cid, [sp_id])
 
     text = gen.render_markdown(db.conn)
     assert "## Dragons" in text

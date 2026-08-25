@@ -22,7 +22,7 @@ MD_FILES=(
   src/data/md/food-and-drink.md
   src/data/md/locations.md
   src/data/md/monsters.md
-  src/data/md/species.md
+  src/data/md/kinds.md
 )
 
 if ! git diff --quiet -- "${MD_FILES[@]}"; then
