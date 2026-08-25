@@ -2371,11 +2371,22 @@ class Database:
                     new_char_state[cid] = (fragments or {}).get(item.name, "")
                     char_display_name[cid] = item.name
 
-            old_char_names = {character_id_to_name.get(cid, cid) for cid in old_char_state}
-            new_char_names = {char_display_name.get(cid, character_id_to_name.get(cid, cid)) for cid in new_char_state}
+            # Diff on character_id, never on the display name. The two sides
+            # read their names from different tables — the stored side from
+            # `characters.name`, the incoming side from a slug's
+            # `heroes_canonical.canonical_hero` — and those differ for any hero
+            # whose lore name is fuller than the name on the card. Comparing
+            # names reported one unchanged link as a remove plus an add of the
+            # same id, and the page then read as pending on every replay.
+            def _label(cid: str) -> str:
+                return char_display_name.get(cid, character_id_to_name.get(cid, cid))
+
+            new_char_names = {_label(cid) for cid in new_char_state}
             if existing:
-                added = sorted(new_char_names - old_char_names)
-                removed = sorted(old_char_names - new_char_names)
+                added = sorted(_label(cid) for cid in set(new_char_state) - set(old_char_state))
+                removed = sorted(
+                    character_id_to_name.get(cid, cid) for cid in set(old_char_state) - set(new_char_state)
+                )
                 if added or removed:
                     changed = True
                     out.write("  Characters:\n")

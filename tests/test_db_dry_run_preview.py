@@ -587,3 +587,42 @@ def test_preview_reports_a_group_changing_parent(db: Database, capsys) -> None:
     assert "Heavy Metals" in report and "parent" in report, "the parent change is not shown"
     assert "Batbiter's Guilds" in report, "the new parent is not named"
     assert "GR" not in report.split("parent")[1][:40], "the parent is rendered as a raw id, not a name"
+
+
+def test_preview_is_silent_when_a_hero_slug_link_is_already_stored(db: Database, capsys) -> None:
+    """A hero whose display name differs from its card name is not a change.
+
+    The membership diff compared *display names*: the stored side read
+    ``characters.name`` and the incoming side read
+    ``heroes_canonical.canonical_hero``. Those are the same string for every
+    hero seed self-healing mints, so the bug had nothing to show it — until a
+    hero's character row was given a fuller name than the card carries. Then
+    one unchanged link rendered as a remove and an add of the same
+    ``character_id``, and every replay reported the page as pending forever.
+    """
+    _seed_hero(db, "teklovossen", "Teklovossen")
+    # One person: the card says "Teklovossen", the lore says "Jules Teklovossen".
+    db.upsert_story(
+        path="src/main-story/bright-lights/setup.md",
+        story_type="main-story",
+        title="Setup",
+        characters=[CharacterEntry("Jules Teklovossen", hero_slug="teklovossen")],
+    )
+    db.upsert_story(
+        path="src/main-story/bright-lights/other.md",
+        story_type="main-story",
+        title="Other",
+        characters=["teklovossen"],
+    )
+
+    report = _preview(
+        db,
+        capsys,
+        path="src/main-story/bright-lights/other.md",
+        story_type="main-story",
+        title="Other",
+        characters=["teklovossen"],
+    )
+    assert "Characters:" not in report, report
+    assert "+ Teklovossen" not in report, report
+    assert "- Jules Teklovossen" not in report, report
