@@ -1,4 +1,11 @@
 # Configuration for lychee link checker.
-# Run against the built book/ output: lychee --config lychee.toml ./book
+# Run via scripts/link-checks.sh against a build's own --dest-dir, never the
+# ./book directory mdbook serve owns — see scripts/link-checks.sh.
 offline = true
-exclude_path = ["./book/toc.html", "./book/404.html"]
+# Anchored on the filename, not a "./book/" prefix: the build directory is a
+# temp dir with a generated name, not literally "book". These previously read
+# ["./book/toc.html", "./book/404.html"], which only worked by accident — the
+# "." in "./book" is a regex wildcard that happened to match the "/" before
+# "book" in any path ending ".../book/toc.html". A differently-named build
+# directory silently defeated the exclusion.
+exclude_path = ["toc\\.html$", "404\\.html$"]

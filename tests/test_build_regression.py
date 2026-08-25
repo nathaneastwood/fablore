@@ -20,14 +20,16 @@ import json
 import re
 import shutil
 import subprocess
+import tempfile
 from pathlib import Path
 
 import pytest
 
+from build_guard import raise_if_mdbook_serve_running
+
 ROOT = Path(__file__).resolve().parents[1]
 SRC_DIR = ROOT / "src"
 DATA_DIR = SRC_DIR / "data"
-BUILD_DIR = ROOT / "book"
 PREPROCESSORS = sorted(DATA_DIR.glob("mdbook_*.py"))
 
 
@@ -577,14 +579,38 @@ class TestBuildOutput:
     """
 
     @pytest.fixture(scope="class")
-    def build_result(self):
+    def build_dir(self):
+        """This class's own mdBook output directory — never ``book/``.
+
+        ``mdbook serve`` (started outside this test run, and outside our
+        control) rebuilds ``book/`` on every source change. Building here
+        with ``--dest-dir`` pointed anywhere else means this fixture can
+        never observe serve's tree mid-rewrite, regardless of timing.
+        """
+        d = Path(tempfile.mkdtemp(prefix="fablore-mdbook-build-"))
+        yield d
+        shutil.rmtree(d, ignore_errors=True)
+
+    @pytest.fixture(scope="class")
+    def build_result(self, build_dir):
+        raise_if_mdbook_serve_running(str(build_dir))
         result = subprocess.run(
-            ["mdbook", "build"],
+            ["mdbook", "build", "--dest-dir", str(build_dir)],
             capture_output=True,
             text=True,
             cwd=ROOT,
         )
         return result
+
+    def test_build_writes_to_its_own_dest_dir_not_book(self, build_result, build_dir) -> None:
+        """``mdbook serve`` (started separately, outside this test run) owns
+        the default ``book/`` output directory and rebuilds it on every
+        source change. This fixture must build into its own directory
+        instead, so it can never read a tree ``serve`` is mid-rewrite on —
+        that race produced spurious link/content failures nine times on this
+        branch before the isolation existed."""
+        assert build_dir != ROOT / "book", "build_dir fixture must not be the default book/ directory"
+        assert (build_dir / "browse.html").exists(), "mdbook build did not write into its own --dest-dir"
 
     def test_build_exits_zero(self, build_result) -> None:
         assert build_result.returncode == 0, f"mdbook build failed:\n{build_result.stderr}"
@@ -595,11 +621,11 @@ class TestBuildOutput:
         warn_lines = [line for line in build_result.stderr.splitlines() if line.strip().startswith("WARN")]
         assert warn_lines == [], f"mdbook build produced {len(warn_lines)} warning(s):\n" + "\n".join(warn_lines)
 
-    def test_browse_json_is_valid(self, build_result) -> None:
+    def test_browse_json_is_valid(self, build_result, build_dir) -> None:
         """The browse page embeds a large JSON object. Any hint injection
         inside the <script> block breaks the JSON and silently hides all
         stories from the browse UI."""
-        browse_html = (BUILD_DIR / "browse.html").read_text()
+        browse_html = (build_dir / "browse.html").read_text()
         m = re.search(r"window\.FABLORE_BROWSE=({.*?});</script>", browse_html, re.DOTALL)
         assert m, "window.FABLORE_BROWSE not found in browse.html"
         data = json.loads(m.group(1))  # raises json.JSONDecodeError if corrupted
@@ -607,13 +633,13 @@ class TestBuildOutput:
         assert len(data["heroes"]) > 0
         assert len(data["regions"]) > 0
 
-    def test_archive_pages_have_injected_notices(self, build_result) -> None:
+    def test_archive_pages_have_injected_notices(self, build_result, build_dir) -> None:
         """Every built individual archive page must have a notice injected.
 
         Index/category pages (stem matches parent dir, or top-level archive.html)
         intentionally have no notice — the preprocessor skips them.
         """
-        archive_pages = list((BUILD_DIR / "archive").rglob("*.html"))
+        archive_pages = list((build_dir / "archive").rglob("*.html"))
         assert archive_pages, "No archive pages were built"
 
         missing: list[str] = []
@@ -627,22 +653,22 @@ class TestBuildOutput:
             is_category = (
                 page.stem in ("index", "README")
                 or page.stem == page.parent.name
-                or page.parent == BUILD_DIR / "archive"
+                or page.parent == build_dir / "archive"
             )
             if not has_notice and not is_category:
-                missing.append(str(page.relative_to(BUILD_DIR)))
+                missing.append(str(page.relative_to(build_dir)))
 
         assert missing == [], "Archive pages missing injected notice:\n" + "\n".join(missing)
 
-    def test_story_pages_have_metadata(self, build_result) -> None:
+    def test_story_pages_have_metadata(self, build_result, build_dir) -> None:
         """Spot-check that story-meta preprocessor ran on a known story page."""
-        page = BUILD_DIR / "main-story" / "welcome-to-rathe" / "a-rising-star.html"
+        page = build_dir / "main-story" / "welcome-to-rathe" / "a-rising-star.html"
         assert page.exists(), "a-rising-star.html was not built"
         html = page.read_text()
         assert "story-share" in html, "Share buttons missing — story-meta preprocessor may not have run"
         assert "fablore-story-meta" in html, "Story-meta markers missing"
 
-    def test_lore_graph_clears_the_chapter_chevrons(self, build_result) -> None:
+    def test_lore_graph_clears_the_chapter_chevrons(self, build_result, build_dir) -> None:
         """The graph canvas must not run underneath mdBook's prev/next arrows.
 
         The canvas takes pointer events, so an overlap does not merely look
@@ -654,7 +680,7 @@ class TestBuildOutput:
         Note mdBook sets ``:root { font-size: 62.5% }``, so 1rem is 10px here.
         Reading the gutter as 16px/rem is exactly the mistake this guards.
         """
-        chrome = next(BUILD_DIR.glob("css/chrome*.css"), None)
+        chrome = next(build_dir.glob("css/chrome*.css"), None)
         assert chrome is not None, "mdBook's chrome.css was not built"
 
         rule = re.search(r"\.nav-chapters\s*\{(.*?)\}", chrome.read_text(), re.S)
