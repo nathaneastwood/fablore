@@ -529,8 +529,9 @@ def _check_hero_card_name_alias_slugs_in_canonical(canonical_path: Path) -> list
 #
 # ``faction`` went in stage 4, once stage 2 had migrated the last entry using it
 # into the groups table. ``organisation`` is one entry from the same fate —
-# Braumeister, held for R9. ``kind`` went the same way: kind are DB-backed
-# now, so a supplement entry claiming that type would be a second writer.
+# Braumeister, held for R9. ``species`` went the same way, and its successor
+# ``kind`` never joined: kinds are DB-backed, so a supplement entry claiming
+# that type would be a second writer.
 _SUPPLEMENT_TYPES = frozenset(
     {
         "aesir",

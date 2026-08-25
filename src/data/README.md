@@ -495,6 +495,36 @@ erDiagram
 
 <a name="entity-identity"></a>
 
+### Kind, title, group — the rule for what goes where
+
+Three tables answer three different questions about a person, and putting a fact
+in the wrong one is the mistake this schema has made most often. The rule is
+binding, not a guideline:
+
+| | Question | Test | Examples |
+|---|---|---|---|
+| **kind** | What is it? | Intrinsic. Cannot be conferred or resigned. | Human, Dragon, Aesir, Herald, Robot, Zombie |
+| **title** | What office does it hold? | Held, and can end. Often in succession. | Grand Magister, Dracai of Aether, Archangel of Knowledge |
+| **group** | What body does it belong to? | Membership, cited to a page that attests it. | The Twelve Dragons, Children of the Dragon, VanGeld |
+
+**If it can be conferred or resigned, it is not a kind.** That is the whole test.
+`Wizard`, `Witch` and `Diviner` sat in the kind table until stage 9 moved them to
+`professions`; `Herald` was checked against the same test in stage 6f and stayed,
+because nobody *becomes* a Herald — the lore calls them "Sol's golden emissaries"
+and "these legendary beings", which is an order of being, like Aesir.
+
+**Godhood is none of the three.** It records who venerates a being, not what the
+being is, and it is culture-relative — one people's god is another's Ancient.
+Absolon is "god of the great deep" only in the sentence naming the Dhani cult
+that worshipped him. A pantheon is a **group**: `The Twelve Dragons` is already
+`kind="pantheon"` and `Children of the Dragon` is an `order`. Do not add a
+`God` or `Deity` kind.
+
+**"Species" was the wrong word and "race" would have been worse.** The table held
+peoples, animals, orders of being, an acquired condition that stacks (Scooba is a
+Zombie *and* a Dog) and one manufactured being. `kind` is the only word true of
+all of them, and it matches `groups.kind` already in the schema.
+
 ### Entity identity — why the catalogue exists
 
 Every id above is a **hash of the fields shown in the key comment**, recomputed on each write. Nothing looks an entity up by a stored primary key; it recomputes the key from what the caller passed. Two consequences follow, and both have bitten this repo:
