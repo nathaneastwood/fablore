@@ -149,10 +149,6 @@ def select_all_regions(conn: sqlite3.Connection) -> list[sqlite3.Row]:
     return conn.execute("SELECT * FROM regions ORDER BY region_name").fetchall()
 
 
-def region_id_exists(conn: sqlite3.Connection, region_id: str) -> bool:
-    return conn.execute("SELECT 1 FROM regions WHERE region_id = ?", [region_id]).fetchone() is not None
-
-
 # ---------------------------------------------------------------------------
 # Locations
 # ---------------------------------------------------------------------------

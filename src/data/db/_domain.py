@@ -97,12 +97,6 @@ def _kind_tuple(kind: "KindEntry | tuple[KindEntry, ...] | None") -> "tuple[Kind
     return tuple(kind)
 
 
-def _kind_name(conn: sqlite3.Connection, kind_id: str) -> str:
-    """Return a stored kind's display name, or its id if the row has gone."""
-    row = conn.execute("SELECT name FROM kinds WHERE kind_id = ?", [kind_id]).fetchone()
-    return row[0] if row else kind_id
-
-
 def _professions_tuple(
     professions: "ProfessionEntry | tuple[ProfessionEntry, ...] | None",
 ) -> "tuple[ProfessionEntry, ...]":
@@ -116,12 +110,6 @@ def _professions_tuple(
     if isinstance(professions, ProfessionEntry):
         return (professions,)
     return tuple(professions)
-
-
-def _profession_name(conn: sqlite3.Connection, profession_id: str) -> str:
-    """Return a stored profession's display name, or its id if the row has gone."""
-    row = conn.execute("SELECT name FROM professions WHERE profession_id = ?", [profession_id]).fetchone()
-    return row[0] if row else profession_id
 
 
 def _auto_world_key(region_name: str) -> str:
@@ -1226,7 +1214,7 @@ class Database:
 
         Args:
             entity_type: One of ``"monster"``, ``"fauna"``, ``"flora"``, ``"location"``,
-                ``"group"``, ``"kind"``, ``"title"`` or ``"profession"``.
+                ``"group"``, ``"kind"``, ``"character"``, ``"title"`` or ``"profession"``.
             name: Display name of the entity (must already exist in the database).
             description: Short lore summary. ``"location"``, ``"group"``,
                 ``"kind"``, ``"title"`` and ``"profession"`` set the ``notes``
@@ -1247,36 +1235,28 @@ class Database:
         Raises:
             ValueError: If ``entity_type`` is unrecognised or the named entity does not exist.
         """
+        # Two dispatch tables, one per column the update lands in. Every registry
+        # added since migration 12 arrived as another elif here; a table keeps the
+        # next one a single row. ``location`` alone is keyed by name, not by id.
+        _NOTES_MAP = {
+            "location": (q.update_location_notes, None, "Location"),
+            "group": (q.update_group_notes, _group_id, "Group"),
+            "kind": (q.update_kind_notes, _kind_id, "Kind"),
+            "character": (q.update_character_summary, lore_character_id, "Character"),
+            "title": (q.update_title_notes, _title_id, "Title"),
+            "profession": (q.update_profession_notes, _profession_id, "Profession"),
+        }
         _TABLE_MAP = {
             "monster": ("monsters", "monster_id", _monster_id),
             "fauna": ("fauna", "fauna_id", fauna_id_from_name),
             "flora": ("flora", "flora_id", flora_id),
         }
         with self.conn:
-            if entity_type == "location":
-                rows = q.update_location_notes(self.conn, name, description)
+            if entity_type in _NOTES_MAP:
+                update_notes, id_fn, label = _NOTES_MAP[entity_type]
+                rows = update_notes(self.conn, id_fn(name) if id_fn else name, description)
                 if rows == 0:
-                    raise ValueError(f"Location not found: {name!r}")
-            elif entity_type == "group":
-                rows = q.update_group_notes(self.conn, _group_id(name), description)
-                if rows == 0:
-                    raise ValueError(f"Group not found: {name!r}")
-            elif entity_type == "kind":
-                rows = q.update_kind_notes(self.conn, _kind_id(name), description)
-                if rows == 0:
-                    raise ValueError(f"Kind not found: {name!r}")
-            elif entity_type == "character":
-                rows = q.update_character_summary(self.conn, lore_character_id(name), description)
-                if rows == 0:
-                    raise ValueError(f"Character not found: {name!r}")
-            elif entity_type == "title":
-                rows = q.update_title_notes(self.conn, _title_id(name), description)
-                if rows == 0:
-                    raise ValueError(f"Title not found: {name!r}")
-            elif entity_type == "profession":
-                rows = q.update_profession_notes(self.conn, _profession_id(name), description)
-                if rows == 0:
-                    raise ValueError(f"Profession not found: {name!r}")
+                    raise ValueError(f"{label} not found: {name!r}")
             elif entity_type in _TABLE_MAP:
                 table, id_col, id_fn = _TABLE_MAP[entity_type]
                 entity_id = id_fn(name)
@@ -1598,16 +1578,7 @@ class Database:
                 # seed time, mirroring _upsert_one_title's hero holder block.
                 for relative, _relation, _story_key in (_kin_triple(item) for item in e.kin):
                     if isinstance(relative, str):
-                        canonical_id = self._resolve_heroes([relative])[0]
-                        if not q.select_character_id_for_hero(self.conn, canonical_id):
-                            row = self.conn.execute(
-                                "SELECT canonical_hero FROM heroes_canonical WHERE canonical_id = ?",
-                                [canonical_id],
-                            ).fetchone()
-                            hero_name = row["canonical_hero"] if row else ""
-                            new_cid = lore_character_id(hero_name)
-                            q.upsert_character(self.conn, character_id=new_cid, name=hero_name)
-                            q.set_character_hero(self.conn, canonical_id, new_cid)
+                        self._ensure_hero_character_id(self._resolve_heroes([relative])[0])
 
             q.set_character_kin(
                 self.conn,
@@ -1644,13 +1615,7 @@ class Database:
         resolved: list[tuple[str, str, "CharacterEntry | str"]] = []
         seen: dict[str, str] = {}
         for item in characters:
-            if isinstance(item, str):
-                canonical_id = self._resolve_heroes([item])[0]
-                cid = self._predict_hero_character_id(canonical_id)
-                origin = f"hero {item!r}"
-            else:
-                cid = lore_character_id(item.name)
-                origin = f"character {item.name!r}"
+            cid, origin = self._resolve_person(item)
             if cid in seen:
                 raise ValueError(
                     f"{story_key!r} names {seen[cid]} and {origin} in characters=, but both "
@@ -1784,8 +1749,6 @@ class Database:
                     region_name=e.region,
                     world_of_rathe_story_key=wk,
                 )
-            elif not e.region and not q.region_id_exists(self.conn, ""):
-                eff_region = ""
 
             # Validate lore_fragment against on-disk headings
             frag = e.lore_fragment.strip().lstrip("#")
@@ -1907,13 +1870,24 @@ class Database:
         q.set_group_aliases(self.conn, gid, list(entry.aliases))
         return gid
 
-    def _resolve_group_members(self, entry: GroupEntry) -> list[tuple[str, str, str]]:
+    def _resolve_group_members(self, entry: GroupEntry, *, mint: bool = True) -> list[tuple[str, str, str]]:
         """Resolve every roster member to ``(character_id, story_key, origin)``.
 
-        Writes only the identity link a hero member needs
-        (:meth:`_ensure_hero_character_id`); the character rows themselves are
-        upserted by the caller. :meth:`_dry_run_group_members` is the read-only
-        twin the preview uses.
+        ``mint`` is the only difference between the write path and the preview,
+        which is why they are one method. With ``mint=True`` a hero member
+        resolves through :meth:`_ensure_hero_character_id`, which writes the
+        identity link if it is missing; with ``mint=False`` through
+        :meth:`_predict_hero_character_id`, which only reads. The two agree on
+        every input: both return the stored ``character_heroes`` link when there
+        is one and the ``lore_character_id`` hash of the canonical hero name
+        when there is not, which is precisely the id the write path would mint.
+        Same split ``_resolve_characters`` uses for ``characters=``.
+
+        The character rows themselves are upserted by the caller, never here.
+
+        Args:
+            entry: The group whose roster is being resolved.
+            mint: ``True`` on the write path, ``False`` for the dry-run preview.
 
         Raises:
             ValueError: when two members resolve to the same ``character_id`` —
@@ -1925,12 +1899,7 @@ class Database:
         resolved: list[tuple[str, str, str]] = []
         seen: dict[str, str] = {}
         for person, source in entry.member_pairs():
-            if isinstance(person, str):
-                cid = self._ensure_hero_character_id(self._resolve_heroes([person])[0])
-                origin = f"hero {person!r}"
-            else:
-                cid = lore_character_id(person.name)
-                origin = f"character {person.name!r}"
+            cid, origin = self._resolve_person(person, mint=mint)
             if cid in seen:
                 raise ValueError(
                     f"{entry.name!r} names {seen[cid]} and {origin} in members, but both "
@@ -1941,35 +1910,32 @@ class Database:
             resolved.append((cid, source, origin))
         return resolved
 
-    def _dry_run_group_members(self, entry: GroupEntry) -> list[tuple[str, str, str]]:
-        """Read-only twin of :meth:`_resolve_group_members`, for the preview.
+    def _resolve_person(self, person: "CharacterEntry | str", *, mint: bool = False) -> tuple[str, str]:
+        """Resolve one declared person to ``(character_id, origin)``.
 
-        Identical except that a hero member resolves through
-        :meth:`_predict_hero_character_id`, which reads, rather than
-        :meth:`_ensure_hero_character_id`, which mints. The two agree on every
-        input: both return the stored ``character_heroes`` link when there is
-        one and the ``lore_character_id`` hash of the canonical hero name when
-        there is not, which is precisely the id the write path would mint. Same
-        split ``_resolve_characters`` uses for ``characters=``.
+        The single dispatch behind every field that names a person —
+        ``characters=``, ``GroupEntry.members``, ``TitleEntry.holders`` and
+        ``CharacterEntry.kin``. A hero slug resolves through
+        ``character_heroes``; a :class:`CharacterEntry` hashes its name. Both
+        can land on one ``character_id``, which is the clash each caller then
+        guards in its own words.
+
+        ``origin`` is the phrase those messages quote. It lives here so the four
+        of them describe a person identically — they had drifted to ``hero`` in
+        two places and ``hero_slug`` in the other two, and to a bare name where
+        the others said ``character``.
+
+        Args:
+            person: A :class:`CharacterEntry` or a canonical hero slug.
+            mint: ``True`` on a write path, where a hero with no
+                ``character_heroes`` row yet has one minted; ``False`` for a
+                read-only resolve, which predicts the same id instead.
         """
-        resolved: list[tuple[str, str, str]] = []
-        seen: dict[str, str] = {}
-        for person, source in entry.member_pairs():
-            if isinstance(person, str):
-                cid = self._predict_hero_character_id(self._resolve_heroes([person])[0])
-                origin = f"hero {person!r}"
-            else:
-                cid = lore_character_id(person.name)
-                origin = f"character {person.name!r}"
-            if cid in seen:
-                raise ValueError(
-                    f"{entry.name!r} names {seen[cid]} and {origin} in members, but both "
-                    f"resolve to the same person (character_id {cid!r}). A membership is "
-                    "one row; name this person once."
-                )
-            seen[cid] = origin
-            resolved.append((cid, source, origin))
-        return resolved
+        if isinstance(person, str):
+            canonical_id = self._resolve_heroes([person])[0]
+            hero_character_id = self._ensure_hero_character_id if mint else self._predict_hero_character_id
+            return hero_character_id(canonical_id), f"hero {person!r}"
+        return lore_character_id(person.name), f"character {person.name!r}"
 
     def _predict_hero_character_id(self, canonical_id: str) -> str:
         """Return the ``character_id`` a hero resolves to via ``character_heroes``.
@@ -1982,12 +1948,21 @@ class Database:
         existing = q.select_character_id_for_hero(self.conn, canonical_id)
         if existing:
             return existing
+        return lore_character_id(self._hero_display_name(canonical_id))
+
+    def _hero_display_name(self, canonical_id: str) -> str:
+        """Return a canonical hero's display name, or ``""`` when the row has gone.
+
+        The one place that reads ``heroes_canonical.canonical_hero``. Both
+        :meth:`_predict_hero_character_id` and :meth:`_ensure_hero_character_id`
+        hash this name into a ``character_id``, so they cannot disagree about
+        where the name comes from.
+        """
         row = self.conn.execute(
             "SELECT canonical_hero FROM heroes_canonical WHERE canonical_id = ?",
             [canonical_id],
         ).fetchone()
-        hero_name = row["canonical_hero"] if row else ""
-        return lore_character_id(hero_name)
+        return row["canonical_hero"] if row else ""
 
     def _ensure_hero_character_id(self, canonical_id: str) -> str:
         """Return the ``character_id`` a hero resolves to, minting the identity link if missing.
@@ -2004,11 +1979,7 @@ class Database:
         existing = q.select_character_id_for_hero(self.conn, canonical_id)
         if existing:
             return existing
-        row = self.conn.execute(
-            "SELECT canonical_hero FROM heroes_canonical WHERE canonical_id = ?",
-            [canonical_id],
-        ).fetchone()
-        hero_name = row["canonical_hero"] if row else ""
+        hero_name = self._hero_display_name(canonical_id)
         new_cid = lore_character_id(hero_name)
         q.upsert_character(self.conn, character_id=new_cid, name=hero_name)
         q.set_character_hero(self.conn, canonical_id, new_cid)
@@ -2054,13 +2025,7 @@ class Database:
                     f"{entry.name!r} states an unknown kin relation {relation!r}. "
                     f"Use one of {sorted(q.KIN_INVERSE)}."
                 )
-            if isinstance(relative, str):
-                canonical_id = self._resolve_heroes([relative])[0]
-                rid = self._predict_hero_character_id(canonical_id)
-                origin = f"hero_slug {relative!r}"
-            else:
-                rid = lore_character_id(relative.name)
-                origin = relative.name
+            rid, origin = self._resolve_person(relative)
             if rid == own_cid:
                 raise ValueError(
                     f"{entry.name!r} cannot be their own relative (named as {origin}, relation {relation!r})"
@@ -2068,7 +2033,7 @@ class Database:
             key = (rid, relation)
             if key in seen:
                 raise ValueError(
-                    f"{entry.name!r} names {seen[key]!r} and {origin} as {relation!r} twice "
+                    f"{entry.name!r} names {seen[key]} and {origin} as {relation!r} twice "
                     f"(character_id {rid!r}). A kin fact is one row; state it once."
                 )
             seen[key] = origin
@@ -2088,13 +2053,7 @@ class Database:
         resolved: list[tuple[str, int, str, str]] = []
         seen: dict[str, str] = {}
         for person, ordinal, story_key in entry.holders:
-            if isinstance(person, str):
-                canonical_id = self._resolve_heroes([person])[0]
-                cid = self._predict_hero_character_id(canonical_id)
-                origin = f"hero_slug {person!r}"
-            else:
-                cid = lore_character_id(person.name)
-                origin = repr(person.name)
+            cid, origin = self._resolve_person(person)
             if cid in seen:
                 raise ValueError(
                     f"{entry.name!r} names {seen[cid]} and {origin} as the same title holder "
@@ -2129,18 +2088,8 @@ class Database:
         # contract _self_heal_character_heroes uses at seed time — so a title
         # naming a hero with no character row yet still resolves cleanly.
         for slug, _ordinal, _source in entry.holders:
-            if not isinstance(slug, str):
-                continue
-            canonical_id = self._resolve_heroes([slug])[0]
-            if not q.select_character_id_for_hero(self.conn, canonical_id):
-                row = self.conn.execute(
-                    "SELECT canonical_hero FROM heroes_canonical WHERE canonical_id = ?",
-                    [canonical_id],
-                ).fetchone()
-                hero_name = row["canonical_hero"] if row else ""
-                new_cid = lore_character_id(hero_name)
-                q.upsert_character(self.conn, character_id=new_cid, name=hero_name)
-                q.set_character_hero(self.conn, canonical_id, new_cid)
+            if isinstance(slug, str):
+                self._ensure_hero_character_id(self._resolve_heroes([slug])[0])
 
         q.set_title_holders(
             self.conn,
@@ -2290,29 +2239,36 @@ class Database:
             else:
                 out.write(f"  NarratedVideos: {len(narrated_videos)} entries (unchanged)\n")
 
-        # Build id → display name maps so diffs show readable slugs/names
-        hero_id_to_slug = {r["canonical_id"]: r["canonical_slug"] for r in q.select_all_heroes_canonical(self.conn)}
+        # Build id → display name maps so diffs show readable slugs/names. Each
+        # registry is scanned once and every map derived from those rows: the
+        # *_rows dicts and the *_id_to_name dicts used to be two scans of the
+        # same table, and the name is a column of the row already in hand.
+        hero_rows = {r["canonical_id"]: r for r in q.select_all_heroes_canonical(self.conn)}
+        character_rows = {r["character_id"]: r for r in q.select_all_characters(self.conn)}
+        monster_rows = {r["monster_id"]: r for r in q.select_all_monsters(self.conn)}
+        fauna_rows = {r["fauna_id"]: r for r in q.select_all_fauna(self.conn)}
+        flora_rows = {r["flora_id"]: r for r in q.select_all_flora(self.conn)}
+        group_rows = {r["group_id"]: r for r in q.select_all_groups(self.conn)}
+        title_rows = {r["title_id"]: r for r in q.select_all_titles(self.conn)}
+
+        hero_id_to_slug = {cid: r["canonical_slug"] for cid, r in hero_rows.items()}
+        hero_id_to_hero_name = {cid: r["canonical_hero"] for cid, r in hero_rows.items()}
+        character_id_to_name = {cid: r["name"] for cid, r in character_rows.items()}
+        monster_id_to_name = {mid: r["name"] for mid, r in monster_rows.items()}
+        fauna_id_to_name = {fid: r["name"] for fid, r in fauna_rows.items()}
+        flora_id_to_name = {fid: r["name"] for fid, r in flora_rows.items()}
+        group_id_to_name = {gid: r["name"] for gid, r in group_rows.items()}
+        title_id_to_name = {tid: r["name"] for tid, r in title_rows.items()}
+
         weapon_id_to_slug = {
             r["canonical_weapon_id"]: r["canonical_slug"] for r in q.select_all_weapons_canonical(self.conn)
         }
         equip_id_to_slug = {
             r["canonical_equipment_id"]: r["canonical_slug"] for r in q.select_all_equipment_canonical(self.conn)
         }
-        character_rows = {r["character_id"]: r for r in q.select_all_characters(self.conn)}
-        monster_rows = {r["monster_id"]: r for r in q.select_all_monsters(self.conn)}
-        fauna_rows = {r["fauna_id"]: r for r in q.select_all_fauna(self.conn)}
-        flora_rows = {r["flora_id"]: r for r in q.select_all_flora(self.conn)}
-        character_id_to_name = {r["character_id"]: r["name"] for r in q.select_all_characters(self.conn)}
         loc_id_to_name = {r["location_id"]: r["name"] for r in q.select_all_locations(self.conn)}
         region_id_to_name = {r["region_id"]: r["region_name"] for r in q.select_all_regions(self.conn)}
-        monster_id_to_name = {r["monster_id"]: r["name"] for r in q.select_all_monsters(self.conn)}
-        fauna_id_to_name = {r["fauna_id"]: r["name"] for r in q.select_all_fauna(self.conn)}
-        flora_id_to_name = {r["flora_id"]: r["name"] for r in q.select_all_flora(self.conn)}
         food_id_to_name = {r["food_drink_id"]: r["name"] for r in q.select_all_food_drink(self.conn)}
-        group_rows = {r["group_id"]: r for r in q.select_all_groups(self.conn)}
-        group_id_to_name = {r["group_id"]: r["name"] for r in q.select_all_groups(self.conn)}
-        title_rows = {r["title_id"]: r for r in q.select_all_titles(self.conn)}
-        title_id_to_name = {r["title_id"]: r["name"] for r in q.select_all_titles(self.conn)}
 
         def _show_links_diff(
             label: str,
@@ -2355,10 +2311,6 @@ class Database:
         # before any diff below, if the same person is named twice.
         if characters is not None:
             old_char_state = q.select_story_character_fragments(self.conn, story_id) if existing else {}
-            hero_id_to_hero_name = {
-                r["canonical_id"]: r["canonical_hero"] for r in q.select_all_heroes_canonical(self.conn)
-            }
-
             new_char_state: dict[str, str] = {}
             char_display_name: dict[str, str] = {}
 
@@ -2613,27 +2565,37 @@ class Database:
             lines: list[str] = []
             reach_characters, reach_locations, reach_groups, _reach_regions, _reach_titles = _reachable_entities()
 
+            def _diff_names(owner: str, label: str, stored: set[str], wanted: set[str]) -> None:
+                """Append the +/- REMOVED lines for one replace-semantic name set.
+
+                Four of the diffs below are this exact shape. Keeping the REMOVED
+                wording in one place is the point: it is the line a reader has to
+                trust before answering yes, and it used to be spelled out at every
+                call site.
+                """
+                for name in sorted(wanted - stored):
+                    lines.append(f"    + {owner}: {label} {name!r}")
+                for name in sorted(stored - wanted):
+                    lines.append(f"    - {owner}: {label} {name!r} REMOVED")
+
+            # One scan each, rather than a lookup per stored id per character:
+            # both were a SELECT inside the loop over every reachable character.
+            kind_names = {r["kind_id"]: r["name"] for r in q.select_all_kinds(self.conn)}
+            profession_names = {r["profession_id"]: r["name"] for r in q.select_all_professions(self.conn)}
+
             for entry in reach_characters:
                 cid = lore_character_id(entry.name)
                 # Kind is replace-semantic too, and it is the one that used to
                 # preserve — 32 rows carried a value no declaration named, so a
                 # missing kinds= reads as a deletion where it once read as
                 # silence. That reversal is exactly what has to be visible.
-                stored_sp = [_kind_name(self.conn, sid) for sid in q.select_character_kinds(self.conn, cid)]
-                wanted_sp = [x.name for x in _kind_tuple(entry.kinds)]
-                for name in sorted(set(wanted_sp) - set(stored_sp)):
-                    lines.append(f"    + {entry.name}: kind {name!r}")
-                for name in sorted(set(stored_sp) - set(wanted_sp)):
-                    lines.append(f"    - {entry.name}: kind {name!r} REMOVED")
+                stored_sp = {kind_names.get(sid, sid) for sid in q.select_character_kinds(self.conn, cid)}
+                wanted_sp = {x.name for x in _kind_tuple(entry.kinds)}
+                _diff_names(entry.name, "kind", stored_sp, wanted_sp)
 
                 for sp in _kind_tuple(entry.kinds):
                     sid = _kind_id(sp.name)
-                    stored_al = set(q.select_kind_aliases(self.conn, sid))
-                    wanted_al = set(sp.aliases)
-                    for alias in sorted(wanted_al - stored_al):
-                        lines.append(f"    + {sp.name}: alias {alias!r}")
-                    for alias in sorted(stored_al - wanted_al):
-                        lines.append(f"    - {sp.name}: alias {alias!r} REMOVED")
+                    _diff_names(sp.name, "alias", set(q.select_kind_aliases(self.conn, sid)), set(sp.aliases))
 
                 # Professions (R9), reported the same shape as kind just
                 # above — walked over reach_characters, not the characters= kwarg, so a
@@ -2643,14 +2605,9 @@ class Database:
                 # before any diff below is computed — the same guard the write
                 # path applies via _upsert_professions.
                 resolved_prof = self._resolve_professions(entry.name, _professions_tuple(entry.professions))
-                stored_prof = [
-                    _profession_name(self.conn, pid) for pid in q.select_character_professions(self.conn, cid)
-                ]
-                wanted_prof = [name for _pid, name in resolved_prof]
-                for name in sorted(set(wanted_prof) - set(stored_prof)):
-                    lines.append(f"    + {entry.name}: profession {name!r}")
-                for name in sorted(set(stored_prof) - set(wanted_prof)):
-                    lines.append(f"    - {entry.name}: profession {name!r} REMOVED")
+                stored_prof = {profession_names.get(pid, pid) for pid in q.select_character_professions(self.conn, cid)}
+                wanted_prof = {name for _pid, name in resolved_prof}
+                _diff_names(entry.name, "profession", stored_prof, wanted_prof)
 
                 stored = set(q.select_character_epithets(self.conn, cid))
                 wanted = {(n, "epithet") for n in entry.epithets} | {(n, "short-name") for n in entry.short_names}
@@ -2670,12 +2627,7 @@ class Database:
 
             for entry in reach_groups:
                 gid = _group_id(entry.name)
-                stored = set(q.select_group_aliases(self.conn, gid))
-                wanted = set(entry.aliases)
-                for alias in sorted(wanted - stored):
-                    lines.append(f"    + {entry.name}: alias {alias!r}")
-                for alias in sorted(stored - wanted):
-                    lines.append(f"    - {entry.name}: alias {alias!r} REMOVED")
+                _diff_names(entry.name, "alias", set(q.select_group_aliases(self.conn, gid)), set(entry.aliases))
 
             if lines:
                 changed = True
@@ -2993,7 +2945,7 @@ class Database:
                 # resolved one for the same reason — it is the number of rows
                 # that would be written, which len(entry.members) is not once
                 # two items can name one person.
-                wanted_map = {cid: src for cid, src, _origin in self._dry_run_group_members(entry)}
+                wanted_map = {cid: src for cid, src, _origin in self._resolve_group_members(entry, mint=False)}
                 if row is None:
                     roster = len(wanted_map)
                     parent = f", parent={entry.parent.name!r}" if entry.parent is not None else ""
