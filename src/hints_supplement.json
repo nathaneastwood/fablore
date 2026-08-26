@@ -56,10 +56,6 @@
       "main-story/welcome-to-rathe/wanderings-in-the-mists"
     ]
   },
-  "Davnir": {
-    "type": "ancient",
-    "summary": "Ancient of Earth and Lightning."
-  },
   "Demonastery": {
     "type": "region",
     "summary": "Forsaken isle beyond the shores of Southern Rathe, wrapped in sea fog, where the Devout took refuge when their faith in Sol broke.",
@@ -114,15 +110,6 @@
     "summary": "The Golden City, realm of Illumination, founded by pilgrims drawn to Rathe by Sol's will.",
     "url": "/world-of-rathe/solana.html"
   },
-  "Infernai": {
-    "type": "aesir",
-    "summary": "Aesir of Flames."
-  },
-  "AesirOfFlames": {
-    "type": "aesir",
-    "match": "Aesir of Flames",
-    "summary": "Epithet of Infernai."
-  },
   "Jing": {
     "type": "character",
     "summary": "Xilin and Ira's brother."
@@ -153,22 +140,9 @@
     "type": "character",
     "summary": "The more talkative of two Valdur strongmen who joined Bravo's Legendarium, wielding a finely crafted greataxe."
   },
-  "Nasreth": {
-    "type": "embra",
-    "summary": "The Soul Harrower, an Embra."
-  },
   "Nocetes": {
     "type": "god",
     "summary": "Dhani death god."
-  },
-  "Raven": {
-    "type": "aesir",
-    "summary": "Aesir of Chaos."
-  },
-  "AesirOfChaos": {
-    "type": "aesir",
-    "match": "Aesir of Chaos",
-    "summary": "Epithet of Raven."
   },
   "Redmoor": {
     "type": "character",
@@ -193,14 +167,6 @@
     ]
   },
   "Sol": {
-    "type": "aesir",
-    "summary": "Aesir of Light, deity of Solana. Drew the city's founding pilgrims to Rathe and is honoured as the source of the Light, the radiant energy that guides and protects the Children of the Light.",
-    "url": "/world-of-rathe/solana.html"
-  },
-  "AesirOfLight": {
-    "type": "aesir",
-    "match": "Aesir of Light",
-    "summary": "Epithet of Sol, deity of Solana and source of the Light that guides and protects the Children of the Light.",
     "url": "/world-of-rathe/solana.html"
   },
   "Solides": "Solanian Sunday",
@@ -246,10 +212,6 @@
     "type": "character",
     "summary": "Lord Chancellor and Head of the Ezu faction."
   },
-  "Yvor": {
-    "type": "ancient",
-    "summary": "Ancient of Lightning and Ice."
-  },
   "The Maw": {
     "exclude_pages": [
       "main-story/usurp-the-shadow-throne/letters-from-the-beyond"
@@ -273,10 +235,6 @@
     "type": "character",
     "summary": "A Disciple of Pain who volunteered as a blood sacrifice for Chane during an expedition into i'Arathael."
   },
-  "Ursur": {
-    "type": "embra",
-    "summary": "An Embra bound to Chane, drawn to the corruption of the Old Ones in the Shadowrealm."
-  },
   "Runeblades": {
     "type": "concept",
     "match": [
@@ -292,10 +250,6 @@
     "type": "concept",
     "match": "Old Ones",
     "summary": "Ancient beings of overwhelming power from beyond Rathe who threatened to consume the world in the Third Age."
-  },
-  "Blasmophet": {
-    "type": "embra",
-    "summary": "The demon whose all-consuming hunger possesses Levia the Consumed."
   },
   "Eirina": {
     "type": "character",
@@ -837,10 +791,6 @@
       "heroes-of-rathe/heroes-of-rathe",
       "heroes-of-rathe/zyggy-about"
     ]
-  },
-  "Galcia": {
-    "type": "ancient",
-    "summary": "Ancient of Ice."
   },
   "Rathenfolk": {
     "type": "concept",

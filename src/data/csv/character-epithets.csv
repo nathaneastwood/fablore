@@ -2,6 +2,7 @@
 CharacterId|Name|Label
 LC00a9c28b68|god of the great deep|epithet
 LC06fe4efa62|Mistress of Malady|epithet
+LC092cda390b|Aesir of Chaos|epithet
 LC158fd93075|Librarian|short-name
 LC1e8f706fca|the Shield of Light|epithet
 LC1e8f706fca|Archangel of Protection|epithet
@@ -30,7 +31,6 @@ LC8eeac0e51a|Keeper of the Scales|epithet
 LC8eeac0e51a|Archangel of Judgment|epithet
 LC8eeac0e51a|Archangel of Justice|epithet
 LC9e8e6dcd4e|God of death|epithet
-LCa9c969795d|Aesir of Chaos|epithet
 LCc88a7317f3|Ancient of Earth and Ice|epithet
 LCcb32988a63|Archangel of Ravages|epithet
 LCceda0e3bc1|Archangel of Tenacity|epithet
@@ -41,6 +41,7 @@ LCdc1e38974e|Archangel of Knowledge|epithet
 LCdc1e38974e|Archangel of Erudition|epithet
 LCdc1e38974e|Arcane Herald|epithet
 LCdf6740910f|hag of Mojire|epithet
+LCe1ca2c5b90|Aesir of Flames|epithet
 LCe21d6f009b|Spirit Caller|epithet
 LCec7ed74e1c|Barthimont|short-name
 LCeeefcef67b|the Soul Reaper|epithet

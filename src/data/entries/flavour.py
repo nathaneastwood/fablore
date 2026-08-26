@@ -521,8 +521,9 @@ db.upsert_story(
         "fai",
         "victor-goldmane",
         # "The dragon of devastation, said to serve only the Aesir of Flames"
-        # (UPR006). This row is Infernai under his epithet; the rename is stage 7.
-        people.AESIR_OF_FLAMES,
+        # (UPR006). The card names the epithet; the row is Infernai, renamed
+        # 2026-08-26 with "Aesir of Flames" kept as the epithet it always was.
+        people.INFERNAI,
         people.AZVOLAI,
         people.CROMAI,
         people.DOMINIA,

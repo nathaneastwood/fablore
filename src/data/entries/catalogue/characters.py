@@ -34,7 +34,6 @@ flagship ``Absolon's Dream``, never the god."""
 
 
 AELIUS = CharacterEntry("Aelius", kinds=kind.HUMAN, status="Dead")
-AESIR_OF_FLAMES = CharacterEntry("Aesir of Flames", kinds=kind.AESIR)
 AIOS = CharacterEntry("Aios", kinds=kind.HUMAN, status="Alive")
 AKUO = CharacterEntry("Akuo", kinds=kind.HUMAN)
 AUDACITY = CharacterEntry("λud@c!ty")
@@ -246,6 +245,11 @@ HISATO = CharacterEntry("Hisato", kinds=kind.HUMAN)
 HOG = CharacterEntry("Hog", kinds=kind.HUMAN)
 HUXLEY = CharacterEntry("Huxley", kinds=kind.HUMAN)
 HYRINTH = CharacterEntry("Hyrinth")
+INFERNAI = CharacterEntry("Infernai", kinds=kind.AESIR, epithets=("Aesir of Flames",))
+"""Named as "Infernai" on ``world-of-rathe/volcor.md:125`` and as his epithet
+"the Aesir of Flames" on UPR006. This row was called ``Aesir of Flames`` until
+2026-08-26, when the user settled it: the name is Infernai, the epithet is
+``Aesir of Flames`` — the same shape as :data:`ISEN`."""
 INQUISITOR_ARICIA = CharacterEntry("Inquisitor Aricia")
 IRUNAMEABH = CharacterEntry("Írunaméabh")
 ISEN = CharacterEntry("Isen", kinds=kind.ANCIENT, epithets=("Ancient of Earth and Ice",))
@@ -444,7 +448,10 @@ PROSPECTOR_COGMIRE = CharacterEntry("Prospector Cogmire", kinds=kind.HUMAN)
 QUARREL = CharacterEntry("Quarrel", kinds=kind.HUMAN, status="Alive")
 QUEEN_OF_CANDLEHOLD = CharacterEntry("Queen of Candlehold", kinds=kind.ROSETTA)
 RAGNAR_FROSTHELM = CharacterEntry("Ragnar Frosthelm", kinds=kind.HUMAN)
-RAVEN_AESIR_OF_CHAOS = CharacterEntry("Raven, Aesir of Chaos", kinds=kind.AESIR, epithets=("Aesir of Chaos",))
+RAVEN = CharacterEntry("Raven", kinds=kind.AESIR, epithets=("Aesir of Chaos",))
+"""``other-characters/krest-mortimer.md:27`` — "an entity known as the Raven,
+the Aesir of Chaos". The row carried the epithet in its display name until
+2026-08-26; the user settled it as name Raven, epithet ``Aesir of Chaos``."""
 RAY_STINGEYE = CharacterEntry("Ray Stingeye", kinds=kind.HUMAN)
 REINA_SPIRIT_CALLER = CharacterEntry("Reina, Spirit Caller", kinds=kind.HUMAN, epithets=("Spirit Caller",))
 REX_BIGGUN = CharacterEntry("Rex Biggun", kinds=kind.HUMAN)

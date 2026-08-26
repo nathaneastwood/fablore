@@ -1,5 +1,5 @@
-# The single place to maintain lore text (location notes; monster/fauna/flora
-# descriptions) for entities that already exist in the database.
+# The single place to maintain lore text (location notes; character, monster,
+# fauna and flora descriptions) for entities that already exist in the database.
 # update_description() requires the named entity to already be linked to a
 # story via data-entry.py — it only sets the notes/description column, never
 # creates or links entities.
@@ -876,6 +876,72 @@ db.update_description(
     "Rosetta",
     "A forest people, and the order of powerful spell weavers they formed, which "
     "once stood alongside the likes of the Ollin and the Seers.",
+)
+
+
+# ---------------------------------------------------------------------------
+# Characters
+# ---------------------------------------------------------------------------
+#
+# Added 2026-08-26, closing the two-writers hole on kinds. All nine were tooltip
+# entries in hints_supplement.json typed `aesir`, `embra` or `ancient` — kind
+# names in the slot theme/hints.js prints as the label, while the kind badge it
+# reads from `entry.kind` stayed empty. Every one of them already carried the
+# right kind in `character_kinds`; the only reason the database contributed
+# nothing was this column, because generate_hints_json.py skips a character with
+# no summary. The prose is carried over verbatim from the supplement entries it
+# replaces, so the visible text does not change — only the writer, and the badge
+# the card can now show.
+
+db.update_description(
+    "character",
+    "Sol",
+    "Aesir of Light, deity of Solana. Drew the city's founding pilgrims to Rathe and is"
+    " honoured as the source of the Light, the radiant energy that guides and protects"
+    " the Children of the Light.",
+)
+db.update_description(
+    "character",
+    "Infernai",
+    "Aesir of Flames.",
+)
+db.update_description(
+    "character",
+    "Raven",
+    "Aesir of Chaos.",
+)
+db.update_description(
+    "character",
+    "Nasreth",
+    "The Soul Harrower, an Embra.",
+)
+db.update_description(
+    "character",
+    "Ursur",
+    "An Embra bound to Chane, drawn to the corruption of the Old Ones in the Shadowrealm.",
+)
+db.update_description(
+    "character",
+    "Blasmophet",
+    "The demon whose all-consuming hunger possesses Levia the Consumed.",
+)
+# The three Ancients read as bare epithets because that is all the lore gives
+# them. Each is also a `character_epithets` row, so the tooltip prints the same
+# words twice over until a page says more about them.
+db.update_description(
+    "character",
+    "Davnir",
+    "Ancient of Earth and Lightning.",
+)
+db.update_description(
+    "character",
+    "Yvor",
+    "Ancient of Lightning and Ice.",
+)
+db.update_description(
+    "character",
+    "Galcia",
+    "Ancient of Ice.",
 )
 
 

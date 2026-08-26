@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 import validate_data
@@ -218,6 +219,81 @@ def test_kind_and_faction_are_not_supplement_types() -> None:
 
 def test_real_supplement_has_no_unknown_types() -> None:
     assert validate_data._check_supplement_types(validate_data.SRC / "hints_supplement.json") == []
+
+
+def test_descriptions_targets_accept_every_type_update_description_does() -> None:
+    """The two lists drifted: `character` was writable but not checkable.
+
+    `Database.update_description` names nine entity types; `_check_descriptions_targets_exist`
+    knew eight, so the nine character summaries added in 2026-08-26 all read as
+    "unknown entity type" while writing perfectly well.
+    """
+    import inspect
+
+    from db._domain import Database
+
+    documented = set(re.findall(r"``\"(\w+)\"``", inspect.getdoc(Database.update_description) or ""))
+    assert documented, "docstring shape changed — this test can no longer read the type list"
+    source = inspect.getsource(validate_data._check_descriptions_targets_exist)
+    checked = set(re.findall(r'^\s+"(\w+)": "[\w-]+\.csv",$', source, re.M))
+    assert documented <= checked, f"update_description accepts {sorted(documented - checked)}, validate_data does not"
+
+
+def _kind_csvs(tmp_path: Path, kinds: list[tuple[str, str]], aliases: list[tuple[str, str]]) -> tuple[Path, Path]:
+    kinds_path = tmp_path / "kinds.csv"
+    aliases_path = tmp_path / "kind-aliases.csv"
+    kinds_path.write_text(
+        "# AUTO-GENERATED\nKindId|Name|Notes\n" + "".join(f"{i}|{n}|\n" for i, n in kinds),
+        encoding="utf-8",
+    )
+    aliases_path.write_text(
+        "# AUTO-GENERATED\nKindId|Alias\n" + "".join(f"{i}|{a}\n" for i, a in aliases),
+        encoding="utf-8",
+    )
+    return kinds_path, aliases_path
+
+
+def test_check_supplement_types_are_not_kinds_is_clean_when_nothing_collides(tmp_path: Path) -> None:
+    kinds_path, aliases_path = _kind_csvs(tmp_path, [("SP1", "Wyvern")], [("SP1", "Wyverns")])
+    assert validate_data._check_supplement_types_are_not_kinds(kinds_path, aliases_path) == []
+
+
+def test_check_supplement_types_are_not_kinds_flags_a_kind_name(tmp_path: Path) -> None:
+    """A permitted type that names a kind is a kind claim wearing another word."""
+    kinds_path, aliases_path = _kind_csvs(tmp_path, [("SP1", "Ship")], [])
+    alerts = validate_data._check_supplement_types_are_not_kinds(kinds_path, aliases_path)
+    assert len(alerts) == 1
+    assert "'ship'" in alerts[0]
+
+
+def test_check_supplement_types_are_not_kinds_flags_an_alias(tmp_path: Path) -> None:
+    """A kind's alias is the same claim under another spelling, so it counts too."""
+    kinds_path, aliases_path = _kind_csvs(tmp_path, [("SP1", "Vessel")], [("SP1", "Ship")])
+    alerts = validate_data._check_supplement_types_are_not_kinds(kinds_path, aliases_path)
+    assert len(alerts) == 1
+    assert "'ship'" in alerts[0]
+
+
+def test_aesir_embra_and_ancient_are_not_supplement_types() -> None:
+    """The hole `kind`/`species` were excluded to close, reopened by three words.
+
+    All three name a `kinds.csv` row, so a supplement entry claiming one was a
+    second writer on a fact the database already owns — exactly what excluding
+    `kind` was meant to prevent.
+    """
+    for word in ("aesir", "embra", "ancient"):
+        assert word not in validate_data._SUPPLEMENT_TYPES
+
+
+def test_no_real_supplement_type_names_a_real_kind() -> None:
+    """The structural guard, against the live CSVs rather than a fixture."""
+    assert (
+        validate_data._check_supplement_types_are_not_kinds(
+            validate_data.DATA / "csv/kinds.csv",
+            validate_data.DATA / "csv/kind-aliases.csv",
+        )
+        == []
+    )
 
 
 # ---------------------------------------------------------------------------

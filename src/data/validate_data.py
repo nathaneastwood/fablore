@@ -522,40 +522,56 @@ def _check_hero_card_name_alias_slugs_in_canonical(canonical_path: Path) -> list
 # value verbatim as the tooltip label, so a typo ships as a visible label rather
 # than failing anything — which is the whole reason this list exists.
 #
-# It covers the SUPPLEMENT ONLY. ``groups.category`` also reaches the tooltip as
-# a type (generate_hints_json.py), but categories are deliberately bespoke per
-# group ("order of knights", "law enforcement"), so no closed list can cover
-# both. Decided 2026-08-20.
+# It is split in two because the halves are permitted for opposite reasons, and
+# conflating them is what let a kind claim through for months (see
+# ``_check_supplement_types_are_not_kinds``).
 #
-# ``faction`` went in stage 4, once stage 2 had migrated the last entry using it
-# into the groups table. ``organisation`` is one entry from the same fate —
-# Braumeister, held for R9. ``species`` went the same way, and its successor
-# ``kind`` never joined: kinds are DB-backed, so a supplement entry claiming
-# that type would be a second writer.
-_SUPPLEMENT_TYPES = frozenset(
+# ``groups.category`` also reaches the tooltip as a type
+# (generate_hints_json.py), but categories are deliberately bespoke per group
+# ("order of knights", "law enforcement"), so no closed list can cover both.
+# Decided 2026-08-20.
+_LABEL_ONLY_TYPES = frozenset(
     {
-        "aesir",
-        "ancient",
         "artifact",
-        "character",
         "concept",
         "creature",
         # Added 2026-08-20 for the three afflictions krest-mortimer.md describes:
         # Bloodrot Pox, Frailty and Inertia.
         "disease",
-        "embra",
         # Godhood is a display label, never a kind: it records who venerates a
         # being, not what it is, and it is culture-relative. See the kind/title/
         # group rule — there is no God kind and no god row anywhere.
         "god",
-        "hero",
         "item",
-        "location",
         "organisation",
-        "region",
         "ship",
     }
 )
+"""Types with no table anywhere, so nothing but the supplement can write them.
+
+``faction`` went in stage 4, once stage 2 had migrated the last entry using it
+into the groups table. ``organisation`` is one entry from the same fate —
+Braumeister, held for R9.
+"""
+
+_DB_ECHO_TYPES = frozenset(
+    {
+        "character",
+        "hero",
+        "location",
+        "region",
+    }
+)
+"""Types the database itself emits, permitted so the supplement can *relabel*.
+
+``_merge_entry`` exists for this: the Hand of Sol is a ``locations`` row that
+reads better as an order, and Solana is a ``locations`` row labelled ``region``.
+The relabel is a display decision over a row the database still owns, and
+``db_type`` records where the entity actually came from. That is the opposite of
+a :data:`_LABEL_ONLY_TYPES` entry, which the database knows nothing about.
+"""
+
+_SUPPLEMENT_TYPES = _LABEL_ONLY_TYPES | _DB_ECHO_TYPES
 
 
 def _check_supplement_types(supplement_path: Path) -> list[str]:
@@ -591,6 +607,55 @@ def _check_supplement_types(supplement_path: Path) -> list[str]:
                 f"(expected one of {sorted(_SUPPLEMENT_TYPES)}). The tooltip prints "
                 "this verbatim, so a typo ships as a visible label."
             )
+    return alerts
+
+
+def _check_supplement_types_are_not_kinds(kinds_path: Path, kind_aliases_path: Path) -> list[str]:
+    """Flag a permitted supplement type that names a kind.
+
+    ``species`` and its successor ``kind`` are excluded from
+    :data:`_SUPPLEMENT_TYPES` because kinds are DB-backed: a supplement entry
+    claiming one would be a second writer on a fact ``character_kinds`` already
+    owns. That exclusion blocked the *word* and not the *idea* — ``aesir``,
+    ``embra`` and ``ancient`` each name a ``kinds.csv`` row, and all three sat
+    on the permitted list for months. Twelve live entries used them, putting a
+    kind in the tooltip's ``type`` slot while ``theme/hints.js`` was waiting to
+    print it from ``entry.kind``.
+
+    So the guard is derived rather than written down: whatever ``kinds.csv`` and
+    ``kind-aliases.csv`` hold may not also be a supplement type. Registering the
+    next kind closes the next hole with no edit here.
+
+    This checks the *list*, not the entries. ``_check_supplement_types`` already
+    rejects any type the list does not carry, so a colliding word can only reach
+    the data by being permitted first — which is exactly how these three did.
+
+    Args:
+        kinds_path: ``kinds.csv`` path.
+        kind_aliases_path: ``kind-aliases.csv`` path.
+
+    Returns:
+        Alert strings, one per colliding type.
+    """
+    claimed: dict[str, tuple[str, str]] = {}
+    for path, column in ((kinds_path, "Name"), (kind_aliases_path, "Alias")):
+        if not path.is_file():
+            continue
+        _, rows = read_pipe_csv(path)
+        for row in rows:
+            value = (row.get(column) or "").strip()
+            if value:
+                claimed.setdefault(value.casefold(), (value, path.name))
+
+    alerts = []
+    for name in sorted(_SUPPLEMENT_TYPES & claimed.keys()):
+        spelling, source = claimed[name]
+        alerts.append(
+            f"hints_supplement.json: {name!r} is a permitted supplement type and also names "
+            f"the kind {spelling!r} ({source}). Kinds are DB-backed, so a supplement entry "
+            "claiming one is a second writer. Give the character its kind in "
+            "entries/catalogue/characters.py and let entry.kind print the badge."
+        )
     return alerts
 
 
@@ -835,6 +900,11 @@ def _check_descriptions_targets_exist(descriptions_path: Path) -> list[str]:
 
     csv_for_kind = {
         "location": "locations.csv",
+        # `character` joined 2026-08-26, when the nine kind-typed supplement
+        # tooltips moved into the database. `update_description` had accepted the
+        # type since migration 12; this map had not, so every character summary
+        # read as an unknown entity type.
+        "character": "characters.csv",
         "monster": "monsters.csv",
         "fauna": "fauna.csv",
         "flora": "flora.csv",
@@ -1427,6 +1497,7 @@ def collect_alerts() -> list[str]:
     )
     alerts.extend(_check_descriptions_targets_exist(DATA / "descriptions.py"))
     alerts.extend(_check_supplement_types(SRC / "hints_supplement.json"))
+    alerts.extend(_check_supplement_types_are_not_kinds(DATA / "csv/kinds.csv", DATA / "csv/kind-aliases.csv"))
     alerts.extend(_check_group_lore_fragments(DATA / "csv/groups.csv", DATA / "csv/stories.csv", SRC))
 
     return alerts

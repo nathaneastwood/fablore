@@ -48,7 +48,7 @@ db.upsert_story(
         people.ACHLYS_HAG_OF_MOJIRE,
         people.GAVIN,
         people.LENA_BELLE,
-        people.RAVEN_AESIR_OF_CHAOS,
+        people.RAVEN,
     ],
     locations=[
         loc.MOJIRE,

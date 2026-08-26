@@ -578,6 +578,100 @@
     "type": "location",
     "summary": "Separate plane accessed via a portal in the Demonastery, home of the Old Ones."
   },
+  "Blasmophet": {
+    "match": [
+      "Blasmophet",
+      "the Soul Harvester"
+    ],
+    "type": "character",
+    "summary": "The demon whose all-consuming hunger possesses Levia the Consumed.",
+    "kind": "Embra",
+    "status": "Unknown"
+  },
+  "Davnir": {
+    "match": [
+      "Davnir",
+      "Ancient of Earth",
+      "Ancient of Earth and Lightning"
+    ],
+    "type": "character",
+    "summary": "Ancient of Earth and Lightning.",
+    "kind": "Ancient",
+    "status": "Dead"
+  },
+  "Galcia": {
+    "match": [
+      "Galcia",
+      "Ancient of Ice"
+    ],
+    "type": "character",
+    "summary": "Ancient of Ice.",
+    "kind": "Ancient",
+    "status": "Dead"
+  },
+  "Infernai": {
+    "match": [
+      "Infernai",
+      "Aesir of Flames"
+    ],
+    "type": "character",
+    "summary": "Aesir of Flames.",
+    "kind": "Aesir",
+    "status": "Unknown"
+  },
+  "Nasreth": {
+    "match": [
+      "Nasreth",
+      "the Soul Harrower"
+    ],
+    "type": "character",
+    "summary": "The Soul Harrower, an Embra.",
+    "kind": "Embra",
+    "status": "Unknown"
+  },
+  "Raven": {
+    "match": [
+      "Raven",
+      "Aesir of Chaos"
+    ],
+    "type": "character",
+    "summary": "Aesir of Chaos.",
+    "kind": "Aesir",
+    "status": "Unknown"
+  },
+  "Sol": {
+    "match": [
+      "Sol",
+      "Aesir of Light"
+    ],
+    "type": "character",
+    "summary": "Aesir of Light, deity of Solana. Drew the city's founding pilgrims to Rathe and is honoured as the source of the Light, the radiant energy that guides and protects the Children of the Light.",
+    "kind": "Aesir",
+    "status": "Unknown",
+    "url": "/world-of-rathe/solana.html"
+  },
+  "Ursur": {
+    "match": [
+      "Ursur",
+      "the Soul Reaper"
+    ],
+    "type": "character",
+    "summary": "An Embra bound to Chane, drawn to the corruption of the Old Ones in the Shadowrealm.",
+    "kind": "Embra",
+    "status": "Unknown"
+  },
+  "Yvor": {
+    "match": [
+      "Yvor",
+      "Ancient of Lightning",
+      "Ancient of Lightning and Ice",
+      "Ancient of Thunder and Ice"
+    ],
+    "type": "character",
+    "summary": "Ancient of Lightning and Ice.",
+    "kind": "Ancient",
+    "status": "Dead"
+  },
   "Dregs": {
     "type": "monster",
     "summary": "Humanoid figures with bloated, rotting bodies; their faces a mass of melted, discoloured skin, dripping the length of their bony, twisted limbs."
@@ -968,10 +1062,6 @@
       "main-story/welcome-to-rathe/wanderings-in-the-mists"
     ]
   },
-  "Davnir": {
-    "type": "ancient",
-    "summary": "Ancient of Earth and Lightning."
-  },
   "Demonastery": {
     "type": "region",
     "summary": "Forsaken isle beyond the shores of Southern Rathe, wrapped in sea fog, where the Devout took refuge when their faith in Sol broke.",
@@ -1026,15 +1116,6 @@
     "summary": "The Golden City, realm of Illumination, founded by pilgrims drawn to Rathe by Sol's will.",
     "url": "/world-of-rathe/solana.html"
   },
-  "Infernai": {
-    "type": "aesir",
-    "summary": "Aesir of Flames."
-  },
-  "AesirOfFlames": {
-    "type": "aesir",
-    "match": "Aesir of Flames",
-    "summary": "Epithet of Infernai."
-  },
   "Jing": {
     "type": "character",
     "summary": "Xilin and Ira's brother."
@@ -1065,22 +1146,9 @@
     "type": "character",
     "summary": "The more talkative of two Valdur strongmen who joined Bravo's Legendarium, wielding a finely crafted greataxe."
   },
-  "Nasreth": {
-    "type": "embra",
-    "summary": "The Soul Harrower, an Embra."
-  },
   "Nocetes": {
     "type": "god",
     "summary": "Dhani death god."
-  },
-  "Raven": {
-    "type": "aesir",
-    "summary": "Aesir of Chaos."
-  },
-  "AesirOfChaos": {
-    "type": "aesir",
-    "match": "Aesir of Chaos",
-    "summary": "Epithet of Raven."
   },
   "Redmoor": {
     "type": "character",
@@ -1097,17 +1165,6 @@
   "Seikan": {
     "type": "concept",
     "summary": "Curse afflicting the Mugenshi Clan."
-  },
-  "Sol": {
-    "type": "aesir",
-    "summary": "Aesir of Light, deity of Solana. Drew the city's founding pilgrims to Rathe and is honoured as the source of the Light, the radiant energy that guides and protects the Children of the Light.",
-    "url": "/world-of-rathe/solana.html"
-  },
-  "AesirOfLight": {
-    "type": "aesir",
-    "match": "Aesir of Light",
-    "summary": "Epithet of Sol, deity of Solana and source of the Light that guides and protects the Children of the Light.",
-    "url": "/world-of-rathe/solana.html"
   },
   "Solides": "Solanian Sunday",
   "SuperSlam": {
@@ -1152,10 +1209,6 @@
     "type": "character",
     "summary": "Lord Chancellor and Head of the Ezu faction."
   },
-  "Yvor": {
-    "type": "ancient",
-    "summary": "Ancient of Lightning and Ice."
-  },
   "ShadowrealmWalker": {
     "type": "monster",
     "summary": "Huge stilt-legged predators of i'Arathael, slow to anger, resembling praying mantises.",
@@ -1176,10 +1229,6 @@
     "type": "character",
     "summary": "A Disciple of Pain who volunteered as a blood sacrifice for Chane during an expedition into i'Arathael."
   },
-  "Ursur": {
-    "type": "embra",
-    "summary": "An Embra bound to Chane, drawn to the corruption of the Old Ones in the Shadowrealm."
-  },
   "Runeblades": {
     "type": "concept",
     "match": [
@@ -1195,10 +1244,6 @@
     "type": "concept",
     "match": "Old Ones",
     "summary": "Ancient beings of overwhelming power from beyond Rathe who threatened to consume the world in the Third Age."
-  },
-  "Blasmophet": {
-    "type": "embra",
-    "summary": "The demon whose all-consuming hunger possesses Levia the Consumed."
   },
   "Eirina": {
     "type": "character",
@@ -1740,10 +1785,6 @@
       "heroes-of-rathe/heroes-of-rathe",
       "heroes-of-rathe/zyggy-about"
     ]
-  },
-  "Galcia": {
-    "type": "ancient",
-    "summary": "Ancient of Ice."
   },
   "Rathenfolk": {
     "type": "concept",
