@@ -1592,11 +1592,17 @@ def collect_warnings() -> list[str]:
       ``monsters.csv``, ``fauna.csv``, and ``flora.csv``. Warning-only
       because similarity matching has false positives (e.g. ``East Rise``
       vs ``West Rise``) that need a human to dismiss.
+    - ``stories.csv`` rows with no ``upsert_story()`` declaration in
+      ``entries/`` (see :func:`_check_undeclared_stories`). 182 of 384 as of
+      the check's introduction — too large to clear as a side effect of an
+      unrelated commit, so it's reported without blocking until the backlog
+      of registrations is worked down.
 
     Returns:
         A flat list of human-readable warning strings (empty when clean).
     """
     warnings = _check_location_id_hash_drift(DATA / "csv/locations.csv")
+    warnings.extend(_check_undeclared_stories(DATA / "csv/stories.csv", DATA / "entries"))
     warnings.extend(
         _check_near_duplicate_names(
             DATA / "csv/locations.csv",
@@ -1616,6 +1622,74 @@ def collect_warnings() -> list[str]:
     warnings.extend(_check_new_catalogue_names(_reviewed_pairs()))
     warnings.extend(_check_reviewed_pairs_are_current(_all_registry_ids()))
     return warnings
+
+
+def _check_undeclared_stories(stories_path: Path, entries_dir: Path) -> list[str]:
+    """Flag the gap between ``stories.csv`` rows and ``upsert_story()`` declarations.
+
+    A story is only registered — heroes, locations, monsters and everything
+    else linked to its page — once some module under ``entries/`` calls
+    ``db.upsert_story(path=...)`` for it. Nothing ties ``stories.csv`` (built
+    by ``create_stories_index.py`` from every page under a
+    :data:`ALLOWED_STORY_TYPES` root) to that declaration, so a page can sit
+    registered-as-a-page but never registered-as-lore indefinitely.
+    ``data-entry.py`` prints how many declarations it replayed, never how many
+    ``stories.csv`` rows had none — this check is the only thing that counts
+    the second number.
+
+    AST-parses every ``.py`` module under ``entries/`` for the ``path=``
+    keyword on every
+    ``*.upsert_story(...)`` call, rather than importing the module and reading
+    what it declared: importing a section module executes every declaration
+    in it at import time (each one opens ``fablore.db``), which is a side
+    effect a CSV-only validator that must run with no database present cannot
+    have. ``__init__.py`` and ``_runner.py`` hold no declarations — the former
+    is the ``SECTIONS`` map, the latter the ``db`` proxy — and are skipped.
+    The walk is recursive so that a declaration moved under ``catalogue/`` (or
+    any future subpackage) counts as declared rather than silently inflating
+    the gap; today every one of the 202 calls sits in a section module.
+
+    Args:
+        stories_path: ``stories.csv`` path.
+        entries_dir: ``src/data/entries`` directory holding the section modules.
+
+    Returns:
+        A single-element list naming the count of undeclared stories, or an
+        empty list when every row has a declaration.
+    """
+    if not stories_path.is_file() or not entries_dir.is_dir():
+        return []
+    _, rows = read_pipe_csv(stories_path)
+    story_keys = {(row.get("StoryKey") or "").strip() for row in rows if (row.get("StoryKey") or "").strip()}
+    if not story_keys:
+        return []
+
+    declared: set[str] = set()
+    for module_path in sorted(entries_dir.rglob("*.py")):
+        if module_path.name in {"__init__.py", "_runner.py"}:
+            continue
+        tree = ast.parse(module_path.read_text(encoding="utf-8"))
+        for node in ast.walk(tree):
+            if not isinstance(node, ast.Call):
+                continue
+            if not isinstance(node.func, ast.Attribute) or node.func.attr != "upsert_story":
+                continue
+            for kw in node.keywords:
+                if kw.arg != "path" or not isinstance(kw.value, ast.Constant) or not isinstance(kw.value.value, str):
+                    continue
+                path = kw.value.value.strip()
+                if path.startswith("src/"):
+                    path = path[len("src/") :]
+                declared.add(path)
+
+    missing = story_keys - declared
+    if not missing:
+        return []
+    return [
+        f"Stories: {len(missing)} of {len(story_keys)} stories.csv rows have no upsert_story() "
+        "declaration in entries/*.py — registered as a page but never registered as lore. "
+        "See .claude/rules/data-pipeline.md and the register-story skill."
+    ]
 
 
 def _check_new_catalogue_names(reviewed: dict[frozenset, str]) -> list[str]:

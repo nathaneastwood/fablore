@@ -471,3 +471,88 @@ def test_a_broken_catalogue_import_warns_instead_of_passing_quietly(monkeypatch)
     alerts = validate_data._check_new_catalogue_names({})
     assert len(alerts) == 1
     assert "could not import" in alerts[0]
+
+
+def _stories_and_entries_fixture(tmp_path: Path, story_rows: str, declared: dict[str, str]) -> tuple[Path, Path]:
+    """Write a minimal ``stories.csv`` and an ``entries/`` dir of section modules.
+
+    Args:
+        tmp_path: pytest tmp dir.
+        story_rows: Data rows (no header) for ``stories.csv``.
+        declared: module filename -> module source text to write under ``entries/``.
+
+    Returns:
+        ``(stories_path, entries_dir)``.
+    """
+    stories = tmp_path / "stories.csv"
+    stories.write_text(
+        "StoryId|StoryKey|StoryType|Title|Authors|Artists|SourceLink|PublicationDate|ThumbnailImageLink\n" + story_rows,
+        encoding="utf-8",
+    )
+    entries_dir = tmp_path / "entries"
+    entries_dir.mkdir()
+    for filename, source in declared.items():
+        (entries_dir / filename).write_text(source, encoding="utf-8")
+    return stories, entries_dir
+
+
+def test_check_undeclared_stories_flags_a_missing_declaration(tmp_path: Path) -> None:
+    """A ``stories.csv`` row with no matching ``upsert_story(path=...)`` is reported."""
+    stories, entries_dir = _stories_and_entries_fixture(
+        tmp_path,
+        story_rows=(
+            "ST1|main-story/declared.md|main-story|Declared\n" "ST2|main-story/undeclared.md|main-story|Undeclared\n"
+        ),
+        declared={
+            "main_story.py": (
+                "db.upsert_story(\n" '    path="src/main-story/declared.md",\n' '    story_type="main-story",\n' ")\n"
+            ),
+        },
+    )
+    alerts = validate_data._check_undeclared_stories(stories, entries_dir)
+    assert len(alerts) == 1
+    assert "1 of 2" in alerts[0]
+    assert "upsert_story" in alerts[0]
+
+
+def test_check_undeclared_stories_clean_when_every_row_is_declared(tmp_path: Path) -> None:
+    """No alert when every ``stories.csv`` row has a matching declaration."""
+    stories, entries_dir = _stories_and_entries_fixture(
+        tmp_path,
+        story_rows="ST1|main-story/declared.md|main-story|Declared\n",
+        declared={
+            "main_story.py": 'db.upsert_story(\n    path="src/main-story/declared.md",\n    story_type="main-story",\n)\n',
+        },
+    )
+    assert validate_data._check_undeclared_stories(stories, entries_dir) == []
+
+
+def test_check_undeclared_stories_ignores_dunder_init_and_runner(tmp_path: Path) -> None:
+    """A ``path=`` inside ``__init__.py``/``_runner.py`` must not count as a declaration.
+
+    Those modules hold scaffolding (``SECTIONS``, the ``Runner`` proxy), never a
+    story registration; a stray path-shaped call there should not be mistaken
+    for one.
+    """
+    stories, entries_dir = _stories_and_entries_fixture(
+        tmp_path,
+        story_rows="ST1|main-story/x.md|main-story|X\n",
+        declared={
+            "__init__.py": 'db.upsert_story(path="src/main-story/x.md")\n',
+            "_runner.py": 'db.upsert_story(path="src/main-story/x.md")\n',
+        },
+    )
+    alerts = validate_data._check_undeclared_stories(stories, entries_dir)
+    assert len(alerts) == 1
+    assert "1 of 1" in alerts[0]
+
+
+def test_undeclared_stories_check_is_surfaced_by_collect_warnings() -> None:
+    """The committed repo has more ``stories.csv`` rows than declarations in ``entries/``.
+
+    384 stories, 202 declared as of this check's introduction — a real, growing
+    gap that was invisible to every tool before this check. ``collect_warnings``
+    must surface it rather than stay silent.
+    """
+    warnings = validate_data.collect_warnings()
+    assert any("upsert_story() declaration" in w for w in warnings)
