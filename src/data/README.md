@@ -391,6 +391,8 @@ erDiagram
     flora          ||--o{ story_flora : ""
     food_and_drink ||--o{ story_food_drink : ""
     regions        ||--o{ locations : "may belong to"
+    characters     ||--o{ character_kinds : ""
+    kinds          ||--o{ character_kinds : ""
 
     weapons_canonical   ||--o{ story_weapons : ""
     equipment_canonical ||--o{ story_equipment : ""
@@ -418,6 +420,7 @@ erDiagram
     character_kinds {
         string CharacterId FK
         string KindId FK
+        int SortOrder
     }
     locations {
         string LocationId PK "LO + hash of Name and RegionId"
@@ -490,6 +493,118 @@ erDiagram
         string SetTypeId FK
         string SetName
         string InitialReleaseDate
+    }
+```
+
+Groups. `groups` is a registry of clans, houses, guilds, orders and troupes. `group_characters` is the roster — a world fact, cited by `StoryKey` where a page attests it — and `story_groups` is who *mentions* the group; membership and mention are different questions and both are tracked. `parent_group_id` nests one group inside another (Boulders inside a clan), and `location_id` is set only for the rare group that is also a physical place, such as Teklo Industries.
+
+```mermaid
+erDiagram
+    groups     ||--o{ group_characters : ""
+    characters ||--o{ group_characters : ""
+    stories    ||--o{ story_groups : ""
+    groups     ||--o{ story_groups : ""
+    groups     ||--o{ groups : "parent_group_id"
+    locations  ||--o{ groups : "location_id, rare"
+
+    groups {
+        string GroupId PK "GR + hash of Name"
+        string Name
+        string Category "clan, house, guild, order, ..."
+        string Notes
+        string ParentGroupId FK "empty means no parent group"
+        string LocationId FK "empty; set only when the group is also a place"
+        string LoreStoryKey "the page the group is documented on"
+        string LoreFragment
+    }
+    group_characters {
+        string GroupId FK
+        string CharacterId FK
+        string StoryKey "citation for the membership; may be empty"
+    }
+```
+
+Titles. `titles` is a registry of offices. Two are registered so far — Grand Magister and Magister — and both carry an empty `GroupId`. `title_holders` records who has held one, with an `Ordinal` where the lore gives a succession: Solana's Grand Magister is the fifth, while the Librarian's Magister carries `0` because no succession is stated. `story_titles` is who mentions the title. `GroupId` hangs an office off the group that owns it, and stays empty when no group does.
+
+```mermaid
+erDiagram
+    titles     ||--o{ title_holders : ""
+    characters ||--o{ title_holders : ""
+    stories    ||--o{ story_titles : ""
+    titles     ||--o{ story_titles : ""
+    groups     ||--o{ titles : "group_id, empty means no group"
+
+    titles {
+        string TitleId PK "TI + hash of Name"
+        string Name
+        string GroupId FK "empty means no group"
+        string Notes
+    }
+    title_holders {
+        string TitleId FK
+        string CharacterId FK
+        int Ordinal "0 = unordered; not unique"
+        string StoryKey
+    }
+```
+
+Names that are not the name. Four tables hold the *other* names a thing answers to — an epithet, a historical alias, a plural. Display names are never touched by any of them; each row here is an alternate spelling that resolves back to the one canonical row.
+
+```mermaid
+erDiagram
+    characters ||--o{ character_epithets : ""
+    locations  ||--o{ location_aliases : ""
+    groups     ||--o{ group_aliases : ""
+    kinds      ||--o{ kind_aliases : ""
+
+    character_epithets {
+        string CharacterId FK
+        string Name "the alternate name itself"
+        string Label "'epithet' or 'short-name'"
+        int SortOrder
+    }
+    location_aliases {
+        string LocationId FK
+        string Alias
+        string Era "which era used this name; may be empty"
+        int SortOrder
+    }
+    group_aliases {
+        string GroupId FK
+        string Alias
+        int SortOrder
+    }
+    kind_aliases {
+        string KindId FK
+        string Alias
+        int SortOrder
+    }
+```
+
+Kinship and professions. `character_kin` is a stated kinship fact — "Lyath's father is Bloodworth Goldmane" is one row, not two; the inverse ("Bloodworth's child is Lyath") is derived at read time and never stored. `professions` and `character_professions` hold a trade many people practise independently, such as Braumeister or shieldbearer — unlike a group's roster this carries no citation column, because who holds a trade is unbounded and unsourceable. **All three tables are currently empty**: the schema exists and is exercised by tests, but no kinship or profession has been entered into the catalogue yet.
+
+```mermaid
+erDiagram
+    characters  ||--o{ character_kin : "character_id"
+    characters  ||--o{ character_kin : "relative_id"
+    characters  ||--o{ character_professions : ""
+    professions ||--o{ character_professions : ""
+
+    character_kin {
+        string CharacterId FK
+        string RelativeId FK
+        string Relation "father, mother, parent, child, sibling, spouse"
+        string StoryKey
+    }
+    professions {
+        string ProfessionId PK "PR + hash of Name"
+        string Name
+        string Notes
+    }
+    character_professions {
+        string CharacterId FK
+        string ProfessionId FK
+        int SortOrder
     }
 ```
 
