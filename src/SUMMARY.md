@@ -414,6 +414,7 @@
 
 - [Spoilers](spoilers/README.md)
     - [Bright Lights](spoilers/bright-lights.md)
+    - [Usurp the Shadow Throne](spoilers/usurp-the-shadow-throne.md)
 
 - [FAQ](faq.md)
 

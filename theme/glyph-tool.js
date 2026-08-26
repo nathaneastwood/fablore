@@ -22,6 +22,7 @@
 
     var ALPHABET_MOUNT = "[data-glyph-alphabet]";
     var TOOL_MOUNT = "[data-glyph-tool]";
+    var PLATE_MOUNT = "[data-glyph-plate]";
     var LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     /*
@@ -164,6 +165,62 @@
                 cell.title = "No glyph for " + ch + " has ever been published.";
             }
             mount.appendChild(cell);
+        }
+    }
+
+    /*
+     * A read-only plate: the translator's output half on its own — same face,
+     * same colours, same Latin caption — with the input, the direction switch
+     * and the PNG export taken back off.
+     *
+     * A spoiler page wants one fixed phrase set in a script: a card name, the
+     * thing the reader came to see. Mounting the full widget there would wrap
+     * that phrase in a textarea and invite the first visitor to type over it,
+     * and a reader who then reloads has lost the reveal. So the plate shows the
+     * phrase and nothing else, and sends anyone who wants to write their own to
+     * the language page, which is where the tool belongs.
+     *
+     * The text is an attribute rather than the mount's own content because the
+     * glyphs are a font swap: the phrase has to reach the page as plain Latin
+     * either way, and keeping it out of the flow stops it rendering twice
+     * before the script runs.
+     */
+    function buildPlate(mount, script) {
+        // Same filter as the translator, so an unwritable character cannot get
+        // in here by a route the typed path would have rejected.
+        var body = writable(mount.dataset.glyphText || "").text
+            .replace(/\s+/g, " ").trim();
+
+        var plate = el("div", "glyph-plate");
+        plate.style.background = cssGradient("bg", script.plate.bg);
+
+        var out = el("div", "glyph-output", body);
+        out.style.backgroundImage = cssGradient("ink", script.plate.ink);
+        out.dataset.dir = "ltr";
+        // As in the translator: the glyphs carry nothing a screen reader can
+        // use, and the Latin caption below is the accessible copy.
+        out.setAttribute("aria-hidden", "true");
+
+        var latin = el("span", "glyph-latin", body);
+        latin.style.color = script.plate.latin;
+
+        plate.appendChild(out);
+        plate.appendChild(latin);
+
+        mount.className = "glyph-tool glyph-tool-static";
+        mount.style.setProperty("--glyph-font", script.font);
+        mount.appendChild(plate);
+
+        // Built rather than written into the page so the invitation cannot be
+        // left pointing at a plate that has no tool to send anyone to.
+        var href = mount.dataset.glyphHref;
+        if (href) {
+            var foot = el("div", "glyph-tool-foot");
+            var cta = el("a", "glyph-cta",
+                mount.dataset.glyphCta || "Create your own translation!");
+            cta.href = href;
+            foot.appendChild(cta);
+            mount.appendChild(foot);
         }
     }
 
@@ -577,6 +634,16 @@
                 if (!script || mount.dataset.ready === "true") return;
                 mount.dataset.ready = "true";
                 buildAlphabet(mount, script);
+            });
+
+        // Read-only, so it shares nothing with the translator below but the
+        // face and the palette.
+        Array.prototype.forEach.call(
+            document.querySelectorAll(PLATE_MOUNT), function (mount) {
+                var script = SCRIPTS[mount.dataset.glyphPlate];
+                if (!script || mount.dataset.ready === "true") return;
+                mount.dataset.ready = "true";
+                buildPlate(mount, script);
             });
 
         Array.prototype.forEach.call(

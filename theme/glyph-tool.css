@@ -409,3 +409,26 @@
         font-size: 2.6rem;
     }
 }
+
+/* --- static plate ------------------------------------------------------ */
+
+/*
+ * The translator's output half without the translator, for pages that show a
+ * fixed phrase in a script rather than a box to type into. It reuses
+ * .glyph-tool and .glyph-plate rather than restyling them, so the two can
+ * never drift apart; all that is undone here are the affordances that promise
+ * an editable field, plus a footer that holds one link instead of a warning
+ * and a button.
+ */
+.glyph-tool-static .glyph-plate {
+    cursor: default;
+}
+
+.glyph-tool-static .glyph-tool-foot {
+    justify-content: center;
+}
+
+.glyph-cta {
+    font-size: 1.25rem;
+    font-weight: 600;
+}

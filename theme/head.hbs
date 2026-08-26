@@ -12,14 +12,36 @@
 <meta property="og:site_name" content="Legendary Stories">
 <meta property="og:title" content="{{ title }}">
 <meta property="og:description" content="{{ description }}">
+<!--
+  The logo is the preview image everywhere except the handful of pages that
+  have a picture of their own worth showing. A reveal pasted into Discord
+  unfurls as whatever this tag names, so a spoiler page left on the fallback
+  shows the brand at the moment it should be showing the cards.
+
+  Keyed on `path`, the chapter's source path, because mdBook has no per-page
+  front matter to carry an image. Add a branch per page that needs one, and
+  drop the branch once the page has stopped being shared.
+
+  Each override points at a 1200x675 JPEG rather than the full-size WebP the
+  page itself loads. Unfurlers cap what they will fetch, and several still will
+  not decode WebP at all — a preview that fails to load is worse than the logo.
+-->
+{{#if (eq path "spoilers/usurp-the-shadow-throne.md")}}
+<meta property="og:image" content="https://d2hl7maqck52px.cloudfront.net/spoiler/usurp-the-shadow-throne-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta property="og:image:alt" content="Countdown to Extinction and Darkest Hour, from Usurp the Shadow Throne">
+<meta name="twitter:image" content="https://d2hl7maqck52px.cloudfront.net/spoiler/usurp-the-shadow-throne-og.jpg">
+{{else}}
 <meta property="og:image" content="https://legendarystories.net/assets/logo_original_cropped.png">
 <meta property="og:image:width" content="736">
 <meta property="og:image:height" content="736">
 <meta property="og:image:alt" content="Legendary Stories logo">
+<meta name="twitter:image" content="https://legendarystories.net/assets/logo_original_cropped.png">
+{{/if}}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ title }}">
 <meta name="twitter:description" content="{{ description }}">
-<meta name="twitter:image" content="https://legendarystories.net/assets/logo_original_cropped.png">
 <!-- PNG first (reliable tab icon); src/assets/favicon.svg overrides mdBook bundle on disk; ?v= busts favicon cache -->
 <link rel="icon" type="image/png" sizes="32x32" href="{{ path_to_root }}assets/favicon.png?v=5">
 <link rel="icon" type="image/webp" sizes="32x32" href="{{ path_to_root }}assets/favicon.webp?v=5">
