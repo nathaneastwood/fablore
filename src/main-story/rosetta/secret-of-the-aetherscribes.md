@@ -34,7 +34,7 @@ The door unleashed a blinding light before groaning open like a slumberous Ollin
 
 A towering stone golem scraped towards her. Aurora smirked and drew her blade. It crackled to life as her lightning surged through it. The golem's stilted movements looked otherworldly in the strobing light, and when it spoke, the words were cryptic, the tone piercing.
 
-"I have no clue what that was, big guy, but I know a bard or two who could help with your annunciation."
+"I have no clue what that was, big guy, but I know a bard or two who could help with your enunciation."
 
 Aurora sprinted toward the golem and slid between its legs to dodge its massive fist. She spun on the wet ground and stabbed the back of its knee. The golem's leg buckled, but as it fell forward, its upper body swiveled to face Aurora again, catching her off guard.
 
