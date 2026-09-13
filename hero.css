@@ -30,3 +30,12 @@
         margin: 0px;
     }
 }
+
+/* Hero videos supplied in a taller shape (16:10) are cropped to the 20:9 frame
+   the other hero animations use, so every form renders at the same height. */
+.hero-video-wide {
+    width: 100%;
+    aspect-ratio: 20 / 9;
+    height: auto;
+    object-fit: cover;
+}

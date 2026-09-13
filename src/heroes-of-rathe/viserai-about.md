@@ -27,7 +27,7 @@ Arcane energy flows through Viserai from the Arknight Shard inserted in his ches
 
 # Viserai, The Forsaken
 
-<video width="100%" height="100%" controls autoplay muted loop playsinline>
+<video class="hero-video-wide" width="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/viserai-the-forsaken.mp4" type="video/mp4">
 </video>
 
