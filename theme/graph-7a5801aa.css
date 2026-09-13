@@ -1,0 +1,785 @@
+/* Lore Graph page — canvas stage, legend, inspector panel.
+ *
+ * mdBook: :root 62.5% then body { font-size: 1.6rem } (~16px). Control sizing
+ * follows the same rem conventions as browse.css and related.css.
+ *
+ * The node palette is three categorical hues plus a neutral. Only three hues
+ * clear the all-pairs colour-vision separation floor, and a force layout can put
+ * any two nodes side by side, so the remaining kinds share the neutral and are
+ * named by the legend text instead. The two hue sets below are each stepped for
+ * their own surface — the dark set is a selection, not an automatic flip.
+ *
+ * --lg-surface tracks --bg so the ring around overlapping nodes and the halo
+ * behind labels match whichever of mdBook's five themes is active.
+ */
+
+.lore-graph {
+    /* Light surfaces: mdBook `light` and `rust`. */
+    --lg-story: #2a78d6;
+    --lg-character: #eb6834;
+    --lg-place: #1baf7a;
+    --lg-set: #a4409e;
+    --lg-other: #6f6d67;
+    --lg-link: rgba(11, 11, 11, 0.16);
+    --lg-link-active: rgba(11, 11, 11, 0.55);
+    /* Printings, dashed. Stronger than a story line despite carrying less
+       weight in the archive, because a dash puts less ink on the canvas than
+       a solid stroke of the same colour and would otherwise disappear. */
+    --lg-link-print: rgba(11, 11, 11, 0.34);
+    --lg-dim: rgba(11, 11, 11, 0.09);
+    --lg-label: #0b0b0b;
+    --lg-accent: #0b0b0b;
+    --lg-surface: var(--bg);
+
+    margin: 1.5rem 0;
+}
+
+/* Dark surfaces: mdBook `coal`, `navy` and `ayu`. */
+.coal .lore-graph,
+.navy .lore-graph,
+.ayu .lore-graph {
+    --lg-story: #3987e5;
+    --lg-character: #d95926;
+    --lg-place: #199e70;
+    --lg-set: #b45fb0;
+    --lg-other: #8f8d85;
+    --lg-link: rgba(255, 255, 255, 0.14);
+    --lg-link-active: rgba(255, 255, 255, 0.5);
+    --lg-link-print: rgba(255, 255, 255, 0.32);
+    --lg-dim: rgba(255, 255, 255, 0.08);
+    --lg-label: #ffffff;
+    --lg-accent: #ffffff;
+}
+
+/*
+ * Backlink appended by mdbook_graph_link.py to every page that is a node.
+ * Lives outside .lore-graph, so it defines nothing from that scope.
+ */
+.lore-graph-backlink {
+    margin: -0.5rem 0 2rem;
+    font-size: 1.35rem;
+}
+
+.lore-graph-backlink a::before {
+    content: "◎ ";
+    opacity: 0.6;
+}
+
+/* --- Controls --------------------------------------------------------- */
+
+.lore-graph-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.lore-graph-search {
+    position: relative;
+    margin-bottom: 0.6rem;
+}
+
+.lore-graph-input {
+    width: 100%;
+    padding: 0.5rem 0.7rem;
+    font: inherit;
+    font-size: 1.4rem;
+    color: var(--fg);
+    background: var(--bg);
+    border: 1px solid var(--table-border-color);
+    border-radius: 4px;
+}
+
+.lore-graph-dropdown {
+    position: absolute;
+    z-index: 30;
+    top: calc(100% + 2px);
+    left: 0;
+    right: 0;
+    max-height: 20rem;
+    margin: 0;
+    padding: 0.25rem 0;
+    overflow-y: auto;
+    list-style: none;
+    background: var(--bg);
+    border: 1px solid var(--table-border-color);
+    border-radius: 4px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.lore-graph-dropdown li {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.7rem;
+    font-size: 1.35rem;
+    cursor: pointer;
+}
+
+.lore-graph-dropdown li:hover {
+    background: var(--quote-bg);
+}
+
+.lore-graph-degree {
+    display: flex;
+    flex: none;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.35rem;
+    white-space: nowrap;
+    color: var(--fg);
+}
+
+.lore-graph-degree input[type="range"] {
+    width: 9rem;
+}
+
+.lore-graph-degree output {
+    min-width: 1.4rem;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+}
+
+.lore-graph-reset {
+    padding: 0.45rem 0.9rem;
+    font: inherit;
+    font-size: 1.35rem;
+    color: var(--fg);
+    background: var(--bg);
+    border: 1px solid var(--table-border-color);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.lore-graph-reset:hover {
+    background: var(--quote-bg);
+}
+
+/* --- Legend ----------------------------------------------------------- */
+
+.lore-graph-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+}
+
+.lore-graph-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.7rem;
+    font: inherit;
+    font-size: 1.25rem;
+    color: var(--fg);
+    background: var(--bg);
+    border: 1px solid var(--table-border-color);
+    border-radius: 999px;
+    opacity: 0.45;
+    cursor: pointer;
+}
+
+.lore-graph-chip.is-on {
+    opacity: 1;
+}
+
+.lore-graph-chip-count {
+    font-variant-numeric: tabular-nums;
+    opacity: 0.65;
+}
+
+.lore-graph-dot {
+    display: inline-block;
+    flex: none;
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+}
+
+/*
+ * Heroes and regions draw as stars on the canvas — the legend swatch has to be
+ * the same star, since the legend is where that is learned. Enlarged for the
+ * same reason the canvas star is: a star of a given radius carries far less ink
+ * than a circle of it.
+ */
+.lore-graph-dot-star {
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 0;
+    clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+    );
+}
+
+.lore-graph-dot-story {
+    background: var(--lg-story);
+}
+.lore-graph-dot-character {
+    background: var(--lg-character);
+}
+.lore-graph-dot-place {
+    background: var(--lg-place);
+}
+.lore-graph-dot-set {
+    background: var(--lg-set);
+}
+.lore-graph-dot-other {
+    background: var(--lg-other);
+}
+
+/* --- Stage ------------------------------------------------------------ */
+
+/*
+ * Break out of mdBook's ~750px prose column. At a fitted zoom the nodes are
+ * drawn at a constant size on screen, so stretching the *layout* is invisible —
+ * fitToView simply zooms back out. Visible whitespace between nodes therefore
+ * comes from exactly two things: stage area and mark size. This reclaims the
+ * third of the window the prose column was leaving empty.
+ *
+ * --lg-gutter reserves the previous/next chapter chevrons, which mdBook parks
+ * against both edges of the page area. The canvas takes pointer events, so
+ * running underneath them does not just look wrong — it eats their clicks.
+ */
+@media (min-width: 1000px) {
+    .lore-graph {
+        /* mdBook sets :root to 62.5%, so 1rem is 10px here: 24rem is 240px
+           total, i.e. 120px each side against 90px-wide chevrons. */
+        --lg-gutter: 24rem;
+
+        position: relative;
+        left: 50%;
+        width: min(1400px, calc(100vw - var(--lg-gutter)));
+        transform: translateX(-50%);
+    }
+
+    html.sidebar-visible .lore-graph {
+        width: min(1400px, calc(100vw - var(--sidebar-width, 300px) - var(--lg-gutter)));
+    }
+}
+
+.lore-graph-stage {
+    position: relative;
+    height: min(78vh, 860px);
+    min-height: 44rem;
+    overflow: hidden;
+    border: 1px solid var(--table-border-color);
+    border-radius: 4px;
+}
+
+.lore-graph-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+    touch-action: none;
+}
+
+/*
+ * The node/connection tally is kept for screen readers but taken off the canvas
+ * — sighted readers can see how much is on screen, and the caption competed with
+ * the graph for attention. This is the standard visually-hidden clip, not
+ * `display: none`, which would drop it from the accessibility tree too.
+ */
+.lore-graph-status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+/*
+ * Shown when the filters leave nothing to draw. Centred in the stage rather
+ * than painted on the canvas, so it is selectable text that tracks the theme
+ * and reaches a screen reader.
+ */
+.lore-graph-empty {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 42rem;
+    margin: 0;
+    padding: 0 1.5rem;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    text-align: center;
+    text-wrap: balance;
+    opacity: 0.75;
+    transform: translate(-50%, -50%);
+}
+
+/* --- Inspector panel -------------------------------------------------- */
+
+.lore-graph-panel {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: min(26rem, calc(100% - 1.5rem));
+    max-height: calc(100% - 1.5rem);
+    padding: 0.9rem 1rem;
+    overflow-y: auto;
+    background: var(--bg);
+    border: 1px solid var(--table-border-color);
+    border-radius: 4px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/*
+ * Absolute, not floated. A floated button is out of flow, so the block that
+ * follows it lays its own box underneath and swallows the clicks — the × looked
+ * right and did nothing.
+ */
+.lore-graph-panel-close {
+    position: absolute;
+    z-index: 2;
+    top: 0.4rem;
+    right: 0.5rem;
+    width: 2.6rem;
+    height: 2.6rem;
+    padding: 0;
+    font: inherit;
+    font-size: 1.9rem;
+    line-height: 1;
+    color: var(--fg);
+    background: none;
+    border: none;
+    border-radius: 4px;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.lore-graph-panel-close:hover {
+    background: var(--quote-bg);
+}
+
+/*
+ * Steps back one node of the walk; the × beside it leaves the walk altogether.
+ * Same absolute placement as the ×, and for the same reason — see above — just
+ * parked one button-width inboard of it.
+ */
+.lore-graph-panel-back {
+    position: absolute;
+    z-index: 2;
+    top: 0.4rem;
+    right: 3.3rem;
+    width: 2.6rem;
+    height: 2.6rem;
+    padding: 0;
+    font: inherit;
+    font-size: 1.7rem;
+    line-height: 1;
+    color: var(--fg);
+    background: none;
+    border: none;
+    border-radius: 4px;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.lore-graph-panel-back:hover:not(:disabled) {
+    background: var(--quote-bg);
+}
+
+/* Spent, not missing: a deep link opens with nothing of ours behind it, and an
+   arrow that quietly turned into "leave the site" would be worse than a dead
+   one. Keeping it placed also stops the title reflowing partway through a walk. */
+.lore-graph-panel-back:disabled {
+    opacity: 0.2;
+    cursor: default;
+}
+
+.lore-graph-panel-kind {
+    margin: 0;
+    /* Clears both controls. */
+    padding-right: 6.2rem;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    opacity: 0.6;
+}
+
+.lore-graph-panel-title {
+    margin: 0.15rem 0 0.35rem;
+    padding-right: 6.2rem;
+    font-size: 1.7rem;
+    line-height: 1.2;
+}
+
+.lore-graph-panel-count {
+    margin: 0 0 0.6rem;
+    font-size: 1.25rem;
+    opacity: 0.7;
+}
+
+.lore-graph-panel-hint {
+    font-size: 1.1rem;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.lore-graph-panel-group {
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    margin: 0.9rem 0 0.25rem;
+    padding-bottom: 0.2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid var(--table-border-color);
+    opacity: 0.75;
+}
+
+.lore-graph-panel-group:first-of-type {
+    margin-top: 0.4rem;
+}
+
+.lore-graph-panel-group-count {
+    margin-left: auto;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0;
+    opacity: 0.8;
+}
+
+.lore-graph-panel-more {
+    font-size: 1.2rem;
+    opacity: 0.6;
+}
+
+/*
+ * Printings. The rule under this heading is dashed to echo the stroke these
+ * rows have on the canvas, which is the only thing saying that this section
+ * and the Set section above it mean different things.
+ */
+.lore-graph-panel-group-printed {
+    border-bottom-style: dashed;
+}
+
+/*
+ * These rows carry no trailing number: a printing is not part of the degree
+ * every other number in this panel is measured in, and borrowing the set's
+ * story count would read as if it were. Nothing is then pushing the focus
+ * button out to the margin, so it does it itself.
+ */
+.lore-graph-panel-printed .lore-graph-focus {
+    margin-left: auto;
+}
+
+.lore-graph-panel-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lore-graph-panel-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    padding: 0.22rem 0;
+    font-size: 1.3rem;
+    line-height: 1.35;
+}
+
+/*
+ * Re-roots the panel on that connection instead of leaving for its page. Kept
+ * as a separate control so the name link keeps its one job.
+ */
+.lore-graph-focus {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    padding: 0;
+    color: var(--fg);
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.45;
+}
+
+.lore-graph-panel-list li:hover .lore-graph-focus {
+    opacity: 0.85;
+}
+
+.lore-graph-focus:hover,
+.lore-graph-focus:focus-visible {
+    background: var(--quote-bg);
+    border-color: var(--table-border-color);
+    opacity: 1;
+}
+
+.lore-graph-panel-list .lore-graph-dot {
+    position: relative;
+    top: 0.1rem;
+    width: 0.8rem;
+    height: 0.8rem;
+}
+
+.lore-graph-panel-list .lore-graph-dot-star {
+    top: 0.2rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0 -0.2rem;
+}
+
+/* The trailing number is each neighbour's own connection count — the key the
+   rows inside a section are sorted by, shown so the order is legible. */
+.lore-graph-panel-sub {
+    margin-left: auto;
+    padding-left: 0.5rem;
+    font-size: 1.15rem;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    opacity: 0.5;
+}
+
+.lore-graph-hint {
+    margin: 0.6rem 0 0;
+    font-size: 1.25rem;
+    opacity: 0.7;
+}
+
+/* --- The narrow-viewport list ----------------------------------------- */
+
+/*
+ * Below the canvas breakpoint the stage is replaced by a ranked list. The
+ * breakpoint itself is not written here: theme/graph.js owns it, because the
+ * simulation has to know the mode too, and puts `is-list-mode` on the container.
+ * Everything below keys off that class, so the two cannot drift apart.
+ *
+ * The list borrows the inspector panel's markup for its detail view, so the
+ * .lore-graph-panel-* rules above dress it — bar the two controls, which are
+ * sized for a mouse and are re-sized for a thumb at the end of this block.
+ */
+
+.lore-graph-list {
+    /* .lore-graph-panel-close is absolute and needs this to hang from. */
+    position: relative;
+    border: 1px solid var(--table-border-color);
+    border-radius: 4px;
+}
+
+.lore-graph-hint-list,
+.lore-graph.is-list-mode .lore-graph-hint-graph {
+    display: none;
+}
+
+.lore-graph.is-list-mode .lore-graph-hint-list {
+    display: block;
+}
+
+/*
+ * Spread and Reset view are viewport controls. A list has no viewport to spread
+ * or reset, so they say nothing here. Minimum connections and the legend both
+ * still filter what the list ranks, and stay.
+ */
+.lore-graph.is-list-mode .lore-graph-spread,
+.lore-graph.is-list-mode .lore-graph-reset {
+    display: none;
+}
+
+.lore-graph-list-count {
+    margin: 0;
+    padding: 0.7rem 0.9rem;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid var(--table-border-color);
+    opacity: 0.6;
+}
+
+.lore-graph-list-empty {
+    margin: 0;
+    padding: 1.6rem 1.2rem;
+    font-size: 1.35rem;
+    text-align: center;
+    opacity: 0.7;
+}
+
+.lore-graph-list-rows {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lore-graph-list-row {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    width: 100%;
+    /* 44px. The measured failure this whole mode exists to fix is a ~19px tap
+       target, so the row cannot be allowed to shrink under the minimum. */
+    min-height: 4.4rem;
+    padding: 0.5rem 0.9rem;
+    font: inherit;
+    font-size: 1.4rem;
+    text-align: left;
+    color: var(--fg);
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--table-border-color);
+    cursor: pointer;
+}
+
+.lore-graph-list-rows li:last-child .lore-graph-list-row {
+    border-bottom: 0;
+}
+
+.lore-graph-list-row:hover,
+.lore-graph-list-row:focus-visible {
+    background: var(--quote-bg);
+}
+
+/* min-width: 0 is what lets the name ellipsis instead of forcing the row wide. */
+.lore-graph-list-text {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.lore-graph-list-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.lore-graph-list-sub {
+    font-size: 1.15rem;
+    opacity: 0.55;
+}
+
+/* The rank key, shown so the order is legible — same reason the panel shows it. */
+.lore-graph-list-degree {
+    flex: none;
+    min-width: 2.4rem;
+    font-size: 1.25rem;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    opacity: 0.6;
+}
+
+.lore-graph-list-more {
+    display: block;
+    width: 100%;
+    min-height: 4.4rem;
+    padding: 0.8rem;
+    font: inherit;
+    font-size: 1.35rem;
+    color: var(--fg);
+    background: none;
+    border: 0;
+    border-top: 1px solid var(--table-border-color);
+    cursor: pointer;
+}
+
+.lore-graph-list-more:hover {
+    background: var(--quote-bg);
+}
+
+/*
+ * Every control is sized for a mouse pointer above the breakpoint. None of them
+ * are below it, and this mode exists precisely because a 19px target is not
+ * hittable — so shrinking the canvas away while leaving the controls that filter
+ * it at 23px would only move the fault, not fix it.
+ */
+.lore-graph.is-list-mode .lore-graph-panel-close,
+.lore-graph.is-list-mode .lore-graph-panel-back,
+.lore-graph.is-list-mode .lore-graph-focus {
+    width: 4.4rem;
+    height: 4.4rem;
+}
+
+/* Parked one 4.4rem button plus its gutter inboard of the ×. */
+.lore-graph.is-list-mode .lore-graph-panel-back {
+    right: 5.1rem;
+}
+
+.lore-graph.is-list-mode .lore-graph-input {
+    min-height: 4.4rem;
+}
+
+.lore-graph.is-list-mode .lore-graph-chip {
+    min-height: 4.4rem;
+    padding: 0.3rem 1.1rem;
+}
+
+/* A range input needs an explicit height; min-height leaves the thumb where it
+   was, which is the part a thumb actually has to catch. */
+.lore-graph.is-list-mode .lore-graph-degree input[type="range"] {
+    height: 4.4rem;
+    width: 100%;
+}
+
+/* Freed by dropping Spread and Reset — the slider gets the row to itself. */
+.lore-graph.is-list-mode .lore-graph-degree {
+    flex: 1 1 100%;
+}
+
+/* The panel's rows are 1.35 line-height on a hover-revealed button; on a phone
+   the row is a tap target and the focus button is always visible. */
+.lore-graph.is-list-mode .lore-graph-panel-list li {
+    align-items: center;
+    padding: 0.35rem 0;
+}
+
+.lore-graph.is-list-mode .lore-graph-focus {
+    opacity: 0.75;
+}
+
+.lore-graph-list .lore-graph-panel-kind,
+.lore-graph-list .lore-graph-panel-title,
+.lore-graph-list .lore-graph-panel-count,
+.lore-graph-list .lore-graph-panel-group,
+.lore-graph-list .lore-graph-panel-list,
+.lore-graph-list .lore-graph-panel-more {
+    margin-left: 0.9rem;
+    margin-right: 0.9rem;
+}
+
+/* Both controls again, at the larger tap-target size. */
+.lore-graph-list .lore-graph-panel-kind {
+    margin-top: 0.9rem;
+    padding-right: 10rem;
+}
+
+.lore-graph-list .lore-graph-panel-title {
+    padding-right: 10rem;
+}
+
+.lore-graph-list .lore-graph-panel-list:last-child {
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 700px) {
+    .lore-graph-stage {
+        height: min(60vh, 560px);
+    }
+
+    .lore-graph-panel {
+        top: auto;
+        bottom: 0.5rem;
+        left: 0.5rem;
+        right: 0.5rem;
+        width: auto;
+        max-height: 55%;
+    }
+}

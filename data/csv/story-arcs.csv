@@ -1,0 +1,43 @@
+# Hand-maintained mapping from arc folder/file slug → set metadata.
+# Slug: folder name within main-story/ or short-stories/, or filename stem within flavour/.
+# SetId: FK to sets.csv (leave blank when no physical set exists). One arc = one set:
+#   an arc folder holding stories from several releases cannot carry a SetId, which is
+#   why armory decks and mastery packs are split one folder per release.
+# DisplayName: override label shown in breadcrumbs and hub pages (leave blank to use SetName from sets.csv).
+# ImageLink: S3/CDN URL for the set's marketing image (leave blank until uploaded).
+Slug|SetId|DisplayName|ImageLink|SortDate
+non-set-cards||Non-Set Cards||
+welcome-to-rathe|WTR|||
+arcane-rising|ARC|||
+crucible-of-war|CRU|||
+monarch|MON|||
+tales-of-aria|ELE|||
+everfest|EVR|||
+interlude||Interlude||2022-04-11
+history-pack-1|1HP|||
+uprising|UPR|||
+dynasty|DYN|||
+outsiders|OUT|||
+dusk-till-dawn|DTD|||
+bright-lights|EVO|||
+round-the-table|TCC|||
+heavy-hitters|HVY|||
+part-the-mistveil|MST|||
+rosetta|ROS|||
+the-hunted|HNT|||
+high-seas|SEA|||
+super-slam|SUP|||
+compendium-of-rathe|PEN|Compendium of Rathe||
+omens-of-the-third-age|OMN|||
+usurp-the-shadow-throne||Usurp the Shadow Throne||2026-09-25
+armory-deck-jarl-vetreidi|AJV|||
+armory-deck-maxx|AMX|Armory Deck - Maxx||
+armory-deck-gravy-bones|AGB|||
+mastery-pack-guardian|MPG|||
+armory-deck-pleiades|APS|||
+armory-deck-rhinar|ARR|||
+armory-deck-arakni|AAC|||
+armory-deck-hala|AHA|||
+mastery-pack-warrior|MPW|||
+armory-decks||Armory Decks||
+roll-of-honour||Roll of Honour||
