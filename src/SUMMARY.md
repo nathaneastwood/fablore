@@ -57,6 +57,7 @@
     - [Levia](heroes-of-rathe/levia-about.md)
     - [Lexi](heroes-of-rathe/lexi-about.md)
     - [Lyath](heroes-of-rathe/lyath-about.md)
+    - [Malice](heroes-of-rathe/malice-about.md)
     - [Marlynn](heroes-of-rathe/marlynn-about.md)
     - [Maxx](heroes-of-rathe/maxx-about.md)
     - [Melody](heroes-of-rathe/melody-about.md)

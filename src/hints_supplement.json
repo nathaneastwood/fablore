@@ -696,6 +696,14 @@
       "heroes-of-rathe/lyath-about"
     ]
   },
+  "Malice": {
+    "type": "hero",
+    "summary": "Death at her beck and call, Malice commands a ceaseless horde of zombies back from the grave and the realms beyond.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/malice-about"
+    ]
+  },
   "Marlynn": {
     "type": "hero",
     "summary": "Marlynn sails the fastest ships and chases the most dangerous bounties. She’d rather live large and die young than be a worm on someone else’s hook.",
@@ -869,7 +877,7 @@
   },
   "Viserai": {
     "type": "hero",
-    "summary": "Created to be the perfect weapon, Viserai is deadly with both blade and aether. Yet forced to obey selfish whims, the Arknight must one day sever the bonds of servitude.",
+    "summary": "Created to be the perfect weapon, Viserai severed the bonds of servitude, returning from i’Arathael with the forbidden power of the beyond to open the barrier between worlds as the new Shadow Lord.",
     "exclude_pages": [
       "heroes-of-rathe/heroes-of-rathe",
       "heroes-of-rathe/viserai-about"
@@ -1019,6 +1027,14 @@
     "match": "Arknight Shard",
     "type": "artifact",
     "summary": "The relic set into Viserai's chest, feeding arcane energy through runic vents carved into his bone and skin."
+  },
+  "SoulOfExistence": {
+    "match": "Soul of Existence",
+    "type": "artifact",
+    "summary": "The Arknight Shard in Viserai's chest, corrupted by the Old Ones with the very essence of Shadow when he grasped their forbidden power in the heart of the Shadowrealm.",
+    "exclude_pages": [
+      "heroes-of-rathe/viserai-about"
+    ]
   },
   "Bartons House": {
     "match": [

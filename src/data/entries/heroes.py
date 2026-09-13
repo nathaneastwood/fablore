@@ -120,6 +120,20 @@ db.upsert_story(
 )
 
 db.upsert_story(
+    path="src/heroes-of-rathe/malice-about.md",
+    story_type="heroes-of-rathe",
+    title="Malice",
+    source_link="https://fabtcg.com/hero/malice/",
+    heroes=["malice", "viserai"],
+    locations=[
+        loc.I_ARATHAEL,
+        loc.SHADOWREALM,
+    ],
+    regions=[reg.DEMONASTERY, reg.SOLANA],
+    dry_run=True,
+)
+
+db.upsert_story(
     path="src/heroes-of-rathe/arakni-about.md",
     story_type="heroes-of-rathe",
     title="Arakni, Huntsman",
@@ -249,10 +263,15 @@ db.upsert_story(
 db.upsert_story(
     path="src/heroes-of-rathe/viserai-about.md",
     story_type="heroes-of-rathe",
-    title="Viserai, Rune Blood",
-    heroes=["viserai"],
-    npcs=[npc.LORD_SUTCLIFFE],
-    regions=[reg.DEMONASTERY, reg.VOLCOR],
+    title="Viserai",
+    source_link="https://fabtcg.com/hero/viserai-the-forsaken/",
+    heroes=["chane", "viserai"],
+    npcs=[npc.LORD_SUTCLIFFE, npc.URSUR],
+    locations=[
+        loc.I_ARATHAEL,
+        loc.SHADOWREALM,
+    ],
+    regions=[reg.DEMONASTERY, reg.SOLANA, reg.VOLCOR],
     dry_run=True,
 )
 

@@ -119,7 +119,7 @@
   },
   "Coralysi": {
     "type": "location",
-    "summary": "Undersea seat of the merfolk, grown over the drowned Dhani city of Fedhari. Pirates of every creed call it Fiddler's Green and believe it promises them eternal bliss.",
+    "summary": "Home of the merfolk. Floating gardens.",
     "region": "High Seas"
   },
   "Courtyard": {
@@ -174,6 +174,11 @@
     "type": "location",
     "summary": "Village.",
     "region": "Solana"
+  },
+  "Fedhari": {
+    "type": "location",
+    "summary": "Former Dhani city, now home to the merfolk and named Coralysi",
+    "region": "High Seas"
   },
   "Forward Camps": {
     "type": "location",
@@ -305,7 +310,7 @@
   },
   "Mt. Isen": {
     "type": "location",
-    "summary": "Ageless mountain watching over Larinkmorth, untouched by the Flow; from its summit Isen is said to have crafted the Isen Ranges.",
+    "summary": "Ageless mountain watching over Larinkmorth, untouched by the Flow; from its summit Isen is said to have crafted the Isen Ranges. Also recorded as Isen's Peak.",
     "region": "Aria",
     "match": [
       "Mt. Isen",
@@ -399,7 +404,7 @@
   },
   "Sori 16": {
     "type": "location",
-    "summary": "A street in Ankomeido, deep in the Pits.",
+    "summary": "Location of The Leaf House.",
     "region": "The Pits"
   },
   "Southmaw": {
@@ -466,6 +471,11 @@
     "summary": "Restaurant run by Jemjang.",
     "region": "The Pits"
   },
+  "The Maela": {
+    "type": "location",
+    "summary": "Part of the Everfest Carnival, home to fortune tellers, seers, oracles, enchantresses, and conjurers.",
+    "region": "Aria"
+  },
   "The Maw": {
     "type": "location",
     "summary": "Entrance to the pits, traveled by mine cage",
@@ -491,7 +501,7 @@
   },
   "The Registry": {
     "type": "location",
-    "summary": "Metrix's dominant data gatherer and cybersecurity firm, which sells the personal data it collects and runs spies in every nation.",
+    "summary": "Information Center.",
     "region": "Metrix"
   },
   "The Shadow Crypts": {
@@ -509,6 +519,11 @@
     "summary": "The inner sanctum, home to the Light of Sol.",
     "region": "Solana"
   },
+  "The Valdur": {
+    "type": "location",
+    "summary": "Part of the Everfest Carnival, known for strongmen acts and work with animals.",
+    "region": "Aria"
+  },
   "The Venarium": {
     "type": "location",
     "summary": "Room filled with plants.",
@@ -521,7 +536,7 @@
   },
   "Throne Glade": {
     "type": "location",
-    "summary": "At the centre of Candlehold, where Queen Celvera slumbers upon the seat of power, entwined in roots and leaves.",
+    "summary": "Area next to Candlehold.",
     "region": "Aria"
   },
   "Thunder Steppe": {
@@ -846,7 +861,10 @@
     "match": [
       "Fiddler's Green",
       "Fiddler’s Green"
-    ]
+    ],
+    "type": "location",
+    "summary": "The pirates' name for the sunken Dhani city beneath Coralysi, and for the afterlife the Kuraghan believe it promises them - a beautiful lie no one tells better than Cooder.",
+    "region": "High Seas"
   },
   "Fireseer": {
     "type": "concept",
@@ -885,8 +903,10 @@
   },
   "HandOfSol": {
     "type": "faction",
+    "summary": "Solana's order of knights, who defend the city from outside threats.",
+    "region": "Solana",
     "match": "Hand of Sol",
-    "summary": "Solana's order of knights, who defend the city from outside threats."
+    "db_type": "location"
   },
   "Solana": {
     "type": "region",
@@ -1431,6 +1451,14 @@
       "heroes-of-rathe/lyath-about"
     ]
   },
+  "Malice": {
+    "type": "hero",
+    "summary": "Death at her beck and call, Malice commands a ceaseless horde of zombies back from the grave and the realms beyond.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/malice-about"
+    ]
+  },
   "Marlynn": {
     "type": "hero",
     "summary": "Marlynn sails the fastest ships and chases the most dangerous bounties. She’d rather live large and die young than be a worm on someone else’s hook.",
@@ -1604,7 +1632,7 @@
   },
   "Viserai": {
     "type": "hero",
-    "summary": "Created to be the perfect weapon, Viserai is deadly with both blade and aether. Yet forced to obey selfish whims, the Arknight must one day sever the bonds of servitude.",
+    "summary": "Created to be the perfect weapon, Viserai severed the bonds of servitude, returning from i’Arathael with the forbidden power of the beyond to open the barrier between worlds as the new Shadow Lord.",
     "exclude_pages": [
       "heroes-of-rathe/heroes-of-rathe",
       "heroes-of-rathe/viserai-about"
@@ -1720,7 +1748,10 @@
   "SoulOfExistence": {
     "match": "Soul of Existence",
     "type": "artifact",
-    "summary": "The Old Ones' corrupting gift to the Arknight, drawn from the Abyss — the very soul of Shadow's existence."
+    "summary": "The Arknight Shard in Viserai's chest, corrupted by the Old Ones with the very essence of Shadow when he grasped their forbidden power in the heart of the Shadowrealm.",
+    "exclude_pages": [
+      "heroes-of-rathe/viserai-about"
+    ]
   },
   "Runechant": {
     "match": [
