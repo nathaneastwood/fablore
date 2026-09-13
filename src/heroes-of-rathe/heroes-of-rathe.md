@@ -179,6 +179,10 @@ Browse legendary heroes by name. Use the class filters to narrow the list; heroe
       <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/full-hero-art/lyath-goldmane-vile-savant.webp" alt="" loading="lazy" width="466" height="650">
       <span class="world-hub-label">Lyath</span>
     </a>
+    <a class="world-hub-card hero-hub-card" data-classes="necromancer" href="malice-about.md">
+      <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/full-hero-art/malice-domina-of-the-dead.webp" alt="" loading="lazy" width="466" height="650">
+      <span class="world-hub-label">Malice</span>
+    </a>
     <a class="world-hub-card hero-hub-card" data-classes="pirate ranger" href="marlynn-about.md">
       <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/full-hero-art/marlynn-treasure-hunter.webp" alt="" loading="lazy" width="466" height="650">
       <span class="world-hub-label">Marlynn</span>
