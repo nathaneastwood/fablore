@@ -1655,3 +1655,889 @@ db.upsert_story(
     ],
     dry_run=True,
 )
+
+db.upsert_story(
+    path="src/main-story/uprising/in-flames.md",
+    story_type="main-story",
+    title="In Flames",
+    authors="Edwin McRae, Rachel Rees",
+    artists="Sam Yang, various artists",
+    source_link="https://fabtcg.com/articles/flames/",
+    publication_date="2022-04-25",
+    characters=["emperor"],
+    locations=[loc.CHAMBER_OF_THE_DRAGON, loc.MT_VOLCOR],  # "Mount Volcor" in the text is loc.MT_VOLCOR ("Mt. Volcor")
+    regions=[reg.DEMONASTERY, reg.SOLANA, reg.VOLCOR],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/high-seas/the-lost-treasure-of-blackwater-strait.md",
+    story_type="main-story",
+    title="The Lost Treasure of Blackwater Strait",
+    authors="Robbie Wen, Edwin McRae, Rachel Rees, Bonnie Harris-Lowe, Joyce Chng, Ryan McIntyre",
+    source_link="https://fabtcg.com/articles/the-lost-treasure-of-blackwater-strait/",
+    publication_date="2025-06-04",
+    characters=[
+        "puffin",
+        people.BUTTONS,
+        people.CAPTAIN_MOODY,
+        people.GROTA,
+        people.JIGSAW,
+        people.KNUCKLES,
+        people.MAGPIE,
+        people.MELDRICK_SUDDS,
+        people.PELORUS,
+        people.POLLY_CRANKA,
+    ],
+    locations=[
+        loc.BLACKWATER_STRAIT,
+        loc.COPPERTOWN,
+        loc.GRAYSTONE_PENITENTIARY,
+        loc.PIPER_S_PIER,
+        loc.TROPAL_DHANI,
+    ],
+    regions=[reg.HIGH_SEAS],
+    # Hoikers already exist in the catalogue (descriptions.py already carries a
+    # description for them) but were not yet linked to this story — the page
+    # names them explicitly ("Hoikers! Hhhooooikkers!"; "Hoikers spit acid").
+    fauna=[fauna.HOIKERS, fauna.ROCK_TURTLE, fauna.SIREN],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/bright-lights/P̸͍̬̭̭̺͉̣̌̐̾̌͆̚r̴͔͍͐ȯ̴̤̰͠t̵̰̘͑õ̶͍͇c̶̟͒o̶̪̳͋l̶̗̑ ̴̮̓͘A̴̞̗͆ṗ̷̢͕̈́ē̵͍̿ŕ̶̩́ḭ̴̧͐͂o̸͙̖̐͘n̴̞̺͋.md",
+    story_type="main-story",
+    title="P̸͍̬̭̭̺͉̣̌̐̾̌͆̚r̴͔͍͐ȯ̴̤̰͠t̵̰̘͑õ̶͍͇c̶̟͒o̶̪̳͋l̶̗̑ ̴̮̓͘A̴̞̗͆ṗ̷̢͕̈́ē̵͍̿ŕ̶̩́ḭ̴̧͐͂o̸͙̖̐͘n̴̞̺͋",
+    authors="Edwin McRae, Rachel Rees",
+    artists="Sam Yang",
+    source_link="https://fabtcg.com/articles/aperion-protocol/",
+    publication_date="2023-09-24",
+    characters=[
+        "teklovossen",  # page only ever says "Teklovossen" (never "Jules") — bare hero
+        # slug, matching short-stories/bright-lights/more-than-human.md
+        # and heroes-of-rathe/teklovossen-about.md, the two sibling
+        # declarations that name him the same way
+        people.RIGO,
+    ],
+    locations=[loc.THE_NEEDLE],
+    regions=[reg.METRIX],  # not named in the page text itself, but The Needle's own
+    # catalogue entry already carries region="Metrix" — restating
+    # an established fact about a location the page does name,
+    # not new knowledge
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/interlude/morlock-hill.md",
+    story_type="main-story",
+    title="Morlock Hill",
+    authors="Kasharn Rao, Edwin McRae",
+    artists="Nikolay Moskvin",
+    source_link="https://fabtcg.com/articles/morlock-hill/",
+    publication_date="2022-04-11",
+    characters=[
+        "boltyn",
+        "dorinthea",
+        people.MINERVA_THEMIS,
+        people.BLASMOPHET,  # named only via "One of Blasmophet's followers..." (line 145)
+    ],
+    locations=[
+        loc.AUDRA,
+        loc.FARDREYAS,
+        loc.HAZELTOWN,
+        loc.MORLOCK_HILL,
+        loc.SUNVALE,
+        loc.THE_VITIATE_GATEWAY,
+        loc.I_ARATHAEL,  # new link: "linking Rathe to i'Arathael" (line 63)
+    ],
+    regions=[reg.DEMONASTERY, reg.SOLANA],
+    weapons=["dawnblade"],  # new link: Dorinthea's sword, named repeatedly (e.g. line 21)
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/high-seas/a-kraken-good-tale.md",
+    story_type="main-story",
+    title="A Kraken Good Tale",
+    authors="Robbie Wen, Edwin McRae, Rachel Rees, Bonnie Harris-Lowe",
+    source_link="https://fabtcg.com/articles/a-kraken-good-tale/",
+    publication_date="2025-06-05",
+    characters=[
+        "marlynn",
+        "gravy",
+        people.GOVERNOR_PRACTISS,
+        people.MOLLY_THE_MOP,
+        people.PEARL_SANDHRI,
+        people.QUARREL,
+        people.SLINGER,
+        people.WHEELER,
+    ],
+    locations=[
+        loc.GOLDEN_PORT,
+        loc.GRAYSTONE_PENITENTIARY,
+        loc.KRAKEN_S_BARREL,
+        loc.PIPER_S_PIER,
+        loc.PORT_CONNIVER,
+        loc.TERAMUNDR_S_TRIANGLE,
+        loc.TROPAL_DHANI,
+    ],
+    regions=[reg.HIGH_SEAS],
+    fauna=[fauna.CURSED_DHANI_WARRIORS, fauna.CYANATU],
+    # Goldkiss Rum (the bottle Pearl produces, l.13) was not previously linked
+    # to this page even though the catalogue constant already exists.
+    food_drink=[food.GOLDKISS_RUM],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/armory-deck-jarl-vetreidi/battle-of-isenloft.md",
+    story_type="main-story",
+    title="Battle of Isenloft",
+    # Restated exactly as the DB row holds it; no footer byline on the page.
+    source_link="https://fabtcg.com/articles/battle-of-isenloft/",
+    publication_date="2024-11-21",
+    characters=[
+        "jarl",
+        "oldhim",
+        # New — the three Ancients named at :97 ("Yvor. Davnir. They were
+        # gone.") and throughout :53-:99 (Galcia). Existing catalogue
+        # constants, referenced not restated.
+        people.DAVNIR,
+        people.GALCIA,
+        people.KALSHARPE,
+        # New — :25, flanking Oldhim by name. Confirmed against
+        # flavour/welcome-to-rathe.md:62 ("Staunch Response" - Ragnar
+        # Frosthelm), the only Ragnar in the registry.
+        people.RAGNAR_FROSTHELM,
+        people.SYBERYS,
+        people.SYNVERI,
+        # New — :25, flanking Oldhim by name. Confirmed against
+        # flavour/tales-of-aria.md:10 ("Biting Gale" - Valgard Hoarfrost),
+        # the only Valgard in the registry.
+        people.VALGARD_HOARFROST,
+        people.YVOR,
+    ],
+    locations=[
+        loc.ALDENGROVE,
+        loc.ENION,
+        # New to this page's links — the story's own setting (title, :17,
+        # :71 "Isenloft's sheer walls", etc.). Existing catalogue constant
+        # (region Aria), not currently linked from this page.
+        loc.ISENLOFT,
+        loc.VALAHAI,
+    ],
+    regions=[reg.ARIA],
+    monsters=[mon.GLUTGORR, mon.RAVENIR],
+    groups=[
+        # :41, :47, :49, :65 (twice) — "the Ollin", "one Ollin", "Ollin
+        # looked to Ollin".
+        grp.OLLIN,
+        # :19 — "Wayfarers, wizards, Rosetta, and guardians shrank out of
+        # his way", capitalised alongside grp.WAYFARERS.
+        grp.ROSETTA,
+        grp.WAYFARERS,
+    ],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/compendium-of-rathe/vow-unbroken.md",
+    story_type="main-story",
+    title="Vow Unbroken",
+    authors="Robbie Wen, Edwin McRae, Corey J. White, Rachel Rees, Melissa Ren, Paul Davies",
+    source_link="https://fabtcg.com/articles/vow-unbroken/",
+    publication_date="2026-04-07",
+    characters=[
+        "boltyn",
+        "briar",
+        "hala",
+        "levia",
+        "lexi",
+        people.AUREA_CHAMPION_OF_THE_DAWN,
+        people.BLASMOPHET,
+        # "Bastion, Magister of Defense" — matches this existing constant's name
+        # and epithet exactly; see Ambiguities for a possible duplicate row.
+        people.THEBASTO_MAGISTER_OF_DEFENSE,
+    ],
+    locations=[loc.CANDLEHOLD, loc.GOLDENHELM_KEEP, loc.THE_SOLARIUM, loc.VALAHAI],
+    regions=[reg.DEMONASTERY, reg.SOLANA, reg.THE_SAVAGE_LANDS],
+    groups=[grp.HAND_OF_SOL, grp.ROSETTA, grp.WAYFARERS],
+    weapons=["zenith-blade"],  # Hala's sword, named repeatedly, matches the canonical slug
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/outsiders/catch-of-the-day.md",
+    story_type="main-story",
+    title="Catch of the Day",
+    source_link="https://fabtcg.com/hero/riptide-lurker-of-the-deep/story/riptide-story/",
+    # authors/artists/publication_date/thumbnail_image_link: all empty in the DB row,
+    # no frontmatter and no "Story by / Art by" footer on the page — omitted.
+    characters=["riptide"],
+    # Uzuri is seeded but never named on this page — see Dropped seeded links.
+    locations=[loc.GRIEFERS_REEF, loc.SEETHE, loc.TEMPEST_STRAITS],
+    regions=[reg.HIGH_SEAS, reg.METRIX, reg.THE_PITS],
+    # High Seas is never spelled out, but Griefers Reef (region="High Seas" in the
+    # catalogue) and Tempest Straits are both named — Metrix and "the Pits" are
+    # both named verbatim in the text.
+    groups=[grp.PIRANHAS],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/bright-lights/the-dynamic-man.md",
+    story_type="main-story",
+    title="The Dynamic Man",
+    source_link="https://fabtcg.com/articles/the-dynamic-man/",
+    publication_date="2023-09-22",
+    characters=[
+        # Full lore name, not the bare "teklovossen" slug — the catalogue constant
+        # already folds the hero row and prose name onto one character_id.
+        people.JULES_TEKLOVOSSEN,
+        people.RIGO,
+    ],
+    locations=[
+        loc.GIGADRILL_ELEVATOR,
+        loc.IRON_ASSEMBLY,
+        loc.PIT_3,  # new — see below
+        loc.PLUMVEX_PIPES_FACTORY,
+        loc.TEKLO_INDUSTRIES,
+        loc.THE_NEEDLE,
+    ],
+    regions=[reg.METRIX],
+    groups=[
+        grp.COGWERX,
+        grp.IRON_ASSEMBLY,  # see Ambiguities — page uses it as an organisation, not a place
+        grp.TEKLO_INDUSTRIES,
+    ],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/bright-lights/system-failure.md",
+    story_type="main-story",
+    title="System Failure",
+    authors="Edwin McRae, Rachel Rees",
+    artists="Sam Yang",
+    source_link="https://fabtcg.com/articles/system-failure/",
+    publication_date="2023-09-22",
+    characters=[
+        "dash",
+        "maxx",  # narrator; "Phantom Maxx, at your service" (line 31) plus the
+        # whole Rosario-orphan backstory matches the seeded "Maxx Nitro"
+        people.JULES_TEKLOVOSSEN,  # page names him in full, "Jules Teklovossen"
+        # (line 63) — unlike sibling
+        # bright-lights/P̸[...]on.md, which names only
+        # "Teklovossen" and uses the bare hero slug,
+        # this page earns the full CharacterEntry form
+        people.LENA_BELLE,
+        people.RICKY_ROYCE,
+    ],
+    locations=[
+        loc.COPPERTOWN,
+        loc.IRON_ASSEMBLY,
+        loc.ROSARIO_HILLS,  # page calls it "Rosario Hills Institute" (line 33);
+        # matches the existing row (notes: "Orphanage parent
+        # company.")
+        loc.ROSARIO_ORPHANAGE,
+        loc.TEKLO_INDUSTRIES,
+        loc.THE_NEEDLE,  # "Teklo Industries' big, beautiful Needle" (line 63)
+        loc.ZINNIA_PARK,
+        loc.ROSARIO_CHATEAUX,  # new — see below
+    ],
+    regions=[reg.METRIX, reg.THE_PITS],
+    weapons=["plasma-barrel-shot"],  # linked inline as "Plasma Barrel Shot" (line 57)
+    food_drink=[food.NUTRISLUG],  # new — see below
+    # Both already carry a locations row; the page also treats them as the
+    # organisations behind those places ("the Iron Assembly could afford more
+    # space for its 'valued customers'", line 11; "A party ... Teklo Industries
+    # hasn't seen before", line 71) — same shape as the sibling
+    # short-stories/bright-lights/bright-lights.md declaration.
+    groups=[grp.IRON_ASSEMBLY, grp.TEKLO_INDUSTRIES],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/bright-lights/synthetic-futures.md",
+    story_type="main-story",
+    title="Synthetic Futures",
+    authors="Edwin McRae, Rachel Rees",
+    artists="Sam Yang",
+    source_link="https://fabtcg.com/articles/synthetic-futures/",
+    publication_date="2023-09-22",
+    # thumbnail_image_link omitted — empty in the DB row.
+    characters=[
+        "dash",
+        "maxx",
+        "data-doll-mkii",
+        people.REZ,
+        people.THIROUX,
+        people.DR_WYVERSTONE,
+        people.SYNTHEA_TEKLO,
+        people.JULES_TEKLOVOSSEN,
+    ],
+    locations=[
+        loc.LOWLAKE,  # Maxx's hideout — named twice, missing from the seeded set
+        loc.THE_SPRAWL,  # new constant, see below
+        loc.COPPERTOWN,
+        loc.UNDERDOG_CAFE,
+        loc.WEST_RISE,
+        loc.EAST_RISE,
+        loc.THE_NEEDLE,
+        loc.IRON_HALL,
+        loc.EIGHTH_PRECINCT,
+        loc.IRON_ASSEMBLY,
+        loc.TEKLO_INDUSTRIES,
+    ],
+    regions=[reg.METRIX, reg.THE_PITS],
+    groups=[
+        grp.COGWERX,  # rival corp, discussed as a market actor throughout
+        grp.TEKLO_INDUSTRIES,  # discussed as a corporation, not just the building
+        grp.IRON_ASSEMBLY,  # "the Assembly collects the data... watch, listen, and speak"
+        grp.CIRCUIT_BREAKER,  # new constant, see below
+    ],
+    food_drink=[
+        food.AMYGDAZZLA,  # new constant — matches an existing unclaimed DB row
+        food.TINKER_TEA,  # new constant
+    ],
+    weapons=["teklo-plasma-pistol"],  # Dash's sidearm; canonical slug confirmed
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/rosetta/roots-of-change.md",
+    story_type="main-story",
+    title="Roots of Change",
+    # No footer byline and no frontmatter author on the page; DB carries no
+    # authors value either, so the field is omitted rather than guessed.
+    artists="Nikolay Moskvin",
+    source_link="https://fabtcg.com/articles/roots-of-change/",
+    publication_date="2024-08-23",
+    characters=[
+        "florian",
+        "verdance",
+        people.DAVNIR,
+        people.OZRIM,
+        people.QUEEN_OF_CANDLEHOLD,
+    ],
+    locations=[
+        loc.CANDLEHOLD,
+        loc.ROTWOOD,
+        loc.THRONE_GLADE,
+    ],
+    regions=[reg.ARIA],
+    # Ozrim is named "a member of the Rosetta, Candlehold's ancient council" (:65).
+    groups=[grp.ROSETTA],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/rosetta/essence-of-decay.md",
+    story_type="main-story",
+    title="Essence of Decay",
+    artists="Nikolay Moskvin",
+    source_link="https://fabtcg.com/articles/essence-of-decay/",
+    publication_date="2024-08-24",
+    characters=[
+        # :127 — "a time when the Warden of Thorns had departed Candlehold, the
+        # only Rosetta to ever do so." Matches Briar's canonical hero title
+        # ("Briar, Warden of Thorns") exactly — no other Rosetta departed.
+        "briar",
+        "florian",
+        "verdance",
+        people.DAVNIR,
+        people.OZRIM,
+        # "our Queen" / "the Queen's chosen rose" / "our departed Queen" (:13,
+        # :39, :43, :51, :59) — the ruler of Candlehold, not Davnir.
+        people.QUEEN_OF_CANDLEHOLD,
+    ],
+    locations=[
+        loc.CANDLEHOLD,
+        loc.CANDLELIGHT_CLEARING,
+        # :7, :111, :117 — new link only, references the existing constant.
+        loc.ROTWOOD,
+    ],
+    regions=[reg.ARIA],
+    groups=[grp.ROSETTA],
+    weapons=["rotwood-reaper"],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/outsiders/the-iconoclast-trials.md",
+    story_type="main-story",
+    title="The Iconoclast Trials",
+    authors="Edwin McRae, Rachel Rees",
+    artists="Henrique Lindner",
+    source_link="https://fabtcg.com/hero/arakni-huntsman/story/arakni-story/",
+    # No frontmatter and no "Story by / Art by" footer on the page — scalars restated
+    # from the existing DB row verbatim (see Notes).
+    characters=[
+        "arakni-huntsman",  # never named "Arakni" in prose — see Ambiguities
+        people.DR_KREST_MORTIMER_THE_FIXER,  # signs the footer, "Director of Southmaw Asylum"
+    ],
+    locations=[
+        loc.SHUNTSWITCH_RAILWAY_STATION,
+        loc.SKEIN,
+        loc.SOUTHMAW,  # "Southmaw Asylum" / "Southmaw", named repeatedly; not yet linked to this story
+        loc.THE_MAW,
+    ],
+    regions=[reg.THE_PITS],
+    monsters=[mon.DREGS],  # "alchemical mutants...colloquially known as dregs" (line 3)
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/mastery-pack-guardian/trouble-in-larinkmorth.md",
+    story_type="main-story",
+    title="Trouble in Larinkmorth",
+    authors="Robbie Wen, Edwin McRae, Ryan McIntyre, Rachel Rees, Michael Coorlim, Melissa Ren",
+    source_link="https://fabtcg.com/articles/trouble-in-larinkmorth/",
+    publication_date="2025-08-06",
+    # artists / thumbnail_image_link omitted — empty in the DB row.
+    characters=[
+        "valda",
+        "bravo",  # "Oldhim named him leader of the new Ollin" (line 43)
+        "oldhim",
+        "jarl",  # "Jarl Vetreiði." (line 87)
+        people.BISKI,
+        people.BRAUMEISTER_BALEN,
+        people.EINAR,
+        people.FARIN_THE_PORTER,
+        people.HILDEGUN,
+        people.KAYSIN,
+        people.KOSSEN,
+        people.LILJA,
+        people.TIRIL,
+        people.TOMASS,
+        people.WIDOW_JOHANA,
+        people.ORIEN,  # new — see below; possible unannounced hero, see Ambiguities
+    ],
+    locations=[
+        loc.CANDLEHOLD,  # seeded; "the first time they'd crossed paths at Candlehold" (line 127)
+        loc.LARINKMORTH,
+        loc.THE_EVERFEST_CARNIVAL,  # "Everfest" / "the Carnival" (lines 23, 37, 39, 55-61)
+        loc.ISENLOFT,  # "his last stand at Isenloft" (line 127)
+        loc.MIGHT_N_MEAD,  # "the Might 'n Mead" (line 57)
+        loc.THE_FLOW,  # "the flutter of the Flow in her chest" (lines 139-141)
+        loc.ISENRI_SAKE_BREWERY,  # new — see below
+    ],
+    regions=[reg.ARIA, reg.SOLANA],
+    monsters=[mon.RAVENIR],  # "That thing's a ravenir!" (line 129)
+    fauna=[fauna.VITR_EO],  # named only as a simile — "antlered like a vitr'eo" (line 83)
+    groups=[grp.OLLIN],  # "the new Ollin" (line 43); "I'm no Ollin" (line 181)
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/outsiders/squeakers-christmas.md",
+    story_type="main-story",
+    title="Squeakers' Christmas",
+    authors="Edwin McRae, Rachel Rees",
+    artists="Sam Yang",
+    source_link="https://fabtcg.com/articles/squeakers-christmas/",
+    publication_date="2022-12-26",
+    characters=[
+        "azalea",
+        "arakni-huntsman",
+        "dash",
+        people.LENA_BELLE,
+    ],
+    locations=[loc.COPPERTOWN, loc.TEKLA_TOY_FACTORY],
+    regions=[reg.ARIA, reg.METRIX],
+    # The Pits is seeded but never named on this page — see Dropped seeded links.
+    fauna=[fauna.SNOWFAWN],
+    food_drink=[food.FESTIVE_FLARE],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/outsiders/its-just-business.md",
+    story_type="main-story",
+    title="It's Just Business",
+    authors="Edwin McRae, Rachel Rees",
+    artists="Nikolay Moskvin",
+    source_link="https://fabtcg.com/hero/uzuri-switchblade/story/uzuri-story/",
+    # publication_date / thumbnail_image_link: empty in the DB row — omitted.
+    characters=[
+        "uzuri",
+        people.BARON_THE_BUTCHER,
+        people.HISATO,
+        people.JEMJANG,
+        people.MADAM_ROUGE,
+        people.NJERI,
+        people.OVERSEER_CRICHTON,
+        people.WHITETAIL,
+    ],
+    locations=[
+        loc.ANKOMEIDO,
+        loc.OVERSEER_CRICHTON_S_MANSION,
+        loc.SEETHE,
+        loc.SORI_16,
+        loc.THE_DROP,  # "a bar called The Drop" — existing constant, not yet linked to any story
+        loc.THE_LEAF_HOUSE,
+    ],
+    regions=[reg.METRIX, reg.MISTERIA, reg.THE_PITS],
+    fauna=[fauna.BLINDSEAL, fauna.BLOATFIN],
+    food_drink=[food.SEWER_CHICKEN],  # new — see below
+    groups=[
+        grp.BLACKJACK_S_MINING_INCORPORATED,  # new
+        grp.GIMLET_MINING,  # new
+        grp.RUNNING_TIGERS,  # new — Njeri/Hisato/Jemjang's old smuggling outfit
+        grp.THE_SPIDER,
+    ],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/rosetta/seeds-of-renewal.md",
+    story_type="main-story",
+    title="Seeds of Renewal",
+    artists="Nikolay Moskvin",
+    source_link="https://fabtcg.com/articles/seeds-of-renewal/",
+    publication_date="2024-08-25",
+    characters=[
+        "aurora",
+        "briar",  # named only via her title, "the Warden of Thorns" (:53)
+        "florian",
+        "melody",
+        "oscilio",
+        people.DAVNIR,  # "ancient Davnir answered" (:121) — distinct from the queen, see Ambiguities
+        people.MAELA_ONE_EYE,
+        people.OZRIM,
+        people.QUEEN_OF_CANDLEHOLD,  # "The Queen of Candlehold is dead" (:45) — existing constant, distinct from Davnir per a-grand-adventure.md precedent
+        "verdance",
+    ],
+    locations=[
+        loc.CANDLEHOLD,
+        loc.ENION,
+        loc.LARINKMORTH,
+        loc.MILLENNIUM_TREE,  # new — see catalogue section
+        loc.THE_EVERFEST_CARNIVAL,  # "since Everfest" (:7)
+        loc.THE_FLOW,  # "surge in the Flow" (:43) and later
+        loc.THE_KORSHEM,  # "from Korshem to Larinkmorth" (:45)
+    ],
+    regions=[reg.ARIA],
+    groups=[
+        grp.ROSETTA,  # "his fellow Rosetta" (:69), "the other Rosetta" (:91)
+        grp.THE_MAELA,  # "Seers of Everfest" (:47); Maela One-eye is present, matches aria.md:93's "a group of seers known as the Maela"
+    ],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/rosetta/secret-of-the-aetherscribes.md",
+    story_type="main-story",
+    title="Secret of the Aetherscribes",
+    source_link="https://fabtcg.com/articles/secret-of-the-aetherscribes/",
+    publication_date="2024-08-29",
+    characters=[
+        "aurora",
+        "melody",
+        "oscilio",
+        people.YVOR,  # "Yvor defended Enion against the Old Ones" (:89)
+    ],
+    locations=[
+        loc.ARCTUROS,
+        loc.BOULDERHEAD_ISLAND,
+        loc.ENION,
+        loc.THE_FLOW,  # "an unusual fluctuation in The Flow" (:141)
+        loc.VOLTHAVEN,
+    ],
+    regions=[reg.ARIA],
+    monsters=[mon.GOLEM],  # new — see Ambiguities
+    fauna=[
+        fauna.KAIE_O,
+        fauna.NA_SHARI,
+        fauna.SHOCK_STRIKER,  # new
+    ],
+    groups=[
+        grp.AETHERSCRIBES,
+        grp.OLLIN,  # "like a slumberous Ollin thawing under a new dawn" (:33)
+    ],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/outsiders/the-spiders-trap.md",
+    story_type="main-story",
+    title="The Spider's Trap",
+    authors="Edwin McRae, Rachel Rees",
+    artists="Sam Yang",
+    source_link="https://fabtcg.com/articles/spiders-trap/",
+    publication_date="2023-03-04",
+    # thumbnail_image_link omitted — empty in the DB row.
+    # narrated_videos omitted — omission preserves the seeded St_Havock reading.
+    characters=[
+        "arakni-huntsman",  # seeded slug; page calls Arakni "the Huntsman" (:130, :134)
+        "emperor",  # "The Emperor of Volcor" — the (forged) contract's named issuer (:26)
+        "riptide",
+        "uzuri",
+        people.WHITETAIL,  # existing constant; former Spider lieutenant turned traitor
+        people.WIDOW,  # a Spider assassin (:86), not Widow Johana of Larinkmorth
+        people.SLAB,  # leads the Blockheads (:138)
+        people.AMBER,  # new
+        people.BLAVE,  # new
+        people.CAGER,  # new
+        people.CARVA,  # new
+        people.FLORENCE,  # new
+        people.JAPE,  # new
+        people.MADAME_FUSE,  # new
+        people.MARROW,  # new — see Ambiguities re: kind
+        people.MELTEN_WICK,  # new
+        people.SILKA,  # new
+    ],
+    locations=[loc.THE_DROP],  # seeded; Uzuri's bar, scene of Act 1 (:8)
+    regions=[reg.METRIX, reg.THE_PITS, reg.VOLCOR],  # all three named verbatim
+    monsters=[mon.DREGS],  # "a brace of slavering dregs" (:136) — existing constant, has a description
+    groups=[
+        grp.THE_SPIDER,  # existing; "Assassins of the Spider" (:180)
+        grp.TORCHED,  # new — Wick's gang (:124, :130, :152)
+        grp.FREAKSHOW,  # new — Cager's gang (:136, :142)
+        grp.BLOCKHEADS,  # new — Slab's gang (:138)
+        grp.NUMBSKULLS,  # new — Marrow's gang (:140)
+        grp.JAWBREAKERS,  # new — Madame Fuse's gang (:142)
+    ],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/README.md",
+    story_type="main-story",
+    title="Main Story",
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/the-hunted/splinter-soul.md",
+    story_type="main-story",
+    title="Splinter Soul",
+    source_link="https://fabtcg.com/hero/terra/story/splinter-soul/",
+    publication_date="2025-02-27",
+    characters=["terra", people.HYRINTH, people.SIDRIZ],
+    # The Flow and Mount Heroic are both named in the text; The Korshem was
+    # the only one already seeded, so all three are restated (replace-semantic).
+    locations=[loc.THE_KORSHEM, loc.THE_FLOW, loc.MOUNT_HEROIC],
+    regions=[reg.ARIA],
+    # Gossamhares was the only seeded fauna link; Fianna and Meep are also
+    # named on the page ("a tall fianna", "squirrels and meeps").
+    fauna=[fauna.GOSSAMHARES, fauna.FIANNA, fauna.MEEP],
+    flora=[flora.BLISSBERRY_BUSH],  # new catalogue const, see below
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/uprising/journey-into-the-forgotten.md",
+    story_type="main-story",
+    title="Journey into the Forgotten",
+    authors="Edwin McRae, Rachel Rees",
+    artists="Sam Yang",
+    source_link="https://fabtcg.com/articles/journey-forgotten/",
+    publication_date="2022-04-21",
+    characters=["iyslander"],
+    locations=[
+        # :49, :81 — "I remember a name. Volcor." / "I recall a name, Ashvahan."
+        loc.ASHVAHAN,
+        # :1-121, throughout — Iyslander's frozen homeland.
+        loc.BLEAK_EXPANSE,
+        # :33 — "its Flow will send me on my way" (Aria's Flow). Not previously linked here.
+        loc.THE_FLOW,
+        # :33 — "the Great Tree of Korshem".
+        loc.THE_KORSHEM,
+    ],
+    regions=[reg.ARIA, reg.SOLANA, reg.VOLCOR],
+    fauna=[
+        # :31 — "A kaie'o bounds into the meadow". Not previously linked here.
+        fauna.KAIE_O,
+    ],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/the-hunted/mark-of-a-traitor.md",
+    story_type="main-story",
+    title="Mark of a Traitor",
+    source_link="https://fabtcg.com/articles/mark-of-a-traitor/",
+    publication_date="2025-01-14",
+    characters=[
+        "fang",
+        "cindra",
+        "emperor",
+        people.GENERAL_YAMATOKA,
+        people.KAYAT,
+        people.LIEUTENANT_LI,
+    ],
+    locations=[loc.DESHVAHAN, loc.SAND_GLASS_DISTRICT],
+    regions=[reg.VOLCOR],
+    monsters=[mon.GUCAI],  # new — see New catalogue constants
+    groups=[
+        grp.CHILDREN_OF_THE_DRAGON,
+        grp.SAYASHI,
+        grp.DRACAI,
+        grp.DUST_RUNNERS,  # new
+        grp.ROYAL_GUARD,  # new, ambiguous — see Ambiguities
+    ],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/uprising/fires-of-rebellion.md",
+    story_type="main-story",
+    title="Fires of Rebellion",
+    source_link="https://fabtcg.com/hero/fai/story/fai-story-fires-of-rebellion/",
+    characters=[
+        "fai",
+        "dromai",
+        "emperor",
+        people.GENERAL_RIKU,
+        people.EUN,
+        people.MIN_OF_THE_FOREST_OF_FLAMES,  # "Min" is Fai's mother; page is set in the Forest of
+        # Flames, matching this constant over PROFESSOR_MIN
+        people.TORVAI,
+        people.PHAELIN,  # new
+    ],
+    locations=[
+        loc.FOREST_OF_FLAMES,
+        loc.THE_GOLDEN_ORCHARD_ESTATE,
+        loc.ASHVAHAN,
+        loc.TAOKING,  # new
+    ],
+    regions=[reg.VOLCOR],
+    groups=[grp.VOLCAI, grp.DRACAI, grp.CINTARI],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/outsiders/tidings-in-the-light.md",
+    story_type="main-story",
+    title="Tidings in the Light",
+    authors="Edwin McRae, Rachel Rees",
+    artists="Henrique Lindner",
+    source_link="https://fabtcg.com/articles/tidings-light/",
+    publication_date="2023-03-04",
+    characters=[
+        "boltyn",
+        "dromai",
+        "emperor",
+        "shiyana",
+        people.AIOS,
+        people.EIRINA,
+        people.GENERAL_RIKU,
+        people.GRAND_MAGISTER_THE_STEADFAST,
+        # "The Bastion-Magister of Defense" (line 97) — matches this constant's
+        # name+office exactly, same resolution main_story.py already uses for
+        # "vow-unbroken.md". THE_BASTION is the pre-existing possible-duplicate
+        # row and is deliberately not used here.
+        people.THEBASTO_MAGISTER_OF_DEFENSE,
+        people.THE_AMBASSADOR,  # new — "The Ambassador-Magister of Diplomacy" (line 67)
+        people.THE_LIBRARIAN,
+        people.XATHARI,
+    ],
+    locations=[loc.AMPHITHEATRE, loc.THE_GRAND_COUNCIL, loc.THE_SOLARIUM],
+    regions=[reg.DEMONASTERY, reg.SOLANA, reg.THE_PITS, reg.VOLCOR],
+    groups=[grp.ALSHONI, grp.CHILDREN_OF_THE_LIGHT, grp.EZU, grp.GEMINI, grp.L_APOCALYPTA],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/the-hunted/cleanse-the-corruption.md",
+    story_type="main-story",
+    title="Cleanse the Corruption",
+    source_link="https://fabtcg.com/articles/cleanse-the-corruption/",
+    publication_date="2025-01-15",
+    characters=[
+        "cindra",
+        "fang",
+        "taipanis",
+        "emperor",  # all four are hero slugs, not people.X
+        people.JEMJANG,
+        people.LORD_MERCHANT_SAVAI,
+        people.LORD_WIZARD_CHIYO,
+        people.GENERAL_YAMATOKA,
+        people.GENERAL_RIKU,
+        people.TETZUO,
+        people.KAYAT,
+    ],
+    locations=[loc.DESHVAHAN],
+    regions=[reg.THE_PITS],
+    groups=[grp.SAYASHI, grp.CHILDREN_OF_THE_DRAGON, grp.THE_SPIDER, grp.ALSHONI, grp.VOLCAI],
+    monsters=[mon.GUCAI],
+    fauna=[fauna.RYOKI],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/the-hunted/hunter-and-hunted-both.md",
+    story_type="main-story",
+    title="Hunter and Hunted Both",
+    source_link="https://fabtcg.com/articles/hunter-and-hunted-both/",
+    publication_date="2025-01-16",
+    characters=[
+        "cindra",
+        "fang",
+        "emperor",  # "For the Emperor. For the blood of the dragon!" (line 161)
+        people.LORD_MERCHANT_SAVAI,
+        people.LORD_WIZARD_CHIYO,
+        people.LIEUTENANT_YAMADA,
+    ],
+    locations=[loc.DESHVAHAN, loc.THE_OBSIDIAN_COAST, loc.ASHVAHAN],
+    regions=[reg.VOLCOR],
+    fauna=[fauna.FLARE_DEER, fauna.DESERT_FOX],
+    groups=[grp.ALSHONI, grp.CHILDREN_OF_THE_DRAGON, grp.DRACAI],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/rosetta/to-halt-the-dark.md",
+    story_type="main-story",
+    title="To Halt the Dark",
+    source_link="https://fabtcg.com/articles/to-halt-the-dark/",
+    publication_date="2024-10-11",
+    characters=["ira", people.JING, people.SHIRO, people.XILIN],
+    locations=[loc.CHROME_CAVERNS, loc.SKYLARK_PEAK, loc.IKARU],
+    regions=[reg.SOLANA, reg.MISTERIA, reg.VOLCOR],
+    monsters=[mon.PUPPETEER],
+    fauna=[fauna.LONGMA],
+    groups=[grp.CRIMSON_HAZE, grp.AUIS_SCALES, grp.IKARU_CLAN],
+    weapons=["edge-of-autumn"],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/the-hunted/children-of-chaos.md",
+    story_type="main-story",
+    title="Children of Chaos",
+    source_link="https://fabtcg.com/articles/children-of-chaos/",
+    publication_date="2025-01-17",
+    characters=[
+        "cindra",
+        "emperor",
+        "fang",
+        people.KAYAT,
+        people.LORD_WIZARD_CHIYO,
+        people.GENERAL_RIKU,
+        people.LIEUTENANT_YAMADA,
+        people.VYNSERAKAI,  # named as "a grand temple of Vynserakai"
+    ],
+    locations=[loc.DESHVAHAN],
+    groups=[
+        grp.DRACAI,  # "the southern Dracai"
+        grp.CHILDREN_OF_THE_DRAGON,  # "the Children of the Dragon"
+        grp.THE_SPIDER,  # "the Spider's sticky web"
+        grp.CHILDREN_OF_CHAOS,  # new — "the Children of Chaos"
+    ],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/main-story/uprising/calm-before-the-storm.md",
+    story_type="main-story",
+    title="Calm Before the Storm",
+    source_link="https://fabtcg.com/hero/iyslander-2/story/iyslander-story-calm-before-the-storm/",
+    characters=["iyslander", people.KOVA, people.DENG],
+    locations=[loc.ASHVAHAN, loc.MT_VOLCOR],
+    regions=[reg.VOLCOR, reg.SOLANA],
+    fauna=[fauna.RYOKI, fauna.MORROWS],
+    groups=[grp.DRACAI, grp.VOLCAI],
+    dry_run=True,
+)

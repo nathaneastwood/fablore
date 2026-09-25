@@ -29,11 +29,18 @@ CANDLELIGHT_CLEARING = LocationEntry("Candlelight Clearing", region="Aria")
 ENION = LocationEntry("Enion", region="Aria", lore_fragment="enion")
 FENSALIR = LocationEntry("Fensalir", region="Aria")
 FRACTAL_SCAR = LocationEntry("Fractal Scar", region="Aria")
+HIGHLOFT_INN = LocationEntry("Highloft Inn", region="Aria")
+"""The row already existed; world-of-rathe/aria.md is the first declaration to name it."""
 ISENLOFT = LocationEntry("Isenloft", region="Aria")
+ISENRI_SAKE_BREWERY = LocationEntry("Isenri Sake Brewery", region="Aria")
+"""A named building in Larinkmorth — main-story/mastery-pack-guardian/trouble-in-larinkmorth.md:19."""
 ISEN_RANGES = LocationEntry("Isen Ranges", region="Aria")
 LARINKMORTH = LocationEntry("Larinkmorth", region="Aria", lore_fragment="larinkmorth")
 LEGENDARIUM = LocationEntry("Legendarium", region="Aria", lore_fragment="the-everfest-carnival")
 MIGHT_N_MEAD = LocationEntry("Might n' Mead", region="Aria")
+MILLENNIUM_TREE = LocationEntry("The Millennium Tree", region="Aria")
+"""main-story/rosetta/seeds-of-renewal.md:113 spells it "Millenium"; the two-n form
+matches the equipment slug barkskin-of-the-millennium-tree. Spelling unconfirmed."""
 MILESIAN_RANGES = LocationEntry("Milesian Ranges", region="Aria")
 MOUNT_HEROIC = LocationEntry("Mount Heroic", region="Aria")
 MT_ISEN = LocationEntry(
@@ -46,6 +53,7 @@ MT_ISEN = LocationEntry(
 Isen's Peak") and as a hand-written match array in hints_supplement.json."""
 ROTWOOD = LocationEntry("Rotwood", region="Aria")
 SHYLDVERK = LocationEntry("Shyldverk", region="Aria", lore_fragment="shyldverk")
+SKYBREAKER = LocationEntry("Skybreaker", region="Aria", lore_fragment="skybreaker")
 THE_EVERFEST_CARNIVAL = LocationEntry("The Everfest Carnival", region="Aria", lore_fragment="the-everfest-carnival")
 THE_FLOW = LocationEntry("The Flow", region="Aria", lore_fragment="the-flow")
 THE_GOLDEN_GNOME = LocationEntry("The Golden Gnome", region="Aria")
@@ -63,6 +71,9 @@ YVOR_S_PEAK = LocationEntry("Yvor's Peak", region="Aria")
 BLASMOPHET_S_DOMAIN = LocationEntry("Blasmophet's Domain", region="Demonastery")
 COURTYARD = LocationEntry("Courtyard", region="Demonastery")
 DIMENXXIONAL_GATEWAY = LocationEntry("Dimenxxional Gateway", region="Demonastery")
+EBON_MAW = LocationEntry("Ebon Maw", region="Demonastery", lore_fragment="the-shadow-crypts")
+"""world-of-rathe/demonastery.md:55 — the rift at the heart of the Shadow Crypts. Not
+THE_MAW of the Pits, which was seeded on that page by name overlap."""
 ENTRANCE_HALL = LocationEntry("Entrance Hall", region="Demonastery")
 NECROPOLIS = LocationEntry("Necropolis", region="Demonastery")
 THE_SHADOW_CRYPTS = LocationEntry("The Shadow Crypts", region="Demonastery", lore_fragment="the-shadow-crypts")
@@ -73,6 +84,7 @@ THE_VITIATE_GATEWAY = LocationEntry("The Vitiate Gateway", region="Demonastery")
 # High Seas
 # -------------------------------------------------------------------------
 
+AZURO_KEYS = LocationEntry("Azuro Keys", region="High Seas")
 BLACKWATER_STRAIT = LocationEntry("Blackwater Strait", region="High Seas")
 CORALYSI = LocationEntry(
     "Coralysi",
@@ -94,7 +106,9 @@ GRAYSTONE_PENITENTIARY = LocationEntry(
     "Graystone Penitentiary", region="High Seas", lore_fragment="graystone-penitentiary"
 )
 GRIEFERS_REEF = LocationEntry("Griefers Reef", region="High Seas", lore_fragment="griefers-reef")
+HORIZON_S_MANTLE = LocationEntry("Horizon's Mantle", region="High Seas")
 KRAKEN_S_BARREL = LocationEntry("Kraken's Barrel", region="High Seas", lore_fragment="krakens-barrel")
+LOST_LAGOON = LocationEntry("Lost Lagoon", region="High Seas")
 PIPER_S_PIER = LocationEntry("Piper's Pier", region="High Seas", lore_fragment="pipers-pier")
 PIRATE_S_PERCH = LocationEntry("Pirate's Perch", region="High Seas")
 PORT_CONNIVER = LocationEntry("Port Conniver", region="High Seas")
@@ -106,37 +120,60 @@ TROPAL_DHANI = LocationEntry("Trōpal-Dhani", region="High Seas", lore_fragment=
 # Metrix
 # -------------------------------------------------------------------------
 
+ASCENSION_TERMINAL = LocationEntry("Ascension Terminal", region="Metrix", lore_fragment="the-expanse")
 BEACON = LocationEntry("Beacon", region="Metrix")
 CENTENNIAL_CONSUMABLES = LocationEntry("Centennial Consumables", region="Metrix")
+COGMIRE_S_SALVAGE_EMPORIUM_AND_WORKSHOPPE = LocationEntry(
+    "Cogmire's Salvage Emporium and Workshoppe",
+    region="Metrix",
+    lore_fragment="cogmires-salvage-emporium-and-workshoppe",
+)
 COGWERX_CONGLOMERATE = LocationEntry("Cogwerx Conglomerate", region="Metrix", lore_fragment="cogwerx-conglomerate")
 COPPERTOWN = LocationEntry("Coppertown", region="Metrix", lore_fragment="coppertown")
 EAST_RISE = LocationEntry("East Rise", region="Metrix", lore_fragment="east-rise")
 EAST_RISE_POWER_STATION = LocationEntry("East Rise Power Station", region="Metrix")
 PIT_2 = LocationEntry("Pit 2", region="Metrix")
+PIT_3 = LocationEntry("Pit 3", region="Metrix")
 EIDOLON = LocationEntry("Eidolon", region="Metrix")
 EIGHTH_PRECINCT = LocationEntry("Eighth Precinct", region="Metrix")
+ENERGIZE_THE_ERA = LocationEntry("Energize the Era", region="Metrix", lore_fragment="iron-assembly")
+"""The Iron Assembly's annual summit, held in Iron Hall — an event modelled as a
+location on the DRAGON_FESTIVAL precedent."""
 GIGADRILL_ELEVATOR = LocationEntry("Gigadrill Elevator", region="Metrix", lore_fragment="gigadrill-elevator")
 IRON_ASSEMBLY = LocationEntry("Iron Assembly", region="Metrix", lore_fragment="iron-assembly")
 IRON_HALL = LocationEntry("Iron Hall", region="Metrix")
 LOWLAKE = LocationEntry("Lowlake", region="Metrix")
+MENDACITY_CYBER_THEATERS = LocationEntry("Mendacity Cyber Theaters", region="Metrix", lore_fragment="east-rise")
 MIDTOWN_MARKETS = LocationEntry("Midtown Markets", region="Metrix", lore_fragment="midtown-markets")
 OLD_METRIX = LocationEntry("Old Metrix", region="Metrix")
 PLUMVEX_PIPES_FACTORY = LocationEntry("Plumvex Pipes factory", region="Metrix")
+ROSARIO_CHATEAUX = LocationEntry("Rosario Chateaux", region="Metrix")
+"""main-story/bright-lights/system-failure.md:33 — the private housing Rosario Hills
+gives the children it singles out; named apart from the institute and the orphanage."""
 ROSARIO_HILLS = LocationEntry("Rosario Hills", region="Metrix")
 ROSARIO_ORPHANAGE = LocationEntry("Rosario Orphanage", region="Metrix")
 RUST_BELT = LocationEntry("Rust Belt", region="Metrix")
 """See ``IMPERIAL_FURNACE``. Cromai "soar[s] over the Metrix rust belt" (UPR010),
 lower-case; the stored row capitalises it."""
+TEKLA_TOY_FACTORY = LocationEntry("Tekla Toy Factory", region="Metrix")
+"""main-story/outsiders/squeakers-christmas.md — a toy factory, not Teklo Industries.
+The page never states its region; Coppertown and a Metrix cop share the scene."""
 TEKLO_INDUSTRIES = LocationEntry("Teklo Industries", region="Metrix", lore_fragment="teklo-industries")
 TERRACETTE_PATH_ACADEMY = LocationEntry(
     "Terracette Path Academy", region="Metrix", lore_fragment="terracette-path-academy"
 )
+THE_EXPANSE = LocationEntry("The Expanse", region="Metrix", lore_fragment="the-expanse")
 THE_FOUNDRY = LocationEntry("The Foundry", region="Metrix", lore_fragment="the-foundry")
 THE_NEEDLE = LocationEntry("The Needle", region="Metrix", lore_fragment="the-needle")
 THE_REGISTRY = LocationEntry("The Registry", region="Metrix")
+THE_SPRAWL = LocationEntry("The Sprawl", region="Metrix")
+"""Metrix's industrial districts, a proper noun on metrix.md and on
+main-story/bright-lights/synthetic-futures.md. The row already existed; this is
+the first constant to name it."""
 UNDERDOG_CAFE = LocationEntry("Underdog Cafe", region="Metrix")
 VOSSEN_THEATER = LocationEntry("Vossen Theater", region="Metrix")
 WEST_RISE = LocationEntry("West Rise", region="Metrix", lore_fragment="west-rise")
+ZENITH = LocationEntry("Zenith", region="Metrix", lore_fragment="east-rise")
 ZESCA_S = LocationEntry("Zesca's", region="Metrix")
 ZINNIA_PARK = LocationEntry("Zinnia Park", region="Metrix", lore_fragment="zinnia-park")
 
@@ -212,10 +249,14 @@ BLACKJACK_S_TAVERN = LocationEntry(
     "Blackjack's Tavern", region="The Pits", lore_fragment="blackjacks-mercenary-company"
 )
 BLOCKHEAD_TERRITORY = LocationEntry("Blockhead Territory", region="The Pits")
+BONEYARD = LocationEntry("Boneyard", region="The Pits", lore_fragment="numbskulls")
+GUTPURSE = LocationEntry("Gutpurse", region="The Pits", lore_fragment="the-skein")
 KYLORIA_S_LAIR = LocationEntry("Kyloria's Lair", region="The Pits")
 """See ``IMPERIAL_FURNACE``. Kyloria "dwell[s] in her lair deep beneath the Pits"
 (UPR011), and the row's own note already reads: Deep beneath the Pits."""
+MINERS_REEF = LocationEntry("Miners Reef", region="The Pits", lore_fragment="the-seethe")
 OVERSEER_CRICHTON_S_MANSION = LocationEntry("Overseer Crichton's Mansion", region="The Pits")
+RATTLEBONE = LocationEntry("Rattlebone", region="The Pits", lore_fragment="the-skein")
 SEETHE = LocationEntry("Seethe", region="The Pits")
 SEETHESIDE_DOCKS = LocationEntry("Seetheside Docks", region="The Pits")
 SHUNTSWITCH_RAILWAY_STATION = LocationEntry("Shuntswitch Railway Station", region="The Pits")
@@ -234,6 +275,8 @@ DEATHMATCH_ARENA = LocationEntry("Deathmatch Arena", region="The Savage Lands")
 FORWARD_CAMPS = LocationEntry("Forward Camps", region="The Savage Lands")
 GOUGEMOOR = LocationEntry("Gougemoor", region="The Savage Lands")
 RHINAR_S_TERRITORY = LocationEntry("Rhinar's Territory", region="The Savage Lands")
+THE_BONEYARD = LocationEntry("The Boneyard", region="The Savage Lands", lore_fragment="the-boneyard")
+"""The Brute Carrion Rite ground. Not BONEYARD, the Numbskulls' turf in the Pits."""
 THE_MOAT = LocationEntry("The Moat", region="The Savage Lands")
 THE_SAVAGE_WILDS = LocationEntry("The Savage Wilds", region="The Savage Lands")
 
@@ -245,7 +288,12 @@ ASHVAHAN = LocationEntry("Ashvahan", region="Volcor", lore_fragment="ashvahan")
 BLACKROCK_QUARRIES = LocationEntry("Blackrock Quarries", region="Volcor", lore_fragment="blackrock-quarries")
 CHAMBER_OF_THE_DRAGON = LocationEntry("Chamber of the Dragon", region="Volcor")
 DESHVAHAN = LocationEntry("Deshvahan", region="Volcor", lore_fragment="deshvahan")
+DRAGON_FESTIVAL = LocationEntry("Dragon Festival", region="Volcor", lore_fragment="dragon-festival")
+"""An event with a heading of its own on ``world-of-rathe/volcor.md:27``, modelled as
+a location on the precedent of ``THE_EVERFEST_CARNIVAL``. Named on ``weapons/rok.md``."""
 DRAGON_S_PEAK = LocationEntry("Dragon's Peak", region="Volcor", lore_fragment="dragons-peak")
+DRAGON_S_TEETH = LocationEntry("Dragon's Teeth", region="Volcor", lore_fragment="dragons-peak")
+"""The spires below Dragon's Peak — world-of-rathe/volcor.md, under that heading."""
 FOREST_OF_FLAMES = LocationEntry("Forest of Flames", region="Volcor", lore_fragment="forest-of-flames")
 """``world-of-rathe/volcor.md:99`` gives it a heading of its own and describes it as
 "a dense, vibrant woodland thriving within a volcanic landscape". Named on four
@@ -274,6 +322,9 @@ chosen because the set is Volcor's uprising and the two dragon haunts named besi
 it, the Red Desert and the Imperial Furnace, are both Volcor. This is not a
 correctable guess: ``location_id`` hashes the region, so moving it later mints a
 second row rather than editing this one."""
+SWORYUK_GORGE = LocationEntry("Sworyuk Gorge", region="Volcor")
+TAOKING = LocationEntry("Taoking", region="Volcor")
+"""Fai's home village in the Forest of Flames — main-story/uprising/fires-of-rebellion.md."""
 THE_ASH_PLAINS = LocationEntry("The Ash Plains", region="Volcor")
 """See ``IMPERIAL_FURNACE`` — another row that predated its constant. The stored
 name carries the article; the page writes "the illusionists of the Ash Plains"
@@ -288,8 +339,10 @@ THE_GOLDEN_ORCHARD_ESTATE = LocationEntry(
 ``the-phoenix-and-the-dragon.md`` writes the short "Golden Orchard" twice, at :7
 and :9, where only ``dragons-of-empire.md:87`` uses the full name. Without the
 alias the massacre both pages turn on matches nothing."""
+THE_MOLTEN_TIDE = LocationEntry("The Molten Tide", region="Volcor", lore_fragment="the-molten-tide")
 THE_OASIS = LocationEntry("The Oasis", region="Volcor")
 THE_OBSIDIAN_COAST = LocationEntry("The Obsidian Coast", region="Volcor")
+THE_SLICK = LocationEntry("The Slick", region="The Pits", lore_fragment="torched")
 URJIYSA = LocationEntry("Urjiysa", region="Volcor")
 ZANCARO = LocationEntry("Zancaro", region="Volcor")
 

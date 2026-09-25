@@ -934,3 +934,17 @@ db.upsert_story(
     regions=[reg.MISTERIA],
     dry_run=True,
 )
+
+db.upsert_story(
+    path="src/heroes-of-rathe/heroes-of-rathe.md",
+    story_type="heroes-of-rathe",
+    title="Heroes of Rathe",
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/heroes-of-rathe/professions-of-rathe.md",
+    story_type="heroes-of-rathe",
+    title="Professions",
+    dry_run=True,
+)

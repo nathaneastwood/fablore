@@ -137,3 +137,360 @@ db.upsert_story(
     titles=[ttl.GRAND_MAGISTER],
     dry_run=True,
 )
+
+db.upsert_story(
+    path="src/world-of-rathe/nebulus-rift.md",
+    story_type="world-of-rathe",
+    title="Nebulus Rift",
+    source_link="https://fabtcg.com/world-of-rathe/nebulus-rift/",
+    characters=[
+        "aurora",
+        "oscilio",
+        "zyggy",  # new link — named at :37, not previously seeded
+        people.RUPIUS_AURIC_SCROLLMASTER,
+    ],
+    locations=[
+        loc.AURIC_KEEP,
+        loc.ASTRAL_BRIDGE,
+        loc.SHYLDVERK,
+        loc.VOLTARIS_GEM,
+        loc.ENION,
+        loc.I_ARATHAEL,  # epigraph only (:9), no region per catalogue convention
+    ],
+    regions=[reg.ARIA],
+    groups=[grp.AETHERSCRIBES],  # new link — named at :21, :33, :37; not previously seeded
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/world-of-rathe/rathe.md",
+    story_type="world-of-rathe",
+    title="World of Rathe",
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/world-of-rathe/demonastery.md",
+    story_type="world-of-rathe",
+    title="Demonastery",
+    source_link="https://fabtcg.com/world-of-rathe/demonastery/",
+    characters=[
+        "viserai",  # hero bare slug, not people.VISERAI
+        people.SOL,
+        people.GRAND_MAGISTER_THE_DEVOUT,
+        people.ELDON_LOST_KNIGHT,
+        people.HARLAND,
+        people.SEPTUS,
+        people.XAINE_RUNESCRIBE,
+        people.LORD_SUTCLIFFE,
+        people.CAOIMHE,  # new
+        people.CORVA,  # new
+        people.JEROVE,  # new
+        people.NIALL,  # new
+    ],
+    locations=[
+        loc.VALAHAI,
+        loc.THE_SHADOW_CRYPTS,
+        loc.ENION,
+        loc.I_ARATHAEL,
+        loc.THE_GOLDEN_FIELDS,
+        loc.EBON_MAW,  # new; replaces seeded loc.THE_MAW — see Ambiguities
+    ],
+    regions=[reg.DEMONASTERY, reg.SOLANA, reg.THE_SAVAGE_LANDS],
+    groups=[grp.HAND_OF_SOL],
+    monsters=[
+        mon.DIAPHENES,  # new
+        mon.BEREDOS,  # new
+        mon.LYSAGENES,  # new
+        mon.MANI,  # new
+        mon.SCAPHUS,  # new
+        mon.WHISPER,  # new
+    ],
+    equipment=["grimoire-of-the-haunt"],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/world-of-rathe/aria.md",
+    story_type="world-of-rathe",
+    title="Aria",
+    source_link="https://fabtcg.com/world-of-rathe/aria/",
+    characters=[
+        people.YVOR,
+        people.DAVNIR,
+        people.GALCIA,
+        people.ISEN,
+        people.ALOSYN,
+        people.NARAKIR,
+        # :65 "Queen Celvera" — the existing row for Candlehold's queen. Whether the
+        # row should be renamed Celvera is the user's call; a rename mints a new id.
+        people.QUEEN_OF_CANDLEHOLD,
+    ],
+    locations=[
+        loc.THE_FLOW,
+        loc.THE_KORSHEM,  # seeded
+        loc.MT_ISEN,  # page says "Mount Isen", a recorded alias
+        loc.ISEN_RANGES,
+        loc.LARINKMORTH,  # seeded
+        loc.BLEAK_EXPANSE,
+        loc.THUNDER_STEPPE,  # seeded
+        loc.ENION,  # seeded
+        loc.BOULDERHEAD_ISLAND,  # page says "Boulderhead", shortened form of the same isle
+        loc.VOLTHAVEN,
+        loc.CANDLEHOLD,  # seeded
+        loc.THRONE_GLADE,
+        loc.HIGHLOFT_INN,
+        loc.SKYBREAKER,  # NEW
+        loc.THE_EVERFEST_CARNIVAL,
+        loc.LEGENDARIUM,
+        loc.VALAHAI,
+        loc.ALDENGROVE,
+        loc.ISENLOFT,
+        loc.ANVILHEIM,
+        loc.AURIC_KEEP,
+        loc.SHYLDVERK,
+    ],
+    regions=[reg.ARIA],
+    fauna=[
+        fauna.CESARI,
+        fauna.WELKIN,
+        fauna.VITR_EO,
+        fauna.KAIE_O,
+        fauna.NA_SHARI,
+        fauna.MEEP,
+        fauna.FIANNA,
+        fauna.SHOCK_STRIKER,
+    ],
+    monsters=[mon.RAVENIR],
+    groups=[
+        grp.WAYFARERS,
+        grp.OLLIN,
+        grp.AETHERSCRIBES,
+        grp.ROSETTA,  # Valahai-era order named alongside Wayfarers/Aetherscribes — see Ambiguities
+        grp.THE_MAELA,
+        grp.THE_VALDUR,
+    ],
+    food_drink=[
+        food.ISENRI_SAKE,  # NEW
+        food.BREAKERNUT_ALE,  # NEW
+    ],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/world-of-rathe/misteria.md",
+    story_type="world-of-rathe",
+    title="Misteria",
+    source_link="https://fabtcg.com/world-of-rathe/misteria/",
+    characters=[people.KOUKI, people.JIRO_HENSHU, people.MISTRESS_IKARU],
+    # "Immortal Lunar Temple" on the page is a near-match to existing loc.LUNAR_TEMPLE — see Ambiguities
+    locations=[loc.MISTCLOAK_GULLY, loc.MUGENSHI_GORGE, loc.LUNAR_TEMPLE],
+    regions=[reg.MISTERIA],
+    groups=[
+        grp.AUIS_SCALES,
+        grp.IKARU_CLAN,
+        grp.MUGENSHI_CLAN,
+        grp.HOUSE_SANJING,
+        grp.HOUSE_MIHARU,
+        grp.HOUSE_YIJUN,
+        grp.HOUSE_ISHIGAKI,
+        grp.KEEPERS_OF_THE_SEVEN_ARTS,
+    ],
+    fauna=[fauna.GENTUA],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/world-of-rathe/metrix.md",
+    story_type="world-of-rathe",
+    title="A Towering Metropolis",
+    source_link="https://fabtcg.com/world-of-rathe/metrix/",
+    characters=[
+        "teklovossen",  # hero slug (Jules Teklovossen is in the hero list), not people.JULES_TEKLOVOSSEN
+        people.REX_BIGGUN,
+        people.PROSPECTOR_COGMIRE,
+        people.CHARLOTTE,
+        people.SYNTHEA_TEKLO,
+        people.RICKY_ROYCE,
+        people.AUDACITY,  # "λud@c!ty", the Foundry's anonymous operator
+        people.MEAZE_BANZE,
+        people.FRANCESCA_ZINNIA,
+    ],
+    locations=[
+        loc.COGWERX_CONGLOMERATE,
+        loc.THE_REGISTRY,
+        loc.TEKLO_INDUSTRIES,
+        loc.COPPERTOWN,
+        loc.WEST_RISE,
+        loc.EAST_RISE,
+        loc.THE_EXPANSE,
+        loc.ASCENSION_TERMINAL,
+        loc.ZENITH,
+        loc.MENDACITY_CYBER_THEATERS,
+        loc.THE_SPRAWL,
+        loc.COGMIRE_S_SALVAGE_EMPORIUM_AND_WORKSHOPPE,
+        loc.MIDTOWN_MARKETS,
+        loc.GIGADRILL_ELEVATOR,
+        loc.PIT_3,
+        loc.THE_NEEDLE,
+        loc.TERRACETTE_PATH_ACADEMY,
+        loc.ZINNIA_PARK,
+        loc.IRON_ASSEMBLY,
+        loc.IRON_HALL,
+        loc.ENERGIZE_THE_ERA,
+        loc.THE_NORTHERN_REALMS,  # "neighboring Northern Realms" Blackjack's expands into
+        loc.THE_FOUNDRY,
+    ],
+    regions=[reg.METRIX, reg.THE_PITS, reg.THE_SAVAGE_LANDS, reg.ARIA],
+    groups=[
+        # Cogwerx/Teklo/Iron Assembly/Foundry/Registry/Mendacity/Blackjack's already exist as both
+        # loc.X (their Metrix premises, seeded) and grp.X (the organisation) — the page describes
+        # all of these at length as organisations, so both are included; see Notes.
+        grp.COGWERX,
+        grp.TEKLO_INDUSTRIES,
+        grp.IRON_ASSEMBLY,
+        grp.THE_FOUNDRY,
+        grp.REGISTRY,
+        grp.MENDACITY_MEDIA,
+        grp.BLACKJACK_S_MINING_INCORPORATED,
+        grp.THE_SPIDER,
+        grp.THE_MOB,
+    ],
+    food_drink=[food.OIL_COIL],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/world-of-rathe/pits.md",
+    story_type="world-of-rathe",
+    title="Pits",
+    source_link="https://fabtcg.com/world-of-rathe/pits/",
+    characters=[
+        "kavdaen",  # hero slug, not people.KAVDAEN — also named "Trader of Skins" but heroes get no epithets
+        people.WHITETAIL,
+        people.ALKA_BIGGUNS,
+        people.JEMJANG,
+        people.BARON_DRIP,
+        people.ACHLYS_HAG_OF_MOJIRE,
+        people.BARTON_MOLE,
+        people.ANARCH_ZEIR,
+        people.GREENBIRD,
+    ],
+    locations=[
+        loc.THE_MAW,
+        loc.PIT_2,
+        loc.COPPERTOWN,
+        loc.ANKOMEIDO,
+        loc.GIGADRILL_ELEVATOR,
+        loc.PIT_3,
+        loc.THE_LEAF_HOUSE,
+        loc.THE_NORTHERN_REALMS,
+        loc.SEETHE,
+        loc.MINERS_REEF,
+        loc.SKEIN,
+        loc.RATTLEBONE,
+        loc.GUTPURSE,
+        loc.IRON_ASSEMBLY,  # seeded as location; page usage reads as the org — see Ambiguities
+        loc.SOUTHMAW,
+        loc.THE_SLICK,
+        loc.BONEYARD,
+        loc.MOJIRE,
+        loc.BLACKJACK_S_TAVERN,
+    ],
+    regions=[reg.THE_PITS, reg.METRIX, reg.MISTERIA, reg.VOLCOR, reg.THE_SAVAGE_LANDS],
+    groups=[
+        grp.THE_MOB,
+        grp.RUNNING_TIGERS,
+        grp.COGWERX,
+        grp.TEKLO_INDUSTRIES,
+        grp.BLOCKHEADS,
+        grp.TORCHED,
+        grp.NUMBSKULLS,
+        grp.JAWBREAKERS,
+        grp.PIRANHAS,
+        grp.FREAKSHOW,
+        grp.BLACKJACK_S_MERCENARY_COMPANY,
+        grp.BLACKJACK_S_MINING_INCORPORATED,
+        grp.SOUTHMAW_ASYLUM,
+        grp.THE_SPIDER,
+        grp.L_APOCALYPTA,
+    ],
+    monsters=[mon.DREGS],
+    fauna=[fauna.EEL_WOLVES, fauna.CRIMSON_JELLIES],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/world-of-rathe/savage-lands.md",
+    story_type="world-of-rathe",
+    title="Savage Lands",
+    source_link="https://fabtcg.com/world-of-rathe/savage-lands/",
+    characters=[
+        people.THEODORE_HAMILTON_SCARBOROUGH,
+        people.CAREM_DUNFIRTH,
+        people.QUENTON,
+        people.RUK_UTAN,
+    ],
+    locations=[loc.THE_BONEYARD],
+    regions=[reg.THE_SAVAGE_LANDS],
+    fauna=[fauna.ANK_IS, fauna.BRAWNHIDE, fauna.PELUDA, fauna.REK_VAS, fauna.SKERA, fauna.STRIX],
+    flora=[
+        flora.BLACKLACE,
+        flora.BLOODROOT_MOSS,
+        flora.DRUDEN,
+        flora.HALDOR,
+        flora.KINDLEWEED,
+        flora.PATA,
+        flora.SNAPJAW,
+        flora.STONEBERRY_TREE,
+        flora.THIEVES_LADDER,
+        flora.VIOLET_LANCE,
+        flora.VISURA,
+        flora.WINTERGOLD,
+    ],
+    # "Hecklers" (:77) — a feral people, not a group with a roster; held for the user.
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/world-of-rathe/volcor.md",
+    story_type="world-of-rathe",
+    title="Volcor",
+    source_link="https://fabtcg.com/world-of-rathe/volcor/",
+    characters=["emperor", "iyslander", people.MIN_OF_THE_FOREST_OF_FLAMES, people.INFERNAI],
+    locations=[
+        loc.ASHVAHAN,
+        loc.IMPERIAL_PALACE,
+        loc.CHAMBER_OF_THE_DRAGON,
+        loc.DRAGON_FESTIVAL,
+        loc.FOREST_OF_FLAMES,
+        loc.TAOKING,
+        loc.BLACKROCK_QUARRIES,  # seeded
+        loc.DRAGON_S_PEAK,  # seeded
+        loc.THE_OBSIDIAN_COAST,
+        loc.RED_DESERT,
+        loc.DESHVAHAN,  # seeded
+        loc.MT_VOLCOR,  # page says "Mount Volcor" — see Ambiguities
+        loc.DRAGON_S_TEETH,  # new
+        loc.THE_MOLTEN_TIDE,  # new
+    ],
+    regions=[reg.VOLCOR, reg.SOLANA],
+    groups=[
+        grp.EZU,
+        grp.ALSHONI,
+        grp.SAYASHI,
+        grp.DRACAI,
+        grp.VOLCAI,
+        grp.CINTARI,
+        grp.DUST_RUNNERS,
+    ],
+    fauna=[
+        fauna.VUURLIN,
+        fauna.LONGMA,
+        fauna.RYOKI,
+        fauna.MORROWS,
+        fauna.APOPHIS,
+        fauna.GIANT_DRIFT_STINGERS,
+    ],
+    dry_run=True,
+)

@@ -82,3 +82,59 @@ db.upsert_story(
     titles=[ttl.MAGISTER],
     dry_run=True,
 )
+
+db.upsert_story(
+    path="src/other-characters/minerva-themis.md",
+    story_type="other-characters",
+    title="Minerva Themis",
+    # Restated exactly as the DB row holds them (no footer byline on this page).
+    authors="Nicola Price, Tarryn Thomas",
+    artists="Mihail Spil-Haufter",
+    source_link="https://fabtcg.com/articles/minerva-themis/",
+    publication_date="2021-05-17",
+    characters=[
+        people.MERCURIUS,  # twin brother, named directly (l.3, l.5, l.11)
+    ],
+    locations=[
+        loc.GOLDEN_CHARIOT,  # "the Golden Chariot" (l.9), Minerva's inn — not seeded, adding
+        loc.THE_GOLDEN_FIELDS,  # "beyond the Golden Fields" (l.3) — not seeded, adding
+    ],
+    regions=[reg.METRIX, reg.SOLANA, reg.VOLCOR],  # all three named, restating seeded set unchanged
+    groups=[grp.GEMINI],  # "the Gemini" (l.3), "a fellow Gemini" (l.11) — not seeded, adding
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/other-characters/lord-sutcliffe.md",
+    story_type="other-characters",
+    title="Lord Sutcliffe",
+    authors="Nicola Price, Tarryn Thomas",
+    artists="bimawithpencil",
+    source_link="https://fabtcg.com/articles/lord-sutcliffe/",
+    publication_date="2021-05-10",
+    characters=["viserai", people.LORD_SUTCLIFFE],
+    regions=[reg.DEMONASTERY],
+    groups=[grp.DISCIPLES_OF_PAIN],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/other-characters/README.md",
+    story_type="other-characters",
+    title="Readme",
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/other-characters/lady-barthimont.md",
+    story_type="other-characters",
+    title="Lady Barthimont",
+    authors="Nicola Price, Tarryn Thomas",
+    artists="Carlos Cruchaga",
+    source_link="https://fabtcg.com/articles/lady-barthimont/",
+    publication_date="2021-05-03",
+    characters=[people.LADY_BARTHIMONT, people.LORD_BARTHIMONT],
+    locations=[loc.THE_NORTHERN_REALMS],
+    regions=[reg.SOLANA],
+    dry_run=True,
+)

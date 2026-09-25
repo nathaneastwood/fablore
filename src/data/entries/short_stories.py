@@ -604,3 +604,72 @@ db.upsert_story(
     fauna=[fauna.CESARI],
     dry_run=True,
 )
+
+db.upsert_story(
+    path="src/short-stories/bright-lights/bright-lights.md",
+    story_type="short-stories",
+    title="Bright Lights",
+    # Both already seeded as locations; page names both ("The Iron Assembly, ...
+    # Teklo Industries... it all has to go") — full list, unchanged from seeded state.
+    locations=[
+        loc.IRON_ASSEMBLY,
+        loc.TEKLO_INDUSTRIES,
+    ],
+    # All three named together in one sentence as the powers the narrator wants
+    # torn down. None were seeded as groups before this call (groups postdates
+    # the story's original registration).
+    groups=[
+        grp.IRON_ASSEMBLY,
+        grp.MENDACITY_MEDIA,
+        grp.TEKLO_INDUSTRIES,
+    ],
+    # regions= omitted deliberately — "Metrix" is not literally named on the
+    # page, only inferable via the two locations' region. Omission preserves
+    # the existing seeded reg.METRIX link without asserting a claim the page
+    # text doesn't make.
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/short-stories/README.md",
+    story_type="short-stories",
+    title="Short Stories",
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/short-stories/roll-of-honour/README.md",
+    story_type="short-stories",
+    title="Roll of Honor Short Stories",
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/short-stories/armory-decks/armory-decks.md",
+    story_type="short-stories",
+    title="Armory Decks",
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/short-stories/heavy-hitters/march-armoury-kit.md",
+    story_type="short-stories",
+    title="March 2024 Armory Kit",
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/short-stories/part-the-mistveil/set-announcement.md",
+    story_type="short-stories",
+    title="Part the Mistveil",
+    characters=["enigma", "nuu", "zen"],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/short-stories/part-the-mistveil/set-spoilers.md",
+    story_type="short-stories",
+    title="Part the Mistveil Spoilers",
+    characters=["enigma", "nuu", "zen"],
+    dry_run=True,
+)

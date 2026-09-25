@@ -221,7 +221,27 @@ GLOOMBLADES = GroupEntry("Gloomblades", category="faction", members=("viserai",)
 # ---------------------------------------------------------------------------
 
 ALSHONI = GroupEntry("Alshoni", category="faction")
+CHILDREN_OF_CHAOS = GroupEntry("Children of Chaos", category="cult")
+"""main-story/the-hunted/children-of-chaos.md:171 — "the Children of the Dragon facing
+the Children of Chaos". The page gives no category; "cult" is by analogy with KURAGHAN."""
 CHILDREN_OF_THE_DRAGON = GroupEntry("Children of the Dragon", category="order", members=("fang",))
+DUST_RUNNERS = GroupEntry(
+    "Dust Runners",
+    category="gang",
+    members=(people.KAYAT,),
+    member_source="main-story/the-hunted/mark-of-a-traitor.md",
+)
+"""Smugglers run out of a Deshvahan glassworks; "gang" is the catalogue's word,
+the page says "smugglers"."""
+ROYAL_GUARD = GroupEntry(
+    "Royal Guard",
+    category="corps",
+    members=("fang",),
+    member_source="main-story/the-hunted/mark-of-a-traitor.md",
+)
+"""mark-of-a-traitor.md:59, :153 — its captains kneel before the generals of the
+Children of the Dragon, so a corps within that order rather than a synonym for
+it. Unconfirmed; may fold into CHILDREN_OF_THE_DRAGON as an alias."""
 CINTARI = GroupEntry(
     "Cintari",
     category="clan",
@@ -345,9 +365,67 @@ the ones registered so far link it."""
 # ---------------------------------------------------------------------------
 
 ARMS_DEALERS = GroupEntry("Arms Dealers", category="gang")
+BLACKJACK_S_MINING_INCORPORATED = GroupEntry(
+    "Blackjack's Mining Incorporated",
+    category="corporation",
+    aliases=("Blackjack's Mining",),
+)
+"""main-story/outsiders/its-just-business.md — the full name once, the short form
+twice. Whether it shares its Blackjack with loc.BLACKJACK_S_TAVERN is unconfirmed."""
+BLOCKHEADS = GroupEntry(
+    "Blockheads",
+    category="gang",
+    members=(people.SLAB,),
+    member_source="main-story/outsiders/the-spiders-trap.md",
+    lore_story_key="world-of-rathe/pits.md",
+    lore_fragment="blockheads",
+)
+BLACKJACK_S_MERCENARY_COMPANY = GroupEntry(
+    "Blackjack's Mercenary Company",
+    category="mercenary company",
+    lore_story_key="world-of-rathe/pits.md",
+    lore_fragment="blackjacks-mercenary-company",
+)
+"""The militant offshoot of Blackjack's Mining Incorporated — world-of-rathe/pits.md."""
+CIRCUIT_BREAKER = GroupEntry("Circuit Breaker", category="band")
+"""A sour-synth band from the Sprawl — main-story/bright-lights/synthetic-futures.md.
+No member is named, so no roster."""
 COGWERX = GroupEntry("Cogwerx", category="corporation")
+FREAKSHOW = GroupEntry(
+    "Freakshow",
+    category="gang",
+    members=(people.CAGER,),
+    member_source="main-story/outsiders/the-spiders-trap.md",
+    lore_story_key="world-of-rathe/pits.md",
+    lore_fragment="freakshow",
+)
+GIMLET_MINING = GroupEntry("Gimlet Mining", category="corporation")
+"""Named once on main-story/outsiders/its-just-business.md — the rival that
+contracts the hit on Overseer Crichton."""
 IRON_ASSEMBLY = GroupEntry("Iron Assembly", category="organisation")
 """Absorbs ``Iron Council``, shouted once in stroke-of-genius.md (Q2)."""
+JAWBREAKERS = GroupEntry(
+    "Jawbreakers",
+    category="gang",
+    members=(people.MADAME_FUSE,),
+    member_source="main-story/outsiders/the-spiders-trap.md",
+    lore_story_key="world-of-rathe/pits.md",
+    lore_fragment="jawbreakers",
+)
+TORCHED = GroupEntry(
+    "Torched",
+    category="gang",
+    members=(people.MELTEN_WICK,),
+    member_source="main-story/outsiders/the-spiders-trap.md",
+    lore_story_key="world-of-rathe/pits.md",
+    lore_fragment="torched",
+)
+THE_MOB = GroupEntry(
+    "The Mob",
+    category="gang",
+    members=(people.REX_BIGGUN,),
+    member_source="world-of-rathe/metrix.md",
+)
 TRANSCENDENTS = GroupEntry("Transcendents", category="order", location=loc.SKYLARK_PEAK)
 """Named once, on flavour/outsiders.md: "Grand masters of old reside atop Skylark
 peak. Amongst these Transcendents..." The location is where they are; no page
@@ -365,11 +443,35 @@ L_APOCALYPTA = GroupEntry(
 spelling and the prose still resolves either way — the same rule ``Aui's Scales``
 follows."""
 MENDACITY_MEDIA = GroupEntry("Mendacity Media", category="corporation", aliases=("Mendacity",))
+NUMBSKULLS = GroupEntry(
+    "Numbskulls",
+    category="gang",
+    members=(people.MARROW,),
+    member_source="main-story/outsiders/the-spiders-trap.md",
+    lore_story_key="world-of-rathe/pits.md",
+    lore_fragment="numbskulls",
+)
+PIRANHAS = GroupEntry(
+    "Piranhas",
+    category="gang",
+    lore_story_key="world-of-rathe/pits.md",
+    lore_fragment="piranhas",
+)
+"""A Pits gang with a heading of its own on pits.md (:117). Named on
+main-story/outsiders/catch-of-the-day.md, which names no individual member."""
 """The prose says "Mendacity" far more often than the full name — metrix.md writes
 it bare six times. Migrating the supplement entry to a group renamed the tooltip
 key to the full name and took the short form's tooltip with it; the alias is what
 gives it back."""
 """Absorbs ``Mendacity``, ``Voxx`` and the ``Voxx Press`` location row (Q5)."""
+RUNNING_TIGERS = GroupEntry(
+    "Running Tigers",
+    category="gang",
+    members=(people.NJERI, people.HISATO, people.JEMJANG),
+    member_source="main-story/outsiders/its-just-business.md",
+)
+"""Uzuri's parents' smuggling ring: "Njeri handled Metrix, Hisato looked after
+Misteria, and Jemjang kept the thoroughfares open between them"."""
 REGISTRY = GroupEntry(
     "Registry",
     category="corporation",
@@ -380,6 +482,13 @@ REGISTRY = GroupEntry(
 "the Registry" with a lowercase article, so the article is not part of the name.
 Rule N3 — follow the lore name by name. Contrast "The Foundry", whose own heading
 keeps its article."""
+SOUTHMAW_ASYLUM = GroupEntry(
+    "Southmaw Asylum",
+    category="institution",
+    lore_story_key="world-of-rathe/pits.md",
+    lore_fragment="southmaw-asylum",
+)
+"""An institution inside the Southmaw district (loc.SOUTHMAW), not the district."""
 STEELSTREET_ENFORCERS = GroupEntry("Steelstreet Enforcers", category="law enforcement")
 THE_FOUNDRY = GroupEntry(
     "The Foundry",
@@ -431,6 +540,32 @@ KOTORI = GroupEntry(
 """No page describes the Kotori as a body; the group is inferred from three character
 names that all carry it — Wavebender, Galewarden, Moonseeker. Those three roles
 are ranks and wait for R3. No notes, because nothing in the lore describes them."""
+HOUSE_ISHIGAKI = GroupEntry(
+    "House Ishigaki",
+    category="house",
+    lore_story_key="world-of-rathe/misteria.md",
+    lore_fragment="ishigaki",
+)
+HOUSE_MIHARU = GroupEntry(
+    "House Miharu",
+    category="house",
+    lore_story_key="world-of-rathe/misteria.md",
+    lore_fragment="miharu",
+)
+HOUSE_SANJING = GroupEntry(
+    "House Sanjing",
+    category="house",
+    lore_story_key="world-of-rathe/misteria.md",
+    lore_fragment="sanjing",
+    members=(people.JIRO_HENSHU,),
+    member_source="world-of-rathe/misteria.md",
+)
+HOUSE_YIJUN = GroupEntry(
+    "House Yijun",
+    category="house",
+    lore_story_key="world-of-rathe/misteria.md",
+    lore_fragment="yijun",
+)
 IKARU_CLAN = GroupEntry(
     "Ikaru Clan",
     category="house",
@@ -439,6 +574,15 @@ IKARU_CLAN = GroupEntry(
     member_source="heroes-of-rathe/ira-about.md",
 )
 """Absorbs ``House of Blossoms``. The location row stays as the place Ikaru (Q6)."""
+OKARI_CLAN = GroupEntry("Okari Clan", category="clan")
+"""equipment/celestial-kimono.md — "the inscrutable Okari Clan of Misteria", gift-givers
+to the Emperor. Named nowhere else."""
+KEEPERS_OF_THE_SEVEN_ARTS = GroupEntry(
+    "The Keepers of the Seven Arts",
+    category="council",
+    lore_story_key="world-of-rathe/misteria.md",
+    lore_fragment="the-keepers-of-the-seven-arts",
+)
 MUGENSHI_CLAN = GroupEntry("Mugenshi Clan", category="clan", members=("benji",))
 
 
@@ -538,6 +682,15 @@ craft section while its summary was written from the Valahai one."""
 # ---------------------------------------------------------------------------
 # Unplaced
 # ---------------------------------------------------------------------------
+
+SANDLARS = GroupEntry(
+    "Sandlars",
+    category="clan",
+    members=(people.GRANNIE_SANDLAR,),
+    member_source="equipment/comeback-kicks.md",
+)
+"""Craftsfolk of the Moat — equipment/comeback-kicks.md. Possibly a clan of the
+Sandfolk; unconfirmed."""
 
 # ---------------------------------------------------------------------------
 # High Seas

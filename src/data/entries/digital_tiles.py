@@ -480,3 +480,10 @@ db.upsert_story(
     groups=[grp.DRACAI],
     dry_run=True,
 )
+
+db.upsert_story(
+    path="src/digital-tiles/README.md",
+    story_type="digital-tiles",
+    title="Readme",
+    dry_run=True,
+)

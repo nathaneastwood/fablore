@@ -586,3 +586,338 @@ db.upsert_story(
     ],
     dry_run=True,
 )
+
+db.upsert_story(
+    path="src/flavour/dynasty.md",
+    story_type="flavour",
+    title="Dynasty",
+    characters=[
+        "boltyn",
+        "emperor",
+        "hala",
+        # New link — DYN212 "Invoke Suraya" is spoken by Prism but Prism was not
+        # previously linked to this page at all.
+        "prism",
+        # New link. Named only in the DYN066 card title "Spirit of Eirina"; the
+        # quote itself ("Her spirit inside me, always." - Boltyn) is about her.
+        people.EIRINA,
+        people.GENERAL_NAKAMI,
+        people.GRANDMASTER_LI,
+        people.JACKDAW,
+        people.JULES_TEKLOVOSSEN,
+        # New link. Named only in the DYN212 card title "Invoke Suraya"; the
+        # flavour text ("Enlightened one, illuminate our path with your
+        # knowledge...") addresses her by her existing epithet.
+        people.SURAYA_ARCHANGEL_OF_KNOWLEDGE,
+    ],
+    # Anchor ids are pattern-derived from each card's heading ("Name - (IDs)" ->
+    # kebab(name) + "---" + ids concatenated, slashes stripped), matching the
+    # convention on crucible-of-war.md etc. Not verified against a built book —
+    # check before running with dry_run=False.
+    fragments={
+        "boltyn": "spirit-of-eirina---dyn066",
+        "emperor": "crown-of-dominion---dyn234",
+        "hala": "blessing-of-steel---dyn073074075",
+        "prism": "invoke-suraya---dyn212",
+        "Eirina": "spirit-of-eirina---dyn066",
+        "General Nakami": "blessing-of-patience---dyn033034035",
+        "Grandmaster Li": "mindstate-of-tiger---dyn048",
+        "Jackdaw": "pay-day---dyn123",
+        "Jules Teklovossen": "blessing-of-ingenuity---dyn098099100",
+        "Suraya, Archangel of Knowledge": "invoke-suraya---dyn212",
+    },
+    locations=[
+        # New link. "Mt. Volcor" (DYN085/086/087, "Visit the Imperial Forge") —
+        # exact-name match to the existing catalogue constant, region Volcor.
+        loc.MT_VOLCOR,
+        # New link. "The Red Desert of Volcor" (DYN003) — exact-name match to
+        # the existing catalogue constant, region Volcor.
+        loc.RED_DESERT,
+        loc.THE_SHADOW_CRYPTS,
+    ],
+    regions=[
+        reg.DEMONASTERY,
+        reg.SOLANA,
+        reg.THE_SAVAGE_LANDS,
+        reg.VOLCOR,
+    ],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/flavour/everfest.md",
+    story_type="flavour",
+    title="Everfest",
+    characters=[
+        "viserai",
+        people.ASTIER,
+        "lexi",
+        people.MASTER_MORITA_ART_OF_THE_HAND,
+        "kassai",
+        "oldhim",
+        people.JEZABELLE_EVERFEST_HEALER_AND_ALLSORTS,
+        people.EFARIS_BRITTLEBONE,
+    ],
+    locations=[loc.TEKLO_INDUSTRIES, loc.THE_EVERFEST_CARNIVAL],
+    regions=[reg.ARIA, reg.THE_SAVAGE_LANDS],
+    groups=[grp.DRACAI, grp.VOLCAI, grp.OLLIN],
+    fragments={
+        "viserai": "runic-reclamation---evr104",
+        "lexi": "this-rounds-on-me---evr160",
+        # seeded value was 'outland-skirmish---evr066' (truncated); real heading covers EVR066/067/068
+        "kassai": "outland-skirmish---evr066067068",
+        # seeded value was 'steadfast---evr033' (truncated); real heading covers EVR033/034/035
+        "oldhim": "steadfast---evr033034035",
+    },
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/flavour/heavy-hitters.md",
+    story_type="flavour",
+    title="Heavy Hitters",
+    characters=[
+        "bolfar",  # named on page ("Wage Might" speaker) but not seeded; bare slug — matches hero list exactly
+        "olympia",  # "Draw Swords" speaker; matches hero list exactly (no qualifying title on this page)
+        "victor-goldmane",  # "The Golden Son" speaker; matches hero list exactly (no qualifying title on this page)
+        people.FIGHTMASTER_KOX,
+        people.GIANTSLAYER_CRIX,
+        people.LUCA_ARENA_CICERONE,
+        people.BREWMEISTER_MARV,
+        people.MORGA_GRINNING_BOAR_CANTINA_BARMAID,
+        people.BEEZY_THE_BRASH,
+        people.DUNRIC_VARGAS,
+        people.COUNTESS_CAMILLA,
+        people.BRUTUS_SUMMA_RUDIS,
+        people.MISS_Q,
+    ],
+    fragments={
+        "olympia": "draw-swords---hvy121122123",  # seeded id 'draw-swords---hvy121' was stale (truncated); real heading id has full HVY121/122/123 range
+        "victor-goldmane": "the-golden-son---hvy059",
+    },
+    locations=[loc.GRINNING_BOAR_CANTINA],  # named inside Morga's title
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/flavour/rosetta.md",
+    story_type="flavour",
+    title="Rosetta",
+    characters=[
+        "verdance",
+        "oldhim",
+        "florian",  # heroes: bare slugs
+        people.OZRIM,
+        people.SERAPHINA,
+        people.KAYSIN,
+        people.DAVNIR,
+        people.YVOR,  # named in passing: "Davnir's lessons"/"Kin of Davnir" (Blossoming Decay, Earth Form), "great Yvor's fall"/"energy of Yvor" (Heaven's Claws, Lightning Form)
+        people.QUEEN_OF_CANDLEHOLD,  # speaker "Queen of the Rosetta" — see Ambiguities
+    ],
+    locations=[
+        loc.CANDLEHOLD,
+        loc.ROTWOOD,  # named in Autumn's Touch, Cadaverous Tilling, Harvest Season
+        loc.VOLTHAVEN,  # "Volthaven was born" (Heaven's Claws)
+    ],
+    regions=[reg.ARIA],
+    groups=[grp.OLLIN],  # "The mighty Ollin once fought alongside the Kin of Davnir" (Earth Form)
+    fragments={
+        "oldhim": "earth-form---ros036037038",  # seeded id 'earth-form---ros036' is stale; corrected to match the real heading id
+        "florian": "autumns-touch---ros046047048",  # seeded id 'autumns-touch---ros046' is stale; corrected to match the real heading id
+    },
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/flavour/the-hunted.md",
+    story_type="flavour",
+    title="The Hunted",
+    characters=[
+        "taipanis",  # not seeded, but named twice as speaker (Imperial Intent, Pledge Fealty); is a hero slug
+        "cindra",
+        "dromai",
+        "emperor",
+        "fang",
+        "yoji",
+        people.CAPTAIN_JUKA,
+        people.GENERAL_NAKAMI,
+        people.LIEUTENANT_YAMADA,
+        people.MAGISTRATE_CHEN,
+        people.SAYASHI_CARA,
+        people.TETZUO,
+        people.VAIL_THE_VAGRANT,
+    ],
+    locations=[loc.DESHVAHAN, loc.THE_OBSIDIAN_COAST],
+    regions=[reg.VOLCOR, reg.THE_PITS],
+    groups=[
+        grp.ALSHONI,
+        grp.CHILDREN_OF_THE_DRAGON,  # :59 "Pledge Fealty" — an existing group, not a poetic name
+        grp.DRACAI,
+        grp.DUST_RUNNERS,
+        grp.EZU,
+        grp.SAYASHI,
+        grp.VOLCAI,
+    ],
+    fragments={
+        "dromai": "proclaim-vengeance---hnt165",
+        "yoji": "hunted-or-hunter---hnt052",
+    },
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/flavour/dusk-till-dawn.md",
+    story_type="flavour",
+    title="Dusk till Dawn",
+    characters=[
+        "boltyn",
+        people.XAINE_RUNESCRIBE,
+        people.TEMPLAR_TIMAERUS,
+        people.SOL,
+        people.AMIRA_SURANA,
+        people.BARUS_BOLDSTRIDE,
+        "dorinthea",
+        people.BAM_BAM,
+        people.LADY_BARTHIMONT,
+        people.LORD_SUTCLIFFE,
+        people.BLASMOPHET,
+        "prism",
+    ],
+    fragments={"dorinthea": "morlock-hill---dtd209"},
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/flavour/high-seas.md",
+    story_type="flavour",
+    title="High Seas",
+    characters=[
+        "puffin",  # named speaker (Cogwerx Workshop), matches hero slug — not seeded
+        people.CAPTAIN_GRIT_JABIR,
+        people.CAPTAIN_RUE,
+        people.CAPTAIN_COODER_OF_THE_SWIFTWATER_WARDEN_COODER,
+        people.MUTINOUS_MAGGIE,
+        people.SWILLER_SALTBEARD,
+        people.CAPTAIN_KLOW,
+        people.PEARL_SANDHRI,
+        people.CAPTAIN_VANEGULL,
+        people.RAY_STINGEYE,
+        people.NAILBIT_NARI,
+    ],
+    locations=[
+        loc.DREADFALL_REACH,
+        loc.KRAKEN_S_BARREL,
+        loc.SELLSHORE_COAST,
+        loc.PORT_CONNIVER,
+        loc.GOLDEN_PORT,
+        loc.PIPER_S_PIER,
+        loc.CORALYSI,
+        loc.TROPAL_DHANI,
+        loc.DAGGER_DOCKS,
+        loc.BLACKWATER_STRAIT,
+        loc.TERAMUNDR_S_TRIANGLE,
+        loc.ANVILHEIM,  # named (Nimby), not seeded
+        loc.AZURO_KEYS,  # new
+        loc.HORIZON_S_MANTLE,  # new
+        loc.LOST_LAGOON,  # new
+    ],
+    regions=[reg.HIGH_SEAS],
+    groups=[
+        grp.THE_DHANI_EMPIRE
+    ],  # "Dhani Empire" named directly (Portside Exchange, Saltwater Swell, Sunken Treasure)
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/flavour/welcome-to-rathe.md",
+    story_type="flavour",
+    title="Welcome to Rathe",
+    characters=[
+        "ira",
+        "valda",
+        people.BARTRAND_THE_BLOODY,
+        people.FLANNIGAN,
+        people.LENA_BELLE,
+        people.LIEUTENANT_TIMAEUS,
+        people.MABON,
+        people.RAGNAR_FROSTHELM,
+        people.SOL,  # not seeded; named directly ("blessing of Sol", Warrior's Valor) — existing constant
+        people.FYENDAL,  # card titles "Heart of Fyendal"/"Tome of Fyendal" — card-title-as-attestation, as on monarch.md
+    ],
+    regions=[reg.SOLANA, reg.MISTERIA, reg.THE_SAVAGE_LANDS],
+    groups=[grp.HAND_OF_SOL],  # named directly ("A warrior of the Hand of Sol...", Steelblade Shunt)
+    fragments={
+        "ira": "flic-flak---wtr092093094",  # seeded id 'flic-flak---wtr092' is stale; real heading id verified against built HTML
+        "valda": "cranial-crush---wtr045",
+    },
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/flavour/xx-non-set-cards.md",
+    story_type="flavour",
+    title="Non-Set Cards",
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/flavour/bright-lights.md",
+    story_type="flavour",
+    title="Bright Lights",
+    characters=[
+        "data-doll-mkii",  # hero slug; page's byline reads "Data Doll MKI" — see Ambiguities
+        "vynnset",  # hero slug
+        people.REX_BIGGUN,
+        people.HUXLEY,
+        people.SYNTHEA_TEKLO,
+        people.KYLE,
+        people.TASKMASTER_PYRION,
+        people.EXECUTIVE_SMYTE,
+        people.SANDY_SHOO,
+        people.PROFESSOR_MIN,
+        people.PROSPECTOR_COGMIRE,
+        people.FIGHTMASTER_KOX,  # page reads "Kox, Deathmatch Fightmaster" — see Ambiguities
+        people.MASTER_MORITA_ART_OF_THE_HAND,
+        people.ENFORCER_EESHA,
+    ],
+    locations=[
+        loc.IRON_ASSEMBLY,
+        loc.COPPERTOWN,
+        loc.CHROME_CAVERNS,
+        loc.EIDOLON,
+        loc.THE_SPRAWL,
+        loc.CENTENNIAL_CONSUMABLES,
+    ],
+    regions=[reg.METRIX],
+    groups=[grp.MENDACITY_MEDIA, grp.COGWERX],
+    fragments={
+        "vynnset": "slay---evo248",  # seeded key was display name 'Vynnset'; rekeyed to match characters= slug
+    },
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/flavour/README.md",
+    story_type="flavour",
+    title="Flavour Text",
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/flavour/intro.md",
+    story_type="flavour",
+    title="Flavour Text",
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/flavour/tales-of-aria.md",
+    story_type="flavour",
+    title="Tales of Aria",
+    characters=[people.VALGARD_HOARFROST, people.LISHU_CRIMSON_HAZE_VIGILANTE],
+    locations=[loc.CANDLEHOLD, loc.BLEAK_EXPANSE, loc.ISENLOFT, loc.VOLTHAVEN, loc.MT_ISEN, loc.THE_FLOW],
+    regions=[reg.ARIA],
+    # :44 "the Einion" — possibly the people of Enion; held for the user. grp.GUARDIANS also held.
+    groups=[grp.OLLIN, grp.ROSETTA],
+    dry_run=True,
+)

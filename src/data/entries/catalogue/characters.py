@@ -33,9 +33,15 @@ already-declared ``captain-bones-and-the-city-of-gold.md`` are all the Kuraghan
 flagship ``Absolon's Dream``, never the god."""
 
 
+ADU = CharacterEntry("Adu")
+"""``weapons/rok.md:5`` — "Ambassador Adu", on the receiving end of the Rok. The
+office is not part of the name and the text gives no species, so no kind."""
 AELIUS = CharacterEntry("Aelius", kinds=kind.HUMAN, status="Dead")
 AIOS = CharacterEntry("Aios", kinds=kind.HUMAN, status="Alive")
 AKUO = CharacterEntry("Akuo", kinds=kind.HUMAN)
+ALKA_BIGGUNS = CharacterEntry("Alka Bigguns", kinds=kind.HUMAN, epithets=("Don of Coppertown",))
+"""world-of-rathe/pits.md:29."""
+AMBER = CharacterEntry("Amber", kinds=kind.HUMAN, status="Alive")
 AUDACITY = CharacterEntry("λud@c!ty")
 """The Foundry's operator. metrix.md:201 says nobody knows "their real name,
 face, or if they're a single person or a collective of dissidents operating
@@ -70,8 +76,12 @@ AVALON_MESSENGER_OF_THE_DAWN = CharacterEntry(
     epithets=("Messenger of the Dawn", "Archangel of Rebirth"),
 )
 BAM_BAM = CharacterEntry("Bam Bam", kinds=kind.BRUTE)
+BARON_DRIP = CharacterEntry("Baron Drip", kinds=kind.HUMAN)
+"""world-of-rathe/pits.md:57."""
 BARON_THE_BUTCHER = CharacterEntry("Baron the Butcher", kinds=kind.HUMAN, status="Dead")
 BARTON = CharacterEntry("Barton", kinds=kind.HUMAN)
+BARTON_MOLE = CharacterEntry("Barton Mole", kinds=kind.HUMAN)
+"""world-of-rathe/pits.md."""
 BARTRAND_THE_BLOODY = CharacterEntry("Bartrand the Bloody", kinds=kind.HUMAN)
 BARUS_BOLDSTRIDE = CharacterEntry("Barus Boldstride", kinds=kind.HUMAN)
 AZVOLAI = CharacterEntry("Azvolai", kinds=kind.DRAGON)
@@ -94,6 +104,8 @@ BELLONA_THE_WARTUNE_HERALD = CharacterEntry(
 )
 BISKI = CharacterEntry("Biski", kinds=kind.DOG)
 BLASMOPHET = CharacterEntry("Blasmophet", kinds=kind.EMBRA, epithets=("the Soul Harvester",))
+BLAVE = CharacterEntry("Blave", kinds=kind.HUMAN, status="Dead")
+"""main-story/outsiders/the-spiders-trap.md:100 — "The traitor bleeds out on the floor"."""
 BLIND_BOGGY = CharacterEntry("Blind Boggy")
 BLOODWORTH_GOLDMANE = CharacterEntry("Bloodworth Goldmane")
 BOJANI = CharacterEntry("Bojani", kinds=kind.HUMAN, status="Dead")
@@ -103,6 +115,9 @@ BREWMEISTER_MARV = CharacterEntry("Brewmeister Marv", kinds=kind.HUMAN)
 BRUTUS_SUMMA_RUDIS = CharacterEntry("Brutus, Summa Rudis")
 BUTCHER_JEK = CharacterEntry("Butcher Jek", kinds=kind.HUMAN)
 BUTTONS = CharacterEntry("Buttons", kinds=kind.HUMAN, status="Alive")
+CAGER = CharacterEntry("Cager", kinds=kind.HUMAN, status="Alive")
+CAOIMHE = CharacterEntry("Caoimhe", kinds=kind.HUMAN, epithets=("Witch",))
+"""world-of-rathe/demonastery.md:67 — "Caoimhe, Witch". Kind assumed, as for every Demonastery resident."""
 CAPTAIN_BLUDGE = CharacterEntry("Captain Bludge")
 CAPTAIN_COODER_OF_THE_SWIFTWATER_WARDEN_COODER = CharacterEntry(
     "Captain Cooder of the Swiftwater / Warden Cooder", kinds=kind.HUMAN
@@ -114,6 +129,10 @@ CAPTAIN_MOODY = CharacterEntry("Captain Moody", kinds=kind.HUMAN, status="Dead")
 CAPTAIN_RUE = CharacterEntry("Captain Rue", kinds=kind.HUMAN, status="Dead")
 CAPTAIN_SHEVEZ = CharacterEntry("Captain Shevez")
 CAPTAIN_VANEGULL = CharacterEntry("Captain Vanegull", kinds=kind.HUMAN)
+CAREM_DUNFIRTH = CharacterEntry("Carem Dunfirth", status="Dead", epithets=("of the Scarborough Expedition",))
+"""world-of-rathe/savage-lands.md — author of "The Primal Way". No kind stated."""
+CARVA = CharacterEntry("Carva", kinds=kind.HUMAN, status="Dead")
+"""Killed by Uzuri on main-story/outsiders/the-spiders-trap.md:78."""
 CAYLIN = CharacterEntry("Caylin", kinds=kind.HUMAN, status="Dead")
 CAYLIN_S_MOTHER = CharacterEntry("Caylin's mother", kinds=kind.HUMAN, status="Dead")
 CHANCELLOR_HELENA_PRIMAVERA = CharacterEntry("Chancellor Helena Primavera", kinds=kind.HUMAN)
@@ -129,6 +148,8 @@ CHOWDER = CharacterEntry("Chowder", kinds=kind.ZOMBIE)
 CHUM = CharacterEntry("Chum", kinds=kind.ZOMBIE, status="Dead")
 CIRRUS = CharacterEntry("Cirrus", kinds=kind.HUMAN)
 COBBS = CharacterEntry("Cobbs", kinds=kind.HUMAN)
+CORVA = CharacterEntry("Corva", kinds=kind.HUMAN, status="Dead", epithets=("Biomancer",))
+"""world-of-rathe/demonastery.md:71 — "Corva, Biomancer (Deceased)"."""
 COUNTESS_CAMILLA = CharacterEntry("Countess Camilla")
 COX = CharacterEntry("Cox")
 CUTTY = CharacterEntry("Cutty", kinds=kind.ZOMBIE, status="Dead")
@@ -153,6 +174,8 @@ hand-written character-groups.md carried only the second, so the form aria.md us
 matched no tooltip."""
 DAXIUS = CharacterEntry("Daxius", kinds=kind.HUMAN, status="Dead")
 DEMETRIOS = CharacterEntry("Demetrios", kinds=kind.BRUTE)
+DENG = CharacterEntry("Deng")
+"""main-story/uprising/calm-before-the-storm.md:33, in flashback only."""
 DERVIN_MASTER_OF_BEASTS = CharacterEntry("Dervin, Master of Beasts", kinds=kind.HUMAN, epithets=("Master of Beasts",))
 DHERIC = CharacterEntry("Dheric", kinds=kind.HUMAN, status="Dead")
 DOMINIA = CharacterEntry("Dominia", kinds=kind.DRAGON)
@@ -187,7 +210,10 @@ FERAL = CharacterEntry("Feral", kinds=kind.HUMAN)
 FIGHTMASTER_KOX = CharacterEntry("Fightmaster Kox", kinds=kind.GOBLIN)
 FIGHTMASTER_RUSTY = CharacterEntry("Fightmaster Rusty", kinds=kind.DWARF)
 FLANNIGAN = CharacterEntry("Flannigan", kinds=kind.HUMAN)
+FLORENCE = CharacterEntry("Florence", kinds=kind.HUMAN, status="Alive")
 FOREMAN_PEBB = CharacterEntry("Foreman Pebb")
+FRANCESCA_ZINNIA = CharacterEntry("Francesca Zinnia", kinds=kind.HUMAN, status="Dead")
+"""world-of-rathe/metrix.md — died shortly after Zinnia Park opened."""
 FREYA_ELDINGSTURM = CharacterEntry("Freya Eldingsturm")
 FUGGER_GRIMES = CharacterEntry("Fugger Grimes")
 FYANNA_REDMOOR_BOLTYN_S_COUSIN = CharacterEntry("Fyanna Redmoor, Boltyn's cousin", kinds=kind.HUMAN)
@@ -212,8 +238,13 @@ GALCIA = CharacterEntry(
 GAWAIN = CharacterEntry("Gawain", kinds=kind.HUMAN)
 GENERAL_CHUL = CharacterEntry("General Chul", kinds=kind.HUMAN)
 GENERAL_EKODA = CharacterEntry("General Ekoda", kinds=kind.HUMAN)
+GENERAL_KODA = CharacterEntry("General Koda", kinds=kind.HUMAN, status="Dead")
+"""weapons/merciless-battleaxe.md:5 — held the bridge at Sworyuk Gorge and "died of
+his wounds". Possibly the same man as GENERAL_EKODA; unconfirmed."""
 GENERAL_NAKAMI = CharacterEntry("General Nakami", kinds=kind.HUMAN)
 GENERAL_RIKU = CharacterEntry("General Riku", kinds=kind.HUMAN, status="Dead")
+GENERAL_UMADESU = CharacterEntry("General Umadesu", kinds=kind.HUMAN, status="Dead", short_names=("Umadesu",))
+"""equipment/seasoned-saviour.md — "fought and died in the throes of duty"."""
 GENERAL_YAMATOKA = CharacterEntry("General Yamatoka", kinds=kind.HUMAN, status="Alive")
 GIANTSLAYER_CRIX = CharacterEntry("Giantslayer Crix", kinds=kind.HUMAN)
 GOVERNOR_PRACTISS = CharacterEntry("Governor Practiss", kinds=kind.HUMAN)
@@ -231,6 +262,8 @@ GRAND_MAGISTER_THE_STEADFAST = CharacterEntry("Grand Magister, The Steadfast", k
 spellings' worth of hash. Adamant and Beloved had npcs.csv rows and no constant at
 all until stage 4 needed every kind declared somewhere. Stage 7 collapses the
 five into one title with five holders; until then they are five characters."""
+GRANNIE_SANDLAR = CharacterEntry("Grannie Sandlar", kinds=kind.HUMAN)
+"""equipment/comeback-kicks.md — matriarch of the Sandlars of the Moat."""
 GREENBIRD = CharacterEntry("Greenbird", kinds=kind.HUMAN)
 GROTA = CharacterEntry("Grota", kinds=kind.HUMAN, status="Alive")
 GUDO_MISTWARD_PILGRIM = CharacterEntry("Gudo, Mistward Pilgrim", kinds=kind.HUMAN)
@@ -265,11 +298,16 @@ No ``status``, deliberately. Davnir, Yvor and Galcia are all ``Deceased`` and it
 would be easy to assume the fourth; no page says so, and "nobody said" is not a
 fact about a character."""
 JACKDAW = CharacterEntry("Jackdaw", kinds=kind.HUMAN)
+JAPE = CharacterEntry("Jape", kinds=kind.HUMAN, status="Alive")
 JEEVES = CharacterEntry("Jeeves", kinds=kind.HUMAN)
 JEMJANG = CharacterEntry("Jemjang", kinds=kind.HUMAN, status="Dead")
+JEROVE = CharacterEntry("Jerove", kinds=kind.HUMAN, epithets=("the Fleshbinder",))
+"""world-of-rathe/demonastery.md:85."""
 JEZABELLE_EVERFEST_HEALER_AND_ALLSORTS = CharacterEntry("Jezabelle, Everfest Healer and Allsorts", kinds=kind.HUMAN)
 JIGSAW = CharacterEntry("Jigsaw", kinds=kind.HUMAN, status="Alive")
 JING = CharacterEntry("Jing", kinds=kind.HUMAN, status="Alive")
+JIRO_HENSHU = CharacterEntry("Jiro Henshu", kinds=kind.HUMAN)
+"""world-of-rathe/misteria.md:23 — of House Sanjing. Kind by pattern, not stated."""
 JUICE = CharacterEntry("Juice", kinds=kind.HUMAN)
 JULES_TEKLOVOSSEN = CharacterEntry(
     "Jules Teklovossen",
@@ -301,6 +339,8 @@ KIRIGAMI = CharacterEntry("Kirigami")
 KNUCKLES = CharacterEntry("Knuckles", kinds=kind.HUMAN, status="Dead")
 KOSSEN = CharacterEntry("Kossen", kinds=kind.HUMAN)
 KOUKI = CharacterEntry("Kouki", kinds=kind.HUMAN)
+KOVA = CharacterEntry("Kova", status="Alive")
+"""A Dracai — main-story/uprising/calm-before-the-storm.md:19. Kind unstated."""
 KYLE = CharacterEntry("Kyle", kinds=kind.HUMAN)
 KYLORIA = CharacterEntry("Kyloria", kinds=kind.DRAGON)
 """See ``AZVOLAI`` — one of the eleven, and the same note applies."""
@@ -313,6 +353,8 @@ LADY_BARTHIMONT = CharacterEntry(
 LADY_VERA_SUTCLIFFE = CharacterEntry("Lady Vera Sutcliffe", kinds=kind.HUMAN)
 LENA_BELLE = CharacterEntry("Lena Belle", kinds=kind.HUMAN)
 LEONA = CharacterEntry("Leona")
+LETO = CharacterEntry("Leto", kinds=kind.HUMAN)
+"""A templar of the Hand of Sol who carried the Blade of Eridani — weapons/nebula-blade.md:3."""
 LIEUTENANT_LI = CharacterEntry("Lieutenant Li", kinds=kind.HUMAN)
 LIEUTENANT_TIMAEUS = CharacterEntry("Lieutenant Timaeus", kinds=kind.HUMAN)
 LIEUTENANT_YAMADA = CharacterEntry("Lieutenant Yamada", kinds=kind.HUMAN, status="Dead")
@@ -322,6 +364,8 @@ LINNEA_MISTRESS_OF_MALADY = CharacterEntry(
     "Linnea, Mistress of Malady", kinds=kind.HUMAN, epithets=("Mistress of Malady",)
 )
 LISHU_CRIMSON_HAZE_VIGILANTE = CharacterEntry("Lishu, Crimson Haze Vigilante", kinds=kind.HUMAN)
+LORD_BARTHIMONT = CharacterEntry("Lord Barthimont", kinds=kind.HUMAN)
+"""Lady Barthimont's husband — other-characters/lady-barthimont.md."""
 LORD_MERCHANT_SAVAI = CharacterEntry("Lord Merchant Savai", kinds=kind.HUMAN, status="Dead")
 LORD_SABUTO = CharacterEntry("Lord Sabuto", kinds=kind.HUMAN)
 LORD_SUTCLIFFE = CharacterEntry("Lord Sutcliffe", kinds=kind.HUMAN, status="Unknown")
@@ -349,6 +393,7 @@ LORD_WIZARD_CHIYO = CharacterEntry("Lord Wizard Chiyo", status="Dead")
 LUCA_ARENA_CICERONE = CharacterEntry("Luca, Arena Cicerone", kinds=kind.HUMAN, status="Alive")
 LUCILLA_THE_SETTING_SUN = CharacterEntry("Lucilla the Setting Sun")
 MABON = CharacterEntry("Mabon", kinds=kind.HUMAN)
+MADAME_FUSE = CharacterEntry("Madame Fuse", kinds=kind.HUMAN, status="Alive")
 MADAM_ROUGE = CharacterEntry("Madam Rouge", kinds=kind.HUMAN, status="Dead")
 MAD_SIV = CharacterEntry("Mad Siv")
 MAELA_ISULFV = CharacterEntry("Maela Isulfv", short_names=("Isulvf",))
@@ -377,12 +422,18 @@ MAGPIE = CharacterEntry("Magpie", kinds=kind.HUMAN, status="Alive")
 MARBLES = CharacterEntry("Marbles", kinds=kind.MEEP)
 MARCUS = CharacterEntry("Marcus", kinds=kind.HUMAN)
 MARCUS_MAULER_MONROE = CharacterEntry("Marcus 'Mauler' Monroe", kinds=kind.HUMAN, status="Alive")
+MARROW = CharacterEntry("Marrow", status="Alive")
+"""main-story/outsiders/the-spiders-trap.md:140 — the Numbskulls' "skeletal overseer". Bone-trophy garb or an
+undead kind: the page does not say, so no kind."""
 MASTER_MORITA_ART_OF_THE_HAND = CharacterEntry("Master Morita, Art of the Hand", kinds=kind.HUMAN, status="Alive")
 MASTER_SAORI = CharacterEntry("Master Saori", kinds=kind.HUMAN, status="Alive")
 MASTER_TAKUMI = CharacterEntry("Master Takumi", kinds=kind.HUMAN, status="Alive")
 MASTER_UDO = CharacterEntry("Master Udo", kinds=kind.HUMAN)
 MAXWELL = CharacterEntry("Maxwell", kinds=kind.HUMAN)
+MEAZE_BANZE = CharacterEntry("Meaze Banze", kinds=kind.HUMAN, status="Alive")
+"""world-of-rathe/metrix.md — a Metrix director."""
 MELDRICK_SUDDS = CharacterEntry("Meldrick Sudds", kinds=kind.HUMAN, status="Alive")
+MELTEN_WICK = CharacterEntry("Melten Wick", kinds=kind.HUMAN, status="Alive")
 MERLEN_RIVERA = CharacterEntry("Merlen Rivera", kinds=kind.HUMAN)
 METIS_ARCHANGEL_OF_TENACITY = CharacterEntry(
     "Metis, Archangel of Tenacity",
@@ -398,9 +449,21 @@ MINERVA_THEMIS = CharacterEntry(
     other_characters_story_key="other-characters/minerva-themis.md",
     short_names=("Minerva",),
 )
+MERCURIUS = CharacterEntry(
+    "Mercurius",
+    kinds=kind.HUMAN,
+    # other-characters/minerva-themis.md:5 — "she'd seen her brother cut down in
+    # the brief battle". That page is the evidence for both the status and the kin.
+    status="Dead",
+    kin=((MINERVA_THEMIS, "sibling", "other-characters/minerva-themis.md"),),
+)
+"""Defined after MINERVA_THEMIS, out of alphabetical order, because ``kin`` needs
+the constant to exist already. The first ``kin=`` use in the catalogue."""
 MIN_OF_THE_FOREST_OF_FLAMES = CharacterEntry("Min of the Forest of Flames", kinds=kind.HUMAN)
 MIRAGAI = CharacterEntry("Miragai", kinds=kind.DRAGON)
 MISS_Q = CharacterEntry("Miss Q")
+MISTRESS_IKARU = CharacterEntry("Mistress Ikaru", kinds=kind.HUMAN)
+"""world-of-rathe/misteria.md:37 — founder of the Ikaru house; distinct from grp.IKARU_CLAN."""
 MOLLY_THE_MOP = CharacterEntry("Molly the Mop", kinds=kind.HUMAN, status="Alive")
 MOLOCA = CharacterEntry("Moloca")
 MORAY = CharacterEntry("Moray", kinds=kind.HUMAN)
@@ -417,6 +480,8 @@ NASRETH = CharacterEntry("Nasreth", kinds=kind.EMBRA, epithets=("the Soul Harrow
 NEKRIA = CharacterEntry("Nekria", kinds=kind.DRAGON)
 """See ``AZVOLAI`` — one of the eleven, and the same note applies."""
 NESTUS = CharacterEntry("Nestus")
+NIALL = CharacterEntry("Niall", kinds=kind.HUMAN, epithets=("the Arcanist",))
+"""world-of-rathe/demonastery.md:89."""
 NING_KOTORI_MOONSEEKER = CharacterEntry("Ning, Kotori Moonseeker", kinds=kind.HUMAN)
 NJERI = CharacterEntry("Njeri", kinds=kind.HUMAN)
 NOCETES = CharacterEntry("Nocetes", epithets=("God of death",))
@@ -437,16 +502,31 @@ OTMAR = CharacterEntry("Otmar", kinds=kind.HUMAN)
 OUVIA = CharacterEntry("Ouvia", kinds=kind.DRAGON)
 """See ``AZVOLAI`` — one of the eleven, and the same note applies."""
 OVERSEER_CRICHTON = CharacterEntry("Overseer Crichton", kinds=kind.HUMAN, status="Dead")
+# TODO: upcoming hero — re-classify once slug exists
+ORIEN = CharacterEntry("Orien", status="Alive")
+"""Jarl Vetreiði's travelling companion on
+main-story/mastery-pack-guardian/trouble-in-larinkmorth.md:159, wielding a
+lightning-charged bow. No hero slug yet."""
 OZRIM = CharacterEntry("Ozrim", kinds=kind.ROSETTA)
 PALLAS = CharacterEntry("Pallas", kinds=kind.HUMAN)
 PEARL_SANDHRI = CharacterEntry("Pearl Sandhri", kinds=kind.HUMAN, status="Alive")
 PELORUS = CharacterEntry("Pelorus", kinds=kind.HUMAN, status="Alive")
+PHAELIN = CharacterEntry(
+    "Phaelin",
+    kinds=kind.HUMAN,
+    status="Dead",
+    epithets=("purveyor of coal and rice",),
+)
+"""main-story/uprising/fires-of-rebellion.md — a Volcor merchant tortured to death by Eun."""
 PINWHEEL = CharacterEntry("Pinwheel", kinds=kind.HUMAN, status="Dead")
 POLLY_CRANKA = CharacterEntry("Polly Cranka", kinds=kind.PARROT, status="Alive")
 PROFESSOR_MIN = CharacterEntry("Professor Min", kinds=kind.HUMAN)
 PROSPECTOR_COGMIRE = CharacterEntry("Prospector Cogmire", kinds=kind.HUMAN)
 QUARREL = CharacterEntry("Quarrel", kinds=kind.HUMAN, status="Alive")
 QUEEN_OF_CANDLEHOLD = CharacterEntry("Queen of Candlehold", kinds=kind.ROSETTA)
+QUENTON = CharacterEntry("Quenton", status="Dead")
+"""world-of-rathe/savage-lands.md — a mercenary of the Scarborough Expedition, eaten by brutes. "mercenary" is a
+job, not an epithet, so it is not recorded."""
 RAGNAR_FROSTHELM = CharacterEntry("Ragnar Frosthelm", kinds=kind.HUMAN)
 RAVEN = CharacterEntry("Raven", kinds=kind.AESIR, epithets=("Aesir of Chaos",))
 """``other-characters/krest-mortimer.md:27`` — "an entity known as the Raven,
@@ -460,6 +540,8 @@ REZNYR_ELDINGSTURM = CharacterEntry("Reznyr Eldingsturm")
 RICKY_ROYCE = CharacterEntry("Ricky Royce", kinds=kind.HUMAN)
 RIGGERMORTIS = CharacterEntry("Riggermortis", kinds=kind.ZOMBIE, status="Dead")
 RIGO = CharacterEntry("Rigo", kinds=kind.ROBOT, status="Unknown")
+RUK_UTAN = CharacterEntry("Ruk'utan", kinds=kind.BRUTE, status="Alive", epithets=("Chief",))
+"""world-of-rathe/savage-lands.md:75 — the Brute chief whose tribe holds the Boneyard."""
 RUPIUS_AURIC_SCROLLMASTER = CharacterEntry("Rupius, Auric Scrollmaster", kinds=kind.HUMAN)
 SADA = CharacterEntry("Sada", status="Alive")
 SALVADOR_STALLION = CharacterEntry("Salvador Stallion")
@@ -483,10 +565,13 @@ SEKEM_ARCHANGEL_OF_RAVAGES = CharacterEntry(
 SEPTUS = CharacterEntry("Septus")
 SERAPHINA = CharacterEntry("Seraphina", kinds=kind.HUMAN)
 SETO_OF_MIHARU = CharacterEntry("Seto of Miharu", kinds=kind.HUMAN, status="Alive")
+SHAYA_SANDSCOUR = CharacterEntry("Shaya Sandscour")
+"""weapons/sandscour-greatbow.md — "the notorious Shaya Sandscour", a desert nomad. No kind stated."""
 SHELLY = CharacterEntry("Shelly", kinds=kind.ZOMBIE, status="Dead")
 SHIO = CharacterEntry("Shio", kinds=kind.HUMAN)
 SHIRO = CharacterEntry("Shiro", kinds=kind.HUMAN, status="Alive")
 SIDRIZ = CharacterEntry("Sidriz")
+SILKA = CharacterEntry("Silka", kinds=kind.HUMAN, status="Alive")
 SILVERHAIR = CharacterEntry("Silverhair")
 """The rebel leader Fai carries off the hill in
 ``main-story/uprising/dragons-of-empire.md``. **A name, on the user's call
@@ -496,6 +581,8 @@ orders", "she whips Silverhair off her feet". No other page in the repository na
 her, so nothing corroborates the reading either way."""
 
 SKYNDA_FEYSCOUT = CharacterEntry("Skynda Feyscout")
+SLAB = CharacterEntry("Slab", kinds=kind.HUMAN, status="Alive")
+"""Leads the Blockheads — main-story/outsiders/the-spiders-trap.md:138."""
 SLAPSTICK_SAL = CharacterEntry("Slapstick Sal")
 SLINGER = CharacterEntry("Slinger", kinds=kind.HUMAN, status="Alive")
 SOL = CharacterEntry("Sol", kinds=kind.AESIR, epithets=("Aesir of Light",))
@@ -546,6 +633,10 @@ card text carry; ``compendium-of-rathe.md:34`` credits the same character as
 "Themis, Archangel of Justice". Both are attested in those exact words, so both
 are match strings rather than one being corrected into the other."""
 THEODORE_HAMILTON_SCARBOROUGH = CharacterEntry("Theodore Hamilton Scarborough", kinds=kind.HUMAN)
+THE_AMBASSADOR = CharacterEntry("The Ambassador", kinds=kind.HUMAN)
+"""main-story/outsiders/tidings-in-the-light.md:67 — "The Ambassador-Magister of
+Diplomacy", bare-office style like THE_LIBRARIAN. Kind inferred from the sibling
+Magisters, not stated."""
 THE_BASTION = CharacterEntry("The Bastion")
 THE_HARVESTER = CharacterEntry("The Harvester", kinds=kind.HUMAN)
 THE_LIBRARIAN = CharacterEntry(
@@ -595,6 +686,9 @@ WENDRYN = CharacterEntry("Wendryn", kinds=kind.HUMAN, status="Dead")
 WHEELER = CharacterEntry("Wheeler", kinds=kind.HUMAN, status="Alive")
 WHISPERS_OF_XERYS = CharacterEntry("Whispers of Xerys")
 WHITETAIL = CharacterEntry("Whitetail", kinds=kind.HUMAN, status="Alive")
+WIDOW = CharacterEntry("Widow", kinds=kind.HUMAN, status="Alive")
+"""A Spider assassin in Uzuri's nest (main-story/outsiders/the-spiders-trap.md:86). Not
+WIDOW_JOHANA, whose cottage stands in Larinkmorth, Aria."""
 WIDOW_JOHANA = CharacterEntry("Widow Johana", kinds=kind.HUMAN)
 WYNVARIN = CharacterEntry("Wynvarin", kinds=kind.HUMAN)
 XATHARI = CharacterEntry(
