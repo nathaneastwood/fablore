@@ -325,7 +325,7 @@ db.upsert_story(
     flora=[],
     food_drink=[food.BLACKJACK_S_WHISKEY],
     weapons=[],
-    # TODO: group — Arms Dealers (the gang Azalea is contracted against)
+    groups=[grp.ARMS_DEALERS],
     dry_run=True,
 )
 
@@ -438,10 +438,9 @@ db.upsert_story(
         mon.SHADOWREALM_WALKER,
     ],
     weapons=["galaxxi-black"],
+    groups=[grp.DISCIPLES_OF_PAIN],
     dry_run=True,
 )
-# TODO: group — Disciples of Pain
-# TODO: group — Runeblades
 
 db.upsert_story(
     path="src/main-story/usurp-the-shadow-throne/agony-in-light.md",
@@ -521,18 +520,20 @@ db.upsert_story(
         loc.THE_MOAT,
     ],
     regions=[reg.THE_SAVAGE_LANDS],
-    # TODO: group — Mythmakers (Speakeasy's guild)
-    # TODO: group — Glorytown Gladiators (Speakeasy's guild)
-    # TODO: group — Fury Fists (Speakeasy's guild)
-    # TODO: group — Boulders (Speakeasy's guild)
-    # TODO: group — Heavy Metals (affiliation ambiguous, see Ambiguous)
-    # TODO: group — Wild Wonders (Speakeasy's guild)
-    # TODO: group — Champions of Chivalry (Speakeasy's guild)
-    # TODO: group — Big Boppers (Batbiter's guild)
-    # TODO: group — Baleful Horde (Batbiter's guild)
-    # TODO: group — Gorelords (Batbiter's guild)
-    # TODO: group — Prowlers (Batbiter's guild)
-    # TODO: group — Chanek Jungle Slayers (Batbiter's guild)
+    groups=[
+        grp.BALEFUL_HORDE,
+        grp.BIG_BOPPERS,
+        grp.BOULDERS,
+        grp.CHAMPIONS_OF_CHIVALRY,
+        grp.FURY_FISTS,
+        grp.GLORYTOWN_GLADIATORS,
+        grp.GORELORDS,
+        grp.HEAVY_METALS,
+        grp.JUNGLE_SLAYERS,
+        grp.MYTHMAKERS,
+        grp.PROWLERS,
+        grp.WILD_WONDERS,
+    ],
     dry_run=True,
 )
 
@@ -675,9 +676,9 @@ db.upsert_story(
         npc.NASRETH,
     ],
     regions=[reg.DEMONASTERY, reg.SOLANA, reg.THE_SAVAGE_LANDS],
+    groups=[grp.SISTERS_OF_OCTOTHESIA],
     dry_run=True,
 )
-# TODO: group — Sisters of Octothesia (faction, no catalogue location match)
 
 db.upsert_story(
     path="src/main-story/dusk-till-dawn/falling-in-darkness.md",
@@ -978,7 +979,7 @@ db.upsert_story(
     weapons=["crucible-of-aetherweave"],
     # TODO: needs catalogue constant — Lord Wizard Akihiko (npc), Lord Chancellor Yama (npc),
     # Daijo (npc), the Empress (npc). See the table below.
-    # TODO: group — the Alshoni faction, the Ezu faction
+    groups=[grp.ALSHONI, grp.EZU],
     dry_run=True,
 )
 
@@ -1035,8 +1036,8 @@ db.upsert_story(
     regions=[reg.METRIX],
     # TODO: needs catalogue constant — The Sprawl (loc), Natalya's (loc), Beak (npc),
     # Mite (npc). See the table below.
-    # TODO: group — Mendacity Media, referred to here by its former name "Voxx"
     # TODO: no equipment slug for the D.R.E.S.S. — flagged, not guessed.
+    groups=[grp.MENDACITY_MEDIA],
     dry_run=True,
 )
 
@@ -1055,7 +1056,7 @@ db.upsert_story(
     fauna=[fauna.APOPHIS, fauna.VUURLIN],
     # TODO: needs catalogue constant — Ryo (npc), Lord Wizard Akihiko (npc),
     # Lord Chancellor Yama (npc). See the table below.
-    # TODO: group — the Hideshi
+    groups=[grp.HIDESHI],
     dry_run=True,
 )
 
@@ -1117,7 +1118,7 @@ db.upsert_story(
     ],
     regions=[reg.METRIX],
     # TODO: needs catalogue constant — Clara (npc). See the table below.
-    # TODO: group — the Iron Council (see the near-duplicate note in Ambiguous)
+    groups=[grp.IRON_ASSEMBLY],
     dry_run=True,
 )
 
@@ -1161,7 +1162,7 @@ db.upsert_story(
     regions=[reg.DEMONASTERY, reg.SOLANA],
     # TODO: needs catalogue constant — Scriptorium (loc). Also requested from
     # birth-of-the-arknight.md; one addition serves both pages.
-    # TODO: group — the Disciples of Pain
+    groups=[grp.DISCIPLES_OF_PAIN],
     dry_run=True,
 )
 
@@ -1216,7 +1217,7 @@ db.upsert_story(
         loc.THE_SOLARIUM,
     ],
     regions=[reg.SOLANA],
-    # TODO: group — the Gemini
+    groups=[grp.GEMINI],
     dry_run=True,
 )
 
@@ -1245,7 +1246,9 @@ db.upsert_story(
     ],
     regions=[reg.DEMONASTERY, reg.SOLANA],
     # TODO: needs catalogue constant — Leander (npc), Viator (npc). See the table below.
-    # TODO: group — the Glory of Sol
+    # X01: npc.THE_LIBRARIAN is now also a playable hero, so _upsert_npcs refuses
+    # this link. The two rows are the same person at two points in time — a title
+    # relation, deferred to stage 6 — so this stays unapplied rather than merged.
     dry_run=True,
 )
 

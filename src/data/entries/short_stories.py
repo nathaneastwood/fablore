@@ -52,9 +52,9 @@ db.upsert_story(
         reg.DEMONASTERY,
         reg.SOLANA,
     ],
+    groups=[grp.GLOOMBLADES],
     dry_run=True,
 )
-# TODO: group — Gloomblades
 
 db.upsert_story(
     path="src/short-stories/armory-deck-pleiades/pleiades.md",

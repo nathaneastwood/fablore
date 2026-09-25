@@ -153,9 +153,9 @@ db.upsert_story(
         loc.MISTCLOAK_GULLY,
     ],
     regions=[reg.MISTERIA],
+    groups=[grp.MUGENSHI_CLAN],
     dry_run=True,
 )
-# TODO: group — Mugenshi Clan (see Hints table)
 
 db.upsert_story(
     path="src/heroes-of-rathe/bravo-about.md",
@@ -168,9 +168,9 @@ db.upsert_story(
         loc.THE_EVERFEST_CARNIVAL,
     ],
     regions=[reg.ARIA],
+    groups=[grp.GUARDIANS],
     dry_run=True,
 )
-# TODO: group — the Guardians (see Hints table)
 
 db.upsert_story(
     path="src/heroes-of-rathe/briar-about.md",
@@ -309,9 +309,9 @@ db.upsert_story(
         loc.OCTOMILITIA,
     ],
     regions=[reg.SOLANA, reg.DEMONASTERY],
+    groups=[grp.SISTERS_OF_OCTOTHESIA],
     dry_run=True,
 )
-# TODO: group — Sisters of Octothesia
 
 db.upsert_story(
     path="src/heroes-of-rathe/fang-about.md",
@@ -319,9 +319,9 @@ db.upsert_story(
     title="Fang",
     heroes=["fang", "emperor"],
     regions=[reg.VOLCOR],
+    groups=[grp.CHILDREN_OF_THE_DRAGON],
     dry_run=True,
 )
-# TODO: group — Children of the Dragon
 
 db.upsert_story(
     path="src/heroes-of-rathe/hala-about.md",
@@ -344,9 +344,9 @@ db.upsert_story(
         reg.DEMONASTERY,
     ],
     weapons=["zenith-blade"],
+    groups=[grp.CHILDREN_OF_THE_LIGHT],
     dry_run=True,
 )
-# TODO: group — Children of the Light
 
 db.upsert_story(
     path="src/heroes-of-rathe/katsu-about.md",
@@ -370,9 +370,9 @@ db.upsert_story(
         loc.THE_BADLANDS,
     ],
     regions=[reg.THE_SAVAGE_LANDS],
+    groups=[grp.PROWLERS],
     dry_run=True,
 )
-# TODO: group — Prowlers
 
 db.upsert_story(
     path="src/heroes-of-rathe/melody-about.md",
@@ -469,9 +469,9 @@ db.upsert_story(
         loc.SOUTHMAW,
     ],
     regions=[reg.THE_PITS],
+    groups=[grp.THE_SPIDER],
     dry_run=True,
 )
-# TODO: faction — the Spider (see Hints table)
 
 db.upsert_story(
     path="src/heroes-of-rathe/betsy-about.md",
@@ -553,9 +553,9 @@ db.upsert_story(
         loc.MISTCLOAK_TEAHOUSE,
     ],
     regions=[reg.MISTERIA],
+    groups=[grp.VIPRESSA],
     dry_run=True,
 )
-# TODO: faction — Vipressa (see Hints table)
 
 db.upsert_story(
     path="src/heroes-of-rathe/prism-about.md",
@@ -606,9 +606,9 @@ db.upsert_story(
         reg.MISTERIA,
         reg.THE_PITS,
     ],
+    groups=[grp.THE_SPIDER],
     dry_run=True,
 )
-# TODO: faction — the Spider (see Hints table on arakni-5l!p3d-7hru-7h3-cr4x-about.md)
 
 db.upsert_story(
     path="src/heroes-of-rathe/arakni-marionette-about.md",
@@ -825,9 +825,9 @@ db.upsert_story(
         loc.THE_NORTHERN_REALMS,
     ],
     regions=[reg.THE_SAVAGE_LANDS],
+    groups=[grp.VANGELD],
     dry_run=True,
 )
-# TODO: group — VanGeld clan
 
 db.upsert_story(
     path="src/heroes-of-rathe/marlynn-about.md",
@@ -886,10 +886,9 @@ db.upsert_story(
         loc.THE_NORTHERN_REALMS,
         loc.GOUGEMOOR,
     ],
+    groups=[grp.HOUSE_ASHWOOD, grp.HOUSE_GOLDMANE],
     dry_run=True,
 )
-# TODO: group — House Ashwood
-# TODO: group — House Goldmane
 
 db.upsert_story(
     path="src/heroes-of-rathe/riptide-about.md",

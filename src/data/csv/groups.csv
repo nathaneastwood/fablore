@@ -1,2 +1,35 @@
 # AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Database class in src/data/db/ (db.upsert_story).
 GroupId|Name|Kind|Notes|ParentGroupId|LocationId
+GRb6d0274aec|Alshoni|faction|||
+GR3cffa0a7e5|Arms Dealers|gang|||
+GR9bb11a42db|Baleful Horde|guild|||
+GR8da2d36331|Big Boppers|guild|||
+GR43788709ba|Boulders|guild|||
+GR0baac8e70a|Champions of Chivalry|guild|||
+GRcbdeec715f|Children of the Dragon|order|||
+GR969341cc36|Children of the Light|people|||
+GR350e80582f|Disciples of Pain|faction|||
+GR400fcdd2cd|Ezu|faction|||
+GRbe00ee1545|Fury Fists|guild|||
+GR5d72436256|Gemini|order|||
+GR8a6490db03|Gloomblades|faction|||
+GRaaa2d88415|Glorytown Gladiators|guild|||
+GR67d0965d14|Gorelords|guild|||
+GR124f08e2ce|Guardians|order|||
+GRda8d3be2aa|Heavy Metals|guild|||
+GR9aee39b31a|Hideshi|house|||
+GR2e7d6eb39d|House Ashwood|house|||
+GRaf75f09cb3|House Goldmane|house|||
+GR149286d961|Iron Assembly|organisation|||
+GR55d0a50dc7|Jungle Slayers|guild|||
+GR53a03a5dc2|Mendacity Media|corporation|||
+GR308954b25d|Mugenshi Clan|clan|||
+GR4a827402b6|Mythmakers|guild|||
+GR8c8b1f4c1e|Prowlers|guild|||
+GRcc6c313e8c|Sisters of Octothesia|order|||
+GR0e2fd9e20a|Steelstreet Enforcers|law enforcement|||
+GReb9275cb05|The Spider|organisation|||
+GR06ce3df0b7|VanGeld|clan|||
+GR2fc310992b|Vipressa|faction|||
+GR10d3ec88f3|Wardens|order|||
+GR12ac15004e|Wild Wonders|guild|||

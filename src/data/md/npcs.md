@@ -29,15 +29,16 @@
 |               Bartrand the Bloody              |      Human     |                 Unknown                 |
 |                Barus Boldstride                |      Human     |                 Unknown                 |
 |                    Batbiter                    |     Unknown    |                 Unknown                 |
-|                      Bazz                      |      Human     |                   Dead                  |
+|                      Bazz                      |      Human     |                 Deceased                |
 |                 Beezy the Brash                |      Human     |                   Dead                  |
 |           Bellona, the Wartune Herald          |     Herald     |                 Unknown                 |
 |                      Biski                     |       Dog      |                 Unknown                 |
 |                   Blasmophet                   |      Embra     |                 Unknown                 |
 |                   Blind Boggy                  |     Unknown    |                 Unknown                 |
+|               Bloodworth Goldmane              |     Unknown    |                 Unknown                 |
 |                     Bojani                     |      Human     |                   Dead                  |
 |                       Boo                      |     Unknown    |                 Unknown                 |
-|                Braumeister Balen               |      Human     |                 Unknown                 |
+|                Braumeister Balen               |      Human     |                  Alive                  |
 |                Brewmeister Marv                |      Human     |                 Unknown                 |
 |               Brutus, Summa Rudis              |     Unknown    |                 Unknown                 |
 |                   Butcher Jek                  |      Human     |                 Unknown                 |
@@ -48,7 +49,7 @@
 |                  Captain Juka                  |      Human     |                 Unknown                 |
 |                  Captain Klow                  |      Human     |                 Unknown                 |
 |                  Captain Moody                 |      Human     |                   Dead                  |
-|                   Captain Rue                  |      Human     |                 Unknown                 |
+|                   Captain Rue                  |      Human     |                 Deceased                |
 |                 Captain Shevez                 |     Unknown    |                 Unknown                 |
 |                Captain Vanegull                |      Human     |                 Unknown                 |
 |                     Caylin                     |      Human     |                   Dead                  |
@@ -74,7 +75,7 @@
 |                     Daxius                     |      Human     |                   Dead                  |
 |                    Demetrios                   |      Brute     |                   Dead                  |
 |            Dervin, Master of Beasts            |      Human     |                 Unknown                 |
-|                     Dheric                     |      Human     |                   Dead                  |
+|                     Dheric                     |      Human     |                 Deceased                |
 |         Dr. Krest Mortimer, 'The Fixer'        |      Human     |                  Alive                  |
 |                 Dr. Wyverstone                 |      Human     |                 Unknown                 |
 |                   Duke Drexen                  |      Human     |                 Unknown                 |
@@ -88,6 +89,7 @@
 |                    Emeviere                    |     Unknown    |                 Unknown                 |
 |                 Enforcer Eesha                 |      Human     |                 Unknown                 |
 |                     Ersebet                    |     Unknown    |                 Unknown                 |
+|                       Eun                      |      Human     |                 Deceased                |
 |                 Executive Smyte                |      Human     |                 Unknown                 |
 |                Farin the Porter                |      Human     |                 Unknown                 |
 |                     Farris                     |      Human     |                 Unknown                 |
@@ -101,7 +103,7 @@
 |                Freya Eldingsturm               |     Unknown    |                 Unknown                 |
 |                  Fugger Grimes                 |     Unknown    |                 Unknown                 |
 |         Fyanna Redmoor, Boltyn's cousin        |      Human     |                 Unknown                 |
-|                    Galaphor                    |      Human     |                   Dead                  |
+|                    Galaphor                    |      Human     |                 Deceased                |
 |                     Galcia                     |     Ancient    |                 Deceased                |
 |                     Gawain                     |      Human     |                 Unknown                 |
 |                  General Chul                  |      Human     |                 Unknown                 |
@@ -154,9 +156,10 @@
 |                     Kossen                     |      Human     |                 Unknown                 |
 |                      Kouki                     |      Human     |                 Unknown                 |
 |                      Kyle                      |      Human     |                 Unknown                 |
-|                 Lady Barthimont                |     Unknown    |                 Unknown                 |
+|                 Lady Barthimont                |      Human     |                 Deceased                |
 |               Lady Vera Sutcliffe              |      Human     |                 Unknown                 |
 |                   Lena Belle                   |      Human     |                 Unknown                 |
+|                      Leona                     |     Unknown    |                 Unknown                 |
 |                  Lieutenant Li                 |      Human     |                 Unknown                 |
 |               Lieutenant Timaeus               |      Human     |                 Unknown                 |
 |                Lieutenant Yamada               |      Human     |                   Dead                  |
@@ -183,7 +186,7 @@
 |                     Marbles                    |      Meep      |                 Unknown                 |
 |                     Marcus                     |      Human     |                 Unknown                 |
 |             Marcus 'Mauler' Monroe             |      Human     |                  Alive                  |
-|         Master Morita, Art of the Hand         |      Human     |                 Unknown                 |
+|         Master Morita, Art of the Hand         |      Human     |                  Alive                  |
 |                  Master Saori                  |      Human     |                  Alive                  |
 |                  Master Takumi                 |      Human     |                  Alive                  |
 |                   Master Udo                   |      Human     |                 Unknown                 |
@@ -217,7 +220,7 @@
 |                     Pallas                     |      Human     |                 Unknown                 |
 |                  Pearl Sandhri                 |      Human     |                  Alive                  |
 |                     Pelorus                    |      Human     |                  Alive                  |
-|                    Pinwheel                    |      Human     |                   Dead                  |
+|                    Pinwheel                    |      Human     |                 Deceased                |
 |                  Polly Cranka                  |     Parrot     |                  Alive                  |
 |                  Professor Min                 |      Human     |                 Unknown                 |
 |               Prospector Cogmire               |      Human     |                 Unknown                 |
@@ -267,6 +270,7 @@
 |                  Synthea Teklo                 |      Human     |                 Unknown                 |
 |                     Synveri                    |      Human     |                 Unknown                 |
 |                      Taka                      |      Human     |                  Alive                  |
+|                  Tara VanGeld                  |      Dwarf     |                 Unknown                 |
 |               Tasha of Deshvahan               |     Unknown    |                 Unknown                 |
 |                Taskmaster Pyrion               |      Human     |                 Unknown                 |
 |                Templar Timaerus                |      Human     |                 Unknown                 |

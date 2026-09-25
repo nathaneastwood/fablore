@@ -81,9 +81,9 @@ db.upsert_story(
         reg.METRIX,
     ],
     equipment=["cogwerx-base-head", "evo-command-center", "evo-data-mine"],
+    groups=[grp.STEELSTREET_ENFORCERS],
     dry_run=True,
 )
-# TODO: group — Steelstreet Enforcers
 
 db.upsert_story(
     path="src/digital-tiles/compendium-of-rathe/compendium-of-rathe.md",
@@ -183,9 +183,9 @@ db.upsert_story(
         "skullhorn",
         "viziertronic-model-i",
     ],
+    groups=[grp.MUGENSHI_CLAN],
     dry_run=True,
 )
-# TODO: group — Lost Clans, Mugenshi
 
 db.upsert_story(
     path="src/digital-tiles/everfest/everfest.md",
@@ -238,7 +238,6 @@ db.upsert_story(
     ],
     dry_run=True,
 )
-# TODO: group — Shieldbearers, The Grey
 
 db.upsert_story(
     path="src/digital-tiles/heavy-hitters/heavy-hitters.md",
@@ -415,9 +414,9 @@ db.upsert_story(
     regions=[
         reg.ARIA,
     ],
+    groups=[grp.WARDENS],
     dry_run=True,
 )
-# TODO: group — Wardens
 
 db.upsert_story(
     path="src/digital-tiles/the-hunted/the-hunted.md",

@@ -165,9 +165,19 @@ db.upsert_story(
     regions=[
         reg.THE_SAVAGE_LANDS,
     ],
+    groups=[
+        grp.BALEFUL_HORDE,
+        grp.BOULDERS,
+        grp.CHAMPIONS_OF_CHIVALRY,
+        grp.FURY_FISTS,
+        grp.GLORYTOWN_GLADIATORS,
+        grp.JUNGLE_SLAYERS,
+        grp.MYTHMAKERS,
+        grp.PROWLERS,
+        grp.WILD_WONDERS,
+    ],
     dry_run=True,
 )
-# TODO: group — Baleful Horde, Boulder Clan, Champions of Chivalry, Fury Fists,
 # Glorytown Gladiators, Jungle Slayers, Mythmakers, Prowlers, Wild Wonders
 
 db.upsert_story(

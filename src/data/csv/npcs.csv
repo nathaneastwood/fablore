@@ -28,15 +28,16 @@ LC4a0fe7e3c9|Barton|Human|Unknown|
 LCc87c802d32|Bartrand the Bloody|Human|Unknown|
 LC3cbe23777a|Barus Boldstride|Human|Unknown|
 LC8ba0436436|Batbiter|Unknown|Unknown|
-LCef9b462f01|Bazz|Human|Dead|
+LCef9b462f01|Bazz|Human|Deceased|
 LC7c839ea6a4|Beezy the Brash|Human|Dead|
 LC28de0aecb4|Bellona, the Wartune Herald|Herald|Unknown|
 LC5eda4b69e2|Biski|Dog|Unknown|
 LC6c9efba562|Blasmophet|Embra|Unknown|
 LC07847c27b2|Blind Boggy|Unknown|Unknown|
+LC1bd7c7a484|Bloodworth Goldmane|Unknown|Unknown|
 LCfaba5ba58a|Bojani|Human|Dead|
 LC6446d58d6d|Boo|Unknown|Unknown|
-LCbf9d6cfaac|Braumeister Balen|Human|Unknown|
+LCbf9d6cfaac|Braumeister Balen|Human|Alive|
 LC2fc92f5f48|Brewmeister Marv|Human|Unknown|
 LCcac9397d56|Brutus, Summa Rudis|Unknown|Unknown|
 LCc97ec89048|Butcher Jek|Human|Unknown|
@@ -47,7 +48,7 @@ LC072303ef3a|Captain Grit Jabir|Human|Unknown|
 LCee2ff4f5e1|Captain Juka|Human|Unknown|
 LC83faf4f515|Captain Klow|Human|Unknown|
 LCa545cf1190|Captain Moody|Human|Dead|
-LC19baf7a764|Captain Rue|Human|Unknown|
+LC19baf7a764|Captain Rue|Human|Deceased|
 LCab410f6246|Captain Shevez|Unknown|Unknown|
 LC8a414834a0|Captain Vanegull|Human|Unknown|
 LCc8939b7099|Caylin|Human|Dead|
@@ -73,7 +74,7 @@ LCdba8b18154|Davnir|Ancient|Deceased|
 LC0a68d90ca3|Daxius|Human|Dead|
 LCe7b99f643d|Demetrios|Brute|Dead|
 LCf1bd74fe43|Dervin, Master of Beasts|Human|Unknown|
-LC3e69de262d|Dheric|Human|Dead|
+LC3e69de262d|Dheric|Human|Deceased|
 LC6d0dca761a|Dr. Krest Mortimer, 'The Fixer'|Human|Alive|other-characters/krest-mortimer.md
 LCbe50c5ea7f|Dr. Wyverstone|Human|Unknown|
 LCc3ac9661d5|Duke Drexen|Human|Unknown|
@@ -87,6 +88,7 @@ LCb80f3e1e8c|Elias Edgecombe|Human|Unknown|
 LC8f9c87c4b6|Emeviere|Unknown|Unknown|
 LCc0d8c53cd3|Enforcer Eesha|Human|Unknown|
 LC0a737d2abe|Ersebet|Unknown|Unknown|
+LCd7f55303bd|Eun|Human|Deceased|
 LCd45c496548|Executive Smyte|Human|Unknown|
 LC3ad7ebeb1b|Farin the Porter|Human|Unknown|
 LC75bc3eb1a2|Farris|Human|Unknown|
@@ -100,7 +102,7 @@ LCd1ffd4ce15|Foreman Pebb|Unknown|Unknown|
 LC3c8d14cbde|Freya Eldingsturm|Unknown|Unknown|
 LCeaf8dca6dd|Fugger Grimes|Unknown|Unknown|
 LC7307fc2cbf|Fyanna Redmoor, Boltyn's cousin|Human|Unknown|
-LC297e082f2b|Galaphor|Human|Dead|
+LC297e082f2b|Galaphor|Human|Deceased|
 LC797634e498|Galcia|Ancient|Deceased|
 LCfd2515cf6e|Gawain|Human|Unknown|
 LC2be5f35ac9|General Chul|Human|Unknown|
@@ -153,9 +155,10 @@ LC89d47c1440|Knuckles|Human|Dead|
 LC47e52eb469|Kossen|Human|Unknown|
 LCd7baf408ac|Kouki|Human|Unknown|
 LCbb44bf07cf|Kyle|Human|Unknown|
-LCec7ed74e1c|Lady Barthimont|Unknown|Unknown|other-characters/lady-barthimont.md
+LCec7ed74e1c|Lady Barthimont|Human|Deceased|other-characters/lady-barthimont.md
 LCfd2eaa9c2a|Lady Vera Sutcliffe|Human|Unknown|
 LC00b6e15f71|Lena Belle|Human|Unknown|
+LCfb491d5110|Leona|Unknown|Unknown|
 LCab4b2b6f5c|Lieutenant Li|Human|Unknown|
 LCd6597ac84b|Lieutenant Timaeus|Human|Unknown|
 LCd5d5a7e87c|Lieutenant Yamada|Human|Dead|
@@ -182,7 +185,7 @@ LC8a88fbb234|Magpie|Human|Alive|
 LC3832cc438b|Marbles|Meep|Unknown|
 LCd7ae9de750|Marcus|Human|Unknown|
 LCbb2046d3c6|Marcus 'Mauler' Monroe|Human|Alive|
-LC7cff182d16|Master Morita, Art of the Hand|Human|Unknown|
+LC7cff182d16|Master Morita, Art of the Hand|Human|Alive|
 LC438c29374b|Master Saori|Human|Alive|
 LCe2b8f7beb0|Master Takumi|Human|Alive|
 LCf54c332041|Master Udo|Human|Unknown|
@@ -216,7 +219,7 @@ LC3a3667de6c|Ozrim|Rosetta|Unknown|
 LC0573e210e2|Pallas|Human|Unknown|
 LC882126e906|Pearl Sandhri|Human|Alive|
 LC9d65c7a015|Pelorus|Human|Alive|
-LC1d21c10541|Pinwheel|Human|Dead|
+LC1d21c10541|Pinwheel|Human|Deceased|
 LCe6ae800e3a|Polly Cranka|Parrot|Alive|
 LC80a602c7f5|Professor Min|Human|Unknown|
 LC817c7ae851|Prospector Cogmire|Human|Unknown|
@@ -266,6 +269,7 @@ LC0a57040086|Syberys|Wizard|Unknown|
 LC628ef58925|Synthea Teklo|Human|Unknown|
 LC617fb8be79|Synveri|Human|Unknown|
 LC6f5bebae87|Taka|Human|Alive|
+LC865b3ba732|Tara VanGeld|Dwarf|Unknown|
 LC2117637887|Tasha of Deshvahan|Unknown|Unknown|
 LCda1c3a3f91|Taskmaster Pyrion|Human|Unknown|
 LCbfa72c7fb4|Templar Timaerus|Human|Unknown|
