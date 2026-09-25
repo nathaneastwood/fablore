@@ -14,6 +14,7 @@
 |                   Anarch Zeir                  |      Human     |                 Unknown                 |
 |             Anhe, Kotori Wavebender            |      Human     |                 Unknown                 |
 |                    Apostate                    |      Human     |                 Unknown                 |
+|          Arbiter, Magister of Justice          |     Unknown    |                 Unknown                 |
 |                     Astier                     |      Human     |                 Unknown                 |
 |                  Astra Morena                  |     Unknown    |                 Unknown                 |
 |                  Astrea Quazor                 |      Human     |                  Alive                  |
@@ -297,6 +298,7 @@
 |                     Wailer                     |     Zombie     |                   Dead                  |
 |                     Wendryn                    |      Human     |                 Deceased                |
 |                     Wheeler                    |      Human     |                  Alive                  |
+|                Whispers of Xerys               |     Unknown    |                 Unknown                 |
 |                    Whitetail                   |      Human     |                  Alive                  |
 |                  Widow Johana                  |      Human     |                 Unknown                 |
 |                    Wynvarin                    |      Human     |                 Unknown                 |

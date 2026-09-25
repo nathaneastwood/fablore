@@ -323,6 +323,7 @@
     - [Compendium of Rathe](flavour/compendium-of-rathe.md)
     - [Omens of the Third Age](flavour/omens-of-the-third-age.md)
     - [Mastery Pack Warrior](flavour/mastery-pack-warrior.md)
+    - [Usurp the Shadow Throne](flavour/usurp-the-shadow-throne.md)
     - [Non-Set Cards](flavour/non-set-cards.md)
 
 - [Data](data/data.md)

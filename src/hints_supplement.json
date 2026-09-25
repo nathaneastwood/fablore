@@ -24,6 +24,11 @@
     "type": "faction",
     "summary": "A faction founded by a particular branch of the Royal Bloodline, brought together by blood ties, headed up by Lord Wizard Chiyo, cousin to the Emperor."
   },
+  "ArbiterMagisterOfJustice": {
+    "type": "npc",
+    "match": "Arbiter, Magister of Justice",
+    "summary": "A Magister of Sol's order who confronts the Shadowrealm's corrupting influence, denying its prophecies in Sol's name."
+  },
   "AuisScales": {
     "type": "faction",
     "match": [
@@ -968,6 +973,11 @@
     "type": "npc",
     "summary": "Prophetess who trained Zyggy; she foresaw the end and died in Valahai's fall."
   },
+  "WhispersOfXerys": {
+    "type": "npc",
+    "match": "Whispers of Xerys",
+    "summary": "A mysterious voice that addresses Viserai, the Arknight, urging him toward the power hidden within his grasp."
+  },
   "Wynvarin": {
     "type": "npc",
     "summary": "The first Wayfarer, remembered for the saying “the lightning shall carry me before the storm.”"
@@ -1022,6 +1032,15 @@
     "exclude_pages": [
       "main-story/arcane-rising/birth-of-the-arknight"
     ]
+  },
+  "Templar": {
+    "type": "npc",
+    "match": [
+      "Templar",
+      "Templars"
+    ],
+    "summary": "Leaders of the Hand of Sol, hand-selected by the Magisters to guide parties, oversee training, and serve as a shining example for Solana.",
+    "url": "/archive/world-of-rathe/solana/the-order-of-the-light.html#templars"
   },
   "ArknightShard": {
     "match": "Arknight Shard",

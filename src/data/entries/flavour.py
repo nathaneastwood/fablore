@@ -231,3 +231,23 @@ db.upsert_story(
     ],
     dry_run=True,
 )
+
+db.upsert_story(
+    path="src/flavour/usurp-the-shadow-throne.md",
+    story_type="flavour",
+    title="Usurp the Shadow Throne",
+    heroes=["malice", "chane", "levia", "vynnset", "viserai"],
+    npcs=[
+        npc.BLASMOPHET,
+        npc.SOL,
+        npc.ARBITER_MAGISTER_OF_JUSTICE,
+        npc.WHISPERS_OF_XERYS,
+    ],
+    locations=[
+        loc.SHADOWREALM,
+    ],
+    regions=[
+        reg.SOLANA,
+    ],
+    dry_run=True,
+)
