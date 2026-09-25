@@ -1027,6 +1027,11 @@
     "type": "character",
     "summary": "A member of the Cintari, Kassai's close friend."
   },
+  "ArbiterMagisterOfJustice": {
+    "type": "character",
+    "match": "Arbiter, Magister of Justice",
+    "summary": "A Magister of Sol's order who confronts the Shadowrealm's corrupting influence, denying its prophecies in Sol's name."
+  },
   "AuisScales": {
     "match": [
       "Aui's Scales",
@@ -1804,6 +1809,11 @@
     "type": "character",
     "summary": "Prophetess who trained Zyggy; she foresaw the end and died in Valahai's fall."
   },
+  "WhispersOfXerys": {
+    "type": "character",
+    "match": "Whispers of Xerys",
+    "summary": "A mysterious voice that addresses Viserai, the Arknight, urging him toward the power hidden within his grasp."
+  },
   "Wynvarin": {
     "type": "character",
     "summary": "The first Wayfarer, remembered for the saying “the lightning shall carry me before the storm.”"
@@ -1822,14 +1832,6 @@
     "type": "artifact",
     "summary": "The token by which Malice taps Neverest's necromantic reservoir to swell her reanimated dead."
   },
-  "SoulOfExistence": {
-    "match": "Soul of Existence",
-    "type": "artifact",
-    "summary": "The Arknight Shard in Viserai's chest, corrupted by the Old Ones with the very essence of Shadow when he grasped their forbidden power in the heart of the Shadowrealm.",
-    "exclude_pages": [
-      "heroes-of-rathe/viserai-about"
-    ]
-  },
   "Runechant": {
     "match": [
       "Runechant",
@@ -1845,10 +1847,27 @@
       "main-story/arcane-rising/birth-of-the-arknight"
     ]
   },
+  "Templar": {
+    "type": "character",
+    "match": [
+      "Templar",
+      "Templars"
+    ],
+    "summary": "Leaders of the Hand of Sol, hand-selected by the Magisters to guide parties, oversee training, and serve as a shining example for Solana.",
+    "url": "/archive/world-of-rathe/solana/the-order-of-the-light.html#templars"
+  },
   "ArknightShard": {
     "match": "Arknight Shard",
     "type": "artifact",
     "summary": "The relic set into Viserai's chest, feeding arcane energy through runic vents carved into his bone and skin."
+  },
+  "SoulOfExistence": {
+    "match": "Soul of Existence",
+    "type": "artifact",
+    "summary": "The Arknight Shard in Viserai's chest, corrupted by the Old Ones with the very essence of Shadow when he grasped their forbidden power in the heart of the Shadowrealm.",
+    "exclude_pages": [
+      "heroes-of-rathe/viserai-about"
+    ]
   },
   "Apostate": {
     "type": "character",

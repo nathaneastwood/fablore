@@ -28,7 +28,7 @@ Eleven of the twelve rosters here were read off a single page and use the plain
 form; ``THE_MAELA`` is the exception that needed the pair, its five seers named
 across four flavour pages with no page listing them together.
 
-Import direction is one-way — this module imports ``npcs.py`` and names hero
+Import direction is one-way — this module imports ``characters.py`` and names hero
 slugs as strings, and nothing imports this module back — so no cycle is possible.
 """
 

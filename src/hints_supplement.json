@@ -21,7 +21,7 @@
     "summary": "A member of the Cintari, Kassai's close friend."
   },
   "ArbiterMagisterOfJustice": {
-    "type": "npc",
+    "type": "character",
     "match": "Arbiter, Magister of Justice",
     "summary": "A Magister of Sol's order who confronts the Shadowrealm's corrupting influence, denying its prophecies in Sol's name."
   },
@@ -811,7 +811,7 @@
     "summary": "Prophetess who trained Zyggy; she foresaw the end and died in Valahai's fall."
   },
   "WhispersOfXerys": {
-    "type": "npc",
+    "type": "character",
     "match": "Whispers of Xerys",
     "summary": "A mysterious voice that addresses Viserai, the Arknight, urging him toward the power hidden within his grasp."
   },
@@ -854,7 +854,7 @@
     ]
   },
   "Templar": {
-    "type": "npc",
+    "type": "character",
     "match": [
       "Templar",
       "Templars"
