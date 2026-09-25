@@ -11,6 +11,12 @@ copyright Legend Story Studios and is reproduced here for archival and
 reference purposes. Legendary Stories is a fan project and is not affiliated
 with, endorsed by, or sponsored by Legend Story Studios.
 
+It also does not cover theme/fonts/Runetura.woff2 and Runetura.ttf, or the
+inlined copy in theme/glyph-tool.css. Runetura is Legend Story Studios' own
+typeface, pulled from Card Vault's "Printed Text" card view; its embedded
+metadata marks it "Not licensable". It is used here at the maintainer's
+discretion, not under any confirmed grant from the Studio.
+
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights

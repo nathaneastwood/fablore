@@ -3,9 +3,10 @@
  *
  * Every script documented on this site maps one-to-one onto the English
  * alphabet, so "translation" is really a font swap — the markup keeps the
- * original Latin text and lets the traced typeface do the work. That means the
- * output stays selectable, searchable and screen-reader friendly, and copying
- * it out yields readable English.
+ * original Latin text and lets the typeface do the work (traced from card art
+ * for three of the four; Arcane uses Legend Story Studios' own Runetura). That
+ * means the output stays selectable, searchable and screen-reader friendly,
+ * and copying it out yields readable English.
  *
  * It also means one widget serves all four. A page opts in with
  *
@@ -55,7 +56,7 @@
             title: "Write in Arcane",
             note: "A 1:1 alphabet — type English, read Arcane.",
             sample: "Fear not the lightning, fear the darkness that follows",
-            unwritable: "Z",
+            unwritable: "",
             plate: {
                 bg: [["#16151f", 0], ["#08080c", 0.75]],
                 ink: [["#8d93a8", 0], ["#d8dce8", 0.42], ["#ffffff", 0.5],

@@ -3,13 +3,12 @@
 <div data-glyph-alphabet="arcane"></div>
 
 Arcane maps one-to-one onto the English alphabet, so anything can be written in
-it. Every glyph above has been traced into a typeface — type into the box below
-and read your own words in Arcane.
+it. The typeface above is Runetura, Legend Story Studios' own font for the
+script — the same one [Card Vault](https://cardvault.fabtcg.com/) uses for a
+card's "Printed Text" view — so it covers the full alphabet. Type into the box
+below and read your own words in Arcane.
 
 <div data-glyph-tool="arcane"></div>
-
-No glyph for **Z** has ever appeared in published card art, so it is the one
-letter that cannot be written; it renders as an empty rune above.
 
 Nor has any Arcane text ever shown a punctuation mark or a numeral — not the
 Runechant token, the Arcane Rising box, nor the book behind Lady Barthimont.

@@ -38,7 +38,7 @@ A two-cost Shadow Action, IAR209.
      data-glyph-href="../languages/arcane.html"
      data-glyph-cta="Create your own Arcane translation!"></div>
 
-Every glyph above was traced out of published card art and built into a working typeface. You can type your own words on the [Arcane](../languages/arcane.md) page.
+The typeface above is Runetura, Legend Story Studios' own font for the script. You can type your own words on the [Arcane](../languages/arcane.md) page.
 
 ## Dates
 
