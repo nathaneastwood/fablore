@@ -48,15 +48,15 @@ As Viserai crested over the final steps, he found himself in front of a sealed p
 
 “Your prison,” Viserai spoke. His eyes traced up the doors, riddled with inscriptions he couldn’t make sense of. An immense pressure emanated from beyond their seal.
 
-“ *Yes*,” Whisper replied. Her voice hung in the air, trailing off into the void.
+“*Yes*,” Whisper replied. Her voice hung in the air, trailing off into the void.
 
 “Who bound you?”
 
-“ *Shadow and the ones who wield it. Same as you, Arknight.*”
+“*Shadow and the ones who wield it. Same as you, Arknight.*”
 
 “I reject that name,” Viserai snapped. The girl had spoken to him with her head bowed. Her sunken eyes raised up to his chest and the glow beneath it.
 
-“ *You have, and yet, you still bear their sin.*” Whisper raised her head and drifted over to him, ethereal form blurring in and out of reality. It was strange to hear her like this. To *see* her, after so long. Whisper wrapped her hands around one of his. Something beyond the fog stirred. Something painful. “ *We are connected, Viserai.*”
+“*You have, and yet, you still bear their sin.*” Whisper raised her head and drifted over to him, ethereal form blurring in and out of reality. It was strange to hear her like this. To *see* her, after so long. Whisper wrapped her hands around one of his. Something beyond the fog stirred. Something painful. “*We are connected, Viserai.*”
 
 “This… I still cannot see.”
 
