@@ -10,28 +10,25 @@ Preview one page with ``python3 src/data/data-entry.py --only <path>``; see
 
 from __future__ import annotations
 
-# Entities are referenced, never constructed. Every registry id is a hash of the
-# fields written at the call site, so a second literal for the same entity
-# competes with the first row instead of reusing it — that is how "The Shadow
-# Crypts" became two rows. The canonical definition of each lives in
-# entries/catalogue/; none of the entry classes are imported here, so writing
-# LocationEntry(...) is a NameError rather than a silent new row.
-from entries.catalogue import (  # noqa: F401
+from entries._runner import db
+from entries.catalogue import (
     characters as people,
+)
+from entries.catalogue import (
     fauna,
-    flora,
-    food_drink as food,
+)
+from entries.catalogue import (
     groups as grp,
+)
+from entries.catalogue import (
     locations as loc,
+)
+from entries.catalogue import (
     monsters as mon,
+)
+from entries.catalogue import (
     regions as reg,
 )
-
-# NarratedVideoEntry is the one exception: a narrated reading belongs to one
-# story, has no registry table and no id of its own, so it is per-declaration
-# data rather than a shared entity.
-from db import NarratedVideoEntry  # noqa: F401
-from entries._runner import db
 
 db.upsert_story(
     path="src/digital-tiles/omens-of-the-third-age/omens-of-the-third-age.md",
@@ -41,11 +38,8 @@ db.upsert_story(
         "aurora",
         "oscilio",
         "zyggy",
-        # Already curated — named here only to link them to this page. Kind and
-        # status are left empty so the existing curated values are preserved.
         people.MAELA_ISULFV,
         people.YVOR,
-        # New with this set.
         people.KARL,
     ],
     locations=[
@@ -66,14 +60,10 @@ db.upsert_story(
     path="src/digital-tiles/bright-lights/bright-lights.md",
     story_type="digital-tiles",
     title="Bright Lights",
-    # The Fabricate tile is signed "Jules Teklovossen" — that is the hero
-    # Teklovossen under his full name, not the separate character row of that name.
     characters=["dash", "teklovossen"],
     fragments={"dash": "dash-io", "teklovossen": "fabricate"},
     locations=[
         loc.COGWERX_CONGLOMERATE,
-        # New with this set. The realm of data made manifest, reached through Teklo's
-        # Data Link — named on the main-story and flavour pages for this set too.
         loc.EIDOLON,
         loc.IRON_ASSEMBLY,
         loc.LOWLAKE,
@@ -94,19 +84,12 @@ db.upsert_story(
     characters=[
         "dorinthea",
         "jarl",
-        # Already curated — named here only to link them to this page. Kind and
-        # status are left empty so the existing curated values are preserved.
         people.BELLONA_THE_WARTUNE_HERALD,
         people.SOL,
-        # New with this set. Kind is unattested in the flavour text, so it is
-        # left to default to "Unknown" rather than being guessed.
         people.BOO,
-        # A dragon, not a person — there is no dragons table, so it is carried
-        # as a character row and relabelled to "creature" in hints_supplement.json.
         people.MIRAGAI,
     ],
     locations=[
-        # New with this set. The Demonastery's mortuary quarter.
         loc.NECROPOLIS,
         loc.THE_AWAKENING_CEREMONY,
     ],
@@ -131,8 +114,6 @@ db.upsert_story(
         "emperor",
         "kassai",
         "teklovossen",
-        # Already curated — named here only to link them to this page. Kind and
-        # status are left empty so the existing curated values are preserved.
         people.GENERAL_EKODA,
         people.LORD_SABUTO,
         people.LORD_SUTCLIFFE,
@@ -200,8 +181,6 @@ db.upsert_story(
     title="Everfest",
     characters=[
         "boltyn",
-        # Already curated — named here only to link them to this page. Kind and
-        # status are left empty so the existing curated values are preserved.
         people.JEZABELLE_EVERFEST_HEALER_AND_ALLSORTS,
         people.LORD_SUTCLIFFE,
         people.SOL,
@@ -228,7 +207,6 @@ db.upsert_story(
         fauna.KAIE_O,
         fauna.KRAKEN,
         fauna.MEEP,
-        # New with this set, all three named only as tavern-tale creatures.
         fauna.EBON_SERPENT,
         fauna.KUMIHO,
         fauna.MIREOA,
@@ -250,20 +228,15 @@ db.upsert_story(
     path="src/digital-tiles/heavy-hitters/heavy-hitters.md",
     story_type="digital-tiles",
     title="Heavy Hitters",
-    # Hood of Red Sand names "The Terror of the Golden Sands" — that is Kassai.
     characters=[
         "kassai",
         "olympia",
         "rhinar",
         "victor-goldmane",
-        # Already curated — named here only to link them to this page. Kind and
-        # status are left empty so the existing curated values are preserved.
         people.DEMETRIOS,
     ],
     fragments={"rhinar": "show-no-mercy", "victor-goldmane": "aurum-aegis"},
     locations=[
-        # New, though it is named on eleven other pages already. Region is left
-        # blank to match its siblings (The Moat, The Undercroft, Arena Barracks).
         loc.DEATHMATCH_ARENA,
     ],
     equipment=["aurum-aegis", "gauntlets-of-iron-will", "hood-of-red-sand"],
@@ -276,17 +249,12 @@ db.upsert_story(
     title="High Seas",
     characters=[
         "gravy",
-        # Already curated — named here only to link them to this page. Kind and
-        # status are left empty so the existing curated values are preserved.
         people.KELPIE,
         people.MORAY_LE_FAY,
         people.SCOOBA,
         people.SWABBIE,
-        # New with this set.
         people.CAPTAIN_BLUDGE,
         people.CHOWDER,
-        # "Dhani death-mage" — Dhani is the culture, not a kind, so kind is
-        # left to default to "Unknown".
         people.THANUELLA,
     ],
     locations=[
@@ -302,7 +270,6 @@ db.upsert_story(
     fauna=[
         fauna.KRAKEN,
         fauna.SAWMAW,
-        # New with this set, named only as an ingredient on Chowder's menu.
         fauna.KULPIE,
     ],
     equipment=["dead-threads"],
@@ -315,8 +282,6 @@ db.upsert_story(
     title="Monarch",
     characters=[
         "boltyn",
-        # Already curated — named here only to link them to this page. Kind and
-        # status are left empty so the existing curated values are preserved.
         people.BLASMOPHET,
         people.SOL,
         people.URSUR,
@@ -344,8 +309,6 @@ db.upsert_story(
     characters=[
         "enigma",
         "nuu",
-        # Already curated — named here only to link them to this page. Kind and
-        # status are left empty so the existing curated values are preserved.
         people.DAN_LU_KOTORI_GALEWARDEN,
         people.KAZUO,
         people.KOUKI,
@@ -355,13 +318,9 @@ db.upsert_story(
     ],
     fragments={"enigma": "10000-year-reunion"},
     locations=[
-        # Spelled to match the live row that Wanderings in the Mists registers.
-        # "Aui's Scale Strongholds" is an unlinked duplicate awaiting deletion.
         loc.AUI_S_SCALES_STRONGHOLDS,
         loc.KIROHIME_GATE,
         loc.MISTCLOAK_GULLY,
-        # Murky Water's "Butcher" is the hero Riptide; deliberately not linked, as
-        # the tile never names him and the DB holds two unrelated Butcher character rows.
         loc.SEETHE,
     ],
     regions=[
@@ -381,8 +340,6 @@ db.upsert_story(
         "melody",
         "oscilio",
         "verdance",
-        # Already curated — named here only to link them to this page. Kind and
-        # status are left empty so the existing curated values are preserved.
         people.DAVNIR,
         people.QUEEN_OF_CANDLEHOLD,
         people.YVOR,
@@ -413,8 +370,6 @@ db.upsert_story(
     story_type="digital-tiles",
     title="Tales of Aria",
     characters=[
-        # Already curated — named here only to link them to this page. Kind and
-        # status are left empty so the existing curated values are preserved.
         people.DAVNIR,
         people.QUEEN_OF_CANDLEHOLD,
         people.YVOR,
@@ -442,8 +397,6 @@ db.upsert_story(
         "cindra",
         "emperor",
         "taipanis",
-        # Already curated — named here only to link them to this page. Kind and
-        # status are left empty so the existing curated values are preserved.
         people.DR_KREST_MORTIMER_THE_FIXER,
     ],
     fragments={"cindra": "wrath-of-retribution"},

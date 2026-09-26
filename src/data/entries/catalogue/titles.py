@@ -49,38 +49,8 @@ GRAND_MAGISTER = TitleEntry(
         (people.GRAND_MAGISTER_THE_STEADFAST, 5, "world-of-rathe/solana.md"),
     ),
 )
-"""The office that leads Solana's Grand Council.
-
-``world-of-rathe/solana.md`` names all five in order — the Devout, the Adamant,
-the Radiant, the Beloved and the Steadfast, "the fifth and current" — so the
-ordinals are read off the page rather than inferred. All five are now declared
-here; each ``characters.py`` row still carries the office baked into its display
-name (``Grand Magister, the Devout`` and siblings) — untangling that is a
-separate rename decision, not a prerequisite for this table (see the module
-docstring above).
-
-**Holders are replace-semantic.** A shorter list is a deletion, and the dry run
-prints a ``REMOVED`` line for exactly that reason."""
 
 MAGISTER = TitleEntry(
     "Magister",
     holders=((people.THE_LIBRARIAN, 0, "other-characters/the-librarian.md"),),
 )
-"""One of the eight seats beneath the Grand Magister — a different office, not a
-lesser grade of the same one.
-
-``other-characters/the-librarian.md`` is explicit that the eight "work alongside
-the Grand Magister", and that "one Magister watches over the Library of
-Illumination"; ``world-of-rathe/solana.md`` names only five people as Grand
-Magisters and the Librarian is not among them. Registering the Librarian under
-``GRAND_MAGISTER`` would assert something both pages contradict.
-
-``ordinal`` is ``0``: the eight seats carry no stated succession, which is the
-case that field's ``0`` exists for.
-
-The Librarian is a playable hero *and* an ordinary character — one
-``characters`` row (``LC158fd93075``), linked to canonical hero
-``the-librarian``. ``people.THE_LIBRARIAN`` and the bare slug ``"the-librarian"``
-resolve to that same row through ``character_heroes``; the constant is used here
-because it is the identity, and the slug is only one of its names. This is the
-case migration 12 was built for, and X01 was the defect it closed."""

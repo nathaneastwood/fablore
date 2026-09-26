@@ -22,20 +22,9 @@ AEGIS_THE_SHIELD_OF_LIGHT = CharacterEntry(
     epithets=("the Shield of Light", "Archangel of Protection"),
 )
 ABSOLON = CharacterEntry("Absolon", epithets=("god of the great deep",))
-"""A Dhani deity, and **not a kind row** — gods are a role, not a kind of being
-(the user's call, 2026-08-21), so both gods reach the generated page through
-``grp.DHANI_DEITIES`` instead. The epithet keeps the page's own lower-case "god",
-as ``hag of Mojire`` and ``the Shield of Light`` keep theirs.
-
-Reachable only because stage 5 added ``entries/world_of_rathe.py``: he is named as
-a god on ``world-of-rathe/high-seas.md:125`` alone. The eight mentions on the
-already-declared ``captain-bones-and-the-city-of-gold.md`` are all the Kuraghan
-flagship ``Absolon's Dream``, never the god."""
 
 
 ADU = CharacterEntry("Adu")
-"""``weapons/rok.md:5`` — "Ambassador Adu", on the receiving end of the Rok. The
-office is not part of the name and the text gives no species, so no kind."""
 AELIUS = CharacterEntry("Aelius", kinds=kind.HUMAN, status="Dead")
 AIOS = CharacterEntry(
     "Aios",
@@ -45,12 +34,8 @@ AIOS = CharacterEntry(
 )
 AKUO = CharacterEntry("Akuo", kinds=kind.HUMAN)
 ALKA_BIGGUNS = CharacterEntry("Alka Bigguns", kinds=kind.HUMAN, epithets=("Don of Coppertown",))
-"""world-of-rathe/pits.md:29."""
 AMBER = CharacterEntry("Amber", kinds=kind.HUMAN, status="Alive")
 AUDACITY = CharacterEntry("λud@c!ty")
-"""The Foundry's operator. metrix.md:201 says nobody knows "their real name,
-face, or if they're a single person or a collective of dissidents operating
-under a shared alias" — hence no kind and no status."""
 ALIF = CharacterEntry("Alif", kinds=kind.HUMAN, status="Alive")
 ALOSYN = CharacterEntry("Alosyn", kinds=kind.HUMAN)
 AMIR = CharacterEntry(
@@ -64,9 +49,6 @@ ANARCH_ZEIR = CharacterEntry(
     kinds=kind.HUMAN,
     epithets=("First Anarch of L'Apocalypta",),
 )
-"""``Anarch`` is already in the display name; the epithet is the full title, from
-``flavour/compendium-of-rathe.md:76`` — "Zeir, First Anarch of L'Apocalypta"
-(PEN277). He is the sole member of ``grp.L_APOCALYPTA``'s roster."""
 ANHE_KOTORI_WAVEBENDER = CharacterEntry("Anhe, Kotori Wavebender", kinds=kind.HUMAN)
 APOSTATE = CharacterEntry("Apostate", kinds=kind.HUMAN)
 ARBITER_MAGISTER_OF_JUSTICE = CharacterEntry("Arbiter, Magister of Justice")
@@ -86,23 +68,12 @@ AVALON_MESSENGER_OF_THE_DAWN = CharacterEntry(
 )
 BAM_BAM = CharacterEntry("Bam Bam", kinds=kind.BRUTE)
 BARON_DRIP = CharacterEntry("Baron Drip", kinds=kind.HUMAN)
-"""world-of-rathe/pits.md:57."""
 BARON_THE_BUTCHER = CharacterEntry("Baron the Butcher", kinds=kind.HUMAN, status="Dead")
 BARTON = CharacterEntry("Barton", kinds=kind.HUMAN)
 BARTON_MOLE = CharacterEntry("Barton Mole", kinds=kind.HUMAN)
-"""world-of-rathe/pits.md."""
 BARTRAND_THE_BLOODY = CharacterEntry("Bartrand the Bloody", kinds=kind.HUMAN)
 BARUS_BOLDSTRIDE = CharacterEntry("Barus Boldstride", kinds=kind.HUMAN)
 AZVOLAI = CharacterEntry("Azvolai", kinds=kind.DRAGON)
-"""One of the eleven dragons stage 5 gave a row (2026-08-21). They were the bulk
-of the fourteen names in ``src/data/md/character-groups.md`` that had no database
-row of any kind, while ``kind.DRAGON`` held only Miragai.
-
-The hand-written file also carried ``Pronounciation`` and ``Phonetic`` columns for
-each. Those are **dropped** rather than migrated (the user's call): ``npcs`` is the
-one registry with no prose column, and the identical table already lives at
-``archive/world-of-rathe/volcor/welcome-to-volcor.md:19-35`` — verified cell for
-cell, "Pronounciation" typo included, only the male-table row order differing."""
 BATBITER = CharacterEntry("Batbiter")
 BAZZ = CharacterEntry("Bazz", kinds=kind.HUMAN, status="Dead")
 BEEZY_THE_BRASH = CharacterEntry("Beezy the Brash", kinds=kind.HUMAN, status="Dead")
@@ -114,7 +85,6 @@ BELLONA_THE_WARTUNE_HERALD = CharacterEntry(
 BISKI = CharacterEntry("Biski", kinds=kind.DOG)
 BLASMOPHET = CharacterEntry("Blasmophet", kinds=kind.EMBRA, epithets=("the Soul Harvester",))
 BLAVE = CharacterEntry("Blave", kinds=kind.HUMAN, status="Dead")
-"""main-story/outsiders/the-spiders-trap.md:100 — "The traitor bleeds out on the floor"."""
 BLIND_BOGGY = CharacterEntry("Blind Boggy")
 BLOODWORTH_GOLDMANE = CharacterEntry(
     "Bloodworth Goldmane",
@@ -135,16 +105,12 @@ BRAUMEISTER_BALEN = CharacterEntry(
         ),
     ),
 )
-"""Valda's foster father — main-story/mastery-pack-guardian/trouble-in-larinkmorth.md:55-61,
-"her foster father's stories of the day... So I named you Valda, after my
-grandmother"."""
 BREWMEISTER_MARV = CharacterEntry("Brewmeister Marv", kinds=kind.HUMAN)
 BRUTUS_SUMMA_RUDIS = CharacterEntry("Brutus, Summa Rudis")
 BUTCHER_JEK = CharacterEntry("Butcher Jek", kinds=kind.HUMAN)
 BUTTONS = CharacterEntry("Buttons", kinds=kind.HUMAN, status="Alive")
 CAGER = CharacterEntry("Cager", kinds=kind.HUMAN, status="Alive")
 CAOIMHE = CharacterEntry("Caoimhe", kinds=kind.HUMAN, epithets=("Witch",))
-"""world-of-rathe/demonastery.md:67 — "Caoimhe, Witch". Kind assumed, as for every Demonastery resident."""
 CAPTAIN_BLUDGE = CharacterEntry("Captain Bludge")
 CAPTAIN_COODER_OF_THE_SWIFTWATER_WARDEN_COODER = CharacterEntry(
     "Captain Cooder of the Swiftwater / Warden Cooder", kinds=kind.HUMAN
@@ -157,33 +123,24 @@ CAPTAIN_RUE = CharacterEntry("Captain Rue", kinds=kind.HUMAN, status="Dead")
 CAPTAIN_SHEVEZ = CharacterEntry("Captain Shevez")
 CAPTAIN_VANEGULL = CharacterEntry("Captain Vanegull", kinds=kind.HUMAN)
 CAREM_DUNFIRTH = CharacterEntry("Carem Dunfirth", status="Dead", epithets=("of the Scarborough Expedition",))
-"""world-of-rathe/savage-lands.md — author of "The Primal Way". No kind stated."""
 CARVA = CharacterEntry(
     "Carva",
     kinds=kind.HUMAN,
     status="Dead",
     kin=((BLAVE, "sibling", "main-story/outsiders/the-spiders-trap.md"),),
 )
-"""Killed by Uzuri on main-story/outsiders/the-spiders-trap.md:78. Blave's sibling —
-same page, l.46: "Two more of Uzuri's spider's nest turned traitor... The siblings
-share a lack of imagination"."""
 CAYLIN = CharacterEntry("Caylin", kinds=kind.HUMAN, status="Dead")
 CAYLIN_S_MOTHER = CharacterEntry("Caylin's mother", kinds=kind.HUMAN, status="Dead")
 CHANCELLOR_HELENA_PRIMAVERA = CharacterEntry("Chancellor Helena Primavera", kinds=kind.HUMAN)
 CHANCELLOR_HYPATIA = CharacterEntry("Chancellor Hypatia", kinds=kind.HUMAN)
 CHARIS = CharacterEntry("Charis", kinds=kind.HUMAN)
 CHARLOTTE = CharacterEntry("Charlotte", kinds=kind.ROBOT)
-"""A robot, not a dog (the user's call, 2026-08-25, read off the card art).
-metrix.md:91 calls her "his trusty (and rusty) pet junkyard dogg" — *rusty* is
-the tell, and `Dogg` was a kind of one member that recorded what she looks like
-rather than what she is."""
 CHIARA_SUNCREST = CharacterEntry("Chiara Suncrest")
 CHOWDER = CharacterEntry("Chowder", kinds=kind.ZOMBIE)
 CHUM = CharacterEntry("Chum", kinds=kind.ZOMBIE, status="Dead")
 CIRRUS = CharacterEntry("Cirrus", kinds=kind.HUMAN)
 COBBS = CharacterEntry("Cobbs", kinds=kind.HUMAN)
 CORVA = CharacterEntry("Corva", kinds=kind.HUMAN, status="Dead", epithets=("Biomancer",))
-"""world-of-rathe/demonastery.md:71 — "Corva, Biomancer (Deceased)"."""
 COUNTESS_CAMILLA = CharacterEntry("Countess Camilla")
 COX = CharacterEntry("Cox")
 CUTTY = CharacterEntry("Cutty", kinds=kind.ZOMBIE, status="Dead")
@@ -193,19 +150,12 @@ DARIAN = CharacterEntry("Darian", kinds=kind.HUMAN, status="Dead")
 DARIUS = CharacterEntry("Darius", kinds=kind.HUMAN)
 DARYAS_NIMBUS = CharacterEntry("Daryas Nimbus")
 CROMAI = CharacterEntry("Cromai", kinds=kind.DRAGON)
-"""See ``AZVOLAI`` — one of the eleven, and the same note applies."""
 DAVNIR = CharacterEntry(
     "Davnir",
     kinds=kind.ANCIENT,
     status="Dead",
     epithets=("Ancient of Earth", "Ancient of Earth and Lightning"),
 )
-"""Two epithets, both attested, kept the way ``THEMIS_KEEPER_OF_THE_SCALES`` keeps
-three (the user's call, 2026-08-21). ``world-of-rathe/aria.md:167`` lists him
-alongside his siblings as "Davnir, Ancient of Earth"; ``main-story/tales-of-aria/
-amongst-the-brambles.md:9`` writes "Davnir, Ancient of Earth and Lightning". The
-hand-written character-groups.md carried only the second, so the form aria.md uses
-matched no tooltip."""
 DAXIUS = CharacterEntry(
     "Daxius",
     kinds=kind.HUMAN,
@@ -214,7 +164,6 @@ DAXIUS = CharacterEntry(
 )
 DEMETRIOS = CharacterEntry("Demetrios", kinds=kind.BRUTE)
 DENG = CharacterEntry("Deng")
-"""main-story/uprising/calm-before-the-storm.md:33, in flashback only."""
 DERVIN_MASTER_OF_BEASTS = CharacterEntry("Dervin, Master of Beasts", kinds=kind.HUMAN, epithets=("Master of Beasts",))
 DHERIC = CharacterEntry(
     "Dheric",
@@ -225,15 +174,8 @@ DHERIC = CharacterEntry(
         (DAXIUS, "grandparent", "short-stories/dusk-till-dawn/no-pain-no-gain.md"),
     ),
 )
-"""short-stories/dusk-till-dawn/no-pain-no-gain.md:3 — "Dheric, son of Darian,
-grandson of Daxius". Both halves are stated directly here rather than the
-grandparent fact being derived from Dheric's and Darian's separately-stated
-father links (see DAXIUS): character_kin has never computed one fact from
-two others, and grandparent (migration 21) is no exception."""
 DOMINIA = CharacterEntry("Dominia", kinds=kind.DRAGON)
-"""See ``AZVOLAI`` — one of the eleven, and the same note applies."""
 DRACONA_OPTIMAI = CharacterEntry("Dracona Optimai", kinds=kind.DRAGON)
-"""See ``AZVOLAI`` — one of the eleven, and the same note applies."""
 DR_KREST_MORTIMER_THE_FIXER = CharacterEntry(
     "Dr. Krest Mortimer, 'The Fixer'",
     kinds=kind.HUMAN,
@@ -267,10 +209,6 @@ FAI = CharacterEntry(
     hero_slug="fai",
     kin=(("dromai", "sibling", "main-story/uprising/dragons-of-empire.md", "adoptive"),),
 )
-"""Only a ``kin=`` holder so far — nothing else here needs the identity claim
-``hero_slug`` makes, but the adoptive-sibling fact (Dromai and Fai are raised
-together by Min, dragons-of-empire.md: "Her adoptive brother was her minion")
-has to live on some ``CharacterEntry``, and Fai has none until now."""
 FARIN_THE_PORTER = CharacterEntry("Farin the Porter", kinds=kind.HUMAN)
 FARRIS = CharacterEntry("Farris", kinds=kind.HUMAN)
 FAYYAD = CharacterEntry("Fayyad", kinds=kind.HUMAN, status="Alive")
@@ -282,7 +220,6 @@ FLANNIGAN = CharacterEntry("Flannigan", kinds=kind.HUMAN)
 FLORENCE = CharacterEntry("Florence", kinds=kind.HUMAN, status="Alive")
 FOREMAN_PEBB = CharacterEntry("Foreman Pebb")
 FRANCESCA_ZINNIA = CharacterEntry("Francesca Zinnia", kinds=kind.HUMAN, status="Dead")
-"""world-of-rathe/metrix.md — died shortly after Zinnia Park opened."""
 FREYA_ELDINGSTURM = CharacterEntry("Freya Eldingsturm")
 FUGGER_GRIMES = CharacterEntry("Fugger Grimes")
 FUMEI = CharacterEntry(
@@ -296,28 +233,13 @@ FUMEI = CharacterEntry(
         ),
     ),
 )
-"""part-4-the-hare-and-the-snake.md:35,39 — "I'll always know my real sister,"
-Nuu says, of their "adopted sisterhood". No kind or status: the page gives
-neither."""
 FYANNA_REDMOOR = CharacterEntry(
     "Fyanna Redmoor",
     kinds=kind.HUMAN,
     kin=(("boltyn", "cousin", "heroes-of-rathe/boltyn-about.md"),),
 )
-"""boltyn-about.md:9 — "his honorable cousin, Fyanna Redmoor". The relation is
-already stated by ``kin``; the name itself carried "Boltyn's cousin" as a
-suffix, which duplicated that fact in the one field every consuming page
-displays verbatim."""
 GALAPHOR = CharacterEntry("Galaphor", kinds=kind.HUMAN, status="Dead")
 FYENDAL = CharacterEntry("Fyendal")
-"""Named only by a card title — "Fyendal's Fighting Spirit" (UPR194) — whose
-flavour line, "The old ways are not forgotten.", does not mention him. Included on
-the user's call (2026-08-21), under the same reading that lets the twelve dragons
-in from ``Invoke <name>`` titles.
-
-No kind and no status: nothing on the page says anything about him. The only
-other trace of the name in the registry is the equipment ``Fyendal's Spring
-Tunic``, which this page does not name."""
 
 GALCIA = CharacterEntry(
     "Galcia",
@@ -325,24 +247,17 @@ GALCIA = CharacterEntry(
     status="Dead",
     epithets=("Ancient of Ice",),
 )
-"""The one Ancient whose epithet the pages and character-groups.md agree on."""
 GAWAIN = CharacterEntry("Gawain", kinds=kind.HUMAN)
 GENERAL_CHUL = CharacterEntry("General Chul", kinds=kind.HUMAN)
 GENERAL_EKODA = CharacterEntry("General Ekoda", kinds=kind.HUMAN)
 GENERAL_KODA = CharacterEntry("General Koda", kinds=kind.HUMAN, status="Dead")
-"""weapons/merciless-battleaxe.md:5 — held the bridge at Sworyuk Gorge and "died of
-his wounds". Reviewed against GENERAL_EKODA and confirmed as a distinct character;
-see csv/reviewed-name-pairs.csv."""
 GENERAL_NAKAMI = CharacterEntry("General Nakami", kinds=kind.HUMAN)
 GENERAL_RIKU = CharacterEntry("General Riku", kinds=kind.HUMAN, status="Dead")
 GENERAL_UMADESU = CharacterEntry("General Umadesu", kinds=kind.HUMAN, status="Dead", short_names=("Umadesu",))
-"""equipment/seasoned-saviour.md — "fought and died in the throes of duty"."""
 GENERAL_YAMATOKA = CharacterEntry("General Yamatoka", kinds=kind.HUMAN, status="Alive")
 GIANTSLAYER_CRIX = CharacterEntry("Giantslayer Crix", kinds=kind.HUMAN)
 GOVERNOR_PRACTISS = CharacterEntry("Governor Practiss", kinds=kind.HUMAN)
 GAVIN = CharacterEntry("Gavin")
-"""Named once, at krest-mortimer.md:39 — he owes Mortimer a favour. Kind and
-status are left to default rather than guessed."""
 GRAHAM_THE_GALLANT = CharacterEntry("Graham the Gallant", kinds=kind.HUMAN)
 GRANDMASTER_LI = CharacterEntry("Grandmaster Li", kinds=kind.HUMAN)
 GRAND_MAGISTER_THE_ADAMANT = CharacterEntry("Grand Magister, the Adamant", kinds=kind.HUMAN, status="Assumed Dead")
@@ -350,12 +265,7 @@ GRAND_MAGISTER_THE_BELOVED = CharacterEntry("Grand Magister, the Beloved", kinds
 GRAND_MAGISTER_THE_DEVOUT = CharacterEntry("Grand Magister, the Devout", kinds=kind.HUMAN, status="Assumed Dead")
 GRAND_MAGISTER_THE_RADIANT = CharacterEntry("Grand Magister, the Radiant", kinds=kind.HUMAN)
 GRAND_MAGISTER_THE_STEADFAST = CharacterEntry("Grand Magister, The Steadfast", kinds=kind.HUMAN)
-"""Five rows for one office, and the case drift on ``The Steadfast`` makes it six
-spellings' worth of hash. Adamant and Beloved had npcs.csv rows and no constant at
-all until stage 4 needed every kind declared somewhere. Stage 7 collapses the
-five into one title with five holders; until then they are five characters."""
 GRANNIE_SANDLAR = CharacterEntry("Grannie Sandlar", kinds=kind.HUMAN)
-"""equipment/comeback-kicks.md — matriarch of the Sandlars of the Moat."""
 GREENBIRD = CharacterEntry("Greenbird", kinds=kind.HUMAN)
 GROTA = CharacterEntry("Grota", kinds=kind.HUMAN, status="Alive")
 GUDO_MISTWARD_PILGRIM = CharacterEntry("Gudo, Mistward Pilgrim", kinds=kind.HUMAN)
@@ -379,30 +289,14 @@ HOG = CharacterEntry("Hog", kinds=kind.HUMAN)
 HUXLEY = CharacterEntry("Huxley", kinds=kind.HUMAN)
 HYRINTH = CharacterEntry("Hyrinth")
 INFERNAI = CharacterEntry("Infernai", kinds=kind.AESIR, epithets=("Aesir of Flames",))
-"""Named as "Infernai" on ``world-of-rathe/volcor.md:125`` and as his epithet
-"the Aesir of Flames" on UPR006. This row was called ``Aesir of Flames`` until
-2026-08-26, when the user settled it: the name is Infernai, the epithet is
-``Aesir of Flames`` — the same shape as :data:`ISEN`."""
 INQUISITOR_ARICIA = CharacterEntry("Inquisitor Aricia")
 IRUNAMEABH = CharacterEntry("Írunaméabh")
 ISEN = CharacterEntry("Isen", kinds=kind.ANCIENT, epithets=("Ancient of Earth and Ice",))
-"""**The epithet is on the user's authority, not a page** (2026-08-21). Every other
-Ancient's epithet is quoted somewhere; this one is quoted nowhere. Isen himself is
-attested — ``main-story/everfest/a-grand-adventure.md:197`` has a wayfarer say
-"I've heard legends of the Ancients, Yvor, Davnir, Isen..." — but that line gives
-no title, and ``world-of-rathe/aria.md:39`` says only that "Isen stood upon the
-mountain's summit and crafted the Isen Ranges with earth and aether", which is the
-reading "Earth and Ice" came from rather than an attestation of it.
-
-No ``status``, deliberately. Davnir, Yvor and Galcia are all ``Deceased`` and it
-would be easy to assume the fourth; no page says so, and "nobody said" is not a
-fact about a character."""
 JACKDAW = CharacterEntry("Jackdaw", kinds=kind.HUMAN)
 JAPE = CharacterEntry("Jape", kinds=kind.HUMAN, status="Alive")
 JEEVES = CharacterEntry("Jeeves", kinds=kind.HUMAN)
 JEMJANG = CharacterEntry("Jemjang", kinds=kind.HUMAN, status="Dead")
 JEROVE = CharacterEntry("Jerove", kinds=kind.HUMAN, epithets=("the Fleshbinder",))
-"""world-of-rathe/demonastery.md:85."""
 JEZABELLE_EVERFEST_HEALER_AND_ALLSORTS = CharacterEntry("Jezabelle, Everfest Healer and Allsorts", kinds=kind.HUMAN)
 JIGSAW = CharacterEntry("Jigsaw", kinds=kind.HUMAN, status="Alive")
 JING = CharacterEntry(
@@ -412,7 +306,6 @@ JING = CharacterEntry(
     kin=(("ira", "sibling", "main-story/crucible-of-war/edge-of-autumn.md"),),
 )
 JIRO_HENSHU = CharacterEntry("Jiro Henshu", kinds=kind.HUMAN)
-"""world-of-rathe/misteria.md:23 — of House Sanjing. Kind by pattern, not stated."""
 JUICE = CharacterEntry("Juice", kinds=kind.HUMAN)
 JULES_TEKLOVOSSEN = CharacterEntry(
     "Jules Teklovossen",
@@ -421,19 +314,8 @@ JULES_TEKLOVOSSEN = CharacterEntry(
     hero_slug="teklovossen",
     short_names=("Teklovossen",),
 )
-"""One person, not two. The card name is the short one and the lore name is the
-full one, so the hero row and the prose row were two `characters` rows for a
-man who is both. `hero_slug` folds them onto one `character_id`; `Teklovossen`
-becomes the short-name it always was."""
 KALSHARPE = CharacterEntry("Kalsharpe", kinds=kind.HUMAN)
 KARALYN = CharacterEntry("Karalyn")
-"""Was the last ``npcs.csv`` row with no constant at all — reachable from no
-declaration, so nothing could write to it. Found 2026-08-20 by the stage 4 review
-and closed by registering ``flavour/compendium-of-rathe.md``, which is the only
-page that names her: "Two worlds, one story, written in the alphabets of Aether
-and Aesir." — Aetherscribe Karalyn (PEN113). ``Aetherscribe`` is a profession and
-waits for R9; her kind is unattested, and the retired column said ``Unknown``,
-which is not a fact about a character."""
 KARL = CharacterEntry("Karl")
 KAYAT = CharacterEntry("Kayat", status="Dead")
 KAYSIN = CharacterEntry("Kaysin")
@@ -445,10 +327,8 @@ KNUCKLES = CharacterEntry("Knuckles", kinds=kind.HUMAN, status="Dead")
 KOSSEN = CharacterEntry("Kossen", kinds=kind.HUMAN)
 KOUKI = CharacterEntry("Kouki", kinds=kind.HUMAN)
 KOVA = CharacterEntry("Kova", status="Alive")
-"""A Dracai — main-story/uprising/calm-before-the-storm.md:19. Kind unstated."""
 KYLE = CharacterEntry("Kyle", kinds=kind.HUMAN)
 KYLORIA = CharacterEntry("Kyloria", kinds=kind.DRAGON)
-"""See ``AZVOLAI`` — one of the eleven, and the same note applies."""
 LADY_BARTHIMONT = CharacterEntry(
     "Lady Barthimont",
     kinds=kind.HUMAN,
@@ -459,7 +339,6 @@ LADY_VERA_SUTCLIFFE = CharacterEntry("Lady Vera Sutcliffe", kinds=kind.HUMAN)
 LENA_BELLE = CharacterEntry("Lena Belle", kinds=kind.HUMAN)
 LEONA = CharacterEntry("Leona")
 LETO = CharacterEntry("Leto", kinds=kind.HUMAN)
-"""A templar of the Hand of Sol who carried the Blade of Eridani — weapons/nebula-blade.md:3."""
 LIEUTENANT_LI = CharacterEntry("Lieutenant Li", kinds=kind.HUMAN)
 LIEUTENANT_TIMAEUS = CharacterEntry("Lieutenant Timaeus", kinds=kind.HUMAN)
 LIEUTENANT_YAMADA = CharacterEntry("Lieutenant Yamada", kinds=kind.HUMAN, status="Dead")
@@ -474,30 +353,10 @@ LORD_BARTHIMONT = CharacterEntry(
     kinds=kind.HUMAN,
     kin=((LADY_BARTHIMONT, "spouse", "other-characters/lady-barthimont.md"),),
 )
-"""Lady Barthimont's husband — other-characters/lady-barthimont.md."""
 LORD_MERCHANT_SAVAI = CharacterEntry("Lord Merchant Savai", kinds=kind.HUMAN, status="Dead")
 LORD_SABUTO = CharacterEntry("Lord Sabuto", kinds=kind.HUMAN)
 LORD_SUTCLIFFE = CharacterEntry("Lord Sutcliffe", kinds=kind.HUMAN, status="Unknown")
 LORD_WIZARD_AKIHIKO = CharacterEntry("Lord Wizard Akihiko", kinds=kind.HUMAN, status="Dead")
-"""Kano's mentor, and the Lord Wizard who oversees the Trial of Embers.
-
-Named on three arcane-rising pages and given a row only now, on the same finding
-that turned up ``the-phoenix-and-the-dragon.md``: ``playing-with-fire.md`` runs the
-trial through him, ``smoke-and-mirrors.md`` has him attack Kano and die of the
-parasite that was already killing him, and ``from-the-ashes.md`` makes his corpse
-the evidence. **None of the three is declared**, so nothing reaches this constant
-yet and no declaration writes it.
-
-Named with the title to match ``LORD_WIZARD_CHIYO`` rather than fixing one of a
-pair; both are D5 renames and go to stage 7 together.
-
-Read ``Deceased`` here until migration 12, where ``Chiyo`` beside him already read
-``Dead`` — the two words meant the same thing and the column held both, along
-with ``Gone``, ``Just a head`` and ``Spider-bot assistant to Jules
-Teklovossen``: free text doing the job of prose. ``status`` is now a closed
-five-value vocabulary (``Unknown``, ``Alive``, ``Dead``, ``Assumed Dead``,
-``Missing``); the two sentence-shaped values folded to ``Unknown`` for now —
-the sentence belongs in the ``summary`` column a later stage adds."""
 LORD_WIZARD_CHIYO = CharacterEntry(
     "Lord Wizard Chiyo",
     status="Dead",
@@ -510,21 +369,7 @@ MADAME_FUSE = CharacterEntry("Madame Fuse", kinds=kind.HUMAN, status="Alive")
 MADAM_ROUGE = CharacterEntry("Madam Rouge", kinds=kind.HUMAN, status="Dead")
 MAD_SIV = CharacterEntry("Mad Siv")
 MAELA_ISULFV = CharacterEntry("Maela Isulfv", short_names=("Isulvf",))
-"""``Isulvf`` and ``Isulfv`` are the same seer (the user's call, 2026-08-21) — the
-spellings are letter-transpositions and both are Aria seers.
-``main-story/everfest/a-grand-adventure.md`` calls him "Isulvf, the oldest and
-wisest seer in the whole village" of Volthaven; ``flavour/omens-of-the-third-age.md``
-and the Omens tiles page credit quotes to "Maela Isulfv".
-
-Recorded as a ``short-name`` rather than fixed, because deciding which spelling is
-the typo is a rename and renames are stage 7. Both forms reach one tooltip
-meanwhile, which is the part that would otherwise be lost. Without this, registering
-a-grand-adventure.md would have minted a second row for one person — the near-
-duplicate hazard the registration rules exist to catch."""
 MARA = CharacterEntry("Māra")
-"""One of Lexi's troupe in ``main-story/everfest/a-grand-adventure.md`` — "the
-aspiring magician Māra - who has a flair for the dramatic". No kind: the page
-never says, and the macron is part of the name as printed."""
 
 MAELA_FAIRMIND = CharacterEntry("Maela Fairmind")
 MAELA_ONE_EYE = CharacterEntry("Maela One-eye")
@@ -536,15 +381,12 @@ MARBLES = CharacterEntry("Marbles", kinds=kind.MEEP)
 MARCUS = CharacterEntry("Marcus", kinds=kind.HUMAN)
 MARCUS_MAULER_MONROE = CharacterEntry("Marcus 'Mauler' Monroe", kinds=kind.HUMAN, status="Alive")
 MARROW = CharacterEntry("Marrow", status="Alive")
-"""main-story/outsiders/the-spiders-trap.md:140 — the Numbskulls' "skeletal overseer". Bone-trophy garb or an
-undead kind: the page does not say, so no kind."""
 MASTER_MORITA_ART_OF_THE_HAND = CharacterEntry("Master Morita, Art of the Hand", kinds=kind.HUMAN, status="Alive")
 MASTER_SAORI = CharacterEntry("Master Saori", kinds=kind.HUMAN, status="Alive")
 MASTER_TAKUMI = CharacterEntry("Master Takumi", kinds=kind.HUMAN, status="Alive")
 MASTER_UDO = CharacterEntry("Master Udo", kinds=kind.HUMAN)
 MAXWELL = CharacterEntry("Maxwell", kinds=kind.HUMAN)
 MEAZE_BANZE = CharacterEntry("Meaze Banze", kinds=kind.HUMAN, status="Alive")
-"""world-of-rathe/metrix.md — a Metrix director."""
 MELDRICK_SUDDS = CharacterEntry("Meldrick Sudds", kinds=kind.HUMAN, status="Alive")
 MELTEN_WICK = CharacterEntry("Melten Wick", kinds=kind.HUMAN, status="Alive")
 MERLEN_RIVERA = CharacterEntry("Merlen Rivera", kinds=kind.HUMAN)
@@ -565,13 +407,9 @@ MINERVA_THEMIS = CharacterEntry(
 MERCURIUS = CharacterEntry(
     "Mercurius",
     kinds=kind.HUMAN,
-    # other-characters/minerva-themis.md:5 — "she'd seen her brother cut down in
-    # the brief battle". That page is the evidence for both the status and the kin.
     status="Dead",
     kin=((MINERVA_THEMIS, "sibling", "other-characters/minerva-themis.md"),),
 )
-"""Defined after MINERVA_THEMIS, out of alphabetical order, because ``kin`` needs
-the constant to exist already. The first ``kin=`` use in the catalogue."""
 MIN_OF_THE_FOREST_OF_FLAMES = CharacterEntry(
     "Min of the Forest of Flames",
     kinds=kind.HUMAN,
@@ -580,33 +418,22 @@ MIN_OF_THE_FOREST_OF_FLAMES = CharacterEntry(
         ("dromai", "child", "main-story/uprising/betrayal.md", "adoptive"),
     ),
 )
-"""Fai's birth mother — main-story/uprising/fires-of-rebellion.md:3, "Fai's mother,
-Min, spoke of a better time" — and Dromai's foster mother, betrayal.md:13,
-"she recited her foster mother's crime". The two facts carry different
-qualifiers on purpose: one row of ``character_kin`` per stated fact, and these
-two agree on who Min is but not on how each bond was formed."""
 MIRAGAI = CharacterEntry("Miragai", kinds=kind.DRAGON)
 MISS_Q = CharacterEntry("Miss Q")
 MISTRESS_IKARU = CharacterEntry("Mistress Ikaru", kinds=kind.HUMAN)
-"""world-of-rathe/misteria.md:37 — founder of the Ikaru house; distinct from grp.IKARU_CLAN."""
 MOLLY_THE_MOP = CharacterEntry("Molly the Mop", kinds=kind.HUMAN, status="Alive")
 MOLOCA = CharacterEntry("Moloca")
 MORAY = CharacterEntry("Moray", kinds=kind.HUMAN)
 MORAY_LE_FAY = CharacterEntry("Moray Le Fay", kinds=kind.ZOMBIE)
 MORGAN = CharacterEntry("Morgan", kinds=kind.HUMAN)
 MORGA_GRINNING_BOAR_CANTINA_BARMAID = CharacterEntry("Morga, Grinning Boar Cantina Barmaid", kinds=kind.HUMAN)
-"""No epithet. The glued tail is a place plus a job — the ``Grinning Boar Cantina``
-locations row and the profession ``Barmaid`` — so both halves wait for R9 rather
-than being read as a style she is known by."""
 MUTINOUS_MAGGIE = CharacterEntry("Mutinous Maggie", kinds=kind.HUMAN)
 NAILBIT_NARI = CharacterEntry("Nailbit Nari", kinds=kind.HUMAN)
 NARAKIR = CharacterEntry("Narakir", kinds=kind.WELKIN)
 NASRETH = CharacterEntry("Nasreth", kinds=kind.EMBRA, epithets=("the Soul Harrower",))
 NEKRIA = CharacterEntry("Nekria", kinds=kind.DRAGON)
-"""See ``AZVOLAI`` — one of the eleven, and the same note applies."""
 NESTUS = CharacterEntry("Nestus")
 NIALL = CharacterEntry("Niall", kinds=kind.HUMAN, epithets=("the Arcanist",))
-"""world-of-rathe/demonastery.md:89."""
 NING_KOTORI_MOONSEEKER = CharacterEntry("Ning, Kotori Moonseeker", kinds=kind.HUMAN)
 NJERI = CharacterEntry(
     "Njeri",
@@ -614,27 +441,11 @@ NJERI = CharacterEntry(
     kin=(("uzuri", "child", "main-story/outsiders/its-just-business.md"),),
 )
 NOCETES = CharacterEntry("Nocetes", epithets=("God of death",))
-"""A Dhani deity — see ``ABSOLON`` on why gods are a group and not a kind.
-
-**The epithet is on the user's authority, not a page** (2026-08-21), kept as
-``character-groups.md`` wrote it. The pages all use a different construction:
-"thralls of Nocetes, death god of the Dhani" (``world-of-rathe/high-seas.md:143``)
-and "the Dhani death god Nocetes"
-(``main-story/high-seas/captain-bones-and-the-city-of-gold.md:67``). Unlike
-Absolon, Nocetes *is* reachable without the new module — captain-bones names the
-god outright rather than a ship.
-
-``captain-bones...:205`` writes "This was Nocetes' gift, and her curse", the only
-line that genders the deity."""
 ONE_EYE = CharacterEntry("One Eye", kinds=kind.HUMAN, status="Alive")
 OTMAR = CharacterEntry("Otmar", kinds=kind.HUMAN)
 OUVIA = CharacterEntry("Ouvia", kinds=kind.DRAGON)
-"""See ``AZVOLAI`` — one of the eleven, and the same note applies."""
 OVERSEER_CRICHTON = CharacterEntry("Overseer Crichton", kinds=kind.HUMAN, status="Dead")
 ORIEN = CharacterEntry("Orien", status="Alive")
-"""Jarl Vetreiði's travelling companion on
-main-story/mastery-pack-guardian/trouble-in-larinkmorth.md:159, wielding a
-lightning-charged bow. No hero slug yet."""
 OZRIM = CharacterEntry("Ozrim", kinds=kind.ROSETTA)
 PALLAS = CharacterEntry("Pallas", kinds=kind.HUMAN)
 PEARL_SANDHRI = CharacterEntry("Pearl Sandhri", kinds=kind.HUMAN, status="Alive")
@@ -645,26 +456,15 @@ PHAELIN = CharacterEntry(
     status="Dead",
     epithets=("purveyor of coal and rice",),
 )
-"""main-story/uprising/fires-of-rebellion.md — a Volcor merchant tortured to death by Eun."""
 PINWHEEL = CharacterEntry("Pinwheel", kinds=kind.HUMAN, status="Dead")
 POLLY_CRANKA = CharacterEntry("Polly Cranka", kinds=kind.PARROT, status="Alive")
 PROFESSOR_MIN = CharacterEntry("Professor Min", kinds=kind.HUMAN)
 PROSPECTOR_COGMIRE = CharacterEntry("Prospector Cogmire", kinds=kind.HUMAN)
 QUARREL = CharacterEntry("Quarrel", kinds=kind.HUMAN, status="Alive")
 QUEEN_OF_CANDLEHOLD = CharacterEntry("Celvera", kinds=kind.ROSETTA, status="Dead", epithets=("Queen of Candlehold",))
-"""``world-of-rathe/aria.md:65`` names her "Queen Celvera" — the rename the user
-deferred there. ``main-story/tales-of-aria/seeds-of-renewal.md:45`` narrates her
-death explicitly ("The Queen of Candlehold is dead"), the same footing as
-``DAVNIR``'s ``status="Dead"``. The old name is kept as an epithet so it still
-reaches the tooltip and search."""
 QUENTON = CharacterEntry("Quenton", status="Dead")
-"""world-of-rathe/savage-lands.md — a mercenary of the Scarborough Expedition, eaten by brutes. "mercenary" is a
-job, not an epithet, so it is not recorded."""
 RAGNAR_FROSTHELM = CharacterEntry("Ragnar Frosthelm", kinds=kind.HUMAN)
 RAVEN = CharacterEntry("Raven", kinds=kind.AESIR, epithets=("Aesir of Chaos",))
-"""``other-characters/krest-mortimer.md:27`` — "an entity known as the Raven,
-the Aesir of Chaos". The row carried the epithet in its display name until
-2026-08-26; the user settled it as name Raven, epithet ``Aesir of Chaos``."""
 RAY_STINGEYE = CharacterEntry("Ray Stingeye", kinds=kind.HUMAN)
 REINA_SPIRIT_CALLER = CharacterEntry("Reina, Spirit Caller", kinds=kind.HUMAN, epithets=("Spirit Caller",))
 REX_BIGGUN = CharacterEntry("Rex Biggun", kinds=kind.HUMAN)
@@ -674,7 +474,6 @@ RICKY_ROYCE = CharacterEntry("Ricky Royce", kinds=kind.HUMAN)
 RIGGERMORTIS = CharacterEntry("Riggermortis", kinds=kind.ZOMBIE, status="Dead")
 RIGO = CharacterEntry("Rigo", kinds=kind.ROBOT, status="Unknown")
 RUK_UTAN = CharacterEntry("Ruk'utan", kinds=kind.BRUTE, status="Alive", epithets=("Chief",))
-"""world-of-rathe/savage-lands.md:75 — the Brute chief whose tribe holds the Boneyard."""
 RUPIUS_AURIC_SCROLLMASTER = CharacterEntry("Rupius, Auric Scrollmaster", kinds=kind.HUMAN)
 SADA = CharacterEntry("Sada", status="Alive")
 SALVADOR_STALLION = CharacterEntry("Salvador Stallion")
@@ -683,11 +482,6 @@ SANI = CharacterEntry(
     "Sani",
     kin=(("dromai", "child", "main-story/uprising/dragons-of-empire.md"),),
 )
-"""Dromai's mother, "Sani of the Sandfolk"
-(``main-story/uprising/dragons-of-empire.md``), murdered before Dromai could walk
-and appearing in the story only as a mirage the enemy illusionists summon. No
-kind: half of Dromai's parentage is the point of the story and neither half is
-given as a kind anywhere."""
 
 SANNI = CharacterEntry("Sanni", kinds=kind.HUMAN)
 SATSUKI = CharacterEntry("Satsuki", kinds=kind.HUMAN, status="Alive")
@@ -702,30 +496,18 @@ SEPTUS = CharacterEntry("Septus")
 SERAPHINA = CharacterEntry("Seraphina", kinds=kind.HUMAN)
 SETO_OF_MIHARU = CharacterEntry("Seto of Miharu", kinds=kind.HUMAN, status="Alive")
 SHAYA_SANDSCOUR = CharacterEntry("Shaya Sandscour")
-"""weapons/sandscour-greatbow.md — "the notorious Shaya Sandscour", a desert nomad. No kind stated."""
 SHELLY = CharacterEntry("Shelly", kinds=kind.ZOMBIE, status="Dead")
 SHIO = CharacterEntry("Shio", kinds=kind.HUMAN)
 SHIRO = CharacterEntry("Shiro", kinds=kind.HUMAN, status="Alive")
 SIDRIZ = CharacterEntry("Sidriz")
 SILKA = CharacterEntry("Silka", kinds=kind.HUMAN, status="Alive")
 SILVERHAIR = CharacterEntry("Silverhair")
-"""The rebel leader Fai carries off the hill in
-``main-story/uprising/dragons-of-empire.md``. **A name, on the user's call
-(2026-08-21)** — the page introduces her as "a silver-haired woman" and later "the
-silver-haired rebel", but uses the bare word as a name in between: "Silverhair barks
-orders", "she whips Silverhair off her feet". No other page in the repository names
-her, so nothing corroborates the reading either way."""
 
 SKYNDA_FEYSCOUT = CharacterEntry("Skynda Feyscout")
 SLAB = CharacterEntry("Slab", kinds=kind.HUMAN, status="Alive")
-"""Leads the Blockheads — main-story/outsiders/the-spiders-trap.md:138."""
 SLAPSTICK_SAL = CharacterEntry("Slapstick Sal")
 SLINGER = CharacterEntry("Slinger", kinds=kind.HUMAN, status="Alive")
 SOL = CharacterEntry("Sol", kinds=kind.AESIR, epithets=("Aesir of Light",))
-"""The epithet is never written "Sol, Aesir of Light" — both attestations use it
-as a standalone title for him: "subservience to the Aesir of Light"
-(``summaries/war-of-the-monarch-pt-1.md:5``) and "the power perhaps to consume
-even the Aesir of Light" (``main-story/usurp-the-shadow-throne/letters-from-the-beyond.md:79``)."""
 SOREN = CharacterEntry("Soren", kinds=kind.HUMAN)
 SPEAKEASY = CharacterEntry("Speakeasy")
 SPOKES = CharacterEntry("Spokes", kinds=kind.HUMAN)
@@ -755,28 +537,16 @@ TEMPLAR_TIMAERUS = CharacterEntry("Templar Timaerus", kinds=kind.HUMAN)
 TETZUO = CharacterEntry("Tetzuo", kinds=kind.HUMAN, status="Alive")
 THANUELLA = CharacterEntry("Thanuella")
 THAWNE = CharacterEntry("Thawne", kinds=kind.DWARF)
-"""One of Lexi's troupe in ``main-story/everfest/a-grand-adventure.md`` — "the gruff
-dwarven blacksmith Thawne"; the kind is stated in that line. Blacksmith is a
-profession and waits for R9."""
 
 THEBASTO_MAGISTER_OF_DEFENSE = CharacterEntry("Thebasto, Magister of Defense", kinds=kind.HUMAN, status="Alive")
 THEMAI = CharacterEntry("Themai", kinds=kind.DRAGON)
-"""See ``AZVOLAI`` — one of the eleven, and the same note applies."""
 THEMIS_KEEPER_OF_THE_SCALES = CharacterEntry(
     "Themis, Keeper of the Scales",
     kinds=kind.HERALD,
     epithets=("Keeper of the Scales", "Archangel of Judgment", "Archangel of Justice"),
 )
-"""Three epithets for two titles, and that is deliberate (the user's call,
-2026-08-20). ``Archangel of Judgment`` is the form character-groups.md and the
-card text carry; ``compendium-of-rathe.md:34`` credits the same character as
-"Themis, Archangel of Justice". Both are attested in those exact words, so both
-are match strings rather than one being corrected into the other."""
 THEODORE_HAMILTON_SCARBOROUGH = CharacterEntry("Theodore Hamilton Scarborough", kinds=kind.HUMAN)
 THE_AMBASSADOR = CharacterEntry("The Ambassador", kinds=kind.HUMAN)
-"""main-story/outsiders/tidings-in-the-light.md:67 — "The Ambassador-Magister of
-Diplomacy", bare-office style like THE_LIBRARIAN. Kind inferred from the sibling
-Magisters, not stated."""
 THE_HARVESTER = CharacterEntry("The Harvester", kinds=kind.HUMAN)
 THE_LIBRARIAN = CharacterEntry(
     "The Librarian",
@@ -784,11 +554,6 @@ THE_LIBRARIAN = CharacterEntry(
     short_names=("Librarian",),
     hero_slug="the-librarian",
 )
-"""X01: The Librarian is also a playable hero — the two rows were the same
-person at two points in time (a title relation, deferred to stage 7), and the
-identity spine (migration 12) dissolves the split: the hero and the ordinary character now
-share one character row, keyed the same way they always hashed to the same
-``lore_character_id``. See ``step-into-the-light.md`` in ``main_story.py``."""
 THIROUX = CharacterEntry(
     "Thiroux",
     kinds=kind.HUMAN,
@@ -807,15 +572,10 @@ TOMASS = CharacterEntry(
     ),
 )
 TOMELTAI = CharacterEntry("Tomeltai", kinds=kind.DRAGON)
-"""See ``AZVOLAI`` — one of the eleven, and the same note applies."""
 TORVAI = CharacterEntry(
     "Torvai",
     kin=(("dromai", "child", "main-story/uprising/dragons-of-empire.md"),),
 )
-"""Dromai's father, "Torvai the Dracai"
-(``main-story/uprising/dragons-of-empire.md``), and by Dromai's account "betrayed by
-love". Also named on ``fires-of-rebellion.md`` and ``the-phoenix-and-the-dragon.md``,
-neither of which is declared, so this row starts with one link of a possible three."""
 
 TOROJA_OF_ISHIGAKI = CharacterEntry("Toroja of Ishigaki", kinds=kind.HUMAN, status="Dead")
 URSUR = CharacterEntry("Ursur", kinds=kind.EMBRA, epithets=("the Soul Reaper",))
@@ -833,24 +593,13 @@ VIDYA_WILLOWMERE = CharacterEntry("Vidya Willowmere")
 VITUS = CharacterEntry("Vitus", kinds=kind.HUMAN)
 VYHARA_CLOUDBURST = CharacterEntry("Vyhara Cloudburst")
 VYNSERAKAI = CharacterEntry("Vynserakai", kinds=kind.DRAGON)
-"""See ``AZVOLAI`` — one of the eleven, and the same note applies."""
 WAILER = CharacterEntry("Wailer", kinds=kind.ZOMBIE, status="Dead")
 WENDRYN = CharacterEntry("Wendryn", kinds=kind.HUMAN, status="Dead")
 WHEELER = CharacterEntry("Wheeler", kinds=kind.HUMAN, status="Alive")
 WHISPER = CharacterEntry("Whisper")
-"""Reclassified from ``mon.WHISPER`` (was one of the demonastery.md "Oddities and
-Specimens") — she speaks in the first person and bargains with agency:
-main-story/arcane-rising/birth-of-the-arknight.md:61 ("The residents of this place
-call me Whisper...") and main-story/arcane-rising/return-of-the-shadow.md:37, where
-she strikes a bargain with Viserai. Mani, catalogued alongside her, stayed a
-monster — nothing in the text gives Mani the same first-person voice. No ``kinds``:
-she reads as sapient but is depicted as a stained glass window come to life, and
-the text never names what she is."""
 WHISPERS_OF_XERYS = CharacterEntry("Whispers of Xerys")
 WHITETAIL = CharacterEntry("Whitetail", kinds=kind.HUMAN, status="Alive")
 WIDOW = CharacterEntry("Widow", kinds=kind.HUMAN, status="Alive")
-"""A Spider assassin in Uzuri's nest (main-story/outsiders/the-spiders-trap.md:86). Not
-WIDOW_JOHANA, whose cottage stands in Larinkmorth, Aria."""
 WIDOW_JOHANA = CharacterEntry("Widow Johana", kinds=kind.HUMAN)
 WYNVARIN = CharacterEntry("Wynvarin", kinds=kind.HUMAN)
 XATHARI = CharacterEntry(
@@ -858,43 +607,6 @@ XATHARI = CharacterEntry(
     status="Dead",
     epithets=("the Dracai spymaster", "Spymaster Xathari"),
 )
-"""The Dracai spymaster who found Dromai and raised her to the court, whose
-"firesight allows him to read the flames like a map".
-
-**Two epithets, from three forms** (the user's call, 2026-08-21). The pages write
-the title three ways and only two of them are worth a row:
-
-- ``the Dracai spymaster`` — ``dragons-of-empire.md:37``, "wonders the Dracai
-  spymaster". Kept first: it is the fullest form and the one that says *whose*
-  spymaster he is.
-- ``Spymaster Xathari`` — ``tidings-in-the-light.md:85``, "she copied the words of
-  Spymaster Xathari until his untimely demise". Title-plus-name, the construction
-  ``Chancellor Hypatia`` and ``Lord Wizard Chiyo`` are filed under. That page has
-  no declaration, so this form is attested and unlinked.
-- ``The spymaster`` bare — ``betrayal.md:43,51`` and
-  ``the-phoenix-and-the-dragon.md:3,19``. **No row**: on its own it is a common
-  noun that would match any spymaster in the archive.
-
-**Named on six pages**, not the five this said until 2026-08-21. The list left out
-``main-story/uprising/the-phoenix-and-the-dragon.md``, which names him eight times
-and is the page he dies on — his largest appearance by some distance, and the only
-one that gives him dialogue. It has no declaration at all.
-
-The six, and where each stands: ``dragons-of-empire.md`` and ``betrayal.md``
-declared him from the day the row was minted, not the one the old wording claimed;
-``ember-in-the-ash.md`` and ``emperor-the-one-emperor.md`` both carried a
-``# TODO: needs catalogue constant — Spymaster Xathari`` waiting for exactly this
-row and now name him; ``the-phoenix-and-the-dragon.md`` and
-``tidings-in-the-light.md`` have no declaration.
-
-So four of six connect, and the two that do not are undeclared pages rather than
-declarations missing a name. The catalogue covers the pages that have declarations,
-not the pages that exist.
-
-``Deceased`` as of 2026-08-21 (the user's call), where the row read ``Unknown``
-before. ``the-phoenix-and-the-dragon.md:57`` has Dromai's dragon swallow him whole
-on the page, and ``tidings-in-the-light.md:85`` writes "until his untimely demise".
-Registering the page he dies on is what made the status answerable."""
 
 XAINE_RUNESCRIBE = CharacterEntry("Xaine, Runescribe", kinds=kind.HUMAN, status="Dead")
 XILIN = CharacterEntry(
@@ -910,7 +622,6 @@ XIN = CharacterEntry("Xin", kinds=kind.HUMAN)
 YARIN = CharacterEntry("Yarin", kinds=kind.HUMAN)
 YUNKAI = CharacterEntry("Yunkai", kinds=kind.HUMAN)
 YENDURAI = CharacterEntry("Yendurai", kinds=kind.DRAGON)
-"""See ``AZVOLAI`` — one of the eleven, and the same note applies."""
 YVOR = CharacterEntry(
     "Yvor",
     kinds=kind.ANCIENT,
@@ -921,15 +632,3 @@ YVOR = CharacterEntry(
         "Ancient of Thunder and Ice",
     ),
 )
-"""**Three** epithets, all attested, the way ``THEMIS_KEEPER_OF_THE_SCALES`` carries
-three. ``world-of-rathe/aria.md`` writes "Yvor, Ancient of Lightning" twice (:167,
-:175); ``archive/world-of-rathe/aria/the-land-of-legends.md:25`` writes "the Ancient
-of Lightning and Ice, Yvor"; and
-``main-story/tales-of-aria/wonders-of-the-wayfarer.md:7`` writes "Yvor, the mighty
-Ancient of Thunder and Ice", which ``main-story/everfest/a-grand-adventure.md:47``
-repeats.
-
-The third was found a step after the first two were agreed, by reading a page being
-registered rather than the file being replaced (2026-08-21, the user's call).
-``character-groups.md`` carried only ``Ancient of Lightning and Ice`` — the one form
-of the three whose sole source is an archive page."""

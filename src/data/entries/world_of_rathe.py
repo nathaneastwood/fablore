@@ -33,106 +33,55 @@ leaves out.
 
 from __future__ import annotations
 
-# Entities are referenced, never constructed. Every registry id is a hash of the
-# fields written at the call site, so a second literal for the same entity
-# competes with the first row instead of reusing it — that is how "The Shadow
-# Crypts" became two rows. The canonical definition of each lives in
-# entries/catalogue/; none of the entry classes are imported here, so writing
-# LocationEntry(...) is a NameError rather than a silent new row.
-from entries.catalogue import (  # noqa: F401
+from entries._runner import db
+from entries.catalogue import (
     characters as people,
+)
+from entries.catalogue import (
     fauna,
     flora,
+)
+from entries.catalogue import (
     food_drink as food,
+)
+from entries.catalogue import (
     groups as grp,
+)
+from entries.catalogue import (
     locations as loc,
+)
+from entries.catalogue import (
     monsters as mon,
+)
+from entries.catalogue import (
     regions as reg,
+)
+from entries.catalogue import (
     titles as ttl,
 )
 
-# NarratedVideoEntry is the one exception: a narrated reading belongs to one
-# story, has no registry table and no id of its own, so it is per-declaration
-# data rather than a shared entity.
-from db import NarratedVideoEntry  # noqa: F401
-from entries._runner import db
-
-# PARTIAL BY DECISION, NOT BY OMISSION (the user's call, 2026-08-21).
-#
-# This page is 4471 words across 29 sections and names a great many locations,
-# regions and characters. This call declares none of them. Only the entities stage 5
-# needed are here: the two gods, the two groups this page already documents by
-# lore_story_key, and Dhani Deities — three groups, not the two this said until
-# 2026-08-21. See the note on grp.DHANI_DEITIES below for why the third is here.
-#
-# The page is not link-free, though: five location links (Cogwerx Conglomerate,
-# Dagger Docks, Griefers Reef, Kraken's Barrel, Trōpal-Dhani) were seeded onto it
-# and survive because `locations=` is omitted rather than emptied. Omission
-# preserves; an empty list would delete them.
-#
-# Anyone extending this call should treat the absences as unexamined rather than
-# as decided — the opposite of every other declaration in entries/, where an
-# entity left out was looked at and rejected. A full extraction of this page is
-# its own gated pass.
-#
-# Absolon is the reason the module exists. He is named as a god here at :125 —
-# "an ancient Dhani cult that worshipped Absolon, god of the great deep" — and
-# nowhere else. The eight mentions on the already-declared
-# main-story/high-seas/captain-bones-and-the-city-of-gold.md are every one of
-# them the Kuraghan flagship "Absolon's Dream", never the deity.
-#
-# Nocetes did not need the module: captain-bones names the god outright. He is
-# declared here anyway because :143 is where this page names him, and because the
-# two gods share one roster.
 db.upsert_story(
     path="src/world-of-rathe/high-seas.md",
     story_type="world-of-rathe",
     title="High Seas",
-    # Not decoration. The story row already held this, and the first dry run of
-    # this declaration reported "Cleared: - Source" — omitting it is a deletion,
-    # because story metadata is replace-semantic like every junction. The eleven
-    # world-of-rathe rows were seeded by create_stories_index.py and carry source
-    # links that no declaration has ever had to preserve before, this module
-    # being the first that can touch them.
     source_link="https://fabtcg.com/world-of-rathe/high-seas/",
     characters=[
         people.ABSOLON,
         people.NOCETES,
     ],
     groups=[
-        # Both already carry lore_story_key pointing at this page, so the page
-        # documented them while nothing linked them to it.
         grp.KURAGHAN,
         grp.THE_DHANI_EMPIRE,
-        # The page describes the Dhani pantheon rather than naming it — the same
-        # footing as "Speakeasy's Guilds", where the group name is the page's own
-        # phrasing rather than an in-world proper noun. This link is also what
-        # writes the roster and, through the parent walk, the Deities row itself:
-        # reachability runs group -> members, never member -> group, so without a
-        # declaration naming it the pantheon would exist only in the catalogue.
         grp.DHANI_DEITIES,
     ],
     dry_run=True,
 )
 
 
-# Registered 2026-08-25 (the user's call) to give the Grand Magister office a
-# title row instead of five character rows with the office in their names.
-#
-# TITLES ONLY, DELIBERATELY. This page names dozens of entities and declares
-# none of them — it is one of the ~184 pages carrying stored links that no
-# declaration reproduces. Every other kwarg is omitted rather than guessed,
-# and an omitted kwarg preserves: `characters=` is replace-semantic, so a
-# partial list here would delete rather than add. Declaring the rest of this
-# page is its own lore exercise.
 db.upsert_story(
     path="src/world-of-rathe/solana.md",
     story_type="world-of-rathe",
     title="Solana",
-    # source_link is restated because it does NOT preserve on omission — the
-    # first dry run of this declaration reported "Cleared: - Source", which is
-    # how that was caught. Authors, artists, date and thumbnail are empty on
-    # this row already, so omitting them costs nothing.
     source_link="https://fabtcg.com/world-of-rathe/solana/",
     titles=[ttl.GRAND_MAGISTER],
     dry_run=True,
@@ -146,7 +95,7 @@ db.upsert_story(
     characters=[
         "aurora",
         "oscilio",
-        "zyggy",  # new link — named at :37, not previously seeded
+        "zyggy",
         people.RUPIUS_AURIC_SCROLLMASTER,
     ],
     locations=[
@@ -155,10 +104,10 @@ db.upsert_story(
         loc.SHYLDVERK,
         loc.VOLTARIS_GEM,
         loc.ENION,
-        loc.I_ARATHAEL,  # epigraph only (:9), no region per catalogue convention
+        loc.I_ARATHAEL,
     ],
     regions=[reg.ARIA],
-    groups=[grp.AETHERSCRIBES],  # new link — named at :21, :33, :37; not previously seeded
+    groups=[grp.AETHERSCRIBES],
     dry_run=True,
 )
 
@@ -175,7 +124,7 @@ db.upsert_story(
     title="Demonastery",
     source_link="https://fabtcg.com/world-of-rathe/demonastery/",
     characters=[
-        "viserai",  # hero bare slug, not people.VISERAI
+        "viserai",
         people.SOL,
         people.GRAND_MAGISTER_THE_DEVOUT,
         people.ELDON_LOST_KNIGHT,
@@ -183,11 +132,11 @@ db.upsert_story(
         people.SEPTUS,
         people.XAINE_RUNESCRIBE,
         people.LORD_SUTCLIFFE,
-        people.CAOIMHE,  # new
-        people.CORVA,  # new
-        people.JEROVE,  # new
-        people.NIALL,  # new
-        people.WHISPER,  # new; reclassified from mon.WHISPER — see catalogue note
+        people.CAOIMHE,
+        people.CORVA,
+        people.JEROVE,
+        people.NIALL,
+        people.WHISPER,
     ],
     locations=[
         loc.VALAHAI,
@@ -195,16 +144,16 @@ db.upsert_story(
         loc.ENION,
         loc.I_ARATHAEL,
         loc.THE_GOLDEN_FIELDS,
-        loc.EBON_MAW,  # new; replaces seeded loc.THE_MAW — see Ambiguities
+        loc.EBON_MAW,
     ],
     regions=[reg.DEMONASTERY, reg.SOLANA, reg.THE_SAVAGE_LANDS],
     groups=[grp.HAND_OF_SOL],
     monsters=[
-        mon.DIAPHENES,  # new
-        mon.BEREDOS,  # new
-        mon.LYSAGENES,  # new
-        mon.MANI,  # new
-        mon.SCAPHUS,  # new
+        mon.DIAPHENES,
+        mon.BEREDOS,
+        mon.LYSAGENES,
+        mon.MANI,
+        mon.SCAPHUS,
     ],
     equipment=["grimoire-of-the-haunt"],
     dry_run=True,
@@ -222,25 +171,23 @@ db.upsert_story(
         people.ISEN,
         people.ALOSYN,
         people.NARAKIR,
-        # :65 "Queen Celvera" — the existing row for Candlehold's queen. Whether the
-        # row should be renamed Celvera is the user's call; a rename mints a new id.
         people.QUEEN_OF_CANDLEHOLD,
     ],
     locations=[
         loc.THE_FLOW,
-        loc.THE_KORSHEM,  # seeded
-        loc.MT_ISEN,  # page says "Mount Isen", a recorded alias
+        loc.THE_KORSHEM,
+        loc.MT_ISEN,
         loc.ISEN_RANGES,
-        loc.LARINKMORTH,  # seeded
+        loc.LARINKMORTH,
         loc.BLEAK_EXPANSE,
-        loc.THUNDER_STEPPE,  # seeded
-        loc.ENION,  # seeded
-        loc.BOULDERHEAD_ISLAND,  # page says "Boulderhead", shortened form of the same isle
+        loc.THUNDER_STEPPE,
+        loc.ENION,
+        loc.BOULDERHEAD_ISLAND,
         loc.VOLTHAVEN,
-        loc.CANDLEHOLD,  # seeded
+        loc.CANDLEHOLD,
         loc.THRONE_GLADE,
         loc.HIGHLOFT_INN,
-        loc.SKYBREAKER,  # NEW
+        loc.SKYBREAKER,
         loc.THE_EVERFEST_CARNIVAL,
         loc.LEGENDARIUM,
         loc.VALAHAI,
@@ -266,13 +213,13 @@ db.upsert_story(
         grp.WAYFARERS,
         grp.OLLIN,
         grp.AETHERSCRIBES,
-        grp.ROSETTA,  # Valahai-era order named alongside Wayfarers/Aetherscribes — see Ambiguities
+        grp.ROSETTA,
         grp.THE_MAELA,
         grp.THE_VALDUR,
     ],
     food_drink=[
-        food.ISENRI_SAKE,  # NEW
-        food.BREAKERNUT_ALE,  # NEW
+        food.ISENRI_SAKE,
+        food.BREAKERNUT_ALE,
     ],
     dry_run=True,
 )
@@ -283,7 +230,6 @@ db.upsert_story(
     title="Misteria",
     source_link="https://fabtcg.com/world-of-rathe/misteria/",
     characters=[people.KOUKI, people.JIRO_HENSHU, people.MISTRESS_IKARU],
-    # "Immortal Lunar Temple" on the page is a near-match to existing loc.LUNAR_TEMPLE — see Ambiguities
     locations=[loc.MISTCLOAK_GULLY, loc.MUGENSHI_GORGE, loc.LUNAR_TEMPLE],
     regions=[reg.MISTERIA],
     groups=[
@@ -296,7 +242,7 @@ db.upsert_story(
         grp.HOUSE_ISHIGAKI,
         grp.KEEPERS_OF_THE_SEVEN_ARTS,
     ],
-    monsters=[mon.GENTUA],  # reclassified from fauna.GENTUA — see catalogue note
+    monsters=[mon.GENTUA],
     dry_run=True,
 )
 
@@ -306,13 +252,13 @@ db.upsert_story(
     title="A Towering Metropolis",
     source_link="https://fabtcg.com/world-of-rathe/metrix/",
     characters=[
-        "teklovossen",  # hero slug (Jules Teklovossen is in the hero list), not people.JULES_TEKLOVOSSEN
+        "teklovossen",
         people.REX_BIGGUN,
         people.PROSPECTOR_COGMIRE,
         people.CHARLOTTE,
         people.SYNTHEA_TEKLO,
         people.RICKY_ROYCE,
-        people.AUDACITY,  # "λud@c!ty", the Foundry's anonymous operator
+        people.AUDACITY,
         people.MEAZE_BANZE,
         people.FRANCESCA_ZINNIA,
     ],
@@ -338,14 +284,11 @@ db.upsert_story(
         loc.IRON_ASSEMBLY,
         loc.IRON_HALL,
         loc.ENERGIZE_THE_ERA,
-        loc.THE_NORTHERN_REALMS,  # "neighboring Northern Realms" Blackjack's expands into
+        loc.THE_NORTHERN_REALMS,
         loc.THE_FOUNDRY,
     ],
     regions=[reg.METRIX, reg.THE_PITS, reg.THE_SAVAGE_LANDS, reg.ARIA],
     groups=[
-        # Cogwerx/Teklo/Iron Assembly/Foundry/Registry/Mendacity/Blackjack's already exist as both
-        # loc.X (their Metrix premises, seeded) and grp.X (the organisation) — the page describes
-        # all of these at length as organisations, so both are included; see Notes.
         grp.COGWERX,
         grp.TEKLO_INDUSTRIES,
         grp.IRON_ASSEMBLY,
@@ -366,7 +309,7 @@ db.upsert_story(
     title="Pits",
     source_link="https://fabtcg.com/world-of-rathe/pits/",
     characters=[
-        "kavdaen",  # hero slug, not people.KAVDAEN — also named "Trader of Skins" but heroes get no epithets
+        "kavdaen",
         people.WHITETAIL,
         people.ALKA_BIGGUNS,
         people.JEMJANG,
@@ -390,7 +333,7 @@ db.upsert_story(
         loc.SKEIN,
         loc.RATTLEBONE,
         loc.GUTPURSE,
-        loc.IRON_ASSEMBLY,  # seeded as location; page usage reads as the org — see Ambiguities
+        loc.IRON_ASSEMBLY,
         loc.SOUTHMAW,
         loc.THE_SLICK,
         loc.BONEYARD,
@@ -448,8 +391,6 @@ db.upsert_story(
         flora.VISURA,
         flora.WINTERGOLD,
     ],
-    # "Hecklers" (:77-91) are now kind.HECKLER — a feral people with no named
-    # leader or roster, so no character on this page carries it yet.
     dry_run=True,
 )
 
@@ -466,14 +407,14 @@ db.upsert_story(
         loc.DRAGON_FESTIVAL,
         loc.FOREST_OF_FLAMES,
         loc.TAOKING,
-        loc.BLACKROCK_QUARRIES,  # seeded
-        loc.DRAGON_S_PEAK,  # seeded
+        loc.BLACKROCK_QUARRIES,
+        loc.DRAGON_S_PEAK,
         loc.THE_OBSIDIAN_COAST,
         loc.RED_DESERT,
-        loc.DESHVAHAN,  # seeded
-        loc.MT_VOLCOR,  # page says "Mount Volcor" — see Ambiguities
-        loc.DRAGON_S_TEETH,  # new
-        loc.THE_MOLTEN_TIDE,  # new
+        loc.DESHVAHAN,
+        loc.MT_VOLCOR,
+        loc.DRAGON_S_TEETH,
+        loc.THE_MOLTEN_TIDE,
     ],
     regions=[reg.VOLCOR, reg.SOLANA],
     groups=[

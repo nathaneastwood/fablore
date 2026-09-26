@@ -10,28 +10,32 @@ Preview one page with ``python3 src/data/data-entry.py --only <path>``; see
 
 from __future__ import annotations
 
-# Entities are referenced, never constructed. Every registry id is a hash of the
-# fields written at the call site, so a second literal for the same entity
-# competes with the first row instead of reusing it — that is how "The Shadow
-# Crypts" became two rows. The canonical definition of each lives in
-# entries/catalogue/; none of the entry classes are imported here, so writing
-# LocationEntry(...) is a NameError rather than a silent new row.
-from entries.catalogue import (  # noqa: F401
+from db import NarratedVideoEntry
+
+from entries._runner import db
+
+from entries.catalogue import (
     characters as people,
+)
+from entries.catalogue import (
     fauna,
     flora,
+)
+from entries.catalogue import (
     food_drink as food,
+)
+from entries.catalogue import (
     groups as grp,
+)
+from entries.catalogue import (
     locations as loc,
+)
+from entries.catalogue import (
     monsters as mon,
+)
+from entries.catalogue import (
     regions as reg,
 )
-
-# NarratedVideoEntry is the one exception: a narrated reading belongs to one
-# story, has no registry table and no id of its own, so it is per-declaration
-# data rather than a shared entity.
-from db import NarratedVideoEntry  # noqa: F401
-from entries._runner import db
 
 db.upsert_story(
     path="src/main-story/the-land-of-rathe.md",
@@ -87,7 +91,6 @@ db.upsert_story(
         loc.LEGENDARIUM,
         loc.ALDEVYR,
         loc.FRACTAL_SCAR,
-        # Named only here, by Mikael on his return to the Everfest — an Arian range.
         loc.MILESIAN_RANGES,
     ],
     regions=[reg.ARIA],
@@ -125,7 +128,6 @@ db.upsert_story(
         "dorinthea",
         "hala",
         people.MINERVA_THEMIS,
-        # TODO: Does fragment link to world lore? If so, how?
         people.GRAND_MAGISTER_THE_STEADFAST,
         people.SOL,
         people.VALERIA,
@@ -278,7 +280,7 @@ db.upsert_story(
         "azalea",
         people.MORAY,
         people.GREENBIRD,
-    ],  # TODO: fragment to the tavern?
+    ],
     locations=[
         loc.THE_MAW,
         loc.BLACKJACK_S_TAVERN,
@@ -309,7 +311,7 @@ db.upsert_story(
     characters=[
         "azalea",
         people.LENA_BELLE,
-        people.GREENBIRD,  # TODO: fragment to the tavern?
+        people.GREENBIRD,
         people.BARTON,
         people.THE_HARVESTER,
         people.HOG,
@@ -533,12 +535,6 @@ db.upsert_story(
     ],
     regions=[reg.THE_SAVAGE_LANDS],
     groups=[
-        # The three stables and the federation they sit in. Speakeasy's and
-        # Batbiter's are reachable anyway, as the parent of every guild below, but
-        # Moloca's has no guild to be reached through — she fronts none — so
-        # without this line her row would exist in the catalogue and never be
-        # written. Naming all four here is also the honest mention-link: this page
-        # is where the panel introduces every one of them.
         grp.SUPER_SLAM_GUILDS,
         grp.SPEAKEASYS_GUILDS,
         grp.BATBITERS_GUILDS,
@@ -597,8 +593,7 @@ db.upsert_story(
         "lexi",
         people.YVOR,
     ],
-    # TODO: needs catalogue constant — Lake Frigid (loc)
-    locations=[loc.ENION, loc.VOLTHAVEN, loc.THE_KORSHEM],
+    locations=[loc.ENION, loc.VOLTHAVEN, loc.THE_KORSHEM, loc.LAKE_FRIGID],
     regions=[reg.ARIA],
     groups=[grp.WAYFARERS],
     dry_run=True,
@@ -619,10 +614,8 @@ db.upsert_story(
         people.GENERAL_RIKU,
         people.LORD_MERCHANT_SAVAI,
         people.LORD_WIZARD_CHIYO,
-        # "Sandfolk fury continues to fester, as Xathari hoped it would" (:59).
-        # The TODO here waited for a constant stage 5 created and did not clear.
         people.XATHARI,
-        # TODO: needs catalogue constant — Chancellor Yama (npc)
+        people.YAMA,
     ],
     locations=[
         loc.ASHVAHAN,
@@ -649,7 +642,7 @@ db.upsert_story(
         "emperor",
         "yoji",
         people.XATHARI,
-        # TODO: needs catalogue constant — Chancellor Yama (npc)
+        people.YAMA,
     ],
     locations=[loc.MT_VOLCOR],
     regions=[reg.VOLCOR],
@@ -681,14 +674,14 @@ db.upsert_story(
     characters=[
         "emperor",
         "yoji",
-        # TODO: needs catalogue constant — Chancellor Yama (npc)
+        people.YAMA,
     ],
     locations=[
         loc.BLACKROCK_QUARRIES,
         loc.DRAGON_S_PEAK,
         loc.THE_OBSIDIAN_COAST,
-        # TODO: needs catalogue constant — Tchankem Castle (location)
-        # TODO: needs catalogue constant — Serpent's Crescent (location)
+        loc.TCHANKEM_CASTLE,
+        loc.SERPENTS_CRESCENT,
     ],
     regions=[reg.VOLCOR],
     dry_run=True,
@@ -744,12 +737,12 @@ db.upsert_story(
         loc.THE_SOLARIUM,
         loc.MORLOCK_HILL,
         loc.I_ARATHAEL,
+        loc.SCHOLARS_ASSEMBLY,
     ],
     regions=[reg.ARIA, reg.DEMONASTERY, reg.SOLANA],
     weapons=["anothos"],
     dry_run=True,
 )
-# TODO: needs catalogue constant — Scholars Assembly (loc, region likely Solana)
 
 db.upsert_story(
     path="src/main-story/dusk-till-dawn/prism-awakener-of-sol.md",
@@ -932,9 +925,6 @@ db.upsert_story(
         loc.MISTCLOAK_LAKE,
         loc.NASU_KA_TEAHOUSE,
         loc.IKARU,
-        # Kept pending curator ruling: agent recommends DROPPING this — the page
-        # only says "the maw of a yawning lizard", a common noun, not the place.
-        loc.THE_MAW,
     ],
     regions=[reg.MISTERIA],
     fauna=[fauna.RACIKI, fauna.ROWBUG],
@@ -952,8 +942,8 @@ db.upsert_story(
     ],
     locations=[loc.LUNAR_TEMPLE, loc.MISTCLOAK_LAKE, loc.MISTCLOAK_GULLY, loc.NASU_KA_TEAHOUSE],
     regions=[reg.MISTERIA],
-    monsters=[mon.GENTUA],  # new; not yet applied — this page's dry_run stays True
-    # TODO: needs catalogue constant — Three-Legged Crow (fauna); see Ambiguous
+    monsters=[mon.GENTUA],
+    fauna=[fauna.THREE_LEGGED_CROW],
     dry_run=True,
 )
 
@@ -1001,14 +991,16 @@ db.upsert_story(
     characters=[
         "viserai",
         people.LORD_SUTCLIFFE,
-        people.WHISPER,  # new; not yet applied — this page's dry_run stays True
+        people.WHISPER,
+        people.CORVA,
     ],
     locations=[
         loc.ENTRANCE_HALL,
+        loc.SCRIPTORIUM,
     ],
     regions=[reg.DEMONASTERY],
-    # TODO: needs catalogue constant — Corva (npc), Mani (npc),
-    # Scriptorium (location), Vidus (monster), Pallas (fauna). See the table below.
+    monsters=[mon.VIDUS],
+    fauna=[fauna.PALLAS],
     dry_run=True,
 )
 
@@ -1021,6 +1013,10 @@ db.upsert_story(
         "kano",
         "emperor",
         people.LORD_WIZARD_CHIYO,
+        people.LORD_WIZARD_AKIHIKO,
+        people.YAMA,
+        people.DAIJO,
+        people.THE_EMPRESS,
     ],
     locations=[
         loc.CHAMBER_OF_THE_DRAGON,
@@ -1029,8 +1025,6 @@ db.upsert_story(
     regions=[reg.VOLCOR],
     fauna=[fauna.RYOKI, fauna.VUURLIN],
     weapons=["crucible-of-aetherweave"],
-    # TODO: needs catalogue constant — Lord Wizard Akihiko (npc), Lord Chancellor Yama (npc),
-    # Daijo (npc), the Empress (npc). See the table below.
     groups=[grp.ALSHONI, grp.EZU],
     dry_run=True,
 )
@@ -1044,6 +1038,7 @@ db.upsert_story(
         "dash",
         people.RICKY_ROYCE,
         people.THIROUX,
+        people.MO,
     ],
     locations=[
         loc.COPPERTOWN,
@@ -1057,12 +1052,13 @@ db.upsert_story(
         loc.COGWERX_CONGLOMERATE,
         loc.TEKLO_INDUSTRIES,
         loc.CENTENNIAL_CONSUMABLES,
+        loc.THE_SPRAWL,
+        loc.THE_EXPANSE,
+        loc.PIT_3,
+        loc.GOODES,
     ],
     regions=[reg.METRIX],
     weapons=["teklo-plasma-pistol"],
-    # TODO: needs catalogue constant — The Sprawl (loc), The Expanse (loc), Pit 3 (loc),
-    # Goode's (loc), Mo (npc). See the table below.
-    # TODO: no equipment slug for the D.R.E.S.S. — flagged, not guessed.
     dry_run=True,
 )
 
@@ -1074,6 +1070,8 @@ db.upsert_story(
     characters=[
         "dash",
         people.RICKY_ROYCE,
+        people.BEAK,
+        people.MITE,
     ],
     locations=[
         loc.BEACON,
@@ -1086,11 +1084,10 @@ db.upsert_story(
         loc.COGWERX_CONGLOMERATE,
         loc.TEKLO_INDUSTRIES,
         loc.CENTENNIAL_CONSUMABLES,
+        loc.THE_SPRAWL,
+        loc.NATALYAS,
     ],
     regions=[reg.METRIX],
-    # TODO: needs catalogue constant — The Sprawl (loc), Natalya's (loc), Beak (npc),
-    # Mite (npc). See the table below.
-    # TODO: no equipment slug for the D.R.E.S.S. — flagged, not guessed.
     groups=[grp.MENDACITY_MEDIA],
     dry_run=True,
 )
@@ -1100,7 +1097,7 @@ db.upsert_story(
     story_type="main-story",
     title="Playing with Fire",
     source_link="https://fabtcg.com/hero/kano/story/playing-with-fire/",
-    characters=["emperor", "kano"],
+    characters=["emperor", "kano", people.RYO, people.LORD_WIZARD_AKIHIKO, people.YAMA],
     locations=[
         loc.CHAMBER_OF_THE_DRAGON,
         loc.IMPERIAL_PALACE,
@@ -1108,8 +1105,6 @@ db.upsert_story(
     ],
     regions=[reg.VOLCOR],
     fauna=[fauna.APOPHIS, fauna.VUURLIN],
-    # TODO: needs catalogue constant — Ryo (npc), Lord Wizard Akihiko (npc),
-    # Lord Chancellor Yama (npc). See the table below.
     groups=[grp.HIDESHI],
     dry_run=True,
 )
@@ -1123,7 +1118,7 @@ db.upsert_story(
     source_link="https://fabtcg.com/articles/return-shadow/",
     characters=[
         "viserai",
-        people.WHISPER,  # new; not yet applied — this page's dry_run stays True
+        people.WHISPER,
     ],
     locations=[
         loc.ENTRANCE_HALL,
@@ -1142,6 +1137,8 @@ db.upsert_story(
     characters=[
         "kano",
         people.LORD_WIZARD_CHIYO,
+        people.LORD_WIZARD_AKIHIKO,
+        people.MINAKO,
     ],
     locations=[
         loc.CHAMBER_OF_THE_DRAGON,
@@ -1149,8 +1146,6 @@ db.upsert_story(
         loc.MT_VOLCOR,
     ],
     regions=[reg.VOLCOR],
-    # TODO: needs catalogue constant — Lord Wizard Akihiko (npc), Minako (npc).
-    # Akihiko is also requested from playing-with-fire.md and from-the-ashes.md.
     dry_run=True,
 )
 
@@ -1163,6 +1158,7 @@ db.upsert_story(
         "dash",
         people.DR_WYVERSTONE,
         people.THIROUX,
+        people.CLARA,
     ],
     locations=[
         loc.CENTENNIAL_CONSUMABLES,
@@ -1174,7 +1170,6 @@ db.upsert_story(
         loc.WEST_RISE,
     ],
     regions=[reg.METRIX],
-    # TODO: needs catalogue constant — Clara (npc). See the table below.
     groups=[grp.IRON_ASSEMBLY, grp.TEKLO_INDUSTRIES],
     dry_run=True,
 )
@@ -1190,6 +1185,7 @@ db.upsert_story(
         "levia",
         people.LADY_BARTHIMONT,
         people.LORD_SUTCLIFFE,
+        people.LORD_BARTHIMONT,
     ],
     locations=[
         loc.BARTHIMONT_MANOR,
@@ -1200,7 +1196,6 @@ db.upsert_story(
         loc.THE_VENARIUM,
     ],
     regions=[reg.SOLANA],
-    # TODO: needs catalogue constant — Lord Barthimont (npc). See the table below.
     dry_run=True,
 )
 
@@ -1217,10 +1212,9 @@ db.upsert_story(
     ],
     locations=[
         loc.I_ARATHAEL,
+        loc.SCRIPTORIUM,
     ],
     regions=[reg.DEMONASTERY, reg.SOLANA],
-    # TODO: needs catalogue constant — Scriptorium (loc). Also requested from
-    # birth-of-the-arknight.md; one addition serves both pages.
     groups=[grp.DISCIPLES_OF_PAIN],
     dry_run=True,
 )
@@ -1247,9 +1241,9 @@ db.upsert_story(
         loc.LIBRARY_OF_ILLUMINATION,
         loc.SILVARIUM,
         loc.THE_GOLDEN_FIELDS,
+        loc.SIGNARUS,
     ],
     regions=[reg.SOLANA],
-    # TODO: needs catalogue constant — Signarus (loc). See the table below.
     dry_run=True,
 )
 
@@ -1295,6 +1289,8 @@ db.upsert_story(
         people.BELLONA_THE_WARTUNE_HERALD,
         people.SURAYA_ARCHANGEL_OF_KNOWLEDGE,
         people.THE_LIBRARIAN,
+        people.LEANDER,
+        people.VIATOR,
     ],
     locations=[
         loc.AMPHITHEATRE,
@@ -1304,11 +1300,6 @@ db.upsert_story(
         loc.THE_SOLARIUM,
     ],
     regions=[reg.DEMONASTERY, reg.SOLANA],
-    # TODO: needs catalogue constant — Leander (npc), Viator (npc). See the table below.
-    # X01: the guard is gone. people.THE_LIBRARIAN now carries hero_slug="the-librarian",
-    # so this link is allowed — the hero and the ordinary character are one character row, not two.
-    # Held at dry_run=True regardless: the pending Leander/Viator catalogue
-    # constants above are the reason this declaration isn't applied yet.
     dry_run=True,
 )
 
@@ -1326,6 +1317,7 @@ db.upsert_story(
         people.BLASMOPHET,
         people.LADY_BARTHIMONT,
         people.LORD_SUTCLIFFE,
+        people.GRAVES,
     ],
     locations=[
         loc.BARTHIMONT_MANOR,
@@ -1336,8 +1328,7 @@ db.upsert_story(
         loc.THE_VENARIUM,
     ],
     regions=[reg.DEMONASTERY, reg.SOLANA],
-    # TODO: needs catalogue constant — Graves (npc), Devoratum (mon), Blasphema (loc).
-    # See the table below.
+    monsters=[mon.DEVORATUM],
     dry_run=True,
 )
 
@@ -1353,9 +1344,6 @@ db.upsert_story(
         people.CHOWDER,
         people.CHUM,
         people.CUTTY,
-        # The story calls her the "Hightarn" shaman and never names her, so this row
-        # may be her people rather than her name. It predates this registration and
-        # is linked to no other story; reopened with the kind values in stage 4.
         people.HIGHTARN,
         people.KELPIE,
         people.LIMPIT,
@@ -1368,9 +1356,6 @@ db.upsert_story(
         people.WAILER,
     ],
     locations=[
-        # "Dreadfall's decaying edifices" and "explorations of Dreadfall" are this
-        # place under a shortened name, not a second one. high-seas.md has a single
-        # "Dreadfall Reach" heading.
         loc.DREADFALL_REACH,
         loc.GOLDEN_PORT,
         loc.GRAYHOLLOW,
@@ -1384,8 +1369,6 @@ db.upsert_story(
     regions=[reg.HIGH_SEAS],
     fauna=[fauna.CHIRPWHISK, fauna.HYDRA, fauna.KRAKEN],
     food_drink=[food.SEPULCHRE_RUM],
-    # The story calls it only "an eldritch compass"; the card is unmistakably the
-    # same object, and the link is the user's call, recorded 2026-08-20.
     equipment=["compass-of-sunken-depths"],
     groups=[grp.KURAGHAN, grp.THE_DHANI_EMPIRE],
     dry_run=True,
@@ -1413,8 +1396,6 @@ db.upsert_story(
         loc.EAST_RISE,
         loc.EAST_RISE_POWER_STATION,
         loc.PIT_2,
-        # Teklo Industries and The Foundry are each a group *and* a place, so both
-        # keep a locations row and are linked from both sides.
         loc.TEKLO_INDUSTRIES,
         loc.THE_FOUNDRY,
         loc.VOSSEN_THEATER,
@@ -1432,24 +1413,10 @@ db.upsert_story(
     dry_run=True,
 )
 
-# Registered 2026-08-21, stage 5. This is the only page that attests Isen — a
-# wayfarer says "I've heard legends of the Ancients, Yvor, Davnir, Isen..." (:197) —
-# and giving him a row is why it had to be registered. He was one of the fourteen
-# names in character-groups.md with no row of any kind.
-#
-# people.MAELA_ISULFV is linked from this page's "Isulvf", a letter-transposition of
-# the same seer. See that constant: registering the page without noticing would have
-# minted a second row for one person.
-#
-# Deliberately left out, none with a row anywhere and none describable from this
-# page: `Strale`, `the Indigo Eye`, `the Covenant`, and the `Showstopper` of the
-# Everfest poster. `Braumeister` is a profession and already waits for R9.
 db.upsert_story(
     path="src/main-story/everfest/a-grand-adventure.md",
     story_type="main-story",
     title="A Grand Adventure",
-    # All four were already on the story row. Story metadata is replace-semantic,
-    # so omitting any of them is a deletion, not a silence.
     authors="Kasharn Rao",
     artists="Sam Yang",
     source_link="https://fabtcg.com/articles/grand-adventure/",
@@ -1459,14 +1426,12 @@ db.upsert_story(
         "lexi",
         "oldhim",
         "yorick",
-        # Named in Briar's line about the Ancients, not present in the story.
         people.DAVNIR,
         people.ISEN,
         people.MAELA_ISULFV,
         people.MARA,
         people.QUEEN_OF_CANDLEHOLD,
         people.THAWNE,
-        # Also the statue at :47, "the mythical Ancient of Thunder and Ice".
         people.YVOR,
     ],
     locations=[
@@ -1480,8 +1445,6 @@ db.upsert_story(
     ],
     regions=[reg.ARIA],
     groups=[
-        # "The Rosetta...The Ollin..." and the queen's "the Seers...of old"; Lexi is
-        # a Wayfarer and the page calls her one repeatedly.
         grp.OLLIN,
         grp.ROSETTA,
         grp.SEERS,
@@ -1491,31 +1454,15 @@ db.upsert_story(
     dry_run=True,
 )
 
-# Registered 2026-08-21, stage 5. Not needed for the dragons in the end —
-# flavour/uprising.md had already given all twelve a row by the time this was
-# reached — but registered as planned, and it turned out to carry four people who
-# had no row at all. people.XATHARI is the one that matters: the Dracai spymaster is
-# named on five pages and had never been recorded.
-#
-# The opening paragraphs before the "# Dragons of Empire" heading are Dromai's
-# hero blurb rather than the story, and the entities in them are treated the same
-# as the story's own — Torvai, Sani and Min are named nowhere else on the page.
 db.upsert_story(
     path="src/main-story/uprising/dragons-of-empire.md",
     story_type="main-story",
     title="Dragons of Empire",
-    # Already on the story row; omitting it would clear it.
     source_link="https://fabtcg.com/hero/dromai/story/dromai-story-dragons-of-empire/",
-    # The Emperor never appears — Dromai recalls "the Emperor's rare appearance that
-    # day, ten years ago" and waits on "the Emperor's thanks". A hero row exists
-    # under the slug `emperor`, so the mention links there rather than minting an
-    # ordinary-character spelling of the same person.
     characters=[
         "dromai",
         "emperor",
         people.FAI,
-        # The four dragons Dromai invokes. Vynserakai, Azvolai and Nekria are all
-        # destroyed at the siege; Tomeltai carries the second half of the story.
         people.AZVOLAI,
         people.GENERAL_RIKU,
         people.MIN_OF_THE_FOREST_OF_FLAMES,
@@ -1537,33 +1484,17 @@ db.upsert_story(
     groups=[
         grp.DRACAI,
         grp.SANDFOLK,
-        # :67 — "she pores over the tomes of The Twelve Dragons". The only line in
-        # the repository that names the twelve as one thing (the user's call,
-        # 2026-08-21); the roster is cited to flavour/uprising.md, which is where
-        # all twelve are attested. See catalogue/groups.py.
         grp.THE_TWELVE_DRAGONS,
         grp.VOLCAI,
     ],
     dry_run=True,
 )
 
-# Registered 2026-08-21, stage 5. Not on the stage's own list — reached because
-# registering dragons-of-empire.md would have dropped `The Oasis`, whose only story
-# link sat on that page and whose text never names it. This is the page that does:
-# "Dromai sits in the Oasis, her feet dangling in the cave's simmering lake." The
-# link moves to the page that earns it rather than being deleted or asserted falsely.
-#
-# `The Royal Court` is deliberately not linked. It has a heading of its own on
-# world-of-rathe/volcor.md and IMPERIAL_PALACE already carries `the-royal-court` as
-# its fragment, so the institution is currently modelled as the building. "The Royal
-# Court gave her the mantle of Dracai" is the institution acting, not the place, and
-# the two are worth separating properly rather than by a link made in passing.
 db.upsert_story(
     path="src/main-story/uprising/betrayal.md",
     story_type="main-story",
     title="Betrayal",
     source_link="https://fabtcg.com/hero/dromai/story/dromai-story-betrayal/",
-    # None of the three were linked before, though the story is Dromai's throughout.
     characters=[
         "dromai",
         "emperor",
@@ -1571,19 +1502,15 @@ db.upsert_story(
         people.EUN,
         people.GENERAL_RIKU,
         people.MIN_OF_THE_FOREST_OF_FLAMES,
-        # Killed here, off the page: Dromai is working out how to profit from his
-        # death. The row was minted for dragons-of-empire.md a moment earlier.
         people.XATHARI,
     ],
     locations=[
         loc.ASHVAHAN,
-        # "Fai of the Forest of Flames, Slayer of Dracai."
         loc.FOREST_OF_FLAMES,
         loc.MT_VOLCOR,
         loc.THE_OASIS,
     ],
     regions=[
-        # "The water comes from Misteria. The lava comes from Mount Volcor."
         reg.MISTERIA,
         reg.VOLCOR,
     ],
@@ -1598,62 +1525,29 @@ db.upsert_story(
     dry_run=True,
 )
 
-# Registered 2026-08-21. Found by the review of 8f8b7e1c rather than by a page
-# sweep: people.XATHARI's docstring enumerated the five pages naming him and left this
-# one out, though it names him eight times, gives him dialogue, and is the page he
-# dies on. Registering it is what made his status answerable.
-#
-# narrated_videos is omitted, not emptied. The story row carries St_Havock's
-# reading and None leaves it alone where [] would delete it (db/_domain.py:714).
-#
-# Two things on this page are deliberately not linked, both the user's call:
-#
-#   the Phoenix     :9 "The many feathers of the Phoenix were burning bright" and
-#                   :69 "It is time for the Phoenix to rise". A symbol, not a body
-#                   — world-of-rathe/volcor.md:85 says so outright, "The phoenix is
-#                   their symbol and their accepted fate", over a rebellion the
-#                   same paragraph calls "fractured, united only by suffering".
-#                   The other two attestations are both "banner". grp.VOLCAI
-#                   already carries the rebellion. See the plan.
-#   the great       :51, unnamed here. One of the twelve, but the page never says
-#   purple dragon   which, and the roster is cited to flavour/uprising.md.
 db.upsert_story(
     path="src/main-story/uprising/the-phoenix-and-the-dragon.md",
     story_type="main-story",
     title="The Phoenix and the Dragon",
-    # Already on the story row; omitting it would clear it.
     source_link="https://fabtcg.com/hero/fai/story/fai-story-the-phoenix-and-the-dragon/",
-    # Fai is the POV throughout and Dromai is on the page. The Emperor never
-    # appears — :65, "The Emperor is blind. His dragons are turning against him."
     characters=[
         "dromai",
         "emperor",
         "fai",
-        # Eaten by Dromai's dragon at :51. Her row already read Deceased.
         people.EUN,
-        # Named but absent: :25, :27, :35, :61.
         people.MIN_OF_THE_FOREST_OF_FLAMES,
-        # Dromai's parents, both named by Eun's confession at :39-:47.
         people.SANI,
         people.TORVAI,
-        # Swallowed at :57 — this page is why his row now reads Deceased.
         people.XATHARI,
     ],
     locations=[
-        # :7 — "to infiltrate the Imperial Palace".
         loc.IMPERIAL_PALACE,
-        # :7 and :9 write the short "Golden Orchard"; the row carries the full
-        # name and gained the short one as an alias for exactly this.
         loc.THE_GOLDEN_ORCHARD_ESTATE,
     ],
     regions=[reg.VOLCOR],
     groups=[
-        # :7 "tear the Dracai down from within", and :57 calls Xathari "The Dracai".
         grp.DRACAI,
-        # :9 — "The Lord Wizards were growing desperate." The body at Court; the
-        # rank of the same name is R9 and waits for stage 9.
         grp.LORD_WIZARDS_OF_THE_COURT,
-        # :9, :39, :69 — the rebellion this page turns.
         grp.VOLCAI,
     ],
     dry_run=True,
@@ -1668,7 +1562,7 @@ db.upsert_story(
     source_link="https://fabtcg.com/articles/flames/",
     publication_date="2022-04-25",
     characters=["emperor"],
-    locations=[loc.CHAMBER_OF_THE_DRAGON, loc.MT_VOLCOR],  # "Mount Volcor" in the text is loc.MT_VOLCOR ("Mt. Volcor")
+    locations=[loc.CHAMBER_OF_THE_DRAGON, loc.MT_VOLCOR],
     regions=[reg.DEMONASTERY, reg.SOLANA, reg.VOLCOR],
     dry_run=True,
 )
@@ -1700,9 +1594,6 @@ db.upsert_story(
         loc.TROPAL_DHANI,
     ],
     regions=[reg.HIGH_SEAS],
-    # Hoikers already exist in the catalogue (descriptions.py already carries a
-    # description for them) but were not yet linked to this story — the page
-    # names them explicitly ("Hoikers! Hhhooooikkers!"; "Hoikers spit acid").
     fauna=[fauna.HOIKERS, fauna.ROCK_TURTLE, fauna.SIREN],
     dry_run=True,
 )
@@ -1716,17 +1607,11 @@ db.upsert_story(
     source_link="https://fabtcg.com/articles/aperion-protocol/",
     publication_date="2023-09-24",
     characters=[
-        "teklovossen",  # page only ever says "Teklovossen" (never "Jules") — bare hero
-        # slug, matching short-stories/bright-lights/more-than-human.md
-        # and heroes-of-rathe/teklovossen-about.md, the two sibling
-        # declarations that name him the same way
+        "teklovossen",
         people.RIGO,
     ],
     locations=[loc.THE_NEEDLE],
-    regions=[reg.METRIX],  # not named in the page text itself, but The Needle's own
-    # catalogue entry already carries region="Metrix" — restating
-    # an established fact about a location the page does name,
-    # not new knowledge
+    regions=[reg.METRIX],
     dry_run=True,
 )
 
@@ -1742,7 +1627,7 @@ db.upsert_story(
         "boltyn",
         "dorinthea",
         people.MINERVA_THEMIS,
-        people.BLASMOPHET,  # named only via "One of Blasmophet's followers..." (line 145)
+        people.BLASMOPHET,
     ],
     locations=[
         loc.AUDRA,
@@ -1751,10 +1636,10 @@ db.upsert_story(
         loc.MORLOCK_HILL,
         loc.SUNVALE,
         loc.THE_VITIATE_GATEWAY,
-        loc.I_ARATHAEL,  # new link: "linking Rathe to i'Arathael" (line 63)
+        loc.I_ARATHAEL,
     ],
     regions=[reg.DEMONASTERY, reg.SOLANA],
-    weapons=["dawnblade"],  # new link: Dorinthea's sword, named repeatedly (e.g. line 21)
+    weapons=["dawnblade"],
     dry_run=True,
 )
 
@@ -1786,8 +1671,6 @@ db.upsert_story(
     ],
     regions=[reg.HIGH_SEAS],
     fauna=[fauna.CURSED_DHANI_WARRIORS, fauna.CYANATU],
-    # Goldkiss Rum (the bottle Pearl produces, l.13) was not previously linked
-    # to this page even though the catalogue constant already exists.
     food_drink=[food.GOLDKISS_RUM],
     dry_run=True,
 )
@@ -1796,47 +1679,30 @@ db.upsert_story(
     path="src/main-story/armory-deck-jarl-vetreidi/battle-of-isenloft.md",
     story_type="main-story",
     title="Battle of Isenloft",
-    # Restated exactly as the DB row holds it; no footer byline on the page.
     source_link="https://fabtcg.com/articles/battle-of-isenloft/",
     publication_date="2024-11-21",
     characters=[
         "jarl",
         "oldhim",
-        # New — the three Ancients named at :97 ("Yvor. Davnir. They were
-        # gone.") and throughout :53-:99 (Galcia). Existing catalogue
-        # constants, referenced not restated.
         people.DAVNIR,
         people.GALCIA,
         people.KALSHARPE,
-        # New — :25, flanking Oldhim by name. Confirmed against
-        # flavour/welcome-to-rathe.md:62 ("Staunch Response" - Ragnar
-        # Frosthelm), the only Ragnar in the registry.
         people.RAGNAR_FROSTHELM,
         people.SYBERYS,
         people.SYNVERI,
-        # New — :25, flanking Oldhim by name. Confirmed against
-        # flavour/tales-of-aria.md:10 ("Biting Gale" - Valgard Hoarfrost),
-        # the only Valgard in the registry.
         people.VALGARD_HOARFROST,
         people.YVOR,
     ],
     locations=[
         loc.ALDENGROVE,
         loc.ENION,
-        # New to this page's links — the story's own setting (title, :17,
-        # :71 "Isenloft's sheer walls", etc.). Existing catalogue constant
-        # (region Aria), not currently linked from this page.
         loc.ISENLOFT,
         loc.VALAHAI,
     ],
     regions=[reg.ARIA],
     monsters=[mon.GLUTGORR, mon.RAVENIR],
     groups=[
-        # :41, :47, :49, :65 (twice) — "the Ollin", "one Ollin", "Ollin
-        # looked to Ollin".
         grp.OLLIN,
-        # :19 — "Wayfarers, wizards, Rosetta, and guardians shrank out of
-        # his way", capitalised alongside grp.WAYFARERS.
         grp.ROSETTA,
         grp.WAYFARERS,
     ],
@@ -1858,14 +1724,12 @@ db.upsert_story(
         "lexi",
         people.AUREA_CHAMPION_OF_THE_DAWN,
         people.BLASMOPHET,
-        # "Bastion, Magister of Defense" — matches this constant's name and
-        # epithet exactly.
         people.THEBASTO_MAGISTER_OF_DEFENSE,
     ],
     locations=[loc.CANDLEHOLD, loc.GOLDENHELM_KEEP, loc.THE_SOLARIUM, loc.VALAHAI],
     regions=[reg.DEMONASTERY, reg.SOLANA, reg.THE_SAVAGE_LANDS],
     groups=[grp.HAND_OF_SOL, grp.ROSETTA, grp.WAYFARERS],
-    weapons=["zenith-blade"],  # Hala's sword, named repeatedly, matches the canonical slug
+    weapons=["zenith-blade"],
     dry_run=True,
 )
 
@@ -1874,14 +1738,9 @@ db.upsert_story(
     story_type="main-story",
     title="Catch of the Day",
     source_link="https://fabtcg.com/hero/riptide-lurker-of-the-deep/story/riptide-story/",
-    # authors/artists/publication_date/thumbnail_image_link: all empty in the DB row,
-    # no frontmatter and no "Story by / Art by" footer on the page — omitted.
     characters=["riptide", "uzuri"],
     locations=[loc.GRIEFERS_REEF, loc.SEETHE, loc.TEMPEST_STRAITS],
     regions=[reg.HIGH_SEAS, reg.METRIX, reg.THE_PITS],
-    # High Seas is never spelled out, but Griefers Reef (region="High Seas" in the
-    # catalogue) and Tempest Straits are both named — Metrix and "the Pits" are
-    # both named verbatim in the text.
     groups=[grp.PIRANHAS],
     dry_run=True,
 )
@@ -1893,15 +1752,13 @@ db.upsert_story(
     source_link="https://fabtcg.com/articles/the-dynamic-man/",
     publication_date="2023-09-22",
     characters=[
-        # Full lore name, not the bare "teklovossen" slug — the catalogue constant
-        # already folds the hero row and prose name onto one character_id.
         people.JULES_TEKLOVOSSEN,
         people.RIGO,
     ],
     locations=[
         loc.GIGADRILL_ELEVATOR,
         loc.IRON_ASSEMBLY,
-        loc.PIT_3,  # new — see below
+        loc.PIT_3,
         loc.PLUMVEX_PIPES_FACTORY,
         loc.TEKLO_INDUSTRIES,
         loc.THE_NEEDLE,
@@ -1909,7 +1766,7 @@ db.upsert_story(
     regions=[reg.METRIX],
     groups=[
         grp.COGWERX,
-        grp.IRON_ASSEMBLY,  # see Ambiguities — page uses it as an organisation, not a place
+        grp.IRON_ASSEMBLY,
         grp.TEKLO_INDUSTRIES,
     ],
     dry_run=True,
@@ -1925,36 +1782,24 @@ db.upsert_story(
     publication_date="2023-09-22",
     characters=[
         "dash",
-        "maxx",  # narrator; "Phantom Maxx, at your service" (line 31) plus the
-        # whole Rosario-orphan backstory matches the seeded "Maxx Nitro"
-        people.JULES_TEKLOVOSSEN,  # page names him in full, "Jules Teklovossen"
-        # (line 63) — unlike sibling
-        # bright-lights/P̸[...]on.md, which names only
-        # "Teklovossen" and uses the bare hero slug,
-        # this page earns the full CharacterEntry form
+        "maxx",
+        people.JULES_TEKLOVOSSEN,
         people.LENA_BELLE,
         people.RICKY_ROYCE,
     ],
     locations=[
         loc.COPPERTOWN,
         loc.IRON_ASSEMBLY,
-        loc.ROSARIO_HILLS,  # page calls it "Rosario Hills Institute" (line 33);
-        # matches the existing row (notes: "Orphanage parent
-        # company.")
+        loc.ROSARIO_HILLS,
         loc.ROSARIO_ORPHANAGE,
         loc.TEKLO_INDUSTRIES,
-        loc.THE_NEEDLE,  # "Teklo Industries' big, beautiful Needle" (line 63)
+        loc.THE_NEEDLE,
         loc.ZINNIA_PARK,
-        loc.ROSARIO_CHATEAUX,  # new — see below
+        loc.ROSARIO_CHATEAUX,
     ],
     regions=[reg.METRIX, reg.THE_PITS],
-    weapons=["plasma-barrel-shot"],  # linked inline as "Plasma Barrel Shot" (line 57)
-    food_drink=[food.NUTRISLUG],  # new — see below
-    # Both already carry a locations row; the page also treats them as the
-    # organisations behind those places ("the Iron Assembly could afford more
-    # space for its 'valued customers'", line 11; "A party ... Teklo Industries
-    # hasn't seen before", line 71) — same shape as the sibling
-    # short-stories/bright-lights/bright-lights.md declaration.
+    weapons=["plasma-barrel-shot"],
+    food_drink=[food.NUTRISLUG],
     groups=[grp.IRON_ASSEMBLY, grp.TEKLO_INDUSTRIES],
     dry_run=True,
 )
@@ -1967,7 +1812,6 @@ db.upsert_story(
     artists="Sam Yang",
     source_link="https://fabtcg.com/articles/synthetic-futures/",
     publication_date="2023-09-22",
-    # thumbnail_image_link omitted — empty in the DB row.
     characters=[
         "dash",
         "maxx",
@@ -1979,8 +1823,8 @@ db.upsert_story(
         people.JULES_TEKLOVOSSEN,
     ],
     locations=[
-        loc.LOWLAKE,  # Maxx's hideout — named twice, missing from the seeded set
-        loc.THE_SPRAWL,  # new constant, see below
+        loc.LOWLAKE,
+        loc.THE_SPRAWL,
         loc.COPPERTOWN,
         loc.UNDERDOG_CAFE,
         loc.WEST_RISE,
@@ -1993,16 +1837,16 @@ db.upsert_story(
     ],
     regions=[reg.METRIX, reg.THE_PITS],
     groups=[
-        grp.COGWERX,  # rival corp, discussed as a market actor throughout
-        grp.TEKLO_INDUSTRIES,  # discussed as a corporation, not just the building
-        grp.IRON_ASSEMBLY,  # "the Assembly collects the data... watch, listen, and speak"
-        grp.CIRCUIT_BREAKER,  # new constant, see below
+        grp.COGWERX,
+        grp.TEKLO_INDUSTRIES,
+        grp.IRON_ASSEMBLY,
+        grp.CIRCUIT_BREAKER,
     ],
     food_drink=[
-        food.AMYGDAZZLA,  # new constant — matches an existing unclaimed DB row
-        food.TINKER_TEA,  # new constant
+        food.AMYGDAZZLA,
+        food.TINKER_TEA,
     ],
-    weapons=["teklo-plasma-pistol"],  # Dash's sidearm; canonical slug confirmed
+    weapons=["teklo-plasma-pistol"],
     dry_run=True,
 )
 
@@ -2010,8 +1854,6 @@ db.upsert_story(
     path="src/main-story/rosetta/roots-of-change.md",
     story_type="main-story",
     title="Roots of Change",
-    # No footer byline and no frontmatter author on the page; DB carries no
-    # authors value either, so the field is omitted rather than guessed.
     artists="Nikolay Moskvin",
     source_link="https://fabtcg.com/articles/roots-of-change/",
     publication_date="2024-08-23",
@@ -2028,7 +1870,6 @@ db.upsert_story(
         loc.THRONE_GLADE,
     ],
     regions=[reg.ARIA],
-    # Ozrim is named "a member of the Rosetta, Candlehold's ancient council" (:65).
     groups=[grp.ROSETTA],
     dry_run=True,
 )
@@ -2041,22 +1882,16 @@ db.upsert_story(
     source_link="https://fabtcg.com/articles/essence-of-decay/",
     publication_date="2024-08-24",
     characters=[
-        # :127 — "a time when the Warden of Thorns had departed Candlehold, the
-        # only Rosetta to ever do so." Matches Briar's canonical hero title
-        # ("Briar, Warden of Thorns") exactly — no other Rosetta departed.
         "briar",
         "florian",
         "verdance",
         people.DAVNIR,
         people.OZRIM,
-        # "our Queen" / "the Queen's chosen rose" / "our departed Queen" (:13,
-        # :39, :43, :51, :59) — the ruler of Candlehold, not Davnir.
         people.QUEEN_OF_CANDLEHOLD,
     ],
     locations=[
         loc.CANDLEHOLD,
         loc.CANDLELIGHT_CLEARING,
-        # :7, :111, :117 — new link only, references the existing constant.
         loc.ROTWOOD,
     ],
     regions=[reg.ARIA],
@@ -2072,20 +1907,18 @@ db.upsert_story(
     authors="Edwin McRae, Rachel Rees",
     artists="Henrique Lindner",
     source_link="https://fabtcg.com/hero/arakni-huntsman/story/arakni-story/",
-    # No frontmatter and no "Story by / Art by" footer on the page — scalars restated
-    # from the existing DB row verbatim (see Notes).
     characters=[
-        "arakni-huntsman",  # never named "Arakni" in prose — see Ambiguities
-        people.DR_KREST_MORTIMER_THE_FIXER,  # signs the footer, "Director of Southmaw Asylum"
+        "arakni-huntsman",
+        people.DR_KREST_MORTIMER_THE_FIXER,
     ],
     locations=[
         loc.SHUNTSWITCH_RAILWAY_STATION,
         loc.SKEIN,
-        loc.SOUTHMAW,  # "Southmaw Asylum" / "Southmaw", named repeatedly; not yet linked to this story
+        loc.SOUTHMAW,
         loc.THE_MAW,
     ],
     regions=[reg.THE_PITS],
-    monsters=[mon.DREGS],  # "alchemical mutants...colloquially known as dregs" (line 3)
+    monsters=[mon.DREGS],
     dry_run=True,
 )
 
@@ -2096,12 +1929,11 @@ db.upsert_story(
     authors="Robbie Wen, Edwin McRae, Ryan McIntyre, Rachel Rees, Michael Coorlim, Melissa Ren",
     source_link="https://fabtcg.com/articles/trouble-in-larinkmorth/",
     publication_date="2025-08-06",
-    # artists / thumbnail_image_link omitted — empty in the DB row.
     characters=[
         "valda",
-        "bravo",  # "Oldhim named him leader of the new Ollin" (line 43)
+        "bravo",
         "oldhim",
-        "jarl",  # "Jarl Vetreiði." (line 87)
+        "jarl",
         people.BISKI,
         people.BRAUMEISTER_BALEN,
         people.EINAR,
@@ -2113,21 +1945,21 @@ db.upsert_story(
         people.TIRIL,
         people.TOMASS,
         people.WIDOW_JOHANA,
-        people.ORIEN,  # new — see below; possible unannounced hero, see Ambiguities
+        people.ORIEN,
     ],
     locations=[
-        loc.CANDLEHOLD,  # seeded; "the first time they'd crossed paths at Candlehold" (line 127)
+        loc.CANDLEHOLD,
         loc.LARINKMORTH,
-        loc.THE_EVERFEST_CARNIVAL,  # "Everfest" / "the Carnival" (lines 23, 37, 39, 55-61)
-        loc.ISENLOFT,  # "his last stand at Isenloft" (line 127)
-        loc.MIGHT_N_MEAD,  # "the Might 'n Mead" (line 57)
-        loc.THE_FLOW,  # "the flutter of the Flow in her chest" (lines 139-141)
-        loc.ISENRI_SAKE_BREWERY,  # new — see below
+        loc.THE_EVERFEST_CARNIVAL,
+        loc.ISENLOFT,
+        loc.MIGHT_N_MEAD,
+        loc.THE_FLOW,
+        loc.ISENRI_SAKE_BREWERY,
     ],
     regions=[reg.ARIA, reg.SOLANA],
-    monsters=[mon.RAVENIR],  # "That thing's a ravenir!" (line 129)
-    fauna=[fauna.VITR_EO],  # named only as a simile — "antlered like a vitr'eo" (line 83)
-    groups=[grp.OLLIN],  # "the new Ollin" (line 43); "I'm no Ollin" (line 181)
+    monsters=[mon.RAVENIR],
+    fauna=[fauna.VITR_EO],
+    groups=[grp.OLLIN],
     dry_run=True,
 )
 
@@ -2159,7 +1991,6 @@ db.upsert_story(
     authors="Edwin McRae, Rachel Rees",
     artists="Nikolay Moskvin",
     source_link="https://fabtcg.com/hero/uzuri-switchblade/story/uzuri-story/",
-    # publication_date / thumbnail_image_link: empty in the DB row — omitted.
     characters=[
         "uzuri",
         people.BARON_THE_BUTCHER,
@@ -2175,16 +2006,16 @@ db.upsert_story(
         loc.OVERSEER_CRICHTON_S_MANSION,
         loc.SEETHE,
         loc.SORI_16,
-        loc.THE_DROP,  # "a bar called The Drop" — existing constant, not yet linked to any story
+        loc.THE_DROP,
         loc.THE_LEAF_HOUSE,
     ],
     regions=[reg.METRIX, reg.MISTERIA, reg.THE_PITS],
     fauna=[fauna.BLINDSEAL, fauna.BLOATFIN],
-    food_drink=[food.SEWER_CHICKEN],  # new — see below
+    food_drink=[food.SEWER_CHICKEN],
     groups=[
-        grp.BLACKJACK_S_MINING_INCORPORATED,  # new
-        grp.GIMLET_MINING,  # new
-        grp.RUNNING_TIGERS,  # new — Njeri/Hisato/Jemjang's old smuggling outfit
+        grp.BLACKJACK_S_MINING_INCORPORATED,
+        grp.GIMLET_MINING,
+        grp.RUNNING_TIGERS,
         grp.THE_SPIDER,
     ],
     dry_run=True,
@@ -2199,29 +2030,29 @@ db.upsert_story(
     publication_date="2024-08-25",
     characters=[
         "aurora",
-        "briar",  # named only via her title, "the Warden of Thorns" (:53)
+        "briar",
         "florian",
         "melody",
         "oscilio",
-        people.DAVNIR,  # "ancient Davnir answered" (:121) — distinct from the queen, see Ambiguities
+        people.DAVNIR,
         people.MAELA_ONE_EYE,
         people.OZRIM,
-        people.QUEEN_OF_CANDLEHOLD,  # "The Queen of Candlehold is dead" (:45) — existing constant, distinct from Davnir per a-grand-adventure.md precedent
+        people.QUEEN_OF_CANDLEHOLD,
         "verdance",
     ],
     locations=[
         loc.CANDLEHOLD,
         loc.ENION,
         loc.LARINKMORTH,
-        loc.MILLENNIUM_TREE,  # new — see catalogue section
-        loc.THE_EVERFEST_CARNIVAL,  # "since Everfest" (:7)
-        loc.THE_FLOW,  # "surge in the Flow" (:43) and later
-        loc.THE_KORSHEM,  # "from Korshem to Larinkmorth" (:45)
+        loc.MILLENNIUM_TREE,
+        loc.THE_EVERFEST_CARNIVAL,
+        loc.THE_FLOW,
+        loc.THE_KORSHEM,
     ],
     regions=[reg.ARIA],
     groups=[
-        grp.ROSETTA,  # "his fellow Rosetta" (:69), "the other Rosetta" (:91)
-        grp.THE_MAELA,  # "Seers of Everfest" (:47); Maela One-eye is present, matches aria.md:93's "a group of seers known as the Maela"
+        grp.ROSETTA,
+        grp.THE_MAELA,
     ],
     dry_run=True,
 )
@@ -2236,25 +2067,25 @@ db.upsert_story(
         "aurora",
         "melody",
         "oscilio",
-        people.YVOR,  # "Yvor defended Enion against the Old Ones" (:89)
+        people.YVOR,
     ],
     locations=[
         loc.ARCTUROS,
         loc.BOULDERHEAD_ISLAND,
         loc.ENION,
-        loc.THE_FLOW,  # "an unusual fluctuation in The Flow" (:141)
+        loc.THE_FLOW,
         loc.VOLTHAVEN,
     ],
     regions=[reg.ARIA],
-    monsters=[mon.GOLEM],  # new — see Ambiguities
+    monsters=[mon.GOLEM],
     fauna=[
         fauna.KAIE_O,
         fauna.NA_SHARI,
-        fauna.SHOCK_STRIKER,  # new
+        fauna.SHOCK_STRIKER,
     ],
     groups=[
         grp.AETHERSCRIBES,
-        grp.OLLIN,  # "like a slumberous Ollin thawing under a new dawn" (:33)
+        grp.OLLIN,
     ],
     dry_run=True,
 )
@@ -2267,37 +2098,35 @@ db.upsert_story(
     artists="Sam Yang",
     source_link="https://fabtcg.com/articles/spiders-trap/",
     publication_date="2023-03-04",
-    # thumbnail_image_link omitted — empty in the DB row.
-    # narrated_videos omitted — omission preserves the seeded St_Havock reading.
     characters=[
-        "arakni-huntsman",  # seeded slug; page calls Arakni "the Huntsman" (:130, :134)
-        "emperor",  # "The Emperor of Volcor" — the (forged) contract's named issuer (:26)
+        "arakni-huntsman",
+        "emperor",
         "riptide",
         "uzuri",
-        people.WHITETAIL,  # existing constant; former Spider lieutenant turned traitor
-        people.WIDOW,  # a Spider assassin (:86), not Widow Johana of Larinkmorth
-        people.SLAB,  # leads the Blockheads (:138)
-        people.AMBER,  # new
-        people.BLAVE,  # new
-        people.CAGER,  # new
-        people.CARVA,  # new
-        people.FLORENCE,  # new
-        people.JAPE,  # new
-        people.MADAME_FUSE,  # new
-        people.MARROW,  # new — see Ambiguities re: kind
-        people.MELTEN_WICK,  # new
-        people.SILKA,  # new
+        people.WHITETAIL,
+        people.WIDOW,
+        people.SLAB,
+        people.AMBER,
+        people.BLAVE,
+        people.CAGER,
+        people.CARVA,
+        people.FLORENCE,
+        people.JAPE,
+        people.MADAME_FUSE,
+        people.MARROW,
+        people.MELTEN_WICK,
+        people.SILKA,
     ],
-    locations=[loc.THE_DROP],  # seeded; Uzuri's bar, scene of Act 1 (:8)
-    regions=[reg.METRIX, reg.THE_PITS, reg.VOLCOR],  # all three named verbatim
-    monsters=[mon.DREGS],  # "a brace of slavering dregs" (:136) — existing constant, has a description
+    locations=[loc.THE_DROP],
+    regions=[reg.METRIX, reg.THE_PITS, reg.VOLCOR],
+    monsters=[mon.DREGS],
     groups=[
-        grp.THE_SPIDER,  # existing; "Assassins of the Spider" (:180)
-        grp.TORCHED,  # new — Wick's gang (:124, :130, :152)
-        grp.FREAKSHOW,  # new — Cager's gang (:136, :142)
-        grp.BLOCKHEADS,  # new — Slab's gang (:138)
-        grp.NUMBSKULLS,  # new — Marrow's gang (:140)
-        grp.JAWBREAKERS,  # new — Madame Fuse's gang (:142)
+        grp.THE_SPIDER,
+        grp.TORCHED,
+        grp.FREAKSHOW,
+        grp.BLOCKHEADS,
+        grp.NUMBSKULLS,
+        grp.JAWBREAKERS,
     ],
     dry_run=True,
 )
@@ -2316,14 +2145,10 @@ db.upsert_story(
     source_link="https://fabtcg.com/hero/terra/story/splinter-soul/",
     publication_date="2025-02-27",
     characters=["terra", people.HYRINTH, people.SIDRIZ],
-    # The Flow and Mount Heroic are both named in the text; The Korshem was
-    # the only one already seeded, so all three are restated (replace-semantic).
     locations=[loc.THE_KORSHEM, loc.THE_FLOW, loc.MOUNT_HEROIC],
     regions=[reg.ARIA],
-    # Gossamhares was the only seeded fauna link; Fianna and Meep are also
-    # named on the page ("a tall fianna", "squirrels and meeps").
     fauna=[fauna.GOSSAMHARES, fauna.FIANNA, fauna.MEEP],
-    flora=[flora.BLISSBERRY_BUSH],  # new catalogue const, see below
+    flora=[flora.BLISSBERRY_BUSH],
     dry_run=True,
 )
 
@@ -2337,18 +2162,13 @@ db.upsert_story(
     publication_date="2022-04-21",
     characters=["iyslander"],
     locations=[
-        # :49, :81 — "I remember a name. Volcor." / "I recall a name, Ashvahan."
         loc.ASHVAHAN,
-        # :1-121, throughout — Iyslander's frozen homeland.
         loc.BLEAK_EXPANSE,
-        # :33 — "its Flow will send me on my way" (Aria's Flow). Not previously linked here.
         loc.THE_FLOW,
-        # :33 — "the Great Tree of Korshem".
         loc.THE_KORSHEM,
     ],
     regions=[reg.ARIA, reg.SOLANA, reg.VOLCOR],
     fauna=[
-        # :31 — "A kaie'o bounds into the meadow". Not previously linked here.
         fauna.KAIE_O,
     ],
     dry_run=True,
@@ -2371,13 +2191,13 @@ db.upsert_story(
     ],
     locations=[loc.DESHVAHAN, loc.SAND_GLASS_DISTRICT],
     regions=[reg.VOLCOR],
-    monsters=[mon.GUCAI],  # new — see New catalogue constants
+    monsters=[mon.GUCAI],
     groups=[
         grp.CHILDREN_OF_THE_DRAGON,
         grp.SAYASHI,
         grp.DRACAI,
-        grp.DUST_RUNNERS,  # new
-        grp.ROYAL_GUARD,  # new, ambiguous — see Ambiguities
+        grp.DUST_RUNNERS,
+        grp.ROYAL_GUARD,
     ],
     dry_run=True,
 )
@@ -2393,16 +2213,15 @@ db.upsert_story(
         "emperor",
         people.GENERAL_RIKU,
         people.EUN,
-        people.MIN_OF_THE_FOREST_OF_FLAMES,  # "Min" is Fai's mother; page is set in the Forest of
-        # Flames, matching this constant over PROFESSOR_MIN
+        people.MIN_OF_THE_FOREST_OF_FLAMES,
         people.TORVAI,
-        people.PHAELIN,  # new
+        people.PHAELIN,
     ],
     locations=[
         loc.FOREST_OF_FLAMES,
         loc.THE_GOLDEN_ORCHARD_ESTATE,
         loc.ASHVAHAN,
-        loc.TAOKING,  # new
+        loc.TAOKING,
     ],
     regions=[reg.VOLCOR],
     groups=[grp.VOLCAI, grp.DRACAI, grp.CINTARI],
@@ -2426,11 +2245,8 @@ db.upsert_story(
         people.EIRINA,
         people.GENERAL_RIKU,
         people.GRAND_MAGISTER_THE_STEADFAST,
-        # "The Bastion-Magister of Defense" (line 97) — matches this constant's
-        # name+office exactly, same resolution main_story.py already uses for
-        # "vow-unbroken.md".
         people.THEBASTO_MAGISTER_OF_DEFENSE,
-        people.THE_AMBASSADOR,  # new — "The Ambassador-Magister of Diplomacy" (line 67)
+        people.THE_AMBASSADOR,
         people.THE_LIBRARIAN,
         people.XATHARI,
     ],
@@ -2450,7 +2266,7 @@ db.upsert_story(
         "cindra",
         "fang",
         "taipanis",
-        "emperor",  # all four are hero slugs, not people.X
+        "emperor",
         "arakni-web-of-deceit",
         people.JEMJANG,
         people.LORD_MERCHANT_SAVAI,
@@ -2477,7 +2293,7 @@ db.upsert_story(
     characters=[
         "cindra",
         "fang",
-        "emperor",  # "For the Emperor. For the blood of the dragon!" (line 161)
+        "emperor",
         "arakni-web-of-deceit",
         people.LORD_MERCHANT_SAVAI,
         people.LORD_WIZARD_CHIYO,
@@ -2522,14 +2338,14 @@ db.upsert_story(
         people.LORD_WIZARD_CHIYO,
         people.GENERAL_RIKU,
         people.LIEUTENANT_YAMADA,
-        people.VYNSERAKAI,  # named as "a grand temple of Vynserakai"
+        people.VYNSERAKAI,
     ],
     locations=[loc.DESHVAHAN],
     groups=[
-        grp.DRACAI,  # "the southern Dracai"
-        grp.CHILDREN_OF_THE_DRAGON,  # "the Children of the Dragon"
-        grp.THE_SPIDER,  # "the Spider's sticky web"
-        grp.CHILDREN_OF_CHAOS,  # new — "the Children of Chaos"
+        grp.DRACAI,
+        grp.CHILDREN_OF_THE_DRAGON,
+        grp.THE_SPIDER,
+        grp.CHILDREN_OF_CHAOS,
     ],
     dry_run=True,
 )

@@ -10,28 +10,25 @@ Preview one page with ``python3 src/data/data-entry.py --only <path>``; see
 
 from __future__ import annotations
 
-# Entities are referenced, never constructed. Every registry id is a hash of the
-# fields written at the call site, so a second literal for the same entity
-# competes with the first row instead of reusing it — that is how "The Shadow
-# Crypts" became two rows. The canonical definition of each lives in
-# entries/catalogue/; none of the entry classes are imported here, so writing
-# LocationEntry(...) is a NameError rather than a silent new row.
-from entries.catalogue import (  # noqa: F401
+from entries._runner import db
+from entries.catalogue import (
     characters as people,
+)
+from entries.catalogue import (
     fauna,
-    flora,
+)
+from entries.catalogue import (
     food_drink as food,
+)
+from entries.catalogue import (
     groups as grp,
+)
+from entries.catalogue import (
     locations as loc,
-    monsters as mon,
+)
+from entries.catalogue import (
     regions as reg,
 )
-
-# NarratedVideoEntry is the one exception: a narrated reading belongs to one
-# story, has no registry table and no id of its own, so it is per-declaration
-# data rather than a shared entity.
-from db import NarratedVideoEntry  # noqa: F401
-from entries._runner import db
 
 db.upsert_story(
     path="src/heroes-of-rathe/aurora-about.md",
@@ -395,10 +392,6 @@ db.upsert_story(
     title="Oldhim",
     characters=["oldhim"],
     locations=[
-        # Open question: should ISENLOFT carry lore_fragment="mount-isen"? Uncertain
-        # match. It is a one-line edit in catalogue/locations.py now, and it would
-        # apply to every page linking Isenloft rather than to this one — which is
-        # the point. See also loc.MT_ISEN, which may be the same place.
         loc.ISENLOFT,
     ],
     regions=[reg.ARIA],
@@ -629,9 +622,6 @@ db.upsert_story(
     story_type="heroes-of-rathe",
     title="Brevant, Civic Protector",
     characters=["brevant"],
-    # Explicitly empty, not omitted. Hand of Sol was this page's only location and
-    # is now a group; an omitted kwarg means "leave the junction alone", so the
-    # stale story_locations row would have survived the move in silence.
     locations=[],
     regions=[reg.SOLANA],
     groups=[grp.HAND_OF_SOL],

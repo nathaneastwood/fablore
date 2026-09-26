@@ -41,17 +41,7 @@ SECTIONS: dict[str, str] = {
     "summaries": "summaries",
     "flavour": "flavour",
     "digital_tiles": "digital-tiles",
-    # Added 2026-08-21, stage 5. `world-of-rathe` was already a valid story_type
-    # in `upsert_story` and already had all 11 pages in `stories`; only a module
-    # was missing. This row made it eight modules for eleven story types.
     "world_of_rathe": "world-of-rathe",
-    # Added 2026-08-22, stage 12 (scaffolding only — no declarations yet).
-    # `archive`, `equipment` and `weapons` were already valid story_types with
-    # no module to declare in. These three rows bring SECTIONS to eleven for
-    # eleven — every story type create_stories_index.py produces now has
-    # somewhere a declaration can live. The 63 of 113 pages across these three
-    # roots that already carry seeded entity links nothing could maintain are
-    # still undeclared; writing those is deferred data entry, not scaffolding.
     "archive": "archive",
     "equipment": "equipment",
     "weapons": "weapons",

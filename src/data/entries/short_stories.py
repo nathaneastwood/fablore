@@ -10,28 +10,22 @@ Preview one page with ``python3 src/data/data-entry.py --only <path>``; see
 
 from __future__ import annotations
 
-# Entities are referenced, never constructed. Every registry id is a hash of the
-# fields written at the call site, so a second literal for the same entity
-# competes with the first row instead of reusing it — that is how "The Shadow
-# Crypts" became two rows. The canonical definition of each lives in
-# entries/catalogue/; none of the entry classes are imported here, so writing
-# LocationEntry(...) is a NameError rather than a silent new row.
-from entries.catalogue import (  # noqa: F401
+from entries._runner import db
+from entries.catalogue import (
     characters as people,
+)
+from entries.catalogue import (
     fauna,
-    flora,
-    food_drink as food,
+)
+from entries.catalogue import (
     groups as grp,
+)
+from entries.catalogue import (
     locations as loc,
-    monsters as mon,
+)
+from entries.catalogue import (
     regions as reg,
 )
-
-# NarratedVideoEntry is the one exception: a narrated reading belongs to one
-# story, has no registry table and no id of its own, so it is per-declaration
-# data rather than a shared entity.
-from db import NarratedVideoEntry  # noqa: F401
-from entries._runner import db
 
 db.upsert_story(
     path="src/short-stories/usurp-the-shadow-throne/open-the-gates.md",
@@ -609,24 +603,15 @@ db.upsert_story(
     path="src/short-stories/bright-lights/bright-lights.md",
     story_type="short-stories",
     title="Bright Lights",
-    # Both already seeded as locations; page names both ("The Iron Assembly, ...
-    # Teklo Industries... it all has to go") — full list, unchanged from seeded state.
     locations=[
         loc.IRON_ASSEMBLY,
         loc.TEKLO_INDUSTRIES,
     ],
-    # All three named together in one sentence as the powers the narrator wants
-    # torn down. None were seeded as groups before this call (groups postdates
-    # the story's original registration).
     groups=[
         grp.IRON_ASSEMBLY,
         grp.MENDACITY_MEDIA,
         grp.TEKLO_INDUSTRIES,
     ],
-    # regions= omitted deliberately — "Metrix" is not literally named on the
-    # page, only inferable via the two locations' region. Omission preserves
-    # the existing seeded reg.METRIX link without asserting a claim the page
-    # text doesn't make.
     dry_run=True,
 )
 

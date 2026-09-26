@@ -19,28 +19,19 @@ scope here.
 
 from __future__ import annotations
 
-# Entities are referenced, never constructed. Every registry id is a hash of the
-# fields written at the call site, so a second literal for the same entity
-# competes with the first row instead of reusing it — that is how "The Shadow
-# Crypts" became two rows. The canonical definition of each lives in
-# entries/catalogue/; none of the entry classes are imported here, so writing
-# LocationEntry(...) is a NameError rather than a silent new row.
-from entries.catalogue import (  # noqa: F401
+from entries._runner import db
+from entries.catalogue import (
     characters as people,
-    fauna,
-    flora,
-    food_drink as food,
+)
+from entries.catalogue import (
     groups as grp,
+)
+from entries.catalogue import (
     locations as loc,
-    monsters as mon,
+)
+from entries.catalogue import (
     regions as reg,
 )
-
-# NarratedVideoEntry is the one exception: a narrated reading belongs to one
-# story, has no registry table and no id of its own, so it is per-declaration
-# data rather than a shared entity.
-from db import NarratedVideoEntry  # noqa: F401
-from entries._runner import db  # noqa: F401
 
 db.upsert_story(
     path="src/equipment/skullhorn.md",
@@ -48,9 +39,7 @@ db.upsert_story(
     title="Skullhorn",
     source_link="https://fabtcg.com/articles/fires-forge/",
     publication_date="2020-08-18",
-    # authors/artists/thumbnail_image_link omitted — DB row holds them empty
-    # and the page carries no footer byline.
-    equipment=["skullhorn"],  # the item this page is about; slug exists in db.list_equipment()
+    equipment=["skullhorn"],
     dry_run=True,
 )
 
@@ -61,7 +50,7 @@ db.upsert_story(
     characters=["emperor"],
     regions=[reg.VOLCOR],
     locations=[loc.IMPERIAL_PALACE, loc.DRAGON_FESTIVAL],
-    groups=[grp.DRACAI],  # "our courageous Dracai" (:5)
+    groups=[grp.DRACAI],
     equipment=["amethyst-tiara"],
     dry_run=True,
 )
@@ -92,7 +81,7 @@ db.upsert_story(
     story_type="equipment",
     title="Bolt'N' Boots",
     regions=[reg.THE_PITS],
-    locations=[loc.BLACKJACK_S_TAVERN],  # "wandered into Blackjack's" — read as the tavern; unconfirmed
+    locations=[loc.BLACKJACK_S_TAVERN],
     equipment=["boltn-boots"],
     dry_run=True,
 )
@@ -195,7 +184,6 @@ db.upsert_story(
     title="Courage Of Bladehold",
     source_link="https://fabtcg.com/articles/fires-forge/",
     publication_date="2020-08-18",
-    # "the amphitheatre" (:3) is lowercase and unplaced — not linked to Solana's.
     equipment=["courage-of-bladehold"],
     dry_run=True,
 )
@@ -206,7 +194,6 @@ db.upsert_story(
     title="Myrkhellir Helm",
     equipment=["myrkhellir-helm"],
     locations=[loc.MYRKHELLIR],
-    # "the Old Ones" is still held for the user: it recurs unmodelled.
     dry_run=True,
 )
 
@@ -228,7 +215,7 @@ db.upsert_story(
     equipment=["synapse-sparkcap"],
     characters=["teklovossen"],
     regions=[reg.METRIX],
-    locations=[loc.COGMIRE_S_SALVAGE_EMPORIUM_AND_WORKSHOPPE],  # the page uses the short form
+    locations=[loc.COGMIRE_S_SALVAGE_EMPORIUM_AND_WORKSHOPPE],
     dry_run=True,
 )
 

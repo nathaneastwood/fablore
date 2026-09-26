@@ -18,34 +18,28 @@ already have seeded links for is deferred data entry, out of scope here.
 
 from __future__ import annotations
 
-# Entities are referenced, never constructed. Every registry id is a hash of the
-# fields written at the call site, so a second literal for the same entity
-# competes with the first row instead of reusing it — that is how "The Shadow
-# Crypts" became two rows. The canonical definition of each lives in
-# entries/catalogue/; none of the entry classes are imported here, so writing
-# LocationEntry(...) is a NameError rather than a silent new row.
-from entries.catalogue import (  # noqa: F401
+from entries._runner import db
+from entries.catalogue import (
     characters as people,
+)
+from entries.catalogue import (
     fauna,
-    flora,
-    food_drink as food,
+)
+from entries.catalogue import (
     groups as grp,
+)
+from entries.catalogue import (
     locations as loc,
-    monsters as mon,
+)
+from entries.catalogue import (
     regions as reg,
 )
-
-# NarratedVideoEntry is the one exception: a narrated reading belongs to one
-# story, has no registry table and no id of its own, so it is per-declaration
-# data rather than a shared entity.
-from db import NarratedVideoEntry  # noqa: F401
-from entries._runner import db  # noqa: F401
 
 db.upsert_story(
     path="src/weapons/rok.md",
     story_type="weapons",
     title="Rok",
-    weapons=["rok"],  # the page is the lore letter for this weapon
+    weapons=["rok"],
     characters=[
         "emperor",
         people.ADU,
@@ -94,11 +88,8 @@ db.upsert_story(
     story_type="weapons",
     title="Hanabi Blaster",
     characters=["emperor"],
-    # Same letter template as rok.md: the Imperial Palace and the Dragon Festival.
     locations=[loc.IMPERIAL_PALACE, loc.DRAGON_FESTIVAL],
     regions=[reg.SOLANA, reg.VOLCOR, reg.THE_SAVAGE_LANDS],
-    # :5 "the Cogworks conglomerate" — read as Cogwerx; the page also writes
-    # "metrics" for Metrix, so its spellings are not evidence of a second entity.
     groups=[grp.COGWERX],
     weapons=["hanabi-blaster"],
     dry_run=True,
@@ -113,7 +104,7 @@ db.upsert_story(
         people.AELIUS,
         people.GRAND_MAGISTER_THE_RADIANT,
         people.LADY_VERA_SUTCLIFFE,
-        people.LETO,  # :3 — the templar who inherited the Blade of Eridani
+        people.LETO,
         people.LORD_SUTCLIFFE,
     ],
     locations=[loc.THE_GOLDEN_FIELDS],
@@ -140,7 +131,6 @@ db.upsert_story(
     title="Plasma Barrel Shot",
     source_link="https://fabtcg.com/articles/armed-teeth/",
     publication_date="2020-08-17",
-    # "The Teklo Corporation" (:1) — read as Teklo Industries.
     groups=[grp.TEKLO_INDUSTRIES],
     weapons=["plasma-barrel-shot"],
     dry_run=True,

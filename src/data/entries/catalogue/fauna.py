@@ -25,9 +25,6 @@ EBON_SERPENT = FaunaEntry("Ebon Serpent")
 EEL_WOLVES = FaunaEntry("Eel-wolves")
 FIANNA = FaunaEntry("Fianna")
 FLAREFISH = FaunaEntry("Flarefish")
-"""Falls from the lava river into the Oasis lake, where the luminous carp hunt it
-(``main-story/uprising/betrayal.md``). Named on that one page and nowhere else in
-the repository."""
 
 FLARE_DEER = FaunaEntry("Flare Deer")
 GIANT_DRIFT_STINGERS = FaunaEntry("Giant Drift Stingers")
@@ -43,9 +40,6 @@ KULPIE = FaunaEntry("Kulpie")
 KUMIHO = FaunaEntry("Kumiho")
 LONGMA = FaunaEntry("Longma")
 LUMINOUS_CARP = FaunaEntry("Luminous Carp")
-"""Flits through the Oasis lake hunting ``FLAREFISH``
-(``main-story/uprising/betrayal.md``). Written lower-case in the prose, as most of
-the fauna here is; capitalised for the row the way its neighbours are."""
 
 MAGGOT_GULL = FaunaEntry("Maggot Gull")
 MEEP = FaunaEntry("Meep")
