@@ -1,4 +1,8 @@
 # AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Database class in src/data/db/ (db.upsert_story).
 TitleId|CharacterId|Ordinal|StoryKey
 TI306618d1ac|LC158fd93075|0|other-characters/the-librarian.md
+TId36211651b|LC91740cb310|1|world-of-rathe/solana.md
+TId36211651b|LC2dff6260a6|2|world-of-rathe/solana.md
+TId36211651b|LCb1c9d31e49|3|world-of-rathe/solana.md
+TId36211651b|LC4726dd1d21|4|world-of-rathe/solana.md
 TId36211651b|LC4297c6b894|5|world-of-rathe/solana.md

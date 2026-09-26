@@ -205,8 +205,8 @@ db.upsert_story(
     story_type="equipment",
     title="Myrkhellir Helm",
     equipment=["myrkhellir-helm"],
-    # "Myrkhellir" (a dwarven bastion, region unstated) and "the Old Ones" are held
-    # for the user: a location needs a region, and the Old Ones recur unmodelled.
+    locations=[loc.MYRKHELLIR],
+    # "the Old Ones" is still held for the user: it recurs unmodelled.
     dry_run=True,
 )
 

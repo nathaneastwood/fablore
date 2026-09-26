@@ -30,7 +30,6 @@ FLAREFISH = FaunaEntry("Flarefish")
 the repository."""
 
 FLARE_DEER = FaunaEntry("Flare Deer")
-GENTUA = FaunaEntry("Gentua")
 GIANT_DRIFT_STINGERS = FaunaEntry("Giant Drift Stingers")
 GOSSAMHARES = FaunaEntry("Gossamhares")
 GUPLER = FaunaEntry("Gupler")

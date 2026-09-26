@@ -250,7 +250,7 @@ db.upsert_story(
         people.INQUISITOR_ARICIA,
         people.LUCILLA_THE_SETTING_SUN,
         people.TASHA_OF_DESHVAHAN,
-        people.THE_BASTION,
+        people.THEBASTO_MAGISTER_OF_DEFENSE,
         people.VANIK_SILVERTOOTH,
     ],
     locations=[
@@ -610,10 +610,6 @@ db.upsert_story(
         # knowledge...") addresses her by her existing epithet.
         people.SURAYA_ARCHANGEL_OF_KNOWLEDGE,
     ],
-    # Anchor ids are pattern-derived from each card's heading ("Name - (IDs)" ->
-    # kebab(name) + "---" + ids concatenated, slashes stripped), matching the
-    # convention on crucible-of-war.md etc. Not verified against a built book —
-    # check before running with dry_run=False.
     fragments={
         "boltyn": "spirit-of-eirina---dyn066",
         "emperor": "crown-of-dominion---dyn234",

@@ -12,8 +12,8 @@ for the split between this package, ``entries/*.py`` and ``descriptions.py``.
 from __future__ import annotations
 
 from db import CharacterEntry
-from entries.catalogue import kinds as kind
 
+from entries.catalogue import kinds as kind
 
 ACHLYS_HAG_OF_MOJIRE = CharacterEntry("Achlys, hag of Mojire", kinds=kind.HUMAN, epithets=("hag of Mojire",))
 AEGIS_THE_SHIELD_OF_LIGHT = CharacterEntry(
@@ -240,7 +240,8 @@ GENERAL_CHUL = CharacterEntry("General Chul", kinds=kind.HUMAN)
 GENERAL_EKODA = CharacterEntry("General Ekoda", kinds=kind.HUMAN)
 GENERAL_KODA = CharacterEntry("General Koda", kinds=kind.HUMAN, status="Dead")
 """weapons/merciless-battleaxe.md:5 — held the bridge at Sworyuk Gorge and "died of
-his wounds". Possibly the same man as GENERAL_EKODA; unconfirmed."""
+his wounds". Reviewed against GENERAL_EKODA and confirmed as a distinct character;
+see csv/reviewed-name-pairs.csv."""
 GENERAL_NAKAMI = CharacterEntry("General Nakami", kinds=kind.HUMAN)
 GENERAL_RIKU = CharacterEntry("General Riku", kinds=kind.HUMAN, status="Dead")
 GENERAL_UMADESU = CharacterEntry("General Umadesu", kinds=kind.HUMAN, status="Dead", short_names=("Umadesu",))
@@ -502,7 +503,6 @@ OTMAR = CharacterEntry("Otmar", kinds=kind.HUMAN)
 OUVIA = CharacterEntry("Ouvia", kinds=kind.DRAGON)
 """See ``AZVOLAI`` — one of the eleven, and the same note applies."""
 OVERSEER_CRICHTON = CharacterEntry("Overseer Crichton", kinds=kind.HUMAN, status="Dead")
-# TODO: upcoming hero — re-classify once slug exists
 ORIEN = CharacterEntry("Orien", status="Alive")
 """Jarl Vetreiði's travelling companion on
 main-story/mastery-pack-guardian/trouble-in-larinkmorth.md:159, wielding a
@@ -523,7 +523,12 @@ POLLY_CRANKA = CharacterEntry("Polly Cranka", kinds=kind.PARROT, status="Alive")
 PROFESSOR_MIN = CharacterEntry("Professor Min", kinds=kind.HUMAN)
 PROSPECTOR_COGMIRE = CharacterEntry("Prospector Cogmire", kinds=kind.HUMAN)
 QUARREL = CharacterEntry("Quarrel", kinds=kind.HUMAN, status="Alive")
-QUEEN_OF_CANDLEHOLD = CharacterEntry("Queen of Candlehold", kinds=kind.ROSETTA)
+QUEEN_OF_CANDLEHOLD = CharacterEntry("Celvera", kinds=kind.ROSETTA, status="Dead", epithets=("Queen of Candlehold",))
+"""``world-of-rathe/aria.md:65`` names her "Queen Celvera" — the rename the user
+deferred there. ``main-story/tales-of-aria/seeds-of-renewal.md:45`` narrates her
+death explicitly ("The Queen of Candlehold is dead"), the same footing as
+``DAVNIR``'s ``status="Dead"``. The old name is kept as an epithet so it still
+reaches the tooltip and search."""
 QUENTON = CharacterEntry("Quenton", status="Dead")
 """world-of-rathe/savage-lands.md — a mercenary of the Scarborough Expedition, eaten by brutes. "mercenary" is a
 job, not an epithet, so it is not recorded."""
@@ -637,7 +642,6 @@ THE_AMBASSADOR = CharacterEntry("The Ambassador", kinds=kind.HUMAN)
 """main-story/outsiders/tidings-in-the-light.md:67 — "The Ambassador-Magister of
 Diplomacy", bare-office style like THE_LIBRARIAN. Kind inferred from the sibling
 Magisters, not stated."""
-THE_BASTION = CharacterEntry("The Bastion")
 THE_HARVESTER = CharacterEntry("The Harvester", kinds=kind.HUMAN)
 THE_LIBRARIAN = CharacterEntry(
     "The Librarian",
@@ -684,6 +688,15 @@ VYNSERAKAI = CharacterEntry("Vynserakai", kinds=kind.DRAGON)
 WAILER = CharacterEntry("Wailer", kinds=kind.ZOMBIE, status="Dead")
 WENDRYN = CharacterEntry("Wendryn", kinds=kind.HUMAN, status="Dead")
 WHEELER = CharacterEntry("Wheeler", kinds=kind.HUMAN, status="Alive")
+WHISPER = CharacterEntry("Whisper")
+"""Reclassified from ``mon.WHISPER`` (was one of the demonastery.md "Oddities and
+Specimens") — she speaks in the first person and bargains with agency:
+main-story/arcane-rising/birth-of-the-arknight.md:61 ("The residents of this place
+call me Whisper...") and main-story/arcane-rising/return-of-the-shadow.md:37, where
+she strikes a bargain with Viserai. Mani, catalogued alongside her, stayed a
+monster — nothing in the text gives Mani the same first-person voice. No ``kinds``:
+she reads as sapient but is depicted as a stained glass window come to life, and
+the text never names what she is."""
 WHISPERS_OF_XERYS = CharacterEntry("Whispers of Xerys")
 WHITETAIL = CharacterEntry("Whitetail", kinds=kind.HUMAN, status="Alive")
 WIDOW = CharacterEntry("Widow", kinds=kind.HUMAN, status="Alive")

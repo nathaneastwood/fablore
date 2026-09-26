@@ -1,2 +1,3 @@
 # AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Database class in src/data/db/ (db.upsert_story).
 CharacterId|RelativeId|Relation|StoryKey
+LC7130bac2fe|LC813d110fa8|sibling|other-characters/minerva-themis.md

@@ -50,6 +50,12 @@ carries it yet; the kind is attested and the characters are not."""
 DOG = KindEntry("Dog")
 DWARF = KindEntry("Dwarf")
 GOBLIN = KindEntry("Goblin")
+HECKLER = KindEntry("Heckler")
+"""savage-lands.md:77-91 — "ruthless, feral and violent", nomadic, raiding in small
+groups; no named leader or roster, which is what marks this a people rather than a
+group, on the ``BRUTE`` precedent. faq.md:11 lists them among the "races of Rathe"
+alongside Brutes. No character row carries it yet; the kind is attested and the
+characters are not, same as ``CHANEK``."""
 HORSE = KindEntry("Horse")
 HUMAN = KindEntry("Human")
 MEEP = KindEntry("Meep")

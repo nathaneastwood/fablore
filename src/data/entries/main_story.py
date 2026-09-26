@@ -952,7 +952,7 @@ db.upsert_story(
     ],
     locations=[loc.LUNAR_TEMPLE, loc.MISTCLOAK_LAKE, loc.MISTCLOAK_GULLY, loc.NASU_KA_TEAHOUSE],
     regions=[reg.MISTERIA],
-    # TODO: needs catalogue constant — Gentua (fauna); also called "Imps" per src/faq.md
+    monsters=[mon.GENTUA],  # new; not yet applied — this page's dry_run stays True
     # TODO: needs catalogue constant — Three-Legged Crow (fauna); see Ambiguous
     dry_run=True,
 )
@@ -1000,12 +1000,13 @@ db.upsert_story(
     characters=[
         "viserai",
         people.LORD_SUTCLIFFE,
+        people.WHISPER,  # new; not yet applied — this page's dry_run stays True
     ],
     locations=[
         loc.ENTRANCE_HALL,
     ],
     regions=[reg.DEMONASTERY],
-    # TODO: needs catalogue constant — Corva (npc), Whisper (npc), Mani (npc),
+    # TODO: needs catalogue constant — Corva (npc), Mani (npc),
     # Scriptorium (location), Vidus (monster), Pallas (fauna). See the table below.
     dry_run=True,
 )
@@ -1119,15 +1120,16 @@ db.upsert_story(
     artists="Nikolay Moskvin",
     publication_date="2020-08-12",
     source_link="https://fabtcg.com/articles/return-shadow/",
-    characters=["viserai"],
+    characters=[
+        "viserai",
+        people.WHISPER,  # new; not yet applied — this page's dry_run stays True
+    ],
     locations=[
         loc.ENTRANCE_HALL,
         loc.I_ARATHAEL,
     ],
     regions=[reg.DEMONASTERY],
     weapons=["nebula-blade"],
-    # TODO: needs catalogue constant — Whisper (npc). Requested from
-    # birth-of-the-arknight.md; one addition serves both pages.
     dry_run=True,
 )
 
@@ -1855,8 +1857,8 @@ db.upsert_story(
         "lexi",
         people.AUREA_CHAMPION_OF_THE_DAWN,
         people.BLASMOPHET,
-        # "Bastion, Magister of Defense" — matches this existing constant's name
-        # and epithet exactly; see Ambiguities for a possible duplicate row.
+        # "Bastion, Magister of Defense" — matches this constant's name and
+        # epithet exactly.
         people.THEBASTO_MAGISTER_OF_DEFENSE,
     ],
     locations=[loc.CANDLEHOLD, loc.GOLDENHELM_KEEP, loc.THE_SOLARIUM, loc.VALAHAI],
@@ -1873,8 +1875,7 @@ db.upsert_story(
     source_link="https://fabtcg.com/hero/riptide-lurker-of-the-deep/story/riptide-story/",
     # authors/artists/publication_date/thumbnail_image_link: all empty in the DB row,
     # no frontmatter and no "Story by / Art by" footer on the page — omitted.
-    characters=["riptide"],
-    # Uzuri is seeded but never named on this page — see Dropped seeded links.
+    characters=["riptide", "uzuri"],
     locations=[loc.GRIEFERS_REEF, loc.SEETHE, loc.TEMPEST_STRAITS],
     regions=[reg.HIGH_SEAS, reg.METRIX, reg.THE_PITS],
     # High Seas is never spelled out, but Griefers Reef (region="High Seas" in the
@@ -2145,7 +2146,6 @@ db.upsert_story(
     ],
     locations=[loc.COPPERTOWN, loc.TEKLA_TOY_FACTORY],
     regions=[reg.ARIA, reg.METRIX],
-    # The Pits is seeded but never named on this page — see Dropped seeded links.
     fauna=[fauna.SNOWFAWN],
     food_drink=[food.FESTIVE_FLARE],
     dry_run=True,
@@ -2363,6 +2363,7 @@ db.upsert_story(
         "fang",
         "cindra",
         "emperor",
+        "arakni-web-of-deceit",
         people.GENERAL_YAMATOKA,
         people.KAYAT,
         people.LIEUTENANT_LI,
@@ -2426,8 +2427,7 @@ db.upsert_story(
         people.GRAND_MAGISTER_THE_STEADFAST,
         # "The Bastion-Magister of Defense" (line 97) — matches this constant's
         # name+office exactly, same resolution main_story.py already uses for
-        # "vow-unbroken.md". THE_BASTION is the pre-existing possible-duplicate
-        # row and is deliberately not used here.
+        # "vow-unbroken.md".
         people.THEBASTO_MAGISTER_OF_DEFENSE,
         people.THE_AMBASSADOR,  # new — "The Ambassador-Magister of Diplomacy" (line 67)
         people.THE_LIBRARIAN,
@@ -2450,6 +2450,7 @@ db.upsert_story(
         "fang",
         "taipanis",
         "emperor",  # all four are hero slugs, not people.X
+        "arakni-web-of-deceit",
         people.JEMJANG,
         people.LORD_MERCHANT_SAVAI,
         people.LORD_WIZARD_CHIYO,
@@ -2476,6 +2477,7 @@ db.upsert_story(
         "cindra",
         "fang",
         "emperor",  # "For the Emperor. For the blood of the dragon!" (line 161)
+        "arakni-web-of-deceit",
         people.LORD_MERCHANT_SAVAI,
         people.LORD_WIZARD_CHIYO,
         people.LIEUTENANT_YAMADA,
@@ -2513,6 +2515,8 @@ db.upsert_story(
         "cindra",
         "emperor",
         "fang",
+        "arakni-web-of-deceit",
+        people.JEMJANG,
         people.KAYAT,
         people.LORD_WIZARD_CHIYO,
         people.GENERAL_RIKU,

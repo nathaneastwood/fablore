@@ -367,6 +367,11 @@ GRINNING_BOAR_CANTINA = LocationEntry("Grinning Boar Cantina")
 INFERNAL_MAW = LocationEntry("Infernal Maw")
 I_ARATHAEL = LocationEntry("i'Arathael")
 MOJIRE = LocationEntry("Mojire")
+MYRKHELLIR = LocationEntry("Myrkhellir")
+"""equipment/myrkhellir-helm.md:3 — "the dwarven bastion of Myrkhellir armed the
+brave who fought against the Old Ones". Region unstated; not to be confused with
+the person "Myrkhellir, ancient betrayer of Anvilheim" on lyath-about.md, a
+separate, unresolved question out of scope here."""
 NEELASHA = LocationEntry("Neelasha")
 NEVEREST = LocationEntry("Neverest")
 SHADOWREALM = LocationEntry("Shadowrealm")

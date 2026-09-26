@@ -187,6 +187,7 @@ db.upsert_story(
         people.CORVA,  # new
         people.JEROVE,  # new
         people.NIALL,  # new
+        people.WHISPER,  # new; reclassified from mon.WHISPER — see catalogue note
     ],
     locations=[
         loc.VALAHAI,
@@ -204,7 +205,6 @@ db.upsert_story(
         mon.LYSAGENES,  # new
         mon.MANI,  # new
         mon.SCAPHUS,  # new
-        mon.WHISPER,  # new
     ],
     equipment=["grimoire-of-the-haunt"],
     dry_run=True,
@@ -296,7 +296,7 @@ db.upsert_story(
         grp.HOUSE_ISHIGAKI,
         grp.KEEPERS_OF_THE_SEVEN_ARTS,
     ],
-    fauna=[fauna.GENTUA],
+    monsters=[mon.GENTUA],  # reclassified from fauna.GENTUA — see catalogue note
     dry_run=True,
 )
 
@@ -448,7 +448,8 @@ db.upsert_story(
         flora.VISURA,
         flora.WINTERGOLD,
     ],
-    # "Hecklers" (:77) — a feral people, not a group with a roster; held for the user.
+    # "Hecklers" (:77-91) are now kind.HECKLER — a feral people with no named
+    # leader or roster, so no character on this page carries it yet.
     dry_run=True,
 )
 

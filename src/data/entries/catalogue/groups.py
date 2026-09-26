@@ -240,8 +240,8 @@ ROYAL_GUARD = GroupEntry(
     member_source="main-story/the-hunted/mark-of-a-traitor.md",
 )
 """mark-of-a-traitor.md:59, :153 — its captains kneel before the generals of the
-Children of the Dragon, so a corps within that order rather than a synonym for
-it. Unconfirmed; may fold into CHILDREN_OF_THE_DRAGON as an alias."""
+Children of the Dragon: confirmed as a corps nested within that order, distinct
+from it rather than an alias."""
 CINTARI = GroupEntry(
     "Cintari",
     category="clan",
@@ -371,7 +371,10 @@ BLACKJACK_S_MINING_INCORPORATED = GroupEntry(
     aliases=("Blackjack's Mining",),
 )
 """main-story/outsiders/its-just-business.md — the full name once, the short form
-twice. Whether it shares its Blackjack with loc.BLACKJACK_S_TAVERN is unconfirmed."""
+twice. Confirmed as the same Blackjack as loc.BLACKJACK_S_TAVERN: this is the
+parent corporation, BLACKJACK_S_MERCENARY_COMPANY its militant offshoot, and the
+Tavern is the Mercenary Company's HQ — world-of-rathe/pits.md:157-163 and
+main-story/outsiders/its-just-business.md."""
 BLOCKHEADS = GroupEntry(
     "Blockheads",
     category="gang",

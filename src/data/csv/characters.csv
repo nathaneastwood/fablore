@@ -2,12 +2,15 @@
 CharacterId|Name|Status|OtherCharactersStoryKey|Summary
 LC00a9c28b68|Absolon|Unknown||
 LCdf6740910f|Achlys, hag of Mojire|Unknown||
+LCeb6f1fe2b9|Adu|Unknown||
 LC1e8f706fca|Aegis, the Shield of Light|Unknown||
 LC54a776de1a|Aelius|Dead||
 LC391a4feeb5|Aios|Alive||
 LCa6985f5071|Akuo|Unknown||
 LC8c3fb8f946|Alif|Alive||
+LCe3d7bcefdd|Alka Bigguns|Unknown||
 LC35b82717e6|Alosyn|Unknown||
+LCb1601f694b|Amber|Alive||
 LC1574ad62d4|Amir|Unknown||
 LCfae0e3bb79|Amira Surana|Unknown||
 LCd5f3905e87|Anarch Zeir|Unknown||
@@ -30,8 +33,10 @@ LC47f14c43fd|Azalea|Unknown||
 LCb70ab4350d|Azvolai|Unknown||
 LCefddb9e1c1|Baalghor|Unknown||
 LCb834866543|Bam Bam|Unknown||
+LCf910151f11|Baron Drip|Unknown||
 LC0c3b896cc5|Baron the Butcher|Dead||
 LC4a0fe7e3c9|Barton|Unknown||
+LC20e65c56dd|Barton Mole|Unknown||
 LCc87c802d32|Bartrand the Bloody|Unknown||
 LC3cbe23777a|Barus Boldstride|Unknown||
 LC8ba0436436|Batbiter|Unknown||
@@ -42,6 +47,7 @@ LC93ca779659|Benji|Unknown||
 LC3072c9efc4|Betsy|Unknown||
 LC5eda4b69e2|Biski|Unknown||
 LC6c9efba562|Blasmophet|Unknown||The demon whose all-consuming hunger possesses Levia the Consumed.
+LC10f9dea89d|Blave|Dead||
 LC88a5c49d8c|Blaze|Unknown||
 LC07847c27b2|Blind Boggy|Unknown||
 LC1bd7c7a484|Bloodworth Goldmane|Unknown||
@@ -58,6 +64,8 @@ LC2f45e2d172|Brutus|Unknown||
 LCcac9397d56|Brutus, Summa Rudis|Unknown||
 LCc97ec89048|Butcher Jek|Unknown||
 LC931eb6a232|Buttons|Alive||
+LCfb660359a7|Cager|Alive||
+LCfbb9ef0167|Caoimhe|Unknown||
 LCdf5e1facff|Captain Bludge|Unknown||
 LC5514d76067|Captain Cooder of the Swiftwater / Warden Cooder|Unknown||
 LC072303ef3a|Captain Grit Jabir|Unknown||
@@ -67,8 +75,11 @@ LCa545cf1190|Captain Moody|Dead||
 LC19baf7a764|Captain Rue|Dead||
 LCab410f6246|Captain Shevez|Unknown||
 LC8a414834a0|Captain Vanegull|Unknown||
+LCfc6a40eb94|Carem Dunfirth|Dead||
+LC5ef874658d|Carva|Dead||
 LCc8939b7099|Caylin|Dead||
 LC9e53fe9cb1|Caylin's mother|Dead||
+LCe8bb1b626c|Celvera|Dead||
 LC4e6606fb43|Chancellor Helena Primavera|Unknown||
 LC65a559d397|Chancellor Hypatia|Unknown||
 LC7bfee28033|Chane|Unknown||
@@ -80,6 +91,7 @@ LCf19f1ec92f|Chum|Dead||
 LC4b07824a1f|Cindra|Unknown||
 LCfded586871|Cirrus|Unknown||
 LCcfa07e77b0|Cobbs|Unknown||
+LC29065c483d|Corva|Dead||
 LCbb2fc5d0dc|Countess Camilla|Unknown||
 LCce8cf2b15e|Cox|Unknown||
 LC110bfbe3f9|Crix|Unknown||
@@ -95,6 +107,7 @@ LC816ac96d4a|Data Doll MKII|Unknown||
 LCdba8b18154|Davnir|Dead||Ancient of Earth and Lightning.
 LC0a68d90ca3|Daxius|Dead||
 LCe7b99f643d|Demetrios|Dead||
+LC68fcdd78af|Deng|Unknown||
 LCf1bd74fe43|Dervin, Master of Beasts|Unknown||
 LC3e69de262d|Dheric|Dead||
 LC5fb4211228|Dominia|Unknown||
@@ -128,8 +141,10 @@ LCdb013e753c|Feral|Unknown||
 LC1454a20f37|Fightmaster Kox|Unknown||
 LC6acca24d74|Fightmaster Rusty|Unknown||
 LCbea5830559|Flannigan|Unknown||
+LCf902def485|Florence|Alive||
 LCb9987dcb78|Florian|Unknown||
 LCd1ffd4ce15|Foreman Pebb|Unknown||
+LC914acf247e|Francesca Zinnia|Dead||
 LCcb29da26a1|Frankie|Unknown||
 LC3c8d14cbde|Freya Eldingsturm|Unknown||
 LCeaf8dca6dd|Fugger Grimes|Unknown||
@@ -141,8 +156,10 @@ LCe546cabfbd|Gavin|Unknown||
 LCfd2515cf6e|Gawain|Unknown||
 LC2be5f35ac9|General Chul|Unknown||
 LCb63e06ebf2|General Ekoda|Unknown||
+LCcf96679dec|General Koda|Dead||
 LC99878cc3a3|General Nakami|Unknown||
 LCed66c0f929|General Riku|Dead||
+LC5c0fac48a7|General Umadesu|Dead||
 LCcb42576a44|General Yamatoka|Alive||
 LC9bc9bed351|Genis Wotchuneed|Unknown||
 LC1b2b049cb6|Giantslayer Crix|Unknown||
@@ -154,6 +171,7 @@ LC4726dd1d21|Grand Magister, the Beloved|Assumed Dead||
 LC91740cb310|Grand Magister, the Devout|Assumed Dead||
 LCb1c9d31e49|Grand Magister, the Radiant|Assumed Dead||
 LC8b0e17d5f6|Grandmaster Li|Unknown||
+LCf82c643690|Grannie Sandlar|Unknown||
 LC8c2819ef40|Gravy Bones|Unknown||
 LC0b30b44cf8|Greenbird|Unknown||
 LC6f2646d21a|Grota|Alive||
@@ -176,12 +194,15 @@ LC3a96b8af1e|Ira|Unknown||
 LCc88a7317f3|Isen|Unknown||
 LC5ce9fc449a|Iyslander|Unknown||
 LC23c03436f2|Jackdaw|Unknown||
+LC1c2621fbfd|Jape|Alive||
 LC3eff4d21ec|Jarl Vetreiði|Unknown||
 LC035adff2ca|Jeeves|Unknown||
 LC5ee8d8a3e0|Jemjang|Dead||
+LCd4d6a1c7b5|Jerove|Unknown||
 LCa9b12b4e7e|Jezabelle, Everfest Healer and Allsorts|Unknown||
 LCd12753f60a|Jigsaw|Alive||
 LC8dd835b4f3|Jing|Alive||
+LC7711e61fa7|Jiro Henshu|Unknown||
 LCa5ad895656|Juice|Unknown||
 LC81d5897f36|Jules Teklovossen|Alive||
 LCb958319b2b|Kalsharpe|Unknown||
@@ -201,6 +222,7 @@ LCd4fc003242|Kirigami|Unknown||
 LC89d47c1440|Knuckles|Dead||
 LC47e52eb469|Kossen|Unknown||
 LCd7baf408ac|Kouki|Unknown||
+LCdc01efc841|Kova|Alive||
 LC2ddd6fedf0|Kox|Unknown||
 LCbb44bf07cf|Kyle|Unknown||
 LC2bf60160ad|Kyloria|Unknown||
@@ -208,6 +230,7 @@ LCec7ed74e1c|Lady Barthimont|Dead|other-characters/lady-barthimont.md|
 LCfd2eaa9c2a|Lady Vera Sutcliffe|Unknown||
 LC00b6e15f71|Lena Belle|Unknown||
 LCfb491d5110|Leona|Unknown||
+LC29025b8eb6|Leto|Unknown||
 LCee0b3b01fa|Levia|Unknown||
 LC3837436094|Lexi|Unknown||
 LCab4b2b6f5c|Lieutenant Li|Unknown||
@@ -217,6 +240,7 @@ LC5a4933979c|Lilja|Unknown||
 LC52e4ae7d2b|Limpit|Dead||
 LC06fe4efa62|Linnea, Mistress of Malady|Unknown||
 LC69ccf1691b|Lishu, Crimson Haze Vigilante|Unknown||
+LCeaad29b236|Lord Barthimont|Unknown||
 LC9ce241686a|Lord Merchant Savai|Dead||
 LC6cb0f081d1|Lord Sabuto|Unknown||
 LC6e4bf9ad33|Lord Sutcliffe|Unknown|other-characters/lord-sutcliffe.md|
@@ -228,6 +252,7 @@ LC4814b93078|Lyath Goldmane|Unknown||
 LC8bac65571d|Mabon|Unknown||
 LC69108e988b|Mad Siv|Unknown||
 LC496fc90d2f|Madam Rouge|Dead||
+LCfe052c9ac6|Madame Fuse|Alive||
 LC5621c46870|Maela Fairmind|Unknown||
 LC2fec427363|Maela Isulfv|Unknown||
 LCbe9c833a13|Maela One-eye|Unknown||
@@ -240,14 +265,18 @@ LC3832cc438b|Marbles|Unknown||
 LCd7ae9de750|Marcus|Unknown||
 LCbb2046d3c6|Marcus 'Mauler' Monroe|Alive||
 LC1b78dcdd24|Marlynn|Unknown||
+LCe574bf06a7|Marrow|Alive||
 LC7cff182d16|Master Morita, Art of the Hand|Alive||
 LC438c29374b|Master Saori|Alive||
 LCe2b8f7beb0|Master Takumi|Alive||
 LCf54c332041|Master Udo|Unknown||
 LCcf407fe3ea|Maxwell|Unknown||
 LC7f4298b7d9|Maxx Nitro|Unknown||
+LCc513cf16aa|Meaze Banze|Alive||
 LC121a54e31e|Meldrick Sudds|Alive||
 LC2db76f2152|Melody|Unknown||
+LC529217dc12|Melten Wick|Alive||
+LC7130bac2fe|Mercurius|Dead||
 LC19bf107f74|Merlen Rivera|Unknown||
 LCceda0e3bc1|Metis, Archangel of Tenacity|Unknown||
 LC70d98166ac|Mikael|Unknown||
@@ -256,6 +285,7 @@ LCd747e17e7c|Min of the Forest of Flames|Unknown||
 LC813d110fa8|Minerva Themis|Dead|other-characters/minerva-themis.md|
 LC2c1fa115af|Miragai|Unknown||
 LCcc40f45af6|Miss Q|Unknown||
+LC24b8dfba36|Mistress Ikaru|Unknown||
 LCb358f9b28f|Molly the Mop|Alive||
 LCf519ee5f92|Moloca|Unknown||
 LC9bb4e2a747|Moray|Unknown||
@@ -269,6 +299,7 @@ LC65e950c62c|Narakir|Unknown||
 LC5c8b232655|Nasreth|Unknown||The Soul Harrower, an Embra.
 LCb3a7191865|Nekria|Unknown||
 LC42314fbf25|Nestus|Unknown||
+LCf6018825e8|Niall|Unknown||
 LC194cbdcc14|Ning, Kotori Moonseeker|Unknown||
 LC5ba21fd4a7|Njeri|Unknown||
 LC9e8e6dcd4e|Nocetes|Unknown||
@@ -276,6 +307,7 @@ LC6dfc02f020|Nuu|Unknown||
 LCa8b619a0c9|Oldhim|Unknown||
 LC69d850edf8|Olympia|Unknown||
 LC2b8d1477e8|One Eye|Alive||
+LCe1f6469a96|Orien|Alive||
 LC0412df4322|Oscilio|Unknown||
 LCc5d5e47202|Otmar|Unknown||
 LC9ff2c50e0c|Ouvia|Unknown||
@@ -284,6 +316,7 @@ LC3a3667de6c|Ozrim|Unknown||
 LC0573e210e2|Pallas|Unknown||
 LC882126e906|Pearl Sandhri|Alive||
 LC9d65c7a015|Pelorus|Alive||
+LC3d62c9c3d5|Phaelin|Dead||
 LC1d21c10541|Pinwheel|Dead||
 LC29734a8bb6|Pleiades|Unknown||
 LCe6ae800e3a|Polly Cranka|Alive||
@@ -292,7 +325,7 @@ LC80a602c7f5|Professor Min|Unknown||
 LC817c7ae851|Prospector Cogmire|Unknown||
 LCf3c2984127|Puffin|Unknown||
 LCdfc7e3b71b|Quarrel|Alive||
-LCd3c5ca0a26|Queen of Candlehold|Missing||
+LC55a3273f2a|Quenton|Dead||
 LC24173e2b7a|Ragnar Frosthelm|Unknown||
 LC092cda390b|Raven|Unknown||Aesir of Chaos.
 LCb7b4a009bd|Ray Stingeye|Unknown||
@@ -306,6 +339,7 @@ LCea872d1e04|Ricky Royce|Unknown||
 LCbcd97dcb81|Riggermortis|Dead||
 LCeceaa19a30|Rigo|Unknown||
 LC7a0550bccc|Riptide|Unknown||
+LC8006026aeb|Ruk'utan|Alive||
 LC8a778280c3|Rupius, Auric Scrollmaster|Unknown||
 LCbe60d97c63|Ruu'di|Unknown||
 LCb25d0fd93f|Sada|Alive||
@@ -321,13 +355,16 @@ LCcb32988a63|Sekem, Archangel of Ravages|Unknown||
 LC61e880ca4c|Septus|Unknown||
 LC6a67c3f031|Seraphina|Unknown||
 LC29070da1e3|Seto of Miharu|Alive||
+LC30dea11e72|Shaya Sandscour|Unknown||
 LC8f61337772|Shelly|Dead||
 LC04251c7f5f|Shio|Unknown||
 LC9107eddb94|Shiro|Alive||
 LCd655c088d0|Shiyana|Unknown||
 LC6072c79313|Sidriz|Unknown||
+LC4c1fef572c|Silka|Alive||
 LC9171a131b3|Silverhair|Unknown||
 LCb0c643b9f2|Skynda Feyscout|Unknown||
+LC5643f1a80e|Slab|Alive||
 LC096b229a18|Slapstick Sal|Unknown||
 LCabd83d0d17|Slinger|Alive||
 LC8db59feb4d|Sol|Unknown||Aesir of Light, deity of Solana. Drew the city's founding pilgrims to Rathe and is honoured as the source of the Light, the radiant energy that guides and protects the Children of the Light.
@@ -356,7 +393,7 @@ LC9c1431eeb9|Terra|Unknown||
 LCcbf5f7e513|Tetzuo|Alive||
 LC69c5384fbb|Thanuella|Unknown||
 LC8c1f7c4940|Thawne|Unknown||
-LCbbf9dc1a2e|The Bastion|Unknown||
+LCecc5f9b47b|The Ambassador|Unknown||
 LCca609acc12|The Harvester|Unknown||
 LC158fd93075|The Librarian|Unknown|other-characters/the-librarian.md|
 LCb091dcfcd8|Thebasto, Magister of Defense|Alive||
@@ -394,8 +431,10 @@ LC7965b9eb6c|Vynserakai|Unknown||
 LC2dc65a090b|Wailer|Dead||
 LCa32b8229d1|Wendryn|Dead||
 LC9f5ae78121|Wheeler|Alive||
+LCba7955598f|Whisper|Unknown||
 LC078c2b6ced|Whispers of Xerys|Unknown||
 LC559daabac0|Whitetail|Alive||
+LC284590cf03|Widow|Alive||
 LC4f715299cd|Widow Johana|Unknown||
 LC9291939a37|Wynvarin|Unknown||
 LCbb4c0f9bd3|Xaine, Runescribe|Dead||

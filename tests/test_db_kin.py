@@ -374,18 +374,62 @@ def test_kin_survives_the_csv_round_trip(db: Database, tmp_path) -> None:
     assert rows == [(lore_character_id("Bloodworth Goldmane"), "father", "heroes-of-rathe/lyath-about.md")]
 
 
-def test_character_kin_csv_has_headers_and_no_data_rows_in_the_committed_data() -> None:
-    """No real kinship fact is declared anywhere in entries/catalogue/ yet —
-    which relatives is a separate pass. The committed CSV must reflect that:
-    headers only."""
+def test_character_kin_csv_data_rows_are_well_formed_in_the_committed_data() -> None:
+    """Every row in the committed CSV must be a real, well-formed fact.
+
+    This test used to assert headers-only, back when no kinship fact was
+    declared anywhere in entries/catalogue/ yet. Mercurius/Minerva Themis
+    (``entries/catalogue/characters.py``, "The first ``kin=`` use in the
+    catalogue.") landed the first real row, so the guard now checks the row
+    itself rather than its absence: right columns, ids that resolve to a
+    known character, a relation from the closed vocabulary, and a citation
+    that is a real path under ``src/``.
+    """
     from pathlib import Path
 
-    path = Path(__file__).resolve().parent.parent / "src" / "data" / "csv" / "character-kin.csv"
+    repo_root = Path(__file__).resolve().parent.parent
+    path = repo_root / "src" / "data" / "csv" / "character-kin.csv"
     assert path.is_file()
     lines = path.read_text(encoding="utf-8").splitlines()
     # Line 0 is the auto-gen banner, line 1 is the header row.
-    assert lines[1] == "CharacterId|RelativeId|Relation|StoryKey"
-    assert len(lines) == 2
+    header = "CharacterId|RelativeId|Relation|StoryKey"
+    assert lines[1] == header
+    columns = header.split("|")
+
+    characters_path = repo_root / "src" / "data" / "csv" / "characters.csv"
+    known_character_ids = {
+        row.split("|")[0] for row in characters_path.read_text(encoding="utf-8").splitlines()[2:] if row
+    }
+
+    data_rows = lines[2:]
+    assert data_rows, "character-kin.csv now carries a real fact; this must not go back to headers-only silently"
+
+    seen: set[tuple[str, str, str]] = set()
+    for row in data_rows:
+        fields = row.split("|")
+        assert len(fields) == len(columns), f"{row!r} does not have {len(columns)} columns"
+        character_id, relative_id, relation, story_key = fields
+
+        assert character_id in known_character_ids, f"{character_id!r} is not a known CharacterId"
+        assert relative_id in known_character_ids, f"{relative_id!r} is not a known RelativeId"
+        assert character_id != relative_id, f"{character_id!r} names itself as its own relative"
+
+        assert relation in q.KIN_INVERSE, f"{relation!r} is not one of {sorted(q.KIN_INVERSE)}"
+
+        # Same stated fact must not appear twice, and its inverse must not be
+        # separately stated — only the stated direction is ever written.
+        assert (character_id, relative_id, relation) not in seen
+        seen.add((character_id, relative_id, relation))
+        assert (relative_id, character_id, q.KIN_INVERSE[relation]) not in seen
+
+        if story_key:
+            assert (repo_root / "src" / story_key).is_file(), f"StoryKey {story_key!r} does not point at a real file"
+
+    mercurius_id = lore_character_id("Mercurius")
+    minerva_id = lore_character_id("Minerva Themis")
+    assert (mercurius_id, minerva_id, "sibling", "other-characters/minerva-themis.md") in {
+        (*row.split("|"),) for row in data_rows
+    }
 
 
 # ---------------------------------------------------------------------------

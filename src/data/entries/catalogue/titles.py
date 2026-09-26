@@ -41,19 +41,26 @@ from . import characters as people
 
 GRAND_MAGISTER = TitleEntry(
     "Grand Magister",
-    holders=((people.GRAND_MAGISTER_THE_STEADFAST, 5, "world-of-rathe/solana.md"),),
+    holders=(
+        (people.GRAND_MAGISTER_THE_DEVOUT, 1, "world-of-rathe/solana.md"),
+        (people.GRAND_MAGISTER_THE_ADAMANT, 2, "world-of-rathe/solana.md"),
+        (people.GRAND_MAGISTER_THE_RADIANT, 3, "world-of-rathe/solana.md"),
+        (people.GRAND_MAGISTER_THE_BELOVED, 4, "world-of-rathe/solana.md"),
+        (people.GRAND_MAGISTER_THE_STEADFAST, 5, "world-of-rathe/solana.md"),
+    ),
 )
 """The office that leads Solana's Grand Council.
 
 ``world-of-rathe/solana.md`` names all five in order — the Devout, the Adamant,
 the Radiant, the Beloved and the Steadfast, "the fifth and current" — so the
-ordinals are read off the page rather than inferred. Only the Steadfast is
-declared here (the user's call); the other four are attested in that same
-sentence and are one line each when wanted.
+ordinals are read off the page rather than inferred. All five are now declared
+here; each ``characters.py`` row still carries the office baked into its display
+name (``Grand Magister, the Devout`` and siblings) — untangling that is a
+separate rename decision, not a prerequisite for this table (see the module
+docstring above).
 
-**Holders are replace-semantic.** Adding the earlier four means adding them to
-this tuple, not to a second declaration — a shorter list is a deletion, and the
-dry run prints a ``REMOVED`` line for exactly that reason."""
+**Holders are replace-semantic.** A shorter list is a deletion, and the dry run
+prints a ``REMOVED`` line for exactly that reason."""
 
 MAGISTER = TitleEntry(
     "Magister",
