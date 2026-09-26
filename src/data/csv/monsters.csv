@@ -1,6 +1,7 @@
 # AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Database class in src/data/db/ (db.upsert_story).
 MonsterId|Name|Description
 MO47304226f0|Beredos|
+MOec0e7d2bf9|Devoratum|
 MO8a537ed2a0|Diaphenes|
 MOf007e46f72|Dregs|Humanoid figures with bloated, rotting bodies; their faces a mass of melted, discoloured skin, dripping the length of their bony, twisted limbs.
 MO75a20be53a|Gentua|
@@ -14,3 +15,4 @@ MOc83c91fa43|Puppeteer|A repulsive creature emerged through the opening, resembl
 MO3291e92a32|Ravenir|Ever-hungry creatures the Old Ones sculpt from the stolen flesh of Rathe's living, consuming corpses to multiply; no two are ever alike.
 MOe9a3557fe8|Scaphus|
 MO57d9d8abd5|Shadowrealm Walker|Huge stilt-legged predators of i'Arathael, slow to anger, resembling praying mantises.
+MO30259c9ed1|Vidus|

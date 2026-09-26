@@ -611,11 +611,11 @@ db.upsert_story(
         "dromai",
         "emperor",
         "fai",
+        people.CHANCELLOR_YAMA,
         people.GENERAL_RIKU,
         people.LORD_MERCHANT_SAVAI,
         people.LORD_WIZARD_CHIYO,
         people.XATHARI,
-        people.YAMA,
     ],
     locations=[
         loc.ASHVAHAN,
@@ -641,8 +641,8 @@ db.upsert_story(
     characters=[
         "emperor",
         "yoji",
+        people.CHANCELLOR_YAMA,
         people.XATHARI,
-        people.YAMA,
     ],
     locations=[loc.MT_VOLCOR],
     regions=[reg.VOLCOR],
@@ -674,7 +674,7 @@ db.upsert_story(
     characters=[
         "emperor",
         "yoji",
-        people.YAMA,
+        people.CHANCELLOR_YAMA,
     ],
     locations=[
         loc.BLACKROCK_QUARRIES,
@@ -1014,7 +1014,7 @@ db.upsert_story(
         "emperor",
         people.LORD_WIZARD_CHIYO,
         people.LORD_WIZARD_AKIHIKO,
-        people.YAMA,
+        people.CHANCELLOR_YAMA,
         people.DAIJO,
         people.THE_EMPRESS,
     ],
@@ -1097,7 +1097,7 @@ db.upsert_story(
     story_type="main-story",
     title="Playing with Fire",
     source_link="https://fabtcg.com/hero/kano/story/playing-with-fire/",
-    characters=["emperor", "kano", people.RYO, people.LORD_WIZARD_AKIHIKO, people.YAMA],
+    characters=["emperor", "kano", people.RYO, people.LORD_WIZARD_AKIHIKO, people.CHANCELLOR_YAMA],
     locations=[
         loc.CHAMBER_OF_THE_DRAGON,
         loc.IMPERIAL_PALACE,

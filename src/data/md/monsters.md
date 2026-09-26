@@ -2,6 +2,7 @@
 |       Name       |                                                                                    Description                                                                                   |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |      Beredos     |                                                                                                                                                                                  |
+|     Devoratum    |                                                                                                                                                                                  |
 |     Diaphenes    |                                                                                                                                                                                  |
 |       Dregs      |                 Humanoid figures with bloated, rotting bodies; their faces a mass of melted, discoloured skin, dripping the length of their bony, twisted limbs.                 |
 |      Gentua      |                                                                                                                                                                                  |
@@ -15,3 +16,4 @@
 |      Ravenir     |                     Ever-hungry creatures the Old Ones sculpt from the stolen flesh of Rathe's living, consuming corpses to multiply; no two are ever alike.                     |
 |      Scaphus     |                                                                                                                                                                                  |
 |Shadowrealm Walker|                                              Huge stilt-legged predators of i'Arathael, slow to anger, resembling praying mantises.                                              |
+|       Vidus      |                                                                                                                                                                                  |

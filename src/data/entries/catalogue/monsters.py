@@ -15,6 +15,7 @@ from db import MonsterEntry
 
 
 BEREDOS = MonsterEntry("Beredos")
+DEVORATUM = MonsterEntry("Devoratum")
 DIAPHENES = MonsterEntry("Diaphenes")
 DREGS = MonsterEntry("Dregs")
 GENTUA = MonsterEntry("Gentua")
@@ -28,3 +29,4 @@ PUPPETEER = MonsterEntry("Puppeteer")
 RAVENIR = MonsterEntry("Ravenir")
 SCAPHUS = MonsterEntry("Scaphus")
 SHADOWREALM_WALKER = MonsterEntry("Shadowrealm Walker")
+VIDUS = MonsterEntry("Vidus")
