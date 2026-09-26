@@ -912,6 +912,12 @@ db.update_description(
 )
 db.update_description(
     "character",
+    "Xerys",
+    "The Shadow Aesir, Painter of the Night — the Old Ones seized and puppeted her stolen"
+    " essence until Viserai broke their hold and consumed what remained.",
+)
+db.update_description(
+    "character",
     "Nasreth",
     "The Soul Harrower, an Embra.",
 )
@@ -924,6 +930,17 @@ db.update_description(
     "character",
     "Blasmophet",
     "The demon whose all-consuming hunger possesses Levia the Consumed.",
+)
+db.update_description(
+    "character",
+    "Whisper",
+    "A spectral voice bound to Viserai since his awakening, later revealed to speak for the"
+    " Old Ones trapped behind Xerys.",
+)
+db.update_description(
+    "character",
+    "Lord Sutcliffe",
+    "The arms dealer who forged Viserai and bound him with control runes, before Viserai" " broke free of his mastery.",
 )
 # The three Ancients read as bare epithets because that is all the lore gives
 # them. Each is also a `character_epithets` row, so the tooltip prints the same

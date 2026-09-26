@@ -810,11 +810,6 @@
     "type": "character",
     "summary": "Prophetess who trained Zyggy; she foresaw the end and died in Valahai's fall."
   },
-  "WhispersOfXerys": {
-    "type": "character",
-    "match": "Whispers of Xerys",
-    "summary": "A mysterious voice that addresses Viserai, the Arknight, urging him toward the power hidden within his grasp."
-  },
   "Wynvarin": {
     "type": "character",
     "summary": "The first Wayfarer, remembered for the saying “the lightning shall carry me before the storm.”"

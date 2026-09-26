@@ -609,7 +609,6 @@ WAILER = CharacterEntry("Wailer", kinds=kind.ZOMBIE, status="Dead")
 WENDRYN = CharacterEntry("Wendryn", kinds=kind.HUMAN, status="Dead")
 WHEELER = CharacterEntry("Wheeler", kinds=kind.HUMAN, status="Alive")
 WHISPER = CharacterEntry("Whisper")
-WHISPERS_OF_XERYS = CharacterEntry("Whispers of Xerys")
 WHITETAIL = CharacterEntry("Whitetail", kinds=kind.HUMAN, status="Alive")
 WIDOW = CharacterEntry("Widow", kinds=kind.HUMAN, status="Alive")
 WIDOW_JOHANA = CharacterEntry("Widow Johana", kinds=kind.HUMAN)
@@ -631,6 +630,12 @@ XILIN = CharacterEntry(
     ),
 )
 XIN = CharacterEntry("Xin", kinds=kind.HUMAN)
+XERYS = CharacterEntry(
+    "Xerys",
+    kinds=kind.AESIR,
+    status="Dead",
+    epithets=("the Shadow Aesir", "Painter of the Night", "Whispers of Xerys"),
+)
 YARIN = CharacterEntry("Yarin", kinds=kind.HUMAN)
 YUNKAI = CharacterEntry("Yunkai", kinds=kind.HUMAN)
 YENDURAI = CharacterEntry("Yendurai", kinds=kind.DRAGON)

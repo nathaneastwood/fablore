@@ -619,6 +619,12 @@
     "kind": "Aesir",
     "status": "Unknown"
   },
+  "Lord Sutcliffe": {
+    "type": "character",
+    "summary": "The arms dealer who forged Viserai and bound him with control runes, before Viserai broke free of his mastery.",
+    "kind": "Human",
+    "status": "Unknown"
+  },
   "Nasreth": {
     "match": [
       "Nasreth",
@@ -659,6 +665,23 @@
     "summary": "An Embra bound to Chane, drawn to the corruption of the Old Ones in the Shadowrealm.",
     "kind": "Embra",
     "status": "Unknown"
+  },
+  "Whisper": {
+    "type": "character",
+    "summary": "A spectral voice bound to Viserai since his awakening, later revealed to speak for the Old Ones trapped behind Xerys.",
+    "status": "Unknown"
+  },
+  "Xerys": {
+    "match": [
+      "Xerys",
+      "the Shadow Aesir",
+      "Painter of the Night",
+      "Whispers of Xerys"
+    ],
+    "type": "character",
+    "summary": "The Shadow Aesir, Painter of the Night — the Old Ones seized and puppeted her stolen essence until Viserai broke their hold and consumed what remained.",
+    "kind": "Aesir",
+    "status": "Dead"
   },
   "Yvor": {
     "match": [
@@ -1808,11 +1831,6 @@
     "match": "Auric Seeress",
     "type": "character",
     "summary": "Prophetess who trained Zyggy; she foresaw the end and died in Valahai's fall."
-  },
-  "WhispersOfXerys": {
-    "type": "character",
-    "match": "Whispers of Xerys",
-    "summary": "A mysterious voice that addresses Viserai, the Arknight, urging him toward the power hidden within his grasp."
   },
   "Wynvarin": {
     "type": "character",

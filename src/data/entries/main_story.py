@@ -482,6 +482,40 @@ db.upsert_story(
 )
 
 db.upsert_story(
+    path="src/main-story/usurp-the-shadow-throne/unbound.md",
+    story_type="main-story",
+    title="Unbound",
+    authors="Aidan Kwasneski, Sam O'Byrne, James White, Edwin McRae, Kasharn Rao",
+    artists="Nathaniel Himawan, Livia Prima, Esty Swandana",
+    source_link="https://fabtcg.com/articles/unbound/",
+    publication_date="2026-09-26",
+    narrated_videos=[
+        NarratedVideoEntry(
+            author="Flesh and Blood TCG",
+            source_link="https://www.youtube.com/watch?v=7L3y8DNeD2w",
+            channel_link="https://www.youtube.com/@fabtcg",
+        )
+    ],
+    characters=[
+        "viserai",
+        "chane",
+        "baalghor",
+        people.WHISPER,
+        people.LORD_SUTCLIFFE,
+        people.XERYS,
+    ],
+    locations=[
+        loc.I_ARATHAEL,
+        loc.SHADOWREALM,
+        loc.THE_ABYSS,
+    ],
+    regions=[reg.DEMONASTERY],
+    groups=[grp.DRACAI, grp.VOLCAI],
+    weapons=["nebula-blade"],
+    dry_run=True,
+)
+
+db.upsert_story(
     path="src/main-story/crucible-of-war/no-smoke-without-fire.md",
     story_type="main-story",
     title="No Smoke Without Fire",

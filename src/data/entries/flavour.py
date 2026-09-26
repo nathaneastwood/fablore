@@ -233,7 +233,7 @@ db.upsert_story(
         people.BLASMOPHET,
         people.SOL,
         people.ARBITER_MAGISTER_OF_JUSTICE,
-        people.WHISPERS_OF_XERYS,
+        people.XERYS,
     ],
     locations=[
         loc.SHADOWREALM,

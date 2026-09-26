@@ -183,6 +183,7 @@
     - [Fall of Valahai](main-story/omens-of-the-third-age/fall-of-valahai.md)
     - [Letters from the Beyond](main-story/usurp-the-shadow-throne/letters-from-the-beyond.md)
     - [Agony in Light](main-story/usurp-the-shadow-throne/agony-in-light.md)
+    - [Unbound](main-story/usurp-the-shadow-throne/unbound.md)
 
 - [Main Story Summaries](summaries/README.md)
   - [War of the Monarch, Part 1](summaries/war-of-the-monarch-pt-1.md)
