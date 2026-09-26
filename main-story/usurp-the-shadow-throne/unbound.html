@@ -1,0 +1,774 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Unbound - Legendary Stories</title>
+
+
+        <!-- Custom HTML head -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGZH476DML"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-XGZH476DML');
+        </script>
+        <!-- Open Graph / Twitter (Discord, Slack, etc. link previews — requires absolute image URL) -->
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Legendary Stories">
+        <meta property="og:title" content="Unbound - Legendary Stories">
+        <meta property="og:description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <!--
+          The logo is the preview image everywhere except the handful of pages that
+          have a picture of their own worth showing. A reveal pasted into Discord
+          unfurls as whatever this tag names, so a spoiler page left on the fallback
+          shows the brand at the moment it should be showing the cards.
+        
+          Keyed on `path`, the chapter's source path, because mdBook has no per-page
+          front matter to carry an image. Add a branch per page that needs one, and
+          drop the branch once the page has stopped being shared.
+        
+          Each override points at a 1200x675 JPEG rather than the full-size WebP the
+          page itself loads. Unfurlers cap what they will fetch, and several still will
+          not decode WebP at all — a preview that fails to load is worse than the logo.
+        -->
+        <meta property="og:image" content="https://legendarystories.net/assets/logo_original_cropped.png">
+        <meta property="og:image:width" content="736">
+        <meta property="og:image:height" content="736">
+        <meta property="og:image:alt" content="Legendary Stories logo">
+        <meta name="twitter:image" content="https://legendarystories.net/assets/logo_original_cropped.png">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Unbound - Legendary Stories">
+        <meta name="twitter:description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <!-- PNG first (reliable tab icon); src/assets/favicon.svg overrides mdBook bundle on disk; ?v= busts favicon cache -->
+        <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon.png?v=5">
+        <link rel="icon" type="image/webp" sizes="32x32" href="../../assets/favicon.webp?v=5">
+        <link rel="icon" href="../../assets/favicon.ico?v=5" sizes="any">
+        <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png?v=5">
+        <!-- Install / standalone: iOS “Add to Home Screen”, Android “Install app” (Chrome) -->
+        <link rel="manifest" href="../../manifest.json">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="apple-mobile-web-app-title" content="Legendary Stories">
+        <meta name="mobile-web-app-capable" content="yes">
+        <!-- Font Awesome 4 (custom toolbar icons) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <!-- Tooltip library (used by hints.js) -->
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+        <!--
+          Spoiler splash: sends visitors landing on the site root to /countdown.html
+          for the run-up to the Usurp the Shadow Throne reveal.
+        
+          Self-limiting on purpose. The window below is the only switch — outside it
+          this does nothing, so the splash cannot be left on the homepage by accident.
+          Delete this block once the reveal is done.
+        
+          Deliberately narrow: root only (deep links and shared story URLs are never
+          intercepted), once per browser session, bypassable with ?nosplash. The
+          homepage links back to /countdown.html so it is always reachable on purpose.
+        
+          Root only is what keeps this safe for search: every story, hero and location
+          page is untouched, so the archive's actual search traffic never sees it. The
+          homepage may surface as the countdown for the duration; that is the trade.
+          /countdown.html is deliberately indexable — pointing the homepage at a
+          noindexed page is what could push the homepage itself out of the index.
+        -->
+        <script>
+        (function () {
+            var FROM  = Date.parse("2026-08-07T00:00:00Z"); // live now
+            var UNTIL = Date.parse("2026-08-26T12:00:00Z"); // 13:00 BST, one hour after reveal
+            try {
+                var now = Date.now();
+                if (now < FROM || now >= UNTIL) return;
+                var p = location.pathname;
+                if (p !== "/" && p !== "/index.html") return;
+                if (location.search.indexOf("nosplash") !== -1) return;
+                if (sessionStorage.getItem("ls-splash-seen")) return;
+                sessionStorage.setItem("ls-splash-seen", "1");
+                location.replace("/countdown.html");
+            } catch (e) {}
+        })();
+        </script>
+        <!-- Apply reading preferences before content renders to prevent flash -->
+        <script>
+        (function () {
+            var VALID_SCALES = ['0.875', '1', '1.175'];
+            var VALID_WIDTHS = ['560px', '750px', '980px'];
+            try {
+                var s = localStorage.getItem('fablore-font-scale');
+                if (s && VALID_SCALES.indexOf(s) !== -1 && s !== '1') {
+                    document.documentElement.style.setProperty('--fablore-font-scale', s);
+                }
+                var w = localStorage.getItem('fablore-line-width');
+                if (w && VALID_WIDTHS.indexOf(w) !== -1 && w !== '750px') {
+                    document.documentElement.style.setProperty('--content-max-width', w);
+                }
+            } catch (e) {}
+        })();
+        </script>
+
+        <meta name="description" content="Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../../css/chrome-fc474251.css">
+        <link rel="stylesheet" href="../../css/print-9e4910d8.css" media="print">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../hero-981ccaa6.css">
+        <link rel="stylesheet" href="../../image-83732514.css">
+        <link rel="stylesheet" href="../../tab-bf9533cd.css">
+        <link rel="stylesheet" href="../../bionic-e54553dc.css">
+        <link rel="stylesheet" href="../../footer-1dff10f9.css">
+        <link rel="stylesheet" href="../../breadcrumb-6efe5711.css">
+        <link rel="stylesheet" href="../../sets-hub-e2029893.css">
+        <link rel="stylesheet" href="../../theme/hints-b7170011.css">
+        <link rel="stylesheet" href="../../theme/related-5a0985b2.css">
+        <link rel="stylesheet" href="../../theme/story-meta-d7ffbcb7.css">
+        <link rel="stylesheet" href="../../theme/narrated-videos-a6b92c45.css">
+        <link rel="stylesheet" href="../../theme/browse-e6d12a00.css">
+        <link rel="stylesheet" href="../../theme/glyph-tool-7000c73b.css">
+        <link rel="stylesheet" href="../../theme/graph-7a5801aa.css">
+        <link rel="stylesheet" href="../../theme/lang-toggle-4196ac24.css">
+        <link rel="stylesheet" href="../../theme/family-tree-ce2f0129.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "light";
+            const default_dark_theme = "ayu";
+            window.path_to_searchindex_js = "../../searchindex-2f1fa888.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc-efe452dc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Legendary Stories</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/nathaneastwood/fablore" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <!-- fablore-breadcrumb:start -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  
+<ol>
+    
+<li><a href="../the-land-of-rathe.html">Main Story</a></li>
+
+    
+<li><span>Usurp the Shadow Throne</span></li>
+
+    
+<li><span aria-current="page">Unbound</span></li>
+
+  </ol>
+
+</nav>
+<!-- fablore-breadcrumb:end -->
+<h1 id="unbound"><a class="header" href="#unbound">Unbound</a></h1>
+<!-- fablore-story-meta:start -->
+<div class="story-meta" aria-label="Story information">
+  <span class="story-meta-item"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M421.7 220.3l-11.3 11.3-22.6 22.6-205 205c-6.6 6.6-14.8 11.5-23.8 14.1L30.8 511c-8.4 2.5-17.5 .2-23.7-6.1S-1.5 489.7 1 481.2L38.7 353.1c2.6-9 7.5-17.2 14.1-23.8l205-205 22.6-22.6 11.3-11.3 33.9 33.9 62.1 62.1 33.9 33.9zM96 353.9l-9.3 9.3c-.9 .9-1.6 2.1-2 3.4l-25.3 86 86-25.3c1.3-.4 2.5-1.1 3.4-2l9.3-9.3H112c-8.8 0-16-7.2-16-16V353.9zM453.3 19.3l39.4 39.4c25 25 25 65.5 0 90.5l-14.5 14.5-22.6 22.6-11.3 11.3-33.9-33.9-62.1-62.1L314.3 67.7l11.3-11.3 22.6-22.6 14.5-14.5c25-25 65.5-25 90.5 0z"/></svg></span> Written by <strong>Aidan Kwasneski, Sam O'Byrne, James White, Edwin McRae, Kasharn Rao</strong></span>
+  <span class="story-meta-item"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM323.8 202.5c-4.5-6.6-11.9-10.5-19.8-10.5s-15.4 3.9-19.8 10.5l-87 127.6L170.7 297c-4.6-5.7-11.5-9-18.7-9s-14.2 3.3-18.7 9l-64 80c-5.8 7.2-6.9 17.1-2.9 25.4s12.4 13.6 21.6 13.6h96 32H424c8.9 0 17.1-4.9 21.2-12.8s3.6-17.4-1.4-24.7l-120-176zM112 192c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48z"/></svg></span> Art by <strong>Nathaniel Himawan, Livia Prima, Esty Swandana</strong></span>
+  <span class="story-meta-item"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M96 32V64H48C21.5 64 0 85.5 0 112v48H448V112c0-26.5-21.5-48-48-48H352V32c0-17.7-14.3-32-32-32s-32 14.3-32 32V64H160V32c0-17.7-14.3-32-32-32S96 14.3 96 32zM448 192H0V464c0 26.5 21.5 48 48 48H400c26.5 0 48-21.5 48-48V192z"/></svg></span> 26 September 2026</span>
+  <span class="story-meta-item"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-17.7 0-32 14.3-32 32s14.3 32 32 32h50.7L169.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L384 141.3V192c0 17.7 14.3 32 32 32s32-14.3 32-32V64c0-17.7-14.3-32-32-32H288zM80 64C35.8 64 0 99.8 0 144V400c0 44.2 35.8 80 80 80H336c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v80c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V144c0-8.8 7.2-16 16-16h80c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z"/></svg></span> <a href="https://fabtcg.com/articles/unbound/" target="_blank" rel="noopener">Original article</a></span>
+  <span class="story-meta-item"><span class="fa-svg far" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M232 120C232 106.7 242.7 96 256 96C269.3 96 280 106.7 280 120V243.2L365.3 300C376.3 307.4 379.3 322.3 371.1 333.3C364.6 344.3 349.7 347.3 338.7 339.1L242.7 275.1C236 271.5 232 264 232 255.1L232 120zM256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0zM48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48C141.1 48 48 141.1 48 256z"/></svg></span> 6,470 words · 26 min read</span>
+</div>
+
+<div class="story-share" data-story-type="main-story">
+  <span class="story-share-label">Share</span>
+  <a class="story-share-btn story-share-facebook" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook" title="Share on Facebook"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg></span></a>
+  <a class="story-share-btn story-share-twitter" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on X" title="Share on X"><span class="story-share-x-logo" aria-hidden="true">X</span></a>
+  <a class="story-share-btn story-share-bluesky" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on BlueSky" title="Share on BlueSky"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 568 501" height="0.85em" width="0.85em" style="vertical-align:-0.1em;fill:currentColor" aria-hidden="true"><path d="M123.121 33.664C188.241 82.553 258.281 181.68 284 234.873c25.719-53.192 95.759-152.32 160.879-201.209C491.866-1.611 568-28.906 568 57.947c0 17.346-9.945 145.713-15.778 166.555-20.275 72.453-94.155 90.933-159.875 79.748C508.222 323.8 521.99 372.7 484.34 421.616c-60.732 79.094-165.296 62.47-235.296-14.534C179.044 484.086 74.48 500.71 13.748 421.616-23.902 372.7-10.134 323.8 106.532 304.2540.812 315.435-33.068 296.955-53.343 224.502-59.176 203.66-69.121 75.293-69.121 57.947c0-86.853 76.134-59.558 192.242-24.283z" /></svg></a>
+  <a class="story-share-btn story-share-whatsapp" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp" title="Share on WhatsApp"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></span></a>
+  <button class="story-share-btn story-share-copy" type="button" aria-label="Copy link" title="Copy link"><span class="fa-svg" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg></span></button>
+</div>
+
+<script>
+(function () {
+  var u = encodeURIComponent(window.location.href);
+  var t = encodeURIComponent(document.title);
+  function qs(sel) { return document.querySelector(sel); }
+  var fb = qs('.story-share-facebook');
+  if (fb) fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + u;
+  var tw = qs('.story-share-twitter');
+  if (tw) tw.href = 'https://twitter.com/intent/tweet?url=' + u + '&text=' + t;
+  var bsky = qs('.story-share-bluesky');
+  if (bsky) bsky.href = 'https://bsky.app/intent/compose?text=' + t + '%20' + u;
+  var wa = qs('.story-share-whatsapp');
+  if (wa) wa.href = 'https://api.whatsapp.com/send?text=' + t + '%20' + u;
+  var cp = qs('.story-share-copy');
+  if (cp) cp.addEventListener('click', function () {
+    navigator.clipboard.writeText(window.location.href).then(function () {
+      cp.classList.add('story-share-copied');
+      setTimeout(function () { cp.classList.remove('story-share-copied'); }, 2000);
+    });
+  });
+})();
+</script>
+<!-- fablore-story-meta:end -->
+<!-- fablore-graph-link:start -->
+<p class="lore-graph-backlink"><a href="../../graph.html#unbound">See Unbound in the Lore Graph</a></p>
+
+<!-- fablore-graph-link:end -->
+<span class="hint" hint="Viserai">Viserai</span> sorted through the voices that pushed on the back of his mind.
+<p><em>A mere weapon is nothing to a god.</em></p>
+<p>Those were… <span class="hint" hint="Whisper">Whisper</span>’s words. Yes. Among many others. Ever since she helped him cross through that roiling darkness into <span class="hint" hint="iArathael">i’Arathael</span>, something <em>old</em> stirred within him. An impenetrable haze in his memory, one that had started with the <span class="hint" hint="Demonastery">Demonastery</span>, now drifted across his thoughts like fog before the moon.</p>
+<p>He would find a way to free himself from it. From all of it.</p>
+<p>The <span class="hint" hint="ArknightShard">Arknight Shard</span> thrummed beneath the metal plating covering his chest, a false heartbeat urging him ever forward. With each step, he descended further down floating obsidian outcroppings toward a vast plateau, upon which a massive shadow loomed.</p>
+<p>The voices raged. For the first time in many nights, Viserai would not be alone.</p>
+<p>He pushed off from the drifting rock, his tattered cloak rising behind him, momentarily suspended in air. Below him, the violet void bridging the gap between solid ground and empty space seemed to gaze back up at him. The <span class="hint" hint="Shadowrealm">Shadowrealm</span>. As vast as the night sky. As expansive as a dream.</p>
+<p>Reaching a gauntleted fist to his side, a burst of runes swirled and locked into place as a <span class="hint" hint="Runechant">runechant</span> around his Grasp. <em>Release</em>. He unfurled his fingers, willing the arcane to extend out from his arm in a runic burst. The force propelled Viserai forward, <span class="hint" hint="Arknight">Arknight</span> Shard pulsing with the sensation.</p>
+<p>He was far more than a mere weapon.</p>
+<p>Viserai splintered the rock as his metal boots crunched into the dark stone of the plateau, sliding forward into a powerful stride. Amethyst light leaked through the gaps in his armor. He could feel the Shard’s pull, stronger than ever. <em>Closer</em> than ever.</p>
+<p>Whatever waited for him here would fall.</p>
+<p>Movement, caught by the corner of his eye. Viserai twisted to face it. A monolithic archway, built on the very edge of this great plateau. Not unlike the gothic ones within the Demonastery, but somehow <em>naturally</em> formed of this otherworldly stone. Only this one… it led to nothing.</p>
+<p>A figure manifested in the shadows of the archway, wings of liquid darkness unfurling as spikes of obsidian split from the ground. A hollow void glowing with an infernal violet light, two massive clawed hands, and a long cavity that warped the space around its towering torso. A demon. One that now stood between Viserai and freedom.</p>
+<p>The entire plateau shuddered as the demon let out a long, guttural rumble. The vibrations pulsed through Viserai’s armor, and he heard Whisper utter the creature’s name:</p>
+<p><em><span class="hint" hint="Baalghor">Baalghor</span></em>.</p>
+<p>Viserai unsheathed his Nebula Blade, glinting in the amethyst light emanating from his body. Preparing to summon his runechants, Viserai’s eyes tracked the demon as it stepped to the side and-</p>
+<p>Baalghor knelt before him. The demon cast its hollow gaze to the ground, <em>and bowed</em>.</p>
+<p>Viserai continued toward the monolithic archway, blade squared off with the colossal demon. His memory darted to cultists, kneeling, when he had opened that first gate, so long ago. Then to something older, but the fog clouded his mind still. Baalghor remained. Waiting.</p>
+<p>“Rise,” Viserai commanded, his voice scraping in his throat from disuse. Baalghor stood.</p>
+<p>Conflicting emotions rushed through him at Baalghor’s obedience. Feelings of satisfaction, quickly tinged with a disdain at seeing the demon’s subservience.</p>
+<p><em>No more masters</em>. Viserai turned, approached the archway to nothing, and stepped through.</p>
+<p>His foot connected with solid ground as his vision adjusted. A staircase rose before him, leading up through a chasm of pure midnight. Behind, he could see out through the archway back to the plateau, the image cutting off at the boundaries of the structure. Baalghor stood sentinel. It would not enter the darkness that enveloped this place.</p>
+<p>As Viserai crested over the final steps, he found himself in front of a sealed pair of obsidian doors… with a phantom girl standing beside them. Finally, something familiar. Whisper hadn’t appeared to him like this since he left Rathe behind, and instead had taken up residence as one of the many voices in his mind. Here in <span class="hint" hint="The Abyss">the Abyss</span>, however, Whisper waited for him, silent, her small translucent frame dwarfed by the black doors.</p>
+<p>“Your prison,” Viserai spoke. His eyes traced up the doors, riddled with inscriptions he couldn’t make sense of. An immense pressure emanated from beyond their seal.</p>
+<p>“<em>Yes</em>,” Whisper replied. Her voice hung in the air, trailing off into the void.</p>
+<p>“Who bound you?”</p>
+<p>“<em>Shadow and the ones who wield it. Same as you, Arknight.</em>”</p>
+<p>“I reject that name,” Viserai snapped. The girl had spoken to him with her head bowed. Her sunken eyes raised up to his chest and the glow beneath it.</p>
+<p>“<em>You have, and yet, you still bear their sin.</em>” Whisper raised her head and drifted over to him, ethereal form blurring in and out of reality. It was strange to hear her like this. To <em>see</em> her, after so long. Whisper wrapped her hands around one of his. Something beyond the fog stirred. Something painful. “<em>We are connected, Viserai.</em>”</p>
+<p>“This… I still cannot see.”</p>
+<p><em>“One step remains. You freed yourself from <span class="hint" hint="Sutcliffe">Sutcliffe</span>. Liberate us, and you will know</em> true <em>freedom. The freedom to grasp all that you desire. No mortal shall ever know chains again.”</em></p>
+<p>Viserai looked back at the doors. He <em>would</em> free her. As she had him. “Show me.”</p>
+<p>Whisper pulled at his hand with hers. Though she was intangible, Viserai could feel her intent. Slowly, he lifted his Grasp to the doors, then pressed against their center.</p>
+<p><em>There will be a cost</em>, Whisper spoke, this time in his mind.</p>
+<p>He thought of Sutcliffe’s face, twisted with greed, carving the runes into his skin. The suffocating feeling of iron on his wrists. Torment, orders, shackles.</p>
+<p>Kept on a short leash.</p>
+<p><em>There is none I would not pay</em>, Viserai thought back, <em>for what I have asked</em>.</p>
+<p>His palm spiked with pain as something beyond the door <em>entered</em> his arm. Sudden vertigo hit Viserai and he felt himself falling backwards. His heart raced with the adrenaline of a caged animal let loose. His… <em>heart?</em></p>
+<p>Its beating rhythm drew him past the fog in his mind, for the first time. Backwards he fell… into a <em>memory</em>.</p>
+<p>Viserai hit the stones hard. Hand raised to the sky, he caught an incoming dagger with the soft flesh of his palm. The blade burst out of the back of his outstretched hand, blood dripping down its edge, into his eyes and mouth. Its point grazed the side of his nose. Viserai let out a gurgled scream, his throat burning as he pushed wildly against cloth and leather with his other hand. A soldier’s armor.</p>
+<p>Twisting and pulling with a dying fervor, Viserai threw his assailant to the side, rolling to get on top of him. He pinned the soldier’s arms with his legs, and ripped the blade out of his bleeding palm. The open wound pulsed with his heartbeat, hand numb and sticky with blood. The soldier’s eyes were a mess of fear and shock. Pleading. Viserai returned the man’s dagger to him, opening the soldier’s throat.</p>
+<p>Footfalls, pounding into the stone. Viserai scrambled back onto his feet, adjusting to his surroundings. Molten rock flowed in a nearby river, cascading over an ashen bluff into a churning sea. The sound of steam and crashing waves overwhelmed his senses. More soldiers rushed toward him.</p>
+<p>Viserai instinctively reached his hand to the side to call forth a runechant. No… for his sword? For…</p>
+<p>The song wouldn’t form on his lips. The runes etched into his flesh were <em>gone</em>. Only the clenched fist of a decorated general, scanning for a way out that did not exist.</p>
+<p>Viserai cut down two more soldiers, wearing his own colors. Black and red. Fury swelled in his chest. These were <em>his</em> men. Sworn to him. Loyal until the end.</p>
+<p>Steel. Puncturing his side, splitting its way through him, piercing his heart.</p>
+<p>Viserai lurched. Staggering forward, he collapsed onto his knees. The ocean swell became distant. The heat from the river of fire grew cold. He found himself yearning for its warmth as his vision closed in. He thought of… of…</p>
+<p>A man in a clean uniform with merciless eyes approached. “For the <span class="hint" hint="Dracai">Dracai</span>,” he spat.</p>
+<p>Viserai plummeted. Over the cliff’s edge, and into the sea.</p>
+<hr>
+<p>He awoke in the Abyss. With a start, Viserai removed his hand from the obsidian doors. An undulating black liquid now clung to his armored Grasp. Gloom. Reshaping the runes. Reshaping him.</p>
+<p>Where had he just been? A battle? A betrayal? The memory faded behind the thinning fog. As if surrendered, traded for something…</p>
+<p>Where had he just been?</p>
+<p>The obsidian doors remained sealed, and Whisper was gone. He turned his hand over, looking for something. A phantom pain that he could no longer place. He knew, whatever that was, it would never return to him. The air warped around his Grasp. As it had done for the demon at the gate.</p>
+<p>There was <em>power</em> here. Beyond those doors. He could feel it.</p>
+<p>He would have it.</p>
+<p><em>Past, present, future. This realm is but one of many. You are the key, Viserai.</em></p>
+<p>Whisper’s words resonated from his own chest, pouring out of the crystalline shard within him. He drank the words insatiably.</p>
+<p>Viserai descended the steps, away from the obsidian doors of the Abyss, a long droning note escaping through the jagged slits of his helm.</p>
+<p>The beginning of a runechant, which formed behind him.</p>
+<p><em>i’Arathael opened its gate to you, now it expands before your Grasp. Seek that which binds the Arknight, and rid yourself of your master’s design.</em></p>
+<p>Viserai swept his Gloom-encased Grasp out before him. The archway at the bottom of the liminal staircase filled with violet light.</p>
+<p>A runechant formed in front of him.</p>
+<p><em>Only then will our warden release us. Once you reunite what’s been broken. Once you break these bonds.</em></p>
+<p>A runechant formed around him.</p>
+<p>Viserai stepped forward, grasping the intangible space between the Shadowrealm and the vast expanse of i’Arathael, and <em>pulled</em>.</p>
+<p>His three runechants locked into place. Each ring of arcane symbols, now a perfect reflection of the others.</p>
+<p>He could see his seven tethers. Seven shackles. He reached for one and chose.</p>
+<p>The world twisted. Up became down. Color washed away as reality bent and broke. Viserai traversed between, and Shadow gave way to Light.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/usurp-the-shadow-throne/unbound-1.webp" alt="Viserai stands, imposing and surrounded by runechants" class="center">
+<p>In the brief blip between worlds, Viserai glimpsed the true expanse of i’Arathael. His long wanderings in the Shadowrealm suddenly a grain of sand within the endless desert of this place. Entire realms of raw aether, essence, and dreams. Constantly changing, expanding, reaching toward <span class="hint" hint="The Beyond">the beyond</span>. Back to Rathe.</p>
+<p>His mind, the stitched arcane thoughts of a thing created to destroy, <em>connected</em>. With all of it. Stitches stretching, pulling, each realm drawing him in. How many existed? To remain in between would unravel him.</p>
+<p>Light. Blooming out in all directions, shattering the image before him like glass. Color returned with solar radiance, the shattered pieces rearranging around Viserai as the realm he sought took shape.</p>
+<p>Rolling fields of golden grain stretched in all directions. Viserai found himself on a hilltop, under a brilliant blue sky dotted with gilded clouds, looking at a sun rising and setting on either horizon.</p>
+<p>Cities of white marble hung from the cloud layer like chandeliers, and angels with pearlescent wings darted from one tower to the next. Viserai forced his gaze back to the fields, at a far off cathedral made entirely of silver and stained glass. The colors on the massive structure, ever-changing in the light.</p>
+<p>Viserai had never seen anything like this place.</p>
+<p>His shadow cast long over the fields of grain, which slowly wilted as he moved past, drawn to the cathedral by his Shard’s pulse. Drawn to the power. To the promise.</p>
+<p>He walked inside the stained glass building. Colors of every hue danced across his helm and light became manifest. Pews of luminous energy, candles that glided high amongst the arched rafters, and an altar with a basin collecting light in a pool of liquid gold.</p>
+<p>The floor itself was a mirror, making the space feel impossibly large. Viserai looked down into the pristine mirror, and was surprised by the face that stared back up at him. Long wavy black hair that fell in front of dark brown eyes. The reflection wasn’t his. But the man he saw felt familiar. A presence from beyond the fog. What was this place doing to him?</p>
+<p>“Child of Rathe,” a voice sounded off by the altar. The image in the mirror fuzzed and Viserai now saw his true visage in the floor. He looked away.</p>
+<p>A Herald brandishing a silver longsword landed at the end of the pews, body manifesting from the light that filled the cathedral’s halls. Six angelic wings unfurled behind her figure, which was draped in radiant white silks.</p>
+<p>“You were not to return to this realm while heretics still crash against the holy city’s walls. Mortal souls mustn’t walk the dreaming planes of i’Arathael,” the Herald said, voice lilting. She stepped gently forward, her face obscured by a veil of golden chains. “I will return you to the waking world, where your kind…”</p>
+<p>Viserai’s eyes flicked to her swordhand. The Herald trailed off and stood stock still, gripping her silver blade tighter. He could feel the source of this entity’s power now. Angelic pride. He would have it – as Whisper promised him.</p>
+<p>“Abomination,” the Herald hissed. She lunged toward Viserai, wings pushing her through the air, body twisting to drive the blade into him. He stepped back, turning his chest parallel to the Herald’s thrusting swordhand and sliced up, <em>fast</em>.</p>
+<p>His Nebula Blade screeched out of its sheath and carved through the Herald’s wrist. Her severed hand painted the floor in golden ichor, silver sword clattering as it slid down the aisle.</p>
+<p>Light poured from the wound, blinding Viserai with a sudden flash. He felt a sharp sting on his arm in the momentary daze. The Herald’s hand reformed on her arm as a golden chain of light tightened around his wrist.</p>
+<p>She pulled on the chain with both hands, wings beating back, swinging Viserai into the air. He soared up toward the ceiling, chain extending with him.</p>
+<p>Viserai uttered a quick chant, runes forming in a ring that shot out from his blade. The runechant burst as the chain snapped taught, arcing his trajectory to swing over the Herald’s head. He landed on the mirror floor behind her, cracks splintering out in all directions. Tucking the Nebula Blade under his arm, Viserai grabbed the chain and willed the Gloom on his Grasp to spread. Darkness began crawling up the chain, smothering the links of light in a black sludge.</p>
+<p>He ripped the chain downward. The Herald staggered in her flight, his pull crashing her to the floor. The cracks expanded across the entire mirror, reflecting countless versions of Viserai within the shards of glass. A swirl of runechants formed around him.</p>
+<p>“How? This stain you carry… it should not be,” the Herald pleaded. She pushed to stand-</p>
+<p>A runechant struck her back to the ground. Viserai walked closer.</p>
+<p>“You must be cleansed,” she gasped as Viserai released three more runechants. With each arcane blow, golden ichor spewed from shining lacerations.</p>
+<p>The Herald looked up at Viserai, her veil parting to reveal two eyes of pure light, searching his helm for something. Her expression became mystified.</p>
+<p>“What are you… I cannot be killed. My essence belongs to <span class="hint" hint="Sol">Sol</span>. I shall return to Him when I-”</p>
+<p>Viserai laid a runechant around the Herald and <em>plunged</em> his Grasp into her back, through her body, and pierced the floor beneath her. The mirror shattered…</p>
+<p>Into a memory. Once more, Viserai became the man behind the armor.</p>
+<p>His skin touched parchment. Fingers gliding across the waxy texture of the material. Viserai was standing, pointing down at a campaign map, surrounded by soldiers.</p>
+<p>He felt the fog in his mind open to this piece of him. Felt his skin. The way his hair brushed against the back of his neck. Felt these… <em>desires</em>. Different from his own. A tangled mess of oaths, and orders, and lies.</p>
+<p>But here, in this gathered moment, Viserai felt humility over all else.</p>
+<p>The soldiers at the table looking to him for direction. Trusting him with their lives. With their oaths. He was their leader, yes, but their dedication, their loyalty – that was something he would spend the rest of his life working to feel worthy of.</p>
+<p><em>You must give in order to receive</em>.</p>
+<p>Viserai heard Whisper’s voice, gentle and understanding. It brought him back to himself. He was not this man, and he never would be. Not anymore. Viserai’s flesh, his corpse, might have belonged to this man once… but his mind? His life? These were his own.</p>
+<p>Hand contorting into a clawed grip, Viserai’s arm became encased in Gloom, his Grasp bleeding through the memory. He felt the air warp around him, as viscous as mud. With effort he pushed past it, raising his gauntlet to his face… and tore.</p>
+<p>Viserai scraped his claws down the remembered visage, ripping holes of golden light through false memory.</p>
+<p>His mind shuddered. The walls of the war room closed in, becoming a long empty hallway. Flames danced in metal sconces.</p>
+<p>He had a soldier pinned against the stone – a man in a clean uniform with merciless eyes. His heart raced, faster than ever before. When he spoke, his voice was hushed and sharp.</p>
+<p>“You <em>dare</em> question my allegiance? <em>My</em> fealty?” Viserai pressed his arm against the man’s throat.</p>
+<p>“I… question…” the man’s teeth were set, his words pushing against Viserai’s pressure, “…your judgment. Protecting… a <span class="hint" hint="Volcai">Volcai</span>… <em>whore</em>.”</p>
+<p>Viserai’s heart slowed. The hallway began to crumble, the memory collapsing.</p>
+<p>“Fall in line, lieutenant. Or fall beneath my-”</p>
+<p>PRIDE</p>
+<p>Viserai ripped his arm from the Herald’s chest. <em>What voice was that?</em></p>
+<p>His mind felt calm and still. One moment he fought the angelic creature, the next he stood above her corpse. An interlude of… what? <em>Memory?</em> Faded away with the dispersing fog. The voices had quieted. He could hear himself more clearly.</p>
+<p>Radiant light spilled out of the Herald as a single strand of smoke coiled from Viserai’s chest. The two danced in the air, light and smoke, forming a golden crown surrounded by runes. Viserai’s runes. Chanting their sounds, he caused the symbol to shrink, binding it amongst several interlocking rings. The crown drank in the light. Darkness began to spew and surround Viserai.</p>
+<p>Pride. Even as he gained its power he would no longer feel its call. Pride. The source of all angelic power, the failed energy of that which lay smote at his feet. Now his to command. And what had he surrendered? A mere memory.</p>
+<p>A Runechant of Pride now hung above the corpse of the Herald.</p>
+<p>Viserai guided this new runechant through the surrounding darkness. He slid Nebula Blade from its sheath and pressed the power into the sword’s crossguard.</p>
+<p>The blade hummed as the runechant locked in place. The land around him began to grow dark. He was done here.</p>
+<p>“What… am… I…”</p>
+<p>Viserai looked down to see the Herald stirring. Her body was being swallowed by Gloom, creeping up her neck and under her veil of chains. Remaking her.</p>
+<p>“Free,” Viserai replied, “from your god’s leash.”</p>
+<p>The Fallen Herald’s eyes turned violet as a third opened on her forehead.</p>
+<p>Three runechants to open the rift. Past, present, future. To traverse the realms.</p>
+<p>He could see his six tethers. Six shackles. He pulled at the next, and left this world behind.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/usurp-the-shadow-throne/unbound-2.webp" alt="unbound-2" class="center">
+<p>Viserai slowly curved his way up and around the side of a mountain spire. One that sprung from glowing blue waters, blanketed in mist, pointing up into the heavens. A calm silver shine lit his path, cast down by the great lunar cycle that spanned across a deep blue sky.</p>
+<p>The spirit guiding him looked back and smiled.</p>
+<p>Her skirt and silken wraps billowed in a constant wind that carried the moonlight along streams of mist running through the air. A woman. Her body and mind, remembered by this realm. Viserai… remembered this smile. A deep pain stirred at the sight of it. Somehow, she <em>was</em> familiar.</p>
+<p>But more importantly, she was useful.</p>
+<p>“We are nearly there,” she turned away and stepped up out of sight. Far off, larger spirits soared through mystic channels of wind.</p>
+<p>Viserai had found this spirit woman when he first traversed into this realm. Or had she found him? Either way, the Arknight Shard in his chest thrummed with energy as he moved with her. He was on the right path.</p>
+<p>A path that ended as he stepped up onto the edge of the spire’s basin peak.</p>
+<p>Mist cascaded down through the sky, transforming into a rushing waterfall that poured into a pristine mountain spring at the heart of the basin. Hundreds of tiny spirits bobbed about the azure spring water, blinking in and out of existence.</p>
+<p>“A place untouched by time. A dream made just for us.” The woman rested her head back on an <span class="hint" hint="Ancient">ancient</span> gnarled tree that swayed above the spring. The water’s edge lapped against its roots.</p>
+<p>“For you,” Viserai murmured. He approached her slowly, watching a cloud of mist escape her lips in a satisfied exhale. His eyes traced up to hers, which he found staring right back at him, despite the helm that obscured his face.</p>
+<p>“Who are you under there?” Her expression was earnest. Beautiful.</p>
+<p>“A stranger.”</p>
+<p>“You don’t remember me?”</p>
+<p>“I remember only pain,” Viserai whispered. He looked to the spring but felt her eyes on him still. Within the rippling water, a wave of faces looked back at him from underneath the surface, their features made of clouds and fog. His forebearers. It was as if this realm wanted him to know. Familiar yet foreign. The difference between the two pulled on his mind. Made the voices violent.</p>
+<p>He would quiet them. For now, he knew what to do.</p>
+<p>Viserai submerged his Grasp into the water. He heard the mountain spirits scream as the Gloom defiled the spring. Power rushed to him.</p>
+<p>Darkness. Another memory.</p>
+<p>Lying on his back, he felt a callused hand brush the hair from his face and caress his cheek. The room was nearly pitch black, save for the light of a star speckled sky that leaked through a window cut into a rock wall. The air, hot and dry, especially on a night like this. Far from the violence. Far from the capital.</p>
+<p>His silk sheets held a welcome chill against his bare chest. Viserai felt the scars on her torso as he held her. A warrior’s scars. How had he forgotten?</p>
+<p>His wife. His secret.</p>
+<p>“I’d like to see the palace halls,” she spoke to him, “when the fighting’s over.”</p>
+<p>“Of course,” Viserai said, staring at the light that gathered on the windowsill. “You… loved this man?”</p>
+<p>“I did,” she laughed at this comment. A full laugh. Unafraid of who might hear. “I do. Proof the Phoenix can tame the Dragon.”</p>
+<p>Viserai got up from the bed. Sheets spilled off the both of them, and she turned from her side to lie on her stomach.</p>
+<p>“Oh, have I wounded your ego, Dracai?” His wife’s tone was both teasing and firm. When he didn’t respond, he felt her get up from the bed and join him at the window.</p>
+<p>“This land… what is it really?”</p>
+<p>“Fire and ash. Blood and sand. It is war,” she whispered, planting a kiss on his back. He felt her bare skin press against his as she hugged him. Felt his want for her. Felt this bond.</p>
+<p><em>This shackle</em>.</p>
+<p>His Grasp was at his face, strands of blue mist pulling on each finger. The dry air thickened and clung to him, fighting his every movement. Restraining him.</p>
+<p>Viserai ripped through the sensation. The lines of blue mist snapping in a satisfactory hiss.</p>
+<p>This memory became liquid, melting away as the quiet room gave way to a village thoroughfare. A deep ache that was sealed within him surged forward. A world devoid of purpose or reason. Loneliness and guilt.</p>
+<p>A large bathhouse bloomed with laughter and light, Mysterian women and men in sleek dresses and wraps lazing in the glow. His company of soldiers wandered past it, looking for something to eat. It had been a long campaign. Viserai and a man in a clean uniform slowed, Viserai’s eyes meeting one of the women who began to approach.</p>
+<p>In spite of himself, she reminded him of someone. Someone he was starting to forget. Still, he went to her. Shadows in the windows grinned, vipers poised to strike.</p>
+<p>“I’ve seen that look before, General. I cannot erase the guilt, but perhaps I can help you with your-”</p>
+<p>LUST</p>
+<p>Viserai’s Shard leaked a thin line of smoke as he stood from a crouch beside an opaque pool of Gloom. <em>Was that voice his own?</em></p>
+<p>The basin was empty and quiet. The voices were calm and still. The peace was bliss.</p>
+<p>All the color of this place now flowed into a swirl of deep blue that began to slowly drift away. Released Chi which now sought a vessel. The smoke attracted the flowing Chi toward it, wrapping around one another, tighter and tighter. Blue bled to pink that burst in a rush of Viserai’s runes. He could hear the chant.</p>
+<p>Lust. A mortal desire that no longer clung to him. And what had he relinquished? A piece of a life that was never his, to soon gain life of his own.</p>
+<p>A Runechant of Lust glimmered within the weakening waterfall as the mists fled.</p>
+<p>Viserai drove his Nebula Blade into the symbol of power, and Lust joined Pride on the sword’s hilt. The two runechants orbited each other, pressure emanating from their exchange.</p>
+<p>He hungered for the next. Images of Whisper flashed in his mind, chained with her head bowed. Tangible. <em>Alive</em>. Two shackles lay broken at her feet. <em>We are connected, Viserai.</em> He could see it now.</p>
+<p>The dark void in the spring seeped up the lone tree’s roots, causing the bark of this particular dream to flake off and scatter in the wind.</p>
+<p>Once more, Viserai traversed between.</p>
+<p>He could see his five tethers. Five shackles. He would break them all.</p>
+<hr>
+<p>Towers ascending, twisting, crossing. A shape, a city, a… thing? It hurt to look at, spinning round and round to a sickening rhythm. Doors opening, windows turning. Up, and up, and up.</p>
+<p>Viserai entered one of the knotted towers, reaching higher, and higher, and- <em>lower</em>. Stairs spiraled downwards, every window he passed offering a view that grew further from the ceiling he once stood on. Back where crows circled a virulent corpse.</p>
+<p>Chaos. Chaos that defied thought. That infected reason. That spread and spun and sickened.</p>
+<p>He embraced it, scattering the voices.</p>
+<p><em>A mere… god… and the ones who wield it… bear their sin… one step… to receive… freedom…</em></p>
+<p>Viserai leapt from the endless spiral, falling up the tower shaft, and into his raging mind.</p>
+<p>Sand assaulted his senses. Soldiers rallied to his banner, barely visible flying overhead. A bloodstain on a storm’s beige uniform. His line fell in. Order and discipline in the face of the thrashing embers ahead.</p>
+<p>Viserai led the charge, knowing what he was protecting. Knowing that his secret would cost the lives of many. Knowing how the Dracai dealt with traitors.</p>
+<p>He watched his soldiers crash into the rebel trap, one he could have avoided, feeling what it meant to sacrifice. Feeling that every choice he had made in this life paled before the one he made now. Feelings numbing, feeling-</p>
+<p>SLOTH</p>
+<p>He traversed. Through dreams and memory. Head bowed in a line of leaders, raised above an army of thousands. A medal bestowed. Ceremony to mark his ascension. Still he looked back. The <span class="hint" hint="Emperor">Emperor</span>’s proud stare. One day he’d meet his eyes. He’d know his-</p>
+<p>ENVY</p>
+<p>Not a tool. Not a weapon. A feast. Surrounded by faces that were once familiar. Power and authority few mortals ever attained. He wanted more. He <em>was</em> more. Grasping-</p>
+<p>GLUTTONY</p>
+<p>Five runechants permeated him. Permeated Rathe. Omens of his return. Two shackles.</p>
+<hr>
+<p>Viserai crossed through a throne room of fire. The voices were all but gone. His quest was nearly complete.</p>
+<p>The Draconic power of this realm should have burned him where he stood. Instead, it welcomed him.</p>
+<p>An expanse of inescapable heat and volcanoes that blotted out the sky with smoke and ash. Legions of flames in the shape of soldiers, all marching in step. Their endless numbers protected an impossibility of a palace, a mountainous structure erupting into canals that ran down its sides, obsidian boats ferrying more of their ranks through the lava flow.</p>
+<p>A place that repelled invaders. A place of passion. Loyalty. A place that felt like… <em>home?</em></p>
+<p>Viserai discarded the feeling as he strode past the throne to approach what loomed behind it. A dragon. Biting into the neck of a phoenix that clawed at its stomach, the great beasts enshrined in stone. Locked in a ceaseless war.</p>
+<p>The Arknight Shard flared. He would end all wars. All weakness.</p>
+<p>He laid his Grasp against the back of the throne. Gloom wrapped around it, the warring statues behind beginning to radiate heat.</p>
+<p>The final pieces of fog, burning away to reveal the last weakness he would-</p>
+<p><em>A little girl’s cry</em>.</p>
+<p>Viserai froze, her voice cutting through the sudden silence of the memory.</p>
+<p>His hand rested on a beautiful wooden door, one carved with scenes from stories he remembered reading to her. Exhausted. Waiting for her to fall asleep.</p>
+<p>She cried, taking tiny sharp breaths before each wail. He could hear her tears. Each one pained him more than the last. It would hurt him more to linger. He had to stay away.</p>
+<p>Viserai looked back.</p>
+<p>A cradle. A child. Black hair flecked with brown like someone he’d forgotten. He watched her change in flashes. Growing so fast. A toy. A chase. Raising her in secret, far from imperial eyes. Teaching his serious little girl how to swing a sword, and what it meant to lead. Responsibilities growing. Orders that swept him away from her.</p>
+<p>In a few short years, he would leave her for the last time. Her training never finished.</p>
+<p>He wanted to reach for her. Why? She was not his. He could do nothing for her, and yet, a final piece of him that still remembered, would do anything. Anything to see her again. To know that she was safe. That he hadn’t failed.</p>
+<p><em>“SHE LIVES.”</em></p>
+<p>The memory nearly crumbled beneath the sound. The walls of this child’s bedroom shaking from the voice of a thousand roaring flames.</p>
+<p>Viserai rushed the cradle. He spun, searching for danger. A father protecting his daughter. So much of the man erased, but this child bound his will?</p>
+<p><em>“EVEN NOW SHE FIGHTS IN YOUR NAME.”</em></p>
+<p>He felt its presence bear down on him from beyond the confines of this room. This memory. This piece. Of what?</p>
+<p><em>“BE PROUD, SON OF VOLCOR. THE FLAME YOU CARRY STILL BURNS. THOUGH YOU HAVE GIVEN THEM MUCH, EVEN A DYING SPARK CAN ROAR AGAIN.”</em></p>
+<p>The Draconic voice reached out to him, offering… a different path. To become what he once was. A son of Volcor. A father. <em>A weapon.</em></p>
+<p>His daughter rocked in her cradle, drifting back to sleep now that he was near.</p>
+<p>Viserai let the silence that followed wash over him. Could he really go back? <em>So close</em> to the freedom he sought. Bound once more to a life that was not his?</p>
+<p>This soul. This memory. This man.</p>
+<p>He had ripped himself from this child once.</p>
+<p>He could do it again.</p>
+<p>For every child.</p>
+<p>Every life.</p>
+<p>Everything.</p>
+<p>She was the daughter of a dead man. A mortal. Too weak to break the cycle. Viserai could make it all <em>stop</em>. The fighting, the pain, the shackles. Free as the void in his mind.</p>
+<p>He could kill the man, and with this power, he could defy gods.</p>
+<p>Viserai pushed out of the memory into oblivion.</p>
+<p>If the child behind wept for him, he could no longer hear.</p>
+<p>WRATH</p>
+<p>The many realms of i’Arathael bloomed before him. One shackle remained. <em>Whisper</em>.</p>
+<hr>
+<p>Back to the Abyss, where obsidian doors trembled. The Arknight Shard burned in his chest, forcing him forward. He fought it. He would know.</p>
+<p>“My last shackle, it is shared. Why?” Viserai demanded.</p>
+<p><em>We are connected, Viserai</em>.</p>
+<p>The Arknight Shard was screaming. He would silence it.</p>
+<p><em>Release the Arknight and free us. A piece of that which you would call god. That which binds all things. That which is the canvas of the universe. You are the key, Forsaken.</em></p>
+<p>Viserai drove his Grasp into his own chest. His flesh tore with a wet crunch. Searching his innards, he clutched the screaming gem within him and twisted. His false heart. The one that Sutcliffe used to remake him. To control him. He remembered the Arknight’s desire. Liberation. One final memory. Nebula Blade freeing his master’s head from its body.</p>
+<p>GREED</p>
+<p>Viserai ripped the Arknight Shard from his flesh. The weight of the world crushed him.</p>
+<p>A sudden unbearable force, pressing him down, attempting to unmake him. The thing that should not be. A being stripped of all tethers to reality.</p>
+<p>No gods. No shackles.</p>
+<p>Pride. Lust. Sloth. Envy. Gluttony. Wrath. <em>Greed</em>. The seventh runechant joined the rest on Nebula Blade’s hilt, bursting into a black void of power.</p>
+<p>Viserai was already unmade.</p>
+<p>Now, he was unbound.</p>
+<p>The Arknight Shard screeched as he forced the gem into the waiting maw of the obsidian doors. He had no beat in his chest, no Shard to sustain him. Still, he pressed on.</p>
+<p>Viserai unsheathed the fully forged Seven Sin Nebula and brandished the blade’s black void up to the Shard lodged before him. All at once, a sickening light spread through the inscriptions on the doors, energy erupting from his collected runechants and the false heart he no longer needed.</p>
+<p>The inscriptions sloughed off the doors, becoming writhing tentacles that skittered up to suffocate the Arknight Shard. It wailed and pulsed, a heart beating frantically as dripping appendages constricted and corrupted the gem’s glow.</p>
+<p>Darkness. Complete and final. Shadow that obscured all.</p>
+<p>Viserai’s vision returned to him, revealing a pair of open doors. The Shard lay nestled in the spreading Gloom, now warped and calm. He retrieved it and strode into the abyssal chamber beyond, gazing upon Whisper’s true form.</p>
+<p>YOU HAVE DELIVERED US, CHAMPION.</p>
+<p>The voice was everywhere. Cacophonous discord. Eldritch void that had transfigured the very essence of Shadow trapped within.</p>
+<p><span class="hint" hint="Xerys">XERYS</span> AND HER DISCIPLES SERVED THEIR PURPOSE WELL.</p>
+<p>Standing among these unfathomable titans, Viserai understood. He had traversed the realms and grasped the power of <span class="hint" hint="Aesir">Aesir</span> and their dreams. He knew their touch and design. He knew the gods of Rathe.</p>
+<p>These were no gods.</p>
+<p>That little girl they once spoke through, an image to reconcile. One used to cultivate a bond with the man he once had been. The man, discarded. The truth, liberated.</p>
+<p>Viserai now gazed upon that which gods feared.</p>
+<p>YOURS IS ONE OF CONQUEST.</p>
+<p>Xerys, the Shadow Aesir, Painter of the Night, consumed and controlled by the beings She had trapped in this place. Those fools at the Demonastery, priests and apostles, all who wielded Shadow – they had been serving the very entities who had usurped their god and puppeted Her power.</p>
+<p>BECOME ONE WITH US AND REMAKE THE WORLD OF RATHE.</p>
+<p>Strings of shadow and endless eyes expanded down toward Viserai, reaching for him. They bared their ceaseless essence, living monuments that rose into the void far above. He felt their appetite. For aether in all its forms, for all life on Rathe. They <em>would</em> remake the world, but first they meant to remake him.</p>
+<p>He could fathom the betrayal. But he knew no masters. God or otherwise.</p>
+<p>Viserai looked to the gem in his Grasp.</p>
+<p>THE SHARD OF XERYS’ HEART.</p>
+<p>Their connection. He could use it.</p>
+<p>ITS PURPOSE SATISFIED. EMBRACE US. EMBRACE DOMINION.</p>
+<p>The <span class="hint" hint="OldOnes">Old Ones</span> <em>lunged</em> for him. Tendrils upon him in an instant, a breath away from forced evolution.</p>
+<p>A flash of runes followed.</p>
+<p>His blade carved through the sudden invasion, Seven Sins crashing into the darkness and surrounding Viserai. A barrier of rune and blood. Eyes mutated around the barrier, seeking weakness. They found none.</p>
+<p>“You speak of purpose, but neglect your own. I am no longer a weapon,” Viserai brought forth the Shard of Xerys. “I am…”</p>
+<p>SALVATION.</p>
+<p>One by one, his Runechants of Sin ignited with aether. Eyes and darkness pulled into their swirl of runes. He saw lives left behind. He saw the future he forged.</p>
+<p>He grasped the <span class="hint" hint="SoulOfExistence">Soul of Existence</span>.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/usurp-the-shadow-throne/unbound-3.webp" alt="unbound-3" class="center">
+<p>At Viserai’s behest, the gem drank of the Old One’s power, fusing it with what remained of the lost Aesir’s essence. Perfect facets. Cut from the cloth of reality. The Old Shadow and the New.</p>
+<p>“You wish to see Rathe reborn. I will see it cleansed. Together, we will break the cycle,” Viserai held the Soul of Existence up to his breastplate, and the gem anointed his flesh. He embraced this power. The power to decide.</p>
+<p>The Old Ones retreated. The abyssal chamber went silent. All eyes on the Usurper.</p>
+<p>“Open? Ah… of course,” a new voice echoed through the void, riddled with pain and satisfaction. Viserai turned to the intruder, dressed in armor similar to his own. Greed suggested a connection between them. One that Viserai had sacrificed. Forgotten. “Who else could I have-”</p>
+<p>The figure’s breath caught in his throat. His eyes flicked from Viserai to the eldritch titans sprawling into infinity behind him.</p>
+<p>“No…” A horrified expression dawned on the figure’s face, followed by a frantic understanding. The forgotten one drew a rippling blade of black steel.</p>
+<p>Viserai would free him.</p>
+<img src="https://d2hl7maqck52px.cloudfront.net/main-story/usurp-the-shadow-throne/unbound-4.webp" alt="Viserai walks away from Chane&#39;s impaled corpse, approaching the shadow throne" class="center">
+<p>The forgotten one lay in a pool of his own blood, Seven Sin Nebula sprouting from his corpse. Viserai regarded the Old Ones, still silent, still watching. He could feel their displeasure. He could feel their respect.</p>
+<p>The fight had been grueling. The stranger commanded a great power. One that was now Viserai’s to wield. The newly claimed <span class="hint" hint="Embra">Embra</span> knelt, waiting, an aspect of Xerys that the man had called <span class="hint" hint="Ursur">Ursur</span>.</p>
+<p>Viserai approached the Gate, a yawning portal that opened to a battlefield, swarmed by forces that would soon know his touch. Shadows lurched and trembled. The barrier between worlds forever changed.</p>
+<p>Viserai looked upon Rathe. Upon the Old Ones. Upon himself.</p>
+<p>To all, he spoke.</p>
+<p>“Let us begin.”</p>
+<hr><!-- fablore-narrated-videos:start -->
+<div class="narrated-videos">
+<h1>Narrated Video</h1>
+
+<div class="nv-single-video">
+<div class="nv-video-wrap">
+<iframe src="https://www.youtube.com/embed/7L3y8DNeD2w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+</div>
+
+</div>
+
+</div>
+
+<!-- fablore-narrated-videos:end -->
+<!-- fablore-related:start -->
+<section class="related-section" aria-label="Related Lore">
+<h1 id="related-lore">Related Lore</h1>
+
+<div class="related-cards">
+<a class="related-card" href="../../heroes-of-rathe/baalghor-about.html">
+<span class="related-card-body">
+<span class="related-card-type">Hero</span>
+<span class="related-card-title">Baalghor</span>
+</span>
+</a>
+<a class="related-card" href="../../heroes-of-rathe/chane-about.html">
+<span class="related-card-body">
+<span class="related-card-type">Hero</span>
+<span class="related-card-title">Chane</span>
+</span>
+</a>
+<a class="related-card" href="../../heroes-of-rathe/viserai-about.html">
+<span class="related-card-body">
+<span class="related-card-type">Hero</span>
+<span class="related-card-title">Viserai</span>
+</span>
+</a>
+<div class="related-cards-spacer" aria-hidden="true"></div>
+
+<a class="related-card" href="../../other-characters/lord-sutcliffe.html">
+<span class="related-card-body">
+<span class="related-card-type">Character</span>
+<span class="related-card-title">Lord Sutcliffe</span>
+</span>
+</a>
+<div class="related-cards-spacer" aria-hidden="true"></div>
+
+<a class="related-card" href="../../world-of-rathe/demonastery.html">
+<span class="related-card-body">
+<span class="related-card-type">Region</span>
+<span class="related-card-title">Demonastery</span>
+</span>
+</a>
+</div>
+</section>
+<!-- fablore-related:end -->
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../main-story/usurp-the-shadow-throne/agony-in-light.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../../summaries/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../main-story/usurp-the-shadow-throne/agony-in-light.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../../summaries/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../../mark-09e88c2c.min.js"></script>
+        <script src="../../searcher-09f2665d.js"></script>
+
+        <script src="../../clipboard-1626706a.min.js"></script>
+        <script src="../../highlight-abc7f01d.js"></script>
+        <script src="../../book-c22b7243.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../theme/toolbar-5fa3570f.js"></script>
+        <script src="../../theme/lang-toggle-278ce0a2.js"></script>
+        <script src="../../tab-fd6a8e95.js"></script>
+        <script src="../../back-to-top-7ddb360a.js"></script>
+        <script src="../../hero-hub-d0a786d0.js"></script>
+        <script src="../../bionic-e657825d.js"></script>
+        <script src="../../theme/hints-2014def7.js"></script>
+        <script src="../../theme/related-eadba45b.js"></script>
+        <script src="../../narrated-videos-84e813a2.js"></script>
+        <script src="../../theme/browse-ea40f197.js"></script>
+        <script src="../../theme/hero-filter-03bca56f.js"></script>
+        <script src="../../theme/reading-progress-adb1a214.js"></script>
+        <script src="../../theme/heading-anchors-838a9d90.js"></script>
+        <script src="../../theme/copy-link-605c931d.js"></script>
+        <script src="../../theme/reading-prefs-e9927c10.js"></script>
+        <script src="../../theme/random-story-d16666c7.js"></script>
+        <script src="../../theme/read-tracking-e63af195.js"></script>
+        <script src="../../theme/glyph-tool-24cc407a.js"></script>
+        <script src="../../theme/graph-core-469f0b21.js"></script>
+        <script src="../../theme/graph-dfd14e31.js"></script>
+        <script src="../../theme/family-tree-86a6fd04.js"></script>
+
+
+
+    </div>
+    </body>
+</html>
