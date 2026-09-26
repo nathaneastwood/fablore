@@ -413,6 +413,11 @@ KIN_INVERSE = {
     "child": "parent",
     "sibling": "sibling",
     "spouse": "spouse",
+    "grandparent": "grandchild",
+    "grandchild": "grandparent",
+    "aunt-or-uncle": "niece-or-nephew",
+    "niece-or-nephew": "aunt-or-uncle",
+    "cousin": "cousin",
 }
 """How a stored relation reads from the *other* end.
 
@@ -421,43 +426,69 @@ Bloodworth" — and never the inverse. A fact stored twice could disagree with
 itself and nothing would say which half was right, so the second half is
 derived here instead, at read time. ``father``/``mother``/``parent`` all
 invert to ``child``; ``child`` inverts to ``parent`` rather than a gender,
-because a row that only says "parent" does not know which one. ``sibling``
-and ``spouse`` invert to themselves.
+because a row that only says "parent" does not know which one. ``sibling``,
+``spouse`` and ``cousin`` invert to themselves. ``grandparent``/``grandchild``
+mirror the direct pair; ``aunt-or-uncle``/``niece-or-nephew`` stay gender-blind
+for the same reason ``parent``/``child`` do — a page may name the bond without
+saying which side of it a relative is on.
+
+These five widen R8 past direct lineage (added alongside the ``Qualifier``
+column, migration 21) so a stated cousin or grandparent fact has somewhere to
+live instead of becoming prose on the generated page. There is still no
+transitive derivation anywhere in this module: "Dheric's grandfather is
+Daxius" is its own stated, cited row, not computed from Dheric's and Darian's
+separately-stated father facts, the same way ``character_kin`` has never
+computed a sibling from two shared-parent rows.
 """
 
+KIN_QUALIFIERS = frozenset({"blood", "adoptive"})
+"""The closed vocabulary for ``character_kin.qualifier`` (migration 21).
 
-def set_character_kin(conn: sqlite3.Connection, character_id: str, kin: list[tuple[str, str, str]]) -> None:
+Most kin facts are blood — the default — but a handful in the lore are
+explicit that they are not: Dromai's foster mother, Valda's foster father,
+adoptive siblings raised together. Storing this as a plain fact-level flag
+rather than folding it into ``relation`` (e.g. a separate ``foster-parent``
+relation) keeps *what kind of bond* and *how the bond was formed* as two
+independent questions, the way this schema already keeps kind, title and
+group apart rather than overloading one column for all three."""
+
+
+def set_character_kin(conn: sqlite3.Connection, character_id: str, kin: list[tuple[str, str, str, str]]) -> None:
     """Replace every kin row stated *by* ``character_id``.
 
     Args:
-        kin: ``(relative_id, relation, story_key)`` triples. Replace-semantic,
-            like the group rosters and ``character_kinds``: this is the complete
-            set of kin facts this declaration states, so an omitted fact is a
-            deletion, not a preserved value.
+        kin: ``(relative_id, relation, story_key, qualifier)`` tuples.
+            Replace-semantic, like the group rosters and ``character_kinds``:
+            this is the complete set of kin facts this declaration states, so
+            an omitted fact is a deletion, not a preserved value.
     """
     conn.execute("DELETE FROM character_kin WHERE character_id = ?", [character_id])
     if kin:
         conn.executemany(
-            "INSERT OR IGNORE INTO character_kin (character_id, relative_id, relation, story_key) VALUES (?,?,?,?)",
-            [(character_id, rid, relation, story_key) for rid, relation, story_key in kin],
+            "INSERT OR IGNORE INTO character_kin (character_id, relative_id, relation, story_key, qualifier) "
+            "VALUES (?,?,?,?,?)",
+            [(character_id, rid, relation, story_key, qualifier) for rid, relation, story_key, qualifier in kin],
         )
 
 
-def select_character_kin(conn: sqlite3.Connection, character_id: str) -> list[tuple[str, str, str]]:
-    """Return ``(relative_id, relation, story_key)`` rows stated *by* ``character_id``, sorted.
+def select_character_kin(conn: sqlite3.Connection, character_id: str) -> list[tuple[str, str, str, str]]:
+    """Return ``(relative_id, relation, story_key, qualifier)`` rows stated *by* ``character_id``, sorted.
 
     Only the stored direction — the same half :func:`set_character_kin` writes.
     Use :func:`select_character_kin_both_directions` to also see facts stated
     *about* this character by someone else.
     """
     rows = conn.execute(
-        "SELECT relative_id, relation, story_key FROM character_kin WHERE character_id = ? ORDER BY relative_id, relation",
+        "SELECT relative_id, relation, story_key, qualifier FROM character_kin "
+        "WHERE character_id = ? ORDER BY relative_id, relation",
         [character_id],
     ).fetchall()
-    return [(r[0], r[1], r[2]) for r in rows]
+    return [(r[0], r[1], r[2], r[3]) for r in rows]
 
 
-def select_character_kin_both_directions(conn: sqlite3.Connection, character_id: str) -> list[tuple[str, str, str]]:
+def select_character_kin_both_directions(
+    conn: sqlite3.Connection, character_id: str
+) -> list[tuple[str, str, str, str]]:
     """Return this character's kin in both directions, relation as seen from ``character_id``.
 
     ``character_kin`` stores one row per stated fact and never its inverse (see
@@ -465,21 +496,24 @@ def select_character_kin_both_directions(conn: sqlite3.Connection, character_id:
     select directly. This derives it: rows ``character_id`` stated directly,
     plus rows stated *about* ``character_id`` by someone else, inverted through
     :data:`KIN_INVERSE` so every relation reads correctly from this character's
-    own perspective.
+    own perspective. ``qualifier`` (blood/adoptive) is unchanged by inversion —
+    a bond's origin does not depend which end it is read from.
 
     Returns:
-        ``(relative_id, relation, story_key)`` triples, unsorted union of both halves.
+        ``(relative_id, relation, story_key, qualifier)`` tuples, unsorted union of both halves.
     """
     direct = conn.execute(
-        "SELECT relative_id, relation, story_key FROM character_kin WHERE character_id = ? ORDER BY relative_id, relation",
+        "SELECT relative_id, relation, story_key, qualifier FROM character_kin "
+        "WHERE character_id = ? ORDER BY relative_id, relation",
         [character_id],
     ).fetchall()
     inverse = conn.execute(
-        "SELECT character_id, relation, story_key FROM character_kin WHERE relative_id = ? ORDER BY character_id, relation",
+        "SELECT character_id, relation, story_key, qualifier FROM character_kin "
+        "WHERE relative_id = ? ORDER BY character_id, relation",
         [character_id],
     ).fetchall()
-    result = [(r[0], r[1], r[2]) for r in direct]
-    result.extend((r[0], KIN_INVERSE[r[1]], r[2]) for r in inverse)
+    result = [(r[0], r[1], r[2], r[3]) for r in direct]
+    result.extend((r[0], KIN_INVERSE[r[1]], r[2], r[3]) for r in inverse)
     return result
 
 

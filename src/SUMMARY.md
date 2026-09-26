@@ -329,6 +329,7 @@
 - [Data](data/data.md)
     - [Characters](data/md/characters.md)
     - [Character Groups](data/md/character-groups.md)
+    - [Character Relationships](data/md/character-kin.md)
     - [Fauna](data/md/fauna.md)
     - [Flora](data/md/flora.md)
     - [Food and Drink](data/md/food-and-drink.md)

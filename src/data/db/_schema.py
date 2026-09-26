@@ -54,7 +54,7 @@ from __future__ import annotations
 
 import sqlite3
 
-CURRENT_VERSION = 20
+CURRENT_VERSION = 21
 
 _V1_DDL = """
 CREATE TABLE IF NOT EXISTS stories (
@@ -428,13 +428,20 @@ CREATE TABLE IF NOT EXISTS story_titles (
 -- relation is a closed vocabulary, checked in validate_data.py rather than by
 -- SQLite (the same split status and character_epithets.label follow):
 -- 'father'/'mother'/'parent' invert to 'child'; 'child' inverts to 'parent',
--- not a gender, because the data does not know which parent; 'sibling' and
--- 'spouse' are their own inverse.
+-- not a gender, because the data does not know which parent; 'sibling',
+-- 'spouse' and 'cousin' are their own inverse; 'grandparent'/'grandchild' and
+-- 'aunt-or-uncle'/'niece-or-nephew' invert to each other (migration 21).
+--
+-- qualifier (migration 21) is 'blood' (the default) or 'adoptive' — a second,
+-- independent closed vocabulary, not folded into relation: it answers how the
+-- bond was formed, not what kind of bond it is, the same separation this
+-- schema already keeps between kind/title/group.
 CREATE TABLE IF NOT EXISTS character_kin (
     character_id TEXT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
     relative_id  TEXT NOT NULL REFERENCES characters(character_id) ON DELETE CASCADE,
     relation     TEXT NOT NULL,
     story_key    TEXT NOT NULL DEFAULT '',
+    qualifier    TEXT NOT NULL DEFAULT 'blood',
     PRIMARY KEY (character_id, relative_id, relation)
 );
 
@@ -1218,4 +1225,24 @@ def migrate(conn: sqlite3.Connection) -> None:
                 conn.execute(f"ALTER TABLE {table} RENAME COLUMN {old_col} TO {new_col}")
 
         conn.execute("PRAGMA user_version = 20")
+        conn.commit()
+    if version < 21:
+        # Kinship (R8) widened: five new relations (grandparent/grandchild,
+        # aunt-or-uncle/niece-or-nephew, cousin) alongside the original six, and
+        # a qualifier column so a stated bond can say it is adoptive rather than
+        # blood — see db._queries.KIN_INVERSE and KIN_QUALIFIERS. No change to
+        # the vocabulary column itself: relation stays free text validated in
+        # validate_data.py, so only the schema needs a migration here.
+        #
+        # _V1_DDL already creates the column, so this is a no-op on a
+        # from-scratch build, the same guard shape every ADD COLUMN migration
+        # in this file follows. Guarded by table existence too (migration 4's
+        # shape): a fixture or an old database frozen before migration 14 has
+        # no character_kin table at all, and ALTER TABLE on a table that does
+        # not exist raises rather than no-ops.
+        tables = {r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+        if "character_kin" in tables:
+            if "qualifier" not in {r[1] for r in conn.execute("PRAGMA table_info(character_kin)")}:
+                conn.execute("ALTER TABLE character_kin ADD COLUMN qualifier TEXT NOT NULL DEFAULT 'blood'")
+        conn.execute("PRAGMA user_version = 21")
         conn.commit()

@@ -37,7 +37,12 @@ ADU = CharacterEntry("Adu")
 """``weapons/rok.md:5`` — "Ambassador Adu", on the receiving end of the Rok. The
 office is not part of the name and the text gives no species, so no kind."""
 AELIUS = CharacterEntry("Aelius", kinds=kind.HUMAN, status="Dead")
-AIOS = CharacterEntry("Aios", kinds=kind.HUMAN, status="Alive")
+AIOS = CharacterEntry(
+    "Aios",
+    kinds=kind.HUMAN,
+    status="Alive",
+    kin=(("boltyn", "father", "main-story/monarch/sworn-to-protect.md"),),
+)
 AKUO = CharacterEntry("Akuo", kinds=kind.HUMAN)
 ALKA_BIGGUNS = CharacterEntry("Alka Bigguns", kinds=kind.HUMAN, epithets=("Don of Coppertown",))
 """world-of-rathe/pits.md:29."""
@@ -48,7 +53,11 @@ face, or if they're a single person or a collective of dissidents operating
 under a shared alias" — hence no kind and no status."""
 ALIF = CharacterEntry("Alif", kinds=kind.HUMAN, status="Alive")
 ALOSYN = CharacterEntry("Alosyn", kinds=kind.HUMAN)
-AMIR = CharacterEntry("Amir", kinds=kind.HUMAN)
+AMIR = CharacterEntry(
+    "Amir",
+    kinds=kind.HUMAN,
+    kin=(("kassai", "child", "main-story/heavy-hitters/bloodied-sands.md"),),
+)
 AMIRA_SURANA = CharacterEntry("Amira Surana")
 ANARCH_ZEIR = CharacterEntry(
     "Anarch Zeir",
@@ -107,10 +116,28 @@ BLASMOPHET = CharacterEntry("Blasmophet", kinds=kind.EMBRA, epithets=("the Soul 
 BLAVE = CharacterEntry("Blave", kinds=kind.HUMAN, status="Dead")
 """main-story/outsiders/the-spiders-trap.md:100 — "The traitor bleeds out on the floor"."""
 BLIND_BOGGY = CharacterEntry("Blind Boggy")
-BLOODWORTH_GOLDMANE = CharacterEntry("Bloodworth Goldmane")
+BLOODWORTH_GOLDMANE = CharacterEntry(
+    "Bloodworth Goldmane",
+    kin=(("lyath", "child", "heroes-of-rathe/lyath-about.md"),),
+)
 BOJANI = CharacterEntry("Bojani", kinds=kind.HUMAN, status="Dead")
 BOO = CharacterEntry("Boo")
-BRAUMEISTER_BALEN = CharacterEntry("Braumeister Balen", kinds=kind.HUMAN, status="Alive")
+BRAUMEISTER_BALEN = CharacterEntry(
+    "Braumeister Balen",
+    kinds=kind.HUMAN,
+    status="Alive",
+    kin=(
+        (
+            "valda",
+            "child",
+            "main-story/mastery-pack-guardian/trouble-in-larinkmorth.md",
+            "adoptive",
+        ),
+    ),
+)
+"""Valda's foster father — main-story/mastery-pack-guardian/trouble-in-larinkmorth.md:55-61,
+"her foster father's stories of the day... So I named you Valda, after my
+grandmother"."""
 BREWMEISTER_MARV = CharacterEntry("Brewmeister Marv", kinds=kind.HUMAN)
 BRUTUS_SUMMA_RUDIS = CharacterEntry("Brutus, Summa Rudis")
 BUTCHER_JEK = CharacterEntry("Butcher Jek", kinds=kind.HUMAN)
@@ -131,8 +158,15 @@ CAPTAIN_SHEVEZ = CharacterEntry("Captain Shevez")
 CAPTAIN_VANEGULL = CharacterEntry("Captain Vanegull", kinds=kind.HUMAN)
 CAREM_DUNFIRTH = CharacterEntry("Carem Dunfirth", status="Dead", epithets=("of the Scarborough Expedition",))
 """world-of-rathe/savage-lands.md — author of "The Primal Way". No kind stated."""
-CARVA = CharacterEntry("Carva", kinds=kind.HUMAN, status="Dead")
-"""Killed by Uzuri on main-story/outsiders/the-spiders-trap.md:78."""
+CARVA = CharacterEntry(
+    "Carva",
+    kinds=kind.HUMAN,
+    status="Dead",
+    kin=((BLAVE, "sibling", "main-story/outsiders/the-spiders-trap.md"),),
+)
+"""Killed by Uzuri on main-story/outsiders/the-spiders-trap.md:78. Blave's sibling —
+same page, l.46: "Two more of Uzuri's spider's nest turned traitor... The siblings
+share a lack of imagination"."""
 CAYLIN = CharacterEntry("Caylin", kinds=kind.HUMAN, status="Dead")
 CAYLIN_S_MOTHER = CharacterEntry("Caylin's mother", kinds=kind.HUMAN, status="Dead")
 CHANCELLOR_HELENA_PRIMAVERA = CharacterEntry("Chancellor Helena Primavera", kinds=kind.HUMAN)
@@ -172,12 +206,30 @@ alongside his siblings as "Davnir, Ancient of Earth"; ``main-story/tales-of-aria
 amongst-the-brambles.md:9`` writes "Davnir, Ancient of Earth and Lightning". The
 hand-written character-groups.md carried only the second, so the form aria.md uses
 matched no tooltip."""
-DAXIUS = CharacterEntry("Daxius", kinds=kind.HUMAN, status="Dead")
+DAXIUS = CharacterEntry(
+    "Daxius",
+    kinds=kind.HUMAN,
+    status="Dead",
+    kin=((DARIAN, "child", "short-stories/dusk-till-dawn/no-pain-no-gain.md"),),
+)
 DEMETRIOS = CharacterEntry("Demetrios", kinds=kind.BRUTE)
 DENG = CharacterEntry("Deng")
 """main-story/uprising/calm-before-the-storm.md:33, in flashback only."""
 DERVIN_MASTER_OF_BEASTS = CharacterEntry("Dervin, Master of Beasts", kinds=kind.HUMAN, epithets=("Master of Beasts",))
-DHERIC = CharacterEntry("Dheric", kinds=kind.HUMAN, status="Dead")
+DHERIC = CharacterEntry(
+    "Dheric",
+    kinds=kind.HUMAN,
+    status="Dead",
+    kin=(
+        (DARIAN, "father", "short-stories/dusk-till-dawn/no-pain-no-gain.md"),
+        (DAXIUS, "grandparent", "short-stories/dusk-till-dawn/no-pain-no-gain.md"),
+    ),
+)
+"""short-stories/dusk-till-dawn/no-pain-no-gain.md:3 — "Dheric, son of Darian,
+grandson of Daxius". Both halves are stated directly here rather than the
+grandparent fact being derived from Dheric's and Darian's separately-stated
+father links (see DAXIUS): character_kin has never computed one fact from
+two others, and grandparent (migration 21) is no exception."""
 DOMINIA = CharacterEntry("Dominia", kinds=kind.DRAGON)
 """See ``AZVOLAI`` — one of the eleven, and the same note applies."""
 DRACONA_OPTIMAI = CharacterEntry("Dracona Optimai", kinds=kind.DRAGON)
@@ -194,7 +246,15 @@ DUNRIC_VARGAS = CharacterEntry("Dunric Vargas", kinds=kind.HUMAN)
 EBBA = CharacterEntry("Ebba", kinds=kind.HUMAN, status="Alive")
 EFARIS_BRITTLEBONE = CharacterEntry("Efaris Brittlebone", kinds=kind.HUMAN)
 EINAR = CharacterEntry("Einar", kinds=kind.HUMAN)
-EIRINA = CharacterEntry("Eirina", kinds=kind.HUMAN, status="Dead")
+EIRINA = CharacterEntry(
+    "Eirina",
+    kinds=kind.HUMAN,
+    status="Dead",
+    kin=(
+        ("boltyn", "spouse", "heroes-of-rathe/boltyn-about.md"),
+        (AIOS, "child", "main-story/monarch/sworn-to-protect.md"),
+    ),
+)
 ELDON_LOST_KNIGHT = CharacterEntry("Eldon, Lost Knight", kinds=kind.HUMAN, epithets=("Lost Knight",))
 ELIAS_EDGECOMBE = CharacterEntry("Elias Edgecombe", kinds=kind.HUMAN)
 EMEVIERE = CharacterEntry("Emeviere")
@@ -202,6 +262,15 @@ ENFORCER_EESHA = CharacterEntry("Enforcer Eesha", kinds=kind.HUMAN)
 ERSEBET = CharacterEntry("Ersebet")
 EUN = CharacterEntry("Eun", kinds=kind.HUMAN, status="Dead")
 EXECUTIVE_SMYTE = CharacterEntry("Executive Smyte", kinds=kind.HUMAN)
+FAI = CharacterEntry(
+    "Fai",
+    hero_slug="fai",
+    kin=(("dromai", "sibling", "main-story/uprising/dragons-of-empire.md", "adoptive"),),
+)
+"""Only a ``kin=`` holder so far — nothing else here needs the identity claim
+``hero_slug`` makes, but the adoptive-sibling fact (Dromai and Fai are raised
+together by Min, dragons-of-empire.md: "Her adoptive brother was her minion")
+has to live on some ``CharacterEntry``, and Fai has none until now."""
 FARIN_THE_PORTER = CharacterEntry("Farin the Porter", kinds=kind.HUMAN)
 FARRIS = CharacterEntry("Farris", kinds=kind.HUMAN)
 FAYYAD = CharacterEntry("Fayyad", kinds=kind.HUMAN, status="Alive")
@@ -216,7 +285,29 @@ FRANCESCA_ZINNIA = CharacterEntry("Francesca Zinnia", kinds=kind.HUMAN, status="
 """world-of-rathe/metrix.md — died shortly after Zinnia Park opened."""
 FREYA_ELDINGSTURM = CharacterEntry("Freya Eldingsturm")
 FUGGER_GRIMES = CharacterEntry("Fugger Grimes")
-FYANNA_REDMOOR_BOLTYN_S_COUSIN = CharacterEntry("Fyanna Redmoor, Boltyn's cousin", kinds=kind.HUMAN)
+FUMEI = CharacterEntry(
+    "Fumei",
+    kin=(
+        (
+            "nuu",
+            "sibling",
+            "main-story/part-the-mistveil/part-4-the-hare-and-the-snake.md",
+            "adoptive",
+        ),
+    ),
+)
+"""part-4-the-hare-and-the-snake.md:35,39 — "I'll always know my real sister,"
+Nuu says, of their "adopted sisterhood". No kind or status: the page gives
+neither."""
+FYANNA_REDMOOR = CharacterEntry(
+    "Fyanna Redmoor",
+    kinds=kind.HUMAN,
+    kin=(("boltyn", "cousin", "heroes-of-rathe/boltyn-about.md"),),
+)
+"""boltyn-about.md:9 — "his honorable cousin, Fyanna Redmoor". The relation is
+already stated by ``kin``; the name itself carried "Boltyn's cousin" as a
+suffix, which duplicated that fact in the one field every consuming page
+displays verbatim."""
 GALAPHOR = CharacterEntry("Galaphor", kinds=kind.HUMAN, status="Dead")
 FYENDAL = CharacterEntry("Fyendal")
 """Named only by a card title — "Fyendal's Fighting Spirit" (UPR194) — whose
@@ -273,9 +364,17 @@ HARLAND = CharacterEntry("Harland")
 HAROLD_HONEYSETT = CharacterEntry("Harold Honeysett", kinds=kind.HUMAN)
 HELX = CharacterEntry("Helx")
 HIGHTARN = CharacterEntry("Hightarn", status="Dead")
-HILDEGUN = CharacterEntry("Hildegun", kinds=kind.HUMAN)
+HILDEGUN = CharacterEntry(
+    "Hildegun",
+    kinds=kind.HUMAN,
+    kin=((EINAR, "child", "main-story/mastery-pack-guardian/trouble-in-larinkmorth.md"),),
+)
 HIREI = CharacterEntry("Hirei", kinds=kind.HUMAN)
-HISATO = CharacterEntry("Hisato", kinds=kind.HUMAN)
+HISATO = CharacterEntry(
+    "Hisato",
+    kinds=kind.HUMAN,
+    kin=(("uzuri", "child", "main-story/outsiders/its-just-business.md"),),
+)
 HOG = CharacterEntry("Hog", kinds=kind.HUMAN)
 HUXLEY = CharacterEntry("Huxley", kinds=kind.HUMAN)
 HYRINTH = CharacterEntry("Hyrinth")
@@ -306,7 +405,12 @@ JEROVE = CharacterEntry("Jerove", kinds=kind.HUMAN, epithets=("the Fleshbinder",
 """world-of-rathe/demonastery.md:85."""
 JEZABELLE_EVERFEST_HEALER_AND_ALLSORTS = CharacterEntry("Jezabelle, Everfest Healer and Allsorts", kinds=kind.HUMAN)
 JIGSAW = CharacterEntry("Jigsaw", kinds=kind.HUMAN, status="Alive")
-JING = CharacterEntry("Jing", kinds=kind.HUMAN, status="Alive")
+JING = CharacterEntry(
+    "Jing",
+    kinds=kind.HUMAN,
+    status="Alive",
+    kin=(("ira", "sibling", "main-story/crucible-of-war/edge-of-autumn.md"),),
+)
 JIRO_HENSHU = CharacterEntry("Jiro Henshu", kinds=kind.HUMAN)
 """world-of-rathe/misteria.md:23 — of House Sanjing. Kind by pattern, not stated."""
 JUICE = CharacterEntry("Juice", kinds=kind.HUMAN)
@@ -365,7 +469,11 @@ LINNEA_MISTRESS_OF_MALADY = CharacterEntry(
     "Linnea, Mistress of Malady", kinds=kind.HUMAN, epithets=("Mistress of Malady",)
 )
 LISHU_CRIMSON_HAZE_VIGILANTE = CharacterEntry("Lishu, Crimson Haze Vigilante", kinds=kind.HUMAN)
-LORD_BARTHIMONT = CharacterEntry("Lord Barthimont", kinds=kind.HUMAN)
+LORD_BARTHIMONT = CharacterEntry(
+    "Lord Barthimont",
+    kinds=kind.HUMAN,
+    kin=((LADY_BARTHIMONT, "spouse", "other-characters/lady-barthimont.md"),),
+)
 """Lady Barthimont's husband — other-characters/lady-barthimont.md."""
 LORD_MERCHANT_SAVAI = CharacterEntry("Lord Merchant Savai", kinds=kind.HUMAN, status="Dead")
 LORD_SABUTO = CharacterEntry("Lord Sabuto", kinds=kind.HUMAN)
@@ -390,7 +498,11 @@ Teklovossen``: free text doing the job of prose. ``status`` is now a closed
 five-value vocabulary (``Unknown``, ``Alive``, ``Dead``, ``Assumed Dead``,
 ``Missing``); the two sentence-shaped values folded to ``Unknown`` for now —
 the sentence belongs in the ``summary`` column a later stage adds."""
-LORD_WIZARD_CHIYO = CharacterEntry("Lord Wizard Chiyo", status="Dead")
+LORD_WIZARD_CHIYO = CharacterEntry(
+    "Lord Wizard Chiyo",
+    status="Dead",
+    kin=(("emperor", "cousin", "main-story/arcane-rising/from-the-ashes.md"),),
+)
 LUCA_ARENA_CICERONE = CharacterEntry("Luca, Arena Cicerone", kinds=kind.HUMAN, status="Alive")
 LUCILLA_THE_SETTING_SUN = CharacterEntry("Lucilla the Setting Sun")
 MABON = CharacterEntry("Mabon", kinds=kind.HUMAN)
@@ -460,7 +572,19 @@ MERCURIUS = CharacterEntry(
 )
 """Defined after MINERVA_THEMIS, out of alphabetical order, because ``kin`` needs
 the constant to exist already. The first ``kin=`` use in the catalogue."""
-MIN_OF_THE_FOREST_OF_FLAMES = CharacterEntry("Min of the Forest of Flames", kinds=kind.HUMAN)
+MIN_OF_THE_FOREST_OF_FLAMES = CharacterEntry(
+    "Min of the Forest of Flames",
+    kinds=kind.HUMAN,
+    kin=(
+        ("fai", "child", "main-story/uprising/fires-of-rebellion.md"),
+        ("dromai", "child", "main-story/uprising/betrayal.md", "adoptive"),
+    ),
+)
+"""Fai's birth mother — main-story/uprising/fires-of-rebellion.md:3, "Fai's mother,
+Min, spoke of a better time" — and Dromai's foster mother, betrayal.md:13,
+"she recited her foster mother's crime". The two facts carry different
+qualifiers on purpose: one row of ``character_kin`` per stated fact, and these
+two agree on who Min is but not on how each bond was formed."""
 MIRAGAI = CharacterEntry("Miragai", kinds=kind.DRAGON)
 MISS_Q = CharacterEntry("Miss Q")
 MISTRESS_IKARU = CharacterEntry("Mistress Ikaru", kinds=kind.HUMAN)
@@ -484,7 +608,11 @@ NESTUS = CharacterEntry("Nestus")
 NIALL = CharacterEntry("Niall", kinds=kind.HUMAN, epithets=("the Arcanist",))
 """world-of-rathe/demonastery.md:89."""
 NING_KOTORI_MOONSEEKER = CharacterEntry("Ning, Kotori Moonseeker", kinds=kind.HUMAN)
-NJERI = CharacterEntry("Njeri", kinds=kind.HUMAN)
+NJERI = CharacterEntry(
+    "Njeri",
+    kinds=kind.HUMAN,
+    kin=(("uzuri", "child", "main-story/outsiders/its-just-business.md"),),
+)
 NOCETES = CharacterEntry("Nocetes", epithets=("God of death",))
 """A Dhani deity — see ``ABSOLON`` on why gods are a group and not a kind.
 
@@ -551,7 +679,10 @@ RUPIUS_AURIC_SCROLLMASTER = CharacterEntry("Rupius, Auric Scrollmaster", kinds=k
 SADA = CharacterEntry("Sada", status="Alive")
 SALVADOR_STALLION = CharacterEntry("Salvador Stallion")
 SANDY_SHOO = CharacterEntry("Sandy Shoo", kinds=kind.HUMAN)
-SANI = CharacterEntry("Sani")
+SANI = CharacterEntry(
+    "Sani",
+    kin=(("dromai", "child", "main-story/uprising/dragons-of-empire.md"),),
+)
 """Dromai's mother, "Sani of the Sandfolk"
 (``main-story/uprising/dragons-of-empire.md``), murdered before Dromai could walk
 and appearing in the story only as a mirage the enemy illusionists summon. No
@@ -613,7 +744,11 @@ SYBERYS = CharacterEntry("Syberys")
 SYNTHEA_TEKLO = CharacterEntry("Synthea Teklo", kinds=kind.HUMAN)
 SYNVERI = CharacterEntry("Synveri", kinds=kind.HUMAN)
 TAKA = CharacterEntry("Taka", kinds=kind.HUMAN, status="Alive")
-TARA_VANGELD = CharacterEntry("Tara VanGeld", kinds=kind.DWARF)
+TARA_VANGELD = CharacterEntry(
+    "Tara VanGeld",
+    kinds=kind.DWARF,
+    kin=(("lyath", "child", "heroes-of-rathe/lyath-about.md"),),
+)
 TASHA_OF_DESHVAHAN = CharacterEntry("Tasha of Deshvahan")
 TASKMASTER_PYRION = CharacterEntry("Taskmaster Pyrion", kinds=kind.HUMAN)
 TEMPLAR_TIMAERUS = CharacterEntry("Templar Timaerus", kinds=kind.HUMAN)
@@ -654,15 +789,29 @@ person at two points in time (a title relation, deferred to stage 7), and the
 identity spine (migration 12) dissolves the split: the hero and the ordinary character now
 share one character row, keyed the same way they always hashed to the same
 ``lore_character_id``. See ``step-into-the-light.md`` in ``main_story.py``."""
-THIROUX = CharacterEntry("Thiroux", kinds=kind.HUMAN)
+THIROUX = CharacterEntry(
+    "Thiroux",
+    kinds=kind.HUMAN,
+    kin=(("dash", "child", "short-stories/roll-of-honour/dash.md"),),
+)
 THUK = CharacterEntry("Thuk", kinds=kind.BRUTE)
 TIRIL = CharacterEntry("Tiril", kinds=kind.HUMAN)
 TOGARK_THE_WRANGLER = CharacterEntry("Togark the Wrangler", kinds=kind.HUMAN, status="Dead")
 TOHIRO_ETERNAL_SCRIBE = CharacterEntry("Tohiro, Eternal Scribe", kinds=kind.HUMAN)
-TOMASS = CharacterEntry("Tomass", kinds=kind.HUMAN)
+TOMASS = CharacterEntry(
+    "Tomass",
+    kinds=kind.HUMAN,
+    kin=(
+        (EINAR, "sibling", "main-story/mastery-pack-guardian/trouble-in-larinkmorth.md"),
+        (HILDEGUN, "mother", "main-story/mastery-pack-guardian/trouble-in-larinkmorth.md"),
+    ),
+)
 TOMELTAI = CharacterEntry("Tomeltai", kinds=kind.DRAGON)
 """See ``AZVOLAI`` — one of the eleven, and the same note applies."""
-TORVAI = CharacterEntry("Torvai")
+TORVAI = CharacterEntry(
+    "Torvai",
+    kin=(("dromai", "child", "main-story/uprising/dragons-of-empire.md"),),
+)
 """Dromai's father, "Torvai the Dracai"
 (``main-story/uprising/dragons-of-empire.md``), and by Dromai's account "betrayed by
 love". Also named on ``fires-of-rebellion.md`` and ``the-phoenix-and-the-dragon.md``,
@@ -748,7 +897,15 @@ on the page, and ``tidings-in-the-light.md:85`` writes "until his untimely demis
 Registering the page he dies on is what made the status answerable."""
 
 XAINE_RUNESCRIBE = CharacterEntry("Xaine, Runescribe", kinds=kind.HUMAN, status="Dead")
-XILIN = CharacterEntry("Xilin", kinds=kind.HUMAN, status="Dead")
+XILIN = CharacterEntry(
+    "Xilin",
+    kinds=kind.HUMAN,
+    status="Dead",
+    kin=(
+        ("ira", "sibling", "main-story/crucible-of-war/edge-of-autumn.md"),
+        (JING, "sibling", "main-story/crucible-of-war/edge-of-autumn.md"),
+    ),
+)
 XIN = CharacterEntry("Xin", kinds=kind.HUMAN)
 YARIN = CharacterEntry("Yarin", kinds=kind.HUMAN)
 YUNKAI = CharacterEntry("Yunkai", kinds=kind.HUMAN)

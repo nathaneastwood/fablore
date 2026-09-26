@@ -400,9 +400,12 @@ def _export_character_kin(conn: sqlite3.Connection, csv_dir: Path) -> None:
     ``group-npcs.csv``'s), not the link itself. Only the stated direction is
     ever written — the inverse is derived at read time and never stored, so
     this file can never disagree with itself about who is whose parent.
+
+    ``Qualifier`` (migration 21) is ``blood`` or ``adoptive`` — see
+    ``db._queries.KIN_QUALIFIERS``.
     """
     rows = conn.execute(
-        "SELECT character_id, relative_id, relation, story_key FROM character_kin "
+        "SELECT character_id, relative_id, relation, story_key, qualifier FROM character_kin "
         "ORDER BY character_id, relative_id, relation"
     ).fetchall()
     data = [
@@ -411,13 +414,14 @@ def _export_character_kin(conn: sqlite3.Connection, csv_dir: Path) -> None:
             "RelativeId": r["relative_id"],
             "Relation": r["relation"],
             "StoryKey": r["story_key"],
+            "Qualifier": r["qualifier"],
         }
         for r in rows
     ]
     _write_pipe_csv(
         csv_dir / "character-kin.csv",
         _CMD_REGISTRY,
-        ["CharacterId", "RelativeId", "Relation", "StoryKey"],
+        ["CharacterId", "RelativeId", "Relation", "StoryKey", "Qualifier"],
         data,
     )
 

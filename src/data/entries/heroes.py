@@ -301,7 +301,7 @@ db.upsert_story(
         "boltyn",
         people.EIRINA,
         people.AIOS,
-        people.FYANNA_REDMOOR_BOLTYN_S_COUSIN,
+        people.FYANNA_REDMOOR,
         people.BELLONA_THE_WARTUNE_HERALD,
         people.MINERVA_THEMIS,
     ],

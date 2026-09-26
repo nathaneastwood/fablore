@@ -47,7 +47,7 @@ def test_schema_version_matches_constant(db: Database) -> None:
 def test_character_kin_has_no_id_column(db: Database) -> None:
     """A junction, like group_characters — no kin_id is minted for it."""
     cols = {r[1] for r in db.conn.execute("PRAGMA table_info(character_kin)")}
-    assert cols == {"character_id", "relative_id", "relation", "story_key"}
+    assert cols == {"character_id", "relative_id", "relation", "story_key", "qualifier"}
 
 
 def test_character_kin_primary_key_rejects_a_repeated_row(db: Database) -> None:
@@ -82,7 +82,7 @@ def test_a_relative_is_written_from_a_single_stated_fact(db: Database) -> None:
     entry = CharacterEntry("Lyath", kin=((CharacterEntry("Bloodworth Goldmane"), "father"),))
     _story(db, characters=[entry])
     rows = q.select_character_kin(db.conn, lore_character_id("Lyath"))
-    assert rows == [(lore_character_id("Bloodworth Goldmane"), "father", "")]
+    assert rows == [(lore_character_id("Bloodworth Goldmane"), "father", "", "blood")]
 
 
 def test_the_inverse_is_not_also_written(db: Database) -> None:
@@ -103,7 +103,7 @@ def test_hero_relative_resolves_through_character_heroes(db: Database) -> None:
     entry = CharacterEntry("Lyath", kin=(("victor", "sibling"),))
     _story(db, characters=[entry])
     rows = q.select_character_kin(db.conn, lore_character_id("Lyath"))
-    assert rows == [(resolved_character_id, "sibling", "")]
+    assert rows == [(resolved_character_id, "sibling", "", "blood")]
 
 
 def test_hero_relative_self_heals_character_heroes_when_missing(db: Database) -> None:
@@ -116,7 +116,7 @@ def test_hero_relative_self_heals_character_heroes_when_missing(db: Database) ->
 
     minted = lore_character_id("Victor")
     assert q.select_character_id_for_hero(db.conn, hid) == minted
-    assert q.select_character_kin(db.conn, lore_character_id("Lyath")) == [(minted, "sibling", "")]
+    assert q.select_character_kin(db.conn, lore_character_id("Lyath")) == [(minted, "sibling", "", "blood")]
 
 
 def test_unknown_hero_slug_raises(db: Database) -> None:
@@ -131,7 +131,7 @@ def test_kin_carries_an_optional_citation(db: Database) -> None:
     )
     _story(db, characters=[entry])
     rows = q.select_character_kin(db.conn, lore_character_id("Lyath"))
-    assert rows == [(lore_character_id("Bloodworth Goldmane"), "father", "heroes-of-rathe/lyath-about.md")]
+    assert rows == [(lore_character_id("Bloodworth Goldmane"), "father", "heroes-of-rathe/lyath-about.md", "blood")]
 
 
 def test_a_relative_creates_its_own_character_row(db: Database) -> None:
@@ -152,8 +152,12 @@ def test_mutual_kin_references_do_not_recurse_forever(db: Database) -> None:
     victor = CharacterEntry("Victor", kin=((lyath, "sibling"),))
     lyath_with_kin = CharacterEntry("Lyath", kin=((victor, "sibling"),))
     _story(db, characters=[lyath_with_kin])
-    assert q.select_character_kin(db.conn, lore_character_id("Lyath")) == [(lore_character_id("Victor"), "sibling", "")]
-    assert q.select_character_kin(db.conn, lore_character_id("Victor")) == [(lore_character_id("Lyath"), "sibling", "")]
+    assert q.select_character_kin(db.conn, lore_character_id("Lyath")) == [
+        (lore_character_id("Victor"), "sibling", "", "blood")
+    ]
+    assert q.select_character_kin(db.conn, lore_character_id("Victor")) == [
+        (lore_character_id("Lyath"), "sibling", "", "blood")
+    ]
 
 
 # ---------------------------------------------------------------------------
@@ -309,6 +313,11 @@ def test_dry_run_reaches_a_kin_fact_declared_only_through_a_group_roster(db: Dat
         ("child", "parent"),
         ("sibling", "sibling"),
         ("spouse", "spouse"),
+        ("grandparent", "grandchild"),
+        ("grandchild", "grandparent"),
+        ("aunt-or-uncle", "niece-or-nephew"),
+        ("niece-or-nephew", "aunt-or-uncle"),
+        ("cousin", "cousin"),
     ],
 )
 def test_kin_inverse_map(relation: str, expected_inverse: str) -> None:
@@ -321,8 +330,8 @@ def test_both_directions_query_derives_the_inverse(db: Database) -> None:
     lyath_id = lore_character_id("Lyath")
     bloodworth_id = lore_character_id("Bloodworth Goldmane")
 
-    assert q.select_character_kin_both_directions(db.conn, lyath_id) == [(bloodworth_id, "father", "")]
-    assert q.select_character_kin_both_directions(db.conn, bloodworth_id) == [(lyath_id, "child", "")]
+    assert q.select_character_kin_both_directions(db.conn, lyath_id) == [(bloodworth_id, "father", "", "blood")]
+    assert q.select_character_kin_both_directions(db.conn, bloodworth_id) == [(lyath_id, "child", "", "blood")]
 
 
 def test_both_directions_query_combines_stated_and_derived(db: Database) -> None:
@@ -339,14 +348,14 @@ def test_both_directions_query_combines_stated_and_derived(db: Database) -> None
     lyath_id = lore_character_id("Lyath")
     tara_id = lore_character_id("Tara VanGeld")
     result = set(q.select_character_kin_both_directions(db.conn, bloodworth_id))
-    assert result == {(lyath_id, "child", ""), (tara_id, "spouse", "")}
+    assert result == {(lyath_id, "child", "", "blood"), (tara_id, "spouse", "", "blood")}
 
 
 def test_sibling_and_spouse_are_their_own_inverse(db: Database) -> None:
     _story(db, characters=[CharacterEntry("Lyath", kin=((CharacterEntry("Victor"), "sibling"),))])
     victor_id = lore_character_id("Victor")
     lyath_id = lore_character_id("Lyath")
-    assert q.select_character_kin_both_directions(db.conn, victor_id) == [(lyath_id, "sibling", "")]
+    assert q.select_character_kin_both_directions(db.conn, victor_id) == [(lyath_id, "sibling", "", "blood")]
 
 
 # ---------------------------------------------------------------------------
@@ -371,7 +380,7 @@ def test_kin_survives_the_csv_round_trip(db: Database, tmp_path) -> None:
     seed_from_csvs(fresh.conn, tmp_path)
 
     rows = q.select_character_kin(fresh.conn, lore_character_id("Lyath"))
-    assert rows == [(lore_character_id("Bloodworth Goldmane"), "father", "heroes-of-rathe/lyath-about.md")]
+    assert rows == [(lore_character_id("Bloodworth Goldmane"), "father", "heroes-of-rathe/lyath-about.md", "blood")]
 
 
 def test_character_kin_csv_data_rows_are_well_formed_in_the_committed_data() -> None:
@@ -392,7 +401,7 @@ def test_character_kin_csv_data_rows_are_well_formed_in_the_committed_data() -> 
     assert path.is_file()
     lines = path.read_text(encoding="utf-8").splitlines()
     # Line 0 is the auto-gen banner, line 1 is the header row.
-    header = "CharacterId|RelativeId|Relation|StoryKey"
+    header = "CharacterId|RelativeId|Relation|StoryKey|Qualifier"
     assert lines[1] == header
     columns = header.split("|")
 
@@ -408,13 +417,14 @@ def test_character_kin_csv_data_rows_are_well_formed_in_the_committed_data() -> 
     for row in data_rows:
         fields = row.split("|")
         assert len(fields) == len(columns), f"{row!r} does not have {len(columns)} columns"
-        character_id, relative_id, relation, story_key = fields
+        character_id, relative_id, relation, story_key, qualifier = fields
 
         assert character_id in known_character_ids, f"{character_id!r} is not a known CharacterId"
         assert relative_id in known_character_ids, f"{relative_id!r} is not a known RelativeId"
         assert character_id != relative_id, f"{character_id!r} names itself as its own relative"
 
         assert relation in q.KIN_INVERSE, f"{relation!r} is not one of {sorted(q.KIN_INVERSE)}"
+        assert qualifier in q.KIN_QUALIFIERS, f"{qualifier!r} is not one of {sorted(q.KIN_QUALIFIERS)}"
 
         # Same stated fact must not appear twice, and its inverse must not be
         # separately stated — only the stated direction is ever written.
@@ -427,9 +437,56 @@ def test_character_kin_csv_data_rows_are_well_formed_in_the_committed_data() -> 
 
     mercurius_id = lore_character_id("Mercurius")
     minerva_id = lore_character_id("Minerva Themis")
-    assert (mercurius_id, minerva_id, "sibling", "other-characters/minerva-themis.md") in {
+    assert (mercurius_id, minerva_id, "sibling", "other-characters/minerva-themis.md", "blood") in {
         (*row.split("|"),) for row in data_rows
     }
+
+
+# ---------------------------------------------------------------------------
+# The qualifier vocabulary (migration 21): blood vs adoptive
+# ---------------------------------------------------------------------------
+
+
+def test_kin_qualifier_defaults_to_blood(db: Database) -> None:
+    """A fact with no qualifier given is blood, not an empty/unknown value."""
+    entry = CharacterEntry("Lyath", kin=((CharacterEntry("Bloodworth Goldmane"), "father"),))
+    _story(db, characters=[entry])
+    rows = q.select_character_kin(db.conn, lore_character_id("Lyath"))
+    assert rows == [(lore_character_id("Bloodworth Goldmane"), "father", "", "blood")]
+
+
+def test_kin_qualifier_can_be_stated_as_adoptive(db: Database) -> None:
+    entry = CharacterEntry(
+        "Dromai",
+        kin=((CharacterEntry("Min"), "parent", "main-story/uprising/betrayal.md", "adoptive"),),
+    )
+    _story(db, characters=[entry])
+    rows = q.select_character_kin(db.conn, lore_character_id("Dromai"))
+    assert rows == [(lore_character_id("Min"), "parent", "main-story/uprising/betrayal.md", "adoptive")]
+
+
+def test_kin_qualifier_survives_inversion(db: Database) -> None:
+    """Adoptive is a fact about how the bond was formed, not about which end reads it."""
+    entry = CharacterEntry("Min", kin=((CharacterEntry("Dromai"), "parent", "", "adoptive"),))
+    _story(db, characters=[entry])
+    dromai_id = lore_character_id("Dromai")
+    min_id = lore_character_id("Min")
+    assert q.select_character_kin_both_directions(db.conn, min_id) == [(dromai_id, "parent", "", "adoptive")]
+    assert q.select_character_kin_both_directions(db.conn, dromai_id) == [(min_id, "child", "", "adoptive")]
+
+
+def test_an_unknown_qualifier_raises_at_declaration_time(db: Database) -> None:
+    with pytest.raises(ValueError, match="unknown kin qualifier"):
+        _story(
+            db,
+            characters=[
+                CharacterEntry("Lyath", kin=((CharacterEntry("Bloodworth Goldmane"), "father", "", "foster"),))
+            ],
+        )
+
+
+def test_kin_qualifiers_frozenset_is_blood_and_adoptive() -> None:
+    assert q.KIN_QUALIFIERS == frozenset({"blood", "adoptive"})
 
 
 # ---------------------------------------------------------------------------

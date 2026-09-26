@@ -56,7 +56,7 @@ from text_utils import normalize_name  # noqa: E402
 
 # The kin vocabulary is this map's keys — see KIN_RELATIONS below for why it is
 # imported rather than restated.
-from db._queries import KIN_INVERSE  # noqa: E402
+from db._queries import KIN_INVERSE, KIN_QUALIFIERS  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "src/data"
@@ -781,6 +781,25 @@ def _check_kin_relations(path: Path) -> list[str]:
     return alerts
 
 
+def _check_kin_qualifiers(path: Path) -> list[str]:
+    """Ensure every ``character-kin.csv`` ``Qualifier`` is one of :data:`~db._queries.KIN_QUALIFIERS`.
+
+    Same shape as :func:`_check_kin_relations`, one column over (migration 21).
+    """
+    if not path.is_file():
+        return []
+    _, rows = read_pipe_csv(path)
+    alerts: list[str] = []
+    for row in rows:
+        qualifier = (row.get("Qualifier") or "").strip()
+        if qualifier and qualifier not in KIN_QUALIFIERS:
+            cid = (row.get("CharacterId") or "").strip()
+            alerts.append(
+                f"character-kin.csv: {cid!r} has Qualifier {qualifier!r}, not one of {sorted(KIN_QUALIFIERS)}"
+            )
+    return alerts
+
+
 def _check_no_self_kin(path: Path) -> list[str]:
     """Flag a ``character-kin.csv`` row where ``CharacterId`` equals ``RelativeId``.
 
@@ -1340,6 +1359,7 @@ def collect_alerts() -> list[str]:
                 )
             )
     alerts.extend(_check_kin_relations(DATA / "csv/character-kin.csv"))
+    alerts.extend(_check_kin_qualifiers(DATA / "csv/character-kin.csv"))
     alerts.extend(_check_no_self_kin(DATA / "csv/character-kin.csv"))
 
     # Identity spine (migration 12). Both halves of character_heroes: a stale

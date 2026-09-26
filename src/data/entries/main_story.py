@@ -984,6 +984,7 @@ db.upsert_story(
         "nuu",
         "zen",
         people.KOUKI,
+        people.FUMEI,
     ],
     locations=[loc.LUNAR_TEMPLE, loc.MISTCLOAK_GULLY],
     regions=[reg.MISTERIA],
@@ -1512,7 +1513,7 @@ db.upsert_story(
     characters=[
         "dromai",
         "emperor",
-        "fai",
+        people.FAI,
         # The four dragons Dromai invokes. Vynserakai, Azvolai and Nekria are all
         # destroyed at the siege; Tomeltai carries the second half of the story.
         people.AZVOLAI,

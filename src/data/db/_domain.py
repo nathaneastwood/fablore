@@ -67,20 +67,25 @@ def _alias_pair(alias: "str | tuple[str, str]") -> tuple[str, str]:
     return name, era
 
 
-def _kin_triple(item: "tuple") -> "tuple[CharacterEntry | str, str, str]":
-    """Normalise a ``CharacterEntry.kin`` item to ``(relative, relation, story_key)``.
+def _kin_fact(item: "tuple") -> "tuple[CharacterEntry | str, str, str, str]":
+    """Normalise a ``CharacterEntry.kin`` item to ``(relative, relation, story_key, qualifier)``.
 
     An item is a bare ``(relative, relation)`` pair — the common case, and the
     only shape the prompting case ("Their father is Bloodworth Goldmane")
-    needs — or a ``(relative, relation, story_key)`` triple when that one fact
-    is attested somewhere worth citing. Mirrors ``GroupEntry.members``'s
-    optional ``(npc, story_key)`` pair, one field further because a kin fact
-    needs a relation as well as a relative.
+    needs — a ``(relative, relation, story_key)`` triple when that one fact is
+    attested somewhere worth citing, or a ``(relative, relation, story_key,
+    qualifier)`` quadruple when the bond is adoptive rather than blood.
+    Mirrors ``GroupEntry.members``'s optional ``(npc, story_key)`` pair, two
+    fields further because a kin fact needs a relation and can need a
+    qualifier as well as a relative.
     """
-    if len(item) == 3:
+    if len(item) == 4:
         return item
+    if len(item) == 3:
+        relative, relation, story_key = item
+        return relative, relation, story_key, "blood"
     relative, relation = item
-    return relative, relation, ""
+    return relative, relation, "", "blood"
 
 
 def _kind_tuple(kind: "KindEntry | tuple[KindEntry, ...] | None") -> "tuple[KindEntry, ...]":
@@ -266,22 +271,38 @@ class CharacterEntry:
     the guard in ``GroupEntry.member_pairs()``, which raises on a repeated character for
     the same reason: the write and the preview would otherwise resolve the
     clash differently and neither would say so."""
-    kin: "tuple[tuple[CharacterEntry | str, str] | tuple[CharacterEntry | str, str, str], ...]" = ()
-    """Kinship facts (R8): ``((relative, relation), ...)`` pairs, or
-    ``(relative, relation, story_key)`` triples when one fact is attested
-    somewhere worth citing (see :func:`_kin_triple`). ``relative`` is an
-    :class:`CharacterEntry` or a canonical hero slug string, resolved through
-    ``character_heroes`` exactly as a slug in ``TitleEntry.holders`` resolves one —
-    after migration 12 both a hero and an ordinary character land in the same ``characters``
-    row, so one column, and one type here, holds either::
+    kin: (
+        "tuple[tuple[CharacterEntry | str, str] "
+        "| tuple[CharacterEntry | str, str, str] "
+        "| tuple[CharacterEntry | str, str, str, str], ...]"
+    ) = ()
+    """Kinship facts (R8): ``((relative, relation), ...)`` pairs, ``(relative,
+    relation, story_key)`` triples when one fact is attested somewhere worth
+    citing, or ``(relative, relation, story_key, qualifier)`` quadruples when
+    the bond is adoptive rather than blood (see :func:`_kin_fact`).
+    ``relative`` is an :class:`CharacterEntry` or a canonical hero slug string,
+    resolved through ``character_heroes`` exactly as a slug in
+    ``TitleEntry.holders`` resolves one — after migration 12 both a hero and an
+    ordinary character land in the same ``characters`` row, so one column, and
+    one type here, holds either::
 
         CharacterEntry("Lyath", kin=((people.BLOODWORTH_GOLDMANE, "father"), ("victor", "sibling")))
+        CharacterEntry("Min", kin=(("dromai", "parent", "main-story/uprising/betrayal.md", "adoptive"),))
 
     ``relation`` is a closed vocabulary, checked in ``validate_data.py`` rather
     than here (the same split ``status`` and epithet ``label`` follow):
-    ``father``, ``mother``, ``parent``, ``sibling``, ``spouse``, ``child``.
-    ``parent``/``child`` exist alongside the gendered pair because a page may
-    state a parent without saying which — the data should not have to guess.
+    ``father``, ``mother``, ``parent``, ``sibling``, ``spouse``, ``child``,
+    ``grandparent``, ``grandchild``, ``aunt-or-uncle``, ``niece-or-nephew``,
+    ``cousin`` (see ``db._queries.KIN_INVERSE``). ``parent``/``child`` exist
+    alongside the gendered pair because a page may state a parent without
+    saying which — the data should not have to guess; ``aunt-or-uncle`` and
+    ``niece-or-nephew`` follow the same reasoning for the extended pair.
+
+    ``qualifier`` is ``"blood"`` (the default, when omitted) or ``"adoptive"``
+    (see ``db._queries.KIN_QUALIFIERS``) — independent of ``relation``, so
+    "Min is Dromai's mother" and "the bond is adoptive, not blood" are two
+    separate facts rather than a thirteenth relation word. Every kin fact
+    already carries its own ``qualifier``; there is no per-character default.
 
     One row per stated fact — declaring Lyath's father as Bloodworth writes
     **only** that row. Nothing here writes "Bloodworth's child is Lyath"; the
@@ -974,7 +995,7 @@ class _DryRunReport:
                 return
             seen_character[entry.name] = entry
             for item in entry.kin:
-                relative, _relation, _story_key = _kin_triple(item)
+                relative, _relation, _story_key, _qualifier = _kin_fact(item)
                 if not isinstance(relative, str):
                     walk_character(relative)
 
@@ -1210,24 +1231,30 @@ class _DryRunReport:
         for entry in reach_characters:
             cid = lore_character_id(entry.name)
             resolved = self.db._resolve_kin_relatives(entry)
-            origin_by_key = {(rid, relation): origin for rid, relation, _sk, origin in resolved}
-            wanted_map = {(rid, relation): sk for rid, relation, sk, _origin in resolved}
-            stored_map = {(rid, relation): sk for rid, relation, sk in q.select_character_kin(self.conn, cid)}
+            origin_by_key = {(rid, relation): origin for rid, relation, _sk, _ql, origin in resolved}
+            wanted_map = {(rid, relation): (sk, ql) for rid, relation, sk, ql, _origin in resolved}
+            stored_map = {(rid, relation): (sk, ql) for rid, relation, sk, ql in q.select_character_kin(self.conn, cid)}
             added = set(wanted_map) - set(stored_map)
             removed = set(stored_map) - set(wanted_map)
             resourced = sorted(k for k in set(wanted_map) & set(stored_map) if wanted_map[k] != stored_map[k])
             for rid, relation in sorted(added):
                 who = origin_by_key.get((rid, relation), self.character_id_to_name.get(rid, rid))
-                lines.append(f"    + {entry.name}: {relation} {who!r}")
+                _sk, ql = wanted_map[(rid, relation)]
+                tag = "" if ql == "blood" else f" ({ql})"
+                lines.append(f"    + {entry.name}: {relation} {who!r}{tag}")
             for rid, relation in sorted(removed):
                 who = self.character_id_to_name.get(rid, rid)
                 lines.append(f"    - {entry.name}: {relation} {who!r} REMOVED")
             for rid, relation in resourced:
                 who = self.character_id_to_name.get(rid, rid)
-                lines.append(
-                    f"    ~ {entry.name}: {relation} {who!r} source "
-                    f"{stored_map[(rid, relation)] or '(none)'!r} -> {wanted_map[(rid, relation)] or '(none)'!r}"
-                )
+                old_sk, old_ql = stored_map[(rid, relation)]
+                new_sk, new_ql = wanted_map[(rid, relation)]
+                bits = []
+                if old_sk != new_sk:
+                    bits.append(f"source {old_sk or '(none)'!r} -> {new_sk or '(none)'!r}")
+                if old_ql != new_ql:
+                    bits.append(f"qualifier {old_ql!r} -> {new_ql!r}")
+                lines.append(f"    ~ {entry.name}: {relation} {who!r} " + ", ".join(bits))
         if lines:
             self.changed = True
             self.out.write("  Kin:\n")
@@ -2423,7 +2450,7 @@ class Database:
                 next_seen = _seen | {e.name}
                 kin_relatives = [
                     relative
-                    for relative, _relation, _story_key in (_kin_triple(item) for item in e.kin)
+                    for relative, _relation, _story_key, _qualifier in (_kin_fact(item) for item in e.kin)
                     if not isinstance(relative, str)
                 ]
                 if kin_relatives:
@@ -2432,14 +2459,17 @@ class Database:
                 # existing link always wins; this only fills a gap — the same
                 # INSERT-OR-IGNORE contract _self_heal_character_heroes uses at
                 # seed time, mirroring _upsert_one_title's hero holder block.
-                for relative, _relation, _story_key in (_kin_triple(item) for item in e.kin):
+                for relative, _relation, _story_key, _qualifier in (_kin_fact(item) for item in e.kin):
                     if isinstance(relative, str):
                         self._ensure_hero_character_id(self._resolve_heroes([relative])[0])
 
             q.set_character_kin(
                 self.conn,
                 cid,
-                [(rid, relation, story_key) for rid, relation, story_key, _origin in resolved_kin],
+                [
+                    (rid, relation, story_key, qualifier)
+                    for rid, relation, story_key, qualifier, _origin in resolved_kin
+                ],
             )
             ids.append(cid)
         return ids
@@ -2878,8 +2908,8 @@ class Database:
         q.set_character_hero(self.conn, canonical_id, new_cid)
         return new_cid
 
-    def _resolve_kin_relatives(self, entry: CharacterEntry) -> list[tuple[str, str, str, str]]:
-        """Resolve every kin fact on ``entry`` to ``(relative_id, relation, story_key, origin)``.
+    def _resolve_kin_relatives(self, entry: CharacterEntry) -> list[tuple[str, str, str, str, str]]:
+        """Resolve every kin fact on ``entry`` to ``(relative_id, relation, story_key, qualifier, origin)``.
 
         Read-only, so the dry-run preview can call this too — mirrors
         :meth:`_resolve_title_holders`. A relative may be named as an
@@ -2895,10 +2925,11 @@ class Database:
         Raises:
             ValueError: for a repeated ``(relative_id, relation)`` pair, an
                 unknown hero slug (via :meth:`_resolve_heroes`), a character
-                named as their own relative, or a relation outside
-                :data:`~db._queries.KIN_INVERSE`.
+                named as their own relative, a relation outside
+                :data:`~db._queries.KIN_INVERSE`, or a qualifier outside
+                :data:`~db._queries.KIN_QUALIFIERS`.
 
-        The relation is checked *here*, unlike ``status`` and
+        The relation and qualifier are checked *here*, unlike ``status`` and
         ``character_epithets.label``, which are left to ``validate_data.py``. Those
         two are only ever read back as text, so a typo is a wrong label until
         the next hook run. ``relation`` is different: it is used as a key into
@@ -2906,17 +2937,24 @@ class Database:
         raises ``KeyError`` inside a query — during an ``mdbook build``, long
         before a pre-commit hook would see the CSV. The vocabulary is
         ``KIN_INVERSE``'s own keys rather than a second list, so the check and
-        the derivation cannot disagree.
+        the derivation cannot disagree. ``qualifier`` gets the same early check
+        for consistency, even though nothing downstream keys off it the way
+        ``KIN_INVERSE`` does off ``relation``.
         """
         own_cid = lore_character_id(entry.name)
-        resolved: list[tuple[str, str, str, str]] = []
+        resolved: list[tuple[str, str, str, str, str]] = []
         seen: dict[tuple[str, str], str] = {}
         for item in entry.kin:
-            relative, relation, story_key = _kin_triple(item)
+            relative, relation, story_key, qualifier = _kin_fact(item)
             if relation not in q.KIN_INVERSE:
                 raise ValueError(
                     f"{entry.name!r} states an unknown kin relation {relation!r}. "
                     f"Use one of {sorted(q.KIN_INVERSE)}."
+                )
+            if qualifier not in q.KIN_QUALIFIERS:
+                raise ValueError(
+                    f"{entry.name!r} states an unknown kin qualifier {qualifier!r}. "
+                    f"Use one of {sorted(q.KIN_QUALIFIERS)}."
                 )
             rid, origin = self._resolve_person(relative)
             if rid == own_cid:
@@ -2930,7 +2968,7 @@ class Database:
                     f"(character_id {rid!r}). A kin fact is one row; state it once."
                 )
             seen[key] = origin
-            resolved.append((rid, relation, story_key, origin))
+            resolved.append((rid, relation, story_key, qualifier, origin))
         return resolved
 
     def _resolve_title_holders(self, entry: TitleEntry) -> list[tuple[str, int, str, str]]:
