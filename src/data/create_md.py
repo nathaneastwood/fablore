@@ -50,11 +50,18 @@ def _drop_registry_id_columns(df: pd.DataFrame) -> pd.DataFrame:
     return df[keep]
 
 
+def _drop_lore_fragment_for_locations(df: pd.DataFrame, csv_path: Path) -> pd.DataFrame:
+    """Drop the internal ``LoreFragment`` anchor column from the locations table."""
+    if csv_path.name != "locations.csv" or "LoreFragment" not in df.columns:
+        return df
+    return df.drop(columns=["LoreFragment"])
+
+
 def _reorder_locations_columns(df: pd.DataFrame, csv_path: Path) -> pd.DataFrame:
     """Prefer ``Name``, ``RegionName``, ``Notes`` column order for locations."""
     if csv_path.name != "locations.csv":
         return df
-    preferred = ("Name", "RegionName", "Notes", "LoreFragment")
+    preferred = ("Name", "RegionName", "Notes")
     head = [c for c in preferred if c in df.columns]
     tail = [c for c in df.columns if c not in head]
     return df[head + tail] if head else df
@@ -94,6 +101,7 @@ def create_md_file(
     if omit_id_columns:
         df = _merge_region_names_for_locations(df, csv_path)
         df = _drop_registry_id_columns(df)
+        df = _drop_lore_fragment_for_locations(df, csv_path)
         df = _reorder_locations_columns(df, csv_path)
     table = markdown_table(df.to_dict(orient="records")).set_params(row_sep="markdown", quote=False).get_markdown()
     out_path = output_md if output_md is not None else csv_path.with_suffix(".md")
