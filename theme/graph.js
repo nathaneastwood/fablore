@@ -35,6 +35,7 @@
     var listEl = document.getElementById("lore-graph-list");
     var emptyEl = document.getElementById("lore-graph-empty");
     var status = document.getElementById("lore-graph-status");
+    var densityEl = document.getElementById("lore-graph-density");
     var legend = document.getElementById("lore-graph-legend");
     var input = document.getElementById("lore-graph-input");
     var dropdown = document.getElementById("lore-graph-dropdown");
@@ -68,6 +69,15 @@
     var LIST_PAGE = 60;
     var listShown = LIST_PAGE;
     var listScrollY = 0;
+
+    // Above this many visible nodes the canvas stops reading as a shape and
+    // starts reading as a hairball — the preprocessor's own comment on
+    // `_DEFAULT_ON_KINDS` measures the all-thirteen-kinds case at 839 nodes and
+    // calls it exactly that. The default view sits nowhere near this; it only
+    // fires once a reader has switched enough kinds back on to bury the view
+    // themselves, which the empty-state message has no way to describe because
+    // the stage is not empty.
+    var DENSITY_WARN_AT = 350;
 
     // --- Model -------------------------------------------------------------
 
@@ -128,12 +138,15 @@
     // Mark shape per kind, from the preprocessor. Heroes and regions draw as
     // stars: each shares a hue with the kind beside it (npc, location) because
     // the palette has no fifth hue to spend, so shape carries the distinction.
+    // Sets draw as diamonds for the same reason, against "other": under
+    // protanopia and deuteranopia the two hues land too close together to
+    // read apart by colour alone (see the preprocessor's `_KINDS` comment).
     var shapeByKind = Object.create(null);
     (data.groups || []).forEach(function (g) {
         shapeByKind[g.k] = g.s || "circle";
     });
     nodes.forEach(function (n) {
-        n.star = shapeByKind[n.kind] === "star";
+        n.shape = shapeByKind[n.kind] || "circle";
     });
 
     // Section order for the inspector panel, supplied by the preprocessor.
@@ -463,28 +476,47 @@
     // characters and locations they outrank.
     var STAR_OUTER = 1.45;
     var STAR_INNER = 0.46;
+    // A diamond (a square on point) covers about two-thirds the ink of its
+    // bounding circle, so it gets the same enlarge-to-match-weight treatment,
+    // just a smaller one than the star needs.
+    var DIAMOND_OUTER = 1.2;
 
     /** Outermost extent of the drawn mark — what labels and hit tests clear. */
     function markRadius(n) {
-        return n.star ? screenRadius(n) * STAR_OUTER : screenRadius(n);
+        if (n.shape === "star") {
+            return screenRadius(n) * STAR_OUTER;
+        }
+        if (n.shape === "diamond") {
+            return screenRadius(n) * DIAMOND_OUTER;
+        }
+        return screenRadius(n);
     }
 
     /** Path the node's mark at `r`, leaving it ready to fill and stroke. */
     function tracePath(n, r) {
         ctx.beginPath();
-        if (!n.star) {
-            ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+        if (n.shape === "star") {
+            var points = core.starPoints(n.x, n.y, r * STAR_OUTER, STAR_INNER);
+            for (var p = 0; p < points.length; p++) {
+                if (p === 0) {
+                    ctx.moveTo(points[p][0], points[p][1]);
+                } else {
+                    ctx.lineTo(points[p][0], points[p][1]);
+                }
+            }
+            ctx.closePath();
             return;
         }
-        var points = core.starPoints(n.x, n.y, r * STAR_OUTER, STAR_INNER);
-        for (var p = 0; p < points.length; p++) {
-            if (p === 0) {
-                ctx.moveTo(points[p][0], points[p][1]);
-            } else {
-                ctx.lineTo(points[p][0], points[p][1]);
-            }
+        if (n.shape === "diamond") {
+            var d = r * DIAMOND_OUTER;
+            ctx.moveTo(n.x, n.y - d);
+            ctx.lineTo(n.x + d, n.y);
+            ctx.lineTo(n.x, n.y + d);
+            ctx.lineTo(n.x - d, n.y);
+            ctx.closePath();
+            return;
         }
-        ctx.closePath();
+        ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
     }
 
     function draw() {
@@ -633,6 +665,18 @@
                     break;
                 }
             }
+            // fitToView frames every node's mark, not the label drawn beside it,
+            // so a hub sitting near the fitted edge can carry a label that runs
+            // past the stage — same failure as two labels colliding, just with
+            // the canvas edge as the other party. Drop it rather than let the
+            // reader see it cut off mid-word.
+            if (!clash) {
+                var sx0 = box.x0 * view.k + width / 2 + view.x;
+                var sx1 = box.x1 * view.k + width / 2 + view.x;
+                var sy0 = box.y0 * view.k + height / 2 + view.y;
+                var sy1 = box.y1 * view.k + height / 2 + view.y;
+                clash = sx0 < 0 || sx1 > width || sy0 < 0 || sy1 > height;
+            }
             if (clash) {
                 continue;
             }
@@ -740,6 +784,19 @@
                 (links.length + printLinks.length) +
                 ".";
         }
+        // Only a canvas can turn into a hairball; the list just gets long, and
+        // rides its own "Show more" paging instead.
+        if (densityEl) {
+            var tooDense = !listMode && active.length > DENSITY_WARN_AT;
+            densityEl.hidden = !tooDense;
+            if (tooDense) {
+                densityEl.textContent =
+                    active.length +
+                    " nodes shown — hard to make out at once. Raise " +
+                    '"Minimum connections" above, or switch off a type in the ' +
+                    "legend below.";
+            }
+        }
         // The list is rebuilt from `active`, so it re-ranks itself for free; the
         // simulation is skipped entirely because there is no canvas to settle.
         if (listMode) {
@@ -783,10 +840,11 @@
      * it has to be the same star.
      */
     function dotMarkup(kind, group) {
+        var shape = shapeByKind[kind];
         return (
             '<span class="lore-graph-dot lore-graph-dot-' +
             group +
-            (shapeByKind[kind] === "star" ? " lore-graph-dot-star" : "") +
+            (shape === "star" || shape === "diamond" ? " lore-graph-dot-" + shape : "") +
             '" aria-hidden="true"></span>'
         );
     }

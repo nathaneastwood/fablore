@@ -285,6 +285,24 @@ def test_hero_and_region_carry_a_star_shape(src_root: Path) -> None:
     assert colour["region"] == colour["location"] == "place"
 
 
+def test_set_carries_a_diamond_shape(src_root: Path) -> None:
+    """Set must not be told apart from the neutral bucket by hue alone.
+
+    Simulating the Machado/Vischeck protanopia and deuteranopia matrices over
+    both theme palettes puts the "set" and "other" hues under a Lab deltaE of
+    15 — indistinguishable side by side for the common, red-green forms of
+    colour blindness. Shape is the fix, and it must not silently revert to a
+    circle, which is what "other" also draws as.
+    """
+    graph = build_graph(src_root / "data", src_root)
+    shapes = {g["k"]: g["s"] for g in graph["groups"]}
+    assert shapes["set"] == "diamond"
+    # "weapon" sits in the neutral "other" group set is being told apart
+    # from; it must stay a plain circle, or the shape channel stops meaning
+    # anything.
+    assert shapes["weapon"] == "circle"
+
+
 def test_groups_legend_counts_only_rendered_nodes(src_root: Path) -> None:
     graph = build_graph(src_root / "data", src_root)
     counts = {g["k"]: g["c"] for g in graph["groups"]}

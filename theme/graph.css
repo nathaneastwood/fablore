@@ -20,7 +20,7 @@
     --lg-place: #1baf7a;
     --lg-set: #a4409e;
     --lg-other: #6f6d67;
-    --lg-link: rgba(11, 11, 11, 0.16);
+    --lg-link: rgba(11, 11, 11, 0.1);
     --lg-link-active: rgba(11, 11, 11, 0.55);
     /* Printings, dashed. Stronger than a story line despite carrying less
        weight in the archive, because a dash puts less ink on the canvas than
@@ -43,7 +43,7 @@
     --lg-place: #199e70;
     --lg-set: #b45fb0;
     --lg-other: #8f8d85;
-    --lg-link: rgba(255, 255, 255, 0.14);
+    --lg-link: rgba(255, 255, 255, 0.09);
     --lg-link-active: rgba(255, 255, 255, 0.5);
     --lg-link-print: rgba(255, 255, 255, 0.32);
     --lg-dim: rgba(255, 255, 255, 0.08);
@@ -221,6 +221,19 @@
     );
 }
 
+/*
+ * Sets draw as diamonds on the canvas — not for a spare hue's sake, but
+ * because the set/other hues collapse into each other under protanopia and
+ * deuteranopia (see the preprocessor's `_KINDS` comment). Shape is what still
+ * tells them apart with no colour vision at all.
+ */
+.lore-graph-dot-diamond {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0;
+    transform: rotate(45deg);
+}
+
 .lore-graph-dot-story {
     background: var(--lg-story);
 }
@@ -320,6 +333,32 @@
     text-wrap: balance;
     opacity: 0.75;
     transform: translate(-50%, -50%);
+}
+
+/*
+ * The opposite of `.lore-graph-empty`: too many nodes rather than none. A
+ * slim banner rather than a centred overlay, so it explains the stage without
+ * covering the very thing the reader is trying to read. `pointer-events: none`
+ * keeps it from stealing a drag or a hover meant for the canvas underneath.
+ */
+.lore-graph-density {
+    position: absolute;
+    top: 0.6rem;
+    left: 50%;
+    max-width: min(42rem, calc(100% - 2rem));
+    margin: 0;
+    padding: 0.5rem 0.9rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    text-align: center;
+    text-wrap: balance;
+    color: var(--fg);
+    background: var(--bg);
+    border: 1px solid var(--table-border-color);
+    border-radius: 999px;
+    opacity: 0.92;
+    pointer-events: none;
+    transform: translateX(-50%);
 }
 
 /* --- Inspector panel -------------------------------------------------- */
@@ -538,6 +577,11 @@
     width: 1.2rem;
     height: 1.2rem;
     margin: 0 -0.2rem;
+}
+
+.lore-graph-panel-list .lore-graph-dot-diamond {
+    width: 0.9rem;
+    height: 0.9rem;
 }
 
 /* The trailing number is each neighbour's own connection count — the key the

@@ -66,17 +66,23 @@ _ARC_FOLDER_SECTIONS: frozenset[str] = frozenset({"main-story", "short-stories",
 # Fine-grained node kind -> (display label, colour group, mark shape).
 # Groups are capped at four hues plus a neutral. A force layout puts arbitrary
 # pairs of nodes side by side, so the palette has to clear the *all-pairs*
-# colour-vision separation floor rather than the adjacent-pair one, and four
-# hues is what clears it. Everything past the four folds into the neutral group
-# and is told apart by the legend text and the inspector panel.
+# colour-vision separation floor rather than the adjacent-pair one. Under
+# protanopia and deuteranopia — the common, red-green forms, not the floor's
+# rare tritanopia case — the "set" hue and the neutral both desaturate toward
+# the same grey-brown and land under a Lab deltaE of 15, i.e. indistinguishable
+# side by side. Confirmed by simulating the Machado/Vischeck matrices over both
+# theme palettes; nothing else in the four collides.
 #
-# Shape is the secondary channel that hue cannot afford. Two pairs share a hue
-# but are not peers: a hero is the canonical character and a region is the
-# canonical place, each standing over the npcs and locations beside it. Those
-# two draw as stars so the distinction survives without spending a fifth hue —
-# and it still reads with no colour vision at all.
+# Shape is the secondary channel that hue cannot afford, and is what actually
+# clears that collision, since it does not depend on colour vision at all.
+# Three pairs share a hue but are not peers: a hero is the canonical character
+# and a region is the canonical place, each standing over the npcs and
+# locations beside it, and a set is the one circle-shaped kind that must never
+# read as just another neutral "other" dot. Heroes and regions draw as stars;
+# sets draw as diamonds — three shapes, so no two same-hued kinds are ever
+# both circles.
 _KINDS: dict[str, tuple[str, str, str]] = {
-    "set": ("Set", "set", "circle"),
+    "set": ("Set", "set", "diamond"),
     "story": ("Story", "story", "circle"),
     "hero": ("Hero", "character", "star"),
     "npc": ("Character", "character", "circle"),
@@ -733,6 +739,10 @@ def build_graph_html(graph: dict) -> str:
         # A blank canvas with no words on it reads as broken rather than as
         # filtered, and switching Story off empties it completely.
         '    <p class="lore-graph-empty" id="lore-graph-empty" hidden></p>\n'
+        # The opposite failure: every kind switched on at once is a legible
+        # hairball with no words on it either, and nothing on the stage says
+        # why it stopped being readable or what to do about it.
+        '    <p class="lore-graph-density" id="lore-graph-density" role="status" hidden></p>\n'
         "  </div>\n"
         # Narrow-viewport stand-in for the canvas, filled by theme/graph.js. A
         # force layout needs area the phone does not have: at 390px the stage
