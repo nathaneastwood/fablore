@@ -102,7 +102,7 @@
     - [Kill or be Killed](main-story/welcome-to-rathe/kill-or-be-killed.md)
     - [Wanderings in the Mists](main-story/welcome-to-rathe/wanderings-in-the-mists.md)
     - [Slings and Arrows](main-story/arcane-rising/slings-and-arrows.md)
-    - [Card on the Table](main-story/arcane-rising/cards-on-the-table.md)
+    - [Cards on the Table](main-story/arcane-rising/cards-on-the-table.md)
     - [A Bird in the Hand](main-story/arcane-rising/a-bird-in-the-hand.md)
     - [Stroke of Genius](main-story/arcane-rising/stroke-of-genius.md)
     - [Needle in a Haystack](main-story/arcane-rising/needle-in-a-haystack.md)
