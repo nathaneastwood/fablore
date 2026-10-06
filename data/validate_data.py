@@ -1,0 +1,1914 @@
+"""Validate pipe-delimited data CSVs under ``src/data/``.
+
+Checks that required identifier columns are non-empty on data rows, and that
+selected foreign keys resolve (e.g. story junctions to characters, heroes, locations, weapons, equipment).
+For heroes, each ``heroes-game.csv`` ``CardName`` must resolve to the same ``CanonicalId`` as
+``create_heroes_csv.generate_heroes_csv`` would assign given ``heroes-canonical.csv`` (display
+``CanonicalHero`` and slug/alias rules); printed titles need not match ``CanonicalHero`` verbatim.
+``stories.csv`` ``StoryType`` values must match :data:`ALLOWED_STORY_TYPES` (``src/`` lore roots).
+
+Intended to run after generators such as ``create_heroes_csv.py``, ``create_weapons_csv.py``,
+``create_equipment_csv.py``, ``create_sets_csv.py``, ``create_classes_talents_csv.py``, or after using
+``story.py`` to update junction data::
+
+    python3 src/data/validate_data.py
+
+Exits with status ``1`` and prints ``ALERT:`` lines to stderr when a rule fails;
+exits ``0`` when all checks pass.
+"""
+
+from __future__ import annotations
+
+import ast
+import json
+import re
+import sys
+from difflib import SequenceMatcher
+from itertools import combinations
+from pathlib import Path
+
+_SCRIPT_DIR = Path(__file__).resolve().parent
+if str(_SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(_SCRIPT_DIR))
+
+from pipe_csv_io import read_pipe_csv  # noqa: E402
+
+from mdbook_heading_ids import (  # noqa: E402
+    collect_heading_anchor_ids_from_path,
+    format_fragment_suggestion,
+    require_valid_group_lore_fragment,
+    world_lore_markdown_path,
+)
+
+from registry_ids import (  # noqa: E402
+    fauna_id_from_name,
+    flora_id,
+    location_id,
+    lore_character_id,
+    monster_id,
+    group_id,
+    profession_id,
+    region_row_id,
+    title_id,
+)
+
+from text_utils import normalize_name  # noqa: E402
+
+# The kin vocabulary is this map's keys — see KIN_RELATIONS below for why it is
+# imported rather than restated.
+from db._queries import KIN_INVERSE, KIN_QUALIFIERS  # noqa: E402
+
+ROOT = Path(__file__).resolve().parents[2]
+DATA = ROOT / "src/data"
+SRC = ROOT / "src"
+
+# Characters mdBook ``normalize_id`` can emit (Unicode ``isalnum()`` letters, plus ``._-``).
+_LORE_FRAGMENT_SAFE = re.compile(r"^[\w.-]+\Z", re.UNICODE)
+
+
+def _check_location_lore_fragments(locations_path: Path) -> list[str]:
+    """Flag ``LoreFragment`` values that cannot be mdBook heading ``id`` fragments."""
+    if not locations_path.is_file():
+        return []
+    fieldnames, rows = read_pipe_csv(locations_path)
+    if "LoreFragment" not in fieldnames:
+        return []
+    alerts: list[str] = []
+    for row in rows:
+        raw = (row.get("LoreFragment") or "").strip().lstrip("#")
+        if not raw:
+            continue
+        if not _LORE_FRAGMENT_SAFE.match(raw):
+            lid = (row.get("LocationId") or "").strip()
+            alerts.append(
+                f"locations.csv LocationId={lid!r}: LoreFragment {raw!r} should use "
+                "only characters mdBook allows in heading ids (Unicode letters/digits, "
+                "``_``, ``-``, ``.``)."
+            )
+    return alerts
+
+
+def _check_location_lore_fragments_match_headings(
+    locations_path: Path, regions_path: Path, src_root: Path
+) -> list[str]:
+    """Ensure each ``LoreFragment`` matches an mdBook heading id on the region's world lore page."""
+    alerts: list[str] = []
+    if not locations_path.is_file():
+        return alerts
+    fieldnames, loc_rows = read_pipe_csv(locations_path)
+    if "LoreFragment" not in fieldnames:
+        return alerts
+    cache: dict[str, list[str]] = {}
+    for row in loc_rows:
+        raw = (row.get("LoreFragment") or "").strip().lstrip("#")
+        if not raw or not _LORE_FRAGMENT_SAFE.match(raw):
+            continue
+        lid = (row.get("LocationId") or "").strip()
+        rid = (row.get("RegionId") or "").strip()
+        if not rid:
+            alerts.append(
+                f"locations.csv LocationId={lid!r}: LoreFragment {raw!r} is set but "
+                "RegionId is empty (cannot resolve world lore file)."
+            )
+            continue
+        md_path = world_lore_markdown_path(src_root, regions_path, rid)
+        if md_path is None:
+            alerts.append(
+                f"locations.csv LocationId={lid!r}: LoreFragment {raw!r} but region "
+                f"{rid!r} has no WorldOfRatheStoryKey in regions.csv."
+            )
+            continue
+        if not md_path.is_file():
+            alerts.append(
+                f"locations.csv LocationId={lid!r}: LoreFragment {raw!r} but world lore file "
+                f"missing: {md_path.relative_to(src_root)}"
+            )
+            continue
+        key = str(md_path.resolve())
+        if key not in cache:
+            cache[key] = collect_heading_anchor_ids_from_path(md_path)
+        ids = cache[key]
+        if raw not in ids:
+            rel = md_path.relative_to(src_root).as_posix()
+            alerts.append(
+                f"locations.csv LocationId={lid!r}: LoreFragment {raw!r} is not a heading id "
+                f"in {rel}. Valid heading ids include: {format_fragment_suggestion(ids)}"
+            )
+    return alerts
+
+
+def _check_id_hash_drift(
+    path: Path,
+    id_column: str,
+    name_column: str,
+    compute_id,
+    label: str,
+) -> list[str]:
+    """Flag rows whose stored id no longer matches ``compute_id(name)``.
+
+    ``db/_domain.py`` recomputes each entity's id fresh on every
+    ``upsert_story()`` call and upserts by that computed id. If a stored id
+    has drifted from what the current hash function produces for the same
+    name (e.g. after a historical id-scheme change), the upsert silently
+    creates a *second* row instead of matching the existing one — this check
+    exists to catch that before it happens, not just to enforce tidiness.
+
+    Args:
+        path: CSV file to check.
+        id_column: Column holding the stored id (e.g. ``LocationId``).
+        name_column: Column holding the display name the id is derived from.
+        compute_id: Callable taking the row's name (str) and returning the
+            id a fresh upsert would compute for it today.
+        label: Human-readable label for alert messages.
+
+    Returns:
+        Alert strings, one per drifted row.
+    """
+    if not path.is_file():
+        return []
+    _, rows = read_pipe_csv(path)
+    alerts: list[str] = []
+    for row in rows:
+        stored = (row.get(id_column) or "").strip()
+        name = (row.get(name_column) or "").strip()
+        if not stored or not name:
+            continue
+        computed = compute_id(name)
+        if stored != computed:
+            alerts.append(
+                f"{label} {id_column}={stored!r} Name={name!r}: stored id does not match "
+                f"registry_ids for this name (would compute {computed!r}). A future "
+                "upsert_story() call touching this entity will create a duplicate row "
+                "instead of updating this one — see plans/ for the location-id "
+                "migration this affects."
+            )
+    return alerts
+
+
+def _check_self_parent(path: Path, id_column: str, parent_column: str, label: str) -> list[str]:
+    """Flag a row that is its own parent, or a cycle in the parent chain.
+
+    A self-referencing parent column has no SQL constraint stopping either, and
+    both make breadcrumbs and the Lore Graph loop forever rather than fail loudly.
+    """
+    if not path.is_file():
+        return []
+    _, rows = read_pipe_csv(path)
+    parent_of: dict[str, str] = {}
+    for row in rows:
+        eid = (row.get(id_column) or "").strip()
+        pid = (row.get(parent_column) or "").strip()
+        if eid and pid:
+            parent_of[eid] = pid
+    alerts: list[str] = []
+    for start in parent_of:
+        seen = [start]
+        node = parent_of.get(start, "")
+        while node:
+            if node in seen:
+                chain = " -> ".join([*seen, node])
+                alerts.append(f"{label}: {path.name}: {parent_column} cycle: {chain}")
+                break
+            seen.append(node)
+            node = parent_of.get(node, "")
+    # One alert per cycle, not one per member of it.
+    return sorted(set(alerts))
+
+
+def _check_location_id_hash_drift(locations_path: Path) -> list[str]:
+    """Flag ``locations.csv`` rows whose id doesn't match ``location_id(name, region_id)``.
+
+    Locations hash both name and ``RegionId`` (unlike the other lore
+    registries, which hash name alone), so this needs its own loop rather
+    than :func:`_check_id_hash_drift`.
+    """
+    if not locations_path.is_file():
+        return []
+    _, rows = read_pipe_csv(locations_path)
+    alerts: list[str] = []
+    for row in rows:
+        stored = (row.get("LocationId") or "").strip()
+        name = (row.get("Name") or "").strip()
+        region_id = (row.get("RegionId") or "").strip()
+        if not stored or not name:
+            continue
+        computed = location_id(name, region_id)
+        if stored != computed:
+            alerts.append(
+                f"locations.csv LocationId={stored!r} Name={name!r} RegionId={region_id!r}: "
+                f"stored id does not match registry_ids.location_id() for this name/region "
+                f"(would compute {computed!r}). A future upsert_story() call touching this "
+                "location will create a duplicate row instead of updating this one — see "
+                "plans/ for the location-id migration this affects."
+            )
+    return alerts
+
+
+# First path segment under ``src/`` for lore markdown; keep in sync when adding a new
+# top-level story directory. ``story.py`` / ``create_stories_index.py`` should use these
+# values for ``StoryType``.
+ALLOWED_STORY_TYPES: frozenset[str] = frozenset(
+    {
+        "archive",
+        "digital-tiles",
+        "equipment",
+        "flavour",
+        "heroes-of-rathe",
+        "main-story",
+        "other-characters",
+        "short-stories",
+        "summaries",
+        "weapons",
+        "world-of-rathe",
+    }
+)
+
+
+def _pipe_rows(path: Path) -> tuple[list[str], list[dict[str, str]]]:
+    """Load a pipe-delimited CSV into header fieldnames and row dicts.
+
+    Leading ``#`` comment lines (e.g. auto-generation banners) are skipped.
+
+    Args:
+        path: CSV file path.
+
+    Returns:
+        A tuple ``(fieldnames, rows)``. If the file is missing, returns
+        ``([], [])``.
+    """
+    return read_pipe_csv(path)
+
+
+def _check_ids(path: Path, id_columns: tuple[str, ...], label: str) -> list[str]:
+    """Verify required id columns are present and non-empty for each data row.
+
+    Args:
+        path: CSV file to validate.
+        id_columns: Column names that must be non-blank on every row.
+        label: Human-readable category for error messages.
+
+    Returns:
+        A list of alert strings (empty if all checks pass).
+    """
+    alerts: list[str] = []
+    fieldnames, rows = _pipe_rows(path)
+    if not fieldnames:
+        return alerts
+    for col in id_columns:
+        if col not in fieldnames:
+            alerts.append(f"{label}: column {col!r} missing in {path.name} (cannot validate)")
+    cols_present = [c for c in id_columns if c in fieldnames]
+    if not cols_present or not rows:
+        return alerts
+    for row_num, row in enumerate(rows, start=2):
+        for col in cols_present:
+            val = (row.get(col) or "").strip()
+            if not val:
+                alerts.append(f"{label}: {path.name} row {row_num}: empty {col!r} " f"(expected a generated ID)")
+    return alerts
+
+
+def _id_set_from_column(path: Path, column: str) -> set[str]:
+    """Collect distinct non-empty values for one column.
+
+    Args:
+        path: CSV file path.
+        column: Header name to read.
+
+    Returns:
+        Set of stripped cell values. Returns an empty set if the column is
+        missing or the file does not exist.
+    """
+    fieldnames, rows = _pipe_rows(path)
+    if column not in fieldnames:
+        return set()
+    return {(r.get(column) or "").strip() for r in rows if (r.get(column) or "").strip()}
+
+
+def _check_stories_story_type_allowlist(stories_path: Path) -> list[str]:
+    """Ensure ``StoryType`` is in :data:`ALLOWED_STORY_TYPES` and dirs exist under ``src/``.
+
+    Args:
+        stories_path: ``stories.csv`` path.
+
+    Returns:
+        Alert strings; empty when all rows and allowlist layout are valid.
+    """
+    alerts: list[str] = []
+    for story_type in sorted(ALLOWED_STORY_TYPES):
+        seg = SRC / story_type
+        if not seg.is_dir():
+            alerts.append(
+                "Stories: ALLOWED_STORY_TYPES in validate_data.py includes "
+                f"{story_type!r} but {seg} is not a directory"
+            )
+
+    fieldnames, rows = _pipe_rows(stories_path)
+    if not fieldnames or "StoryType" not in fieldnames or not rows:
+        return alerts
+    for row_num, row in enumerate(rows, start=2):
+        st = (row.get("StoryType") or "").strip()
+        if not st:
+            continue
+        if st not in ALLOWED_STORY_TYPES:
+            alerts.append(
+                f"Stories: {stories_path.name} row {row_num}: unknown StoryType {st!r} "
+                f"(not in validate_data.ALLOWED_STORY_TYPES)"
+            )
+    return alerts
+
+
+def _check_fk_column(
+    child_path: Path,
+    fk_column: str,
+    parent_ids: set[str],
+    parent_desc: str,
+    label: str,
+) -> list[str]:
+    """Flag child rows whose FK value is absent from the parent id set.
+
+    Args:
+        child_path: Junction or child CSV path.
+        fk_column: Foreign-key column name on the child file.
+        parent_ids: Acceptable parent id values.
+        parent_desc: Short description of the parent table (for messages).
+        label: Human-readable category for error messages.
+
+    Returns:
+        A list of alert strings (empty if all FK values are valid).
+    """
+    alerts: list[str] = []
+    fieldnames, rows = _pipe_rows(child_path)
+    if not fieldnames or fk_column not in fieldnames or not rows:
+        return alerts
+    for row_num, row in enumerate(rows, start=2):
+        fk = (row.get(fk_column) or "").strip()
+        if fk and fk not in parent_ids:
+            alerts.append(f"{label}: {child_path.name} row {row_num}: {fk_column}={fk!r} " f"not in {parent_desc}")
+    return alerts
+
+
+def _check_heroes_game_cardname_resolution(canonical_path: Path, game_path: Path) -> list[str]:
+    """Flag ``heroes-game`` rows whose ``CardName`` does not map to the row ``CanonicalId``.
+
+    Replays the slug resolution used by :func:`create_heroes_csv.generate_heroes_csv`
+    so hand-edited ``heroes-game.csv`` rows cannot drift from canonical + card-name
+    rules without ``create_heroes_csv`` being re-run. Card-name aliases from
+    ``hero-card-name-aliases.csv`` are applied only when the target slug exists
+    on the given canonical file (so minimal fixtures stay self-contained); see
+    :func:`_check_hero_card_name_alias_slugs_in_canonical` for full-roster alias checks.
+
+    Args:
+        canonical_path: ``heroes-canonical.csv`` path.
+        game_path: ``heroes-game.csv`` path.
+
+    Returns:
+        Alert strings; empty when every game row is consistent.
+    """
+    from create_heroes_csv import apply_lore_canonical_override, split_name_variant
+    from hero_overrides import load_canonical_hero_card_name_aliases
+    from text_utils import normalize_name
+
+    aliases = load_canonical_hero_card_name_aliases()
+
+    alerts: list[str] = []
+    c_fields, canonical_rows = _pipe_rows(canonical_path)
+    g_fields, game_rows = _pipe_rows(game_path)
+    if not c_fields or not g_fields:
+        return alerts
+    if not all(col in c_fields for col in ("CanonicalId", "CanonicalSlug", "CanonicalHero")):
+        return alerts
+    if "CardName" not in g_fields or "CanonicalId" not in g_fields:
+        return alerts
+
+    canonical_id_by_slug: dict[str, str] = {}
+    canonical_slug_by_name: dict[str, str] = {}
+    for row in canonical_rows:
+        slug = (row.get("CanonicalSlug") or "").strip()
+        cid = (row.get("CanonicalId") or "").strip()
+        hero = (row.get("CanonicalHero") or "").strip()
+        if slug and cid:
+            canonical_id_by_slug[slug] = cid
+        if slug and hero:
+            name_key = normalize_name(hero)
+            canonical_slug_by_name.setdefault(name_key, slug)
+
+    for alt_name_key, slug in aliases.items():
+        if slug in canonical_id_by_slug:
+            canonical_slug_by_name[alt_name_key] = slug
+
+    for row_num, row in enumerate(game_rows, start=2):
+        card_name = (row.get("CardName") or "").strip()
+        cid = (row.get("CanonicalId") or "").strip()
+        if not card_name or not cid:
+            continue
+        name, comma_subtitle = split_name_variant(card_name)
+        name_key = normalize_name(name)
+        base_slug = canonical_slug_by_name.get(name_key, name_key)
+        canonical_slug = apply_lore_canonical_override(base_slug, name, comma_subtitle)
+        expected_id = canonical_id_by_slug.get(canonical_slug, "")
+        if not expected_id:
+            alerts.append(
+                "Heroes game: "
+                f"{game_path.name} row {row_num}: CardName {card_name!r} resolves to "
+                f"unknown slug {canonical_slug!r} (check heroes-canonical.csv and "
+                "hero_overrides.LORE_CANONICAL_OVERRIDES / hero-card-name-aliases.csv)"
+            )
+        elif expected_id != cid:
+            alerts.append(
+                "Heroes game: "
+                f"{game_path.name} row {row_num}: CardName {card_name!r} resolves to "
+                f"CanonicalId {expected_id!r} but row has {cid!r}"
+            )
+    return alerts
+
+
+def _check_heroes_game_young_hero_column(game_path: Path) -> list[str]:
+    """Ensure ``heroes-game.csv`` ``YoungHero`` is ``true`` or ``false`` on every row.
+
+    Args:
+        game_path: ``heroes-game.csv`` path.
+
+    Returns:
+        Alert strings; empty when the column is absent (legacy file) or all values are valid.
+    """
+    allowed = frozenset({"true", "false"})
+    alerts: list[str] = []
+    fieldnames, rows = _pipe_rows(game_path)
+    if not fieldnames or "YoungHero" not in fieldnames or not rows:
+        return alerts
+    for row_num, row in enumerate(rows, start=2):
+        val = (row.get("YoungHero") or "").strip().lower()
+        if val not in allowed:
+            alerts.append(
+                "Heroes game: "
+                f"{game_path.name} row {row_num}: YoungHero must be 'true' or 'false', "
+                f"got {row.get('YoungHero')!r}"
+            )
+    return alerts
+
+
+def _check_hero_card_name_alias_slugs_in_canonical(canonical_path: Path) -> list[str]:
+    """Ensure every ``hero-card-name-aliases.csv`` target slug exists on disk.
+
+    The alias map is data in ``src/data/hero-card-name-aliases.csv`` (loaded via
+    :func:`hero_overrides.load_canonical_hero_card_name_aliases`); this check
+    runs against the committed ``heroes-canonical.csv`` so typos in alias targets
+    are caught without requiring a full card export run.
+
+    Args:
+        canonical_path: ``heroes-canonical.csv`` path.
+
+    Returns:
+        Alert strings; empty when every alias slug is present.
+    """
+    from hero_overrides import load_canonical_hero_card_name_aliases
+
+    alerts: list[str] = []
+    fieldnames, rows = _pipe_rows(canonical_path)
+    if not fieldnames or "CanonicalSlug" not in fieldnames:
+        return alerts
+    slugs = {(r.get("CanonicalSlug") or "").strip() for r in rows if (r.get("CanonicalSlug") or "").strip()}
+    for alt_name_key, slug in load_canonical_hero_card_name_aliases().items():
+        if slug not in slugs:
+            alerts.append(
+                f"Heroes canonical: hero-card-name-aliases.csv maps "
+                f"{alt_name_key!r} to unknown CanonicalSlug {slug!r}"
+            )
+    return alerts
+
+
+# The entity types ``hints_supplement.json`` may use. theme/hints.js prints the
+# value verbatim as the tooltip label, so a typo ships as a visible label rather
+# than failing anything — which is the whole reason this list exists.
+#
+# It is split in two because the halves are permitted for opposite reasons, and
+# conflating them is what let a kind claim through for months (see
+# ``_check_supplement_types_are_not_kinds``).
+#
+# ``groups.category`` also reaches the tooltip as a type
+# (generate_hints_json.py), but categories are deliberately bespoke per group
+# ("order of knights", "law enforcement"), so no closed list can cover both.
+# Decided 2026-08-20.
+_LABEL_ONLY_TYPES = frozenset(
+    {
+        "artifact",
+        "concept",
+        "creature",
+        # Added 2026-08-20 for the three afflictions krest-mortimer.md describes:
+        # Bloodrot Pox, Frailty and Inertia.
+        "disease",
+        # Godhood is a display label, never a kind: it records who venerates a
+        # being, not what it is, and it is culture-relative. See the kind/title/
+        # group rule — there is no God kind and no god row anywhere.
+        "god",
+        "item",
+        "organisation",
+        "ship",
+    }
+)
+"""Types with no table anywhere, so nothing but the supplement can write them.
+
+``faction`` went in stage 4, once stage 2 had migrated the last entry using it
+into the groups table. ``organisation`` is one entry from the same fate —
+Braumeister, held for R9.
+"""
+
+_DB_ECHO_TYPES = frozenset(
+    {
+        "character",
+        "hero",
+        "location",
+        "region",
+    }
+)
+"""Types the database itself emits, permitted so the supplement can *relabel*.
+
+``_merge_entry`` exists for this: the Hand of Sol is a ``locations`` row that
+reads better as an order, and Solana is a ``locations`` row labelled ``region``.
+The relabel is a display decision over a row the database still owns, and
+``db_type`` records where the entity actually came from. That is the opposite of
+a :data:`_LABEL_ONLY_TYPES` entry, which the database knows nothing about.
+"""
+
+_SUPPLEMENT_TYPES = _LABEL_ONLY_TYPES | _DB_ECHO_TYPES
+
+
+def _check_supplement_types(supplement_path: Path) -> list[str]:
+    """Flag a ``hints_supplement.json`` entry whose ``type`` is not a known one.
+
+    Two entry shapes are legitimately typeless and are skipped: a plain string
+    value (the seven Solanian weekdays, which are summary-only), and a dict that
+    carries only display overrides such as ``match``, ``url`` or
+    ``exclude_pages`` — 25 of those exist, refining an entry the database
+    already types.
+
+    Args:
+        supplement_path: Path to ``hints_supplement.json``.
+
+    Returns:
+        Alert strings, one per unknown type.
+    """
+    if not supplement_path.is_file():
+        return []
+    with supplement_path.open(encoding="utf-8") as f:
+        supplement = json.load(f)
+
+    alerts: list[str] = []
+    for key, value in supplement.items():
+        if not isinstance(value, dict):
+            continue
+        entry_type = value.get("type")
+        if entry_type is None:
+            continue
+        if entry_type not in _SUPPLEMENT_TYPES:
+            alerts.append(
+                f"hints_supplement.json: {key!r} has unknown type {entry_type!r} "
+                f"(expected one of {sorted(_SUPPLEMENT_TYPES)}). The tooltip prints "
+                "this verbatim, so a typo ships as a visible label."
+            )
+    return alerts
+
+
+def _check_supplement_types_are_not_kinds(kinds_path: Path, kind_aliases_path: Path) -> list[str]:
+    """Flag a permitted supplement type that names a kind.
+
+    ``species`` and its successor ``kind`` are excluded from
+    :data:`_SUPPLEMENT_TYPES` because kinds are DB-backed: a supplement entry
+    claiming one would be a second writer on a fact ``character_kinds`` already
+    owns. That exclusion blocked the *word* and not the *idea* — ``aesir``,
+    ``embra`` and ``ancient`` each name a ``kinds.csv`` row, and all three sat
+    on the permitted list for months. Twelve live entries used them, putting a
+    kind in the tooltip's ``type`` slot while ``theme/hints.js`` was waiting to
+    print it from ``entry.kind``.
+
+    So the guard is derived rather than written down: whatever ``kinds.csv`` and
+    ``kind-aliases.csv`` hold may not also be a supplement type. Registering the
+    next kind closes the next hole with no edit here.
+
+    This checks the *list*, not the entries. ``_check_supplement_types`` already
+    rejects any type the list does not carry, so a colliding word can only reach
+    the data by being permitted first — which is exactly how these three did.
+
+    Args:
+        kinds_path: ``kinds.csv`` path.
+        kind_aliases_path: ``kind-aliases.csv`` path.
+
+    Returns:
+        Alert strings, one per colliding type.
+    """
+    claimed: dict[str, tuple[str, str]] = {}
+    for path, column in ((kinds_path, "Name"), (kind_aliases_path, "Alias")):
+        if not path.is_file():
+            continue
+        _, rows = read_pipe_csv(path)
+        for row in rows:
+            value = (row.get(column) or "").strip()
+            if value:
+                claimed.setdefault(value.casefold(), (value, path.name))
+
+    alerts = []
+    for name in sorted(_SUPPLEMENT_TYPES & claimed.keys()):
+        spelling, source = claimed[name]
+        alerts.append(
+            f"hints_supplement.json: {name!r} is a permitted supplement type and also names "
+            f"the kind {spelling!r} ({source}). Kinds are DB-backed, so a supplement entry "
+            "claiming one is a second writer. Give the character its kind in "
+            "entries/catalogue/characters.py and let entry.kind print the badge."
+        )
+    return alerts
+
+
+EPITHET_LABELS = frozenset({"epithet", "short-name"})
+"""The closed list for ``character-epithets.csv`` ``Label``.
+
+An epithet is a style the character is given; a short-name is the same character
+in fewer words. Both are match strings, so a typo here would not break anything
+loudly — it would just quietly stop a tooltip from wording itself correctly,
+which is why the list is checked rather than trusted.
+"""
+
+
+CHARACTER_STATUSES = frozenset({"Unknown", "Alive", "Dead", "Assumed Dead", "Missing"})
+"""The closed list for ``characters.csv`` ``Status`` (migration 12).
+
+The column used to be free text and had drifted to two spellings of the same
+fact (``Deceased`` next to ``Dead``, ``Gone`` next to nothing) and three rows
+carrying a sentence instead of a status. The value reaches the tooltip badge
+verbatim (``theme/hints.js``), so a typo here ships as a visible label — the
+same reasoning that makes :data:`EPITHET_LABELS` a checked set rather than a
+trusted one."""
+
+
+def _check_character_statuses(path: Path) -> list[str]:
+    """Ensure every ``characters.csv`` ``Status`` is one of :data:`CHARACTER_STATUSES`."""
+    if not path.is_file():
+        return []
+    _, rows = read_pipe_csv(path)
+    alerts: list[str] = []
+    for row in rows:
+        status = (row.get("Status") or "").strip()
+        if status and status not in CHARACTER_STATUSES:
+            name = (row.get("Name") or "").strip()
+            alerts.append(f"characters.csv: {name!r} has Status {status!r}, not one of {sorted(CHARACTER_STATUSES)}")
+    return alerts
+
+
+def _check_no_stranded_hero_character(characters_path: Path, canonical_path: Path, links_path: Path) -> list[str]:
+    """Catch the character row an identity resolution leaves behind.
+
+    Seeding mints a character row for every hero it finds no ``character_heroes``
+    row for, named after the hero. Resolving one of the hero/ordinary-character identity pairs
+    re-points that link at the declared character's row instead — ``CharacterEntry("Fightmaster Kox",
+    hero_slug="kox")`` — and the auto-minted ``Kox`` row is then a second row for
+    a person who now has one, holding nothing and linked to nothing.
+
+    Nothing else would report it: it breaks no foreign key, it is not a
+    near-duplicate by string similarity (``Kox`` against ``Fightmaster Kox``
+    scores far below the threshold), and the self-heal will not re-link it
+    because the hero is already covered. The signature is exact — a character
+    named after a hero that no longer claims it — so this cannot fire on an
+    ordinary character.
+    """
+    for path in (characters_path, canonical_path, links_path):
+        if not path.is_file():
+            return []
+    _, character_rows = read_pipe_csv(characters_path)
+    _, canonical_rows = read_pipe_csv(canonical_path)
+    _, link_rows = read_pipe_csv(links_path)
+
+    hero_names = {normalize_name((r.get("CanonicalHero") or "").strip()) for r in canonical_rows}
+    hero_names.discard("")
+    linked = {(r.get("CharacterId") or "").strip() for r in link_rows}
+
+    alerts: list[str] = []
+    for row in character_rows:
+        name = (row.get("Name") or "").strip()
+        cid = (row.get("CharacterId") or "").strip()
+        if not name or not cid:
+            continue
+        if normalize_name(name) in hero_names and cid not in linked:
+            alerts.append(
+                f"characters.csv: {name!r} ({cid}) is named after a playable hero but holds no "
+                f"character-heroes.csv link. An identity resolution re-pointed the hero at another "
+                f"row and left this one stranded — delete it and repoint anything that references it."
+            )
+    return alerts
+
+
+def _check_epithet_labels(path: Path) -> list[str]:
+    """Ensure every ``character-epithets.csv`` ``Label`` is one of :data:`EPITHET_LABELS`."""
+    if not path.is_file():
+        return []
+    _, rows = read_pipe_csv(path)
+    alerts: list[str] = []
+    for row in rows:
+        label = (row.get("Label") or "").strip()
+        if label and label not in EPITHET_LABELS:
+            name = (row.get("Name") or "").strip()
+            alerts.append(
+                f"character-epithets.csv: {name!r} has Label {label!r}, " f"not one of {sorted(EPITHET_LABELS)}"
+            )
+    return alerts
+
+
+KIN_RELATIONS = frozenset(KIN_INVERSE)
+"""The closed list for ``character-kin.csv`` ``Relation`` (migration 14, R8).
+
+**Derived from ``db._queries.KIN_INVERSE``, not written out again.** That map
+says how each relation reads from the other end (``father`` -> ``child``,
+``child`` -> ``parent``, ``sibling``/``spouse`` -> themselves), and
+``character_kin`` stores one row per stated fact and derives the reverse at
+read time. So a relation this list allowed but that map did not hold would
+raise ``KeyError`` in the derivation — the two must be the same set by
+construction rather than by two people keeping two literals in step.
+
+``parent``/``child`` sit alongside the gendered pair because a page may state
+a parent without saying which, and the data should not have to guess."""
+
+
+def _check_kin_relations(path: Path) -> list[str]:
+    """Ensure every ``character-kin.csv`` ``Relation`` is one of :data:`KIN_RELATIONS`."""
+    if not path.is_file():
+        return []
+    _, rows = read_pipe_csv(path)
+    alerts: list[str] = []
+    for row in rows:
+        relation = (row.get("Relation") or "").strip()
+        if relation and relation not in KIN_RELATIONS:
+            cid = (row.get("CharacterId") or "").strip()
+            alerts.append(f"character-kin.csv: {cid!r} has Relation {relation!r}, not one of {sorted(KIN_RELATIONS)}")
+    return alerts
+
+
+def _check_kin_qualifiers(path: Path) -> list[str]:
+    """Ensure every ``character-kin.csv`` ``Qualifier`` is one of :data:`~db._queries.KIN_QUALIFIERS`.
+
+    Same shape as :func:`_check_kin_relations`, one column over (migration 21).
+    """
+    if not path.is_file():
+        return []
+    _, rows = read_pipe_csv(path)
+    alerts: list[str] = []
+    for row in rows:
+        qualifier = (row.get("Qualifier") or "").strip()
+        if qualifier and qualifier not in KIN_QUALIFIERS:
+            cid = (row.get("CharacterId") or "").strip()
+            alerts.append(
+                f"character-kin.csv: {cid!r} has Qualifier {qualifier!r}, not one of {sorted(KIN_QUALIFIERS)}"
+            )
+    return alerts
+
+
+def _check_no_self_kin(path: Path) -> list[str]:
+    """Flag a ``character-kin.csv`` row where ``CharacterId`` equals ``RelativeId``.
+
+    No SQL constraint stops a character being their own relative. The write
+    path guards it too (``Database._resolve_kin_relatives``, on both the real
+    write and the dry-run preview) — this is the belt-and-braces half,
+    catching a hand-edited or otherwise drifted CSV that never went through
+    it, the same shape :func:`_check_self_parent` gives locations and groups.
+    """
+    if not path.is_file():
+        return []
+    _, rows = read_pipe_csv(path)
+    alerts: list[str] = []
+    for row in rows:
+        cid = (row.get("CharacterId") or "").strip()
+        rid = (row.get("RelativeId") or "").strip()
+        if cid and cid == rid:
+            relation = (row.get("Relation") or "").strip()
+            alerts.append(f"character-kin.csv: {cid!r} is its own RelativeId (relation {relation!r})")
+    return alerts
+
+
+def _check_alias_name_collisions() -> list[str]:
+    """Catch an alias that is already the canonical name of a different row.
+
+    Two things answering to one string is the failure this whole table exists to
+    remove, so introducing one here would be self-defeating. It is also a live
+    shape in the data: ``Registry`` and ``The Registry`` are a group and a
+    location, and the longest-match-first rule silently hands the prose to
+    whichever is longer.
+
+    Returns:
+        Alert strings, one per alias that shadows another row's canonical name.
+    """
+    alerts: list[str] = []
+    for alias_file, alias_col, owner_col, registry_file, registry_id, registry_name, label in (
+        ("location-aliases.csv", "Alias", "LocationId", "locations.csv", "LocationId", "Name", "Location alias"),
+        ("group-aliases.csv", "Alias", "GroupId", "groups.csv", "GroupId", "Name", "Group alias"),
+        ("character-epithets.csv", "Name", "CharacterId", "characters.csv", "CharacterId", "Name", "Character epithet"),
+        ("kind-aliases.csv", "Alias", "KindId", "kinds.csv", "KindId", "Name", "Kind alias"),
+    ):
+        alias_path, registry_path = DATA / f"csv/{alias_file}", DATA / f"csv/{registry_file}"
+        if not (alias_path.is_file() and registry_path.is_file()):
+            continue
+        _, registry_rows = read_pipe_csv(registry_path)
+        by_name = {(r.get(registry_name) or "").strip(): (r.get(registry_id) or "").strip() for r in registry_rows}
+        _, alias_rows = read_pipe_csv(alias_path)
+        for row in alias_rows:
+            alias = (row.get(alias_col) or "").strip()
+            owner = (row.get(owner_col) or "").strip()
+            clash = by_name.get(alias)
+            if clash and clash != owner:
+                alerts.append(
+                    f"{label} {alias!r} on {owner} is already the canonical name of " f"{clash} in {registry_file}"
+                )
+    return alerts
+
+
+def _check_group_lore_fragments(groups_path: Path, stories_path: Path, src_root: Path) -> list[str]:
+    """Ensure each group's ``LoreFragment`` is a real heading on its ``LoreStoryKey`` page.
+
+    The group counterpart to :func:`_check_location_lore_fragments_match_headings`.
+    A location finds its page through its region; a group carries the page itself,
+    because a group is not tied to one place. Both are checked here rather than on
+    write, so a heading renamed in the markdown is caught by the same pass.
+
+    Args:
+        groups_path: Path to ``groups.csv``.
+        stories_path: Path to ``stories.csv``.
+        src_root: Book ``src`` root.
+
+    Returns:
+        Alert strings, one per unresolvable fragment.
+    """
+    if not groups_path.is_file():
+        return []
+    story_keys = _id_set_from_column(stories_path, "StoryKey") if stories_path.is_file() else set()
+
+    alerts: list[str] = []
+    _, rows = read_pipe_csv(groups_path)
+    for row in rows:
+        name = (row.get("Name") or "").strip()
+        key = (row.get("LoreStoryKey") or "").strip()
+        frag = (row.get("LoreFragment") or "").strip()
+        if not key and not frag:
+            continue
+        if key and story_keys and key not in story_keys:
+            alerts.append(f"Groups: {name!r} LoreStoryKey {key!r} is not a StoryKey in stories.csv.")
+            continue
+        try:
+            require_valid_group_lore_fragment(src_root=src_root, lore_story_key=key, lore_fragment=frag)
+        except ValueError as exc:
+            alerts.append(f"Groups: {name!r}: {exc}")
+    return alerts
+
+
+def _check_descriptions_targets_exist(descriptions_path: Path) -> list[str]:
+    """Flag ``update_description`` calls in ``descriptions.py`` whose target does not exist.
+
+    ``update_description`` raises ``ValueError`` for an unknown entity. ``descriptions.py``
+    collects those failures rather than dying on the first one, but a stale name still means
+    that description silently never applies. A name left behind by an entity rename or a
+    duplicate-row cleanup can therefore sit unnoticed indefinitely — nothing else in the
+    pipeline reads ``descriptions.py``, so this is the only check that sees it.
+
+    Reads the CSVs rather than the database so it works on a fresh clone, where
+    ``fablore.db`` does not exist yet.
+
+    Args:
+        descriptions_path: Path to ``descriptions.py``.
+
+    Returns:
+        Alert strings, one per unresolvable target (empty when all resolve).
+    """
+    if not descriptions_path.is_file():
+        return []
+
+    csv_for_kind = {
+        "location": "locations.csv",
+        # `character` joined 2026-08-26, when the nine kind-typed supplement
+        # tooltips moved into the database. `update_description` had accepted the
+        # type since migration 12; this map had not, so every character summary
+        # read as an unknown entity type.
+        "character": "characters.csv",
+        "monster": "monsters.csv",
+        "fauna": "fauna.csv",
+        "flora": "flora.csv",
+        "group": "groups.csv",
+        "kind": "kinds.csv",
+        "title": "titles.csv",
+        "profession": "professions.csv",
+    }
+    known = {kind: _id_set_from_column(DATA / "csv" / filename, "Name") for kind, filename in csv_for_kind.items()}
+
+    alerts: list[str] = []
+    tree = ast.parse(descriptions_path.read_text(encoding="utf-8"))
+    for node in ast.walk(tree):
+        if not isinstance(node, ast.Call):
+            continue
+        if getattr(node.func, "attr", "") != "update_description":
+            continue
+        if len(node.args) < 2:
+            continue
+        kind_node, name_node = node.args[0], node.args[1]
+        if not isinstance(kind_node, ast.Constant) or not isinstance(name_node, ast.Constant):
+            continue
+        kind, name = kind_node.value, name_node.value
+        if kind not in csv_for_kind:
+            alerts.append(
+                f"descriptions.py line {node.lineno}: unknown entity type {kind!r} "
+                f"(expected one of {sorted(csv_for_kind)})"
+            )
+        elif name not in known[kind]:
+            alerts.append(
+                f"descriptions.py line {node.lineno}: {kind} {name!r} is not in "
+                f"{csv_for_kind[kind]}, so this description is never applied. Check the "
+                "spelling, or register the entity via data-entry.py first."
+            )
+    return alerts
+
+
+def collect_alerts() -> list[str]:
+    """Run all non-empty-id checks and foreign-key checks.
+
+    Includes story junction FKs to ``heroes-canonical``, ``weapons-canonical``,
+    and ``equipment-canonical`` where applicable, and ``StoryId`` on
+    ``story-narrated-videos.csv`` to ``stories.csv``. Hero ``CardName`` values must
+    resolve to each row's ``CanonicalId`` under the same rules as ``create_heroes_csv``.
+    ``stories.csv`` ``StoryType`` must be a member of :data:`ALLOWED_STORY_TYPES`.
+
+    Returns:
+        A flat list of human-readable problem strings (empty when valid).
+    """
+    alerts: list[str] = []
+
+    checks: list[tuple[Path, tuple[str, ...], str]] = [
+        (DATA / "csv/set-types.csv", ("SetTypeId",), "Set types"),
+        (DATA / "csv/sets.csv", ("SetId", "SetTypeId"), "Sets"),
+        (
+            DATA / "csv/heroes-canonical.csv",
+            ("CanonicalId", "CanonicalSlug", "CanonicalHero"),
+            "Heroes canonical",
+        ),
+        (
+            DATA / "csv/heroes-game.csv",
+            ("HeroGameId", "CardName", "CanonicalId"),
+            "Heroes game",
+        ),
+        (DATA / "csv/classes.csv", ("ClassId", "ClassName"), "Classes (shared)"),
+        (DATA / "csv/talents.csv", ("TalentId", "TalentName"), "Talents (shared)"),
+        (
+            DATA / "csv/heroes-printings.csv",
+            ("HeroGameId", "SetId", "CardId"),
+            "Heroes printings",
+        ),
+        (
+            DATA / "csv/weapons-canonical.csv",
+            ("CanonicalWeaponId", "CanonicalSlug"),
+            "Weapons canonical",
+        ),
+        (
+            DATA / "csv/weapons-game.csv",
+            ("WeaponGameId", "CardName", "CanonicalWeaponId"),
+            "Weapons game",
+        ),
+        (
+            DATA / "csv/weapons-printings.csv",
+            ("WeaponGameId", "SetId", "CardId"),
+            "Weapons printings",
+        ),
+        (
+            DATA / "csv/equipment-canonical.csv",
+            ("CanonicalEquipmentId", "CanonicalSlug"),
+            "Equipment canonical",
+        ),
+        (
+            DATA / "csv/equipment-game.csv",
+            ("EquipmentGameId", "CardName", "CanonicalEquipmentId"),
+            "Equipment game",
+        ),
+        (
+            DATA / "csv/equipment-printings.csv",
+            ("EquipmentGameId", "SetId", "CardId"),
+            "Equipment printings",
+        ),
+        (DATA / "csv/characters.csv", ("CharacterId", "Name", "Status"), "Characters"),
+        (
+            DATA / "csv/character-heroes.csv",
+            ("CanonicalId", "CharacterId"),
+            "Character ↔ hero links",
+        ),
+        (DATA / "csv/locations.csv", ("LocationId", "Name"), "Locations"),
+        (DATA / "csv/groups.csv", ("GroupId", "Name"), "Groups"),
+        (DATA / "csv/group-characters.csv", ("GroupId", "CharacterId"), "Group ↔ member links"),
+        (DATA / "csv/story-groups.csv", ("StoryId", "GroupId"), "Story ↔ group links"),
+        (DATA / "csv/character-epithets.csv", ("CharacterId", "Name"), "Character epithets"),
+        (DATA / "csv/kinds.csv", ("KindId", "Name"), "Kinds"),
+        (DATA / "csv/character-kinds.csv", ("CharacterId", "KindId"), "Character ↔ kind"),
+        (DATA / "csv/kind-aliases.csv", ("KindId", "Alias"), "Kind aliases"),
+        (DATA / "csv/location-aliases.csv", ("LocationId", "Alias"), "Location aliases"),
+        (DATA / "csv/group-aliases.csv", ("GroupId", "Alias"), "Group aliases"),
+        (DATA / "csv/titles.csv", ("TitleId", "Name"), "Titles"),
+        (DATA / "csv/title-holders.csv", ("TitleId", "CharacterId"), "Title ↔ holder links"),
+        (DATA / "csv/story-titles.csv", ("StoryId", "TitleId"), "Story ↔ title links"),
+        (DATA / "csv/character-kin.csv", ("CharacterId", "RelativeId", "Relation"), "Character kin"),
+        (DATA / "csv/professions.csv", ("ProfessionId", "Name"), "Professions"),
+        (DATA / "csv/character-professions.csv", ("CharacterId", "ProfessionId"), "Character ↔ profession links"),
+        (DATA / "csv/regions.csv", ("RegionId",), "Regions"),
+        (DATA / "csv/flora.csv", ("FloraId",), "Flora"),
+        (DATA / "csv/fauna.csv", ("FaunaId",), "Fauna"),
+        (DATA / "csv/food-and-drink.csv", ("FoodDrinkId",), "Food and drink"),
+        (DATA / "csv/monsters.csv", ("MonsterId",), "Monsters"),
+        (DATA / "csv/stories.csv", ("StoryId", "StoryKey", "StoryType"), "Stories"),
+        (DATA / "csv/story-characters.csv", ("StoryId", "CharacterId"), "Story ↔ character links"),
+        (
+            DATA / "csv/story-locations.csv",
+            ("StoryId", "LocationId"),
+            "Story ↔ location links",
+        ),
+        (
+            DATA / "csv/story-regions.csv",
+            ("StoryId", "RegionId"),
+            "Story ↔ region links",
+        ),
+        (
+            DATA / "csv/story-monsters.csv",
+            ("StoryId", "MonsterId"),
+            "Story ↔ monster links",
+        ),
+        (DATA / "csv/story-fauna.csv", ("StoryId", "FaunaId"), "Story ↔ fauna links"),
+        (DATA / "csv/story-flora.csv", ("StoryId", "FloraId"), "Story ↔ flora links"),
+        (
+            DATA / "csv/story-food-drink.csv",
+            ("StoryId", "FoodDrinkId"),
+            "Story ↔ food/drink links",
+        ),
+        (
+            DATA / "csv/story-weapons.csv",
+            ("StoryId", "CanonicalWeaponId"),
+            "Story ↔ weapon links",
+        ),
+        (
+            DATA / "csv/story-equipment.csv",
+            ("StoryId", "CanonicalEquipmentId"),
+            "Story ↔ equipment links",
+        ),
+        (
+            DATA / "csv/story-narrated-videos.csv",
+            ("StoryId", "Author", "SourceLink"),
+            "Story narrated videos",
+        ),
+    ]
+
+    for path, cols, label in checks:
+        if not path.is_file():
+            continue
+        _, rows = _pipe_rows(path)
+        if len(rows) == 0 and path.name.startswith("story-"):
+            # Header-only junction files are allowed until filled.
+            continue
+        alerts.extend(_check_ids(path, cols, label))
+
+    stories_path = DATA / "csv/stories.csv"
+    if stories_path.is_file():
+        alerts.extend(_check_stories_story_type_allowlist(stories_path))
+
+    story_ids = _id_set_from_column(stories_path, "StoryId")
+    if story_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/story-narrated-videos.csv",
+                "StoryId",
+                story_ids,
+                "stories.csv StoryId",
+                "Story narrated videos",
+            )
+        )
+
+    canonical_path = DATA / "csv/heroes-canonical.csv"
+    game_path = DATA / "csv/heroes-game.csv"
+    printings_path = DATA / "csv/heroes-printings.csv"
+    story_characters_path = DATA / "csv/story-characters.csv"
+
+    canonical_ids = _id_set_from_column(canonical_path, "CanonicalId")
+    hero_game_ids = _id_set_from_column(game_path, "HeroGameId")
+    # Every characters= link (hero slug or CharacterEntry) writes the same
+    # story-characters.csv junction (migration 17), so its FK target is
+    # characters.csv, not heroes-canonical.csv — a hero's CharacterId is the
+    # identity-spine row character-heroes.csv points at, never the
+    # CanonicalId itself.
+    story_character_ids = _id_set_from_column(DATA / "csv/characters.csv", "CharacterId")
+    if story_character_ids:
+        alerts.extend(
+            _check_fk_column(
+                story_characters_path,
+                "CharacterId",
+                story_character_ids,
+                "characters.csv CharacterId",
+                "Story ↔ character links",
+            )
+        )
+    if hero_game_ids:
+        alerts.extend(
+            _check_fk_column(
+                printings_path,
+                "HeroGameId",
+                hero_game_ids,
+                "heroes-game.csv HeroGameId",
+                "Heroes printings",
+            )
+        )
+
+    if canonical_path.is_file() and game_path.is_file():
+        alerts.extend(_check_heroes_game_cardname_resolution(canonical_path, game_path))
+
+    if game_path.is_file():
+        alerts.extend(_check_heroes_game_young_hero_column(game_path))
+
+    if canonical_path.is_file():
+        alerts.extend(_check_hero_card_name_alias_slugs_in_canonical(canonical_path))
+
+    weapons_game_path = DATA / "csv/weapons-game.csv"
+    weapons_printings_path = DATA / "csv/weapons-printings.csv"
+    weapon_game_ids = _id_set_from_column(weapons_game_path, "WeaponGameId")
+    if weapon_game_ids:
+        alerts.extend(
+            _check_fk_column(
+                weapons_printings_path,
+                "WeaponGameId",
+                weapon_game_ids,
+                "weapons-game.csv WeaponGameId",
+                "Weapons printings",
+            )
+        )
+
+    weapons_canonical_path = DATA / "csv/weapons-canonical.csv"
+    canonical_weapon_ids = _id_set_from_column(weapons_canonical_path, "CanonicalWeaponId")
+    if canonical_weapon_ids:
+        alerts.extend(
+            _check_fk_column(
+                weapons_game_path,
+                "CanonicalWeaponId",
+                canonical_weapon_ids,
+                "weapons-canonical.csv CanonicalWeaponId",
+                "Weapons game",
+            )
+        )
+        story_weapons_path = DATA / "csv/story-weapons.csv"
+        alerts.extend(
+            _check_fk_column(
+                story_weapons_path,
+                "CanonicalWeaponId",
+                canonical_weapon_ids,
+                "weapons-canonical.csv CanonicalWeaponId",
+                "Story ↔ weapon links",
+            )
+        )
+
+    equipment_game_path = DATA / "csv/equipment-game.csv"
+    equipment_printings_path = DATA / "csv/equipment-printings.csv"
+    equipment_canonical_path = DATA / "csv/equipment-canonical.csv"
+    equipment_game_ids = _id_set_from_column(equipment_game_path, "EquipmentGameId")
+    canonical_equipment_ids = _id_set_from_column(equipment_canonical_path, "CanonicalEquipmentId")
+    if canonical_equipment_ids:
+        alerts.extend(
+            _check_fk_column(
+                equipment_game_path,
+                "CanonicalEquipmentId",
+                canonical_equipment_ids,
+                "equipment-canonical.csv CanonicalEquipmentId",
+                "Equipment game",
+            )
+        )
+        story_equipment_path = DATA / "csv/story-equipment.csv"
+        alerts.extend(
+            _check_fk_column(
+                story_equipment_path,
+                "CanonicalEquipmentId",
+                canonical_equipment_ids,
+                "equipment-canonical.csv CanonicalEquipmentId",
+                "Story ↔ equipment links",
+            )
+        )
+    if equipment_game_ids:
+        alerts.extend(
+            _check_fk_column(
+                equipment_printings_path,
+                "EquipmentGameId",
+                equipment_game_ids,
+                "equipment-game.csv EquipmentGameId",
+                "Equipment printings",
+            )
+        )
+
+    fauna_path = DATA / "csv/fauna.csv"
+    story_fauna_path = DATA / "csv/story-fauna.csv"
+    fauna_ids = _id_set_from_column(fauna_path, "FaunaId")
+    if fauna_ids:
+        alerts.extend(
+            _check_fk_column(
+                story_fauna_path,
+                "FaunaId",
+                fauna_ids,
+                "fauna.csv FaunaId",
+                "Story ↔ fauna links",
+            )
+        )
+
+    region_ids = _id_set_from_column(DATA / "csv/regions.csv", "RegionId")
+    locations_path = DATA / "csv/locations.csv"
+    if region_ids and locations_path.is_file():
+        alerts.extend(
+            _check_fk_column(
+                locations_path,
+                "RegionId",
+                region_ids,
+                "regions.csv RegionId",
+                "Locations",
+            )
+        )
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/story-regions.csv",
+                "RegionId",
+                region_ids,
+                "regions.csv RegionId",
+                "Story ↔ region links",
+            )
+        )
+
+    # groups: the four id columns SQLite cannot enforce, because each one defaults
+    # to '' for the many rows that have no parent, no location, no evidence.
+    group_ids = _id_set_from_column(DATA / "csv/groups.csv", "GroupId")
+    location_ids = _id_set_from_column(DATA / "csv/locations.csv", "LocationId")
+    if location_ids:
+        alerts.extend(
+            _check_fk_column(
+                locations_path,
+                "ParentLocationId",
+                location_ids,
+                "locations.csv LocationId",
+                "Location containment",
+            )
+        )
+    if group_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/groups.csv",
+                "ParentGroupId",
+                group_ids,
+                "groups.csv GroupId",
+                "Group hierarchy",
+            )
+        )
+        for child, label in (
+            ("group-characters.csv", "Group ↔ member links"),
+            ("story-groups.csv", "Story ↔ group links"),
+        ):
+            alerts.extend(_check_fk_column(DATA / f"csv/{child}", "GroupId", group_ids, "groups.csv GroupId", label))
+    # The other half of each membership row. Only GroupId was checked here, so a
+    # bad member id reached SQLite and failed the *build* at seed time instead of
+    # raising an alert — the wrong place to learn about it.
+    character_ids = _id_set_from_column(DATA / "csv/characters.csv", "CharacterId")
+    if character_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/group-characters.csv",
+                "CharacterId",
+                character_ids,
+                "characters.csv CharacterId",
+                "Group ↔ member links",
+            )
+        )
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/title-holders.csv",
+                "CharacterId",
+                character_ids,
+                "characters.csv CharacterId",
+                "Title ↔ holder links",
+            )
+        )
+    # titles (R3): title_holders.CharacterId is checked below, alongside
+    # character_ids. GroupId defaults to '' for a title with no parent body,
+    # the same shape as groups.parent_group_id — no SQL REFERENCES, so it is
+    # checked here rather than enforced by SQLite.
+    title_ids = _id_set_from_column(DATA / "csv/titles.csv", "TitleId")
+    if title_ids:
+        for child, label in (
+            ("title-holders.csv", "Title ↔ holder links"),
+            ("story-titles.csv", "Story ↔ title links"),
+        ):
+            alerts.extend(_check_fk_column(DATA / f"csv/{child}", "TitleId", title_ids, "titles.csv TitleId", label))
+    if group_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/titles.csv",
+                "GroupId",
+                group_ids,
+                "groups.csv GroupId",
+                "Title ↔ group link",
+            )
+        )
+
+    # Kinship (R8). Both halves of every character-kin.csv row key on
+    # characters.csv CharacterId, the same shape group-characters.csv and
+    # title-holders.csv both need checked in both directions.
+    if character_ids:
+        for column in ("CharacterId", "RelativeId"):
+            alerts.extend(
+                _check_fk_column(
+                    DATA / "csv/character-kin.csv",
+                    column,
+                    character_ids,
+                    "characters.csv CharacterId",
+                    "Character kin",
+                )
+            )
+    alerts.extend(_check_kin_relations(DATA / "csv/character-kin.csv"))
+    alerts.extend(_check_kin_qualifiers(DATA / "csv/character-kin.csv"))
+    alerts.extend(_check_no_self_kin(DATA / "csv/character-kin.csv"))
+
+    # Identity spine (migration 12). Both halves of character_heroes: a stale
+    # CanonicalId means a hero that no longer exists still claims an identity,
+    # and a stale CharacterId means the character row it points at is gone —
+    # either one reaches SQLite as an FK violation at seed time instead of an
+    # alert, the same gap the group membership checks above close.
+    #
+    # This set was read for group-heroes.csv too until migration 18 merged that
+    # file into group-characters.csv, where a hero member is a CharacterId and
+    # is checked against characters.csv with every other member.
+    hero_canonical_ids = _id_set_from_column(DATA / "csv/heroes-canonical.csv", "CanonicalId")
+    if hero_canonical_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/character-heroes.csv",
+                "CanonicalId",
+                hero_canonical_ids,
+                "heroes-canonical.csv CanonicalId",
+                "Character ↔ hero links",
+            )
+        )
+    if character_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/character-heroes.csv",
+                "CharacterId",
+                character_ids,
+                "characters.csv CharacterId",
+                "Character ↔ hero links",
+            )
+        )
+
+    # Alternate names (R4, R6). Each row points at the entity whose other name it
+    # is, so a stale owner id leaves an alias resolving to nothing.
+    if character_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/character-epithets.csv",
+                "CharacterId",
+                character_ids,
+                "characters.csv CharacterId",
+                "Character epithets",
+            )
+        )
+    if location_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/location-aliases.csv",
+                "LocationId",
+                location_ids,
+                "locations.csv LocationId",
+                "Location aliases",
+            )
+        )
+    if group_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/group-aliases.csv",
+                "GroupId",
+                group_ids,
+                "groups.csv GroupId",
+                "Group aliases",
+            )
+        )
+    # Kinds (R2). Both halves of the junction, and the alias table's owner.
+    kind_ids = _id_set_from_column(DATA / "csv/kinds.csv", "KindId")
+    if kind_ids:
+        for child, column, label in (
+            ("character-kinds.csv", "KindId", "Character ↔ kind"),
+            ("kind-aliases.csv", "KindId", "Kind aliases"),
+        ):
+            alerts.extend(_check_fk_column(DATA / f"csv/{child}", column, kind_ids, "kinds.csv KindId", label))
+    if character_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/character-kinds.csv",
+                "CharacterId",
+                character_ids,
+                "characters.csv CharacterId",
+                "Character ↔ kind",
+            )
+        )
+    # Professions (R9). Both halves of the junction; no alias table (see
+    # entries/catalogue/professions.py — no plural or dated alternate name has
+    # needed one yet, unlike kind).
+    profession_ids = _id_set_from_column(DATA / "csv/professions.csv", "ProfessionId")
+    if profession_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/character-professions.csv",
+                "ProfessionId",
+                profession_ids,
+                "professions.csv ProfessionId",
+                "Character ↔ profession links",
+            )
+        )
+    if character_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/character-professions.csv",
+                "CharacterId",
+                character_ids,
+                "characters.csv CharacterId",
+                "Character ↔ profession links",
+            )
+        )
+    alerts.extend(_check_epithet_labels(DATA / "csv/character-epithets.csv"))
+    alerts.extend(_check_character_statuses(DATA / "csv/characters.csv"))
+    alerts.extend(
+        _check_no_stranded_hero_character(
+            DATA / "csv/characters.csv",
+            DATA / "csv/heroes-canonical.csv",
+            DATA / "csv/character-heroes.csv",
+        )
+    )
+    alerts.extend(_check_alias_name_collisions())
+    if location_ids and group_ids:
+        alerts.extend(
+            _check_fk_column(
+                DATA / "csv/groups.csv",
+                "LocationId",
+                location_ids,
+                "locations.csv LocationId",
+                "Group ↔ location",
+            )
+        )
+    alerts.extend(_check_self_parent(DATA / "csv/groups.csv", "GroupId", "ParentGroupId", "Groups"))
+    alerts.extend(_check_self_parent(locations_path, "LocationId", "ParentLocationId", "Locations"))
+
+    alerts.extend(_check_location_lore_fragments(DATA / "csv/locations.csv"))
+    alerts.extend(
+        _check_location_lore_fragments_match_headings(DATA / "csv/locations.csv", DATA / "csv/regions.csv", SRC)
+    )
+
+    alerts.extend(
+        _check_id_hash_drift(DATA / "csv/characters.csv", "CharacterId", "Name", lore_character_id, "characters.csv")
+    )
+    alerts.extend(_check_id_hash_drift(DATA / "csv/monsters.csv", "MonsterId", "Name", monster_id, "monsters.csv"))
+    alerts.extend(_check_id_hash_drift(DATA / "csv/fauna.csv", "FaunaId", "Name", fauna_id_from_name, "fauna.csv"))
+    alerts.extend(_check_id_hash_drift(DATA / "csv/flora.csv", "FloraId", "Name", flora_id, "flora.csv"))
+    alerts.extend(_check_id_hash_drift(DATA / "csv/groups.csv", "GroupId", "Name", group_id, "groups.csv"))
+    alerts.extend(_check_id_hash_drift(DATA / "csv/titles.csv", "TitleId", "Name", title_id, "titles.csv"))
+    alerts.extend(
+        _check_id_hash_drift(DATA / "csv/professions.csv", "ProfessionId", "Name", profession_id, "professions.csv")
+    )
+    alerts.extend(
+        _check_id_hash_drift(
+            DATA / "csv/regions.csv",
+            "RegionId",
+            "RegionName",
+            region_row_id,
+            "regions.csv",
+        )
+    )
+    alerts.extend(_check_descriptions_targets_exist(DATA / "descriptions.py"))
+    alerts.extend(_check_supplement_types(SRC / "hints_supplement.json"))
+    alerts.extend(_check_supplement_types_are_not_kinds(DATA / "csv/kinds.csv", DATA / "csv/kind-aliases.csv"))
+    alerts.extend(_check_group_lore_fragments(DATA / "csv/groups.csv", DATA / "csv/stories.csv", SRC))
+
+    return alerts
+
+
+# Below this ratio, two normalized names are treated as unrelated. Chosen so
+# single-letter typos and transpositions (``Ampitheatre``/``Amphitheatre``,
+# ``Gigadril``/``Gigadrill Elevator``) are flagged while distinct short names
+# that happen to share a common word (``East Rise``/``West Rise``) mostly
+# fall below it. Some legitimate near-duplicates use unrelated wording
+# (``Silvarium``/``The Silvaris``) and won't be caught by string similarity
+# at all — this check is a net, not a guarantee.
+#
+# Lowered from 0.85 to 0.80 once the registry started being extended by
+# automated registration rather than by hand: ``Solarium``/``The Solarium``
+# (same region, two rows) scores 0.84 and was being missed. The cost is more
+# false positives, which is the right trade only because a reviewed pair can be
+# recorded once in ``reviewed-name-pairs.csv`` and stops being reported.
+_DUPLICATE_NAME_SIMILARITY_THRESHOLD = 0.80
+
+# Leading articles are stripped for this comparison rather than scored: "the X"
+# and "X" are the single most common way one place becomes two rows, and the
+# ratio for short names lands under any threshold worth using.
+_ARTICLES = ("the", "a", "an")
+
+REVIEWED_PAIRS_CSV = DATA / "csv/reviewed-name-pairs.csv"
+
+
+def _differ_only_by_article(n1: str, n2: str) -> bool:
+    """True when two normalized names differ only by a leading article."""
+    for article in _ARTICLES:
+        if n1.startswith(article) and n1[len(article) :] == n2:
+            return True
+        if n2.startswith(article) and n2[len(article) :] == n1:
+            return True
+    return False
+
+
+def _reviewed_pairs() -> dict[frozenset, str]:
+    """Return ``{frozenset({id1, id2}): note}`` for pairs a human has ruled on.
+
+    The ledger records **only** decisions made by a person. Nothing writes to it
+    automatically: a pair stays reported on every run until someone looks at the
+    two rows and records that they are distinct. Recording a pair here asserts
+    "these are two different things and both rows should exist" — the opposite
+    verdict is not recorded, because merging the rows makes the pair disappear.
+    """
+    if not REVIEWED_PAIRS_CSV.is_file():
+        return {}
+    reviewed: dict[frozenset, str] = {}
+    _, rows = read_pipe_csv(REVIEWED_PAIRS_CSV)
+    for row in rows:
+        id1, id2 = (row.get("IdA") or "").strip(), (row.get("IdB") or "").strip()
+        if id1 and id2:
+            reviewed[frozenset({id1, id2})] = (row.get("Note") or "").strip()
+    return reviewed
+
+
+def _check_reviewed_pairs_are_current(known_ids: set[str]) -> list[str]:
+    """Flag ledger entries naming a row that no longer exists.
+
+    A stale entry is a silent suppression: the id it names has been merged away
+    or renamed, so it can no longer match anything, and a genuinely new
+    near-duplicate involving the surviving row would look reviewed.
+    """
+    alerts: list[str] = []
+    if not REVIEWED_PAIRS_CSV.is_file():
+        return alerts
+    _, rows = read_pipe_csv(REVIEWED_PAIRS_CSV)
+    for row in rows:
+        for column in ("IdA", "IdB"):
+            rid = (row.get(column) or "").strip()
+            if rid and rid not in known_ids:
+                alerts.append(
+                    f"reviewed-name-pairs.csv: {column}={rid!r} no longer exists in any registry — "
+                    "delete the row, or repoint it if the entity was renamed."
+                )
+    return alerts
+
+
+def _check_near_duplicate_names(
+    path: Path,
+    id_column: str,
+    name_column: str,
+    label: str,
+    *,
+    group_column: str | None = None,
+) -> list[str]:
+    """Flag pairs of rows whose normalized names are near-identical.
+
+    Catches the recurring pattern of a misspelled or re-cased duplicate row
+    (e.g. ``Ampitheatre`` vs ``Amphitheatre``) coexisting with the correct
+    one, where a story link points at the wrong copy and the other is
+    orphaned. Uses :func:`difflib.SequenceMatcher` similarity over
+    :func:`text_utils.normalize_name` output; pairs at or above
+    :data:`_DUPLICATE_NAME_SIMILARITY_THRESHOLD` are reported.
+
+    Args:
+        path: CSV file to check.
+        id_column: Column holding the row's id, for alert messages.
+        name_column: Column holding the display name to compare.
+        label: Human-readable label for alert messages.
+        group_column: If given, only compare rows sharing the same value in
+            this column (e.g. ``RegionId``) — keeps the check ``O(n^2)``
+            within a region rather than across the whole table.
+
+    Returns:
+        Alert strings, one per near-duplicate pair (deduplicated).
+    """
+    if not path.is_file():
+        return []
+    _, rows = read_pipe_csv(path)
+    groups: dict[str, list[tuple[str, str]]] = {}
+    for row in rows:
+        name = (row.get(name_column) or "").strip()
+        rid = (row.get(id_column) or "").strip()
+        if not name or not rid:
+            continue
+        key = (row.get(group_column) or "").strip() if group_column else ""
+        groups.setdefault(key, []).append((name, rid))
+
+    reviewed = _reviewed_pairs()
+    alerts: list[str] = []
+    for entries in groups.values():
+        for (name1, id1), (name2, id2) in combinations(entries, 2):
+            if name1 == name2:
+                continue
+            if frozenset({id1, id2}) in reviewed:
+                continue  # a person has looked at these two and recorded them as distinct
+            n1, n2 = normalize_name(name1), normalize_name(name2)
+            if n1 == n2:
+                ratio = 1.0
+            else:
+                ratio = SequenceMatcher(None, n1, n2).ratio()
+            article = _differ_only_by_article(n1, n2)
+            if ratio < _DUPLICATE_NAME_SIMILARITY_THRESHOLD and not article:
+                continue
+            why = "differs only by a leading article" if article else f"similarity {ratio:.2f}"
+            alerts.append(
+                f"{label}: {id_column}={id1!r} Name={name1!r} looks like a possible "
+                f"duplicate of {id_column}={id2!r} Name={name2!r} ({why}). "
+                "Decide which: if they are the same thing, merge the rows and repoint "
+                "any story links to whichever has the fuller notes/description; if they "
+                "are genuinely distinct, record them in csv/reviewed-name-pairs.csv so "
+                "this stops being reported."
+            )
+    return alerts
+
+
+def collect_warnings() -> list[str]:
+    """Run checks that surface known, pre-existing issues without failing CI.
+
+    Currently:
+
+    - ``locations.csv`` id-hash drift (153/190 rows as of the 2026 audit —
+      a legacy id scheme predates ``registry_ids.location_id()`` and was
+      never migrated). This is real and causes duplicate rows on write
+      (see :func:`_check_location_id_hash_drift`), but is too large to fix
+      as a side effect of an unrelated commit, so it's reported without
+      blocking until a dedicated migration lands.
+    - Near-duplicate entity names (see :func:`_check_near_duplicate_names`)
+      across ``locations.csv`` (compared within each region), ``characters.csv``,
+      ``monsters.csv``, ``fauna.csv``, and ``flora.csv``. Warning-only
+      because similarity matching has false positives (e.g. ``East Rise``
+      vs ``West Rise``) that need a human to dismiss.
+    - ``stories.csv`` rows with no ``upsert_story()`` declaration in
+      ``entries/`` (see :func:`_check_undeclared_stories`). 182 of 384 as of
+      the check's introduction — too large to clear as a side effect of an
+      unrelated commit, so it's reported without blocking until the backlog
+      of registrations is worked down.
+
+    Returns:
+        A flat list of human-readable warning strings (empty when clean).
+    """
+    warnings = _check_location_id_hash_drift(DATA / "csv/locations.csv")
+    warnings.extend(_check_undeclared_stories(DATA / "csv/stories.csv", DATA / "entries"))
+    warnings.extend(
+        _check_near_duplicate_names(
+            DATA / "csv/locations.csv",
+            "LocationId",
+            "Name",
+            "locations.csv",
+            group_column="RegionId",
+        )
+    )
+    warnings.extend(_check_near_duplicate_names(DATA / "csv/characters.csv", "CharacterId", "Name", "characters.csv"))
+    warnings.extend(_check_near_duplicate_names(DATA / "csv/monsters.csv", "MonsterId", "Name", "monsters.csv"))
+    warnings.extend(_check_near_duplicate_names(DATA / "csv/fauna.csv", "FaunaId", "Name", "fauna.csv"))
+    warnings.extend(_check_near_duplicate_names(DATA / "csv/flora.csv", "FloraId", "Name", "flora.csv"))
+    warnings.extend(
+        _check_near_duplicate_names(DATA / "csv/food-and-drink.csv", "FoodDrinkId", "Name", "food-and-drink.csv")
+    )
+    warnings.extend(_check_new_catalogue_names(_reviewed_pairs()))
+    warnings.extend(_check_reviewed_pairs_are_current(_all_registry_ids()))
+    return warnings
+
+
+def _check_undeclared_stories(stories_path: Path, entries_dir: Path) -> list[str]:
+    """Flag the gap between ``stories.csv`` rows and ``upsert_story()`` declarations.
+
+    A story is only registered — heroes, locations, monsters and everything
+    else linked to its page — once some module under ``entries/`` calls
+    ``db.upsert_story(path=...)`` for it. Nothing ties ``stories.csv`` (built
+    by ``create_stories_index.py`` from every page under a
+    :data:`ALLOWED_STORY_TYPES` root) to that declaration, so a page can sit
+    registered-as-a-page but never registered-as-lore indefinitely.
+    ``data-entry.py`` prints how many declarations it replayed, never how many
+    ``stories.csv`` rows had none — this check is the only thing that counts
+    the second number.
+
+    AST-parses every ``.py`` module under ``entries/`` for the ``path=``
+    keyword on every
+    ``*.upsert_story(...)`` call, rather than importing the module and reading
+    what it declared: importing a section module executes every declaration
+    in it at import time (each one opens ``fablore.db``), which is a side
+    effect a CSV-only validator that must run with no database present cannot
+    have. ``__init__.py`` and ``_runner.py`` hold no declarations — the former
+    is the ``SECTIONS`` map, the latter the ``db`` proxy — and are skipped.
+    The walk is recursive so that a declaration moved under ``catalogue/`` (or
+    any future subpackage) counts as declared rather than silently inflating
+    the gap; today every one of the 202 calls sits in a section module.
+
+    Args:
+        stories_path: ``stories.csv`` path.
+        entries_dir: ``src/data/entries`` directory holding the section modules.
+
+    Returns:
+        A single-element list naming the count of undeclared stories, or an
+        empty list when every row has a declaration.
+    """
+    if not stories_path.is_file() or not entries_dir.is_dir():
+        return []
+    _, rows = read_pipe_csv(stories_path)
+    story_keys = {(row.get("StoryKey") or "").strip() for row in rows if (row.get("StoryKey") or "").strip()}
+    if not story_keys:
+        return []
+
+    declared: set[str] = set()
+    for module_path in sorted(entries_dir.rglob("*.py")):
+        if module_path.name in {"__init__.py", "_runner.py"}:
+            continue
+        tree = ast.parse(module_path.read_text(encoding="utf-8"))
+        for node in ast.walk(tree):
+            if not isinstance(node, ast.Call):
+                continue
+            if not isinstance(node.func, ast.Attribute) or node.func.attr != "upsert_story":
+                continue
+            for kw in node.keywords:
+                if kw.arg != "path" or not isinstance(kw.value, ast.Constant) or not isinstance(kw.value.value, str):
+                    continue
+                path = kw.value.value.strip()
+                if path.startswith("src/"):
+                    path = path[len("src/") :]
+                declared.add(path)
+
+    missing = story_keys - declared
+    if not missing:
+        return []
+    return [
+        f"Stories: {len(missing)} of {len(story_keys)} stories.csv rows have no upsert_story() "
+        "declaration in entries/*.py — registered as a page but never registered as lore. "
+        "See .claude/rules/data-pipeline.md and the register-story skill."
+    ]
+
+
+def _check_new_catalogue_names(reviewed: dict[frozenset, str]) -> list[str]:
+    """Compare not-yet-registered catalogue constants against the existing registry.
+
+    The CSV checks compare row against row, so they only see an entity once its
+    declaration has been applied — which is after the duplicate row exists. A
+    constant added by ``register-story`` for a genuinely new entity sits in the
+    catalogue with no CSV row yet, and is exactly the case most likely to be a
+    second spelling of something registered by hand years ago. This is the only
+    check that runs before the row is created.
+    """
+    try:
+        from entries.catalogue import characters, fauna, flora, food_drink, locations, monsters
+    except Exception as exc:  # noqa: BLE001 — a validator must not fail on an import problem
+        # Returning [] here read as a clean pass for the whole check. When
+        # catalogue/npcs.py became characters.py the import broke and all six
+        # specs stopped running, silently, while validate_data still printed OK.
+        # A validator that cannot run must say so.
+        return [f"catalogue: could not import entries.catalogue, so no new-name check ran ({exc})"]
+
+    from registry_ids import food_drink_id
+
+    specs = [
+        (
+            locations,
+            "csv/locations.csv",
+            "LocationId",
+            lambda e: location_id(e.name, region_row_id(e.region) if e.region else ""),
+        ),
+        (characters, "csv/characters.csv", "CharacterId", lambda e: lore_character_id(e.name)),
+        (monsters, "csv/monsters.csv", "MonsterId", lambda e: monster_id(e.name)),
+        (fauna, "csv/fauna.csv", "FaunaId", lambda e: fauna_id_from_name(e.name)),
+        (flora, "csv/flora.csv", "FloraId", lambda e: flora_id(e.name)),
+        (food_drink, "csv/food-and-drink.csv", "FoodDrinkId", lambda e: food_drink_id(e.name, e.form)),
+    ]
+    alerts: list[str] = []
+    for module, csv_name, id_column, id_fn in specs:
+        path = DATA / csv_name
+        if not path.is_file():
+            continue
+        _, rows = read_pipe_csv(path)
+        known = {(row.get(id_column) or "").strip(): (row.get("Name") or "").strip() for row in rows}
+        for const in sorted(n for n in dir(module) if n.isupper()):
+            entity = getattr(module, const)
+            entity_id = id_fn(entity)
+            if entity_id in known:
+                continue  # already a registry row; the row-vs-row checks cover it
+            n1 = normalize_name(entity.name)
+            for row_id, row_name in known.items():
+                n2 = normalize_name(row_name)
+                if n1 == n2 or frozenset({entity_id, row_id}) in reviewed:
+                    continue
+                article = _differ_only_by_article(n1, n2)
+                ratio = SequenceMatcher(None, n1, n2).ratio()
+                if ratio < _DUPLICATE_NAME_SIMILARITY_THRESHOLD and not article:
+                    continue
+                why = "differs only by a leading article" if article else f"similarity {ratio:.2f}"
+                alerts.append(
+                    f"{Path(csv_name).name}: catalogue constant {const} Name={entity.name!r} is new "
+                    f"(no registry row yet) and looks like a possible duplicate of existing "
+                    f"{id_column}={row_id!r} Name={row_name!r} ({why}). Decide before the "
+                    "declaration is applied — once it runs, the second row exists. If they are "
+                    f"genuinely distinct, record {entity_id}|{row_id} in csv/reviewed-name-pairs.csv."
+                )
+    return alerts
+
+
+def _all_registry_ids() -> set[str]:
+    """Every id in every lore registry, for spotting stale ledger entries."""
+    ids: set[str] = set()
+    for name, column in (
+        ("locations.csv", "LocationId"),
+        ("characters.csv", "CharacterId"),
+        ("monsters.csv", "MonsterId"),
+        ("fauna.csv", "FaunaId"),
+        ("flora.csv", "FloraId"),
+        ("food-and-drink.csv", "FoodDrinkId"),
+    ):
+        path = DATA / "csv" / name
+        if not path.is_file():
+            continue
+        _, rows = read_pipe_csv(path)
+        ids.update((row.get(column) or "").strip() for row in rows if (row.get(column) or "").strip())
+    return ids
+
+
+def main() -> int:
+    """CLI entry: print alerts to stderr; return process exit code.
+
+    Returns:
+        ``0`` if no alerts, ``1`` otherwise. Warnings (see
+        :func:`collect_warnings`) print but never affect the exit code.
+    """
+    warnings = collect_warnings()
+    if warnings:
+        # The header used to count every warning and describe them all as id-hash
+        # drift, which was wrong whenever the near-duplicate check found anything
+        # — and it finds most of them. Count each kind separately.
+        drift = sum(1 for msg in warnings if "stored id does not match" in msg)
+        pairs = sum(1 for msg in warnings if "looks like a possible duplicate" in msg)
+        stale = sum(1 for msg in warnings if msg.startswith("reviewed-name-pairs.csv:"))
+        parts = []
+        if drift:
+            parts.append(f"{drift} id-hash drift (see plans/ for the migration this affects)")
+        if pairs:
+            parts.append(f"{pairs} name pair(s) awaiting a decision — see csv/reviewed-name-pairs.csv")
+        if stale:
+            parts.append(f"{stale} stale reviewed-pair entr(y/ies)")
+        other = len(warnings) - drift - pairs - stale
+        if other:
+            parts.append(f"{other} other")
+        print(f"WARNING: not blocking — {'; '.join(parts)}:", file=sys.stderr)
+        for msg in warnings:
+            print(f"WARNING: {msg}", file=sys.stderr)
+
+    alerts = collect_alerts()
+    for msg in alerts:
+        print(f"ALERT: {msg}", file=sys.stderr)
+    if alerts:
+        print(
+            f"\nALERT: {len(alerts)} data validation issue(s). Fix generators or source CSVs.",
+            file=sys.stderr,
+        )
+        return 1
+    print("validate_data: OK (no empty required IDs or broken FK links in checked files).")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
