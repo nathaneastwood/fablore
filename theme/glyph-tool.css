@@ -391,6 +391,32 @@
     color: #e0a458;
 }
 
+.glyph-export {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: center;
+    margin-left: auto;
+}
+
+.glyph-opt {
+    display: inline-flex;
+    gap: 0.4rem;
+    align-items: center;
+    font-size: 1.2rem;
+    color: var(--searchresults-header-fg);
+}
+
+.glyph-opt select {
+    padding: 0.4rem 0.5rem;
+    border: 1px solid var(--table-border-color);
+    border-radius: 4px;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: inherit;
+    font-size: 1.2rem;
+}
+
 .glyph-save {
     padding: 0.55rem 1.1rem;
     border: 1px solid var(--table-border-color);

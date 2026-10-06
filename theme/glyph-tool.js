@@ -299,10 +299,21 @@
 
         var foot = el("div", "glyph-tool-foot");
         var warn = el("span", "glyph-warn");
+        var exp = el("div", "glyph-export");
+        var bgSel = option("Background", [
+            ["plate", "Plate colours"], ["clear", "Transparent"]]);
+        var inkSel = option("Ink", [
+            ["plate", "Plate colours"], ["black", "Black"], ["white", "White"]]);
         var save = el("button", "glyph-save", "Download PNG");
         save.type = "button";
+        var saveSvg = el("button", "glyph-save", "Download SVG");
+        saveSvg.type = "button";
+        saveSvg.title = "Vector outlines: scale to any size without losing quality";
+        [bgSel, inkSel].forEach(function (o) { exp.appendChild(o.label); });
+        exp.appendChild(save);
+        exp.appendChild(saveSvg);
         foot.appendChild(warn);
-        foot.appendChild(save);
+        foot.appendChild(exp);
 
         mount.className = "glyph-tool";
         mount.style.setProperty("--glyph-font", script.font);
@@ -314,8 +325,24 @@
         return {
             key: key, script: script, input: input, field: field,
             mirrorText: mirrorText, dirs: dirs, plate: plate, out: out,
-            latin: latin, warn: warn, save: save, dir: out.dataset.dir
+            latin: latin, warn: warn, save: save, saveSvg: saveSvg,
+            bg: bgSel.select, ink: inkSel.select,
+            dir: out.dataset.dir
         };
+    }
+
+    /* A labelled <select>, for the export options. */
+    function option(text, choices) {
+        var label = el("label", "glyph-opt");
+        var select = el("select");
+        choices.forEach(function (c) {
+            var o = el("option", null, c[1]);
+            o.value = c[0];
+            select.appendChild(o);
+        });
+        label.appendChild(el("span", null, text));
+        label.appendChild(select);
+        return { label: label, select: select };
     }
 
     /* Something else already owns the keyboard — a search box, another field. */
@@ -447,24 +474,22 @@
     }
 
     /*
-     * Export at a fixed 3x scale so the PNG is usable for social posts without
-     * asking the reader to think about pixel dimensions.
+     * One layout for both exports, so the PNG and the SVG cannot disagree about
+     * where a letter sits. Everything is measured in output pixels at the
+     * requested scale; the SVG uses the 3x numbers as its user units.
+     *
+     * `advance` measures one line of text at the export size: the canvas asks
+     * the browser, the SVG sums the advance widths outlined from the font.
      */
-    function download(ui) {
-        var pal = ui.script.plate;
+    function layout(ui, scale, advance) {
         var body = writable(ui.input.value).text;
         var lines = (ui.dir === "rtl" ? reversed(body) : body).split("\n");
-        var scale = 3;
         var size = 64 * scale;
         var padX = 56 * scale;
         var padY = 44 * scale;
         var lead = size * 1.6;
         var vertical = ui.dir === "vertical";
-
-        var canvas = document.createElement("canvas");
-        var ctx = canvas.getContext("2d");
-        var font = size + "px " + ui.script.font + ", serif";
-        ctx.font = font;
+        var width, height;
 
         if (vertical) {
             // The plate bounds its columns and wraps into more of them, so the
@@ -472,58 +497,230 @@
             // otherwise come out as a single column thousands of pixels tall.
             lines = columnise(lines, COLUMN);
             var longest = lines.reduce(function (n, l) { return Math.max(n, l.length); }, 0);
-            canvas.width = Math.ceil(lead * lines.length + padX * 2);
-            canvas.height = Math.ceil(size * 1.25 * longest + padY * 2);
+            width = Math.ceil(lead * lines.length + padX * 2);
+            height = Math.ceil(size * 1.25 * longest + padY * 2);
         } else {
             var widest = 0;
             lines.forEach(function (line) {
-                widest = Math.max(widest, ctx.measureText(line).width);
+                widest = Math.max(widest, advance(line, size));
             });
-            canvas.width = Math.ceil(widest + padX * 2);
-            canvas.height = Math.ceil(lead * lines.length + padY * 2);
+            width = Math.ceil(widest + padX * 2);
+            height = Math.ceil(lead * lines.length + padY * 2);
+        }
+        return {
+            lines: lines, size: size, padX: padX, padY: padY, lead: lead,
+            vertical: vertical, width: width, height: height
+        };
+    }
+
+    /*
+     * Ink and background as the reader chose them. A transparent plate with the
+     * plate's own gradient ink is allowed, but black and white are offered
+     * because a print shop wants one solid colour that suits the garment.
+     */
+    function exportStyle(ui) {
+        return {
+            clear: ui.bg.value === "clear",
+            ink: ui.ink.value
+        };
+    }
+
+    // Browsers refuse canvases past about 16k a side, or ~270M pixels in total.
+    var MAX_SIDE = 16000;
+
+    /*
+     * One PNG size, large enough to print: a letter comes out 640px tall, about
+     * 5cm at 300 dpi. Anyone who needs more takes the SVG, which has no size.
+     * A screen-sized PNG is not offered; scaling this one down loses nothing.
+     */
+    var PNG_SCALE = 10;
+
+    function download(ui) {
+        var pal = ui.script.plate;
+        var style = exportStyle(ui);
+        var scale = PNG_SCALE;
+
+        var canvas = document.createElement("canvas");
+        var ctx = canvas.getContext("2d");
+        function advance(line, size) {
+            ctx.font = size + "px " + ui.script.font + ", serif";
+            return ctx.measureText(line).width;
         }
 
+        var box = layout(ui, scale, advance);
+        // Over the cap, fall back to the largest scale that fits, so a long
+        // line still downloads rather than failing on an oversized canvas.
+        var over = Math.max(box.width, box.height) / MAX_SIDE;
+        if (over > 1) box = layout(ui, scale / over, advance);
+
+        canvas.width = box.width;
+        canvas.height = box.height;
         ctx = canvas.getContext("2d");
-        var bg = ctx.createRadialGradient(
-            canvas.width / 2, canvas.height * 0.4, 0,
-            canvas.width / 2, canvas.height * 0.4, canvas.width * 0.75);
-        pal.bg.forEach(function (s) { bg.addColorStop(s[1], s[0]); });
-        ctx.fillStyle = bg;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        var ink = ctx.createLinearGradient(0, 0, canvas.width, 0);
-        pal.ink.forEach(function (s) { ink.addColorStop(s[1], s[0]); });
+        if (!style.clear) {
+            var bg = ctx.createRadialGradient(
+                canvas.width / 2, canvas.height * 0.4, 0,
+                canvas.width / 2, canvas.height * 0.4, canvas.width * 0.75);
+            pal.bg.forEach(function (s) { bg.addColorStop(s[1], s[0]); });
+            ctx.fillStyle = bg;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
 
-        ctx.font = font;
-        ctx.fillStyle = ink;
+        var fill;
+        if (style.ink === "black") fill = "#000000";
+        else if (style.ink === "white") fill = "#ffffff";
+        else {
+            fill = ctx.createLinearGradient(0, 0, canvas.width, 0);
+            pal.ink.forEach(function (s) { fill.addColorStop(s[1], s[0]); });
+        }
+
+        ctx.font = box.size + "px " + ui.script.font + ", serif";
+        ctx.fillStyle = fill;
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
 
-        if (vertical) {
-            lines.forEach(function (line, i) {
-                var x = canvas.width - padX - lead * (i + 0.5);
+        if (box.vertical) {
+            box.lines.forEach(function (line, i) {
+                var x = canvas.width - box.padX - box.lead * (i + 0.5);
                 for (var j = 0; j < line.length; j++) {
-                    ctx.fillText(line[j], x, padY + size * 1.25 * (j + 0.5));
+                    ctx.fillText(line[j], x, box.padY + box.size * 1.25 * (j + 0.5));
                 }
             });
         } else {
-            lines.forEach(function (line, i) {
+            box.lines.forEach(function (line, i) {
                 ctx.fillText(line, canvas.width / 2,
-                    padY + lead * (i + 0.5));
+                    box.padY + box.lead * (i + 0.5));
             });
         }
 
         canvas.toBlob(function (blob) {
-            if (!blob) return;
-            var url = URL.createObjectURL(blob);
-            var a = document.createElement("a");
-            a.href = url;
-            a.download = ui.key + ".png";
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-            URL.revokeObjectURL(url);
+            if (blob) save(blob, ui.key + ".png");
         });
+    }
+
+    function save(blob, name) {
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement("a");
+        a.href = url;
+        a.download = name;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        // Safari and Firefox read the blob after click() returns, so revoking
+        // straight away can cancel the download. Give them time to start it.
+        setTimeout(function () { URL.revokeObjectURL(url); }, 60000);
+    }
+
+    /*
+     * The outlines are fetched on demand rather than shipped in this file: they
+     * are 27-100 KB per script and this script loads on every page of the site.
+     * scripts/generate_glyph_paths.py writes them from the font files.
+     */
+    var outlines = {};
+    function loadOutlines(key) {
+        if (!outlines[key]) {
+            var root = (typeof path_to_root !== "undefined") ? path_to_root : "";
+            outlines[key] = fetch(root + "languages/glyphs/" + key + ".json")
+                .then(function (r) {
+                    if (!r.ok) throw new Error("HTTP " + r.status);
+                    return r.json();
+                })
+                .catch(function (err) {
+                    delete outlines[key];
+                    throw err;
+                });
+        }
+        return outlines[key];
+    }
+
+    /* Shift every x,y pair of an absolute M/L/C path, then scale it. */
+    function placePath(d, k, dx, dy) {
+        var flip = true;
+        return d.replace(/-?\d+(?:\.\d+)?/g, function (n) {
+            var v = parseFloat(n) * k + (flip ? dx : dy);
+            flip = !flip;
+            return String(Math.round(v * 10) / 10);
+        });
+    }
+
+    function downloadSvg(ui, face) {
+        var pal = ui.script.plate;
+        var style = exportStyle(ui);
+        function glyphAdvance(ch) {
+            return face.adv[ch === " " ? " " : ch.toUpperCase()] || 0;
+        }
+        // Browsers kern by default, so the page and the PNG do; match them.
+        function pairKern(a, b) {
+            return face.kern[a.toUpperCase() + b.toUpperCase()] || 0;
+        }
+        function advance(line, size) {
+            var total = 0;
+            for (var i = 0; i < line.length; i++) {
+                total += glyphAdvance(line[i]);
+                if (i > 0) total += pairKern(line[i - 1], line[i]);
+            }
+            return total * size / face.upm;
+        }
+
+        var box = layout(ui, 3, advance);
+        var scale = box.size / face.upm;
+        var paths = [];
+        function put(ch, x, baseline) {
+            var d = face.d[ch.toUpperCase()];
+            if (d) paths.push('<path d="' + placePath(d, scale, x, baseline) + '"/>');
+        }
+        // Canvas "middle" baseline sits a little under the em box's midline.
+        var drop = face.drop * scale;
+
+        if (box.vertical) {
+            box.lines.forEach(function (line, i) {
+                var cx = box.width - box.padX - box.lead * (i + 0.5);
+                for (var j = 0; j < line.length; j++) {
+                    var w = glyphAdvance(line[j]) * scale;
+                    put(line[j], cx - w / 2,
+                        box.padY + box.size * 1.25 * (j + 0.5) + drop);
+                }
+            });
+        } else {
+            box.lines.forEach(function (line, i) {
+                var x = (box.width - advance(line, box.size)) / 2;
+                var baseline = box.padY + box.lead * (i + 0.5) + drop;
+                for (var j = 0; j < line.length; j++) {
+                    if (j > 0) x += pairKern(line[j - 1], line[j]) * scale;
+                    put(line[j], x, baseline);
+                    x += glyphAdvance(line[j]) * scale;
+                }
+            });
+        }
+
+        function stops(list) {
+            return list.map(function (s) {
+                return '<stop offset="' + s[1] + '" stop-color="' + s[0] + '"/>';
+            }).join("");
+        }
+        var defs = "";
+        var bg = "";
+        if (!style.clear) {
+            defs += '<radialGradient id="bg" gradientUnits="userSpaceOnUse" cx="' +
+                box.width / 2 + '" cy="' + box.height * 0.4 + '" r="' +
+                box.width * 0.75 + '">' + stops(pal.bg) + "</radialGradient>";
+            bg = '<rect width="' + box.width + '" height="' + box.height +
+                '" fill="url(#bg)"/>';
+        }
+        var fill = style.ink === "black" ? "#000000"
+            : style.ink === "white" ? "#ffffff" : "url(#ink)";
+        if (fill === "url(#ink)") {
+            defs += '<linearGradient id="ink" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="' +
+                box.width + '" y2="0">' + stops(pal.ink) + "</linearGradient>";
+        }
+
+        var svg = '<?xml version="1.0" encoding="UTF-8"?>\n' +
+            '<svg xmlns="http://www.w3.org/2000/svg" width="' + box.width +
+            '" height="' + box.height + '" viewBox="0 0 ' + box.width + " " +
+            box.height + '">' +
+            (defs ? "<defs>" + defs + "</defs>" : "") + bg +
+            '<g fill="' + fill + '">' + paths.join("") + "</g></svg>\n";
+        save(new Blob([svg], { type: "image/svg+xml" }), ui.key + ".svg");
     }
 
     function wire(ui) {
@@ -624,6 +821,15 @@
             } else {
                 download(ui);
             }
+        });
+
+        ui.saveSvg.addEventListener("click", function () {
+            loadOutlines(ui.key).then(function (face) {
+                downloadSvg(ui, face);
+            }, function () {
+                ui.warn.textContent = "Could not load the glyph outlines. Try again.";
+                ui.warn.dataset.active = "true";
+            });
         });
     }
 
