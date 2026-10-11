@@ -11,6 +11,10 @@ builds one HTML card in three rows, each omitted when it has nothing to show:
 * links — the original article, plus a slot that ``mdbook_graph_link`` fills
   with the Lore Graph link (it runs after this preprocessor).
 
+A hero or set information block that ``mdbook_hero_meta`` / ``mdbook_set_meta``
+already placed under the title moves into the card, between the context row
+and the byline, so the page has one card rather than two stacked blocks.
+
 The card is inserted after the first H1 heading in the chapter content.
 
 mdBook passes ``(PreprocessorContext, Book)`` as JSON on stdin; this process must
@@ -38,6 +42,15 @@ MARK_START = "<!-- fablore-story-meta:start -->"
 MARK_END = "<!-- fablore-story-meta:end -->"
 # mdbook_graph_link puts its link here, so it sits in the card's links row.
 GRAPH_SLOT = "<!-- fablore-graph-link:slot -->"
+
+# The hero / set information block those preprocessors put directly under the
+# title (``book.toml`` runs them first). The set block keeps its own markers.
+_REFERENCE_META_RE = re.compile(
+    r"\s*(?:<!-- fablore-set-meta:start -->\s*)?"
+    r'(<div class="story-meta" aria-label="(?:Hero|Set) information">.*?</div>)'
+    r"(?:\s*<!-- fablore-set-meta:end -->)?\s*",
+    re.DOTALL,
+)
 
 # Sections whose chapters live in arc folders (``<section>/<arc>/<story>.md``).
 _ARC_SECTIONS = ("main-story", "short-stories")
@@ -173,6 +186,7 @@ def _build_meta_html(
     show_word_count: bool = True,
     story_type: str = "",
     context_html: str = "",
+    reference_html: str = "",
 ) -> str:
     """Return the story card HTML followed by the share sheet."""
     items: list[str] = []
@@ -208,6 +222,8 @@ def _build_meta_html(
     parts: list[str] = ['<div class="story-card">']
     if context_html:
         parts.append(f'<p class="story-card-context">{context_html}</p>')
+    if reference_html:
+        parts.append(reference_html)
     if items:
         inner = "\n  ".join(items)
         parts.append(f'<div class="story-meta" aria-label="Story information">\n  {inner}\n</div>')
@@ -267,6 +283,21 @@ def _build_context_html(
             names.append(f'<span class="story-card-more" title="{others}">+{len(rest)} more</span>')
         pieces.append(f'<span class="story-card-heroes">{", ".join(names)}</span>')
     return "".join(pieces)
+
+
+def _take_reference_meta(content: str) -> tuple[str, str]:
+    """Split a hero / set information block off the top of the first H1's body.
+
+    Returns ``(block html, content without it)``; ``("", content)`` when the
+    title is not directly followed by such a block.
+    """
+    match = re.search(r"^#{1,6}[^\n]*\n", content, flags=re.MULTILINE)
+    if not match:
+        return "", content
+    found = _REFERENCE_META_RE.match(content, match.end())
+    if not found:
+        return "", content
+    return found.group(1), content[: match.end()] + "\n" + content[found.end() :]
 
 
 def _inject_after_heading(content: str, inner_html: str) -> str:
@@ -372,6 +403,7 @@ def _process_chapter(
         bare_for_count = pre + post
     else:
         bare_for_count = content
+    reference_html, content = _take_reference_meta(content)
     story_type = (row.get("StoryType") or "").strip()
     word_count = _count_words(bare_for_count)
     context_html = _build_context_html(
@@ -389,6 +421,7 @@ def _process_chapter(
         show_word_count=story_type not in _NO_WORDCOUNT_TYPES,
         story_type=story_type,
         context_html=context_html,
+        reference_html=reference_html,
     )
     return _inject_after_heading(content, inner)
 

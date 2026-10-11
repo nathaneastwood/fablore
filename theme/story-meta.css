@@ -231,10 +231,26 @@ h4:hover .heading-anchor {
     margin-right: 0.15em;
 }
 
+/* Hero and set information. Outside a story card (a hero page's later forms)
+   it carries the card's own type and rule. */
 .story-meta {
     display: flex;
     flex-wrap: wrap;
     gap: 0.3rem 1.4rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.4rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--table-border-color);
+    font-size: 1.25rem;
+    color: var(--searchresults-header-fg);
+    line-height: 1.6;
+}
+
+.story-card .story-meta {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: inherit;
 }
 
 .story-meta-item {

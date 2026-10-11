@@ -395,3 +395,37 @@ def test_heroes_tied_on_mentions_keep_first_appearance() -> None:
     heroes = [("Azalea", None), ("Dash", None)]
     text = "Dash ran. Azalea aimed. Azalea fired. Dash fell."
     assert [n for n, _ in _order_heroes_by_mentions(heroes, text)] == ["Dash", "Azalea"]
+
+
+# ---------------------------------------------------------------------------
+# Hero / set information moves into the card
+# ---------------------------------------------------------------------------
+
+_HERO_BLOCK = (
+    '<div class="story-meta" aria-label="Hero information">\n  <span class="story-meta-item">Wizard</span>\n</div>'
+)
+
+
+def test_hero_information_moves_into_the_card() -> None:
+    content = f"# Kano\n\n{_HERO_BLOCK}\n\nBody.\n"
+    out = _process_chapter(content, _make_row("heroes-of-rathe"))
+    assert out.count("Hero information") == 1
+    card = out[out.index('<div class="story-card">') : out.index('class="story-share"')]
+    assert "Hero information" in card
+    assert card.index("Hero information") < card.index("story-card-links")
+    # A blank line would end Markdown's HTML block inside the card.
+    assert "\n\n" not in card[: card.index("</div>\n\n")]
+
+
+def test_set_information_moves_into_the_card_without_its_markers() -> None:
+    block = f"<!-- fablore-set-meta:start -->\n{_HERO_BLOCK.replace('Hero', 'Set')}\n<!-- fablore-set-meta:end -->"
+    out = _process_chapter(f"# High Seas\n\n{block}\n\nBody.\n", _make_row("digital-tiles"))
+    assert "fablore-set-meta" not in out
+    card = out[out.index('<div class="story-card">') : out.index('class="story-share"')]
+    assert "Set information" in card
+
+
+def test_information_under_a_later_heading_stays_put() -> None:
+    content = f"# Kano\n\nIntro.\n\n# Kano, Lost Form\n\n{_HERO_BLOCK}\n\nBody.\n"
+    out = _process_chapter(content, _make_row("heroes-of-rathe"))
+    assert out.index("Kano, Lost Form") < out.index("Hero information")

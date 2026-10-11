@@ -47,9 +47,12 @@ command = "python3 src/data/mdbook_hero_traits.py"
 
 [preprocessor.hero-meta]
 command = "python3 src/data/mdbook_hero_meta.py"
+# story-meta moves the block under the title into its story card.
+before = ["story-meta"]
 
 [preprocessor.set-meta]
 command = "python3 src/data/mdbook_set_meta.py"
+before = ["story-meta"]
 
 [preprocessor.narrated-videos]
 command = "python3 src/data/mdbook_narrated_videos.py"
