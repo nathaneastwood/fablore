@@ -7,9 +7,11 @@ import pytest
 from mdbook_graph_link import (
     MARK_END,
     MARK_START,
+    GRAPH_SLOT,
     STORY_META_END,
     build_link_html,
     inject_into_content,
+    inject_into_slot,
     relative_graph_href,
     walk_and_process,
 )
@@ -182,3 +184,22 @@ def test_an_empty_target_map_changes_nothing() -> None:
     before = [i["Chapter"]["content"] for i in book["items"]]
     walk_and_process(book["items"], {})
     assert [i["Chapter"]["content"] for i in book["items"]] == before
+
+
+# ---------------------------------------------------------------------------
+# Story card slot
+# ---------------------------------------------------------------------------
+
+
+def test_slot_link_lands_inside_the_story_card() -> None:
+    content = f'# Aria\n\n<p class="story-card-links"><a>Original</a>{GRAPH_SLOT}</p>\n\nBody.\n'
+    out = inject_into_slot(content, "<a>graph</a>")
+    assert f"{GRAPH_SLOT}{MARK_START}<a>graph</a>{MARK_END}</p>" in out
+
+
+def test_slot_injection_is_idempotent() -> None:
+    content = f"# Aria\n\n<p>{GRAPH_SLOT}</p>\n\nBody.\n"
+    once = inject_into_slot(content, "<a>graph</a>")
+    twice = inject_into_slot(once, "<a>graph</a>")
+    assert once == twice
+    assert twice.count(MARK_START) == 1

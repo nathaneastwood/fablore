@@ -3,11 +3,13 @@
 
 Without this the graph is reachable only from the table of contents, so nobody
 reading a hero or region page ever finds it. Every chapter that *is* a node in
-the graph gets one line appended:
+the graph gets one link:
 
     <!-- fablore-graph-link:start --> … <!-- fablore-graph-link:end -->
 
 pointing at ``graph.html#<slug>``, which opens the graph with that node selected.
+Pages with a story card (``mdbook_story_meta``) get it inline in the card's links
+row, at ``GRAPH_SLOT``; any other page gets a line of its own.
 
 Kept separate from ``mdbook_related.py`` on purpose. That preprocessor computes
 the same joins for its Related Lore cards, but it is large and load-bearing;
@@ -30,6 +32,7 @@ if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
 from mdbook_graph import build_graph, page_graph_targets  # noqa: E402
+from mdbook_story_meta import GRAPH_SLOT  # noqa: E402
 from mdbook_story_meta import MARK_END as STORY_META_END  # noqa: E402
 
 MARK_START = "<!-- fablore-graph-link:start -->"
@@ -57,6 +60,29 @@ def build_link_html(chapter_src_path: str, node: dict) -> str:
         f'<a href="{html.escape(href)}">'
         f"See {html.escape(node['n'])} in the Lore Graph</a></p>"
     )
+
+
+def build_card_link_html(chapter_src_path: str, node: dict) -> str:
+    """Return the compact link that sits in the story card's links row."""
+    href = relative_graph_href(chapter_src_path, node["sl"])
+    return (
+        f'<a class="story-card-graph" href="{html.escape(href)}" '
+        f'title="See {html.escape(node["n"])} in the Lore Graph">'
+        '<i class="fas fa-diagram-project" aria-hidden="true"></i> Lore Graph</a>'
+    )
+
+
+def inject_into_slot(content: str, inner_html: str) -> str:
+    """Put the link in the story card's slot, inline with the other links.
+
+    The slot comment stays put and the link follows it, so a rebuild strips
+    the old link and finds the slot again.
+    """
+    if MARK_START in content and MARK_END in content:
+        pre, _, rest = content.partition(MARK_START)
+        _, _, post = rest.partition(MARK_END)
+        content = pre + post
+    return content.replace(GRAPH_SLOT, f"{GRAPH_SLOT}{MARK_START}{inner_html}{MARK_END}", 1)
 
 
 def inject_into_content(content: str, inner_html: str) -> str:
@@ -98,10 +124,11 @@ def walk_and_process(sections: list, targets: dict[str, dict]) -> None:
         node = targets.get(Path(path).as_posix()) if path else None
         # Never on the graph page itself — it would link to where you already are.
         if node and path != _GRAPH_SRC_PATH:
-            ch["content"] = inject_into_content(
-                ch.get("content") or "",
-                build_link_html(path, node),
-            )
+            content = ch.get("content") or ""
+            if GRAPH_SLOT in content:
+                ch["content"] = inject_into_slot(content, build_card_link_html(path, node))
+            else:
+                ch["content"] = inject_into_content(content, build_link_html(path, node))
         walk_and_process(ch.get("sub_items") or [], targets)
 
 

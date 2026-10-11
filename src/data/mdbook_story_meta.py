@@ -1,9 +1,16 @@
 #!/usr/bin/env python3
-"""mdBook preprocessor: inject a story metadata card after the title of story chapters.
+"""mdBook preprocessor: inject a story card after the title of story chapters.
 
 Reads ``stories.csv`` and, for each chapter whose path matches a ``StoryKey``,
-builds a single HTML card showing authors, artists, publication date, source link,
-and word count / estimated reading time.  Fields are omitted when empty.
+builds one HTML card in three rows, each omitted when it has nothing to show:
+
+* context — for main-story and short-stories chapters, the arc the story
+  belongs to, its place in that arc ("Part 3 of 11") and the heroes it
+  features, most-mentioned first;
+* byline — authors, artists, publication date, and word count / reading time;
+* links — the original article, plus a slot that ``mdbook_graph_link`` fills
+  with the Lore Graph link (it runs after this preprocessor).
+
 The card is inserted after the first H1 heading in the chapter content.
 
 mdBook passes ``(PreprocessorContext, Book)`` as JSON on stdin; this process must
@@ -23,10 +30,20 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
+from mdbook_breadcrumb import _arc_display_name, _load_arcs, _load_sets, _relative_href  # noqa: E402
+from mdbook_related import resolve_hero_src_path  # noqa: E402
 from pipe_csv_io import read_pipe_csv  # noqa: E402
 
 MARK_START = "<!-- fablore-story-meta:start -->"
 MARK_END = "<!-- fablore-story-meta:end -->"
+# mdbook_graph_link puts its link here, so it sits in the card's links row.
+GRAPH_SLOT = "<!-- fablore-graph-link:slot -->"
+
+# Sections whose chapters live in arc folders (``<section>/<arc>/<story>.md``).
+_ARC_SECTIONS = ("main-story", "short-stories")
+_ARC_HUB_FILES = {"index.md", "README.md"}
+# Beyond this many heroes the context row names the most-mentioned and counts the rest.
+_MAX_CARD_HEROES = 3
 
 _WORDS_PER_MINUTE = 250
 _MIN_WORDS_FOR_READTIME = 50
@@ -155,8 +172,9 @@ def _build_meta_html(
     word_count: int,
     show_word_count: bool = True,
     story_type: str = "",
+    context_html: str = "",
 ) -> str:
-    """Return the ``story-meta`` div HTML, or an empty string when nothing to show."""
+    """Return the story card HTML followed by the share sheet."""
     items: list[str] = []
 
     if authors:
@@ -169,15 +187,6 @@ def _build_meta_html(
     if formatted_date:
         items.append(_item("fas fa-calendar", html.escape(formatted_date)))
 
-    if source_link:
-        link_esc = html.escape(source_link)
-        items.append(
-            _item(
-                "fas fa-arrow-up-right-from-square",
-                f'<a href="{link_esc}" target="_blank" rel="noopener">Original article</a>',
-            )
-        )
-
     if show_word_count and word_count > 0:
         count_fmt = f"{word_count:,}"
         if word_count >= _MIN_WORDS_FOR_READTIME:
@@ -188,12 +197,76 @@ def _build_meta_html(
             wc_text = f"{count_fmt} words"
         items.append(_item("far fa-clock", wc_text))
 
-    parts: list[str] = []
+    links = ""
+    if source_link:
+        links = (
+            f'<a class="story-card-source" href="{html.escape(source_link)}" target="_blank" rel="noopener">'
+            '<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Original article</a>'
+        )
+
+    # No blank lines inside the card: Markdown would end the HTML block there.
+    parts: list[str] = ['<div class="story-card">']
+    if context_html:
+        parts.append(f'<p class="story-card-context">{context_html}</p>')
     if items:
         inner = "\n  ".join(items)
         parts.append(f'<div class="story-meta" aria-label="Story information">\n  {inner}\n</div>')
+    parts.append(f'<p class="story-card-links">{links}{GRAPH_SLOT}</p>')
+    parts.append("</div>")
+    parts.append("")
     parts.append(_build_share_html(story_type))
     return "\n".join(parts)
+
+
+def _order_heroes_by_mentions(
+    heroes: list[tuple[str, str | None]],
+    text: str,
+) -> list[tuple[str, str | None]]:
+    """Most-mentioned hero first; ties keep the order of first appearance.
+
+    A story registers every hero it names, and the one it is *about* is
+    nearly always the one it names most — a better lead than registry order.
+    """
+
+    def key(hero: tuple[str, str | None]) -> tuple[int, int]:
+        pattern = re.compile(rf"\b{re.escape(hero[0])}\b")
+        hits = pattern.findall(text)
+        first = pattern.search(text)
+        return (-len(hits), first.start() if first else len(text))
+
+    return sorted(heroes, key=key)
+
+
+def _build_context_html(
+    chapter_path: str,
+    *,
+    arc_name: str,
+    position: tuple[int, int] | None,
+    heroes: list[tuple[str, str | None]],
+) -> str:
+    """Return the context row's inner HTML: arc · part · heroes."""
+    pieces: list[str] = []
+    if arc_name:
+        pieces.append(f'<span class="story-card-arc">{html.escape(arc_name)}</span>')
+    if position and position[1] > 1:
+        pieces.append(f'<span class="story-card-part">Part {position[0]} of {position[1]}</span>')
+    if heroes:
+        shown, rest = heroes[:_MAX_CARD_HEROES], heroes[_MAX_CARD_HEROES:]
+        if len(rest) == 1:  # "+1 more" takes as much room as the name
+            shown, rest = heroes, []
+        names: list[str] = []
+        for name, src in shown:
+            esc = html.escape(name)
+            names.append(
+                f'<a href="{html.escape(_relative_href(chapter_path, src).removesuffix(".md") + ".html")}">{esc}</a>'
+                if src
+                else esc
+            )
+        if rest:
+            others = html.escape(", ".join(n for n, _ in rest))
+            names.append(f'<span class="story-card-more" title="{others}">+{len(rest)} more</span>')
+        pieces.append(f'<span class="story-card-heroes">{", ".join(names)}</span>')
+    return "".join(pieces)
 
 
 def _inject_after_heading(content: str, inner_html: str) -> str:
@@ -225,8 +298,73 @@ def _load_story_meta(data_dir: Path) -> dict[str, dict[str, str]]:
     return {Path(r["StoryKey"]).as_posix(): r for r in rows if (r.get("StoryKey") or "").strip()}
 
 
-def _process_chapter(content: str, row: dict[str, str]) -> str:
-    """Inject the story-meta block for one chapter."""
+def _load_story_heroes(data_dir: Path, src_root: Path) -> dict[str, list[tuple[str, str | None]]]:
+    """Return ``StoryId`` → heroes it features, as ``(name, hero page src path or None)``.
+
+    A hero is a character with a ``character-heroes`` row, so the join runs
+    story → character → canonical hero.
+    """
+    csv_dir = data_dir / "csv"
+    paths = [csv_dir / f for f in ("story-characters.csv", "character-heroes.csv", "heroes-canonical.csv")]
+    if not all(p.is_file() for p in paths):
+        return {}
+    _, story_chars = read_pipe_csv(paths[0])
+    _, char_heroes = read_pipe_csv(paths[1])
+    _, canon = read_pipe_csv(paths[2])
+
+    hero_of_char = {r["CharacterId"]: r["CanonicalId"] for r in char_heroes}
+    hero_by_id: dict[str, tuple[str, str | None]] = {
+        r["CanonicalId"]: (r["CanonicalHero"], resolve_hero_src_path(src_root, r["CanonicalSlug"])) for r in canon
+    }
+    out: dict[str, list[tuple[str, str | None]]] = {}
+    for r in story_chars:
+        hero = hero_by_id.get(hero_of_char.get(r["CharacterId"], ""))
+        if hero and hero not in out.setdefault(r["StoryId"], []):
+            out[r["StoryId"]].append(hero)
+    return out
+
+
+def _arc_of(path: str) -> str | None:
+    """Return the arc slug for a story chapter path, or ``None`` for anything else."""
+    parts = path.split("/")
+    if len(parts) == 3 and parts[0] in _ARC_SECTIONS and parts[2] not in _ARC_HUB_FILES:
+        return parts[1]
+    return None
+
+
+def _arc_positions(sections: list) -> dict[str, tuple[int, int]]:
+    """Return chapter path → ``(n, total)``: its place among its folder's stories in book order.
+
+    Counted per folder, not per arc slug: ``main-story/outsiders`` and
+    ``short-stories/outsiders`` share a slug but are separate runs of stories.
+    """
+    by_folder: dict[str, list[str]] = {}
+
+    def walk(items: list) -> None:
+        for item in items:
+            if not isinstance(item, dict) or "Chapter" not in item:
+                continue
+            ch = item["Chapter"]
+            path = Path((ch.get("path") or "").strip()).as_posix()
+            arc = _arc_of(path)
+            if arc:
+                by_folder.setdefault(path.rsplit("/", 1)[0], []).append(path)
+            walk(ch.get("sub_items") or [])
+
+    walk(sections)
+    return {p: (i, len(paths)) for paths in by_folder.values() for i, p in enumerate(paths, start=1)}
+
+
+def _process_chapter(
+    content: str,
+    row: dict[str, str],
+    *,
+    chapter_path: str = "",
+    arc_name: str = "",
+    position: tuple[int, int] | None = None,
+    heroes: list[tuple[str, str | None]] | None = None,
+) -> str:
+    """Inject the story card for one chapter."""
     # Strip any existing block before counting so injected HTML is excluded
     if MARK_START in content and MARK_END in content:
         pre, _, rest = content.partition(MARK_START)
@@ -236,6 +374,12 @@ def _process_chapter(content: str, row: dict[str, str]) -> str:
         bare_for_count = content
     story_type = (row.get("StoryType") or "").strip()
     word_count = _count_words(bare_for_count)
+    context_html = _build_context_html(
+        chapter_path,
+        arc_name=arc_name,
+        position=position,
+        heroes=_order_heroes_by_mentions(heroes or [], bare_for_count),
+    )
     inner = _build_meta_html(
         authors=(row.get("Authors") or "").strip(),
         artists=(row.get("Artists") or "").strip(),
@@ -244,6 +388,7 @@ def _process_chapter(content: str, row: dict[str, str]) -> str:
         word_count=word_count,
         show_word_count=story_type not in _NO_WORDCOUNT_TYPES,
         story_type=story_type,
+        context_html=context_html,
     )
     return _inject_after_heading(content, inner)
 
@@ -251,18 +396,37 @@ def _process_chapter(content: str, row: dict[str, str]) -> str:
 def _walk_sections(
     sections: list,
     meta_by_key: dict[str, dict[str, str]],
+    *,
+    arc_names: dict[str, str] | None = None,
+    positions: dict[str, tuple[int, int]] | None = None,
+    heroes_by_story: dict[str, list[tuple[str, str | None]]] | None = None,
 ) -> None:
     for item in sections:
         if not isinstance(item, dict):
             continue
         if "Chapter" in item:
             ch = item["Chapter"]
-            path = (ch.get("path") or "").strip()
-            if path:
-                row = meta_by_key.get(Path(path).as_posix())
-                if row is not None:
-                    ch["content"] = _process_chapter(ch.get("content") or "", row)
-            _walk_sections(ch.get("sub_items") or [], meta_by_key)
+            path = Path((ch.get("path") or "").strip()).as_posix()
+            row = meta_by_key.get(path) if path != "." else None
+            if row is not None:
+                arc = _arc_of(path)
+                # Only arc chapters get a context row; hero, equipment and other
+                # reference pages keep the byline and links alone.
+                ch["content"] = _process_chapter(
+                    ch.get("content") or "",
+                    row,
+                    chapter_path=path,
+                    arc_name=(arc_names or {}).get(arc, "") if arc else "",
+                    position=(positions or {}).get(path) if arc else None,
+                    heroes=(heroes_by_story or {}).get(row.get("StoryId", ""), []) if arc else [],
+                )
+            _walk_sections(
+                ch.get("sub_items") or [],
+                meta_by_key,
+                arc_names=arc_names,
+                positions=positions,
+                heroes_by_story=heroes_by_story,
+            )
 
 
 def main() -> None:
@@ -278,7 +442,17 @@ def main() -> None:
     data_dir = src_root / "data"
 
     meta_by_key = _load_story_meta(data_dir)
-    _walk_sections(book.get("items") or [], meta_by_key)
+    items = book.get("items") or []
+    positions = _arc_positions(items)
+    arcs, sets = _load_arcs(data_dir), _load_sets(data_dir)
+    arc_names = {arc: _arc_display_name(arc, arcs, sets) for arc in {p.split("/")[1] for p in positions}}
+    _walk_sections(
+        items,
+        meta_by_key,
+        arc_names=arc_names,
+        positions=positions,
+        heroes_by_story=_load_story_heroes(data_dir, src_root),
+    )
 
     json.dump(book, sys.stdout, ensure_ascii=False)
 
