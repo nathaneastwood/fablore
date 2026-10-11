@@ -14,19 +14,17 @@
  * never reach it, and reusing the "theme" class here only borrows its
  * visual styling.
  *
- * Runs after theme/toolbar.js (book.toml order), which is what leaves
- * #mdbook-theme-list's next sibling as the insertion point — right after
- * the theme switcher and before the secondary icons toolbar.js adds.
+ * The button and popup are in index.hbs, so the icon is the same inline SVG
+ * as mdBook's own buttons.
  */
 (function () {
     "use strict";
 
     var STORAGE_KEY = "fablore-lang";
 
-    var menuBar = document.getElementById("mdbook-menu-bar");
-    var leftButtons = menuBar ? menuBar.querySelector(".left-buttons") : null;
-    var themeList = document.getElementById("mdbook-theme-list");
-    if (!leftButtons || !themeList) return;
+    var toggle = document.getElementById("lang-toggle");
+    var popup = document.getElementById("lang-popup");
+    if (!toggle || !popup) return;
 
     function getLang() {
         try {
@@ -48,30 +46,6 @@
         }
         applyLang(lang);
     }
-
-    var toggle = document.createElement("button");
-    toggle.id = "lang-toggle";
-    toggle.className = "icon-button";
-    toggle.type = "button";
-    toggle.title = "Change language";
-    toggle.setAttribute("aria-label", "Change language");
-    toggle.setAttribute("aria-haspopup", "true");
-    toggle.setAttribute("aria-expanded", "false");
-    toggle.setAttribute("aria-controls", "lang-popup");
-    toggle.innerHTML = '<i class="fa fa-globe" aria-hidden="true"></i>';
-
-    var popup = document.createElement("ul");
-    popup.id = "lang-popup";
-    popup.className = "theme-popup lang-popup";
-    popup.setAttribute("aria-label", "Language");
-    popup.setAttribute("role", "menu");
-    popup.innerHTML =
-        '<li role="none"><button role="menuitem" class="theme lang-option" id="lang-option-en" data-lang="en">English</button></li>' +
-        '<li role="none"><button role="menuitem" class="theme lang-option" id="lang-option-arcane" data-lang="arcane">Arcane</button></li>';
-
-    var insertPoint = themeList.nextSibling;
-    leftButtons.insertBefore(toggle, insertPoint);
-    leftButtons.insertBefore(popup, insertPoint);
 
     function updateSelected() {
         var lang = getLang();

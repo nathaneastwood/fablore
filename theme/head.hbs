@@ -106,6 +106,9 @@
         if (w && VALID_WIDTHS.indexOf(w) !== -1 && w !== '750px') {
             document.documentElement.style.setProperty('--content-max-width', w);
         }
+        if (localStorage.getItem('fablore-story-font') === 'sans') {
+            document.documentElement.classList.add('story-font-sans');
+        }
     } catch (e) {}
 })();
 </script>

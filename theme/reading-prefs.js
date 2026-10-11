@@ -64,9 +64,23 @@
         } catch (e) {}
     }
 
+    // Story typeface only shows in reading mode; serif is the default.
+    function applyStoryFont(val) {
+        html.classList.toggle('story-font-sans', val === 'sans');
+        try {
+            val === 'serif'
+                ? localStorage.removeItem('fablore-story-font')
+                : localStorage.setItem('fablore-story-font', val);
+        } catch (e) {}
+    }
+
     function updateSelected() {
         var curScale = getStored('fablore-font-scale', VALID_SCALES, '1');
         var curWidth = getStored('fablore-line-width', VALID_WIDTHS, '750px');
+        var curFont  = getStored('fablore-story-font', ['serif', 'sans'], 'serif');
+        popup.querySelectorAll('.story-font-choice').forEach(function (btn) {
+            btn.classList.toggle('accessibility-selected', btn.dataset.font === curFont);
+        });
         popup.querySelectorAll('.font-size-choice').forEach(function (btn) {
             btn.classList.toggle('accessibility-selected', btn.dataset.scale === curScale);
         });
@@ -80,6 +94,9 @@
     });
     popup.querySelectorAll('.width-choice').forEach(function (btn) {
         btn.addEventListener('click', function () { applyWidth(btn.dataset.width); updateSelected(); });
+    });
+    popup.querySelectorAll('.story-font-choice').forEach(function (btn) {
+        btn.addEventListener('click', function () { applyStoryFont(btn.dataset.font); updateSelected(); });
     });
 
     updateSelected();

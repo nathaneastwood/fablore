@@ -102,13 +102,28 @@
             html.classList.add("js");
         </script>
 
+        <!-- Reading mode (theme/reading-mode.js): story chapters open in it unless
+             the reader has switched it off. Decided here, before the sidebar
+             script, so a story never flashes the sidebar open then shut. -->
+        <script>
+            const fablore_story_page = {{#unless is_print}}/^(main-story|short-stories)\/(?!.*index\.md$)/.test("{{ path }}"){{else}}false{{/unless}};
+            let fablore_reading_mode = false;
+            if (fablore_story_page) {
+                html.classList.add('is-story-page');
+                try { fablore_reading_mode = localStorage.getItem('fablore-reading-mode') !== 'off'; } catch (e) { fablore_reading_mode = true; }
+                if (fablore_reading_mode) { html.classList.add('reading-mode'); }
+            }
+        </script>
+
         <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
             const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
-            if (document.body.clientWidth >= 1080) {
+            // Reading mode starts with the sidebar shut but leaves the saved
+            // archive preference alone.
+            if (document.body.clientWidth >= 1080 && !fablore_reading_mode) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
@@ -154,6 +169,53 @@
                             <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
+                        <!-- Custom left-side buttons live here rather than being injected by JS,
+                             so their icons are the same inline SVGs as mdBook's own buttons.
+                             Behaviour: lang-toggle.js, bionic.js, reading-prefs.js, random-story.js. -->
+                        <button id="lang-toggle" class="icon-button" type="button" title="Change language" aria-label="Change language" aria-haspopup="true" aria-expanded="false" aria-controls="lang-popup">
+                            {{fa "solid" "globe"}}
+                        </button>
+                        <ul id="lang-popup" class="theme-popup lang-popup" aria-label="Language" role="menu">
+                            <li role="none"><button role="menuitem" class="theme lang-option" id="lang-option-en" data-lang="en">English</button></li>
+                            <li role="none"><button role="menuitem" class="theme lang-option" id="lang-option-arcane" data-lang="arcane">Arcane</button></li>
+                        </ul>
+                        <button id="bionic-toggle" class="icon-button" type="button" title="Enable Bionic Reading" aria-label="Enable Bionic Reading" aria-pressed="false">
+                            {{fa "solid" "bold"}}
+                        </button>
+                        <button id="accessibility-toggle" class="icon-button" type="button" title="Reading preferences" aria-label="Reading preferences" aria-haspopup="true" aria-expanded="false" aria-controls="accessibility-menu">
+                            {{fa "solid" "text-height"}}
+                        </button>
+                        <div id="accessibility-menu" class="accessibility-popup" role="dialog" aria-label="Reading preferences">
+                            <div class="accessibility-section">
+                                <span class="accessibility-label">Text size</span>
+                                <div class="accessibility-choices">
+                                    <button class="accessibility-choice font-size-choice" data-scale="0.875">Small</button>
+                                    <button class="accessibility-choice font-size-choice" data-scale="1">Default</button>
+                                    <button class="accessibility-choice font-size-choice" data-scale="1.175">Large</button>
+                                </div>
+                            </div>
+                            <div class="accessibility-section">
+                                <span class="accessibility-label">Line width</span>
+                                <div class="accessibility-choices">
+                                    <button class="accessibility-choice width-choice" data-width="560px">Narrow</button>
+                                    <button class="accessibility-choice width-choice" data-width="750px">Default</button>
+                                    <button class="accessibility-choice width-choice" data-width="980px">Wide</button>
+                                </div>
+                            </div>
+                            <!-- Shown only in reading mode, the only place it has an effect -->
+                            <div class="accessibility-section story-font-section">
+                                <span class="accessibility-label">Story typeface</span>
+                                <div class="accessibility-choices">
+                                    <button class="accessibility-choice story-font-choice" data-font="serif">Serif</button>
+                                    <button class="accessibility-choice story-font-choice" data-font="sans">Sans</button>
+                                </div>
+                            </div>
+                        </div>
+                        {{#unless is_print}}
+                        <button id="random-story-button" class="icon-button" type="button" title="Surprise me — take me to a random story" aria-label="Random story">
+                            {{fa "solid" "shuffle"}}
+                        </button>
+                        {{/unless}}
                         {{#if search_enabled}}
                         <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
                             {{fa "solid" "magnifying-glass"}}
@@ -164,6 +226,15 @@
                     <h1 class="menu-title">{{ book_title }}</h1>
 
                     <div class="right-buttons">
+                        {{#unless is_print}}
+                        <!-- Revealed by reading-mode.js on story pages only -->
+                        <button id="reading-mode-toggle" type="button" hidden>
+                            {{fa "solid" "book-open"}}
+                        </button>
+                        <button id="copy-link-button" type="button" title="Copy link to this page" aria-label="Copy link to this page">
+                            {{fa "solid" "link" "copy-link-icon"}}{{fa "solid" "check" "copy-link-done"}}
+                        </button>
+                        {{/unless}}
                         {{#if print_enable}}
                         <a href="{{ path_to_root }}print.html" title="Print this book" aria-label="Print this book">
                             {{fa "solid" "print" "print-button"}}
