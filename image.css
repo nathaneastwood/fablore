@@ -111,6 +111,39 @@
   margin-right: auto;
 }
 
+/*
+ * Story illustrations: the centred images placed between paragraphs. Give them
+ * room to breathe vertically, and on wide screens let them grow past the prose
+ * column — never wider than their own file, never under the fixed prev/next
+ * chapter strips (90px each, plus a gutter). Only direct children of <main>,
+ * so images nested in tables, cards or overlays keep their layout.
+ */
+.content main > img.center {
+  margin-block: 1.75rem;
+}
+
+@media screen and (min-width: 1081px) {
+  .content main > img.center {
+    --illustration-cap: 1000px;
+    --illustration-room: calc(100vw - 2 * (90px + 2rem + var(--page-padding)));
+    max-width: max(100%, min(var(--illustration-cap), var(--illustration-room)));
+    /* Keep tall portrait art from filling more than a screen. */
+    max-height: 85vh;
+    margin-block: 2.5rem;
+    margin-inline: 0;
+    /* Centre on the prose column even when wider than it. */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #mdbook-sidebar-toggle-anchor:checked ~ .page-wrapper .content main > img.center {
+    --illustration-room: calc(
+      100vw - var(--sidebar-width) - 2 * (90px + 2rem + var(--page-padding))
+    );
+  }
+}
+
 .image-title-overlay {
   position: relative;
   text-align: center;
