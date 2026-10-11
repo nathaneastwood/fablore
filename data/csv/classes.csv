@@ -1,0 +1,20 @@
+# AUTO-GENERATED FILE — do not edit by hand. Regenerate with: python3 src/data/create_classes_talents_csv.py
+ClassId|ClassName
+CL07546e2443|Adjudicator
+CLa055f8b49d|Assassin
+CLc40cbb33be|Bard
+CL48a111b581|Brute
+CL46a808cfd5|Generic
+CL8060afda51|Guardian
+CLe7f74fadce|Illusionist
+CLc2defff067|Mechanologist
+CLaf904dcff9|Merchant
+CL73a3107d6a|Necromancer
+CL04a4fce796|Ninja
+CL466f24c901|Pirate
+CLe8126c64c3|Ranger
+CL7ddbb0abd6|Runeblade
+CL833a516c2b|Shapeshifter
+CLc9fdea28cd|Thief
+CLf4c16fcffe|Warrior
+CLaf2c41eb4e|Wizard

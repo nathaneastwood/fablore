@@ -1,0 +1,96 @@
+# AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Database class in src/data/db/ (db.upsert_story).
+GroupId|Name|Category|Notes|ParentGroupId|LocationId|LoreStoryKey|LoreFragment
+GR3dd3b41cf0|Aetherscribes|collective|A learned collective of scholars and seers devoted to the survival of all Rathenfolk.|||world-of-rathe/aria.md|aetherscribes
+GRb6d0274aec|Alshoni|faction|A faction founded by a particular branch of the Royal Bloodline, brought together by blood ties, headed up by Lord Wizard Chiyo, cousin to the Emperor.||||
+GR3cffa0a7e5|Arms Dealers|gang|||||
+GR515102b7a2|Aui's Scales|organisation|A secretive organisation that builds hidden strongholds across Misteria to conceal scrolls and artefacts from the public.||||
+GR9bb11a42db|Baleful Horde|guild||GR59d86ea6fa|||
+GR59d86ea6fa|Batbiter's Guilds|stable||GRde02f6f2e1|||
+GR8da2d36331|Big Boppers|guild||GR59d86ea6fa|||
+GR052d6cb842|Blackjack's Mercenary Company|mercenary company||||world-of-rathe/pits.md|blackjacks-mercenary-company
+GR5e7406ca38|Blackjack's Mining Incorporated|corporation|||||
+GR7ab508cf7a|Blockheads|gang||||world-of-rathe/pits.md|blockheads
+GR43788709ba|Boulders|guild||GR6abbaba314|||
+GR0baac8e70a|Champions of Chivalry|guild||GR6abbaba314|||
+GR4681c2cafb|Children of Chaos|cult|||||
+GRcbdeec715f|Children of the Dragon|order|||||
+GR969341cc36|Children of the Light|people|||||
+GRab3c6e95ef|Church of Pain|institution|The Demonastery institution devoted to harnessing pain and Shadow to destroy Solana. Chane wore its mantle until he named Vynnset his successor.||||
+GRbefc4dc6c2|Cintari|clan|A group of bloodthirsty brigands who seek the thrill of battle.||||
+GR20c58e734b|Circuit Breaker|band|||||
+GRb6b0847fd6|Clan Nasu-ka|clan|||LOe104427645||
+GRc2c57e7145|Cogwerx|corporation|Credited with inventing steam technology and revolutionising Metrix through steam compression for energy, largely responsible for the city's success and development.||||
+GR4f70a18fad|Crimson Haze|rebels|A rebel group at odds with Aui's Scales for centuries, seeking to free the people of Misteria from the Great Households.||||
+GR921cd5e561|Deities|pantheon|||||
+GR7329235008|Dhani Deities|pantheon||GR921cd5e561|||
+GR350e80582f|Disciples of Pain|faction|The Demonastery order who embrace pain to surpass mortal limits and break Solana's hold on Rathe, following whichever Apostle leads them — Chane in his day, now Vynnset, the Apostle of Agony.|GRab3c6e95ef|||
+GRa8320faa70|Dracai|people|The elite caste who enact the Emperor's will across Volcor, all descended from the Blood of the Dragon and raised to political and military power; outwardly united in loyalty, privately consumed by rivalry. A Volcai of exceptional loyalty or talent may be granted the title by decree.||||
+GRae762dbd61|Dust Runners|gang|||||
+GR400fcdd2cd|Ezu|faction|A faction headed up by Chancellor Yama.||||
+GR6677bccca8|Freakshow|gang||||world-of-rathe/pits.md|freakshow
+GRbe00ee1545|Fury Fists|guild||GR6abbaba314|||
+GR5d72436256|Gemini|order|||||
+GR736f7b6a24|Gimlet Mining|corporation|||||
+GR8a6490db03|Gloomblades|faction|The Demonastery's runeblade forces, corrupted into Viserai's eldritch legion after his return from the Abyss.||||
+GRaaa2d88415|Glorytown Gladiators|guild||GR6abbaba314|||
+GR67d0965d14|Gorelords|guild||GR59d86ea6fa|||
+GR124f08e2ce|Guardians|order|||||
+GRfca5e2a4b1|Hand of Sol|order of knights|Solana's order of knights, who defend the city from outside threats.|||world-of-rathe/solana.md|the-hand-of-sol
+GRda8d3be2aa|Heavy Metals|guild||GR59d86ea6fa|||
+GR9aee39b31a|Hideshi|house|||||
+GR2e7d6eb39d|House Ashwood|house|||||
+GRaf75f09cb3|House Goldmane|house|||||
+GR2f0045278a|House Ishigaki|house||||world-of-rathe/misteria.md|ishigaki
+GRe5b4239930|House Miharu|house||||world-of-rathe/misteria.md|miharu
+GR3630626e55|House Sanjing|house||||world-of-rathe/misteria.md|sanjing
+GR1e37fb2153|House Yijun|house||||world-of-rathe/misteria.md|yijun
+GRf7ef0c0e25|Ikaru Clan|house|||LO0c5547da71||
+GR149286d961|Iron Assembly|organisation|||||
+GR2a0fbf651f|Jawbreakers|gang||||world-of-rathe/pits.md|jawbreakers
+GR55d0a50dc7|Jungle Slayers|guild||GR59d86ea6fa|||
+GR3c7db7d940|Kaigomo|order|Deploy their vigilant ronin across Misteria to ensure that peace prevails amidst its hidden valleys.||||
+GRc7d0e5c40c|Kotori|emissaries|||||
+GR203929ba2c|Kuraghan|cult|A fanatical pirate cult formed from reconditioned convicts. The Kuraghan worship the sea god Absolon and believe dying in battle earns them an afterlife of endless pleasure.|||world-of-rathe/high-seas.md|the-kuraghan
+GRf8278bd851|L'Apocalypta|cult|A cult of Chaos operating in the darkest corners of Rathe, orchestrating catastrophes in service of an apocalyptic doctrine set down by the prophet Anarch Zeir.|||world-of-rathe/pits.md|lapocalypta
+GR09da69ff05|Lord Wizards of the Court|council|||||
+GR53a03a5dc2|Mendacity Media|corporation|A corporation that maintains control of the media, funding almost every radio station and newspaper in the city.||||
+GR5bc1946e85|Moloca's Guilds|stable||GRde02f6f2e1|||
+GR308954b25d|Mugenshi Clan|clan|||||
+GR4a827402b6|Mythmakers|guild||GR6abbaba314|||
+GR368fb64257|Numbskulls|gang||||world-of-rathe/pits.md|numbskulls
+GR55f68e7aa9|Okari Clan|clan|||||
+GR877214c7ef|Ollin|order|The elite of Valahai's defenders, who communed with Galcia to gain command over Ice.|||world-of-rathe/aria.md|ollin
+GRb7a5446668|Piranhas|gang||||world-of-rathe/pits.md|piranhas
+GR8c8b1f4c1e|Prowlers|guild||GR59d86ea6fa|||
+GR872491a30d|Registry|corporation|Metrix's dominant data gatherer and cybersecurity firm, which sells the personal data it collects and runs spies in every nation.|||world-of-rathe/metrix.md|registry
+GRb97965163a|Rek'vas Bloodboars|warband|||||
+GR27c3d3b047|Rosetta|order|A forest people, and the order of powerful spell weavers they formed, which once stood alongside the likes of the Ollin and the Seers.||||
+GR4eff2f0882|Royal Guard|corps|||||
+GR452cdfd831|Running Tigers|gang|||||
+GRc444af19b6|Sandfolk|people|||||
+GR64af9baccf|Sandlars|clan|||||
+GR63c0bafa41|Sayashi|special force|Special force of loyal ninjas dedicated to hunting those responsible for the Emperor's death.||||
+GR3ecfa073f6|Seers|order|An order of prophets named alongside the Ollin and Rosetta, who read the omens and keep a script of their own.||||
+GRcc6c313e8c|Sisters of Octothesia|order|||||
+GR7eb56608a4|Southmaw Asylum|institution||||world-of-rathe/pits.md|southmaw-asylum
+GR6abbaba314|Speakeasy's Guilds|stable||GRde02f6f2e1|||
+GR0e2fd9e20a|Steelstreet Enforcers|law enforcement|||||
+GRde02f6f2e1|Super Slam Guilds|federation|||||
+GRad4793ef29|Teklo Industries|corporation|A recent entrant to the steamtech industry, acclaimed for its innovative products and cutting-edge designs driven by a constantly experimenting R&D team.||LO3a0f69658e||
+GRbd0f70214f|The Dhani Empire|empire|A matriarchal aethocracy built on the manipulation of aether, undone when its last empress unleashed forces her greatest wizard could not contain.|||world-of-rathe/high-seas.md|the-dhani-empire
+GRbc6b20f0b8|The Foundry|organisation|An independent radio station, one of the few in Metrix that remains free of Mendacity control.||LOf738571d87|world-of-rathe/metrix.md|the-foundry
+GRf6193032a5|The Keepers of the Seven Arts|council||||world-of-rathe/misteria.md|the-keepers-of-the-seven-arts
+GR70c44e6376|The Light of Sol|order of scholars|Solana's order of scholars — healers, academics and scribes who serve the city and fight alongside the Hand of Sol.|||world-of-rathe/solana.md|the-light-of-sol
+GR1f0ed1ac0a|The Maela|troupe|Part of the Everfest Carnival, home to fortune tellers, seers, oracles, enchantresses, and conjurers.||LO6562f78c72|world-of-rathe/aria.md|the-everfest-carnival
+GRdced10bb2b|The Mob|gang|||||
+GReb9275cb05|The Spider|organisation|||||
+GR6ebc69efa4|The Twelve Dragons|pantheon||||main-story/uprising/dragons-of-empire.md|
+GR207a6be9e8|The Valdur|troupe|Part of the Everfest Carnival, known for strongmen acts and work with animals.||LO6562f78c72|world-of-rathe/aria.md|the-everfest-carnival
+GRab47a7f915|Torched|gang||||world-of-rathe/pits.md|torched
+GR95a3596835|Transcendents|order|||LO90290c6e10||
+GR06ce3df0b7|VanGeld|clan|||||
+GR2fc310992b|Vipressa|faction|||||
+GR9643653e79|Volcai|people|The vast majority of Volcor's population, drawn from all but the very highest avenues of life; historically loyal to the Emperor, and now increasingly in revolt against the Dracai. Their names end in -ai, marking their origin.|||world-of-rathe/volcor.md|the-volcai
+GR10d3ec88f3|Wardens|order|||||
+GR1b3c253242|Wayfarers|order|Lightning-riding scouts and heralds of Valahai, who keep word flowing between the bastions.|||world-of-rathe/aria.md|wayfarers-1
+GR12ac15004e|Wild Wonders|guild||GR6abbaba314|||

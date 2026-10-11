@@ -1,0 +1,45 @@
+/*
+ * Header language switcher (theme/lang-toggle.js). Arcane is a font swap,
+ * not a translation — the page's real English text never changes, only the
+ * typeface it renders in. Scoped to #mdbook-content rather than <body> so
+ * the sidebar, menu bar and this popup itself stay in English and legible.
+ *
+ * Two exceptions inside the content area are pinned back regardless of the
+ * swap: code blocks already carry `font-family: var(--mono-font) !important`
+ * from mdBook's own CSS, so nothing to do there; heading-anchor icons use
+ * the FontAwesome icon font and are pinned back explicitly below, since "Arcane
+ * of Rathe" would otherwise win on specificity and turn them into tofu.
+ */
+html[data-lang="arcane"] #mdbook-content {
+    font-family: "Arcane of Rathe", "Open Sans", sans-serif;
+}
+
+html[data-lang="arcane"] #mdbook-content .fa,
+html[data-lang="arcane"] #mdbook-content [class*="fa-"] {
+    font-family: FontAwesome;
+}
+
+/*
+ * The popup reuses mdBook's own .theme-popup (position, colours, border) and
+ * .theme (row layout, hover state) — safe because book.js's theme-switch
+ * logic is scoped to #mdbook-theme-list and #mdbook-theme-toggle by id, so
+ * it never sees this popup's buttons even though they share a class name.
+ * .theme-selected is the same bare-class checkmark rule the theme list uses.
+ */
+.lang-popup {
+    min-width: 110px;
+}
+
+/*
+ * The new globe icon pushes the left icon cluster right up against the
+ * centred site mark at the narrowest common viewport (320px, e.g. iPhone
+ * SE) — measured at exactly 0px of gap. image.css already treats the mark
+ * as expendable next to the icons ("stay below toolbar controls so taps hit
+ * icons first"); below 360px there isn't room for both, so drop it rather
+ * than risk the two visually overlapping.
+ */
+@media only screen and (max-width: 359px) {
+    .menu-logo {
+        display: none !important;
+    }
+}

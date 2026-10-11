@@ -1,0 +1,211 @@
+/* Browse Stories page — filter controls and story list */
+
+/*
+ * mdBook: :root 62.5% then body { font-size: 1.6rem } (~16px).
+ * Pill/label sizing follows the same rem conventions as related.css.
+ * No fallback values on var() — mdBook always sets its theme variables.
+ */
+
+.browse-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--table-border-color);
+    border-radius: 4px;
+}
+
+/* Each filter (label on top, controls below) */
+.browse-filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.browse-filter-label {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--fg);
+}
+
+/* --- Pill controls (type & region) --- */
+
+.browse-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.browse-pill {
+    padding: 0.2em 0.75em;
+    border: 1px solid var(--table-border-color);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--fg);
+    font-size: 1.25rem;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: background 0.1s, color 0.1s, border-color 0.1s;
+}
+
+.browse-pill:hover {
+    border-color: var(--links);
+    color: var(--links);
+}
+
+.browse-pill.active {
+    background: var(--links);
+    border-color: var(--links);
+    color: var(--bg);
+}
+
+/* --- Hero multi-select widget --- */
+
+.browse-hero-widget {
+    position: relative;
+    max-width: 32rem;
+}
+
+/* The box that holds chips + text input */
+.browse-hero-field {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.5rem;
+    border: 1px solid var(--table-border-color);
+    border-radius: 4px;
+    background: var(--bg);
+    cursor: text;
+    min-height: 2.8rem;
+}
+
+.browse-hero-chips {
+    display: contents; /* chips flow inline with the input */
+}
+
+.browse-hero-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25em;
+    padding: 0.15em 0.5em 0.15em 0.6em;
+    background: var(--links);
+    color: var(--bg);
+    border-radius: 999px;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+.browse-hero-chip-remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 1.4em;
+    height: 1.4em;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--bg);
+    font-size: 1em;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.1s;
+}
+
+.browse-hero-chip-remove:hover {
+    opacity: 1;
+}
+
+.browse-hero-input {
+    flex: 1 1 8rem;
+    min-width: 8rem;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--fg);
+    font-size: 1.35rem;
+    padding: 0;
+}
+
+.browse-hero-input::placeholder {
+    color: var(--fg);
+    opacity: 0.4;
+}
+
+/* Dropdown list */
+.browse-hero-dropdown {
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    width: 100%;
+    max-height: 16rem;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0.25rem 0;
+    list-style: none;
+    background: var(--bg);
+    border: 1px solid var(--table-border-color);
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    z-index: 100;
+}
+
+.browse-hero-option {
+    padding: 0.4em 0.75em;
+    font-size: 1.35rem;
+    cursor: pointer;
+    color: var(--fg);
+}
+
+.browse-hero-option:hover {
+    background: var(--quote-bg);
+    color: var(--links);
+}
+
+/* --- Results --- */
+
+.browse-count {
+    font-size: 1.3rem;
+    color: var(--fg);
+    opacity: 0.65;
+    margin: 0 0 0.75rem;
+}
+
+.browse-results {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.browse-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--table-border-color);
+}
+
+.browse-item:last-child {
+    border-bottom: none;
+}
+
+.browse-item-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--links);
+    text-decoration: none;
+}
+
+.browse-item-title:hover {
+    text-decoration: underline;
+}
+
+.browse-item-meta {
+    font-size: 1.25rem;
+    color: var(--fg);
+    opacity: 0.6;
+}

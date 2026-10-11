@@ -1,0 +1,12 @@
+#bionic-toggle[aria-pressed="true"] {
+    color: var(--icons-hover);
+}
+
+body.bionic-hint-active #bionic-toggle {
+    animation: bionic-hint-pulse 1.8s ease-in-out 3;
+}
+
+@keyframes bionic-hint-pulse {
+    0%, 100% { color: inherit; }
+    50% { color: var(--icons-hover); }
+}

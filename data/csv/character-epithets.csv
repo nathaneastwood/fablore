@@ -1,0 +1,61 @@
+# AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Database class in src/data/db/ (db.upsert_story).
+CharacterId|Name|Label
+LC00a9c28b68|god of the great deep|epithet
+LC06fe4efa62|Mistress of Malady|epithet
+LC092cda390b|Aesir of Chaos|epithet
+LC0dc8bd443c|the Shadow Aesir|epithet
+LC0dc8bd443c|Painter of the Night|epithet
+LC0dc8bd443c|Whispers of Xerys|epithet
+LC158fd93075|Librarian|short-name
+LC1e8f706fca|the Shield of Light|epithet
+LC1e8f706fca|Archangel of Protection|epithet
+LC28de0aecb4|the Wartune Herald|epithet
+LC28de0aecb4|Archangel of War|epithet
+LC29065c483d|Biomancer|epithet
+LC2f810327df|Ancient of Lightning|epithet
+LC2f810327df|Ancient of Lightning and Ice|epithet
+LC2f810327df|Ancient of Thunder and Ice|epithet
+LC2fec427363|Isulvf|short-name
+LC3185db92e6|Messenger of the Dawn|epithet
+LC3185db92e6|Archangel of Rebirth|epithet
+LC339dd1bb6e|Lost Knight|epithet
+LC3d62c9c3d5|purveyor of coal and rice|epithet
+LC56f5b484c9|Champion of the Dawn|epithet
+LC5c0fac48a7|Umadesu|short-name
+LC5c8b232655|the Soul Harrower|epithet
+LC6c9efba562|the Soul Harvester|epithet
+LC6d0dca761a|'The Fixer'|epithet
+LC6d0dca761a|Mortimer|short-name
+LC797634e498|Ancient of Ice|epithet
+LC8006026aeb|Chief|epithet
+LC813d110fa8|Minerva|short-name
+LC81d5897f36|Teklovossen|short-name
+LC81f9838c84|Archangel of Triumph|epithet
+LC86d73c4a75|the Dracai spymaster|epithet
+LC86d73c4a75|Spymaster Xathari|epithet
+LC8db59feb4d|Aesir of Light|epithet
+LC8eeac0e51a|Keeper of the Scales|epithet
+LC8eeac0e51a|Archangel of Judgment|epithet
+LC8eeac0e51a|Archangel of Justice|epithet
+LC9e8e6dcd4e|God of death|epithet
+LCc88a7317f3|Ancient of Earth and Ice|epithet
+LCcb32988a63|Archangel of Ravages|epithet
+LCceda0e3bc1|Archangel of Tenacity|epithet
+LCd4d6a1c7b5|the Fleshbinder|epithet
+LCd5f3905e87|First Anarch of L'Apocalypta|epithet
+LCdba8b18154|Ancient of Earth|epithet
+LCdba8b18154|Ancient of Earth and Lightning|epithet
+LCdc1e38974e|Archangel of Knowledge|epithet
+LCdc1e38974e|Archangel of Erudition|epithet
+LCdc1e38974e|Arcane Herald|epithet
+LCdf6740910f|hag of Mojire|epithet
+LCe1ca2c5b90|Aesir of Flames|epithet
+LCe21d6f009b|Spirit Caller|epithet
+LCe3d7bcefdd|Don of Coppertown|epithet
+LCe8bb1b626c|Queen of Candlehold|epithet
+LCec7ed74e1c|Barthimont|short-name
+LCeeefcef67b|the Soul Reaper|epithet
+LCf1bd74fe43|Master of Beasts|epithet
+LCf6018825e8|the Arcanist|epithet
+LCfbb9ef0167|Witch|epithet
+LCfc6a40eb94|of the Scarborough Expedition|epithet

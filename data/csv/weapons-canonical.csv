@@ -1,0 +1,114 @@
+# AUTO-GENERATED FILE — do not edit by hand. Regenerate with: python3 src/data/create_weapons_csv.py
+CanonicalWeaponId|CanonicalSlug|CanonicalWeapon
+CW11ec841dc9|aether-conduit|Aether Conduit
+CWbaa9d0775e|annals-of-sutcliffe|Annals of Sutcliffe
+CWa96f0c6813|anothos|Anothos
+CW7c97fe936b|aphrodias|Aphrodias
+CW725206f3d2|ball-breaker|Ball Breaker
+CW49409f0d99|bank-breaker|Bank Breaker
+CW57e3f66807|banksy|Banksy
+CW0a7b2bc60c|barbed-castaway|Barbed Castaway
+CW80f07d383f|beaming-blade|Beaming Blade
+CW7f631710e3|beckoning-mistblade|Beckoning Mistblade
+CW188bb9c5f3|bone-basher|Bone Basher
+CW64e3a5d16f|brush-of-heavenly-rites|Brush of Heavenly Rites
+CWbf541f688b|cintari-saber|Cintari Saber
+CW98b96687dd|claw-of-vynserakai|Claw of Vynserakai
+CWca91965793|cogwerx-blunderbuss|Cogwerx Blunderbuss
+CW3f102b46a1|cosmo-scroll-of-ancestral-tapestry|Cosmo, Scroll of Ancestral Tapestry
+CW9952bce67e|crucible-of-aetherweave|Crucible of Aetherweave
+CW45d53ab7ae|dawnblade|Dawnblade
+CW0061f0373d|dawnblade-resplendent|Dawnblade, Resplendent
+CW35b744cc6c|death-dealer|Death Dealer
+CW940f2af9c2|decimator-great-axe|Decimator Great Axe
+CWd0a4def32c|dread-scythe|Dread Scythe
+CW05b351aa9b|dreadbore|Dreadbore
+CWa9c40f6390|durendal|Durendal
+CWca11c8122f|duskblade|Duskblade
+CW5cfe3e71c5|edge-of-autumn|Edge of Autumn
+CW77c89f65a4|farflight-longbow|Farflight Longbow
+CWe3eb220aa4|flail-of-agony|Flail of Agony
+CW875cfefc18|galaxxi-black|Galaxxi Black
+CW2de2df0b26|gavel-of-natural-order|Gavel of Natural Order
+CW5f706c77f0|golden-grail|Golden Grail
+CW0893bf0a58|graphene-chelicera|Graphene Chelicera
+CW89afa48192|graven-call|Graven Call
+CW8f41f5de05|hammer-of-havenhold|Hammer of Havenhold
+CWde72f3fccc|hammerhead-harpoon-cannon|Hammerhead, Harpoon Cannon
+CW837edfe104|hanabi-blaster|Hanabi Blaster
+CW148b2c606f|harmonized-kodachi|Harmonized Kodachi
+CWab8a222995|hatchet-of-body|Hatchet of Body
+CWdaddf039ba|hatchet-of-mind|Hatchet of Mind
+CW65cc543259|hell-hammer|Hell Hammer
+CW0b5bc1b8b8|hexagore-the-death-hydra|Hexagore, the Death Hydra
+CW3c09d28fdc|high-riser|High Riser
+CW429f2872c2|hot-streak|Hot Streak
+CW98c77a22f2|hummingbird-call-of-adventure|Hummingbird, Call of Adventure
+CW1bd730f648|hunters-klaive|Hunter's Klaive
+CWbce06de716|iris-of-reality|Iris of Reality
+CW7c80a711a5|jinglewood-smash-hit|Jinglewood, Smash Hit
+CWa42dc386f5|jubeel-spellbane|Jubeel, Spellbane
+CW3f7fbd3e19|krakens-aethervein|Kraken's Aethervein
+CWd6ba321686|kunai-of-retribution|Kunai of Retribution
+CW295bff5a5f|lionclaw-maul|Lionclaw Maul
+CWf0d759e6a1|luminaris|Luminaris
+CW91bdd70e6d|luminaris-angels-glow|Luminaris, Angel's Glow
+CW4297b85795|luminaris-celestial-fury|Luminaris, Celestial Fury
+CWab5fe23891|mandible-claw|Mandible Claw
+CW7c7fa6a5b3|mark-of-the-huntsman|Mark of the Huntsman
+CW782af9c989|merciless-battleaxe|Merciless Battleaxe
+CW794329a2bf|millers-grindstone|Miller's Grindstone
+CW5e05213e95|mini-meataxe|Mini Meataxe
+CW9ea9cc24e1|moment-maker|Moment Maker
+CW693db0e870|nebula-blade|Nebula Blade
+CWd4cb4ba65d|nerve-scalpel|Nerve Scalpel
+CWc59ba06c36|nitro-mechanoid|Nitro Mechanoid
+CW90ab4447ee|obsidian-fire-vein|Obsidian Fire Vein
+CW22cd32b5f6|orbitoclast|Orbitoclast
+CW677d6c9ece|parry-blade|Parry Blade
+CW66f7a7630e|pile-driver|Pile Driver
+CWa111b79780|plasma-barrel-shot|Plasma Barrel Shot
+CWea57055ee3|quicksilver-dagger|Quicksilver Dagger
+CW0388740b13|ravenous-meataxe|Ravenous Meataxe
+CW0bed03c9d2|raydn-duskbane|Raydn, Duskbane
+CW25edd3ba00|reality-refractor|Reality Refractor
+CWac145c71d4|reaping-blade|Reaping Blade
+CWcae6467a84|red-liner|Red Liner
+CWc2f0e0cc8f|redspine-manta|Redspine Manta
+CW69f06b236b|redwood-hammer|Redwood Hammer
+CW91d1dd8615|rok|Rok
+CW1a803c89e7|romping-club|Romping Club
+CW1291a70e20|rosetta-thorn|Rosetta Thorn
+CWbc5296016b|rotwood-reaper|Rotwood Reaper
+CWcefd6263b0|rugged-roller|Rugged Roller
+CW6752591bae|sandscour-greatbow|Sandscour Greatbow
+CWb083db2181|savage-claw|Savage Claw
+CWdd428e1a62|scale-peeler|Scale Peeler
+CW671ecc50bf|scepter-of-pain|Scepter of Pain
+CWc963ed33e0|scorpio-comet-tail|Scorpio, Comet Tail
+CWbe17fe9d04|searing-emberblade|Searing Emberblade
+CW72b0d95eae|seerstone|Seerstone
+CWc0e5316e5d|shield-beater|Shield Beater
+CW8562649e90|shiver|Shiver
+CW677fa360bb|sledge-of-anvilheim|Sledge of Anvilheim
+CWf90eee24a0|spiders-bite|Spider's Bite
+CWfa2ca509fa|spitfire|Spitfire
+CW9bc7b60e16|staff-of-verdant-shoots|Staff of Verdant Shoots
+CWd56fff7138|star-fall|Star Fall
+CWae5f9e6bb1|storm-of-sandikai|Storm of Sandikai
+CWdbdd3ea093|summit-the-unforgiving|Summit, the Unforgiving
+CW2af451e8dc|surgent-aethertide|Surgent Aethertide
+CW951b917707|symbiosis-shot|Symbiosis Shot
+CW2d61057b1e|talishar-the-lost-prince|Talishar, the Lost Prince
+CW839c247a53|teklo-blaster|Teklo Blaster
+CW973350523e|teklo-leveler|Teklo Leveler
+CWfc9225abd7|teklo-plasma-pistol|Teklo Plasma Pistol
+CW3c9bc2b6a0|tiger-taming-khakkara|Tiger Taming Khakkara
+CW28f4d88f4f|titans-fist|Titan's Fist
+CW0cbcced282|voltaire-strike-twice|Voltaire, Strike Twice
+CWbc41508508|volzar-meteor-storm|Volzar, Meteor Storm
+CW448e5ff20d|volzar-the-lightning-rod|Volzar, the Lightning Rod
+CW3bac1d71c5|waning-moon|Waning Moon
+CWb61e3ce245|winters-wail|Winter's Wail
+CWd083701c07|zenith-blade|Zenith Blade
+CWe424b0455e|zephyr-needle|Zephyr Needle
