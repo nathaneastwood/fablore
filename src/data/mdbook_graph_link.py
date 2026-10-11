@@ -80,7 +80,7 @@ def inject_into_content(content: str, inner_html: str) -> str:
 
     if STORY_META_END in content:
         head, marker, tail = content.partition(STORY_META_END)
-        return f"{head}{marker}\n\n{block}\n{tail.lstrip()}"
+        return f"{head}{marker}\n\n{block}\n\n{tail.lstrip()}"
 
     sep = "\n\n" if content.strip() else ""
     return content.rstrip() + sep + f"{block}\n"

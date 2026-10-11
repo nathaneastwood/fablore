@@ -66,6 +66,15 @@ def test_link_lands_directly_under_the_share_sheet() -> None:
     assert out.index(STORY_META_END) < out.index("<p>link</p>") < out.index("Body text.")
 
 
+def test_body_after_the_share_sheet_link_starts_a_new_paragraph() -> None:
+    """A single newline after the HTML block lets Markdown swallow the opening
+    paragraph into it, so the first paragraph of every story rendered as bare
+    text with no <p> around it."""
+    content = f"# Aria\n\n{STORY_META_END}\n\nBody text.\n"
+    out = inject_into_content(content, "<p>link</p>")
+    assert f"{MARK_END}\n\nBody text." in out
+
+
 def test_link_falls_back_to_the_end_when_there_is_no_share_sheet() -> None:
     content = "# Plain Page\n\nBody text.\n"
     out = inject_into_content(content, "<p>link</p>")
