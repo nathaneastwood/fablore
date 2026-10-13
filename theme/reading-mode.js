@@ -46,7 +46,7 @@
 
     // --- Mark the opening paragraph for the drop cap ---
     var firstPara = Array.prototype.find.call(main.querySelectorAll(':scope > p'), function (p) {
-        return p.textContent.trim().length > 80;  // hint tooltips carry imgs, so test text only
+        return p.textContent.trim() !== '';  // skips image-only paragraphs; the story card's paragraph is not a direct child
     });
     if (firstPara) firstPara.classList.add('rm-opening');
 
