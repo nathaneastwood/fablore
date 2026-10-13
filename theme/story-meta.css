@@ -218,6 +218,11 @@ h4:hover .heading-anchor {
     text-decoration: underline;
 }
 
+/* Wrap between the arc, part and heroes, never inside "Part 3 of 3". */
+.story-card-part {
+    white-space: nowrap;
+}
+
 .story-card-more {
     cursor: help;
     font-weight: 400;
@@ -253,11 +258,21 @@ h4:hover .heading-anchor {
     font-size: inherit;
 }
 
+/* Long author and artist lists wrap on narrow screens. The icon hangs in the
+   left padding, so wrapped lines align with the text, not under the icon. */
 .story-meta-item {
-    display: inline-flex;
+    position: relative;
+    max-width: 100%;
+    padding-left: 1.4em;
+}
+
+.story-meta-item > .fa-svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 1.6em;
+    display: flex;
     align-items: center;
-    gap: 0.4em;
-    white-space: nowrap;
 }
 
 .story-meta-item .fa {
