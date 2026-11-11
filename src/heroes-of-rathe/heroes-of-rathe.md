@@ -22,6 +22,7 @@ Browse legendary heroes by name. Use the class filters to narrow the list; heroe
     <button type="button" class="hero-hub-filter" data-class="ranger" aria-pressed="false">Ranger</button>
     <button type="button" class="hero-hub-filter" data-class="runeblade" aria-pressed="false">Runeblade</button>
     <button type="button" class="hero-hub-filter" data-class="shapeshifter" aria-pressed="false">Shapeshifter</button>
+    <button type="button" class="hero-hub-filter" data-class="thief" aria-pressed="false">Thief</button>
     <button type="button" class="hero-hub-filter" data-class="warrior" aria-pressed="false">Warrior</button>
     <button type="button" class="hero-hub-filter" data-class="wizard" aria-pressed="false">Wizard</button>
     <button type="button" class="hero-hub-filter" data-class="unclassified" aria-pressed="false">Unclassified</button>
@@ -167,6 +168,10 @@ Browse legendary heroes by name. Use the class filters to narrow the list; heroe
       <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/full-hero-art/kayo-berserker-runt.webp" alt="" loading="lazy" width="466" height="650">
       <span class="world-hub-label">Kayo</span>
     </a>
+    <a class="world-hub-card hero-hub-card" data-classes="warrior thief" href="killjoy-about.md">
+      <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/full-hero-art/killjoy-the-crooked-blade.webp" alt="" loading="lazy" width="466" height="650">
+      <span class="world-hub-label">Killjoy</span>
+    </a>
     <a class="world-hub-card hero-hub-card" data-classes="brute" href="levia-about.md">
       <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/full-hero-art/levia-shadowborn-abomination.webp" alt="" loading="lazy" width="466" height="650">
       <span class="world-hub-label">Levia</span>
@@ -231,7 +236,7 @@ Browse legendary heroes by name. Use the class filters to narrow the list; heroe
       <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/full-hero-art/riptide-lurker-of-the-deep.webp" alt="" loading="lazy" width="466" height="650">
       <span class="world-hub-label">Riptide</span>
     </a>
-    <a class="world-hub-card hero-hub-card" data-classes="pirate" href="scurv-about.md">
+    <a class="world-hub-card hero-hub-card" data-classes="pirate thief" href="scurv-about.md">
       <img src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/full-hero-art/scurv-stowaway.webp" alt="" loading="lazy" width="466" height="650">
       <span class="world-hub-label">Scurv</span>
     </a>

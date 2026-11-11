@@ -375,6 +375,14 @@ db.update_description(
     "eternal bliss.",
 )
 db.update_description("location", "Death's Knell", "The Ocean.")
+# Gougemoor, not the Savage Lands: Gougemoor is "home to Deathmatch"
+# (destination-deathmatch.md:5) and borders the Savage Lands rather than lying in
+# them (kassais-diary.md:42). See the note on DEATHMATCH_ARENA in the catalogue.
+db.update_description(
+    "location",
+    "Deathmatch Arena",
+    "Gougemoor arena where heroes fight in Deathmatch before roaring crowds that cheer their favourites and jeer the rest.",
+)
 db.update_description(
     "location",
     "Eighth Precinct",
@@ -832,6 +840,11 @@ db.update_description(
     "group",
     "The Valdur",
     "Part of the Everfest Carnival, known for strongmen acts and work with animals.",
+)
+db.update_description(
+    "group",
+    "Southmaw Asylum",
+    "Asylum in the Pits whose discarded patients Dr. Mortimer used for his experiments before infection drew him out.",
 )
 
 

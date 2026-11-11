@@ -383,6 +383,33 @@ def test_kin_survives_the_csv_round_trip(db: Database, tmp_path) -> None:
     assert rows == [(lore_character_id("Bloodworth Goldmane"), "father", "heroes-of-rathe/lyath-about.md", "blood")]
 
 
+def test_a_non_default_qualifier_survives_the_csv_round_trip(db: Database, tmp_path) -> None:
+    """The seed must read ``Qualifier``, not fall back to the column default.
+
+    It used to insert four columns and leave ``qualifier`` to its ``'blood'``
+    default, so every freshly seeded database turned Fai and Dromai's adoptive
+    siblinghood into a blood one — and the next ``export_to_csv()`` wrote that
+    back to the committed CSV. The round trip above could not see it, because
+    its fact is ``blood`` already.
+    """
+    import db._export as ex
+    from db._seed import seed_from_csvs
+
+    entry = CharacterEntry(
+        "Fai",
+        kin=((CharacterEntry("Dromai"), "sibling", "main-story/uprising/dragons-of-empire.md", "adoptive"),),
+    )
+    _story(db, characters=[entry])
+    ex.export_registry_tables(db.conn, tmp_path)
+    ex.export_story_junctions(db.conn, tmp_path)
+
+    fresh = Database(":memory:", data_dir=tmp_path)
+    seed_from_csvs(fresh.conn, tmp_path)
+
+    rows = q.select_character_kin(fresh.conn, lore_character_id("Fai"))
+    assert rows == [(lore_character_id("Dromai"), "sibling", "main-story/uprising/dragons-of-empire.md", "adoptive")]
+
+
 def test_character_kin_csv_data_rows_are_well_formed_in_the_committed_data() -> None:
     """Every row in the committed CSV must be a real, well-formed fact.
 

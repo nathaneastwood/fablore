@@ -426,10 +426,17 @@ def build_related_fragment(
     # character_id is a "hero" here when it has a character-heroes.csv row,
     # matching how mdbook_graph derives its node kind.
     character_ids = sorted(maps.story_characters.get(story_id, frozenset()))
-    hero_ids = [
-        maps.character_id_to_canonical_id[cid] for cid in character_ids if cid in maps.character_id_to_canonical_id
-    ]
-    non_hero_ids = [cid for cid in character_ids if cid not in maps.character_id_to_canonical_id]
+    # An other-characters page does not list its own subject in story_characters,
+    # so a subject who is also a hero (CharacterEntry(hero_slug=…)) is added here:
+    # without it the older page never links the hero page that superseded it.
+    own_page_cids = maps.other_page_to_char_ids.get(Path(chapter_src_path).as_posix(), frozenset())
+    hero_ids = sorted(
+        {
+            maps.character_id_to_canonical_id[cid]
+            for cid in (*character_ids, *own_page_cids)
+            if cid in maps.character_id_to_canonical_id
+        }
+    )
     loc_ids = sorted(maps.story_locations.get(story_id, frozenset()))
     reg_ids = sorted(maps.story_regions.get(story_id, frozenset()))
 
@@ -456,7 +463,11 @@ def build_related_fragment(
         href = html.escape(relative_md_href(chapter_src_path, target))
         hero_cards.append(("Hero", display, "", href))
 
-    for cid in non_hero_ids:
+    # Every character, hero or not: a hero who also has an other-characters page
+    # (Dr. Mortimer, The Librarian) is one person with two pages, and a story
+    # naming them links both. The self-link check below keeps each page from
+    # linking itself.
+    for cid in character_ids:
         row = maps.character_row.get(cid)
         if not row:
             continue

@@ -206,6 +206,51 @@ def apply_lore_canonical_override(base_slug: str, hero_name: str, hero_variant: 
     return override_table.get(normalize_name(full_name), base_slug)
 
 
+_MARVEL_RARITY = "V"
+
+
+def dedupe_printings(printings_rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    """Keep one row per ``(HeroGameId, SetId, CardId)``, the ``heroes_printings`` key.
+
+    Upstream lists a Marvel printing under the same card id as the base printing
+    (``SUP002`` is both ``B`` and ``V``). The table key has no rarity, so the DB
+    keeps one row; writing both made each generator run add a row that the next
+    ``export_to_csv()`` dropped again. Prefer the base rarity: a Marvel is a
+    variant of a card that already has one. A card printed only as a Marvel keeps
+    its ``V`` row.
+    """
+    kept: dict[tuple[str, str, str], dict[str, str]] = {}
+    for row in printings_rows:
+        key = (row["HeroGameId"], row["SetId"], row["CardId"])
+        current = kept.get(key)
+        if current is None or (current["Rarity"] == _MARVEL_RARITY and row["Rarity"] != _MARVEL_RARITY):
+            kept[key] = row
+    return list(kept.values())
+
+
+def sort_like_db_export(
+    game_rows: list[dict[str, str]],
+    printings_rows: list[dict[str, str]],
+    canonical_rows: list[dict[str, str]],
+) -> tuple[list[dict[str, str]], list[dict[str, str]], list[dict[str, str]]]:
+    """Order rows exactly as ``db.export_to_csv()`` writes the same files.
+
+    Two writers own ``heroes-game.csv``, ``heroes-printings.csv`` and
+    ``heroes-canonical.csv``: this generator and the DB export, which every
+    ``create_stories_index.py`` run triggers. When their orders differed, each
+    regeneration reordered the whole file and buried the real changes in the diff.
+
+    The keys mirror the ``ORDER BY`` clauses in ``db/_queries.py``. They compare
+    plain ``str`` values, never ``.lower()``: SQLite's default BINARY collation is
+    case-sensitive, and code-point order on ``str`` equals byte order on UTF-8.
+    """
+    return (
+        sorted(game_rows, key=lambda r: r["CardName"]),
+        sorted(printings_rows, key=lambda r: (r["HeroGameId"], r["SetId"], r["CardId"])),
+        sorted(canonical_rows, key=lambda r: r["CanonicalSlug"]),
+    )
+
+
 def generate_heroes_csv() -> None:
     """Regenerate hero-related pipe CSVs from canonical roster + upstream card data.
 
@@ -403,6 +448,9 @@ def generate_heroes_csv() -> None:
         "YoungHero",
     ]
     printings_fieldnames = ["HeroGameId", "SetId", "CardId", "Rarity"]
+
+    printings_rows = dedupe_printings(printings_rows)
+    game_rows, printings_rows, canonical_rows = sort_like_db_export(game_rows, printings_rows, canonical_rows)
 
     for path, fieldnames, rows in [
         (HEROES_CANONICAL_CSV_PATH, canonical_fieldnames, canonical_rows),

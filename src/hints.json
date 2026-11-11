@@ -146,6 +146,10 @@
     "type": "location",
     "summary": "The Ocean."
   },
+  "Deathmatch Arena": {
+    "type": "location",
+    "summary": "Gougemoor arena where heroes fight in Deathmatch before roaring crowds that cheer their favourites and jeer the rest."
+  },
   "Deshvahan": {
     "type": "location",
     "summary": "A city in Volcor.",
@@ -208,8 +212,7 @@
   },
   "Gougemoor": {
     "type": "location",
-    "summary": "The edge of the Savage Lands.",
-    "region": "The Savage Lands"
+    "summary": "The edge of the Savage Lands."
   },
   "Grayhollow": {
     "type": "location",
@@ -957,6 +960,11 @@
     "type": "order",
     "summary": "An order of prophets named alongside the Ollin and Rosetta, who read the omens and keep a script of their own."
   },
+  "Southmaw Asylum": {
+    "type": "institution",
+    "summary": "Asylum in the Pits whose discarded patients Dr. Mortimer used for his experiments before infection drew him out.",
+    "url": "/world-of-rathe/pits.html#southmaw-asylum"
+  },
   "Teklo Industries": {
     "type": "corporation",
     "summary": "A recent entrant to the steamtech industry, acclaimed for its innovative products and cutting-edge designs driven by a constantly experimenting R&D team.",
@@ -1559,6 +1567,14 @@
       "heroes-of-rathe/kayo-about"
     ]
   },
+  "Killjoy": {
+    "type": "hero",
+    "summary": "An infamous thief with the sharpened skills of a Warrior, Killjoy stalks the Deathmatch Arena with her stolen spoils, welcoming the boos as she slices her opponents to shreds.",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/killjoy-about"
+    ]
+  },
   "Levia": {
     "type": "hero",
     "summary": "The hunger that possesses Levia gives her strength beyond any natural bounds, yet the monster within her may only be satisfied when all of Rathe has been devoured.",
@@ -1786,6 +1802,14 @@
       "heroes-of-rathe/yoji-about"
     ]
   },
+  "Zane": {
+    "type": "hero",
+    "summary": "Delighting the Deathmatch Arena with feats of strength and commanding charisma, Zane swings massive swords with ease and alacrity. Even his opponents can’t help but join in the cheers!",
+    "exclude_pages": [
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/zane-about"
+    ]
+  },
   "Zen": {
     "type": "hero",
     "summary": "With body and mind honed into instruments of tigrine determination, Zen prowls the currents of chi, maintaining the balance with hand and claw.",
@@ -1900,11 +1924,13 @@
     ]
   },
   "KrestMortimer": {
-    "type": "character",
+    "type": "hero",
     "match": "Mortimer",
-    "summary": "Scientist cast out of a Metrix institute for extreme experiments, now director of Southmaw asylum in the Pits and a student of Inertia and the Bloodrot Pox.",
+    "summary": "The demented Dr. Mortimer treats the Pits like his petri dish, infecting unwitting subjects to extract payment for his “miraculous” cures.",
     "exclude_pages": [
-      "other-characters/krest-mortimer"
+      "other-characters/krest-mortimer",
+      "heroes-of-rathe/heroes-of-rathe",
+      "heroes-of-rathe/dr-mortimer-about"
     ]
   },
   "TheLibrarian": {

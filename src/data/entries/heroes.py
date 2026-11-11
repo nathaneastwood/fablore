@@ -938,3 +938,35 @@ db.upsert_story(
     title="Professions",
     dry_run=True,
 )
+
+db.upsert_story(
+    path="src/heroes-of-rathe/killjoy-about.md",
+    story_type="heroes-of-rathe",
+    title="Killjoy",
+    source_link="https://fabtcg.com/hero/killjoy/",
+    characters=["killjoy"],
+    locations=[loc.DEATHMATCH_ARENA],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/heroes-of-rathe/zane-about.md",
+    story_type="heroes-of-rathe",
+    title="Zane",
+    source_link="https://fabtcg.com/hero/zane/",
+    characters=["zane"],
+    locations=[loc.DEATHMATCH_ARENA],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/heroes-of-rathe/dr-mortimer-about.md",
+    story_type="heroes-of-rathe",
+    title="Dr. Mortimer",
+    source_link="https://fabtcg.com/hero/dr-mortimer/",
+    characters=["dr-mortimer"],
+    locations=[loc.SOUTHMAW],
+    regions=[reg.THE_PITS],
+    groups=[grp.L_APOCALYPTA, grp.SOUTHMAW_ASYLUM],
+    dry_run=True,
+)

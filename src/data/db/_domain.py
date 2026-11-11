@@ -2282,6 +2282,54 @@ class Database:
                 )
         _export.export_registry_tables(self.conn, self._data_dir)
 
+    def move_location_region(self, name: str, *, from_region: str, to_region: str) -> None:
+        """Move a location to another region, re-keying its row and every reference.
+
+        ``LocationId`` hashes ``name|region_id``, so a region change is a new id.
+        Changing ``region=`` on the catalogue constant alone mints a second row of
+        the same name and strands the first, and :meth:`delete_entity` cannot
+        clean up after it — it deletes by name, so it would take both rows, and it
+        refuses while either is linked. This does the migration in one
+        transaction: create the new row with the old row's notes, lore fragment
+        and parent, repoint story links, aliases, child locations and groups, then
+        delete the old row. Change the catalogue constant to match afterwards.
+
+        Args:
+            name: Display name of the location.
+            from_region: Region display name it is filed under now; ``""`` for none.
+            to_region: Region display name to move it to; ``""`` for none.
+
+        Raises:
+            ValueError: If no row exists under ``from_region``, or a row already
+                exists under ``to_region`` (two rows to merge is a different job,
+                and picking one silently would lose the other's links).
+        """
+        old_id = _location_id(name, region_row_id(from_region) if from_region else "")
+        new_region_id = region_row_id(to_region) if to_region else ""
+        new_id = _location_id(name, new_region_id)
+        with self.conn:
+            old = q.select_location_by_id(self.conn, old_id)
+            if old is None:
+                raise ValueError(f"Location not found: {name!r} in region {from_region or '(none)'!r}")
+            if q.select_location_by_id(self.conn, new_id) is not None:
+                raise ValueError(
+                    f"Location {name!r} already exists in region {to_region or '(none)'!r} ({new_id}); "
+                    "merge the two rows instead of moving one onto the other."
+                )
+            q.upsert_location(
+                self.conn,
+                location_id=new_id,
+                name=name,
+                region_id=new_region_id,
+                notes=old["notes"],
+                lore_fragment=old["lore_fragment"],
+                parent_location_id=old["parent_location_id"],
+            )
+            q.repoint_location(self.conn, old_id, new_id)
+            q.delete_entity_row(self.conn, "locations", "location_id", old_id)
+        _export.export_registry_tables(self.conn, self._data_dir)
+        _export.export_story_junctions(self.conn, self._data_dir)
+
     # ------------------------------------------------------------------
     # Export / dump
     # ------------------------------------------------------------------

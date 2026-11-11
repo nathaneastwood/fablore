@@ -899,3 +899,62 @@ def test_load_related_maps_loads_the_other_page_map(tmp_path: Path) -> None:
     assert "other-characters/villain.md" in m.other_page_to_char_ids
     assert "C1" in m.other_page_to_char_ids["other-characters/villain.md"]
     assert m.character_row["C1"] == ("The Villain", "other-characters/villain.md")
+
+
+# ---------------------------------------------------------------------------
+# build_related_fragment — a hero who also has an other-characters page
+# ---------------------------------------------------------------------------
+#
+# Dr. Mortimer is one person with two pages: the hero page and the older
+# other-characters page (``CharacterEntry(hero_slug=…, other_characters_story_key=…)``).
+# Each page must link the other, and a story naming him must link both.
+
+
+def _hero_with_other_page(tmp_path: Path) -> tuple[Path, RelatedMaps]:
+    src = tmp_path / "src"
+    (src / "heroes-of-rathe").mkdir(parents=True)
+    (src / "other-characters").mkdir(parents=True)
+    (src / "heroes-of-rathe" / "dr-mortimer-about.md").write_text("# Dr. Mortimer", encoding="utf-8")
+    (src / "other-characters" / "krest-mortimer.md").write_text("# Krest", encoding="utf-8")
+    maps = _maps(
+        story_key_to_id={
+            "main-story/x.md": "ST1",
+            "heroes-of-rathe/dr-mortimer-about.md": "ST2",
+            "other-characters/krest-mortimer.md": "ST3",
+        },
+        story_characters={"ST1": frozenset({"C1"}), "ST2": frozenset({"C1"})},
+        canonical_hero={"CN1": ("dr-mortimer", "Dr. Mortimer")},
+        character_row={"C1": ("Dr. Krest Mortimer, 'The Fixer'", "other-characters/krest-mortimer.md")},
+        canonical_id_to_character_id={"CN1": "C1"},
+        character_id_to_canonical_id={"C1": "CN1"},
+        other_page_to_char_ids={"other-characters/krest-mortimer.md": frozenset({"C1"})},
+    )
+    return src, maps
+
+
+def test_build_related_fragment_hero_with_other_page_gets_both_cards(tmp_path: Path) -> None:
+    """A story naming such a character links the hero page and the character page."""
+    src, maps = _hero_with_other_page(tmp_path)
+    html = build_related_fragment(maps, story_id="ST1", chapter_src_path="main-story/x.md", src_root=src)
+    assert "../heroes-of-rathe/dr-mortimer-about.md" in html
+    assert "../other-characters/krest-mortimer.md" in html
+
+
+def test_build_related_fragment_hero_page_links_its_other_characters_page(tmp_path: Path) -> None:
+    """The hero's own page links the other-characters page, and not itself."""
+    src, maps = _hero_with_other_page(tmp_path)
+    html = build_related_fragment(
+        maps, story_id="ST2", chapter_src_path="heroes-of-rathe/dr-mortimer-about.md", src_root=src
+    )
+    assert "../other-characters/krest-mortimer.md" in html
+    assert "dr-mortimer-about.md" not in html
+
+
+def test_build_related_fragment_other_characters_page_links_its_hero_page(tmp_path: Path) -> None:
+    """The other-characters page links the hero page, though its story does not list the character."""
+    src, maps = _hero_with_other_page(tmp_path)
+    html = build_related_fragment(
+        maps, story_id="ST3", chapter_src_path="other-characters/krest-mortimer.md", src_root=src
+    )
+    assert "../heroes-of-rathe/dr-mortimer-about.md" in html
+    assert "krest-mortimer.md" not in html

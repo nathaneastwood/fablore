@@ -247,12 +247,9 @@ THE_MAW = LocationEntry("The Maw", region="The Pits", lore_fragment="the-maw")
 # The Savage Lands
 # -------------------------------------------------------------------------
 
-DEATHMATCH_ARENA = LocationEntry("Deathmatch Arena", region="The Savage Lands")
 FORWARD_CAMPS = LocationEntry("Forward Camps", region="The Savage Lands")
-GOUGEMOOR = LocationEntry("Gougemoor", region="The Savage Lands")
 RHINAR_S_TERRITORY = LocationEntry("Rhinar's Territory", region="The Savage Lands")
 THE_BONEYARD = LocationEntry("The Boneyard", region="The Savage Lands", lore_fragment="the-boneyard")
-THE_MOAT = LocationEntry("The Moat", region="The Savage Lands")
 THE_SAVAGE_WILDS = LocationEntry("The Savage Wilds", region="The Savage Lands")
 
 # -------------------------------------------------------------------------
@@ -306,9 +303,15 @@ CHAMPION_S_QUARTERS = LocationEntry("Champion's Quarters")
 CHARRED_RANGE = LocationEntry("Charred Range")
 CHROME_CAVERNS = LocationEntry("Chrome Caverns")
 DAWNHAVEN = LocationEntry("Dawnhaven")
+# Gougemoor "smashes up against the Savage Lands", and the Moat, home of the
+# Deathmatch, rose out of that friction (short-stories/heavy-hitters/kassais-diary.md:42):
+# beside the region, not in it. All three were filed under The Savage Lands until
+# moved with Database.move_location_region() on 2026-11-09.
+DEATHMATCH_ARENA = LocationEntry("Deathmatch Arena")
 DEATH_S_KNELL = LocationEntry("Death's Knell")
 DEN_OF_BEASTS = LocationEntry("Den of Beasts")
 DOOMSDAY_PEAK = LocationEntry("Doomsday Peak")
+GOUGEMOOR = LocationEntry("Gougemoor")
 GRINNING_BOAR_CANTINA = LocationEntry("Grinning Boar Cantina")
 INFERNAL_MAW = LocationEntry("Infernal Maw")
 I_ARATHAEL = LocationEntry("i'Arathael")
@@ -321,6 +324,7 @@ TARNISH_HILL = LocationEntry("Tarnish Hill")
 TEMPEST_STRAITS = LocationEntry("Tempest Straits")
 THE_ABYSS = LocationEntry("The Abyss")
 THE_BROKEN_CHARIOT_TAVERN = LocationEntry("The Broken Chariot Tavern")
+THE_MOAT = LocationEntry("The Moat")
 THE_UNDERCROFT = LocationEntry("The Undercroft")
 THISTLEFOLD = LocationEntry("Thistlefold")
 WEST_RANGES = LocationEntry("West Ranges")

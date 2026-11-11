@@ -570,8 +570,16 @@ def _seed_character_kin(conn: sqlite3.Connection, data_dir: Path) -> None:
     _, rows = _csv(data_dir, "character-kin.csv")
     for row in rows:
         conn.execute(
-            "INSERT OR IGNORE INTO character_kin (character_id, relative_id, relation, story_key) VALUES (?,?,?,?)",
-            (_s(row, "CharacterId"), _s(row, "RelativeId"), _s(row, "Relation"), _s(row, "StoryKey")),
+            "INSERT OR IGNORE INTO character_kin (character_id, relative_id, relation, story_key, qualifier)"
+            " VALUES (?,?,?,?,?)",
+            (
+                _s(row, "CharacterId"),
+                _s(row, "RelativeId"),
+                _s(row, "Relation"),
+                _s(row, "StoryKey"),
+                # Column default when the CSV predates migration 21's Qualifier column.
+                _s(row, "Qualifier") or "blood",
+            ),
         )
 
 

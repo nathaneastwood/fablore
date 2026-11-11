@@ -1489,6 +1489,29 @@ def count_entity_story_links(conn: sqlite3.Connection, junction_table: str, id_c
     return conn.execute(f"SELECT COUNT(*) FROM {junction_table} WHERE {id_column} = ?", [entity_id]).fetchone()[0]
 
 
+def repoint_location(conn: sqlite3.Connection, old_id: str, new_id: str) -> None:
+    """Move every reference to location ``old_id`` onto ``new_id``.
+
+    Covers each place a ``location_id`` is stored: story links, alternate names,
+    child locations' ``parent_location_id`` and a group's ``location_id``. The
+    caller creates the ``new_id`` row first and deletes the ``old_id`` row after.
+    """
+    conn.execute(
+        "INSERT OR IGNORE INTO story_locations (story_id, location_id)"
+        " SELECT story_id, ? FROM story_locations WHERE location_id = ?",
+        [new_id, old_id],
+    )
+    conn.execute("DELETE FROM story_locations WHERE location_id = ?", [old_id])
+    conn.execute(
+        "INSERT OR IGNORE INTO location_aliases (location_id, alias, era, sort_order)"
+        " SELECT ?, alias, era, sort_order FROM location_aliases WHERE location_id = ?",
+        [new_id, old_id],
+    )
+    conn.execute("DELETE FROM location_aliases WHERE location_id = ?", [old_id])
+    conn.execute("UPDATE locations SET parent_location_id = ? WHERE parent_location_id = ?", [new_id, old_id])
+    conn.execute("UPDATE groups SET location_id = ? WHERE location_id = ?", [new_id, old_id])
+
+
 def delete_entity_row(conn: sqlite3.Connection, table: str, id_column: str, entity_id: str) -> int:
     """Delete one row from a lore registry table by id. Returns rows deleted."""
     cur = conn.execute(f"DELETE FROM {table} WHERE {id_column} = ?", [entity_id])

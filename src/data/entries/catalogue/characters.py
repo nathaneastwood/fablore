@@ -185,6 +185,8 @@ DR_KREST_MORTIMER_THE_FIXER = CharacterEntry(
     kinds=kind.HUMAN,
     epithets=("'The Fixer'",),
     short_names=("Mortimer",),
+    hero_slug="dr-mortimer",
+    other_characters_story_key="other-characters/krest-mortimer.md",
 )
 DR_WYVERSTONE = CharacterEntry("Dr. Wyverstone", kinds=kind.HUMAN)
 DUKE_DREXEN = CharacterEntry("Duke Drexen", kinds=kind.HUMAN)
