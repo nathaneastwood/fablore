@@ -17,9 +17,15 @@ This script writes linked outputs:
    supplies ``DateInEffect``; it lags the API, so it no longer decides who is a
    Living Legend. Blitz and young heroes are not reported.
 
+6) `heroes-fabtcg.csv` — per hero card, the fabtcg.com hero page, difficulty,
+   portrait key (hero-icons CDN) and playstyles, from the same hero API
+   (:func:`fabtcg_hero_rows`). Read by ``mdbook_hero_meta.py`` straight from the
+   CSV; like ``heroes-ll.csv`` it has no reader in the database, so it has no table.
+
 Pass ``--ll-only`` to regenerate only ``heroes-ll.csv`` from the committed
-``heroes-game.csv`` without touching the other outputs. Both modes need network
-access, because ``heroes-ll.csv`` is always fetched.
+``heroes-game.csv`` without touching the other outputs, or ``--fabtcg-only`` for
+``heroes-fabtcg.csv`` alone. Every mode needs network access, because both files
+are always fetched.
 
 Canonical IDs are normalized to deterministic hash IDs from `CanonicalSlug`.
 
@@ -50,8 +56,10 @@ Each generated CSV begins with a ``#`` banner line marking it as auto-generated.
 from __future__ import annotations
 
 import json
+import re
 import subprocess
 import sys
+import unicodedata
 import urllib.request
 from pathlib import Path
 
@@ -87,6 +95,7 @@ HEROES_CANONICAL_CSV_PATH = ROOT / "src/data/csv/heroes-canonical.csv"
 HEROES_GAME_CSV_PATH = ROOT / "src/data/csv/heroes-game.csv"
 HEROES_PRINTINGS_CSV_PATH = ROOT / "src/data/csv/heroes-printings.csv"
 HEROES_LL_CSV_PATH = ROOT / "src/data/csv/heroes-ll.csv"
+HEROES_FABTCG_CSV_PATH = ROOT / "src/data/csv/heroes-fabtcg.csv"
 CARD_PRINTING_CSV_PATH = ROOT.parent / "flesh-and-blood-cards/csvs/english/card-printing.csv"
 _LL_CC_CSV_PATH = ROOT.parent / "flesh-and-blood-cards/csvs/english/living-legend-cc.csv"
 HEROES_API_URL = "https://fabtcg.com/api/fab/v2/heroes/?lang=en"
@@ -184,6 +193,67 @@ def living_legend_rows(
     return rows
 
 
+def _portrait_key(text: str) -> str:
+    """The hero-icons key: accents stripped, lowercase, every other run of characters one ``-``."""
+    decomposed = unicodedata.normalize("NFKD", text)
+    plain = "".join(c for c in decomposed if not unicodedata.combining(c))
+    return re.sub(r"[^a-z0-9]+", "-", plain.lower()).strip("-")
+
+
+# Only Dr. Mortimer's API entry says "Disruption"; every other disruptive hero says "Disruptive".
+_PLAYSTYLE_FOLDS = {"Disruption": "Disruptive"}
+
+
+def fabtcg_hero_rows(api: dict, game_rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    """Return ``heroes-fabtcg.csv`` rows: one per released hero in the fabtcg.com hero API.
+
+    Each released hero (one with a ``link``; unreleased ones have none) has its
+    ``title`` and ``subtitle`` matched to a ``CardName`` with
+    :func:`text_utils.normalize_name`, as :func:`living_legend_rows` does, so a
+    ``both`` hero lands on its adult card and a ``young`` one on its young card.
+    The row carries the fabtcg.com hero page (``HeroPageLink``), ``Difficulty``
+    out of 5 (halves allowed), ``PortraitKey`` (the hero-icons CDN key: title and
+    subtitle, accents stripped, every other run of characters one ``-``) and
+    ``Playstyles`` (display names joined with ``", "``, "Disruption" folded into
+    "Disruptive"). A card the API folds into another hero (a young side such
+    as Arakni, Solitary Confinement) gets no row: it is shown inside the adult's
+    form. Rows are sorted by ``CardName``.
+
+    Raises:
+        ValueError: Naming every released hero that matches no ``CardName``.
+    """
+    card_by_key = {normalize_name(row["CardName"]): row["CardName"] for row in game_rows}
+    rows: list[dict[str, str]] = []
+    unmatched: list[str] = []
+    for hero in api["heroes"]:
+        link = (hero.get("link") or "").strip()
+        if not link:
+            continue
+        title = (hero.get("title") or "").strip()
+        subtitle = (hero.get("subtitle") or "").strip()
+        full = f"{title} {subtitle}".strip()
+        card_name = card_by_key.get(normalize_name(full))
+        if card_name is None:
+            unmatched.append(f"{title}, {subtitle}" if subtitle else title)
+            continue
+        rows.append(
+            {
+                "CardName": card_name,
+                "HeroPageLink": link,
+                "Difficulty": (hero.get("difficulty") or "").strip(),
+                "PortraitKey": _portrait_key(full),
+                "Playstyles": ", ".join(
+                    _PLAYSTYLE_FOLDS.get(p["name"], p["name"]) for p in hero.get("playstyles_detail") or []
+                ),
+            }
+        )
+    if unmatched:
+        raise ValueError(
+            "Released heroes from the fabtcg.com API match no CardName in heroes-game.csv: " + "; ".join(unmatched)
+        )
+    return sorted(rows, key=lambda r: r["CardName"])
+
+
 def fetch_heroes_api() -> dict:
     """Fetch the fabtcg.com hero API (the same request ``../fab-ll`` makes).
 
@@ -222,6 +292,22 @@ def generate_heroes_ll_csv(
         HEROES_LL_CSV_PATH,
         ["CanonicalSlug", "CardName", "Format", "DateInEffect"],
         ll_rows,
+        regenerate_command=REGENERATE_CREATE_HEROES,
+    )
+
+
+def generate_heroes_fabtcg_csv(game_rows: list[dict[str, str]] | None = None, api: dict | None = None) -> None:
+    """Write ``heroes-fabtcg.csv`` from the fabtcg.com hero API (see :func:`fabtcg_hero_rows`).
+
+    With no arguments, reads the committed ``heroes-game.csv`` and fetches the
+    API, so it runs standalone (``python3 src/data/create_heroes_csv.py --fabtcg-only``).
+    """
+    if game_rows is None:
+        _, game_rows = read_pipe_csv(HEROES_GAME_CSV_PATH)
+    write_pipe_csv_autogen(
+        HEROES_FABTCG_CSV_PATH,
+        ["CardName", "HeroPageLink", "Difficulty", "PortraitKey", "Playstyles"],
+        fabtcg_hero_rows(api if api is not None else fetch_heroes_api(), game_rows),
         regenerate_command=REGENERATE_CREATE_HEROES,
     )
 
@@ -532,11 +618,14 @@ def generate_heroes_csv() -> None:
         )
 
     generate_heroes_ll_csv(game_rows, canonical_rows)
+    generate_heroes_fabtcg_csv(game_rows)
 
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "--ll-only":
         generate_heroes_ll_csv()
+    elif len(sys.argv) > 1 and sys.argv[1] == "--fabtcg-only":
+        generate_heroes_fabtcg_csv()
     else:
         generate_heroes_csv()
         _vd = Path(__file__).resolve().parent / "validate_data.py"

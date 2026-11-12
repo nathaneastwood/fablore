@@ -1,0 +1,156 @@
+{
+ "heroes": [
+  {
+   "slug": "arakni-5lp3d-7hru-7h3-cr4x",
+   "title": "Arakni",
+   "subtitle": "5L!p3d 7hRu 7h3 cR4X",
+   "link": "https://fabtcg.com/hero/arakni-5lp3d-7hru-7h3-cr4x/",
+   "type": "both",
+   "is_released": "yes",
+   "difficulty": "1",
+   "playstyles_detail": [
+    {
+     "name": "Aggressive",
+     "url": "https://fabtcg.com/playstyle/aggressive/",
+     "image": "https://cdn.fabtcg.com/uploads/2025/11/aggressive.png"
+    },
+    {
+     "name": "Disruptive",
+     "url": "https://fabtcg.com/playstyle/disruptive/",
+     "image": "https://cdn.fabtcg.com/uploads/2025/11/disruption.png"
+    }
+   ]
+  },
+  {
+   "slug": "aurora-3",
+   "title": "Aurora",
+   "subtitle": "Shooting Star",
+   "link": "https://fabtcg.com/hero/aurora-3/",
+   "type": "both",
+   "is_released": "yes",
+   "difficulty": "1",
+   "playstyles_detail": [
+    {
+     "name": "Aggressive",
+     "url": "https://fabtcg.com/playstyle/aggressive/",
+     "image": "https://cdn.fabtcg.com/uploads/2025/11/aggressive.png"
+    }
+   ]
+  },
+  {
+   "slug": "dash",
+   "title": "Dash",
+   "subtitle": "I/O",
+   "link": "https://fabtcg.com/hero/dash/",
+   "type": "both",
+   "is_released": "yes",
+   "difficulty": "3",
+   "playstyles_detail": [
+    {
+     "name": "Aggressive",
+     "url": "https://fabtcg.com/playstyle/aggressive/",
+     "image": "https://cdn.fabtcg.com/uploads/2025/11/aggressive.png"
+    },
+    {
+     "name": "Combo",
+     "url": "https://fabtcg.com/playstyle/combo/",
+     "image": "https://cdn.fabtcg.com/uploads/2025/11/combo.png"
+    }
+   ]
+  },
+  {
+   "slug": "dr-mortimer",
+   "title": "Dr. Mortimer",
+   "subtitle": "Blight of the Pits",
+   "link": "https://fabtcg.com/hero/dr-mortimer/",
+   "type": "both",
+   "is_released": "yes",
+   "difficulty": "2.5",
+   "playstyles_detail": [
+    {
+     "name": "Disruption",
+     "url": "https://fabtcg.com/playstyle/disruption/",
+     "image": "https://cdn.fabtcg.com/uploads/2025/11/disruption.png"
+    },
+    {
+     "name": "Midrange",
+     "url": "https://fabtcg.com/playstyle/midrange/",
+     "image": "https://cdn.fabtcg.com/uploads/2025/11/mid-range-1-1.png"
+    }
+   ]
+  },
+  {
+   "slug": "jarl",
+   "title": "Jarl",
+   "subtitle": "Vetreiði",
+   "link": "https://fabtcg.com/hero/jarl/",
+   "type": "adult",
+   "is_released": "yes",
+   "difficulty": "3",
+   "playstyles_detail": [
+    {
+     "name": "Defensive",
+     "url": "https://fabtcg.com/playstyle/defensive/",
+     "image": "https://cdn.fabtcg.com/uploads/2025/11/control.png"
+    },
+    {
+     "name": "Disruptive",
+     "url": "https://fabtcg.com/playstyle/disruptive/",
+     "image": "https://cdn.fabtcg.com/uploads/2025/11/disruption.png"
+    }
+   ]
+  },
+  {
+   "slug": "maxx",
+   "title": "Maxx",
+   "subtitle": "\"The Hype\" Nitro",
+   "link": "https://fabtcg.com/hero/maxx/",
+   "type": "both",
+   "is_released": "yes",
+   "difficulty": "2",
+   "playstyles_detail": [
+    {
+     "name": "Aggressive",
+     "url": "https://fabtcg.com/playstyle/aggressive/",
+     "image": "https://cdn.fabtcg.com/uploads/2025/11/aggressive.png"
+    },
+    {
+     "name": "Combo",
+     "url": "https://fabtcg.com/playstyle/combo/",
+     "image": "https://cdn.fabtcg.com/uploads/2025/11/combo.png"
+    }
+   ]
+  },
+  {
+   "slug": "valda-seismic-impact",
+   "title": "Valda",
+   "subtitle": "Seismic Impact",
+   "link": "https://fabtcg.com/hero/valda-seismic-impact/",
+   "type": "both",
+   "is_released": "yes",
+   "difficulty": "2",
+   "playstyles_detail": [
+    {
+     "name": "Aggressive",
+     "url": "https://fabtcg.com/playstyle/aggressive/",
+     "image": "https://cdn.fabtcg.com/uploads/2025/11/aggressive.png"
+    },
+    {
+     "name": "Disruptive",
+     "url": "https://fabtcg.com/playstyle/disruptive/",
+     "image": "https://cdn.fabtcg.com/uploads/2025/11/disruption.png"
+    }
+   ]
+  },
+  {
+   "slug": "azalea-aos",
+   "title": "Azalea",
+   "subtitle": "Ace of Spades",
+   "link": "",
+   "type": "both",
+   "is_released": "no",
+   "difficulty": "",
+   "playstyles_detail": []
+  }
+ ]
+}

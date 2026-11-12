@@ -86,10 +86,10 @@ def _export_story_narrated_videos(conn: sqlite3.Connection, csv_dir: Path) -> No
 def export_all(conn: sqlite3.Connection, data_dir: Path) -> None:
     """Regenerate every database-backed CSV file in ``data_dir/csv/``.
 
-    Four CSVs in that directory have no table behind them and are never written
-    here: ``story-arcs.csv`` and ``reviewed-name-pairs.csv`` are hand-maintained,
-    ``heroes-ll.csv`` is written by ``create_heroes_csv.py`` (from the fabtcg.com
-    hero API) and ``hero-card-name-aliases.csv`` is an input to it. Everything else is exported.
+    Five CSVs in that directory are never written here: ``story-arcs.csv`` and
+    ``reviewed-name-pairs.csv`` are hand-maintained, ``heroes-ll.csv`` and
+    ``heroes-fabtcg.csv`` are written by ``create_heroes_csv.py`` (from the
+    fabtcg.com hero API) and ``hero-card-name-aliases.csv`` is an input to it. Everything else is exported.
 
     Superset of :func:`export_stories`, :func:`export_registry_tables` and
     :func:`export_story_junctions`. It skipped the eight registry tables only
