@@ -8,8 +8,16 @@ the graph gets one link:
     <!-- fablore-graph-link:start --> … <!-- fablore-graph-link:end -->
 
 pointing at ``graph.html#<slug>``, which opens the graph with that node selected.
-Pages with a story card (``mdbook_story_meta``) get it inline in the card's links
-row, at ``GRAPH_SLOT``; any other page gets a line of its own.
+Where it goes, first match wins:
+
+* a hero page whose Related Lore heading row ``mdbook_story_meta`` built gets
+  the button in that row's ``RELATED_GRAPH_SLOT``, after the source link;
+* a page with Related Lore (``mdbook_related``) gets an "Explore in the Lore
+  Graph" button beside that heading — the graph is the same kind of "where
+  next" as the cards under it;
+* a page with a story card (``mdbook_story_meta``) gets it inline in the card's
+  links row, at ``GRAPH_SLOT``;
+* any other page gets a line of its own under the share sheet, or at the end.
 
 Kept separate from ``mdbook_related.py`` on purpose. That preprocessor computes
 the same joins for its Related Lore cards, but it is large and load-bearing;
@@ -24,6 +32,7 @@ from __future__ import annotations
 
 import html
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -32,13 +41,26 @@ if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
 from mdbook_graph import build_graph, page_graph_targets  # noqa: E402
-from mdbook_story_meta import GRAPH_SLOT  # noqa: E402
+from mdbook_story_meta import GRAPH_SLOT, RELATED_GRAPH_SLOT  # noqa: E402
 from mdbook_story_meta import MARK_END as STORY_META_END  # noqa: E402
 
 MARK_START = "<!-- fablore-graph-link:start -->"
 MARK_END = "<!-- fablore-graph-link:end -->"
 
 _GRAPH_SRC_PATH = "graph.md"
+# The heading mdbook_related puts at the top of its section.
+RELATED_HEADING = '<h1 id="related-lore">Related Lore</h1>'
+# A heading row from an earlier run, unwrapped back to the bare heading.
+_RELATED_HEAD_RE = re.compile(
+    '<div class="related-head">('
+    + re.escape(RELATED_HEADING)
+    + ")"
+    + re.escape(MARK_START)
+    + ".*?"
+    + re.escape(MARK_END)
+    + "</div>",
+    re.DOTALL,
+)
 
 
 def relative_graph_href(chapter_src_path: str, slug: str) -> str:
@@ -72,7 +94,26 @@ def build_card_link_html(chapter_src_path: str, node: dict) -> str:
     )
 
 
-def inject_into_slot(content: str, inner_html: str) -> str:
+def build_related_button_html(chapter_src_path: str, node: dict) -> str:
+    """Return the button that sits beside the Related Lore heading."""
+    href = relative_graph_href(chapter_src_path, node["sl"])
+    return (
+        f'<a class="related-graph-btn" href="{html.escape(href)}">'
+        'Explore in the Lore Graph <span aria-hidden="true">→</span></a>'
+    )
+
+
+def inject_beside_related_heading(content: str, inner_html: str) -> str:
+    """Put the link beside the Related Lore heading, in a row of its own."""
+    content = _RELATED_HEAD_RE.sub(lambda m: m.group(1), content)
+    return content.replace(
+        RELATED_HEADING,
+        f'<div class="related-head">{RELATED_HEADING}{MARK_START}{inner_html}{MARK_END}</div>',
+        1,
+    )
+
+
+def inject_into_slot(content: str, inner_html: str, slot: str = GRAPH_SLOT) -> str:
     """Put the link in the story card's slot, inline with the other links.
 
     The slot comment stays put and the link follows it, so a rebuild strips
@@ -82,7 +123,7 @@ def inject_into_slot(content: str, inner_html: str) -> str:
         pre, _, rest = content.partition(MARK_START)
         _, _, post = rest.partition(MARK_END)
         content = pre + post
-    return content.replace(GRAPH_SLOT, f"{GRAPH_SLOT}{MARK_START}{inner_html}{MARK_END}", 1)
+    return content.replace(slot, f"{slot}{MARK_START}{inner_html}{MARK_END}", 1)
 
 
 def inject_into_content(content: str, inner_html: str) -> str:
@@ -125,7 +166,12 @@ def walk_and_process(sections: list, targets: dict[str, dict]) -> None:
         # Never on the graph page itself — it would link to where you already are.
         if node and path != _GRAPH_SRC_PATH:
             content = ch.get("content") or ""
-            if GRAPH_SLOT in content:
+            if RELATED_GRAPH_SLOT in content:
+                # A hero page: the Related Lore heading row already holds the source link.
+                ch["content"] = inject_into_slot(content, build_related_button_html(path, node), RELATED_GRAPH_SLOT)
+            elif RELATED_HEADING in content:
+                ch["content"] = inject_beside_related_heading(content, build_related_button_html(path, node))
+            elif GRAPH_SLOT in content:
                 ch["content"] = inject_into_slot(content, build_card_link_html(path, node))
             else:
                 ch["content"] = inject_into_content(content, build_link_html(path, node))

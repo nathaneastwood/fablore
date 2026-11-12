@@ -203,3 +203,75 @@ def test_slot_injection_is_idempotent() -> None:
     twice = inject_into_slot(once, "<a>graph</a>")
     assert once == twice
     assert twice.count(MARK_START) == 1
+
+
+# ---------------------------------------------------------------------------
+# Related Lore heading
+# ---------------------------------------------------------------------------
+
+_RELATED = (
+    "<!-- fablore-related:start -->\n"
+    '<section class="related-section" aria-label="Related Lore">\n'
+    '<h1 id="related-lore">Related Lore</h1>\n'
+    '<div class="related-cards">\n'
+    "</div>\n"
+    "</section>\n"
+    "<!-- fablore-related:end -->\n"
+)
+
+
+def _hero_chapter(content: str) -> list:
+    return [{"Chapter": {"path": "heroes-of-rathe/dorinthea-about.md", "content": content, "sub_items": []}}]
+
+
+def test_on_a_page_with_related_lore_the_link_is_a_button_beside_its_heading() -> None:
+    items = _hero_chapter(f"# Dorinthea\n\nLore.\n\n{_RELATED}")
+    walk_and_process(items, TARGETS)
+    assert (
+        '<div class="related-head"><h1 id="related-lore">Related Lore</h1>'
+        "<!-- fablore-graph-link:start -->"
+        '<a class="related-graph-btn" href="../graph.html#dorinthea">'
+        'Explore in the Lore Graph <span aria-hidden="true">→</span></a>'
+        "<!-- fablore-graph-link:end --></div>\n"
+        '<div class="related-cards">'
+    ) in items[0]["Chapter"]["content"]
+
+
+def test_related_heading_placement_is_idempotent() -> None:
+    items = _hero_chapter(f"# Dorinthea\n\nLore.\n\n{_RELATED}")
+    walk_and_process(items, TARGETS)
+    once = items[0]["Chapter"]["content"]
+    walk_and_process(items, TARGETS)
+    assert items[0]["Chapter"]["content"] == once
+
+
+def test_without_related_lore_the_link_stays_in_the_story_card() -> None:
+    items = _hero_chapter(f'# Dorinthea\n\n<p class="story-card-links">{GRAPH_SLOT}</p>\n\nLore.\n')
+    walk_and_process(items, TARGETS)
+    content = items[0]["Chapter"]["content"]
+    assert f"{GRAPH_SLOT}{MARK_START}" in content
+    assert "related-graph-btn" not in content
+
+
+def test_on_a_hero_page_the_button_follows_the_source_link_in_the_related_heading_row() -> None:
+    """mdbook_story_meta already put the heading in a row with the source link."""
+    row = (
+        '<div class="related-head"><h1 id="related-lore">Related Lore</h1><div class="related-head-links">'
+        '<a class="related-source-btn" href="https://fabtcg.com/hero/dorinthea/">Original article</a>'
+        "<!-- fablore-graph-link:related-slot --></div></div>"
+    )
+    items = _hero_chapter(
+        f"# Dorinthea\n\nLore.\n\n{_RELATED.replace('<h1 id=\"related-lore\">Related Lore</h1>', row)}"
+    )
+    walk_and_process(items, TARGETS)
+    out = items[0]["Chapter"]["content"]
+    assert (
+        '<div class="related-head"><h1 id="related-lore">Related Lore</h1><div class="related-head-links">'
+        '<a class="related-source-btn" href="https://fabtcg.com/hero/dorinthea/">Original article</a>'
+        "<!-- fablore-graph-link:related-slot --><!-- fablore-graph-link:start -->"
+        '<a class="related-graph-btn" href="../graph.html#dorinthea">'
+        'Explore in the Lore Graph <span aria-hidden="true">→</span></a>'
+        "<!-- fablore-graph-link:end --></div></div>\n"
+        '<div class="related-cards">'
+    ) in out
+    assert out.count('class="related-head"') == 1

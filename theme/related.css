@@ -17,6 +17,63 @@
     margin-bottom: 0.75rem;
 }
 
+/* Heading row with the Lore Graph button (mdbook_graph_link.py). The button
+   wraps under the heading when the row is too narrow for both. */
+.related-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem 1.2rem;
+    margin-bottom: 0.75rem;
+}
+
+.related-head h1 {
+    margin: 0;
+}
+
+/* A hero page's source link and Lore Graph button, side by side
+   (mdbook_story_meta.py, mdbook_graph_link.py). */
+.related-head-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+/* Same pill as the hero hub's filter chip, in the theme's link colour. */
+a.related-graph-btn,
+a.related-source-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0.45rem 1.1rem;
+    border: 1px solid var(--links);
+    border-radius: 999px;
+    background: var(--bg);
+    color: var(--links);
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+a.related-graph-btn:hover,
+a.related-graph-btn:focus-visible,
+a.related-source-btn:hover,
+a.related-source-btn:focus-visible {
+    background: var(--links);
+    color: var(--bg);
+    text-decoration: none;
+}
+
+a.related-graph-btn:focus-visible,
+a.related-source-btn:focus-visible {
+    outline: 2px solid var(--links);
+    outline-offset: 2px;
+}
+
 .related-cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
