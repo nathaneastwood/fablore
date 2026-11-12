@@ -1,5 +1,9 @@
 # Lyath Goldmane, Vile Savant
 
+:::hero-blurb
+Bored with playing and winning the feudal power games of the Northern Realms, Lyath sought fresh challenges in the blood sports of Deathmatch. After pulling the strings behind Victor’s gladiatorial successes there, Lyath is now ready to test his wits in the best game going. Super Slam!
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/lyath-goldmane-vile-savant.mp4" type="video/mp4">
 </video>

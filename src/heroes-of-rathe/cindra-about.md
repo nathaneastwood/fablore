@@ -1,5 +1,9 @@
 # Cindra, Dracai of Retribution
 
+:::hero-blurb
+The Dracai of Retribution has sharpened her daggers on rebels. With her Emperor gone, Cindra’s resolve is now mercilessly singular; the traitors will be found and executed.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/cindra-dracai-of-retribution.mp4" type="video/mp4">
 </video>

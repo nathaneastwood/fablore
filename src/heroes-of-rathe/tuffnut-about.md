@@ -1,5 +1,9 @@
 # Tuffnut, Bumbling Hulkster
 
+:::hero-blurb
+Tuffnut is a fun-loving giant who enjoys nothing more than roughhousing with his ‘friends’ and lapping up the adoration of the crowd. With boundless enthusiasm, Tuffnut crashes into the arena like a one-Brute natural disaster. Tuffnut doesn’t mean anything by it. He’s just having a good time!
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/tuffnut-bumbling-hulkster.mp4" type="video/mp4">
 </video>

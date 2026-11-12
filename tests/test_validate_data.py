@@ -632,3 +632,38 @@ def test_undeclared_stories_check_is_surfaced_by_collect_warnings() -> None:
     """
     warnings = validate_data.collect_warnings()
     assert any("upsert_story() declaration" in w for w in warnings)
+
+
+# ---------------------------------------------------------------------------
+# Hero blurbs
+# ---------------------------------------------------------------------------
+
+
+def test_check_hero_blurbs_flags_a_form_with_no_blurb(tmp_path: Path) -> None:
+    """Each hero form on a hero page carries a ``:::hero-blurb`` block for its banner."""
+    (tmp_path / "bravo-about.md").write_text(
+        "# Bravo, Showstopper\n\n"
+        ":::hero-blurb\nA blurb.\n:::\n\n"
+        "Lore.\n\n---\n\n"
+        "# Bravo, Star of the Show\n\n"
+        "Lore.\n",
+        encoding="utf-8",
+    )
+    alerts = validate_data._check_hero_blurbs(tmp_path, validate_data.DATA, exempt=frozenset())
+    assert alerts == ["Hero pages: bravo-about.md: 'Bravo, Star of the Show' has no :::hero-blurb block"]
+
+
+def test_every_real_hero_form_has_a_blurb_or_a_documented_exemption() -> None:
+    alerts = validate_data._check_hero_blurbs(
+        validate_data.SRC / "heroes-of-rathe", validate_data.DATA, exempt=validate_data.HERO_FORMS_WITHOUT_BLURB
+    )
+    assert alerts == []
+
+
+def test_collect_alerts_reports_a_hero_form_with_no_blurb(monkeypatch) -> None:
+    """With the exemption list emptied, the exempt form surfaces as an alert."""
+    monkeypatch.setattr(validate_data, "HERO_FORMS_WITHOUT_BLURB", frozenset())
+    alerts = [a for a in validate_data.collect_alerts() if a.startswith("Hero pages:")]
+    assert alerts == [
+        "Hero pages: arakni-5l!p3d-7hru-7h3-cr4x-about.md: 'Arakni, Solitary Confinement' has no :::hero-blurb block",
+    ]

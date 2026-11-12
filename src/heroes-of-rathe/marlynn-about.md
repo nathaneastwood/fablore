@@ -1,5 +1,9 @@
 # Marlynn, Treasure Hunter
 
+:::hero-blurb
+Marlynn sails the fastest ships and chases the most dangerous bounties. She’d rather live large and die young than be a worm on someone else’s hook.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/marlynn-treasure-hunter.mp4" type="video/mp4">
 </video>

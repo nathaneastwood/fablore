@@ -1,5 +1,9 @@
 # Zen, Tamer of Purpose
 
+:::hero-blurb
+With body and mind honed into instruments of tigrine determination, Zen prowls the currents of chi, maintaining the balance with hand and claw.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/zen-tamer-of-purpose.mp4" type="video/mp4">
 </video>

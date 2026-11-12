@@ -1,5 +1,9 @@
 # Katsu, The Wanderer
 
+:::hero-blurb
+Katsu is the calm before the storm. To protect the Mugenshi clan from plague and peril, he will unleash a hurricane that will sweep his enemies from the mountains of Misteria.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/katsu.mp4" type="video/mp4">
 </video>

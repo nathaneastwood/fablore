@@ -1,5 +1,9 @@
 # Hala, Bladesaint of the Vow
 
+:::hero-blurb
+After years of training Solana’s finest, this veteran templar now returns to the frontlines, ready to cut down the enemies of Sol.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/hala-bladesaint-of-the-vow.mp4" type="video/mp4">
 </video>

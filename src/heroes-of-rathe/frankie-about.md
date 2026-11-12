@@ -1,5 +1,9 @@
 # Frankie, Make Ends Meat
 
+:::hero-blurb
+Freaky Frankie is a macabre haberdasher sourcing atrophied accouterments for her drop dead gorgeous creations.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/frankie-make-ends-meat.mp4" type="video/mp4">
 </video>

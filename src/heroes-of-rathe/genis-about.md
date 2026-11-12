@@ -1,5 +1,9 @@
 # Genis Wotchuneed
 
+:::hero-blurb
+They call Genis the Roaming Bazaar, and what a spectacle he is! Ready your Silvers as you approach his stall, for Genis has got what you need!
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/genis.mp4" type="video/mp4">
 </video>

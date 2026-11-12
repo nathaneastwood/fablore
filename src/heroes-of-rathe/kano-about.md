@@ -1,5 +1,9 @@
 # Kano, Dracai of Aether
 
+:::hero-blurb
+The dragon’s fire burns hot within Kano’s veins. While the court demands his duty, this lordling lives only to further grow the power of his flame.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/kano.mp4" type="video/mp4">
 </video>

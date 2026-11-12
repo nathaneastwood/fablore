@@ -1,5 +1,9 @@
 # Teklovossen, Esteemed Magnate
 
+:::hero-blurb
+Teklovossen’s visionary ideas propelled Metrix from a past of steam and brass into a future of dynamism and data. His brilliance survives even his mysterious death.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/teklovossen-esteemed-magnate.mp4" type="video/mp4">
 </video>

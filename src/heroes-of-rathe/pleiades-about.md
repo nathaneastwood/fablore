@@ -1,5 +1,9 @@
 # Pleiades, Superstar
 
+:::hero-blurb
+War and music are all Pleiades has ever known. Having left the feudal conflicts of the Northern Realms, Pleiades now heads up her own warband with a set list of breathtaking anthems at their disposal. The audience adores her. Competitors fear her fame. Pleiades is a one-woman constellation of stardom.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/pleiades-superstar.mp4" type="video/mp4">
 </video>

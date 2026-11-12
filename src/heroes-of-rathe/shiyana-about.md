@@ -1,5 +1,9 @@
 # Shiyana, Diamond Gemini
 
+:::hero-blurb
+As a master of disguise, Shiyana searches Rathe for secret threats to her beloved Solana. Her heart and mind are harmonized, attuned to the Light. There is no fear. Only Sol.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/shiyana.mp4" type="video/mp4">
 </video>

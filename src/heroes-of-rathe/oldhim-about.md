@@ -1,5 +1,9 @@
 # Oldhim, Grandfather of Eternity
 
+:::hero-blurb
+This mighty Shieldbearer of the Ollin once stood against the Old Ones. Now Oldhim has risen from his frigid slumber to defend a new age against an ancient enemy.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/oldhim.mp4" type="video/mp4">
 </video>

@@ -1,5 +1,9 @@
 # Jarl Vetreiði
 
+:::hero-blurb
+After eons entombed in Isenloft, this ironclad Guardian has thawed from his frozen prison and entered a Rathe transformed. Yet time hasn’t cooled his fury, nor his ardor for war.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/jarl-vetreidi.mp4" type="video/mp4">
 </video>

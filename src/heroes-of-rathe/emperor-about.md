@@ -1,5 +1,9 @@
 # Emperor, Dracai of Aesir
 
+:::hero-blurb
+Upon the Imperial Throne of Volcor sits the greatest wizard this volatile land has ever seen. For the sake of his people, the Emperor must decide their fate.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/emperor.mp4" type="video/mp4">
 </video>

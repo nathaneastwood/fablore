@@ -1,5 +1,9 @@
 # Benji, The Piercing Wind
 
+:::hero-blurb
+Swift as a gale and agile as a sparrow, Benji is ready to fight for his clan. Even as whispers of doom darken the wind, this young Mugenshi will fly in the face of calamity.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/benji.mp4" type="video/mp4">
 </video>

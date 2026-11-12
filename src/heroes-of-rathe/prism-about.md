@@ -1,5 +1,9 @@
 # Prism, Sculptor of Arc Light
 
+:::hero-blurb
+Raised within the Library of Illumination, Prism turned her love of lore into mastery of illusions, manifesting her bright creations to guard her loved ones and smite her foes.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/prism.mp4" type="video/mp4">
 </video>
@@ -30,6 +34,10 @@ The Light will be your guide and fill your soul. Use it to sculpt Spectral Shiel
 ---
 
 # Prism, Awakener of Sol
+
+:::hero-blurb
+The sunless sky heralds dark days for Solana. Prism shall raise her radiant illusions to drive back the shadows that threaten to eclipse her cherished city.
+:::
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/prism-awakener-of-sol.mp4" type="video/mp4">

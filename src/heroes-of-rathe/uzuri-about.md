@@ -1,5 +1,9 @@
 # Uzuri, Switchblade
 
+:::hero-blurb
+Uzuri is a criminal mastermind who knows all the angles. She can read the play and choose where to stick the knife, usually where it’s least expected.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/uzuri.mp4" type="video/mp4">
 </video>

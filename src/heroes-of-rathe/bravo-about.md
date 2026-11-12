@@ -1,5 +1,9 @@
 # Bravo, Showstopper
 
+:::hero-blurb
+The star of Everfest, leader of the Legendarium, Bravo performed grand shows for cheering crowds. But when destiny came knocking, Bravo jumped at the chance to become a true hero!
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/bravo-showstopper.mp4" type="video/mp4">
 </video>
@@ -26,6 +30,10 @@ When Bravo takes the stage, his presence fills the room. Such is the aura of a g
 ---
 
 # Bravo, Star of the Show
+
+:::hero-blurb
+Bravo is the charismatic ringmaster of the Legendarium. The Flow courses through his veins, empowering him with the mighty will of the Ancients.
+:::
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/bravo-star-of-the-show.mp4" type="video/mp4">
@@ -58,6 +66,10 @@ Folk flock from all across Rathe to see the Star of the Show take center stage a
 ---
 
 # Bravo, Flattering Showman
+
+:::hero-blurb
+No matter when the curtain rises or where the fight takes him, Bravo brings his best. Aria’s showstopper meets every stage with the same easy grin, and every challenge with a crushing blow!
+:::
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/bravo-flattering-showman.mp4" type="video/mp4">

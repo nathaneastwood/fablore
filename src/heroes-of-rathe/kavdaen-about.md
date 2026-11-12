@@ -1,5 +1,9 @@
 # Kavdaen, Trader of Skins
 
+:::hero-blurb
+This underworld artist deals in the morbid and the macabre. It’s a deadly business and Kavdaen will make a visceral sculpture of anyone who crosses him.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/kavdaen.mp4" type="video/mp4">
 </video>

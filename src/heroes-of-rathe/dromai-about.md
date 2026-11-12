@@ -1,5 +1,9 @@
 # Dromai, Ash Artist
 
+:::hero-blurb
+Dromai is an artist who paints her masterpieces in ash. Her imagination is as boundless as her ambition, and her visionary dragons will ignite terror in all who behold them.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dromai.mp4" type="video/mp4">
 </video>

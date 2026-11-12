@@ -1,5 +1,9 @@
 # Brevant, Civic Protector
 
+:::hero-blurb
+Brevant’s easy grace conceals a will forged into steel by grinding instruction and grueling training. To the folk of Solana his fair visage is a symbol of Sol’s protection.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/brevant-civic-protector.mp4" type="video/mp4">
 </video>

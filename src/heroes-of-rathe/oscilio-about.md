@@ -1,5 +1,9 @@
 # Oscilio, Constella Intelligence
 
+:::hero-blurb
+Crafted during Rathe’s darkest hour, Oscilio is a living relic of the Third Age. His purpose is ancient, as are the enemies he was built to destroy.
+:::
+
 <video width="100%" height="100%"  controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/oscilio-constella-intelligence.mp4" type="video/mp4">
 </video>
@@ -29,6 +33,10 @@ One of the most electrifying weapons known to the world of Rathe, Volzar, the Li
 ---
 
 # Oscilio, Forked Continuum
+
+:::hero-blurb
+Oscilio has been reforged by a falling star. With shocking new knowledge, crackling across the boundaries of space and time, Oscilio is ready to charge into the ominous future.
+:::
 
 <video width="100%" height="100%"  controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/oscilio-forked-continuum.mp4" type="video/mp4">

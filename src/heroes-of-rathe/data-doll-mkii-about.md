@@ -1,5 +1,9 @@
 # Data Doll, MKII
 
+:::hero-blurb
+A one-of-a-kind automaton, Data Doll is the secret mind in the great machine that is Metrix. With all of the city’s data at her fingertips, nothing escapes her notice.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/data-doll-mkii.mp4" type="video/mp4">
 </video>

@@ -1,5 +1,9 @@
 # Blaze, Firemind
 
+:::hero-blurb
+Blaze watches through the flames of uprising and dynasty, using her insights to manipulate both rebels and nobles, all for the future of the empire and Volcor.
+:::
+
 <video width="100%" height="100%"  controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/blaze-firemind.mp4" type="video/mp4">
 </video>

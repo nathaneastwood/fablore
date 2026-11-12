@@ -1,5 +1,9 @@
 # Riptide, Lurker of the Deep
 
+:::hero-blurb
+Riptide’s cunning traps and devious cruelty make him a peerless hunter of the Pits’ diluvian depths. Beast or being, if you want something caught, he’s the one to catch it.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/riptide-lurker-of-the-deep.mp4" type="video/mp4">
 </video>

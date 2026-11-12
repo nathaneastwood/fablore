@@ -1,5 +1,9 @@
 # Valda Brightaxe
 
+:::hero-blurb
+Watch your mouth when Valda’s in the ale house, or you’ll wake up with more than a hangover! Valda’s never shy to put her foot down, and when she does, you’ll feel the rumble!
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/valda.mp4" type="video/mp4">
 </video>
@@ -27,6 +31,10 @@ Patrons of <a href="https://legendarystories.net/archive/world-of-rathe/aria/ari
 :::
 
 # Valda, Seismic Impact
+
+:::hero-blurb
+Watch your mouth when Valda’s in the ale house, or you’ll wake up with more than a hangover! Valda’s never shy to put her foot down, and when she does, you’ll feel the rumble!
+:::
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/valda-seismic-impact.mp4" type="video/mp4">

@@ -1,5 +1,9 @@
 # Baalghor, Omen of the End
 
+:::hero-blurb
+On the edge of the Abyss, interlopers are met by a colossal sentinel that casts a damning shadow. With immense power, Baalghor has one inexorable goal. The utter obliteration of any intruder.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/baalghor-omen-of-the-end.mp4" type="video/mp4">
 </video>

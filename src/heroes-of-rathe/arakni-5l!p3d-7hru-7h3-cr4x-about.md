@@ -21,6 +21,10 @@ Stealth is a deadly tool in the right hands, and Arakni knows how to keep their 
 
 # Arakni, 5l!p3d 7hru 7h3 Cr4x
 
+:::hero-blurb
+It stalks through rifts in reality, striking where enemies least expect. This agent of Chaos hunts in a world as unpredictable as its own fR4c7uR3d p5ych3.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/slippy.mp4" type="video/mp4">
 </video>

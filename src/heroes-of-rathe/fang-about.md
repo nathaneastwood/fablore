@@ -1,5 +1,9 @@
 # Fang, Dracai of Blades
 
+:::hero-blurb
+Fang’s imperial training has molded him into a devoted captain of the Royal Guard. He now leads his soldiers into battle with vengeance in his fists and fealty in his heart.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/fang-dracai-of-blades.mp4" type="video/mp4">
 </video>

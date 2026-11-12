@@ -1,5 +1,9 @@
 # Viserai, Rune Blood
 
+:::hero-blurb
+Created to be the perfect weapon, Viserai is deadly with both blade and aether. Yet forced to obey selfish whims, the Arknight must one day sever the bonds of servitude.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/viserai.mp4" type="video/mp4">
 </video>
@@ -26,6 +30,10 @@ Arcane energy flows through Viserai from the Arknight Shard inserted in his ches
 ---
 
 # Viserai, The Forsaken
+
+:::hero-blurb
+Returning from i’Arathael with the forbidden power of the beyond, Viserai opens the barrier between worlds to liberate all of Rathe as the new Shadow Lord.
+:::
 
 <video class="hero-video-wide" width="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/viserai-the-forsaken.mp4" type="video/mp4">

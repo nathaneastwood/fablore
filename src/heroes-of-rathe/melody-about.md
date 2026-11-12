@@ -1,5 +1,9 @@
 # Melody, Sing-along
 
+:::hero-blurb
+Melody’s songs soothe the growing dissonance within Aria. This restless minstrel won’t take her final bow until history’s most precious pieces are played throughout the land.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/melody.mp4" type="video/mp4">
 </video>

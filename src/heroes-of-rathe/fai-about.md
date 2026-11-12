@@ -1,5 +1,9 @@
 # Fai, Rising Rebellion
 
+:::hero-blurb
+Fai strikes with blistering speed, liberating his people, punishing their oppressors. From the ashes of the empire, this phoenix will rise.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/fai.mp4" type="video/mp4">
 </video>

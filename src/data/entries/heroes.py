@@ -239,7 +239,7 @@ db.upsert_story(
 db.upsert_story(
     path="src/heroes-of-rathe/ira-about.md",
     story_type="heroes-of-rathe",
-    title="Ira, Crimson Haze",
+    title="Ira, Scarlet Revenger",
     characters=["ira"],
     locations=[
         loc.VALLEY_OF_BLOSSOMS,

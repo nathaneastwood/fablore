@@ -1,5 +1,9 @@
 # Zyggy Starlight
 
+:::hero-blurb
+Zyggy returns to Rathe from a cosmic exile that has changed them in powerful ways. Having crossed unimaginable borders, they now turn the stuff of dreams into shocking realities.
+:::
+
 <video width="100%" height="100%"  controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/zyggy-starlight.mp4" type="video/mp4">
 </video>

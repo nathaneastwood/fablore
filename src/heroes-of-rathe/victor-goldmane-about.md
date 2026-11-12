@@ -1,5 +1,9 @@
 # Victor Goldmane, High and Mighty
 
+:::hero-blurb
+Victor struts into the arena with the wealth and power of noble-born privilege. A mighty fighter in his own right, Victor can still ensure his wins with a flash of gold.
+:::
+
 <video width="100%" height="100%"  controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/victor-goldmane-high-and-mighty.mp4" type="video/mp4">
 </video>

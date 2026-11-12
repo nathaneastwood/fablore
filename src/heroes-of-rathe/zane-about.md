@@ -1,5 +1,9 @@
 # Zane, Broadly Beloved
 
+:::hero-blurb
+Delighting the Deathmatch Arena with feats of strength and commanding charisma, Zane swings massive swords with ease and alacrity. Even his opponents can’t help but join in the cheers!
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/zane-broadly-beloved.mp4" type="video/mp4">
 </video>

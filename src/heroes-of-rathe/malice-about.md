@@ -1,5 +1,9 @@
 # Malice, Domina of the Dead
 
+:::hero-blurb
+Death at her beck and call, Malice commands a ceaseless horde of zombies back from the grave and the realms beyond.
+:::
+
 <video class="hero-video-wide" width="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/malice-domina-of-the-dead.mp4" type="video/mp4">
 </video>

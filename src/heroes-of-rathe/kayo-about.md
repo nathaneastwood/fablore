@@ -1,5 +1,9 @@
 # Kayo, Berserker Runt
 
+:::hero-blurb
+What Kayo lacks in size, he makes up for in ferocity. No matter the creature or battle, Kayo throws himself into every fight without fear, driven by the raw will to survive.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/kayo-beserker-runt.mp4" type="video/mp4">
 </video>
@@ -18,6 +22,10 @@ Kayo is a dangerous little mongrel; a product of survival in the Savage Lands. A
 ---
 
 # Kayo, Armed and Dangerous
+
+:::hero-blurb
+No longer a captive, Kayo has become a reviled menace within the arena. He is a savage force that treats Deathmatch as his personal territory.
+:::
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/kayo-armed-and-dangerous.mp4" type="video/mp4">
@@ -40,6 +48,10 @@ Kayo may have some new tricks up his sleeve, but he remains as wild and unpredic
 :::
 
 # Kayo, Underhanded Cheat
+
+:::hero-blurb
+The wild beast has adapted to frontier ‘civilization’. Kayo now understands the rules of the game, and how to twist them around his little finger. He has made the Moat his home, and Deathmatch his territory, and will play dirty to protect his patch.
+:::
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/kayo-underhanded-cheat.mp4" type="video/mp4">

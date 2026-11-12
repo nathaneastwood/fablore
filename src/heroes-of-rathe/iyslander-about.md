@@ -1,5 +1,9 @@
 # Iyslander, Stormbind
 
+:::hero-blurb
+Iyslander carries the fierce beauty of the frozen north with her. Her will is as hard and cold as the winter she commands, for she is a woman reborn of ice and snow.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/iyslander.mp4" type="video/mp4">
 </video>

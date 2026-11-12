@@ -1,5 +1,9 @@
 # Betsy, Skin in the Game
 
+:::hero-blurb
+Betsy is a head-smashing wrecking ball who lives for the wild risks of the Deathmatch Arena. There’s no bluffing with Betsy. She’s all in!
+:::
+
 <video width="100%" height="100%"  controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/betsy-skin-in-the-game.mp4" type="video/mp4">
 </video>

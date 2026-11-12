@@ -1,5 +1,9 @@
 # Chane, Bound by Shadow
 
+:::hero-blurb
+Chane harnessed the power of an otherworldly Embra from the shadows of i’Arathael. For that forbidden knowledge he paid the ultimate price.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/chane.mp4" type="video/mp4">
 </video>

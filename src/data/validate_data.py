@@ -896,6 +896,53 @@ def _check_group_lore_fragments(groups_path: Path, stories_path: Path, src_root:
     return alerts
 
 
+# Hero forms (the H1 text, as written on the page) that fabtcg.com gives no blurb
+# for. Add a form here only after checking https://fabtcg.com/hero-selection/ and
+# the hero's own page; never invent a blurb. Each entry says why it is exempt.
+HERO_FORMS_WITHOUT_BLURB: frozenset[str] = frozenset(
+    {
+        # The young form of Arakni, 5l!p3d 7hru 7h3 Cr4x; fabtcg.com lists only the adult card.
+        "Arakni, Solitary Confinement",
+    }
+)
+
+# A rendered banner: everything from the opening <header> to its </header>.
+_HERO_BANNER_RE = re.compile(r'<header class="hero-banner\b.*?</header>', re.DOTALL)
+_HERO_BANNER_TITLE_RE = re.compile(r"^# (.+)$", re.MULTILINE)
+
+
+def _check_hero_blurbs(pages_dir: Path, data_dir: Path, exempt: frozenset[str]) -> list[str]:
+    """Ensure every hero form on a ``*-about.md`` page has a ``:::hero-blurb`` block.
+
+    A form is whatever ``mdbook_hero_meta`` turns into a banner, so the check renders
+    each page the way the preprocessor does and reads the banners back. That keeps
+    the young-form and alias rules in one place.
+
+    Args:
+        pages_dir: The ``heroes-of-rathe`` folder.
+        data_dir: ``src/data`` (``mdbook_hero_meta`` reads its CSVs from there).
+        exempt: Form headings fabtcg.com gives no blurb for (see
+            :data:`HERO_FORMS_WITHOUT_BLURB`).
+
+    Returns:
+        Alert strings, one per form without a blurb.
+    """
+    import html as _html
+
+    from mdbook_hero_meta import load_hero_data, render_hero_page
+
+    data = load_hero_data(data_dir)
+    alerts: list[str] = []
+    for page in sorted(pages_dir.glob("*-about.md")):
+        rendered = render_hero_page(page.read_text(encoding="utf-8"), data)
+        for banner in _HERO_BANNER_RE.findall(rendered):
+            title = _HERO_BANNER_TITLE_RE.search(banner)
+            heading = _html.unescape(re.sub(r"<[^>]+>", "", title.group(1))).strip() if title else "?"
+            if "hero-banner-blurb" not in banner and heading not in exempt:
+                alerts.append(f"Hero pages: {page.name}: {heading!r} has no :::hero-blurb block")
+    return alerts
+
+
 def _check_descriptions_targets_exist(descriptions_path: Path) -> list[str]:
     """Flag ``update_description`` calls in ``descriptions.py`` whose target does not exist.
 
@@ -1519,6 +1566,7 @@ def collect_alerts() -> list[str]:
     alerts.extend(_check_supplement_types(SRC / "hints_supplement.json"))
     alerts.extend(_check_supplement_types_are_not_kinds(DATA / "csv/kinds.csv", DATA / "csv/kind-aliases.csv"))
     alerts.extend(_check_group_lore_fragments(DATA / "csv/groups.csv", DATA / "csv/stories.csv", SRC))
+    alerts.extend(_check_hero_blurbs(SRC / "heroes-of-rathe", DATA, HERO_FORMS_WITHOUT_BLURB))
 
     return alerts
 

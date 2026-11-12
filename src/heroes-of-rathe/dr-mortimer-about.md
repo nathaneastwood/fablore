@@ -1,5 +1,9 @@
 # Dr. Mortimer, Blight of the Pits
 
+:::hero-blurb
+The demented Dr. Mortimer treats the Pits like his petri dish, infecting unwitting subjects to extract payment for his “miraculous” cures.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dr-mortimer-blight-of-the-pits.mp4" type="video/mp4">
 </video>

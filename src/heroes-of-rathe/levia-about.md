@@ -1,5 +1,9 @@
 # Levia, Shadowborn Abomination
 
+:::hero-blurb
+The otherworldly hunger that possesses Levia grants her strength beyond any natural bounds, for the beast within her will only be satisfied when all has been devoured.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/levia.mp4" type="video/mp4">
 </video>

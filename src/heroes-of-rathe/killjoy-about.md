@@ -1,5 +1,9 @@
 # Killjoy, the Crooked Blade
 
+:::hero-blurb
+An infamous thief with the sharpened skills of a Warrior, Killjoy stalks the Deathmatch Arena with her stolen spoils, welcoming the boos as she slices her opponents to shreds.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/killjoy-the-crooked-blade.mp4" type="video/mp4">
 </video>

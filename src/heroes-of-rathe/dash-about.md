@@ -1,5 +1,9 @@
 # Dash, Inventor Extraordinaire
 
+:::hero-blurb
+Dash is full of wild ideas for ingenious gadgets. Born among the corporate heavyweights of Metrix, this savvy inventor is determined to disrupt the status quo.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dash.mp4" type="video/mp4">
 </video>
@@ -26,6 +30,10 @@ Mechanologists are driven by the pursuit of alternative energy sources to take t
 ---
 
 # Dash, I/O
+
+:::hero-blurb
+The ingenious Dash could single-handedly disrupt the stagnant status games of Metrix, but her new friend makes for a smarter prospect and a whole lot of fun.
+:::
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dash-io.mp4" type="video/mp4">

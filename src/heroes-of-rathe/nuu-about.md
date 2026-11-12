@@ -1,5 +1,9 @@
 # Nuu, Alluring Desire
 
+:::hero-blurb
+Beneath her alluring facade lies a sensual serpent of deadly grace. Nuu has seen more years than most, a long life mysteriously sustained by her most sinful patrons.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/nuu-alluring-desire.mp4" type="video/mp4">
 </video>

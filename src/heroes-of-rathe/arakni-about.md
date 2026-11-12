@@ -1,5 +1,9 @@
 # Arakni, Huntsman
 
+:::hero-blurb
+A dagger unsheathed of morality and conscience, a weapon of sharpened mind and polished purpose. Death is Arakni’s only concern. Assassination, their singular delight.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/arakni-huntsman.mp4" type="video/mp4">
 </video>

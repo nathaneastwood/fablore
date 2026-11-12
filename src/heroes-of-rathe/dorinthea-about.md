@@ -1,5 +1,9 @@
 # Dorinthea, Ironsong
 
+:::hero-blurb
+Chosen to brandish Dawnblade against the darkness that hungers to consume the light, Dorinthea will allow neither pride nor pity to deflect her duty to Sol.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dorinthea.mp4" type="video/mp4">
 </video>
@@ -26,6 +30,10 @@ Take up the mantle of the proud warrior, and join the ranks of the Hand of Sol. 
 ---
 
 # Dorinthea, Quicksilver Prodigy
+
+:::hero-blurb
+Quicksilver Prodigy lives up to her name, with every swing of her blade swiftly vanquishing those that threaten Solana.
+:::
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/dorinthea-quicksilver-prodigy.mp4" type="video/mp4">

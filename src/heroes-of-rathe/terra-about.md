@@ -1,5 +1,9 @@
 # Terra
 
+:::hero-blurb
+Terra was born to protect the flora and fauna of Aria, and hears their whispers as they call him to battle. Terra views every living thing as kin and he will let nothing harm them.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/terra.mp4" type="video/mp4">
 </video>

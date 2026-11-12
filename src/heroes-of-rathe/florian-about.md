@@ -1,5 +1,9 @@
 # Florian, Rotwood Harbinger
 
+:::hero-blurb
+They call him the Harbinger. While others bask in their illusion of eternal summer, Florian embraces the truth. Every leaf must fall. Death comes to us all.
+:::
+
 <video width="100%" height="100%"  controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/florian-rotwood-harbinger.mp4" type="video/mp4">
 </video>

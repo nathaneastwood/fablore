@@ -1,5 +1,9 @@
 # Kassai, Cintari Sellsword
 
+:::hero-blurb
+Her father taught her how to fight. The Red Desert taught her how to survive. Now Kassai is ready to take up her sabers and carve off a piece of the empire for herself.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/kassai-cintari-sellsword.mp4" type="video/mp4">
 </video>
@@ -22,6 +26,10 @@ Word of war is welcome respite for a sellsword; for where there's war, there's w
 ---
 
 # Kassai of the Golden Sand
+
+:::hero-blurb
+The most lethal contestant in Deathmatch cares little for thrills or glory. Every severed head adds coins to the fortune that will see Kassai raise an army of retribution.
+:::
 
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/kassai-of-the-golden-sand.mp4" type="video/mp4">

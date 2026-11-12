@@ -1,5 +1,9 @@
 # Puffin, Hightail
 
+:::hero-blurb
+Driven by her insatiable curiosity, this skyfaring freebooter (and her avian sidekick) will stop at nothing to uncover the secrets of the High Seas.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/puffin-hightail.mp4" type="video/mp4">
 </video>

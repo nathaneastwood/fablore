@@ -1,5 +1,9 @@
 # Ser Boltyn, Breaker of Dawn
 
+:::hero-blurb
+Ser Boltyn leads Solana’s vanguard into battle. With light in his heart and sword in his hand, Boltyn will carve the corruption from this land.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/boltyn.mp4" type="video/mp4">
 </video>

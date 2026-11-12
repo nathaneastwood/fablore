@@ -1,5 +1,9 @@
 # Aurora, Shooting Star
 
+:::hero-blurb
+Aurora lights up the sky like a shooting star. Faster than thunder and full of spark, this Wayfarer will navigate the dark dangers and uncover the brightest promises of the future.
+:::
+
 <video width="100%" height="100%"  controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/aurora-shooting-star.mp4" type="video/mp4">
 </video>
@@ -36,6 +40,10 @@ As a Runeblade, Aurora is a hybrid fighter, wielding both magic and melee in equ
 ---
 
 # Aurora, Legacy of Tempest
+
+:::hero-blurb
+Electrified with the legacy of the Ancients and armed with a new sword drawn from the ruins of the Third Age, Aurora rides into battle against otherworldly enemies at the head of a perfect storm.
+:::
 
 <video width="100%" height="100%"  controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/aurora-legacy-of-tempest.mp4" type="video/mp4">

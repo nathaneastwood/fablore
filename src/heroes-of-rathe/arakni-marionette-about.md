@@ -1,5 +1,9 @@
 # Arakni, Marionette
 
+:::hero-blurb
+Arakni is a living creation of mortal design, a masterwork of sculpted flesh and blood. It is more than a mere killer; it is a predator that hunts the hunters.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/arakni-marionette.mp4" type="video/mp4">
 </video>

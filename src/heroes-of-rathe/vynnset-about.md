@@ -1,5 +1,9 @@
 # Vynnset, Iron Maiden
 
+:::hero-blurb
+Vynnset wears the ache of persecution like runes engraved upon her bones. To dark forces she has paid homage in pain, and now it is her enemies who will do the suffering.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/vynnset-iron-maiden.mp4" type="video/mp4">
 </video>

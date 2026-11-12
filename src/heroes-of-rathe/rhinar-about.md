@@ -1,5 +1,9 @@
 # Rhinar, Reckless Rampage
 
+:::hero-blurb
+Rhinar’s bloodlust knows no bounds. To the apex predator of the Savage Lands, everything is prey, to be slaughtered by this brutal force of his untamed nature.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/rhinar.mp4" type="video/mp4">
 </video>

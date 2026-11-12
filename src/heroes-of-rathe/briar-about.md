@@ -1,5 +1,9 @@
 # Briar, Warden of Thorns
 
+:::hero-blurb
+Briar is a tenacious wielder of thorn and thaumaturgy. The first of the Rosetta to set foot outside of Candlehold, Briar is ready to fight for her place in the wilderness of Rathe.
+:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/briar.mp4" type="video/mp4">
 </video>
