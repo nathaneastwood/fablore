@@ -34,6 +34,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/aurora-about.md",
     story_type="heroes-of-rathe",
     title="Aurora",
+    source_link="https://fabtcg.com/hero/aurora-3/",
     characters=["aurora"],
     locations=[
         loc.ENION,
@@ -48,6 +49,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/oscilio-about.md",
     story_type="heroes-of-rathe",
     title="Oscilio",
+    source_link="https://fabtcg.com/hero/oscilio-constella-intelligence/",
     characters=["oscilio"],
     locations=[
         loc.ENION,
@@ -62,6 +64,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/zyggy-about.md",
     story_type="heroes-of-rathe",
     title="Zyggy Starlight",
+    source_link="https://fabtcg.com/hero/zyggy-starlight/",
     characters=["zyggy", "oscilio"],
     regions=[reg.NEBULUS_RIFT],
     locations=[
@@ -76,6 +79,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/blaze-about.md",
     story_type="heroes-of-rathe",
     title="Blaze",
+    source_link="https://fabtcg.com/hero/blaze/",
     characters=["blaze"],
     regions=[reg.VOLCOR],
     locations=[
@@ -89,6 +93,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/dorinthea-about.md",
     story_type="heroes-of-rathe",
     title="Dorinthea",
+    source_link="https://fabtcg.com/hero/dorinthea/",
     characters=["dorinthea", "hala"],
     locations=[
         loc.DIMENXXIONAL_GATEWAY,
@@ -136,6 +141,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/arakni-about.md",
     story_type="heroes-of-rathe",
     title="Arakni, Huntsman",
+    source_link="https://fabtcg.com/hero/arakni-huntsman/",
     characters=["arakni-huntsman"],
     regions=[reg.THE_PITS],
     dry_run=True,
@@ -145,6 +151,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/benji-about.md",
     story_type="heroes-of-rathe",
     title="Benji, The Piercing Wind",
+    source_link="https://fabtcg.com/hero/benji/",
     characters=["benji"],
     locations=[
         loc.GORGE_OF_A_THOUSAND_WINDS,
@@ -159,6 +166,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/bravo-about.md",
     story_type="heroes-of-rathe",
     title="Bravo, Showstopper",
+    source_link="https://fabtcg.com/hero/bravo-4/",
     characters=["bravo"],
     locations=[
         loc.FRACTAL_SCAR,
@@ -174,6 +182,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/briar-about.md",
     story_type="heroes-of-rathe",
     title="Briar, Warden of Thorns",
+    source_link="https://fabtcg.com/hero/briar/",
     characters=["briar"],
     locations=[loc.CANDLEHOLD],
     regions=[reg.ARIA],
@@ -184,6 +193,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/cindra-about.md",
     story_type="heroes-of-rathe",
     title="Cindra, Dracai of Retribution",
+    source_link="https://fabtcg.com/hero/cindra-dracai-of-retribution/",
     characters=["cindra", "emperor"],
     regions=[reg.VOLCOR],
     groups=[grp.SAYASHI],
@@ -194,6 +204,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/dromai-about.md",
     story_type="heroes-of-rathe",
     title="Dromai, Ash Artist",
+    source_link="https://fabtcg.com/hero/dromai/",
     characters=["dromai"],
     locations=[loc.MT_VOLCOR],
     regions=[reg.VOLCOR],
@@ -204,6 +215,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/emperor-about.md",
     story_type="heroes-of-rathe",
     title="Emperor, Dracai of Aesir",
+    source_link="https://fabtcg.com/hero/emperor/",
     characters=["emperor"],
     locations=[loc.MT_VOLCOR],
     regions=[reg.VOLCOR],
@@ -214,6 +226,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/enigma-about.md",
     story_type="heroes-of-rathe",
     title="Enigma, Ledger of Ancestry",
+    source_link="https://fabtcg.com/hero/enigma/",
     characters=["enigma"],
     locations=[loc.LUNAR_TEMPLE],
     regions=[reg.MISTERIA],
@@ -224,6 +237,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/fai-about.md",
     story_type="heroes-of-rathe",
     title="Fai, Rising Rebellion",
+    source_link="https://fabtcg.com/hero/fai/",
     characters=[
         "fai",
         people.EUN,
@@ -240,6 +254,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/ira-about.md",
     story_type="heroes-of-rathe",
     title="Ira, Scarlet Revenger",
+    source_link="https://fabtcg.com/hero/ira-3/",
     characters=["ira"],
     locations=[
         loc.VALLEY_OF_BLOSSOMS,
@@ -254,6 +269,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/lexi-about.md",
     story_type="heroes-of-rathe",
     title="Lexi, Livewire",
+    source_link="https://fabtcg.com/hero/lexi/",
     characters=["lexi"],
     locations=[
         loc.ENION,
@@ -281,6 +297,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/azalea-about.md",
     story_type="heroes-of-rathe",
     title="Azalea",
+    source_link="https://fabtcg.com/hero/azalea/",
     characters=["azalea"],
     locations=[
         loc.BLACKJACK_S_TAVERN,
@@ -294,6 +311,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/boltyn-about.md",
     story_type="heroes-of-rathe",
     title="Boltyn",
+    source_link="https://fabtcg.com/hero/boltyn-3/",
     characters=[
         "boltyn",
         people.EIRINA,
@@ -317,6 +335,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/fang-about.md",
     story_type="heroes-of-rathe",
     title="Fang",
+    source_link="https://fabtcg.com/hero/fang/",
     characters=["fang", "emperor"],
     regions=[reg.VOLCOR],
     groups=[grp.CHILDREN_OF_THE_DRAGON],
@@ -327,6 +346,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/hala-about.md",
     story_type="heroes-of-rathe",
     title="Hala",
+    source_link="https://fabtcg.com/hero/hala/",
     characters=[
         "hala",
         people.GRAND_MAGISTER_THE_STEADFAST,
@@ -352,6 +372,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/katsu-about.md",
     story_type="heroes-of-rathe",
     title="Katsu",
+    source_link="https://fabtcg.com/hero/katsu-the-wanderer/",
     characters=["katsu"],
     locations=[
         loc.MUGENSHI_GORGE,
@@ -364,6 +385,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/kayo-about.md",
     story_type="heroes-of-rathe",
     title="Kayo",
+    source_link="https://fabtcg.com/hero/kayo/",
     characters=["kayo", "kassai"],
     locations=[
         loc.DEATHMATCH_ARENA,
@@ -378,6 +400,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/melody-about.md",
     story_type="heroes-of-rathe",
     title="Melody",
+    source_link="https://fabtcg.com/hero/melody-3/",
     characters=["melody"],
     locations=[
         loc.THE_FLOW,
@@ -390,6 +413,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/oldhim-about.md",
     story_type="heroes-of-rathe",
     title="Oldhim",
+    source_link="https://fabtcg.com/hero/oldhim-2/",
     characters=["oldhim"],
     locations=[
         loc.ISENLOFT,
@@ -404,6 +428,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/puffin-about.md",
     story_type="heroes-of-rathe",
     title="Puffin",
+    source_link="https://fabtcg.com/hero/puffin/",
     characters=[
         "puffin",
         people.POLLY_CRANKA,
@@ -421,6 +446,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/shiyana-about.md",
     story_type="heroes-of-rathe",
     title="Shiyana",
+    source_link="https://fabtcg.com/hero/shiyana-diamond-gemini/",
     characters=["shiyana"],
     regions=[reg.SOLANA],
     dry_run=True,
@@ -430,6 +456,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/verdance-about.md",
     story_type="heroes-of-rathe",
     title="Verdance",
+    source_link="https://fabtcg.com/hero/verdance/",
     characters=[
         "verdance",
         "florian",
@@ -447,6 +474,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/vynnset-about.md",
     story_type="heroes-of-rathe",
     title="Vynnset",
+    source_link="https://fabtcg.com/hero/vynnset/",
     characters=[
         "vynnset",
         people.NASRETH,
@@ -459,6 +487,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/arakni-5l!p3d-7hru-7h3-cr4x-about.md",
     story_type="heroes-of-rathe",
     title="Arakni, Solitary Confinement",
+    source_link="https://fabtcg.com/hero/arakni-5lp3d-7hru-7h3-cr4x/",
     characters=[
         "arakni-solitary-confinement",
         people.DR_KREST_MORTIMER_THE_FIXER,
@@ -475,6 +504,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/betsy-about.md",
     story_type="heroes-of-rathe",
     title="Betsy, Skin in the Game",
+    source_link="https://fabtcg.com/hero/betsy/",
     characters=["betsy"],
     locations=[
         loc.DEATHMATCH_ARENA,
@@ -486,6 +516,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/chane-about.md",
     story_type="heroes-of-rathe",
     title="Chane, Bound by Shadow",
+    source_link="https://fabtcg.com/hero/chane/",
     characters=["chane"],
     locations=[
         loc.I_ARATHAEL,
@@ -498,6 +529,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/genis-about.md",
     story_type="heroes-of-rathe",
     title="Genis Wotchuneed",
+    source_link="https://fabtcg.com/hero/genis-3/",
     characters=["genis"],
     locations=[
         loc.THE_EVERFEST_CARNIVAL,
@@ -510,6 +542,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/iyslander-about.md",
     story_type="heroes-of-rathe",
     title="Iyslander, Stormbind",
+    source_link="https://fabtcg.com/hero/iyslander-2/",
     characters=["iyslander"],
     locations=[
         loc.BLEAK_EXPANSE,
@@ -522,6 +555,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/jarl-about.md",
     story_type="heroes-of-rathe",
     title="Jarl Vetreiði",
+    source_link="https://fabtcg.com/hero/jarl/",
     characters=["jarl"],
     locations=[
         loc.ISENLOFT,
@@ -536,6 +570,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/kano-about.md",
     story_type="heroes-of-rathe",
     title="Kano, Dracai of Aether",
+    source_link="https://fabtcg.com/hero/kano/",
     characters=["kano"],
     regions=[reg.VOLCOR],
     dry_run=True,
@@ -545,6 +580,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/nuu-about.md",
     story_type="heroes-of-rathe",
     title="Nuu, Alluring Desire",
+    source_link="https://fabtcg.com/hero/nuu-3/",
     characters=["nuu"],
     locations=[
         loc.MISTCLOAK_GULLY,
@@ -559,6 +595,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/prism-about.md",
     story_type="heroes-of-rathe",
     title="Prism, Sculptor of Arc Light",
+    source_link="https://fabtcg.com/hero/prism-soa/",
     characters=[
         "prism",
         "the-librarian",
@@ -575,6 +612,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/terra-about.md",
     story_type="heroes-of-rathe",
     title="Terra",
+    source_link="https://fabtcg.com/hero/terra/",
     characters=["terra"],
     locations=[
         loc.THE_KORSHEM,
@@ -588,6 +626,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/tuffnut-about.md",
     story_type="heroes-of-rathe",
     title="Tuffnut, Bumbling Hulkster",
+    source_link="https://fabtcg.com/hero/tuffnut/",
     characters=["tuffnut"],
     locations=[
         loc.DEATHMATCH_ARENA,
@@ -599,6 +638,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/uzuri-about.md",
     story_type="heroes-of-rathe",
     title="Uzuri, Switchblade",
+    source_link="https://fabtcg.com/hero/uzuri-switchblade/",
     characters=["uzuri"],
     regions=[
         reg.METRIX,
@@ -613,6 +653,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/arakni-marionette-about.md",
     story_type="heroes-of-rathe",
     title="Arakni, Marionette",
+    source_link="https://fabtcg.com/hero/arakni-marionette/",
     characters=["arakni-web-of-deceit"],
     dry_run=True,
 )
@@ -621,6 +662,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/brevant-about.md",
     story_type="heroes-of-rathe",
     title="Brevant, Civic Protector",
+    source_link="https://fabtcg.com/hero/brevant/",
     characters=["brevant"],
     locations=[],
     regions=[reg.SOLANA],
@@ -632,6 +674,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/florian-about.md",
     story_type="heroes-of-rathe",
     title="Florian, Rotwood Harbinger",
+    source_link="https://fabtcg.com/hero/florian/",
     characters=["florian"],
     locations=[
         loc.CANDLEHOLD,
@@ -644,6 +687,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/frankie-about.md",
     story_type="heroes-of-rathe",
     title="Frankie, Make Ends Meat",
+    source_link="https://fabtcg.com/hero/frankie/",
     characters=["frankie"],
     dry_run=True,
 )
@@ -652,6 +696,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/gravy-about.md",
     story_type="heroes-of-rathe",
     title="Gravy Bones, Shipwrecked Looter",
+    source_link="https://fabtcg.com/hero/gravy-bones/",
     characters=["gravy"],
     locations=[
         loc.DREADFALL_REACH,
@@ -663,6 +708,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/kavdaen-about.md",
     story_type="heroes-of-rathe",
     title="Kavdaen, Trader of Skins",
+    source_link="https://fabtcg.com/hero/kavdaen/",
     characters=["kavdaen"],
     regions=[reg.THE_PITS],
     locations=[
@@ -675,6 +721,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/levia-about.md",
     story_type="heroes-of-rathe",
     title="Levia, Shadowborn Abomination",
+    source_link="https://fabtcg.com/hero/levia/",
     characters=[
         "levia",
         people.LADY_BARTHIMONT,
@@ -692,6 +739,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/rhinar-about.md",
     story_type="heroes-of-rathe",
     title="Rhinar, Reckless Rampage",
+    source_link="https://fabtcg.com/hero/rhinar/",
     characters=["rhinar"],
     regions=[reg.THE_SAVAGE_LANDS],
     locations=[
@@ -704,6 +752,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/scurv-about.md",
     story_type="heroes-of-rathe",
     title="Scurv, Stowaway",
+    source_link="https://fabtcg.com/hero/scurv/",
     characters=[
         "scurv",
         people.STICKY_FINGERS,
@@ -720,6 +769,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/teklovossen-about.md",
     story_type="heroes-of-rathe",
     title="Teklovossen, Esteemed Magnate",
+    source_link="https://fabtcg.com/hero/teklovossen-esteemed-magnate/",
     characters=["teklovossen"],
     regions=[reg.METRIX],
     locations=[
@@ -736,6 +786,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/valda-about.md",
     story_type="heroes-of-rathe",
     title="Valda Brightaxe",
+    source_link="https://fabtcg.com/hero/valda-seismic-impact/",
     characters=[
         "valda",
         people.BRAUMEISTER_BALEN,
@@ -755,6 +806,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/yoji-about.md",
     story_type="heroes-of-rathe",
     title="Yoji, Royal Protector",
+    source_link="https://fabtcg.com/hero/yoji/",
     characters=[
         "yoji",
         people.LORD_WIZARD_CHIYO,
@@ -771,6 +823,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/dash-about.md",
     story_type="heroes-of-rathe",
     title="Dash, Inventor Extraordinaire",
+    source_link="https://fabtcg.com/hero/dash-3/",
     characters=[
         "dash",
         "data-doll-mkii",
@@ -793,6 +846,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/data-doll-mkii-about.md",
     story_type="heroes-of-rathe",
     title="Data Doll, MKII",
+    source_link="https://fabtcg.com/hero/data-doll/",
     characters=["data-doll-mkii"],
     locations=[
         loc.IRON_ASSEMBLY,
@@ -805,6 +859,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/kassai-about.md",
     story_type="heroes-of-rathe",
     title="Kassai, Cintari Sellsword",
+    source_link="https://fabtcg.com/hero/kassai-og/",
     characters=["kassai"],
     locations=[
         loc.DEATHMATCH_ARENA,
@@ -818,6 +873,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/lyath-about.md",
     story_type="heroes-of-rathe",
     title="Lyath Goldmane, Vile Savant",
+    source_link="https://fabtcg.com/hero/lyath-goldmane/",
     characters=[
         "lyath",
         "victor-goldmane",
@@ -837,6 +893,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/marlynn-about.md",
     story_type="heroes-of-rathe",
     title="Marlynn, Treasure Hunter",
+    source_link="https://fabtcg.com/hero/marlynn/",
     characters=[
         "marlynn",
         people.CAPTAIN_COODER_OF_THE_SWIFTWATER_WARDEN_COODER,
@@ -850,6 +907,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/maxx-about.md",
     story_type="heroes-of-rathe",
     title="Maxx 'The Hype' Nitro",
+    source_link="https://fabtcg.com/hero/maxx/",
     characters=["maxx"],
     locations=[
         loc.COGWERX_CONGLOMERATE,
@@ -863,6 +921,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/olympia-about.md",
     story_type="heroes-of-rathe",
     title="Olympia, Prized Fighter",
+    source_link="https://fabtcg.com/hero/olympia/",
     characters=[
         "olympia",
         people.COX,
@@ -886,6 +945,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/pleiades-about.md",
     story_type="heroes-of-rathe",
     title="Pleiades, Superstar",
+    source_link="https://fabtcg.com/hero/pleiades/",
     characters=["pleiades"],
     locations=[
         loc.THE_NORTHERN_REALMS,
@@ -899,6 +959,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/riptide-about.md",
     story_type="heroes-of-rathe",
     title="Riptide, Lurker of the Deep",
+    source_link="https://fabtcg.com/hero/riptide-lurker-of-the-deep/",
     characters=["riptide"],
     locations=[
         loc.SEETHESIDE_DOCKS,
@@ -911,6 +972,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/victor-goldmane-about.md",
     story_type="heroes-of-rathe",
     title="Victor Goldmane, High and Mighty",
+    source_link="https://fabtcg.com/hero/victor/",
     characters=["victor-goldmane"],
     regions=[reg.SOLANA],
     dry_run=True,
@@ -920,6 +982,7 @@ db.upsert_story(
     path="src/heroes-of-rathe/zen-about.md",
     story_type="heroes-of-rathe",
     title="Zen, Tamer of Purpose",
+    source_link="https://fabtcg.com/hero/zen-tamer-of-purpose/",
     characters=["zen"],
     regions=[reg.MISTERIA],
     dry_run=True,
