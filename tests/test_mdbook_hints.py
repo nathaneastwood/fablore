@@ -421,3 +421,35 @@ def test_script_block_followed_by_body_text():
     assert "var x = 'Brawnhide';" in result
     # Body text still receives injection
     assert 'hint="Brawnhide"' in result
+
+
+# ---------------------------------------------------------------------------
+# Hero banner — no tooltips in the name, subtitle or blurb
+# ---------------------------------------------------------------------------
+
+
+def test_a_hero_blurb_block_gets_no_hint():
+    """``hints`` may run before ``mdbook_hero_meta``, while the blurb is still raw markdown."""
+    content = "# Bravo, Showstopper\n\n:::hero-blurb\nA Brawnhide roams the Legendarium.\n:::\n"
+    assert process_chapter(content, HINTS) == content
+
+
+def test_a_rendered_hero_banner_gets_no_hint():
+    """``hints`` may run after ``mdbook_hero_meta``, once the banner is HTML."""
+    content = (
+        '<header class="hero-banner">\n'
+        '<div class="hero-banner-text">\n\n'
+        '# <span class="hero-banner-name">Bravo</span>\n\n'
+        '<p class="hero-banner-blurb">A Brawnhide roams the Legendarium.</p>\n'
+        "</div>\n"
+        "</header>\n"
+    )
+    assert process_chapter(content, HINTS) == content
+
+
+def test_a_term_in_the_blurb_is_still_hinted_in_the_body_below():
+    content = "# Bravo\n\n:::hero-blurb\nA Brawnhide roams.\n:::\n\nThe Brawnhide sleeps.\n"
+    assert process_chapter(content, HINTS) == (
+        "# Bravo\n\n:::hero-blurb\nA Brawnhide roams.\n:::\n\n"
+        'The <span class="hint" hint="Brawnhide">Brawnhide</span> sleeps.\n'
+    )

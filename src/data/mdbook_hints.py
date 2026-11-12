@@ -18,7 +18,8 @@ Option D count, since they name every entity and would distort both.
 
 Protected regions (no injection):
   fenced code blocks, inline code spans, Markdown links/images, HTML tags,
-  headings (all levels), and existing hint spans.
+  headings (all levels), existing hint spans, and a hero page's banner (its
+  ``:::hero-blurb`` block, or the rendered ``<header class="hero-banner">``).
 
 Backward compat: old [Text](~Key) markup is still converted and its key is
 excluded from auto-detection so the term is not double-wrapped.
@@ -45,6 +46,9 @@ _HINT_ELEMENT = re.compile(
 )
 _ALL_HEADINGS = re.compile(r"^#{1,6}[^\S\n]+.+$", re.MULTILINE)
 _SECTION_HEADINGS = re.compile(r"^#{2,3}[^\S\n]+(.+?)(?:[^\S\n]*#+)?\s*$", re.MULTILINE)
+# A hero banner's blurb, before (raw block) or after (inside the banner) mdbook_hero_meta.
+_HERO_BLURB_BLOCK = re.compile(r"^:::hero-blurb[^\n]*\n[\s\S]*?^:::[^\S\n]*$", re.MULTILINE)
+_HERO_BANNER = re.compile(r'<header class="hero-banner\b[\s\S]*?</header>')
 _OLD_HINT = re.compile(r"\[([^\]]+)\]\(~([^)]+)\)")
 
 # Entity type no longer gates auto-detection. It used to: only DB-backed types
@@ -78,6 +82,8 @@ def find_protected_regions(content: str) -> list[tuple[int, int]]:
     regions: list[tuple[int, int]] = []
     for pattern in (
         _SCRIPT_BLOCK,
+        _HERO_BLURB_BLOCK,
+        _HERO_BANNER,
         _FENCED_CODE,
         _CODE_SPAN,
         _LINK,
