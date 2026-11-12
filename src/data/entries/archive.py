@@ -49,3 +49,34 @@ from entries.catalogue import (  # noqa: F401
 # data rather than a shared entity.
 from db import NarratedVideoEntry  # noqa: F401
 from entries._runner import db  # noqa: F401
+
+db.upsert_story(
+    path="src/archive/heroes-of-rathe/arakni-5l!p3d-7hru-7h3-cr4x-about.md",
+    story_type="archive",
+    title="Arakni, Solitary Confinement",
+    characters=[
+        "arakni-solitary-confinement",
+        people.DR_KREST_MORTIMER_THE_FIXER,
+    ],
+    locations=[
+        loc.SOUTHMAW,
+    ],
+    regions=[reg.THE_PITS],
+    groups=[grp.THE_SPIDER],
+    dry_run=True,
+)
+
+db.upsert_story(
+    path="src/archive/heroes-of-rathe/valda-brightaxe.md",
+    story_type="archive",
+    title="Valda Brightaxe",
+    characters=["valda"],
+    regions=[reg.ARIA],
+    locations=[
+        loc.THE_EVERFEST_CARNIVAL,
+        loc.MIGHT_N_MEAD,
+        loc.THE_KORSHEM,
+        loc.THE_FLOW,
+    ],
+    dry_run=True,
+)

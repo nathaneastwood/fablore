@@ -486,7 +486,7 @@ db.upsert_story(
 db.upsert_story(
     path="src/heroes-of-rathe/arakni-5l!p3d-7hru-7h3-cr4x-about.md",
     story_type="heroes-of-rathe",
-    title="Arakni, Solitary Confinement",
+    title="Arakni, 5l!p3d 7hru 7h3 Cr4x",
     source_link="https://fabtcg.com/hero/arakni-5lp3d-7hru-7h3-cr4x/",
     characters=[
         "arakni-solitary-confinement",
@@ -785,7 +785,7 @@ db.upsert_story(
 db.upsert_story(
     path="src/heroes-of-rathe/valda-about.md",
     story_type="heroes-of-rathe",
-    title="Valda Brightaxe",
+    title="Valda, Seismic Impact",
     source_link="https://fabtcg.com/hero/valda-seismic-impact/",
     characters=[
         "valda",
@@ -795,7 +795,6 @@ db.upsert_story(
     locations=[
         loc.THE_EVERFEST_CARNIVAL,
         loc.MIGHT_N_MEAD,
-        loc.THE_KORSHEM,
         loc.THE_FLOW,
         loc.LARINKMORTH,
     ],

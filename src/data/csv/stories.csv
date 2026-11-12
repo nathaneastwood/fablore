@@ -1,8 +1,10 @@
 # AUTO-GENERATED FILE — do not edit by hand. Regenerate with: python3 src/data/create_stories_index.py
 StoryId|StoryKey|StoryType|Title|Authors|Artists|SourceLink|PublicationDate|ThumbnailImageLink
 ST33f262d990|archive/archive.md|archive|Lore Archive|||||
+ST7708e55c11|archive/heroes-of-rathe/arakni-5l!p3d-7hru-7h3-cr4x-about.md|archive|Arakni, Solitary Confinement|||||
 ST124cc5e36a|archive/heroes-of-rathe/heroes-of-rathe.md|archive|Heroes of Rathe|||||
 ST75e785854c|archive/heroes-of-rathe/rhinar-wtr.md|archive|Rhinar, Reckless Rampage|||||
+ST44595e074b|archive/heroes-of-rathe/valda-brightaxe.md|archive|Valda Brightaxe|||||
 ST0d93af34cb|archive/world-of-rathe/aria/a-lost-tome.md|archive|A Lost Tome|||||
 STb66442bbb6|archive/world-of-rathe/aria/a-mythical-sanctuary.md|archive|A Mythical Sanctuary|||||
 ST8104c7d306|archive/world-of-rathe/aria/a-true-sanctuary.md|archive|A True Sanctuary|||||
@@ -137,7 +139,7 @@ ST49ecb3ad48|flavour/uprising.md|flavour|Uprising|||||
 ST2f110a1740|flavour/usurp-the-shadow-throne.md|flavour|Usurp the Shadow Throne|||||
 ST787a06ac7f|flavour/welcome-to-rathe.md|flavour|Welcome to Rathe|||||
 ST7b56193381|flavour/xx-non-set-cards.md|flavour|Non-Set Cards|||||
-ST96e0269d78|heroes-of-rathe/arakni-5l!p3d-7hru-7h3-cr4x-about.md|heroes-of-rathe|Arakni, Solitary Confinement|||https://fabtcg.com/hero/arakni-5lp3d-7hru-7h3-cr4x/||
+ST96e0269d78|heroes-of-rathe/arakni-5l!p3d-7hru-7h3-cr4x-about.md|heroes-of-rathe|Arakni, 5l!p3d 7hru 7h3 Cr4x|||https://fabtcg.com/hero/arakni-5lp3d-7hru-7h3-cr4x/||
 ST345111398c|heroes-of-rathe/arakni-about.md|heroes-of-rathe|Arakni, Huntsman|||https://fabtcg.com/hero/arakni-huntsman/||
 STc5fc935b30|heroes-of-rathe/arakni-marionette-about.md|heroes-of-rathe|Arakni, Marionette|||https://fabtcg.com/hero/arakni-marionette/||
 STbca78faf59|heroes-of-rathe/aurora-about.md|heroes-of-rathe|Aurora|||https://fabtcg.com/hero/aurora-3/||
@@ -200,7 +202,7 @@ STee1792caf0|heroes-of-rathe/teklovossen-about.md|heroes-of-rathe|Teklovossen, E
 ST63d0a560ff|heroes-of-rathe/terra-about.md|heroes-of-rathe|Terra|||https://fabtcg.com/hero/terra/||
 STfc480d0f40|heroes-of-rathe/tuffnut-about.md|heroes-of-rathe|Tuffnut, Bumbling Hulkster|||https://fabtcg.com/hero/tuffnut/||
 ST205c4455dd|heroes-of-rathe/uzuri-about.md|heroes-of-rathe|Uzuri, Switchblade|||https://fabtcg.com/hero/uzuri-switchblade/||
-ST7ebf5e4ab1|heroes-of-rathe/valda-about.md|heroes-of-rathe|Valda Brightaxe|||https://fabtcg.com/hero/valda-seismic-impact/||
+ST7ebf5e4ab1|heroes-of-rathe/valda-about.md|heroes-of-rathe|Valda, Seismic Impact|||https://fabtcg.com/hero/valda-seismic-impact/||
 ST2ec7977a11|heroes-of-rathe/verdance-about.md|heroes-of-rathe|Verdance|||https://fabtcg.com/hero/verdance/||
 STfbcdcdb03c|heroes-of-rathe/victor-goldmane-about.md|heroes-of-rathe|Victor Goldmane, High and Mighty|||https://fabtcg.com/hero/victor/||
 ST1ed9707fdd|heroes-of-rathe/viserai-about.md|heroes-of-rathe|Viserai|||https://fabtcg.com/hero/viserai-the-forsaken/||

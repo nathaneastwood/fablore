@@ -98,6 +98,26 @@ def test_hero_notice_resolves_slug(src_root: Path) -> None:
     assert "rhinar-about.md" in notice
 
 
+def test_hero_notice_links_with_the_current_pages_first_h1(src_root: Path) -> None:
+    (src_root / "heroes-of-rathe" / "valda-about.md").write_text(
+        "<!-- note -->\n\n# Valda, Seismic Impact\n\nLore.\n\n# Valda Brightaxe\n"
+    )
+    notice = _hero_notice("archive/heroes-of-rathe/valda-brightaxe.md", src_root)
+    assert "see [Valda, Seismic Impact](../../heroes-of-rathe/valda-about.md)." in notice
+
+
+def test_hero_notice_falls_back_to_the_slug_when_the_current_page_has_no_h1(src_root: Path) -> None:
+    (src_root / "heroes-of-rathe" / "bravo-about.md").write_text("Lore only.\n")
+    notice = _hero_notice("archive/heroes-of-rathe/bravo-wtr.md", src_root)
+    assert "see [Bravo](../../heroes-of-rathe/bravo-about.md)." in notice
+
+
+def test_hero_notice_escapes_markdown_in_the_link_text(src_root: Path) -> None:
+    (src_root / "heroes-of-rathe" / "odd-about.md").write_text("# Odd [One]_*\\x\n")
+    notice = _hero_notice("archive/heroes-of-rathe/odd-old.md", src_root)
+    assert "see [Odd \\[One\\]\\_\\*\\\\x](../../heroes-of-rathe/odd-about.md)." in notice
+
+
 def test_hero_notice_relative_href(src_root: Path) -> None:
     notice = _hero_notice("archive/heroes-of-rathe/rhinar-wtr.md", src_root)
     assert "../../heroes-of-rathe/rhinar-about.md" in notice

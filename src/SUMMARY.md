@@ -417,7 +417,9 @@
             - [The Red Desert](archive/world-of-rathe/volcor/the-red-desert.md)
             - [Wildlife](archive/world-of-rathe/volcor/wildlife.md)
     - [Heroes of Rathe](archive/heroes-of-rathe/heroes-of-rathe.md)
+        - [Arakni, Solitary Confinement](archive/heroes-of-rathe/arakni-5l!p3d-7hru-7h3-cr4x-about.md)
         - [Rhinar, Reckless Rampage](archive/heroes-of-rathe/rhinar-wtr.md)
+        - [Valda Brightaxe](archive/heroes-of-rathe/valda-brightaxe.md)
 
 - [Spoilers](spoilers/README.md)
     - [Bright Lights](spoilers/bright-lights.md)
