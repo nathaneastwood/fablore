@@ -11,6 +11,7 @@ Breadcrumbs are injected before the first heading and are idempotent.
 
 from __future__ import annotations
 
+import fnmatch
 import html
 import json
 import os
@@ -28,6 +29,7 @@ MARK_START = "<!-- fablore-breadcrumb:start -->"
 MARK_END = "<!-- fablore-breadcrumb:end -->"
 
 # (path_prefix, section_label, hub_src_path, has_arc_subfolders, skip_paths)
+# A skip_paths entry may be a glob (fnmatch), e.g. every hero page.
 _SECTIONS = [
     (
         "main-story/",
@@ -59,6 +61,8 @@ _SECTIONS = [
             "heroes-of-rathe/heroes-of-rathe.md",
             "heroes-of-rathe/professions-of-rathe.md",
             "heroes-of-rathe/other.md",
+            # Hero pages open with a full-width banner; a trail above it only crowds it.
+            "heroes-of-rathe/*-about.md",
         },
     ),
     (
@@ -184,7 +188,7 @@ def _process_chapter(
     for prefix, label, hub_src, has_arc, skip_set in _SECTIONS:
         if not path.startswith(prefix):
             continue
-        if path in skip_set:
+        if any(fnmatch.fnmatchcase(path, pattern) for pattern in skip_set):
             return
 
         rel = path[len(prefix) :]  # e.g. "02-arcane-rising/cards-on-the-table.md"
