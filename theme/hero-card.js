@@ -5,12 +5,14 @@
  *   Card | Printings switch; picking a printing shows it on the large card.
  * - Hero videos (video[data-hero-autoplay]) play only while at least half on
  *   screen, and never under prefers-reduced-motion.
- * - On a page with several forms (.hero-form), the tabs in each banner show one
- *   form at a time, without scrolling. The URL anchor picks it; the newest form
- *   is the default. The story card and share sheet follow the shown form's
- *   banner.
+ * - On a page with several forms (.hero-form), the "Forms of <hero>" rail after
+ *   them shows one form at a time; picking one scrolls up to its banner. The URL
+ *   anchor picks it; the newest form is the default. The story card and share
+ *   sheet follow the shown form's banner, and the source link beside Related
+ *   Lore follows its data-source (the form's fabtcg.com page).
  * - Hero banner: the pause / play button is the video's only control.
- * - On the hub, #class-<slug> and #talent-<slug> in the URL apply a filter.
+ * - On the hub, #class-<slug>, #talent-<slug> and #playstyle-<slug> in the URL
+ *   apply a filter.
  */
 (function () {
     'use strict';
@@ -286,9 +288,13 @@
         }
 
         function fromHash() {
-            var m = /^#(class|talent)-([a-z0-9-]+)$/.exec(location.hash);
+            var m = /^#(class|talent|playstyle)-([a-z0-9-]+)$/.exec(location.hash);
             if (!m) return;
-            if (m[1] === 'class') {
+            if (m[1] === 'playstyle') {
+                // A link from a hero page's Details panel: press that playstyle (once).
+                var style = hub.querySelector('.hero-hub-filter[data-playstyle="' + m[2] + '"]');
+                if (style && style.getAttribute('aria-pressed') !== 'true') style.click();
+            } else if (m[1] === 'class') {
                 clearTalent();
                 var btn = hub.querySelector('.hero-hub-filter[data-class="' + m[2] + '"]');
                 if (btn) btn.click();
@@ -307,10 +313,13 @@
     function initForms() {
         var forms = Array.prototype.slice.call(document.querySelectorAll('.hero-form'));
         if (forms.length < 2) return;
-        var tabs = Array.prototype.slice.call(document.querySelectorAll('.hero-tab'));
-        // Every banner lists the forms in release order, so the last tab is the newest.
-        var firstBar = forms[0].querySelectorAll('.hero-tab');
-        var newest = firstBar.length ? firstBar[firstBar.length - 1].getAttribute('href').slice(1) : forms[0].dataset.form;
+        var tabs = Array.prototype.slice.call(document.querySelectorAll('.hero-forms .hero-tab'));
+        // The rail lists the forms in release order, so the last tab is the newest.
+        var newest = tabs.length ? tabs[tabs.length - 1].getAttribute('href').slice(1) : forms[0].dataset.form;
+        // The source link (mdbook_story_meta) points at the page's first form;
+        // each form carries its own fabtcg.com page in data-source.
+        var source = document.querySelector('#mdbook-content a.related-source-btn');
+        var defaultSource = source && source.getAttribute('href');
         // The story card and share sheet belong to the page, not to the first
         // form: mdbook_story_meta puts them under the first banner, so they
         // would hide with that form. Either may be absent (a hero page's card
@@ -339,8 +348,12 @@
                 }
             });
             tabs.forEach(function (tab) {
-                tab.setAttribute('aria-selected', tab.getAttribute('href').slice(1) === form.dataset.form ? 'true' : 'false');
+                var on = tab.getAttribute('href').slice(1) === form.dataset.form;
+                tab.setAttribute('aria-selected', on ? 'true' : 'false');
+                if (on) tab.setAttribute('aria-current', 'true');
+                else tab.removeAttribute('aria-current');
             });
+            if (source) source.setAttribute('href', form.dataset.source || defaultSource);
             // The card and share sheet sit under the shown form's banner.
             var banner = form.querySelector('.hero-banner');
             if (banner) {
@@ -352,12 +365,14 @@
         }
 
         // Land on the top of the banner, never on the H1 text inside it.
-        function toBanner(form) {
+        function toBanner(form, smooth) {
             var banner = form.querySelector('.hero-banner');
             if (!banner) return;
             var bar = document.getElementById('mdbook-menu-bar');
             var offset = bar ? bar.getBoundingClientRect().bottom : 0;
-            window.scrollTo(0, banner.getBoundingClientRect().top + window.scrollY - Math.max(offset, 0));
+            var top = banner.getBoundingClientRect().top + window.scrollY - Math.max(offset, 0);
+            var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            window.scrollTo({ top: top, behavior: smooth && !reduce ? 'smooth' : 'auto' });
         }
 
         function fromHash(land) {
@@ -367,7 +382,8 @@
             if (picked && land) toBanner(picked);
         }
 
-        // A tab is a real link (it works without JS). With JS it switches in place.
+        // A tab is a real link (it works without JS). With JS it switches in
+        // place, then takes the reader up to the new form's banner.
         tabs.forEach(function (tab) {
             tab.addEventListener('click', function (e) {
                 var form = formFor(tab.getAttribute('href').slice(1));
@@ -375,6 +391,7 @@
                 e.preventDefault();
                 show(form);
                 history.replaceState(null, '', '#' + form.dataset.form);
+                toBanner(form, true);
             });
         });
         forms.forEach(function (f) {

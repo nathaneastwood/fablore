@@ -660,10 +660,19 @@ def test_every_real_hero_form_has_a_blurb_or_a_documented_exemption() -> None:
     assert alerts == []
 
 
-def test_collect_alerts_reports_a_hero_form_with_no_blurb(monkeypatch) -> None:
-    """With the exemption list emptied, the exempt form surfaces as an alert."""
-    monkeypatch.setattr(validate_data, "HERO_FORMS_WITHOUT_BLURB", frozenset())
-    alerts = [a for a in validate_data.collect_alerts() if a.startswith("Hero pages:")]
+# ---------------------------------------------------------------------------
+# Hero portraits
+# ---------------------------------------------------------------------------
+
+
+def test_check_hero_portraits_flags_a_form_with_no_portrait(tmp_path: Path) -> None:
+    """Every hero form needs a portrait for the form switcher; heroes-fabtcg.csv supplies it."""
+    (tmp_path / "taipanis-about.md").write_text(
+        "# Taipanis, Dracai of Judgement\n\nLore.\n\n---\n\n# Bravo, Star of the Show\n\nLore.\n",
+        encoding="utf-8",
+    )
+    alerts = validate_data._check_hero_portraits(tmp_path, validate_data.DATA)
     assert alerts == [
-        "Hero pages: arakni-5l!p3d-7hru-7h3-cr4x-about.md: 'Arakni, Solitary Confinement' has no :::hero-blurb block",
+        "Hero pages: taipanis-about.md: 'Taipanis, Dracai of Judgement' has no portrait "
+        "(no PortraitKey in heroes-fabtcg.csv for its card or its adult partner)"
     ]

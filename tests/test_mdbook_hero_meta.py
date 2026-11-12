@@ -23,8 +23,10 @@ HG_BS|Bravo, Showstopper|CN_B|CL_G||40|4|**Action** - {r}{r}: Your attacks get *
 HG_BY|Bravo|CN_B|CL_G||20|4|**Action** - {r}{r}:  Your attacks get **dominate**. |true
 HG_BSS|Bravo, Star of the Show|CN_B|CL_G|TL_E|40|4|**Essence of Earth, Ice, and Lightning**|false
 HG_K|Killjoy, the Crooked Blade|CN_K|CL_W, CL_T|TL_R|20|4|Whenever you steal, **the crowd boos** you.|true
-HG_AY|Arakni, Solitary Confinement|CN_A|CL_A||19|4|Your first attack with **stealth** gets go again.|true
+HG_AY|Arakni, Solitary Confinement|CN_A|CL_A||19|4|The first attack with **stealth** gets go again.|true
 HG_A|Arakni, 5L!p3d 7hRu 7h3 cR4X|CN_A|CL_A|TL_C|38|4|Your first attack with **stealth** gets go again.|false
+HG_FY|Florian|CN_F|||20|4|If there are 4 or more Earth cards in your banished zone, Florian grows.|true
+HG_F|Florian, Rotwood Harbinger|CN_F|||40|4|If there are 8 or more Earth cards in your banished zone, Florian grows.|false
 """,
     "heroes-printings.csv": """\
 HeroGameId|SetId|CardId|Rarity|PrintingUniqueId|Foiling|ArtVariation|Artist
@@ -75,6 +77,21 @@ CanonicalSlug|CardName|Format|DateInEffect
 bravo|Bravo, Star of the Show|CC|2022-06-24
 bravo|Bravo|CC|2023-01-01
 arakni|Arakni, 5L!p3d 7hRu 7h3 cR4X|CC|
+""",
+    "heroes-canonical.csv": """\
+CanonicalId|CanonicalSlug|CanonicalHero
+CN_B|bravo|Bravo
+CN_K|killjoy|Killjoy
+CN_A|arakni-5l|Arakni
+CN_F|florian|Florian
+""",
+    "heroes-fabtcg.csv": """\
+# AUTO-GENERATED FILE — do not edit by hand.
+CardName|HeroPageLink|Difficulty|PortraitKey|Playstyles
+Arakni, 5L!p3d 7hRu 7h3 cR4X|https://fabtcg.com/hero/arakni-5l/|1|arakni-5l-p3d-7hru-7h3-cr4x|Aggressive, Disruptive
+Bravo, Showstopper|https://fabtcg.com/hero/bravo/|2.5|bravo-showstopper|Board Presence, Defensive
+Bravo, Star of the Show|https://fabtcg.com/hero/bravo-star/|4|bravo-star-of-the-show|Combo
+Florian, Rotwood Harbinger|https://fabtcg.com/hero/florian/|3|florian-rotwood-harbinger|Board Presence
 """,
 }
 
@@ -387,6 +404,14 @@ def test_young_card_with_the_same_ability_and_no_heading_of_its_own_joins_as_a_s
     assert f'<img src="{CARDS}/byoung.webp"' in young
 
 
+def test_young_card_worded_differently_joins_the_only_adult_card_of_its_identity_as_a_switchable_variant(data):
+    block = _block(render_hero_page("# Arakni, 5L!p3d 7hRu 7h3 cR4X\n\nLore.\n", data))
+    assert (
+        '<button type="button" class="hero-seg-btn" data-variant="young" aria-pressed="false">Young</button>' in block
+    )
+    assert '<div class="hero-statblock-variant" data-variant="young" data-name="Arakni, Solitary Confinement">' in block
+
+
 def test_young_card_with_its_own_heading_gets_its_own_block_not_a_switch(data):
     page = "# Bravo\n\nYoung lore.\n\n---\n\n# Bravo, Showstopper\n\nAdult lore.\n"
     out = render_hero_page(page, data)
@@ -404,17 +429,22 @@ _TWO_FORMS = "# Bravo, Star of the Show\n\nStar lore.\n\n---\n\n# Bravo, Showsto
 def test_a_page_with_several_forms_has_no_form_rail(data):
     out = render_hero_page(_TWO_FORMS, data)
     assert "hero-form-rail" not in out
-    assert "hero-icons" not in out
 
 
 def test_each_form_is_wrapped_so_the_page_can_show_one_at_a_time(data):
     page = "# Bravo, Showstopper\n\nOld lore.\n\n---\n\n# Bravo, Star of the Show\n\nNew lore.\n"
     out = render_hero_page(page, data)
-    first = out.index('<div class="hero-form" data-form="bravo-showstopper">\n\n<header class="hero-banner')
-    second = out.index('<div class="hero-form" data-form="bravo-star-of-the-show">\n\n<header class="hero-banner')
+    first = out.index(
+        '<div class="hero-form" data-form="bravo-showstopper" data-source="https://fabtcg.com/hero/bravo/">'
+        '\n\n<header class="hero-banner'
+    )
+    second = out.index(
+        '<div class="hero-form" data-form="bravo-star-of-the-show" data-source="https://fabtcg.com/hero/bravo-star/">'
+        '\n\n<header class="hero-banner'
+    )
     closes = out.index("</section>\n\n</div>", first)
     assert first < out.index("Old lore.") < closes < second < out.index("New lore.")
-    assert out.rstrip().endswith("</div>")
+    assert out.index("</section>\n\n</div>\n\n", second) < out.index('<section class="hero-forms"')
 
 
 def test_rule_between_forms_is_dropped_once_the_forms_are_wrapped(data):
@@ -446,9 +476,84 @@ def test_hub_cards_carry_the_talents_of_every_form_on_the_linked_page(data):
         "arakni-about.md": "# Arakni, Solitary Confinement\n\nLore.\n",
     }
     out = render_hero_hub(hub, pages, data)
-    assert 'data-classes="guardian" data-talents="elemental" href="bravo-about.md"' in out
-    assert 'data-classes="warrior thief" data-talents="reviled" href="killjoy-about.md"' in out
-    assert 'data-classes="assassin" data-talents="" href="arakni-about.md"' in out
+    assert 'data-classes="guardian" data-talents="elemental" ' in out
+    assert 'data-classes="warrior thief" data-talents="reviled" ' in out
+    assert 'data-classes="assassin" data-talents="" ' in out
+
+
+def test_hub_cards_carry_the_playstyles_of_every_form_on_the_linked_page_once_each(data):
+    hub = (
+        '<a class="world-hub-card hero-hub-card" data-classes="guardian" href="bravo-about.md">\n'
+        '<a class="world-hub-card hero-hub-card" data-classes="warrior thief" href="killjoy-about.md">\n'
+        '<a class="world-hub-card hero-hub-card" data-classes="assassin" href="arakni-about.md">\n'
+    )
+    pages = {
+        "bravo-about.md": "# Bravo\n\nYoung.\n\n---\n\n" + _TWO_FORMS,
+        "killjoy-about.md": "# Killjoy, the Crooked Blade\n\nLore.\n",
+        "arakni-about.md": "# Arakni, Solitary Confinement\n\nLore.\n",
+    }
+    cards = {line.split('href="')[1].rstrip('">'): line for line in render_hero_hub(hub, pages, data).splitlines()}
+    assert ' data-playstyles="board-presence defensive combo" ' in cards["bravo-about.md"]
+    assert ' data-playstyles="" ' in cards["killjoy-about.md"]
+    assert ' data-playstyles="aggressive disruptive" ' in cards["arakni-about.md"]
+
+
+# ---------------------------------------------------------------------------
+# fabtcg.com hero data — playstyles, difficulty, portraits, source links
+# ---------------------------------------------------------------------------
+
+_PLAYSTYLE_ICONS = "https://d2hl7maqck52px.cloudfront.net/playstyle-icons"
+
+
+def test_details_panel_has_a_playstyle_row_of_icons_and_names_and_a_difficulty_row_in_half_stars(data):
+    block = _block(render_hero_page("# Bravo, Showstopper\n\nLore.\n", data))
+    assert (
+        '<div class="hero-detail hero-detail--wide"><dt>Playstyle</dt><dd>'
+        '<a class="hero-playstyle" href="heroes-of-rathe.md#playstyle-board-presence">'
+        f'<img class="hero-playstyle-icon" src="{_PLAYSTYLE_ICONS}/board-presence.webp" alt="" width="20" height="20">Board Presence</a>'
+        '<a class="hero-playstyle" href="heroes-of-rathe.md#playstyle-defensive">'
+        f'<img class="hero-playstyle-icon" src="{_PLAYSTYLE_ICONS}/defensive.webp" alt="" width="20" height="20">Defensive</a>'
+        "</dd></div>"
+    ) in block
+    assert (
+        '<div class="hero-detail"><dt>Difficulty</dt><dd>'
+        '<span class="hero-difficulty" role="img" aria-label="2.5 out of 5">'
+        '<span class="hero-star hero-star--full"></span><span class="hero-star hero-star--full"></span>'
+        '<span class="hero-star hero-star--half"></span><span class="hero-star"></span><span class="hero-star"></span>'
+        "</span></dd></div>"
+    ) in block
+
+
+def test_a_young_form_with_no_fabtcg_row_takes_its_adult_partners_playstyles_and_difficulty(data):
+    block = _block(render_hero_page("# Bravo\n\nYoung lore.\n", data))
+    assert '<a class="hero-playstyle" href="heroes-of-rathe.md#playstyle-board-presence">' in block
+    assert 'aria-label="2.5 out of 5"' in block
+
+
+def test_a_young_form_whose_text_differs_takes_the_only_adult_card_of_its_identity_with_a_row(data):
+    block = _block(render_hero_page("# Florian\n\nYoung lore.\n", data))
+    assert '<a class="hero-playstyle" href="heroes-of-rathe.md#playstyle-board-presence">' in block
+    assert 'aria-label="3 out of 5"' in block
+
+
+def test_a_card_with_no_fabtcg_row_or_partner_has_no_playstyle_or_difficulty_row(data):
+    block = _block(render_hero_page("# Killjoy, the Crooked Blade\n\nLore.\n", data))
+    assert "<dt>Playstyle</dt>" not in block
+    assert "<dt>Difficulty</dt>" not in block
+
+
+def test_each_form_of_a_multi_form_page_carries_its_own_fabtcg_page_for_the_source_link(data):
+    out = render_hero_page(_TWO_FORMS, data)
+    assert (
+        '<div class="hero-form" data-form="bravo-star-of-the-show" data-source="https://fabtcg.com/hero/bravo-star/">'
+        in out
+    )
+    assert '<div class="hero-form" data-form="bravo-showstopper" data-source="https://fabtcg.com/hero/bravo/">' in out
+
+
+def test_a_form_with_no_fabtcg_page_carries_no_source_link_data(data):
+    page = "# Killjoy, the Crooked Blade\n\nLore.\n\n---\n\n# Bravo, Showstopper\n\nLore.\n"
+    assert '<div class="hero-form" data-form="killjoy-the-crooked-blade">' in render_hero_page(page, data)
 
 
 def test_card_from_a_set_with_no_release_date_yet_still_shows_its_card_id_and_artist(data):
@@ -462,25 +567,60 @@ def test_card_from_a_set_with_no_release_date_yet_still_shows_its_card_id_and_ar
     assert "<dt>First released</dt>" not in block
 
 
-def test_each_banner_of_a_multi_form_page_has_tabs_in_release_order_marking_its_own_form(data):
-    out = render_hero_page(_TWO_FORMS, data)
-    star = out[out.index('data-form="bravo-star-of-the-show"') : out.index('data-form="bravo-showstopper"')]
-    tabs = (
-        '<div class="hero-tabs" role="tablist" aria-label="Forms">'
-        '<a class="hero-tab" role="tab" href="#bravo-showstopper" aria-selected="{a}">Showstopper · 2019</a>'
-        '<a class="hero-tab" role="tab" href="#bravo-star-of-the-show" aria-selected="{b}">Star of the Show · 2022</a>'
-        "</div>\n"
-        "</div>\n"
-        "</header>\n"
+_PORTRAITS = "https://d2hl7maqck52px.cloudfront.net/hero-icons"
+
+
+def _tab(form_id: str, selected: str, key: str, label: str, year: str, sub: str) -> str:
+    return (
+        f'<a class="hero-tab" role="tab" href="#{form_id}" aria-selected="{selected}">'
+        f'<span class="hero-tab-year">{year}</span>'
+        f'<img class="hero-tab-portrait" src="{_PORTRAITS}/{key}.webp" alt="" width="112" height="112" loading="lazy">'
+        f'<span class="hero-tab-label">{label}</span><span class="hero-tab-sub">{sub}</span></a>'
     )
-    assert tabs.format(a="false", b="true") in star
-    assert tabs.format(a="true", b="false") in out[out.index('data-form="bravo-showstopper"') :]
 
 
-def test_a_young_form_with_no_subtitle_is_tabbed_by_its_full_name(data):
+def test_a_multi_form_page_ends_with_a_forms_section_listing_every_form_in_release_order_newest_selected(data):
+    out = render_hero_page(_TWO_FORMS + "\n" + _RELATED, data)
+    rail = (
+        '<section class="hero-forms" aria-labelledby="hero-forms-title">\n\n'
+        '<p class="hero-forms-title" id="hero-forms-title" role="heading" aria-level="2">Forms of Bravo</p>\n\n'
+        '<div class="hero-forms-rail" role="tablist" aria-label="Forms of Bravo">'
+        + _tab("bravo-showstopper", "false", "bravo-showstopper", "Showstopper", "2019", "Welcome to Rathe")
+        + _tab(
+            "bravo-star-of-the-show",
+            "true",
+            "bravo-star-of-the-show",
+            "Star of the Show",
+            "2022",
+            "Everfest · Living Legend",
+        )
+        + "</div>\n\n</section>\n\n"
+    )
+    assert out.endswith("</section>\n\n</div>\n\n" + rail + _DIVIDER + "\n\n" + _RELATED)
+
+
+def test_the_forms_title_is_no_markdown_heading_so_it_stays_out_of_the_sidebar(data):
+    out = render_hero_page(_TWO_FORMS, data)
+    assert "## Forms of" not in out
+    assert "<h2" not in out
+
+
+def test_the_banner_no_longer_carries_the_forms(data):
+    out = render_hero_page(_TWO_FORMS, data)
+    assert out.count("</header>\n<!-- fablore-hero-banner:end -->") == 2
+    assert out.count('class="hero-tab"') == 2
+
+
+def test_a_young_form_with_no_subtitle_is_labelled_by_its_full_name_marked_young_and_shows_its_partners_portrait(
+    data,
+):
     page = "# Bravo\n\nYoung lore.\n\n---\n\n# Bravo, Showstopper\n\nAdult lore.\n"
     out = render_hero_page(page, data)
-    assert '<a class="hero-tab" role="tab" href="#bravo" aria-selected="true">Bravo · 2019</a>' in out
+    assert _tab("bravo", "false", "bravo-showstopper", "Bravo", "2019", "Welcome to Rathe · Young") in out
+
+
+def test_a_page_with_one_form_has_no_forms_section(data):
+    assert "hero-forms" not in render_hero_page("# Bravo, Showstopper\n\nLore.\n", data)
 
 
 # ---------------------------------------------------------------------------
@@ -511,6 +651,6 @@ _RELATED = (
 )
 
 
-def test_related_lore_follows_the_last_form_after_a_divider(data):
+def test_related_lore_follows_the_forms_section_after_a_divider(data):
     out = render_hero_page(_TWO_FORMS + "\n" + _RELATED, data)
-    assert out.endswith("</section>\n\n</div>\n\n" + _DIVIDER + "\n\n" + _RELATED)
+    assert out.endswith("</div>\n\n</section>\n\n" + _DIVIDER + "\n\n" + _RELATED)

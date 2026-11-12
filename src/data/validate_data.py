@@ -899,12 +899,9 @@ def _check_group_lore_fragments(groups_path: Path, stories_path: Path, src_root:
 # Hero forms (the H1 text, as written on the page) that fabtcg.com gives no blurb
 # for. Add a form here only after checking https://fabtcg.com/hero-selection/ and
 # the hero's own page; never invent a blurb. Each entry says why it is exempt.
-HERO_FORMS_WITHOUT_BLURB: frozenset[str] = frozenset(
-    {
-        # The young form of Arakni, 5l!p3d 7hru 7h3 Cr4x; fabtcg.com lists only the adult card.
-        "Arakni, Solitary Confinement",
-    }
-)
+# Empty: every form has a blurb. (Arakni, Solitary Confinement was the one
+# exemption until it moved into the adult form's Adult | Young switch.)
+HERO_FORMS_WITHOUT_BLURB: frozenset[str] = frozenset()
 
 # A rendered banner: everything from the opening <header> to its </header>.
 _HERO_BANNER_RE = re.compile(r'<header class="hero-banner\b.*?</header>', re.DOTALL)
@@ -940,6 +937,35 @@ def _check_hero_blurbs(pages_dir: Path, data_dir: Path, exempt: frozenset[str]) 
             heading = _html.unescape(re.sub(r"<[^>]+>", "", title.group(1))).strip() if title else "?"
             if "hero-banner-blurb" not in banner and heading not in exempt:
                 alerts.append(f"Hero pages: {page.name}: {heading!r} has no :::hero-blurb block")
+    return alerts
+
+
+def _check_hero_portraits(pages_dir: Path, data_dir: Path) -> list[str]:
+    """Ensure every hero form on a ``*-about.md`` page has a portrait for the form switcher.
+
+    A form is an H1 that ``mdbook_hero_meta`` resolves to a hero card. Its portrait is
+    the ``PortraitKey`` in ``heroes-fabtcg.csv`` for that card or, for a young card with
+    no row, for its adult partner. Unlike :func:`_check_hero_blurbs` there is no
+    exemption: every form has a portrait on the CDN.
+
+    Args:
+        pages_dir: The ``heroes-of-rathe`` folder.
+        data_dir: ``src/data`` (``mdbook_hero_meta`` reads its CSVs from there).
+
+    Returns:
+        Alert strings, one per form without a portrait.
+    """
+    from mdbook_hero_meta import hero_forms, load_hero_data
+
+    data = load_hero_data(data_dir)
+    alerts: list[str] = []
+    for page in sorted(pages_dir.glob("*-about.md")):
+        for match, meta in hero_forms(page.read_text(encoding="utf-8"), data):
+            if not (meta.get("fabtcg") or {}).get("portrait"):
+                alerts.append(
+                    f"Hero pages: {page.name}: {match.group(1).strip()!r} has no portrait "
+                    "(no PortraitKey in heroes-fabtcg.csv for its card or its adult partner)"
+                )
     return alerts
 
 
@@ -1041,6 +1067,11 @@ def collect_alerts() -> list[str]:
             DATA / "csv/heroes-printings.csv",
             ("HeroGameId", "SetId", "CardId", "PrintingUniqueId"),
             "Heroes printings",
+        ),
+        (
+            DATA / "csv/heroes-fabtcg.csv",
+            ("CardName", "HeroPageLink", "PortraitKey"),
+            "Heroes fabtcg.com",
         ),
         (
             DATA / "csv/weapons-canonical.csv",
@@ -1567,6 +1598,7 @@ def collect_alerts() -> list[str]:
     alerts.extend(_check_supplement_types_are_not_kinds(DATA / "csv/kinds.csv", DATA / "csv/kind-aliases.csv"))
     alerts.extend(_check_group_lore_fragments(DATA / "csv/groups.csv", DATA / "csv/stories.csv", SRC))
     alerts.extend(_check_hero_blurbs(SRC / "heroes-of-rathe", DATA, HERO_FORMS_WITHOUT_BLURB))
+    alerts.extend(_check_hero_portraits(SRC / "heroes-of-rathe", DATA))
 
     return alerts
 

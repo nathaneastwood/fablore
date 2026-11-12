@@ -15,13 +15,19 @@ For each ``heroes-of-rathe/*-about.md`` chapter, every H1 whose text matches a
   shares its ability and has no H1 of its own carries that young card as a
   second, switchable variant.
 
-A page with two or more forms wraps each in ``<div class="hero-form">`` and
-gives each banner a tab bar, so ``theme/hero-card.js`` can show one form at a
-time. Hero videos lose ``autoplay`` and ``controls``; ``theme/hero-card.js``
-plays them only while on screen and adds a pause button.
+The Details panel also carries the form's playstyles and difficulty, from
+``heroes-fabtcg.csv`` (a young card with no row of its own takes its adult
+partner's).
+
+A page with two or more forms wraps each in ``<div class="hero-form">`` (with
+``data-source``, the form's fabtcg.com page, for the source link) and ends the
+forms with a "Forms of <hero>" section of portraits, so ``theme/hero-card.js``
+can show one form at a time. Hero videos lose ``autoplay`` and ``controls``;
+``theme/hero-card.js`` plays them only while on screen and adds a pause button.
 
 On the hub (``heroes-of-rathe/heroes-of-rathe.md``) each ``.hero-hub-card``
-gets ``data-talents`` from the forms on the page it links to.
+gets ``data-talents`` and ``data-playstyles`` from the forms on the page it
+links to.
 
 mdBook passes ``(PreprocessorContext, Book)`` as JSON on stdin; this process
 must print only the modified ``Book`` JSON on stdout.  Supports
@@ -98,6 +104,21 @@ def _load_card_meta(data_dir: Path) -> dict[str, dict]:
     _, classes_rows = read_pipe_csv(data_dir / "csv" / "classes.csv")
     _, talents_rows = read_pipe_csv(data_dir / "csv" / "talents.csv")
     _, ll_rows = read_pipe_csv(data_dir / "csv" / "heroes-ll.csv")
+    _, fabtcg_rows = read_pipe_csv(data_dir / "csv" / "heroes-fabtcg.csv")
+    _, canonical_rows = read_pipe_csv(data_dir / "csv" / "heroes-canonical.csv")
+    hero_by_canonical_id = {
+        (row.get("CanonicalId") or "").strip(): (row.get("CanonicalHero") or "").strip() for row in canonical_rows
+    }
+    fabtcg_by_card_name = {
+        name: {
+            "link": (row.get("HeroPageLink") or "").strip(),
+            "difficulty": (row.get("Difficulty") or "").strip(),
+            "portrait": (row.get("PortraitKey") or "").strip(),
+            "playstyles": [p.strip() for p in (row.get("Playstyles") or "").split(",") if p.strip()],
+        }
+        for row in fabtcg_rows
+        if (name := (row.get("CardName") or "").strip())
+    }
 
     # --- sets ---
     set_type_id_by_set_id: dict[str, str] = {}
@@ -226,14 +247,22 @@ def _load_card_meta(data_dir: Path) -> dict[str, dict]:
             "intellect": (row.get("Intellect") or "").strip(),
             "ability_text": row.get("AbilityText") or "",
             "canonical_id": (row.get("CanonicalId") or "").strip(),
+            "hero": hero_by_canonical_id.get((row.get("CanonicalId") or "").strip(), ""),
             "young": (row.get("YoungHero") or "").strip().lower() == "true",
             "first_set_name": set_name_by_id.get(best_set_id, ""),
             "first_set_date": best_date,
             "classes": classes,
             "talents": talents,
             "ll": ll_by_card_name.get(card_name, []),
+            "fabtcg": fabtcg_by_card_name.get(card_name),
         }
 
+    # fabtcg.com lists a hero once, on its adult card: a young card with no row
+    # of its own takes its adult partner's.
+    for meta in result.values():
+        if meta["young"] and not meta["fabtcg"]:
+            partner = _adult_partner(meta, result)
+            meta["fabtcg"] = partner["fabtcg"] if partner else None
     return result
 
 
@@ -287,6 +316,44 @@ def _hub_links(kind: str, labels: list[str]) -> str:
     return ", ".join(f'<a href="{_HUB_HREF}#{kind}-{_slug(label)}">{html.escape(label)}</a>' for label in labels)
 
 
+_PLAYSTYLE_ICON_BASE = "https://d2hl7maqck52px.cloudfront.net/playstyle-icons"
+
+
+def _playstyles(names: list[str]) -> str:
+    """Each playstyle as its icon and name, linking to the filtered hub.
+
+    A plain image: the CDN sends no CORS header, so a CSS mask (which would take the
+    text colour) cannot load it. theme/hero-card.css darkens the gold on light themes.
+    """
+    return "".join(
+        f'<a class="hero-playstyle" href="{_HUB_HREF}#playstyle-{_slug(name)}">'
+        f'<img class="hero-playstyle-icon" src="{_PLAYSTYLE_ICON_BASE}/{_slug(name)}.webp" alt="" width="20" height="20">'
+        f"{html.escape(name)}</a>"
+        for name in names
+    )
+
+
+def _difficulty(value: str) -> str:
+    """Five stars, filled to ``value`` in halves, read out as "2.5 out of 5"."""
+    try:
+        halves = round(float(value) * 2)
+    except ValueError:
+        return ""
+    stars = "".join(
+        (
+            '<span class="hero-star hero-star--full"></span>'
+            if halves >= 2 * i
+            else (
+                '<span class="hero-star hero-star--half"></span>'
+                if halves == 2 * i - 1
+                else '<span class="hero-star"></span>'
+            )
+        )
+        for i in range(1, 6)
+    )
+    return f'<span class="hero-difficulty" role="img" aria-label="{html.escape(value)} out of 5">{stars}</span>'
+
+
 def _details(meta: dict) -> str:
     rows = ""
     if meta["classes"]:
@@ -301,6 +368,11 @@ def _details(meta: dict) -> str:
                 f'<img src="{_CARD_ICON_BASE}/{icon}" alt="" class="hero-detail-icon" width="16" height="16"> '
                 f"{html.escape(meta[key])}",
             )
+    fabtcg = meta.get("fabtcg") or {}
+    if fabtcg.get("difficulty") and (stars := _difficulty(fabtcg["difficulty"])):
+        rows += _row("Difficulty", stars)
+    if fabtcg.get("playstyles"):
+        rows += _row("Playstyle", _playstyles(fabtcg["playstyles"]), wide=True)
     if meta["first_set_name"]:
         date = _format_date(meta["first_set_date"])
         rows += _row(
@@ -479,19 +551,35 @@ def _normalise(text: str) -> str:
     return " ".join(text.split())
 
 
+def _adult_partner(young: dict, cards: dict[str, dict]) -> dict | None:
+    """The adult card a young card is the young side of.
+
+    It shares the young card's identity and its ability; failing that, it is the only
+    adult card of that identity. The fallback covers young cards worded differently:
+    young Florian's text halves the adult's Earth count, and Arakni, Solitary
+    Confinement says "The first attack" where Arakni, 5L!p3d 7hRu 7h3 cR4X says "Your".
+    """
+    adults = [c for c in cards.values() if not c["young"] and c["canonical_id"] == young["canonical_id"]]
+    same_text = [a for a in adults if _normalise(a["ability_text"]) == _normalise(young["ability_text"])]
+    if same_text:
+        return same_text[0]
+    return adults[0] if len(adults) == 1 else None
+
+
 def _young_partner(meta: dict, data: dict, named_on_page: set[str]) -> dict | None:
-    """The young card sharing this adult card's identity and ability, if the page has no heading for it."""
+    """The young side of this adult card (see :func:`_adult_partner`), if the page has no heading for it.
+
+    A young card with the same ability wins over one that pairs only by identity.
+    """
     if meta["young"]:
         return None
-    for other in data["cards"].values():
-        if (
-            other["young"]
-            and other["canonical_id"] == meta["canonical_id"]
-            and other["name"] not in named_on_page
-            and _normalise(other["ability_text"]) == _normalise(meta["ability_text"])
-        ):
-            return other
-    return None
+    youngs = [
+        other
+        for other in data["cards"].values()
+        if other["young"] and other["name"] not in named_on_page and _adult_partner(other, data["cards"]) is meta
+    ]
+    youngs.sort(key=lambda y: _normalise(y["ability_text"]) != _normalise(meta["ability_text"]))
+    return youngs[0] if youngs else None
 
 
 # ---------------------------------------------------------------------------
@@ -545,6 +633,16 @@ _VIDEO_AFTER_RE = re.compile(r"\s*<video\b.*?</video>[ \t]*\n?", re.DOTALL)
 _BLURB_AFTER_RE = re.compile(r"\s*^:::hero-blurb[ \t]*\n(.*?)\n:::[ \t]*(?:\n|$)", re.DOTALL | re.MULTILINE)
 
 
+def hero_forms(content: str, data: dict) -> list[tuple[re.Match, dict]]:
+    """Each H1 on a hero page that names a hero card, with that card's metadata, in page order."""
+    exact, ci = _build_lookup(data["cards"])
+    return [
+        (match, meta)
+        for match in _H1_RE.finditer(content)
+        if (meta := _resolve(match.group(1).strip(), exact, ci)) is not None
+    ]
+
+
 def load_hero_data(data_dir: Path) -> dict:
     """Load everything the hero page renderers need from ``data_dir/csv``."""
     return {"cards": _load_card_meta(data_dir)}
@@ -577,24 +675,56 @@ _PLAY_BUTTON = (
 )
 
 
-def _tabs(forms: list[tuple[str, str]], current: str) -> str:
-    """One tab per form, in release order: real links to each form's anchor."""
-    links = "".join(
-        f'<a class="hero-tab" role="tab" href="#{html.escape(form_id)}" '
-        f'aria-selected="{"true" if form_id == current else "false"}">{html.escape(label)}</a>'
-        for form_id, label in forms
+_PORTRAIT_BASE = "https://d2hl7maqck52px.cloudfront.net/hero-icons"
+
+
+def _forms_section(forms: list[tuple[str, str, dict]]) -> str:
+    """ "Forms of <hero>": one item per form, in release order; theme/hero-card.js switches between them.
+
+    ``forms`` holds ``(anchor, heading, meta)`` in release order. Each item is a real link
+    to its form's anchor, so it works without JS. The newest form is selected, as it is
+    the one theme/hero-card.js shows first.
+    """
+    first_heading, first_meta = forms[0][1], forms[0][2]
+    hero = first_meta["hero"] or first_heading.partition(",")[0].strip()
+    title = f"Forms of {hero}"
+
+    def item(form_id: str, heading: str, meta: dict, selected: bool) -> str:
+        _, comma, subtitle = heading.partition(",")
+        label = subtitle.strip() if comma else heading
+        year = meta["first_set_date"][:4]
+        portrait = (meta.get("fabtcg") or {}).get("portrait", "")
+        sub = [meta["first_set_name"]] if meta["first_set_name"] else []
+        if meta["young"]:
+            sub.append("Young")
+        elif meta["ll"]:
+            sub.append("Living Legend")
+        return (
+            f'<a class="hero-tab" role="tab" href="#{html.escape(form_id)}" '
+            f'aria-selected="{"true" if selected else "false"}">'
+            + (f'<span class="hero-tab-year">{html.escape(year)}</span>' if year else "")
+            + (
+                f'<img class="hero-tab-portrait" src="{_PORTRAIT_BASE}/{html.escape(portrait)}.webp" alt="" '
+                'width="112" height="112" loading="lazy">'
+                if portrait
+                else ""
+            )
+            + f'<span class="hero-tab-label">{html.escape(label)}</span>'
+            + (f'<span class="hero-tab-sub">{html.escape(" · ".join(sub))}</span>' if sub else "")
+            + "</a>"
+        )
+
+    items = "".join(item(*form, i == len(forms) - 1) for i, form in enumerate(forms))
+    return (
+        '<section class="hero-forms" aria-labelledby="hero-forms-title">\n\n'
+        # Not a markdown heading: mdBook would list it in the sidebar.
+        f'<p class="hero-forms-title" id="hero-forms-title" role="heading" aria-level="2">{html.escape(title)}</p>\n\n'
+        f'<div class="hero-forms-rail" role="tablist" aria-label="{html.escape(title)}">{items}</div>\n\n'
+        "</section>\n\n"
     )
-    return f'<div class="hero-tabs" role="tablist" aria-label="Forms">{links}</div>\n'
 
 
-def _tab_label(heading: str, meta: dict) -> str:
-    _, comma, subtitle = heading.partition(",")
-    label = subtitle.strip() if comma else heading
-    year = meta["first_set_date"][:4]
-    return f"{label} · {year}" if year else label
-
-
-def _banner(heading: str, video: str, blurb: str = "", tabs: str = "") -> str:
+def _banner(heading: str, video: str, blurb: str = "") -> str:
     """The H1 (still a markdown heading, so mdBook gives it its id) over the hero video.
 
     ``mdbook_story_meta`` puts the story card after ``BANNER_END`` rather than
@@ -620,7 +750,6 @@ def _banner(heading: str, video: str, blurb: str = "", tabs: str = "") -> str:
         '<div class="hero-banner-text">\n\n'
         f"# {title}\n\n"
         f"{blurb_html}"
-        f"{tabs}"
         "</div>\n"
         "</header>\n"
         f"{BANNER_END}\n\n"
@@ -638,9 +767,7 @@ _DIVIDER = (
 _TRAIT_BLOCK_RE = re.compile(r"^:::hero-trait ", re.MULTILINE)
 
 
-def _render_form(
-    content: str, match: re.Match, end: int, meta: dict, data: dict, named_on_page: set, tabs: str = ""
-) -> str:
+def _render_form(content: str, match: re.Match, end: int, meta: dict, data: dict, named_on_page: set) -> str:
     """One form's text, from its H1 to ``end``, with the stat block at its end.
 
     The order is banner, lore, traits, stat block. A ``---`` rule closing the form
@@ -656,7 +783,7 @@ def _render_form(
             blurb, cut = " ".join(m.group(1).split()), m.end()
         else:
             break
-    banner = _banner(match.group(1).strip(), video, blurb, tabs)
+    banner = _banner(match.group(1).strip(), video, blurb)
     body = banner + content[cut:end].strip()
     rule = _TRAILING_RULE_RE.search(body)
     tail = ""
@@ -667,25 +794,26 @@ def _render_form(
     return body + "\n\n" + divider + block + "\n\n" + tail
 
 
+def _source_attr(meta: dict) -> str:
+    """``data-source``: the form's fabtcg.com hero page, which theme/hero-card.js gives the source link."""
+    link = (meta.get("fabtcg") or {}).get("link", "")
+    return f' data-source="{html.escape(link)}"' if link else ""
+
+
 def render_hero_page(content: str, data: dict) -> str:
     """Turn each H1 that names a hero card into a form: banner, lore, traits, stat block.
 
     On a page with two or more forms, each form is wrapped in
     ``<div class="hero-form" data-form="<anchor>">`` so theme/hero-card.js can show one
-    form at a time. The ``---`` rule between forms is dropped there: the wrappers
-    separate the forms instead.
+    form at a time, and a "Forms of <hero>" section after the last form lists them
+    all (:func:`_forms_section`). The ``---`` rule between forms is dropped there:
+    the wrappers separate the forms instead.
     """
     content = _VIDEO_TAG_RE.sub(_defer_video, content)
     # mdbook_related has already appended Related Lore; it follows every form, in no form.
     content, marker, related = content.partition(RELATED_START)
     related = marker + related
-    card_meta = data["cards"]
-    exact, ci = _build_lookup(card_meta)
-    forms = [
-        (match, meta)
-        for match in _H1_RE.finditer(content)
-        if (meta := _resolve(match.group(1).strip(), exact, ci)) is not None
-    ]
+    forms = hero_forms(content, data)
     if not forms:
         return content + related
     if related:
@@ -693,51 +821,47 @@ def render_hero_page(content: str, data: dict) -> str:
     named_on_page = {meta["name"] for _, meta in forms}
     ends = [match.start() for match, _ in forms[1:]] + [len(content)]
     ids = [_heading_id(content, match) for match, _ in forms]
-    tab_forms = [
-        (form_id, _tab_label(match.group(1).strip(), meta))
-        for form_id, (match, meta) in sorted(zip(ids, forms), key=lambda f: f[1][1]["first_set_date"] or "9999")
-    ]
-    rendered = [
-        _render_form(
-            content, match, end, meta, data, named_on_page, _tabs(tab_forms, form_id) if len(forms) > 1 else ""
-        )
-        for (match, meta), end, form_id in zip(forms, ends, ids)
-    ]
+    rendered = [_render_form(content, match, end, meta, data, named_on_page) for (match, meta), end in zip(forms, ends)]
     head = content[: forms[0][0].start()]
     if len(forms) < 2:
         return head + rendered[0] + related
     wrapped = [
-        f'<div class="hero-form" data-form="{_heading_id(content, match)}">\n\n'
+        f'<div class="hero-form" data-form="{form_id}"{_source_attr(meta)}>\n\n'
         + _TRAILING_RULE_RE.sub("", text.rstrip())
         + "\n\n</div>\n\n"
-        for (match, _), text in zip(forms, rendered)
+        for (_, meta), form_id, text in zip(forms, ids, rendered)
     ]
-    return head + "".join(wrapped) + related
+    in_release_order = sorted(
+        ((form_id, match.group(1).strip(), meta) for form_id, (match, meta) in zip(ids, forms)),
+        key=lambda f: f[2]["first_set_date"] or "9999",
+    )
+    return head + "".join(wrapped) + _forms_section(in_release_order) + related
 
 
 _HUB_CARD_RE = re.compile(r'(<a class="[^"]*\bhero-hub-card\b[^"]*"[^>]*?)(\s+href="([^"]+)")')
 
 
-def _page_talents(page: str, data: dict) -> list[str]:
-    exact, ci = _build_lookup(data["cards"])
-    talents: list[str] = []
-    for match in _H1_RE.finditer(page):
-        meta = _resolve(match.group(1).strip(), exact, ci)
-        for talent in meta["talents"] if meta else []:
-            if _slug(talent) not in talents:
-                talents.append(_slug(talent))
-    return talents
+def _page_slugs(page: str, data: dict, values) -> list[str]:
+    """The slugs of ``values(meta)`` over every form on ``page``, in page order, each once."""
+    slugs: list[str] = []
+    for _, meta in hero_forms(page, data):
+        for value in values(meta):
+            if _slug(value) not in slugs:
+                slugs.append(_slug(value))
+    return slugs
 
 
 def render_hero_hub(content: str, pages: dict[str, str], data: dict) -> str:
-    """Give each hub card a ``data-talents`` list from the H1 forms on the page it links to.
+    """Give each hub card ``data-talents`` and ``data-playstyles`` lists from the H1 forms on the page it links to.
 
     ``pages`` maps a hero page's path, relative to the hub, to its markdown.
     """
 
     def annotate(m: re.Match) -> str:
-        talents = " ".join(_page_talents(pages.get(m.group(3), ""), data))
-        return f'{m.group(1)} data-talents="{talents}"{m.group(2)}'
+        page = pages.get(m.group(3), "")
+        talents = " ".join(_page_slugs(page, data, lambda meta: meta["talents"]))
+        playstyles = " ".join(_page_slugs(page, data, lambda meta: (meta.get("fabtcg") or {}).get("playstyles", [])))
+        return f'{m.group(1)} data-talents="{talents}" data-playstyles="{playstyles}"{m.group(2)}'
 
     return _HUB_CARD_RE.sub(annotate, content)
 

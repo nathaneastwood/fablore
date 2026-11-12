@@ -179,39 +179,6 @@ html:not(.js) .hero-banner-text {
     color: var(--hero-banner-dim);
 }
 
-/* Form tabs: real links, so they work without JS. */
-.hero-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45em;
-    margin-top: 1.4em;
-}
-
-.hero-banner a.hero-tab,
-.hero-banner a.hero-tab:link,
-.hero-banner a.hero-tab:visited {
-    padding: 0.3em 0.85em;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 999px;
-    color: var(--hero-banner-ink);
-    font-size: 0.85em;
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-.hero-banner a.hero-tab:hover,
-.hero-banner a.hero-tab:focus-visible {
-    border-color: #fff;
-    outline: none;
-}
-
-.hero-banner a.hero-tab[aria-selected='true'] {
-    background: #fff;
-    border-color: #fff;
-    color: #111;
-    font-weight: 600;
-}
-
 /* Narrow content area (a phone, or a tablet with the sidebar open): the video
    on top at full width, the text below it on the dark band. */
 @container hero-content (max-width: 640px) {
@@ -502,6 +469,197 @@ html:not(.js) .hero-statblock-controls {
     color: var(--links);
 }
 
+/* Difficulty: five stars, filled in halves. A mask draws each star, so the
+   fill follows the theme's link colour and the empty part a faint text colour. */
+.hero-difficulty {
+    display: inline-flex;
+    gap: 0.12em;
+    vertical-align: -0.15em;
+}
+
+.hero-star {
+    --hero-star-on: var(--links);
+    --hero-star-off: color-mix(in srgb, var(--fg) 22%, transparent);
+    display: inline-block;
+    width: 1.05em;
+    height: 1.05em;
+    background: var(--hero-star-off);
+    -webkit-mask: var(--hero-star-shape) center / contain no-repeat;
+    mask: var(--hero-star-shape) center / contain no-repeat;
+    --hero-star-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.8l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 17.9l-6.4 3.5 1.4-7.1-5.3-5 7.2-.9z'/%3E%3C/svg%3E");
+}
+
+.hero-star--full {
+    background: var(--hero-star-on);
+}
+
+.hero-star--half {
+    background: linear-gradient(to right, var(--hero-star-on) 50%, var(--hero-star-off) 50%);
+}
+
+/* Playstyles: the fabtcg.com icons are gold on transparent. The CDN sends no
+   CORS header, so they cannot be CSS masks in the theme colour; they stay
+   images, gold on the dark themes and darkened to bronze on the light ones. */
+.hero-detail a.hero-playstyle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    margin-left: 0.9em;
+    white-space: nowrap;
+}
+
+.hero-detail a.hero-playstyle:first-child {
+    margin-left: 0;
+}
+
+.hero-playstyle-icon {
+    flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+}
+
+html.light .hero-playstyle-icon,
+html.rust .hero-playstyle-icon {
+    filter: brightness(0.55) saturate(1.4);
+}
+
+/* ── Forms of <hero>: the form rail after the stat block ────────────────────
+   Every form in release order, an equal-width grid. The year pills sit on a
+   thin connector line that runs behind them. Real links to each form's anchor;
+   theme/hero-card.js switches form in place. */
+
+.hero-forms {
+    margin: var(--hero-section-gap, 2.5em) 0 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--table-border-color);
+}
+
+/* Looks like the Related Lore heading (an h1 in .related-section), but is a
+   <p role="heading">: a real heading would be listed in mdBook's sidebar. */
+.hero-forms-title {
+    margin: 0 0 0.9em;
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.hero-forms-rail {
+    --hero-rail-portrait: 112px;
+    position: relative;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(9.5em, 1fr);
+    gap: 1em;
+    padding: 0.2em 0.2em 0.6em;
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
+
+/* The connector, through the middle of the year pills. */
+.hero-forms-rail::before {
+    content: '';
+    position: absolute;
+    top: calc(0.2em + 0.8em);
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: color-mix(in srgb, var(--fg) 22%, transparent);
+}
+
+.hero-forms a.hero-tab,
+.hero-forms a.hero-tab:link,
+.hero-forms a.hero-tab:visited {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.55em;
+    padding: 0 0.3em 0.3em;
+    color: var(--fg);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 12px;
+}
+
+.hero-tab-year {
+    padding: 0.15em 0.8em;
+    border: 1px solid var(--links);
+    border-radius: 999px;
+    background: var(--bg);
+    color: var(--links);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.8em;
+    line-height: 1.6;
+}
+
+.hero-tab-portrait {
+    display: block;
+    width: var(--hero-rail-portrait);
+    height: var(--hero-rail-portrait);
+    margin-top: 0.3em;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--quote-bg);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25), 0 0 0 3px transparent;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hero-tab-label {
+    font-size: 1.1em;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.hero-tab-sub {
+    margin-top: -0.3em;
+    font-size: 0.85em;
+    line-height: 1.35;
+    color: var(--searchresults-header-fg);
+}
+
+.hero-forms a.hero-tab[aria-selected='true'] .hero-tab-portrait {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25), 0 0 0 3px var(--bg), 0 0 0 6px var(--links);
+}
+
+.hero-forms a.hero-tab[aria-selected='true'] .hero-tab-year {
+    background: var(--links);
+    color: var(--bg);
+}
+
+.hero-forms a.hero-tab:hover .hero-tab-portrait,
+.hero-forms a.hero-tab:focus-visible .hero-tab-portrait {
+    transform: translateY(-3px);
+}
+
+.hero-forms a.hero-tab:focus-visible {
+    outline: 2px solid var(--links);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-tab-portrait {
+        transition: none;
+    }
+
+    .hero-forms a.hero-tab:hover .hero-tab-portrait,
+    .hero-forms a.hero-tab:focus-visible .hero-tab-portrait {
+        transform: none;
+    }
+}
+
+@media only screen and (max-width: 599px) {
+    .hero-forms-rail {
+        --hero-rail-portrait: 84px;
+        /* Three forms still fit one row at 375px; a fourth scrolls sideways. */
+        grid-auto-columns: minmax(6.5em, 1fr);
+        gap: 0.4em;
+    }
+
+    .hero-forms-title {
+        font-size: 1.6em;
+    }
+}
+
 /* Printings: a grid of thumbnails; picking one shows it on the large card. */
 .hero-printings-grid {
     display: grid;
@@ -605,6 +763,25 @@ html:not(.js) .hero-statblock-controls {
 .hero-hub-talent-chip:focus-visible {
     background: var(--links);
     color: var(--bg);
+}
+
+/* ── Hub: playstyle filter (hero-hub.js) ────────────────────────────────── */
+
+/* The playstyle group starts its own line in the toolbar. */
+.hero-hub-toolbar-break {
+    flex-basis: 100%;
+    height: 0;
+}
+
+.hero-hub-filter.hero-hub-playstyle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+}
+
+.hero-hub-playstyle .hero-playstyle-icon {
+    width: 18px;
+    height: 18px;
 }
 
 /* ── Phones: card on top, panels below ──────────────────────────────────── */

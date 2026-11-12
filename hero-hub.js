@@ -1,9 +1,13 @@
 /**
- * Class filters for the Heroes of Rathe hub grid (pages containing `.hero-hub`).
+ * Class and playstyle filters for the Heroes of Rathe hub grid (pages containing `.hero-hub`).
  *
  * Single-select toggle buttons (including "All") update visibility of `.hero-hub-card`
  * links by matching `data-classes` tokens; heroes with multiple classes match any of
  * their listed classes when that filter is active.
+ *
+ * The playstyle buttons (`data-playstyle`) are a second, single-select group: pressing
+ * one keeps the cards whose `data-playstyles` (from mdbook_hero_meta.py) hold it, and
+ * pressing it again clears it. Class, playstyle and the name search all have to match.
  */
 (function () {
     'use strict';
@@ -110,14 +114,21 @@
      * @param {HTMLElement} hub - Root `.hero-hub` element.
      * @param {string} selectedClass - `"all"` or a lowercase class slug.
      * @param {string} query - Search query for hero name.
+     * @param {string} selectedPlaystyle - `""` or a playstyle slug.
      */
-    function applyFilters(hub, selectedClass, query) {
+    function applyFilters(hub, selectedClass, query, selectedPlaystyle) {
         var cards = hub.querySelectorAll('.hero-hub-card');
-        var filters = hub.querySelectorAll('.hero-hub-filter');
+        var filters = hub.querySelectorAll('.hero-hub-filter[data-class]');
+        var playstyleButtons = hub.querySelectorAll('.hero-hub-filter[data-playstyle]');
         var normalizedQuery = (query || '').trim().toLowerCase();
 
         filters.forEach(function (btn) {
             var isActive = btn.getAttribute('data-class') === selectedClass;
+            btn.classList.toggle('hero-hub-filter--active', isActive);
+            btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+        playstyleButtons.forEach(function (btn) {
+            var isActive = btn.getAttribute('data-playstyle') === selectedPlaystyle;
             btn.classList.toggle('hero-hub-filter--active', isActive);
             btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
         });
@@ -138,7 +149,10 @@
             var searchMatch =
                 normalizedQuery.length === 0 ||
                 heroName.indexOf(normalizedQuery) !== -1;
-            card.hidden = !(classMatch && searchMatch);
+            var playstyleMatch =
+                !selectedPlaystyle ||
+                (card.getAttribute('data-playstyles') || '').split(/\s+/).indexOf(selectedPlaystyle) !== -1;
+            card.hidden = !(classMatch && searchMatch && playstyleMatch);
         });
     }
 
@@ -148,10 +162,12 @@
      * @param {HTMLElement} hub - Root `.hero-hub` element.
      */
     function initHub(hub) {
-        var filters = hub.querySelectorAll('.hero-hub-filter');
+        var filters = hub.querySelectorAll('.hero-hub-filter[data-class]');
+        var playstyleButtons = hub.querySelectorAll('.hero-hub-filter[data-playstyle]');
         var searchInput = hub.querySelector('.hero-hub-search');
         var toolbar = hub.querySelector('.hero-hub-toolbar');
         var selectedClass = 'all';
+        var selectedPlaystyle = '';
         var query = '';
 
         decorateCards(hub);
@@ -161,14 +177,22 @@
         filters.forEach(function (btn) {
             btn.addEventListener('click', function () {
                 selectedClass = btn.getAttribute('data-class') || 'all';
-                applyFilters(hub, selectedClass, query);
+                applyFilters(hub, selectedClass, query, selectedPlaystyle);
+            });
+        });
+
+        playstyleButtons.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var slug = btn.getAttribute('data-playstyle') || '';
+                selectedPlaystyle = selectedPlaystyle === slug ? '' : slug;
+                applyFilters(hub, selectedClass, query, selectedPlaystyle);
             });
         });
 
         if (searchInput) {
             var updateFromSearch = function () {
                 query = searchInput.value || '';
-                applyFilters(hub, selectedClass, query);
+                applyFilters(hub, selectedClass, query, selectedPlaystyle);
             };
             searchInput.addEventListener('input', updateFromSearch);
             searchInput.addEventListener('keyup', updateFromSearch);
@@ -176,7 +200,7 @@
             searchInput.addEventListener('change', updateFromSearch);
         }
 
-        applyFilters(hub, selectedClass, query);
+        applyFilters(hub, selectedClass, query, selectedPlaystyle);
     }
 
     /**

@@ -1,8 +1,8 @@
 # Heroes of Rathe
-Browse legendary heroes by name. Use the class filters to narrow the list; heroes with more than one class (for example the Emperor, a Warrior and a Wizard) appear when **either** class is selected. For how professions shape combat in Rathe, see [Professions](professions-of-rathe.md); miscellaneous figures are listed under [Others](other.md).
+Browse legendary heroes by name. Use the class filters to narrow the list; heroes with more than one class (for example the Emperor, a Warrior and a Wizard) appear when **either** class is selected. A playstyle filter narrows it further, to heroes with a form that plays that way. For how professions shape combat in Rathe, see [Professions](professions-of-rathe.md); miscellaneous figures are listed under [Others](other.md).
 
 <div class="hero-hub">
-  <div class="hero-hub-toolbar" role="toolbar" aria-label="Filter heroes by class">
+  <div class="hero-hub-toolbar" role="toolbar" aria-label="Filter heroes by class and playstyle">
     <label class="hero-hub-search-wrap" for="hero-hub-search">
       <span class="hero-hub-search-label">Search</span>
       <input id="hero-hub-search" class="hero-hub-search" type="search" placeholder="Search hero name..." autocomplete="off">
@@ -26,6 +26,16 @@ Browse legendary heroes by name. Use the class filters to narrow the list; heroe
     <button type="button" class="hero-hub-filter" data-class="warrior" aria-pressed="false">Warrior</button>
     <button type="button" class="hero-hub-filter" data-class="wizard" aria-pressed="false">Wizard</button>
     <button type="button" class="hero-hub-filter" data-class="unclassified" aria-pressed="false">Unclassified</button>
+    <span class="hero-hub-toolbar-break" aria-hidden="true"></span>
+    <span class="hero-hub-toolbar-label" id="hero-hub-playstyle-label">Playstyle</span>
+    <button type="button" class="hero-hub-filter hero-hub-playstyle" data-playstyle="aggressive" aria-pressed="false"><img class="hero-playstyle-icon" src="https://d2hl7maqck52px.cloudfront.net/playstyle-icons/aggressive.webp" alt="" width="18" height="18">Aggressive</button>
+    <button type="button" class="hero-hub-filter hero-hub-playstyle" data-playstyle="board-presence" aria-pressed="false"><img class="hero-playstyle-icon" src="https://d2hl7maqck52px.cloudfront.net/playstyle-icons/board-presence.webp" alt="" width="18" height="18">Board Presence</button>
+    <button type="button" class="hero-hub-filter hero-hub-playstyle" data-playstyle="co-operative" aria-pressed="false"><img class="hero-playstyle-icon" src="https://d2hl7maqck52px.cloudfront.net/playstyle-icons/co-operative.webp" alt="" width="18" height="18">Co-operative</button>
+    <button type="button" class="hero-hub-filter hero-hub-playstyle" data-playstyle="combo" aria-pressed="false"><img class="hero-playstyle-icon" src="https://d2hl7maqck52px.cloudfront.net/playstyle-icons/combo.webp" alt="" width="18" height="18">Combo</button>
+    <button type="button" class="hero-hub-filter hero-hub-playstyle" data-playstyle="control" aria-pressed="false"><img class="hero-playstyle-icon" src="https://d2hl7maqck52px.cloudfront.net/playstyle-icons/control.webp" alt="" width="18" height="18">Control</button>
+    <button type="button" class="hero-hub-filter hero-hub-playstyle" data-playstyle="defensive" aria-pressed="false"><img class="hero-playstyle-icon" src="https://d2hl7maqck52px.cloudfront.net/playstyle-icons/defensive.webp" alt="" width="18" height="18">Defensive</button>
+    <button type="button" class="hero-hub-filter hero-hub-playstyle" data-playstyle="disruptive" aria-pressed="false"><img class="hero-playstyle-icon" src="https://d2hl7maqck52px.cloudfront.net/playstyle-icons/disruptive.webp" alt="" width="18" height="18">Disruptive</button>
+    <button type="button" class="hero-hub-filter hero-hub-playstyle" data-playstyle="midrange" aria-pressed="false"><img class="hero-playstyle-icon" src="https://d2hl7maqck52px.cloudfront.net/playstyle-icons/midrange.webp" alt="" width="18" height="18">Midrange</button>
   </div>
   <div class="world-hub-grid hero-hub-grid">
     <a class="world-hub-card hero-hub-card" data-classes="assassin" href="arakni-about.md">
