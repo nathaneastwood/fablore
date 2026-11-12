@@ -17,10 +17,10 @@ IMG = "https://example.com/image.webp"
 
 def test_build_html_structure():
     result = _build_html("Power of Steam", IMG, "Mechanologists pursue energy sources.")
-    assert '<div class="hero-container">' in result
+    assert '<article class="hero-trait">' in result
     assert f'<img src="{IMG}"' in result
     assert 'class="hero-icon"' in result
-    assert "<b>Power of Steam</b>" in result
+    assert '<h4 class="hero-trait-name">Power of Steam</h4>' in result
     assert "Mechanologists pursue energy sources." in result
 
 
@@ -38,9 +38,9 @@ def test_expand_single_block():
         ":::"
     )
     result = _expand(content)
-    assert '<div class="hero-container">' in result
+    assert '<article class="hero-trait">' in result
     assert ":::hero-trait" not in result
-    assert "<b>Power of Steam</b>" in result
+    assert '<h4 class="hero-trait-name">Power of Steam</h4>' in result
 
 
 def test_expand_multiple_blocks():
@@ -55,9 +55,9 @@ def test_expand_multiple_blocks():
         ":::"
     )
     result = _expand(block)
-    assert result.count('<div class="hero-container">') == 2
-    assert "<b>Title One</b>" in result
-    assert "<b>Title Two</b>" in result
+    assert result.count('<article class="hero-trait">') == 2
+    assert '<h4 class="hero-trait-name">Title One</h4>' in result
+    assert '<h4 class="hero-trait-name">Title Two</h4>' in result
 
 
 def test_expand_no_block_unchanged():
@@ -90,7 +90,7 @@ def test_walk_expands_chapter_content():
     content = f":::hero-trait T\n![T]({IMG})\nDesc.\n:::"
     sections = [{"Chapter": {"content": content, "sub_items": []}}]
     _walk(sections)
-    assert '<div class="hero-container">' in sections[0]["Chapter"]["content"]
+    assert '<article class="hero-trait">' in sections[0]["Chapter"]["content"]
 
 
 def test_walk_recurses_into_sub_items():
@@ -104,7 +104,7 @@ def test_walk_recurses_into_sub_items():
         }
     ]
     _walk(sections)
-    assert '<div class="hero-container">' in sections[0]["Chapter"]["sub_items"][0]["Chapter"]["content"]
+    assert '<article class="hero-trait">' in sections[0]["Chapter"]["sub_items"][0]["Chapter"]["content"]
 
 
 def test_walk_skips_non_dict():
@@ -129,7 +129,7 @@ def test_main_processes_book(monkeypatch):
     monkeypatch.setattr(sys, "stdout", out)
     main()
     result = json.loads(out.getvalue())
-    assert '<div class="hero-container">' in result["items"][0]["Chapter"]["content"]
+    assert '<article class="hero-trait">' in result["items"][0]["Chapter"]["content"]
 
 
 def test_main_supports_exits(monkeypatch):
@@ -137,3 +137,40 @@ def test_main_supports_exits(monkeypatch):
     with pytest.raises(SystemExit) as exc:
         main()
     assert exc.value.code == 0
+
+
+def _block(title: str, desc: str = "Desc.") -> str:
+    return f":::hero-trait {title}\n![{title}]({IMG})\n{desc}\n:::"
+
+
+def test_consecutive_blocks_share_one_grid():
+    content = _block("One") + "\n\n" + _block("Two") + "\n"
+    result = _expand(content)
+    assert result.count('<div class="hero-traits">') == 1
+    assert result.count('<article class="hero-trait">') == 2
+
+
+def test_rule_between_blocks_starts_a_new_grid():
+    content = _block("One") + "\n\n" + _block("Two") + "\n\n---\n\n# Form two\n\n" + _block("Three") + "\n"
+    result = _expand(content)
+    assert result.count('<div class="hero-traits">') == 2
+    first, second = result.split("---")
+    assert first.count('<article class="hero-trait">') == 2
+    assert second.count('<article class="hero-trait">') == 1
+    assert "# Form two" in second
+
+
+def test_trait_renders_as_a_medal_card():
+    content = "Intro.\n\n" + _block("Crooked Cutpurse", "Cut them down *and* cut their purse.") + "\n\nAfter.\n"
+    assert _expand(content) == (
+        "Intro.\n\n"
+        '<div class="hero-traits">\n\n'
+        '<article class="hero-trait">\n'
+        f'<div class="hero-trait-medal"><img src="{IMG}" class="hero-icon" alt="Crooked Cutpurse" /></div>\n'
+        '<h4 class="hero-trait-name">Crooked Cutpurse</h4>\n'
+        "\n"
+        "Cut them down *and* cut their purse.\n"
+        "\n"
+        "</article>\n\n"
+        "</div>\n\nAfter.\n"
+    )

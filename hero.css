@@ -1,33 +1,63 @@
 /* The following is for the hero pages */
-.hero-container {
-    display: flex;
-    flex-direction: row;
-    align-content: space-between;
+/* Hero traits: a run of :::hero-trait blocks becomes one grid of medal cards
+   (see src/data/mdbook_hero_traits.py). Colours come from mdBook theme
+   variables so the cards follow the active theme. */
+:root {
+    /* The space between the parts of a hero form (lore, traits, stat block):
+       twice a paragraph's, so each part reads as its own section. */
+    --hero-section-gap: 3.2rem;
+    /* The emblem divider between the trait grid and the stat block, and before
+       Related Lore, stands further off than a plain section gap. */
+    --hero-divider-gap: calc(var(--hero-section-gap) * 1.25);
 }
-.hero-icon {
-    width: 150px;
-    height: 150px;
+.hero-traits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin: var(--hero-section-gap) 0;
+}
+.hero-trait {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.6rem 1.6rem 1.4rem;
+    border: 1px solid var(--table-border-color);
+    border-radius: 8px;
+    background: var(--quote-bg);
+}
+.hero-trait-medal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 1px solid var(--table-border-color);
+    background: var(--bg);
+}
+.hero-trait .hero-icon {
+    width: 52px;
+    height: 52px;
     object-fit: contain;
     filter: url(#hero-gold);
 }
-.hero-content {
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 20px;
+.hero-trait-name {
+    margin: 1rem 0 0.4rem;
+    font-size: 0.95em;
+}
+/* The description is supporting text: smaller than the lore it follows, and
+   set flush left, because a long centred paragraph reads as a block. */
+.hero-trait p {
+    margin: 0;
+    font-size: 0.85em;
+    line-height: 1.55;
+    text-align: start;
 }
 @media only screen and (max-width: 600px) {
-    .hero-container {
-        flex-direction: column;
-        justify-content: center!important;
-    }
-    .hero-icon {
-        width: 120px;
-        height: 120px;
-        display: block;
-        margin: auto;
-    }
-    .hero-content {
-        margin: 0px;
+    .hero-traits {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -38,4 +68,44 @@
     aspect-ratio: 20 / 9;
     height: auto;
     object-fit: cover;
+}
+
+/* Emblem divider (src/data/mdbook_hero_meta.py): a hairline that fades out at
+   both ends with the site's circular emblem in the middle. The line takes the
+   theme's border colour; the emblem is black art, inverted on dark themes. */
+.hero-divider {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin: var(--hero-divider-gap) 0;
+}
+.hero-divider::before,
+.hero-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+}
+.hero-divider::before {
+    background: linear-gradient(to right, transparent, var(--table-border-color));
+}
+.hero-divider::after {
+    background: linear-gradient(to left, transparent, var(--table-border-color));
+}
+.hero-divider-emblem {
+    flex: none;
+    width: 44px;
+    height: 44px;
+    opacity: 0.45;
+}
+.coal .hero-divider-emblem,
+.navy .hero-divider-emblem,
+.ayu .hero-divider-emblem {
+    filter: invert(1);
+    opacity: 0.4;
+}
+/* The divider already marks where Related Lore starts. */
+.hero-divider + .related-section {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
 }

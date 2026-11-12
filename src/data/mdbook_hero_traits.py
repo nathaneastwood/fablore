@@ -33,25 +33,37 @@ _HERO_TRAIT_RE = re.compile(
 def _build_html(title: str, img_url: str, description: str) -> str:
     desc = description.strip()
     return (
-        f'<div class="hero-container">\n'
-        f'  <img src="{img_url}" class="hero-icon" alt="{title}" />\n'
-        f'  <div class="hero-content">\n'
-        f"    <b>{title}</b><br>\n"
-        f"    {desc}\n"
-        f"  </div>\n"
-        f"</div>"
+        f'<article class="hero-trait">\n'
+        f'<div class="hero-trait-medal"><img src="{img_url}" class="hero-icon" alt="{title}" /></div>\n'
+        f'<h4 class="hero-trait-name">{title}</h4>\n'
+        f"\n"
+        f"{desc}\n"
+        f"\n"
+        f"</article>"
     )
 
 
 def _expand(content: str) -> str:
-    return _HERO_TRAIT_RE.sub(
-        lambda m: _build_html(
-            m.group(1).strip(),
-            m.group(3).strip(),
-            m.group(4),
-        ),
-        content,
-    )
+    out: list[str] = []
+    pos = 0
+    run: list[str] = []
+    for m in _HERO_TRAIT_RE.finditer(content):
+        gap = content[pos : m.start()]
+        if run and gap.strip():
+            out.append(_wrap(run))
+            run = []
+        if not run:
+            out.append(gap)
+        run.append(_build_html(m.group(1).strip(), m.group(3).strip(), m.group(4)))
+        pos = m.end()
+    if run:
+        out.append(_wrap(run))
+    out.append(content[pos:])
+    return "".join(out)
+
+
+def _wrap(articles: list[str]) -> str:
+    return '<div class="hero-traits">\n\n' + "\n\n".join(articles) + "\n\n</div>"
 
 
 def _walk(sections: list) -> None:

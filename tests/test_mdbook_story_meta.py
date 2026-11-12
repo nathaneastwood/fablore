@@ -429,3 +429,61 @@ def test_information_under_a_later_heading_stays_put() -> None:
     content = f"# Kano\n\nIntro.\n\n# Kano, Lost Form\n\n{_HERO_BLOCK}\n\nBody.\n"
     out = _process_chapter(content, _make_row("heroes-of-rathe"))
     assert out.index("Kano, Lost Form") < out.index("Hero information")
+
+
+def test_process_chapter_puts_the_card_under_a_hero_banner_not_inside_it() -> None:
+    content = (
+        '<header class="hero-banner">\n<div class="hero-banner-text">\n\n'
+        "# Dr. Mortimer, Blight of the Pits\n\n"
+        "</div>\n</header>\n<!-- fablore-hero-banner:end -->\n\n"
+        "Lore paragraph.\n"
+    )
+    out = _process_chapter(content, _make_row("heroes-of-rathe"))
+    assert out.index("</header>\n<!-- fablore-hero-banner:end -->") < out.index("story-share") < out.index("Lore")
+
+
+# ---------------------------------------------------------------------------
+# Hero pages — no story card; the source link joins the Related Lore heading
+# ---------------------------------------------------------------------------
+
+_HERO_PATH = "heroes-of-rathe/killjoy-about.md"
+_RELATED_LORE = (
+    "<!-- fablore-related:start -->\n"
+    '<section class="related-section" aria-label="Related Lore"><h1 id="related-lore">Related Lore</h1></section>\n'
+    "<!-- fablore-related:end -->\n"
+)
+_HERO_BODY = (
+    '<header class="hero-banner">\n\n# Killjoy, the Crooked Blade\n\n</header>\n'
+    "<!-- fablore-hero-banner:end -->\n\nLore.\n\n"
+)
+
+
+def test_a_hero_page_with_related_lore_moves_its_source_link_beside_that_heading() -> None:
+    row = _make_row("heroes-of-rathe", SourceLink="https://fabtcg.com/hero/killjoy/")
+    out = _process_chapter(_HERO_BODY + _RELATED_LORE, row, chapter_path=_HERO_PATH)
+    assert "story-card" not in out
+    assert (
+        '<div class="related-head"><h1 id="related-lore">Related Lore</h1><div class="related-head-links">'
+        '<a class="related-source-btn" href="https://fabtcg.com/hero/killjoy/" target="_blank" rel="noopener">'
+        '<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Original article</a>'
+        "<!-- fablore-graph-link:related-slot --></div></div>"
+    ) in out
+
+
+def test_a_hero_page_with_related_lore_and_no_source_link_has_no_story_card() -> None:
+    out = _process_chapter(_HERO_BODY + _RELATED_LORE, _make_row("heroes-of-rathe"), chapter_path=_HERO_PATH)
+    assert "story-card" not in out
+    assert '<section class="related-section" aria-label="Related Lore"><h1 id="related-lore">Related Lore</h1>' in out
+
+
+def test_a_hero_page_with_no_related_lore_and_no_source_link_has_no_story_card() -> None:
+    out = _process_chapter(_HERO_BODY, _make_row("heroes-of-rathe"), chapter_path=_HERO_PATH)
+    assert "story-card" not in out
+    assert out.index("<!-- fablore-hero-banner:end -->") < out.index('<div class="story-share"')
+
+
+def test_a_hero_page_with_no_related_lore_keeps_its_source_link_in_the_story_card() -> None:
+    row = _make_row("heroes-of-rathe", SourceLink="https://fabtcg.com/hero/killjoy/")
+    out = _process_chapter(_HERO_BODY, row, chapter_path=_HERO_PATH)
+    card = out[out.index('<div class="story-card">') : out.index('<div class="story-share"')]
+    assert 'class="story-card-source" href="https://fabtcg.com/hero/killjoy/"' in card

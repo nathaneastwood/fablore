@@ -6,8 +6,8 @@ title = "Legendary Stories"
 description = "Community-curated archive of official Flesh and Blood lore — explore Rathe through stories and characters."
 
 [output.html]
-additional-css = ["hero.css", "image.css", "tab.css", "bionic.css", "footer.css", "breadcrumb.css", "sets-hub.css", "theme/hints.css", "theme/related.css", "theme/story-meta.css", "theme/narrated-videos.css", "theme/browse.css", "theme/glyph-tool.css", "theme/graph.css", "theme/lang-toggle.css", "theme/family-tree.css", "theme/lightbox.css", "theme/reading-mode.css"]
-additional-js = ["theme/toolbar.js", "theme/lang-toggle.js", "tab.js", "back-to-top.js", "hero-hub.js", "bionic.js", "theme/hints.js", "theme/related.js", "narrated-videos.js", "theme/browse.js", "theme/hero-filter.js", "theme/reading-progress.js", "theme/heading-anchors.js", "theme/copy-link.js", "theme/reading-prefs.js", "theme/random-story.js", "theme/read-tracking.js", "theme/glyph-tool.js", "theme/graph-core.js", "theme/graph.js", "theme/family-tree.js", "theme/lightbox.js", "theme/reading-mode.js"]
+additional-css = ["hero.css", "image.css", "tab.css", "bionic.css", "footer.css", "breadcrumb.css", "sets-hub.css", "theme/hints.css", "theme/related.css", "theme/story-meta.css", "theme/narrated-videos.css", "theme/browse.css", "theme/glyph-tool.css", "theme/graph.css", "theme/lang-toggle.css", "theme/family-tree.css", "theme/lightbox.css", "theme/reading-mode.css", "theme/hero-card.css"]
+additional-js = ["theme/toolbar.js", "theme/lang-toggle.js", "tab.js", "back-to-top.js", "hero-hub.js", "bionic.js", "theme/hints.js", "theme/related.js", "narrated-videos.js", "theme/browse.js", "theme/hero-filter.js", "theme/reading-progress.js", "theme/heading-anchors.js", "theme/copy-link.js", "theme/reading-prefs.js", "theme/random-story.js", "theme/read-tracking.js", "theme/glyph-tool.js", "theme/graph-core.js", "theme/graph.js", "theme/family-tree.js", "theme/lightbox.js", "theme/reading-mode.js", "theme/hero-card.js"]
 default-theme = "light"
 preferred-dark-theme = "ayu"
 git-repository-url = "https://github.com/nathaneastwood/fablore"
@@ -29,9 +29,9 @@ command = "python3 src/data/mdbook_graph.py"
 
 [preprocessor.graph-link]
 command = "python3 src/data/mdbook_graph_link.py"
-# The backlink is placed under the share sheet, so the story-meta block that
-# renders it has to exist by the time this runs.
-after = ["story-meta"]
+# The link goes beside the Related Lore heading, or into the story card's
+# links row on a page with no Related Lore, so both have to exist by now.
+after = ["story-meta", "related"]
 
 [preprocessor.hints]
 command = "python3 src/data/mdbook_hints.py"
@@ -41,14 +41,19 @@ command = "python3 src/data/mdbook_related.py"
 
 [preprocessor.story-meta]
 command = "python3 src/data/mdbook_story_meta.py"
+# On a hero page the source link moves into the Related Lore heading row.
+after = ["related"]
 
 [preprocessor.hero-traits]
 command = "python3 src/data/mdbook_hero_traits.py"
 
 [preprocessor.hero-meta]
 command = "python3 src/data/mdbook_hero_meta.py"
-# story-meta moves the block under the title into its story card.
-before = ["story-meta"]
+# story-meta moves the block under the title into its story card. Related Lore
+# must exist already, so it can follow every form behind a divider; the traits
+# must still be :::hero-trait blocks, so a form knows it has a trait grid.
+before = ["story-meta", "hero-traits"]
+after = ["related"]
 
 [preprocessor.set-meta]
 command = "python3 src/data/mdbook_set_meta.py"

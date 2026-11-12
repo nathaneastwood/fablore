@@ -58,6 +58,8 @@
         if (!dialog) build();
         full.src = img.currentSrc || img.src;
         full.alt = img.alt || '';
+        // A page can ask for a fixed size (e.g. hero cards: data-lightbox-size="card").
+        full.setAttribute('data-size', img.getAttribute('data-lightbox-size') || '');
         // Filenames like "azalea-6" are not useful captions; only show real text.
         var title = img.getAttribute('title') || '';
         caption.textContent = title;

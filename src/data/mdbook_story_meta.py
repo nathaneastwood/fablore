@@ -17,6 +17,12 @@ and the byline, so the page has one card rather than two stacked blocks.
 
 The card is inserted after the first H1 heading in the chapter content.
 
+A hero page (``heroes-of-rathe/*-about.md``) gets no card, only the share
+sheet: its one link, the original article, goes in a row with the Related Lore
+heading (``mdbook_related`` runs first), with ``RELATED_GRAPH_SLOT`` after it
+for the Lore Graph button. A hero page with no Related Lore keeps a card when
+it has a source link, so that link stays visible.
+
 mdBook passes ``(PreprocessorContext, Book)`` as JSON on stdin; this process must
 print only the modified ``Book`` JSON on stdout.  Supports ``supports <renderer>``.
 """
@@ -40,8 +46,15 @@ from pipe_csv_io import read_pipe_csv  # noqa: E402
 
 MARK_START = "<!-- fablore-story-meta:start -->"
 MARK_END = "<!-- fablore-story-meta:end -->"
+# mdbook_hero_meta closes a hero banner (which holds the H1) with this marker.
+HERO_BANNER_END = "<!-- fablore-hero-banner:end -->"
 # mdbook_graph_link puts its link here, so it sits in the card's links row.
 GRAPH_SLOT = "<!-- fablore-graph-link:slot -->"
+# On a hero page the Lore Graph button goes here instead, after the source link
+# in the Related Lore heading row.
+RELATED_GRAPH_SLOT = "<!-- fablore-graph-link:related-slot -->"
+# The heading mdbook_related puts at the top of its section (it runs first).
+RELATED_HEADING = '<h1 id="related-lore">Related Lore</h1>'
 
 # The hero / set information block those preprocessors put directly under the
 # title (``book.toml`` runs them first). The set block keeps its own markers.
@@ -187,8 +200,9 @@ def _build_meta_html(
     story_type: str = "",
     context_html: str = "",
     reference_html: str = "",
+    with_card: bool = True,
 ) -> str:
-    """Return the story card HTML followed by the share sheet."""
+    """Return the story card HTML followed by the share sheet (only the sheet when ``with_card`` is false)."""
     items: list[str] = []
 
     if authors:
@@ -217,6 +231,9 @@ def _build_meta_html(
             f'<a class="story-card-source" href="{html.escape(source_link)}" target="_blank" rel="noopener">'
             '<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Original article</a>'
         )
+
+    if not with_card:
+        return _build_share_html(story_type)
 
     # No blank lines inside the card: Markdown would end the HTML block there.
     parts: list[str] = ['<div class="story-card">']
@@ -316,6 +333,10 @@ def _inject_after_heading(content: str, inner_html: str) -> str:
     match = re.search(r"^#{1,6}[^\n]*\n", bare, flags=re.MULTILINE)
     if match:
         cut = match.end()
+        # mdbook_hero_meta wraps a hero page's H1 in a banner; the card goes under it.
+        banner_end = bare.find(HERO_BANNER_END, cut)
+        if banner_end != -1 and not re.search(r"^#{1,6} ", bare[cut:banner_end], flags=re.MULTILINE):
+            cut = banner_end + len(HERO_BANNER_END) + 1
         return bare[:cut] + "\n" + block + "\n\n" + bare[cut:].lstrip("\n")
     return block + "\n\n" + bare
 
@@ -386,6 +407,22 @@ def _arc_positions(sections: list) -> dict[str, tuple[int, int]]:
     return {p: (i, len(paths)) for paths in by_folder.values() for i, p in enumerate(paths, start=1)}
 
 
+def _is_hero_about_page(path: str) -> bool:
+    return path.startswith("heroes-of-rathe/") and path.endswith("-about.md")
+
+
+def _related_head_html(source_link: str) -> str:
+    """The Related Lore heading in a row with the source link and the Lore Graph slot."""
+    source = (
+        f'<a class="related-source-btn" href="{html.escape(source_link)}" target="_blank" rel="noopener">'
+        '<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Original article</a>'
+    )
+    return (
+        f'<div class="related-head">{RELATED_HEADING}<div class="related-head-links">'
+        f"{source}{RELATED_GRAPH_SLOT}</div></div>"
+    )
+
+
 def _process_chapter(
     content: str,
     row: dict[str, str],
@@ -405,6 +442,19 @@ def _process_chapter(
         bare_for_count = content
     reference_html, content = _take_reference_meta(content)
     story_type = (row.get("StoryType") or "").strip()
+    source_link = (row.get("SourceLink") or "").strip()
+    # A hero page has no story card: its only link, the source article, sits
+    # beside the Related Lore heading with the Lore Graph button.
+    # With no Related Lore the card stays, so the source link stays visible;
+    # with no source link either, the card would be empty.
+    with_card = True
+    if _is_hero_about_page(chapter_path):
+        if RELATED_HEADING in content:
+            with_card = False
+            if source_link:
+                content = content.replace(RELATED_HEADING, _related_head_html(source_link), 1)
+        elif not source_link:
+            with_card = False
     word_count = _count_words(bare_for_count)
     context_html = _build_context_html(
         chapter_path,
@@ -416,12 +466,13 @@ def _process_chapter(
         authors=(row.get("Authors") or "").strip(),
         artists=(row.get("Artists") or "").strip(),
         publication_date=(row.get("PublicationDate") or "").strip(),
-        source_link=(row.get("SourceLink") or "").strip(),
+        source_link=source_link,
         word_count=word_count,
         show_word_count=story_type not in _NO_WORDCOUNT_TYPES,
         story_type=story_type,
         context_html=context_html,
         reference_html=reference_html,
+        with_card=with_card,
     )
     return _inject_after_heading(content, inner)
 
