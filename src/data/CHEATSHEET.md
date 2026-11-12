@@ -138,6 +138,7 @@ Game data is derived from the sibling `flesh-and-blood-cards` repo (`../flesh-an
 |---|---|---|
 | New set or set type | `python3 src/data/create_sets_csv.py` | `csv/sets.csv`, `csv/set-types.csv` |
 | New hero / hero card | `python3 src/data/create_heroes_csv.py` | `csv/heroes-canonical.csv`, `heroes-game.csv`, `heroes-printings.csv`, `heroes-ll.csv`; also refreshes `classes.csv` / `talents.csv` |
+| Living Legend changes | `python3 src/data/create_heroes_csv.py --ll-only` | `csv/heroes-ll.csv` only — CC Living Legends fetched from the fabtcg.com hero API (needs network); upstream `living-legend-cc.csv` supplies dates only |
 | New weapon | `python3 src/data/create_weapons_csv.py` | `csv/weapons-canonical.csv`, `weapons-game.csv`, `weapons-printings.csv` |
 | New equipment | `python3 src/data/create_equipment_csv.py` | `csv/equipment-canonical.csv`, `equipment-game.csv`, `equipment-printings.csv` |
 | New class or talent | `python3 src/data/create_classes_talents_csv.py` | `csv/classes.csv`, `csv/talents.csv` |

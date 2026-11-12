@@ -276,6 +276,10 @@ This script derives:
   - `HeroGameId` (`HG` + hash), `CanonicalId`, `CardName`, `ClassIds`, `TalentIds`, `Health`, `Intellect`, `AbilityText`, `YoungHero` (`true`/`false`)
 - `src/data/csv/heroes-printings.csv` (one row per printing/edition):
   - `HeroGameId`, `SetId`, `CardId`, `Rarity`
+- `src/data/csv/heroes-ll.csv` (one row per adult hero card that is a Classic Constructed Living Legend):
+  - `CanonicalSlug`, `CardName`, `Format` (always `CC`), `DateInEffect` (may be blank)
+  - Status comes from the fabtcg.com hero API (`https://fabtcg.com/api/fab/v2/heroes/?lang=en`), so this step needs network access. A hero counts when it is released, not `young`, `not_legal` in `cc`, `legal` in `living-legend`, and on 1000+ points. The upstream `living-legend-cc.csv` lags the API and only supplies `DateInEffect` where it has an active row for the card; when it has none (or the sibling checkout is missing) the date is left blank and the hero page shows the format alone. Blitz and young heroes are not recorded. A Living Legend whose API name matches no adult `CardName` stops the run with an error naming it.
+  - `python3 src/data/create_heroes_csv.py --ll-only` regenerates just this file from the committed `heroes-game.csv` / `heroes-canonical.csv`.
 - Refreshes shared `src/data/csv/classes.csv` / `src/data/csv/talents.csv`
 
 ## Creating the Weapons CSV
@@ -326,7 +330,7 @@ python3 src/data/validate_data.py
 |--------|------------------------------|-------------------|
 | Sets & set types | `python3 src/data/create_sets_csv.py` | `csv/sets.csv`, `csv/set-types.csv` |
 | Shared class & talent tokens | `python3 src/data/create_classes_talents_csv.py` | `csv/classes.csv`, `csv/talents.csv` |
-| Heroes (canonical + game + printings) | `python3 src/data/create_heroes_csv.py` | `csv/heroes-canonical.csv`, `csv/heroes-game.csv`, `csv/heroes-printings.csv`; also refreshes `csv/classes.csv` / `csv/talents.csv` |
+| Heroes (canonical + game + printings) | `python3 src/data/create_heroes_csv.py` | `csv/heroes-canonical.csv`, `csv/heroes-game.csv`, `csv/heroes-printings.csv`, `csv/heroes-ll.csv` (Living Legend status from the fabtcg.com hero API, not from `flesh-and-blood-cards`); also refreshes `csv/classes.csv` / `csv/talents.csv` |
 | Weapons | `python3 src/data/create_weapons_csv.py` | `csv/weapons-canonical.csv`, `csv/weapons-game.csv`, `csv/weapons-printings.csv`; also refreshes class/talent CSVs |
 | Equipment | `python3 src/data/create_equipment_csv.py` | `csv/equipment-canonical.csv`, `csv/equipment-game.csv`, `csv/equipment-printings.csv`; also refreshes class/talent CSVs |
 
@@ -695,7 +699,7 @@ All files are under `src/data/csv/` unless noted. Pipe-delimited. Empty fields a
 | `story-weapons.csv` | `StoryId`, `CanonicalWeaponId` | composite | → `stories`, `weapons-canonical` | `Database.upsert_story` |
 | `story-equipment.csv` | `StoryId`, `CanonicalEquipmentId` | composite | → `stories`, `equipment-canonical` | `Database.upsert_story` |
 | `story-narrated-videos.csv` | `StoryId`, `Author`, `SourceLink` | composite (ordered rows) | → `stories` | `create_stories_index.py` / `Database.upsert_story` |
-| `heroes-ll.csv` | `CanonicalSlug`, `CardName`, `Format`, `DateInEffect` | composite | → `heroes-canonical.csv` | `create_heroes_csv.py` |
+| `heroes-ll.csv` | `CanonicalSlug`, `CardName`, `Format`, `DateInEffect` | composite | → `heroes-canonical.csv` | `create_heroes_csv.py` (fabtcg.com hero API; `--ll-only` for this file alone) |
 | Authored |||||
 | `story-arcs.csv` | `Slug`, `SetId`, `DisplayName`, … | `Slug` | `SetId` → `sets.csv`, may be blank | **hand-maintained** — see `.claude/rules/story-arcs.md` |
 | `hero-card-name-aliases.csv` | `NormalizedCardName`, `CanonicalSlug` | `NormalizedCardName` | → `heroes-canonical.csv` | **hand-maintained** — consumed by `create_heroes_csv.py` |

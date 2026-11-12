@@ -88,8 +88,8 @@ def export_all(conn: sqlite3.Connection, data_dir: Path) -> None:
 
     Four CSVs in that directory have no table behind them and are never written
     here: ``story-arcs.csv`` and ``reviewed-name-pairs.csv`` are hand-maintained,
-    and ``heroes-ll.csv`` / ``hero-card-name-aliases.csv`` are inputs to
-    ``create_heroes_csv.py``. Everything else is exported.
+    ``heroes-ll.csv`` is written by ``create_heroes_csv.py`` (from the fabtcg.com
+    hero API) and ``hero-card-name-aliases.csv`` is an input to it. Everything else is exported.
 
     Superset of :func:`export_stories`, :func:`export_registry_tables` and
     :func:`export_story_junctions`. It skipped the eight registry tables only
@@ -596,13 +596,17 @@ def _export_heroes_printings(conn: sqlite3.Connection, csv_dir: Path) -> None:
             "SetId": r["set_id"],
             "CardId": r["card_id"],
             "Rarity": r["rarity"],
+            "PrintingUniqueId": r["printing_unique_id"],
+            "Foiling": r["foiling"],
+            "ArtVariation": r["art_variation"],
+            "Artist": r["artist"],
         }
         for r in rows
     ]
     _write_pipe_csv(
         csv_dir / "heroes-printings.csv",
         _CMD_HEROES,
-        ["HeroGameId", "SetId", "CardId", "Rarity"],
+        ["HeroGameId", "SetId", "CardId", "Rarity", "PrintingUniqueId", "Foiling", "ArtVariation", "Artist"],
         data,
     )
 

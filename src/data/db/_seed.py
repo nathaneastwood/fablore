@@ -36,9 +36,16 @@ def _csv(data_dir: Path, name: str) -> tuple[list[str], list[dict[str, str]]]:
 # migration has emptied a derived game-data table that only the CSVs can
 # repopulate (migration 7 rebuilds both printings tables to widen their
 # primary key; migration 19 added ``kinds``; migration 12 added
-# ``character_heroes``). A future migration that needs the same treatment
-# adds its table here.
-_SEED_TRIGGER_TABLES = ("stories", "equipment_printings", "weapons_printings", "kinds", "character_heroes")
+# ``character_heroes``; migration 22 rebuilds ``heroes_printings``). A future
+# migration that needs the same treatment adds its table here.
+_SEED_TRIGGER_TABLES = (
+    "stories",
+    "equipment_printings",
+    "weapons_printings",
+    "heroes_printings",
+    "kinds",
+    "character_heroes",
+)
 
 
 def needs_seed(conn: sqlite3.Connection) -> bool:
@@ -179,6 +186,10 @@ def _seed_heroes_printings(conn: sqlite3.Connection, data_dir: Path) -> None:
             set_id=_s(row, "SetId"),
             card_id=_s(row, "CardId"),
             rarity=_s(row, "Rarity"),
+            printing_unique_id=_s(row, "PrintingUniqueId"),
+            foiling=_s(row, "Foiling"),
+            art_variation=_s(row, "ArtVariation"),
+            artist=_s(row, "Artist"),
         )
 
 

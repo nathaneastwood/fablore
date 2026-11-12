@@ -48,13 +48,18 @@ Version history:
       kind_aliases, npc_epithets -> character_epithets; species_id -> kind_id.
       The declaration surface followed in the same sprint: SpeciesEntry became
       KindEntry and CharacterEntry(species=) became CharacterEntry(kinds=).
+ 20 — groups.kind -> groups.category, character_epithets.kind -> label
+ 21 — character_kin.qualifier (blood / adoptive)
+ 22 — heroes_printings keyed on (hero_game_id, printing_unique_id) and
+      carrying foiling, art_variation and artist: one row per upstream
+      printing, so each alternate art has the id its card image is served by
 """
 
 from __future__ import annotations
 
 import sqlite3
 
-CURRENT_VERSION = 21
+CURRENT_VERSION = 22
 
 _V1_DDL = """
 CREATE TABLE IF NOT EXISTS stories (
@@ -202,11 +207,15 @@ CREATE TABLE IF NOT EXISTS heroes_game (
 );
 
 CREATE TABLE IF NOT EXISTS heroes_printings (
-    hero_game_id TEXT NOT NULL REFERENCES heroes_game(hero_game_id) ON DELETE CASCADE,
-    set_id       TEXT NOT NULL,
-    card_id      TEXT NOT NULL,
-    rarity       TEXT NOT NULL DEFAULT '',
-    PRIMARY KEY (hero_game_id, set_id, card_id)
+    hero_game_id       TEXT NOT NULL REFERENCES heroes_game(hero_game_id) ON DELETE CASCADE,
+    set_id             TEXT NOT NULL,
+    card_id            TEXT NOT NULL,
+    rarity             TEXT NOT NULL DEFAULT '',
+    printing_unique_id TEXT NOT NULL,
+    foiling            TEXT NOT NULL DEFAULT '',
+    art_variation      TEXT NOT NULL DEFAULT '',
+    artist             TEXT NOT NULL DEFAULT '',
+    PRIMARY KEY (hero_game_id, printing_unique_id)
 );
 
 CREATE TABLE IF NOT EXISTS weapons_canonical (
@@ -1245,4 +1254,38 @@ def migrate(conn: sqlite3.Connection) -> None:
             if "qualifier" not in {r[1] for r in conn.execute("PRAGMA table_info(character_kin)")}:
                 conn.execute("ALTER TABLE character_kin ADD COLUMN qualifier TEXT NOT NULL DEFAULT 'blood'")
         conn.execute("PRAGMA user_version = 21")
+        conn.commit()
+    if version < 22:
+        # heroes_printings was keyed on (hero_game_id, set_id, card_id), so a
+        # card id with several printings — EVR017 is a rainbow-foil standard,
+        # a cold foil and a cold-foil full art — held one row, and the
+        # generator had to drop Marvel (V) printings that shared a base card
+        # id. Each printing has its own card image, served by its upstream
+        # printing unique id, so the key becomes (hero_game_id,
+        # printing_unique_id) and the row carries foiling, art_variation and
+        # artist.
+        #
+        # SQLite cannot alter a primary key, so the table is rebuilt — the
+        # same shape as migration 7. It holds derived game data seeded from
+        # heroes-printings.csv; old rows have no printing id to recover, so
+        # the table is left empty and _SEED_TRIGGER_TABLES makes
+        # Database.__init__ reseed it. Nothing references heroes_printings,
+        # so the drop needs no foreign-key toggling.
+        conn.executescript(
+            """
+            DROP TABLE IF EXISTS heroes_printings;
+            CREATE TABLE heroes_printings (
+                hero_game_id       TEXT NOT NULL REFERENCES heroes_game(hero_game_id) ON DELETE CASCADE,
+                set_id             TEXT NOT NULL,
+                card_id            TEXT NOT NULL,
+                rarity             TEXT NOT NULL DEFAULT '',
+                printing_unique_id TEXT NOT NULL,
+                foiling            TEXT NOT NULL DEFAULT '',
+                art_variation      TEXT NOT NULL DEFAULT '',
+                artist             TEXT NOT NULL DEFAULT '',
+                PRIMARY KEY (hero_game_id, printing_unique_id)
+            );
+            """
+        )
+        conn.execute("PRAGMA user_version = 22")
         conn.commit()

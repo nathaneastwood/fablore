@@ -992,7 +992,7 @@ def collect_alerts() -> list[str]:
         (DATA / "csv/talents.csv", ("TalentId", "TalentName"), "Talents (shared)"),
         (
             DATA / "csv/heroes-printings.csv",
-            ("HeroGameId", "SetId", "CardId"),
+            ("HeroGameId", "SetId", "CardId", "PrintingUniqueId"),
             "Heroes printings",
         ),
         (

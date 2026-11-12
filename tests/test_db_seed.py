@@ -50,11 +50,14 @@ def test_needs_seed_is_false_once_seeded_from_the_committed_csvs() -> None:
     assert needs_seed(conn) is False
 
 
-@pytest.mark.parametrize("table", ["stories", "equipment_printings", "weapons_printings", "kinds", "character_heroes"])
+@pytest.mark.parametrize(
+    "table", ["stories", "equipment_printings", "weapons_printings", "heroes_printings", "kinds", "character_heroes"]
+)
 def test_needs_seed_is_true_when_one_trigger_table_is_empty(table: str) -> None:
     """Migration 7 rebuilds both printings tables to widen their primary key,
     which empties them; migration 19 added kinds and migration 12 added
-    character_heroes. Each is independently sufficient to force a reseed."""
+    character_heroes; migration 22 rebuilds heroes_printings. Each is
+    independently sufficient to force a reseed."""
     conn = _fresh_conn()
     seed_from_csvs(conn, DATA)
     assert needs_seed(conn) is False

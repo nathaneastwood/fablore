@@ -7,6 +7,7 @@ import sqlite3
 from create_heroes_csv import (
     apply_lore_canonical_override,
     dedupe_printings,
+    hero_printing_rows,
     sort_like_db_export,
     split_name_variant,
 )
@@ -90,10 +91,32 @@ def test_generator_rows_follow_the_db_export_order() -> None:
         {"HeroGameId": "HG6", "CardName": "Dr. Mortimer"},
     ]
     printings = [
-        {"HeroGameId": "HGb", "SetId": "MPA", "CardId": "MPA003", "Rarity": "V"},
-        {"HeroGameId": "HGa", "SetId": "WIN", "CardId": "WIN050", "Rarity": "P"},
-        {"HeroGameId": "HGb", "SetId": "MPA", "CardId": "MPA002", "Rarity": "B"},
-        {"HeroGameId": "HGa", "SetId": "SUP", "CardId": "SUP001", "Rarity": "B"},
+        {"HeroGameId": "HGb", "SetId": "MPA", "CardId": "MPA003", "Rarity": "V", "PrintingUniqueId": "p4"},
+        {"HeroGameId": "HGa", "SetId": "WIN", "CardId": "WIN050", "Rarity": "P", "PrintingUniqueId": "p1"},
+        {"HeroGameId": "HGb", "SetId": "MPA", "CardId": "MPA002", "Rarity": "B", "PrintingUniqueId": "p2"},
+        {"HeroGameId": "HGa", "SetId": "SUP", "CardId": "SUP001", "Rarity": "B", "PrintingUniqueId": "p3"},
+        # one card id, three printings: the printing id breaks the tie
+        {
+            "HeroGameId": "HGc",
+            "SetId": "EVR",
+            "CardId": "EVR017",
+            "Rarity": "M",
+            "PrintingUniqueId": "nRMnPD6nnmCpFf7WkwTN7",
+        },
+        {
+            "HeroGameId": "HGc",
+            "SetId": "EVR",
+            "CardId": "EVR017",
+            "Rarity": "M",
+            "PrintingUniqueId": "FKC8qdBgdwgfrLmkq8htq",
+        },
+        {
+            "HeroGameId": "HGc",
+            "SetId": "EVR",
+            "CardId": "EVR017",
+            "Rarity": "M",
+            "PrintingUniqueId": "DFjQGNbTkNqjWhJPFL78C",
+        },
     ]
     canonical = [
         {"CanonicalId": "CN2", "CanonicalSlug": "zane", "CanonicalHero": "Zane"},
@@ -105,35 +128,91 @@ def test_generator_rows_follow_the_db_export_order() -> None:
 
     assert sorted_game == _sqlite_order(["HeroGameId", "CardName"], game, "CardName")
     assert sorted_printings == _sqlite_order(
-        ["HeroGameId", "SetId", "CardId", "Rarity"], printings, "HeroGameId, SetId, CardId"
+        ["HeroGameId", "SetId", "CardId", "Rarity", "PrintingUniqueId"],
+        printings,
+        "HeroGameId, SetId, CardId, PrintingUniqueId",
     )
     assert sorted_canonical == _sqlite_order(
         ["CanonicalId", "CanonicalSlug", "CanonicalHero"], canonical, "CanonicalSlug"
     )
 
 
-def test_dedupe_printings_keeps_one_row_per_db_key() -> None:
-    """``heroes_printings`` is keyed on (HeroGameId, SetId, CardId), not rarity.
+def test_dedupe_printings_keeps_a_marvel_beside_its_base_printing() -> None:
+    """``heroes_printings`` is keyed on (HeroGameId, PrintingUniqueId).
 
-    Upstream lists a Marvel printing under the same card id as the base one
-    (SUP002 is both ``B`` and ``V``). Writing both made every generator run add a
-    row that the next DB export dropped again. The base rarity is the one kept,
-    whichever order upstream lists them in.
+    Upstream lists Tuffnut's Marvels under the same card id as the base printing
+    (SUP002 is ``B`` once and ``V`` twice). Each is a separate printing with its
+    own image, so all three are kept; only a repeated printing id collapses.
     """
+    base = {"HeroGameId": "HG042046d307", "SetId": "SUP", "CardId": "SUP002"}
     rows = [
-        {"HeroGameId": "HGa", "SetId": "SUP", "CardId": "SUP002", "Rarity": "V"},
-        {"HeroGameId": "HGa", "SetId": "SUP", "CardId": "SUP002", "Rarity": "B"},
-        {"HeroGameId": "HGa", "SetId": "IAR", "CardId": "IAR106", "Rarity": "T"},
-        {"HeroGameId": "HGa", "SetId": "IAR", "CardId": "IAR106", "Rarity": "V"},
-        {"HeroGameId": "HGb", "SetId": "MPA", "CardId": "MPA003", "Rarity": "V"},
-        {"HeroGameId": "HGb", "SetId": "HER", "CardId": "HER150", "Rarity": "P"},
+        {**base, "PrintingUniqueId": "krkbfC6CQFhfPmGtCHN6R", "Rarity": "B"},
+        {**base, "PrintingUniqueId": "pC8KwqFWtpwKbddzTHffz", "Rarity": "V"},
+        {**base, "PrintingUniqueId": "tFMDn6HF7gcKqQjj8kWnq", "Rarity": "V"},
+        {**base, "PrintingUniqueId": "tFMDn6HF7gcKqQjj8kWnq", "Rarity": "V"},
     ]
 
     kept = dedupe_printings(rows)
 
-    assert sorted((r["HeroGameId"], r["CardId"], r["Rarity"]) for r in kept) == [
-        ("HGa", "IAR106", "T"),
-        ("HGa", "SUP002", "B"),
-        ("HGb", "HER150", "P"),
-        ("HGb", "MPA003", "V"),  # a Marvel-only printing is still a printing
+    assert sorted((r["PrintingUniqueId"], r["Rarity"]) for r in kept) == [
+        ("krkbfC6CQFhfPmGtCHN6R", "B"),
+        ("pC8KwqFWtpwKbddzTHffz", "V"),
+        ("tFMDn6HF7gcKqQjj8kWnq", "V"),
+    ]
+
+
+def _upstream_printing(unique_id: str, set_id: str, card_id: str, rarity: str, foiling: str, art: str, artists: str):
+    """One ``card-printing.csv`` row, keyed by the upstream column names."""
+    return {
+        "Unique ID": unique_id,
+        "Card ID": card_id,
+        "Set ID": set_id,
+        "Rarity": rarity,
+        "Foiling": foiling,
+        "Art Variations": art,
+        "Artists": artists,
+    }
+
+
+def test_every_upstream_printing_becomes_its_own_row() -> None:
+    """Bravo, Star of the Show (EVR017) has three printings under one card id:
+    the rainbow-foil standard, the cold foil, and the cold-foil full art. Each
+    has its own image, so each is its own row, carrying its printing id."""
+    upstream = [
+        _upstream_printing("FKC8qdBgdwgfrLmkq8htq", "EVR", "EVR017", "M", "S", "", "Marco Wulfr"),
+        _upstream_printing("DFjQGNbTkNqjWhJPFL78C", "EVR", "EVR017", "M", "C", "", "Marco Wulfr"),
+        _upstream_printing("nRMnPD6nnmCpFf7WkwTN7", "EVR", "EVR017", "M", "C", "FA", "Marco Wulfr"),
+    ]
+
+    assert hero_printing_rows("HG871c3ec849", upstream) == [
+        {
+            "HeroGameId": "HG871c3ec849",
+            "PrintingUniqueId": "FKC8qdBgdwgfrLmkq8htq",
+            "SetId": "EVR",
+            "CardId": "EVR017",
+            "Rarity": "M",
+            "Foiling": "S",
+            "ArtVariation": "",
+            "Artist": "Marco Wulfr",
+        },
+        {
+            "HeroGameId": "HG871c3ec849",
+            "PrintingUniqueId": "DFjQGNbTkNqjWhJPFL78C",
+            "SetId": "EVR",
+            "CardId": "EVR017",
+            "Rarity": "M",
+            "Foiling": "C",
+            "ArtVariation": "",
+            "Artist": "Marco Wulfr",
+        },
+        {
+            "HeroGameId": "HG871c3ec849",
+            "PrintingUniqueId": "nRMnPD6nnmCpFf7WkwTN7",
+            "SetId": "EVR",
+            "CardId": "EVR017",
+            "Rarity": "M",
+            "Foiling": "C",
+            "ArtVariation": "FA",
+            "Artist": "Marco Wulfr",
+        },
     ]

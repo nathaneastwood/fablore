@@ -1,0 +1,194 @@
+{
+  "heroes": [
+    {
+      "slug": "bravo-star-of-the-show",
+      "title": "Bravo",
+      "subtitle": "Star of the Show",
+      "type": "adult",
+      "is_released": "yes",
+      "status": "1582",
+      "format": {
+        "cc": {
+          "status": "not_legal"
+        },
+        "blitz": {
+          "status": "not_legal"
+        },
+        "living-legend": {
+          "status": "legal"
+        }
+      }
+    },
+    {
+      "slug": "bravo-showstopper",
+      "title": "Bravo",
+      "subtitle": "Showstopper",
+      "type": "both",
+      "is_released": "yes",
+      "status": "776",
+      "format": {
+        "cc": {
+          "status": "legal"
+        },
+        "blitz": {
+          "status": "legal"
+        },
+        "living-legend": {
+          "status": "legal"
+        }
+      }
+    },
+    {
+      "slug": "cindra-dracai-of-retribution",
+      "title": "Cindra",
+      "subtitle": "Dracai of Retribution",
+      "type": "both",
+      "is_released": "yes",
+      "status": "1085",
+      "format": {
+        "cc": {
+          "status": "not_legal"
+        },
+        "blitz": {
+          "status": "legal"
+        },
+        "living-legend": {
+          "status": "legal"
+        }
+      }
+    },
+    {
+      "slug": "enigma-ledger-of-ancestry",
+      "title": "Enigma",
+      "subtitle": "LEDGER OF ANCESTRY",
+      "type": "adult",
+      "is_released": "yes",
+      "status": "1000",
+      "format": {
+        "cc": {
+          "status": "not_legal"
+        },
+        "blitz": {
+          "status": "legal"
+        },
+        "living-legend": {
+          "status": "legal"
+        }
+      }
+    },
+    {
+      "slug": "maxx-the-hype-nitro",
+      "title": "Maxx, \"The Hype\" Nitro",
+      "subtitle": "",
+      "type": "adult",
+      "is_released": "yes",
+      "status": "1210",
+      "format": {
+        "cc": {
+          "status": "not_legal"
+        },
+        "blitz": {
+          "status": "legal"
+        },
+        "living-legend": {
+          "status": "legal"
+        }
+      }
+    },
+    {
+      "slug": "oscilio-forked-continuum",
+      "title": "Oscilio",
+      "subtitle": "Forked Continuum",
+      "type": "adult",
+      "is_released": "yes",
+      "status": "20",
+      "format": {
+        "cc": {
+          "status": "legal"
+        },
+        "blitz": {
+          "status": "not_legal"
+        },
+        "living-legend": {
+          "status": "legal"
+        }
+      }
+    },
+    {
+      "slug": "oscilio-constella-intelligence",
+      "title": "Oscilio",
+      "subtitle": "Constella Intelligence",
+      "type": "adult",
+      "is_released": "yes",
+      "status": "1030",
+      "format": {
+        "cc": {
+          "status": "not_legal"
+        },
+        "blitz": {
+          "status": "not_legal"
+        },
+        "living-legend": {
+          "status": "legal"
+        }
+      }
+    },
+    {
+      "slug": "dorinthea-ironsong",
+      "title": "Dorinthea",
+      "subtitle": "Ironsong",
+      "type": "both",
+      "is_released": "yes",
+      "status": "930",
+      "format": {
+        "cc": {
+          "status": "not_legal"
+        },
+        "blitz": {
+          "status": "not_legal"
+        },
+        "living-legend": {
+          "status": "legal"
+        }
+      }
+    },
+    {
+      "slug": "fai",
+      "title": "Fai",
+      "subtitle": "",
+      "type": "young",
+      "is_released": "yes",
+      "status": "1040",
+      "format": {
+        "cc": {
+          "status": "not_legal"
+        },
+        "blitz": {
+          "status": "not_legal"
+        },
+        "living-legend": {
+          "status": "legal"
+        }
+      }
+    },
+    {
+      "slug": "zyggy-starlight",
+      "title": "Zyggy Starlight",
+      "subtitle": "",
+      "type": "adult",
+      "is_released": "no",
+      "status": "",
+      "format": {
+        "cc": {
+          "status": "not_legal"
+        },
+        "blitz": {
+          "status": "not_legal"
+        },
+        "living-legend": {
+          "status": "legal"
+        }
+      }
+    }
+  ]
+}

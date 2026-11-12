@@ -1134,21 +1134,33 @@ def upsert_hero_printing(
     hero_game_id: str,
     set_id: str,
     card_id: str,
+    printing_unique_id: str,
     rarity: str = "",
+    foiling: str = "",
+    art_variation: str = "",
+    artist: str = "",
 ) -> None:
     conn.execute(
         """
-        INSERT INTO heroes_printings (hero_game_id, set_id, card_id, rarity)
-        VALUES (?,?,?,?)
-        ON CONFLICT(hero_game_id, set_id, card_id) DO UPDATE SET
-            rarity = excluded.rarity
+        INSERT INTO heroes_printings
+            (hero_game_id, set_id, card_id, rarity, printing_unique_id, foiling, art_variation, artist)
+        VALUES (?,?,?,?,?,?,?,?)
+        ON CONFLICT(hero_game_id, printing_unique_id) DO UPDATE SET
+            set_id = excluded.set_id,
+            card_id = excluded.card_id,
+            rarity = excluded.rarity,
+            foiling = excluded.foiling,
+            art_variation = excluded.art_variation,
+            artist = excluded.artist
         """,
-        (hero_game_id, set_id, card_id, rarity),
+        (hero_game_id, set_id, card_id, rarity, printing_unique_id, foiling, art_variation, artist),
     )
 
 
 def select_all_heroes_printings(conn: sqlite3.Connection) -> list[sqlite3.Row]:
-    return conn.execute("SELECT * FROM heroes_printings ORDER BY hero_game_id, set_id, card_id").fetchall()
+    return conn.execute(
+        "SELECT * FROM heroes_printings ORDER BY hero_game_id, set_id, card_id, printing_unique_id"
+    ).fetchall()
 
 
 def upsert_hero_ll(
