@@ -20,6 +20,7 @@ src/data/fablore.db
 
 # Site branding assets (exceptions to *.webp / *.png)
 !src/assets/favicon.webp
+!src/assets/logo-emblem.webp
 !src/assets/favicon.png
 !src/assets/apple-touch-icon.png
 !src/assets/logo_transparent.png
