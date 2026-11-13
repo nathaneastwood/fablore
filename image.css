@@ -244,6 +244,30 @@
   margin: 0 auto;
 }
 
+/* hero-hub.js hides a card's image while it fetches and decodes the form art a
+   filter picked, then shows it in one step; the card keeps the placeholder tint.
+   theme/index.hbs sets html.hero-hub-prepick on a #playstyle- / #talent- URL, so
+   multi-form cards stay hidden the same way until hero-hub.js has picked a form. */
+.hero-hub-card.hero-hub-card--art-pending,
+.hero-hub-prepick .hero-hub-card[data-forms] {
+  background: rgba(127, 127, 127, 0.08);
+}
+
+.hero-hub-card.hero-hub-card--art-pending img,
+.hero-hub-prepick .hero-hub-card[data-forms] img {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-hub-card img {
+    transition: opacity 0.2s ease;
+  }
+
+  .hero-hub-card.hero-hub-card--art-pending img {
+    transition: none;
+  }
+}
+
 .hero-hub-card-image--fallback {
   padding: 0;
   background: var(--bg);

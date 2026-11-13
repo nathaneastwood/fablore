@@ -27,7 +27,10 @@ can show one form at a time. Hero videos lose ``autoplay`` and ``controls``;
 
 On the hub (``heroes-of-rathe/heroes-of-rathe.md``) each ``.hero-hub-card``
 gets ``data-talents`` and ``data-playstyles`` from the forms on the page it
-links to.
+links to. A card for a multi-form page also gets ``data-forms`` (each form's
+anchor, name, art, talents and playstyles, in release order) and a link to the
+form its image shows; ``hero-hub.js`` points it at the newest matching form
+while a playstyle or talent filter is on.
 
 mdBook passes ``(PreprocessorContext, Book)`` as JSON on stdin; this process
 must print only the modified ``Book`` JSON on stdout.  Supports
@@ -831,11 +834,15 @@ def render_hero_page(content: str, data: dict) -> str:
         + "\n\n</div>\n\n"
         for (_, meta), form_id, text in zip(forms, ids, rendered)
     ]
-    in_release_order = sorted(
-        ((form_id, match.group(1).strip(), meta) for form_id, (match, meta) in zip(ids, forms)),
+    return head + "".join(wrapped) + _forms_section(_in_release_order(content, forms)) + related
+
+
+def _in_release_order(content: str, forms: list[tuple[re.Match, dict]]) -> list[tuple[str, str, dict]]:
+    """``(anchor, heading, meta)`` for each form, oldest first: the order of the "Forms of" rail."""
+    return sorted(
+        ((_heading_id(content, match), match.group(1).strip(), meta) for match, meta in forms),
         key=lambda f: f[2]["first_set_date"] or "9999",
     )
-    return head + "".join(wrapped) + _forms_section(in_release_order) + related
 
 
 _HUB_CARD_RE = re.compile(r'(<a class="[^"]*\bhero-hub-card\b[^"]*"[^>]*?)(\s+href="([^"]+)")')
@@ -851,17 +858,59 @@ def _page_slugs(page: str, data: dict, values) -> list[str]:
     return slugs
 
 
+# The hub's hero art, one image per form, named by the form's heading anchor.
+_FULL_ART_BASE = "https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/full-hero-art"
+
+
+def _playstyle_names(meta: dict) -> list[str]:
+    return (meta.get("fabtcg") or {}).get("playstyles", [])
+
+
+def _hub_forms(page: str, data: dict) -> list[dict]:
+    """Each form on a multi-form page, oldest first, for hero-hub.js to pick from; ``[]`` for one form."""
+    forms = hero_forms(page, data)
+    if len(forms) < 2:
+        return []
+    return [
+        {
+            "id": form_id,
+            "name": heading,
+            "art": f"{_FULL_ART_BASE}/{form_id}.webp",
+            "talents": [_slug(t) for t in meta["talents"]],
+            "playstyles": [_slug(p) for p in _playstyle_names(meta)],
+        }
+        for form_id, heading, meta in _in_release_order(page, forms)
+    ]
+
+
+_CARD_IMG_SRC_RE = re.compile(r'<img\b[^>]*?\ssrc="([^"]+)"')
+
+
 def render_hero_hub(content: str, pages: dict[str, str], data: dict) -> str:
     """Give each hub card ``data-talents`` and ``data-playstyles`` lists from the H1 forms on the page it links to.
 
     ``pages`` maps a hero page's path, relative to the hub, to its markdown.
+
+    A card for a page with two or more forms also gets ``data-forms``
+    (:func:`_hub_forms`), so hero-hub.js can show and link to the form a filter
+    matches, and its link gains the anchor of the form its image shows: the
+    page would otherwise open on its newest form.
     """
 
     def annotate(m: re.Match) -> str:
-        page = pages.get(m.group(3), "")
+        href = m.group(3)
+        page = pages.get(href, "")
         talents = " ".join(_page_slugs(page, data, lambda meta: meta["talents"]))
-        playstyles = " ".join(_page_slugs(page, data, lambda meta: (meta.get("fabtcg") or {}).get("playstyles", [])))
-        return f'{m.group(1)} data-talents="{talents}" data-playstyles="{playstyles}"{m.group(2)}'
+        playstyles = " ".join(_page_slugs(page, data, _playstyle_names))
+        attrs = f' data-talents="{talents}" data-playstyles="{playstyles}"'
+        forms = _hub_forms(page, data)
+        if not forms:
+            return f"{m.group(1)}{attrs}{m.group(2)}"
+        close = content.find("</a>", m.end())
+        img = _CARD_IMG_SRC_RE.search(content, m.end(), close if close != -1 else len(content))
+        shown = next((f["id"] for f in forms if img and f["art"] == html.unescape(img.group(1))), None)
+        attrs += f' data-forms="{html.escape(json.dumps(forms, ensure_ascii=False))}"'
+        return f'{m.group(1)}{attrs} href="{href}#{shown}"' if shown else f"{m.group(1)}{attrs}{m.group(2)}"
 
     return _HUB_CARD_RE.sub(annotate, content)
 

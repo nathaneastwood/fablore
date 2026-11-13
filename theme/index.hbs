@@ -115,6 +115,13 @@
             }
         </script>
 
+        <!-- Heroes hub opened with a #playstyle- or #talent- filter: hide the art
+             of multi-form cards until hero-hub.js has picked which form each one
+             shows, so a card never paints its own art and then swaps it. -->
+        <script>
+            if (/^#(playstyle|talent)-[a-z0-9-]+$/.test(location.hash)) { html.classList.add('hero-hub-prepick'); }
+        </script>
+
         <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->

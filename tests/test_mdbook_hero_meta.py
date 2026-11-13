@@ -8,6 +8,8 @@ build a small one in ``tmp_path`` so every expected value is a literal here.
 
 from __future__ import annotations
 
+import html
+import json
 from pathlib import Path
 
 import pytest
@@ -498,6 +500,42 @@ def test_hub_cards_carry_the_playstyles_of_every_form_on_the_linked_page_once_ea
     assert ' data-playstyles="aggressive disruptive" ' in cards["arakni-about.md"]
 
 
+_ART = "https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/full-hero-art"
+
+
+def _card(out: str, href_start: str) -> str:
+    """The opening tag of the hub card whose href starts with ``href_start``."""
+    return next(line for line in out.splitlines() if f'href="{href_start}' in line)
+
+
+def _forms_attr(card: str) -> list[dict]:
+    raw = card.split(' data-forms="', 1)[1].split('"', 1)[0]
+    return json.loads(html.unescape(raw))
+
+
+def test_a_card_for_a_multi_form_page_lists_each_form_in_release_order_with_its_anchor_art_talents_and_playstyles(
+    data,
+):
+    hub = '<a class="world-hub-card hero-hub-card" data-classes="guardian" href="bravo-about.md">\n'
+    out = render_hero_hub(hub, {"bravo-about.md": _TWO_FORMS}, data)
+    assert _forms_attr(_card(out, "bravo-about.md")) == [
+        {
+            "id": "bravo-showstopper",
+            "name": "Bravo, Showstopper",
+            "art": f"{_ART}/bravo-showstopper.webp",
+            "talents": [],
+            "playstyles": ["board-presence", "defensive"],
+        },
+        {
+            "id": "bravo-star-of-the-show",
+            "name": "Bravo, Star of the Show",
+            "art": f"{_ART}/bravo-star-of-the-show.webp",
+            "talents": ["elemental"],
+            "playstyles": ["combo"],
+        },
+    ]
+
+
 # ---------------------------------------------------------------------------
 # fabtcg.com hero data — playstyles, difficulty, portraits, source links
 # ---------------------------------------------------------------------------
@@ -654,3 +692,32 @@ _RELATED = (
 def test_related_lore_follows_the_forms_section_after_a_divider(data):
     out = render_hero_page(_TWO_FORMS + "\n" + _RELATED, data)
     assert out.endswith("</div>\n\n</section>\n\n" + _DIVIDER + "\n\n" + _RELATED)
+
+
+def test_a_card_for_a_multi_form_page_links_to_the_form_its_image_shows(data):
+    hub = (
+        '<a class="world-hub-card hero-hub-card" data-classes="guardian" href="bravo-about.md">\n'
+        f'  <img src="{_ART}/bravo-showstopper.webp" alt="" loading="lazy">\n'
+        '  <span class="world-hub-label">Bravo</span>\n'
+        "</a>\n"
+    )
+    out = render_hero_hub(hub, {"bravo-about.md": _TWO_FORMS}, data)
+    assert _card(out, "bravo-about.md").endswith(' href="bravo-about.md#bravo-showstopper">')
+
+
+def test_a_card_whose_image_shows_no_form_and_a_card_for_a_one_form_page_keep_their_links(data):
+    hub = (
+        '<a class="world-hub-card hero-hub-card" data-classes="guardian" href="bravo-about.md">\n'
+        '  <img src="https://example.test/bravo.webp" alt="">\n'
+        "</a>\n"
+        '<a class="world-hub-card hero-hub-card" data-classes="warrior thief" href="killjoy-about.md">\n'
+        f'  <img src="{_ART}/killjoy-the-crooked-blade.webp" alt="">\n'
+        "</a>\n"
+    )
+    pages = {"bravo-about.md": _TWO_FORMS, "killjoy-about.md": "# Killjoy, the Crooked Blade\n\nLore.\n"}
+    out = render_hero_hub(hub, pages, data)
+    assert _card(out, "bravo-about.md").endswith(' href="bravo-about.md">')
+    assert _card(out, "killjoy-about.md") == (
+        '<a class="world-hub-card hero-hub-card" data-classes="warrior thief" '
+        'data-talents="reviled" data-playstyles="" href="killjoy-about.md">'
+    )

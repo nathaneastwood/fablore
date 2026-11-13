@@ -12,7 +12,8 @@
  *   Lore follows its data-source (the form's fabtcg.com page).
  * - Hero banner: the pause / play button is the video's only control.
  * - On the hub, #class-<slug>, #talent-<slug> and #playstyle-<slug> in the URL
- *   apply a filter.
+ *   apply a filter. The talent filter lives here; a `hero-hub:talent` event on the
+ *   hub tells hero-hub.js, which points multi-form cards at a matching form.
  */
 (function () {
     'use strict';
@@ -256,6 +257,10 @@
         if (!hub) return;
         var chip = null;
 
+        function announce(slug) {
+            hub.dispatchEvent(new CustomEvent('hero-hub:talent', { detail: { talent: slug } }));
+        }
+
         function clearTalent() {
             hub.querySelectorAll('.hero-hub-card--talent-out').forEach(function (card) {
                 card.classList.remove('hero-hub-card--talent-out');
@@ -264,6 +269,7 @@
                 chip.remove();
                 chip = null;
             }
+            announce('');
         }
 
         function applyTalent(slug) {
@@ -272,6 +278,7 @@
                 var talents = (card.getAttribute('data-talents') || '').split(/\s+/);
                 if (talents.indexOf(slug) === -1) card.classList.add('hero-hub-card--talent-out');
             });
+            announce(slug);
             chip = document.createElement('button');
             chip.type = 'button';
             chip.className = 'hero-hub-talent-chip';
