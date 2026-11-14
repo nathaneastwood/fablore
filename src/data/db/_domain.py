@@ -2081,6 +2081,8 @@ class Database:
                 "canonical_equipment_id",
                 "canonical_equipment",
             ),
+            ("Groups", "story_groups", "group_id", "groups", "group_id", "name"),
+            ("Titles", "story_titles", "title_id", "titles", "title_id", "name"),
         ]
         for label, junction, jid_col, registry, rid_col, name_col in sections:
             out.write(f"{label}\n")

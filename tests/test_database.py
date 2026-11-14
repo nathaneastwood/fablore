@@ -18,12 +18,14 @@ from db import (
     FaunaEntry,
     FloraEntry,
     FoodDrinkEntry,
+    GroupEntry,
     LocationEntry,
     MonsterEntry,
     CharacterEntry,
     NarratedVideoEntry,
     RegionEntry,
     KindEntry,
+    TitleEntry,
 )
 
 
@@ -538,6 +540,45 @@ def test_remove_story_actual(db: Database) -> None:
     assert report["story_deleted"] is True
     assert db.conn.execute("SELECT COUNT(*) FROM stories").fetchone()[0] == 0
     assert db.conn.execute("SELECT COUNT(*) FROM story_characters").fetchone()[0] == 0
+
+
+def _story_referencing_tables(db: Database) -> set[str]:
+    tables = [r[0] for r in db.conn.execute("SELECT name FROM sqlite_master WHERE type = 'table'")]
+    return {t for t in tables if any(fk[2] == "stories" for fk in db.conn.execute(f"PRAGMA foreign_key_list({t})"))}
+
+
+def test_remove_story_dry_run_counts_every_table_that_cascades(db: Database) -> None:
+    """The preview counts every table a real delete cascades into.
+
+    story_titles and narrated_videos were left out, so a story linked only to
+    titles previewed as "(no junction links)" and the delete then took rows anyway.
+    """
+    db.upsert_story(
+        "src/main-story/t.md",
+        story_type="main-story",
+        title="T",
+        titles=[TitleEntry("Grand Magister")],
+        narrated_videos=[NarratedVideoEntry("Narrator", "https://video.example.com/1")],
+    )
+    report = db.remove_story("src/main-story/t.md", dry_run=True, file=io.StringIO())
+    assert set(report["junctions"]) == _story_referencing_tables(db)
+    assert report["junctions"]["story_titles"] == 1
+    assert report["junctions"]["narrated_videos"] == 1
+
+
+def test_display_story_lists_groups_and_titles(db: Database) -> None:
+    db.upsert_story(
+        "src/main-story/g.md",
+        story_type="main-story",
+        title="G",
+        groups=[GroupEntry("VanGeld", category="clan")],
+        titles=[TitleEntry("Grand Magister")],
+    )
+    buf = io.StringIO()
+    db.display_story("src/main-story/g.md", file=buf)
+    text = buf.getvalue()
+    assert "Groups\n  • VanGeld" in text
+    assert "Titles\n  • Grand Magister" in text
 
 
 def test_remove_story_second_pass_is_no_op(db: Database) -> None:

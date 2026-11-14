@@ -1477,20 +1477,20 @@ def delete_entity_row(conn: sqlite3.Connection, table: str, id_column: str, enti
     return cur.rowcount
 
 
+def story_referencing_tables(conn: sqlite3.Connection) -> list[str]:
+    """Every table with a foreign key to ``stories``, in schema order.
+
+    Read from the schema rather than listed by hand: a hand list missed
+    ``story_titles`` and ``narrated_videos``, so a delete cascaded into rows
+    its preview never counted.
+    """
+    tables = [r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type = 'table' ORDER BY rowid")]
+    return [t for t in tables if any(fk[2] == "stories" for fk in conn.execute(f"PRAGMA foreign_key_list({t})"))]
+
+
 def count_story_junctions(conn: sqlite3.Connection, story_id: str) -> dict[str, int]:
-    """Return a count of linked entities per junction table (for dry-run output)."""
-    junctions = [
-        "story_characters",
-        "story_locations",
-        "story_regions",
-        "story_monsters",
-        "story_fauna",
-        "story_flora",
-        "story_food_drink",
-        "story_weapons",
-        "story_equipment",
-        "story_groups",
-    ]
+    """Return a count of linked rows per story-referencing table (for dry-run output)."""
     return {
-        t: conn.execute(f"SELECT COUNT(*) FROM {t} WHERE story_id = ?", [story_id]).fetchone()[0] for t in junctions
+        t: conn.execute(f"SELECT COUNT(*) FROM {t} WHERE story_id = ?", [story_id]).fetchone()[0]
+        for t in story_referencing_tables(conn)
     }
