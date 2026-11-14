@@ -37,8 +37,7 @@ def _maps(**kwargs) -> RelatedMaps:
         hero_canonical_to_stories={},
         character_to_stories={},
         other_page_to_char_ids={},
-        hero_junction_fragment={},
-        character_junction_fragment={},
+        junction_fragment={},
     )
     return RelatedMaps(**{**defaults, **kwargs})
 

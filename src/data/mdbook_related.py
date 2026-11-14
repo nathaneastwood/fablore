@@ -66,8 +66,7 @@ class RelatedMaps:
     hero_canonical_to_stories: dict[str, frozenset[str]]
     character_to_stories: dict[str, frozenset[str]]
     other_page_to_char_ids: dict[str, frozenset[str]]
-    hero_junction_fragment: dict[tuple[str, str], str]
-    character_junction_fragment: dict[tuple[str, str], str]
+    junction_fragment: dict[tuple[str, str], str]
 
 
 def load_related_maps(data_dir: Path) -> RelatedMaps:
@@ -170,12 +169,10 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
         hero_canonical_to_stories=heroes.hero_stories,
         character_to_stories=heroes.character_stories,
         other_page_to_char_ids={k: frozenset(v) for k, v in other_page_map.items()},
-        # Both fields come from the one story-characters.csv junction, keyed on
-        # (story_id, character_id); see build_character_stories_fragment /
-        # build_related_fragment for where a canonical_id gets translated to a
-        # character_id before either map is consulted.
-        hero_junction_fragment=heroes.fragments,
-        character_junction_fragment=heroes.fragments,
+        # The story-characters.csv junction, keyed on (story_id, character_id);
+        # _reverse_story_links translates a hero's canonical_id to its
+        # character_id before looking it up.
+        junction_fragment=heroes.fragments,
     )
 
 
@@ -226,6 +223,55 @@ def build_hero_src_to_canonical_ids(maps: RelatedMaps, src_root: Path) -> dict[s
     return {k: frozenset(v) for k, v in result.items()}
 
 
+def _reverse_story_links(
+    maps: RelatedMaps,
+    chapter_src_path: str,
+    src_root: Path,
+    hero_src_map: dict[str, frozenset[str]],
+    *,
+    warn_missing: bool = False,
+) -> list[tuple[str, str, str]]:
+    """``(story_id, title, escaped href)`` for every story naming this page's subject.
+
+    The subject is the page's heroes (``hero_src_map``, canonical ids) plus its
+    ordinary characters (``other_page_to_char_ids``). A story with no key or
+    title, or whose file is missing, is left out (named on stderr when
+    ``warn_missing``). The href deep-links the first junction fragment found,
+    heroes before ordinary characters.
+    """
+    chapter_posix = Path(chapter_src_path).as_posix()
+    chapter_hero_cids = hero_src_map.get(chapter_posix, frozenset())
+    chapter_other_cids = maps.other_page_to_char_ids.get(chapter_posix, frozenset())
+    story_ids: set[str] = set()
+    for cid in chapter_hero_cids:
+        story_ids |= maps.hero_canonical_to_stories.get(cid, frozenset())
+    for cid in chapter_other_cids:
+        story_ids |= maps.character_to_stories.get(cid, frozenset())
+    # junction_fragment keys on character_id; a hero's canonical_id is translated first.
+    char_ids = [
+        *(maps.canonical_id_to_character_id.get(cid) for cid in chapter_hero_cids),
+        *chapter_other_cids,
+    ]
+
+    links: list[tuple[str, str, str]] = []
+    for sid in story_ids:
+        key = maps.story_id_to_key.get(sid)
+        title = maps.story_id_to_title.get(sid, "")
+        if not key or not title:
+            continue
+        if not _is_file((src_root / key)):
+            if warn_missing:
+                print(
+                    f"mdbook_related: story {title!r} ({sid}): omitting card (file {key!r} missing)",
+                    file=sys.stderr,
+                )
+            continue
+        frag = next((f for c in char_ids if c and (f := maps.junction_fragment.get((sid, c), ""))), "")
+        rel = relative_md_href(chapter_src_path, key)
+        links.append((sid, title, html.escape(f"{rel}#{frag}" if frag else rel)))
+    return links
+
+
 def build_character_stories_fragment(
     maps: RelatedMaps,
     *,
@@ -244,48 +290,10 @@ def build_character_stories_fragment(
     Returns:
         HTML string, or empty if no resolvable story links exist.
     """
-    chapter_posix = Path(chapter_src_path).as_posix()
-    chapter_hero_cids = hero_src_map.get(chapter_posix, frozenset())
-    chapter_other_cids = maps.other_page_to_char_ids.get(chapter_posix, frozenset())
-    story_ids: set[str] = set()
-
-    for cid in chapter_hero_cids:
-        story_ids |= maps.hero_canonical_to_stories.get(cid, frozenset())
-
-    for cid in chapter_other_cids:
-        story_ids |= maps.character_to_stories.get(cid, frozenset())
-
-    if not story_ids:
-        return ""
-
-    story_cards: list[tuple[str, str, str, str]] = []
-    for sid in story_ids:
-        key = maps.story_id_to_key.get(sid)
-        title = maps.story_id_to_title.get(sid, "")
-        if not key or not title:
-            continue
-        if not _is_file((src_root / key)):
-            print(
-                f"mdbook_related: story {title!r} ({sid}): omitting card (file {key!r} missing)",
-                file=sys.stderr,
-            )
-            continue
-        frag = ""
-        for cid in chapter_hero_cids:
-            # hero_junction_fragment keys on character_id; cid here is still a
-            # canonical_id (from hero_src_map).
-            char_id = maps.canonical_id_to_character_id.get(cid)
-            frag = maps.hero_junction_fragment.get((sid, char_id), "") if char_id else ""
-            if frag:
-                break
-        if not frag:
-            for cid in chapter_other_cids:
-                frag = maps.character_junction_fragment.get((sid, cid), "")
-                if frag:
-                    break
-        rel = relative_md_href(chapter_src_path, key)
-        href = html.escape(f"{rel}#{frag}" if frag else rel)
-        story_cards.append(("Story", title, "", href))
+    story_cards = [
+        ("Story", title, "", href)
+        for _sid, title, href in _reverse_story_links(maps, chapter_src_path, src_root, hero_src_map, warn_missing=True)
+    ]
 
     if not story_cards:
         return ""
@@ -462,42 +470,11 @@ def build_related_fragment(
 
     story_cards: list[tuple[str, str, str, str]] = []
     if hero_src_map is not None:
-        chapter_posix = Path(chapter_src_path).as_posix()
-        chapter_hero_cids = hero_src_map.get(chapter_posix, frozenset())
-        chapter_other_cids = maps.other_page_to_char_ids.get(chapter_posix, frozenset())
-        reverse_story_ids: set[str] = set()
-        for cid in chapter_hero_cids:
-            reverse_story_ids |= maps.hero_canonical_to_stories.get(cid, frozenset())
-        for cid in chapter_other_cids:
-            reverse_story_ids |= maps.character_to_stories.get(cid, frozenset())
-        reverse_story_ids.discard(story_id)
-        for sid in reverse_story_ids:
-            key = maps.story_id_to_key.get(sid)
-            title = maps.story_id_to_title.get(sid, "")
+        for sid, title, href in _reverse_story_links(maps, chapter_src_path, src_root, hero_src_map):
             stype = maps.story_id_to_type.get(sid, "")
-            if stype in _STORY_TYPES_SKIP:
+            if sid == story_id or stype in _STORY_TYPES_SKIP:
                 continue
-            kind = _STORY_TYPE_LABELS.get(stype, "Story")
-            if not key or not title:
-                continue
-            if not _is_file((src_root / key)):
-                continue
-            frag = ""
-            for cid in chapter_hero_cids:
-                # hero_junction_fragment keys on character_id since migration
-                # 17; cid here is still a canonical_id (from hero_src_map).
-                char_id = maps.canonical_id_to_character_id.get(cid)
-                frag = maps.hero_junction_fragment.get((sid, char_id), "") if char_id else ""
-                if frag:
-                    break
-            if not frag:
-                for cid in chapter_other_cids:
-                    frag = maps.character_junction_fragment.get((sid, cid), "")
-                    if frag:
-                        break
-            rel = relative_md_href(chapter_src_path, key)
-            url = f"{rel}#{frag}" if frag else rel
-            story_cards.append((kind, title, "", html.escape(url)))
+            story_cards.append((_STORY_TYPE_LABELS.get(stype, "Story"), title, "", href))
 
     # Every href comes from relative_md_href, which is never empty, so no card is filtered here.
     by_kind: dict[str, list[tuple[str, str, str, str]]] = {

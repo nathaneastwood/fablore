@@ -41,8 +41,7 @@ def _maps(**kwargs) -> RelatedMaps:
         hero_canonical_to_stories={},
         character_to_stories={},
         other_page_to_char_ids={},
-        hero_junction_fragment={},
-        character_junction_fragment={},
+        junction_fragment={},
     )
     return RelatedMaps(**{**defaults, **kwargs})
 
@@ -140,9 +139,9 @@ def test_build_character_stories_fragment_appends_hero_junction_fragment(
         hero_canonical_to_stories={"CN1": frozenset(["S1"])},
         story_id_to_key={"S1": "digital-tiles/tile.md"},
         story_id_to_title={"S1": "Tile"},
-        # hero_junction_fragment keys on character_id since migration 17.
+        # junction_fragment keys on character_id since migration 17.
         canonical_id_to_character_id={"CN1": "LC1"},
-        hero_junction_fragment={("S1", "LC1"): "some-card"},
+        junction_fragment={("S1", "LC1"): "some-card"},
     )
     result = build_character_stories_fragment(
         maps,
@@ -606,7 +605,7 @@ def test_build_related_fragment_hero_src_map_other_characters_path(tmp_path: Pat
 
 
 def test_build_related_fragment_hero_src_map_with_fragment(tmp_path: Path) -> None:
-    """hero_junction_fragment appended to story card href when present."""
+    """junction_fragment appended to story card href when present."""
     src = tmp_path / "src"
     (src / "main-story").mkdir(parents=True)
     (src / "main-story" / "other.md").write_text("# Other", encoding="utf-8")
@@ -620,9 +619,9 @@ def test_build_related_fragment_hero_src_map_with_fragment(tmp_path: Path) -> No
         story_id_to_title={"ST2": "Other Story"},
         story_id_to_type={"ST2": "main-story"},
         hero_canonical_to_stories={"CN1": frozenset(["ST1", "ST2"])},
-        # hero_junction_fragment keys on character_id since migration 17.
+        # junction_fragment keys on character_id since migration 17.
         canonical_id_to_character_id={"CN1": "LC1"},
-        hero_junction_fragment={("ST2", "LC1"): "my-section"},
+        junction_fragment={("ST2", "LC1"): "my-section"},
         other_page_to_char_ids={},
         character_to_stories={},
     )
@@ -863,8 +862,8 @@ def test_load_related_maps_loads_story_characters(tmp_path: Path) -> None:
     assert "ST1" in m.character_to_stories["C1"]
 
 
-def test_load_related_maps_loads_character_junction_fragment(tmp_path: Path) -> None:
-    """load_related_maps populates character_junction_fragment for non-empty Fragment."""
+def test_load_related_maps_loads_junction_fragment(tmp_path: Path) -> None:
+    """load_related_maps populates junction_fragment for non-empty Fragment."""
     data = tmp_path / "data"
     csv = data / "csv"
     csv.mkdir(parents=True)
@@ -878,7 +877,7 @@ def test_load_related_maps_loads_character_junction_fragment(tmp_path: Path) -> 
     (csv / "locations.csv").write_text("LocationId|Name|RegionId\n", encoding="utf-8")
     (csv / "regions.csv").write_text("RegionId|RegionName|WorldOfRatheStoryKey\n", encoding="utf-8")
     m = load_related_maps(data)
-    assert m.character_junction_fragment[("ST1", "C1")] == "my-fragment"
+    assert m.junction_fragment[("ST1", "C1")] == "my-fragment"
 
 
 def test_load_related_maps_loads_the_other_page_map(tmp_path: Path) -> None:
@@ -959,3 +958,29 @@ def test_build_related_fragment_other_characters_page_links_its_hero_page(tmp_pa
     )
     assert "../heroes-of-rathe/dr-mortimer-about.md" in html
     assert "krest-mortimer.md" not in html
+
+
+def test_both_builders_link_a_reverse_story_with_the_heros_fragment_first(tmp_path: Path) -> None:
+    """A page that is both a hero page and an other-characters page links each
+    reverse story the same way in both builders: the hero's fragment wins."""
+    src = tmp_path / "src"
+    (src / "main-story").mkdir(parents=True)
+    (src / "main-story" / "tale.md").write_text("# Tale", encoding="utf-8")
+    page = "other-characters/both.md"
+    maps = _maps(
+        story_id_to_key={"ST9": "main-story/tale.md"},
+        story_id_to_title={"ST9": "Tale"},
+        story_id_to_type={"ST9": "main-story"},
+        hero_canonical_to_stories={"CN1": frozenset(["ST9"])},
+        character_to_stories={"C2": frozenset(["ST9"])},
+        canonical_id_to_character_id={"CN1": "LC1"},
+        other_page_to_char_ids={page: frozenset({"C2"})},
+        junction_fragment={("ST9", "LC1"): "hero-part", ("ST9", "C2"): "other-part"},
+    )
+    hero_src_map = {page: frozenset(["CN1"])}
+    stories = build_character_stories_fragment(maps, chapter_src_path=page, src_root=src, hero_src_map=hero_src_map)
+    related = build_related_fragment(
+        maps, story_id="NONE", chapter_src_path=page, src_root=src, hero_src_map=hero_src_map
+    )
+    assert "../main-story/tale.md#hero-part" in stories
+    assert "../main-story/tale.md#hero-part" in related
