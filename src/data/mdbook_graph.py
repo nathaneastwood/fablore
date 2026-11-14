@@ -30,6 +30,7 @@ from __future__ import annotations
 
 import json
 import sys
+from collections import Counter
 from pathlib import Path
 
 _SCRIPT_DIR = Path(__file__).resolve().parent
@@ -436,14 +437,14 @@ def build_graph(data_dir: Path, src_root: Path, *, printings: bool = True) -> di
         return f"{url}#{fragment}" if fragment else url
 
     # --- Junction tables ---------------------------------------------------
-    # (csv file, entity id column, kind, resolver -> (name, url) or None)
+    # (csv file, entity id column, resolver -> (name, url, kind) or None)
     def _character(eid: str):
         """Resolve a story-characters.csv row to (name, url, kind).
 
         One node id (character_id) for a hero and an ordinary character alike — that is the
         whole fix. kind is derived the same way stage 10 derives the hints
         badge: "hero" when character_id has a character-heroes.csv row, else
-        "npc". A 3-tuple return overrides the junction's default kind below.
+        "npc", so one junction file carries both kinds.
         """
         row = npcs.get(eid)
         if row is None:
@@ -457,19 +458,19 @@ def build_graph(data_dir: Path, src_root: Path, *, printings: bool = True) -> di
 
     def _location(eid: str):
         row = locations.get(eid)
-        return None if row is None else (row[0], _region_url(row[1], row[2]))
+        return None if row is None else (row[0], _region_url(row[1], row[2]), "location")
 
     def _region(eid: str):
         row = regions.get(eid)
-        return None if row is None else (row[0], _region_url(eid))
+        return None if row is None else (row[0], _region_url(eid), "region")
 
     def _weapon(eid: str):
         row = weapons.get(eid)
-        return None if row is None else (row[0], _card_url(src_root, "weapons", row[1]))
+        return None if row is None else (row[0], _card_url(src_root, "weapons", row[1]), "weapon")
 
     def _equipment(eid: str):
         row = equipment.get(eid)
-        return None if row is None else (row[0], _card_url(src_root, "equipment", row[1]))
+        return None if row is None else (row[0], _card_url(src_root, "equipment", row[1]), "equipment")
 
     def _group(eid: str):
         row = groups.get(eid)
@@ -477,31 +478,31 @@ def build_graph(data_dir: Path, src_root: Path, *, printings: bool = True) -> di
             return None
         name, key, frag = row
         if not key:
-            return (name, "")
+            return (name, "", "group")
         url = _html_url(key)
-        return (name, f"{url}#{frag}" if frag else url)
+        return (name, f"{url}#{frag}" if frag else url, "group")
 
-    def _plain(table: dict[str, str]):
+    def _plain(table: dict[str, str], kind: str):
         def resolve(eid: str):
             name = table.get(eid)
-            return None if name is None else (name, "")
+            return None if name is None else (name, "", kind)
 
         return resolve
 
     junctions = (
-        ("story-characters.csv", "CharacterId", "npc", _character),
-        ("story-locations.csv", "LocationId", "location", _location),
-        ("story-regions.csv", "RegionId", "region", _region),
-        ("story-weapons.csv", "CanonicalWeaponId", "weapon", _weapon),
-        ("story-equipment.csv", "CanonicalEquipmentId", "equipment", _equipment),
-        ("story-monsters.csv", "MonsterId", "monster", _plain(monsters)),
-        ("story-fauna.csv", "FaunaId", "fauna", _plain(fauna)),
-        ("story-flora.csv", "FloraId", "flora", _plain(flora)),
-        ("story-food-drink.csv", "FoodDrinkId", "food", _plain(food)),
-        ("story-groups.csv", "GroupId", "group", _group),
+        ("story-characters.csv", "CharacterId", _character),
+        ("story-locations.csv", "LocationId", _location),
+        ("story-regions.csv", "RegionId", _region),
+        ("story-weapons.csv", "CanonicalWeaponId", _weapon),
+        ("story-equipment.csv", "CanonicalEquipmentId", _equipment),
+        ("story-monsters.csv", "MonsterId", _plain(monsters, "monster")),
+        ("story-fauna.csv", "FaunaId", _plain(fauna, "fauna")),
+        ("story-flora.csv", "FloraId", _plain(flora, "flora")),
+        ("story-food-drink.csv", "FoodDrinkId", _plain(food, "food")),
+        ("story-groups.csv", "GroupId", _group),
     )
 
-    for filename, id_col, kind, resolve in junctions:
+    for filename, id_col, resolve in junctions:
         for r in read_rows(csv_dir / filename):
             sid = (r.get("StoryId") or "").strip()
             eid = (r.get(id_col) or "").strip()
@@ -510,15 +511,8 @@ def build_graph(data_dir: Path, src_root: Path, *, printings: bool = True) -> di
             resolved = resolve(eid)
             if resolved is None:
                 continue
-            # Most resolvers return (name, url) and take their kind from the
-            # junction tuple above; _character returns a 3-tuple with its own
-            # per-row kind ("hero" or "npc"), since one file now carries both.
-            if len(resolved) == 3:
-                name, url, row_kind = resolved
-            else:
-                name, url = resolved
-                row_kind = kind
-            b.add_edge(story_idx[sid], b.add_node(eid, name, row_kind, url))
+            name, url, kind = resolved
+            b.add_edge(story_idx[sid], b.add_node(eid, name, kind, url))
 
     # Stories that ended up with no edge are dots with nothing to say.
     linked: set[int] = set()
@@ -535,9 +529,7 @@ def build_graph(data_dir: Path, src_root: Path, *, printings: bool = True) -> di
 
     assign_slugs(nodes)
 
-    counts: dict[str, int] = {}
-    for n in nodes:
-        counts[n["k"]] = counts.get(n["k"], 0) + 1
+    counts = Counter(n["k"] for n in nodes)
 
     groups = []
     for kind, (label, group, shape) in _KINDS.items():
@@ -591,10 +583,7 @@ def assign_slugs(nodes: list[dict]) -> None:
 
     Mutates ``nodes`` in place.
     """
-    counts: dict[str, int] = {}
-    for n in nodes:
-        key = slugify_card_name_stem(n["n"])
-        counts[key] = counts.get(key, 0) + 1
+    counts = Counter(slugify_card_name_stem(n["n"]) for n in nodes)
 
     used: set[str] = set()
     for n in sorted(nodes, key=lambda x: (x["s"], x["n"])):
@@ -626,10 +615,7 @@ def page_graph_targets(graph: dict) -> dict[str, dict]:
     Returns:
         ``{src markdown path: node}``. Nodes are the dicts from ``graph``.
     """
-    degree: dict[int, int] = {}
-    for a, b in graph["links"]:
-        degree[a] = degree.get(a, 0) + 1
-        degree[b] = degree.get(b, 0) + 1
+    degree = Counter(i for link in graph["links"] for i in link)
 
     best: dict[str, tuple[tuple, dict]] = {}
     for i, node in enumerate(graph["nodes"]):
@@ -638,7 +624,7 @@ def page_graph_targets(graph: dict) -> dict[str, dict]:
             continue
         md_path = url[:-5] + ".md" if url.endswith(".html") else url
         # Sort key: busiest first, entity before story, then name for stability.
-        rank = (-degree.get(i, 0), node["k"] == "story", node["n"])
+        rank = (-degree[i], node["k"] == "story", node["n"])
         current = best.get(md_path)
         if current is None or rank < current[0]:
             best[md_path] = (rank, node)
