@@ -402,3 +402,27 @@ def test_load_related_maps_loads_story_regions(tmp_path: Path) -> None:
     )
     m = load_related_maps(data)
     assert m.story_regions["ST1"] == frozenset({"RG1"})
+
+
+def test_hero_without_a_hero_page_is_skipped_quietly_but_keeps_its_character_card(tmp_path: Path, capsys) -> None:
+    """A hero with no heroes-of-rathe page gets no Hero card and prints nothing.
+
+    Most such heroes (Yorick, Taylor, Bolfar…) have no page of any kind, which is
+    a normal state, not a build problem; printing it once per linking page filled
+    every build with repeats. A hero who has an other-characters page (The
+    Librarian) still gets a Character card for it.
+    """
+    src = tmp_path / "src"
+    (src / "other-characters").mkdir(parents=True)
+    (src / "other-characters" / "the-librarian.md").write_text("# L\n", encoding="utf-8")
+    maps = _maps(
+        story_characters={"ST1": frozenset({"LC1"})},
+        canonical_hero={"CN1": ("the-librarian", "The Librarian")},
+        character_row={"LC1": ("The Librarian", "other-characters/the-librarian.md")},
+        canonical_id_to_character_id={"CN1": "LC1"},
+        character_id_to_canonical_id={"LC1": "CN1"},
+    )
+    html = build_related_fragment(maps, story_id="ST1", chapter_src_path="main-story/x.md", src_root=src)
+    assert "../other-characters/the-librarian.md" in html
+    assert ">Hero<" not in html
+    assert capsys.readouterr().err == ""

@@ -342,8 +342,10 @@ def test_build_related_fragment_character_skips_self(tmp_path: Path) -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_build_related_fragment_hero_no_lore_file_omits_and_warns(tmp_path: Path, capsys) -> None:
-    """Hero with no resolvable lore file is omitted and a warning printed to stderr."""
+def test_build_related_fragment_hero_no_lore_file_omits_quietly(tmp_path: Path, capsys) -> None:
+    """Hero with no resolvable lore file is omitted, with nothing printed: a hero
+    with no page yet is a normal state, and the line repeated on every page that
+    named one."""
     src = tmp_path / "src"
     (src / "heroes-of-rathe").mkdir(parents=True)
     # no file created for 'phantom' slug
@@ -362,8 +364,7 @@ def test_build_related_fragment_hero_no_lore_file_omits_and_warns(tmp_path: Path
         src_root=src,
     )
     assert html == ""
-    captured = capsys.readouterr()
-    assert "phantom" in captured.err
+    assert capsys.readouterr().err == ""
 
 
 # ---------------------------------------------------------------------------

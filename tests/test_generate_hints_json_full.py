@@ -221,6 +221,36 @@ def test_generate_leaves_an_unchanged_output_untouched(tmp_path, monkeypatch):
     assert "Grand Bazaar" in json.loads(output_path.read_text(encoding="utf-8"))
 
 
+def test_generate_quiet_hides_diagnostics_but_reports_a_rewrite(tmp_path, monkeypatch, capsys):
+    """The build calls generate(quiet=True): clash and "up to date" lines are not
+    actionable mid-build, so they stay out of every `mdbook serve` rebuild. They
+    still print on a direct run and from the ensure-hints-json-sync hook, when a
+    data change can be acted on. A real rewrite of hints.json is always reported."""
+    import generate_hints_json as ghj
+
+    db_path = tmp_path / "fablore.db"
+    _make_db(db_path)
+    output_path = tmp_path / "hints.json"
+    supplement = tmp_path / "supplement.json"
+    # A supplement entry with the same key as a DB row forces a clash line.
+    supplement.write_text(json.dumps({"Brute": {"type": "monster", "summary": "x"}}), encoding="utf-8")
+    monkeypatch.setattr(ghj, "DB_PATH", db_path)
+    monkeypatch.setattr(ghj, "SUPPLEMENT_PATH", supplement)
+    monkeypatch.setattr(ghj, "OUTPUT_PATH", output_path)
+    monkeypatch.setattr(ghj, "ROOT", tmp_path)
+    monkeypatch.setattr(ghj, "_warn_match_collisions", lambda hints: print("hint clash: forced", file=sys.stderr))
+
+    ghj.generate(quiet=True)
+    assert capsys.readouterr().err.startswith("Wrote ")
+
+    ghj.generate(quiet=True)
+    assert capsys.readouterr().err == ""
+
+    ghj.generate()
+    err = capsys.readouterr().err
+    assert "hint clash" in err and "is up to date" in err
+
+
 def test_generate_no_region_for_unknown_region_id(tmp_path, monkeypatch):
     import generate_hints_json as ghj
 

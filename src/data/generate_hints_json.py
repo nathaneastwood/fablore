@@ -9,6 +9,8 @@ Run from the repository root:
     python src/data/generate_hints_json.py
 """
 
+import contextlib
+import io
 import json
 import sqlite3
 import sys
@@ -257,7 +259,8 @@ def merge_supplement(hints: dict, supplement: dict) -> dict:
     return result
 
 
-def generate() -> None:
+def _build_hints() -> dict:
+    """Read the DB and the supplement into the hints dict, printing any clash to stderr."""
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
 
@@ -440,12 +443,30 @@ def generate() -> None:
 
     hints = merge_supplement(hints, supplement)
     _warn_match_collisions(hints)
+    return hints
+
+
+def generate(*, quiet: bool = False) -> None:
+    """Write ``src/hints.json``.
+
+    ``quiet`` is for the build (``mdbook_hints.py`` calls this on every
+    ``mdbook build`` / ``serve`` rebuild): it hides the ``hint clash`` lines and
+    the "up to date" line, which cannot be acted on mid-build. They still print
+    on a direct run and from the ``ensure-hints-json-sync`` hook, when a data
+    change is being made. A real rewrite of the file is always reported.
+    """
+    if quiet:
+        with contextlib.redirect_stderr(io.StringIO()):
+            hints = _build_hints()
+    else:
+        hints = _build_hints()
 
     # Rewrite only on a real change: mdbook_hints.py runs this on every build, and an
     # untouched file keeps its mtime, so nothing watching it sees a phantom edit.
     text = json.dumps(hints, ensure_ascii=False, indent=2) + "\n"
     if OUTPUT_PATH.exists() and OUTPUT_PATH.read_text(encoding="utf-8") == text:
-        print(f"{OUTPUT_PATH.relative_to(ROOT)} is up to date ({len(hints)} entries)", file=sys.stderr)
+        if not quiet:
+            print(f"{OUTPUT_PATH.relative_to(ROOT)} is up to date ({len(hints)} entries)", file=sys.stderr)
         return
     OUTPUT_PATH.write_text(text, encoding="utf-8")
     print(

@@ -342,7 +342,7 @@ def main() -> None:
     if db_path.exists():
         from generate_hints_json import generate
 
-        generate()
+        generate(quiet=True)
 
     hints_path = Path(__file__).resolve().parents[2] / "src" / "hints.json"
     hints = load_hints(hints_path) if hints_path.exists() else {}

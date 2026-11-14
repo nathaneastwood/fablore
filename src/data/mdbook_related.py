@@ -432,10 +432,9 @@ def build_related_fragment(
         slug, display = row
         target = resolve_hero_src_path(src_root, slug)
         if not target:
-            print(
-                f"mdbook_related: skip hero {display!r} (slug={slug!r}): no lore file",
-                file=sys.stderr,
-            )
+            # No hero page yet (Yorick, Taylor…) is a normal state, not a build
+            # problem. A hero with an other-characters page still gets a
+            # Character card from the loop below.
             continue
         if _same_src_markdown(chapter_src_path, target):
             continue
