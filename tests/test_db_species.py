@@ -18,9 +18,7 @@ from registry_ids import lore_character_id, kind_id
 
 
 def _story(database: Database, **kw):
-    return database.upsert_story(
-        path="src/main-story/super-slam/feudmasters.md", story_type="main-story", title="T", **kw
-    )
+    return database.upsert_story(path="src/main-story/super-slam/feudmasters.md", title="T", **kw)
 
 
 def _kind_of(database: Database, name: str) -> list[str]:
@@ -136,7 +134,6 @@ def test_dry_run_reports_a_kind_it_would_add(db: Database, capsys) -> None:
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
-        story_type="main-story",
         title="T",
         characters=[CharacterEntry("Biski", kinds=KindEntry("Dog"))],
         dry_run=True,
@@ -150,7 +147,6 @@ def test_dry_run_reports_a_kind_it_would_remove(db: Database, capsys) -> None:
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
-        story_type="main-story",
         title="T",
         characters=[CharacterEntry("Swabbie")],
         dry_run=True,
@@ -166,7 +162,6 @@ def test_dry_run_reports_a_kind_on_a_group_member(db: Database, capsys) -> None:
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
-        story_type="main-story",
         title="T",
         groups=[GroupEntry("Rosetta", members=(CharacterEntry("Ozrim", kinds=KindEntry("Rosetta")),))],
         dry_run=True,

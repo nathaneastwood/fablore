@@ -143,8 +143,8 @@ def test_declared_path_is_a_known_story(module, path, lineno) -> None:
 
 @pytest.mark.parametrize("module, path, lineno", ALL_DECLARATIONS)
 def test_declaration_sits_in_the_module_its_path_implies(module, path, lineno) -> None:
-    """The story type is the path's first segment (``upsert_story`` derives it and
-    rejects a disagreeing ``story_type=``); the module must be that type's module."""
+    """The story type is the path's first segment (``upsert_story`` derives it from
+    there); the module must be that type's module."""
     from_path = path[len("src/") :].split("/")[0] if path.startswith("src/") else ""
     assert from_path == SECTIONS[module], (
         f"entries/{module}.py:{lineno} declares {path!r}; " f"that module is for {SECTIONS[module]!r}"

@@ -8,7 +8,7 @@ Preview one page with ``python3 src/data/data-entry.py --only <path>``; see
 ``data-entry.py`` for the full preview-then-commit workflow.
 
 **Added 2026-08-21, stage 5 (the user's call).** ``world-of-rathe`` was already a
-valid ``story_type`` — ``db/_domain.py`` lists it in ``upsert_story``'s own
+valid ``story_type`` — ``db/_domain.py`` listed it in ``upsert_story``'s own
 docstring, and ``create_stories_index.py`` has always put all eleven pages in
 ``stories``. What was missing was somewhere to declare them, so the eleven rows
 sat in the spine with nothing able to link an entity to them. That was not a

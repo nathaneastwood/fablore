@@ -25,7 +25,7 @@ def _seed_hero(database: Database, slug: str, name: str) -> str:
 
 
 def _story(database: Database, path: str = "src/world-of-rathe/solana.md", **kw):
-    return database.upsert_story(path=path, story_type="world-of-rathe", title="T", **kw)
+    return database.upsert_story(path=path, title="T", **kw)
 
 
 # ---------------------------------------------------------------------------
@@ -249,7 +249,6 @@ def test_dry_run_removal_line_matches_what_the_apply_does(db: Database, capsys) 
     capsys.readouterr()
     db.upsert_story(
         path="src/world-of-rathe/solana.md",
-        story_type="world-of-rathe",
         title="T",
         titles=[TitleEntry("Grand Magister")],
         dry_run=True,
@@ -284,7 +283,6 @@ def test_dry_run_reports_a_title_group_change(db: Database, capsys) -> None:
     capsys.readouterr()
     db.upsert_story(
         path="src/world-of-rathe/solana.md",
-        story_type="world-of-rathe",
         title="T",
         titles=[TitleEntry("Dracai of Aether", group=GroupEntry("Dracai Council"))],
         dry_run=True,
@@ -330,7 +328,6 @@ def test_titles_survive_the_csv_round_trip(db: Database, tmp_path: Path) -> None
 def test_dry_run_reports_new_titles_and_writes_nothing(db: Database, capsys) -> None:
     db.upsert_story(
         path="src/world-of-rathe/solana.md",
-        story_type="world-of-rathe",
         title="T",
         titles=[TitleEntry("Grand Magister")],
         dry_run=True,
@@ -350,7 +347,6 @@ def test_dry_run_flags_a_holder_list_that_would_shrink(db: Database, capsys) -> 
     capsys.readouterr()
     db.upsert_story(
         path="src/world-of-rathe/solana.md",
-        story_type="world-of-rathe",
         title="T",
         titles=[TitleEntry("Grand Magister", holders=((CharacterEntry("Aeric"), 1, "x.md"),))],
         dry_run=True,
@@ -365,7 +361,6 @@ def test_dry_run_reports_an_epithet_on_a_title_holder(db: Database, capsys) -> N
     capsys.readouterr()
     db.upsert_story(
         path="src/world-of-rathe/solana.md",
-        story_type="world-of-rathe",
         title="T",
         titles=[
             TitleEntry(
@@ -381,7 +376,6 @@ def test_dry_run_reports_an_epithet_on_a_title_holder(db: Database, capsys) -> N
 def test_dry_run_reports_a_new_character_created_only_through_a_title(db: Database, capsys) -> None:
     db.upsert_story(
         path="src/world-of-rathe/solana.md",
-        story_type="world-of-rathe",
         title="T",
         titles=[TitleEntry("Grand Magister", holders=((CharacterEntry("Aeric"), 1, "x.md"),))],
         dry_run=True,
@@ -394,7 +388,6 @@ def test_dry_run_reaches_a_titles_group(db: Database, capsys) -> None:
     grp = GroupEntry("Dracai Council", members=(CharacterEntry("Emissary"),), member_source="x.md")
     db.upsert_story(
         path="src/world-of-rathe/solana.md",
-        story_type="world-of-rathe",
         title="T",
         titles=[TitleEntry("Dracai of Aether", group=grp)],
         dry_run=True,
@@ -407,7 +400,6 @@ def test_preview_survives_the_dry_run_without_writing_a_hero_link(db: Database, 
     hid = _seed_hero(db, "kano", "Kano")
     db.upsert_story(
         path="src/world-of-rathe/solana.md",
-        story_type="world-of-rathe",
         title="T",
         titles=[TitleEntry("Dracai of Aether", holders=(("kano", 0, "x.md"),))],
         dry_run=True,

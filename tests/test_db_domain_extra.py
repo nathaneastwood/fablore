@@ -97,7 +97,6 @@ def test_list_regions_empty(db: Database) -> None:
 def test_list_regions_with_data(db: Database) -> None:
     db.upsert_story(
         "src/main-story/r.md",
-        story_type="main-story",
         title="R",
         regions=[RegionEntry("Solana", world_of_rathe_story_key="world-of-rathe/solana.md")],
     )
@@ -112,7 +111,6 @@ def test_list_characters_empty(db: Database) -> None:
 def test_list_characters_with_data(db: Database) -> None:
     db.upsert_story(
         "src/main-story/n.md",
-        story_type="main-story",
         title="N",
         characters=[CharacterEntry("Guard Captain", kinds=KindEntry("Human"), status="Alive")],
     )
@@ -128,7 +126,6 @@ def test_list_kinds_empty(db: Database) -> None:
 def test_list_kinds_with_data(db: Database) -> None:
     db.upsert_story(
         "src/main-story/n3.md",
-        story_type="main-story",
         title="N3",
         characters=[CharacterEntry("Biski", kinds=KindEntry("Dog"))],
     )
@@ -144,7 +141,6 @@ def test_list_locations_empty(db: Database) -> None:
 def test_list_locations_with_data(db: Database) -> None:
     db.upsert_story(
         "src/main-story/l.md",
-        story_type="main-story",
         title="L",
         locations=[LocationEntry("Grand Bazaar", notes="A busy market")],
     )
@@ -203,7 +199,6 @@ def test_print_regions_empty(db: Database) -> None:
 def test_print_regions_with_data(db: Database) -> None:
     db.upsert_story(
         "src/main-story/r2.md",
-        story_type="main-story",
         title="R2",
         regions=[RegionEntry("Aria")],
     )
@@ -221,7 +216,6 @@ def test_print_characters_empty(db: Database) -> None:
 def test_print_characters_with_data(db: Database) -> None:
     db.upsert_story(
         "src/main-story/n2.md",
-        story_type="main-story",
         title="N2",
         characters=[CharacterEntry("Ranger", kinds=KindEntry("Elf"), status="Unknown")],
     )
@@ -239,7 +233,6 @@ def test_print_kinds_empty(db: Database) -> None:
 def test_print_kinds_with_data(db: Database) -> None:
     db.upsert_story(
         "src/main-story/n4.md",
-        story_type="main-story",
         title="N4",
         characters=[CharacterEntry("Biski", kinds=KindEntry("Dog"))],
     )
@@ -257,7 +250,6 @@ def test_print_locations_empty(db: Database) -> None:
 def test_print_locations_with_data(db: Database) -> None:
     db.upsert_story(
         "src/main-story/l2.md",
-        story_type="main-story",
         title="L2",
         locations=[LocationEntry("Dark Tower")],
     )
@@ -293,15 +285,15 @@ def test_stories_table_empty_at_start(db: Database) -> None:
 
 
 def test_stories_table_has_entry_after_upsert(db: Database) -> None:
-    db.upsert_story("src/main-story/foo.md", story_type="main-story", title="Foo")
+    db.upsert_story("src/main-story/foo.md", title="Foo")
     row = db.conn.execute("SELECT title, story_type FROM stories").fetchone()
     assert row["title"] == "Foo"
     assert row["story_type"] == "main-story"
 
 
 def test_stories_table_multiple_entries(db: Database) -> None:
-    db.upsert_story("src/main-story/a.md", story_type="main-story", title="Alpha")
-    db.upsert_story("src/main-story/b.md", story_type="main-story", title="Beta")
+    db.upsert_story("src/main-story/a.md", title="Alpha")
+    db.upsert_story("src/main-story/b.md", title="Beta")
     count = db.conn.execute("SELECT COUNT(*) FROM stories").fetchone()[0]
     assert count == 2
 
@@ -314,7 +306,7 @@ def test_stories_table_multiple_entries(db: Database) -> None:
 def test_story_record_display(db: Database, monkeypatch, capsys) -> None:
     import db._domain as _dom
 
-    r = db.upsert_story("src/main-story/foo.md", story_type="main-story", title="Foo")
+    r = db.upsert_story("src/main-story/foo.md", title="Foo")
     # StoryRecord.display() passes the short story_key back through _story_key_from_path,
     # which can't resolve bare keys without the src/ prefix. Patch it to pass through.
     monkeypatch.setattr(_dom, "_story_key_from_path", lambda p: str(p))
@@ -326,7 +318,7 @@ def test_story_record_display(db: Database, monkeypatch, capsys) -> None:
 def test_story_record_display_to_buffer(db: Database, monkeypatch) -> None:
     import db._domain as _dom
 
-    r = db.upsert_story("src/main-story/foo.md", story_type="main-story", title="Bar Display")
+    r = db.upsert_story("src/main-story/foo.md", title="Bar Display")
     monkeypatch.setattr(_dom, "_story_key_from_path", lambda p: str(p))
     buf = io.StringIO()
     r.display(file=buf)
@@ -336,7 +328,7 @@ def test_story_record_display_to_buffer(db: Database, monkeypatch) -> None:
 def test_story_record_remove(db: Database, monkeypatch, capsys) -> None:
     import db._domain as _dom
 
-    r = db.upsert_story("src/main-story/foo.md", story_type="main-story", title="Foo")
+    r = db.upsert_story("src/main-story/foo.md", title="Foo")
     # StoryRecord.remove() passes story_key (short form) back through _story_key_from_path;
     # patch it to pass through so the story is found by key directly.
     monkeypatch.setattr(_dom, "_story_key_from_path", lambda p: str(p))
@@ -349,7 +341,7 @@ def test_story_record_remove(db: Database, monkeypatch, capsys) -> None:
 def test_story_record_remove_dry_run(db: Database, monkeypatch, capsys) -> None:
     import db._domain as _dom
 
-    r = db.upsert_story("src/main-story/foo.md", story_type="main-story", title="Foo")
+    r = db.upsert_story("src/main-story/foo.md", title="Foo")
     monkeypatch.setattr(_dom, "_story_key_from_path", lambda p: str(p))
     result = r.remove(dry_run=True)
     capsys.readouterr()  # discard printed output
@@ -374,7 +366,6 @@ def test_display_story_not_found(db: Database) -> None:
 def test_display_story_basic(db: Database) -> None:
     db.upsert_story(
         "src/main-story/foo.md",
-        story_type="main-story",
         title="Foo",
         authors="Alice",
         artists="Bob",
@@ -394,7 +385,6 @@ def test_display_story_basic(db: Database) -> None:
 def test_display_story_with_junctions(db: Database) -> None:
     db.upsert_story(
         "src/main-story/foo.md",
-        story_type="main-story",
         title="Junction Story",
         characters=[CharacterEntry("Mystic", kinds=KindEntry("Unknown"), status="Unknown")],
     )
@@ -413,7 +403,6 @@ def test_display_story_with_junctions(db: Database) -> None:
 def test_delete_entity_location_removes_orphaned_row(db: Database) -> None:
     db.upsert_story(
         "src/main-story/foo.md",
-        story_type="main-story",
         title="Foo",
         locations=[LocationEntry("Orphan Place", region="Aria")],
     )
@@ -426,7 +415,6 @@ def test_delete_entity_location_removes_orphaned_row(db: Database) -> None:
 def test_delete_entity_location_refuses_when_still_linked(db: Database) -> None:
     db.upsert_story(
         "src/main-story/foo.md",
-        story_type="main-story",
         title="Foo",
         locations=[LocationEntry("Linked Place", region="Aria")],
     )
@@ -453,13 +441,11 @@ def test_delete_entity_character_removes_orphaned_row(db: Database) -> None:
     """
     db.upsert_story(
         "src/main-story/foo.md",
-        story_type="main-story",
         title="Foo",
         characters=[CharacterEntry(name="Promoted Character", kinds=KindEntry("Demon"))],
     )
     db.upsert_story(
         "src/main-story/foo.md",
-        story_type="main-story",
         title="Foo",
         characters=[],
     )
@@ -474,7 +460,6 @@ def test_delete_entity_character_removes_orphaned_row(db: Database) -> None:
 def test_delete_entity_character_refuses_when_still_linked(db: Database) -> None:
     db.upsert_story(
         "src/main-story/foo.md",
-        story_type="main-story",
         title="Foo",
         characters=[CharacterEntry(name="Linked Character", kinds=KindEntry("Human"))],
     )
@@ -492,7 +477,6 @@ def test_delete_entity_character_not_found(db: Database) -> None:
 def test_delete_entity_monster_removes_orphaned_row(db: Database) -> None:
     db.upsert_story(
         "src/main-story/foo.md",
-        story_type="main-story",
         title="Foo",
         monsters=[MonsterEntry("Test Beast")],
     )
@@ -505,7 +489,6 @@ def test_delete_entity_monster_removes_orphaned_row(db: Database) -> None:
 def test_delete_entity_monster_refuses_when_still_linked(db: Database) -> None:
     db.upsert_story(
         "src/main-story/foo.md",
-        story_type="main-story",
         title="Foo",
         monsters=[MonsterEntry("Linked Beast")],
     )
@@ -516,7 +499,6 @@ def test_delete_entity_monster_refuses_when_still_linked(db: Database) -> None:
 def test_delete_entity_fauna_removes_orphaned_row(db: Database) -> None:
     db.upsert_story(
         "src/main-story/foo.md",
-        story_type="main-story",
         title="Foo",
         fauna=[FaunaEntry("Test Critter")],
     )
@@ -529,7 +511,6 @@ def test_delete_entity_fauna_removes_orphaned_row(db: Database) -> None:
 def test_delete_entity_flora_removes_orphaned_row(db: Database) -> None:
     db.upsert_story(
         "src/main-story/foo.md",
-        story_type="main-story",
         title="Foo",
         flora=[FloraEntry("Test Weed")],
     )
@@ -544,7 +525,6 @@ def test_delete_entity_location_deletes_all_duplicate_name_rows(db: Database) ->
     removes every row under that name, not just the first match."""
     db.upsert_story(
         "src/main-story/foo.md",
-        story_type="main-story",
         title="Foo",
         regions=[RegionEntry("Aria"), RegionEntry("Solana")],
         locations=[
@@ -586,7 +566,6 @@ def test_upsert_character_preserves_curated_status(db: Database) -> None:
     """
     db.upsert_story(
         "src/main-story/first.md",
-        story_type="main-story",
         title="First",
         characters=[CharacterEntry("Lord Sutcliffe", kinds=KindEntry("Human"), status="Just a head")],
     )
@@ -594,7 +573,6 @@ def test_upsert_character_preserves_curated_status(db: Database) -> None:
 
     db.upsert_story(
         "src/main-story/second.md",
-        story_type="main-story",
         title="Second",
         characters=[CharacterEntry("Lord Sutcliffe", kinds=KindEntry("Human"))],
     )
@@ -611,13 +589,11 @@ def test_kind_is_replace_semantic_where_status_is_preserved(db: Database) -> Non
     """
     db.upsert_story(
         "src/main-story/first.md",
-        story_type="main-story",
         title="First",
         characters=[CharacterEntry("Lord Sutcliffe", kinds=KindEntry("Human"), status="Just a head")],
     )
     db.upsert_story(
         "src/main-story/second.md",
-        story_type="main-story",
         title="Second",
         characters=[CharacterEntry("Lord Sutcliffe")],
     )
@@ -628,7 +604,6 @@ def test_a_character_can_hold_two_kind(db: Database) -> None:
     """Scooba is a Zombie Dog, which the free-text column could only spell as one."""
     db.upsert_story(
         "src/main-story/first.md",
-        story_type="main-story",
         title="First",
         characters=[CharacterEntry("Scooba", kinds=(KindEntry("Zombie"), KindEntry("Dog")))],
     )
@@ -639,13 +614,11 @@ def test_upsert_character_explicit_value_still_overwrites(db: Database) -> None:
     """Preservation applies to omitted fields only — an explicit value always wins."""
     db.upsert_story(
         "src/main-story/first.md",
-        story_type="main-story",
         title="First",
         characters=[CharacterEntry("Sol", kinds=KindEntry("Human"))],
     )
     db.upsert_story(
         "src/main-story/second.md",
-        story_type="main-story",
         title="Second",
         characters=[CharacterEntry("Sol", kinds=KindEntry("Aesir"))],
     )
@@ -660,7 +633,6 @@ def test_upsert_character_new_row_defaults_to_unknown(db: Database) -> None:
     """
     db.upsert_story(
         "src/main-story/first.md",
-        story_type="main-story",
         title="First",
         characters=[CharacterEntry("Nameless Stranger")],
     )

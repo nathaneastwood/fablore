@@ -49,7 +49,6 @@ def test_characters_mixes_a_hero_slug_and_a_character_entry_in_one_call(db: Data
     _seed_hero(db, "dash", "Dash")
     db.upsert_story(
         "src/main-story/x.md",
-        story_type="main-story",
         title="X",
         characters=["dash", CharacterEntry("Guard Captain")],
     )
@@ -60,11 +59,10 @@ def test_characters_none_leaves_existing_links_unchanged(db: Database) -> None:
     _seed_hero(db, "dash", "Dash")
     db.upsert_story(
         "src/main-story/x.md",
-        story_type="main-story",
         title="X",
         characters=["dash", CharacterEntry("Guard Captain")],
     )
-    db.upsert_story("src/main-story/x.md", story_type="main-story", title="X", characters=None)
+    db.upsert_story("src/main-story/x.md", title="X", characters=None)
     assert _character_names(db) == {"Dash", "Guard Captain"}
 
 
@@ -72,11 +70,10 @@ def test_characters_empty_list_clears_every_link(db: Database) -> None:
     _seed_hero(db, "dash", "Dash")
     db.upsert_story(
         "src/main-story/x.md",
-        story_type="main-story",
         title="X",
         characters=["dash", CharacterEntry("Guard Captain")],
     )
-    db.upsert_story("src/main-story/x.md", story_type="main-story", title="X", characters=[])
+    db.upsert_story("src/main-story/x.md", title="X", characters=[])
     assert _character_names(db) == set()
 
 
@@ -85,13 +82,11 @@ def test_characters_list_replaces_the_stored_set_exactly(db: Database) -> None:
     _seed_hero(db, "dash", "Dash")
     db.upsert_story(
         "src/main-story/x.md",
-        story_type="main-story",
         title="X",
         characters=["dash", CharacterEntry("Guard Captain")],
     )
     db.upsert_story(
         "src/main-story/x.md",
-        story_type="main-story",
         title="X",
         characters=[CharacterEntry("Guard Captain")],
     )
@@ -110,7 +105,6 @@ def test_slug_and_character_entry_for_the_same_person_raises_naming_both(db: Dat
     with pytest.raises(ValueError) as excinfo:
         db.upsert_story(
             "src/main-story/x.md",
-            story_type="main-story",
             title="X",
             characters=["kano", CharacterEntry("Kano")],
         )
@@ -127,7 +121,6 @@ def test_slug_and_character_entry_raise_names_the_shared_character_id(db: Databa
     with pytest.raises(ValueError, match=lore_character_id("Kano")):
         db.upsert_story(
             "src/main-story/x.md",
-            story_type="main-story",
             title="X",
             characters=["kano", CharacterEntry("Kano")],
         )
@@ -138,7 +131,6 @@ def test_same_slug_named_twice_raises(db: Database) -> None:
     with pytest.raises(ValueError):
         db.upsert_story(
             "src/main-story/x.md",
-            story_type="main-story",
             title="X",
             characters=["kano", "kano"],
         )
@@ -150,7 +142,6 @@ def test_duplicate_guard_fires_before_any_write(db: Database) -> None:
     with pytest.raises(ValueError):
         db.upsert_story(
             "src/main-story/x.md",
-            story_type="main-story",
             title="X",
             characters=["kano", CharacterEntry("Kano"), CharacterEntry("Guard Captain")],
         )
@@ -167,7 +158,6 @@ def test_fragments_key_matching_no_one_declared_raises(db: Database) -> None:
     with pytest.raises(ValueError, match="matches no hero slug or character display name"):
         db.upsert_story(
             "src/main-story/x.md",
-            story_type="main-story",
             title="X",
             characters=["dash"],
             fragments={"nobody": "anchor"},
@@ -185,7 +175,6 @@ def test_fragments_key_matching_both_a_slug_and_an_unrelated_character_name_rais
     with pytest.raises(ValueError, match="names both a declared hero slug and a declared character"):
         db.upsert_story(
             "src/main-story/x.md",
-            story_type="main-story",
             title="X",
             characters=["phoenix", CharacterEntry("phoenix")],
             fragments={"phoenix": "anchor"},

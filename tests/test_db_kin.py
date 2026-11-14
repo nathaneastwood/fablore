@@ -25,7 +25,7 @@ def _seed_hero(database: Database, slug: str, name: str) -> str:
 
 
 def _story(database: Database, path: str = "src/world-of-rathe/solana.md", **kw):
-    return database.upsert_story(path=path, story_type="world-of-rathe", title="T", **kw)
+    return database.upsert_story(path=path, title="T", **kw)
 
 
 # ---------------------------------------------------------------------------
@@ -253,7 +253,6 @@ def test_dry_run_removal_line_matches_what_the_apply_does(db: Database, capsys) 
     capsys.readouterr()
     db.upsert_story(
         path="src/world-of-rathe/solana.md",
-        story_type="world-of-rathe",
         title="T",
         characters=[CharacterEntry("Lyath")],
         dry_run=True,
@@ -267,7 +266,6 @@ def test_dry_run_reports_a_new_kin_fact(db: Database, capsys) -> None:
     capsys.readouterr()
     db.upsert_story(
         path="src/world-of-rathe/solana.md",
-        story_type="world-of-rathe",
         title="T",
         characters=[CharacterEntry("Lyath", kin=((CharacterEntry("Bloodworth Goldmane"), "father"),))],
         dry_run=True,
@@ -290,7 +288,6 @@ def test_dry_run_reaches_a_kin_fact_declared_only_through_a_group_roster(db: Dat
     capsys.readouterr()
     db.upsert_story(
         path="src/world-of-rathe/solana.md",
-        story_type="world-of-rathe",
         title="T",
         groups=[grp],
         dry_run=True,

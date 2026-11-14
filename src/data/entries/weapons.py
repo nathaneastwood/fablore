@@ -8,7 +8,7 @@ Preview one page with ``python3 src/data/data-entry.py --only <path>``; see
 ``data-entry.py`` for the full preview-then-commit workflow.
 
 **Scaffolding only, added 2026-08-22, stage 12.** ``weapons`` was already a
-valid ``story_type`` — ``db/_domain.py`` lists it in ``upsert_story``'s own
+valid ``story_type`` — ``db/_domain.py`` listed it in ``upsert_story``'s own
 docstring — and ``create_stories_index.py`` has always scanned ``src/weapons/``
 as one of its content roots. What was missing was somewhere to declare its 16
 pages, so this module exists purely so the SECTIONS row has somewhere to point.

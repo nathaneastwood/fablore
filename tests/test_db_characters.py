@@ -25,7 +25,7 @@ def _seed_hero(database: Database, slug: str, name: str) -> str:
 
 
 def _story(database: Database, path: str = "src/main-story/monarch/step-into-the-light.md", **kw):
-    return database.upsert_story(path=path, story_type="main-story", title="T", **kw)
+    return database.upsert_story(path=path, title="T", **kw)
 
 
 # ---------------------------------------------------------------------------
@@ -244,7 +244,6 @@ def test_dry_run_reports_a_hero_slug_claim_reached_only_through_a_group_roster(d
 def test_update_description_writes_a_character_summary(db: Database) -> None:
     db.upsert_story(
         path="src/world-of-rathe/solana.md",
-        story_type="world-of-rathe",
         title="T",
         characters=[CharacterEntry("Xathari")],
     )
@@ -290,14 +289,12 @@ def test_a_registration_preserves_a_summary_it_does_not_mention(db: Database) ->
     """A story registration must never clear curated lore text, like `status`."""
     db.upsert_story(
         path="src/world-of-rathe/solana.md",
-        story_type="world-of-rathe",
         title="T",
         characters=[CharacterEntry("Xathari")],
     )
     db.update_description("character", "Xathari", "The Dracai spymaster.")
     db.upsert_story(
         path="src/world-of-rathe/volcor.md",
-        story_type="world-of-rathe",
         title="T2",
         characters=[CharacterEntry("Xathari", status="Dead")],
     )
@@ -311,7 +308,6 @@ def test_a_registration_preserves_a_summary_it_does_not_mention(db: Database) ->
 def test_a_summary_round_trips_through_the_csv(db: Database, tmp_path) -> None:
     db.upsert_story(
         path="src/world-of-rathe/solana.md",
-        story_type="world-of-rathe",
         title="T",
         characters=[CharacterEntry("Xathari")],
     )

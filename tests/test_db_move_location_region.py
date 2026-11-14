@@ -22,7 +22,7 @@ NEW_ID = location_id(ARENA, "")
 
 
 def _story(database: Database, path: str, **kw):
-    return database.upsert_story(path=path, story_type="main-story", title=path, **kw)
+    return database.upsert_story(path=path, title=path, **kw)
 
 
 def _linked_location_ids(database: Database, path: str) -> set[str]:

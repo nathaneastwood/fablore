@@ -38,7 +38,6 @@ def test_preview_naming_no_titles_does_not_scan_titles_table(db: Database, monke
 
     db.upsert_story(
         path="src/main-story/foo/bar.md",
-        story_type="main-story",
         title="Bar",
         characters=[CharacterEntry("Guard Captain")],
         dry_run=True,
@@ -54,7 +53,6 @@ def test_preview_naming_no_food_drink_does_not_scan_food_drink_table(db: Databas
 
     db.upsert_story(
         path="src/main-story/foo/bar.md",
-        story_type="main-story",
         title="Bar",
         characters=[CharacterEntry("Guard Captain")],
         dry_run=True,
@@ -76,7 +74,6 @@ def test_preview_naming_a_title_does_scan_titles_table(db: Database, monkeypatch
 
     db.upsert_story(
         path="src/main-story/foo/bar.md",
-        story_type="main-story",
         title="Bar",
         titles=[TitleEntry("Grand Magister")],
         dry_run=True,
@@ -101,7 +98,6 @@ def test_registry_scanned_at_most_once_per_preview(db: Database, monkeypatch, ca
 
     db.upsert_story(
         path="src/main-story/foo/bar.md",
-        story_type="main-story",
         title="Bar",
         characters=[CharacterEntry("Guard Captain", hero_slug="")],
         dry_run=True,

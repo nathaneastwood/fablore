@@ -77,7 +77,6 @@ def test_upsert_story_persists_metadata(db: Database) -> None:
     """Metadata fields are stored in the stories table."""
     db.upsert_story(
         "src/main-story/meta.md",
-        story_type="main-story",
         title="Meta Story",
         authors="Author A, Author B",
         artists="Illustrator A",
@@ -98,7 +97,6 @@ def test_upsert_story_returns_story_record(db: Database) -> None:
     """upsert_story returns a StoryRecord with correct fields."""
     rec = db.upsert_story(
         "src/main-story/a.md",
-        story_type="main-story",
         title="Alpha",
         authors="Writer",
     )
@@ -131,9 +129,10 @@ def test_upsert_story_dry_run_derives_story_type(db: Database, capsys) -> None:
     assert "digital-tiles" in capsys.readouterr().out
 
 
-def test_upsert_story_rejects_story_type_that_disagrees_with_path(db: Database) -> None:
-    with pytest.raises(ValueError, match="story_type='flavour'.*main-story"):
-        db.upsert_story("src/main-story/a.md", story_type="flavour", title="T")
+def test_upsert_story_takes_no_story_type_argument(db: Database) -> None:
+    """The path is the one source of the type, so there is nothing to pass and nothing to drift."""
+    with pytest.raises(TypeError, match="story_type"):
+        db.upsert_story("src/main-story/a.md", story_type="main-story", title="T")
     assert db.conn.execute("SELECT COUNT(*) FROM stories").fetchone()[0] == 0
 
 
@@ -149,7 +148,6 @@ def test_upsert_story_narrated_videos_stored(db: Database) -> None:
     """Narrated videos are stored in the narrated_videos table."""
     db.upsert_story(
         "src/main-story/vid.md",
-        story_type="main-story",
         title="Video Story",
         narrated_videos=[
             NarratedVideoEntry("Narrator One", "https://video.example.com/1"),
@@ -169,13 +167,11 @@ def test_upsert_story_replaces_narrated_videos(db: Database) -> None:
     """Passing new narrated_videos replaces the previous list."""
     db.upsert_story(
         "src/main-story/vid.md",
-        story_type="main-story",
         title="T",
         narrated_videos=[NarratedVideoEntry("Old", "https://old.com")],
     )
     db.upsert_story(
         "src/main-story/vid.md",
-        story_type="main-story",
         title="T",
         narrated_videos=[NarratedVideoEntry("New", "https://new.com")],
     )
@@ -197,7 +193,6 @@ def test_upsert_story_writes_narrated_videos_csv(db: Database, tmp_path: Path) -
     """
     db.upsert_story(
         "src/main-story/vid.md",
-        story_type="main-story",
         title="T",
         narrated_videos=[NarratedVideoEntry("Narrator", "https://video.example.com/1")],
     )
@@ -212,7 +207,6 @@ def test_remove_story_drops_its_narrated_videos_from_csv(db: Database, tmp_path:
     """
     db.upsert_story(
         "src/main-story/vid.md",
-        story_type="main-story",
         title="T",
         narrated_videos=[NarratedVideoEntry("Narrator", "https://video.example.com/1")],
     )
@@ -227,7 +221,7 @@ def test_remove_story_drops_its_narrated_videos_from_csv(db: Database, tmp_path:
 
 def test_get_story_returns_record(db: Database) -> None:
     """get_story returns a StoryRecord for a registered path."""
-    db.upsert_story("src/main-story/a.md", story_type="main-story", title="Alpha")
+    db.upsert_story("src/main-story/a.md", title="Alpha")
     rec = db.get_story("src/main-story/a.md")
     assert rec is not None
     assert rec.title == "Alpha"
@@ -248,7 +242,6 @@ def test_upsert_story_links_characters(db: Database) -> None:
     """CharacterEntry creates an npc row and a story_characters junction."""
     db.upsert_story(
         "src/main-story/npc.md",
-        story_type="main-story",
         title="Character Story",
         characters=[CharacterEntry("Guard Captain", kinds=KindEntry("Human"), status="Alive")],
     )
@@ -269,11 +262,10 @@ def test_upsert_story_characters_replace_semantics(db: Database) -> None:
     """Passing characters=[] removes all existing character links."""
     db.upsert_story(
         "src/main-story/x.md",
-        story_type="main-story",
         title="X",
         characters=[CharacterEntry("Soldier")],
     )
-    db.upsert_story("src/main-story/x.md", story_type="main-story", title="X", characters=[])
+    db.upsert_story("src/main-story/x.md", title="X", characters=[])
     assert db.conn.execute("SELECT COUNT(*) FROM story_characters").fetchone()[0] == 0
 
 
@@ -281,11 +273,10 @@ def test_upsert_story_characters_none_leaves_existing(db: Database) -> None:
     """Passing characters=None leaves existing character links unchanged."""
     db.upsert_story(
         "src/main-story/x.md",
-        story_type="main-story",
         title="X",
         characters=[CharacterEntry("Soldier")],
     )
-    db.upsert_story("src/main-story/x.md", story_type="main-story", title="X", characters=None)
+    db.upsert_story("src/main-story/x.md", title="X", characters=None)
     assert db.conn.execute("SELECT COUNT(*) FROM story_characters").fetchone()[0] == 1
 
 
@@ -299,7 +290,6 @@ def test_upsert_story_links_heroes(db: Database) -> None:
     _seed_hero(db, "boltyn", "Boltyn")
     db.upsert_story(
         "src/main-story/hero.md",
-        story_type="main-story",
         title="Hero",
         characters=["boltyn"],
     )
@@ -311,7 +301,6 @@ def test_upsert_story_unknown_hero_raises(db: Database) -> None:
     with pytest.raises(ValueError, match="Unknown hero canonical slug"):
         db.upsert_story(
             "src/main-story/hero.md",
-            story_type="main-story",
             title="H",
             characters=["nonexistent-slug"],
         )
@@ -328,7 +317,6 @@ def test_upsert_story_links_weapon(db: Database) -> None:
     _seed_weapon(db, "test-blade", "Test Blade")
     db.upsert_story(
         "src/main-story/w.md",
-        story_type="main-story",
         title="W",
         weapons=["test-blade"],
     )
@@ -340,7 +328,6 @@ def test_upsert_story_unknown_weapon_raises(db: Database) -> None:
     with pytest.raises(ValueError, match="Unknown weapon canonical slug"):
         db.upsert_story(
             "src/main-story/w.md",
-            story_type="main-story",
             title="W",
             weapons=["missing-blade"],
         )
@@ -356,7 +343,6 @@ def test_upsert_story_links_equipment(db: Database) -> None:
     _seed_equipment(db, "iron-boots", "Iron Boots")
     db.upsert_story(
         "src/main-story/e.md",
-        story_type="main-story",
         title="E",
         equipment=["iron-boots"],
     )
@@ -368,7 +354,6 @@ def test_upsert_story_unknown_equipment_raises(db: Database) -> None:
     with pytest.raises(ValueError, match="Unknown equipment canonical slug"):
         db.upsert_story(
             "src/main-story/e.md",
-            story_type="main-story",
             title="E",
             equipment=["missing-gear"],
         )
@@ -383,7 +368,6 @@ def test_upsert_story_location_without_region(db: Database) -> None:
     """LocationEntry without region stores an empty region_id on the locations row."""
     db.upsert_story(
         "src/main-story/loc.md",
-        story_type="main-story",
         title="L",
         locations=[LocationEntry("Lost Isle", notes="somewhere")],
     )
@@ -397,7 +381,6 @@ def test_upsert_story_location_with_region(db: Database) -> None:
     """LocationEntry with region= upserts the region and links the location."""
     db.upsert_story(
         "src/main-story/loc.md",
-        story_type="main-story",
         title="L",
         locations=[
             LocationEntry(
@@ -428,7 +411,6 @@ def test_upsert_story_location_lore_fragment_valid(
 
     db.upsert_story(
         tmp_path / "src" / "flavour" / "a.md",
-        story_type="flavour",
         title="A",
         locations=[
             LocationEntry(
@@ -457,7 +439,6 @@ def test_upsert_story_location_lore_fragment_invalid(
     with pytest.raises(ValueError, match="not found in"):
         db.upsert_story(
             tmp_path / "src" / "flavour" / "b.md",
-            story_type="flavour",
             title="B",
             locations=[
                 LocationEntry(
@@ -479,7 +460,6 @@ def test_upsert_story_regions(db: Database) -> None:
     """RegionEntry creates a regions row and story_regions junction."""
     db.upsert_story(
         "src/main-story/r.md",
-        story_type="main-story",
         title="R",
         regions=[RegionEntry("Testaria", world_of_rathe_story_key="world-of-rathe/testaria.md")],
     )
@@ -496,7 +476,6 @@ def test_upsert_story_monsters(db: Database) -> None:
     """MonsterEntry creates a monster row and story_monsters junction."""
     db.upsert_story(
         "src/main-story/m.md",
-        story_type="main-story",
         title="M",
         monsters=[MonsterEntry("Cave Troll", description="Big.")],
     )
@@ -508,7 +487,6 @@ def test_upsert_story_fauna(db: Database) -> None:
     """FaunaEntry creates a fauna row and story_fauna junction."""
     db.upsert_story(
         "src/main-story/f.md",
-        story_type="main-story",
         title="F",
         fauna=[FaunaEntry("River Eel")],
     )
@@ -520,7 +498,6 @@ def test_upsert_story_flora(db: Database) -> None:
     """FloraEntry creates a flora row and story_flora junction."""
     db.upsert_story(
         "src/main-story/fl.md",
-        story_type="main-story",
         title="Fl",
         flora=[FloraEntry("Moon Lily")],
     )
@@ -531,7 +508,6 @@ def test_upsert_story_food_drink(db: Database) -> None:
     """FoodDrinkEntry creates a food_and_drink row and story_food_drink junction."""
     db.upsert_story(
         "src/main-story/fd.md",
-        story_type="main-story",
         title="Fd",
         food_drink=[FoodDrinkEntry("Ember Ale", form="Drink")],
     )
@@ -547,7 +523,6 @@ def test_remove_story_dry_run(db: Database) -> None:
     """Dry run reports junction counts and 'DRY RUN' without deleting anything."""
     db.upsert_story(
         "src/archive/sample.md",
-        story_type="archive",
         title="Sample",
         characters=[CharacterEntry("Guard")],
     )
@@ -566,7 +541,6 @@ def test_remove_story_actual(db: Database) -> None:
     """Non-dry-run removes the story row and all junction rows."""
     db.upsert_story(
         "src/main-story/x.md",
-        story_type="main-story",
         title="X",
         characters=[CharacterEntry("Soldier")],
     )
@@ -591,7 +565,6 @@ def test_remove_story_dry_run_counts_every_table_that_cascades(db: Database) -> 
     """
     db.upsert_story(
         "src/main-story/t.md",
-        story_type="main-story",
         title="T",
         titles=[TitleEntry("Grand Magister")],
         narrated_videos=[NarratedVideoEntry("Narrator", "https://video.example.com/1")],
@@ -605,7 +578,6 @@ def test_remove_story_dry_run_counts_every_table_that_cascades(db: Database) -> 
 def test_display_story_lists_groups_and_titles(db: Database) -> None:
     db.upsert_story(
         "src/main-story/g.md",
-        story_type="main-story",
         title="G",
         groups=[GroupEntry("VanGeld", category="clan")],
         titles=[TitleEntry("Grand Magister")],
@@ -621,7 +593,6 @@ def test_remove_story_second_pass_is_no_op(db: Database) -> None:
     """Removing an already-absent story is handled gracefully."""
     db.upsert_story(
         "src/flavour/twice.md",
-        story_type="flavour",
         title="Twice",
         characters=[CharacterEntry("Guard")],
     )
@@ -641,7 +612,6 @@ def test_upsert_story_dry_run_does_not_write(db: Database, capsys) -> None:
     """dry_run=True returns a StoryRecord without persisting any data."""
     rec = db.upsert_story(
         "src/main-story/draft.md",
-        story_type="main-story",
         title="Draft",
         dry_run=True,
     )
@@ -652,6 +622,6 @@ def test_upsert_story_dry_run_does_not_write(db: Database, capsys) -> None:
 
 def test_upsert_story_dry_run_prints_summary(db: Database, capsys) -> None:
     """dry_run prints 'DRY RUN' to stdout."""
-    db.upsert_story("src/main-story/d.md", story_type="main-story", title="D", dry_run=True)
+    db.upsert_story("src/main-story/d.md", title="D", dry_run=True)
     captured = capsys.readouterr()
     assert "DRY RUN" in captured.out

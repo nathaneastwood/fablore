@@ -145,7 +145,6 @@ def test_dry_run_reports_a_profession_on_a_group_member(db: Database, capsys) ->
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
-        story_type="main-story",
         title="T",
         groups=[GroupEntry("Rosetta", members=(CharacterEntry("Ozrim", professions=ProfessionEntry("Braumeister")),))],
         dry_run=True,
@@ -163,7 +162,6 @@ def test_dry_run_reports_a_profession_it_would_add(db: Database, capsys) -> None
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
-        story_type="main-story",
         title="T",
         characters=[CharacterEntry("Aeric", professions=ProfessionEntry("Braumeister"))],
         dry_run=True,
@@ -176,7 +174,6 @@ def test_dry_run_reports_a_profession_it_would_remove(db: Database, capsys) -> N
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
-        story_type="main-story",
         title="T",
         characters=[CharacterEntry("Aeric")],
         dry_run=True,
@@ -187,7 +184,6 @@ def test_dry_run_reports_a_profession_it_would_remove(db: Database, capsys) -> N
 def test_dry_run_does_not_write_professions(db: Database) -> None:
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
-        story_type="main-story",
         title="T",
         characters=[CharacterEntry("Aeric", professions=ProfessionEntry("Braumeister"))],
         dry_run=True,
@@ -268,7 +264,6 @@ def test_a_dry_run_writes_neither_the_hero_link_nor_the_profession(db: Database,
     hid = _seed_hero(db, "kano", "Kano")
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
-        story_type="main-story",
         title="T",
         characters=[CharacterEntry("Kano", hero_slug="kano", professions=ProfessionEntry("Lord Wizard"))],
         dry_run=True,
@@ -282,7 +277,6 @@ def test_a_dry_run_reports_the_hero_profession_it_would_add(db: Database, capsys
     _seed_hero(db, "kano", "Kano")
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
-        story_type="main-story",
         title="T",
         characters=[CharacterEntry("Kano", hero_slug="kano", professions=ProfessionEntry("Lord Wizard"))],
         dry_run=True,

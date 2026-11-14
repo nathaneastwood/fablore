@@ -59,7 +59,6 @@ def test_preview_reports_hero_fragment_being_cleared(db: Database, capsys) -> No
     _seed_hero(db, "dash", "Dash")
     db.upsert_story(
         "src/digital-tiles/bright-lights/bright-lights.md",
-        story_type="digital-tiles",
         title="Bright Lights",
         characters=["dash"],
         fragments={"dash": "dash-io"},
@@ -69,7 +68,6 @@ def test_preview_reports_hero_fragment_being_cleared(db: Database, capsys) -> No
         db,
         capsys,
         path="src/digital-tiles/bright-lights/bright-lights.md",
-        story_type="digital-tiles",
         title="Bright Lights",
         characters=["dash"],
     )
@@ -93,7 +91,6 @@ def test_preview_warns_when_adding_a_region_forks_a_new_location_row(db: Databas
     """
     db.upsert_story(
         "src/main-story/welcome-to-rathe/a-rising-star.md",
-        story_type="main-story",
         title="A Rising Star",
         locations=[LocationEntry("Milesian Ranges")],
     )
@@ -102,7 +99,6 @@ def test_preview_warns_when_adding_a_region_forks_a_new_location_row(db: Databas
         db,
         capsys,
         path="src/main-story/welcome-to-rathe/a-rising-star.md",
-        story_type="main-story",
         title="A Rising Star",
         locations=[LocationEntry("Milesian Ranges", region="Aria")],
     )
@@ -122,7 +118,6 @@ def test_preview_reports_location_lore_fragment_change(db: Database, capsys) -> 
     """Changing an existing row's lore_fragment is a write the preview must show."""
     db.upsert_story(
         "src/main-story/x.md",
-        story_type="main-story",
         title="X",
         locations=[LocationEntry("Enion", region="Aria", lore_fragment="enion")],
     )
@@ -131,7 +126,6 @@ def test_preview_reports_location_lore_fragment_change(db: Database, capsys) -> 
         db,
         capsys,
         path="src/main-story/x.md",
-        story_type="main-story",
         title="X",
         locations=[LocationEntry("Enion", region="Aria", lore_fragment="valahai")],
     )
@@ -149,7 +143,6 @@ def test_preview_stays_silent_when_omitted_field_is_preserved(db: Database, caps
     """
     db.upsert_story(
         "src/main-story/y.md",
-        story_type="main-story",
         title="Y",
         locations=[LocationEntry("Enion", region="Aria", lore_fragment="enion", notes="A city.")],
     )
@@ -158,7 +151,6 @@ def test_preview_stays_silent_when_omitted_field_is_preserved(db: Database, caps
         db,
         capsys,
         path="src/main-story/y.md",
-        story_type="main-story",
         title="Y",
         locations=[LocationEntry("Enion", region="Aria")],
     )
@@ -171,7 +163,6 @@ def test_preview_reports_character_status_change(db: Database, capsys) -> None:
     """Overwriting a curated character status is a write the preview must show."""
     db.upsert_story(
         "src/main-story/z.md",
-        story_type="main-story",
         title="Z",
         characters=[CharacterEntry("Lord Sutcliffe", kinds=KindEntry("Human"), status="Just a head")],
     )
@@ -180,7 +171,6 @@ def test_preview_reports_character_status_change(db: Database, capsys) -> None:
         db,
         capsys,
         path="src/main-story/z.md",
-        story_type="main-story",
         title="Z",
         characters=[CharacterEntry("Lord Sutcliffe", kinds=KindEntry("Human"), status="Deceased")],
     )
@@ -193,7 +183,6 @@ def test_preview_reports_fauna_description_change(db: Database, capsys) -> None:
     """Monster/fauna/flora descriptions are entity writes too."""
     db.upsert_story(
         "src/main-story/f.md",
-        story_type="main-story",
         title="F",
         fauna=[FaunaEntry("Meep", description="A tiny thief.")],
     )
@@ -202,7 +191,6 @@ def test_preview_reports_fauna_description_change(db: Database, capsys) -> None:
         db,
         capsys,
         path="src/main-story/f.md",
-        story_type="main-story",
         title="F",
         fauna=[FaunaEntry("Meep", description="A chittering pickpocket.")],
     )
@@ -215,7 +203,6 @@ def test_preview_warns_when_changing_form_forks_a_food_drink_row(db: Database, c
     """food_drink_id hashes name|form, so changing form forks a row like locations do."""
     db.upsert_story(
         "src/main-story/d.md",
-        story_type="main-story",
         title="D",
         food_drink=[FoodDrinkEntry("Alder Cider", form="Food")],
     )
@@ -224,7 +211,6 @@ def test_preview_warns_when_changing_form_forks_a_food_drink_row(db: Database, c
         db,
         capsys,
         path="src/main-story/d.md",
-        story_type="main-story",
         title="D",
         food_drink=[FoodDrinkEntry("Alder Cider", form="Drink")],
     )
@@ -237,7 +223,6 @@ def test_preview_reports_region_world_key_change(db: Database, capsys) -> None:
     """A region's world_of_rathe_story_key is overwritten in place, so show it."""
     db.upsert_story(
         "src/main-story/r.md",
-        story_type="main-story",
         title="R",
         regions=[RegionEntry("Aria", world_of_rathe_story_key="world-of-rathe/aria.md")],
     )
@@ -246,7 +231,6 @@ def test_preview_reports_region_world_key_change(db: Database, capsys) -> None:
         db,
         capsys,
         path="src/main-story/r.md",
-        story_type="main-story",
         title="R",
         regions=[RegionEntry("Aria", world_of_rathe_story_key="world-of-rathe/wrong.md")],
     )
@@ -268,7 +252,6 @@ def test_preview_reports_narrated_videos_being_replaced(db: Database, capsys) ->
     """
     db.upsert_story(
         "src/main-story/v.md",
-        story_type="main-story",
         title="V",
         narrated_videos=[NarratedVideoEntry(author="St_Havock", source_link="https://youtu.be/aaa")],
     )
@@ -277,7 +260,6 @@ def test_preview_reports_narrated_videos_being_replaced(db: Database, capsys) ->
         db,
         capsys,
         path="src/main-story/v.md",
-        story_type="main-story",
         title="V",
         narrated_videos=[NarratedVideoEntry(author="Someone Else", source_link="https://youtu.be/bbb")],
     )
@@ -295,7 +277,6 @@ def test_preview_reports_group_lore_story_key_change(db: Database, capsys) -> No
     """
     db.upsert_story(
         "src/main-story/x.md",
-        story_type="main-story",
         title="X",
         groups=[GroupEntry("The Maela", category="troupe")],
     )
@@ -304,7 +285,6 @@ def test_preview_reports_group_lore_story_key_change(db: Database, capsys) -> No
         db,
         capsys,
         path="src/main-story/x.md",
-        story_type="main-story",
         title="X",
         groups=[
             GroupEntry(
@@ -329,7 +309,6 @@ def test_preview_reports_a_membership_changing_its_source(db: Database, capsys) 
     """
     db.upsert_story(
         "src/main-story/x.md",
-        story_type="main-story",
         title="X",
         groups=[
             GroupEntry(
@@ -344,7 +323,6 @@ def test_preview_reports_a_membership_changing_its_source(db: Database, capsys) 
         db,
         capsys,
         path="src/main-story/x.md",
-        story_type="main-story",
         title="X",
         groups=[GroupEntry("The Maela", members=((CharacterEntry("Kaysin"), "flavour/rosetta.md"),))],
     )
@@ -359,9 +337,9 @@ def test_preview_stays_silent_when_a_membership_keeps_its_source(db: Database, c
         "The Maela",
         members=((CharacterEntry("Kaysin"), "flavour/rosetta.md"),),
     )
-    db.upsert_story("src/main-story/x.md", story_type="main-story", title="X", groups=[entry])
+    db.upsert_story("src/main-story/x.md", title="X", groups=[entry])
 
-    report = _preview(db, capsys, path="src/main-story/x.md", story_type="main-story", title="X", groups=[entry])
+    report = _preview(db, capsys, path="src/main-story/x.md", title="X", groups=[entry])
 
     assert "source" not in report, "an unchanged citation was reported as a change"
 
@@ -386,7 +364,6 @@ def test_preview_reports_a_group_reached_only_as_a_parent(db: Database, capsys) 
         db,
         capsys,
         path="src/main-story/x.md",
-        story_type="main-story",
         title="X",
         groups=[GroupEntry("Mythmakers", category="guild", parent=stable)],
     )
@@ -403,7 +380,6 @@ def test_preview_reports_character_status_change_for_a_roster_member(db: Databas
     """
     db.upsert_story(
         "src/main-story/x.md",
-        story_type="main-story",
         title="X",
         groups=[
             GroupEntry(
@@ -418,7 +394,6 @@ def test_preview_reports_character_status_change_for_a_roster_member(db: Databas
         db,
         capsys,
         path="src/main-story/x.md",
-        story_type="main-story",
         title="X",
         groups=[
             GroupEntry(
@@ -445,7 +420,6 @@ def test_preview_warns_when_a_group_location_forks_a_new_row(db: Database, capsy
     """
     db.upsert_story(
         "src/main-story/x.md",
-        story_type="main-story",
         title="X",
         groups=[GroupEntry("Teklo Industries", location=LocationEntry("Teklo Industries"))],
     )
@@ -454,7 +428,6 @@ def test_preview_warns_when_a_group_location_forks_a_new_row(db: Database, capsy
         db,
         capsys,
         path="src/main-story/x.md",
-        story_type="main-story",
         title="X",
         groups=[GroupEntry("Teklo Industries", location=LocationEntry("Teklo Industries", region="Aria"))],
     )
@@ -472,7 +445,6 @@ def test_preview_reports_region_world_key_change_named_only_by_a_location(db: Da
     """
     db.upsert_story(
         "src/main-story/x.md",
-        story_type="main-story",
         title="X",
         locations=[LocationEntry("Enion", region="Aria", world_of_rathe_story_key="world-of-rathe/aria.md")],
     )
@@ -481,7 +453,6 @@ def test_preview_reports_region_world_key_change_named_only_by_a_location(db: Da
         db,
         capsys,
         path="src/main-story/x.md",
-        story_type="main-story",
         title="X",
         locations=[LocationEntry("Enion", region="Aria", world_of_rathe_story_key="world-of-rathe/wrong.md")],
     )
@@ -504,7 +475,6 @@ def test_preview_reports_a_character_created_only_through_a_group_roster(db: Dat
         db,
         capsys,
         path="src/main-story/x.md",
-        story_type="main-story",
         title="X",
         groups=[
             GroupEntry(
@@ -529,7 +499,6 @@ def test_preview_reports_a_character_added_to_an_existing_page_s_roster(db: Data
     """
     db.upsert_story(
         "src/main-story/x.md",
-        story_type="main-story",
         title="X",
         groups=[
             GroupEntry(
@@ -544,7 +513,6 @@ def test_preview_reports_a_character_added_to_an_existing_page_s_roster(db: Data
         db,
         capsys,
         path="src/main-story/x.md",
-        story_type="main-story",
         title="X",
         groups=[
             GroupEntry(
@@ -570,7 +538,6 @@ def test_preview_reports_a_group_changing_parent(db: Database, capsys) -> None:
     """
     db.upsert_story(
         "src/main-story/x.md",
-        story_type="main-story",
         title="X",
         groups=[GroupEntry("Heavy Metals", category="guild")],
     )
@@ -579,7 +546,6 @@ def test_preview_reports_a_group_changing_parent(db: Database, capsys) -> None:
         db,
         capsys,
         path="src/main-story/x.md",
-        story_type="main-story",
         title="X",
         groups=[
             GroupEntry("Heavy Metals", category="guild", parent=GroupEntry("Batbiter's Guilds", category="stable"))
@@ -606,13 +572,11 @@ def test_preview_is_silent_when_a_hero_slug_link_is_already_stored(db: Database,
     # One person: the card says "Teklovossen", the lore says "Jules Teklovossen".
     db.upsert_story(
         path="src/main-story/bright-lights/setup.md",
-        story_type="main-story",
         title="Setup",
         characters=[CharacterEntry("Jules Teklovossen", hero_slug="teklovossen")],
     )
     db.upsert_story(
         path="src/main-story/bright-lights/other.md",
-        story_type="main-story",
         title="Other",
         characters=["teklovossen"],
     )
@@ -621,7 +585,6 @@ def test_preview_is_silent_when_a_hero_slug_link_is_already_stored(db: Database,
         db,
         capsys,
         path="src/main-story/bright-lights/other.md",
-        story_type="main-story",
         title="Other",
         characters=["teklovossen"],
     )
@@ -661,10 +624,10 @@ def test_previewing_a_weapon_change_on_an_existing_story_renders_the_diff(db, ca
     _seed_canonical(db, "weapon", "dawnblade", "Dawnblade")
     _seed_canonical(db, "weapon", "nebula-blade", "Nebula Blade")
     path = "src/main-story/foo/bar.md"
-    db.upsert_story(path=path, story_type="main-story", title="Bar", weapons=["dawnblade"])
+    db.upsert_story(path=path, title="Bar", weapons=["dawnblade"])
     capsys.readouterr()
 
-    db.upsert_story(path=path, story_type="main-story", title="Bar", weapons=["nebula-blade"], dry_run=True)
+    db.upsert_story(path=path, title="Bar", weapons=["nebula-blade"], dry_run=True)
     out = capsys.readouterr().out
 
     assert "Weapons:" in out
@@ -677,10 +640,10 @@ def test_previewing_an_equipment_change_on_an_existing_story_renders_the_diff(db
     _seed_canonical(db, "equipment", "helm-of-isen", "Helm of Isen's Peak")
     _seed_canonical(db, "equipment", "nullrune-hood", "Nullrune Hood")
     path = "src/main-story/foo/baz.md"
-    db.upsert_story(path=path, story_type="main-story", title="Baz", equipment=["helm-of-isen"])
+    db.upsert_story(path=path, title="Baz", equipment=["helm-of-isen"])
     capsys.readouterr()
 
-    db.upsert_story(path=path, story_type="main-story", title="Baz", equipment=["nullrune-hood"], dry_run=True)
+    db.upsert_story(path=path, title="Baz", equipment=["nullrune-hood"], dry_run=True)
     out = capsys.readouterr().out
 
     assert "Equipment:" in out

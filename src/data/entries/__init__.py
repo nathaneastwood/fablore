@@ -25,7 +25,7 @@ preview-then-commit workflow). Nothing here imports the section modules, so
 importing this package is free of side effects — only the runner executes them.
 
 Adding a story type means adding a module and setting ``entries_module`` on its
-row of ``mdbook_common.SECTIONS``: the mapping is one module per ``story_type``,
+row of ``mdbook_common.SECTIONS``: the mapping is one module per story type,
 and ``tests/test_data_entry.py`` enforces that every declaration lives in the
 module its path implies.
 """

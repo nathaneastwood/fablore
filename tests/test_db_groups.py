@@ -28,7 +28,7 @@ def _location_id_for(database: Database, name: str) -> str:
 
 
 def _story(database: Database, path: str = "src/main-story/super-slam/feudmasters.md", **kw):
-    return database.upsert_story(path=path, story_type="main-story", title="T", **kw)
+    return database.upsert_story(path=path, title="T", **kw)
 
 
 # ---------------------------------------------------------------------------
@@ -248,7 +248,6 @@ def test_one_roster_emptied_while_the_other_stands(db: Database, capsys) -> None
     kept = GroupEntry("Gemini", members=("minerva",))
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
-        story_type="main-story",
         title="T",
         groups=[kept],
         dry_run=True,
@@ -273,7 +272,6 @@ def test_dry_run_removal_line_matches_what_the_apply_does(db: Database, capsys) 
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
-        story_type="main-story",
         title="T",
         groups=[GroupEntry("Gemini")],
         dry_run=True,
@@ -413,7 +411,6 @@ def _rows(path: Path) -> list[dict[str, str]]:
 def test_dry_run_reports_new_groups_and_writes_nothing(db: Database, capsys) -> None:
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
-        story_type="main-story",
         title="T",
         groups=[GroupEntry("Prowlers", category="guild")],
         dry_run=True,
@@ -430,7 +427,6 @@ def test_dry_run_flags_a_roster_that_would_shrink(db: Database, capsys) -> None:
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
-        story_type="main-story",
         title="T",
         groups=[GroupEntry("Gemini", members=(CharacterEntry("Minerva"),))],
         dry_run=True,
@@ -652,7 +648,6 @@ def test_dry_run_reports_an_alias_it_would_remove(db: Database, capsys) -> None:
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
-        story_type="main-story",
         title="T",
         groups=[GroupEntry("Mendacity Media")],
         dry_run=True,
@@ -691,7 +686,6 @@ def test_dry_run_reports_an_epithet_on_a_group_member(db: Database, capsys) -> N
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
-        story_type="main-story",
         title="T",
         groups=[GroupEntry("Rosetta", members=(CharacterEntry("Ozrim", epithets=("Keeper of the Script",)),))],
         dry_run=True,
@@ -704,7 +698,6 @@ def test_dry_run_reports_an_alias_on_a_groups_location(db: Database, capsys) -> 
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
-        story_type="main-story",
         title="T",
         groups=[GroupEntry("The Maela", location=LocationEntry("The Everfest Carnival", aliases=("The Carnival",)))],
         dry_run=True,
@@ -717,7 +710,6 @@ def test_dry_run_reports_an_alias_on_a_parent_location(db: Database, capsys) -> 
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
-        story_type="main-story",
         title="T",
         locations=[LocationEntry("Shyldverk", parent=LocationEntry("Mt. Isen"))],
         dry_run=True,
@@ -730,7 +722,6 @@ def test_dry_run_reports_an_alias_on_a_parent_group(db: Database, capsys) -> Non
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
-        story_type="main-story",
         title="T",
         groups=[GroupEntry("Sayashi", parent=GroupEntry("Mendacity Media"))],
         dry_run=True,
@@ -744,7 +735,6 @@ def test_preview_reports_a_nested_entity_only_once(db: Database, capsys) -> None
     capsys.readouterr()
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
-        story_type="main-story",
         title="T",
         locations=[carnival],
         groups=[GroupEntry("The Maela", location=carnival)],
@@ -760,7 +750,6 @@ def test_preview_survives_a_parent_cycle_rather_than_looping(db: Database, capsy
     object.__setattr__(outer, "parent", looped)
     db.upsert_story(
         path="src/main-story/super-slam/feudmasters.md",
-        story_type="main-story",
         title="T",
         groups=[looped],
         dry_run=True,
@@ -823,7 +812,6 @@ def test_the_slug_and_entry_clash_is_reported_by_the_preview_too(db: Database) -
     with pytest.raises(ValueError, match="resolve to the same person"):
         db.upsert_story(
             path="src/main-story/super-slam/feudmasters.md",
-            story_type="main-story",
             title="T",
             groups=[GroupEntry("Prowlers", members=("kayo", CharacterEntry("Kayo")))],
             dry_run=True,

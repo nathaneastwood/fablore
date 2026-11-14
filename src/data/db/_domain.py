@@ -1509,7 +1509,6 @@ class Database:
         db.print_heroes()  # show available slugs
         r = db.upsert_story(
             "src/main-story/foo.md",
-            story_type="main-story",
             title="Foo",
             characters=["boltyn", CharacterEntry("Guard Captain", kinds=KindEntry("Human"))],
         )
@@ -1681,8 +1680,7 @@ class Database:
     def upsert_story(
         self,
         path: str | Path,
-        story_type: str | None = None,
-        title: str = "",
+        title: str,
         authors: str = "",
         artists: str = "",
         source_link: str = "",
@@ -1713,11 +1711,9 @@ class Database:
         - ``[...]`` — replace all links of this type with exactly this list.
 
         Args:
-            path: Path to the ``*.md`` file under ``src/``.
-            story_type: Deprecated; derived from ``path`` (its first ``src/``
-                segment, which must name a section with an ``entries_module``
-                in ``mdbook_common.SECTIONS``). When passed it must agree with
-                the path, or ``ValueError`` is raised.
+            path: Path to the ``*.md`` file under ``src/``. Its first segment
+                is the story type (stored as ``story_type``), and must name a
+                section with an ``entries_module`` in ``mdbook_common.SECTIONS``.
             title: Human-readable title for the story.
             authors: Author credits (free text, comma-separated suggested).
             artists: Illustration credits (free text).
@@ -1785,14 +1781,12 @@ class Database:
 
         Raises:
             ValueError: If an unknown hero / weapon / equipment slug is given,
-                or if a ``lore_fragment`` cannot be resolved to a heading on disk.
+                if a ``lore_fragment`` cannot be resolved to a heading on disk,
+                or if ``path`` is not under a story section.
         """
         story_key = _story_key_from_path(path)
         story_id = _story_id(story_key)
-        derived_type = _story_type_from_key(story_key)
-        if story_type is not None and story_type != derived_type:
-            raise ValueError(f"story_type={story_type!r} disagrees with {story_key!r}, which is {derived_type!r}")
-        story_type = derived_type
+        story_type = _story_type_from_key(story_key)
 
         # Resolve characters eagerly so we fail fast before writing anything —
         # an unknown hero slug or a person named twice (once as a slug, once
