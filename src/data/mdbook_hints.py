@@ -11,7 +11,9 @@ Suppression rules:
   Option C: per-hint "exclude_pages" list in hints.json
   Option D: if an entity is mentioned on exactly one page in the whole book, skip
             it everywhere — that page introduces and explains it, so a tooltip
-            would only restate the surrounding prose
+            would only restate the surrounding prose. ``<script>`` blocks are not
+            prose and are ignored by the count: graph.md's JSON payload names
+            every graph node, which would make every entity look shared
 
 Generated reference tables under data/ are excluded from both detection and the
 Option D count, since they name every entity and would distort both.
@@ -142,6 +144,17 @@ def _matcher(match_string: str) -> tuple[tuple[str, ...], re.Pattern]:
     return runs, re.compile(r"\b" + body + r"\b", re.IGNORECASE)
 
 
+def _without_scripts(content: str) -> str:
+    """Return ``content`` with each ``<script>`` block replaced by a NUL.
+
+    Script blocks are data, not prose, and are protected from injection, so a
+    name inside one neither counts a page nor can be wrapped. NUL is a non-word
+    character no match string contains, so it keeps the word boundaries either
+    side of the block and no match can span it.
+    """
+    return _SCRIPT_BLOCK.sub("\0", content)
+
+
 def _fold(text: str) -> str:
     """Lowercase ``text`` and fold apostrophes so a match string's ASCII runs are found by ``in``."""
     return text.translate(_REGEX_ASCII_FOLD).translate(_APOSTROPHE_FOLD).lower()
@@ -177,8 +190,9 @@ def page_presence(content: str, hints: dict, eligible: _Eligible | None = None) 
     a page the regex then rejects, but never rejects one the regex would match.
     A string absent from the page can neither count a mention, suppress the hint
     (headings are part of the page) nor be wrapped, so only the present ones matter.
+    ``<script>`` blocks are left out (see :func:`_without_scripts`).
     """
-    folded = _fold(content)
+    folded = _fold(_without_scripts(content))
     present: PagePresence = []
     for key, matchers in eligible if eligible is not None else _eligible(hints):
         patterns = [pattern for runs, pattern in matchers if all(run in folded for run in runs)]
@@ -327,6 +341,9 @@ def compute_single_page_keys(
     page that mentions it" is not reliably the page that introduces it — Sol
     would be pinned to the Demonastery page purely because D precedes S.
 
+    ``<script>`` blocks are ignored: graph.md carries a JSON payload naming every
+    graph node, and counting it would give every entity a second page.
+
     Args:
         chapters: ``(slug, content)`` pairs for every rendered page.
         hints: Loaded ``hints.json``.
@@ -341,8 +358,11 @@ def compute_single_page_keys(
         presences = [page_presence(content, hints, eligible) for _slug, content in chapters]
     pages: dict[str, int] = {}
     for (_slug, content), present in zip(chapters, presences):
+        if not present:
+            continue
+        prose = _without_scripts(content)
         for key, patterns in present:
-            if pages.get(key, 0) < 2 and any(p.search(content) for p in patterns):
+            if pages.get(key, 0) < 2 and any(p.search(prose) for p in patterns):
                 pages[key] = pages.get(key, 0) + 1
     return frozenset(key for key, n in pages.items() if n == 1)
 

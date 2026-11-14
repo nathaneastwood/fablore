@@ -73,6 +73,35 @@ def test_multi_page_entity_is_not_suppressed():
     assert compute_single_page_keys(chapters, hints) == frozenset()
 
 
+_KIEN = {"Kien": {"type": "character", "summary": "A Disciple of Pain."}}
+_GRAPH_PAGE = '# Graph\n\n<script type="application/json" id="lore-graph">{"nodes": [{"name": "Kien"}]}</script>\n'
+
+
+def test_a_mention_inside_a_script_block_does_not_count_as_a_page():
+    """graph.md's JSON payload names every node; it is data, not prose."""
+    chapters = [("a", "Kien volunteered as a sacrifice."), ("graph", _GRAPH_PAGE)]
+    assert compute_single_page_keys(chapters, _KIEN) == {"Kien"}
+
+
+def test_a_name_only_inside_a_script_block_counts_no_page():
+    chapters = [("graph", _GRAPH_PAGE), ("b", "Nothing relevant here.")]
+    assert compute_single_page_keys(chapters, _KIEN) == frozenset()
+
+
+def test_annotate_book_leaves_a_name_in_prose_once_and_in_a_script_unlinked():
+    from mdbook_hints import annotate_book
+
+    items = _book(("a.md", "Kien volunteered."), ("graph.md", _GRAPH_PAGE))
+    annotate_book(items, _KIEN)
+    assert items[0]["Chapter"]["content"] == "Kien volunteered."
+    assert items[1]["Chapter"]["content"] == _GRAPH_PAGE
+
+
+def test_a_page_with_a_script_block_and_prose_still_counts_its_prose():
+    chapters = [("a", "Kien volunteered."), ("b", "<script>var x = 1;</script>\n\nKien again.")]
+    assert compute_single_page_keys(chapters, _KIEN) == frozenset()
+
+
 def test_single_page_count_is_case_insensitive_and_uses_match_strings():
     chapters = [("a", "the steadfast nods."), ("b", "They turn to The Steadfast.")]
     hints = {"GMS": {"match": ["The Steadfast"], "type": "character", "summary": "Grand Magister."}}
