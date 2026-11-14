@@ -102,11 +102,18 @@ def relative_href(from_src: str, to_src: str) -> str:
 
 
 def md_to_html_url(md_path: str) -> str:
-    """A markdown path or ``StoryKey`` (``a/b.md``) as the rendered page URL (``a/b.html``)."""
+    """A markdown path or ``StoryKey`` (``a/b.md``) as the rendered page URL (``a/b.html``).
+
+    mdBook renders every ``README.md`` as ``index.html``, so ``a/README.md``
+    becomes ``a/index.html``; ``a/README.html`` does not exist.
+    """
     key = md_path.strip()
-    if not key:
-        return ""
-    return key[:-3] + ".html" if key.endswith(".md") else key
+    if not key.endswith(".md"):
+        return key
+    head, sep, name = key.rpartition("/")
+    if name == "README.md":
+        name = "index.md"
+    return f"{head}{sep}{name[:-3]}.html"
 
 
 def read_rows(path: Path) -> list[dict[str, str]]:

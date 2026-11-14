@@ -656,6 +656,17 @@ class TestBuildOutput:
         assert len(data["heroes"]) > 0
         assert len(data["regions"]) > 0
 
+    def test_browse_story_urls_all_exist(self, build_result, build_dir) -> None:
+        """Every Browse card links to a page the build wrote.
+
+        The cards' URLs sit inside JSON, where lychee does not look, so a
+        README.md rendered as README.html (mdBook writes index.html) or a
+        registered story missing from SUMMARY.md 404s with nothing failing.
+        """
+        stories = json.loads((build_dir / "stories.json").read_text(encoding="utf-8"))
+        missing = sorted({s["u"] for s in stories if not (build_dir / s["u"]).is_file()})
+        assert missing == [], f"{len(missing)} Browse link(s) point at no built page: {missing}"
+
     def test_archive_pages_have_injected_notices(self, build_result, build_dir) -> None:
         """Every built individual archive page must have a notice injected.
 

@@ -47,8 +47,14 @@ _SKIP_TYPES: frozenset[str] = frozenset(
 )
 
 
-def build_index(data_dir: Path) -> dict:
-    """Build the browse index from CSV junction tables."""
+def build_index(data_dir: Path, rendered: set[str] | None = None) -> dict:
+    """Build the browse index from CSV junction tables.
+
+    ``rendered`` is the set of ``src``-relative chapter paths the book builds.
+    When given, a story whose page is not among them (registered in
+    ``stories.csv`` but absent from ``SUMMARY.md``, like the contributor
+    READMEs) gets no card, since its link would 404.
+    """
     stories_by_id: dict[str, dict] = {}
     for r in read_rows(data_dir / "csv" / "stories.csv"):
         sid = (r.get("StoryId") or "").strip()
@@ -57,6 +63,8 @@ def build_index(data_dir: Path) -> dict:
         title = (r.get("Title") or "").strip()
         date = (r.get("PublicationDate") or "").strip()
         if not sid or not key or stype in _SKIP_TYPES or not title:
+            continue
+        if rendered is not None and key not in rendered:
             continue
         url = md_to_html_url(key)
         stories_by_id[sid] = {
@@ -191,7 +199,8 @@ def walk_and_process(sections: list, index: dict) -> None:
 
 
 def _process(items: list, src_root: Path) -> None:
-    index = build_index(src_root / "data")
+    rendered = {(ch.get("path") or "").strip() for ch in iter_chapters(items)}
+    index = build_index(src_root / "data", rendered - {""})
 
     stories_json = (
         json.dumps(

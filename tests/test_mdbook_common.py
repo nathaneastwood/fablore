@@ -43,6 +43,15 @@ def test_md_to_html_url() -> None:
     assert md_to_html_url("  ") == ""
 
 
+def test_md_to_html_url_maps_readme_to_index() -> None:
+    """mdBook renders a README.md as index.html; a README.html link is a 404."""
+    assert md_to_html_url("main-story/README.md") == "main-story/index.html"
+    assert md_to_html_url("short-stories/roll-of-honour/README.md") == "short-stories/roll-of-honour/index.html"
+    assert md_to_html_url("README.md") == "index.html"
+    assert md_to_html_url("../flavour/README.md") == "../flavour/index.html"
+    assert md_to_html_url("main-story/NOT-README.md") == "main-story/NOT-README.html"
+
+
 def test_format_date() -> None:
     assert format_date("2019-10-11T00:00:00.000Z") == "11 October 2019"
     assert format_date("not a date") == "not a date"
