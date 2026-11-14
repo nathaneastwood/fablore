@@ -88,7 +88,6 @@ def seed_from_csvs(conn: sqlite3.Connection, data_dir: Path) -> None:
         _self_heal_character_heroes(conn)
         _seed_heroes_game(conn, data_dir)
         _seed_heroes_printings(conn, data_dir)
-        _seed_heroes_ll(conn, data_dir)
         _seed_weapons_canonical(conn, data_dir)
         _seed_weapons_game(conn, data_dir)
         _seed_weapons_printings(conn, data_dir)
@@ -189,18 +188,6 @@ def _seed_heroes_printings(conn: sqlite3.Connection, data_dir: Path) -> None:
             foiling=_s(row, "Foiling"),
             art_variation=_s(row, "ArtVariation"),
             artist=_s(row, "Artist"),
-        )
-
-
-def _seed_heroes_ll(conn: sqlite3.Connection, data_dir: Path) -> None:
-    _, rows = _csv(data_dir, "heroes-ll.csv")
-    for row in rows:
-        q.upsert_hero_ll(
-            conn,
-            canonical_slug=_s(row, "CanonicalSlug"),
-            card_name=_s(row, "CardName"),
-            format=_s(row, "Format"),
-            date_in_effect=_s(row, "DateInEffect"),
         )
 
 

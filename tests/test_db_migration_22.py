@@ -57,7 +57,7 @@ def test_upgrade_keys_heroes_printings_on_the_printing_id() -> None:
         (1, "hero_game_id"),
         (2, "printing_unique_id"),
     ]
-    assert conn.execute("PRAGMA user_version").fetchone()[0] == CURRENT_VERSION == 22
+    assert conn.execute("PRAGMA user_version").fetchone()[0] >= 22
 
 
 def test_upgrade_holds_three_printings_of_one_card_id() -> None:

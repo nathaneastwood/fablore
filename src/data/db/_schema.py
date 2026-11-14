@@ -53,13 +53,15 @@ Version history:
  22 — heroes_printings keyed on (hero_game_id, printing_unique_id) and
       carrying foiling, art_variation and artist: one row per upstream
       printing, so each alternate art has the id its card image is served by
+ 23 — heroes_ll dropped: seeded from heroes-ll.csv but read by nothing
+      (mdbook_hero_meta reads the CSV, create_heroes_csv.py writes it)
 """
 
 from __future__ import annotations
 
 import sqlite3
 
-CURRENT_VERSION = 22
+CURRENT_VERSION = 23
 
 _V1_DDL = """
 CREATE TABLE IF NOT EXISTS stories (
@@ -1288,4 +1290,14 @@ def migrate(conn: sqlite3.Connection) -> None:
             """
         )
         conn.execute("PRAGMA user_version = 22")
+        conn.commit()
+    if version < 23:
+        # heroes_ll (migration 5) was a write-only copy of heroes-ll.csv: the
+        # seeder filled it, nothing queried it and no exporter wrote it back.
+        # mdbook_hero_meta reads the CSV directly and create_heroes_csv.py
+        # owns that file, so the table goes. Migration 5 still creates it on
+        # a from-scratch build and this block drops it again, which keeps the
+        # forward-only history intact. Nothing references heroes_ll.
+        conn.execute("DROP TABLE IF EXISTS heroes_ll")
+        conn.execute("PRAGMA user_version = 23")
         conn.commit()
