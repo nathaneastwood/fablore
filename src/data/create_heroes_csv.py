@@ -59,7 +59,7 @@ import json
 import re
 import sys
 import urllib.request
-from collections.abc import Mapping
+from collections.abc import Iterable, Mapping
 from pathlib import Path
 
 _SCRIPT_DIR = Path(__file__).resolve().parent
@@ -366,6 +366,34 @@ def resolve_card_canonical_slug(
     return roster_slug_by_name.get(name_key, name_key)
 
 
+def cards_missing_full_title_alias(cards: Iterable[tuple[str, str]], aliases: Mapping[str, str]) -> list[str]:
+    """Return the card names that need a full-title alias and have none.
+
+    When the name before the comma is shared by more than one canonical hero
+    (Arakni), only a full-title row in ``hero-card-name-aliases.csv`` tells the
+    cards apart. A card of such a name with no full-title row would fall back
+    to the pre-comma alias, and so to whichever hero that names, silently.
+
+    Args:
+        cards: ``(printed card name, canonical hero)`` pairs; the hero may be a
+            slug or a ``CanonicalId``, so long as it is the same kind throughout.
+        aliases: As for :func:`resolve_card_canonical_slug`.
+
+    Returns:
+        The offending card names, in input order.
+    """
+    cards = list(cards)
+    heroes_by_name: dict[str, set[str]] = {}
+    for card_name, hero in cards:
+        heroes_by_name.setdefault(normalize_name(split_name_variant(card_name)[0]), set()).add(hero)
+    return [
+        card_name
+        for card_name, _ in cards
+        if len(heroes_by_name[normalize_name(split_name_variant(card_name)[0])]) > 1
+        and normalize_name(card_name) not in aliases
+    ]
+
+
 def hero_printing_rows(hero_game_id: str, upstream_rows: list[dict[str, str]]) -> list[dict[str, str]]:
     """Return one ``heroes-printings.csv`` row per upstream ``card-printing.csv`` row.
 
@@ -525,6 +553,16 @@ def generate_heroes_csv() -> None:
                     ),
                 }
             )
+
+    missing = cards_missing_full_title_alias(
+        ((row["CardName"], row["CanonicalSlug"]) for row in unsorted_rows), card_name_aliases
+    )
+    if missing:
+        raise ValueError(
+            "hero-card-name-aliases.csv: these cards share the name before the comma with "
+            "another canonical hero, so each needs a full-title row naming its CanonicalSlug: "
+            + ", ".join(sorted(set(missing)))
+        )
 
     unsorted_rows.sort(
         key=lambda row: (

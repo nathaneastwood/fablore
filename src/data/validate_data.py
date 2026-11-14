@@ -24,6 +24,7 @@ import ast
 import json
 import re
 import sys
+from collections.abc import Mapping
 from difflib import SequenceMatcher
 from itertools import combinations
 from pathlib import Path
@@ -464,6 +465,44 @@ def _check_heroes_game_cardname_resolution(canonical_path: Path, game_path: Path
                 f"CanonicalId {expected_id!r} but row has {cid!r}"
             )
     return alerts
+
+
+def _check_heroes_game_ambiguous_card_names(game_path: Path, aliases: Mapping[str, str] | None = None) -> list[str]:
+    """Flag a hero card whose pre-comma name several canonical heroes share and that has no full-title alias.
+
+    Arakni is three canonical heroes. ``create_heroes_csv`` tells their cards apart
+    only by full-title rows in ``hero-card-name-aliases.csv``; a new ``Arakni, X``
+    card without one would fall back to the pre-comma alias (Huntsman). The
+    generator refuses such a card; this check catches a hand-edited row.
+
+    Args:
+        game_path: ``heroes-game.csv`` path.
+        aliases: Card-name aliases; defaults to the committed alias CSV.
+
+    Returns:
+        Alert strings, one per offending row.
+    """
+    from create_heroes_csv import cards_missing_full_title_alias
+    from hero_overrides import load_canonical_hero_card_name_aliases
+
+    if aliases is None:
+        aliases = load_canonical_hero_card_name_aliases()
+    fieldnames, rows = read_pipe_csv(game_path)
+    if not fieldnames or "CardName" not in fieldnames or "CanonicalId" not in fieldnames:
+        return []
+    cards = [
+        (row_num, (row.get("CardName") or "").strip(), (row.get("CanonicalId") or "").strip())
+        for row_num, row in enumerate(rows, start=2)
+    ]
+    cards = [c for c in cards if c[1] and c[2]]
+    missing = set(cards_missing_full_title_alias(((name, cid) for _, name, cid in cards), aliases))
+    return [
+        "Heroes game: "
+        f"{game_path.name} row {row_num}: CardName {name!r} shares the name before the comma with "
+        "another canonical hero but has no full-title row in hero-card-name-aliases.csv"
+        for row_num, name, _ in cards
+        if name in missing
+    ]
 
 
 def _check_heroes_game_young_hero_column(game_path: Path) -> list[str]:
@@ -1198,6 +1237,7 @@ def collect_alerts() -> list[str]:
 
     if game_path.is_file():
         alerts.extend(_check_heroes_game_young_hero_column(game_path))
+        alerts.extend(_check_heroes_game_ambiguous_card_names(game_path))
 
     if canonical_path.is_file():
         alerts.extend(_check_hero_card_name_alias_slugs_in_canonical(canonical_path))

@@ -5,6 +5,7 @@ from __future__ import annotations
 import sqlite3
 
 from create_heroes_csv import (
+    cards_missing_full_title_alias,
     HEROES_CANONICAL_CSV_PATH,
     HEROES_GAME_CSV_PATH,
     dedupe_printings,
@@ -88,6 +89,25 @@ def test_unknown_hero_falls_back_to_the_normalised_name() -> None:
     """A name in neither table resolves to its own normalised key."""
     assert resolve_card_canonical_slug("Bravo, Showstopper", {"bravo": "bravo"}, {}) == "bravo"
     assert resolve_card_canonical_slug("Nobody, Nowhere", {}, {}) == "nobody"
+
+
+def test_a_new_card_of_a_shared_name_without_a_full_title_alias_is_reported() -> None:
+    """'Arakni, Something' would fall back to Huntsman; the generator must refuse instead."""
+    aliases = {
+        "arakni": "arakni-huntsman",
+        "araknihuntsman": "arakni-huntsman",
+        "araknimarionette": "arakni-web-of-deceit",
+    }
+    cards = [
+        ("Arakni", "arakni-huntsman"),
+        ("Arakni, Huntsman", "arakni-huntsman"),
+        ("Arakni, Marionette", "arakni-web-of-deceit"),
+        ("Arakni, Something", "arakni-huntsman"),
+        ("Bravo", "bravo"),
+        ("Bravo, Showstopper", "bravo"),
+    ]
+    assert cards_missing_full_title_alias(cards, aliases) == ["Arakni, Something"]
+    assert cards_missing_full_title_alias(cards[:3] + cards[4:], aliases) == []
 
 
 def test_every_committed_game_row_resolves_to_its_canonical_id() -> None:
