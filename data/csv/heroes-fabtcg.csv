@@ -1,0 +1,82 @@
+# AUTO-GENERATED FILE — do not edit by hand. Regenerate with: python3 src/data/create_heroes_csv.py
+CardName|HeroPageLink|Difficulty|PortraitKey|Playstyles
+Arakni, 5L!p3d 7hRu 7h3 cR4X|https://fabtcg.com/hero/arakni-5lp3d-7hru-7h3-cr4x/|1|arakni-5l-p3d-7hru-7h3-cr4x|Aggressive, Disruptive
+Arakni, Huntsman|https://fabtcg.com/hero/arakni-huntsman/|2|arakni-huntsman|Defensive, Disruptive
+Arakni, Marionette|https://fabtcg.com/hero/arakni-marionette/|4|arakni-marionette|Disruptive, Midrange
+Aurora, Legacy of Tempest|https://fabtcg.com/hero/aurora-legacy-of-tempest/|1|aurora-legacy-of-tempest|Aggressive
+Aurora, Shooting Star|https://fabtcg.com/hero/aurora-3/|1|aurora-shooting-star|Aggressive
+Azalea, Ace in the Hole|https://fabtcg.com/hero/azalea/|2.5|azalea-ace-in-the-hole|Aggressive, Disruptive
+Baalghor, Omen of the End|https://fabtcg.com/hero/baalghor/|5|baalghor-omen-of-the-end|Aggressive, Combo
+Benji, the Piercing Wind|https://fabtcg.com/hero/benji/|2|benji-the-piercing-wind|Aggressive
+Betsy, Skin in the Game|https://fabtcg.com/hero/betsy/|2|betsy-skin-in-the-game|Defensive, Disruptive
+Blaze, Firemind|https://fabtcg.com/hero/blaze/|3|blaze-firemind|Aggressive, Combo
+Bravo, Flattering Showman|https://fabtcg.com/hero/bravo-flattering-showman/|1|bravo-flattering-showman|
+Bravo, Showstopper|https://fabtcg.com/hero/bravo-4/|1|bravo-showstopper|Defensive, Disruptive
+Bravo, Star of the Show|https://fabtcg.com/hero/bravo-3/|2|bravo-star-of-the-show|Aggressive, Disruptive
+Brevant, Civic Protector|https://fabtcg.com/hero/brevant/|1|brevant-civic-protector|Co-operative, Defensive
+Briar, Warden of Thorns|https://fabtcg.com/hero/briar/|1.5|briar-warden-of-thorns|Aggressive
+Chane, Bound by Shadow|https://fabtcg.com/hero/chane/|4|chane-bound-by-shadow|Aggressive, Combo
+Cindra, Dracai of Retribution|https://fabtcg.com/hero/cindra-dracai-of-retribution/|1|cindra-dracai-of-retribution|Aggressive, Midrange
+Dash I/O|https://fabtcg.com/hero/dash/|3|dash-i-o|Aggressive, Combo
+Dash, Inventor Extraordinaire|https://fabtcg.com/hero/dash-3/|1.5|dash-inventor-extraordinaire|Board Presence, Midrange
+Data Doll MKII|https://fabtcg.com/hero/data-doll/|4|data-doll-mk-ii|Aggressive, Board Presence
+Dorinthea Ironsong|https://fabtcg.com/hero/dorinthea/|2|dorinthea-ironsong|Aggressive, Midrange
+Dorinthea, Quicksilver Prodigy|https://fabtcg.com/hero/dorinthea-quicksilver-prodigy/|1|dorinthea-quicksilver-prodigy|Midrange
+Dr. Mortimer, Blight of the Pits|https://fabtcg.com/hero/dr-mortimer/|2.5|dr-mortimer-blight-of-the-pits|Disruptive, Midrange
+Dromai, Ash Artist|https://fabtcg.com/hero/dromai/|3|dromai-ash-artist|Aggressive, Board Presence
+Emperor, Dracai of Aesir|https://fabtcg.com/hero/emperor/|3|emperor-dracai-of-aesir|Aggressive
+Enigma, Ledger of Ancestry|https://fabtcg.com/hero/enigma/|4|enigma-ledger-of-ancestry|Board Presence, Midrange
+Fai, Rising Rebellion|https://fabtcg.com/hero/fai/|1|fai-rising-rebellion|Aggressive, Combo
+Fang, Dracai of Blades|https://fabtcg.com/hero/fang/|2|fang-dracai-of-blades|Aggressive, Midrange
+Florian, Rotwood Harbinger|https://fabtcg.com/hero/florian/|2.5|florian-rotwood-harbinger|Midrange
+Frankie, Make Ends Meat|https://fabtcg.com/hero/frankie/|3|frankie-make-ends-meat|Disruptive
+Genis Wotchuneed|https://fabtcg.com/hero/genis-3/|1|genis-wotchuneed|Co-operative
+Gravy Bones, Shipwrecked Looter|https://fabtcg.com/hero/gravy-bones/|4.5|gravy-bones-shipwrecked-looter|Board Presence, Midrange
+Hala, Bladesaint of the Vow|https://fabtcg.com/hero/hala/|2|hala-bladesaint-of-the-vow|Midrange
+Ira, Scarlet Revenger|https://fabtcg.com/hero/ira-3/|1|ira-scarlet-revenger|Aggressive, Midrange
+Iyslander, Stormbind|https://fabtcg.com/hero/iyslander-2/|4|iyslander-stormbind|Combo, Disruptive
+Jarl Vetreiði|https://fabtcg.com/hero/jarl/|3|jarl-vetrei-i|Defensive, Disruptive
+Kano, Dracai of Aether|https://fabtcg.com/hero/kano/|5|kano-dracai-of-aether|Combo
+Kassai of the Golden Sand|https://fabtcg.com/hero/kassai-3/|2|kassai-of-the-golden-sand|Board Presence, Midrange
+Kassai, Cintari Sellsword|https://fabtcg.com/hero/kassai-og/|2|kassai-cintari-sellsword|Aggressive
+Katsu, the Wanderer|https://fabtcg.com/hero/katsu-the-wanderer/|3|katsu-the-wanderer|Aggressive, Combo
+Kavdaen, Trader of Skins|https://fabtcg.com/hero/kavdaen/|1|kavdaen-trader-of-skins|Co-operative
+Kayo, Armed and Dangerous|https://fabtcg.com/hero/kayo/|1|kayo-armed-and-dangerous|Aggressive
+Kayo, Berserker Runt|https://fabtcg.com/hero/kayo-br/|1|kayo-berserker-runt|Midrange
+Kayo, Underhanded Cheat|https://fabtcg.com/hero/kayo-2/|2|kayo-underhanded-cheat|Defensive, Midrange
+Killjoy, the Crooked Blade|https://fabtcg.com/hero/killjoy/|3.5|killjoy-the-crooked-blade|Control
+Levia, Shadowborn Abomination|https://fabtcg.com/hero/levia/|3|levia-shadowborn-abomination|Aggressive, Midrange
+Lexi, Livewire|https://fabtcg.com/hero/lexi/|3|lexi-livewire|Aggressive, Disruptive
+Lyath Goldmane, Vile Savant|https://fabtcg.com/hero/lyath-goldmane/|4|lyath-goldmane-vile-savant|Combo, Midrange
+Malice, Domina of the Dead|https://fabtcg.com/hero/malice/|3.5|malice-domina-of-the-dead|Board Presence
+Marlynn, Treasure Hunter|https://fabtcg.com/hero/marlynn/|2|marlynn-treasure-hunter|Disruptive, Midrange
+Maxx 'The Hype' Nitro|https://fabtcg.com/hero/maxx/|2|maxx-the-hype-nitro|Aggressive, Combo
+Melody, Sing-along|https://fabtcg.com/hero/melody-3/|2|melody-sing-along|Co-operative, Combo
+Nuu, Alluring Desire|https://fabtcg.com/hero/nuu-3/|4|nuu-alluring-desire|Disruptive
+Oldhim, Grandfather of Eternity|https://fabtcg.com/hero/oldhim-2/|2|oldhim-grandfather-of-eternity|Defensive, Disruptive
+Olympia, Prized Fighter|https://fabtcg.com/hero/olympia/|2|olympia-prized-fighter|Aggressive, Defensive, Midrange
+Oscilio, Constella Intelligence|https://fabtcg.com/hero/oscilio-constella-intelligence/|5|oscilio-constella-intelligence|Aggressive, Combo
+Oscilio, Forked Continuum|https://fabtcg.com/hero/oscilio-forked-continuum/|3.5|oscilio-forked-continuum|Combo, Midrange
+Pleiades, Superstar|https://fabtcg.com/hero/pleiades/|2|pleiades-superstar|Board Presence, Defensive
+Prism, Awakener of Sol|https://fabtcg.com/hero/prism/|4|prism-awakener-of-sol|Aggressive, Board Presence
+Prism, Sculptor of Arc Light|https://fabtcg.com/hero/prism-soa/|3|prism-sculptor-of-arc-light|Board Presence, Midrange
+Puffin, Hightail|https://fabtcg.com/hero/puffin/|2|puffin-hightail|Aggressive, Midrange
+Rhinar, Reckless Rampage|https://fabtcg.com/hero/rhinar/|2|rhinar-reckless-rampage|Combo, Midrange
+Riptide, Lurker of the Deep|https://fabtcg.com/hero/riptide-lurker-of-the-deep/|2|riptide-lurker-of-the-deep|Defensive, Disruptive
+Scurv, Stowaway|https://fabtcg.com/hero/scurv/|2|scurv-stowaway|Aggressive
+Ser Boltyn, Breaker of Dawn|https://fabtcg.com/hero/boltyn-3/|3|ser-boltyn-breaker-of-dawn|Aggressive, Combo
+Shiyana, Diamond Gemini|https://fabtcg.com/hero/shiyana-diamond-gemini/|3|shiyana-diamond-gemini|Co-operative
+Teklovossen, Esteemed Magnate|https://fabtcg.com/hero/teklovossen-esteemed-magnate/|3|teklovossen-esteemed-magnate|Board Presence, Defensive
+Terra|https://fabtcg.com/hero/terra/|1|terra|Defensive
+Tuffnut, Bumbling Hulkster|https://fabtcg.com/hero/tuffnut/|2|tuffnut-bumbling-hulkster|Defensive, Midrange
+Uzuri, Switchblade|https://fabtcg.com/hero/uzuri-switchblade/|3|uzuri-switchblade|Disruptive, Midrange
+Valda, Seismic Impact|https://fabtcg.com/hero/valda-seismic-impact/|2|valda-seismic-impact|Aggressive, Disruptive
+Verdance, Thorn of the Rose|https://fabtcg.com/hero/verdance/|3|verdance-thorn-of-the-rose|Combo, Defensive
+Victor Goldmane, High and Mighty|https://fabtcg.com/hero/victor/|2|victor-goldmane-high-and-mighty|Defensive, Midrange
+Viserai, Rune Blood|https://fabtcg.com/hero/viserai/|3|viserai-rune-blood|Aggressive, Combo
+Viserai, the Forsaken|https://fabtcg.com/hero/viserai-the-forsaken/|4|viserai-the-forsaken|Aggressive, Disruptive
+Vynnset, Iron Maiden|https://fabtcg.com/hero/vynnset/|4|vynnset-iron-maiden|Aggressive, Disruptive
+Yoji, Royal Protector|https://fabtcg.com/hero/yoji/|1|yoji-royal-protector|Co-operative, Defensive
+Zane, Broadly Beloved|https://fabtcg.com/hero/zane/|2|zane-broadly-beloved|Midrange
+Zen, Tamer of Purpose|https://fabtcg.com/hero/zen-tamer-of-purpose/|3.5|zen-tamer-of-purpose|Aggressive, Combo
+Zyggy Starlight|https://fabtcg.com/hero/zyggy-starlight/|4|zyggy-starlight|Board Presence, Midrange

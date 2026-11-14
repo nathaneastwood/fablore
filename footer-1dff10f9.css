@@ -1,0 +1,25 @@
+.site-footer {
+    text-align: center;
+    padding: 1.5rem 1rem 2rem;
+    margin-top: 3rem;
+    font-size: 0.85rem;
+    color: var(--fg);
+    opacity: 0.55;
+    border-top: 1px solid var(--table-border-color);
+}
+
+.site-footer a {
+    color: inherit;
+    text-decoration: none;
+    margin: 0 0.35rem;
+}
+
+.site-footer a:hover {
+    color: var(--links);
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.site-footer span {
+    opacity: 0.4;
+}

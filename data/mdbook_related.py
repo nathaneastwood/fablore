@@ -1,0 +1,611 @@
+#!/usr/bin/env python3
+"""mdBook preprocessor: append a Related Lore section from story junction CSVs.
+
+Reads ``stories.csv`` and ``story-characters.csv`` / ``story-locations.csv`` /
+``story-regions.csv`` (plus canonical registries), matches each chapter's path to
+``StoryKey``, and appends HTML cards with relative ``.md`` links to hero and
+world-of-rathe pages.
+**No card is emitted without a resolvable target file** under ``src/`` (heroes
+via ``heroes-of-rathe/``, locations and regions via ``regions.csv``
+``WorldOfRatheStoryKey``). Optional ``locations.csv`` ``LoreFragment`` appends
+``#id`` for deep links into that world page (mdBook heading id, e.g. ``enion``
+for ``### Enion``). Cards never link to the chapter file itself (e.g. no region
+cards on ``world-of-rathe/savage-lands.md`` that point back to itself). All cards
+render in one ``.related-cards`` grid (heroes first, optional spacer, then
+locations, optional spacer, then regions) so a small theme script can equalize
+card heights across all groups.
+
+mdBook passes ``(PreprocessorContext, Book)`` as JSON on stdin; this process must
+print only the modified ``Book`` JSON on stdout. Supports ``supports <renderer>``.
+"""
+
+from __future__ import annotations
+
+import html
+import sys
+from dataclasses import dataclass
+from functools import lru_cache
+from pathlib import Path
+
+_SCRIPT_DIR = Path(__file__).resolve().parent
+if str(_SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(_SCRIPT_DIR))
+
+from hero_overrides import HERO_SLUG_LORE_FILE_OVERRIDES  # noqa: E402
+from mdbook_common import RELATED_LORE_H1, SECTIONS, iter_chapters, load_story_heroes, read_rows, run  # noqa: E402
+from mdbook_common import relative_href as relative_md_href  # noqa: E402
+
+MARK_START = "<!-- fablore-related:start -->"
+MARK_END = "<!-- fablore-related:end -->"
+
+
+def _same_src_markdown(chapter_src_path: str, target_src_path: str) -> bool:
+    """True when ``chapter`` and ``target`` are the same ``src`` markdown path."""
+    a = Path(chapter_src_path).as_posix()
+    b = Path(target_src_path).as_posix()
+    return bool(a) and a == b
+
+
+@dataclass(frozen=True)
+class RelatedMaps:
+    """Lookup tables built from ``src/data`` pipe CSVs."""
+
+    story_key_to_id: dict[str, str]
+    story_id_to_key: dict[str, str]
+    story_id_to_title: dict[str, str]
+    story_id_to_type: dict[str, str]
+    story_characters: dict[str, frozenset[str]]
+    story_locations: dict[str, frozenset[str]]
+    story_regions: dict[str, frozenset[str]]
+    canonical_hero: dict[str, tuple[str, str]]
+    character_row: dict[str, tuple[str, str]]
+    location_row: dict[str, tuple[str, str, str]]
+    region_row: dict[str, tuple[str, str]]
+    canonical_id_to_character_id: dict[str, str]
+    character_id_to_canonical_id: dict[str, str]
+    hero_canonical_to_stories: dict[str, frozenset[str]]
+    character_to_stories: dict[str, frozenset[str]]
+    other_page_to_char_ids: dict[str, frozenset[str]]
+    junction_fragment: dict[tuple[str, str], str]
+
+
+def load_related_maps(data_dir: Path) -> RelatedMaps:
+    """Load junction and registry rows needed to resolve related links.
+
+    Args:
+        data_dir: Directory containing ``stories.csv`` and junction files
+            (typically ``<repo>/src/data``).
+
+    Returns:
+        Frozen lookup maps for the preprocessor run.
+    """
+
+    key_to_id: dict[str, str] = {}
+    id_to_key: dict[str, str] = {}
+    id_to_title: dict[str, str] = {}
+    id_to_type: dict[str, str] = {}
+    for r in read_rows(data_dir / "csv" / "stories.csv"):
+        sk = (r.get("StoryKey") or "").strip()
+        sid = (r.get("StoryId") or "").strip()
+        title = (r.get("Title") or "").strip()
+        stype = (r.get("StoryType") or "").strip()
+        if sk and sid:
+            posix_sk = Path(sk).as_posix()
+            key_to_id[posix_sk] = sid
+            id_to_key[sid] = posix_sk
+        if sid and title:
+            id_to_title[sid] = title
+        if sid and stype:
+            id_to_type[sid] = stype
+
+    heroes = load_story_heroes(data_dir)
+
+    sl: dict[str, set[str]] = {}
+    for r in read_rows(data_dir / "csv" / "story-locations.csv"):
+        sid = (r.get("StoryId") or "").strip()
+        lid = (r.get("LocationId") or "").strip()
+        if sid and lid:
+            sl.setdefault(sid, set()).add(lid)
+
+    sr: dict[str, set[str]] = {}
+    for r in read_rows(data_dir / "csv" / "story-regions.csv"):
+        sid = (r.get("StoryId") or "").strip()
+        rid = (r.get("RegionId") or "").strip()
+        if sid and rid:
+            sr.setdefault(sid, set()).add(rid)
+
+    canonical: dict[str, tuple[str, str]] = {}
+    for r in read_rows(data_dir / "csv" / "heroes-canonical.csv"):
+        cid = (r.get("CanonicalId") or "").strip()
+        slug = (r.get("CanonicalSlug") or "").strip()
+        name = (r.get("CanonicalHero") or "").strip()
+        if cid and slug:
+            canonical[cid] = (slug, name or slug)
+
+    character_row: dict[str, tuple[str, str]] = {}
+    for r in read_rows(data_dir / "csv" / "characters.csv"):
+        cid = (r.get("CharacterId") or "").strip()
+        name = (r.get("Name") or "").strip()
+        sk = (r.get("OtherCharactersStoryKey") or "").strip()
+        if cid and name:
+            character_row[cid] = (name, sk)
+
+    other_page_map: dict[str, set[str]] = {}
+    for cid, (_name, story_key) in character_row.items():
+        if story_key:
+            other_page_map.setdefault(Path(story_key).as_posix(), set()).add(cid)
+
+    loc: dict[str, tuple[str, str, str]] = {}
+    for r in read_rows(data_dir / "csv" / "locations.csv"):
+        lid = (r.get("LocationId") or "").strip()
+        name = (r.get("Name") or "").strip()
+        rid = (r.get("RegionId") or "").strip()
+        frag = (r.get("LoreFragment") or "").strip().lstrip("#")
+        if lid and name:
+            loc[lid] = (name, rid, frag)
+
+    reg: dict[str, tuple[str, str]] = {}
+    for r in read_rows(data_dir / "csv" / "regions.csv"):
+        rid = (r.get("RegionId") or "").strip()
+        rname = (r.get("RegionName") or "").strip()
+        wk = (r.get("WorldOfRatheStoryKey") or "").strip()
+        if rid:
+            reg[rid] = (rname, wk)
+
+    return RelatedMaps(
+        story_key_to_id=key_to_id,
+        story_id_to_key=id_to_key,
+        story_id_to_title=id_to_title,
+        story_id_to_type=id_to_type,
+        story_characters=heroes.story_characters,
+        story_locations={k: frozenset(v) for k, v in sl.items()},
+        story_regions={k: frozenset(v) for k, v in sr.items()},
+        canonical_hero=canonical,
+        character_row=character_row,
+        location_row=loc,
+        region_row=reg,
+        canonical_id_to_character_id=heroes.canonical_to_character,
+        character_id_to_canonical_id=heroes.character_to_canonical,
+        hero_canonical_to_stories=heroes.hero_stories,
+        character_to_stories=heroes.character_stories,
+        other_page_to_char_ids={k: frozenset(v) for k, v in other_page_map.items()},
+        # The story-characters.csv junction, keyed on (story_id, character_id);
+        # _reverse_story_links translates a hero's canonical_id to its
+        # character_id before looking it up.
+        junction_fragment=heroes.fragments,
+    )
+
+
+@lru_cache(maxsize=None)
+def _is_file(path: Path) -> bool:
+    """``path.is_file()``, asked once per path per build — many stories link the same page."""
+    return path.is_file()
+
+
+@lru_cache(maxsize=None)
+def resolve_hero_src_path(src_root: Path, canonical_slug: str) -> str | None:
+    """Return the ``src``-relative path of a canonical hero's page, if it exists.
+
+    A canonical hero has at most one page: the
+    ``HERO_SLUG_LORE_FILE_OVERRIDES`` path when it has one (the three Arakni),
+    else ``heroes-of-rathe/{slug}-about.md``.
+
+    Args:
+        src_root: Book source directory (parent of ``heroes-of-rathe/``).
+        canonical_slug: ``CanonicalSlug`` from ``heroes-canonical.csv``.
+
+    Returns:
+        Path relative to ``src_root`` using POSIX separators, or ``None``.
+    """
+    override = HERO_SLUG_LORE_FILE_OVERRIDES.get(canonical_slug.strip())
+    if override and _is_file(src_root / override):
+        return override
+    page = f"heroes-of-rathe/{canonical_slug}-about.md"
+    return page if _is_file(src_root / page) else None
+
+
+def build_hero_src_to_canonical_ids(maps: RelatedMaps, src_root: Path) -> dict[str, frozenset[str]]:
+    """Return a map from hero lore src path → set of CanonicalIds that resolve to it.
+
+    Args:
+        maps: Loaded registry maps.
+        src_root: Book ``src`` directory on disk.
+
+    Returns:
+        Dict keyed by POSIX src-relative path (e.g. ``heroes-of-rathe/dorinthea-about.md``),
+        valued by all CanonicalIds whose slug resolves to that file.
+    """
+    result: dict[str, set[str]] = {}
+    for cid, (slug, _name) in maps.canonical_hero.items():
+        target = resolve_hero_src_path(src_root, slug)
+        if target:
+            result.setdefault(Path(target).as_posix(), set()).add(cid)
+    return {k: frozenset(v) for k, v in result.items()}
+
+
+def _reverse_story_links(
+    maps: RelatedMaps,
+    chapter_src_path: str,
+    src_root: Path,
+    hero_src_map: dict[str, frozenset[str]],
+    *,
+    warn_missing: bool = False,
+) -> list[tuple[str, str, str]]:
+    """``(story_id, title, escaped href)`` for every story naming this page's subject.
+
+    The subject is the page's heroes (``hero_src_map``, canonical ids) plus its
+    ordinary characters (``other_page_to_char_ids``). A story with no key or
+    title, or whose file is missing, is left out (named on stderr when
+    ``warn_missing``). The href deep-links the first junction fragment found,
+    heroes before ordinary characters.
+    """
+    chapter_posix = Path(chapter_src_path).as_posix()
+    chapter_hero_cids = hero_src_map.get(chapter_posix, frozenset())
+    chapter_other_cids = maps.other_page_to_char_ids.get(chapter_posix, frozenset())
+    story_ids: set[str] = set()
+    for cid in chapter_hero_cids:
+        story_ids |= maps.hero_canonical_to_stories.get(cid, frozenset())
+    for cid in chapter_other_cids:
+        story_ids |= maps.character_to_stories.get(cid, frozenset())
+    # junction_fragment keys on character_id; a hero's canonical_id is translated first.
+    char_ids = [
+        *(maps.canonical_id_to_character_id.get(cid) for cid in chapter_hero_cids),
+        *chapter_other_cids,
+    ]
+
+    links: list[tuple[str, str, str]] = []
+    for sid in story_ids:
+        key = maps.story_id_to_key.get(sid)
+        title = maps.story_id_to_title.get(sid, "")
+        if not key or not title:
+            continue
+        if not _is_file((src_root / key)):
+            if warn_missing:
+                print(
+                    f"mdbook_related: story {title!r} ({sid}): omitting card (file {key!r} missing)",
+                    file=sys.stderr,
+                )
+            continue
+        frag = next((f for c in char_ids if c and (f := maps.junction_fragment.get((sid, c), ""))), "")
+        rel = relative_md_href(chapter_src_path, key)
+        links.append((sid, title, html.escape(f"{rel}#{frag}" if frag else rel)))
+    return links
+
+
+def build_character_stories_fragment(
+    maps: RelatedMaps,
+    *,
+    chapter_src_path: str,
+    src_root: Path,
+    hero_src_map: dict[str, frozenset[str]],
+) -> str:
+    """Build a Related Lore HTML fragment listing stories featuring this hero or ordinary character.
+
+    Args:
+        maps: Loaded registry maps.
+        chapter_src_path: Chapter path relative to ``src_root``.
+        src_root: Book ``src`` directory on disk.
+        hero_src_map: Pre-built map from hero src path → set of CanonicalIds.
+
+    Returns:
+        HTML string, or empty if no resolvable story links exist.
+    """
+    story_cards = [
+        ("Story", title, "", href)
+        for _sid, title, href in _reverse_story_links(maps, chapter_src_path, src_root, hero_src_map, warn_missing=True)
+    ]
+
+    if not story_cards:
+        return ""
+
+    story_cards.sort(key=lambda c: c[1].lower())
+    parts = [
+        '<section class="related-section" aria-label="Related Lore">',
+        RELATED_LORE_H1,
+        '<div class="related-cards">',
+    ]
+    for kind, title, sub, href in story_cards:
+        _append_card_markup(parts, kind, title, sub, href)
+    parts.append("</div></section>")
+    return "\n".join(parts)
+
+
+# Card labels for the story types that register stories; reference sections get no card.
+_STORY_TYPE_LABELS: dict[str, str] = {s.key: s.story_label for s in SECTIONS if s.narrative and s.entries_module}
+
+_STORY_TYPES_SKIP: frozenset[str] = frozenset(s.key for s in SECTIONS if not s.narrative and s.entries_module)
+
+_CARD_GROUP_ORDER: tuple[str, ...] = (
+    "Hero",
+    "Character",
+    "Location",
+    "Region",
+    "Main Story",
+    "Short Story",
+    "World of Rathe",
+    "Flavour Text",
+    "Digital Tile",
+)
+
+
+def _append_card_markup(parts: list[str], kind: str, title: str, sub: str, href: str) -> None:
+    """Append one ``related-card`` anchor to ``parts`` (mutates list)."""
+    esc_title = html.escape(title)
+    esc_sub = html.escape(sub) if sub else ""
+    parts.append(f'<a class="related-card" href="{href}">')
+    parts.append('<span class="related-card-body">')
+    parts.append(f'<span class="related-card-type">{html.escape(kind)}</span>')
+    parts.append(f'<span class="related-card-title">{esc_title}</span>')
+    parts.append("</span>")
+    if esc_sub:
+        parts.append(f'<span class="related-card-sub">{esc_sub}</span>')
+    parts.append("</a>")
+
+
+def build_related_fragment(
+    maps: RelatedMaps,
+    *,
+    story_id: str,
+    chapter_src_path: str,
+    src_root: Path,
+    hero_src_map: dict[str, frozenset[str]] | None = None,
+) -> str:
+    """Build HTML fragment (no surrounding markers) for related cards.
+
+    Args:
+        maps: Loaded registry maps.
+        story_id: Primary key for the current chapter in ``stories.csv``.
+        chapter_src_path: Chapter path relative to ``src_root``.
+        src_root: Book ``src`` directory on disk.
+
+    Returns:
+        HTML string, or empty if there are no resolvable related entries.
+        Every card includes a non-empty ``href``; rows without a link target are
+        omitted (see module docstring). Location and hero cards whose target file
+        is the same as ``chapter_src_path`` are omitted (no self-links on world
+        lore pages or a hero's own about page).
+    """
+    # A character_id is a "hero" here when it has a character-heroes.csv row
+    # (see load_story_heroes), matching how mdbook_graph derives its node kind.
+    character_ids = sorted(maps.story_characters.get(story_id, frozenset()))
+    # An other-characters page does not list its own subject in story_characters,
+    # so a subject who is also a hero (CharacterEntry(hero_slug=…)) is added here:
+    # without it the older page never links the hero page that superseded it.
+    own_page_cids = maps.other_page_to_char_ids.get(Path(chapter_src_path).as_posix(), frozenset())
+    hero_ids = sorted(
+        {
+            maps.character_id_to_canonical_id[cid]
+            for cid in (*character_ids, *own_page_cids)
+            if cid in maps.character_id_to_canonical_id
+        }
+    )
+    loc_ids = sorted(maps.story_locations.get(story_id, frozenset()))
+    reg_ids = sorted(maps.story_regions.get(story_id, frozenset()))
+
+    hero_cards: list[tuple[str, str, str, str]] = []
+    character_cards: list[tuple[str, str, str, str]] = []
+    loc_cards: list[tuple[str, str, str, str]] = []
+    reg_cards: list[tuple[str, str, str, str]] = []
+    # (kind_label, title, subtitle, href). Only href-populated rows become cards.
+
+    for hid in hero_ids:
+        row = maps.canonical_hero.get(hid)
+        if not row:
+            continue
+        slug, display = row
+        target = resolve_hero_src_path(src_root, slug)
+        if not target:
+            # No hero page yet (Yorick, Taylor…) is a normal state, not a build
+            # problem. A hero with an other-characters page still gets a
+            # Character card from the loop below.
+            continue
+        if _same_src_markdown(chapter_src_path, target):
+            continue
+        href = html.escape(relative_md_href(chapter_src_path, target))
+        hero_cards.append(("Hero", display, "", href))
+
+    # Every character, hero or not: a hero who also has an other-characters page
+    # (Dr. Mortimer, The Librarian) is one person with two pages, and a story
+    # naming them links both. The self-link check below keeps each page from
+    # linking itself.
+    for cid in character_ids:
+        row = maps.character_row.get(cid)
+        if not row:
+            continue
+        name, story_key = row
+        if not story_key:
+            continue
+        wk = Path(story_key).as_posix()
+        if not _is_file((src_root / wk)):
+            continue
+        if _same_src_markdown(chapter_src_path, wk):
+            continue
+        href = html.escape(relative_md_href(chapter_src_path, wk))
+        character_cards.append(("Character", name, "", href))
+
+    for lid in loc_ids:
+        loc = maps.location_row.get(lid)
+        if not loc:
+            continue
+        place, rid, lfrag = loc
+        if not lfrag:
+            continue
+        rname, world_key = "", ""
+        if rid:
+            reg = maps.region_row.get(rid)
+            if reg:
+                rname, world_key = reg[0], reg[1]
+        if not world_key:
+            continue
+        wk = Path(world_key).as_posix()
+        if not _is_file((src_root / wk)):
+            print(
+                f"mdbook_related: location {place!r}: omitting card (world page {wk!r} missing)",
+                file=sys.stderr,
+            )
+            continue
+        if _same_src_markdown(chapter_src_path, wk):
+            continue
+        href = html.escape(f"{relative_md_href(chapter_src_path, wk)}#{lfrag}")
+        loc_cards.append(("Location", place, rname, href))
+
+    for rid in reg_ids:
+        reg = maps.region_row.get(rid)
+        if not reg:
+            continue
+        rname, world_key = reg
+        if not world_key:
+            continue
+        wk = Path(world_key).as_posix()
+        if not _is_file((src_root / wk)):
+            print(
+                f"mdbook_related: region {rname!r}: omitting card (world page {wk!r} missing)",
+                file=sys.stderr,
+            )
+            continue
+        if _same_src_markdown(chapter_src_path, wk):
+            continue
+        href = html.escape(relative_md_href(chapter_src_path, wk))
+        reg_cards.append(("Region", rname, "", href))
+
+    story_cards: list[tuple[str, str, str, str]] = []
+    if hero_src_map is not None:
+        for sid, title, href in _reverse_story_links(maps, chapter_src_path, src_root, hero_src_map):
+            stype = maps.story_id_to_type.get(sid, "")
+            if sid == story_id or stype in _STORY_TYPES_SKIP:
+                continue
+            story_cards.append((_STORY_TYPE_LABELS.get(stype, "Story"), title, "", href))
+
+    # Every href comes from relative_md_href, which is never empty, so no card is filtered here.
+    by_kind: dict[str, list[tuple[str, str, str, str]]] = {
+        "Hero": hero_cards,
+        "Character": character_cards,
+        "Location": loc_cards,
+        "Region": reg_cards,
+    }
+    for card in story_cards:
+        by_kind.setdefault(card[0], []).append(card)
+    total = sum(len(by_kind[k]) for k in by_kind)
+    if total == 0:
+        return ""
+
+    parts = [
+        '<section class="related-section" aria-label="Related Lore">',
+        RELATED_LORE_H1,
+        '<div class="related-cards">',
+    ]
+    first_group = True
+    for kind_key in _CARD_GROUP_ORDER:
+        group = by_kind.get(kind_key, [])
+        if not group:
+            continue
+        group.sort(key=lambda c: c[1].lower())
+        if not first_group:
+            parts.append('<div class="related-cards-spacer" aria-hidden="true"></div>')
+        first_group = False
+        for kind, title, sub, href in group:
+            _append_card_markup(parts, kind, title, sub, href)
+    parts.append("</div></section>")
+    return "\n".join(parts)
+
+
+def inject_marked_block(content: str, inner_html: str) -> str:
+    """Insert or replace the fablore-related marked block at the end of ``content``.
+
+    Args:
+        content: Original chapter markdown/HTML.
+        inner_html: HTML to place between markers (may be empty to strip the block).
+
+    Returns:
+        Updated chapter content.
+    """
+    if MARK_START in content and MARK_END in content:
+        pre, _, rest = content.partition(MARK_START)
+        _, _, post = rest.partition(MARK_END)
+        if inner_html.strip():
+            block = f"{MARK_START}\n{inner_html}\n{MARK_END}"
+        else:
+            block = ""
+        return pre.rstrip() + ("\n\n" if block and pre.strip() else "") + block + post
+    if inner_html.strip():
+        sep = "\n\n" if content.strip() else ""
+        return content.rstrip() + sep + f"{MARK_START}\n{inner_html}\n{MARK_END}\n"
+    return content
+
+
+def story_id_for_chapter(maps: RelatedMaps, chapter_path: str | None) -> str | None:
+    """Resolve ``StoryId`` from a chapter's ``path`` (``StoryKey``).
+
+    Args:
+        maps: Loaded maps including ``story_key_to_id``.
+        chapter_path: ``Chapter.path`` from mdBook JSON.
+
+    Returns:
+        ``StoryId`` if the chapter is listed in ``stories.csv``, else ``None``.
+    """
+    if not chapter_path:
+        return None
+    key = Path(chapter_path).as_posix()
+    return maps.story_key_to_id.get(key)
+
+
+def process_chapter_content(
+    content: str,
+    maps: RelatedMaps,
+    *,
+    chapter_src_path: str,
+    src_root: Path,
+    hero_src_map: dict[str, frozenset[str]],
+) -> str:
+    """Append or refresh the Related section for one chapter."""
+    sid = story_id_for_chapter(maps, chapter_src_path)
+    if sid:
+        fragment = build_related_fragment(
+            maps,
+            story_id=sid,
+            chapter_src_path=chapter_src_path,
+            src_root=src_root,
+            hero_src_map=hero_src_map,
+        )
+    else:
+        fragment = build_character_stories_fragment(
+            maps,
+            chapter_src_path=chapter_src_path,
+            src_root=src_root,
+            hero_src_map=hero_src_map,
+        )
+    return inject_marked_block(content, fragment)
+
+
+def walk_mutate_sections(
+    sections: list,
+    maps: RelatedMaps,
+    src_root: Path,
+    hero_src_map: dict[str, frozenset[str]],
+) -> None:
+    """Update every chapter in ``sections`` in place."""
+    for ch in iter_chapters(sections):
+        path = ch.get("path")
+        if path and isinstance(path, str):
+            ch["content"] = process_chapter_content(
+                ch.get("content") or "",
+                maps,
+                chapter_src_path=path,
+                src_root=src_root,
+                hero_src_map=hero_src_map,
+            )
+
+
+def _process(items: list, src_root: Path) -> None:
+    maps = load_related_maps(src_root / "data")
+    hero_src_map = build_hero_src_to_canonical_ids(maps, src_root)
+    walk_mutate_sections(items, maps, src_root, hero_src_map)
+
+
+def main() -> None:
+    """stdin: ``(PreprocessorContext, Book)`` JSON; stdout: ``Book`` JSON only."""
+    run(_process)
+
+
+if __name__ == "__main__":
+    main()

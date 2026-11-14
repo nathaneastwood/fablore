@@ -1,0 +1,221 @@
+/* Reading mode for story chapters. See theme/reading-mode.js. */
+
+/*
+ * Book typeface from fonts already on the reader's device — nothing is
+ * downloaded. ui-serif is the system serif (New York on Apple devices);
+ * Charter ships with macOS and iOS, Sitka Text and Cambria with Windows;
+ * `serif` is whatever the reader set as the browser's default serif.
+ * Readers can switch to the site's sans in Reading preferences.
+ */
+:root {
+    --story-serif: ui-serif, Charter, 'Bitstream Charter', 'Sitka Text', Cambria, Georgia, serif;
+}
+
+.reading-mode #reading-mode-toggle { color: var(--icons-hover); }
+
+body.reading-mode-hint-active #reading-mode-toggle {
+    animation: reading-mode-hint-pulse 1.8s ease-in-out 3;
+}
+
+@keyframes reading-mode-hint-pulse {
+    0%, 100% { color: inherit; }
+    50% { color: var(--links); }
+}
+
+/* ── Quiet header ─────────────────────────────────────────────────────────── */
+
+.reading-mode #mdbook-menu-bar {
+    background: var(--bg);
+    border-bottom-color: transparent;
+}
+
+/* Keep: contents (sidebar on request), theme, reading aids, reading toggle */
+.reading-mode #mdbook-menu-bar .left-buttons > :not(#mdbook-sidebar-toggle):not(#mdbook-theme-toggle):not(#mdbook-theme-list):not(#bionic-toggle):not(#accessibility-toggle):not(#accessibility-menu),
+.reading-mode #mdbook-menu-bar .right-buttons > :not(#reading-mode-toggle) {
+    display: none !important;
+}
+
+.reading-mode #mdbook-menu-bar .icon-button { opacity: 0.55; transition: opacity 0.15s; }
+.reading-mode #mdbook-menu-bar:hover .icon-button { opacity: 1; }
+.reading-mode .menu-logo { height: 1.6rem; opacity: 0.8; }
+.reading-mode #reading-progress-bar { display: none; }
+
+/* ── Archive furniture that the reader does not need mid-story ───────────── */
+
+.reading-mode .breadcrumb,
+.reading-mode .lore-graph-backlink,
+.reading-mode .story-share,
+.reading-mode .nav-wide-wrapper,
+.reading-mode .nav-wrapper,
+.reading-mode #back-to-top,
+.reading-mode .site-footer {
+    display: none !important;
+}
+
+/* ── Title and byline ─────────────────────────────────────────────────────── */
+
+.reading-mode main > h1:first-of-type {
+    font-family: var(--story-serif);
+    font-weight: 600;
+    font-size: 2.6em;
+    line-height: 1.15;
+    text-align: center;
+    margin: 2.5em 0 0.4em;
+    letter-spacing: -0.01em;
+}
+.reading-mode main > h1:first-of-type a.header { color: var(--fg); }
+
+.reading-mode .story-card {
+    text-align: center;
+    border-bottom: none;
+    padding-bottom: 0;
+    gap: 0.5em;
+    margin-bottom: 3.2em;
+    font-size: 0.82em;
+}
+.reading-mode .story-card .story-meta { justify-content: center; gap: 0.4em 1.4em; }
+.reading-mode .story-card .story-meta,
+.reading-mode .story-card-links { opacity: 0.8; }
+
+/* Sits in the card (reading-mode.js puts it there), so the card's bottom
+   margin gives the same gap before the story with or without a narration. */
+.rm-listen { display: none; }
+.reading-mode .rm-listen {
+    display: table;
+    margin: 0.9em auto 0;
+    padding: 0.45em 1.1em;
+    border: 1px solid var(--theme-popup-border);
+    border-radius: 999px;
+    font-size: 1.05em;
+    color: var(--fg);
+    text-decoration: none;
+    transition: border-color 0.15s, color 0.15s;
+}
+.reading-mode .rm-listen:hover { border-color: var(--links); color: var(--links); }
+.reading-mode .rm-listen .fa { margin-right: 0.35em; }
+.rm-listen-by { opacity: 0.6; }
+
+/* ── Prose ────────────────────────────────────────────────────────────────── */
+
+.reading-mode main {
+    font-family: var(--story-serif);
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+/* The typeface choice in Reading preferences only affects reading mode */
+.story-font-section { display: none; }
+.reading-mode .story-font-section { display: block; }
+
+.reading-mode.story-font-sans main,
+.reading-mode.story-font-sans main > h1:first-of-type {
+    font-family: inherit;
+}
+.reading-mode main > p { hyphens: auto; }
+.reading-mode main > p + p { margin-top: -0.2em; }
+
+.reading-mode main > p.rm-opening::first-letter {
+    float: left;
+    font-size: 3.6em;
+    line-height: 0.82;
+    padding: 0.08em 0.1em 0 0;
+    font-weight: 600;
+    color: var(--links);
+}
+
+/* Scene breaks become an ornament rather than a rule */
+.reading-mode main > hr {
+    border: none;
+    height: auto;
+    margin: 2.6em 0;
+    text-align: center;
+    background: none;
+}
+.reading-mode main > hr::after {
+    content: '✦  ✦  ✦';
+    font-size: 0.8em;
+    letter-spacing: 0.3em;
+    color: var(--searchresults-header-fg);
+}
+
+/* End matter keeps the archive face — it is the bridge back to the archive */
+.reading-mode .narrated-videos,
+.reading-mode .related-section {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.91em;
+    line-height: 1.5;
+}
+
+/* ── Floating previous / progress / next ──────────────────────────────────── */
+
+.rm-pill { display: none; }
+.reading-mode .rm-pill {
+    position: fixed;
+    left: 50%;
+    bottom: 1.4rem;
+    transform: translateX(-50%);
+    z-index: 120;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 1.2rem;
+    width: min(640px, calc(100vw - 32px));
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    background: var(--theme-popup-bg);
+    border: 1px solid var(--theme-popup-border);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.14);
+    font-size: 1.3rem;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.reading-mode .rm-pill--hidden {
+    transform: translate(-50%, 160%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.rm-pill a {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    min-width: 0;
+    color: var(--fg);
+    text-decoration: none;
+}
+.rm-pill a:hover { color: var(--links); }
+.rm-pill-next { justify-content: flex-end; }
+.rm-pill .fa { font-size: 1.5em; line-height: 1; }
+.rm-pill-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.rm-pill-progress {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--searchresults-header-fg);
+    font-size: 0.9em;
+    white-space: nowrap;
+}
+.rm-pill-bar {
+    width: 7rem;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--theme-popup-border);
+    overflow: hidden;
+}
+.rm-pill-bar span {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: var(--links);
+}
+
+@media only screen and (max-width: 599px) {
+    .reading-mode main > h1:first-of-type { font-size: 2em; margin-top: 1.5em; }
+    .reading-mode main > p { hyphens: manual; }
+    .rm-pill-label { display: none; }
+    .reading-mode .rm-pill { width: auto; gap: 1.6rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reading-mode .rm-pill { transition: none; }
+}

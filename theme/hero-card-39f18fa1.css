@@ -1,0 +1,815 @@
+/* Hero banner, stat block and card text. Markup: src/data/mdbook_hero_meta.py
+   and src/data/card_text.py. Behaviour: theme/hero-card.js. */
+
+/* ── Hero banner ────────────────────────────────────────────────────────────
+   The H1 (name and subtitle in spans), the hero video and the blurb, in the
+   style of the fabtcg.com hero pages. Fixed dark colours: it sits on video, so
+   it reads the same in every mdBook theme.
+
+   The banner spans the whole content area beside the sidebar, not only the
+   text column. On hero pages .content is a size container; 100cqw is its width
+   and calc(50% - 50cqw) pulls the banner out of the centred <main> to its left
+   edge. It follows the sidebar as it opens and closes, and never overflows. */
+
+.content:has(.hero-banner) {
+    container: hero-content / inline-size;
+}
+
+.hero-banner {
+    --hero-banner-ink: #fff;
+    --hero-banner-dim: rgba(255, 255, 255, 0.78);
+    --hero-banner-band: #0d0d10;
+    position: relative;
+    display: grid;
+    width: calc(100cqw - var(--hero-nav-start, 0px) - var(--hero-nav-end, 0px));
+    margin: 0 0 1.4em calc(50% - 50cqw + var(--hero-nav-start, 0px));
+    background: var(--hero-banner-band);
+    color: var(--hero-banner-ink);
+    overflow: hidden;
+}
+
+/* mdBook's previous / next chapter arrows (.nav-wide-wrapper) are fixed 90px
+   strips at the sides of the content area. Where mdBook shows them (wider than
+   1080px with the sidebar closed, wider than 1380px with it open; see its
+   chrome.css) the banner stops 10px short of each one instead of running
+   under it. The previous arrow starts 20px left of the content box, so it
+   covers 70px of it; the next arrow ends 5px past it, so it covers 85px. */
+@media only screen and (min-width: 1081px) {
+    #mdbook-sidebar-toggle-anchor:not(:checked) ~ .page-wrapper .hero-banner {
+        --hero-nav-start: 80px;
+        --hero-nav-end: 95px;
+    }
+}
+@media only screen and (min-width: 1381px) {
+    .page-wrapper .hero-banner {
+        --hero-nav-start: 80px;
+        --hero-nav-end: 95px;
+    }
+}
+
+/* Video and text share one grid cell: the banner is as tall as the taller one. */
+.hero-banner > * {
+    grid-area: 1 / 1;
+}
+
+.hero-banner-media {
+    position: relative;
+    aspect-ratio: 20 / 9;
+    max-height: 80vh;
+    min-width: 0;
+}
+
+.hero-banner-media video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Without JS the video would never start (no autoplay, no controls): show the
+   plain band instead. */
+html:not(.js) .hero-banner-media {
+    display: none;
+}
+
+.hero-banner-play {
+    position: absolute;
+    right: 1em;
+    bottom: 1em;
+    z-index: 2;
+    width: 2.6em;
+    height: 2.6em;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.hero-banner-play:hover,
+.hero-banner-play:focus-visible {
+    border-color: #fff;
+    outline: none;
+}
+
+.hero-banner-play[aria-pressed='true'] .hero-banner-play-pause,
+.hero-banner-play[aria-pressed='false'] .hero-banner-play-play {
+    display: none;
+}
+
+/* The text column on a dark gradient over the left of the video. */
+.hero-banner-text {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: min(46%, 34em);
+    padding: 2.4em 2.6em;
+    box-sizing: border-box;
+    background: linear-gradient(to right, rgba(5, 5, 8, 0.92) 0%, rgba(5, 5, 8, 0.75) 65%, rgba(5, 5, 8, 0) 100%);
+}
+
+.hero-banner--plain .hero-banner-text,
+html:not(.js) .hero-banner-text {
+    width: auto;
+    max-width: 46em;
+    background: none;
+}
+
+.hero-banner h1 {
+    margin: 0;
+    font-size: clamp(2.2em, 4.6cqw, 4em);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--hero-banner-ink);
+}
+
+.hero-banner h1 a.header,
+.hero-banner h1 a.header:link,
+.hero-banner h1 a.header:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+.hero-banner-name {
+    display: block;
+}
+
+/* mdBook marks the targeted heading with "»"; on the banner it only adds noise. */
+.hero-banner h1:target::before {
+    content: none;
+    display: none;
+}
+
+/* Kept in the H1 for search and screen readers, hidden on screen. */
+.hero-banner-comma {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+.hero-banner-subtitle {
+    display: block;
+    margin-top: 0.55em;
+    font-size: 0.32em;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--hero-banner-dim);
+}
+
+.hero-banner-rule {
+    width: 4em;
+    height: 2px;
+    margin: 1.2em 0 1em;
+    background: rgba(255, 255, 255, 0.55);
+}
+
+.hero-banner-blurb {
+    margin: 0;
+    font-size: 1.05em;
+    line-height: 1.55;
+    color: var(--hero-banner-dim);
+}
+
+/* Narrow content area (a phone, or a tablet with the sidebar open): the video
+   on top at full width, the text below it on the dark band. */
+@container hero-content (max-width: 640px) {
+    .hero-banner {
+        display: block;
+    }
+
+    .hero-banner-media {
+        max-height: none;
+    }
+
+    .hero-banner-text {
+        width: auto;
+        padding: 1.4em 1.2em 1.6em;
+        background: var(--hero-banner-band);
+    }
+
+    .hero-banner h1 {
+        font-size: 2.4em;
+    }
+}
+
+/* ── Stat block (Fabrary card-page layout) ──────────────────────────────── */
+
+.hero-statblock {
+    font-family: 'Open Sans', sans-serif;
+    margin: var(--hero-section-gap) 0;
+}
+
+/* Card on the left, panels on the right. */
+.hero-statblock-variant {
+    display: grid;
+    grid-template-columns: 16em minmax(0, 1fr);
+    gap: 1.6em;
+    align-items: start;
+}
+
+/* With JS, only the selected variant shows. Without it both stay visible. */
+.hero-statblock-variant[hidden] {
+    display: none;
+}
+
+/* Without JS both variants show, one under the other. */
+html:not(.js) .hero-statblock-variant + .hero-statblock-variant {
+    margin-top: 1.6em;
+}
+
+/* With JS, the variants share one grid cell under the header: the hidden one
+   keeps its space (invisible, out of the accessibility tree and the tab
+   order), so the block is as tall as its taller variant whichever is shown,
+   and switching Adult | Young moves nothing below. */
+html.js .hero-statblock {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+}
+
+html.js .hero-statblock-variant {
+    grid-row: 2;
+    grid-column: 1;
+}
+
+html.js .hero-statblock-variant[hidden] {
+    display: grid;
+    visibility: hidden;
+}
+
+.hero-statblock-card {
+    margin: 0;
+}
+
+.hero-statblock-thumb {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4.5%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-statblock-caption {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15em;
+    margin-top: 0.7em;
+    font-size: 0.85em;
+    text-align: center;
+}
+
+.hero-statblock-artist {
+    color: var(--searchresults-header-fg);
+}
+
+.hero-statblock code,
+.hero-statblock-caption code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.95em;
+    padding: 0;
+    background: none;
+    color: inherit;
+}
+
+.hero-statblock-main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9em;
+    min-width: 0;
+    /* As tall as the row, so the printings overlay below can fill it. */
+    align-self: stretch;
+}
+
+/* Header row: name left, segmented controls right. */
+.hero-statblock-head {
+    margin-bottom: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6em 1em;
+}
+
+.hero-statblock-name {
+    margin: 0;
+    font-size: 1.4em;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.hero-statblock-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.hero-seg {
+    display: inline-flex;
+    border: 1px solid var(--table-border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.hero-seg-btn {
+    padding: 0.3em 0.85em;
+    border: none;
+    background: transparent;
+    color: var(--fg);
+    font: inherit;
+    font-size: 0.85em;
+    cursor: pointer;
+}
+
+.hero-seg-btn + .hero-seg-btn {
+    border-left: 1px solid var(--table-border-color);
+}
+
+/* Colour only: a bolder weight would widen the label and shift its neighbours. */
+.hero-seg-btn[aria-pressed='true'] {
+    background: var(--links);
+    color: var(--bg);
+}
+
+.hero-seg-btn:focus-visible {
+    outline: 2px solid var(--links);
+    outline-offset: -2px;
+}
+
+/* No JS: the controls would do nothing, so hide them and show every panel. */
+html:not(.js) .hero-statblock-controls {
+    display: none;
+}
+
+/* With JS, Card | Printings picks which panels show. The Card panels keep
+   their space under Printings, and the printings grid lies over that space and
+   scrolls inside it, so the block keeps one height in both views. */
+.hero-statblock[data-view='card'] .hero-panel--printings,
+.hero-statblock-variant[hidden] .hero-panel--printings {
+    display: none;
+}
+
+.hero-statblock[data-view='printings'] .hero-panel--text,
+.hero-statblock[data-view='printings'] .hero-panel--details {
+    visibility: hidden;
+}
+
+.hero-statblock[data-view='printings'] .hero-panel--printings {
+    position: absolute;
+    inset: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+/* Panels */
+
+.hero-panel {
+    padding: 0.8em 1em;
+    border: 1px solid var(--table-border-color);
+    border-radius: 10px;
+    background: var(--quote-bg);
+}
+
+.hero-panel-title {
+    margin: 0 0 0.6em;
+    font-size: 0.75em;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--searchresults-header-fg);
+}
+
+.hero-statblock-text {
+    font-size: 1.1em;
+    line-height: 1.55;
+}
+
+.hero-statblock-text p {
+    margin: 0 0 0.5em;
+}
+
+.hero-statblock-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Details: label/value rows in two columns, each with a thin rule. */
+.hero-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1.6em;
+    margin: 0;
+}
+
+.hero-detail {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.8em;
+    padding: 0.45em 0;
+    /* Derived from the text colour, so the rule shows on the panel in every theme. */
+    border-bottom: 1px solid color-mix(in srgb, var(--fg) 14%, transparent);
+    font-size: 0.92em;
+}
+
+.hero-detail dt {
+    flex: 0 0 auto;
+    font-weight: 600;
+    color: var(--searchresults-header-fg);
+}
+
+/* A block, not a flex box: "Warrior, Thief" must keep its comma tight. */
+.hero-detail dd {
+    margin: 0;
+    text-align: right;
+}
+
+/* Long values (first release, sets, rarities, artists, Living Legend) take
+   the full width; the short ones pair up two to a line. */
+.hero-detail--wide {
+    grid-column: 1 / -1;
+}
+
+.hero-detail-icon {
+    width: 1.1em;
+    height: 1.1em;
+    vertical-align: -0.15em;
+}
+
+.hero-chip {
+    display: inline-block;
+    margin: 0.1em 0 0.1em 0.3em;
+    padding: 0.05em 0.6em;
+    border: 1px solid var(--table-border-color);
+    border-radius: 999px;
+    background: var(--bg);
+    font-size: 0.92em;
+    white-space: nowrap;
+}
+
+.hero-ll-badge {
+    display: inline-block;
+    padding: 0.25em 0.75em;
+    border: 2px solid var(--links);
+    border-radius: 8px;
+    background: var(--bg);
+    color: var(--fg);
+    font-weight: 600;
+}
+
+.hero-ll-badge .fas {
+    color: var(--links);
+}
+
+/* Difficulty: five stars, filled in halves. A mask draws each star, so the
+   fill follows the theme's link colour and the empty part a faint text colour. */
+.hero-difficulty {
+    display: inline-flex;
+    gap: 0.12em;
+    vertical-align: -0.15em;
+}
+
+.hero-star {
+    --hero-star-on: var(--links);
+    --hero-star-off: color-mix(in srgb, var(--fg) 22%, transparent);
+    display: inline-block;
+    width: 1.05em;
+    height: 1.05em;
+    background: var(--hero-star-off);
+    -webkit-mask: var(--hero-star-shape) center / contain no-repeat;
+    mask: var(--hero-star-shape) center / contain no-repeat;
+    --hero-star-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.8l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 17.9l-6.4 3.5 1.4-7.1-5.3-5 7.2-.9z'/%3E%3C/svg%3E");
+}
+
+.hero-star--full {
+    background: var(--hero-star-on);
+}
+
+.hero-star--half {
+    background: linear-gradient(to right, var(--hero-star-on) 50%, var(--hero-star-off) 50%);
+}
+
+/* Playstyles: the fabtcg.com icons are gold on transparent. The CDN sends no
+   CORS header, so they cannot be CSS masks in the theme colour; they stay
+   images, gold on the dark themes and darkened to bronze on the light ones. */
+.hero-detail a.hero-playstyle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    margin-left: 0.9em;
+    white-space: nowrap;
+}
+
+.hero-detail a.hero-playstyle:first-child {
+    margin-left: 0;
+}
+
+.hero-playstyle-icon {
+    flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+}
+
+html.light .hero-playstyle-icon,
+html.rust .hero-playstyle-icon {
+    filter: brightness(0.55) saturate(1.4);
+}
+
+/* ── Forms of <hero>: the form rail after the stat block ────────────────────
+   Every form in release order, an equal-width grid. The year pills sit on a
+   thin connector line that runs behind them. Real links to each form's anchor;
+   theme/hero-card.js switches form in place. */
+
+.hero-forms {
+    margin: var(--hero-section-gap, 2.5em) 0 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--table-border-color);
+}
+
+/* Looks like the Related Lore heading (an h1 in .related-section), but is a
+   <p role="heading">: a real heading would be listed in mdBook's sidebar. */
+.hero-forms-title {
+    margin: 0 0 0.9em;
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.hero-forms-rail {
+    --hero-rail-portrait: 112px;
+    position: relative;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(9.5em, 1fr);
+    gap: 1em;
+    padding: 0.2em 0.2em 0.6em;
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
+
+/* The connector, through the middle of the year pills. */
+.hero-forms-rail::before {
+    content: '';
+    position: absolute;
+    top: calc(0.2em + 0.8em);
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: color-mix(in srgb, var(--fg) 22%, transparent);
+}
+
+.hero-forms a.hero-tab,
+.hero-forms a.hero-tab:link,
+.hero-forms a.hero-tab:visited {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.55em;
+    padding: 0 0.3em 0.3em;
+    color: var(--fg);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 12px;
+}
+
+.hero-tab-year {
+    padding: 0.15em 0.8em;
+    border: 1px solid var(--links);
+    border-radius: 999px;
+    background: var(--bg);
+    color: var(--links);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.8em;
+    line-height: 1.6;
+}
+
+.hero-tab-portrait {
+    display: block;
+    width: var(--hero-rail-portrait);
+    height: var(--hero-rail-portrait);
+    margin-top: 0.3em;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--quote-bg);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25), 0 0 0 3px transparent;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hero-tab-label {
+    font-size: 1.1em;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.hero-tab-sub {
+    margin-top: -0.3em;
+    font-size: 0.85em;
+    line-height: 1.35;
+    color: var(--searchresults-header-fg);
+}
+
+.hero-forms a.hero-tab[aria-selected='true'] .hero-tab-portrait {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25), 0 0 0 3px var(--bg), 0 0 0 6px var(--links);
+}
+
+.hero-forms a.hero-tab[aria-selected='true'] .hero-tab-year {
+    background: var(--links);
+    color: var(--bg);
+}
+
+.hero-forms a.hero-tab:hover .hero-tab-portrait,
+.hero-forms a.hero-tab:focus-visible .hero-tab-portrait {
+    transform: translateY(-3px);
+}
+
+.hero-forms a.hero-tab:focus-visible {
+    outline: 2px solid var(--links);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-tab-portrait {
+        transition: none;
+    }
+
+    .hero-forms a.hero-tab:hover .hero-tab-portrait,
+    .hero-forms a.hero-tab:focus-visible .hero-tab-portrait {
+        transform: none;
+    }
+}
+
+@media only screen and (max-width: 599px) {
+    .hero-forms-rail {
+        --hero-rail-portrait: 84px;
+        /* Three forms still fit one row at 375px; a fourth scrolls sideways. */
+        grid-auto-columns: minmax(6.5em, 1fr);
+        gap: 0.4em;
+    }
+
+    .hero-forms-title {
+        font-size: 1.6em;
+    }
+}
+
+/* Printings: a grid of thumbnails; picking one shows it on the large card. */
+.hero-printings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(7em, 1fr));
+    gap: 0.8em;
+}
+
+.hero-printing-item {
+    margin: 0;
+    text-align: center;
+    font-size: 0.75em;
+    line-height: 1.3;
+}
+
+.hero-printing {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.35em;
+    border-radius: 4.5%;
+    border: 2px solid transparent;
+}
+
+.hero-printing[role='button'] {
+    cursor: pointer;
+}
+
+.hero-printing[aria-current='true'] {
+    border-color: var(--links);
+}
+
+.hero-printing:focus-visible {
+    outline: 2px solid var(--links);
+    outline-offset: 2px;
+}
+
+/* Without JS every form shows; a rule separates them in place of the "---" the
+   preprocessor drops. hero-card.js hides all but one and marks the body. */
+.hero-form + .hero-form {
+    border-top: 1px solid var(--table-border-color);
+    margin-top: 2em;
+    padding-top: 1em;
+}
+
+.hero-forms-tabbed .hero-form + .hero-form {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* ── Lightbox: every hero card opens at one size ──────────────────────────
+   The source images differ (546×763, 450×628, 446×624 …). hero-card.js tags
+   the large card with data-lightbox-size="card"; lightbox.js copies it onto
+   its dialog image as data-size. Capped by width and height, card ratio kept. */
+
+.lightbox-image[data-size='card'] {
+    width: min(546px, 90vw, calc(90vh * 546 / 763));
+    height: auto;
+    max-width: none;
+    max-height: none;
+    aspect-ratio: 546 / 763;
+    object-fit: contain;
+    border-radius: 4.5% / 3.2%;
+}
+
+/* ── Card text: symbols ──────────────────────────────────────────────── */
+
+/* A fixed box, so a missing icon (alt text, broken-image glyph) cannot grow
+   and push the line apart. */
+.card-glyph {
+    display: inline-block;
+    width: 1.1em;
+    height: 1.1em;
+    margin: 0 0.05em;
+    vertical-align: -0.2em;
+    overflow: hidden;
+    font-size: inherit;
+    line-height: 1;
+    color: transparent;
+    object-fit: contain;
+}
+
+/* ── Hub: talent filter from a stat block chip (#talent-<slug>) ─────────── */
+
+.hero-hub-card.hero-hub-card--talent-out {
+    display: none !important;
+}
+
+.hero-hub-talent-chip {
+    font: inherit;
+    font-size: 1rem;
+    padding: 0.45rem 0.95rem;
+    border-radius: 999px;
+    border: 1px solid var(--links);
+    background: var(--bg);
+    color: var(--links);
+    cursor: pointer;
+}
+
+.hero-hub-talent-chip:hover,
+.hero-hub-talent-chip:focus-visible {
+    background: var(--links);
+    color: var(--bg);
+}
+
+/* ── Hub: playstyle filter (hero-hub.js) ────────────────────────────────── */
+
+/* The playstyle group starts its own line in the toolbar. */
+.hero-hub-toolbar-break {
+    flex-basis: 100%;
+    height: 0;
+}
+
+.hero-hub-filter.hero-hub-playstyle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+}
+
+.hero-hub-playstyle .hero-playstyle-icon {
+    width: 18px;
+    height: 18px;
+}
+
+/* ── Phones: card on top, panels below ──────────────────────────────────── */
+
+@media only screen and (max-width: 599px) {
+    .hero-statblock-variant {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.1em;
+    }
+
+    /* Card above panels: the variants share the block's two rows, so a taller
+       caption on one card cannot move the panels when Adult | Young switches. */
+    html.js .hero-statblock-variant {
+        grid-row: 2 / span 2;
+        grid-template-rows: subgrid;
+    }
+
+    .hero-statblock-card {
+        justify-self: center;
+        width: 12em;
+    }
+
+    .hero-details {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .hero-printings-grid {
+        grid-template-columns: repeat(auto-fill, minmax(5.5em, 1fr));
+        gap: 0.6em;
+    }
+}

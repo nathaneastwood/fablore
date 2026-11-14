@@ -1,0 +1,91 @@
+/* Click-to-expand images (paired with theme/lightbox.js) */
+img.zoomable {
+  cursor: zoom-in;
+}
+
+img.zoomable:focus-visible {
+  outline: 2px solid var(--icons-hover);
+  outline-offset: 3px;
+}
+
+html.lightbox-open {
+  overflow: hidden;
+}
+
+.lightbox {
+  /* Fill the viewport; the default <dialog> box is small and centred. */
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  border: none;
+  /* Paint the dim on the dialog itself; it already fills the viewport. */
+  background: rgba(0, 0, 0, 0.96);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  cursor: zoom-out;
+}
+
+.lightbox[open] {
+  display: flex;
+}
+
+.lightbox::backdrop {
+  background: transparent;
+}
+
+.lightbox-image {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100vh - 5rem);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox-caption {
+  margin: 0;
+  color: #eee;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus-visible {
+  border-color: #fff;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .lightbox[open] .lightbox-image {
+    animation: lightbox-in 0.18s ease-out;
+  }
+
+  @keyframes lightbox-in {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+  }
+}

@@ -1,0 +1,16 @@
+# AUTO-GENERATED FILE — do not edit by hand. Regenerate with: Use the Database class in src/data/db/ (db.upsert_story / db.remove_story).
+StoryId|FoodDrinkId
+ST0233382227|FD600fb7d623
+ST0d81b8848e|FD4fa6b4bc33
+ST17ef02e02e|FD934d8e9278
+ST17ef02e02e|FDa748f67df7
+ST3fd6d760ad|FDb173b37b0c
+ST52edf826d3|FDf37c2df9a1
+ST5345dee53e|FDfa737281fb
+ST74ebdce495|FDdc2dbfdec6
+ST8c0d6d8f79|FD600fb7d623
+ST8fdf4cc8f4|FDb6f84ade96
+ST8fdf4cc8f4|FDfd8f7fe5cc
+STd45e5e52c9|FDaa51b3f658
+STdac44259c3|FDbe38edc54a
+STe0d72f1259|FDf37c2df9a1

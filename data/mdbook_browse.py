@@ -1,0 +1,191 @@
+#!/usr/bin/env python3
+"""mdBook preprocessor: generate the Browse Stories page.
+
+Finds the chapter at ``browse.md`` and replaces the
+``<!-- fablore-browse:start --> … <!-- fablore-browse:end -->`` marker block
+with an inline ``<script>`` containing the stories index and the filter UI shell.
+
+Lore-reference types (archive, heroes-of-rathe, other-characters, weapons,
+equipment) are excluded from the index so the page only shows narrative content.
+Stories are sorted newest-first by publication date, then alphabetically.
+"""
+
+from __future__ import annotations
+
+import json
+import sys
+from pathlib import Path
+
+_SCRIPT_DIR = Path(__file__).resolve().parent
+if str(_SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(_SCRIPT_DIR))
+
+from generator_utils import write_text_if_changed  # noqa: E402
+from mdbook_common import (  # noqa: E402
+    SECTIONS,
+    entity_names,
+    iter_chapters,
+    load_story_heroes,
+    md_to_html_url,
+    read_rows,
+    replace_marked_block,
+    run,
+)
+
+MARK_START = "<!-- fablore-browse:start -->"
+MARK_END = "<!-- fablore-browse:end -->"
+
+_BROWSE_SRC_PATH = "browse.md"
+
+# Story types a reader can filter by: the narrative sections that register stories.
+_TYPE_LABELS: dict[str, str] = {s.key: s.story_label for s in SECTIONS if s.narrative and s.entries_module}
+
+# Reference sections: their pages are reached through the entity they describe.
+_SKIP_TYPES: frozenset[str] = frozenset(s.key for s in SECTIONS if not s.narrative and s.entries_module)
+
+
+def build_index(data_dir: Path, rendered: set[str] | None = None) -> dict:
+    """Build the browse index from CSV junction tables.
+
+    ``rendered`` is the set of ``src``-relative chapter paths the book builds.
+    When given, a story whose page is not among them (registered in
+    ``stories.csv`` but absent from ``SUMMARY.md``, like the contributor
+    READMEs) gets no card, since its link would 404.
+    """
+    stories_by_id: dict[str, dict] = {}
+    for r in read_rows(data_dir / "csv" / "stories.csv"):
+        sid = (r.get("StoryId") or "").strip()
+        key = (r.get("StoryKey") or "").strip()
+        stype = (r.get("StoryType") or "").strip()
+        title = (r.get("Title") or "").strip()
+        date = (r.get("PublicationDate") or "").strip()
+        if not sid or not key or stype in _SKIP_TYPES or not title:
+            continue
+        if rendered is not None and key not in rendered:
+            continue
+        url = md_to_html_url(key)
+        stories_by_id[sid] = {
+            "t": title,
+            "u": url,
+            "k": stype,
+            "h": [],
+            "r": [],
+            "_d": date,
+        }
+
+    hero_name = entity_names(data_dir / "csv" / "heroes-canonical.csv", "CanonicalId", "CanonicalHero")
+    region_name = entity_names(data_dir / "csv" / "regions.csv", "RegionId", "RegionName")
+
+    for sid, canon_ids in load_story_heroes(data_dir).story_heroes.items():
+        if sid not in stories_by_id:
+            continue
+        for cid in canon_ids:
+            name = hero_name.get(cid)
+            if name is not None and name not in stories_by_id[sid]["h"]:
+                stories_by_id[sid]["h"].append(name)
+
+    for r in read_rows(data_dir / "csv" / "story-regions.csv"):
+        sid = (r.get("StoryId") or "").strip()
+        rid = (r.get("RegionId") or "").strip()
+        if sid in stories_by_id and rid in region_name:
+            name = region_name[rid]
+            if name not in stories_by_id[sid]["r"]:
+                stories_by_id[sid]["r"].append(name)
+
+    dated = [s for s in stories_by_id.values() if s["_d"]]
+    undated = [s for s in stories_by_id.values() if not s["_d"]]
+    dated.sort(key=lambda s: s["_d"], reverse=True)
+    undated.sort(key=lambda s: s["t"].lower())
+    stories = dated + undated
+
+    for s in stories:
+        del s["_d"]
+
+    present_heroes: set[str] = set()
+    for s in stories:
+        present_heroes.update(s["h"])
+
+    present_regions: set[str] = set()
+    for s in stories:
+        present_regions.update(s["r"])
+
+    present_types: set[str] = {s["k"] for s in stories}
+    types_list = [{"k": k, "l": v} for k, v in _TYPE_LABELS.items() if k in present_types]
+
+    return {
+        "stories": stories,
+        "heroes": sorted(present_heroes),
+        "regions": sorted(present_regions),
+        "types": types_list,
+    }
+
+
+def build_browse_html(index: dict) -> str:
+    data_json = json.dumps(index, ensure_ascii=False, separators=(",", ":"))
+    return (
+        f"<script>window.FABLORE_BROWSE={data_json};</script>\n"
+        '<div id="browse-app" class="browse-app">\n'
+        '  <div class="browse-filters">\n'
+        '    <div class="browse-filter-group">\n'
+        '      <span class="browse-filter-label">Type</span>\n'
+        '      <div class="browse-pills" id="browse-type-pills"></div>\n'
+        "    </div>\n"
+        '    <div class="browse-filter-group">\n'
+        '      <span class="browse-filter-label">Region</span>\n'
+        '      <div class="browse-pills" id="browse-region-pills"></div>\n'
+        "    </div>\n"
+        '    <div class="browse-filter-group">\n'
+        '      <span class="browse-filter-label">Hero</span>\n'
+        '      <div class="browse-hero-widget" id="browse-hero-widget">\n'
+        '        <div class="browse-hero-field" id="browse-hero-field">\n'
+        '          <div class="browse-hero-chips" id="browse-hero-chips"></div>\n'
+        '          <input type="text" id="browse-hero-input" class="browse-hero-input"'
+        ' placeholder="Search heroes…" autocomplete="off" />\n'
+        "        </div>\n"
+        '        <ul class="browse-hero-dropdown" id="browse-hero-dropdown" hidden></ul>\n'
+        "      </div>\n"
+        "    </div>\n"
+        "  </div>\n"
+        '  <p id="browse-count" class="browse-count"></p>\n'
+        '  <ul id="browse-results" class="browse-results"></ul>\n'
+        "</div>"
+    )
+
+
+def inject_into_content(content: str, inner_html: str) -> str:
+    return replace_marked_block(content, MARK_START, MARK_END, inner_html, pad_after=False)
+
+
+def walk_and_process(sections: list, index: dict) -> None:
+    for ch in iter_chapters(sections):
+        path = (ch.get("path") or "").strip()
+        if path == _BROWSE_SRC_PATH:
+            ch["content"] = inject_into_content(
+                ch.get("content") or "",
+                build_browse_html(index),
+            )
+
+
+def _process(items: list, src_root: Path) -> None:
+    rendered = {(ch.get("path") or "").strip() for ch in iter_chapters(items)}
+    index = build_index(src_root / "data", rendered - {""})
+
+    stories_json = (
+        json.dumps(
+            [{"t": s["t"], "u": s["u"]} for s in index["stories"]],
+            ensure_ascii=False,
+            separators=(",", ":"),
+        )
+        + "\n"
+    )
+    write_text_if_changed(src_root / "stories.json", stories_json)
+
+    walk_and_process(items, index)
+
+
+def main() -> None:
+    run(_process)
+
+
+if __name__ == "__main__":
+    main()
