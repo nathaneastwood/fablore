@@ -26,7 +26,7 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from mdbook_common import iter_chapters, relative_href, run  # noqa: E402
+from mdbook_common import first_h1_title_from_markdown, iter_chapters, relative_href, run  # noqa: E402
 
 MARK_START = "<!-- fablore-archive-notice:start -->"
 MARK_END = "<!-- fablore-archive-notice:end -->"
@@ -38,14 +38,7 @@ def _display(slug: str) -> str:
     return slug.replace("-", " ").title()
 
 
-_HEADING_RE = re.compile(r"^#\s+(.+?)\s*#*\s*$", re.MULTILINE)
 _LINK_TEXT_SPECIALS = re.compile(r"([\\\[\]*_`<>])")
-
-
-def _first_h1(path: Path) -> str | None:
-    """The text of the first ``# `` heading in ``path``, or None if it has none."""
-    m = _HEADING_RE.search(path.read_text(encoding="utf-8"))
-    return m.group(1).strip() if m else None
 
 
 def _link_text(text: str) -> str:
@@ -104,7 +97,7 @@ def _hero_archive(chapter_src_path: str, content: str, src_root: Path) -> tuple[
     href = relative_href(chapter_src_path, target_src)
     # The page's own name ("Valda, Seismic Impact", "Arakni, 5l!p3d 7hru 7h3 Cr4x"),
     # not one rebuilt from the slug.
-    heading = _first_h1(src_root / target_src)
+    heading = first_h1_title_from_markdown((src_root / target_src).read_text(encoding="utf-8"))
     display = _link_text(heading) if heading else _display(Path(target_src).stem.removesuffix("-about"))
     msg = f"This hero overview has been superseded. For the current version, see [{display}]({href})."
     return f"> [!WARNING]\n> {msg}", content[: m.start()] + content[m.end() :]

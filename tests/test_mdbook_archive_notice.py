@@ -124,6 +124,14 @@ def test_hero_archive_links_with_the_current_pages_first_h1(src_root: Path) -> N
     assert "see [Valda, Seismic Impact](../../heroes-of-rathe/valda-about.md)." in notice
 
 
+def test_hero_archive_link_text_drops_the_targets_heading_id(src_root: Path) -> None:
+    (src_root / "heroes-of-rathe" / "valda-about.md").write_text("# Valda, Seismic Impact {#valda}\n")
+    notice, _ = _hero_archive(
+        "archive/heroes-of-rathe/valda-brightaxe.md", _old("heroes-of-rathe/valda-about.md"), src_root
+    )
+    assert "see [Valda, Seismic Impact](../../heroes-of-rathe/valda-about.md)." in notice
+
+
 def test_hero_archive_falls_back_to_the_target_slug_when_it_has_no_h1(src_root: Path) -> None:
     (src_root / "heroes-of-rathe" / "bravo-about.md").write_text("Lore only.\n")
     notice, _ = _hero_archive("archive/heroes-of-rathe/bravo-wtr.md", _old("heroes-of-rathe/bravo-about.md"), src_root)

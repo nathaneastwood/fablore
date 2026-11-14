@@ -24,7 +24,6 @@ Content roots (each becomes the ``StoryType`` prefix = first path segment):
 
 from __future__ import annotations
 
-import re
 import string
 import sys
 from pathlib import Path
@@ -33,7 +32,7 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from mdbook_common import SECTIONS  # noqa: E402
+from mdbook_common import SECTIONS, first_h1_title_from_markdown  # noqa: E402
 from registry_ids import story_id as _story_id
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -42,25 +41,6 @@ DATA = ROOT / "src/data"
 
 # Every section that registers stories (one ``entries/`` module each).
 STORY_ROOTS = tuple(s.key for s in SECTIONS if s.entries_module)
-
-_H1_LINE = re.compile(r"^\s*#\s+(.+?)\s*$")
-
-
-def _strip_heading_anchor(title: str) -> str:
-    """Remove trailing mdBook-style ``{#anchor}`` from a heading inner string."""
-    return re.sub(r"\s*\{#[^}]+\}\s*$", "", title).strip()
-
-
-def _strip_wrapping_emphasis(title: str) -> str:
-    """Remove a single layer of ``**`` or ``*`` wrapping if it spans the whole title."""
-    t = title.strip()
-    m = re.fullmatch(r"\*\*(.+)\*\*", t)
-    if m:
-        return m.group(1).strip()
-    m = re.fullmatch(r"\*(.+)\*", t)
-    if m:
-        return m.group(1).strip()
-    return t
 
 
 def title_from_filename_stem(stem: str) -> str:
@@ -75,33 +55,6 @@ def title_from_filename_stem(stem: str) -> str:
     if not stem:
         return ""
     return string.capwords(stem.replace("-", " ").replace("_", " ").strip())
-
-
-def first_h1_title_from_markdown(text: str) -> str | None:
-    """Return inner text of the first ATX H1 (``# ...``), or None if absent.
-
-    Skips blank lines. Lines starting with ``##`` are ignored (not H1). Strips
-    trailing ``{#anchor}`` and simple bold/italic wrappers around the whole title.
-
-    Args:
-        text: Full Markdown file body.
-
-    Returns:
-        Stripped title string, or ``None`` if no suitable H1 was found.
-    """
-    for line in text.splitlines()[:400]:
-        if not line.strip():
-            continue
-        m = _H1_LINE.match(line)
-        if m:
-            inner = _strip_heading_anchor(m.group(1))
-            inner = _strip_wrapping_emphasis(inner)
-            if inner:
-                return inner
-            continue
-        if line.lstrip().startswith("#"):
-            continue
-    return None
 
 
 def infer_story_title(md_path: Path) -> str:

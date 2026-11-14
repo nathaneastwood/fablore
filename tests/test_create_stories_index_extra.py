@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src/data"))
 
 import create_stories_index as csi
+import mdbook_common
 import pytest
 
 
@@ -24,25 +25,25 @@ def test_title_from_filename_stem_empty() -> None:
 
 
 # ---------------------------------------------------------------------------
-# _strip_wrapping_emphasis — bold (line 68) and italic (line 71)
+# mdbook_common._strip_wrapping_emphasis — bold and italic
 # ---------------------------------------------------------------------------
 
 
 def test_strip_wrapping_emphasis_bold() -> None:
     """Double-asterisk bold wrapper is stripped (line 68)."""
-    result = csi._strip_wrapping_emphasis("**My Title**")
+    result = mdbook_common._strip_wrapping_emphasis("**My Title**")
     assert result == "My Title"
 
 
 def test_strip_wrapping_emphasis_italic() -> None:
     """Single-asterisk italic wrapper is stripped (line 71)."""
-    result = csi._strip_wrapping_emphasis("*My Title*")
+    result = mdbook_common._strip_wrapping_emphasis("*My Title*")
     assert result == "My Title"
 
 
 def test_strip_wrapping_emphasis_no_wrapper() -> None:
     """Plain text is returned unchanged (fall-through after both matches fail)."""
-    result = csi._strip_wrapping_emphasis("Plain Title")
+    result = mdbook_common._strip_wrapping_emphasis("Plain Title")
     assert result == "Plain Title"
 
 

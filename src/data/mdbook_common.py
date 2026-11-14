@@ -160,6 +160,53 @@ def chapter_path(ch: dict) -> str:
     return normalise_page_path((ch.get("path") or "").strip())
 
 
+_H1_LINE = re.compile(r"^\s*#\s+(.+?)\s*$")
+
+
+def _strip_heading_anchor(title: str) -> str:
+    """Remove trailing mdBook-style ``{#anchor}`` from a heading inner string."""
+    return re.sub(r"\s*\{#[^}]+\}\s*$", "", title).strip()
+
+
+def _strip_wrapping_emphasis(title: str) -> str:
+    """Remove a single layer of ``**`` or ``*`` wrapping if it spans the whole title."""
+    t = title.strip()
+    m = re.fullmatch(r"\*\*(.+)\*\*", t)
+    if m:
+        return m.group(1).strip()
+    m = re.fullmatch(r"\*(.+)\*", t)
+    if m:
+        return m.group(1).strip()
+    return t
+
+
+def first_h1_title_from_markdown(text: str) -> str | None:
+    """Return inner text of the first ATX H1 (``# ...``), or None if absent.
+
+    Skips blank lines. Lines starting with ``##`` are ignored (not H1). Strips
+    trailing ``{#anchor}`` and simple bold/italic wrappers around the whole title.
+
+    Args:
+        text: Full Markdown file body.
+
+    Returns:
+        Stripped title string, or ``None`` if no suitable H1 was found.
+    """
+    for line in text.splitlines()[:400]:
+        if not line.strip():
+            continue
+        m = _H1_LINE.match(line)
+        if m:
+            inner = _strip_heading_anchor(m.group(1))
+            inner = _strip_wrapping_emphasis(inner)
+            if inner:
+                return inner
+            continue
+        if line.lstrip().startswith("#"):
+            continue
+    return None
+
+
 def read_rows(path: Path) -> list[dict[str, str]]:
     """The rows of a pipe CSV; ``[]`` when it is absent or empty."""
     return read_pipe_csv(path)[1]
