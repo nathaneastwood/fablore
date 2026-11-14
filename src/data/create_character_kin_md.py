@@ -41,6 +41,9 @@ OUTPUT_MD = DATA / "md" / "character-kin.md"
 if str(DATA) not in sys.path:
     sys.path.insert(0, str(DATA))
 
+from generator_utils import md_table as _md_table  # noqa: E402
+from generator_utils import write_db_markdown  # noqa: E402
+
 _BANNER = "<!-- ### NOTE: This file should not be edited by hand. Please edit create_character_kin_md.py. -->\n"
 
 _PARENT_LIKE = frozenset({"father", "mother", "parent"})
@@ -57,14 +60,6 @@ _SYMMETRIC_LABELS = {
 asymmetric ones (parent/child, grandparent/grandchild, aunt-or-uncle/
 niece-or-nephew) get their label from :func:`_pair_row` instead, since which
 name leads depends on which side of the bond each person is on."""
-
-
-def _md_table(headers: list[str], rows: list[list[str]]) -> str:
-    """Render a minimal GFM pipe table — no external padding library."""
-    lines = ["| " + " | ".join(headers) + " |", "| " + " | ".join("---" for _ in headers) + " |"]
-    for row in rows:
-        lines.append("| " + " | ".join(row) + " |")
-    return "\n".join(lines)
 
 
 def _story_link(story_key: str) -> str:
@@ -440,14 +435,7 @@ def main(output_md: Path = OUTPUT_MD, *, db_path: Path | None = None) -> None:
     open, so this works on a fresh clone where ``fablore.db`` does not exist
     yet, the same way ``create_character_groups_md.py`` does.
     """
-    from db import Database
-
-    database = Database(db_path if db_path is not None else DB_PATH)
-    try:
-        text = render_markdown(database.conn)
-    finally:
-        database.conn.close()
-    Path(output_md).write_text(_BANNER + text, encoding="utf-8")
+    write_db_markdown(render_markdown, output_md, _BANNER, db_path if db_path is not None else DB_PATH)
 
 
 if __name__ == "__main__":

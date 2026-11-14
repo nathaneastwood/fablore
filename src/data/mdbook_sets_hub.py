@@ -16,19 +16,26 @@ traversal of the book sections JSON.
 from __future__ import annotations
 
 import html
-import json
-import os
-import re
 import sys
 from collections import OrderedDict
-from datetime import datetime
 from pathlib import Path
 
 _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from pipe_csv_io import read_pipe_csv  # noqa: E402
+from mdbook_common import (  # noqa: E402
+    arc_display_name,
+    arc_id,
+    arc_image,
+    arc_raw_date,
+    arc_release_date,
+    iter_chapters,
+    load_arcs,
+    load_sets,
+    relative_href,
+    run,
+)
 
 MARK_START = "<!-- fablore-sets-hub:start -->"
 MARK_END = "<!-- fablore-sets-hub:end -->"
@@ -48,61 +55,10 @@ _HUB_PAGES = {
 _HUB_SKIP = frozenset(_HUB_PAGES)
 
 
-def _load_arcs(data_dir: Path) -> dict[str, dict[str, str]]:
-    _, rows = read_pipe_csv(data_dir / "csv" / "story-arcs.csv")
-    return {r["Slug"]: r for r in rows if r.get("Slug")}
-
-
-def _load_sets(data_dir: Path) -> dict[str, dict[str, str]]:
-    _, rows = read_pipe_csv(data_dir / "csv" / "sets.csv")
-    return {r["SetId"]: r for r in rows if r.get("SetId")}
-
-
-def _arc_display_name(slug: str, arcs: dict, sets: dict) -> str:
-    arc = arcs.get(slug, {})
-    if arc.get("DisplayName"):
-        return arc["DisplayName"]
-    set_id = arc.get("SetId", "")
-    if set_id and set_id in sets:
-        return sets[set_id]["SetName"]
-    name = re.sub(r"^\d+-", "", slug)
-    return name.replace("-", " ").title()
-
-
 def _arc_release_date(slug: str, arcs: dict, sets: dict) -> str:
-    arc = arcs.get(slug, {})
-    set_id = arc.get("SetId", "")
-    if not set_id or set_id not in sets:
-        return ""
-    raw = sets[set_id].get("InitialReleaseDate", "")
-    if not raw:
-        return ""
-    try:
-        dt = datetime.strptime(raw.split("T")[0], "%Y-%m-%d")
-        return f"{dt.day} {dt.strftime('%B %Y')}"
-    except ValueError:
-        return raw
-
-
-def _arc_sort_key(slug: str, arcs: dict, sets: dict) -> str:
-    arc = arcs.get(slug, {})
-    set_id = arc.get("SetId", "")
-    date = sets.get(set_id, {}).get("InitialReleaseDate", "") if set_id else ""
-    return (date or arc.get("SortDate", "")) or ""
-
-
-def _arc_image(slug: str, arcs: dict) -> str:
-    return (arcs.get(slug) or {}).get("ImageLink", "")
-
-
-def _arc_id(slug: str) -> str:
-    """Derive an HTML anchor ID from an arc slug."""
-    name = re.sub(r"^\d+-", "", slug)
-    return re.sub(r"[^a-z0-9-]", "-", name.lower()).strip("-")
-
-
-def _relative_href(from_src: str, to_src: str) -> str:
-    return Path(os.path.relpath(Path(to_src), start=Path(from_src).parent)).as_posix()
+    # The hubs show only the upstream release date; unlike the Sets index
+    # (mdbook_set_index) they do not fall back to the arc's SortDate.
+    return arc_release_date(slug, arcs, sets, sort_date_fallback=False)
 
 
 # ---------------------------------------------------------------------------
@@ -118,30 +74,27 @@ def _collect(
     story_arcs: dict[str, OrderedDict[str, list[Chapter]]],
 ) -> None:
     """Walk book sections and bucket chapters into flavour / main-story / short-stories."""
-    for item in sections:
-        if not isinstance(item, dict) or "Chapter" not in item:
-            continue
-        ch = item["Chapter"]
+    for ch in iter_chapters(sections):
         path_raw = (ch.get("path") or "").strip()
-        if path_raw:
-            path = Path(path_raw).as_posix()
-            if path not in _HUB_SKIP:
-                parts = path.split("/")
-                section = parts[0]
+        if not path_raw:
+            continue
+        path = Path(path_raw).as_posix()
+        if path in _HUB_SKIP:
+            continue
+        parts = path.split("/")
+        section = parts[0]
 
-                if section == "flavour" and len(parts) == 2:
-                    flavour.append({"name": ch.get("name", ""), "path": path})
+        if section == "flavour" and len(parts) == 2:
+            flavour.append({"name": ch.get("name", ""), "path": path})
 
-                elif section in ("main-story", "short-stories", "digital-tiles") and len(parts) >= 3:
-                    arc_slug = parts[1]
-                    story_arcs[section].setdefault(arc_slug, []).append({"name": ch.get("name", ""), "path": path})
+        elif section in ("main-story", "short-stories", "digital-tiles") and len(parts) >= 3:
+            arc_slug = parts[1]
+            story_arcs[section].setdefault(arc_slug, []).append({"name": ch.get("name", ""), "path": path})
 
-                elif section == "short-stories" and len(parts) == 2:
-                    # Flat page like kassais-diary.md — its own pseudo-arc
-                    slug = parts[1].removesuffix(".md")
-                    story_arcs["short-stories"].setdefault(slug, []).append({"name": ch.get("name", ""), "path": path})
-
-        _collect(ch.get("sub_items") or [], flavour, story_arcs)
+        elif section == "short-stories" and len(parts) == 2:
+            # Flat page like kassais-diary.md — its own pseudo-arc
+            slug = parts[1].removesuffix(".md")
+            story_arcs["short-stories"].setdefault(slug, []).append({"name": ch.get("name", ""), "path": path})
 
 
 # ---------------------------------------------------------------------------
@@ -160,10 +113,10 @@ def _card_grid_html(
     for ch in chapters:
         path = ch["path"]
         slug = path.split("/")[-1].removesuffix(".md")
-        name = html.escape(ch["name"] or _arc_display_name(slug, arcs, sets))
+        name = html.escape(ch["name"] or arc_display_name(slug, arcs, sets))
         date = _arc_release_date(slug, arcs, sets)
-        image = _arc_image(slug, arcs)
-        href = html.escape(_relative_href(hub_src, path))
+        image = arc_image(slug, arcs)
+        href = html.escape(relative_href(hub_src, path))
 
         img_html = ""
         if image:
@@ -193,14 +146,14 @@ def _arc_card_grid_html(
 ) -> str:
     """Card grid for digital-tiles hub — one card per arc, linking to its single page."""
     cards: list[str] = []
-    for slug, chapters in sorted(arc_map.items(), key=lambda kv: _arc_sort_key(kv[0], arcs, sets)):
+    for slug, chapters in sorted(arc_map.items(), key=lambda kv: arc_raw_date(kv[0], arcs, sets)):
         if not chapters:
             continue
         first = chapters[0]
-        name = html.escape(_arc_display_name(slug, arcs, sets))
+        name = html.escape(arc_display_name(slug, arcs, sets))
         date = _arc_release_date(slug, arcs, sets)
-        image = _arc_image(slug, arcs)
-        href = html.escape(_relative_href(hub_src, first["path"]))
+        image = arc_image(slug, arcs)
+        href = html.escape(relative_href(hub_src, first["path"]))
 
         img_html = ""
         if image:
@@ -230,11 +183,11 @@ def _arc_sections_html(
 ) -> str:
     """Arc sections for main-story / short-stories hub pages."""
     sections: list[str] = []
-    for slug, chapters in sorted(arc_map.items(), key=lambda kv: _arc_sort_key(kv[0], arcs, sets)):
-        name = html.escape(_arc_display_name(slug, arcs, sets))
+    for slug, chapters in sorted(arc_map.items(), key=lambda kv: arc_raw_date(kv[0], arcs, sets)):
+        name = html.escape(arc_display_name(slug, arcs, sets))
         date = _arc_release_date(slug, arcs, sets)
-        image = _arc_image(slug, arcs)
-        anchor = _arc_id(slug)
+        image = arc_image(slug, arcs)
+        anchor = arc_id(slug)
 
         header_parts = [f'<span class="arc-section-name">{name}</span>']
         if date:
@@ -252,7 +205,7 @@ def _arc_sections_html(
         for ch in chapters:
             path = ch["path"]
             title = html.escape(ch["name"] or path.split("/")[-1].removesuffix(".md"))
-            href = html.escape(_relative_href(hub_src, path))
+            href = html.escape(relative_href(hub_src, path))
             story_items.append(f'<li><a href="{href}">{title}</a></li>')
 
         stories_inner = "\n      ".join(story_items)
@@ -293,44 +246,26 @@ def _inject_hubs(
     arcs: dict,
     sets: dict,
 ) -> None:
-    for item in sections:
-        if not isinstance(item, dict) or "Chapter" not in item:
-            continue
-        ch = item["Chapter"]
+    for ch in iter_chapters(sections):
         path_raw = (ch.get("path") or "").strip()
-        if path_raw:
-            path = Path(path_raw).as_posix()
-            hub_type = _HUB_PAGES.get(path)
-            if hub_type:
-                if hub_type == "flavour":
-                    inner = _card_grid_html(path, flavour_chapters, arcs, sets)
-                elif hub_type == "digital-tiles":
-                    inner = _arc_card_grid_html(path, story_arcs["digital-tiles"], arcs, sets)
-                else:
-                    inner = _arc_sections_html(path, story_arcs[hub_type], arcs, sets)
-                ch["content"] = _inject_hub(ch.get("content") or "", inner)
-
-        _inject_hubs(
-            ch.get("sub_items") or [],
-            flavour_chapters,
-            story_arcs,
-            arcs,
-            sets,
-        )
+        if not path_raw:
+            continue
+        path = Path(path_raw).as_posix()
+        hub_type = _HUB_PAGES.get(path)
+        if hub_type:
+            if hub_type == "flavour":
+                inner = _card_grid_html(path, flavour_chapters, arcs, sets)
+            elif hub_type == "digital-tiles":
+                inner = _arc_card_grid_html(path, story_arcs["digital-tiles"], arcs, sets)
+            else:
+                inner = _arc_sections_html(path, story_arcs[hub_type], arcs, sets)
+            ch["content"] = _inject_hub(ch.get("content") or "", inner)
 
 
-def main() -> None:
-    if len(sys.argv) >= 3 and sys.argv[1] == "supports":
-        sys.exit(0)
-
-    ctx, book = json.load(sys.stdin)
-    root = Path(ctx["root"])
-    book_cfg = (ctx.get("config") or {}).get("book") or {}
-    src_rel = (book_cfg.get("src") or "src").strip() or "src"
-    data_dir = (root / src_rel).resolve() / "data"
-
-    arcs = _load_arcs(data_dir)
-    sets = _load_sets(data_dir)
+def _process(items: list, src_root: Path) -> None:
+    data_dir = src_root / "data"
+    arcs = load_arcs(data_dir)
+    sets = load_sets(data_dir)
 
     flavour_chapters: list[Chapter] = []
     story_arcs: dict[str, OrderedDict] = {
@@ -339,10 +274,12 @@ def main() -> None:
         "digital-tiles": OrderedDict(),
     }
 
-    _collect(book.get("items") or [], flavour_chapters, story_arcs)
-    _inject_hubs(book.get("items") or [], flavour_chapters, story_arcs, arcs, sets)
+    _collect(items, flavour_chapters, story_arcs)
+    _inject_hubs(items, flavour_chapters, story_arcs, arcs, sets)
 
-    json.dump(book, sys.stdout, ensure_ascii=False)
+
+def main() -> None:
+    run(_process)
 
 
 if __name__ == "__main__":

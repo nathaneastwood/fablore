@@ -22,8 +22,6 @@ print only the modified ``Book`` JSON on stdout. Supports ``supports <renderer>`
 from __future__ import annotations
 
 import html
-import json
-import os
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -33,7 +31,8 @@ if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
 from hero_overrides import HERO_SLUG_LORE_FILE_OVERRIDES  # noqa: E402
-from pipe_csv_io import read_pipe_csv  # noqa: E402
+from mdbook_common import RELATED_LORE_H1, iter_chapters, read_rows, run  # noqa: E402
+from mdbook_common import relative_href as relative_md_href  # noqa: E402
 
 MARK_START = "<!-- fablore-related:start -->"
 MARK_END = "<!-- fablore-related:end -->"
@@ -44,20 +43,6 @@ def _same_src_markdown(chapter_src_path: str, target_src_path: str) -> bool:
     a = Path(chapter_src_path).as_posix()
     b = Path(target_src_path).as_posix()
     return bool(a) and a == b
-
-
-def relative_md_href(chapter_src_path: str, target_src_path: str) -> str:
-    """Return a POSIX relative URL from one ``src/`` markdown path to another.
-
-    Args:
-        chapter_src_path: Path of the current chapter relative to the book's
-            ``src`` directory (e.g. ``main-story/foo/bar.md``).
-        target_src_path: Target path under the same ``src`` root.
-
-    Returns:
-        Relative path suitable for a Markdown/HTML ``href`` (uses ``.md``).
-    """
-    return Path(os.path.relpath(Path(target_src_path), start=Path(chapter_src_path).parent)).as_posix()
 
 
 @dataclass(frozen=True)
@@ -95,17 +80,11 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
         Frozen lookup maps for the preprocessor run.
     """
 
-    def rows(path: Path) -> list[dict[str, str]]:
-        if not path.is_file():
-            return []
-        _fn, rs = read_pipe_csv(path)
-        return rs
-
     key_to_id: dict[str, str] = {}
     id_to_key: dict[str, str] = {}
     id_to_title: dict[str, str] = {}
     id_to_type: dict[str, str] = {}
-    for r in rows(data_dir / "csv" / "stories.csv"):
+    for r in read_rows(data_dir / "csv" / "stories.csv"):
         sk = (r.get("StoryKey") or "").strip()
         sid = (r.get("StoryId") or "").strip()
         title = (r.get("Title") or "").strip()
@@ -124,7 +103,7 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
     # actually keys on — a hero and an ordinary character are rows of the same `characters`
     # table, so one junction (below) reaches both.
     canon_to_char: dict[str, str] = {}
-    for r in rows(data_dir / "csv" / "character-heroes.csv"):
+    for r in read_rows(data_dir / "csv" / "character-heroes.csv"):
         canon_id = (r.get("CanonicalId") or "").strip()
         char_id = (r.get("CharacterId") or "").strip()
         if canon_id and char_id:
@@ -132,7 +111,7 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
 
     sc: dict[str, set[str]] = {}
     char_frag: dict[tuple[str, str], str] = {}
-    for r in rows(data_dir / "csv" / "story-characters.csv"):
+    for r in read_rows(data_dir / "csv" / "story-characters.csv"):
         sid = (r.get("StoryId") or "").strip()
         cid = (r.get("CharacterId") or "").strip()
         frag = (r.get("Fragment") or "").strip()
@@ -157,21 +136,21 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
             hero_to_stories[canon_id] = set(stories)
 
     sl: dict[str, set[str]] = {}
-    for r in rows(data_dir / "csv" / "story-locations.csv"):
+    for r in read_rows(data_dir / "csv" / "story-locations.csv"):
         sid = (r.get("StoryId") or "").strip()
         lid = (r.get("LocationId") or "").strip()
         if sid and lid:
             sl.setdefault(sid, set()).add(lid)
 
     sr: dict[str, set[str]] = {}
-    for r in rows(data_dir / "csv" / "story-regions.csv"):
+    for r in read_rows(data_dir / "csv" / "story-regions.csv"):
         sid = (r.get("StoryId") or "").strip()
         rid = (r.get("RegionId") or "").strip()
         if sid and rid:
             sr.setdefault(sid, set()).add(rid)
 
     canonical: dict[str, tuple[str, str]] = {}
-    for r in rows(data_dir / "csv" / "heroes-canonical.csv"):
+    for r in read_rows(data_dir / "csv" / "heroes-canonical.csv"):
         cid = (r.get("CanonicalId") or "").strip()
         slug = (r.get("CanonicalSlug") or "").strip()
         name = (r.get("CanonicalHero") or "").strip()
@@ -179,7 +158,7 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
             canonical[cid] = (slug, name or slug)
 
     character_row: dict[str, tuple[str, str]] = {}
-    for r in rows(data_dir / "csv" / "characters.csv"):
+    for r in read_rows(data_dir / "csv" / "characters.csv"):
         cid = (r.get("CharacterId") or "").strip()
         name = (r.get("Name") or "").strip()
         sk = (r.get("OtherCharactersStoryKey") or "").strip()
@@ -192,7 +171,7 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
             other_page_map.setdefault(Path(story_key).as_posix(), set()).add(cid)
 
     loc: dict[str, tuple[str, str, str]] = {}
-    for r in rows(data_dir / "csv" / "locations.csv"):
+    for r in read_rows(data_dir / "csv" / "locations.csv"):
         lid = (r.get("LocationId") or "").strip()
         name = (r.get("Name") or "").strip()
         rid = (r.get("RegionId") or "").strip()
@@ -201,7 +180,7 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
             loc[lid] = (name, rid, frag)
 
     reg: dict[str, tuple[str, str]] = {}
-    for r in rows(data_dir / "csv" / "regions.csv"):
+    for r in read_rows(data_dir / "csv" / "regions.csv"):
         rid = (r.get("RegionId") or "").strip()
         rname = (r.get("RegionName") or "").strip()
         wk = (r.get("WorldOfRatheStoryKey") or "").strip()
@@ -344,7 +323,7 @@ def build_character_stories_fragment(
     story_cards.sort(key=lambda c: c[1].lower())
     parts = [
         '<section class="related-section" aria-label="Related Lore">',
-        '<h1 id="related-lore">Related Lore</h1>',
+        RELATED_LORE_H1,
         '<div class="related-cards">',
     ]
     for kind, title, sub, href in story_cards:
@@ -585,7 +564,7 @@ def build_related_fragment(
 
     parts = [
         '<section class="related-section" aria-label="Related Lore">',
-        '<h1 id="related-lore">Related Lore</h1>',
+        RELATED_LORE_H1,
         '<div class="related-cards">',
     ]
     first_group = True
@@ -677,43 +656,28 @@ def walk_mutate_sections(
     src_root: Path,
     hero_src_map: dict[str, frozenset[str]],
 ) -> None:
-    """Recursively update every chapter in ``sections`` in place."""
-    for item in sections:
-        if not isinstance(item, dict):
-            continue
-        if "Chapter" in item:
-            ch = item["Chapter"]
-            path = ch.get("path")
-            if path and isinstance(path, str):
-                ch["content"] = process_chapter_content(
-                    ch.get("content") or "",
-                    maps,
-                    chapter_src_path=path,
-                    src_root=src_root,
-                    hero_src_map=hero_src_map,
-                )
-            walk_mutate_sections(ch.get("sub_items") or [], maps, src_root, hero_src_map)
-        elif "Separator" in item or "PartTitle" in item:
-            continue
+    """Update every chapter in ``sections`` in place."""
+    for ch in iter_chapters(sections):
+        path = ch.get("path")
+        if path and isinstance(path, str):
+            ch["content"] = process_chapter_content(
+                ch.get("content") or "",
+                maps,
+                chapter_src_path=path,
+                src_root=src_root,
+                hero_src_map=hero_src_map,
+            )
+
+
+def _process(items: list, src_root: Path) -> None:
+    maps = load_related_maps(src_root / "data")
+    hero_src_map = build_hero_src_to_canonical_ids(maps, src_root)
+    walk_mutate_sections(items, maps, src_root, hero_src_map)
 
 
 def main() -> None:
     """stdin: ``(PreprocessorContext, Book)`` JSON; stdout: ``Book`` JSON only."""
-    if len(sys.argv) >= 3 and sys.argv[1] == "supports":
-        sys.exit(0)
-
-    ctx, book = json.load(sys.stdin)
-    root = Path(ctx["root"])
-    book_cfg = (ctx.get("config") or {}).get("book") or {}
-    src_rel = (book_cfg.get("src") or "src").strip() or "src"
-    src_root = (root / src_rel).resolve()
-    data_dir = src_root / "data"
-
-    maps = load_related_maps(data_dir)
-    hero_src_map = build_hero_src_to_canonical_ids(maps, src_root)
-    walk_mutate_sections(book.get("items") or [], maps, src_root, hero_src_map)
-
-    json.dump(book, sys.stdout, ensure_ascii=False)
+    run(_process)
 
 
 if __name__ == "__main__":

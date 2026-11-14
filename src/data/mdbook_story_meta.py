@@ -30,7 +30,6 @@ print only the modified ``Book`` JSON on stdout.  Supports ``supports <renderer>
 from __future__ import annotations
 
 import html
-import json
 import re
 import sys
 from datetime import datetime
@@ -40,21 +39,21 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from mdbook_breadcrumb import _arc_display_name, _load_arcs, _load_sets, _relative_href  # noqa: E402
+from mdbook_common import HERO_BANNER_END, iter_chapters, long_date, md_to_html_url, run  # noqa: E402
+from mdbook_common import RELATED_LORE_H1 as RELATED_HEADING  # noqa: E402
+from mdbook_common import arc_display_name, load_arcs, load_sets, relative_href  # noqa: E402
+from mdbook_common import is_hero_about_page as _is_hero_about_page  # noqa: E402
+from mdbook_common import story_meta_item as _item  # noqa: E402
 from mdbook_related import resolve_hero_src_path  # noqa: E402
 from pipe_csv_io import read_pipe_csv  # noqa: E402
 
 MARK_START = "<!-- fablore-story-meta:start -->"
 MARK_END = "<!-- fablore-story-meta:end -->"
-# mdbook_hero_meta closes a hero banner (which holds the H1) with this marker.
-HERO_BANNER_END = "<!-- fablore-hero-banner:end -->"
 # mdbook_graph_link puts its link here, so it sits in the card's links row.
 GRAPH_SLOT = "<!-- fablore-graph-link:slot -->"
 # On a hero page the Lore Graph button goes here instead, after the source link
 # in the Related Lore heading row.
 RELATED_GRAPH_SLOT = "<!-- fablore-graph-link:related-slot -->"
-# The heading mdbook_related puts at the top of its section (it runs first).
-RELATED_HEADING = '<h1 id="related-lore">Related Lore</h1>'
 
 # The hero / set information block those preprocessors put directly under the
 # title (``book.toml`` runs them first). The set block keeps its own markers.
@@ -110,11 +109,9 @@ def _format_date(date_str: str) -> str:
     s = date_str.strip()
     if not s:
         return ""
-    try:
-        dt = datetime.strptime(s, "%Y-%m-%d")
-        return f"{dt.day} {dt.strftime('%B %Y')}"
-    except ValueError:
-        pass
+    formatted = long_date(s)
+    if formatted:
+        return formatted
     # Handle swapped month/day (e.g. ``2019-29-08``)
     parts = s.split("-")
     if len(parts) == 3:
@@ -183,10 +180,6 @@ def _build_share_html(story_type: str = "") -> str:
 }})();
 </script>"""
     )
-
-
-def _item(icon: str, inner: str) -> str:
-    return f'<span class="story-meta-item">' f'<i class="{icon}" aria-hidden="true"></i>' f" {inner}</span>"
 
 
 def _build_meta_html(
@@ -291,9 +284,7 @@ def _build_context_html(
         for name, src in shown:
             esc = html.escape(name)
             names.append(
-                f'<a href="{html.escape(_relative_href(chapter_path, src).removesuffix(".md") + ".html")}">{esc}</a>'
-                if src
-                else esc
+                f'<a href="{html.escape(md_to_html_url(relative_href(chapter_path, src)))}">{esc}</a>' if src else esc
             )
         if rest:
             others = html.escape(", ".join(n for n, _ in rest))
@@ -391,24 +382,11 @@ def _arc_positions(sections: list) -> dict[str, tuple[int, int]]:
     ``short-stories/outsiders`` share a slug but are separate runs of stories.
     """
     by_folder: dict[str, list[str]] = {}
-
-    def walk(items: list) -> None:
-        for item in items:
-            if not isinstance(item, dict) or "Chapter" not in item:
-                continue
-            ch = item["Chapter"]
-            path = Path((ch.get("path") or "").strip()).as_posix()
-            arc = _arc_of(path)
-            if arc:
-                by_folder.setdefault(path.rsplit("/", 1)[0], []).append(path)
-            walk(ch.get("sub_items") or [])
-
-    walk(sections)
+    for ch in iter_chapters(sections):
+        path = Path((ch.get("path") or "").strip()).as_posix()
+        if _arc_of(path):
+            by_folder.setdefault(path.rsplit("/", 1)[0], []).append(path)
     return {p: (i, len(paths)) for paths in by_folder.values() for i, p in enumerate(paths, start=1)}
-
-
-def _is_hero_about_page(path: str) -> bool:
-    return path.startswith("heroes-of-rathe/") and path.endswith("-about.md")
 
 
 def _related_head_html(source_link: str) -> str:
@@ -485,51 +463,29 @@ def _walk_sections(
     positions: dict[str, tuple[int, int]] | None = None,
     heroes_by_story: dict[str, list[tuple[str, str | None]]] | None = None,
 ) -> None:
-    for item in sections:
-        if not isinstance(item, dict):
-            continue
-        if "Chapter" in item:
-            ch = item["Chapter"]
-            path = Path((ch.get("path") or "").strip()).as_posix()
-            row = meta_by_key.get(path) if path != "." else None
-            if row is not None:
-                arc = _arc_of(path)
-                # Only arc chapters get a context row; hero, equipment and other
-                # reference pages keep the byline and links alone.
-                ch["content"] = _process_chapter(
-                    ch.get("content") or "",
-                    row,
-                    chapter_path=path,
-                    arc_name=(arc_names or {}).get(arc, "") if arc else "",
-                    position=(positions or {}).get(path) if arc else None,
-                    heroes=(heroes_by_story or {}).get(row.get("StoryId", ""), []) if arc else [],
-                )
-            _walk_sections(
-                ch.get("sub_items") or [],
-                meta_by_key,
-                arc_names=arc_names,
-                positions=positions,
-                heroes_by_story=heroes_by_story,
+    for ch in iter_chapters(sections):
+        path = Path((ch.get("path") or "").strip()).as_posix()
+        row = meta_by_key.get(path) if path != "." else None
+        if row is not None:
+            arc = _arc_of(path)
+            # Only arc chapters get a context row; hero, equipment and other
+            # reference pages keep the byline and links alone.
+            ch["content"] = _process_chapter(
+                ch.get("content") or "",
+                row,
+                chapter_path=path,
+                arc_name=(arc_names or {}).get(arc, "") if arc else "",
+                position=(positions or {}).get(path) if arc else None,
+                heroes=(heroes_by_story or {}).get(row.get("StoryId", ""), []) if arc else [],
             )
 
 
-def main() -> None:
-    """stdin: ``(PreprocessorContext, Book)`` JSON; stdout: ``Book`` JSON only."""
-    if len(sys.argv) >= 3 and sys.argv[1] == "supports":
-        sys.exit(0)
-
-    ctx, book = json.load(sys.stdin)
-    root = Path(ctx["root"])
-    book_cfg = (ctx.get("config") or {}).get("book") or {}
-    src_rel = (book_cfg.get("src") or "src").strip() or "src"
-    src_root = (root / src_rel).resolve()
+def _process(items: list, src_root: Path) -> None:
     data_dir = src_root / "data"
-
     meta_by_key = _load_story_meta(data_dir)
-    items = book.get("items") or []
     positions = _arc_positions(items)
-    arcs, sets = _load_arcs(data_dir), _load_sets(data_dir)
-    arc_names = {arc: _arc_display_name(arc, arcs, sets) for arc in {p.split("/")[1] for p in positions}}
+    arcs, sets = load_arcs(data_dir), load_sets(data_dir)
+    arc_names = {arc: arc_display_name(arc, arcs, sets) for arc in {p.split("/")[1] for p in positions}}
     _walk_sections(
         items,
         meta_by_key,
@@ -538,7 +494,10 @@ def main() -> None:
         heroes_by_story=_load_story_heroes(data_dir, src_root),
     )
 
-    json.dump(book, sys.stdout, ensure_ascii=False)
+
+def main() -> None:
+    """stdin: ``(PreprocessorContext, Book)`` JSON; stdout: ``Book`` JSON only."""
+    run(_process)
 
 
 if __name__ == "__main__":

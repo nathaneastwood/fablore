@@ -90,6 +90,7 @@ def write_pipe_csv_autogen(
         rows: Data rows (dicts keyed by field names).
         regenerate_command: Short regenerate instruction for the banner.
     """
+    path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as f:
         f.write(auto_gen_banner(regenerate_command))
         writer = csv.DictWriter(
@@ -102,25 +103,3 @@ def write_pipe_csv_autogen(
         writer.writeheader()
         for row in rows:
             writer.writerow({k: row.get(k, "") for k in fieldnames})
-
-
-def write_pipe_matrix_autogen(
-    path: Path,
-    header_row: list[str],
-    data_rows: list[list[str] | tuple[str, ...]],
-    *,
-    regenerate_command: str,
-) -> None:
-    """Write a pipe-delimited CSV (matrix rows) with an auto-generation banner.
-
-    Args:
-        path: Destination path.
-        header_row: Single header row.
-        data_rows: Body rows as sequences of strings.
-        regenerate_command: Short regenerate instruction for the banner.
-    """
-    with path.open("w", newline="", encoding="utf-8") as f:
-        f.write(auto_gen_banner(regenerate_command))
-        writer = csv.writer(f, delimiter="|", lineterminator="\n")
-        writer.writerow(header_row)
-        writer.writerows(data_rows)

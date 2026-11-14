@@ -720,12 +720,15 @@ All files are under `src/data/csv/` unless noted. Pipe-delimited. Empty fields a
 | `create_heroes_csv.py` | Hero canonical + game + printings; refreshes shared class/talent CSVs |
 | `create_weapons_csv.py` | Weapon canonical + game + printings; refreshes shared class/talent CSVs |
 | `create_equipment_csv.py` | Equipment canonical + game + printings; refreshes shared class/talent CSVs |
+| `card_registry_csv.py` | The generator behind the weapons and equipment scripts (`CardRegistrySpec`), plus the set-release and earliest-printing helpers `create_heroes_csv.py` shares |
+| `generator_utils.py` | `write_text_if_changed`, the markdown-table helpers for the character md generators, and the validate-then-exit tail of the `create_*.py` scripts |
 | `data-entry.py` | Runner for the declarations in `entries/`; `--only <path>` filters to one story, unchanged stories print nothing |
 | `entries/` | **Authored.** The story declarations — one module per story type, plus `_runner.py` (the filtering `db` proxy) and `SECTIONS` in `__init__.py` |
 | `entries/catalogue/` | **Authored.** One constant per entity. The only place an entity is defined; declarations reference these and never construct their own |
 | `descriptions.py` | **Authored.** The only writer of `notes` / `description` columns. Run it directly; it has no dry-run and writes immediately |
 | `generate_hints_json.py` | Builds `src/hints.json` from the DB plus the hand-written `src/hints_supplement.json` |
 | `mdbook_*.py` | mdBook preprocessors (hints, metadata, breadcrumbs, related pages, …), stdlib-only so a build needs no installs |
+| `mdbook_common.py` | Not a preprocessor: the shared stdlib helpers they import — `run` (stdin/stdout protocol), `iter_chapters`, `relative_href`, arc/set lookups, date formatting, cross-preprocessor marker strings |
 | `create_stories_index.py` | Scans `src/` lore roots, UPSERTs discovered stories into DB, exports all tables to `csv/`. Titles: keep DB value when not the auto stem placeholder; else infer from first H1 or filename. |
 | `db/__init__.py` | Exports `Database`, `StoryRecord`, and all dataclasses (`CharacterEntry`, `LocationEntry`, etc.) |
 | `db/_schema.py` | DDL and forward-only migrations (`PRAGMA user_version`) |

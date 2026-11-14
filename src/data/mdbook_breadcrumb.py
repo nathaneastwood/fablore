@@ -13,9 +13,6 @@ from __future__ import annotations
 
 import fnmatch
 import html
-import json
-import os
-import re
 import sys
 from pathlib import Path
 
@@ -23,7 +20,7 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from pipe_csv_io import read_pipe_csv  # noqa: E402
+from mdbook_common import arc_display_name, iter_chapters, load_arcs, load_sets, relative_href, run  # noqa: E402
 
 MARK_START = "<!-- fablore-breadcrumb:start -->"
 MARK_END = "<!-- fablore-breadcrumb:end -->"
@@ -117,32 +114,6 @@ _SECTIONS = [
 ]
 
 
-def _load_arcs(data_dir: Path) -> dict[str, dict[str, str]]:
-    _, rows = read_pipe_csv(data_dir / "csv" / "story-arcs.csv")
-    return {r["Slug"]: r for r in rows if r.get("Slug")}
-
-
-def _load_sets(data_dir: Path) -> dict[str, dict[str, str]]:
-    _, rows = read_pipe_csv(data_dir / "csv" / "sets.csv")
-    return {r["SetId"]: r for r in rows if r.get("SetId")}
-
-
-def _arc_display_name(slug: str, arcs: dict, sets: dict) -> str:
-    arc = arcs.get(slug, {})
-    if arc.get("DisplayName"):
-        return arc["DisplayName"]
-    set_id = arc.get("SetId", "")
-    if set_id and set_id in sets:
-        return sets[set_id]["SetName"]
-    # Fallback: prettify slug ("02-arcane-rising" → "Arcane Rising")
-    name = re.sub(r"^\d+-", "", slug)
-    return name.replace("-", " ").title()
-
-
-def _relative_href(chapter_src: str, target_src: str) -> str:
-    return Path(os.path.relpath(Path(target_src), start=Path(chapter_src).parent)).as_posix()
-
-
 def _build_breadcrumb(items: list[tuple[str | None, str]]) -> str:
     """Build the breadcrumb HTML from a list of (href_or_None, label) pairs."""
     lis: list[str] = []
@@ -194,12 +165,12 @@ def _process_chapter(
         rel = path[len(prefix) :]  # e.g. "02-arcane-rising/cards-on-the-table.md"
         parts = rel.split("/")
 
-        hub_href = _relative_href(path, hub_src)
+        hub_href = relative_href(path, hub_src)
         items: list[tuple[str | None, str]] = [(hub_href, label)]
 
         if has_arc and len(parts) >= 2:
             arc_slug = parts[0]
-            items.append((None, _arc_display_name(arc_slug, arcs, sets)))
+            items.append((None, arc_display_name(arc_slug, arcs, sets)))
 
         page_title = (ch.get("name") or "").strip()
         if not page_title:
@@ -212,30 +183,16 @@ def _process_chapter(
 
 
 def _walk(sections: list, arcs: dict, sets: dict) -> None:
-    for item in sections:
-        if not isinstance(item, dict):
-            continue
-        if "Chapter" in item:
-            ch = item["Chapter"]
-            _process_chapter(ch, arcs, sets)
-            _walk(ch.get("sub_items") or [], arcs, sets)
+    for ch in iter_chapters(sections):
+        _process_chapter(ch, arcs, sets)
 
 
 def main() -> None:
-    if len(sys.argv) >= 3 and sys.argv[1] == "supports":
-        sys.exit(0)
+    def process(items: list, src_root: Path) -> None:
+        data_dir = src_root / "data"
+        _walk(items, load_arcs(data_dir), load_sets(data_dir))
 
-    ctx, book = json.load(sys.stdin)
-    root = Path(ctx["root"])
-    book_cfg = (ctx.get("config") or {}).get("book") or {}
-    src_rel = (book_cfg.get("src") or "src").strip() or "src"
-    data_dir = (root / src_rel).resolve() / "data"
-
-    arcs = _load_arcs(data_dir)
-    sets = _load_sets(data_dir)
-
-    _walk(book.get("items") or [], arcs, sets)
-    json.dump(book, sys.stdout, ensure_ascii=False)
+    run(process)
 
 
 if __name__ == "__main__":

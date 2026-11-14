@@ -19,8 +19,6 @@ of the book sections JSON.
 from __future__ import annotations
 
 import html
-import json
-import os
 import re
 import sys
 from pathlib import Path
@@ -30,6 +28,7 @@ if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
 from card_name_slug import slugify_card_name_stem  # noqa: E402
+from mdbook_common import iter_chapters, relative_href, run  # noqa: E402
 from pipe_csv_io import read_pipe_csv  # noqa: E402
 
 MARK_START = "<!-- fablore-child-hub:start -->"
@@ -51,10 +50,6 @@ _IMG_SRC_RE = re.compile(r'<img\b[^>]*\bsrc="([^"]+)"', re.IGNORECASE)
 Chapter = dict  # {"name": str, "path": str}
 
 
-def _relative_href(from_src: str, to_src: str) -> str:
-    return Path(os.path.relpath(Path(to_src), start=Path(from_src).parent)).as_posix()
-
-
 # ---------------------------------------------------------------------------
 # Pass 1: collect direct children of each hub page
 # ---------------------------------------------------------------------------
@@ -62,32 +57,28 @@ def _relative_href(from_src: str, to_src: str) -> str:
 
 def _collect(sections: list, hub_children: dict[str, list[Chapter]]) -> None:
     """Walk book sections; for each hub page, record its direct sub_items."""
-    for item in sections:
-        if not isinstance(item, dict) or "Chapter" not in item:
-            continue
-        ch = item["Chapter"]
+    for ch in iter_chapters(sections):
         path_raw = (ch.get("path") or "").strip()
-        sub_items = ch.get("sub_items") or []
-        if path_raw:
-            path = Path(path_raw).as_posix()
-            if path in _HUB_PAGES:
-                children: list[Chapter] = []
-                for sub in sub_items:
-                    if not isinstance(sub, dict) or "Chapter" not in sub:
-                        continue
-                    sub_ch = sub["Chapter"]
-                    sub_path_raw = (sub_ch.get("path") or "").strip()
-                    if not sub_path_raw:
-                        continue
-                    children.append(
-                        {
-                            "name": sub_ch.get("name", ""),
-                            "path": Path(sub_path_raw).as_posix(),
-                        }
-                    )
-                hub_children[path] = children
-
-        _collect(sub_items, hub_children)
+        if not path_raw:
+            continue
+        path = Path(path_raw).as_posix()
+        if path not in _HUB_PAGES:
+            continue
+        children: list[Chapter] = []
+        for sub in ch.get("sub_items") or []:
+            if not isinstance(sub, dict) or "Chapter" not in sub:
+                continue
+            sub_ch = sub["Chapter"]
+            sub_path_raw = (sub_ch.get("path") or "").strip()
+            if not sub_path_raw:
+                continue
+            children.append(
+                {
+                    "name": sub_ch.get("name", ""),
+                    "path": Path(sub_path_raw).as_posix(),
+                }
+            )
+        hub_children[path] = children
 
 
 # ---------------------------------------------------------------------------
@@ -247,7 +238,7 @@ def _card_grid_html(
     for ch in children:
         path = ch["path"]
         name = html.escape(ch["name"] or Path(path).stem)
-        href = html.escape(_relative_href(hub_src, path))
+        href = html.escape(relative_href(hub_src, path))
         image, is_card_art = _child_image(src_root, path, hub_type, image_by_slug)
 
         img_html = ""
@@ -295,43 +286,32 @@ def _inject_hubs(
     hub_children: dict[str, list[Chapter]],
     image_lookups: dict[str, dict[str, str]],
 ) -> None:
-    for item in sections:
-        if not isinstance(item, dict) or "Chapter" not in item:
-            continue
-        ch = item["Chapter"]
+    for ch in iter_chapters(sections):
         path_raw = (ch.get("path") or "").strip()
-        if path_raw:
-            path = Path(path_raw).as_posix()
-            hub_type = _HUB_PAGES.get(path)
-            if hub_type:
-                image_by_slug = image_lookups.get(hub_type, {})
-                inner = _card_grid_html(path, src_root, hub_children.get(path, []), hub_type, image_by_slug)
-                ch["content"] = _inject_hub(ch.get("content") or "", inner)
+        if not path_raw:
+            continue
+        path = Path(path_raw).as_posix()
+        hub_type = _HUB_PAGES.get(path)
+        if hub_type:
+            image_by_slug = image_lookups.get(hub_type, {})
+            inner = _card_grid_html(path, src_root, hub_children.get(path, []), hub_type, image_by_slug)
+            ch["content"] = _inject_hub(ch.get("content") or "", inner)
 
-        _inject_hubs(ch.get("sub_items") or [], src_root, hub_children, image_lookups)
 
-
-def main() -> None:
-    if len(sys.argv) >= 3 and sys.argv[1] == "supports":
-        sys.exit(0)
-
-    ctx, book = json.load(sys.stdin)
-    root = Path(ctx["root"])
-    book_cfg = (ctx.get("config") or {}).get("book") or {}
-    src_rel = (book_cfg.get("src") or "src").strip() or "src"
-    src_root = (root / src_rel).resolve()
+def _process(items: list, src_root: Path) -> None:
     data_dir = src_root / "data"
-
     image_lookups = {
         "weapons": _load_card_image_lookup(data_dir, "weapons"),
         "equipment": _load_card_image_lookup(data_dir, "equipment"),
     }
 
     hub_children: dict[str, list[Chapter]] = {}
-    _collect(book.get("items") or [], hub_children)
-    _inject_hubs(book.get("items") or [], src_root, hub_children, image_lookups)
+    _collect(items, hub_children)
+    _inject_hubs(items, src_root, hub_children, image_lookups)
 
-    json.dump(book, sys.stdout, ensure_ascii=False)
+
+def main() -> None:
+    run(_process)
 
 
 if __name__ == "__main__":

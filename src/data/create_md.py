@@ -20,6 +20,8 @@ import numpy as np
 import pandas as pd
 from py_markdown_table.markdown_table import markdown_table
 
+from generator_utils import write_text_if_changed
+
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "src/data"
 
@@ -78,7 +80,8 @@ def create_md_file(
 
     The default output is ``csv_path`` with extension replaced by ``.md``. Pass
     ``output_md`` to write a different destination. A banner comment notes the
-    file is generated from the CSV.
+    file is generated from the CSV. The file is left untouched when its
+    contents would not change.
 
     When ``omit_id_columns`` is True (default), columns whose names end with
     ``Id`` (e.g. ``CharacterId``, ``RegionId``) are omitted so the table is
@@ -106,7 +109,7 @@ def create_md_file(
     table = markdown_table(df.to_dict(orient="records")).set_params(row_sep="markdown", quote=False).get_markdown()
     out_path = output_md if output_md is not None else csv_path.with_suffix(".md")
     banner = "<!-- ### NOTE: This file should not be edited by hand. " "Please edit the .csv file. -->\n"
-    out_path.write_text(banner + table + "\n", encoding="utf-8")
+    write_text_if_changed(out_path, banner + table + "\n")
 
 
 def main() -> None:

@@ -197,6 +197,30 @@ def test_generate_writes_output(tmp_path, monkeypatch):
     assert "Starbloom" not in hints
 
 
+def test_generate_leaves_an_unchanged_output_untouched(tmp_path, monkeypatch):
+    """mdbook_hints.py regenerates on every build; an identical file keeps its mtime."""
+    import os
+
+    import generate_hints_json as ghj
+
+    db_path = tmp_path / "fablore.db"
+    _make_db(db_path)
+    output_path = tmp_path / "hints.json"
+    monkeypatch.setattr(ghj, "DB_PATH", db_path)
+    monkeypatch.setattr(ghj, "SUPPLEMENT_PATH", tmp_path / "nonexistent.json")
+    monkeypatch.setattr(ghj, "OUTPUT_PATH", output_path)
+    monkeypatch.setattr(ghj, "ROOT", tmp_path)
+
+    ghj.generate()
+    os.utime(output_path, ns=(1_000_000_000, 1_000_000_000))
+    ghj.generate()
+    assert output_path.stat().st_mtime_ns == 1_000_000_000
+
+    output_path.write_text("{}\n", encoding="utf-8")
+    ghj.generate()
+    assert "Grand Bazaar" in json.loads(output_path.read_text(encoding="utf-8"))
+
+
 def test_generate_no_region_for_unknown_region_id(tmp_path, monkeypatch):
     import generate_hints_json as ghj
 

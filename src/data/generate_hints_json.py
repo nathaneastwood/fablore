@@ -14,6 +14,9 @@ import sqlite3
 import sys
 from pathlib import Path
 
+# The preprocessor imports this module only inside its main(), so this cannot cycle.
+from mdbook_hints import get_match_strings
+
 ROOT = Path(__file__).resolve().parents[2]
 DB_PATH = ROOT / "src" / "data" / "fablore.db"
 SUPPLEMENT_PATH = ROOT / "src" / "hints_supplement.json"
@@ -76,7 +79,7 @@ def _warn_match_collisions(hints: dict) -> list[str]:
     """
     owners: dict[str, list[str]] = {}
     for key, entry in hints.items():
-        for text in _match_strings(key, entry):
+        for text in get_match_strings(key, entry):
             owners.setdefault(text.strip().lower(), []).append(key)
 
     warnings: list[str] = []
@@ -98,15 +101,6 @@ def _warn_match_collisions(hints: dict) -> list[str]:
     for line in warnings:
         print(line, file=sys.stderr)
     return warnings
-
-
-def _match_strings(key: str, entry) -> list[str]:
-    """The strings this entry looks for — its ``match`` list, or its key."""
-    if isinstance(entry, dict):
-        match = entry.get("match")
-        if match is not None:
-            return [match] if isinstance(match, str) else list(match)
-    return [key]
 
 
 def _alias_map(conn: sqlite3.Connection, table: str, owner_col: str, name_col: str) -> dict[str, list[str]]:
@@ -447,10 +441,13 @@ def generate() -> None:
     hints = merge_supplement(hints, supplement)
     _warn_match_collisions(hints)
 
-    with OUTPUT_PATH.open("w", encoding="utf-8") as f:
-        json.dump(hints, f, ensure_ascii=False, indent=2)
-        f.write("\n")
-
+    # Rewrite only on a real change: mdbook_hints.py runs this on every build, and an
+    # untouched file keeps its mtime, so nothing watching it sees a phantom edit.
+    text = json.dumps(hints, ensure_ascii=False, indent=2) + "\n"
+    if OUTPUT_PATH.exists() and OUTPUT_PATH.read_text(encoding="utf-8") == text:
+        print(f"{OUTPUT_PATH.relative_to(ROOT)} is up to date ({len(hints)} entries)", file=sys.stderr)
+        return
+    OUTPUT_PATH.write_text(text, encoding="utf-8")
     print(
         f"Wrote {len(hints)} entries to {OUTPUT_PATH.relative_to(ROOT)}",
         file=sys.stderr,

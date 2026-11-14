@@ -1515,6 +1515,11 @@ class Database:
         r.display()
     """
 
+    # Set by :meth:`defer_registry_export`; class-level so :meth:`from_csv`,
+    # which bypasses ``__init__``, starts with them too.
+    _registry_export_deferred = False
+    _registry_export_pending = False
+
     def __init__(
         self,
         path: str | Path,
@@ -1646,9 +1651,7 @@ class Database:
 
     @staticmethod
     def _print_table(rows: list[dict], cols: list[str], *, file: IO[str] | None = None) -> None:
-        import sys as _sys
-
-        out = file or _sys.stdout
+        out = file or sys.stdout
         if not rows:
             out.write("(none)\n")
             return
@@ -1794,8 +1797,18 @@ class Database:
             self._resolve_characters(story_key, characters)
         if fragments:
             self._validate_fragments(story_key, characters, fragments)
-        weapon_ids = self._resolve_weapons(weapons) if weapons is not None else None
-        equip_ids = self._resolve_equipment(equipment) if equipment is not None else None
+        weapon_ids = (
+            self._resolve_slugs(weapons, q.select_weapon_by_slug, "canonical_weapon_id", "weapon", "print_weapons")
+            if weapons is not None
+            else None
+        )
+        equip_ids = (
+            self._resolve_slugs(
+                equipment, q.select_equipment_by_slug, "canonical_equipment_id", "equipment", "print_equipment"
+            )
+            if equipment is not None
+            else None
+        )
 
         if dry_run:
             return self._dry_run_upsert(
@@ -1857,13 +1870,13 @@ class Database:
                     location_ids,
                 )
             if monsters is not None:
-                monster_ids = self._upsert_monsters(monsters)
+                monster_ids = self._upsert_described(monsters, _monster_id, q.upsert_monster, "monster_id")
                 q.set_story_junction(self.conn, story_id, "story_monsters", "monster_id", monster_ids)
             if fauna is not None:
-                fauna_ids = self._upsert_fauna(fauna)
+                fauna_ids = self._upsert_described(fauna, fauna_id_from_name, q.upsert_fauna, "fauna_id")
                 q.set_story_junction(self.conn, story_id, "story_fauna", "fauna_id", fauna_ids)
             if flora is not None:
-                flora_ids = self._upsert_flora(flora)
+                flora_ids = self._upsert_described(flora, flora_id, q.upsert_flora, "flora_id")
                 q.set_story_junction(self.conn, story_id, "story_flora", "flora_id", flora_ids)
             if food_drink is not None:
                 fd_ids = self._upsert_food_drink(food_drink)
@@ -1930,9 +1943,7 @@ class Database:
             ``{"dry_run": bool, "story_key": str, "story_id": str,
                "junctions": {table: count}, "story_deleted": bool}``
         """
-        import sys as _sys
-
-        out = file or _sys.stdout
+        out = file or sys.stdout
         story_key = _story_key_from_path(path)
         row = q.select_story_by_key(self.conn, story_key)
         if row is None:
@@ -1985,9 +1996,7 @@ class Database:
 
     def display_story(self, path: str | Path, *, file: IO[str] | None = None) -> None:
         """Print a human-readable summary of a story and its linked entities."""
-        import sys as _sys
-
-        out = file or _sys.stdout
+        out = file or sys.stdout
         story_key = _story_key_from_path(path)
         row = q.select_story_by_key(self.conn, story_key)
         if row is None:
@@ -2089,6 +2098,34 @@ class Database:
             out.write("\n")
 
     # ------------------------------------------------------------------
+    # Deferred registry export
+    # ------------------------------------------------------------------
+
+    def defer_registry_export(self) -> None:
+        """Hold back the registry CSV export after each single-entity write.
+
+        :meth:`update_description`, :meth:`set_location_parent` and
+        :meth:`delete_entity` each rewrite every registry CSV on success. A
+        script making hundreds of those calls (``descriptions.py``) can defer
+        that to one :meth:`flush_registry_export` at the end. The database is
+        still committed per call; only the CSV rewrite waits.
+        """
+        self._registry_export_deferred = True
+
+    def flush_registry_export(self) -> None:
+        """Stop deferring, and export the registry CSVs if a deferred write is waiting."""
+        self._registry_export_deferred = False
+        if self._registry_export_pending:
+            self._registry_export_pending = False
+            _export.export_registry_tables(self.conn, self._data_dir)
+
+    def _export_registry_tables(self) -> None:
+        if self._registry_export_deferred:
+            self._registry_export_pending = True
+        else:
+            _export.export_registry_tables(self.conn, self._data_dir)
+
+    # ------------------------------------------------------------------
     # Description management
     # ------------------------------------------------------------------
 
@@ -2152,7 +2189,7 @@ class Database:
                     "Use 'monster', 'fauna', 'flora', 'location', 'group', 'kind', "
                     "'title', 'profession' or 'character'."
                 )
-        _export.export_registry_tables(self.conn, self._data_dir)
+        self._export_registry_tables()
 
     def set_location_parent(self, name: str, parent_name: str) -> None:
         """Record that ``name`` sits *inside* ``parent_name`` (R7).
@@ -2212,7 +2249,7 @@ class Database:
                 child["location_id"],
                 parent["location_id"],
             )
-        _export.export_registry_tables(self.conn, self._data_dir)
+        self._export_registry_tables()
 
     def delete_entity(self, entity_type: str, name: str) -> None:
         """Delete a lore registry row by name, refusing if any story still links it.
@@ -2280,7 +2317,7 @@ class Database:
                     f"Unknown entity type: {entity_type!r}. "
                     "Use 'monster', 'fauna', 'flora', 'character', or 'location'."
                 )
-        _export.export_registry_tables(self.conn, self._data_dir)
+        self._export_registry_tables()
 
     def move_location_region(self, name: str, *, from_region: str, to_region: str) -> None:
         """Move a location to another region, re-keying its row and every reference.
@@ -2346,41 +2383,40 @@ class Database:
     # Internal entity resolution / upsert helpers
     # ------------------------------------------------------------------
 
+    def _resolve_slugs(
+        self,
+        slugs: list[str],
+        select: Callable[[sqlite3.Connection, str], Any],
+        id_col: str,
+        noun: str,
+        printer: str,
+        more_help: Callable[[], str] = lambda: "",
+    ) -> list[str]:
+        """Map canonical slugs to their ``id_col`` values, raising on an unknown one.
+
+        ``printer`` names the ``Database.print_*`` method the error points at;
+        ``more_help`` is only called when a slug is unknown.
+        """
+        ids: list[str] = []
+        for slug in slugs:
+            row = select(self.conn, slug.strip())
+            if row is None:
+                raise ValueError(
+                    f"Unknown {noun} canonical slug: {slug!r}. "
+                    f"Call db.{printer}() to see available slugs.{more_help()}"
+                )
+            ids.append(row[id_col])
+        return ids
+
     def _resolve_heroes(self, slugs: list[str]) -> list[str]:
-        ids: list[str] = []
-        for slug in slugs:
-            row = q.select_hero_by_slug(self.conn, slug.strip())
-            if row is None:
-                known = ", ".join(r["slug"] for r in self.list_heroes()[:20])
-                raise ValueError(
-                    f"Unknown hero canonical slug: {slug!r}. "
-                    f"Call db.print_heroes() to see available slugs. "
-                    f"First 20: {known}"
-                )
-            ids.append(row["canonical_id"])
-        return ids
-
-    def _resolve_weapons(self, slugs: list[str]) -> list[str]:
-        ids: list[str] = []
-        for slug in slugs:
-            row = q.select_weapon_by_slug(self.conn, slug.strip())
-            if row is None:
-                raise ValueError(
-                    f"Unknown weapon canonical slug: {slug!r}. " "Call db.print_weapons() to see available slugs."
-                )
-            ids.append(row["canonical_weapon_id"])
-        return ids
-
-    def _resolve_equipment(self, slugs: list[str]) -> list[str]:
-        ids: list[str] = []
-        for slug in slugs:
-            row = q.select_equipment_by_slug(self.conn, slug.strip())
-            if row is None:
-                raise ValueError(
-                    f"Unknown equipment canonical slug: {slug!r}. " "Call db.print_equipment() to see available slugs."
-                )
-            ids.append(row["canonical_equipment_id"])
-        return ids
+        return self._resolve_slugs(
+            slugs,
+            q.select_hero_by_slug,
+            "canonical_id",
+            "hero",
+            "print_heroes",
+            lambda: " First 20: " + ", ".join(r["slug"] for r in self.list_heroes()[:20]),
+        )
 
     def _validate_fragments(
         self,
@@ -2599,96 +2635,67 @@ class Database:
 
         q.set_story_characters(self.conn, story_id, list(merged.items()))
 
-    def _resolve_kinds(self, owner_name: str, entries: "tuple[KindEntry, ...]") -> list[tuple[str, str]]:
-        """Resolve a tuple of :class:`KindEntry` to ``(kind_id, name)`` pairs.
+    @staticmethod
+    def _resolve_claims(
+        owner_name: str,
+        entries: "tuple[KindEntry, ...] | tuple[ProfessionEntry, ...]",
+        id_fn: Callable[[str], str],
+        noun: str,
+    ) -> list[tuple[str, str]]:
+        """Resolve kind or profession entries to ``(id, name)`` pairs, in order.
 
-        Read-only, so the dry-run preview can call this too — mirrors
-        :meth:`_resolve_professions`, :meth:`_resolve_kin_relatives` and
-        :meth:`_resolve_title_holders`. Raises on a repeat within ``entries``,
-        the same guard shape ``GroupEntry.member_pairs()``, ``_resolve_professions``,
-        ``_resolve_title_holders`` and ``_resolve_kin_relatives`` all use: two
-        entries naming the same kind would otherwise resolve differently on
-        the write path (``INSERT OR IGNORE`` keeps the first) than on a
-        preview that diffed a set (silently deduplicated).
+        Read-only, so the dry-run preview can call this too. Raises on a repeat
+        within ``entries`` — the same guard shape ``GroupEntry.member_pairs()``,
+        :meth:`_resolve_title_holders` and :meth:`_resolve_kin_relatives` use:
+        two entries naming the same thing would otherwise resolve differently on
+        the write path (``INSERT OR IGNORE`` keeps the first) than on a preview
+        that diffed a set or dict (deduplicated, or last wins).
 
         Args:
             owner_name: The character or hero slug this tuple belongs to, named
                 in the error.
             entries: The tuple to resolve, already normalised by
-                :func:`_kind_tuple`.
+                :func:`_kind_tuple` or :func:`_professions_tuple`.
+            id_fn: ``_kind_id`` or ``_profession_id``.
+            noun: ``"kind"`` or ``"profession"``, for the error.
 
         Raises:
-            ValueError: if two entries resolve to the same ``kind_id``.
+            ValueError: if two entries resolve to the same id.
         """
         resolved: list[tuple[str, str]] = []
         seen: dict[str, str] = {}
-        for k in entries:
-            kid = _kind_id(k.name)
-            if kid in seen:
+        for e in entries:
+            eid = id_fn(e.name)
+            if eid in seen:
                 raise ValueError(
-                    f"{owner_name!r} names kind {k.name!r} twice "
-                    f"(as {seen[kid]!r} and {k.name!r}). A kind claim is one row; state it once."
+                    f"{owner_name!r} names {noun} {e.name!r} twice "
+                    f"(as {seen[eid]!r} and {e.name!r}). A {noun} claim is one row; state it once."
                 )
-            seen[kid] = k.name
-            resolved.append((kid, k.name))
+            seen[eid] = e.name
+            resolved.append((eid, e.name))
         return resolved
 
-    def _upsert_kinds(self, owner_name: str, entries: "tuple[KindEntry, ...]") -> list[str]:
-        """Upsert each kind row and return its ids, in declared order.
-
-        Raises before writing anything if two entries in ``entries`` name the
-        same kind — see :meth:`_resolve_kinds`, which this calls first.
-        """
-        self._resolve_kinds(owner_name, entries)
-        ids: list[str] = []
-        for e in entries:
-            sid = _kind_id(e.name)
-            q.upsert_kind(self.conn, kind_id=sid, name=e.name)
-            q.set_kind_aliases(self.conn, sid, list(e.aliases))
-            ids.append(sid)
-        return ids
+    def _resolve_kinds(self, owner_name: str, entries: "tuple[KindEntry, ...]") -> list[tuple[str, str]]:
+        return self._resolve_claims(owner_name, entries, _kind_id, "kind")
 
     def _resolve_professions(self, owner_name: str, entries: "tuple[ProfessionEntry, ...]") -> list[tuple[str, str]]:
-        """Resolve a tuple of :class:`ProfessionEntry` to ``(profession_id, name)`` pairs.
+        return self._resolve_claims(owner_name, entries, _profession_id, "profession")
 
-        Read-only, so the dry-run preview can call this too — mirrors
-        :meth:`_resolve_kinds`, :meth:`_resolve_kin_relatives` and
-        :meth:`_resolve_title_holders`. A profession raises on a repeat within
-        ``entries``, the same guard shape ``GroupEntry.member_pairs()``,
-        ``_resolve_kinds``, ``_resolve_title_holders`` and
-        ``_resolve_kin_relatives`` all use: two entries naming the same
-        profession would otherwise resolve differently on the write path
-        (``INSERT OR IGNORE`` keeps the first) than on a preview that diffed a
-        dict (last wins).
+    def _upsert_kinds(self, owner_name: str, entries: "tuple[KindEntry, ...]") -> list[str]:
+        """Upsert each kind row and its aliases; return the ids in declared order.
 
-        Args:
-            owner_name: The character or hero slug this tuple belongs to, named
-                in the error.
-            entries: The tuple to resolve, already normalised by
-                :func:`_professions_tuple`.
-
-        Raises:
-            ValueError: if two entries resolve to the same ``profession_id``.
+        Raises before writing anything on a repeated kind (see :meth:`_resolve_claims`).
         """
-        resolved: list[tuple[str, str]] = []
-        seen: dict[str, str] = {}
-        for p in entries:
-            pid = _profession_id(p.name)
-            if pid in seen:
-                raise ValueError(
-                    f"{owner_name!r} names profession {p.name!r} twice "
-                    f"(as {seen[pid]!r} and {p.name!r}). A profession claim is one row; state it once."
-                )
-            seen[pid] = p.name
-            resolved.append((pid, p.name))
-        return resolved
+        resolved = self._resolve_kinds(owner_name, entries)
+        for (kid, name), e in zip(resolved, entries):
+            q.upsert_kind(self.conn, kind_id=kid, name=name)
+            q.set_kind_aliases(self.conn, kid, list(e.aliases))
+        return [kid for kid, _name in resolved]
 
     def _upsert_professions(self, owner_name: str, entries: "tuple[ProfessionEntry, ...]") -> list[str]:
-        """Upsert each profession row and return its ids, in declared order.
+        """Upsert each profession row; return the ids in declared order.
 
-        Raises before writing anything if two entries in ``entries`` name the
-        same profession — see :meth:`_resolve_professions`, which this calls
-        first.
+        Raises before writing anything on a repeated profession (see :meth:`_resolve_claims`).
         """
         resolved = self._resolve_professions(owner_name, entries)
         for pid, name in resolved:
@@ -2714,14 +2721,7 @@ class Database:
         for e in entries:
             eff_region = ""
             if e.region:
-                eff_region = region_row_id(e.region)
-                wk = e.world_of_rathe_story_key or _auto_world_key(e.region)
-                q.upsert_region(
-                    self.conn,
-                    region_id=eff_region,
-                    region_name=e.region,
-                    world_of_rathe_story_key=wk,
-                )
+                eff_region = self._upsert_regions([RegionEntry(e.region, e.world_of_rathe_story_key)])[0]
 
             # Validate lore_fragment against on-disk headings
             frag = e.lore_fragment.strip().lstrip("#")
@@ -2758,28 +2758,19 @@ class Database:
             ids.append(lid)
         return ids
 
-    def _upsert_monsters(self, entries: list[MonsterEntry]) -> list[str]:
+    def _upsert_described(
+        self,
+        entries: "list[MonsterEntry] | list[FaunaEntry] | list[FloraEntry]",
+        id_fn: Callable[[str], str],
+        upsert: Callable[..., None],
+        id_kw: str,
+    ) -> list[str]:
+        """Upsert monster, fauna or flora rows (id hashed from the name alone)."""
         ids: list[str] = []
         for e in entries:
-            mid = _monster_id(e.name)
-            q.upsert_monster(self.conn, monster_id=mid, name=e.name, description=e.description)
-            ids.append(mid)
-        return ids
-
-    def _upsert_fauna(self, entries: list[FaunaEntry]) -> list[str]:
-        ids: list[str] = []
-        for e in entries:
-            fid = fauna_id_from_name(e.name)
-            q.upsert_fauna(self.conn, fauna_id=fid, name=e.name, description=e.description)
-            ids.append(fid)
-        return ids
-
-    def _upsert_flora(self, entries: list[FloraEntry]) -> list[str]:
-        ids: list[str] = []
-        for e in entries:
-            fid = flora_id(e.name)
-            q.upsert_flora(self.conn, flora_id=fid, name=e.name, description=e.description)
-            ids.append(fid)
+            eid = id_fn(e.name)
+            upsert(self.conn, **{id_kw: eid}, name=e.name, description=e.description)
+            ids.append(eid)
         return ids
 
     def _upsert_groups(self, entries: list[GroupEntry]) -> list[str]:
@@ -3140,7 +3131,6 @@ class Database:
         equip_ids: list[str] | None,
         groups: list[GroupEntry] | None = None,
         titles: list[TitleEntry] | None = None,
-        file: IO[str] | None = None,
     ) -> StoryRecord:
         """Print the preview :class:`_DryRunReport` builds and return a would-be record.
 
@@ -3151,9 +3141,7 @@ class Database:
         maps, the reachable-entities walk, and the render for each entity
         type — lives on :class:`_DryRunReport`.
         """
-        import sys as _sys
-
-        out = file or _sys.stdout
+        out = sys.stdout  # read at call time, so redirect_stdout is honoured
 
         existing = q.select_story_by_key(self.conn, story_key)
         op = "UPDATE" if existing else "INSERT"

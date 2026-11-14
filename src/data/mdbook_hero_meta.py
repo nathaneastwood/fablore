@@ -43,7 +43,6 @@ import html
 import json
 import re
 import sys
-from datetime import datetime
 from pathlib import Path
 
 _SCRIPT_DIR = Path(__file__).resolve().parent
@@ -51,6 +50,10 @@ if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
 from card_text import format_ability_text  # noqa: E402
+from mdbook_common import HERO_BANNER_END as BANNER_END  # noqa: E402
+from mdbook_common import format_date as _format_date  # noqa: E402
+from mdbook_common import is_hero_about_page as _is_hero_about_page  # noqa: E402
+from mdbook_common import iter_chapters, run  # noqa: E402
 from mdbook_heading_ids import collect_heading_anchor_ids  # noqa: E402
 from mdbook_related import MARK_START as RELATED_START  # noqa: E402
 from pipe_csv_io import read_pipe_csv  # noqa: E402
@@ -79,18 +82,6 @@ _SET_TYPE_PRIORITY: dict[str, int] = {
     "TY0143717ab6": 12,  # History Pack Blitz Deck
     "TY4dde9990af": 13,  # Demo Deck
 }
-
-
-def _format_date(date_str: str) -> str:
-    """Format ``YYYY-MM-DD`` (or ISO datetime) as ``D Month YYYY``."""
-    s = date_str.strip().split("T")[0]
-    if not s:
-        return ""
-    try:
-        dt = datetime.strptime(s, "%Y-%m-%d")
-        return f"{dt.day} {dt.strftime('%B %Y')}"
-    except ValueError:
-        return s
 
 
 # ---------------------------------------------------------------------------
@@ -260,12 +251,6 @@ def _load_card_meta(data_dir: Path) -> dict[str, dict]:
             "fabtcg": fabtcg_by_card_name.get(card_name),
         }
 
-    # fabtcg.com lists a hero once, on its adult card: a young card with no row
-    # of its own takes its adult partner's.
-    for meta in result.values():
-        if meta["young"] and not meta["fabtcg"]:
-            partner = _adult_partner(meta, result)
-            meta["fabtcg"] = partner["fabtcg"] if partner else None
     return result
 
 
@@ -554,15 +539,14 @@ def _normalise(text: str) -> str:
     return " ".join(text.split())
 
 
-def _adult_partner(young: dict, cards: dict[str, dict]) -> dict | None:
-    """The adult card a young card is the young side of.
+def _adult_partner(young: dict, adults: list[dict]) -> dict | None:
+    """The adult card a young card is the young side of, from ``adults``: the adult cards of its identity.
 
-    It shares the young card's identity and its ability; failing that, it is the only
-    adult card of that identity. The fallback covers young cards worded differently:
+    It shares the young card's ability; failing that, it is the only adult card
+    of that identity. The fallback covers young cards worded differently:
     young Florian's text halves the adult's Earth count, and Arakni, Solitary
     Confinement says "The first attack" where Arakni, 5L!p3d 7hRu 7h3 cR4X says "Your".
     """
-    adults = [c for c in cards.values() if not c["young"] and c["canonical_id"] == young["canonical_id"]]
     same_text = [a for a in adults if _normalise(a["ability_text"]) == _normalise(young["ability_text"])]
     if same_text:
         return same_text[0]
@@ -576,11 +560,7 @@ def _young_partner(meta: dict, data: dict, named_on_page: set[str]) -> dict | No
     """
     if meta["young"]:
         return None
-    youngs = [
-        other
-        for other in data["cards"].values()
-        if other["young"] and other["name"] not in named_on_page and _adult_partner(other, data["cards"]) is meta
-    ]
+    youngs = [y for y in data["youngs"].get(meta["name"], []) if y["name"] not in named_on_page]
     youngs.sort(key=lambda y: _normalise(y["ability_text"]) != _normalise(meta["ability_text"]))
     return youngs[0] if youngs else None
 
@@ -647,8 +627,28 @@ def hero_forms(content: str, data: dict) -> list[tuple[re.Match, dict]]:
 
 
 def load_hero_data(data_dir: Path) -> dict:
-    """Load everything the hero page renderers need from ``data_dir/csv``."""
-    return {"cards": _load_card_meta(data_dir)}
+    """Load everything the hero page renderers need from ``data_dir/csv``.
+
+    ``youngs`` maps an adult card's name to the young cards that pair with it
+    (:func:`_adult_partner`), in card order.
+    """
+    cards = _load_card_meta(data_dir)
+    adults_by_identity: dict[str, list[dict]] = {}
+    for card in cards.values():
+        if not card["young"]:
+            adults_by_identity.setdefault(card["canonical_id"], []).append(card)
+    youngs: dict[str, list[dict]] = {}
+    for card in cards.values():
+        if not card["young"]:
+            continue
+        partner = _adult_partner(card, adults_by_identity.get(card["canonical_id"], []))
+        if partner:
+            youngs.setdefault(partner["name"], []).append(card)
+        # fabtcg.com lists a hero once, on its adult card: a young card with no row
+        # of its own takes its adult partner's.
+        if not card["fabtcg"]:
+            card["fabtcg"] = partner["fabtcg"] if partner else None
+    return {"cards": cards, "youngs": youngs}
 
 
 _VIDEO_TAG_RE = re.compile(r"<video\b([^>]*)>")
@@ -668,8 +668,6 @@ def _heading_id(content: str, match: re.Match) -> str:
 
 _TRAILING_RULE_RE = re.compile(r"\n\s*(?:-{3,}|\*{3,}|_{3,})\s*$")
 
-
-BANNER_END = "<!-- fablore-hero-banner:end -->"
 
 _PLAY_BUTTON = (
     '<button type="button" class="hero-banner-play" aria-label="Pause video" aria-pressed="false">'
@@ -920,27 +918,13 @@ def render_hero_hub(content: str, pages: dict[str, str], data: dict) -> str:
 # ---------------------------------------------------------------------------
 
 _HERO_DIR = "heroes-of-rathe/"
-_ABOUT_SUFFIX = "-about.md"
-
-
-def _is_hero_about_page(path: str) -> bool:
-    posix = Path(path).as_posix()
-    return posix.startswith(_HERO_DIR) and posix.endswith(_ABOUT_SUFFIX)
 
 
 _HUB_PATH = "heroes-of-rathe/heroes-of-rathe.md"
 
 
-def _chapters(sections: list):
-    for item in sections:
-        if isinstance(item, dict) and "Chapter" in item:
-            ch = item["Chapter"]
-            yield ch
-            yield from _chapters(ch.get("sub_items") or [])
-
-
 def _walk_sections(sections: list, data: dict) -> None:
-    chapters = list(_chapters(sections))
+    chapters = list(iter_chapters(sections))
     # The hub reads the hero pages as written, before any stat block goes in.
     pages = {
         Path(path).as_posix()[len(_HERO_DIR) :]: ch.get("content") or ""
@@ -962,20 +946,7 @@ def _walk_sections(sections: list, data: dict) -> None:
 
 def main() -> None:
     """stdin: ``(PreprocessorContext, Book)`` JSON; stdout: ``Book`` JSON only."""
-    if len(sys.argv) >= 3 and sys.argv[1] == "supports":
-        sys.exit(0)
-
-    ctx, book = json.load(sys.stdin)
-    root = Path(ctx["root"])
-    book_cfg = (ctx.get("config") or {}).get("book") or {}
-    src_rel = (book_cfg.get("src") or "src").strip() or "src"
-    src_root = (root / src_rel).resolve()
-    data_dir = src_root / "data"
-
-    data = load_hero_data(data_dir)
-    _walk_sections(book.get("items") or [], data)
-
-    json.dump(book, sys.stdout, ensure_ascii=False)
+    run(lambda items, src_root: _walk_sections(items, load_hero_data(src_root / "data")))
 
 
 if __name__ == "__main__":

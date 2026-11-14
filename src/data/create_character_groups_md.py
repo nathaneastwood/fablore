@@ -52,6 +52,9 @@ from __future__ import annotations
 import sqlite3
 from pathlib import Path
 
+from generator_utils import md_table as _md_table
+from generator_utils import write_db_markdown
+
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "src/data"
 DB_PATH = DATA / "fablore.db"
@@ -64,14 +67,6 @@ _BANNER = "<!-- ### NOTE: This file should not be edited by hand. " "Please edit
 # links this page instead, where the identical table (typo included) is live
 # and was verified cell-for-cell.
 _DRAGON_PRONUNCIATION_PAGE = "../../archive/world-of-rathe/volcor/welcome-to-volcor.md"
-
-
-def _md_table(headers: list[str], rows: list[list[str]]) -> str:
-    """Render a minimal GFM pipe table — no external padding library."""
-    lines = ["| " + " | ".join(headers) + " |", "| " + " | ".join("---" for _ in headers) + " |"]
-    for row in rows:
-        lines.append("| " + " | ".join(row) + " |")
-    return "\n".join(lines)
 
 
 def _epithets_for(conn: sqlite3.Connection, character_id: str) -> str:
@@ -321,14 +316,7 @@ def main(output_md: Path, *, db_path: Path | None = None) -> None:
             should be able to reach that path without naming it.
         db_path: Database path. Defaults to ``src/data/fablore.db``.
     """
-    from db import Database
-
-    database = Database(db_path if db_path is not None else DB_PATH)
-    try:
-        text = render_markdown(database.conn)
-    finally:
-        database.conn.close()
-    Path(output_md).write_text(_BANNER + text, encoding="utf-8")
+    write_db_markdown(render_markdown, output_md, _BANNER, db_path if db_path is not None else DB_PATH)
 
 
 if __name__ == "__main__":

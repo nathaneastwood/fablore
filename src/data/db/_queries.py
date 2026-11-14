@@ -527,6 +527,39 @@ def select_character_kin_both_directions(
 # complete set, so a name dropped from it is a name the lore no longer supports.
 
 
+def _replace_ordered(
+    conn: sqlite3.Connection,
+    table: str,
+    owner_col: str,
+    owner_id: str,
+    cols: tuple[str, ...],
+    rows: "list[str] | list[tuple[str, ...]]",
+) -> None:
+    """Replace every ``table`` row owned by ``owner_id``; ``sort_order`` follows ``rows``.
+
+    A bare string in ``rows`` is a one-column row, so a single-column table
+    takes a plain list of values.
+    """
+    conn.execute(f"DELETE FROM {table} WHERE {owner_col} = ?", [owner_id])
+    if rows:
+        placeholders = ",".join("?" * (len(cols) + 2))
+        conn.executemany(
+            f"INSERT OR IGNORE INTO {table} ({owner_col}, {', '.join(cols)}, sort_order) VALUES ({placeholders})",
+            [(owner_id, *((row,) if isinstance(row, str) else row), i) for i, row in enumerate(rows)],
+        )
+
+
+def _select_ordered(
+    conn: sqlite3.Connection, table: str, owner_col: str, owner_id: str, cols: tuple[str, ...]
+) -> "list[str] | list[tuple[str, ...]]":
+    """Return ``owner_id``'s rows in declared order — bare values for one column, tuples otherwise."""
+    rows = conn.execute(
+        f"SELECT {', '.join(cols)} FROM {table} WHERE {owner_col} = ? ORDER BY sort_order, {cols[0]}",
+        [owner_id],
+    ).fetchall()
+    return [r[0] for r in rows] if len(cols) == 1 else [tuple(r) for r in rows]
+
+
 def set_character_epithets(conn: sqlite3.Connection, character_id: str, entries: list[tuple[str, str]]) -> None:
     """Replace every alternate name for ``character_id``.
 
@@ -534,21 +567,12 @@ def set_character_epithets(conn: sqlite3.Connection, character_id: str, entries:
         entries: ``(name, label)`` pairs in display order. ``label`` is ``'epithet'``
             or ``'short-name'``; ``sort_order`` follows the list order.
     """
-    conn.execute("DELETE FROM character_epithets WHERE character_id = ?", [character_id])
-    if entries:
-        conn.executemany(
-            "INSERT OR IGNORE INTO character_epithets (character_id, name, label, sort_order) VALUES (?,?,?,?)",
-            [(character_id, name, label, i) for i, (name, label) in enumerate(entries)],
-        )
+    _replace_ordered(conn, "character_epithets", "character_id", character_id, ("name", "label"), entries)
 
 
 def select_character_epithets(conn: sqlite3.Connection, character_id: str) -> list[tuple[str, str]]:
     """Return ``(name, label)`` rows for ``character_id`` in declared order."""
-    rows = conn.execute(
-        "SELECT name, label FROM character_epithets WHERE character_id = ? ORDER BY sort_order, name",
-        [character_id],
-    ).fetchall()
-    return [(r[0], r[1]) for r in rows]
+    return _select_ordered(conn, "character_epithets", "character_id", character_id, ("name", "label"))
 
 
 def set_location_aliases(conn: sqlite3.Connection, location_id: str, entries: list[tuple[str, str]]) -> None:
@@ -558,40 +582,22 @@ def set_location_aliases(conn: sqlite3.Connection, location_id: str, entries: li
         entries: ``(alias, era)`` pairs in display order. ``era`` may be empty
             where the lore does not date the name.
     """
-    conn.execute("DELETE FROM location_aliases WHERE location_id = ?", [location_id])
-    if entries:
-        conn.executemany(
-            "INSERT OR IGNORE INTO location_aliases (location_id, alias, era, sort_order) VALUES (?,?,?,?)",
-            [(location_id, alias, era, i) for i, (alias, era) in enumerate(entries)],
-        )
+    _replace_ordered(conn, "location_aliases", "location_id", location_id, ("alias", "era"), entries)
 
 
 def select_location_aliases(conn: sqlite3.Connection, location_id: str) -> list[tuple[str, str]]:
     """Return ``(alias, era)`` rows for ``location_id`` in declared order."""
-    rows = conn.execute(
-        "SELECT alias, era FROM location_aliases WHERE location_id = ? ORDER BY sort_order, alias",
-        [location_id],
-    ).fetchall()
-    return [(r[0], r[1]) for r in rows]
+    return _select_ordered(conn, "location_aliases", "location_id", location_id, ("alias", "era"))
 
 
 def set_group_aliases(conn: sqlite3.Connection, group_id: str, aliases: list[str]) -> None:
     """Replace every alias for ``group_id``, in the order given."""
-    conn.execute("DELETE FROM group_aliases WHERE group_id = ?", [group_id])
-    if aliases:
-        conn.executemany(
-            "INSERT OR IGNORE INTO group_aliases (group_id, alias, sort_order) VALUES (?,?,?)",
-            [(group_id, alias, i) for i, alias in enumerate(aliases)],
-        )
+    _replace_ordered(conn, "group_aliases", "group_id", group_id, ("alias",), aliases)
 
 
 def select_group_aliases(conn: sqlite3.Connection, group_id: str) -> list[str]:
     """Return the aliases for ``group_id`` in declared order."""
-    rows = conn.execute(
-        "SELECT alias FROM group_aliases WHERE group_id = ? ORDER BY sort_order, alias",
-        [group_id],
-    ).fetchall()
-    return [r[0] for r in rows]
+    return _select_ordered(conn, "group_aliases", "group_id", group_id, ("alias",))
 
 
 # ---------------------------------------------------------------------------
@@ -604,22 +610,29 @@ def select_group_aliases(conn: sqlite3.Connection, group_id: str) -> list[str]:
 # behaves exactly like the other three.
 
 
-def upsert_kind(conn: sqlite3.Connection, *, kind_id: str, name: str, notes: str = "") -> None:
-    """Insert or update a kind row, preserving ``notes`` the caller omits.
+def _upsert_noted_registry(
+    conn: sqlite3.Connection, table: str, id_col: str, entity_id: str, name: str, notes: str
+) -> None:
+    """Insert or update a ``(id, name, notes)`` registry row, preserving ``notes`` the caller omits.
 
     ``notes`` follows the preserve-on-empty contract the other registries use:
-    a declaration names a kind, ``descriptions.py`` writes what it is.
+    a declaration names the row, ``descriptions.py`` writes what it is.
     """
     conn.execute(
-        """
-        INSERT INTO kinds (kind_id, name, notes)
+        f"""
+        INSERT INTO {table} ({id_col}, name, notes)
         VALUES (?,?,?)
-        ON CONFLICT(kind_id) DO UPDATE SET
+        ON CONFLICT({id_col}) DO UPDATE SET
             name  = excluded.name,
-            notes = CASE WHEN excluded.notes != '' THEN excluded.notes ELSE kinds.notes END
+            notes = CASE WHEN excluded.notes != '' THEN excluded.notes ELSE {table}.notes END
         """,
-        (kind_id, name, notes),
+        (entity_id, name, notes),
     )
+
+
+def upsert_kind(conn: sqlite3.Connection, *, kind_id: str, name: str, notes: str = "") -> None:
+    """Insert or update a kind row, preserving ``notes`` the caller omits."""
+    _upsert_noted_registry(conn, "kinds", "kind_id", kind_id, name, notes)
 
 
 def select_all_kinds(conn: sqlite3.Connection) -> list[sqlite3.Row]:
@@ -633,40 +646,22 @@ def update_kind_notes(conn: sqlite3.Connection, kind_id: str, notes: str) -> int
 
 def set_character_kinds(conn: sqlite3.Connection, character_id: str, kind_ids: list[str]) -> None:
     """Replace every kind linked to ``character_id``, in the order given."""
-    conn.execute("DELETE FROM character_kinds WHERE character_id = ?", [character_id])
-    if kind_ids:
-        conn.executemany(
-            "INSERT OR IGNORE INTO character_kinds (character_id, kind_id, sort_order) VALUES (?,?,?)",
-            [(character_id, sid, i) for i, sid in enumerate(kind_ids)],
-        )
+    _replace_ordered(conn, "character_kinds", "character_id", character_id, ("kind_id",), kind_ids)
 
 
 def select_character_kinds(conn: sqlite3.Connection, character_id: str) -> list[str]:
     """Return the kind ids linked to ``character_id`` in declared order."""
-    rows = conn.execute(
-        "SELECT kind_id FROM character_kinds WHERE character_id = ? ORDER BY sort_order, kind_id",
-        [character_id],
-    ).fetchall()
-    return [r[0] for r in rows]
+    return _select_ordered(conn, "character_kinds", "character_id", character_id, ("kind_id",))
 
 
 def set_kind_aliases(conn: sqlite3.Connection, kind_id: str, aliases: list[str]) -> None:
     """Replace every alias for ``kind_id``, in the order given."""
-    conn.execute("DELETE FROM kind_aliases WHERE kind_id = ?", [kind_id])
-    if aliases:
-        conn.executemany(
-            "INSERT OR IGNORE INTO kind_aliases (kind_id, alias, sort_order) VALUES (?,?,?)",
-            [(kind_id, alias, i) for i, alias in enumerate(aliases)],
-        )
+    _replace_ordered(conn, "kind_aliases", "kind_id", kind_id, ("alias",), aliases)
 
 
 def select_kind_aliases(conn: sqlite3.Connection, kind_id: str) -> list[str]:
     """Return the aliases for ``kind_id`` in declared order."""
-    rows = conn.execute(
-        "SELECT alias FROM kind_aliases WHERE kind_id = ? ORDER BY sort_order, alias",
-        [kind_id],
-    ).fetchall()
-    return [r[0] for r in rows]
+    return _select_ordered(conn, "kind_aliases", "kind_id", kind_id, ("alias",))
 
 
 # ---------------------------------------------------------------------------
@@ -680,21 +675,8 @@ def select_kind_aliases(conn: sqlite3.Connection, kind_id: str) -> list[str]:
 
 
 def upsert_profession(conn: sqlite3.Connection, *, profession_id: str, name: str, notes: str = "") -> None:
-    """Insert or update a profession row, preserving ``notes`` the caller omits.
-
-    ``notes`` follows the preserve-on-empty contract the other registries use:
-    a declaration names a profession, ``descriptions.py`` writes what it is.
-    """
-    conn.execute(
-        """
-        INSERT INTO professions (profession_id, name, notes)
-        VALUES (?,?,?)
-        ON CONFLICT(profession_id) DO UPDATE SET
-            name  = excluded.name,
-            notes = CASE WHEN excluded.notes != '' THEN excluded.notes ELSE professions.notes END
-        """,
-        (profession_id, name, notes),
-    )
+    """Insert or update a profession row, preserving ``notes`` the caller omits."""
+    _upsert_noted_registry(conn, "professions", "profession_id", profession_id, name, notes)
 
 
 def select_all_professions(conn: sqlite3.Connection) -> list[sqlite3.Row]:
@@ -708,21 +690,12 @@ def update_profession_notes(conn: sqlite3.Connection, profession_id: str, notes:
 
 def set_character_professions(conn: sqlite3.Connection, character_id: str, profession_ids: list[str]) -> None:
     """Replace every profession linked to ``character_id``, in the order given."""
-    conn.execute("DELETE FROM character_professions WHERE character_id = ?", [character_id])
-    if profession_ids:
-        conn.executemany(
-            "INSERT OR IGNORE INTO character_professions (character_id, profession_id, sort_order) VALUES (?,?,?)",
-            [(character_id, pid, i) for i, pid in enumerate(profession_ids)],
-        )
+    _replace_ordered(conn, "character_professions", "character_id", character_id, ("profession_id",), profession_ids)
 
 
 def select_character_professions(conn: sqlite3.Connection, character_id: str) -> list[str]:
     """Return the profession ids linked to ``character_id`` in declared order."""
-    rows = conn.execute(
-        "SELECT profession_id FROM character_professions WHERE character_id = ? ORDER BY sort_order, profession_id",
-        [character_id],
-    ).fetchall()
-    return [r[0] for r in rows]
+    return _select_ordered(conn, "character_professions", "character_id", character_id, ("profession_id",))
 
 
 # ---------------------------------------------------------------------------
@@ -1463,32 +1436,6 @@ def select_story_junction(conn: sqlite3.Connection, story_id: str, table: str, i
         [story_id],
     ).fetchall()
     return [r[0] for r in rows]
-
-
-def delete_all_story_junctions(conn: sqlite3.Connection, story_id: str) -> dict[str, int]:
-    """Delete all junction rows for ``story_id`` across every junction table.
-
-    Returns a dict of table → rows deleted (for dry-run reporting).
-    Note: with ``ON DELETE CASCADE`` this happens automatically when the story
-    row is deleted, but this is useful for dry-run inspection.
-    """
-    junctions = [
-        ("story_characters", "character_id"),
-        ("story_locations", "location_id"),
-        ("story_regions", "region_id"),
-        ("story_monsters", "monster_id"),
-        ("story_fauna", "fauna_id"),
-        ("story_flora", "flora_id"),
-        ("story_food_drink", "food_drink_id"),
-        ("story_weapons", "canonical_weapon_id"),
-        ("story_equipment", "canonical_equipment_id"),
-        ("story_groups", "group_id"),
-    ]
-    counts: dict[str, int] = {}
-    for table, _ in junctions:
-        cur = conn.execute(f"DELETE FROM {table} WHERE story_id = ?", [story_id])
-        counts[table] = cur.rowcount
-    return counts
 
 
 def count_entity_story_links(conn: sqlite3.Connection, junction_table: str, id_column: str, entity_id: str) -> int:

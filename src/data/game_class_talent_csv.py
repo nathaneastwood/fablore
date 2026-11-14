@@ -32,7 +32,11 @@ from registry_ids import assert_unique_ids
 ROOT = Path(__file__).resolve().parents[2]
 CLASSES_CSV_PATH = ROOT / "src/data/csv/classes.csv"
 TALENTS_CSV_PATH = ROOT / "src/data/csv/talents.csv"
-UPSTREAM_CARD_CSV_PATH = ROOT.parent / "flesh-and-blood-cards/csvs/english/card.csv"
+# The sibling flesh-and-blood-cards checkout's English tab-separated exports; every
+# generator that reads upstream card or set data resolves its paths from here.
+UPSTREAM_CSV_DIR = ROOT.parent / "flesh-and-blood-cards/csvs/english"
+UPSTREAM_CARD_CSV_PATH = UPSTREAM_CSV_DIR / "card.csv"
+UPSTREAM_CARD_PRINTING_CSV_PATH = UPSTREAM_CSV_DIR / "card-printing.csv"
 
 
 def merge_classes_and_talents_from_card_rows(

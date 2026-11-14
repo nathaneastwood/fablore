@@ -453,3 +453,81 @@ def test_a_term_in_the_blurb_is_still_hinted_in_the_body_below():
         "# Bravo\n\n:::hero-blurb\nA Brawnhide roams.\n:::\n\n"
         'The <span class="hint" hint="Brawnhide">Brawnhide</span> sleeps.\n'
     )
+
+
+# ---------------------------------------------------------------------------
+# Substring prefilter — must never drop a match the regex would make
+# ---------------------------------------------------------------------------
+
+
+def test_regex_ascii_fold_covers_every_char_the_regex_equates_with_ascii():
+    """Re-derive the fold table from this interpreter's ``re.IGNORECASE``.
+
+    If a Python release adds a case equivalence between a non-ASCII and an
+    ASCII character, the prefilter would start skipping pages the regex matches.
+    """
+    import re
+
+    from mdbook_hints import _REGEX_ASCII_FOLD
+
+    ascii_class = re.compile(r"[\x00-\x7f]", re.IGNORECASE)
+    found = {}
+    for cp in range(0x80, 0x110000):
+        if 0xD800 <= cp < 0xE000:
+            continue
+        ch = chr(cp)
+        if ascii_class.fullmatch(ch):
+            found[cp] = next(a for a in "abcdefghijklmnopqrstuvwxyz" if re.fullmatch(a, ch, re.IGNORECASE))
+    assert found == _REGEX_ASCII_FOLD
+
+
+def test_prefilter_keeps_matches_on_chars_lower_does_not_fold():
+    """``ſ``, ``ı``, ``İ`` and the Kelvin sign match ASCII under the regex only."""
+    hints = {
+        "Sol": {"type": "aesir", "summary": "Aesir of Light"},
+        "Kit": {"type": "character", "summary": "A girl."},
+        "Isen": {"type": "location", "summary": "A peak."},
+    }
+    out = process_chapter("ſol, Kit and İsen and ısen.\n", hints)
+    assert 'hint="Sol">ſol<' in out
+    assert 'hint="Kit">Kit<' in out
+    assert 'hint="Isen">İsen<' in out
+    chapters = [("a", "ısen"), ("b", "ISEN")]
+    assert compute_single_page_keys(chapters, hints) == frozenset()
+
+
+def test_prefilter_handles_non_ascii_match_strings():
+    hints = {"KrakensBarrel": {"match": ["Kraken’s Barrel"], "type": "location", "summary": "A tavern."}}
+    out = process_chapter("They drank at the KRAKEN’S BARREL.\n", hints)
+    assert 'hint="KrakensBarrel">KRAKEN’S BARREL<' in out
+
+
+def test_absent_match_string_does_not_suppress_via_heading():
+    """Only strings present on the page reach the heading check, which is safe
+    because a heading is part of the page."""
+    hints = {"Siren": {"match": ["Siren", "Sirens"], "type": "fauna", "summary": "Merfolk."}}
+    assert 'hint="Siren"' in process_chapter("## Other\n\nA Siren sang.\n", hints)
+    assert 'hint="Siren"' not in process_chapter("## Sirens\n\nA Siren sang.\n", hints)
+
+
+# ---------------------------------------------------------------------------
+# Book walker
+# ---------------------------------------------------------------------------
+
+
+def test_walker_skips_separators_and_part_titles():
+    from mdbook_hints import _collect_chapters, _process_sections
+
+    hints = {"Sol": {"type": "aesir", "summary": "Aesir of Light"}}
+    child = {"Chapter": {"path": "b.md", "content": "Sol again.", "sub_items": []}}
+    items = [
+        "Separator",
+        {"PartTitle": "Lore"},
+        {"Chapter": {"path": "a.md", "content": "Sol rises.", "sub_items": [child]}},
+        {"Chapter": {"path": "data/md/x.md", "content": "Sol table.", "sub_items": []}},
+    ]
+    assert _collect_chapters(items, []) == [("a", "Sol rises."), ("b", "Sol again.")]
+    _process_sections(items, hints, frozenset())
+    assert 'hint="Sol"' in items[2]["Chapter"]["content"]
+    assert 'hint="Sol"' in child["Chapter"]["content"]
+    assert items[3]["Chapter"]["content"] == "Sol table."

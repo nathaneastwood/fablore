@@ -7,12 +7,39 @@
 # Do not add notes=/description= values inline in data-entry.py; add or
 # update the entry here instead.
 
+import atexit
+import os
 import sys
+import traceback
 
 sys.path.insert(0, "src/data")
 from db import Database
 
 db = Database("src/data/fablore.db")
+
+
+def _flush_or_fail() -> None:
+    """Run the deferred export; a failure here must still fail the script.
+
+    Python reports an exception raised in an atexit callback as "Exception
+    ignored" and keeps the exit status at 0, which would let a broken export
+    pass as a clean run. Print the traceback and force a non-zero exit instead.
+    """
+    try:
+        db.flush_registry_export()
+    except BaseException:
+        traceback.print_exc()
+        sys.stderr.flush()
+        os._exit(1)
+
+
+# Each update_description() / set_location_parent() call would otherwise rewrite
+# every registry CSV on its own — a few hundred full rewrites per run. Defer that
+# to one export when the script exits, however it exits (atexit also runs on the
+# sys.exit(1) below and on an uncaught exception), so the CSVs never lag the
+# rows already committed.
+db.defer_registry_export()
+atexit.register(_flush_or_fail)
 
 # update_description() raises ValueError when the named entity does not exist. Because
 # this file is a flat sequence of top-level calls with no error handling, an uncaught

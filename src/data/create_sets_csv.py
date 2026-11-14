@@ -11,7 +11,6 @@ executed as ``__main__``.
 
 from __future__ import annotations
 
-import subprocess
 import sys
 from pathlib import Path
 
@@ -19,6 +18,8 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
+from game_class_talent_csv import UPSTREAM_CSV_DIR  # noqa: E402
+from generator_utils import run_validate_data_and_exit  # noqa: E402
 from pipe_csv_io import REGENERATE_CREATE_SETS, write_pipe_csv_autogen  # noqa: E402
 from registry_ids import make_hash_id  # noqa: E402
 from tab_csv_io import read_tab_csv  # noqa: E402
@@ -27,8 +28,8 @@ from text_utils import normalize_name  # noqa: E402
 ROOT = Path(__file__).resolve().parents[2]
 SETS_CSV_PATH = ROOT / "src/data/csv/sets.csv"
 SET_TYPES_CSV_PATH = ROOT / "src/data/csv/set-types.csv"
-UPSTREAM_SET_CSV_PATH = ROOT.parent / "flesh-and-blood-cards/csvs/english/set.csv"
-UPSTREAM_SET_PRINTING_CSV_PATH = ROOT.parent / "flesh-and-blood-cards/csvs/english/set-printing.csv"
+UPSTREAM_SET_CSV_PATH = UPSTREAM_CSV_DIR / "set.csv"
+UPSTREAM_SET_PRINTING_CSV_PATH = UPSTREAM_CSV_DIR / "set-printing.csv"
 
 
 def infer_set_type_label(set_id: str, set_name: str) -> str:
@@ -186,6 +187,4 @@ def generate_sets_csv() -> None:
 
 if __name__ == "__main__":
     generate_sets_csv()
-    _vd = Path(__file__).resolve().parent / "validate_data.py"
-    _rc = subprocess.run([sys.executable, str(_vd)], cwd=str(ROOT))
-    raise SystemExit(_rc.returncode)
+    run_validate_data_and_exit()

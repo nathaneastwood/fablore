@@ -37,8 +37,9 @@ if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
 from card_name_slug import slugify_card_name_stem  # noqa: E402
-from hero_overrides import HERO_SLUG_LORE_FILE_OVERRIDES  # noqa: E402
-from pipe_csv_io import read_pipe_csv  # noqa: E402
+from mdbook_common import iter_chapters, read_rows, run  # noqa: E402
+from mdbook_common import md_to_html_url as _html_url  # noqa: E402
+from mdbook_related import resolve_hero_src_path  # noqa: E402
 
 MARK_START = "<!-- fablore-graph:start -->"
 MARK_END = "<!-- fablore-graph:end -->"
@@ -120,40 +121,17 @@ _STORY_TYPE_LABELS: dict[str, str] = {
 }
 
 
-def _rows(path: Path) -> list[dict[str, str]]:
-    """Return the rows of a pipe CSV, or an empty list when it is absent."""
-    if not path.is_file():
-        return []
-    _, rs = read_pipe_csv(path)
-    return rs
-
-
-def _html_url(story_key: str) -> str:
-    """Convert a ``StoryKey`` (``a/b.md``) to the rendered page URL (``a/b.html``)."""
-    key = story_key.strip()
-    if not key:
-        return ""
-    return key[:-3] + ".html" if key.endswith(".md") else key
-
-
 def resolve_hero_url(src_root: Path, canonical_slug: str) -> str:
     """Return the rendered URL of a hero's lore page, or ``""`` when none exists.
 
-    Mirrors ``mdbook_related.resolve_hero_src_path`` so both features agree on
+    Uses ``mdbook_related.resolve_hero_src_path`` so both features agree on
     which heroes have a page: the override table first, then the two naming
     conventions under ``heroes-of-rathe/``.
     """
     slug = canonical_slug.strip()
     if not slug:
         return ""
-    override = HERO_SLUG_LORE_FILE_OVERRIDES.get(slug)
-    if override and (src_root / Path(override)).is_file():
-        return _html_url(Path(override).as_posix())
-    hero_dir = src_root / "heroes-of-rathe"
-    for fname in (f"{slug}-about.md", f"{slug}.md"):
-        if (hero_dir / fname).is_file():
-            return _html_url((Path("heroes-of-rathe") / fname).as_posix())
-    return ""
+    return _html_url(resolve_hero_src_path(src_root, slug) or "")
 
 
 def _card_url(src_root: Path, folder: str, slug: str) -> str:
@@ -190,14 +168,14 @@ def load_sets_by_arc(data_dir: Path) -> dict[str, str]:
     """
     csv_dir = data_dir / "csv"
     set_names: dict[str, str] = {}
-    for r in _rows(csv_dir / "sets.csv"):
+    for r in read_rows(csv_dir / "sets.csv"):
         sid = (r.get("SetId") or "").strip()
         name = (r.get("SetName") or "").strip()
         if sid and name:
             set_names[sid] = name
 
     by_arc: dict[str, str] = {}
-    for r in _rows(csv_dir / "story-arcs.csv"):
+    for r in read_rows(csv_dir / "story-arcs.csv"):
         slug = (r.get("Slug") or "").strip()
         set_id = (r.get("SetId") or "").strip()
         display = (r.get("DisplayName") or "").strip()
@@ -254,7 +232,7 @@ def build_printing_edges(data_dir: Path, card_node: dict[str, int], set_node: di
     # A set is a node only where an arc maps to it, so this also filters out
     # every set that has no stories on the site.
     slug_for_set: dict[str, str] = {}
-    for r in _rows(csv_dir / "story-arcs.csv"):
+    for r in read_rows(csv_dir / "story-arcs.csv"):
         sid = (r.get("SetId") or "").strip()
         slug = (r.get("Slug") or "").strip()
         if sid and slug:
@@ -263,13 +241,13 @@ def build_printing_edges(data_dir: Path, card_node: dict[str, int], set_node: di
     edges: set[tuple[int, int]] = set()
     for printings_csv, game_id_col, game_csv, canonical_col in _PRINTING_SOURCES:
         canonical_for_game: dict[str, str] = {}
-        for r in _rows(csv_dir / game_csv):
+        for r in read_rows(csv_dir / game_csv):
             gid = (r.get(game_id_col) or "").strip()
             cid = (r.get(canonical_col) or "").strip()
             if gid and cid:
                 canonical_for_game[gid] = cid
 
-        for r in _rows(csv_dir / printings_csv):
+        for r in read_rows(csv_dir / printings_csv):
             gid = (r.get(game_id_col) or "").strip()
             set_id = (r.get("SetId") or "").strip()
             card_idx = card_node.get(canonical_for_game.get(gid, ""))
@@ -313,7 +291,7 @@ class _Builder:
 def _entity_names(path: Path, id_col: str, name_col: str) -> dict[str, str]:
     """Return ``{id: name}`` for a simple registry CSV."""
     out: dict[str, str] = {}
-    for r in _rows(path):
+    for r in read_rows(path):
         eid = (r.get(id_col) or "").strip()
         name = (r.get(name_col) or "").strip()
         if eid and name:
@@ -337,7 +315,7 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
     # --- Story nodes -------------------------------------------------------
     story_idx: dict[str, int] = {}
     story_key: dict[str, str] = {}
-    for r in _rows(csv_dir / "stories.csv"):
+    for r in read_rows(csv_dir / "stories.csv"):
         sid = (r.get("StoryId") or "").strip()
         key = (r.get("StoryKey") or "").strip()
         stype = (r.get("StoryType") or "").strip()
@@ -369,7 +347,7 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
 
     # --- Registries needed for names and URLs ------------------------------
     regions: dict[str, tuple[str, str]] = {}
-    for r in _rows(csv_dir / "regions.csv"):
+    for r in read_rows(csv_dir / "regions.csv"):
         rid = (r.get("RegionId") or "").strip()
         name = (r.get("RegionName") or "").strip()
         key = (r.get("WorldOfRatheStoryKey") or "").strip()
@@ -377,7 +355,7 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
             regions[rid] = (name, key)
 
     locations: dict[str, tuple[str, str, str]] = {}
-    for r in _rows(csv_dir / "locations.csv"):
+    for r in read_rows(csv_dir / "locations.csv"):
         lid = (r.get("LocationId") or "").strip()
         name = (r.get("Name") or "").strip()
         rid = (r.get("RegionId") or "").strip()
@@ -386,7 +364,7 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
             locations[lid] = (name, rid, frag)
 
     npcs: dict[str, tuple[str, str]] = {}
-    for r in _rows(csv_dir / "characters.csv"):
+    for r in read_rows(csv_dir / "characters.csv"):
         cid = (r.get("CharacterId") or "").strip()
         name = (r.get("Name") or "").strip()
         key = (r.get("OtherCharactersStoryKey") or "").strip()
@@ -394,7 +372,7 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
             npcs[cid] = (name, key)
 
     heroes: dict[str, tuple[str, str]] = {}
-    for r in _rows(csv_dir / "heroes-canonical.csv"):
+    for r in read_rows(csv_dir / "heroes-canonical.csv"):
         cid = (r.get("CanonicalId") or "").strip()
         slug = (r.get("CanonicalSlug") or "").strip()
         name = (r.get("CanonicalHero") or "").strip()
@@ -408,7 +386,7 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
     # person can never mint two nodes the way story-heroes.csv (keyed on
     # canonical_id) and story-npcs.csv (keyed on character_id) used to.
     char_to_canon: dict[str, str] = {}
-    for r in _rows(csv_dir / "character-heroes.csv"):
+    for r in read_rows(csv_dir / "character-heroes.csv"):
         canon_id = (r.get("CanonicalId") or "").strip()
         char_id = (r.get("CharacterId") or "").strip()
         if canon_id and char_id:
@@ -422,7 +400,7 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
                 (r.get("CanonicalWeapon") or "").strip(),
                 (r.get("CanonicalSlug") or "").strip(),
             )
-            for r in _rows(csv_dir / "weapons-canonical.csv")
+            for r in read_rows(csv_dir / "weapons-canonical.csv")
         )
         if cid and name
     }
@@ -434,7 +412,7 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
                 (r.get("CanonicalEquipment") or "").strip(),
                 (r.get("CanonicalSlug") or "").strip(),
             )
-            for r in _rows(csv_dir / "equipment-canonical.csv")
+            for r in read_rows(csv_dir / "equipment-canonical.csv")
         )
         if cid and name
     }
@@ -447,7 +425,7 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
     # has no link at all, which is what dropping the Hand of Sol's locations row
     # would otherwise have cost.
     groups: dict[str, tuple[str, str, str]] = {}
-    for r in _rows(csv_dir / "groups.csv"):
+    for r in read_rows(csv_dir / "groups.csv"):
         gid = (r.get("GroupId") or "").strip()
         name = (r.get("Name") or "").strip()
         key = (r.get("LoreStoryKey") or "").strip()
@@ -530,7 +508,7 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
     )
 
     for filename, id_col, kind, resolve in junctions:
-        for r in _rows(csv_dir / filename):
+        for r in read_rows(csv_dir / filename):
             sid = (r.get("StoryId") or "").strip()
             eid = (r.get(id_col) or "").strip()
             if not sid or not eid or sid not in story_idx:
@@ -781,34 +759,17 @@ def inject_into_content(content: str, inner_html: str) -> str:
 
 
 def walk_and_process(sections: list, graph: dict) -> None:
-    """Inject the graph shell into the ``graph.md`` chapter, recursing sub-items."""
-    for item in sections:
-        if not isinstance(item, dict):
-            continue
-        if "Chapter" in item:
-            ch = item["Chapter"]
-            if (ch.get("path") or "").strip() == _GRAPH_SRC_PATH:
-                ch["content"] = inject_into_content(
-                    ch.get("content") or "",
-                    build_graph_html(graph),
-                )
-            walk_and_process(ch.get("sub_items") or [], graph)
+    """Inject the graph shell into the ``graph.md`` chapter."""
+    for ch in iter_chapters(sections):
+        if (ch.get("path") or "").strip() == _GRAPH_SRC_PATH:
+            ch["content"] = inject_into_content(
+                ch.get("content") or "",
+                build_graph_html(graph),
+            )
 
 
 def main() -> None:
-    if len(sys.argv) >= 3 and sys.argv[1] == "supports":
-        sys.exit(0)
-
-    ctx, book = json.load(sys.stdin)
-    root = Path(ctx["root"])
-    book_cfg = (ctx.get("config") or {}).get("book") or {}
-    src_rel = (book_cfg.get("src") or "src").strip() or "src"
-    src_root = (root / src_rel).resolve()
-
-    graph = build_graph(src_root / "data", src_root)
-    walk_and_process(book.get("items") or [], graph)
-
-    json.dump(book, sys.stdout, ensure_ascii=False)
+    run(lambda items, src_root: walk_and_process(items, build_graph(src_root / "data", src_root)))
 
 
 if __name__ == "__main__":

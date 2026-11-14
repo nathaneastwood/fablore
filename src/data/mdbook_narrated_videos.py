@@ -21,7 +21,6 @@ must print only the modified ``Book`` JSON on stdout.  Supports
 from __future__ import annotations
 
 import html
-import json
 import sys
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
@@ -30,6 +29,7 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
+from mdbook_common import iter_chapters, run  # noqa: E402
 from pipe_csv_io import read_pipe_csv  # noqa: E402
 
 MARK_START = "<!-- fablore-narrated-videos:start -->"
@@ -218,35 +218,18 @@ def _walk_sections(
     videos_by_key: dict[str, list[dict[str, str]]],
     sid_by_key: dict[str, str],
 ) -> None:
-    for item in sections:
-        if not isinstance(item, dict):
-            continue
-        if "Chapter" in item:
-            ch = item["Chapter"]
-            path = (ch.get("path") or "").strip()
-            if path:
-                key = Path(path).as_posix()
-                videos = videos_by_key.get(key)
-                if videos:
-                    story_id = sid_by_key.get(key, key)
-                    ch["content"] = _inject(ch.get("content") or "", story_id, videos)
-            _walk_sections(ch.get("sub_items") or [], videos_by_key, sid_by_key)
+    for ch in iter_chapters(sections):
+        path = (ch.get("path") or "").strip()
+        if path:
+            key = Path(path).as_posix()
+            videos = videos_by_key.get(key)
+            if videos:
+                story_id = sid_by_key.get(key, key)
+                ch["content"] = _inject(ch.get("content") or "", story_id, videos)
 
 
 def main() -> None:
-    if len(sys.argv) >= 3 and sys.argv[1] == "supports":
-        sys.exit(0)
-
-    ctx, book = json.load(sys.stdin)
-    root = Path(ctx["root"])
-    book_cfg = (ctx.get("config") or {}).get("book") or {}
-    src_rel = (book_cfg.get("src") or "src").strip() or "src"
-    data_dir = (root / src_rel).resolve() / "data"
-
-    videos_by_key, sid_by_key = _load_videos_by_key(data_dir)
-    _walk_sections(book.get("items") or [], videos_by_key, sid_by_key)
-
-    json.dump(book, sys.stdout, ensure_ascii=False)
+    run(lambda items, src_root: _walk_sections(items, *_load_videos_by_key(src_root / "data")))
 
 
 if __name__ == "__main__":

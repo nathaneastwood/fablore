@@ -63,13 +63,21 @@ class TestPreprocessorProtocol:
         )
 
     def test_preprocessors_use_items_key(self) -> None:
-        """Each preprocessor that walks the book must use book.get('items')."""
+        """Each preprocessor that walks the book must use book.get('items').
+
+        Most go through ``mdbook_common.run``, which reads the items for them;
+        that module is held to the same rule.
+        """
+        common = DATA_DIR / "mdbook_common.py"
+        assert 'book.get("items")' in common.read_text(), "mdbook_common.run must read book.get('items')"
         for f in PREPROCESSORS:
             text = f.read_text()
-            if "_walk" in text or "sub_items" in text:
+            if "_walk" in text or "sub_items" in text or "iter_chapters" in text:
+                imports_run = re.search(r"from mdbook_common import (?:\([^)]*|[^\n]*)\brun\b", text)
+                via_run = imports_run and re.search(r"\brun\(", text)
                 assert (
-                    'book.get("items")' in text or "book.get('items')" in text
-                ), f"{f.name} walks chapters but doesn't call book.get('items')"
+                    'book.get("items")' in text or "book.get('items')" in text or via_run
+                ), f"{f.name} walks chapters but doesn't call book.get('items') or mdbook_common.run"
 
 
 class TestFontAwesomeIcons:
@@ -118,9 +126,24 @@ class TestArchiveNotices:
         )
 
     def test_archive_preprocessor_handles_items_not_sections(self) -> None:
-        """Redundant with TestPreprocessorProtocol but explicit for archive notice."""
-        text = (DATA_DIR / "mdbook_archive_notice.py").read_text()
-        assert 'book.get("items")' in text
+        """Redundant with TestPreprocessorProtocol but explicit for archive notice.
+
+        Runs the preprocessor on a book whose chapters sit under ``items`` and
+        checks the notice lands, so the protocol is tested rather than grepped for.
+        """
+        chapter = {"name": "Old", "path": "archive/world-of-rathe/nowhere.md", "content": "# Old\n", "sub_items": []}
+        payload = json.dumps(
+            [{"root": str(ROOT), "config": {"book": {"src": "src"}}}, {"items": [{"Chapter": chapter}]}]
+        )
+        out = subprocess.run(
+            ["python3", str(DATA_DIR / "mdbook_archive_notice.py")],
+            input=payload,
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        content = json.loads(out.stdout)["items"][0]["Chapter"]["content"]
+        assert "fablore-archive-notice:start" in content
 
 
 # ===========================================================================

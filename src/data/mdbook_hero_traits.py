@@ -15,9 +15,15 @@ restricted to ``heroes-of-rathe/``.
 
 from __future__ import annotations
 
-import json
 import re
 import sys
+from pathlib import Path
+
+_SCRIPT_DIR = Path(__file__).resolve().parent
+if str(_SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(_SCRIPT_DIR))
+
+from mdbook_common import iter_chapters, read_book, write_book  # noqa: E402
 
 # Matches an entire :::hero-trait block (non-greedy).
 # Group 1: title text
@@ -67,22 +73,14 @@ def _wrap(articles: list[str]) -> str:
 
 
 def _walk(sections: list) -> None:
-    for item in sections:
-        if not isinstance(item, dict):
-            continue
-        if "Chapter" in item:
-            ch = item["Chapter"]
-            ch["content"] = _expand(ch.get("content") or "")
-            _walk(ch.get("sub_items") or [])
+    for ch in iter_chapters(sections):
+        ch["content"] = _expand(ch.get("content") or "")
 
 
 def main() -> None:
-    if len(sys.argv) >= 3 and sys.argv[1] == "supports":
-        sys.exit(0)
-
-    ctx, book = json.load(sys.stdin)
+    _ctx, book = read_book()
     _walk(book.get("items") or [])
-    json.dump(book, sys.stdout, ensure_ascii=False)
+    write_book(book)
 
 
 if __name__ == "__main__":

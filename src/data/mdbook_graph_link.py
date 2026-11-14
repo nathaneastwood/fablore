@@ -31,7 +31,6 @@ print only the modified ``Book`` JSON on stdout. Supports ``supports <renderer>`
 from __future__ import annotations
 
 import html
-import json
 import re
 import sys
 from pathlib import Path
@@ -40,6 +39,8 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
+from mdbook_common import RELATED_LORE_H1 as RELATED_HEADING  # noqa: E402
+from mdbook_common import iter_chapters, run  # noqa: E402
 from mdbook_graph import build_graph, page_graph_targets  # noqa: E402
 from mdbook_story_meta import GRAPH_SLOT, RELATED_GRAPH_SLOT  # noqa: E402
 from mdbook_story_meta import MARK_END as STORY_META_END  # noqa: E402
@@ -48,8 +49,6 @@ MARK_START = "<!-- fablore-graph-link:start -->"
 MARK_END = "<!-- fablore-graph-link:end -->"
 
 _GRAPH_SRC_PATH = "graph.md"
-# The heading mdbook_related puts at the top of its section.
-RELATED_HEADING = '<h1 id="related-lore">Related Lore</h1>'
 # A heading row from an earlier run, unwrapped back to the bare heading.
 _RELATED_HEAD_RE = re.compile(
     '<div class="related-head">('
@@ -155,12 +154,7 @@ def inject_into_content(content: str, inner_html: str) -> str:
 
 def walk_and_process(sections: list, targets: dict[str, dict]) -> None:
     """Append the backlink to every chapter that maps to a node."""
-    for item in sections:
-        if not isinstance(item, dict):
-            continue
-        if "Chapter" not in item:
-            continue
-        ch = item["Chapter"]
+    for ch in iter_chapters(sections):
         path = (ch.get("path") or "").strip()
         node = targets.get(Path(path).as_posix()) if path else None
         # Never on the graph page itself — it would link to where you already are.
@@ -175,23 +169,14 @@ def walk_and_process(sections: list, targets: dict[str, dict]) -> None:
                 ch["content"] = inject_into_slot(content, build_card_link_html(path, node))
             else:
                 ch["content"] = inject_into_content(content, build_link_html(path, node))
-        walk_and_process(ch.get("sub_items") or [], targets)
 
 
 def main() -> None:
-    if len(sys.argv) >= 3 and sys.argv[1] == "supports":
-        sys.exit(0)
+    def process(items: list, src_root: Path) -> None:
+        graph = build_graph(src_root / "data", src_root)
+        walk_and_process(items, page_graph_targets(graph))
 
-    ctx, book = json.load(sys.stdin)
-    root = Path(ctx["root"])
-    book_cfg = (ctx.get("config") or {}).get("book") or {}
-    src_rel = (book_cfg.get("src") or "src").strip() or "src"
-    src_root = (root / src_rel).resolve()
-
-    graph = build_graph(src_root / "data", src_root)
-    walk_and_process(book.get("items") or [], page_graph_targets(graph))
-
-    json.dump(book, sys.stdout, ensure_ascii=False)
+    run(process)
 
 
 if __name__ == "__main__":

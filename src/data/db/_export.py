@@ -12,7 +12,6 @@ exported to ``story-narrated-videos.csv`` (and included in :func:`dump_to_json`)
 
 from __future__ import annotations
 
-import csv
 import json
 import sqlite3
 import sys
@@ -22,7 +21,7 @@ _SCRIPT_DIR = Path(__file__).resolve().parents[1]
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from pipe_csv_io import auto_gen_banner  # noqa: E402
+from pipe_csv_io import write_pipe_csv_autogen  # noqa: E402
 import db._queries as q  # noqa: E402
 
 # Regenerate hint strings (mirrored from the old pipe_csv_io constants)
@@ -42,19 +41,7 @@ def _write_pipe_csv(
     fieldnames: list[str],
     rows: list[dict[str, str]],
 ) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", newline="", encoding="utf-8") as f:
-        f.write(auto_gen_banner(banner_cmd))
-        writer = csv.DictWriter(
-            f,
-            fieldnames=fieldnames,
-            delimiter="|",
-            lineterminator="\n",
-            extrasaction="ignore",
-        )
-        writer.writeheader()
-        for row in rows:
-            writer.writerow({k: row.get(k, "") for k in fieldnames})
+    write_pipe_csv_autogen(path, fieldnames, rows, regenerate_command=banner_cmd)
 
 
 def _export_story_narrated_videos(conn: sqlite3.Connection, csv_dir: Path) -> None:
@@ -91,37 +78,21 @@ def export_all(conn: sqlite3.Connection, data_dir: Path) -> None:
     ``heroes-fabtcg.csv`` are written by ``create_heroes_csv.py`` (from the
     fabtcg.com hero API) and ``hero-card-name-aliases.csv`` is an input to it. Everything else is exported.
 
-    Superset of :func:`export_stories`, :func:`export_registry_tables` and
-    :func:`export_story_junctions`. It skipped the eight registry tables only
-    ``export_registry_tables`` wrote until the docstring was made true, which
-    let an export run clean and leave groups, aliases, kind, titles, kin and
-    professions stale. ``tests/test_db_export.py`` compares the file sets, so a
-    new exporter added to one of the narrower functions cannot be forgotten here.
+    Calls :func:`export_stories`, :func:`export_registry_tables` and
+    :func:`export_story_junctions` rather than re-listing their exporters, so
+    a new exporter added to one of the narrower functions is covered here too.
+    (Re-listing them once let an export run clean and leave groups, aliases,
+    kinds, titles, kin and professions stale.)
 
     Args:
         conn: Open database connection.
         data_dir: Repository ``src/data/`` directory.
     """
     csv_dir = data_dir / "csv"
-    _export_stories(conn, csv_dir)
+    export_stories(conn, data_dir)
     _export_story_narrated_videos(conn, csv_dir)
-    _export_regions(conn, csv_dir)
-    _export_locations(conn, csv_dir)
-    _export_characters(conn, csv_dir)
-    _export_monsters(conn, csv_dir)
-    _export_fauna(conn, csv_dir)
-    _export_flora(conn, csv_dir)
-    _export_food_drink(conn, csv_dir)
-    _export_groups(conn, csv_dir)
-    _export_group_members(conn, csv_dir)
-    _export_alternate_names(conn, csv_dir)
-    _export_kinds(conn, csv_dir)
-    _export_titles(conn, csv_dir)
-    _export_title_holders(conn, csv_dir)
-    _export_character_kin(conn, csv_dir)
-    _export_professions(conn, csv_dir)
+    export_registry_tables(conn, data_dir)
     _export_heroes_canonical(conn, csv_dir)
-    _export_character_heroes(conn, csv_dir)
     _export_heroes_game(conn, csv_dir)
     _export_heroes_printings(conn, csv_dir)
     _export_weapons_canonical(conn, csv_dir)
@@ -134,7 +105,7 @@ def export_all(conn: sqlite3.Connection, data_dir: Path) -> None:
     _export_talents(conn, csv_dir)
     _export_sets(conn, csv_dir)
     _export_set_types(conn, csv_dir)
-    _export_story_junctions(conn, csv_dir)
+    export_story_junctions(conn, data_dir)
 
 
 def export_stories(conn: sqlite3.Connection, data_dir: Path) -> None:

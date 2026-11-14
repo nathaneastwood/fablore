@@ -149,6 +149,20 @@ def test_check_near_duplicate_names_ignores_unrelated_names(tmp_path: Path) -> N
     assert alerts == []
 
 
+def test_check_near_duplicate_names_honours_a_passed_ledger(tmp_path: Path) -> None:
+    path = tmp_path / "locations.csv"
+    path.write_text(
+        "LocationId|Name|RegionId\nLO1|Amphitheatre|RG1\nLO2|Ampitheatre|RG1\nLO3|The Amphitheatre|RG1\n",
+        encoding="utf-8",
+    )
+    alerts = validate_data._check_near_duplicate_names(
+        path, "LocationId", "Name", "locations.csv", reviewed={frozenset({"LO1", "LO2"}): "distinct"}
+    )
+    assert len(alerts) == 2
+    assert all("LO1' Name='Amphitheatre' looks like a possible duplicate of LocationId='LO2'" not in a for a in alerts)
+    assert any("differs only by a leading article" in a for a in alerts)
+
+
 def test_check_near_duplicate_names_respects_group_column(tmp_path: Path) -> None:
     """Same near-duplicate name pair in *different* regions should not be flagged
     when grouped by region — they may legitimately be distinct places."""

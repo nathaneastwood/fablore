@@ -9,7 +9,6 @@ reference tables alone.
 
 from __future__ import annotations
 
-import subprocess
 import sys
 from pathlib import Path
 
@@ -21,11 +20,10 @@ from game_class_talent_csv import (  # noqa: E402
     UPSTREAM_CARD_CSV_PATH,
     merge_classes_and_talents_from_card_rows,
 )
+from generator_utils import run_validate_data_and_exit  # noqa: E402
 from registry_ids import make_hash_id  # noqa: E402
 from tab_csv_io import read_tab_csv  # noqa: E402
 from text_utils import normalize_name  # noqa: E402
-
-ROOT = Path(__file__).resolve().parents[2]
 
 
 def generate_classes_talents_csv() -> None:
@@ -47,6 +45,4 @@ def generate_classes_talents_csv() -> None:
 
 if __name__ == "__main__":
     generate_classes_talents_csv()
-    _vd = Path(__file__).resolve().parent / "validate_data.py"
-    _rc = subprocess.run([sys.executable, str(_vd)], cwd=str(ROOT))
-    raise SystemExit(_rc.returncode)
+    run_validate_data_and_exit()

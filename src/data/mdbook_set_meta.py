@@ -17,16 +17,16 @@ must print only the modified ``Book`` JSON on stdout.  Supports
 from __future__ import annotations
 
 import html
-import json
 import re
 import sys
-from datetime import datetime
 from pathlib import Path
 
 _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
+from mdbook_common import format_date, iter_chapters, run  # noqa: E402
+from mdbook_common import story_meta_item as _item  # noqa: E402
 from pipe_csv_io import read_pipe_csv  # noqa: E402
 
 MARK_START = "<!-- fablore-set-meta:start -->"
@@ -80,21 +80,6 @@ def _load_meta(data_dir: Path) -> dict[str, dict]:
 # ---------------------------------------------------------------------------
 
 
-def _format_date(date_str: str) -> str:
-    s = date_str.strip()
-    if not s:
-        return ""
-    try:
-        dt = datetime.strptime(s, "%Y-%m-%d")
-        return f"{dt.day} {dt.strftime('%B %Y')}"
-    except ValueError:
-        return s
-
-
-def _item(icon: str, inner: str) -> str:
-    return f'<span class="story-meta-item">' f'<i class="{icon}" aria-hidden="true"></i>' f" {inner}</span>"
-
-
 def _build_set_meta_html(meta: dict) -> str:
     items: list[str] = []
 
@@ -106,7 +91,7 @@ def _build_set_meta_html(meta: dict) -> str:
         items.append(_item("fas fa-cube", f"<strong>{html.escape(set_name)}</strong>"))
 
     if release_date:
-        items.append(_item("fas fa-calendar", html.escape(_format_date(release_date))))
+        items.append(_item("fas fa-calendar", html.escape(format_date(release_date))))
 
     if set_type:
         items.append(_item("fas fa-tag", html.escape(set_type)))
@@ -177,12 +162,7 @@ def _digital_tiles_slug(posix_path: str) -> str | None:
 
 
 def _walk_sections(sections: list, slug_meta: dict[str, dict]) -> None:
-    for item in sections:
-        if not isinstance(item, dict):
-            continue
-        if "Chapter" not in item:
-            continue
-        ch = item["Chapter"]
+    for ch in iter_chapters(sections):
         path = Path(ch.get("path") or "").as_posix()
 
         flavour_slug = _flavour_slug(path)
@@ -196,8 +176,6 @@ def _walk_sections(sections: list, slug_meta: dict[str, dict]) -> None:
             meta_html = _build_set_meta_html(slug_meta[digital_slug])
             ch["content"] = _inject(ch.get("content") or "", meta_html, after_h1=True)
 
-        _walk_sections(ch.get("sub_items") or [], slug_meta)
-
 
 # ---------------------------------------------------------------------------
 # Entry point
@@ -206,20 +184,7 @@ def _walk_sections(sections: list, slug_meta: dict[str, dict]) -> None:
 
 def main() -> None:
     """stdin: ``(PreprocessorContext, Book)`` JSON; stdout: ``Book`` JSON only."""
-    if len(sys.argv) >= 3 and sys.argv[1] == "supports":
-        sys.exit(0)
-
-    ctx, book = json.load(sys.stdin)
-    root = Path(ctx["root"])
-    book_cfg = (ctx.get("config") or {}).get("book") or {}
-    src_rel = (book_cfg.get("src") or "src").strip() or "src"
-    src_root = (root / src_rel).resolve()
-    data_dir = src_root / "data"
-
-    slug_meta = _load_meta(data_dir)
-    _walk_sections(book.get("items") or [], slug_meta)
-
-    json.dump(book, sys.stdout, ensure_ascii=False)
+    run(lambda items, src_root: _walk_sections(items, _load_meta(src_root / "data")))
 
 
 if __name__ == "__main__":

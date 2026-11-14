@@ -12,7 +12,6 @@ Stories are sorted newest-first by publication date, then alphabetically.
 
 from __future__ import annotations
 
-import html
 import json
 import sys
 from pathlib import Path
@@ -21,7 +20,7 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from pipe_csv_io import read_pipe_csv  # noqa: E402
+from mdbook_common import iter_chapters, md_to_html_url, read_rows, run  # noqa: E402
 
 MARK_START = "<!-- fablore-browse:start -->"
 MARK_END = "<!-- fablore-browse:end -->"
@@ -48,17 +47,10 @@ _SKIP_TYPES: frozenset[str] = frozenset(
 )
 
 
-def _rows(path: Path) -> list[dict[str, str]]:
-    if not path.is_file():
-        return []
-    _, rs = read_pipe_csv(path)
-    return rs
-
-
 def build_index(data_dir: Path) -> dict:
     """Build the browse index from CSV junction tables."""
     stories_by_id: dict[str, dict] = {}
-    for r in _rows(data_dir / "csv" / "stories.csv"):
+    for r in read_rows(data_dir / "csv" / "stories.csv"):
         sid = (r.get("StoryId") or "").strip()
         key = (r.get("StoryKey") or "").strip()
         stype = (r.get("StoryType") or "").strip()
@@ -66,7 +58,7 @@ def build_index(data_dir: Path) -> dict:
         date = (r.get("PublicationDate") or "").strip()
         if not sid or not key or stype in _SKIP_TYPES or not title:
             continue
-        url = key[:-3] + ".html" if key.endswith(".md") else key
+        url = md_to_html_url(key)
         stories_by_id[sid] = {
             "t": title,
             "u": url,
@@ -77,14 +69,14 @@ def build_index(data_dir: Path) -> dict:
         }
 
     hero_name: dict[str, str] = {}
-    for r in _rows(data_dir / "csv" / "heroes-canonical.csv"):
+    for r in read_rows(data_dir / "csv" / "heroes-canonical.csv"):
         cid = (r.get("CanonicalId") or "").strip()
         name = (r.get("CanonicalHero") or "").strip()
         if cid and name:
             hero_name[cid] = name
 
     region_name: dict[str, str] = {}
-    for r in _rows(data_dir / "csv" / "regions.csv"):
+    for r in read_rows(data_dir / "csv" / "regions.csv"):
         rid = (r.get("RegionId") or "").strip()
         name = (r.get("RegionName") or "").strip()
         if rid and name:
@@ -95,13 +87,13 @@ def build_index(data_dir: Path) -> dict:
     # story-characters.csv junction, so a row there is a "hero" for this
     # index only when its character_id also has a character-heroes.csv row.
     char_to_canon: dict[str, str] = {}
-    for r in _rows(data_dir / "csv" / "character-heroes.csv"):
+    for r in read_rows(data_dir / "csv" / "character-heroes.csv"):
         canon_id = (r.get("CanonicalId") or "").strip()
         char_id = (r.get("CharacterId") or "").strip()
         if canon_id and char_id:
             char_to_canon[char_id] = canon_id
 
-    for r in _rows(data_dir / "csv" / "story-characters.csv"):
+    for r in read_rows(data_dir / "csv" / "story-characters.csv"):
         sid = (r.get("StoryId") or "").strip()
         char_id = (r.get("CharacterId") or "").strip()
         cid = char_to_canon.get(char_id, "")
@@ -110,7 +102,7 @@ def build_index(data_dir: Path) -> dict:
             if name not in stories_by_id[sid]["h"]:
                 stories_by_id[sid]["h"].append(name)
 
-    for r in _rows(data_dir / "csv" / "story-regions.csv"):
+    for r in read_rows(data_dir / "csv" / "story-regions.csv"):
         sid = (r.get("StoryId") or "").strip()
         rid = (r.get("RegionId") or "").strip()
         if sid in stories_by_id and rid in region_name:
@@ -189,32 +181,17 @@ def inject_into_content(content: str, inner_html: str) -> str:
 
 
 def walk_and_process(sections: list, index: dict) -> None:
-    for item in sections:
-        if not isinstance(item, dict):
-            continue
-        if "Chapter" in item:
-            ch = item["Chapter"]
-            path = (ch.get("path") or "").strip()
-            if path == _BROWSE_SRC_PATH:
-                ch["content"] = inject_into_content(
-                    ch.get("content") or "",
-                    build_browse_html(index),
-                )
-            walk_and_process(ch.get("sub_items") or [], index)
+    for ch in iter_chapters(sections):
+        path = (ch.get("path") or "").strip()
+        if path == _BROWSE_SRC_PATH:
+            ch["content"] = inject_into_content(
+                ch.get("content") or "",
+                build_browse_html(index),
+            )
 
 
-def main() -> None:
-    if len(sys.argv) >= 3 and sys.argv[1] == "supports":
-        sys.exit(0)
-
-    ctx, book = json.load(sys.stdin)
-    root = Path(ctx["root"])
-    book_cfg = (ctx.get("config") or {}).get("book") or {}
-    src_rel = (book_cfg.get("src") or "src").strip() or "src"
-    src_root = (root / src_rel).resolve()
-    data_dir = src_root / "data"
-
-    index = build_index(data_dir)
+def _process(items: list, src_root: Path) -> None:
+    index = build_index(src_root / "data")
 
     stories_json = (
         json.dumps(
@@ -232,9 +209,11 @@ def main() -> None:
     if existing != stories_json:
         stories_json_path.write_text(stories_json, encoding="utf-8")
 
-    walk_and_process(book.get("items") or [], index)
+    walk_and_process(items, index)
 
-    json.dump(book, sys.stdout, ensure_ascii=False)
+
+def main() -> None:
+    run(_process)
 
 
 if __name__ == "__main__":

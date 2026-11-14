@@ -30,6 +30,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+from functools import lru_cache
 from pathlib import Path
 
 # ---------------------------------------------------------------------------
@@ -50,6 +51,14 @@ _SECTION_HEADINGS = re.compile(r"^#{2,3}[^\S\n]+(.+?)(?:[^\S\n]*#+)?\s*$", re.MU
 _HERO_BLURB_BLOCK = re.compile(r"^:::hero-blurb[^\n]*\n[\s\S]*?^:::[^\S\n]*$", re.MULTILINE)
 _HERO_BANNER = re.compile(r'<header class="hero-banner\b[\s\S]*?</header>')
 _OLD_HINT = re.compile(r"\[([^\]]+)\]\(~([^)]+)\)")
+
+# The only non-ASCII characters that ``re.IGNORECASE`` lets match an ASCII one.
+# ``str.lower()`` alone cannot stand in for the regex: ``ı`` and ``ſ`` do not
+# lowercase to ASCII at all, and ``İ`` lowercases to two characters. Folding
+# these first is what makes :func:`_may_occur` a safe prefilter.
+# tests/test_mdbook_hints.py re-derives this table from the running interpreter.
+_REGEX_ASCII_FOLD = str.maketrans({"\u0130": "i", "\u0131": "i", "\u017f": "s", "\u212a": "k"})
+_NON_ASCII_RUN = re.compile(r"[^\x00-\x7f]+")
 
 # Entity type no longer gates auto-detection. It used to: only DB-backed types
 # (location/monster/fauna/flora) were eligible, on the grounds that characters, factions
@@ -108,6 +117,32 @@ def page_slug_from_path(path: str | None) -> str:
     return Path(path).with_suffix("").as_posix()
 
 
+@lru_cache(maxsize=None)
+def _matcher(match_string: str) -> tuple[tuple[str, ...], re.Pattern]:
+    """Return a match string's prefilter runs and its compiled word-boundary pattern.
+
+    The runs are the string's ASCII stretches, lowercased. A regex match needs
+    each of them, contiguously, in the page folded by :func:`_fold`, so a page
+    missing any run cannot match and is skipped without running the regex.
+    """
+    runs = tuple(r for r in _NON_ASCII_RUN.split(match_string.lower()) if r)
+    return runs, re.compile(r"\b" + re.escape(match_string) + r"\b", re.IGNORECASE)
+
+
+def _fold(text: str) -> str:
+    """Lowercase ``text`` so an ASCII run of a match string is found by ``in``."""
+    return text.translate(_REGEX_ASCII_FOLD).lower()
+
+
+def _may_occur(match_string: str, folded: str) -> bool:
+    """Cheap necessary condition for ``match_string`` to match the folded text.
+
+    It may admit a page the regex then rejects, but it never rejects a page the
+    regex would match.
+    """
+    return all(run in folded for run in _matcher(match_string)[0])
+
+
 def process_chapter(
     content: str,
     hints: dict,
@@ -135,8 +170,10 @@ def process_chapter(
 
     # --- Step 2: build candidate list ---
     heading_texts = extract_section_heading_texts(content)
+    folded = _fold(content)
 
-    candidates: list[tuple[str, list[str]]] = []
+    # (key, longest match string length, patterns of the strings that may occur)
+    candidates: list[tuple[str, int, list[re.Pattern]]] = []
     for key, entry in hints.items():
         if key in manually_handled:
             continue
@@ -160,23 +197,28 @@ def process_chapter(
 
         match_strings = get_match_strings(key, entry)
 
-        # Option A: skip if any match string appears as a word in any ##/### heading
-        if _heading_suppressed(match_strings, heading_texts):
+        # A string absent from the page can neither suppress the hint (headings
+        # are part of the page) nor be wrapped, so only the present ones matter.
+        patterns = [_matcher(ms)[1] for ms in match_strings if _may_occur(ms, folded)]
+        if not patterns:
             continue
 
-        candidates.append((key, match_strings))
+        # Option A: skip if any match string appears as a word in any ##/### heading
+        if any(p.search(h) for p in patterns for h in heading_texts):
+            continue
+
+        candidates.append((key, max(len(s) for s in match_strings), patterns))
 
     # Longest match string first — prevents "Sol" shadowing "Solarium"
-    candidates.sort(key=lambda x: max(len(s) for s in x[1]), reverse=True)
+    candidates.sort(key=lambda x: x[1], reverse=True)
 
     # --- Step 3: find first unprotected occurrence of each candidate ---
     protected = find_protected_regions(content)
     replacements: list[tuple[int, int, str]] = []
 
-    for key, match_strings in candidates:
+    for key, _length, patterns in candidates:
         found = False
-        for ms in match_strings:
-            pattern = re.compile(r"\b" + re.escape(ms) + r"\b", re.IGNORECASE)
+        for pattern in patterns:
             for m in pattern.finditer(content):
                 start, end = m.start(), m.end()
                 if _in_protected(start, end, protected):
@@ -202,14 +244,6 @@ def process_chapter(
 # ---------------------------------------------------------------------------
 
 
-def _heading_suppressed(match_strings: list[str], heading_texts: list[str]) -> bool:
-    for ms in match_strings:
-        pat = re.compile(r"\b" + re.escape(ms) + r"\b", re.IGNORECASE)
-        if any(pat.search(h) for h in heading_texts):
-            return True
-    return False
-
-
 def _in_protected(start: int, end: int, regions: list[tuple[int, int]]) -> bool:
     return any(rs <= start and end <= re_ for rs, re_ in regions)
 
@@ -223,16 +257,25 @@ def _overlaps(start: int, end: int, replacements: list[tuple[int, int, str]]) ->
 # ---------------------------------------------------------------------------
 
 
-def _collect_chapters(sections: list, out: list[tuple[str, str]]) -> list[tuple[str, str]]:
-    """Flatten the book into ``(slug, content)`` pairs, skipping generated pages."""
+def _iter_chapters(sections: list):
+    """Yield ``(slug, chapter)`` for every chapter, depth first, skipping generated pages.
+
+    Separators and part titles are not dicts carrying a ``Chapter``, so they are
+    passed over rather than indexed.
+    """
     for section in sections:
-        chapter = section.get("Chapter")
+        chapter = section.get("Chapter") if isinstance(section, dict) else None
         if not chapter:
             continue
         slug = page_slug_from_path(chapter.get("path"))
         if not _is_generated_page(slug):
-            out.append((slug, chapter.get("content") or ""))
-        _collect_chapters(chapter.get("sub_items") or [], out)
+            yield slug, chapter
+        yield from _iter_chapters(chapter.get("sub_items") or [])
+
+
+def _collect_chapters(sections: list, out: list[tuple[str, str]]) -> list[tuple[str, str]]:
+    """Flatten the book into ``(slug, content)`` pairs, skipping generated pages."""
+    out.extend((slug, chapter.get("content") or "") for slug, chapter in _iter_chapters(sections))
     return out
 
 
@@ -259,14 +302,15 @@ def compute_single_page_keys(chapters: list[tuple[str, str]], hints: dict) -> fr
     Returns:
         The keys to skip entirely.
     """
+    folded_chapters = [(content, _fold(content)) for _slug, content in chapters]
     singles: set[str] = set()
     for key, entry in hints.items():
         if not isinstance(entry, dict) or not entry.get("summary"):
             continue
-        patterns = [re.compile(rf"\b{re.escape(s)}\b", re.IGNORECASE) for s in get_match_strings(key, entry)]
+        match_strings = get_match_strings(key, entry)
         pages = 0
-        for _slug, content in chapters:
-            if any(p.search(content) for p in patterns):
+        for content, folded in folded_chapters:
+            if any(_may_occur(ms, folded) and _matcher(ms)[1].search(content) for ms in match_strings):
                 pages += 1
                 if pages > 1:
                     break
@@ -286,14 +330,8 @@ def _is_generated_page(slug: str) -> bool:
 
 
 def _process_sections(sections: list, hints: dict, single_page_keys: frozenset[str]) -> None:
-    for section in sections:
-        chapter = section.get("Chapter")
-        if not chapter:
-            continue
-        slug = page_slug_from_path(chapter.get("path"))
-        if not _is_generated_page(slug):
-            chapter["content"] = process_chapter(chapter["content"], hints, slug, single_page_keys)
-        _process_sections(chapter.get("sub_items") or [], hints, single_page_keys)
+    for slug, chapter in _iter_chapters(sections):
+        chapter["content"] = process_chapter(chapter["content"], hints, slug, single_page_keys)
 
 
 def main() -> None:

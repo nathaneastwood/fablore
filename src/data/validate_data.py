@@ -264,21 +264,6 @@ ALLOWED_STORY_TYPES: frozenset[str] = frozenset(
 )
 
 
-def _pipe_rows(path: Path) -> tuple[list[str], list[dict[str, str]]]:
-    """Load a pipe-delimited CSV into header fieldnames and row dicts.
-
-    Leading ``#`` comment lines (e.g. auto-generation banners) are skipped.
-
-    Args:
-        path: CSV file path.
-
-    Returns:
-        A tuple ``(fieldnames, rows)``. If the file is missing, returns
-        ``([], [])``.
-    """
-    return read_pipe_csv(path)
-
-
 def _check_ids(path: Path, id_columns: tuple[str, ...], label: str) -> list[str]:
     """Verify required id columns are present and non-empty for each data row.
 
@@ -291,7 +276,7 @@ def _check_ids(path: Path, id_columns: tuple[str, ...], label: str) -> list[str]
         A list of alert strings (empty if all checks pass).
     """
     alerts: list[str] = []
-    fieldnames, rows = _pipe_rows(path)
+    fieldnames, rows = read_pipe_csv(path)
     if not fieldnames:
         return alerts
     for col in id_columns:
@@ -319,7 +304,7 @@ def _id_set_from_column(path: Path, column: str) -> set[str]:
         Set of stripped cell values. Returns an empty set if the column is
         missing or the file does not exist.
     """
-    fieldnames, rows = _pipe_rows(path)
+    fieldnames, rows = read_pipe_csv(path)
     if column not in fieldnames:
         return set()
     return {(r.get(column) or "").strip() for r in rows if (r.get(column) or "").strip()}
@@ -343,7 +328,7 @@ def _check_stories_story_type_allowlist(stories_path: Path) -> list[str]:
                 f"{story_type!r} but {seg} is not a directory"
             )
 
-    fieldnames, rows = _pipe_rows(stories_path)
+    fieldnames, rows = read_pipe_csv(stories_path)
     if not fieldnames or "StoryType" not in fieldnames or not rows:
         return alerts
     for row_num, row in enumerate(rows, start=2):
@@ -378,7 +363,7 @@ def _check_fk_column(
         A list of alert strings (empty if all FK values are valid).
     """
     alerts: list[str] = []
-    fieldnames, rows = _pipe_rows(child_path)
+    fieldnames, rows = read_pipe_csv(child_path)
     if not fieldnames or fk_column not in fieldnames or not rows:
         return alerts
     for row_num, row in enumerate(rows, start=2):
@@ -412,8 +397,8 @@ def _check_heroes_game_cardname_resolution(canonical_path: Path, game_path: Path
     aliases = load_canonical_hero_card_name_aliases()
 
     alerts: list[str] = []
-    c_fields, canonical_rows = _pipe_rows(canonical_path)
-    g_fields, game_rows = _pipe_rows(game_path)
+    c_fields, canonical_rows = read_pipe_csv(canonical_path)
+    g_fields, game_rows = read_pipe_csv(game_path)
     if not c_fields or not g_fields:
         return alerts
     if not all(col in c_fields for col in ("CanonicalId", "CanonicalSlug", "CanonicalHero")):
@@ -474,7 +459,7 @@ def _check_heroes_game_young_hero_column(game_path: Path) -> list[str]:
     """
     allowed = frozenset({"true", "false"})
     alerts: list[str] = []
-    fieldnames, rows = _pipe_rows(game_path)
+    fieldnames, rows = read_pipe_csv(game_path)
     if not fieldnames or "YoungHero" not in fieldnames or not rows:
         return alerts
     for row_num, row in enumerate(rows, start=2):
@@ -505,7 +490,7 @@ def _check_hero_card_name_alias_slugs_in_canonical(canonical_path: Path) -> list
     from hero_overrides import load_canonical_hero_card_name_aliases
 
     alerts: list[str] = []
-    fieldnames, rows = _pipe_rows(canonical_path)
+    fieldnames, rows = read_pipe_csv(canonical_path)
     if not fieldnames or "CanonicalSlug" not in fieldnames:
         return alerts
     slugs = {(r.get("CanonicalSlug") or "").strip() for r in rows if (r.get("CanonicalSlug") or "").strip()}
@@ -1174,7 +1159,7 @@ def collect_alerts() -> list[str]:
     for path, cols, label in checks:
         if not path.is_file():
             continue
-        _, rows = _pipe_rows(path)
+        _, rows = read_pipe_csv(path)
         if len(rows) == 0 and path.name.startswith("story-"):
             # Header-only junction files are allowed until filled.
             continue
@@ -1184,52 +1169,40 @@ def collect_alerts() -> list[str]:
     if stories_path.is_file():
         alerts.extend(_check_stories_story_type_allowlist(stories_path))
 
-    story_ids = _id_set_from_column(stories_path, "StoryId")
-    if story_ids:
-        alerts.extend(
-            _check_fk_column(
-                DATA / "csv/story-narrated-videos.csv",
-                "StoryId",
-                story_ids,
-                "stories.csv StoryId",
-                "Story narrated videos",
-            )
+    # Foreign keys. Each spec is (child csv, child column, parent csv, parent
+    # column, label); a spec whose parent id set is empty is skipped, as is a
+    # child file that is missing or empty. Specs run in the order listed, and the
+    # runs below are split only where a non-FK check has to come between them.
+    parent_id_sets: dict[tuple[str, str], set[str]] = {}
+
+    def parent_ids(parent: str, column: str) -> set[str]:
+        if (parent, column) not in parent_id_sets:
+            parent_id_sets[parent, column] = _id_set_from_column(DATA / "csv" / parent, column)
+        return parent_id_sets[parent, column]
+
+    def fk_alerts(*specs: tuple[str, str, str, str, str]) -> list[str]:
+        out: list[str] = []
+        for child, column, parent, parent_column, label in specs:
+            ids = parent_ids(parent, parent_column)
+            if ids:
+                out.extend(_check_fk_column(DATA / "csv" / child, column, ids, f"{parent} {parent_column}", label))
+        return out
+
+    alerts.extend(
+        fk_alerts(
+            ("story-narrated-videos.csv", "StoryId", "stories.csv", "StoryId", "Story narrated videos"),
+            # Every characters= link (hero slug or CharacterEntry) writes the same
+            # story-characters.csv junction (migration 17), so its FK target is
+            # characters.csv, not heroes-canonical.csv — a hero's CharacterId is the
+            # identity-spine row character-heroes.csv points at, never the
+            # CanonicalId itself.
+            ("story-characters.csv", "CharacterId", "characters.csv", "CharacterId", "Story ↔ character links"),
+            ("heroes-printings.csv", "HeroGameId", "heroes-game.csv", "HeroGameId", "Heroes printings"),
         )
+    )
 
     canonical_path = DATA / "csv/heroes-canonical.csv"
     game_path = DATA / "csv/heroes-game.csv"
-    printings_path = DATA / "csv/heroes-printings.csv"
-    story_characters_path = DATA / "csv/story-characters.csv"
-
-    canonical_ids = _id_set_from_column(canonical_path, "CanonicalId")
-    hero_game_ids = _id_set_from_column(game_path, "HeroGameId")
-    # Every characters= link (hero slug or CharacterEntry) writes the same
-    # story-characters.csv junction (migration 17), so its FK target is
-    # characters.csv, not heroes-canonical.csv — a hero's CharacterId is the
-    # identity-spine row character-heroes.csv points at, never the
-    # CanonicalId itself.
-    story_character_ids = _id_set_from_column(DATA / "csv/characters.csv", "CharacterId")
-    if story_character_ids:
-        alerts.extend(
-            _check_fk_column(
-                story_characters_path,
-                "CharacterId",
-                story_character_ids,
-                "characters.csv CharacterId",
-                "Story ↔ character links",
-            )
-        )
-    if hero_game_ids:
-        alerts.extend(
-            _check_fk_column(
-                printings_path,
-                "HeroGameId",
-                hero_game_ids,
-                "heroes-game.csv HeroGameId",
-                "Heroes printings",
-            )
-        )
-
     if canonical_path.is_file() and game_path.is_file():
         alerts.extend(_check_heroes_game_cardname_resolution(canonical_path, game_path))
 
@@ -1239,312 +1212,128 @@ def collect_alerts() -> list[str]:
     if canonical_path.is_file():
         alerts.extend(_check_hero_card_name_alias_slugs_in_canonical(canonical_path))
 
-    weapons_game_path = DATA / "csv/weapons-game.csv"
-    weapons_printings_path = DATA / "csv/weapons-printings.csv"
-    weapon_game_ids = _id_set_from_column(weapons_game_path, "WeaponGameId")
-    if weapon_game_ids:
-        alerts.extend(
-            _check_fk_column(
-                weapons_printings_path,
-                "WeaponGameId",
-                weapon_game_ids,
-                "weapons-game.csv WeaponGameId",
-                "Weapons printings",
-            )
-        )
-
-    weapons_canonical_path = DATA / "csv/weapons-canonical.csv"
-    canonical_weapon_ids = _id_set_from_column(weapons_canonical_path, "CanonicalWeaponId")
-    if canonical_weapon_ids:
-        alerts.extend(
-            _check_fk_column(
-                weapons_game_path,
+    alerts.extend(
+        fk_alerts(
+            ("weapons-printings.csv", "WeaponGameId", "weapons-game.csv", "WeaponGameId", "Weapons printings"),
+            (
+                "weapons-game.csv",
                 "CanonicalWeaponId",
-                canonical_weapon_ids,
-                "weapons-canonical.csv CanonicalWeaponId",
+                "weapons-canonical.csv",
+                "CanonicalWeaponId",
                 "Weapons game",
-            )
-        )
-        story_weapons_path = DATA / "csv/story-weapons.csv"
-        alerts.extend(
-            _check_fk_column(
-                story_weapons_path,
+            ),
+            (
+                "story-weapons.csv",
                 "CanonicalWeaponId",
-                canonical_weapon_ids,
-                "weapons-canonical.csv CanonicalWeaponId",
+                "weapons-canonical.csv",
+                "CanonicalWeaponId",
                 "Story ↔ weapon links",
-            )
-        )
-
-    equipment_game_path = DATA / "csv/equipment-game.csv"
-    equipment_printings_path = DATA / "csv/equipment-printings.csv"
-    equipment_canonical_path = DATA / "csv/equipment-canonical.csv"
-    equipment_game_ids = _id_set_from_column(equipment_game_path, "EquipmentGameId")
-    canonical_equipment_ids = _id_set_from_column(equipment_canonical_path, "CanonicalEquipmentId")
-    if canonical_equipment_ids:
-        alerts.extend(
-            _check_fk_column(
-                equipment_game_path,
+            ),
+            (
+                "equipment-game.csv",
                 "CanonicalEquipmentId",
-                canonical_equipment_ids,
-                "equipment-canonical.csv CanonicalEquipmentId",
+                "equipment-canonical.csv",
+                "CanonicalEquipmentId",
                 "Equipment game",
-            )
-        )
-        story_equipment_path = DATA / "csv/story-equipment.csv"
-        alerts.extend(
-            _check_fk_column(
-                story_equipment_path,
+            ),
+            (
+                "story-equipment.csv",
                 "CanonicalEquipmentId",
-                canonical_equipment_ids,
-                "equipment-canonical.csv CanonicalEquipmentId",
+                "equipment-canonical.csv",
+                "CanonicalEquipmentId",
                 "Story ↔ equipment links",
-            )
-        )
-    if equipment_game_ids:
-        alerts.extend(
-            _check_fk_column(
-                equipment_printings_path,
+            ),
+            (
+                "equipment-printings.csv",
                 "EquipmentGameId",
-                equipment_game_ids,
-                "equipment-game.csv EquipmentGameId",
+                "equipment-game.csv",
+                "EquipmentGameId",
                 "Equipment printings",
-            )
+            ),
+            ("story-fauna.csv", "FaunaId", "fauna.csv", "FaunaId", "Story ↔ fauna links"),
         )
-
-    fauna_path = DATA / "csv/fauna.csv"
-    story_fauna_path = DATA / "csv/story-fauna.csv"
-    fauna_ids = _id_set_from_column(fauna_path, "FaunaId")
-    if fauna_ids:
-        alerts.extend(
-            _check_fk_column(
-                story_fauna_path,
-                "FaunaId",
-                fauna_ids,
-                "fauna.csv FaunaId",
-                "Story ↔ fauna links",
-            )
-        )
-
-    region_ids = _id_set_from_column(DATA / "csv/regions.csv", "RegionId")
+    )
     locations_path = DATA / "csv/locations.csv"
-    if region_ids and locations_path.is_file():
+    if locations_path.is_file():
         alerts.extend(
-            _check_fk_column(
-                locations_path,
-                "RegionId",
-                region_ids,
-                "regions.csv RegionId",
-                "Locations",
+            fk_alerts(
+                ("locations.csv", "RegionId", "regions.csv", "RegionId", "Locations"),
+                ("story-regions.csv", "RegionId", "regions.csv", "RegionId", "Story ↔ region links"),
             )
         )
-        alerts.extend(
-            _check_fk_column(
-                DATA / "csv/story-regions.csv",
-                "RegionId",
-                region_ids,
-                "regions.csv RegionId",
-                "Story ↔ region links",
-            )
+    alerts.extend(
+        fk_alerts(
+            # groups: the id columns SQLite cannot enforce, because each one defaults
+            # to '' for the many rows that have no parent, no location, no evidence.
+            ("locations.csv", "ParentLocationId", "locations.csv", "LocationId", "Location containment"),
+            ("groups.csv", "ParentGroupId", "groups.csv", "GroupId", "Group hierarchy"),
+            ("group-characters.csv", "GroupId", "groups.csv", "GroupId", "Group ↔ member links"),
+            ("story-groups.csv", "GroupId", "groups.csv", "GroupId", "Story ↔ group links"),
+            # The other half of each membership row. Only GroupId was checked here, so a
+            # bad member id reached SQLite and failed the *build* at seed time instead of
+            # raising an alert — the wrong place to learn about it.
+            ("group-characters.csv", "CharacterId", "characters.csv", "CharacterId", "Group ↔ member links"),
+            ("title-holders.csv", "CharacterId", "characters.csv", "CharacterId", "Title ↔ holder links"),
+            # titles (R3). GroupId defaults to '' for a title with no parent body, the
+            # same shape as groups.parent_group_id — no SQL REFERENCES, so it is
+            # checked here rather than enforced by SQLite.
+            ("title-holders.csv", "TitleId", "titles.csv", "TitleId", "Title ↔ holder links"),
+            ("story-titles.csv", "TitleId", "titles.csv", "TitleId", "Story ↔ title links"),
+            ("titles.csv", "GroupId", "groups.csv", "GroupId", "Title ↔ group link"),
+            # Kinship (R8). Both halves of every character-kin.csv row key on
+            # characters.csv CharacterId, the same shape group-characters.csv and
+            # title-holders.csv both need checked in both directions.
+            ("character-kin.csv", "CharacterId", "characters.csv", "CharacterId", "Character kin"),
+            ("character-kin.csv", "RelativeId", "characters.csv", "CharacterId", "Character kin"),
         )
-
-    # groups: the four id columns SQLite cannot enforce, because each one defaults
-    # to '' for the many rows that have no parent, no location, no evidence.
-    group_ids = _id_set_from_column(DATA / "csv/groups.csv", "GroupId")
-    location_ids = _id_set_from_column(DATA / "csv/locations.csv", "LocationId")
-    if location_ids:
-        alerts.extend(
-            _check_fk_column(
-                locations_path,
-                "ParentLocationId",
-                location_ids,
-                "locations.csv LocationId",
-                "Location containment",
-            )
-        )
-    if group_ids:
-        alerts.extend(
-            _check_fk_column(
-                DATA / "csv/groups.csv",
-                "ParentGroupId",
-                group_ids,
-                "groups.csv GroupId",
-                "Group hierarchy",
-            )
-        )
-        for child, label in (
-            ("group-characters.csv", "Group ↔ member links"),
-            ("story-groups.csv", "Story ↔ group links"),
-        ):
-            alerts.extend(_check_fk_column(DATA / f"csv/{child}", "GroupId", group_ids, "groups.csv GroupId", label))
-    # The other half of each membership row. Only GroupId was checked here, so a
-    # bad member id reached SQLite and failed the *build* at seed time instead of
-    # raising an alert — the wrong place to learn about it.
-    character_ids = _id_set_from_column(DATA / "csv/characters.csv", "CharacterId")
-    if character_ids:
-        alerts.extend(
-            _check_fk_column(
-                DATA / "csv/group-characters.csv",
-                "CharacterId",
-                character_ids,
-                "characters.csv CharacterId",
-                "Group ↔ member links",
-            )
-        )
-        alerts.extend(
-            _check_fk_column(
-                DATA / "csv/title-holders.csv",
-                "CharacterId",
-                character_ids,
-                "characters.csv CharacterId",
-                "Title ↔ holder links",
-            )
-        )
-    # titles (R3): title_holders.CharacterId is checked below, alongside
-    # character_ids. GroupId defaults to '' for a title with no parent body,
-    # the same shape as groups.parent_group_id — no SQL REFERENCES, so it is
-    # checked here rather than enforced by SQLite.
-    title_ids = _id_set_from_column(DATA / "csv/titles.csv", "TitleId")
-    if title_ids:
-        for child, label in (
-            ("title-holders.csv", "Title ↔ holder links"),
-            ("story-titles.csv", "Story ↔ title links"),
-        ):
-            alerts.extend(_check_fk_column(DATA / f"csv/{child}", "TitleId", title_ids, "titles.csv TitleId", label))
-    if group_ids:
-        alerts.extend(
-            _check_fk_column(
-                DATA / "csv/titles.csv",
-                "GroupId",
-                group_ids,
-                "groups.csv GroupId",
-                "Title ↔ group link",
-            )
-        )
-
-    # Kinship (R8). Both halves of every character-kin.csv row key on
-    # characters.csv CharacterId, the same shape group-characters.csv and
-    # title-holders.csv both need checked in both directions.
-    if character_ids:
-        for column in ("CharacterId", "RelativeId"):
-            alerts.extend(
-                _check_fk_column(
-                    DATA / "csv/character-kin.csv",
-                    column,
-                    character_ids,
-                    "characters.csv CharacterId",
-                    "Character kin",
-                )
-            )
+    )
     alerts.extend(_check_kin_relations(DATA / "csv/character-kin.csv"))
     alerts.extend(_check_kin_qualifiers(DATA / "csv/character-kin.csv"))
     alerts.extend(_check_no_self_kin(DATA / "csv/character-kin.csv"))
 
-    # Identity spine (migration 12). Both halves of character_heroes: a stale
-    # CanonicalId means a hero that no longer exists still claims an identity,
-    # and a stale CharacterId means the character row it points at is gone —
-    # either one reaches SQLite as an FK violation at seed time instead of an
-    # alert, the same gap the group membership checks above close.
-    #
-    # This set was read for group-heroes.csv too until migration 18 merged that
-    # file into group-characters.csv, where a hero member is a CharacterId and
-    # is checked against characters.csv with every other member.
-    hero_canonical_ids = _id_set_from_column(DATA / "csv/heroes-canonical.csv", "CanonicalId")
-    if hero_canonical_ids:
-        alerts.extend(
-            _check_fk_column(
-                DATA / "csv/character-heroes.csv",
+    alerts.extend(
+        fk_alerts(
+            # Identity spine (migration 12). Both halves of character_heroes: a stale
+            # CanonicalId means a hero that no longer exists still claims an identity,
+            # and a stale CharacterId means the character row it points at is gone —
+            # either one reaches SQLite as an FK violation at seed time instead of an
+            # alert, the same gap the group membership checks above close.
+            (
+                "character-heroes.csv",
                 "CanonicalId",
-                hero_canonical_ids,
-                "heroes-canonical.csv CanonicalId",
+                "heroes-canonical.csv",
+                "CanonicalId",
                 "Character ↔ hero links",
-            )
-        )
-    if character_ids:
-        alerts.extend(
-            _check_fk_column(
-                DATA / "csv/character-heroes.csv",
-                "CharacterId",
-                character_ids,
-                "characters.csv CharacterId",
-                "Character ↔ hero links",
-            )
-        )
-
-    # Alternate names (R4, R6). Each row points at the entity whose other name it
-    # is, so a stale owner id leaves an alias resolving to nothing.
-    if character_ids:
-        alerts.extend(
-            _check_fk_column(
-                DATA / "csv/character-epithets.csv",
-                "CharacterId",
-                character_ids,
-                "characters.csv CharacterId",
-                "Character epithets",
-            )
-        )
-    if location_ids:
-        alerts.extend(
-            _check_fk_column(
-                DATA / "csv/location-aliases.csv",
-                "LocationId",
-                location_ids,
-                "locations.csv LocationId",
-                "Location aliases",
-            )
-        )
-    if group_ids:
-        alerts.extend(
-            _check_fk_column(
-                DATA / "csv/group-aliases.csv",
-                "GroupId",
-                group_ids,
-                "groups.csv GroupId",
-                "Group aliases",
-            )
-        )
-    # Kinds (R2). Both halves of the junction, and the alias table's owner.
-    kind_ids = _id_set_from_column(DATA / "csv/kinds.csv", "KindId")
-    if kind_ids:
-        for child, column, label in (
-            ("character-kinds.csv", "KindId", "Character ↔ kind"),
-            ("kind-aliases.csv", "KindId", "Kind aliases"),
-        ):
-            alerts.extend(_check_fk_column(DATA / f"csv/{child}", column, kind_ids, "kinds.csv KindId", label))
-    if character_ids:
-        alerts.extend(
-            _check_fk_column(
-                DATA / "csv/character-kinds.csv",
-                "CharacterId",
-                character_ids,
-                "characters.csv CharacterId",
-                "Character ↔ kind",
-            )
-        )
-    # Professions (R9). Both halves of the junction; no alias table (see
-    # entries/catalogue/professions.py — no plural or dated alternate name has
-    # needed one yet, unlike kind).
-    profession_ids = _id_set_from_column(DATA / "csv/professions.csv", "ProfessionId")
-    if profession_ids:
-        alerts.extend(
-            _check_fk_column(
-                DATA / "csv/character-professions.csv",
+            ),
+            ("character-heroes.csv", "CharacterId", "characters.csv", "CharacterId", "Character ↔ hero links"),
+            # Alternate names (R4, R6). Each row points at the entity whose other name
+            # it is, so a stale owner id leaves an alias resolving to nothing.
+            ("character-epithets.csv", "CharacterId", "characters.csv", "CharacterId", "Character epithets"),
+            ("location-aliases.csv", "LocationId", "locations.csv", "LocationId", "Location aliases"),
+            ("group-aliases.csv", "GroupId", "groups.csv", "GroupId", "Group aliases"),
+            # Kinds (R2). Both halves of the junction, and the alias table's owner.
+            ("character-kinds.csv", "KindId", "kinds.csv", "KindId", "Character ↔ kind"),
+            ("kind-aliases.csv", "KindId", "kinds.csv", "KindId", "Kind aliases"),
+            ("character-kinds.csv", "CharacterId", "characters.csv", "CharacterId", "Character ↔ kind"),
+            # Professions (R9). Both halves of the junction; no alias table (see
+            # entries/catalogue/professions.py — no plural or dated alternate name has
+            # needed one yet, unlike kind).
+            (
+                "character-professions.csv",
                 "ProfessionId",
-                profession_ids,
-                "professions.csv ProfessionId",
+                "professions.csv",
+                "ProfessionId",
                 "Character ↔ profession links",
-            )
-        )
-    if character_ids:
-        alerts.extend(
-            _check_fk_column(
-                DATA / "csv/character-professions.csv",
+            ),
+            (
+                "character-professions.csv",
                 "CharacterId",
-                character_ids,
-                "characters.csv CharacterId",
+                "characters.csv",
+                "CharacterId",
                 "Character ↔ profession links",
-            )
+            ),
         )
+    )
     alerts.extend(_check_epithet_labels(DATA / "csv/character-epithets.csv"))
     alerts.extend(_check_character_statuses(DATA / "csv/characters.csv"))
     alerts.extend(
@@ -1555,16 +1344,8 @@ def collect_alerts() -> list[str]:
         )
     )
     alerts.extend(_check_alias_name_collisions())
-    if location_ids and group_ids:
-        alerts.extend(
-            _check_fk_column(
-                DATA / "csv/groups.csv",
-                "LocationId",
-                location_ids,
-                "locations.csv LocationId",
-                "Group ↔ location",
-            )
-        )
+    if parent_ids("groups.csv", "GroupId"):
+        alerts.extend(fk_alerts(("groups.csv", "LocationId", "locations.csv", "LocationId", "Group ↔ location")))
     alerts.extend(_check_self_parent(DATA / "csv/groups.csv", "GroupId", "ParentGroupId", "Groups"))
     alerts.extend(_check_self_parent(locations_path, "LocationId", "ParentLocationId", "Locations"))
 
@@ -1573,26 +1354,17 @@ def collect_alerts() -> list[str]:
         _check_location_lore_fragments_match_headings(DATA / "csv/locations.csv", DATA / "csv/regions.csv", SRC)
     )
 
-    alerts.extend(
-        _check_id_hash_drift(DATA / "csv/characters.csv", "CharacterId", "Name", lore_character_id, "characters.csv")
-    )
-    alerts.extend(_check_id_hash_drift(DATA / "csv/monsters.csv", "MonsterId", "Name", monster_id, "monsters.csv"))
-    alerts.extend(_check_id_hash_drift(DATA / "csv/fauna.csv", "FaunaId", "Name", fauna_id_from_name, "fauna.csv"))
-    alerts.extend(_check_id_hash_drift(DATA / "csv/flora.csv", "FloraId", "Name", flora_id, "flora.csv"))
-    alerts.extend(_check_id_hash_drift(DATA / "csv/groups.csv", "GroupId", "Name", group_id, "groups.csv"))
-    alerts.extend(_check_id_hash_drift(DATA / "csv/titles.csv", "TitleId", "Name", title_id, "titles.csv"))
-    alerts.extend(
-        _check_id_hash_drift(DATA / "csv/professions.csv", "ProfessionId", "Name", profession_id, "professions.csv")
-    )
-    alerts.extend(
-        _check_id_hash_drift(
-            DATA / "csv/regions.csv",
-            "RegionId",
-            "RegionName",
-            region_row_id,
-            "regions.csv",
-        )
-    )
+    for csv_name, id_column, name_column, id_fn in (
+        ("characters.csv", "CharacterId", "Name", lore_character_id),
+        ("monsters.csv", "MonsterId", "Name", monster_id),
+        ("fauna.csv", "FaunaId", "Name", fauna_id_from_name),
+        ("flora.csv", "FloraId", "Name", flora_id),
+        ("groups.csv", "GroupId", "Name", group_id),
+        ("titles.csv", "TitleId", "Name", title_id),
+        ("professions.csv", "ProfessionId", "Name", profession_id),
+        ("regions.csv", "RegionId", "RegionName", region_row_id),
+    ):
+        alerts.extend(_check_id_hash_drift(DATA / "csv" / csv_name, id_column, name_column, id_fn, csv_name))
     alerts.extend(_check_descriptions_targets_exist(DATA / "descriptions.py"))
     alerts.extend(_check_supplement_types(SRC / "hints_supplement.json"))
     alerts.extend(_check_supplement_types_are_not_kinds(DATA / "csv/kinds.csv", DATA / "csv/kind-aliases.csv"))
@@ -1685,6 +1457,7 @@ def _check_near_duplicate_names(
     label: str,
     *,
     group_column: str | None = None,
+    reviewed: dict[frozenset, str] | None = None,
 ) -> list[str]:
     """Flag pairs of rows whose normalized names are near-identical.
 
@@ -1703,6 +1476,8 @@ def _check_near_duplicate_names(
         group_column: If given, only compare rows sharing the same value in
             this column (e.g. ``RegionId``) — keeps the check ``O(n^2)``
             within a region rather than across the whole table.
+        reviewed: The :func:`_reviewed_pairs` ledger, when the caller has
+            already read it; read here otherwise.
 
     Returns:
         Alert strings, one per near-duplicate pair (deduplicated).
@@ -1710,29 +1485,39 @@ def _check_near_duplicate_names(
     if not path.is_file():
         return []
     _, rows = read_pipe_csv(path)
-    groups: dict[str, list[tuple[str, str]]] = {}
+    groups: dict[str, list[tuple[str, str, str]]] = {}
     for row in rows:
         name = (row.get(name_column) or "").strip()
         rid = (row.get(id_column) or "").strip()
         if not name or not rid:
             continue
         key = (row.get(group_column) or "").strip() if group_column else ""
-        groups.setdefault(key, []).append((name, rid))
+        groups.setdefault(key, []).append((name, rid, normalize_name(name)))
 
-    reviewed = _reviewed_pairs()
+    if reviewed is None:
+        reviewed = _reviewed_pairs()
     alerts: list[str] = []
     for entries in groups.values():
-        for (name1, id1), (name2, id2) in combinations(entries, 2):
+        for (name1, id1, n1), (name2, id2, n2) in combinations(entries, 2):
             if name1 == name2:
                 continue
             if frozenset({id1, id2}) in reviewed:
                 continue  # a person has looked at these two and recorded them as distinct
-            n1, n2 = normalize_name(name1), normalize_name(name2)
+            article = _differ_only_by_article(n1, n2)
             if n1 == n2:
                 ratio = 1.0
+            elif article:
+                ratio = 0.0  # unused: the article is the reason given
             else:
-                ratio = SequenceMatcher(None, n1, n2).ratio()
-            article = _differ_only_by_article(n1, n2)
+                # real_quick_ratio() and quick_ratio() are cheap upper bounds on
+                # ratio(), so a pair either bound rules out never pays for the full one.
+                matcher = SequenceMatcher(None, n1, n2)
+                ratio = 0.0
+                if (
+                    matcher.real_quick_ratio() >= _DUPLICATE_NAME_SIMILARITY_THRESHOLD
+                    and matcher.quick_ratio() >= _DUPLICATE_NAME_SIMILARITY_THRESHOLD
+                ):
+                    ratio = matcher.ratio()
             if ratio < _DUPLICATE_NAME_SIMILARITY_THRESHOLD and not article:
                 continue
             why = "differs only by a leading article" if article else f"similarity {ratio:.2f}"
@@ -1774,23 +1559,21 @@ def collect_warnings() -> list[str]:
     """
     warnings = _check_location_id_hash_drift(DATA / "csv/locations.csv")
     warnings.extend(_check_undeclared_stories(DATA / "csv/stories.csv", DATA / "entries"))
-    warnings.extend(
-        _check_near_duplicate_names(
-            DATA / "csv/locations.csv",
-            "LocationId",
-            "Name",
-            "locations.csv",
-            group_column="RegionId",
+    reviewed = _reviewed_pairs()
+    for csv_name, id_column, group_column in (
+        ("locations.csv", "LocationId", "RegionId"),
+        ("characters.csv", "CharacterId", None),
+        ("monsters.csv", "MonsterId", None),
+        ("fauna.csv", "FaunaId", None),
+        ("flora.csv", "FloraId", None),
+        ("food-and-drink.csv", "FoodDrinkId", None),
+    ):
+        warnings.extend(
+            _check_near_duplicate_names(
+                DATA / "csv" / csv_name, id_column, "Name", csv_name, group_column=group_column, reviewed=reviewed
+            )
         )
-    )
-    warnings.extend(_check_near_duplicate_names(DATA / "csv/characters.csv", "CharacterId", "Name", "characters.csv"))
-    warnings.extend(_check_near_duplicate_names(DATA / "csv/monsters.csv", "MonsterId", "Name", "monsters.csv"))
-    warnings.extend(_check_near_duplicate_names(DATA / "csv/fauna.csv", "FaunaId", "Name", "fauna.csv"))
-    warnings.extend(_check_near_duplicate_names(DATA / "csv/flora.csv", "FloraId", "Name", "flora.csv"))
-    warnings.extend(
-        _check_near_duplicate_names(DATA / "csv/food-and-drink.csv", "FoodDrinkId", "Name", "food-and-drink.csv")
-    )
-    warnings.extend(_check_new_catalogue_names(_reviewed_pairs()))
+    warnings.extend(_check_new_catalogue_names(reviewed))
     warnings.extend(_check_reviewed_pairs_are_current(_all_registry_ids()))
     return warnings
 

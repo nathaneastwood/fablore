@@ -57,9 +57,7 @@ from __future__ import annotations
 
 import json
 import re
-import subprocess
 import sys
-import unicodedata
 import urllib.request
 from pathlib import Path
 
@@ -72,12 +70,20 @@ from card_types_extract import (  # noqa: E402
     is_young_hero_card,
     parse_tokens,
 )
-from create_sets_csv import SETS_CSV_PATH, generate_sets_csv  # noqa: E402
+from card_registry_csv import (  # noqa: E402
+    earliest_release,
+    ensure_sets_csv,
+    printings_by_card_unique_id,
+    set_release_by_id,
+)
 from tab_csv_io import read_tab_csv  # noqa: E402
 from game_class_talent_csv import (  # noqa: E402
     UPSTREAM_CARD_CSV_PATH as CARD_CSV_PATH,
+    UPSTREAM_CARD_PRINTING_CSV_PATH as CARD_PRINTING_CSV_PATH,
+    UPSTREAM_CSV_DIR,
     merge_classes_and_talents_from_card_rows,
 )
+from generator_utils import run_validate_data_and_exit  # noqa: E402
 from hero_overrides import (  # noqa: E402
     LORE_CANONICAL_OVERRIDES,
     load_canonical_hero_card_name_aliases,
@@ -88,7 +94,7 @@ from pipe_csv_io import (  # noqa: E402
     write_pipe_csv_autogen,
 )
 from registry_ids import assert_unique_ids, make_hash_id  # noqa: E402
-from text_utils import normalize_name  # noqa: E402
+from text_utils import ascii_fold, normalize_name  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 HEROES_CANONICAL_CSV_PATH = ROOT / "src/data/csv/heroes-canonical.csv"
@@ -96,8 +102,7 @@ HEROES_GAME_CSV_PATH = ROOT / "src/data/csv/heroes-game.csv"
 HEROES_PRINTINGS_CSV_PATH = ROOT / "src/data/csv/heroes-printings.csv"
 HEROES_LL_CSV_PATH = ROOT / "src/data/csv/heroes-ll.csv"
 HEROES_FABTCG_CSV_PATH = ROOT / "src/data/csv/heroes-fabtcg.csv"
-CARD_PRINTING_CSV_PATH = ROOT.parent / "flesh-and-blood-cards/csvs/english/card-printing.csv"
-_LL_CC_CSV_PATH = ROOT.parent / "flesh-and-blood-cards/csvs/english/living-legend-cc.csv"
+_LL_CC_CSV_PATH = UPSTREAM_CSV_DIR / "living-legend-cc.csv"
 HEROES_API_URL = "https://fabtcg.com/api/fab/v2/heroes/?lang=en"
 _USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
@@ -195,9 +200,7 @@ def living_legend_rows(
 
 def _portrait_key(text: str) -> str:
     """The hero-icons key: accents stripped, lowercase, every other run of characters one ``-``."""
-    decomposed = unicodedata.normalize("NFKD", text)
-    plain = "".join(c for c in decomposed if not unicodedata.combining(c))
-    return re.sub(r"[^a-z0-9]+", "-", plain.lower()).strip("-")
+    return re.sub(r"[^a-z0-9]+", "-", ascii_fold(text).lower()).strip("-")
 
 
 # Only Dr. Mortimer's API entry says "Disruption"; every other disruptive hero says "Disruptive".
@@ -268,6 +271,7 @@ def fetch_heroes_api() -> dict:
 def generate_heroes_ll_csv(
     game_rows: list[dict[str, str]] | None = None,
     canonical_rows: list[dict[str, str]] | None = None,
+    api: dict | None = None,
 ) -> None:
     """Write ``heroes-ll.csv`` from the fabtcg.com hero API.
 
@@ -278,7 +282,8 @@ def generate_heroes_ll_csv(
     When called with no arguments reads directly from the committed
     ``heroes-game.csv`` and ``heroes-canonical.csv``, so it can be run standalone
     (``python3 src/data/create_heroes_csv.py --ll-only``) without regenerating all
-    other hero CSVs from the upstream flesh-and-blood-cards data.
+    other hero CSVs from the upstream flesh-and-blood-cards data. ``api`` is
+    fetched when not passed.
     """
     if game_rows is None:
         _, game_rows = read_pipe_csv(HEROES_GAME_CSV_PATH)
@@ -286,7 +291,9 @@ def generate_heroes_ll_csv(
         _, canonical_rows = read_pipe_csv(HEROES_CANONICAL_CSV_PATH)
     upstream_cc_rows = read_tab_csv(_LL_CC_CSV_PATH) if _LL_CC_CSV_PATH.exists() else None
 
-    ll_rows = living_legend_rows(fetch_heroes_api(), game_rows, canonical_rows, upstream_cc_rows)
+    ll_rows = living_legend_rows(
+        api if api is not None else fetch_heroes_api(), game_rows, canonical_rows, upstream_cc_rows
+    )
     ll_rows.sort(key=lambda r: (r["CanonicalSlug"], r["CardName"]))
     write_pipe_csv_autogen(
         HEROES_LL_CSV_PATH,
@@ -428,8 +435,7 @@ def generate_heroes_csv() -> None:
         FileNotFoundError: If no hero rows exist in the upstream card CSV.
         ValueError: On id hash collisions in canonical, class, talent, or game ids.
     """
-    if not SETS_CSV_PATH.exists():
-        generate_sets_csv()
+    ensure_sets_csv()
 
     _, canonical_rows = read_pipe_csv(HEROES_CANONICAL_CSV_PATH)
 
@@ -459,22 +465,8 @@ def generate_heroes_csv() -> None:
         canonical_slug_by_name[alt_name_key] = slug
 
     card_rows = read_tab_csv(CARD_CSV_PATH)
-    card_printing_rows = read_tab_csv(CARD_PRINTING_CSV_PATH)
-
-    _, sets_rows = read_pipe_csv(SETS_CSV_PATH)
-    set_release_by_identifier: dict[str, str] = {}
-    for row in sets_rows:
-        set_id = row.get("SetId", "").strip()
-        release = row.get("InitialReleaseDate", "").strip()
-        if set_id:
-            set_release_by_identifier[set_id] = release
-
-    printings_by_card_unique: dict[str, list[dict[str, str]]] = {}
-    for row in card_printing_rows:
-        card_unique = row.get("Card Unique ID", "")
-        if not card_unique:
-            continue
-        printings_by_card_unique.setdefault(card_unique, []).append(row)
+    printings_by_card_unique = printings_by_card_unique_id(read_tab_csv(CARD_PRINTING_CSV_PATH))
+    release_by_set_id = set_release_by_id()
 
     hero_cards_by_name: dict[str, list[dict[str, str]]] = {}
     for card in card_rows:
@@ -503,12 +495,6 @@ def generate_heroes_csv() -> None:
             canonical_id = canonical_id_by_slug.get(canonical_slug, "")
             class_names, talent_names = extract_card_classes_and_talents(card.get("Types", ""))
             printings = printings_by_card_unique.get(card.get("Unique ID", ""), [])
-            earliest_release = ""
-            for entry in printings:
-                set_id = (entry.get("Set ID") or "").strip()
-                release = set_release_by_identifier.get(set_id, "")
-                if release and (not earliest_release or release < earliest_release):
-                    earliest_release = release
 
             unsorted_rows.append(
                 {
@@ -524,7 +510,9 @@ def generate_heroes_csv() -> None:
                     "YoungHero": ("true" if is_young_hero_card(card.get("Types", "")) else "false"),
                     "TypesNormalized": ", ".join(parse_tokens(card.get("Types", ""))),
                     "Printings": printings,
-                    "EarliestRelease": earliest_release,
+                    "EarliestRelease": earliest_release(
+                        ((entry.get("Set ID") or "").strip() for entry in printings), release_by_set_id
+                    ),
                 }
             )
 
@@ -617,8 +605,9 @@ def generate_heroes_csv() -> None:
             regenerate_command=REGENERATE_CREATE_HEROES,
         )
 
-    generate_heroes_ll_csv(game_rows, canonical_rows)
-    generate_heroes_fabtcg_csv(game_rows)
+    api = fetch_heroes_api()
+    generate_heroes_ll_csv(game_rows, canonical_rows, api)
+    generate_heroes_fabtcg_csv(game_rows, api)
 
 
 if __name__ == "__main__":
@@ -628,6 +617,4 @@ if __name__ == "__main__":
         generate_heroes_fabtcg_csv()
     else:
         generate_heroes_csv()
-        _vd = Path(__file__).resolve().parent / "validate_data.py"
-        _rc = subprocess.run([sys.executable, str(_vd)], cwd=str(ROOT))
-        raise SystemExit(_rc.returncode)
+        run_validate_data_and_exit()
