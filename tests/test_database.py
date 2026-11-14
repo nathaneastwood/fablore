@@ -144,6 +144,21 @@ def test_upsert_story_rejects_path_outside_a_story_section(db: Database, path: s
     assert db.conn.execute("SELECT COUNT(*) FROM stories").fetchone()[0] == 0
 
 
+@pytest.mark.parametrize("date", ["2019-29-08", "2019-8-29", "29/08/2019", "20190829", "2019-02-30", " 2019-08-29"])
+@pytest.mark.parametrize("dry_run", [False, True])
+def test_upsert_story_rejects_a_publication_date_that_is_not_iso(db: Database, date: str, dry_run: bool) -> None:
+    """A publication date is ``YYYY-MM-DD`` and a real calendar date; anything else fails before writing."""
+    with pytest.raises(ValueError, match="publication_date"):
+        db.upsert_story("src/main-story/a.md", title="T", publication_date=date, dry_run=dry_run)
+    assert db.conn.execute("SELECT COUNT(*) FROM stories").fetchone()[0] == 0
+
+
+@pytest.mark.parametrize("date", ["", "2019-08-29", "2024-02-29"])
+def test_upsert_story_accepts_an_iso_or_blank_publication_date(db: Database, date: str) -> None:
+    rec = db.upsert_story("src/main-story/a.md", title="T", publication_date=date)
+    assert rec.publication_date == date
+
+
 def test_upsert_story_narrated_videos_stored(db: Database) -> None:
     """Narrated videos are stored in the narrated_videos table."""
     db.upsert_story(

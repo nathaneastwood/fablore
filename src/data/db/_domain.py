@@ -24,7 +24,7 @@ _SCRIPT_DIR = Path(__file__).resolve().parents[1]
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from mdbook_common import SECTION_BY_KEY  # noqa: E402
+from mdbook_common import SECTION_BY_KEY, is_iso_date  # noqa: E402
 from mdbook_heading_ids import (  # noqa: E402
     collect_heading_anchor_ids_from_path,
     format_fragment_suggestion,
@@ -1718,7 +1718,8 @@ class Database:
             authors: Author credits (free text, comma-separated suggested).
             artists: Illustration credits (free text).
             source_link: Canonical source URL.
-            publication_date: ISO date string e.g. ``"2025-07-12"``.
+            publication_date: ISO date string e.g. ``"2025-07-12"``, or ``""``
+                for none. Anything else raises ``ValueError`` before writing.
             thumbnail_image_link: Public URL for a thumbnail image.
             narrated_videos: Narrated video entries; ``None`` = leave unchanged.
             characters: A mixed list of canonical hero slugs (see
@@ -1782,11 +1783,16 @@ class Database:
         Raises:
             ValueError: If an unknown hero / weapon / equipment slug is given,
                 if a ``lore_fragment`` cannot be resolved to a heading on disk,
-                or if ``path`` is not under a story section.
+                if ``path`` is not under a story section, or if
+                ``publication_date`` is not blank or ``YYYY-MM-DD``.
         """
         story_key = _story_key_from_path(path)
         story_id = _story_id(story_key)
         story_type = _story_type_from_key(story_key)
+        if publication_date and not is_iso_date(publication_date):
+            raise ValueError(
+                f"Story {story_key!r}: publication_date {publication_date!r} is not an ISO date (YYYY-MM-DD, a real calendar date)"
+            )
 
         # Resolve characters eagerly so we fail fast before writing anything —
         # an unknown hero slug or a person named twice (once as a slug, once

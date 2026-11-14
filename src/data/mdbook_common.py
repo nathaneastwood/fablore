@@ -347,6 +347,20 @@ def arc_of(path: str) -> tuple[str, str] | None:
 # ---------------------------------------------------------------------------
 
 
+_ISO_DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
+
+
+def is_iso_date(s: str) -> bool:
+    """True when ``s`` is exactly ``YYYY-MM-DD`` and names a real calendar date."""
+    if not _ISO_DATE_RE.fullmatch(s):
+        return False
+    try:
+        datetime.strptime(s, "%Y-%m-%d")
+    except ValueError:
+        return False
+    return True
+
+
 def long_date(s: str) -> str | None:
     """``YYYY-MM-DD`` as ``D Month YYYY``, or ``None`` when it does not parse."""
     try:

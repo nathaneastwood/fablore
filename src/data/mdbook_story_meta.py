@@ -32,14 +32,13 @@ from __future__ import annotations
 import html
 import re
 import sys
-from datetime import datetime
 from pathlib import Path
 
 _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from mdbook_common import HERO_BANNER_END, iter_chapters, long_date, md_to_html_url, run  # noqa: E402
+from mdbook_common import HERO_BANNER_END, format_date, iter_chapters, md_to_html_url, run  # noqa: E402
 from mdbook_common import RELATED_LORE_H1 as RELATED_HEADING  # noqa: E402
 from mdbook_common import (
     SECTIONS,
@@ -115,25 +114,6 @@ def _count_words(markdown: str) -> int:
     text = re.sub(r"^#{1,6}\s+", "", text, flags=re.MULTILINE)
     text = re.sub(r"\*{1,3}|_{1,3}", "", text)
     return len(text.split())
-
-
-def _format_date(date_str: str) -> str:
-    """Format ``YYYY-MM-DD`` as ``D Month YYYY``.  Returns the raw string on failure."""
-    s = date_str.strip()
-    if not s:
-        return ""
-    formatted = long_date(s)
-    if formatted:
-        return formatted
-    # Handle swapped month/day (e.g. ``2019-29-08``)
-    parts = s.split("-")
-    if len(parts) == 3:
-        try:
-            dt = datetime(int(parts[0]), int(parts[2]), int(parts[1]))
-            return f"{dt.day} {dt.strftime('%B %Y')}"
-        except (ValueError, IndexError):
-            pass
-    return s
 
 
 def _share_link(cls: str, label: str, icon: str) -> str:
@@ -217,7 +197,7 @@ def _build_meta_html(
     if artists:
         items.append(_item("fas fa-image", f"Art by <strong>{html.escape(artists)}</strong>"))
 
-    formatted_date = _format_date(publication_date)
+    formatted_date = format_date(publication_date)
     if formatted_date:
         items.append(_item("fas fa-calendar", html.escape(formatted_date)))
 

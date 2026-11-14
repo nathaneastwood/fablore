@@ -1,5 +1,5 @@
 """Additional tests for ``mdbook_story_meta`` to improve coverage of
-_format_date, _build_meta_html branches, _load_story_meta, _inject_after_heading,
+_build_meta_html branches, _load_story_meta, _inject_after_heading,
 and _walk_sections.
 """
 
@@ -15,7 +15,6 @@ from mdbook_story_meta import (  # noqa: E402
     MARK_END,
     MARK_START,
     _build_meta_html,
-    _format_date,
     _inject_after_heading,
     _load_story_meta,
     _walk_sections,
@@ -23,34 +22,28 @@ from mdbook_story_meta import (  # noqa: E402
 
 
 # ---------------------------------------------------------------------------
-# _format_date
+# Publication date on the card
 # ---------------------------------------------------------------------------
 
 
-def test_format_date_empty_string() -> None:
-    assert _format_date("") == ""
+def _card_with_date(date: str) -> str:
+    return _build_meta_html(authors="", artists="", publication_date=date, source_link="", word_count=0)
 
 
-def test_format_date_whitespace_only() -> None:
-    assert _format_date("   ") == ""
+def test_card_shows_an_iso_publication_date_in_long_form() -> None:
+    assert "15 January 2023" in _card_with_date("2023-01-15")
 
 
-def test_format_date_normal() -> None:
-    assert _format_date("2023-01-15") == "15 January 2023"
+def test_card_has_no_date_item_for_a_blank_date() -> None:
+    assert "fa-calendar" not in _card_with_date("")
+    assert "fa-calendar" not in _card_with_date("   ")
 
 
-def test_format_date_swapped_month_day() -> None:
-    # "2019-29-08" fails normal parse; fallback tries year=2019, month=8, day=29
-    assert _format_date("2019-29-08") == "29 August 2019"
-
-
-def test_format_date_garbage_returns_raw() -> None:
-    assert _format_date("not-a-date") == "not-a-date"
-
-
-def test_format_date_three_parts_unparseable() -> None:
-    # Three parts that still can't be parsed as a date (e.g. all zeros)
-    assert _format_date("0000-00-00") == "0000-00-00"
+def test_card_shows_a_swapped_date_as_given() -> None:
+    """Dates are validated as ISO at entry, so the card no longer guesses at a swapped month and day."""
+    card = _card_with_date("2019-29-08")
+    assert "2019-29-08" in card
+    assert "August" not in card
 
 
 # ---------------------------------------------------------------------------

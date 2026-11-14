@@ -5,7 +5,8 @@ selected foreign keys resolve (e.g. story junctions to characters, heroes, locat
 For heroes, each ``heroes-game.csv`` ``CardName`` must resolve to the same ``CanonicalId`` as
 ``create_heroes_csv.generate_heroes_csv`` would assign given ``heroes-canonical.csv`` (display
 ``CanonicalHero`` and slug/alias rules); printed titles need not match ``CanonicalHero`` verbatim.
-``stories.csv`` ``StoryType`` values must match :data:`ALLOWED_STORY_TYPES` (``src/`` lore roots).
+``stories.csv`` ``StoryType`` values must match :data:`ALLOWED_STORY_TYPES` (``src/`` lore roots), and
+a non-blank ``PublicationDate`` must be ``YYYY-MM-DD`` (a real calendar date).
 
 Intended to run after generators such as ``create_heroes_csv.py``, ``create_weapons_csv.py``,
 ``create_equipment_csv.py``, ``create_sets_csv.py``, ``create_classes_talents_csv.py``, or after using
@@ -53,6 +54,8 @@ from registry_ids import (  # noqa: E402
 )
 
 from text_utils import normalize_name  # noqa: E402
+
+from mdbook_common import is_iso_date  # noqa: E402
 
 # The kin vocabulary is this map's keys — see KIN_RELATIONS below for why it is
 # imported rather than restated.
@@ -339,6 +342,27 @@ def _check_stories_story_type_allowlist(stories_path: Path) -> list[str]:
             alerts.append(
                 f"Stories: {stories_path.name} row {row_num}: unknown StoryType {st!r} "
                 f"(not in validate_data.ALLOWED_STORY_TYPES)"
+            )
+    return alerts
+
+
+def _check_stories_publication_dates(stories_path: Path) -> list[str]:
+    """Ensure every non-blank ``PublicationDate`` is ``YYYY-MM-DD`` and a real calendar date.
+
+    Args:
+        stories_path: ``stories.csv`` path.
+
+    Returns:
+        Alert strings; empty when every date is blank or ISO.
+    """
+    _, rows = read_pipe_csv(stories_path)
+    alerts: list[str] = []
+    for row_num, row in enumerate(rows, start=2):
+        date = row.get("PublicationDate") or ""
+        if date and not is_iso_date(date):
+            alerts.append(
+                f"Stories: {stories_path.name} row {row_num} ({row.get('StoryKey', '')}): "
+                f"PublicationDate {date!r} is not an ISO date (YYYY-MM-DD)"
             )
     return alerts
 
@@ -1133,6 +1157,7 @@ def collect_alerts() -> list[str]:
     stories_path = DATA / "csv/stories.csv"
     if stories_path.is_file():
         alerts.extend(_check_stories_story_type_allowlist(stories_path))
+        alerts.extend(_check_stories_publication_dates(stories_path))
 
     # Foreign keys. Each spec is (child csv, child column, parent csv, parent
     # column, label); a spec whose parent id set is empty is skipped, as is a
