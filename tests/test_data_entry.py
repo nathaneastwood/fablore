@@ -101,6 +101,20 @@ def test_declaration_has_literal_path_and_type(module, path, story_type, lineno)
     assert story_type, f"entries/{module}.py:{lineno} has no literal story_type="
 
 
+def test_no_archive_page_is_declared() -> None:
+    """Archived pages are retired content and carry no story links.
+
+    A declaration would make a retired page assert links the live site has moved
+    past, and list it in Related Lore beside the page that replaced it.
+    """
+    archived = [
+        f"entries/{module}.py:{lineno} declares {path}"
+        for module, path, _story_type, lineno in ALL_DECLARATIONS
+        if path.startswith("src/archive/")
+    ]
+    assert archived == []
+
+
 def test_no_duplicate_paths() -> None:
     seen: dict[str, str] = {}
     duplicates: list[str] = []

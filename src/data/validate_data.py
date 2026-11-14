@@ -1639,7 +1639,13 @@ def _check_undeclared_stories(stories_path: Path, entries_dir: Path) -> list[str
     if not stories_path.is_file() or not entries_dir.is_dir():
         return []
     _, rows = read_pipe_csv(stories_path)
-    story_keys = {(row.get("StoryKey") or "").strip() for row in rows if (row.get("StoryKey") or "").strip()}
+    # Archived pages are retired content and are never declared (see
+    # entries/archive.py), so they are not "undeclared" either.
+    story_keys = {
+        key
+        for row in rows
+        if (key := (row.get("StoryKey") or "").strip()) and (row.get("StoryType") or "").strip() != "archive"
+    }
     if not story_keys:
         return []
 

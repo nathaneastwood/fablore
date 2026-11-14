@@ -695,15 +695,20 @@ def test_check_undeclared_stories_ignores_dunder_init_and_runner(tmp_path: Path)
     assert "1 of 1" in alerts[0]
 
 
-def test_undeclared_stories_check_is_surfaced_by_collect_warnings() -> None:
-    """The committed repo has more ``stories.csv`` rows than declarations in ``entries/``.
+def test_check_undeclared_stories_ignores_archive_pages(tmp_path: Path) -> None:
+    """Archived pages are retired content and are never declared, so they are never "undeclared"."""
+    stories, entries_dir = _stories_and_entries_fixture(
+        tmp_path,
+        story_rows="ST1|archive/world-of-rathe/rathe.md|archive|Rathe\n",
+        declared={},
+    )
+    assert validate_data._check_undeclared_stories(stories, entries_dir) == []
 
-    384 stories, 202 declared as of this check's introduction — a real, growing
-    gap that was invisible to every tool before this check. ``collect_warnings``
-    must surface it rather than stay silent.
-    """
+
+def test_every_live_story_is_declared() -> None:
+    """Every stories.csv row outside the archive has an upsert_story() declaration."""
     warnings = validate_data.collect_warnings()
-    assert any("upsert_story() declaration" in w for w in warnings)
+    assert not any("upsert_story() declaration" in w for w in warnings), warnings
 
 
 # ---------------------------------------------------------------------------
