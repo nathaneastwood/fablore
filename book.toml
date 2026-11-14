@@ -20,6 +20,10 @@ level = 0
 
 [preprocessor.archive-notice]
 command = "python3 src/data/mdbook_archive_notice.py"
+# It strips the `:::archive-of …:::` line from archive hero pages, and every
+# other preprocessor reads chapter content, so it has to run first. Without
+# this, mdBook's tie-break by name is all that keeps it there.
+before = ["browse", "graph", "graph-link", "hints", "related", "story-meta", "hero-traits", "hero-meta", "set-meta", "narrated-videos", "breadcrumb", "set-index", "sets-hub", "child-hub"]
 
 [preprocessor.browse]
 command = "python3 src/data/mdbook_browse.py"

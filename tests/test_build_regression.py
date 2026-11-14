@@ -184,6 +184,18 @@ class TestBookToml:
             pagetoc_refs == []
         ), "pagetoc removed — must not be in book.toml additional-css/additional-js:\n" + "\n".join(pagetoc_refs)
 
+    def test_archive_notice_runs_before_every_other_preprocessor(self, toml_config) -> None:
+        """archive-notice strips the ``:::archive-of …:::`` line from archive hero pages.
+
+        Every other preprocessor reads chapter content, so each must see the page
+        without it. With no constraint mdBook breaks ties by name, which keeps it
+        first only while no preprocessor's name sorts before "archive-notice".
+        """
+        preprocessors = toml_config["preprocessor"]
+        others = set(preprocessors) - {"archive-notice"}
+        before = set(preprocessors["archive-notice"].get("before", []))
+        assert sorted(others - before) == []
+
 
 class TestThemeAssets:
     """Guards for theme file integrity after the mdBook 0.5 upgrade."""
