@@ -78,6 +78,8 @@ command = "python3 src/data/mdbook_sets_hub.py"
 command = "python3 src/data/mdbook_child_hub.py"
 
 [output.html.redirect]
+# The Usurp the Shadow Throne spoiler splash (Aug 2026), shared on social media.
+'/countdown.html' = '/index.html'
 # Armory decks and mastery packs used to share one folder per product line; each
 # release now has its own arc folder so it can carry its upstream SetId.
 '/main-story/armory-decks/battle-of-isenloft.html' = '/main-story/armory-deck-jarl-vetreidi/battle-of-isenloft.html'
