@@ -60,12 +60,12 @@ def test_resolve_hero_src_path_finds_about_file(tmp_path: Path) -> None:
     assert result == "heroes-of-rathe/boltyn-about.md"
 
 
-def test_resolve_hero_src_path_finds_plain_file(tmp_path: Path) -> None:
+def test_resolve_hero_src_path_ignores_a_page_without_the_about_suffix(tmp_path: Path) -> None:
+    """Only ``{slug}-about.md`` (or an override) is a hero page; ``{slug}.md`` is not."""
     hero_dir = tmp_path / "heroes-of-rathe"
     hero_dir.mkdir()
     (hero_dir / "bravo.md").write_text("# Bravo", encoding="utf-8")
-    result = resolve_hero_src_path(tmp_path, "bravo")
-    assert result == "heroes-of-rathe/bravo.md"
+    assert resolve_hero_src_path(tmp_path, "bravo") is None
 
 
 def test_resolve_hero_src_path_returns_none_when_missing(tmp_path: Path) -> None:

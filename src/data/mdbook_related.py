@@ -187,7 +187,11 @@ def _is_file(path: Path) -> bool:
 
 @lru_cache(maxsize=None)
 def resolve_hero_src_path(src_root: Path, canonical_slug: str) -> str | None:
-    """Return ``src``-relative path to hero lore markdown if a file exists.
+    """Return the ``src``-relative path of a canonical hero's page, if it exists.
+
+    A canonical hero has at most one page: the
+    ``HERO_SLUG_LORE_FILE_OVERRIDES`` path when it has one (the three Arakni),
+    else ``heroes-of-rathe/{slug}-about.md``.
 
     Args:
         src_root: Book source directory (parent of ``heroes-of-rathe/``).
@@ -197,15 +201,10 @@ def resolve_hero_src_path(src_root: Path, canonical_slug: str) -> str | None:
         Path relative to ``src_root`` using POSIX separators, or ``None``.
     """
     override = HERO_SLUG_LORE_FILE_OVERRIDES.get(canonical_slug.strip())
-    if override:
-        p = Path(override)
-        if _is_file((src_root / p)):
-            return p.as_posix()
-    hero_dir = src_root / "heroes-of-rathe"
-    for fname in (f"{canonical_slug}-about.md", f"{canonical_slug}.md"):
-        if _is_file((hero_dir / fname)):
-            return str(Path("heroes-of-rathe") / fname)
-    return None
+    if override and _is_file(src_root / override):
+        return override
+    page = f"heroes-of-rathe/{canonical_slug}-about.md"
+    return page if _is_file(src_root / page) else None
 
 
 def build_hero_src_to_canonical_ids(maps: RelatedMaps, src_root: Path) -> dict[str, frozenset[str]]:

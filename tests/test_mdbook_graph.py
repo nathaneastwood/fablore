@@ -588,10 +588,10 @@ def test_pages_without_a_node_are_absent(src_root: Path) -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_resolve_hero_url_falls_back_to_the_bare_slug(tmp_path: Path) -> None:
+def test_resolve_hero_url_uses_the_about_page(tmp_path: Path) -> None:
     (tmp_path / "heroes-of-rathe").mkdir()
-    (tmp_path / "heroes-of-rathe" / "rhinar.md").write_text("# Rhinar\n")
-    assert resolve_hero_url(tmp_path, "rhinar") == "heroes-of-rathe/rhinar.html"
+    (tmp_path / "heroes-of-rathe" / "rhinar-about.md").write_text("# Rhinar\n")
+    assert resolve_hero_url(tmp_path, "rhinar") == "heroes-of-rathe/rhinar-about.html"
 
 
 def test_resolve_hero_url_empty_for_unknown_slug(tmp_path: Path) -> None:

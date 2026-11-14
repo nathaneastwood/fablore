@@ -118,8 +118,8 @@ def resolve_hero_url(src_root: Path, canonical_slug: str) -> str:
     """Return the rendered URL of a hero's lore page, or ``""`` when none exists.
 
     Uses ``mdbook_related.resolve_hero_src_path`` so both features agree on
-    which heroes have a page: the override table first, then the two naming
-    conventions under ``heroes-of-rathe/``.
+    which heroes have a page: the override table first, then
+    ``heroes-of-rathe/{slug}-about.md``.
     """
     slug = canonical_slug.strip()
     if not slug:
