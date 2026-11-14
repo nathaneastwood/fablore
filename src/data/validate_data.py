@@ -72,8 +72,6 @@ _LORE_FRAGMENT_SAFE = re.compile(r"^[\w.-]+\Z", re.UNICODE)
 
 def _check_location_lore_fragments(locations_path: Path) -> list[str]:
     """Flag ``LoreFragment`` values that cannot be mdBook heading ``id`` fragments."""
-    if not locations_path.is_file():
-        return []
     fieldnames, rows = read_pipe_csv(locations_path)
     if "LoreFragment" not in fieldnames:
         return []
@@ -97,8 +95,6 @@ def _check_location_lore_fragments_match_headings(
 ) -> list[str]:
     """Ensure each ``LoreFragment`` matches an mdBook heading id on the region's world lore page."""
     alerts: list[str] = []
-    if not locations_path.is_file():
-        return alerts
     fieldnames, loc_rows = read_pipe_csv(locations_path)
     if "LoreFragment" not in fieldnames:
         return alerts
@@ -168,8 +164,6 @@ def _check_id_hash_drift(
     Returns:
         Alert strings, one per drifted row.
     """
-    if not path.is_file():
-        return []
     _, rows = read_pipe_csv(path)
     alerts: list[str] = []
     for row in rows:
@@ -195,8 +189,6 @@ def _check_self_parent(path: Path, id_column: str, parent_column: str, label: st
     A self-referencing parent column has no SQL constraint stopping either, and
     both make breadcrumbs and the Lore Graph loop forever rather than fail loudly.
     """
-    if not path.is_file():
-        return []
     _, rows = read_pipe_csv(path)
     parent_of: dict[str, str] = {}
     for row in rows:
@@ -226,8 +218,6 @@ def _check_location_id_hash_drift(locations_path: Path) -> list[str]:
     registries, which hash name alone), so this needs its own loop rather
     than :func:`_check_id_hash_drift`.
     """
-    if not locations_path.is_file():
-        return []
     _, rows = read_pipe_csv(locations_path)
     alerts: list[str] = []
     for row in rows:
@@ -268,11 +258,15 @@ ALLOWED_STORY_TYPES: frozenset[str] = frozenset(
 )
 
 
-def _check_ids(path: Path, id_columns: tuple[str, ...], label: str) -> list[str]:
+def _check_ids(
+    path: Path, fieldnames: list[str], rows: list[dict[str, str]], id_columns: tuple[str, ...], label: str
+) -> list[str]:
     """Verify required id columns are present and non-empty for each data row.
 
     Args:
-        path: CSV file to validate.
+        path: The CSV file the rows came from (named in alerts).
+        fieldnames: Its header, as :func:`read_pipe_csv` returns it.
+        rows: Its data rows, as :func:`read_pipe_csv` returns them.
         id_columns: Column names that must be non-blank on every row.
         label: Human-readable category for error messages.
 
@@ -280,7 +274,6 @@ def _check_ids(path: Path, id_columns: tuple[str, ...], label: str) -> list[str]
         A list of alert strings (empty if all checks pass).
     """
     alerts: list[str] = []
-    fieldnames, rows = read_pipe_csv(path)
     if not fieldnames:
         return alerts
     for col in id_columns:
@@ -681,8 +674,6 @@ def _check_supplement_types_are_not_kinds(kinds_path: Path, kind_aliases_path: P
     """
     claimed: dict[str, tuple[str, str]] = {}
     for path, column in ((kinds_path, "Name"), (kind_aliases_path, "Alias")):
-        if not path.is_file():
-            continue
         _, rows = read_pipe_csv(path)
         for row in rows:
             value = (row.get(column) or "").strip()
@@ -822,8 +813,6 @@ def _check_no_self_kin(path: Path) -> list[str]:
     catching a hand-edited or otherwise drifted CSV that never went through
     it, the same shape :func:`_check_self_parent` gives locations and groups.
     """
-    if not path.is_file():
-        return []
     _, rows = read_pipe_csv(path)
     alerts: list[str] = []
     for row in rows:
@@ -854,12 +843,9 @@ def _check_alias_name_collisions() -> list[str]:
         ("character-epithets.csv", "Name", "CharacterId", "characters.csv", "CharacterId", "Name", "Character epithet"),
         ("kind-aliases.csv", "Alias", "KindId", "kinds.csv", "KindId", "Name", "Kind alias"),
     ):
-        alias_path, registry_path = DATA / f"csv/{alias_file}", DATA / f"csv/{registry_file}"
-        if not (alias_path.is_file() and registry_path.is_file()):
-            continue
-        _, registry_rows = read_pipe_csv(registry_path)
+        _, registry_rows = read_pipe_csv(DATA / "csv" / registry_file)
         by_name = {(r.get(registry_name) or "").strip(): (r.get(registry_id) or "").strip() for r in registry_rows}
-        _, alias_rows = read_pipe_csv(alias_path)
+        _, alias_rows = read_pipe_csv(DATA / "csv" / alias_file)
         for row in alias_rows:
             alias = (row.get(alias_col) or "").strip()
             owner = (row.get(owner_col) or "").strip()
@@ -887,9 +873,7 @@ def _check_group_lore_fragments(groups_path: Path, stories_path: Path, src_root:
     Returns:
         Alert strings, one per unresolvable fragment.
     """
-    if not groups_path.is_file():
-        return []
-    story_keys = _id_set_from_column(stories_path, "StoryKey") if stories_path.is_file() else set()
+    story_keys = _id_set_from_column(stories_path, "StoryKey")
 
     alerts: list[str] = []
     _, rows = read_pipe_csv(groups_path)
@@ -921,7 +905,7 @@ _HERO_BANNER_RE = re.compile(r'<header class="hero-banner\b.*?</header>', re.DOT
 _HERO_BANNER_TITLE_RE = re.compile(r"^# (.+)$", re.MULTILINE)
 
 
-def _check_hero_blurbs(pages_dir: Path, data_dir: Path, exempt: frozenset[str]) -> list[str]:
+def _check_hero_blurbs(pages_dir: Path, hero_data: dict, exempt: frozenset[str]) -> list[str]:
     """Ensure every hero form on a ``*-about.md`` page has a ``:::hero-blurb`` block.
 
     A form is whatever ``mdbook_hero_meta`` turns into a banner, so the check renders
@@ -930,7 +914,7 @@ def _check_hero_blurbs(pages_dir: Path, data_dir: Path, exempt: frozenset[str]) 
 
     Args:
         pages_dir: The ``heroes-of-rathe`` folder.
-        data_dir: ``src/data`` (``mdbook_hero_meta`` reads its CSVs from there).
+        hero_data: :func:`mdbook_hero_meta.load_hero_data` output.
         exempt: Form headings fabtcg.com gives no blurb for (see
             :data:`HERO_FORMS_WITHOUT_BLURB`).
 
@@ -939,12 +923,11 @@ def _check_hero_blurbs(pages_dir: Path, data_dir: Path, exempt: frozenset[str]) 
     """
     import html as _html
 
-    from mdbook_hero_meta import load_hero_data, render_hero_page
+    from mdbook_hero_meta import render_hero_page
 
-    data = load_hero_data(data_dir)
     alerts: list[str] = []
     for page in sorted(pages_dir.glob("*-about.md")):
-        rendered = render_hero_page(page.read_text(encoding="utf-8"), data)
+        rendered = render_hero_page(page.read_text(encoding="utf-8"), hero_data)
         for banner in _HERO_BANNER_RE.findall(rendered):
             title = _HERO_BANNER_TITLE_RE.search(banner)
             heading = _html.unescape(re.sub(r"<[^>]+>", "", title.group(1))).strip() if title else "?"
@@ -953,7 +936,7 @@ def _check_hero_blurbs(pages_dir: Path, data_dir: Path, exempt: frozenset[str]) 
     return alerts
 
 
-def _check_hero_portraits(pages_dir: Path, data_dir: Path) -> list[str]:
+def _check_hero_portraits(pages_dir: Path, hero_data: dict) -> list[str]:
     """Ensure every hero form on a ``*-about.md`` page has a portrait for the form switcher.
 
     A form is an H1 that ``mdbook_hero_meta`` resolves to a hero card. Its portrait is
@@ -963,17 +946,16 @@ def _check_hero_portraits(pages_dir: Path, data_dir: Path) -> list[str]:
 
     Args:
         pages_dir: The ``heroes-of-rathe`` folder.
-        data_dir: ``src/data`` (``mdbook_hero_meta`` reads its CSVs from there).
+        hero_data: :func:`mdbook_hero_meta.load_hero_data` output.
 
     Returns:
         Alert strings, one per form without a portrait.
     """
-    from mdbook_hero_meta import hero_forms, load_hero_data
+    from mdbook_hero_meta import hero_forms
 
-    data = load_hero_data(data_dir)
     alerts: list[str] = []
     for page in sorted(pages_dir.glob("*-about.md")):
-        for match, meta in hero_forms(page.read_text(encoding="utf-8"), data):
+        for match, meta in hero_forms(page.read_text(encoding="utf-8"), hero_data):
             if not (meta.get("fabtcg") or {}).get("portrait"):
                 alerts.append(
                     f"Hero pages: {page.name}: {match.group(1).strip()!r} has no portrait "
@@ -1185,13 +1167,11 @@ def collect_alerts() -> list[str]:
     ]
 
     for path, cols, label in checks:
-        if not path.is_file():
-            continue
-        _, rows = read_pipe_csv(path)
+        fieldnames, rows = read_pipe_csv(path)
         if len(rows) == 0 and path.name.startswith("story-"):
             # Header-only junction files are allowed until filled.
             continue
-        alerts.extend(_check_ids(path, cols, label))
+        alerts.extend(_check_ids(path, fieldnames, rows, cols, label))
 
     stories_path = DATA / "csv/stories.csv"
     if stories_path.is_file():
@@ -1232,15 +1212,10 @@ def collect_alerts() -> list[str]:
 
     canonical_path = DATA / "csv/heroes-canonical.csv"
     game_path = DATA / "csv/heroes-game.csv"
-    if canonical_path.is_file() and game_path.is_file():
-        alerts.extend(_check_heroes_game_cardname_resolution(canonical_path, game_path))
-
-    if game_path.is_file():
-        alerts.extend(_check_heroes_game_young_hero_column(game_path))
-        alerts.extend(_check_heroes_game_ambiguous_card_names(game_path))
-
-    if canonical_path.is_file():
-        alerts.extend(_check_hero_card_name_alias_slugs_in_canonical(canonical_path))
+    alerts.extend(_check_heroes_game_cardname_resolution(canonical_path, game_path))
+    alerts.extend(_check_heroes_game_young_hero_column(game_path))
+    alerts.extend(_check_heroes_game_ambiguous_card_names(game_path))
+    alerts.extend(_check_hero_card_name_alias_slugs_in_canonical(canonical_path))
 
     alerts.extend(
         fk_alerts(
@@ -1424,8 +1399,11 @@ def collect_alerts() -> list[str]:
     alerts.extend(_check_supplement_types(SRC / "hints_supplement.json"))
     alerts.extend(_check_supplement_types_are_not_kinds(DATA / "csv/kinds.csv", DATA / "csv/kind-aliases.csv"))
     alerts.extend(_check_group_lore_fragments(DATA / "csv/groups.csv", DATA / "csv/stories.csv", SRC))
-    alerts.extend(_check_hero_blurbs(SRC / "heroes-of-rathe", DATA, HERO_FORMS_WITHOUT_BLURB))
-    alerts.extend(_check_hero_portraits(SRC / "heroes-of-rathe", DATA))
+    from mdbook_hero_meta import load_hero_data
+
+    hero_data = load_hero_data(DATA)
+    alerts.extend(_check_hero_blurbs(SRC / "heroes-of-rathe", hero_data, HERO_FORMS_WITHOUT_BLURB))
+    alerts.extend(_check_hero_portraits(SRC / "heroes-of-rathe", hero_data))
 
     return alerts
 
@@ -1452,6 +1430,20 @@ _ARTICLES = ("the", "a", "an")
 
 REVIEWED_PAIRS_CSV = DATA / "csv/reviewed-name-pairs.csv"
 
+# The lore registries the name checks cover, as (csv, id column), in report order.
+# Every one has a ``Name`` column and a matching ``entries/catalogue`` module.
+_LORE_REGISTRIES: tuple[tuple[str, str], ...] = (
+    ("locations.csv", "LocationId"),
+    ("characters.csv", "CharacterId"),
+    ("monsters.csv", "MonsterId"),
+    ("fauna.csv", "FaunaId"),
+    ("flora.csv", "FloraId"),
+    ("food-and-drink.csv", "FoodDrinkId"),
+)
+
+# Locations are compared within their region; the rest across the whole table.
+_NEAR_DUPLICATE_GROUP_COLUMN = {"locations.csv": "RegionId"}
+
 
 def _differ_only_by_article(n1: str, n2: str) -> bool:
     """True when two normalized names differ only by a leading article."""
@@ -1463,6 +1455,29 @@ def _differ_only_by_article(n1: str, n2: str) -> bool:
     return False
 
 
+def _similarity_reason(n1: str, n2: str) -> str | None:
+    """Why two normalized names look like one entity, or ``None`` when they do not.
+
+    A leading article is reported as the reason on its own; otherwise the
+    :class:`difflib.SequenceMatcher` ratio must reach
+    :data:`_DUPLICATE_NAME_SIMILARITY_THRESHOLD`.
+    """
+    if _differ_only_by_article(n1, n2):
+        return "differs only by a leading article"
+    matcher = SequenceMatcher(None, n1, n2)
+    # real_quick_ratio() and quick_ratio() are cheap upper bounds on ratio(), so a
+    # pair either bound rules out never pays for the full one.
+    if (
+        matcher.real_quick_ratio() < _DUPLICATE_NAME_SIMILARITY_THRESHOLD
+        or matcher.quick_ratio() < _DUPLICATE_NAME_SIMILARITY_THRESHOLD
+    ):
+        return None
+    ratio = matcher.ratio()
+    if ratio < _DUPLICATE_NAME_SIMILARITY_THRESHOLD:
+        return None
+    return f"similarity {ratio:.2f}"
+
+
 def _reviewed_pairs() -> dict[frozenset, str]:
     """Return ``{frozenset({id1, id2}): note}`` for pairs a human has ruled on.
 
@@ -1472,8 +1487,6 @@ def _reviewed_pairs() -> dict[frozenset, str]:
     "these are two different things and both rows should exist" — the opposite
     verdict is not recorded, because merging the rows makes the pair disappear.
     """
-    if not REVIEWED_PAIRS_CSV.is_file():
-        return {}
     reviewed: dict[frozenset, str] = {}
     _, rows = read_pipe_csv(REVIEWED_PAIRS_CSV)
     for row in rows:
@@ -1491,8 +1504,6 @@ def _check_reviewed_pairs_are_current(known_ids: set[str]) -> list[str]:
     near-duplicate involving the surviving row would look reviewed.
     """
     alerts: list[str] = []
-    if not REVIEWED_PAIRS_CSV.is_file():
-        return alerts
     _, rows = read_pipe_csv(REVIEWED_PAIRS_CSV)
     for row in rows:
         for column in ("IdA", "IdB"):
@@ -1537,8 +1548,6 @@ def _check_near_duplicate_names(
     Returns:
         Alert strings, one per near-duplicate pair (deduplicated).
     """
-    if not path.is_file():
-        return []
     _, rows = read_pipe_csv(path)
     groups: dict[str, list[tuple[str, str, str]]] = {}
     for row in rows:
@@ -1558,24 +1567,9 @@ def _check_near_duplicate_names(
                 continue
             if frozenset({id1, id2}) in reviewed:
                 continue  # a person has looked at these two and recorded them as distinct
-            article = _differ_only_by_article(n1, n2)
-            if n1 == n2:
-                ratio = 1.0
-            elif article:
-                ratio = 0.0  # unused: the article is the reason given
-            else:
-                # real_quick_ratio() and quick_ratio() are cheap upper bounds on
-                # ratio(), so a pair either bound rules out never pays for the full one.
-                matcher = SequenceMatcher(None, n1, n2)
-                ratio = 0.0
-                if (
-                    matcher.real_quick_ratio() >= _DUPLICATE_NAME_SIMILARITY_THRESHOLD
-                    and matcher.quick_ratio() >= _DUPLICATE_NAME_SIMILARITY_THRESHOLD
-                ):
-                    ratio = matcher.ratio()
-            if ratio < _DUPLICATE_NAME_SIMILARITY_THRESHOLD and not article:
+            why = _similarity_reason(n1, n2)
+            if why is None:
                 continue
-            why = "differs only by a leading article" if article else f"similarity {ratio:.2f}"
             alerts.append(
                 f"{label}: {id_column}={id1!r} Name={name1!r} looks like a possible "
                 f"duplicate of {id_column}={id2!r} Name={name2!r} ({why}). "
@@ -1615,17 +1609,15 @@ def collect_warnings() -> list[str]:
     warnings = _check_location_id_hash_drift(DATA / "csv/locations.csv")
     warnings.extend(_check_undeclared_stories(DATA / "csv/stories.csv", DATA / "entries"))
     reviewed = _reviewed_pairs()
-    for csv_name, id_column, group_column in (
-        ("locations.csv", "LocationId", "RegionId"),
-        ("characters.csv", "CharacterId", None),
-        ("monsters.csv", "MonsterId", None),
-        ("fauna.csv", "FaunaId", None),
-        ("flora.csv", "FloraId", None),
-        ("food-and-drink.csv", "FoodDrinkId", None),
-    ):
+    for csv_name, id_column in _LORE_REGISTRIES:
         warnings.extend(
             _check_near_duplicate_names(
-                DATA / "csv" / csv_name, id_column, "Name", csv_name, group_column=group_column, reviewed=reviewed
+                DATA / "csv" / csv_name,
+                id_column,
+                "Name",
+                csv_name,
+                group_column=_NEAR_DUPLICATE_GROUP_COLUMN.get(csv_name),
+                reviewed=reviewed,
             )
         )
     warnings.extend(_check_new_catalogue_names(reviewed))
@@ -1666,7 +1658,7 @@ def _check_undeclared_stories(stories_path: Path, entries_dir: Path) -> list[str
         A single-element list naming the count of undeclared stories, or an
         empty list when every row has a declaration.
     """
-    if not stories_path.is_file() or not entries_dir.is_dir():
+    if not entries_dir.is_dir():
         return []
     _, rows = read_pipe_csv(stories_path)
     # Archived pages are retired content and are never declared (see
@@ -1728,25 +1720,18 @@ def _check_new_catalogue_names(reviewed: dict[frozenset, str]) -> list[str]:
 
     from registry_ids import food_drink_id
 
-    specs = [
-        (
-            locations,
-            "csv/locations.csv",
-            "LocationId",
-            lambda e: location_id(e.name, region_row_id(e.region) if e.region else ""),
-        ),
-        (characters, "csv/characters.csv", "CharacterId", lambda e: lore_character_id(e.name)),
-        (monsters, "csv/monsters.csv", "MonsterId", lambda e: monster_id(e.name)),
-        (fauna, "csv/fauna.csv", "FaunaId", lambda e: fauna_id_from_name(e.name)),
-        (flora, "csv/flora.csv", "FloraId", lambda e: flora_id(e.name)),
-        (food_drink, "csv/food-and-drink.csv", "FoodDrinkId", lambda e: food_drink_id(e.name, e.form)),
-    ]
+    catalogue = {
+        "locations.csv": (locations, lambda e: location_id(e.name, region_row_id(e.region) if e.region else "")),
+        "characters.csv": (characters, lambda e: lore_character_id(e.name)),
+        "monsters.csv": (monsters, lambda e: monster_id(e.name)),
+        "fauna.csv": (fauna, lambda e: fauna_id_from_name(e.name)),
+        "flora.csv": (flora, lambda e: flora_id(e.name)),
+        "food-and-drink.csv": (food_drink, lambda e: food_drink_id(e.name, e.form)),
+    }
     alerts: list[str] = []
-    for module, csv_name, id_column, id_fn in specs:
-        path = DATA / csv_name
-        if not path.is_file():
-            continue
-        _, rows = read_pipe_csv(path)
+    for csv_name, id_column in _LORE_REGISTRIES:
+        module, id_fn = catalogue[csv_name]
+        _, rows = read_pipe_csv(DATA / "csv" / csv_name)
         known = {(row.get(id_column) or "").strip(): (row.get("Name") or "").strip() for row in rows}
         for const in sorted(n for n in dir(module) if n.isupper()):
             entity = getattr(module, const)
@@ -1758,13 +1743,11 @@ def _check_new_catalogue_names(reviewed: dict[frozenset, str]) -> list[str]:
                 n2 = normalize_name(row_name)
                 if n1 == n2 or frozenset({entity_id, row_id}) in reviewed:
                     continue
-                article = _differ_only_by_article(n1, n2)
-                ratio = SequenceMatcher(None, n1, n2).ratio()
-                if ratio < _DUPLICATE_NAME_SIMILARITY_THRESHOLD and not article:
+                why = _similarity_reason(n1, n2)
+                if why is None:
                     continue
-                why = "differs only by a leading article" if article else f"similarity {ratio:.2f}"
                 alerts.append(
-                    f"{Path(csv_name).name}: catalogue constant {const} Name={entity.name!r} is new "
+                    f"{csv_name}: catalogue constant {const} Name={entity.name!r} is new "
                     f"(no registry row yet) and looks like a possible duplicate of existing "
                     f"{id_column}={row_id!r} Name={row_name!r} ({why}). Decide before the "
                     "declaration is applied — once it runs, the second row exists. If they are "
@@ -1776,18 +1759,8 @@ def _check_new_catalogue_names(reviewed: dict[frozenset, str]) -> list[str]:
 def _all_registry_ids() -> set[str]:
     """Every id in every lore registry, for spotting stale ledger entries."""
     ids: set[str] = set()
-    for name, column in (
-        ("locations.csv", "LocationId"),
-        ("characters.csv", "CharacterId"),
-        ("monsters.csv", "MonsterId"),
-        ("fauna.csv", "FaunaId"),
-        ("flora.csv", "FloraId"),
-        ("food-and-drink.csv", "FoodDrinkId"),
-    ):
-        path = DATA / "csv" / name
-        if not path.is_file():
-            continue
-        _, rows = read_pipe_csv(path)
+    for name, column in _LORE_REGISTRIES:
+        _, rows = read_pipe_csv(DATA / "csv" / name)
         ids.update((row.get(column) or "").strip() for row in rows if (row.get(column) or "").strip())
     return ids
 

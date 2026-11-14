@@ -7,6 +7,7 @@ import re
 from pathlib import Path
 
 import validate_data
+from mdbook_hero_meta import load_hero_data
 
 
 def test_collect_alerts_empty_when_repository_consistent() -> None:
@@ -726,13 +727,15 @@ def test_check_hero_blurbs_flags_a_form_with_no_blurb(tmp_path: Path) -> None:
         "Lore.\n",
         encoding="utf-8",
     )
-    alerts = validate_data._check_hero_blurbs(tmp_path, validate_data.DATA, exempt=frozenset())
+    alerts = validate_data._check_hero_blurbs(tmp_path, load_hero_data(validate_data.DATA), exempt=frozenset())
     assert alerts == ["Hero pages: bravo-about.md: 'Bravo, Star of the Show' has no :::hero-blurb block"]
 
 
 def test_every_real_hero_form_has_a_blurb_or_a_documented_exemption() -> None:
     alerts = validate_data._check_hero_blurbs(
-        validate_data.SRC / "heroes-of-rathe", validate_data.DATA, exempt=validate_data.HERO_FORMS_WITHOUT_BLURB
+        validate_data.SRC / "heroes-of-rathe",
+        load_hero_data(validate_data.DATA),
+        exempt=validate_data.HERO_FORMS_WITHOUT_BLURB,
     )
     assert alerts == []
 
@@ -748,8 +751,21 @@ def test_check_hero_portraits_flags_a_form_with_no_portrait(tmp_path: Path) -> N
         "# Taipanis, Dracai of Judgement\n\nLore.\n\n---\n\n# Bravo, Star of the Show\n\nLore.\n",
         encoding="utf-8",
     )
-    alerts = validate_data._check_hero_portraits(tmp_path, validate_data.DATA)
+    alerts = validate_data._check_hero_portraits(tmp_path, load_hero_data(validate_data.DATA))
     assert alerts == [
         "Hero pages: taipanis-about.md: 'Taipanis, Dracai of Judgement' has no portrait "
         "(no PortraitKey in heroes-fabtcg.csv for its card or its adult partner)"
     ]
+
+
+def test_both_name_checks_give_one_reason_for_a_pair() -> None:
+    """The row-vs-row and catalogue checks share one verdict on a pair of names."""
+    from text_utils import normalize_name
+
+    def reason(a: str, b: str) -> str | None:
+        return validate_data._similarity_reason(normalize_name(a), normalize_name(b))
+
+    assert reason("The Golden Gnome", "Golden Gnome") == "differs only by a leading article"
+    assert reason("Beredos", "Beredoz") == "similarity 0.86"
+    assert reason("Absolon", "absolon!") == "similarity 1.00"
+    assert reason("East Rise", "Solarium") is None
