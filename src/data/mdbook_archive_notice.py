@@ -1,18 +1,19 @@
 #!/usr/bin/env python3
 """mdBook preprocessor: inject a superseded-lore notice on archive pages.
 
-Handles two archive subtrees, requiring no manual markup in source files:
+Handles two archive subtrees:
 
   archive/world-of-rathe/**
-    Links to world-of-rathe/{region}.md if that file exists.
+    Links to world-of-rathe/{region}.md if that file exists. No markup needed;
+    adding a current page upgrades the notice on the next build.
 
-  archive/heroes-of-rathe/{hero-era}.md  (skips the index page)
-    Resolves the current hero page by trying progressively shorter slug
-    prefixes until it finds heroes-of-rathe/{prefix}-about.md.
-    e.g. rhinar-wtr → rhinar-about.md. The link text is that page's first
-    H1, or the slug title-cased if it has none.
-
-Adding a current page automatically upgrades the notice on the next build.
+  archive/heroes-of-rathe/*.md  (skips the heroes-of-rathe.md hub)
+    Each page names its current page with a one-line directive, e.g.
+    ``:::archive-of heroes-of-rathe/rhinar-about.md:::`` (a ``src``-relative
+    path). The directive line is removed from the output. The link text is
+    the target's first H1, or its slug title-cased if it has none. A page
+    with no directive, or one naming a file that does not exist, raises
+    ValueError, which fails the build.
 """
 
 from __future__ import annotations
@@ -70,31 +71,43 @@ def _world_notice(chapter_src_path: str, src_root: Path) -> str | None:
     return f"> [!WARNING]\n> {msg}"
 
 
-def _hero_notice(chapter_src_path: str, src_root: Path) -> str | None:
-    """Return a [!WARNING] notice for archive/heroes-of-rathe/ individual pages, or None."""
+_HERO_ARCHIVE_DIR = ("archive", "heroes-of-rathe")
+_HERO_ARCHIVE_HUB = "heroes-of-rathe.md"
+
+# One directive line, plus the blank line after it, so removing it leaves the
+# page exactly as it would read without the line.
+_ARCHIVE_OF_RE = re.compile(r"^:::archive-of[ \t]+(\S+?)[ \t]*:::[ \t]*(?:\n|\Z)(?:[ \t]*\n)?", re.MULTILINE)
+
+
+def _hero_archive(chapter_src_path: str, content: str, src_root: Path) -> tuple[str, str] | None:
+    """The [!WARNING] notice for an archive/heroes-of-rathe/ page, and its content without the directive.
+
+    Returns None for any other page, and for the hub page.
+
+    Raises:
+        ValueError: The page has no ``:::archive-of`` directive, or its target is not a file.
+    """
     parts = Path(chapter_src_path).parts
-    if len(parts) < 3 or parts[0] != "archive" or parts[1] != "heroes-of-rathe":
+    if len(parts) != 3 or parts[:2] != _HERO_ARCHIVE_DIR or parts[2] == _HERO_ARCHIVE_HUB:
         return None
 
-    stem = Path(parts[-1]).stem
-    if stem == "heroes-of-rathe":
-        return None
+    m = _ARCHIVE_OF_RE.search(content)
+    if not m:
+        raise ValueError(
+            f"{chapter_src_path}: a hero archive page needs a ':::archive-of <src path>:::' line "
+            "naming its current page"
+        )
+    target_src = m.group(1)
+    if not (src_root / target_src).is_file():
+        raise ValueError(f"{chapter_src_path}: ':::archive-of' names {target_src}, which does not exist")
 
-    # Try progressively shorter slug prefixes to find {prefix}-about.md
-    components = stem.split("-")
-    for length in range(len(components), 0, -1):
-        prefix = "-".join(components[:length])
-        target_src = f"heroes-of-rathe/{prefix}-about.md"
-        if (src_root / target_src).is_file():
-            href = relative_href(chapter_src_path, target_src)
-            # The page's own name ("Valda, Seismic Impact", "Arakni, 5l!p3d 7hru 7h3 Cr4x"),
-            # not one rebuilt from the slug.
-            heading = _first_h1(src_root / target_src)
-            display = _link_text(heading) if heading else _display(prefix)
-            msg = f"This hero overview has been superseded. For the current version, see [{display}]({href})."
-            return f"> [!WARNING]\n> {msg}"
-
-    return f"> [!WARNING]\n> This hero overview has been superseded and is kept for historical reference."
+    href = relative_href(chapter_src_path, target_src)
+    # The page's own name ("Valda, Seismic Impact", "Arakni, 5l!p3d 7hru 7h3 Cr4x"),
+    # not one rebuilt from the slug.
+    heading = _first_h1(src_root / target_src)
+    display = _link_text(heading) if heading else _display(Path(target_src).stem.removesuffix("-about"))
+    msg = f"This hero overview has been superseded. For the current version, see [{display}]({href})."
+    return f"> [!WARNING]\n> {msg}", content[: m.start()] + content[m.end() :]
 
 
 def _inject_notice(content: str, notice: str) -> str:
@@ -115,10 +128,16 @@ def _inject_notice(content: str, notice: str) -> str:
 def _walk(sections: list, src_root: Path) -> None:
     for ch in iter_chapters(sections):
         path = (ch.get("path") or "").strip()
-        if path:
-            notice = _world_notice(path, src_root) or _hero_notice(path, src_root)
-            if notice:
-                ch["content"] = _inject_notice(ch.get("content") or "", notice)
+        if not path:
+            continue
+        content = ch.get("content") or ""
+        notice = _world_notice(path, src_root)
+        if notice is None:
+            hero = _hero_archive(path, content, src_root)
+            if hero is None:
+                continue
+            notice, content = hero
+        ch["content"] = _inject_notice(content, notice)
 
 
 def main() -> None:

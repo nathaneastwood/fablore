@@ -124,3 +124,28 @@ def test_walk_injects_notice_without_current_page(tmp_path: Path) -> None:
     content = sections[0]["Chapter"]["content"]
     assert MARK_START in content
     assert "historical reference" in content
+
+
+def test_walk_strips_the_archive_of_directive_from_a_hero_archive_page(tmp_path: Path) -> None:
+    src_root = tmp_path / "src"
+    (src_root / "heroes-of-rathe").mkdir(parents=True)
+    (src_root / "heroes-of-rathe" / "rhinar-about.md").write_text("# Rhinar, Reckless Rampage\n")
+
+    sections = [
+        {
+            "Chapter": {
+                "path": "archive/heroes-of-rathe/rhinar-wtr.md",
+                "content": "# Rhinar\n\n:::archive-of heroes-of-rathe/rhinar-about.md:::\n\nOld lore.\n",
+                "sub_items": [],
+            }
+        }
+    ]
+    _walk(sections, src_root)
+    assert sections[0]["Chapter"]["content"] == (
+        "# Rhinar\n\n"
+        f"{MARK_START}\n"
+        "> [!WARNING]\n"
+        "> This hero overview has been superseded. For the current version, see "
+        "[Rhinar, Reckless Rampage](../../heroes-of-rathe/rhinar-about.md).\n"
+        "<!-- fablore-archive-notice:end -->\n\nOld lore.\n"
+    )

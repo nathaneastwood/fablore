@@ -1,5 +1,7 @@
 # Arakni, Solitary Confinement
 
+:::archive-of heroes-of-rathe/arakni-5l!p3d-7hru-7h3-cr4x-about.md:::
+
 <video width="100%" height="100%" controls autoplay muted loop playsinline>
   <source src="https://d2hl7maqck52px.cloudfront.net/heroes-of-rathe/arakni-solitary-confinement.mp4" type="video/mp4">
 </video>
