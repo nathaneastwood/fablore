@@ -1,6 +1,5 @@
-# Stack for src/data/create_md.py (Markdown mirrors) and scripts/ensure-create-md-sync.sh.
-# Installed automatically via requirements-dev.txt; use this file alone if you only
-# need create_md / pre-commit hooks without pytest.
+# Stack for src/flavour/get_flavour.py (the flavour-to-page skill), the only code
+# in the repo that needs third-party packages. The preprocessors, generators,
+# pre-commit hooks and tests are stdlib-only. Installed via requirements-dev.txt.
 numpy>=1.24
 pandas>=2.0
-py-markdown-table>=0.3.0

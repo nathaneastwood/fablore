@@ -20,8 +20,7 @@ if str(_DATA_DIR) not in sys.path:
 
 
 def _import_generator():
-    """create_character_groups_md is stdlib-only (sqlite3 + pathlib) — unlike
-    create_md.py it needs no pandas / py_markdown_table."""
+    """create_character_groups_md is stdlib-only (sqlite3 + pathlib)."""
     import create_character_groups_md
 
     return create_character_groups_md

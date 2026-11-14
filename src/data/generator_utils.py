@@ -39,10 +39,16 @@ def run_validate_data_and_exit() -> NoReturn:
 
 
 def md_table(headers: list[str], rows: list[list[str]]) -> str:
-    """Render a minimal GFM pipe table — no external padding library."""
-    lines = ["| " + " | ".join(headers) + " |", "| " + " | ".join("---" for _ in headers) + " |"]
-    for row in rows:
-        lines.append("| " + " | ".join(row) + " |")
+    """Render a minimal GFM pipe table — no external padding library.
+
+    A ``|`` inside a header or cell is escaped as ``\\|`` so it stays one cell.
+    """
+
+    def _row(cells: list[str]) -> str:
+        return "| " + " | ".join(c.replace("|", r"\|") for c in cells) + " |"
+
+    lines = [_row(headers), "| " + " | ".join("---" for _ in headers) + " |"]
+    lines.extend(_row(row) for row in rows)
     return "\n".join(lines)
 
 

@@ -1,17 +1,9 @@
 #!/usr/bin/env bash
 # Pre-commit: regenerate data markdown mirrors and fail if they differ from the index.
-# Deps: requirements-data.txt (included in requirements-dev.txt).
+# create_md.py is stdlib-only: any python3 will do.
 set -euo pipefail
 ROOT="$(git rev-parse --show-toplevel)"
 cd "$ROOT"
-
-if ! python3 -c "import numpy, pandas, py_markdown_table" 2>/dev/null; then
-  echo "ensure-create-md-sync: missing Python deps. From the repo root, install with:"
-  echo "  pip install -r requirements-dev.txt"
-  echo "or, for create_md only:"
-  echo "  pip install -r requirements-data.txt"
-  exit 1
-fi
 
 python3 src/data/create_md.py
 

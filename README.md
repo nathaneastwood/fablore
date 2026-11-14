@@ -52,7 +52,7 @@ pip install -r requirements-dev.txt
 python3 -m pytest
 ```
 
-`requirements-dev.txt` pulls in `requirements-data.txt` (numpy, pandas, `py-markdown-table`) so `tests/test_create_md.py` and the pre-commit `ensure-create-md-sync` hook can run without extra installs.
+The tests, generators and pre-commit hooks are stdlib-only. `requirements-dev.txt` also pulls in `requirements-data.txt` (`numpy`, `pandas`), which only `src/flavour/get_flavour.py` needs.
 
 <p align="right"><a href="#readme-top">Back to top</a></p>
 
@@ -85,7 +85,7 @@ There are no third-party mdBook plugins. Each extension is a local Python prepro
 | `narrated-videos` | Embeds narrated-video links |
 | `archive-notice` | Adds the archival banner |
 
-The preprocessors are stdlib-only, so a plain `mdbook build` needs no `pip install`. `numpy`, `pandas` and `py-markdown-table` are only needed for the generators and tests (see [Python data pipeline tests](#python-data-pipeline-tests)).
+The preprocessors are stdlib-only, so a plain `mdbook build` needs no `pip install`. The generators are stdlib-only too; `numpy` and `pandas` are only needed for `src/flavour/get_flavour.py` (see [Python data pipeline tests](#python-data-pipeline-tests)).
 
 ### Tooltips
 

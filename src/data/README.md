@@ -4,7 +4,7 @@
 
 This folder contains the data of the characters and locations of Rathe.
 
-This README documents how to run generators and the `db` package, and includes the full CSV schema map under [Data schemas and CSV map](#data-schemas-and-csv-map). Markdown lore under `src/` is not tabular data. Automated pytest lives in the repository root [`tests/`](../../tests/) (run from the repo root after [`requirements-dev.txt`](../../requirements-dev.txt), which includes [`requirements-data.txt`](../../requirements-data.txt) for `create_md.py` and the pre-commit markdown sync hook).
+This README documents how to run generators and the `db` package, and includes the full CSV schema map under [Data schemas and CSV map](#data-schemas-and-csv-map). Markdown lore under `src/` is not tabular data. Automated pytest lives in the repository root [`tests/`](../../tests/) (run from the repo root after installing [`requirements-dev.txt`](../../requirements-dev.txt)).
 
 <a name="who-owns-what"></a>
 
@@ -258,7 +258,7 @@ For bulk lore edits you can still edit `csv/` directly, delete `fablore.db`, and
 python3 src/data/create_md.py
 ```
 
-If you use pre-commit (see `.pre-commit-config.yaml`), the `ensure-create-md-sync` hook runs when relevant `src/data` CSVs or mirror `.md` files change: it executes `create_md.py` and blocks the commit if the regenerated files do not match what is staged. Install `requirements-dev.txt` (or at least `requirements-data.txt`) first so those packages are available.
+If you use pre-commit (see `.pre-commit-config.yaml`), the `ensure-create-md-sync` hook runs when relevant `src/data` CSVs or mirror `.md` files change: it executes `create_md.py` and blocks the commit if the regenerated files do not match what is staged. `create_md.py` is stdlib-only, so the hook needs no installs.
 
 ## Creating the Heroes CSV
 
@@ -742,7 +742,7 @@ All files are under `src/data/csv/` unless noted. Pipe-delimited. Empty fields a
 | `pipe_csv_io.py` | Pipe read/write, `auto_gen_banner`, `REGENERATE_*` hints |
 | `game_class_talent_csv.py` | Merges shared `classes.csv` / `talents.csv` for generators |
 | `card_types_extract.py` | Parses card `Types` into class vs talent names |
-| `create_md.py` | Markdown tables into `md/`: `characters.md`, `fauna.md`, `flora.md`, `food-and-drink.md`, `locations.md`, `monsters.md` (needs pandas / extras from `requirements-data.txt`) |
+| `create_md.py` | Markdown tables into `md/`: `characters.md`, `fauna.md`, `flora.md`, `food-and-drink.md`, `locations.md`, `monsters.md`, `kinds.md` (stdlib-only) |
 | `validate_data.py` | Read-only checks on ids and FKs; hero `CardName` vs `CanonicalId` consistency; `stories.csv` `StoryType` allowlist (`ALLOWED_STORY_TYPES`) |
 
 Run `python3 src/data/validate_data.py` after any generator or after `Database` changes to lore CSVs.

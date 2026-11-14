@@ -1,4 +1,4 @@
-# Development / CI: pytest, the pre-commit runner, and the create_md data deps.
+# Development / CI: pytest, the pre-commit runner, and get_flavour.py's deps.
 # Repo root: python -m pytest
 -r requirements-data.txt
 pytest>=8.0

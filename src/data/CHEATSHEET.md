@@ -216,7 +216,7 @@ For bulk lore corrections that would be tedious through the declarations:
 
 ```bash
 python3 src/data/validate_data.py        # FK integrity, plus near-duplicate name warnings
-python3 src/data/create_md.py            # regenerate md/ tables (needs requirements-data.txt)
+python3 src/data/create_md.py            # regenerate md/ tables
 python3 src/data/generate_hints_json.py  # only if descriptions or lore CSVs changed
 ```
 

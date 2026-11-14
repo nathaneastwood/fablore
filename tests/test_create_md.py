@@ -1,4 +1,4 @@
-"""Tests for :mod:`create_md` (optional pandas / py-markdown-table)."""
+"""Tests for :mod:`create_md`."""
 
 from __future__ import annotations
 
@@ -14,9 +14,6 @@ if str(_DATA_DIR) not in sys.path:
 
 def test_create_md_characters_md_from_characters_csv(tmp_path: Path) -> None:
     """npcs.csv can be rendered to npcs.md via output_md."""
-    pytest.importorskip("pandas")
-    pytest.importorskip("py_markdown_table")
-
     import create_md
 
     data = tmp_path / "data"
@@ -38,9 +35,6 @@ def test_create_md_characters_md_from_characters_csv(tmp_path: Path) -> None:
 
 def test_create_md_locations_includes_region_name_not_ids(tmp_path: Path) -> None:
     """locations.md drops LocationId/RegionId and shows RegionName from regions.csv."""
-    pytest.importorskip("pandas")
-    pytest.importorskip("py_markdown_table")
-
     import create_md
 
     data = tmp_path / "data"
@@ -59,6 +53,60 @@ def test_create_md_locations_includes_region_name_not_ids(tmp_path: Path) -> Non
     assert "LocationId" not in text and "RegionId" not in text
     assert "LObbbbbbbbbb" not in text and "RGaaaaaaaaaa" not in text
     assert "Test Region" in text and "Zed Town" in text
+
+
+def test_create_md_imports_no_pandas_or_numpy() -> None:
+    """The mirror hook must run on a bare ``python3``: no third-party imports."""
+    import subprocess
+
+    code = (
+        "import sys; sys.path.insert(0, %r); import create_md; "
+        "bad = sorted({'pandas', 'numpy', 'py_markdown_table'} & set(sys.modules)); "
+        "print(','.join(bad))"
+    ) % str(_DATA_DIR)
+    out = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True, check=True)
+    assert out.stdout.strip() == ""
+
+
+def test_create_md_table_rows_sorted_with_ids_dropped(tmp_path: Path) -> None:
+    """Exact output: banner, header without *Id columns, rows sorted by Name."""
+    import create_md
+
+    src = tmp_path / "kinds.csv"
+    src.write_text(
+        "# banner\nKindId|Name|Notes\n" "KDbbbbbbbbbb|Zombie|Undead\n" 'KDaaaaaaaaaa|Aesir|"Old | elemental"\n',
+        encoding="utf-8",
+    )
+    out = tmp_path / "kinds.md"
+    create_md.create_md_file(src, "Name", output_md=out)
+    assert out.read_text(encoding="utf-8") == (
+        "<!-- ### NOTE: This file should not be edited by hand. Please edit the .csv file. -->\n"
+        "| Name | Notes |\n"
+        "| --- | --- |\n"
+        "| Aesir | Old \\| elemental |\n"
+        "| Zombie | Undead |\n"
+    )
+
+
+def test_create_md_locations_columns_name_region_notes(tmp_path: Path) -> None:
+    """locations.md: Name, RegionName, Notes first; LoreFragment dropped; unknown region blank."""
+    import create_md
+
+    (tmp_path / "regions.csv").write_text("RegionId|RegionName\nRGaaaaaaaaaa|Aria\n", encoding="utf-8")
+    (tmp_path / "locations.csv").write_text(
+        "LocationId|Notes|Name|RegionId|LoreFragment|Era\n"
+        "LOb|Big|Zed|RGaaaaaaaaaa|frag|Old\n"
+        "LOa|Small|Amy|RGzzzzzzzzzz||\n",
+        encoding="utf-8",
+    )
+    out = tmp_path / "locations.md"
+    create_md.create_md_file(tmp_path / "locations.csv", "Name", output_md=out)
+    assert out.read_text(encoding="utf-8").splitlines()[1:] == [
+        "| Name | RegionName | Notes | Era |",
+        "| --- | --- | --- | --- |",
+        "| Amy |  | Small |  |",
+        "| Zed | Aria | Big | Old |",
+    ]
 
 
 def test_the_sync_hook_triggers_on_files_that_actually_exist() -> None:

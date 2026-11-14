@@ -13,7 +13,7 @@ set -euo pipefail
 ROOT="$(git rev-parse --show-toplevel)"
 cd "$ROOT"
 
-python src/data/create_md.py
+python3 src/data/create_md.py
 
 BUILD_DIR="$(mktemp -d "${TMPDIR:-/tmp}/fablore-link-checks.XXXXXX")"
 trap 'rm -rf "$BUILD_DIR"' EXIT
