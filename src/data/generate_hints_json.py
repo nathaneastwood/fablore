@@ -9,6 +9,8 @@ Run from the repository root:
     python src/data/generate_hints_json.py
 """
 
+from __future__ import annotations
+
 import contextlib
 import io
 import json
@@ -18,6 +20,7 @@ from pathlib import Path
 
 # The preprocessor imports this module only inside its main(), so this cannot cycle.
 from mdbook_hints import get_match_strings
+from db import Database
 from generator_utils import write_text_if_changed
 from mdbook_common import md_to_html_url
 
@@ -261,11 +264,8 @@ def merge_supplement(hints: dict, supplement: dict) -> dict:
     return result
 
 
-def _build_hints() -> dict:
+def _build_hints(conn: sqlite3.Connection) -> dict:
     """Read the DB and the supplement into the hints dict, printing any clash to stderr."""
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-
     hints: dict = {}
     taken: dict[str, str] = {}
     regions = _region_map(conn)
@@ -420,8 +420,6 @@ def _build_hints() -> dict:
             taken,
         )
 
-    conn.close()
-
     supplement: dict = {}
     if SUPPLEMENT_PATH.exists():
         with SUPPLEMENT_PATH.open(encoding="utf-8") as f:
@@ -432,8 +430,22 @@ def _build_hints() -> dict:
     return hints
 
 
-def generate(*, quiet: bool = False) -> None:
+def _build_quietly(conn: sqlite3.Connection, quiet: bool) -> dict:
+    if quiet:
+        with contextlib.redirect_stderr(io.StringIO()):
+            return _build_hints(conn)
+    return _build_hints(conn)
+
+
+def generate(*, quiet: bool = False, conn: sqlite3.Connection | None = None) -> None:
     """Write ``src/hints.json``.
+
+    With no ``conn`` the data comes from ``fablore.db`` opened through
+    :class:`db.Database`, not a bare ``sqlite3.connect``: that runs any pending
+    migration and, on a fresh clone with no database, seeds one from the
+    committed CSVs, so the result never depends on whether a DB was lying
+    around. ``conn`` is for tests that hand in a hand-built fixture database;
+    the caller keeps ownership of it (``row_factory`` must be ``sqlite3.Row``).
 
     ``quiet`` is for the build (``mdbook_hints.py`` calls this on every
     ``mdbook build`` / ``serve`` rebuild): it hides the ``hint clash`` lines and
@@ -441,11 +453,14 @@ def generate(*, quiet: bool = False) -> None:
     on a direct run and from the ``ensure-hints-json-sync`` hook, when a data
     change is being made. A real rewrite of the file is always reported.
     """
-    if quiet:
-        with contextlib.redirect_stderr(io.StringIO()):
-            hints = _build_hints()
+    if conn is None:
+        db = Database(DB_PATH)
+        try:
+            hints = _build_quietly(db.conn, quiet)
+        finally:
+            db.conn.close()
     else:
-        hints = _build_hints()
+        hints = _build_quietly(conn, quiet)
 
     # Rewrite only on a real change: mdbook_hints.py runs this on every build, and an
     # untouched file keeps its mtime, so nothing watching it sees a phantom edit.

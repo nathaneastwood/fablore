@@ -1,16 +1,11 @@
 #!/usr/bin/env bash
-# Pre-commit: regenerate hints.json (if DB exists) and fail if it differs.
-# When fablore.db is absent (e.g. fresh clone) the check is skipped — CI
-# builds from the committed hints.json, which is the intended workflow.
+# Pre-commit: regenerate hints.json and fail if it differs.
+# generate_hints_json.py opens fablore.db through db.Database, so a missing DB
+# (e.g. a fresh clone) is seeded from the committed CSVs first and the check
+# always runs.
 set -euo pipefail
 ROOT="$(git rev-parse --show-toplevel)"
 cd "$ROOT"
-
-DB="src/data/fablore.db"
-if [[ ! -f "$DB" ]]; then
-  echo "ensure-hints-json-sync: fablore.db not found, skipping hints.json check."
-  exit 0
-fi
 
 python3 src/data/generate_hints_json.py
 

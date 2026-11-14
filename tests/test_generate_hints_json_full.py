@@ -139,6 +139,18 @@ def _create_hint_tables(conn: sqlite3.Connection) -> None:
     conn.execute("CREATE TABLE character_kinds (character_id TEXT, kind_id TEXT, sort_order INTEGER)")
 
 
+def _fixture_conn(path: Path) -> sqlite3.Connection:
+    """Open a hand-built fixture DB the way generate() expects to read it.
+
+    The fixtures are deliberately not the real schema, so they cannot go through
+    `Database` (its migrations would run against them); generate() takes the
+    connection directly instead.
+    """
+    conn = sqlite3.connect(str(path))
+    conn.row_factory = sqlite3.Row
+    return conn
+
+
 def _make_db(path: Path) -> None:
     """Create a minimal fablore DB at *path*."""
     conn = sqlite3.connect(str(path))
@@ -165,12 +177,11 @@ def test_generate_writes_output(tmp_path, monkeypatch):
     _make_db(db_path)
 
     output_path = tmp_path / "hints.json"
-    monkeypatch.setattr(ghj, "DB_PATH", db_path)
     monkeypatch.setattr(ghj, "SUPPLEMENT_PATH", tmp_path / "nonexistent.json")
     monkeypatch.setattr(ghj, "OUTPUT_PATH", output_path)
     monkeypatch.setattr(ghj, "ROOT", tmp_path)
 
-    ghj.generate()
+    ghj.generate(conn=_fixture_conn(db_path))
 
     hints = json.loads(output_path.read_text(encoding="utf-8"))
 
@@ -206,18 +217,17 @@ def test_generate_leaves_an_unchanged_output_untouched(tmp_path, monkeypatch):
     db_path = tmp_path / "fablore.db"
     _make_db(db_path)
     output_path = tmp_path / "hints.json"
-    monkeypatch.setattr(ghj, "DB_PATH", db_path)
     monkeypatch.setattr(ghj, "SUPPLEMENT_PATH", tmp_path / "nonexistent.json")
     monkeypatch.setattr(ghj, "OUTPUT_PATH", output_path)
     monkeypatch.setattr(ghj, "ROOT", tmp_path)
 
-    ghj.generate()
+    ghj.generate(conn=_fixture_conn(db_path))
     os.utime(output_path, ns=(1_000_000_000, 1_000_000_000))
-    ghj.generate()
+    ghj.generate(conn=_fixture_conn(db_path))
     assert output_path.stat().st_mtime_ns == 1_000_000_000
 
     output_path.write_text("{}\n", encoding="utf-8")
-    ghj.generate()
+    ghj.generate(conn=_fixture_conn(db_path))
     assert "Grand Bazaar" in json.loads(output_path.read_text(encoding="utf-8"))
 
 
@@ -234,19 +244,18 @@ def test_generate_quiet_hides_diagnostics_but_reports_a_rewrite(tmp_path, monkey
     supplement = tmp_path / "supplement.json"
     # A supplement entry with the same key as a DB row forces a clash line.
     supplement.write_text(json.dumps({"Brute": {"type": "monster", "summary": "x"}}), encoding="utf-8")
-    monkeypatch.setattr(ghj, "DB_PATH", db_path)
     monkeypatch.setattr(ghj, "SUPPLEMENT_PATH", supplement)
     monkeypatch.setattr(ghj, "OUTPUT_PATH", output_path)
     monkeypatch.setattr(ghj, "ROOT", tmp_path)
     monkeypatch.setattr(ghj, "_warn_match_collisions", lambda hints: print("hint clash: forced", file=sys.stderr))
 
-    ghj.generate(quiet=True)
+    ghj.generate(quiet=True, conn=_fixture_conn(db_path))
     assert capsys.readouterr().err.startswith("Wrote ")
 
-    ghj.generate(quiet=True)
+    ghj.generate(quiet=True, conn=_fixture_conn(db_path))
     assert capsys.readouterr().err == ""
 
-    ghj.generate()
+    ghj.generate(conn=_fixture_conn(db_path))
     err = capsys.readouterr().err
     assert "hint clash" in err and "is up to date" in err
 
@@ -263,12 +272,11 @@ def test_generate_no_region_for_unknown_region_id(tmp_path, monkeypatch):
     conn.close()
 
     output_path = tmp_path / "hints.json"
-    monkeypatch.setattr(ghj, "DB_PATH", db_path)
     monkeypatch.setattr(ghj, "SUPPLEMENT_PATH", tmp_path / "nonexistent.json")
     monkeypatch.setattr(ghj, "OUTPUT_PATH", output_path)
     monkeypatch.setattr(ghj, "ROOT", tmp_path)
 
-    ghj.generate()
+    ghj.generate(conn=_fixture_conn(db_path))
 
     hints = json.loads(output_path.read_text(encoding="utf-8"))
     assert "Lost Shrine" in hints
@@ -289,12 +297,11 @@ def test_generate_merges_supplement(tmp_path, monkeypatch):
     supplement_path.write_text(json.dumps(supplement), encoding="utf-8")
 
     output_path = tmp_path / "hints.json"
-    monkeypatch.setattr(ghj, "DB_PATH", db_path)
     monkeypatch.setattr(ghj, "SUPPLEMENT_PATH", supplement_path)
     monkeypatch.setattr(ghj, "OUTPUT_PATH", output_path)
     monkeypatch.setattr(ghj, "ROOT", tmp_path)
 
-    ghj.generate()
+    ghj.generate(conn=_fixture_conn(db_path))
 
     hints = json.loads(output_path.read_text(encoding="utf-8"))
 
@@ -314,12 +321,11 @@ def test_generate_output_is_valid_json(tmp_path, monkeypatch):
     _make_db(db_path)
 
     output_path = tmp_path / "hints.json"
-    monkeypatch.setattr(ghj, "DB_PATH", db_path)
     monkeypatch.setattr(ghj, "SUPPLEMENT_PATH", tmp_path / "nonexistent.json")
     monkeypatch.setattr(ghj, "OUTPUT_PATH", output_path)
     monkeypatch.setattr(ghj, "ROOT", tmp_path)
 
-    ghj.generate()
+    ghj.generate(conn=_fixture_conn(db_path))
 
     # Must parse without error and be a dict
     result = json.loads(output_path.read_text(encoding="utf-8"))
@@ -354,11 +360,10 @@ def _generate_from(db_path: Path, tmp_path: Path, monkeypatch) -> dict:
     import generate_hints_json as ghj
 
     output_path = tmp_path / "hints.json"
-    monkeypatch.setattr(ghj, "DB_PATH", db_path)
     monkeypatch.setattr(ghj, "SUPPLEMENT_PATH", tmp_path / "nonexistent.json")
     monkeypatch.setattr(ghj, "OUTPUT_PATH", output_path)
     monkeypatch.setattr(ghj, "ROOT", tmp_path)
-    ghj.generate()
+    ghj.generate(conn=_fixture_conn(db_path))
     return json.loads(output_path.read_text(encoding="utf-8"))
 
 
@@ -713,3 +718,25 @@ def test_a_character_beats_a_group_of_the_same_name(tmp_path: Path, monkeypatch)
     conn.commit()
     conn.close()
     assert _generate_from(db, tmp_path, monkeypatch)["Rosetta"]["type"] == "character"
+
+
+def test_a_fresh_clone_seeds_the_db_and_writes_the_committed_hints(tmp_path: Path, monkeypatch) -> None:
+    """With no fablore.db the generator seeds one from the CSVs, not crash or skip.
+
+    The ensure-hints-json-sync hook relies on this: a fresh clone has no DB, and
+    the hook must still check hints.json. The seeded DB must reproduce the
+    committed file byte for byte.
+    """
+    import generate_hints_json as ghj
+
+    db_path = tmp_path / "fablore.db"
+    output_path = tmp_path / "hints.json"
+    monkeypatch.setattr(ghj, "DB_PATH", db_path)
+    monkeypatch.setattr(ghj, "OUTPUT_PATH", output_path)
+    monkeypatch.setattr(ghj, "ROOT", tmp_path)
+
+    ghj.generate(quiet=True)
+
+    assert db_path.exists()
+    committed = (ROOT / "src" / "hints.json").read_bytes()
+    assert output_path.read_bytes() == committed

@@ -331,6 +331,9 @@ def main() -> None:
     _ctx, book = read_book()
 
     # generate_hints_json writes to its own fixed paths, so these stay pinned to this file too.
+    # The exists() gate is deliberate: generate() would seed a missing DB from the CSVs,
+    # but a build (CI, a fresh clone) must not create fablore.db as a side effect; it
+    # reads the committed hints.json, which the ensure-hints-json-sync hook keeps current.
     src_dir = Path(__file__).resolve().parents[1]
     if (src_dir / "data" / "fablore.db").exists():
         from generate_hints_json import generate
