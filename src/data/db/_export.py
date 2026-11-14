@@ -36,13 +36,18 @@ _CMD_REGISTRY = "Use the Database class in src/data/db/ (db.upsert_story)."
 _CMD_JUNCTIONS = "Use the Database class in src/data/db/ (db.upsert_story / db.remove_story)."
 
 
-def _write_pipe_csv(
-    path: Path,
-    banner_cmd: str,
-    fieldnames: list[str],
-    rows: list[dict[str, str]],
-) -> None:
-    write_pipe_csv_autogen(path, fieldnames, rows, regenerate_command=banner_cmd)
+_Columns = tuple[tuple[str, str], ...]
+"""``(db_col, Header)`` pairs: one entry per CSV column, in file order."""
+
+
+def _write(path: Path, banner_cmd: str, cols: _Columns, rows: list[sqlite3.Row]) -> None:
+    """Write ``rows`` to ``path`` with one column per ``(db_col, Header)`` pair."""
+    write_pipe_csv_autogen(
+        path,
+        [header for _, header in cols],
+        [{header: r[db_col] for db_col, header in cols} for r in rows],
+        regenerate_command=banner_cmd,
+    )
 
 
 def _export_story_narrated_videos(conn: sqlite3.Connection, csv_dir: Path) -> None:
@@ -54,20 +59,16 @@ def _export_story_narrated_videos(conn: sqlite3.Connection, csv_dir: Path) -> No
         ORDER BY s.story_key, nv.narrated_video_id
         """
     ).fetchall()
-    data = [
-        {
-            "StoryId": r["story_id"],
-            "Author": r["author"],
-            "SourceLink": r["source_link"],
-            "ChannelLink": r["channel_link"],
-        }
-        for r in rows
-    ]
-    _write_pipe_csv(
+    _write(
         csv_dir / "story-narrated-videos.csv",
         _CMD_STORIES,
-        ["StoryId", "Author", "SourceLink", "ChannelLink"],
-        data,
+        (
+            ("story_id", "StoryId"),
+            ("author", "Author"),
+            ("source_link", "SourceLink"),
+            ("channel_link", "ChannelLink"),
+        ),
+        rows,
     )
 
 
@@ -152,98 +153,68 @@ def export_story_junctions(conn: sqlite3.Connection, data_dir: Path) -> None:
 
 
 def _export_stories(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_stories(conn)
-    data = [
-        {
-            "StoryId": r["story_id"],
-            "StoryKey": r["story_key"],
-            "StoryType": r["story_type"],
-            "Title": r["title"],
-            "Authors": r["authors"],
-            "Artists": r["artists"],
-            "SourceLink": r["source_link"],
-            "PublicationDate": r["publication_date"],
-            "ThumbnailImageLink": r["thumbnail_image_link"],
-        }
-        for r in rows
-    ]
-    _write_pipe_csv(
+    _write(
         csv_dir / "stories.csv",
         _CMD_STORIES,
-        [
-            "StoryId",
-            "StoryKey",
-            "StoryType",
-            "Title",
-            "Authors",
-            "Artists",
-            "SourceLink",
-            "PublicationDate",
-            "ThumbnailImageLink",
-        ],
-        data,
+        (
+            ("story_id", "StoryId"),
+            ("story_key", "StoryKey"),
+            ("story_type", "StoryType"),
+            ("title", "Title"),
+            ("authors", "Authors"),
+            ("artists", "Artists"),
+            ("source_link", "SourceLink"),
+            ("publication_date", "PublicationDate"),
+            ("thumbnail_image_link", "ThumbnailImageLink"),
+        ),
+        q.select_all_stories(conn),
     )
 
 
 def _export_regions(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_regions(conn)
-    data = [
-        {
-            "RegionId": r["region_id"],
-            "RegionName": r["region_name"],
-            "WorldOfRatheStoryKey": r["world_of_rathe_story_key"],
-        }
-        for r in rows
-    ]
-    _write_pipe_csv(
+    _write(
         csv_dir / "regions.csv",
         _CMD_REGISTRY,
-        ["RegionId", "RegionName", "WorldOfRatheStoryKey"],
-        data,
+        (
+            ("region_id", "RegionId"),
+            ("region_name", "RegionName"),
+            ("world_of_rathe_story_key", "WorldOfRatheStoryKey"),
+        ),
+        q.select_all_regions(conn),
     )
 
 
 def _export_locations(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_locations(conn)
-    data = [
-        {
-            "LocationId": r["location_id"],
-            "Name": r["name"],
-            "RegionId": r["region_id"],
-            "Notes": r["notes"],
-            "LoreFragment": r["lore_fragment"],
-            "ParentLocationId": r["parent_location_id"],
-        }
-        for r in rows
-    ]
-    _write_pipe_csv(
+    _write(
         csv_dir / "locations.csv",
         _CMD_REGISTRY,
-        ["LocationId", "Name", "RegionId", "Notes", "LoreFragment", "ParentLocationId"],
-        data,
+        (
+            ("location_id", "LocationId"),
+            ("name", "Name"),
+            ("region_id", "RegionId"),
+            ("notes", "Notes"),
+            ("lore_fragment", "LoreFragment"),
+            ("parent_location_id", "ParentLocationId"),
+        ),
+        q.select_all_locations(conn),
     )
 
 
 def _export_groups(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_groups(conn)
-    data = [
-        {
-            "GroupId": r["group_id"],
-            "Name": r["name"],
-            "Category": r["category"],
-            "Notes": r["notes"],
-            "ParentGroupId": r["parent_group_id"],
-            "LocationId": r["location_id"],
-            "LoreStoryKey": r["lore_story_key"],
-            "LoreFragment": r["lore_fragment"],
-        }
-        for r in rows
-    ]
-    _write_pipe_csv(
+    _write(
         csv_dir / "groups.csv",
         _CMD_REGISTRY,
-        ["GroupId", "Name", "Category", "Notes", "ParentGroupId", "LocationId", "LoreStoryKey", "LoreFragment"],
-        data,
+        (
+            ("group_id", "GroupId"),
+            ("name", "Name"),
+            ("category", "Category"),
+            ("notes", "Notes"),
+            ("parent_group_id", "ParentGroupId"),
+            ("location_id", "LocationId"),
+            ("lore_story_key", "LoreStoryKey"),
+            ("lore_fragment", "LoreFragment"),
+        ),
+        q.select_all_groups(conn),
     )
 
 
@@ -257,12 +228,11 @@ def _export_group_members(conn: sqlite3.Connection, csv_dir: Path) -> None:
     rows = conn.execute(
         "SELECT group_id, character_id, story_key FROM group_characters ORDER BY group_id, character_id"
     ).fetchall()
-    data = [{"GroupId": r["group_id"], "CharacterId": r["character_id"], "StoryKey": r["story_key"]} for r in rows]
-    _write_pipe_csv(
+    _write(
         csv_dir / "group-characters.csv",
         _CMD_REGISTRY,
-        ["GroupId", "CharacterId", "StoryKey"],
-        data,
+        (("group_id", "GroupId"), ("character_id", "CharacterId"), ("story_key", "StoryKey")),
+        rows,
     )
 
 
@@ -291,8 +261,7 @@ def _export_alternate_names(conn: sqlite3.Connection, csv_dir: Path) -> None:
         rows = conn.execute(
             f"SELECT {', '.join(db_cols)} FROM {table} ORDER BY {owner}, sort_order, {db_cols[1]}"
         ).fetchall()
-        data = [{header: r[db_col] for db_col, header in cols} for r in rows]
-        _write_pipe_csv(csv_dir / csv_name, _CMD_REGISTRY, [h for _, h in cols], data)
+        _write(csv_dir / csv_name, _CMD_REGISTRY, cols, rows)
 
 
 def _export_kinds(conn: sqlite3.Connection, csv_dir: Path) -> None:
@@ -302,47 +271,36 @@ def _export_kinds(conn: sqlite3.Connection, csv_dir: Path) -> None:
     is a registry row, a character's kind is a junction, and a plural is an
     alias.
     """
-    rows = q.select_all_kinds(conn)
-    _write_pipe_csv(
+    _write(
         csv_dir / "kinds.csv",
         _CMD_REGISTRY,
-        ["KindId", "Name", "Notes"],
-        [{"KindId": r["kind_id"], "Name": r["name"], "Notes": r["notes"]} for r in rows],
+        (("kind_id", "KindId"), ("name", "Name"), ("notes", "Notes")),
+        q.select_all_kinds(conn),
     )
     junction = conn.execute(
         "SELECT character_id, kind_id FROM character_kinds ORDER BY character_id, sort_order, kind_id"
     ).fetchall()
-    _write_pipe_csv(
+    _write(
         csv_dir / "character-kinds.csv",
         _CMD_REGISTRY,
-        ["CharacterId", "KindId"],
-        [{"CharacterId": r[0], "KindId": r[1]} for r in junction],
+        (("character_id", "CharacterId"), ("kind_id", "KindId")),
+        junction,
     )
     aliases = conn.execute("SELECT kind_id, alias FROM kind_aliases ORDER BY kind_id, sort_order, alias").fetchall()
-    _write_pipe_csv(
+    _write(
         csv_dir / "kind-aliases.csv",
         _CMD_REGISTRY,
-        ["KindId", "Alias"],
-        [{"KindId": r[0], "Alias": r[1]} for r in aliases],
+        (("kind_id", "KindId"), ("alias", "Alias")),
+        aliases,
     )
 
 
 def _export_titles(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_titles(conn)
-    data = [
-        {
-            "TitleId": r["title_id"],
-            "Name": r["name"],
-            "GroupId": r["group_id"],
-            "Notes": r["notes"],
-        }
-        for r in rows
-    ]
-    _write_pipe_csv(
+    _write(
         csv_dir / "titles.csv",
         _CMD_REGISTRY,
-        ["TitleId", "Name", "GroupId", "Notes"],
-        data,
+        (("title_id", "TitleId"), ("name", "Name"), ("group_id", "GroupId"), ("notes", "Notes")),
+        q.select_all_titles(conn),
     )
 
 
@@ -356,20 +314,16 @@ def _export_title_holders(conn: sqlite3.Connection, csv_dir: Path) -> None:
     rows = conn.execute(
         "SELECT title_id, character_id, ordinal, story_key FROM title_holders ORDER BY title_id, ordinal, character_id"
     ).fetchall()
-    data = [
-        {
-            "TitleId": r["title_id"],
-            "CharacterId": r["character_id"],
-            "Ordinal": r["ordinal"],
-            "StoryKey": r["story_key"],
-        }
-        for r in rows
-    ]
-    _write_pipe_csv(
+    _write(
         csv_dir / "title-holders.csv",
         _CMD_REGISTRY,
-        ["TitleId", "CharacterId", "Ordinal", "StoryKey"],
-        data,
+        (
+            ("title_id", "TitleId"),
+            ("character_id", "CharacterId"),
+            ("ordinal", "Ordinal"),
+            ("story_key", "StoryKey"),
+        ),
+        rows,
     )
 
 
@@ -389,21 +343,17 @@ def _export_character_kin(conn: sqlite3.Connection, csv_dir: Path) -> None:
         "SELECT character_id, relative_id, relation, story_key, qualifier FROM character_kin "
         "ORDER BY character_id, relative_id, relation"
     ).fetchall()
-    data = [
-        {
-            "CharacterId": r["character_id"],
-            "RelativeId": r["relative_id"],
-            "Relation": r["relation"],
-            "StoryKey": r["story_key"],
-            "Qualifier": r["qualifier"],
-        }
-        for r in rows
-    ]
-    _write_pipe_csv(
+    _write(
         csv_dir / "character-kin.csv",
         _CMD_REGISTRY,
-        ["CharacterId", "RelativeId", "Relation", "StoryKey", "Qualifier"],
-        data,
+        (
+            ("character_id", "CharacterId"),
+            ("relative_id", "RelativeId"),
+            ("relation", "Relation"),
+            ("story_key", "StoryKey"),
+            ("qualifier", "Qualifier"),
+        ),
+        rows,
     )
 
 
@@ -415,426 +365,301 @@ def _export_professions(conn: sqlite3.Connection, csv_dir: Path) -> None:
     make — but there is no third, alias file. See
     ``entries/catalogue/professions.py`` for why.
     """
-    rows = q.select_all_professions(conn)
-    _write_pipe_csv(
+    _write(
         csv_dir / "professions.csv",
         _CMD_REGISTRY,
-        ["ProfessionId", "Name", "Notes"],
-        [{"ProfessionId": r["profession_id"], "Name": r["name"], "Notes": r["notes"]} for r in rows],
+        (("profession_id", "ProfessionId"), ("name", "Name"), ("notes", "Notes")),
+        q.select_all_professions(conn),
     )
     junction = conn.execute(
         "SELECT character_id, profession_id, sort_order FROM character_professions "
         "ORDER BY character_id, sort_order, profession_id"
     ).fetchall()
-    _write_pipe_csv(
+    _write(
         csv_dir / "character-professions.csv",
         _CMD_REGISTRY,
-        ["CharacterId", "ProfessionId", "SortOrder"],
-        [{"CharacterId": r[0], "ProfessionId": r[1], "SortOrder": r[2]} for r in junction],
+        (("character_id", "CharacterId"), ("profession_id", "ProfessionId"), ("sort_order", "SortOrder")),
+        junction,
     )
 
 
 def _export_characters(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_characters(conn)
-    data = [
-        {
-            "CharacterId": r["character_id"],
-            "Name": r["name"],
-            "Status": r["status"],
-            "OtherCharactersStoryKey": r["other_characters_story_key"],
-            "Summary": r["summary"],
-        }
-        for r in rows
-    ]
-    _write_pipe_csv(
+    _write(
         csv_dir / "characters.csv",
         _CMD_REGISTRY,
-        ["CharacterId", "Name", "Status", "OtherCharactersStoryKey", "Summary"],
-        data,
+        (
+            ("character_id", "CharacterId"),
+            ("name", "Name"),
+            ("status", "Status"),
+            ("other_characters_story_key", "OtherCharactersStoryKey"),
+            ("summary", "Summary"),
+        ),
+        q.select_all_characters(conn),
     )
 
 
 def _export_character_heroes(conn: sqlite3.Connection, csv_dir: Path) -> None:
     """Write ``character-heroes.csv`` — the identity spine (migration 12)."""
-    rows = q.select_all_character_heroes(conn)
-    data = [{"CanonicalId": r["canonical_id"], "CharacterId": r["character_id"]} for r in rows]
-    _write_pipe_csv(
+    _write(
         csv_dir / "character-heroes.csv",
         _CMD_REGISTRY,
-        ["CanonicalId", "CharacterId"],
-        data,
+        (("canonical_id", "CanonicalId"), ("character_id", "CharacterId")),
+        q.select_all_character_heroes(conn),
     )
 
 
 def _export_monsters(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_monsters(conn)
-    data = [
-        {
-            "MonsterId": r["monster_id"],
-            "Name": r["name"],
-            "Description": r["description"],
-        }
-        for r in rows
-    ]
-    _write_pipe_csv(
+    _write(
         csv_dir / "monsters.csv",
         _CMD_REGISTRY,
-        ["MonsterId", "Name", "Description"],
-        data,
+        (("monster_id", "MonsterId"), ("name", "Name"), ("description", "Description")),
+        q.select_all_monsters(conn),
     )
 
 
 def _export_fauna(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_fauna(conn)
-    data = [{"FaunaId": r["fauna_id"], "Name": r["name"], "Description": r["description"]} for r in rows]
-    _write_pipe_csv(
+    _write(
         csv_dir / "fauna.csv",
         _CMD_REGISTRY,
-        ["FaunaId", "Name", "Description"],
-        data,
+        (("fauna_id", "FaunaId"), ("name", "Name"), ("description", "Description")),
+        q.select_all_fauna(conn),
     )
 
 
 def _export_flora(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_flora(conn)
-    data = [{"FloraId": r["flora_id"], "Name": r["name"], "Description": r["description"]} for r in rows]
-    _write_pipe_csv(
+    _write(
         csv_dir / "flora.csv",
         _CMD_REGISTRY,
-        ["FloraId", "Name", "Description"],
-        data,
+        (("flora_id", "FloraId"), ("name", "Name"), ("description", "Description")),
+        q.select_all_flora(conn),
     )
 
 
 def _export_food_drink(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_food_drink(conn)
-    data = [{"FoodDrinkId": r["food_drink_id"], "Name": r["name"], "Type": r["type"]} for r in rows]
-    _write_pipe_csv(
+    _write(
         csv_dir / "food-and-drink.csv",
         _CMD_REGISTRY,
-        ["FoodDrinkId", "Name", "Type"],
-        data,
+        (("food_drink_id", "FoodDrinkId"), ("name", "Name"), ("type", "Type")),
+        q.select_all_food_drink(conn),
     )
 
 
 def _export_heroes_canonical(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_heroes_canonical(conn)
-    data = [
-        {
-            "CanonicalId": r["canonical_id"],
-            "CanonicalSlug": r["canonical_slug"],
-            "CanonicalHero": r["canonical_hero"],
-        }
-        for r in rows
-    ]
-    _write_pipe_csv(
+    _write(
         csv_dir / "heroes-canonical.csv",
         _CMD_HEROES,
-        ["CanonicalId", "CanonicalSlug", "CanonicalHero"],
-        data,
+        (
+            ("canonical_id", "CanonicalId"),
+            ("canonical_slug", "CanonicalSlug"),
+            ("canonical_hero", "CanonicalHero"),
+        ),
+        q.select_all_heroes_canonical(conn),
     )
 
 
 def _export_heroes_game(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_heroes_game(conn)
-    data = [
-        {
-            "HeroGameId": r["hero_game_id"],
-            "CardName": r["card_name"],
-            "CanonicalId": r["canonical_id"],
-            "ClassIds": r["class_ids"],
-            "TalentIds": r["talent_ids"],
-            "Health": r["health"],
-            "Intellect": r["intellect"],
-            "AbilityText": r["ability_text"],
-            "YoungHero": r["young_hero"],
-        }
-        for r in rows
-    ]
-    _write_pipe_csv(
+    _write(
         csv_dir / "heroes-game.csv",
         _CMD_HEROES,
-        [
-            "HeroGameId",
-            "CardName",
-            "CanonicalId",
-            "ClassIds",
-            "TalentIds",
-            "Health",
-            "Intellect",
-            "AbilityText",
-            "YoungHero",
-        ],
-        data,
+        (
+            ("hero_game_id", "HeroGameId"),
+            ("card_name", "CardName"),
+            ("canonical_id", "CanonicalId"),
+            ("class_ids", "ClassIds"),
+            ("talent_ids", "TalentIds"),
+            ("health", "Health"),
+            ("intellect", "Intellect"),
+            ("ability_text", "AbilityText"),
+            ("young_hero", "YoungHero"),
+        ),
+        q.select_all_heroes_game(conn),
     )
 
 
 def _export_heroes_printings(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_heroes_printings(conn)
-    data = [
-        {
-            "HeroGameId": r["hero_game_id"],
-            "SetId": r["set_id"],
-            "CardId": r["card_id"],
-            "Rarity": r["rarity"],
-            "PrintingUniqueId": r["printing_unique_id"],
-            "Foiling": r["foiling"],
-            "ArtVariation": r["art_variation"],
-            "Artist": r["artist"],
-        }
-        for r in rows
-    ]
-    _write_pipe_csv(
+    _write(
         csv_dir / "heroes-printings.csv",
         _CMD_HEROES,
-        ["HeroGameId", "SetId", "CardId", "Rarity", "PrintingUniqueId", "Foiling", "ArtVariation", "Artist"],
-        data,
+        (
+            ("hero_game_id", "HeroGameId"),
+            ("set_id", "SetId"),
+            ("card_id", "CardId"),
+            ("rarity", "Rarity"),
+            ("printing_unique_id", "PrintingUniqueId"),
+            ("foiling", "Foiling"),
+            ("art_variation", "ArtVariation"),
+            ("artist", "Artist"),
+        ),
+        q.select_all_heroes_printings(conn),
     )
 
 
 def _export_weapons_canonical(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_weapons_canonical(conn)
-    data = [
-        {
-            "CanonicalWeaponId": r["canonical_weapon_id"],
-            "CanonicalSlug": r["canonical_slug"],
-            "CanonicalWeapon": r["canonical_weapon"],
-        }
-        for r in rows
-    ]
-    _write_pipe_csv(
+    _write(
         csv_dir / "weapons-canonical.csv",
         _CMD_WEAPONS,
-        ["CanonicalWeaponId", "CanonicalSlug", "CanonicalWeapon"],
-        data,
+        (
+            ("canonical_weapon_id", "CanonicalWeaponId"),
+            ("canonical_slug", "CanonicalSlug"),
+            ("canonical_weapon", "CanonicalWeapon"),
+        ),
+        q.select_all_weapons_canonical(conn),
     )
 
 
 def _export_weapons_game(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_weapons_game(conn)
-    data = [
-        {
-            "WeaponGameId": r["weapon_game_id"],
-            "CardName": r["card_name"],
-            "CanonicalWeaponId": r["canonical_weapon_id"],
-            "ClassIds": r["class_ids"],
-            "TalentIds": r["talent_ids"],
-            "Cost": r["cost"],
-            "Power": r["power"],
-            "AbilityText": r["ability_text"],
-            "Types": r["types"],
-        }
-        for r in rows
-    ]
-    _write_pipe_csv(
+    _write(
         csv_dir / "weapons-game.csv",
         _CMD_WEAPONS,
-        [
-            "WeaponGameId",
-            "CardName",
-            "CanonicalWeaponId",
-            "ClassIds",
-            "TalentIds",
-            "Cost",
-            "Power",
-            "AbilityText",
-            "Types",
-        ],
-        data,
+        (
+            ("weapon_game_id", "WeaponGameId"),
+            ("card_name", "CardName"),
+            ("canonical_weapon_id", "CanonicalWeaponId"),
+            ("class_ids", "ClassIds"),
+            ("talent_ids", "TalentIds"),
+            ("cost", "Cost"),
+            ("power", "Power"),
+            ("ability_text", "AbilityText"),
+            ("types", "Types"),
+        ),
+        q.select_all_weapons_game(conn),
     )
 
 
 def _export_weapons_printings(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_weapons_printings(conn)
-    data = [
-        {
-            "WeaponGameId": r["weapon_game_id"],
-            "SetId": r["set_id"],
-            "CardId": r["card_id"],
-            "Rarity": r["rarity"],
-            "ImageURL": r["image_url"],
-        }
-        for r in rows
-    ]
-    _write_pipe_csv(
+    _write(
         csv_dir / "weapons-printings.csv",
         _CMD_WEAPONS,
-        ["WeaponGameId", "SetId", "CardId", "Rarity", "ImageURL"],
-        data,
+        (
+            ("weapon_game_id", "WeaponGameId"),
+            ("set_id", "SetId"),
+            ("card_id", "CardId"),
+            ("rarity", "Rarity"),
+            ("image_url", "ImageURL"),
+        ),
+        q.select_all_weapons_printings(conn),
     )
 
 
 def _export_equipment_canonical(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_equipment_canonical(conn)
-    data = [
-        {
-            "CanonicalEquipmentId": r["canonical_equipment_id"],
-            "CanonicalSlug": r["canonical_slug"],
-            "CanonicalEquipment": r["canonical_equipment"],
-        }
-        for r in rows
-    ]
-    _write_pipe_csv(
+    _write(
         csv_dir / "equipment-canonical.csv",
         _CMD_EQUIPMENT,
-        ["CanonicalEquipmentId", "CanonicalSlug", "CanonicalEquipment"],
-        data,
+        (
+            ("canonical_equipment_id", "CanonicalEquipmentId"),
+            ("canonical_slug", "CanonicalSlug"),
+            ("canonical_equipment", "CanonicalEquipment"),
+        ),
+        q.select_all_equipment_canonical(conn),
     )
 
 
 def _export_equipment_game(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_equipment_game(conn)
-    data = [
-        {
-            "EquipmentGameId": r["equipment_game_id"],
-            "CardName": r["card_name"],
-            "CanonicalEquipmentId": r["canonical_equipment_id"],
-            "ClassIds": r["class_ids"],
-            "TalentIds": r["talent_ids"],
-            "Cost": r["cost"],
-            "Defense": r["defense"],
-            "AbilityText": r["ability_text"],
-            "Types": r["types"],
-        }
-        for r in rows
-    ]
-    _write_pipe_csv(
+    _write(
         csv_dir / "equipment-game.csv",
         _CMD_EQUIPMENT,
-        [
-            "EquipmentGameId",
-            "CardName",
-            "CanonicalEquipmentId",
-            "ClassIds",
-            "TalentIds",
-            "Cost",
-            "Defense",
-            "AbilityText",
-            "Types",
-        ],
-        data,
+        (
+            ("equipment_game_id", "EquipmentGameId"),
+            ("card_name", "CardName"),
+            ("canonical_equipment_id", "CanonicalEquipmentId"),
+            ("class_ids", "ClassIds"),
+            ("talent_ids", "TalentIds"),
+            ("cost", "Cost"),
+            ("defense", "Defense"),
+            ("ability_text", "AbilityText"),
+            ("types", "Types"),
+        ),
+        q.select_all_equipment_game(conn),
     )
 
 
 def _export_equipment_printings(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_equipment_printings(conn)
-    data = [
-        {
-            "EquipmentGameId": r["equipment_game_id"],
-            "SetId": r["set_id"],
-            "CardId": r["card_id"],
-            "Rarity": r["rarity"],
-            "ImageURL": r["image_url"],
-        }
-        for r in rows
-    ]
-    _write_pipe_csv(
+    _write(
         csv_dir / "equipment-printings.csv",
         _CMD_EQUIPMENT,
-        ["EquipmentGameId", "SetId", "CardId", "Rarity", "ImageURL"],
-        data,
+        (
+            ("equipment_game_id", "EquipmentGameId"),
+            ("set_id", "SetId"),
+            ("card_id", "CardId"),
+            ("rarity", "Rarity"),
+            ("image_url", "ImageURL"),
+        ),
+        q.select_all_equipment_printings(conn),
     )
 
 
 def _export_classes(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_classes(conn)
-    data = [{"ClassId": r["class_id"], "ClassName": r["class_name"]} for r in rows]
-    _write_pipe_csv(csv_dir / "classes.csv", _CMD_CLASSES, ["ClassId", "ClassName"], data)
+    _write(
+        csv_dir / "classes.csv",
+        _CMD_CLASSES,
+        (("class_id", "ClassId"), ("class_name", "ClassName")),
+        q.select_all_classes(conn),
+    )
 
 
 def _export_talents(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_talents(conn)
-    data = [{"TalentId": r["talent_id"], "TalentName": r["talent_name"]} for r in rows]
-    _write_pipe_csv(csv_dir / "talents.csv", _CMD_CLASSES, ["TalentId", "TalentName"], data)
+    _write(
+        csv_dir / "talents.csv",
+        _CMD_CLASSES,
+        (("talent_id", "TalentId"), ("talent_name", "TalentName")),
+        q.select_all_talents(conn),
+    )
 
 
 def _export_sets(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_sets(conn)
-    data = [
-        {
-            "SetId": r["set_id"],
-            "SetTypeId": r["set_type_id"],
-            "SetName": r["set_name"],
-            "InitialReleaseDate": r["initial_release_date"],
-        }
-        for r in rows
-    ]
-    _write_pipe_csv(
+    _write(
         csv_dir / "sets.csv",
         _CMD_SETS,
-        ["SetId", "SetTypeId", "SetName", "InitialReleaseDate"],
-        data,
+        (
+            ("set_id", "SetId"),
+            ("set_type_id", "SetTypeId"),
+            ("set_name", "SetName"),
+            ("initial_release_date", "InitialReleaseDate"),
+        ),
+        q.select_all_sets(conn),
     )
 
 
 def _export_set_types(conn: sqlite3.Connection, csv_dir: Path) -> None:
-    rows = q.select_all_set_types(conn)
-    data = [
-        {
-            "SetTypeId": r["set_type_id"],
-            "SetType": r["set_type"],
-            "SetTypeLayer": r["set_type_layer"],
-        }
-        for r in rows
-    ]
-    _write_pipe_csv(
+    _write(
         csv_dir / "set-types.csv",
         _CMD_SETS,
-        ["SetTypeId", "SetType", "SetTypeLayer"],
-        data,
+        (("set_type_id", "SetTypeId"), ("set_type", "SetType"), ("set_type_layer", "SetTypeLayer")),
+        q.select_all_set_types(conn),
     )
 
 
-_JUNCTION_EXPORT_SPECS: tuple[tuple[str, str, str, str, str], ...] = (
-    ("story_locations", "story-locations.csv", "location_id", "StoryId", "LocationId"),
-    ("story_regions", "story-regions.csv", "region_id", "StoryId", "RegionId"),
-    ("story_monsters", "story-monsters.csv", "monster_id", "StoryId", "MonsterId"),
-    ("story_fauna", "story-fauna.csv", "fauna_id", "StoryId", "FaunaId"),
-    ("story_flora", "story-flora.csv", "flora_id", "StoryId", "FloraId"),
-    (
-        "story_food_drink",
-        "story-food-drink.csv",
-        "food_drink_id",
-        "StoryId",
-        "FoodDrinkId",
-    ),
-    (
-        "story_weapons",
-        "story-weapons.csv",
-        "canonical_weapon_id",
-        "StoryId",
-        "CanonicalWeaponId",
-    ),
-    (
-        "story_equipment",
-        "story-equipment.csv",
-        "canonical_equipment_id",
-        "StoryId",
-        "CanonicalEquipmentId",
-    ),
-    ("story_groups", "story-groups.csv", "group_id", "StoryId", "GroupId"),
-    ("story_titles", "story-titles.csv", "title_id", "StoryId", "TitleId"),
+_JUNCTION_EXPORT_SPECS: tuple[tuple[str, str, str, str], ...] = (
+    ("story_locations", "story-locations.csv", "location_id", "LocationId"),
+    ("story_regions", "story-regions.csv", "region_id", "RegionId"),
+    ("story_monsters", "story-monsters.csv", "monster_id", "MonsterId"),
+    ("story_fauna", "story-fauna.csv", "fauna_id", "FaunaId"),
+    ("story_flora", "story-flora.csv", "flora_id", "FloraId"),
+    ("story_food_drink", "story-food-drink.csv", "food_drink_id", "FoodDrinkId"),
+    ("story_weapons", "story-weapons.csv", "canonical_weapon_id", "CanonicalWeaponId"),
+    ("story_equipment", "story-equipment.csv", "canonical_equipment_id", "CanonicalEquipmentId"),
+    ("story_groups", "story-groups.csv", "group_id", "GroupId"),
+    ("story_titles", "story-titles.csv", "title_id", "TitleId"),
 )
+"""Plain ``(story_id, entity_id)`` junctions: table, CSV, entity db column, entity header."""
 
 
 def _export_story_junctions(conn: sqlite3.Connection, csv_dir: Path) -> None:
     # story_characters carries an extra Fragment column, unlike the plain
-    # (story_id, entity_id) junctions in _JUNCTION_EXPORT_SPECS below.
+    # (story_id, entity_id) junctions in _JUNCTION_EXPORT_SPECS.
     rows = conn.execute(
         "SELECT story_id, character_id, fragment FROM story_characters ORDER BY story_id, character_id"
     ).fetchall()
-    data = [{"StoryId": r["story_id"], "CharacterId": r["character_id"], "Fragment": r["fragment"]} for r in rows]
-    _write_pipe_csv(
+    _write(
         csv_dir / "story-characters.csv",
         _CMD_JUNCTIONS,
-        ["StoryId", "CharacterId", "Fragment"],
-        data,
+        (("story_id", "StoryId"), ("character_id", "CharacterId"), ("fragment", "Fragment")),
+        rows,
     )
 
-    for table, csv_name, db_col, csv_sid, csv_eid in _JUNCTION_EXPORT_SPECS:
+    for table, csv_name, db_col, header in _JUNCTION_EXPORT_SPECS:
         rows = conn.execute(f"SELECT story_id, {db_col} FROM {table} ORDER BY story_id, {db_col}").fetchall()
-        data = [{csv_sid: r["story_id"], csv_eid: r[db_col]} for r in rows]
-        _write_pipe_csv(csv_dir / csv_name, _CMD_JUNCTIONS, [csv_sid, csv_eid], data)
+        _write(csv_dir / csv_name, _CMD_JUNCTIONS, (("story_id", "StoryId"), (db_col, header)), rows)
 
 
 # ---------------------------------------------------------------------------

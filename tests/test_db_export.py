@@ -442,3 +442,40 @@ def test_dump_to_json_creates_output_dir(db: Database, tmp_path: Path) -> None:
     _export.dump_to_json(db.conn, json_dir)
     assert json_dir.exists()
     assert (json_dir / "stories.json").exists()
+
+
+# ---------------------------------------------------------------------------
+# Round trip on the committed data
+# ---------------------------------------------------------------------------
+
+_REPO_DATA = Path(__file__).resolve().parents[1] / "src" / "data"
+
+# CSVs in src/data/csv/ that export_all never writes (see its docstring).
+_NOT_EXPORTED = {
+    "story-arcs.csv",
+    "reviewed-name-pairs.csv",
+    "heroes-ll.csv",
+    "heroes-fabtcg.csv",
+    "hero-card-name-aliases.csv",
+}
+
+
+def test_export_all_reproduces_every_committed_csv_byte_for_byte(tmp_path: Path) -> None:
+    """Seed a fresh DB from the committed CSVs, export it, and get the same bytes back.
+
+    Pins banner lines, header text, column order and row order of every
+    exporter at once, so a change to how an exporter is written cannot
+    change what it writes.
+    """
+    db = Database(tmp_path / "fablore.db")
+    out = tmp_path / "out"
+    try:
+        _export.export_all(db.conn, out)
+    finally:
+        db.conn.close()
+
+    exported = sorted(p.name for p in (out / "csv").glob("*.csv"))
+    committed = sorted(p.name for p in (_REPO_DATA / "csv").glob("*.csv") if p.name not in _NOT_EXPORTED)
+    assert exported == committed
+    for name in exported:
+        assert (out / "csv" / name).read_bytes() == (_REPO_DATA / "csv" / name).read_bytes(), name
