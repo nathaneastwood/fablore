@@ -1,9 +1,17 @@
 # Hero card-name → canonical-slug aliases for create_heroes_csv.
-# NormalizedCardName is text_utils.normalize_name() of the text before the
-# first comma on the printed card Name field; used only when that segment
-# does not equal normalize_name(CanonicalHero) on heroes-canonical.csv.
+# NormalizedCardName is text_utils.normalize_name() of either the full printed
+# card Name field or the text before its first comma. The full name is looked
+# up first, so a full-name row can split forms that share a name before the
+# comma (Arakni); a pre-comma row is needed only when that segment does not
+# equal normalize_name(CanonicalHero) on heroes-canonical.csv.
 # CanonicalSlug must exist in heroes-canonical.csv.
 NormalizedCardName|CanonicalSlug
+arakni|arakni-huntsman
+arakni5lp3d7hru7h3cr4x|arakni-solitary-confinement
+araknihuntsman|arakni-huntsman
+araknimarionette|arakni-web-of-deceit
+araknisolitaryconfinement|arakni-solitary-confinement
+arakniwebofdeceit|arakni-web-of-deceit
 dashio|dash
 dorintheaironsong|dorinthea
 fightmasterkox|kox

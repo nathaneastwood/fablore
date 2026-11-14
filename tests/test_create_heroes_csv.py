@@ -5,12 +5,16 @@ from __future__ import annotations
 import sqlite3
 
 from create_heroes_csv import (
-    apply_lore_canonical_override,
+    HEROES_CANONICAL_CSV_PATH,
+    HEROES_GAME_CSV_PATH,
     dedupe_printings,
     hero_printing_rows,
+    resolve_card_canonical_slug,
     sort_like_db_export,
     split_name_variant,
 )
+from hero_overrides import load_canonical_hero_card_name_aliases
+from pipe_csv_io import read_pipe_csv
 from registry_ids import make_hash_id
 from text_utils import normalize_name
 
@@ -36,14 +40,23 @@ def test_make_hash_id_deterministic() -> None:
     assert len(a) == len("HG") + 10
 
 
-def test_lore_canonical_override_splits_arakni_forms() -> None:
+def _real_roster_index() -> dict[str, str]:
+    """``normalize_name(CanonicalHero) -> CanonicalSlug`` from the committed roster, first row wins."""
+    _, rows = read_pipe_csv(HEROES_CANONICAL_CSV_PATH)
+    index: dict[str, str] = {}
+    for row in rows:
+        index.setdefault(normalize_name(row["CanonicalHero"]), row["CanonicalSlug"])
+    return index
+
+
+def test_arakni_forms_resolve_to_distinct_slugs() -> None:
     """Arakni's forms are distinct characters and must not collapse to one slug.
 
-    The override table is keyed by the base hero name, but the caller passes a
-    ``base_slug`` that has already been resolved through the roster's name index
-    — for Arakni that is ``arakni-huntsman``, not ``arakni``. Looking up only the
-    resolved slug silently routed every Arakni card to the Huntsman.
+    The forms share the name before the comma, so only the full printed title
+    can tell them apart; those full-name rows live in the alias CSV.
     """
+    roster = _real_roster_index()
+    aliases = load_canonical_hero_card_name_aliases()
     cases = {
         "Arakni, Marionette": "arakni-web-of-deceit",
         "Arakni, Web of Deceit": "arakni-web-of-deceit",
@@ -53,13 +66,41 @@ def test_lore_canonical_override_splits_arakni_forms() -> None:
         "Arakni": "arakni-huntsman",
     }
     for card_name, expected in cases.items():
-        name, variant = split_name_variant(card_name)
-        assert apply_lore_canonical_override("arakni-huntsman", name, variant) == expected, card_name
+        assert resolve_card_canonical_slug(card_name, roster, aliases) == expected, card_name
 
 
-def test_lore_canonical_override_passes_through_unknown_heroes() -> None:
-    """A hero with no override table keeps the slug it was resolved to."""
-    assert apply_lore_canonical_override("bravo", "Bravo", "Showstopper") == "bravo"
+def test_full_card_name_alias_wins_over_the_name_before_the_comma() -> None:
+    """A full-title alias beats both a pre-comma alias and the roster index."""
+    roster = {"ira": "ira"}
+    aliases = {"ira": "ira-old", "iracrimsonhaze": "ira-crimson"}
+    assert resolve_card_canonical_slug("Ira, Crimson Haze", roster, aliases) == "ira-crimson"
+    assert resolve_card_canonical_slug("Ira, Scarlet Revenger", roster, aliases) == "ira-old"
+
+
+def test_pre_comma_alias_wins_over_the_roster_index() -> None:
+    """``Ser Boltyn, Breaker of Dawn`` routes through the alias to ``boltyn``."""
+    roster = {"serboltyn": "wrong", "boltyn": "boltyn"}
+    aliases = {"serboltyn": "boltyn"}
+    assert resolve_card_canonical_slug("Ser Boltyn, Breaker of Dawn", roster, aliases) == "boltyn"
+
+
+def test_unknown_hero_falls_back_to_the_normalised_name() -> None:
+    """A name in neither table resolves to its own normalised key."""
+    assert resolve_card_canonical_slug("Bravo, Showstopper", {"bravo": "bravo"}, {}) == "bravo"
+    assert resolve_card_canonical_slug("Nobody, Nowhere", {}, {}) == "nobody"
+
+
+def test_every_committed_game_row_resolves_to_its_canonical_id() -> None:
+    """Characterisation: the resolver reproduces every committed ``heroes-game.csv`` link."""
+    roster = _real_roster_index()
+    aliases = load_canonical_hero_card_name_aliases()
+    _, canonical_rows = read_pipe_csv(HEROES_CANONICAL_CSV_PATH)
+    id_by_slug = {row["CanonicalSlug"]: row["CanonicalId"] for row in canonical_rows}
+    _, game_rows = read_pipe_csv(HEROES_GAME_CSV_PATH)
+    assert game_rows
+    for row in game_rows:
+        slug = resolve_card_canonical_slug(row["CardName"], roster, aliases)
+        assert id_by_slug.get(slug) == row["CanonicalId"], row["CardName"]
 
 
 def _sqlite_order(columns: list[str], rows: list[dict[str, str]], order_by: str) -> list[dict[str, str]]:

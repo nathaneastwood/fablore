@@ -34,9 +34,9 @@ lore tooling and story junctions. It is **not** the same field as ``CardName`` i
 ``heroes-game.csv`` (the exact printed card title from upstream ``card.csv``): many
 cards use a comma subtitle (e.g. ``Bravo, Showstopper``) while ``CanonicalHero`` may
 stay short (``Bravo``). The generator still maps each ``CardName`` to a ``CanonicalId``
-using the first segment of the title plus ``LORE_CANONICAL_OVERRIDES`` from
-:mod:`hero_overrides` and the card-name aliases in ``hero-card-name-aliases.csv``,
-and it builds a name→slug index from
+with :func:`resolve_card_canonical_slug`: the card-name aliases in
+``hero-card-name-aliases.csv`` (full title first, then the first segment of the
+title), then a name→slug index built a name→slug index from
 ``normalize_name(CanonicalHero)`` so slug resolution stays aligned with the roster.
 ``validate_data._check_heroes_game_cardname_resolution`` replays that mapping to catch
 drift between committed canonical and game rows.
@@ -59,6 +59,7 @@ import json
 import re
 import sys
 import urllib.request
+from collections.abc import Mapping
 from pathlib import Path
 
 _SCRIPT_DIR = Path(__file__).resolve().parent
@@ -84,10 +85,7 @@ from game_class_talent_csv import (  # noqa: E402
     merge_classes_and_talents_from_card_rows,
 )
 from generator_utils import run_validate_data_and_exit  # noqa: E402
-from hero_overrides import (  # noqa: E402
-    LORE_CANONICAL_OVERRIDES,
-    load_canonical_hero_card_name_aliases,
-)
+from hero_overrides import load_canonical_hero_card_name_aliases  # noqa: E402
 from pipe_csv_io import (  # noqa: E402
     REGENERATE_CREATE_HEROES,
     read_pipe_csv,
@@ -109,11 +107,10 @@ _USER_AGENT = (
     "(KHTML, like Gecko) Chrome/128.0 Safari/537.36"
 )
 
-# Hero card-name → canonical-slug aliases now live in ``hero-card-name-aliases.csv``
-# and are loaded via :func:`hero_overrides.load_canonical_hero_card_name_aliases`.
-# Lore-specific canonical split overrides (``LORE_CANONICAL_OVERRIDES``) live in
-# :mod:`hero_overrides` alongside the matching lore-file path overrides used by
-# the mdBook preprocessor.
+# Hero card-name → canonical-slug aliases (full printed titles and names before
+# the comma) live in ``hero-card-name-aliases.csv`` and are loaded via
+# :func:`hero_overrides.load_canonical_hero_card_name_aliases`; see
+# :func:`resolve_card_canonical_slug` for the lookup order.
 
 
 def _ll_date(raw: str) -> str:
@@ -337,20 +334,36 @@ def split_name_variant(heading: str) -> tuple[str, str]:
     return clean, ""
 
 
-def apply_lore_canonical_override(base_slug: str, hero_name: str, hero_variant: str) -> str:
-    """Apply lore-specific canonical split overrides.
+def resolve_card_canonical_slug(
+    card_name: str,
+    roster_slug_by_name: Mapping[str, str],
+    aliases: Mapping[str, str],
+) -> str:
+    """Return the canonical slug a printed hero card title belongs to.
 
-    The table is looked up by ``base_slug`` first, then by the normalized base
-    hero name. Both are needed: ``base_slug`` is only the bare name when that
-    name is absent from the roster, and for a hero whose forms are already
-    rostered — Arakni — it has instead been resolved to whichever of those rows
-    the name index happened to yield, so a name-keyed table would never be hit.
+    Lookup order, first hit wins:
+
+    1. ``aliases`` keyed by ``normalize_name`` of the full printed title — how
+       forms that share a name before the comma (Arakni) are told apart.
+    2. ``aliases`` keyed by the normalized name before the first comma.
+    3. ``roster_slug_by_name`` (``normalize_name(CanonicalHero)`` -> slug) keyed
+       by that same pre-comma name.
+    4. The pre-comma normalized name itself, which then matches no roster slug.
+
+    Args:
+        card_name: Upstream card ``Name`` (full printed title).
+        roster_slug_by_name: ``normalize_name(CanonicalHero) -> CanonicalSlug``.
+        aliases: ``hero-card-name-aliases.csv`` as loaded by
+            :func:`hero_overrides.load_canonical_hero_card_name_aliases`.
     """
-    override_table = LORE_CANONICAL_OVERRIDES.get(base_slug) or LORE_CANONICAL_OVERRIDES.get(normalize_name(hero_name))
-    if not override_table:
-        return base_slug
-    full_name = f"{hero_name}, {hero_variant}" if hero_variant else hero_name
-    return override_table.get(normalize_name(full_name), base_slug)
+    full_key = normalize_name(card_name)
+    if full_key in aliases:
+        return aliases[full_key]
+    name, _ = split_name_variant(card_name)
+    name_key = normalize_name(name)
+    if name_key in aliases:
+        return aliases[name_key]
+    return roster_slug_by_name.get(name_key, name_key)
 
 
 def hero_printing_rows(hero_game_id: str, upstream_rows: list[dict[str, str]]) -> list[dict[str, str]]:
@@ -456,13 +469,13 @@ def generate_heroes_csv() -> None:
         name_key = normalize_name(row["CanonicalHero"])
         canonical_slug_by_name.setdefault(name_key, row["CanonicalSlug"])
 
-    for alt_name_key, slug in load_canonical_hero_card_name_aliases().items():
+    card_name_aliases = load_canonical_hero_card_name_aliases()
+    for alt_name_key, slug in card_name_aliases.items():
         if slug not in canonical_id_by_slug:
             raise ValueError(
                 f"hero-card-name-aliases.csv: {alt_name_key!r} -> {slug!r} "
                 "is not a CanonicalSlug in heroes-canonical.csv"
             )
-        canonical_slug_by_name[alt_name_key] = slug
 
     card_rows = read_tab_csv(CARD_CSV_PATH)
     printings_by_card_unique = printings_by_card_unique_id(read_tab_csv(CARD_PRINTING_CSV_PATH))
@@ -488,10 +501,7 @@ def generate_heroes_csv() -> None:
     for cards_for_name in hero_cards_by_name.values():
         for card in cards_for_name:
             full_name = card.get("Name", "").strip()
-            name, comma_subtitle = split_name_variant(full_name)
-            name_key = normalize_name(name)
-            base_slug = canonical_slug_by_name.get(name_key, name_key)
-            canonical_slug = apply_lore_canonical_override(base_slug, name, comma_subtitle)
+            canonical_slug = resolve_card_canonical_slug(full_name, canonical_slug_by_name, card_name_aliases)
             canonical_id = canonical_id_by_slug.get(canonical_slug, "")
             class_names, talent_names = extract_card_classes_and_talents(card.get("Types", ""))
             printings = printings_by_card_unique.get(card.get("Unique ID", ""), [])

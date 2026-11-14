@@ -390,7 +390,7 @@ def _check_heroes_game_cardname_resolution(canonical_path: Path, game_path: Path
     Returns:
         Alert strings; empty when every game row is consistent.
     """
-    from create_heroes_csv import apply_lore_canonical_override, split_name_variant
+    from create_heroes_csv import resolve_card_canonical_slug
     from hero_overrides import load_canonical_hero_card_name_aliases
 
     aliases = load_canonical_hero_card_name_aliases()
@@ -417,26 +417,21 @@ def _check_heroes_game_cardname_resolution(canonical_path: Path, game_path: Path
             name_key = normalize_name(hero)
             canonical_slug_by_name.setdefault(name_key, slug)
 
-    for alt_name_key, slug in aliases.items():
-        if slug in canonical_id_by_slug:
-            canonical_slug_by_name[alt_name_key] = slug
+    aliases = {key: slug for key, slug in aliases.items() if slug in canonical_id_by_slug}
 
     for row_num, row in enumerate(game_rows, start=2):
         card_name = (row.get("CardName") or "").strip()
         cid = (row.get("CanonicalId") or "").strip()
         if not card_name or not cid:
             continue
-        name, comma_subtitle = split_name_variant(card_name)
-        name_key = normalize_name(name)
-        base_slug = canonical_slug_by_name.get(name_key, name_key)
-        canonical_slug = apply_lore_canonical_override(base_slug, name, comma_subtitle)
+        canonical_slug = resolve_card_canonical_slug(card_name, canonical_slug_by_name, aliases)
         expected_id = canonical_id_by_slug.get(canonical_slug, "")
         if not expected_id:
             alerts.append(
                 "Heroes game: "
                 f"{game_path.name} row {row_num}: CardName {card_name!r} resolves to "
                 f"unknown slug {canonical_slug!r} (check heroes-canonical.csv and "
-                "hero_overrides.LORE_CANONICAL_OVERRIDES / hero-card-name-aliases.csv)"
+                "hero-card-name-aliases.csv)"
             )
         elif expected_id != cid:
             alerts.append(
