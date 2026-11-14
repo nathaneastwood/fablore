@@ -21,8 +21,16 @@ Where it goes, first match wins:
 
 Kept separate from ``mdbook_related.py`` on purpose. That preprocessor computes
 the same joins for its Related Lore cards, but it is large and load-bearing;
-appending one link does not justify editing it. The two can be merged later if
-the duplicated CSV reads ever show up in build times.
+appending one link does not justify editing it.
+
+Kept separate from ``mdbook_graph.py`` too, although both build the same graph,
+because they have to run at opposite ends of the book. This one needs the slots
+``story-meta`` and ``related`` leave behind. The graph page's payload has to be
+in place before ``hints`` runs: ``hints`` counts the pages that name an entity
+(an entity named on one page gets no tooltip), and the payload names every node,
+so moving it later changes the tooltips on 27 pages. Running ``hints`` after
+this instead changes 330. So this process rebuilds the graph, minus the
+printing edges (``printings=False``), which no backlink uses.
 
 mdBook passes ``(PreprocessorContext, Book)`` as JSON on stdin; this process must
 print only the modified ``Book`` JSON on stdout. Supports ``supports <renderer>``.
@@ -171,11 +179,16 @@ def walk_and_process(sections: list, targets: dict[str, dict]) -> None:
                 ch["content"] = inject_into_content(content, build_link_html(path, node))
 
 
-def main() -> None:
-    def process(items: list, src_root: Path) -> None:
-        graph = build_graph(src_root / "data", src_root)
-        walk_and_process(items, page_graph_targets(graph))
+def process(items: list, src_root: Path) -> None:
+    """Link every page that has a node to it, building the graph without its printings.
 
+    Printing edges never add or drop a node, so no page's target depends on them.
+    """
+    graph = build_graph(src_root / "data", src_root, printings=False)
+    walk_and_process(items, page_graph_targets(graph))
+
+
+def main() -> None:
     run(process)
 
 

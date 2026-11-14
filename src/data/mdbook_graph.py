@@ -265,12 +265,51 @@ class _Builder:
             self.edges.add((a, b) if a < b else (b, a))
 
 
-def build_graph(data_dir: Path, src_root: Path) -> dict:
+def _surviving_printing_edges(
+    data_dir: Path,
+    index: dict[str, int],
+    remap: dict[int, int],
+    nodes: list[dict],
+    char_to_canon: dict[str, str],
+) -> list[tuple[int, int]]:
+    """Return the printing edges between nodes that survived the no-edge prune.
+
+    Printings decorate the graph and never grow it, so they are resolved
+    against the surviving nodes only: a hero no story mentions has no node,
+    and so gets no edge to the set that printed it.
+    """
+    card_node: dict[str, int] = {}
+    set_node: dict[str, int] = {}
+    for node_id, old in index.items():
+        new = remap.get(old)
+        if new is None:
+            continue
+        node_kind = nodes[new]["k"]
+        if node_kind == "hero":
+            # Hero nodes are keyed on character_id (so a hero-and-ordinary-character
+            # person is one node; see load_story_heroes), but build_printing_edges joins
+            # heroes-printings.csv through heroes-game.csv's CanonicalId — so
+            # card_node needs the canonical id here, not the node id.
+            canonical_id = char_to_canon.get(node_id)
+            if canonical_id is not None:
+                card_node[canonical_id] = new
+        elif node_kind in _PRINTED_KINDS:
+            card_node[node_id] = new
+        elif node_kind == "set" and node_id.startswith("SET"):
+            set_node[node_id[len("SET") :]] = new
+    return build_printing_edges(data_dir, card_node, set_node)
+
+
+def build_graph(data_dir: Path, src_root: Path, *, printings: bool = True) -> dict:
     """Build the graph payload from the committed junction CSVs.
 
     Args:
         data_dir: ``src/data`` directory holding ``csv/``.
         src_root: Book ``src`` directory, used to confirm a link target exists.
+        printings: Resolve the printing edges (``prints``). ``mdbook_graph_link``
+            passes ``False``: it only needs nodes, links and slugs, and printings
+            never add or drop a node, so skipping them saves reading seven CSVs
+            without changing any page's target. ``prints`` is then empty.
 
     Returns:
         Dict with ``nodes``, ``links`` (index pairs) and ``groups`` (legend rows).
@@ -492,29 +531,7 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
     nodes = [b.nodes[i] for i in keep]
     links = sorted((remap[a], remap[c]) for a, c in b.edges)
 
-    # Printings decorate the graph and never grow it, so they are resolved
-    # against the surviving nodes only: a hero no story mentions has no node,
-    # and so gets no edge to the set that printed it.
-    card_node: dict[str, int] = {}
-    set_node: dict[str, int] = {}
-    for node_id, old in b.index.items():
-        new = remap.get(old)
-        if new is None:
-            continue
-        node_kind = nodes[new]["k"]
-        if node_kind == "hero":
-            # Hero nodes are keyed on character_id (so a hero-and-ordinary-character
-            # person is one node; see load_story_heroes), but build_printing_edges joins
-            # heroes-printings.csv through heroes-game.csv's CanonicalId — so
-            # card_node needs the canonical id here, not the node id.
-            canonical_id = char_to_canon.get(node_id)
-            if canonical_id is not None:
-                card_node[canonical_id] = new
-        elif node_kind in _PRINTED_KINDS:
-            card_node[node_id] = new
-        elif node_kind == "set" and node_id.startswith("SET"):
-            set_node[node_id[len("SET") :]] = new
-    prints = build_printing_edges(data_dir, card_node, set_node)
+    prints = _surviving_printing_edges(data_dir, b.index, remap, nodes, char_to_canon) if printings else []
 
     assign_slugs(nodes)
 
