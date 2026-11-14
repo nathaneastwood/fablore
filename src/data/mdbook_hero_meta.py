@@ -57,6 +57,7 @@ from mdbook_common import iter_chapters, run  # noqa: E402
 from mdbook_heading_ids import collect_heading_anchor_ids  # noqa: E402
 from mdbook_related import MARK_START as RELATED_START  # noqa: E402
 from pipe_csv_io import read_pipe_csv  # noqa: E402
+from text_utils import normalize_name  # noqa: E402
 
 # Set type IDs to exclude when finding the "first set" for a hero variant.
 _EXCLUDED_SET_TYPE_IDS = {
@@ -558,40 +559,15 @@ def _young_partner(meta: dict, data: dict, named_on_page: set[str]) -> dict | No
 # Heading → CardName resolution
 # ---------------------------------------------------------------------------
 
-# Explicit aliases for headings that intentionally differ from the card name
-# (e.g. a comma added for display style, or a missing title prefix).
-_HEADING_ALIASES: dict[str, str] = {
-    "Dash, I/O": "Dash I/O",
-    "Data Doll, MKII": "Data Doll MKII",
-    "Dorinthea, Ironsong": "Dorinthea Ironsong",
-}
 
+def _resolve(heading: str, data: dict) -> dict | None:
+    """The card ``heading`` names: its exact name, else the card whose name folds the same.
 
-def _build_lookup(
-    card_meta: dict[str, dict],
-) -> tuple[dict[str, dict], dict[str, dict]]:
-    """Return (exact_lookup, ci_lookup) for heading → meta resolution.
-
-    ``ci_lookup`` is keyed by ``heading.lower()`` and used as a fallback when
-    an exact match fails (handles capitalisation differences like
-    ``The`` vs ``the`` in subtitles).
+    The fold (:func:`text_utils.normalize_name`) covers headings styled apart from
+    the card name: case (``Benji, The Piercing Wind``) and punctuation
+    (``Dash, I/O`` for ``Dash I/O``).
     """
-    ci: dict[str, dict] = {}
-    for card_name, meta in card_meta.items():
-        ci.setdefault(card_name.lower(), meta)
-    return card_meta, ci
-
-
-def _resolve(heading: str, exact: dict[str, dict], ci: dict[str, dict]) -> dict | None:
-    # 1. exact match
-    if heading in exact:
-        return exact[heading]
-    # 2. explicit alias
-    alias = _HEADING_ALIASES.get(heading)
-    if alias and alias in exact:
-        return exact[alias]
-    # 3. case-insensitive fallback
-    return ci.get(heading.lower())
+    return data["cards"].get(heading) or data["cards_by_key"].get(normalize_name(heading))
 
 
 # ---------------------------------------------------------------------------
@@ -607,11 +583,10 @@ _BLURB_AFTER_RE = re.compile(r"\s*^:::hero-blurb[ \t]*\n(.*?)\n:::[ \t]*(?:\n|$)
 
 def hero_forms(content: str, data: dict) -> list[tuple[re.Match, dict]]:
     """Each H1 on a hero page that names a hero card, with that card's metadata, in page order."""
-    exact, ci = _build_lookup(data["cards"])
     return [
         (match, meta)
         for match in _H1_RE.finditer(content)
-        if (meta := _resolve(match.group(1).strip(), exact, ci)) is not None
+        if (meta := _resolve(match.group(1).strip(), data)) is not None
     ]
 
 
@@ -619,9 +594,14 @@ def load_hero_data(data_dir: Path) -> dict:
     """Load everything the hero page renderers need from ``data_dir/csv``.
 
     ``youngs`` maps an adult card's name to the young cards that pair with it
-    (:func:`_adult_partner`), in card order.
+    (:func:`_adult_partner`), in card order. ``cards_by_key`` indexes the cards by
+    :func:`text_utils.normalize_name` of their name, first card winning, for
+    :func:`_resolve`.
     """
     cards = _load_card_meta(data_dir)
+    cards_by_key: dict[str, dict] = {}
+    for card_name, card in cards.items():
+        cards_by_key.setdefault(normalize_name(card_name), card)
     adults_by_identity: dict[str, list[dict]] = {}
     for card in cards.values():
         if not card["young"]:
@@ -637,7 +617,7 @@ def load_hero_data(data_dir: Path) -> dict:
         # of its own takes its adult partner's.
         if not card["fabtcg"]:
             card["fabtcg"] = partner["fabtcg"] if partner else None
-    return {"cards": cards, "youngs": youngs}
+    return {"cards": cards, "cards_by_key": cards_by_key, "youngs": youngs}
 
 
 _VIDEO_TAG_RE = re.compile(r"<video\b([^>]*)>")
@@ -835,10 +815,10 @@ def _in_release_order(content: str, forms: list[tuple[re.Match, dict]]) -> list[
 _HUB_CARD_RE = re.compile(r'(<a class="[^"]*\bhero-hub-card\b[^"]*"[^>]*?)(\s+href="([^"]+)")')
 
 
-def _page_slugs(page: str, data: dict, values) -> list[str]:
-    """The slugs of ``values(meta)`` over every form on ``page``, in page order, each once."""
+def _page_slugs(forms: list[tuple[re.Match, dict]], values) -> list[str]:
+    """The slugs of ``values(meta)`` over every form of a page, in page order, each once."""
     slugs: list[str] = []
-    for _, meta in hero_forms(page, data):
+    for _, meta in forms:
         for value in values(meta):
             if _slug(value) not in slugs:
                 slugs.append(_slug(value))
@@ -853,9 +833,8 @@ def _playstyle_names(meta: dict) -> list[str]:
     return (meta.get("fabtcg") or {}).get("playstyles", [])
 
 
-def _hub_forms(page: str, data: dict) -> list[dict]:
-    """Each form on a multi-form page, oldest first, for hero-hub.js to pick from; ``[]`` for one form."""
-    forms = hero_forms(page, data)
+def _hub_forms(page: str, forms: list[tuple[re.Match, dict]]) -> list[dict]:
+    """Each of ``page``'s ``forms``, oldest first, for hero-hub.js to pick from; ``[]`` for one form."""
     if len(forms) < 2:
         return []
     return [
@@ -887,10 +866,11 @@ def render_hero_hub(content: str, pages: dict[str, str], data: dict) -> str:
     def annotate(m: re.Match) -> str:
         href = m.group(3)
         page = pages.get(href, "")
-        talents = " ".join(_page_slugs(page, data, lambda meta: meta["talents"]))
-        playstyles = " ".join(_page_slugs(page, data, _playstyle_names))
+        page_forms = hero_forms(page, data)
+        talents = " ".join(_page_slugs(page_forms, lambda meta: meta["talents"]))
+        playstyles = " ".join(_page_slugs(page_forms, _playstyle_names))
         attrs = f' data-talents="{talents}" data-playstyles="{playstyles}"'
-        forms = _hub_forms(page, data)
+        forms = _hub_forms(page, page_forms)
         if not forms:
             return f"{m.group(1)}{attrs}{m.group(2)}"
         close = content.find("</a>", m.end())
