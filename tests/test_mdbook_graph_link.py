@@ -34,6 +34,8 @@ from mdbook_graph_link import (
         ("browse.md", "graph.html#aria-region"),
         ("world-of-rathe/aria.md", "../graph.html#aria-region"),
         ("main-story/monarch/sworn-to-protect.md", "../../graph.html#aria-region"),
+        ("short-stories/README.md", "../graph.html#aria-region"),
+        ("main-story/monarch/index.md", "../../graph.html#aria-region"),
     ],
 )
 def test_backlink_climbs_to_the_book_root(chapter: str, expected: str) -> None:

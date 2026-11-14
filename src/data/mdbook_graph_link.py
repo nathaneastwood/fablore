@@ -48,7 +48,7 @@ if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
 from mdbook_common import RELATED_LORE_H1 as RELATED_HEADING  # noqa: E402
-from mdbook_common import iter_chapters, run  # noqa: E402
+from mdbook_common import iter_chapters, md_to_html_url, relative_href, run  # noqa: E402
 from mdbook_graph import build_graph, page_graph_targets  # noqa: E402
 from mdbook_story_meta import GRAPH_SLOT, RELATED_GRAPH_SLOT  # noqa: E402
 from mdbook_story_meta import MARK_END as STORY_META_END  # noqa: E402
@@ -76,9 +76,7 @@ def relative_graph_href(chapter_src_path: str, slug: str) -> str:
     mdBook renders each chapter at its own depth, so the link has to climb back
     to the book root rather than assume a flat layout.
     """
-    depth = len(Path(chapter_src_path).as_posix().split("/")) - 1
-    prefix = "../" * depth
-    return f"{prefix}graph.html#{slug}"
+    return f"{md_to_html_url(relative_href(Path(chapter_src_path).as_posix(), _GRAPH_SRC_PATH))}#{slug}"
 
 
 def build_link_html(chapter_src_path: str, node: dict) -> str:
