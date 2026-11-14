@@ -32,7 +32,7 @@ if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
 from hero_overrides import HERO_SLUG_LORE_FILE_OVERRIDES  # noqa: E402
-from mdbook_common import RELATED_LORE_H1, iter_chapters, read_rows, run  # noqa: E402
+from mdbook_common import RELATED_LORE_H1, SECTIONS, iter_chapters, read_rows, run  # noqa: E402
 from mdbook_common import relative_href as relative_md_href  # noqa: E402
 
 MARK_START = "<!-- fablore-related:start -->"
@@ -340,24 +340,10 @@ def build_character_stories_fragment(
     return "\n".join(parts)
 
 
-_STORY_TYPE_LABELS: dict[str, str] = {
-    "main-story": "Main Story",
-    "short-stories": "Short Story",
-    "summaries": "Summary",
-    "world-of-rathe": "World of Rathe",
-    "flavour": "Flavour Text",
-    "digital-tiles": "Digital Tile",
-}
+# Card labels for the story types that register stories; reference sections get no card.
+_STORY_TYPE_LABELS: dict[str, str] = {s.key: s.story_label for s in SECTIONS if s.narrative and s.entries_module}
 
-_STORY_TYPES_SKIP: frozenset[str] = frozenset(
-    {
-        "archive",
-        "heroes-of-rathe",
-        "other-characters",
-        "weapons",
-        "equipment",
-    }
-)
+_STORY_TYPES_SKIP: frozenset[str] = frozenset(s.key for s in SECTIONS if not s.narrative and s.entries_module)
 
 _CARD_GROUP_ORDER: tuple[str, ...] = (
     "Hero",

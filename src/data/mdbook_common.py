@@ -9,6 +9,7 @@ nothing installed. Holds:
   configured ``src`` directory (:func:`book_src_root`);
 * :func:`iter_chapters`, the pre-order walk over a book's chapters;
 * :func:`relative_href` between two ``src``-relative markdown paths;
+* the site-section registry (:data:`SECTIONS`) and :func:`chapter_path`;
 * the ``story-arcs.csv`` / ``sets.csv`` lookups the breadcrumb, hub, index and
   story-card preprocessors share;
 * the marker literals one preprocessor writes and another looks for.
@@ -20,6 +21,7 @@ import json
 import re
 import sys
 from collections.abc import Callable, Iterator
+from dataclasses import dataclass
 from datetime import datetime
 from functools import lru_cache
 from pathlib import Path
@@ -135,10 +137,24 @@ def md_to_html_url(md_path: str) -> str:
     key = md_path.strip()
     if not key.endswith(".md"):
         return key
-    head, sep, name = key.rpartition("/")
-    if name == "README.md":
-        name = "index.md"
-    return f"{head}{sep}{name[:-3]}.html"
+    return normalise_page_path(key)[:-3] + ".html"
+
+
+def normalise_page_path(path: str) -> str:
+    """A ``src``-relative markdown path in POSIX form with a ``README.md`` page as ``index.md``.
+
+    mdBook's index preprocessor renames every ``README.md`` chapter to
+    ``index.md`` before ours run, and links to it must use that name, so this
+    is the one spelling a page path is compared and linked under.
+    """
+    posix = Path(path).as_posix() if path else ""
+    head, sep, name = posix.rpartition("/")
+    return f"{head}{sep}index.md" if name == "README.md" else posix
+
+
+def chapter_path(ch: dict) -> str:
+    """A chapter's ``src``-relative path, normalised by :func:`normalise_page_path`; ``""`` when it has none."""
+    return normalise_page_path((ch.get("path") or "").strip())
 
 
 def read_rows(path: Path) -> list[dict[str, str]]:
@@ -154,6 +170,152 @@ def is_hero_about_page(path: str) -> bool:
     """True for a hero page, ``heroes-of-rathe/*-about.md``."""
     posix = Path(path).as_posix()
     return posix.startswith(_HERO_DIR) and posix.endswith(_ABOUT_SUFFIX)
+
+
+# ---------------------------------------------------------------------------
+# Site sections
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class Section:
+    """One top-level folder of the book and what every preprocessor needs to know about it.
+
+    ``key`` is both the folder under ``src/`` and the ``StoryType`` its pages
+    are registered with. Optional fields are ``None``/``False`` for a section
+    the feature does not cover.
+    """
+
+    key: str
+    #: The section's landing page, as the source file under ``src/`` (``README.md``, not ``index.md``).
+    hub: str | None = None
+    #: The section's name in breadcrumbs and on the Sets index; ``None`` gives its pages no breadcrumb.
+    label: str | None = None
+    #: One page's type on story cards (singular where ``label`` is plural); ``None`` for a
+    #: reference section, whose pages are reached through the entity they describe.
+    story_label: str | None = None
+    #: Pages group by story arc (set): ``<key>/<arc>/<page>.md``, or see ``arcs_in_filenames``.
+    has_arcs: bool = False
+    #: The arc is the page's filename stem (``flavour/monarch.md``), not a folder.
+    arcs_in_filenames: bool = False
+    #: Story cards show a word count and reading time.
+    word_count: bool = True
+    #: The ``entries/`` module that registers this section's stories; ``None`` when nothing is registered.
+    entries_module: str | None = None
+    #: How ``mdbook_child_hub`` draws the hub's child pages; ``None`` when it does not handle the hub.
+    child_cards: str | None = None
+    #: Pages besides the hub that get no breadcrumb (``fnmatch`` patterns).
+    no_breadcrumb: tuple[str, ...] = ()
+
+    @property
+    def prefix(self) -> str:
+        """The section's path prefix, ``<key>/``."""
+        return f"{self.key}/"
+
+    @property
+    def narrative(self) -> bool:
+        """True when its pages are stories rather than reference pages."""
+        return self.story_label is not None
+
+    @property
+    def hub_page(self) -> str | None:
+        """``hub`` as a chapter path (:func:`chapter_path` form), for matching and linking."""
+        return normalise_page_path(self.hub) if self.hub else None
+
+
+# Ordered as story types are listed to readers (Browse filters, graph inspector).
+SECTIONS: tuple[Section, ...] = (
+    Section(
+        "main-story",
+        hub="main-story/the-land-of-rathe.md",
+        label="Main Story",
+        story_label="Main Story",
+        has_arcs=True,
+        entries_module="main_story",
+        no_breadcrumb=("main-story/README.md",),
+    ),
+    Section(
+        "short-stories",
+        hub="short-stories/README.md",
+        label="Short Stories",
+        story_label="Short Story",
+        has_arcs=True,
+        entries_module="short_stories",
+    ),
+    Section(
+        "summaries",
+        hub="summaries/README.md",
+        label="Main Story Summaries",
+        story_label="Summary",
+        entries_module="summaries",
+    ),
+    Section(
+        "world-of-rathe",
+        hub="world-of-rathe/rathe.md",
+        label="World of Rathe",
+        story_label="World of Rathe",
+        word_count=False,
+        entries_module="world_of_rathe",
+    ),
+    Section(
+        "flavour",
+        hub="flavour/intro.md",
+        label="Flavour Text",
+        story_label="Flavour Text",
+        has_arcs=True,
+        arcs_in_filenames=True,
+        entries_module="flavour",
+    ),
+    Section(
+        "digital-tiles",
+        hub="digital-tiles/README.md",
+        label="Digital Tiles",
+        story_label="Digital Tile",
+        has_arcs=True,
+        entries_module="digital_tiles",
+    ),
+    Section("spoilers", hub="spoilers/README.md", story_label="Spoiler"),
+    Section("languages", hub="languages/intro.md", label="Languages", story_label="Language", child_cards="languages"),
+    Section("sets", hub="sets/README.md", story_label="Set"),
+    Section(
+        "heroes-of-rathe",
+        hub="heroes-of-rathe/heroes-of-rathe.md",
+        label="Heroes of Rathe",
+        word_count=False,
+        entries_module="heroes",
+        # Hero pages open with a full-width banner; a trail above it only crowds it.
+        no_breadcrumb=(
+            "heroes-of-rathe/professions-of-rathe.md",
+            "heroes-of-rathe/other.md",
+            "heroes-of-rathe/*-about.md",
+        ),
+    ),
+    Section(
+        "other-characters",
+        hub="other-characters/README.md",
+        label="Other Characters",
+        entries_module="other_characters",
+        child_cards="plain",
+    ),
+    Section(
+        "weapons",
+        hub="weapons/armed-to-the-teeth.md",
+        label="Weapons",
+        entries_module="weapons",
+        child_cards="weapons",
+    ),
+    Section(
+        "equipment",
+        hub="equipment/in-the-fires-of-the-forge.md",
+        label="Equipment",
+        entries_module="equipment",
+        child_cards="equipment",
+    ),
+    Section("archive", entries_module="archive"),
+    Section("data", hub="data/data.md", child_cards="plain"),
+)
+
+SECTION_BY_KEY: dict[str, Section] = {s.key: s for s in SECTIONS}
 
 
 # ---------------------------------------------------------------------------

@@ -21,12 +21,15 @@ if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
 from mdbook_common import (  # noqa: E402
+    SECTION_BY_KEY,
+    SECTIONS,
     arc_display_name,
     arc_id,
     arc_image,
     arc_raw_date,
     arc_release_date,
     replace_marked_block,
+    chapter_path,
     iter_chapters,
     load_arcs,
     load_sets,
@@ -37,27 +40,12 @@ from mdbook_common import (  # noqa: E402
 MARK_START = "<!-- fablore-set-index:start -->"
 MARK_END = "<!-- fablore-set-index:end -->"
 
-_INDEX_PAGES = frozenset({"sets/README.md", "sets/index.md"})
+_INDEX_PAGE = SECTION_BY_KEY["sets"].hub_page
 
-_HUB_SKIP = frozenset(
-    {
-        "sets/README.md",
-        "sets/index.md",
-        "flavour/intro.md",
-        "short-stories/README.md",
-        "short-stories/index.md",
-        "main-story/the-land-of-rathe.md",
-        "digital-tiles/README.md",
-        "digital-tiles/index.md",
-    }
-)
+# Hub pages are not stories, so they never appear under a set.
+_HUB_SKIP = frozenset({_INDEX_PAGE} | {s.hub_page for s in SECTIONS if s.has_arcs and s.hub_page})
 
-_SECTION_LABELS = {
-    "main-story": "Main Story",
-    "flavour": "Flavour Text",
-    "short-stories": "Short Stories",
-    "digital-tiles": "Digital Tiles",
-}
+_SECTION_LABELS = {s.key: s.label for s in SECTIONS if s.has_arcs}
 
 _SECTION_ORDER = ("main-story", "flavour", "short-stories", "digital-tiles")
 
@@ -74,10 +62,9 @@ def _collect(
     content: dict[str, OrderedDict[str, list[Chapter]]],
 ) -> None:
     for ch in iter_chapters(sections):
-        path_raw = (ch.get("path") or "").strip()
-        if not path_raw:
+        path = chapter_path(ch)
+        if not path:
             continue
-        path = Path(path_raw).as_posix()
         if path in _HUB_SKIP:
             continue
         parts = path.split("/")
@@ -193,9 +180,8 @@ def _inject_pages(
     sets: dict,
 ) -> None:
     for ch in iter_chapters(sections):
-        path_raw = (ch.get("path") or "").strip()
-        path = Path(path_raw).as_posix() if path_raw else ""
-        if path in _INDEX_PAGES:
+        path = chapter_path(ch)
+        if path == _INDEX_PAGE:
             inner = _set_index_html(path, content, arcs, sets)
             ch["content"] = _inject_index(ch.get("content") or "", inner)
 

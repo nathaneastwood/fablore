@@ -28,22 +28,14 @@ if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
 from card_name_slug import slugify_card_name_stem  # noqa: E402
-from mdbook_common import replace_marked_block, iter_chapters, relative_href, run  # noqa: E402
+from mdbook_common import SECTIONS, chapter_path, iter_chapters, relative_href, replace_marked_block, run  # noqa: E402
 from pipe_csv_io import read_pipe_csv  # noqa: E402
 
 MARK_START = "<!-- fablore-child-hub:start -->"
 MARK_END = "<!-- fablore-child-hub:end -->"
 
-# Hub pages this preprocessor handles, keyed by src-relative path.
-# mdBook rewrites README.md → index.md in the chapter path field, so both forms are listed.
-_HUB_PAGES = {
-    "weapons/armed-to-the-teeth.md": "weapons",
-    "equipment/in-the-fires-of-the-forge.md": "equipment",
-    "languages/intro.md": "languages",
-    "other-characters/README.md": "plain",
-    "other-characters/index.md": "plain",
-    "data/data.md": "plain",
-}
+# Hub pages this preprocessor handles, keyed by chapter path, with the card style for their children.
+_HUB_PAGES = {s.hub_page: s.child_cards for s in SECTIONS if s.child_cards and s.hub_page}
 
 _IMG_SRC_RE = re.compile(r'<img\b[^>]*\bsrc="([^"]+)"', re.IGNORECASE)
 
@@ -58,10 +50,9 @@ Chapter = dict  # {"name": str, "path": str}
 def _collect(sections: list, hub_children: dict[str, list[Chapter]]) -> None:
     """Walk book sections; for each hub page, record its direct sub_items."""
     for ch in iter_chapters(sections):
-        path_raw = (ch.get("path") or "").strip()
-        if not path_raw:
+        path = chapter_path(ch)
+        if not path:
             continue
-        path = Path(path_raw).as_posix()
         if path not in _HUB_PAGES:
             continue
         children: list[Chapter] = []
@@ -282,10 +273,9 @@ def _inject_hubs(
     image_lookups: dict[str, dict[str, str]],
 ) -> None:
     for ch in iter_chapters(sections):
-        path_raw = (ch.get("path") or "").strip()
-        if not path_raw:
+        path = chapter_path(ch)
+        if not path:
             continue
-        path = Path(path_raw).as_posix()
         hub_type = _HUB_PAGES.get(path)
         if hub_type:
             image_by_slug = image_lookups.get(hub_type, {})

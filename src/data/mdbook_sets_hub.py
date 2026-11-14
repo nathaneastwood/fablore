@@ -25,11 +25,13 @@ if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
 from mdbook_common import (  # noqa: E402
+    SECTIONS,
     arc_display_name,
     arc_id,
     arc_image,
     arc_raw_date,
     arc_release_date,
+    chapter_path,
     replace_marked_block,
     iter_chapters,
     load_arcs,
@@ -41,16 +43,8 @@ from mdbook_common import (  # noqa: E402
 MARK_START = "<!-- fablore-sets-hub:start -->"
 MARK_END = "<!-- fablore-sets-hub:end -->"
 
-# Hub pages this preprocessor handles, keyed by src-relative path.
-# mdBook rewrites README.md → index.md in the chapter path field, so both forms are listed.
-_HUB_PAGES = {
-    "flavour/intro.md": "flavour",
-    "short-stories/README.md": "short-stories",
-    "short-stories/index.md": "short-stories",
-    "main-story/the-land-of-rathe.md": "main-story",
-    "digital-tiles/README.md": "digital-tiles",
-    "digital-tiles/index.md": "digital-tiles",
-}
+# Hub pages this preprocessor handles, keyed by chapter path: every arc section's hub.
+_HUB_PAGES = {s.hub_page: s.key for s in SECTIONS if s.has_arcs and s.hub_page}
 
 # Hub pages themselves should not appear in the arc story lists.
 _HUB_SKIP = frozenset(_HUB_PAGES)
@@ -76,10 +70,9 @@ def _collect(
 ) -> None:
     """Walk book sections and bucket chapters into flavour / main-story / short-stories."""
     for ch in iter_chapters(sections):
-        path_raw = (ch.get("path") or "").strip()
-        if not path_raw:
+        path = chapter_path(ch)
+        if not path:
             continue
-        path = Path(path_raw).as_posix()
         if path in _HUB_SKIP:
             continue
         parts = path.split("/")
@@ -243,10 +236,9 @@ def _inject_hubs(
     sets: dict,
 ) -> None:
     for ch in iter_chapters(sections):
-        path_raw = (ch.get("path") or "").strip()
-        if not path_raw:
+        path = chapter_path(ch)
+        if not path:
             continue
-        path = Path(path_raw).as_posix()
         hub_type = _HUB_PAGES.get(path)
         if hub_type:
             if hub_type == "flavour":

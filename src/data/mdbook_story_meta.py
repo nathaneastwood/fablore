@@ -41,7 +41,14 @@ if str(_SCRIPT_DIR) not in sys.path:
 
 from mdbook_common import HERO_BANNER_END, iter_chapters, long_date, md_to_html_url, run  # noqa: E402
 from mdbook_common import RELATED_LORE_H1 as RELATED_HEADING  # noqa: E402
-from mdbook_common import arc_display_name, load_arcs, load_sets, relative_href  # noqa: E402
+from mdbook_common import (
+    SECTIONS,
+    arc_display_name,
+    load_arcs,
+    load_sets,
+    normalise_page_path,
+    relative_href,
+)  # noqa: E402
 from mdbook_common import is_hero_about_page as _is_hero_about_page  # noqa: E402
 from mdbook_common import story_meta_item as _item  # noqa: E402
 from mdbook_related import resolve_hero_src_path  # noqa: E402
@@ -65,14 +72,16 @@ _REFERENCE_META_RE = re.compile(
 )
 
 # Sections whose chapters live in arc folders (``<section>/<arc>/<story>.md``).
-_ARC_SECTIONS = ("main-story", "short-stories")
-_ARC_HUB_FILES = {"index.md", "README.md"}
+# Digital tiles live in arc folders too but have never carried a position.
+_ARC_SECTIONS = frozenset(
+    s.key for s in SECTIONS if s.has_arcs and not s.arcs_in_filenames and s.key != "digital-tiles"
+)
 # Beyond this many heroes the context row names the most-mentioned and counts the rest.
 _MAX_CARD_HEROES = 3
 
 _WORDS_PER_MINUTE = 250
 _MIN_WORDS_FOR_READTIME = 50
-_NO_WORDCOUNT_TYPES = {"world-of-rathe", "heroes-of-rathe"}
+_NO_WORDCOUNT_TYPES = frozenset(s.key for s in SECTIONS if not s.word_count)
 
 # Inline SVG for BlueSky (Font Awesome 4 has no BlueSky icon)
 _BLUESKY_SVG = (
@@ -369,8 +378,8 @@ def _load_story_heroes(data_dir: Path, src_root: Path) -> dict[str, list[tuple[s
 
 def _arc_of(path: str) -> str | None:
     """Return the arc slug for a story chapter path, or ``None`` for anything else."""
-    parts = path.split("/")
-    if len(parts) == 3 and parts[0] in _ARC_SECTIONS and parts[2] not in _ARC_HUB_FILES:
+    parts = normalise_page_path(path).split("/")
+    if len(parts) == 3 and parts[0] in _ARC_SECTIONS and parts[2] != "index.md":
         return parts[1]
     return None
 

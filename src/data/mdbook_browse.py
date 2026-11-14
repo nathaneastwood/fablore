@@ -21,31 +21,18 @@ if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
 from generator_utils import write_text_if_changed  # noqa: E402
-from mdbook_common import iter_chapters, md_to_html_url, read_rows, replace_marked_block, run  # noqa: E402
+from mdbook_common import SECTIONS, iter_chapters, md_to_html_url, read_rows, replace_marked_block, run  # noqa: E402
 
 MARK_START = "<!-- fablore-browse:start -->"
 MARK_END = "<!-- fablore-browse:end -->"
 
 _BROWSE_SRC_PATH = "browse.md"
 
-_TYPE_LABELS: dict[str, str] = {
-    "main-story": "Main Story",
-    "short-stories": "Short Story",
-    "summaries": "Summary",
-    "world-of-rathe": "World of Rathe",
-    "flavour": "Flavour Text",
-    "digital-tiles": "Digital Tile",
-}
+# Story types a reader can filter by: the narrative sections that register stories.
+_TYPE_LABELS: dict[str, str] = {s.key: s.story_label for s in SECTIONS if s.narrative and s.entries_module}
 
-_SKIP_TYPES: frozenset[str] = frozenset(
-    {
-        "archive",
-        "heroes-of-rathe",
-        "other-characters",
-        "weapons",
-        "equipment",
-    }
-)
+# Reference sections: their pages are reached through the entity they describe.
+_SKIP_TYPES: frozenset[str] = frozenset(s.key for s in SECTIONS if not s.narrative and s.entries_module)
 
 
 def build_index(data_dir: Path, rendered: set[str] | None = None) -> dict:

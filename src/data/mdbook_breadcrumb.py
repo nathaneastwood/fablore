@@ -20,98 +20,34 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from mdbook_common import arc_display_name, iter_chapters, load_arcs, load_sets, relative_href, run  # noqa: E402
+from mdbook_common import (  # noqa: E402
+    SECTIONS,
+    arc_display_name,
+    chapter_path,
+    iter_chapters,
+    load_arcs,
+    load_sets,
+    normalise_page_path,
+    relative_href,
+    run,
+)
 
 MARK_START = "<!-- fablore-breadcrumb:start -->"
 MARK_END = "<!-- fablore-breadcrumb:end -->"
 
-# (path_prefix, section_label, hub_src_path, has_arc_subfolders, skip_paths)
-# A skip_paths entry may be a glob (fnmatch), e.g. every hero page.
-_SECTIONS = [
+# (path_prefix, section_label, hub_page, has_arc_subfolders, skip_paths), one per
+# section with a label. A skip_paths entry may be a glob (fnmatch), e.g. every hero page.
+_TRAILS: tuple[tuple[str, str, str, bool, frozenset[str]], ...] = tuple(
     (
-        "main-story/",
-        "Main Story",
-        "main-story/the-land-of-rathe.md",
-        True,
-        {"main-story/the-land-of-rathe.md", "main-story/README.md"},
-    ),
-    (
-        "short-stories/",
-        "Short Stories",
-        "short-stories/index.md",
-        True,
-        {"short-stories/README.md", "short-stories/index.md"},
-    ),
-    (
-        "flavour/",
-        "Flavour Text",
-        "flavour/intro.md",
-        False,
-        {"flavour/intro.md"},
-    ),
-    (
-        "heroes-of-rathe/",
-        "Heroes of Rathe",
-        "heroes-of-rathe/heroes-of-rathe.md",
-        False,
-        {
-            "heroes-of-rathe/heroes-of-rathe.md",
-            "heroes-of-rathe/professions-of-rathe.md",
-            "heroes-of-rathe/other.md",
-            # Hero pages open with a full-width banner; a trail above it only crowds it.
-            "heroes-of-rathe/*-about.md",
-        },
-    ),
-    (
-        "world-of-rathe/",
-        "World of Rathe",
-        "world-of-rathe/rathe.md",
-        False,
-        {"world-of-rathe/rathe.md"},
-    ),
-    (
-        "weapons/",
-        "Weapons",
-        "weapons/armed-to-the-teeth.md",
-        False,
-        {"weapons/armed-to-the-teeth.md"},
-    ),
-    (
-        "equipment/",
-        "Equipment",
-        "equipment/in-the-fires-of-the-forge.md",
-        False,
-        {"equipment/in-the-fires-of-the-forge.md"},
-    ),
-    (
-        "languages/",
-        "Languages",
-        "languages/intro.md",
-        False,
-        {"languages/intro.md"},
-    ),
-    (
-        "other-characters/",
-        "Other Characters",
-        "other-characters/index.md",
-        False,
-        {"other-characters/README.md", "other-characters/index.md"},
-    ),
-    (
-        "summaries/",
-        "Main Story Summaries",
-        "summaries/index.md",
-        False,
-        {"summaries/README.md", "summaries/index.md"},
-    ),
-    (
-        "digital-tiles/",
-        "Digital Tiles",
-        "digital-tiles/index.md",
-        True,
-        {"digital-tiles/README.md", "digital-tiles/index.md"},
-    ),
-]
+        s.prefix,
+        s.label,
+        s.hub_page,
+        s.has_arcs and not s.arcs_in_filenames,
+        frozenset({s.hub_page, *(normalise_page_path(p) for p in s.no_breadcrumb)}),
+    )
+    for s in SECTIONS
+    if s.label and s.hub_page
+)
 
 
 def _build_breadcrumb(items: list[tuple[str | None, str]]) -> str:
@@ -151,12 +87,11 @@ def _process_chapter(
     arcs: dict[str, dict],
     sets: dict[str, dict],
 ) -> None:
-    path_raw = (ch.get("path") or "").strip()
-    if not path_raw:
+    path = chapter_path(ch)
+    if not path:
         return
-    path = Path(path_raw).as_posix()
 
-    for prefix, label, hub_src, has_arc, skip_set in _SECTIONS:
+    for prefix, label, hub_src, has_arc, skip_set in _TRAILS:
         if not path.startswith(prefix):
             continue
         if any(fnmatch.fnmatchcase(path, pattern) for pattern in skip_set):

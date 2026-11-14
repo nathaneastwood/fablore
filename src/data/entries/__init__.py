@@ -24,25 +24,17 @@ Run them with ``python3 src/data/data-entry.py`` (see that file for the
 preview-then-commit workflow). Nothing here imports the section modules, so
 importing this package is free of side effects — only the runner executes them.
 
-Adding a story type means adding a module and a ``SECTIONS`` row: the mapping
-is one module per ``story_type``, and ``tests/test_data_entry.py`` enforces
-that every declaration lives in the module its path implies.
+Adding a story type means adding a module and setting ``entries_module`` on its
+row of ``mdbook_common.SECTIONS``: the mapping is one module per ``story_type``,
+and ``tests/test_data_entry.py`` enforces that every declaration lives in the
+module its path implies.
 """
 
 from __future__ import annotations
 
-# module name -> the story_type every declaration in it must carry. Ordered as
-# the runner executes them.
-SECTIONS: dict[str, str] = {
-    "heroes": "heroes-of-rathe",
-    "main_story": "main-story",
-    "short_stories": "short-stories",
-    "other_characters": "other-characters",
-    "summaries": "summaries",
-    "flavour": "flavour",
-    "digital_tiles": "digital-tiles",
-    "world_of_rathe": "world-of-rathe",
-    "archive": "archive",
-    "equipment": "equipment",
-    "weapons": "weapons",
-}
+from mdbook_common import SECTIONS as _SITE_SECTIONS
+
+# module name -> the story_type every declaration in it must carry, read off the
+# site-section registry. The runner executes them in this order; ids are hashes,
+# so the order changes only the order of the preview.
+SECTIONS: dict[str, str] = {s.entries_module: s.key for s in _SITE_SECTIONS if s.entries_module}

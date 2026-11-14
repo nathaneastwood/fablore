@@ -33,25 +33,15 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
+from mdbook_common import SECTIONS  # noqa: E402
 from registry_ids import story_id as _story_id
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "src"
 DATA = ROOT / "src/data"
 
-STORY_ROOTS = (
-    "archive",
-    "digital-tiles",
-    "flavour",
-    "equipment",
-    "heroes-of-rathe",
-    "main-story",
-    "other-characters",
-    "short-stories",
-    "summaries",
-    "weapons",
-    "world-of-rathe",
-)
+# Every section that registers stories (one ``entries/`` module each).
+STORY_ROOTS = tuple(s.key for s in SECTIONS if s.entries_module)
 
 _H1_LINE = re.compile(r"^\s*#\s+(.+?)\s*$")
 

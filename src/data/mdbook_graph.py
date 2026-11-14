@@ -37,7 +37,7 @@ if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
 from card_name_slug import slugify_card_name_stem  # noqa: E402
-from mdbook_common import replace_marked_block, iter_chapters, read_rows, run  # noqa: E402
+from mdbook_common import SECTION_BY_KEY, SECTIONS, iter_chapters, read_rows, replace_marked_block, run  # noqa: E402
 from mdbook_common import md_to_html_url as _html_url  # noqa: E402
 from mdbook_related import resolve_hero_src_path  # noqa: E402
 
@@ -48,21 +48,13 @@ _GRAPH_SRC_PATH = "graph.md"
 
 # Story types that are reference pages rather than narrative, or superseded.
 # Their pages are reachable through the entity node that represents them.
-_SKIP_STORY_TYPES: frozenset[str] = frozenset(
-    {
-        "archive",
-        "heroes-of-rathe",
-        "other-characters",
-        "weapons",
-        "equipment",
-    }
-)
+_SKIP_STORY_TYPES: frozenset[str] = frozenset(s.key for s in SECTIONS if not s.narrative and s.entries_module)
 
 # Sets have no page of their own; the sets hub carries an anchor per arc slug.
-_SETS_HUB_URL = "sets/index.html"
+_SETS_HUB_URL = _html_url(SECTION_BY_KEY["sets"].hub)
 
 # Folder-per-arc sections. `flavour/` names its arc in the filename instead.
-_ARC_FOLDER_SECTIONS: frozenset[str] = frozenset({"main-story", "short-stories", "digital-tiles"})
+_ARC_FOLDER_SECTIONS: frozenset[str] = frozenset(s.key for s in SECTIONS if s.has_arcs and not s.arcs_in_filenames)
 
 # Fine-grained node kind -> (display label, colour group, mark shape).
 # Groups are capped at four hues plus a neutral. A force layout puts arbitrary
@@ -108,17 +100,8 @@ _KINDS: dict[str, tuple[str, str, str]] = {
 _DEFAULT_ON_KINDS: frozenset[str] = frozenset({"set", "story", "hero", "region"})
 _DEFAULT_MIN_DEGREE = 4
 
-_STORY_TYPE_LABELS: dict[str, str] = {
-    "main-story": "Main Story",
-    "short-stories": "Short Story",
-    "summaries": "Summary",
-    "world-of-rathe": "World of Rathe",
-    "flavour": "Flavour Text",
-    "digital-tiles": "Digital Tile",
-    "spoilers": "Spoiler",
-    "languages": "Language",
-    "sets": "Set",
-}
+# Every narrative section, in reading order; the inspector panel orders story groups by it.
+_STORY_TYPE_LABELS: dict[str, str] = {s.key: s.story_label for s in SECTIONS if s.narrative}
 
 
 def resolve_hero_url(src_root: Path, canonical_slug: str) -> str:
