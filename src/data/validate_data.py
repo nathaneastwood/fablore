@@ -1251,6 +1251,31 @@ def collect_alerts() -> list[str]:
                 "Equipment printings",
             ),
             ("story-fauna.csv", "FaunaId", "fauna.csv", "FaunaId", "Story ↔ fauna links"),
+            # The remaining story junctions. Each column has a REFERENCES clause,
+            # so an orphan id passed validation and then failed every fresh seed
+            # with an IntegrityError instead of raising an alert here.
+            ("story-locations.csv", "LocationId", "locations.csv", "LocationId", "Story ↔ location links"),
+            ("story-monsters.csv", "MonsterId", "monsters.csv", "MonsterId", "Story ↔ monster links"),
+            ("story-flora.csv", "FloraId", "flora.csv", "FloraId", "Story ↔ flora links"),
+            ("story-food-drink.csv", "FoodDrinkId", "food-and-drink.csv", "FoodDrinkId", "Story ↔ food/drink links"),
+            # StoryId, the other half of every story junction. A story removed or
+            # moved by hand (see rules/story-arcs.md) leaves rows naming it.
+            *(
+                (junction, "StoryId", "stories.csv", "StoryId", label)
+                for junction, label in (
+                    ("story-characters.csv", "Story ↔ character links"),
+                    ("story-locations.csv", "Story ↔ location links"),
+                    ("story-regions.csv", "Story ↔ region links"),
+                    ("story-monsters.csv", "Story ↔ monster links"),
+                    ("story-fauna.csv", "Story ↔ fauna links"),
+                    ("story-flora.csv", "Story ↔ flora links"),
+                    ("story-food-drink.csv", "Story ↔ food/drink links"),
+                    ("story-weapons.csv", "Story ↔ weapon links"),
+                    ("story-equipment.csv", "Story ↔ equipment links"),
+                    ("story-groups.csv", "Story ↔ group links"),
+                    ("story-titles.csv", "Story ↔ title links"),
+                )
+            ),
         )
     )
     locations_path = DATA / "csv/locations.csv"

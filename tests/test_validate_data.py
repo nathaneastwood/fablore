@@ -14,6 +14,64 @@ def test_collect_alerts_empty_when_repository_consistent() -> None:
     assert validate_data.collect_alerts() == []
 
 
+_STORY_JUNCTION_ENTITY_COLUMNS = {
+    "story-characters.csv": "CharacterId",
+    "story-equipment.csv": "CanonicalEquipmentId",
+    "story-fauna.csv": "FaunaId",
+    "story-flora.csv": "FloraId",
+    "story-food-drink.csv": "FoodDrinkId",
+    "story-groups.csv": "GroupId",
+    "story-locations.csv": "LocationId",
+    "story-monsters.csv": "MonsterId",
+    "story-regions.csv": "RegionId",
+    "story-titles.csv": "TitleId",
+    "story-weapons.csv": "CanonicalWeaponId",
+}
+
+
+def _copy_csvs_with_orphan_rows(tmp_path: Path, monkeypatch, row_for) -> Path:
+    """Copy the committed CSVs, append one row per story junction, point validate_data at the copy."""
+    import shutil
+
+    data = tmp_path / "data"
+    shutil.copytree(validate_data.DATA / "csv", data / "csv")
+    for name in _STORY_JUNCTION_ENTITY_COLUMNS:
+        path = data / "csv" / name
+        header, rows = validate_data.read_pipe_csv(path)
+        with path.open("a", encoding="utf-8") as fh:
+            fh.write("|".join(row_for(name, header, rows[0]).get(c, "") for c in header) + "\n")
+    monkeypatch.setattr(validate_data, "DATA", data)
+    return data
+
+
+def test_every_story_junction_entity_id_is_fk_checked(tmp_path: Path, monkeypatch) -> None:
+    """An entity id no registry holds is an alert, not a seed-time IntegrityError.
+
+    story-locations, story-monsters, story-flora and story-food-drink had no
+    check, so a stale id passed validation and then failed every fresh seed.
+    """
+
+    def row_for(name, header, real):
+        return {**real, _STORY_JUNCTION_ENTITY_COLUMNS[name]: "ZZorphan0000"}
+
+    _copy_csvs_with_orphan_rows(tmp_path, monkeypatch, row_for)
+    alerts = "\n".join(validate_data.collect_alerts())
+    unchecked = [n for n in _STORY_JUNCTION_ENTITY_COLUMNS if not re.search(rf"{re.escape(n)}.*ZZorphan0000", alerts)]
+    assert unchecked == []
+
+
+def test_every_story_junction_story_id_is_fk_checked(tmp_path: Path, monkeypatch) -> None:
+    """A StoryId stories.csv does not hold is an alert in every story junction."""
+
+    def row_for(name, header, real):
+        return {**real, "StoryId": "STorphan0000"}
+
+    _copy_csvs_with_orphan_rows(tmp_path, monkeypatch, row_for)
+    alerts = "\n".join(validate_data.collect_alerts())
+    unchecked = [n for n in _STORY_JUNCTION_ENTITY_COLUMNS if not re.search(rf"{re.escape(n)}.*STorphan0000", alerts)]
+    assert unchecked == []
+
+
 def test_check_location_lore_fragments_rejects_unsafe_ids(tmp_path: Path) -> None:
     """``LoreFragment`` must look like an HTML ``id`` fragment."""
     loc = tmp_path / "locations.csv"
