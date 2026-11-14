@@ -28,7 +28,15 @@ if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
 from card_name_slug import slugify_card_name_stem  # noqa: E402
-from mdbook_common import SECTIONS, chapter_path, iter_chapters, relative_href, replace_marked_block, run  # noqa: E402
+from mdbook_common import (  # noqa: E402
+    SECTIONS,
+    chapter_path,
+    iter_chapters,
+    load_sets,
+    relative_href,
+    replace_marked_block,
+    run,
+)
 from pipe_csv_io import read_pipe_csv  # noqa: E402
 
 MARK_START = "<!-- fablore-child-hub:start -->"
@@ -77,11 +85,6 @@ def _collect(sections: list, hub_children: dict[str, list[Chapter]]) -> None:
 # ---------------------------------------------------------------------------
 
 
-def _load_set_release_dates(data_dir: Path) -> dict[str, str]:
-    _, sets_rows = read_pipe_csv(data_dir / "csv" / "sets.csv")
-    return {row["SetId"]: row.get("InitialReleaseDate", "").strip() for row in sets_rows if row.get("SetId")}
-
-
 def _load_card_image_lookup(data_dir: Path, kind: str) -> dict[str, str]:
     """Build slug → ImageURL lookup for the earliest-release printing of each card.
 
@@ -113,7 +116,7 @@ def _load_card_image_lookup(data_dir: Path, kind: str) -> dict[str, str]:
     _, canonical_rows = read_pipe_csv(canonical_path)
     _, game_rows = read_pipe_csv(game_path)
     _, printings_rows = read_pipe_csv(printings_path)
-    release_by_set_id = _load_set_release_dates(data_dir)
+    release_by_set_id = {sid: (r.get("InitialReleaseDate") or "").strip() for sid, r in load_sets(data_dir).items()}
 
     slug_by_canonical_id = {
         row[canonical_id_field]: row["CanonicalSlug"]

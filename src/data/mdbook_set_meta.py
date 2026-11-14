@@ -25,9 +25,17 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from mdbook_common import SECTION_BY_KEY, arc_of, format_date, iter_chapters, run  # noqa: E402
+from mdbook_common import (  # noqa: E402
+    SECTION_BY_KEY,
+    arc_of,
+    entity_names,
+    format_date,
+    iter_chapters,
+    load_arcs,
+    load_sets,
+    run,
+)
 from mdbook_common import story_meta_item as _item  # noqa: E402
-from pipe_csv_io import read_pipe_csv  # noqa: E402
 
 MARK_START = "<!-- fablore-set-meta:start -->"
 MARK_END = "<!-- fablore-set-meta:end -->"
@@ -45,26 +53,13 @@ _HUBS = frozenset(SECTION_BY_KEY[key].hub_page for key in _CARD_SECTIONS)
 
 def _load_meta(data_dir: Path) -> dict[str, dict]:
     """Return a map from arc slug → set metadata dict."""
-    _, arcs_rows = read_pipe_csv(data_dir / "csv" / "story-arcs.csv")
-    _, sets_rows = read_pipe_csv(data_dir / "csv" / "sets.csv")
-    _, set_types_rows = read_pipe_csv(data_dir / "csv" / "set-types.csv")
-
-    sets_by_id: dict[str, dict] = {
-        (r.get("SetId") or "").strip(): r for r in sets_rows if (r.get("SetId") or "").strip()
-    }
-    set_type_by_id: dict[str, str] = {
-        (r.get("SetTypeId") or "").strip(): (r.get("SetType") or "").strip()
-        for r in set_types_rows
-        if (r.get("SetTypeId") or "").strip()
-    }
+    sets_by_id = load_sets(data_dir)
+    set_type_by_id = entity_names(data_dir / "csv" / "set-types.csv", "SetTypeId", "SetType")
 
     result: dict[str, dict] = {}
-    for row in arcs_rows:
-        slug = (row.get("Slug") or "").strip()
+    for slug, row in load_arcs(data_dir).items():
         set_id = (row.get("SetId") or "").strip()
-        if not slug:
-            continue
-        if not set_id or set_id not in sets_by_id:
+        if set_id not in sets_by_id:
             continue
         s = sets_by_id[set_id]
         type_id = (s.get("SetTypeId") or "").strip()

@@ -13,6 +13,8 @@ nothing installed. Holds:
   :func:`arc_of` (which arc a page is in);
 * the ``story-arcs.csv`` / ``sets.csv`` lookups the breadcrumb, hub, index and
   story-card preprocessors share;
+* :func:`entity_names` for simple registries and :func:`load_story_heroes`, the
+  one story → character → canonical hero join;
 * the marker literals one preprocessor writes and another looks for.
 """
 
@@ -438,3 +440,97 @@ def arc_id(slug: str) -> str:
     """Derive an HTML anchor ID from an arc slug."""
     name = re.sub(r"^\d+-", "", slug)
     return re.sub(r"[^a-z0-9-]", "-", name.lower()).strip("-")
+
+
+# ---------------------------------------------------------------------------
+# Registries and the story→hero join
+# ---------------------------------------------------------------------------
+
+
+def entity_names(path: Path, id_col: str, name_col: str) -> dict[str, str]:
+    """``{id: name}`` for a simple registry CSV; rows with a blank id or name are skipped."""
+    out: dict[str, str] = {}
+    for r in read_rows(path):
+        eid = (r.get(id_col) or "").strip()
+        name = (r.get(name_col) or "").strip()
+        if eid and name:
+            out[eid] = name
+    return out
+
+
+@dataclass(frozen=True)
+class StoryHeroes:
+    """The ``story-characters.csv`` junction and which of its characters are heroes.
+
+    Every id is stripped and rows with a blank id are skipped.
+    """
+
+    #: ``CharacterId`` → ``CanonicalId``, for each character with a ``character-heroes.csv`` row.
+    character_to_canonical: dict[str, str]
+    #: ``CanonicalId`` → its one ``CharacterId`` (``canonical_id`` is the table's primary key).
+    canonical_to_character: dict[str, str]
+    #: ``StoryId`` → the canonical heroes it features, in junction row order, each once.
+    story_heroes: dict[str, tuple[str, ...]]
+    #: ``CanonicalId`` → the stories that feature its character.
+    hero_stories: dict[str, frozenset[str]]
+    #: ``StoryId`` → every ``CharacterId`` it links, hero or not.
+    story_characters: dict[str, frozenset[str]]
+    #: ``CharacterId`` → the stories that link it.
+    character_stories: dict[str, frozenset[str]]
+    #: ``(StoryId, CharacterId)`` → the junction's non-blank ``Fragment``.
+    fragments: dict[tuple[str, str], str]
+
+
+def load_story_heroes(data_dir: Path) -> StoryHeroes:
+    """Join ``story-characters.csv`` → ``character-heroes.csv`` (→ ``CanonicalId``).
+
+    Migration 17 merged ``story_npcs`` and ``story_heroes`` into one
+    ``story_characters`` junction keyed on ``character_id``: every
+    ``characters=`` link, hero slug or ``CharacterEntry``, writes a row there.
+    A hero is not a separate kind of thing, it is a character with a
+    ``character-heroes.csv`` row, so a junction row is a "hero" link only when
+    its character has one. Keying on ``character_id`` is also what makes a
+    person declared both ways one entity, not two. The ``CanonicalId`` this
+    yields is the key into ``heroes-canonical.csv``.
+    """
+    csv_dir = data_dir / "csv"
+    char_to_canon: dict[str, str] = {}
+    canon_to_char: dict[str, str] = {}
+    for r in read_rows(csv_dir / "character-heroes.csv"):
+        canon_id = (r.get("CanonicalId") or "").strip()
+        char_id = (r.get("CharacterId") or "").strip()
+        if canon_id and char_id:
+            char_to_canon[char_id] = canon_id
+            canon_to_char[canon_id] = char_id
+
+    story_chars: dict[str, set[str]] = {}
+    char_stories: dict[str, set[str]] = {}
+    story_heroes: dict[str, list[str]] = {}
+    fragments: dict[tuple[str, str], str] = {}
+    for r in read_rows(csv_dir / "story-characters.csv"):
+        sid = (r.get("StoryId") or "").strip()
+        cid = (r.get("CharacterId") or "").strip()
+        if not sid or not cid:
+            continue
+        story_chars.setdefault(sid, set()).add(cid)
+        char_stories.setdefault(cid, set()).add(sid)
+        frag = (r.get("Fragment") or "").strip()
+        if frag:
+            fragments[(sid, cid)] = frag
+        canon_id = char_to_canon.get(cid)
+        if canon_id is not None and canon_id not in story_heroes.setdefault(sid, []):
+            story_heroes[sid].append(canon_id)
+
+    return StoryHeroes(
+        character_to_canonical=char_to_canon,
+        canonical_to_character=canon_to_char,
+        story_heroes={sid: tuple(ids) for sid, ids in story_heroes.items() if ids},
+        hero_stories={
+            canon_id: frozenset(char_stories[char_id])
+            for canon_id, char_id in canon_to_char.items()
+            if char_id in char_stories
+        },
+        story_characters={sid: frozenset(ids) for sid, ids in story_chars.items()},
+        character_stories={cid: frozenset(ids) for cid, ids in char_stories.items()},
+        fragments=fragments,
+    )

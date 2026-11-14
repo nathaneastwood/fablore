@@ -40,8 +40,13 @@ from card_name_slug import slugify_card_name_stem  # noqa: E402
 from mdbook_common import (
     SECTION_BY_KEY,
     SECTIONS,
+    arc_display_name,
     arc_of,
+    entity_names,
     iter_chapters,
+    load_arcs,
+    load_sets,
+    load_story_heroes,
     read_rows,
     replace_marked_block,
     run,
@@ -149,23 +154,12 @@ def load_sets_by_arc(data_dir: Path) -> dict[str, str]:
     folders, not sets, so they get no node. ``DisplayName`` overrides the
     upstream ``SetName`` when it is set, matching the breadcrumbs and hub pages.
     """
-    csv_dir = data_dir / "csv"
-    set_names: dict[str, str] = {}
-    for r in read_rows(csv_dir / "sets.csv"):
-        sid = (r.get("SetId") or "").strip()
-        name = (r.get("SetName") or "").strip()
-        if sid and name:
-            set_names[sid] = name
-
-    by_arc: dict[str, str] = {}
-    for r in read_rows(csv_dir / "story-arcs.csv"):
-        slug = (r.get("Slug") or "").strip()
-        set_id = (r.get("SetId") or "").strip()
-        display = (r.get("DisplayName") or "").strip()
-        if not slug or set_id not in set_names:
-            continue
-        by_arc[slug] = display or set_names[set_id]
-    return by_arc
+    arcs, sets = load_arcs(data_dir), load_sets(data_dir)
+    return {
+        slug: arc_display_name(slug, arcs, sets)
+        for slug, arc in arcs.items()
+        if (sets.get(arc.get("SetId") or "", {}).get("SetName") or "").strip()
+    }
 
 
 # Every card type that records which set it was printed in. Each needs three
@@ -271,17 +265,6 @@ class _Builder:
             self.edges.add((a, b) if a < b else (b, a))
 
 
-def _entity_names(path: Path, id_col: str, name_col: str) -> dict[str, str]:
-    """Return ``{id: name}`` for a simple registry CSV."""
-    out: dict[str, str] = {}
-    for r in read_rows(path):
-        eid = (r.get(id_col) or "").strip()
-        name = (r.get(name_col) or "").strip()
-        if eid and name:
-            out[eid] = name
-    return out
-
-
 def build_graph(data_dir: Path, src_root: Path) -> dict:
     """Build the graph payload from the committed junction CSVs.
 
@@ -362,18 +345,7 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
         if cid and slug:
             heroes[cid] = (name or slug, slug)
 
-    # character_id -> canonical_id (migration 17's identity spine). This is
-    # what makes a hero and an ordinary character draw as one node: story-characters.csv
-    # keys every link on character_id regardless of which side declared it,
-    # so as long as the node id used below is always character_id, the same
-    # person can never mint two nodes the way story-heroes.csv (keyed on
-    # canonical_id) and story-npcs.csv (keyed on character_id) used to.
-    char_to_canon: dict[str, str] = {}
-    for r in read_rows(csv_dir / "character-heroes.csv"):
-        canon_id = (r.get("CanonicalId") or "").strip()
-        char_id = (r.get("CharacterId") or "").strip()
-        if canon_id and char_id:
-            char_to_canon[char_id] = canon_id
+    char_to_canon = load_story_heroes(data_dir).character_to_canonical
 
     weapons = {
         cid: (name, slug)
@@ -400,9 +372,9 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
         if cid and name
     }
 
-    monsters = _entity_names(csv_dir / "monsters.csv", "MonsterId", "Name")
-    fauna = _entity_names(csv_dir / "fauna.csv", "FaunaId", "Name")
-    flora = _entity_names(csv_dir / "flora.csv", "FloraId", "Name")
+    monsters = entity_names(csv_dir / "monsters.csv", "MonsterId", "Name")
+    fauna = entity_names(csv_dir / "fauna.csv", "FaunaId", "Name")
+    flora = entity_names(csv_dir / "flora.csv", "FloraId", "Name")
     # Groups carry their own documentation page rather than reaching one through a
     # region, because a group is not tied to one place. Without this a group node
     # has no link at all, which is what dropping the Hand of Sol's locations row
@@ -415,7 +387,7 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
         frag = (r.get("LoreFragment") or "").strip().lstrip("#")
         if gid and name:
             groups[gid] = (name, key, frag)
-    food = _entity_names(csv_dir / "food-and-drink.csv", "FoodDrinkId", "Name")
+    food = entity_names(csv_dir / "food-and-drink.csv", "FoodDrinkId", "Name")
 
     def _region_url(region_id: str, fragment: str = "") -> str:
         row = regions.get(region_id)
@@ -531,8 +503,8 @@ def build_graph(data_dir: Path, src_root: Path) -> dict:
             continue
         node_kind = nodes[new]["k"]
         if node_kind == "hero":
-            # Hero nodes are keyed on character_id since migration 17 (so a
-            # hero-and-ordinary-character person is one node), but build_printing_edges joins
+            # Hero nodes are keyed on character_id (so a hero-and-ordinary-character
+            # person is one node; see load_story_heroes), but build_printing_edges joins
             # heroes-printings.csv through heroes-game.csv's CanonicalId — so
             # card_node needs the canonical id here, not the node id.
             canonical_id = char_to_canon.get(node_id)

@@ -47,7 +47,9 @@ from mdbook_common import (
     arc_of,
     load_arcs,
     load_sets,
+    load_story_heroes,
     normalise_page_path,
+    read_rows,
     relative_href,
 )  # noqa: E402
 from mdbook_common import is_hero_about_page as _is_hero_about_page  # noqa: E402
@@ -355,26 +357,18 @@ def _load_story_meta(data_dir: Path) -> dict[str, dict[str, str]]:
 def _load_story_heroes(data_dir: Path, src_root: Path) -> dict[str, list[tuple[str, str | None]]]:
     """Return ``StoryId`` → heroes it features, as ``(name, hero page src path or None)``.
 
-    A hero is a character with a ``character-heroes`` row, so the join runs
-    story → character → canonical hero.
+    The story → character → canonical hero join is :func:`load_story_heroes`.
     """
-    csv_dir = data_dir / "csv"
-    paths = [csv_dir / f for f in ("story-characters.csv", "character-heroes.csv", "heroes-canonical.csv")]
-    if not all(p.is_file() for p in paths):
-        return {}
-    _, story_chars = read_pipe_csv(paths[0])
-    _, char_heroes = read_pipe_csv(paths[1])
-    _, canon = read_pipe_csv(paths[2])
-
-    hero_of_char = {r["CharacterId"]: r["CanonicalId"] for r in char_heroes}
     hero_by_id: dict[str, tuple[str, str | None]] = {
-        r["CanonicalId"]: (r["CanonicalHero"], resolve_hero_src_path(src_root, r["CanonicalSlug"])) for r in canon
+        r["CanonicalId"]: (r["CanonicalHero"], resolve_hero_src_path(src_root, r["CanonicalSlug"]))
+        for r in read_rows(data_dir / "csv" / "heroes-canonical.csv")
     }
     out: dict[str, list[tuple[str, str | None]]] = {}
-    for r in story_chars:
-        hero = hero_by_id.get(hero_of_char.get(r["CharacterId"], ""))
-        if hero and hero not in out.setdefault(r["StoryId"], []):
-            out[r["StoryId"]].append(hero)
+    for sid, canon_ids in load_story_heroes(data_dir).story_heroes.items():
+        for canon_id in canon_ids:
+            hero = hero_by_id.get(canon_id)
+            if hero and hero not in out.setdefault(sid, []):
+                out[sid].append(hero)
     return out
 
 

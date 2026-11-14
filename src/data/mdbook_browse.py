@@ -21,7 +21,16 @@ if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
 from generator_utils import write_text_if_changed  # noqa: E402
-from mdbook_common import SECTIONS, iter_chapters, md_to_html_url, read_rows, replace_marked_block, run  # noqa: E402
+from mdbook_common import (  # noqa: E402
+    SECTIONS,
+    entity_names,
+    iter_chapters,
+    load_story_heroes,
+    md_to_html_url,
+    read_rows,
+    replace_marked_block,
+    run,
+)
 
 MARK_START = "<!-- fablore-browse:start -->"
 MARK_END = "<!-- fablore-browse:end -->"
@@ -64,38 +73,15 @@ def build_index(data_dir: Path, rendered: set[str] | None = None) -> dict:
             "_d": date,
         }
 
-    hero_name: dict[str, str] = {}
-    for r in read_rows(data_dir / "csv" / "heroes-canonical.csv"):
-        cid = (r.get("CanonicalId") or "").strip()
-        name = (r.get("CanonicalHero") or "").strip()
-        if cid and name:
-            hero_name[cid] = name
+    hero_name = entity_names(data_dir / "csv" / "heroes-canonical.csv", "CanonicalId", "CanonicalHero")
+    region_name = entity_names(data_dir / "csv" / "regions.csv", "RegionId", "RegionName")
 
-    region_name: dict[str, str] = {}
-    for r in read_rows(data_dir / "csv" / "regions.csv"):
-        rid = (r.get("RegionId") or "").strip()
-        name = (r.get("RegionName") or "").strip()
-        if rid and name:
-            region_name[rid] = name
-
-    # character_id -> canonical_id (migration 17's identity spine): every
-    # character= link (hero slug or CharacterEntry) writes the same
-    # story-characters.csv junction, so a row there is a "hero" for this
-    # index only when its character_id also has a character-heroes.csv row.
-    char_to_canon: dict[str, str] = {}
-    for r in read_rows(data_dir / "csv" / "character-heroes.csv"):
-        canon_id = (r.get("CanonicalId") or "").strip()
-        char_id = (r.get("CharacterId") or "").strip()
-        if canon_id and char_id:
-            char_to_canon[char_id] = canon_id
-
-    for r in read_rows(data_dir / "csv" / "story-characters.csv"):
-        sid = (r.get("StoryId") or "").strip()
-        char_id = (r.get("CharacterId") or "").strip()
-        cid = char_to_canon.get(char_id, "")
-        if sid in stories_by_id and cid in hero_name:
-            name = hero_name[cid]
-            if name not in stories_by_id[sid]["h"]:
+    for sid, canon_ids in load_story_heroes(data_dir).story_heroes.items():
+        if sid not in stories_by_id:
+            continue
+        for cid in canon_ids:
+            name = hero_name.get(cid)
+            if name is not None and name not in stories_by_id[sid]["h"]:
                 stories_by_id[sid]["h"].append(name)
 
     for r in read_rows(data_dir / "csv" / "story-regions.csv"):
