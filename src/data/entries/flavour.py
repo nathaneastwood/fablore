@@ -700,13 +700,6 @@ db.upsert_story(
 )
 
 db.upsert_story(
-    path="src/flavour/xx-non-set-cards.md",
-    story_type="flavour",
-    title="Non-Set Cards",
-    dry_run=True,
-)
-
-db.upsert_story(
     path="src/flavour/bright-lights.md",
     story_type="flavour",
     title="Bright Lights",
@@ -739,13 +732,6 @@ db.upsert_story(
     fragments={
         "vynnset": "slay---evo248",
     },
-    dry_run=True,
-)
-
-db.upsert_story(
-    path="src/flavour/README.md",
-    story_type="flavour",
-    title="Flavour Text",
     dry_run=True,
 )
 

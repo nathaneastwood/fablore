@@ -139,7 +139,7 @@ def infer_story_title(md_path: Path) -> str:
 def discover_story_keys(
     existing: dict[str, dict[str, str]] | None = None,
 ) -> list[dict[str, str]]:
-    """Scan ``STORY_ROOTS`` under ``SRC`` for ``*.md`` files.
+    """Scan ``STORY_ROOTS`` under ``SRC`` for ``*.md`` files, skipping ``README.md`` hubs.
 
     Args:
         existing: Map of ``story_key`` → row dict (DB column names, lowercase)
@@ -162,6 +162,9 @@ def discover_story_keys(
         if not base.is_dir():
             continue
         for path in sorted(base.rglob("*.md")):
+            # A README.md is a section hub or folder notes, never a story.
+            if path.name == "README.md":
+                continue
             rel = path.relative_to(SRC).as_posix()
             found.add(rel)
 

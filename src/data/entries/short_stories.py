@@ -616,20 +616,6 @@ db.upsert_story(
 )
 
 db.upsert_story(
-    path="src/short-stories/README.md",
-    story_type="short-stories",
-    title="Short Stories",
-    dry_run=True,
-)
-
-db.upsert_story(
-    path="src/short-stories/roll-of-honour/README.md",
-    story_type="short-stories",
-    title="Roll of Honor Short Stories",
-    dry_run=True,
-)
-
-db.upsert_story(
     path="src/short-stories/armory-decks/armory-decks.md",
     story_type="short-stories",
     title="Armory Decks",

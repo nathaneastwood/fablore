@@ -80,7 +80,6 @@ STf8459df1c9|archive/world-of-rathe/volcor/the-royal-court.md|archive|The Royal 
 ST5df7531008|archive/world-of-rathe/volcor/volcor.md|archive|Volcor|||||
 STddfe80a0ee|archive/world-of-rathe/volcor/welcome-to-volcor.md|archive|Welcome to Volcor|||||
 STa743f66f37|archive/world-of-rathe/volcor/wildlife.md|archive|Wildlife|||||
-STecf0044abc|digital-tiles/README.md|digital-tiles|Readme|||||
 STff37446185|digital-tiles/bright-lights/bright-lights.md|digital-tiles|Bright Lights|||||
 ST1dbb835f9c|digital-tiles/compendium-of-rathe/compendium-of-rathe.md|digital-tiles|Compendium of Rathe|||||
 ST505bb98430|digital-tiles/crucible-of-war/crucible-of-war.md|digital-tiles|Crucible of War|||||
@@ -113,7 +112,6 @@ STb6d8aab38d|equipment/synapse-sparkcap.md|equipment|Synapse Sparkcap|||||
 STc0bfeaca8f|equipment/trench-of-watery-depths.md|equipment|Trench Of Watery Depths|||||
 ST4a1f68bdd7|equipment/viziertronic-model-i.md|equipment|Viziertronic Model I|||https://fabtcg.com/articles/fires-forge/|2020-08-18|
 STb2d2e3f4cd|equipment/wind-cutter.md|equipment|Wind Cutter|||||
-STf86c92d3f4|flavour/README.md|flavour|Flavour Text|||||
 ST2da6a3833f|flavour/arcane-rising.md|flavour|Arcane Rising|||||
 ST913a814bf1|flavour/bright-lights.md|flavour|Bright Lights|||||
 ST75bd1ea80d|flavour/compendium-of-rathe.md|flavour|Compendium of Rathe|||||
@@ -138,7 +136,6 @@ ST9efc3bebc9|flavour/the-hunted.md|flavour|The Hunted|||||
 ST49ecb3ad48|flavour/uprising.md|flavour|Uprising|||||
 ST2f110a1740|flavour/usurp-the-shadow-throne.md|flavour|Usurp the Shadow Throne|||||
 ST787a06ac7f|flavour/welcome-to-rathe.md|flavour|Welcome to Rathe|||||
-ST7b56193381|flavour/xx-non-set-cards.md|flavour|Non-Set Cards|||||
 ST96e0269d78|heroes-of-rathe/arakni-5l!p3d-7hru-7h3-cr4x-about.md|heroes-of-rathe|Arakni, 5l!p3d 7hru 7h3 Cr4x|||https://fabtcg.com/hero/arakni-5lp3d-7hru-7h3-cr4x/||
 ST345111398c|heroes-of-rathe/arakni-about.md|heroes-of-rathe|Arakni, Huntsman|||https://fabtcg.com/hero/arakni-huntsman/||
 STc5fc935b30|heroes-of-rathe/arakni-marionette-about.md|heroes-of-rathe|Arakni, Marionette|||https://fabtcg.com/hero/arakni-marionette/||
@@ -211,7 +208,6 @@ ST26b81d47de|heroes-of-rathe/yoji-about.md|heroes-of-rathe|Yoji, Royal Protector
 STfba12fd019|heroes-of-rathe/zane-about.md|heroes-of-rathe|Zane|||https://fabtcg.com/hero/zane/||
 STdfa96a62e2|heroes-of-rathe/zen-about.md|heroes-of-rathe|Zen, Tamer of Purpose|||https://fabtcg.com/hero/zen-tamer-of-purpose/||
 STdb0b746fe8|heroes-of-rathe/zyggy-about.md|heroes-of-rathe|Zyggy Starlight|||https://fabtcg.com/hero/zyggy-starlight/||
-ST4bff273f56|main-story/README.md|main-story|Main Story|||||
 ST0233382227|main-story/arcane-rising/a-bird-in-the-hand.md|main-story|A Bird in the Hand|||https://fabtcg.com/hero/azalea/story/a-bird-in-the-hand/||
 ST7f02ad601d|main-story/arcane-rising/birth-of-the-arknight.md|main-story|Birth of the Arknight|Nicola Price|MJ Fetesio|https://fabtcg.com/hero/viserai/story/viserai-story/||
 ST8c0d6d8f79|main-story/arcane-rising/cards-on-the-table.md|main-story|Cards on the Table|||https://fabtcg.com/hero/azalea/story/cards-on-the-table/||
@@ -301,13 +297,11 @@ ST5345dee53e|main-story/welcome-to-rathe/a-rising-star.md|main-story|A Rising St
 STc5eff9139a|main-story/welcome-to-rathe/kill-or-be-killed.md|main-story|Kill or be Killed|Nicola Price|MJ Fetesio|https://fabtcg.com/hero/rhinar/story/rhinar-story/||
 STd23d8d544b|main-story/welcome-to-rathe/pride-of-the-ironsongs.md|main-story|Pride of the Ironsongs|Nicola Price|MJ Fetesio, Sindy Wo|https://fabtcg.com/hero/dorinthea/story/story/||
 ST91aa0c2b46|main-story/welcome-to-rathe/wanderings-in-the-mists.md|main-story|Wanderings in the Mists|Nicola Price|MJ Fetesio, Sindy Wo|https://fabtcg.com/hero/katsu-the-wanderer/story/katsu-story/||
-ST74660c65dc|other-characters/README.md|other-characters|Readme|||||
 ST86a4863826|other-characters/krest-mortimer.md|other-characters|Dr. Krest Mortimer, 'The Fixer'|||||
 STc3262d8981|other-characters/lady-barthimont.md|other-characters|Lady Barthimont|Nicola Price, Tarryn Thomas|Carlos Cruchaga|https://fabtcg.com/articles/lady-barthimont/|2021-05-03|
 ST54662de240|other-characters/lord-sutcliffe.md|other-characters|Lord Sutcliffe|Nicola Price, Tarryn Thomas|bimawithpencil|https://fabtcg.com/articles/lord-sutcliffe/|2021-05-10|
 ST8d4bbe4211|other-characters/minerva-themis.md|other-characters|Minerva Themis|Nicola Price, Tarryn Thomas|Mihail Spil-Haufter|https://fabtcg.com/articles/minerva-themis/|2021-05-17|
 STee09244564|other-characters/the-librarian.md|other-characters|The Librarian|Nicola Price, Tarryn Thomas|Federico Musetti|https://fabtcg.com/articles/librarian/|2021-05-24|
-STc229de8e9b|short-stories/README.md|short-stories|Short Stories|||||
 ST0823427921|short-stories/armory-deck-arakni/arakni-5l!p3d-7hru-7h3-cr4x.md|short-stories|5l!p 7hru 7h3 Cr4x 4nd Unh!ng3 Your V!c7!m|||||
 STe2357105b0|short-stories/armory-deck-gravy-bones/gravy-bones.md|short-stories|Rise From The Depths And Terrorize The High Seas|||||
 ST38b9858df9|short-stories/armory-deck-hala/hala.md|short-stories|Armory Deck Origins: Hala|||||
@@ -338,7 +332,6 @@ ST52f2825295|short-stories/outsiders/its-a-trap.md|short-stories|It's a Trap!|||
 ST91b0ca07d6|short-stories/outsiders/surging-to-success.md|short-stories|Surging to Success|||https://fabtcg.com/articles/surging-success/||
 ST4df8531b70|short-stories/part-the-mistveil/set-announcement.md|short-stories|Part the Mistveil|||||
 STfd7e06310e|short-stories/part-the-mistveil/set-spoilers.md|short-stories|Part the Mistveil Spoilers|||||
-ST76d51229fc|short-stories/roll-of-honour/README.md|short-stories|Roll of Honor Short Stories|||||
 STec28124db0|short-stories/roll-of-honour/briar-warden-of-thorns.md|short-stories|Roll of Honor: Briar, Warden of Thorns|||||
 STf8af34d4cf|short-stories/roll-of-honour/briar.md|short-stories|Roll of Honor: Briar|||||
 ST3dbfee7ba9|short-stories/roll-of-honour/chane.md|short-stories|Roll of Honor: Chane|||||
@@ -361,7 +354,6 @@ STc1104d0b3e|short-stories/rosetta/verdance-thorn-of-the-rose.md|short-stories|V
 ST8c23c3354b|short-stories/round-the-table/brevant-civic-protector.md|short-stories|Brevant, Civic Protector|||||
 ST1285883fb4|short-stories/round-the-table/melody-sing-along.md|short-stories|Melody, Sing-along|||||
 ST9073d7ef77|short-stories/usurp-the-shadow-throne/open-the-gates.md|short-stories|Open the Gates||||2026-07-16|
-STcbc01ecc49|summaries/README.md|summaries|Main Story Summaries|||||
 STbe17aedcf5|summaries/war-of-the-monarch-pt-1.md|summaries|War of the Monarch, Part 1|||||
 STed669103f7|summaries/war-of-the-monarch-pt-2.md|summaries|War of the Monarch, Part 2|Rachel Rees, Kasharn Rao, Aidan Kwasneski, Edwin McRae||https://fabtcg.com/usurp-the-shadow-throne-lore-recap/|2026-07-17|
 ST58ef00576d|weapons/armed-to-the-teeth.md|weapons|Armed to the Teeth|||https://fabtcg.com/articles/armed-teeth/|2020-08-17|

@@ -97,13 +97,6 @@ db.upsert_story(
 )
 
 db.upsert_story(
-    path="src/other-characters/README.md",
-    story_type="other-characters",
-    title="Readme",
-    dry_run=True,
-)
-
-db.upsert_story(
     path="src/other-characters/lady-barthimont.md",
     story_type="other-characters",
     title="Lady Barthimont",

@@ -88,3 +88,18 @@ def test_discover_infers_when_existing_title_blank(monkeypatch: pytest.MonkeyPat
     rows = csi.discover_story_keys(existing)
     assert len(rows) == 1
     assert rows[0]["title"] == "From File"
+
+
+def test_discover_skips_readme_hubs(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    """A README.md is a section hub or folder notes, never a story.
+
+    Registering them put cards like "Readme" on the Browse page.
+    """
+    src = tmp_path / "src"
+    (src / "main-story" / "arc").mkdir(parents=True)
+    (src / "main-story" / "README.md").write_text("# Main Story\n", encoding="utf-8")
+    (src / "main-story" / "arc" / "README.md").write_text("# Arc hub\n", encoding="utf-8")
+    (src / "main-story" / "arc" / "tale.md").write_text("# Tale\n", encoding="utf-8")
+    monkeypatch.setattr(csi, "SRC", src)
+    monkeypatch.setattr(csi, "STORY_ROOTS", ("main-story",))
+    assert [r["story_key"] for r in csi.discover_story_keys()] == ["main-story/arc/tale.md"]

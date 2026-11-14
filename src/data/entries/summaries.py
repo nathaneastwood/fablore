@@ -105,10 +105,3 @@ db.upsert_story(
     groups=[grp.HAND_OF_SOL],
     dry_run=True,
 )
-
-db.upsert_story(
-    path="src/summaries/README.md",
-    story_type="summaries",
-    title="Main Story Summaries",
-    dry_run=True,
-)

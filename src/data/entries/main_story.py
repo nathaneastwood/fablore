@@ -2166,13 +2166,6 @@ db.upsert_story(
 )
 
 db.upsert_story(
-    path="src/main-story/README.md",
-    story_type="main-story",
-    title="Main Story",
-    dry_run=True,
-)
-
-db.upsert_story(
     path="src/main-story/the-hunted/splinter-soul.md",
     story_type="main-story",
     title="Splinter Soul",
