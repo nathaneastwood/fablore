@@ -34,7 +34,7 @@ from __future__ import annotations
 
 from mdbook_common import SECTIONS as _SITE_SECTIONS
 
-# module name -> the story_type every declaration in it must carry, read off the
+# module name -> the story type (first path segment) of every declaration in it, read off the
 # site-section registry. The runner executes them in this order; ids are hashes,
 # so the order changes only the order of the preview.
 SECTIONS: dict[str, str] = {s.entries_module: s.key for s in _SITE_SECTIONS if s.entries_module}

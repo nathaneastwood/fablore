@@ -35,7 +35,6 @@ from entries.catalogue import (
 
 db.upsert_story(
     path="src/equipment/skullhorn.md",
-    story_type="equipment",
     title="Skullhorn",
     source_link="https://fabtcg.com/articles/fires-forge/",
     publication_date="2020-08-18",
@@ -45,7 +44,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/equipment/amethyst-tiara.md",
-    story_type="equipment",
     title="Amethyst Tiara",
     characters=["emperor"],
     regions=[reg.VOLCOR],
@@ -57,7 +55,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/equipment/blazen-yoroi.md",
-    story_type="equipment",
     title="Blazen Yoroi",
     characters=["emperor"],
     regions=[reg.VOLCOR],
@@ -68,7 +65,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/equipment/bloodsheath-skeleta.md",
-    story_type="equipment",
     title="Bloodsheath Skeleta",
     source_link="https://fabtcg.com/articles/fires-forge/",
     publication_date="2020-08-18",
@@ -78,7 +74,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/equipment/bolt-n-boots.md",
-    story_type="equipment",
     title="Bolt'N' Boots",
     regions=[reg.THE_PITS],
     locations=[loc.BLACKJACK_S_TAVERN],
@@ -88,7 +83,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/equipment/crater-fist.md",
-    story_type="equipment",
     title="Crater Fist",
     source_link="https://fabtcg.com/articles/fires-forge/",
     publication_date="2020-08-18",
@@ -98,7 +92,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/equipment/grimoire-of-fellingsong.md",
-    story_type="equipment",
     title="Grimoire Of Fellingsong",
     characters=["vynnset", people.NASRETH],
     regions=[reg.DEMONASTERY],
@@ -108,7 +101,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/equipment/in-the-fires-of-the-forge.md",
-    story_type="equipment",
     title="In the Fires of the Forge",
     source_link="https://fabtcg.com/articles/fires-forge/",
     publication_date="2020-08-18",
@@ -117,7 +109,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/equipment/metacarpus-node.md",
-    story_type="equipment",
     title="Metacarpus Node",
     source_link="https://fabtcg.com/articles/fires-forge/",
     publication_date="2020-08-18",
@@ -127,7 +118,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/equipment/viziertronic-model-i.md",
-    story_type="equipment",
     title="Viziertronic Model I",
     source_link="https://fabtcg.com/articles/fires-forge/",
     publication_date="2020-08-18",
@@ -137,7 +127,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/equipment/wind-cutter.md",
-    story_type="equipment",
     title="Wind Cutter",
     regions=[reg.MISTERIA],
     equipment=["wind-cutter"],
@@ -147,7 +136,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/equipment/breeze-rider-boots.md",
-    story_type="equipment",
     title="Breeze Rider Boots",
     source_link="https://fabtcg.com/articles/fires-forge/",
     publication_date="2020-08-18",
@@ -157,7 +145,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/equipment/celestial-kimono.md",
-    story_type="equipment",
     title="Celestial Kimono",
     characters=["emperor"],
     locations=[loc.IMPERIAL_PALACE, loc.DRAGON_FESTIVAL],
@@ -169,7 +156,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/equipment/comeback-kicks.md",
-    story_type="equipment",
     title="Comeback Kicks",
     characters=[people.GRANNIE_SANDLAR],
     locations=[loc.THE_MOAT, loc.DEATHMATCH_ARENA],
@@ -180,7 +166,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/equipment/courage-of-bladehold.md",
-    story_type="equipment",
     title="Courage Of Bladehold",
     source_link="https://fabtcg.com/articles/fires-forge/",
     publication_date="2020-08-18",
@@ -190,7 +175,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/equipment/myrkhellir-helm.md",
-    story_type="equipment",
     title="Myrkhellir Helm",
     equipment=["myrkhellir-helm"],
     locations=[loc.MYRKHELLIR],
@@ -199,7 +183,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/equipment/seasoned-saviour.md",
-    story_type="equipment",
     title="Seasoned Saviour",
     equipment=["seasoned-saviour"],
     characters=["emperor", people.GENERAL_UMADESU],
@@ -210,7 +193,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/equipment/synapse-sparkcap.md",
-    story_type="equipment",
     title="Synapse Sparkcap",
     equipment=["synapse-sparkcap"],
     characters=["teklovossen"],
@@ -221,7 +203,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/equipment/trench-of-watery-depths.md",
-    story_type="equipment",
     title="Trench Of Watery Depths",
     equipment=["trench-of-watery-depths"],
     characters=[people.CAPTAIN_RUE],

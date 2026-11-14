@@ -39,7 +39,6 @@ from entries.catalogue import (
 
 db.upsert_story(
     path="src/main-story/the-land-of-rathe.md",
-    story_type="main-story",
     title="The Land of Rathe",
     authors="Nicola Price",
     source_link="https://fabtcg.com/articles/land-of-rathe/",
@@ -49,7 +48,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/crucible-of-war/edge-of-autumn.md",
-    story_type="main-story",
     title="Edge of Autumn",
     source_link="https://fabtcg.com/hero/ira-3/story/edge-of-autumn/",
     characters=[
@@ -65,7 +63,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/welcome-to-rathe/a-rising-star.md",
-    story_type="main-story",
     title="A Rising Star",
     authors="Nicola Price",
     artists="MJ Fetesio, Sindy Wo",
@@ -110,7 +107,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/welcome-to-rathe/pride-of-the-ironsongs.md",
-    story_type="main-story",
     title="Pride of the Ironsongs",
     authors="Nicola Price",
     artists="MJ Fetesio, Sindy Wo",
@@ -164,7 +160,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/welcome-to-rathe/kill-or-be-killed.md",
-    story_type="main-story",
     title="Kill or be Killed",
     authors="Nicola Price",
     artists="MJ Fetesio",
@@ -204,7 +199,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/welcome-to-rathe/wanderings-in-the-mists.md",
-    story_type="main-story",
     title="Wanderings in the Mists",
     authors="Nicola Price",
     artists="MJ Fetesio, Sindy Wo",
@@ -242,7 +236,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/arcane-rising/slings-and-arrows.md",
-    story_type="main-story",
     title="Slings and Arrows",
     source_link="https://fabtcg.com/hero/azalea/story/slings-and-arrows/",
     narrated_videos=[
@@ -264,7 +257,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/arcane-rising/cards-on-the-table.md",
-    story_type="main-story",
     title="Cards on the Table",
     source_link="https://fabtcg.com/hero/azalea/story/cards-on-the-table/",
     publication_date="",
@@ -296,7 +288,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/arcane-rising/a-bird-in-the-hand.md",
-    story_type="main-story",
     title="A Bird in the Hand",
     source_link="https://fabtcg.com/hero/azalea/story/a-bird-in-the-hand/",
     publication_date="",
@@ -336,7 +327,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/omens-of-the-third-age/omens-in-the-sky.md",
-    story_type="main-story",
     title="Omens in the Sky",
     source_link="https://fabtcg.com/articles/omens-in-the-sky/",
     publication_date="2026-05-08",
@@ -375,7 +365,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/omens-of-the-third-age/fall-of-valahai.md",
-    story_type="main-story",
     title="Fall of Valahai",
     authors="Corey J. White, Becca Barnes, Rachel Rees, Aidan Kwasneski, Edwin McRae",
     artists="Narendra B Adi, Federico Musetti, Olga Tereshenko, Simon Wong, Carlos Cruchaga",
@@ -419,7 +408,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/usurp-the-shadow-throne/letters-from-the-beyond.md",
-    story_type="main-story",
     title="Letters from the Beyond",
     authors="Corey J White, Becca Barnes, Rachel Rees, Aidan Kwasneski, Kasharn Rao, Edwin McRae",
     artists="Sebastian Giacobino",
@@ -452,7 +440,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/usurp-the-shadow-throne/agony-in-light.md",
-    story_type="main-story",
     title="Agony in Light",
     authors="Corey J. White, Rachel Rees, Aidan Kwasneski, Kasharn Rao, Edwin McRae",
     artists="Olga Tereshenko, Dominik Mayer, Simon Dominic, Isuardi Therianto",
@@ -483,7 +470,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/usurp-the-shadow-throne/unbound.md",
-    story_type="main-story",
     title="Unbound",
     authors="Aidan Kwasneski, Sam O'Byrne, James White, Edwin McRae, Kasharn Rao",
     artists="Nathaniel Himawan, Livia Prima, Esty Swandana",
@@ -517,7 +503,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/crucible-of-war/no-smoke-without-fire.md",
-    story_type="main-story",
     title="No Smoke Without Fire",
     artists="Nikolay Moskvin, Bramasta Aji",
     publication_date="2020-08-14",
@@ -537,7 +522,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/crucible-of-war/sutcliffes-research-notes.md",
-    story_type="main-story",
     title="Sutcliffe's Research Notes",
     characters=[
         "viserai",
@@ -550,7 +534,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/super-slam/feudmasters.md",
-    story_type="main-story",
     title="Feudmasters",
     characters=[
         "betsy",
@@ -591,7 +574,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/tales-of-aria/amongst-the-brambles.md",
-    story_type="main-story",
     title="Amongst the Brambles",
     artists="Nikolay Moskvin",
     source_link="https://fabtcg.com/hero/briar/story/briar-story/",
@@ -608,7 +590,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/tales-of-aria/the-broken-covenant.md",
-    story_type="main-story",
     title="The Broken Covenant",
     artists="Sam Yang",
     source_link="https://fabtcg.com/hero/oldhim-2/story/oldhim/",
@@ -619,7 +600,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/tales-of-aria/wonders-of-the-wayfarer.md",
-    story_type="main-story",
     title="Wonders of the Wayfarer",
     artists="Sam Yang",
     source_link="https://fabtcg.com/hero/lexi/story/lexi-story/",
@@ -635,7 +615,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/dynasty/ember-in-the-ash.md",
-    story_type="main-story",
     title="Ember in the Ash",
     authors="Edwin McRae, Rachel Rees",
     artists="Sam Yang",
@@ -669,7 +648,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/dynasty/emperor-the-one-emperor.md",
-    story_type="main-story",
     title="The One Emperor",
     source_link="https://fabtcg.com/hero/emperor/story/emperor-story/",
     characters=[
@@ -686,7 +664,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/dynasty/the-blood-stained-web.md",
-    story_type="main-story",
     title="The Blood Stained Web",
     source_link="https://fabtcg.com/articles/story/the-bloodstained-web/",
     characters=["emperor"],
@@ -700,7 +677,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/dynasty/vow-of-vigilence.md",
-    story_type="main-story",
     title="Vow of Vigilence",
     authors="Edwin McRae, Rachel Rees",
     artists="Sam Yang",
@@ -723,7 +699,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/dusk-till-dawn/anointed-in-shadow.md",
-    story_type="main-story",
     title="Anointed in Shadow",
     authors="Edwin McRae, Rachel Rees",
     artists="Henrique Lindner",
@@ -739,7 +714,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/dusk-till-dawn/falling-in-darkness.md",
-    story_type="main-story",
     title="Falling In Darkness",
     authors="Edwin McRae, Rachel Rees",
     artists="Sam Yang",
@@ -780,7 +754,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/dusk-till-dawn/prism-awakener-of-sol.md",
-    story_type="main-story",
     title="Prism, Awakener of Sol",
     characters=["boltyn", "dorinthea", "levia", "prism", "shiyana", "vynnset"],
     locations=[loc.DIMENXXIONAL_GATEWAY, loc.I_ARATHAEL],
@@ -790,7 +763,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/dusk-till-dawn/unity-in-light.md",
-    story_type="main-story",
     title="Unity In Light",
     authors="Edwin McRae, Rachel Rees",
     artists="Jessketchin",
@@ -824,7 +796,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/heavy-hitters/another-day-another-title.md",
-    story_type="main-story",
     title="Another Day, Another Title",
     publication_date="2023-12-22",
     source_link="https://fabtcg.com/hero/olympia/story/olympia/",
@@ -844,7 +815,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/heavy-hitters/arena-announcements.md",
-    story_type="main-story",
     title="Arena Announcements",
     characters=["betsy", "kassai", "kayo", "oldhim", "rhinar", "victor-goldmane"],
     regions=[reg.SOLANA, reg.THE_SAVAGE_LANDS],
@@ -853,7 +823,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/heavy-hitters/bloodied-sands.md",
-    story_type="main-story",
     title="Bloodied Sands",
     publication_date="2024-08-16",
     source_link="https://fabtcg.com/articles/bloodied-sands/",
@@ -879,7 +848,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/heavy-hitters/deathmatch-wrecking-ball.md",
-    story_type="main-story",
     title="Deathmatch Wrecking Ball",
     publication_date="2023-12-20",
     source_link="https://fabtcg.com/hero/betsy/story/46529-2/",
@@ -899,7 +867,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/heavy-hitters/the-golden-son.md",
-    story_type="main-story",
     title="The Golden Son",
     source_link="https://fabtcg.com/hero/victor/story/victor/",
     characters=["victor-goldmane"],
@@ -908,7 +875,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/heavy-hitters/thirst-for-revenge.md",
-    story_type="main-story",
     title="Thirst For Revenge",
     publication_date="2024-01-24",
     source_link="https://fabtcg.com/hero/kassai-3/story/thirst-for-revenge/",
@@ -925,7 +891,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/heavy-hitters/untamed-and-unbroken.md",
-    story_type="main-story",
     title="Untamed and Unbroken",
     publication_date="2023-12-27",
     source_link="https://fabtcg.com/hero/kayo-br/story/kayo-story/",
@@ -945,7 +910,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/part-the-mistveil/part-1-the-tiger-in-the-mist.md",
-    story_type="main-story",
     title="Part 1: The Tiger in the Mist",
     source_link="https://fabtcg.com/hero/zen-tamer-of-purpose/story/part-1-the-tiger-in-the-mist/",
     characters=[
@@ -967,7 +931,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/part-the-mistveil/part-2-the-tapestry-unfolds.md",
-    story_type="main-story",
     title="Part 2: The Tapestry Unfolds",
     source_link="https://fabtcg.com/hero/zen-tamer-of-purpose/story/part-2-the-tapestry-unfolds/",
     characters=[
@@ -983,7 +946,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/part-the-mistveil/part-3-the-serpents-strike.md",
-    story_type="main-story",
     title="Part 3: The Serpent's Strike",
     source_link="https://fabtcg.com/hero/zen-tamer-of-purpose/story/part-3-the-serpents-strike/",
     characters=[
@@ -1001,7 +963,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/part-the-mistveil/part-4-the-hare-and-the-snake.md",
-    story_type="main-story",
     title="Part 4: The Hare and the Snake",
     characters=[
         "enigma",
@@ -1017,7 +978,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/arcane-rising/birth-of-the-arknight.md",
-    story_type="main-story",
     title="Birth of the Arknight",
     authors="Nicola Price",
     artists="MJ Fetesio",
@@ -1040,7 +1000,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/arcane-rising/from-the-ashes.md",
-    story_type="main-story",
     title="From the Ashes",
     source_link="https://fabtcg.com/hero/kano/story/from-the-ashes/",
     characters=[
@@ -1065,7 +1024,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/arcane-rising/full-steam-ahead.md",
-    story_type="main-story",
     title="Full Steam Ahead",
     source_link="https://fabtcg.com/hero/dash/story/full-steam-ahead/",
     characters=[
@@ -1098,7 +1056,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/arcane-rising/needle-in-a-haystack.md",
-    story_type="main-story",
     title="Needle in a Haystack",
     source_link="https://fabtcg.com/hero/dash/story/needle-in-a-haystack/",
     characters=[
@@ -1128,7 +1085,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/arcane-rising/playing-with-fire.md",
-    story_type="main-story",
     title="Playing with Fire",
     source_link="https://fabtcg.com/hero/kano/story/playing-with-fire/",
     characters=["emperor", "kano", people.RYO, people.LORD_WIZARD_AKIHIKO, people.CHANCELLOR_YAMA],
@@ -1145,7 +1101,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/arcane-rising/return-of-the-shadow.md",
-    story_type="main-story",
     title="Return of the Shadow",
     artists="Nikolay Moskvin",
     publication_date="2020-08-12",
@@ -1165,7 +1120,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/arcane-rising/smoke-and-mirrors.md",
-    story_type="main-story",
     title="Smoke and Mirrors",
     source_link="https://fabtcg.com/hero/kano/story/smoke-and-mirrors/",
     characters=[
@@ -1185,7 +1139,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/arcane-rising/stroke-of-genius.md",
-    story_type="main-story",
     title="Stroke of Genius",
     source_link="https://fabtcg.com/hero/dash/story/stroke-of-genius/",
     characters=[
@@ -1210,7 +1163,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/monarch/destroy-and-consume.md",
-    story_type="main-story",
     title="Destroy and Consume",
     authors="Nicola Price, Tarryn Thomas",
     artists="Iain Miki",
@@ -1235,7 +1187,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/monarch/emissary-of-the-void.md",
-    story_type="main-story",
     title="Emissary of the Void",
     authors="Nicola Price, Tarryn Thomas",
     artists="Nikolay Moskvin",
@@ -1255,7 +1206,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/monarch/stories-of-illumination.md",
-    story_type="main-story",
     title="Stories of Illumination",
     authors="Nicola Price, Tarryn Thomas",
     artists="Sam Yang",
@@ -1283,7 +1233,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/monarch/sworn-to-protect.md",
-    story_type="main-story",
     title="Sworn to Protect",
     authors="Nicola Price, Tarryn Thomas",
     artists="Nikolay Moskvin",
@@ -1309,7 +1258,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/monarch/step-into-the-light.md",
-    story_type="main-story",
     title="Step Into The Light",
     authors="Nicola Price, Tarryn Thomas",
     artists="Sam Yang",
@@ -1339,7 +1287,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/monarch/harbinger-of-the-abyss.md",
-    story_type="main-story",
     title="Harbinger of the Abyss",
     authors="Nicola Price, Tarryn Thomas",
     artists="Nikolay Moskvin",
@@ -1368,7 +1315,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/high-seas/captain-bones-and-the-city-of-gold.md",
-    story_type="main-story",
     title="Captain Bones and the City of Gold",
     authors="Robbie Wen, Edwin McRae, Rachel Rees, Alan Baxter",
     source_link="https://fabtcg.com/articles/captain-bones-and-the-city-of-gold/",
@@ -1410,7 +1356,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/armory-deck-maxx/boom-town-boom.md",
-    story_type="main-story",
     title="Boom Town Boom",
     source_link="https://fabtcg.com/articles/boom-town-boom/",
     publication_date="2025-04-17",
@@ -1449,7 +1394,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/everfest/a-grand-adventure.md",
-    story_type="main-story",
     title="A Grand Adventure",
     authors="Kasharn Rao",
     artists="Sam Yang",
@@ -1490,7 +1434,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/uprising/dragons-of-empire.md",
-    story_type="main-story",
     title="Dragons of Empire",
     source_link="https://fabtcg.com/hero/dromai/story/dromai-story-dragons-of-empire/",
     characters=[
@@ -1526,7 +1469,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/uprising/betrayal.md",
-    story_type="main-story",
     title="Betrayal",
     source_link="https://fabtcg.com/hero/dromai/story/dromai-story-betrayal/",
     characters=[
@@ -1561,7 +1503,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/uprising/the-phoenix-and-the-dragon.md",
-    story_type="main-story",
     title="The Phoenix and the Dragon",
     source_link="https://fabtcg.com/hero/fai/story/fai-story-the-phoenix-and-the-dragon/",
     characters=[
@@ -1589,7 +1530,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/uprising/in-flames.md",
-    story_type="main-story",
     title="In Flames",
     authors="Edwin McRae, Rachel Rees",
     artists="Sam Yang, various artists",
@@ -1603,7 +1543,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/high-seas/the-lost-treasure-of-blackwater-strait.md",
-    story_type="main-story",
     title="The Lost Treasure of Blackwater Strait",
     authors="Robbie Wen, Edwin McRae, Rachel Rees, Bonnie Harris-Lowe, Joyce Chng, Ryan McIntyre",
     source_link="https://fabtcg.com/articles/the-lost-treasure-of-blackwater-strait/",
@@ -1634,7 +1573,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/bright-lights/P̸͍̬̭̭̺͉̣̌̐̾̌͆̚r̴͔͍͐ȯ̴̤̰͠t̵̰̘͑õ̶͍͇c̶̟͒o̶̪̳͋l̶̗̑ ̴̮̓͘A̴̞̗͆ṗ̷̢͕̈́ē̵͍̿ŕ̶̩́ḭ̴̧͐͂o̸͙̖̐͘n̴̞̺͋.md",
-    story_type="main-story",
     title="P̸͍̬̭̭̺͉̣̌̐̾̌͆̚r̴͔͍͐ȯ̴̤̰͠t̵̰̘͑õ̶͍͇c̶̟͒o̶̪̳͋l̶̗̑ ̴̮̓͘A̴̞̗͆ṗ̷̢͕̈́ē̵͍̿ŕ̶̩́ḭ̴̧͐͂o̸͙̖̐͘n̴̞̺͋",
     authors="Edwin McRae, Rachel Rees",
     artists="Sam Yang",
@@ -1651,7 +1589,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/interlude/morlock-hill.md",
-    story_type="main-story",
     title="Morlock Hill",
     authors="Kasharn Rao, Edwin McRae",
     artists="Nikolay Moskvin",
@@ -1679,7 +1616,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/high-seas/a-kraken-good-tale.md",
-    story_type="main-story",
     title="A Kraken Good Tale",
     authors="Robbie Wen, Edwin McRae, Rachel Rees, Bonnie Harris-Lowe",
     source_link="https://fabtcg.com/articles/a-kraken-good-tale/",
@@ -1711,7 +1647,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/armory-deck-jarl-vetreidi/battle-of-isenloft.md",
-    story_type="main-story",
     title="Battle of Isenloft",
     source_link="https://fabtcg.com/articles/battle-of-isenloft/",
     publication_date="2024-11-21",
@@ -1745,7 +1680,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/compendium-of-rathe/vow-unbroken.md",
-    story_type="main-story",
     title="Vow Unbroken",
     authors="Robbie Wen, Edwin McRae, Corey J. White, Rachel Rees, Melissa Ren, Paul Davies",
     source_link="https://fabtcg.com/articles/vow-unbroken/",
@@ -1769,7 +1703,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/outsiders/catch-of-the-day.md",
-    story_type="main-story",
     title="Catch of the Day",
     source_link="https://fabtcg.com/hero/riptide-lurker-of-the-deep/story/riptide-story/",
     characters=["riptide", "uzuri"],
@@ -1781,7 +1714,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/bright-lights/the-dynamic-man.md",
-    story_type="main-story",
     title="The Dynamic Man",
     source_link="https://fabtcg.com/articles/the-dynamic-man/",
     publication_date="2023-09-22",
@@ -1808,7 +1740,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/bright-lights/system-failure.md",
-    story_type="main-story",
     title="System Failure",
     authors="Edwin McRae, Rachel Rees",
     artists="Sam Yang",
@@ -1840,7 +1771,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/bright-lights/synthetic-futures.md",
-    story_type="main-story",
     title="Synthetic Futures",
     authors="Edwin McRae, Rachel Rees",
     artists="Sam Yang",
@@ -1886,7 +1816,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/rosetta/roots-of-change.md",
-    story_type="main-story",
     title="Roots of Change",
     artists="Nikolay Moskvin",
     source_link="https://fabtcg.com/articles/roots-of-change/",
@@ -1910,7 +1839,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/rosetta/essence-of-decay.md",
-    story_type="main-story",
     title="Essence of Decay",
     artists="Nikolay Moskvin",
     source_link="https://fabtcg.com/articles/essence-of-decay/",
@@ -1936,7 +1864,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/outsiders/the-iconoclast-trials.md",
-    story_type="main-story",
     title="The Iconoclast Trials",
     authors="Edwin McRae, Rachel Rees",
     artists="Henrique Lindner",
@@ -1958,7 +1885,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/mastery-pack-guardian/trouble-in-larinkmorth.md",
-    story_type="main-story",
     title="Trouble in Larinkmorth",
     authors="Robbie Wen, Edwin McRae, Ryan McIntyre, Rachel Rees, Michael Coorlim, Melissa Ren",
     source_link="https://fabtcg.com/articles/trouble-in-larinkmorth/",
@@ -1999,7 +1925,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/outsiders/squeakers-christmas.md",
-    story_type="main-story",
     title="Squeakers' Christmas",
     authors="Edwin McRae, Rachel Rees",
     artists="Sam Yang",
@@ -2020,7 +1945,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/outsiders/its-just-business.md",
-    story_type="main-story",
     title="It's Just Business",
     authors="Edwin McRae, Rachel Rees",
     artists="Nikolay Moskvin",
@@ -2057,7 +1981,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/rosetta/seeds-of-renewal.md",
-    story_type="main-story",
     title="Seeds of Renewal",
     artists="Nikolay Moskvin",
     source_link="https://fabtcg.com/articles/seeds-of-renewal/",
@@ -2093,7 +2016,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/rosetta/secret-of-the-aetherscribes.md",
-    story_type="main-story",
     title="Secret of the Aetherscribes",
     source_link="https://fabtcg.com/articles/secret-of-the-aetherscribes/",
     publication_date="2024-08-29",
@@ -2126,7 +2048,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/outsiders/the-spiders-trap.md",
-    story_type="main-story",
     title="The Spider's Trap",
     authors="Edwin McRae, Rachel Rees",
     artists="Sam Yang",
@@ -2167,7 +2088,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/the-hunted/splinter-soul.md",
-    story_type="main-story",
     title="Splinter Soul",
     source_link="https://fabtcg.com/hero/terra/story/splinter-soul/",
     publication_date="2025-02-27",
@@ -2181,7 +2101,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/uprising/journey-into-the-forgotten.md",
-    story_type="main-story",
     title="Journey into the Forgotten",
     authors="Edwin McRae, Rachel Rees",
     artists="Sam Yang",
@@ -2203,7 +2122,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/the-hunted/mark-of-a-traitor.md",
-    story_type="main-story",
     title="Mark of a Traitor",
     source_link="https://fabtcg.com/articles/mark-of-a-traitor/",
     publication_date="2025-01-14",
@@ -2231,7 +2149,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/uprising/fires-of-rebellion.md",
-    story_type="main-story",
     title="Fires of Rebellion",
     source_link="https://fabtcg.com/hero/fai/story/fai-story-fires-of-rebellion/",
     characters=[
@@ -2257,7 +2174,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/outsiders/tidings-in-the-light.md",
-    story_type="main-story",
     title="Tidings in the Light",
     authors="Edwin McRae, Rachel Rees",
     artists="Henrique Lindner",
@@ -2285,7 +2201,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/the-hunted/cleanse-the-corruption.md",
-    story_type="main-story",
     title="Cleanse the Corruption",
     source_link="https://fabtcg.com/articles/cleanse-the-corruption/",
     publication_date="2025-01-15",
@@ -2313,7 +2228,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/the-hunted/hunter-and-hunted-both.md",
-    story_type="main-story",
     title="Hunter and Hunted Both",
     source_link="https://fabtcg.com/articles/hunter-and-hunted-both/",
     publication_date="2025-01-16",
@@ -2335,7 +2249,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/rosetta/to-halt-the-dark.md",
-    story_type="main-story",
     title="To Halt the Dark",
     source_link="https://fabtcg.com/articles/to-halt-the-dark/",
     publication_date="2024-10-11",
@@ -2351,7 +2264,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/the-hunted/children-of-chaos.md",
-    story_type="main-story",
     title="Children of Chaos",
     source_link="https://fabtcg.com/articles/children-of-chaos/",
     publication_date="2025-01-17",
@@ -2379,7 +2291,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/main-story/uprising/calm-before-the-storm.md",
-    story_type="main-story",
     title="Calm Before the Storm",
     source_link="https://fabtcg.com/hero/iyslander-2/story/iyslander-story-calm-before-the-storm/",
     characters=["iyslander", people.KOVA, people.DENG],

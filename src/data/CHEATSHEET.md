@@ -38,7 +38,6 @@ A story's declaration lives in `src/data/entries/`, one module per story type, a
 ```python
 db.upsert_story(
     path="src/main-story/set-name/story-slug.md",
-    story_type="main-story",
     title="Story Title",
     characters=[
         "rhinar",              # canonical slug — raises on an unknown one
@@ -191,7 +190,6 @@ from db import Database, CharacterEntry, LocationEntry, NarratedVideoEntry
 db = Database("src/data/fablore.db")
 db.upsert_story(
     "src/main-story/set-name/story-slug.md",
-    story_type="main-story",
     title="Story Title",
     characters=["rhinar", CharacterEntry("Ser Example", status="Alive")],
     locations=[LocationEntry("The Citadel", region="Solana")],

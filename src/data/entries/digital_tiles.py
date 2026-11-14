@@ -32,7 +32,6 @@ from entries.catalogue import (
 
 db.upsert_story(
     path="src/digital-tiles/omens-of-the-third-age/omens-of-the-third-age.md",
-    story_type="digital-tiles",
     title="Omens of the Third Age",
     characters=[
         "aurora",
@@ -58,7 +57,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/digital-tiles/bright-lights/bright-lights.md",
-    story_type="digital-tiles",
     title="Bright Lights",
     characters=["dash", "teklovossen"],
     fragments={"dash": "dash-io", "teklovossen": "fabricate"},
@@ -79,7 +77,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/digital-tiles/compendium-of-rathe/compendium-of-rathe.md",
-    story_type="digital-tiles",
     title="Compendium of Rathe",
     characters=[
         "dorinthea",
@@ -106,7 +103,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/digital-tiles/crucible-of-war/crucible-of-war.md",
-    story_type="digital-tiles",
     title="Crucible of War",
     characters=[
         "azalea",
@@ -177,7 +173,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/digital-tiles/everfest/everfest.md",
-    story_type="digital-tiles",
     title="Everfest",
     characters=[
         "boltyn",
@@ -226,7 +221,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/digital-tiles/heavy-hitters/heavy-hitters.md",
-    story_type="digital-tiles",
     title="Heavy Hitters",
     characters=[
         "kassai",
@@ -245,7 +239,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/digital-tiles/high-seas/high-seas.md",
-    story_type="digital-tiles",
     title="High Seas",
     characters=[
         "gravy",
@@ -278,7 +271,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/digital-tiles/monarch/monarch.md",
-    story_type="digital-tiles",
     title="Monarch",
     characters=[
         "boltyn",
@@ -304,7 +296,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/digital-tiles/part-the-mistveil/part-the-mistveil.md",
-    story_type="digital-tiles",
     title="Part the Mistveil",
     characters=[
         "enigma",
@@ -332,7 +323,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/digital-tiles/rosetta/rosetta.md",
-    story_type="digital-tiles",
     title="Rosetta",
     characters=[
         "aurora",
@@ -367,7 +357,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/digital-tiles/tales-of-aria/tales-of-aria.md",
-    story_type="digital-tiles",
     title="Tales of Aria",
     characters=[
         people.DAVNIR,
@@ -390,7 +379,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/digital-tiles/the-hunted/the-hunted.md",
-    story_type="digital-tiles",
     title="The Hunted",
     characters=[
         "arakni-huntsman",
@@ -420,7 +408,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/digital-tiles/uprising/uprising.md",
-    story_type="digital-tiles",
     title="Uprising",
     characters=["dromai", "emperor", "fai"],
     locations=[

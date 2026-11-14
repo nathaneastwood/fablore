@@ -112,13 +112,14 @@ from db import Database, CharacterEntry, LocationEntry, NarratedVideoEntry
 db = Database("src/data/fablore.db")
 db.upsert_story(
     "src/main-story/omens-of-the-third-age/omens-in-the-sky.md",
-    story_type="main-story",
     title="Omens in the Sky",
     characters=["boltyn", CharacterEntry("Captain Example", status="Alive")],
     locations=[LocationEntry("The Grand Bazaar", region="Aria", lore_fragment="grand-bazaar")],
     narrated_videos=[NarratedVideoEntry(author="LSS", source_link="https://…")],
 )
 ```
+
+**`StoryType`** is not an argument: `upsert_story` derives it from the path's first segment under `src/`, and raises `ValueError` for a path outside a story section.
 
 **`StoryKey` vs `StoryId`:** `StoryKey` is the repo-relative path to the Markdown file (handy for links and humans). `StoryId` is the stable primary key (`ST` + hash of the path). Every `story-*.csv` edge uses `StoryId` only.
 
@@ -127,7 +128,6 @@ db.upsert_story(
 ```python
 db.upsert_story(
     path="src/main-story/omens-of-the-third-age/omens-in-the-sky.md",
-    story_type="main-story",
     title="Omens in the Sky",
     characters=[
         "boltyn",              # canonical slug — raises on an unknown one

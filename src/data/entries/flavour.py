@@ -26,7 +26,6 @@ from entries.catalogue import (
 
 db.upsert_story(
     path="src/flavour/omens-of-the-third-age.md",
-    story_type="flavour",
     title="Omens of the Third Age",
     characters=[
         "aurora",
@@ -59,7 +58,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/flavour/monarch.md",
-    story_type="flavour",
     title="Monarch",
     characters=[
         "prism",
@@ -95,7 +93,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/flavour/non-set-cards.md",
-    story_type="flavour",
     title="Non-Set Cards",
     characters=[
         "squizzyfloof",
@@ -120,7 +117,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/flavour/super-slam.md",
-    story_type="flavour",
     title="Super Slam",
     characters=[
         "kayo",
@@ -168,7 +164,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/flavour/mastery-pack-guardian.md",
-    story_type="flavour",
     title="Mastery Pack Guardian",
     characters=[
         "fai",
@@ -188,7 +183,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/flavour/mastery-pack-warrior.md",
-    story_type="flavour",
     title="Mastery Pack Warrior",
     characters=[
         people.FARRIS,
@@ -222,7 +216,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/flavour/usurp-the-shadow-throne.md",
-    story_type="flavour",
     title="Usurp the Shadow Throne",
     characters=[
         "malice",
@@ -246,7 +239,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/flavour/outsiders.md",
-    story_type="flavour",
     title="Outsiders",
     characters=[
         "arakni-huntsman",
@@ -270,7 +262,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/flavour/arcane-rising.md",
-    story_type="flavour",
     title="Arcane Rising",
     characters=[
         "azalea",
@@ -296,7 +287,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/flavour/crucible-of-war.md",
-    story_type="flavour",
     title="Crucible of War",
     characters=[
         "hala",
@@ -325,7 +315,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/flavour/part-the-mistveil.md",
-    story_type="flavour",
     title="Part the Mistveil",
     characters=[
         "enigma",
@@ -354,7 +343,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/flavour/compendium-of-rathe.md",
-    story_type="flavour",
     title="Compendium of Rathe",
     characters=[
         "enigma",
@@ -398,7 +386,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/flavour/uprising.md",
-    story_type="flavour",
     title="Uprising",
     characters=[
         "dromai",
@@ -454,7 +441,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/flavour/dynasty.md",
-    story_type="flavour",
     title="Dynasty",
     characters=[
         "boltyn",
@@ -496,7 +482,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/flavour/everfest.md",
-    story_type="flavour",
     title="Everfest",
     characters=[
         "viserai",
@@ -522,7 +507,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/flavour/heavy-hitters.md",
-    story_type="flavour",
     title="Heavy Hitters",
     characters=[
         "bolfar",
@@ -549,7 +533,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/flavour/rosetta.md",
-    story_type="flavour",
     title="Rosetta",
     characters=[
         "verdance",
@@ -578,7 +561,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/flavour/the-hunted.md",
-    story_type="flavour",
     title="The Hunted",
     characters=[
         "taipanis",
@@ -615,7 +597,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/flavour/dusk-till-dawn.md",
-    story_type="flavour",
     title="Dusk till Dawn",
     characters=[
         "boltyn",
@@ -637,7 +618,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/flavour/high-seas.md",
-    story_type="flavour",
     title="High Seas",
     characters=[
         "puffin",
@@ -676,7 +656,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/flavour/welcome-to-rathe.md",
-    story_type="flavour",
     title="Welcome to Rathe",
     characters=[
         "ira",
@@ -701,7 +680,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/flavour/bright-lights.md",
-    story_type="flavour",
     title="Bright Lights",
     characters=[
         "data-doll-mkii",
@@ -737,14 +715,12 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/flavour/intro.md",
-    story_type="flavour",
     title="Flavour Text",
     dry_run=True,
 )
 
 db.upsert_story(
     path="src/flavour/tales-of-aria.md",
-    story_type="flavour",
     title="Tales of Aria",
     characters=[people.VALGARD_HOARFROST, people.LISHU_CRIMSON_HAZE_VIGILANTE],
     locations=[loc.CANDLEHOLD, loc.BLEAK_EXPANSE, loc.ISENLOFT, loc.VOLTHAVEN, loc.MT_ISEN, loc.THE_FLOW],

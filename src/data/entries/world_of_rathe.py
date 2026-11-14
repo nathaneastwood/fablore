@@ -62,7 +62,6 @@ from entries.catalogue import (
 
 db.upsert_story(
     path="src/world-of-rathe/high-seas.md",
-    story_type="world-of-rathe",
     title="High Seas",
     source_link="https://fabtcg.com/world-of-rathe/high-seas/",
     characters=[
@@ -80,7 +79,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/world-of-rathe/solana.md",
-    story_type="world-of-rathe",
     title="Solana",
     source_link="https://fabtcg.com/world-of-rathe/solana/",
     titles=[ttl.GRAND_MAGISTER],
@@ -89,7 +87,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/world-of-rathe/nebulus-rift.md",
-    story_type="world-of-rathe",
     title="Nebulus Rift",
     source_link="https://fabtcg.com/world-of-rathe/nebulus-rift/",
     characters=[
@@ -113,14 +110,12 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/world-of-rathe/rathe.md",
-    story_type="world-of-rathe",
     title="World of Rathe",
     dry_run=True,
 )
 
 db.upsert_story(
     path="src/world-of-rathe/demonastery.md",
-    story_type="world-of-rathe",
     title="Demonastery",
     source_link="https://fabtcg.com/world-of-rathe/demonastery/",
     characters=[
@@ -161,7 +156,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/world-of-rathe/aria.md",
-    story_type="world-of-rathe",
     title="Aria",
     source_link="https://fabtcg.com/world-of-rathe/aria/",
     characters=[
@@ -226,7 +220,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/world-of-rathe/misteria.md",
-    story_type="world-of-rathe",
     title="Misteria",
     source_link="https://fabtcg.com/world-of-rathe/misteria/",
     characters=[people.KOUKI, people.JIRO_HENSHU, people.MISTRESS_IKARU],
@@ -248,7 +241,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/world-of-rathe/metrix.md",
-    story_type="world-of-rathe",
     title="A Towering Metropolis",
     source_link="https://fabtcg.com/world-of-rathe/metrix/",
     characters=[
@@ -305,7 +297,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/world-of-rathe/pits.md",
-    story_type="world-of-rathe",
     title="Pits",
     source_link="https://fabtcg.com/world-of-rathe/pits/",
     characters=[
@@ -365,7 +356,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/world-of-rathe/savage-lands.md",
-    story_type="world-of-rathe",
     title="Savage Lands",
     source_link="https://fabtcg.com/world-of-rathe/savage-lands/",
     characters=[
@@ -396,7 +386,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/world-of-rathe/volcor.md",
-    story_type="world-of-rathe",
     title="Volcor",
     source_link="https://fabtcg.com/world-of-rathe/volcor/",
     characters=["emperor", "iyslander", people.MIN_OF_THE_FOREST_OF_FLAMES, people.INFERNAI],

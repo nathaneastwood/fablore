@@ -37,7 +37,6 @@ from entries.catalogue import (
 
 db.upsert_story(
     path="src/weapons/rok.md",
-    story_type="weapons",
     title="Rok",
     weapons=["rok"],
     characters=[
@@ -54,7 +53,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/weapons/cintari-saber.md",
-    story_type="weapons",
     title="Cintari Saber",
     source_link="https://fabtcg.com/articles/armed-teeth/",
     publication_date="2020-08-17",
@@ -65,7 +63,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/weapons/armed-to-the-teeth.md",
-    story_type="weapons",
     title="Armed to the Teeth",
     source_link="https://fabtcg.com/articles/armed-teeth/",
     publication_date="2020-08-17",
@@ -75,7 +72,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/weapons/mandible-claw.md",
-    story_type="weapons",
     title="Mandible Claw",
     source_link="https://fabtcg.com/articles/armed-teeth/",
     publication_date="2020-08-17",
@@ -85,7 +81,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/weapons/hanabi-blaster.md",
-    story_type="weapons",
     title="Hanabi Blaster",
     characters=["emperor"],
     locations=[loc.IMPERIAL_PALACE, loc.DRAGON_FESTIVAL],
@@ -97,7 +92,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/weapons/nebula-blade.md",
-    story_type="weapons",
     title="Nebula Blade",
     characters=[
         "viserai",
@@ -116,7 +110,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/weapons/merciless-battleaxe.md",
-    story_type="weapons",
     title="Merciless Battleaxe",
     characters=["emperor", people.GENERAL_KODA],
     locations=[loc.SWORYUK_GORGE, loc.IMPERIAL_PALACE, loc.DRAGON_FESTIVAL],
@@ -127,7 +120,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/weapons/plasma-barrel-shot.md",
-    story_type="weapons",
     title="Plasma Barrel Shot",
     source_link="https://fabtcg.com/articles/armed-teeth/",
     publication_date="2020-08-17",
@@ -138,7 +130,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/weapons/reaping-blade.md",
-    story_type="weapons",
     title="Reaping Blade",
     source_link="https://fabtcg.com/articles/armed-teeth/",
     publication_date="2020-08-17",
@@ -148,7 +139,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/weapons/red-liner.md",
-    story_type="weapons",
     title="Red Liner",
     source_link="https://fabtcg.com/articles/armed-teeth/",
     publication_date="2020-08-17",
@@ -159,7 +149,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/weapons/sandscour-greatbow.md",
-    story_type="weapons",
     title="Sandscour Greatbow",
     characters=["emperor", people.SHAYA_SANDSCOUR],
     locations=[loc.IMPERIAL_PALACE, loc.DRAGON_FESTIVAL],
@@ -170,7 +159,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/weapons/savage-claw.md",
-    story_type="weapons",
     title="Savage Claw",
     fauna=[fauna.SKERA, fauna.BRAWNHIDE, fauna.ANK_IS],
     weapons=["savage-claw"],
@@ -179,7 +167,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/weapons/sledge-of-anvilheim.md",
-    story_type="weapons",
     title="Sledge Of Anvilheim",
     source_link="https://fabtcg.com/articles/armed-teeth/",
     publication_date="2020-08-17",
@@ -189,7 +176,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/weapons/surgent-aethertide.md",
-    story_type="weapons",
     title="Surgent Aethertide",
     characters=["emperor"],
     regions=[reg.VOLCOR],
@@ -200,7 +186,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/weapons/talishar-lost-prince.md",
-    story_type="weapons",
     title="Talishar Lost Prince",
     source_link="https://fabtcg.com/articles/armed-teeth/",
     publication_date="2020-08-17",
@@ -211,7 +196,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/weapons/zephyr-needle.md",
-    story_type="weapons",
     title="Zephyr Needle",
     source_link="https://fabtcg.com/articles/armed-teeth/",
     publication_date="2020-08-17",

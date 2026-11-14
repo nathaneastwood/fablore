@@ -29,7 +29,6 @@ from entries.catalogue import (
 
 db.upsert_story(
     path="src/other-characters/krest-mortimer.md",
-    story_type="other-characters",
     title="Dr. Krest Mortimer, 'The Fixer'",
     characters=[
         "arakni-huntsman",
@@ -52,7 +51,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/other-characters/the-librarian.md",
-    story_type="other-characters",
     title="The Librarian",
     authors="Nicola Price, Tarryn Thomas",
     artists="Federico Musetti",
@@ -64,7 +62,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/other-characters/minerva-themis.md",
-    story_type="other-characters",
     title="Minerva Themis",
     authors="Nicola Price, Tarryn Thomas",
     artists="Mihail Spil-Haufter",
@@ -84,7 +81,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/other-characters/lord-sutcliffe.md",
-    story_type="other-characters",
     title="Lord Sutcliffe",
     authors="Nicola Price, Tarryn Thomas",
     artists="bimawithpencil",
@@ -98,7 +94,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/other-characters/lady-barthimont.md",
-    story_type="other-characters",
     title="Lady Barthimont",
     authors="Nicola Price, Tarryn Thomas",
     artists="Carlos Cruchaga",

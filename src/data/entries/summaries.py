@@ -26,7 +26,6 @@ from entries.catalogue import (
 
 db.upsert_story(
     path="src/summaries/war-of-the-monarch-pt-1.md",
-    story_type="summaries",
     title="War of the Monarch, Part 1",
     characters=[
         "viserai",
@@ -66,7 +65,6 @@ db.upsert_story(
 
 db.upsert_story(
     path="src/summaries/war-of-the-monarch-pt-2.md",
-    story_type="summaries",
     title="War of the Monarch, Part 2",
     authors="Rachel Rees, Kasharn Rao, Aidan Kwasneski, Edwin McRae",
     source_link="https://fabtcg.com/usurp-the-shadow-throne-lore-recap/",
