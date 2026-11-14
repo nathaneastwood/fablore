@@ -7,6 +7,8 @@
 # Do not add notes=/description= values inline in data-entry.py; add or
 # update the entry here instead.
 
+from __future__ import annotations
+
 import atexit
 import os
 import sys
@@ -51,31 +53,29 @@ atexit.register(_flush_or_fail)
 # validate_data.py checks these targets statically, which is what should catch a stale
 # name first; this is the backstop for when the script is run directly.
 _failures: list[tuple[str, str, str]] = []
-_update_description = db.update_description
 
 
-def _collecting_update_description(entity_type: str, name: str, text: str) -> None:
-    """Apply a description, recording rather than raising when the entity is missing."""
-    try:
-        _update_description(entity_type, name, text)
-    except ValueError as exc:
-        _failures.append((entity_type, name, str(exc)))
+def _collect(fn, label: str | None):
+    """Wrap ``fn`` so a ``ValueError`` is recorded in ``_failures`` instead of raised.
+
+    Each failure is recorded as ``(label, name, message)``. With ``label=None`` the
+    call's first argument is the label and its second the name
+    (``update_description(entity_type, name, text)``); otherwise the first argument
+    is the name.
+    """
+
+    def collecting(*args) -> None:
+        try:
+            fn(*args)
+        except ValueError as exc:
+            what, name = (args[0], args[1]) if label is None else (label, args[0])
+            _failures.append((what, name, str(exc)))
+
+    return collecting
 
 
-db.update_description = _collecting_update_description
-
-_set_location_parent = db.set_location_parent
-
-
-def _collecting_set_location_parent(name: str, parent_name: str) -> None:
-    """Apply a containment link, recording rather than raising when either side is missing."""
-    try:
-        _set_location_parent(name, parent_name)
-    except ValueError as exc:
-        _failures.append(("location parent", name, str(exc)))
-
-
-db.set_location_parent = _collecting_set_location_parent
+db.update_description = _collect(db.update_description, None)
+db.set_location_parent = _collect(db.set_location_parent, "location parent")
 
 # ---------------------------------------------------------------------------
 # Monsters
