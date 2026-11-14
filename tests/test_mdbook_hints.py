@@ -531,3 +531,37 @@ def test_walker_skips_separators_and_part_titles():
     assert 'hint="Sol"' in items[2]["Chapter"]["content"]
     assert 'hint="Sol"' in child["Chapter"]["content"]
     assert items[3]["Chapter"]["content"] == "Sol table."
+
+
+# ---------------------------------------------------------------------------
+# Apostrophe folding
+# ---------------------------------------------------------------------------
+
+_BARREL = {"KrakensBarrel": {"match": "Kraken's Barrel", "type": "location", "summary": "A tavern."}}
+
+
+def test_a_straight_apostrophe_match_string_finds_the_curly_glyph_and_keeps_it():
+    out = process_chapter("They drank at the Kraken’s Barrel.\n", _BARREL)
+    assert 'hint="KrakensBarrel">Kraken’s Barrel</span>.' in out
+
+
+def test_a_curly_apostrophe_match_string_finds_the_straight_glyph_and_keeps_it():
+    hints = {"KrakensBarrel": {**_BARREL["KrakensBarrel"], "match": "Kraken’s Barrel"}}
+    out = process_chapter("They drank at the Kraken's Barrel.\n", hints)
+    assert 'hint="KrakensBarrel">Kraken\'s Barrel</span>.' in out
+
+
+def test_apostrophe_folding_links_the_first_mention_whichever_glyph_it_uses():
+    out = process_chapter("Kraken’s Barrel, then Kraken's Barrel.\n", _BARREL)
+    assert out == '<span class="hint" hint="KrakensBarrel">Kraken’s Barrel</span>, then Kraken\'s Barrel.\n'
+
+
+def test_apostrophe_folding_applies_to_headings_and_the_page_count():
+    assert 'hint="' not in process_chapter("## The Kraken’s Barrel\n\nKraken's Barrel.\n", _BARREL)
+    chapters = [("a", "Kraken’s Barrel"), ("b", "Kraken's Barrel")]
+    assert compute_single_page_keys(chapters, _BARREL) == frozenset()
+
+
+def test_only_apostrophes_fold_not_opening_quotes():
+    """``‘`` opens a quotation in the prose; it is never an apostrophe there."""
+    assert 'hint="' not in process_chapter("The Kraken‘s Barrel.\n", _BARREL)

@@ -44,10 +44,7 @@
     "region": "Solana"
   },
   "Auis Scales Strongholds": {
-    "match": [
-      "Aui's Scales Strongholds",
-      "Aui’s Scales Strongholds"
-    ],
+    "match": "Aui's Scales Strongholds",
     "type": "location",
     "summary": "Locations where things are concealed from the public.",
     "region": "Misteria"
@@ -63,19 +60,13 @@
     "region": "Solana"
   },
   "Bartons House": {
-    "match": [
-      "Barton's House",
-      "Barton’s House"
-    ],
+    "match": "Barton's House",
     "type": "location",
     "summary": "Information Dealer.",
     "region": "The Pits"
   },
   "Blackjacks Tavern": {
-    "match": [
-      "Blackjack's Tavern",
-      "Blackjack’s Tavern"
-    ],
+    "match": "Blackjack's Tavern",
     "type": "location",
     "summary": "Bounty Hunting Hub, owned by Greenbird. Neutral Ground.",
     "region": "The Pits"
@@ -86,10 +77,7 @@
     "region": "Volcor"
   },
   "Blasmophets Domain": {
-    "match": [
-      "Blasmophet's Domain",
-      "Blasmophet’s Domain"
-    ],
+    "match": "Blasmophet's Domain",
     "type": "location",
     "summary": "Separate plane.",
     "region": "Demonastery"
@@ -121,8 +109,7 @@
     "match": [
       "Coralysi",
       "Fedhari",
-      "Fiddler's Green",
-      "Fiddler’s Green"
+      "Fiddler's Green"
     ],
     "type": "location",
     "summary": "Undersea seat of the merfolk, grown over the drowned Dhani city of Fedhari. Pirates of every creed call it Fiddler's Green and believe it promises them eternal bliss.",
@@ -139,10 +126,7 @@
     "region": "High Seas"
   },
   "Deaths Knell": {
-    "match": [
-      "Death's Knell",
-      "Death’s Knell"
-    ],
+    "match": "Death's Knell",
     "type": "location",
     "summary": "The Ocean."
   },
@@ -261,19 +245,13 @@
     "region": "The Pits"
   },
   "Krakens Barrel": {
-    "match": [
-      "Kraken's Barrel",
-      "Kraken’s Barrel"
-    ],
+    "match": "Kraken's Barrel",
     "type": "location",
     "summary": "Tavern",
     "region": "High Seas"
   },
   "Kylorias Lair": {
-    "match": [
-      "Kyloria's Lair",
-      "Kyloria’s Lair"
-    ],
+    "match": "Kyloria's Lair",
     "type": "location",
     "summary": "Deep beneath the Pits.",
     "region": "The Pits"
@@ -294,10 +272,7 @@
     "region": "Solana"
   },
   "Might n Mead": {
-    "match": [
-      "Might n' Mead",
-      "Might n’ Mead"
-    ],
+    "match": "Might n' Mead",
     "type": "location",
     "summary": "Where Valda grew up and works.",
     "region": "Aria"
@@ -316,8 +291,7 @@
     "match": [
       "Mt. Isen",
       "Mount Isen",
-      "Isen's Peak",
-      "Isen’s Peak"
+      "Isen's Peak"
     ],
     "type": "location",
     "summary": "Ageless mountain watching over Larinkmorth, untouched by the Flow; from its summit Isen is said to have crafted the Isen Ranges.",
@@ -351,28 +325,19 @@
     "region": "Solana"
   },
   "Overseer Crichtons Mansion": {
-    "match": [
-      "Overseer Crichton's Mansion",
-      "Overseer Crichton’s Mansion"
-    ],
+    "match": "Overseer Crichton's Mansion",
     "type": "location",
     "summary": "Situated in The Maw.",
     "region": "The Pits"
   },
   "Pirates Perch": {
-    "match": [
-      "Pirate's Perch",
-      "Pirate’s Perch"
-    ],
+    "match": "Pirate's Perch",
     "type": "location",
     "summary": "Filled with jungle.",
     "region": "High Seas"
   },
   "Rhinars Territory": {
-    "match": [
-      "Rhinar's Territory",
-      "Rhinar’s Territory"
-    ],
+    "match": "Rhinar's Territory",
     "type": "location",
     "summary": "Void of other brutes.",
     "region": "The Savage Lands"
@@ -565,19 +530,13 @@
     "region": "Aria"
   },
   "Yvors Peak": {
-    "match": [
-      "Yvor's Peak",
-      "Yvor’s Peak"
-    ],
+    "match": "Yvor's Peak",
     "type": "location",
     "summary": "Statue of Yvor located here, doorway to an armory.",
     "region": "Aria"
   },
   "iArathael": {
-    "match": [
-      "i'Arathael",
-      "i’Arathael"
-    ],
+    "match": "i'Arathael",
     "type": "location",
     "summary": "Separate plane accessed via a portal in the Demonastery, home of the Old Ones."
   },
@@ -715,10 +674,7 @@
     "summary": "Ever-hungry creatures the Old Ones sculpt from the stolen flesh of Rathe's living, consuming corpses to multiply; no two are ever alike."
   },
   "Ankis": {
-    "match": [
-      "Ank'is",
-      "Ank’is"
-    ],
+    "match": "Ank'is",
     "type": "fauna",
     "summary": "The crystalline creature does not bleed. It shatters. Its teeth are harder than stone, with serrated edges and a needle-like tip to tear through flesh. Its limbs are long and thin, with sharp points to allow it to grip onto most surfaces, and scale the difficult terrain of the Savage Lands."
   },
@@ -783,10 +739,7 @@
     "summary": "A sea creature with boat-sized flippers, three heads and perhaps as large as three whales, end on end."
   },
   "Kaieo": {
-    "match": [
-      "Kaie'o",
-      "Kaie’o"
-    ],
+    "match": "Kaie'o",
     "type": "fauna",
     "summary": "Small, quick creatures once common across Aria's fields, prized for their soft fur; their sudden disappearance from the plains was an early sign of the Fractal Scar's unrest."
   },
@@ -807,10 +760,7 @@
     "summary": "These tiny wisps are artificially created by the wizards of Volcor; puffs of smoke brought to life by a breath of aether. Once formed, they subsist entirely on embers, flitting to and fro amongst the fiery landscape."
   },
   "Nashari": {
-    "match": [
-      "Na'shari",
-      "Na’shari"
-    ],
+    "match": "Na'shari",
     "type": "fauna",
     "summary": "A large beast with a crystalline hide, the na'shari has skin harder than most forms of metal. In spite of its tough appearance, this creature is known for its docile and friendly nature. Its round eyes and fuzzy tail make the creature incredibly popular with children, who often flock to na'shari in hopes of playing with the creature."
   },
@@ -843,10 +793,7 @@
     "summary": "One of the Savage Lands' most skilled predators, almost completely nocturnal, relying on the darkness to mask their movements while stalking prey. Their four eyes allow them to hunt in the dark."
   },
   "Vitreo": {
-    "match": [
-      "Vitr'eo",
-      "Vitr’eo"
-    ],
+    "match": "Vitr'eo",
     "type": "fauna",
     "summary": "A majestic creature with a thick mane, crowned with a series of large crystals that grow out from the top of its skull."
   },
@@ -922,10 +869,7 @@
     "url": "/world-of-rathe/high-seas.html#the-kuraghan"
   },
   "LApocalypta": {
-    "match": [
-      "L'Apocalypta",
-      "L’Apocalypta"
-    ],
+    "match": "L'Apocalypta",
     "type": "cult",
     "summary": "A cult of Chaos operating in the darkest corners of Rathe, orchestrating catastrophes in service of an apocalyptic doctrine set down by the prophet Anarch Zeir.",
     "url": "/world-of-rathe/pits.html#lapocalypta"
@@ -1043,10 +987,7 @@
   },
   "AbsolonsDream": {
     "type": "ship",
-    "match": [
-      "Absolon's Dream",
-      "Absolon’s Dream"
-    ],
+    "match": "Absolon's Dream",
     "summary": "Kuraghan flagship."
   },
   "Aeronauts": {
@@ -1064,10 +1005,7 @@
     "summary": "A Magister of Sol's order who confronts the Shadowrealm's corrupting influence, denying its prophecies in Sol's name."
   },
   "AuisScales": {
-    "match": [
-      "Aui's Scales",
-      "Aui’s Scales"
-    ],
+    "match": "Aui's Scales",
     "type": "organisation",
     "summary": "A secretive organisation that builds hidden strongholds across Misteria to conceal scrolls and artefacts from the public.",
     "exclude_pages": [

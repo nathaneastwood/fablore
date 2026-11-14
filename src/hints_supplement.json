@@ -5,10 +5,7 @@
   },
   "AbsolonsDream": {
     "type": "ship",
-    "match": [
-      "Absolon's Dream",
-      "Absolon’s Dream"
-    ],
+    "match": "Absolon's Dream",
     "summary": "Kuraghan flagship."
   },
   "Aeronauts": {
@@ -26,10 +23,7 @@
     "summary": "A Magister of Sol's order who confronts the Shadowrealm's corrupting influence, denying its prophecies in Sol's name."
   },
   "AuisScales": {
-    "match": [
-      "Aui's Scales",
-      "Aui’s Scales"
-    ],
+    "match": "Aui's Scales",
     "exclude_pages": [
       "main-story/welcome-to-rathe/wanderings-in-the-mists"
     ]
@@ -887,28 +881,16 @@
     ]
   },
   "Ankis": {
-    "match": [
-      "Ank'is",
-      "Ank’is"
-    ]
+    "match": "Ank'is"
   },
   "Kaieo": {
-    "match": [
-      "Kaie'o",
-      "Kaie’o"
-    ]
+    "match": "Kaie'o"
   },
   "Nashari": {
-    "match": [
-      "Na'shari",
-      "Na’shari"
-    ]
+    "match": "Na'shari"
   },
   "Vitreo": {
-    "match": [
-      "Vitr'eo",
-      "Vitr’eo"
-    ]
+    "match": "Vitr'eo"
   },
   "Apostate": {
     "type": "character",

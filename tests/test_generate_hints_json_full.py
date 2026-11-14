@@ -46,17 +46,12 @@ def test_entry_with_match_no_match_field_when_key_equals_name():
 
 def test_entry_with_match_adds_match_field_when_key_differs():
     result = _entry_with_match("Kae'io", {"type": "fauna"})
-    assert result == {"match": ["Kae'io", "Kae\u2019io"], "type": "fauna"}
+    assert result == {"match": "Kae'io", "type": "fauna"}
 
 
-def test_entry_with_match_emits_both_apostrophe_glyphs():
-    """The prose is typeset copy, so the curly form is as common as the straight one.
-
-    13 supplement entries existed solely to hand-write this second variant for a
-    name the DB already held. Generating it retires them and covers every future
-    apostrophe name without anyone remembering to.
-    """
-    assert _entry_with_match("Kraken's Barrel", {})["match"] == ["Kraken's Barrel", "Kraken\u2019s Barrel"]
+def test_entry_with_match_emits_one_apostrophe_glyph():
+    """mdbook_hints folds ``'`` and ``\u2019`` together, so one glyph finds both in the prose."""
+    assert _entry_with_match("Kraken's Barrel", {})["match"] == "Kraken's Barrel"
 
 
 def test_entry_with_match_leaves_apostrophe_free_names_alone():
@@ -202,7 +197,7 @@ def test_generate_writes_output(tmp_path, monkeypatch):
     # Fauna with apostrophe: key has apostrophe stripped, match field added
     assert "Kaeio" in hints
     assert hints["Kaeio"]["type"] == "fauna"
-    assert hints["Kaeio"]["match"] == ["Kae'io", "Kae\u2019io"]
+    assert hints["Kaeio"]["match"] == "Kae'io"
 
     # Flora with empty description is skipped
     assert "Starbloom" not in hints
@@ -423,7 +418,7 @@ def test_aliases_become_match_strings(tmp_path: Path, monkeypatch) -> None:
     assert hints["Coralysi"]["summary"] == "A trench."
 
 
-def test_an_alias_with_an_apostrophe_brings_both_glyphs(tmp_path: Path, monkeypatch) -> None:
+def test_an_alias_with_an_apostrophe_brings_one_glyph(tmp_path: Path, monkeypatch) -> None:
     import generate_hints_json as ghj
 
     db_path = tmp_path / "fablore.db"
@@ -437,7 +432,7 @@ def test_an_alias_with_an_apostrophe_brings_both_glyphs(tmp_path: Path, monkeypa
     conn.close()
 
     hints = _generate_from(db_path, tmp_path, monkeypatch)
-    assert hints["Coralysi"]["match"] == ["Coralysi", "Fiddler's Green", "Fiddler’s Green"]
+    assert hints["Coralysi"]["match"] == ["Coralysi", "Fiddler's Green"]
 
 
 def test_locations_are_written_before_groups(tmp_path: Path, monkeypatch) -> None:

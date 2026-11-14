@@ -159,29 +159,13 @@ def _key(name: str) -> str:
     return name.replace("'", "")
 
 
-CURLY_APOSTROPHE = "\u2019"
-
-
-def _apostrophe_variants(name: str) -> list[str]:
-    """Return the name written with each apostrophe glyph the prose actually uses.
-
-    The pages are typeset copy, so ``Kraken's Barrel`` appears as often with a
-    curly ``\u2019`` as with a straight ``'``, and the matcher compares literal text.
-    Emitting both is mechanical, which is the point: 14 supplement entries existed
-    for no other reason than to hand-write the curly form of a name the DB already
-    held, and a fifteenth was one apostrophe name away from being needed.
-    """
-    if "'" not in name:
-        return [name]
-    return [name, name.replace("'", CURLY_APOSTROPHE)]
-
-
 def _entry_with_match(name: str, base: dict, alt_names: "list[str] | None" = None) -> dict:
     """Add a 'match' field when the key alone cannot find the entity in prose.
 
     Two reasons it cannot. The key strips apostrophes, so an apostrophe name needs
-    an explicit match — and once one is needed, every apostrophe glyph variant
-    belongs in it. And an entity may answer to names that are not its display name
+    an explicit match. One glyph is enough: mdbook_hints folds ``'`` and ``\u2019``
+    together, so ``Kraken's Barrel`` also finds the typeset ``Kraken\u2019s Barrel``.
+    And an entity may answer to names that are not its display name
     at all (R4, R6): ``Mendacity`` for ``Mendacity Media``, ``Isen's Peak`` for
     ``Mt. Isen``. Those come from the alias tables and are match strings too, which
     is the whole point of storing them — the canonical row keeps the display name
@@ -190,14 +174,12 @@ def _entry_with_match(name: str, base: dict, alt_names: "list[str] | None" = Non
     Args:
         name: The entity's canonical display name.
         base: The entry fields to carry through.
-        alt_names: Aliases or epithets, in declared order. Each contributes its own
-            apostrophe variants.
+        alt_names: Aliases or epithets, in declared order.
     """
-    variants = list(_apostrophe_variants(name))
+    variants = [name]
     for alt in alt_names or []:
-        for variant in _apostrophe_variants(alt):
-            if variant not in variants:
-                variants.append(variant)
+        if alt not in variants:
+            variants.append(alt)
     if len(variants) == 1 and _key(name) == name:
         return base
     return {"match": variants[0] if len(variants) == 1 else variants, **base}

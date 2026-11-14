@@ -59,6 +59,15 @@ _OLD_HINT = re.compile(r"\[([^\]]+)\]\(~([^)]+)\)")
 # these first is what makes :func:`_may_occur` a safe prefilter.
 # tests/test_mdbook_hints.py re-derives this table from the running interpreter.
 _REGEX_ASCII_FOLD = str.maketrans({"\u0130": "i", "\u0131": "i", "\u017f": "s", "\u212a": "k"})
+
+# The apostrophe glyphs the prose uses: the typeset copy writes ``Kraken’s Barrel``
+# as often as ``Kraken's Barrel``. A match string written with either finds both,
+# so hints.json carries one form. ``‘`` is left out on purpose: the pages use it
+# only to open a quotation. Every glyph maps to one character, so folded text
+# keeps the original's offsets.
+_APOSTROPHES = "'\u2019"
+_APOSTROPHE_FOLD = str.maketrans({ch: "'" for ch in _APOSTROPHES})
+_APOSTROPHE_CLASS = "[" + _APOSTROPHES + "]"
 _NON_ASCII_RUN = re.compile(r"[^\x00-\x7f]+")
 
 # Entity type no longer gates auto-detection. It used to: only DB-backed types
@@ -126,13 +135,16 @@ def _matcher(match_string: str) -> tuple[tuple[str, ...], re.Pattern]:
     each of them, contiguously, in the page folded by :func:`_fold`, so a page
     missing any run cannot match and is skipped without running the regex.
     """
-    runs = tuple(r for r in _NON_ASCII_RUN.split(match_string.lower()) if r)
-    return runs, re.compile(r"\b" + re.escape(match_string) + r"\b", re.IGNORECASE)
+    folded = match_string.translate(_APOSTROPHE_FOLD)
+    runs = tuple(r for r in _NON_ASCII_RUN.split(folded.lower()) if r)
+    # re.escape leaves ' alone, so each apostrophe becomes a class of every glyph.
+    body = re.escape(folded).replace("'", _APOSTROPHE_CLASS)
+    return runs, re.compile(r"\b" + body + r"\b", re.IGNORECASE)
 
 
 def _fold(text: str) -> str:
-    """Lowercase ``text`` so an ASCII run of a match string is found by ``in``."""
-    return text.translate(_REGEX_ASCII_FOLD).lower()
+    """Lowercase ``text`` and fold apostrophes so a match string's ASCII runs are found by ``in``."""
+    return text.translate(_REGEX_ASCII_FOLD).translate(_APOSTROPHE_FOLD).lower()
 
 
 def _may_occur(match_string: str, folded: str) -> bool:
