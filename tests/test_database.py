@@ -147,6 +147,41 @@ def test_upsert_story_replaces_narrated_videos(db: Database) -> None:
     assert vids[0]["author"] == "New"
 
 
+def _narrated_video_csv(tmp_path: Path) -> str:
+    return (tmp_path / "csv" / "story-narrated-videos.csv").read_text(encoding="utf-8")
+
+
+def test_upsert_story_writes_narrated_videos_csv(db: Database, tmp_path: Path) -> None:
+    """The write-through export covers narrated videos, so the CSV matches the DB.
+
+    It used to skip them: the row landed in the DB and nowhere else, and a
+    rebuilt fablore.db lost it.
+    """
+    db.upsert_story(
+        "src/main-story/vid.md",
+        story_type="main-story",
+        title="T",
+        narrated_videos=[NarratedVideoEntry("Narrator", "https://video.example.com/1")],
+    )
+    assert "https://video.example.com/1" in _narrated_video_csv(tmp_path)
+
+
+def test_remove_story_drops_its_narrated_videos_from_csv(db: Database, tmp_path: Path) -> None:
+    """Removing a story removes its narrated videos from the CSV too.
+
+    A leftover row names a StoryId stories.csv no longer has, and the next
+    fresh seed fails on the foreign key.
+    """
+    db.upsert_story(
+        "src/main-story/vid.md",
+        story_type="main-story",
+        title="T",
+        narrated_videos=[NarratedVideoEntry("Narrator", "https://video.example.com/1")],
+    )
+    db.remove_story("src/main-story/vid.md", dry_run=False)
+    assert "https://video.example.com/1" not in _narrated_video_csv(tmp_path)
+
+
 # ---------------------------------------------------------------------------
 # get_story
 # ---------------------------------------------------------------------------

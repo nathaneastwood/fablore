@@ -90,7 +90,6 @@ def export_all(conn: sqlite3.Connection, data_dir: Path) -> None:
     """
     csv_dir = data_dir / "csv"
     export_stories(conn, data_dir)
-    _export_story_narrated_videos(conn, csv_dir)
     export_registry_tables(conn, data_dir)
     _export_heroes_canonical(conn, csv_dir)
     _export_heroes_game(conn, csv_dir)
@@ -109,7 +108,17 @@ def export_all(conn: sqlite3.Connection, data_dir: Path) -> None:
 
 
 def export_stories(conn: sqlite3.Connection, data_dir: Path) -> None:
-    _export_stories(conn, data_dir / "csv")
+    """Write ``stories.csv`` and ``story-narrated-videos.csv``.
+
+    A narrated video belongs to one story and is written and deleted with it,
+    so every write path that exports stories exports the videos too. Leaving
+    them out let ``upsert_story(narrated_videos=…)`` change only the DB, and
+    left ``remove_story`` a CSV row naming a StoryId that no longer exists —
+    which fails the foreign key on the next fresh seed.
+    """
+    csv_dir = data_dir / "csv"
+    _export_stories(conn, csv_dir)
+    _export_story_narrated_videos(conn, csv_dir)
 
 
 def export_registry_tables(conn: sqlite3.Connection, data_dir: Path) -> None:
