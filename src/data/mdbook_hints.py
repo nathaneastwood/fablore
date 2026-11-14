@@ -56,7 +56,7 @@ _OLD_HINT = re.compile(r"\[([^\]]+)\]\(~([^)]+)\)")
 # The only non-ASCII characters that ``re.IGNORECASE`` lets match an ASCII one.
 # ``str.lower()`` alone cannot stand in for the regex: ``ı`` and ``ſ`` do not
 # lowercase to ASCII at all, and ``İ`` lowercases to two characters. Folding
-# these first is what makes :func:`_may_occur` a safe prefilter.
+# these first is what makes the :func:`page_presence` prefilter safe.
 # tests/test_mdbook_hints.py re-derives this table from the running interpreter.
 _REGEX_ASCII_FOLD = str.maketrans({"\u0130": "i", "\u0131": "i", "\u017f": "s", "\u212a": "k"})
 
@@ -147,13 +147,44 @@ def _fold(text: str) -> str:
     return text.translate(_REGEX_ASCII_FOLD).translate(_APOSTROPHE_FOLD).lower()
 
 
-def _may_occur(match_string: str, folded: str) -> bool:
-    """Cheap necessary condition for ``match_string`` to match the folded text.
+# A page's prefilter survivors: each eligible key, in hints.json order, with the
+# patterns of its match strings that may occur on the page. Keys none of whose
+# strings may occur are left out.
+PagePresence = list[tuple[str, list[re.Pattern]]]
+_Eligible = list[tuple[str, list[tuple[tuple[str, ...], re.Pattern]]]]
 
-    It may admit a page the regex then rejects, but it never rejects a page the
-    regex would match.
+
+def _eligible(hints: dict) -> _Eligible:
+    """Return every key with a summary and its match strings' ``(runs, pattern)`` pairs.
+
+    Any entry with a summary is eligible — there is something to put in the
+    tooltip. Entity type is deliberately not consulted: whether a tooltip is
+    wanted depends on where the entity is mentioned, not what kind of thing it is.
+    See Option D and :func:`compute_single_page_keys`.
     """
-    return all(run in folded for run in _matcher(match_string)[0])
+    return [
+        (key, [_matcher(ms) for ms in get_match_strings(key, entry)])
+        for key, entry in hints.items()
+        if isinstance(entry, dict) and entry.get("summary")
+    ]
+
+
+def page_presence(content: str, hints: dict, eligible: _Eligible | None = None) -> PagePresence:
+    """Fold ``content`` once and prefilter every eligible key's match strings against it.
+
+    A match string survives when each of its :func:`_matcher` runs is in the
+    folded page: a cheap necessary condition for the regex to match. It may admit
+    a page the regex then rejects, but never rejects one the regex would match.
+    A string absent from the page can neither count a mention, suppress the hint
+    (headings are part of the page) nor be wrapped, so only the present ones matter.
+    """
+    folded = _fold(content)
+    present: PagePresence = []
+    for key, matchers in eligible if eligible is not None else _eligible(hints):
+        patterns = [pattern for runs, pattern in matchers if all(run in folded for run in runs)]
+        if patterns:
+            present.append((key, patterns))
+    return present
 
 
 def process_chapter(
@@ -161,6 +192,7 @@ def process_chapter(
     hints: dict,
     page_slug: str = "",
     single_page_keys: frozenset[str] = frozenset(),
+    present: PagePresence | None = None,
 ) -> str:
     """Transform a single chapter's Markdown content.
 
@@ -170,6 +202,8 @@ def process_chapter(
         page_slug: This chapter's slug, for ``exclude_pages`` matching.
         single_page_keys: Keys mentioned on only one page across the whole book;
             see :func:`compute_single_page_keys`.
+        present: This chapter's :func:`page_presence`, when the caller already
+            has it. Recomputed if legacy markup rewrites the content.
     """
     # --- Step 1: convert old [Text](~Key) markup ---
     manually_handled: set[str] = set()
@@ -179,23 +213,19 @@ def process_chapter(
         manually_handled.add(key)
         return f'<span class="hint" hint="{key}">{text}</span>'
 
-    content = _OLD_HINT.sub(_replace_old, content)
+    rewritten = _OLD_HINT.sub(_replace_old, content)
+    # The rewrite changes the text, so a presence list computed before it is stale.
+    if present is None or rewritten != content:
+        present = page_presence(rewritten, hints)
+    content = rewritten
 
     # --- Step 2: build candidate list ---
     heading_texts = extract_section_heading_texts(content)
-    folded = _fold(content)
 
     # (key, longest match string length, patterns of the strings that may occur)
     candidates: list[tuple[str, int, list[re.Pattern]]] = []
-    for key, entry in hints.items():
+    for key, patterns in present:
         if key in manually_handled:
-            continue
-
-        # Any entry with a summary is eligible — there is something to put in the
-        # tooltip. Entity type is deliberately not consulted: whether a tooltip is
-        # wanted depends on where the entity is mentioned, not what kind of thing
-        # it is. See Option D below and _single_page_keys.
-        if not isinstance(entry, dict) or not entry.get("summary"):
             continue
 
         # Option D: an entity mentioned on exactly one page is introduced and
@@ -204,23 +234,16 @@ def process_chapter(
             continue
 
         # Option C: exclude_pages
+        entry = hints[key]
         exclude = entry.get("exclude_pages") or []
         if page_slug and page_slug in exclude:
-            continue
-
-        match_strings = get_match_strings(key, entry)
-
-        # A string absent from the page can neither suppress the hint (headings
-        # are part of the page) nor be wrapped, so only the present ones matter.
-        patterns = [_matcher(ms)[1] for ms in match_strings if _may_occur(ms, folded)]
-        if not patterns:
             continue
 
         # Option A: skip if any match string appears as a word in any ##/### heading
         if any(p.search(h) for p in patterns for h in heading_texts):
             continue
 
-        candidates.append((key, max(len(s) for s in match_strings), patterns))
+        candidates.append((key, max(len(s) for s in get_match_strings(key, entry)), patterns))
 
     # Longest match string first — prevents "Sol" shadowing "Solarium"
     candidates.sort(key=lambda x: x[1], reverse=True)
@@ -284,7 +307,11 @@ def _collect_chapters(sections: list, out: list[tuple[str, str]]) -> list[tuple[
     return out
 
 
-def compute_single_page_keys(chapters: list[tuple[str, str]], hints: dict) -> frozenset[str]:
+def compute_single_page_keys(
+    chapters: list[tuple[str, str]],
+    hints: dict,
+    presences: list[PagePresence] | None = None,
+) -> frozenset[str]:
     """Return hint keys mentioned on exactly one page across the whole book.
 
     An entity named on a single page is, by definition, introduced and explained
@@ -303,25 +330,21 @@ def compute_single_page_keys(chapters: list[tuple[str, str]], hints: dict) -> fr
     Args:
         chapters: ``(slug, content)`` pairs for every rendered page.
         hints: Loaded ``hints.json``.
+        presences: Each chapter's :func:`page_presence`, in ``chapters`` order,
+            when the caller already has them.
 
     Returns:
         The keys to skip entirely.
     """
-    folded_chapters = [(content, _fold(content)) for _slug, content in chapters]
-    singles: set[str] = set()
-    for key, entry in hints.items():
-        if not isinstance(entry, dict) or not entry.get("summary"):
-            continue
-        match_strings = get_match_strings(key, entry)
-        pages = 0
-        for content, folded in folded_chapters:
-            if any(_may_occur(ms, folded) and _matcher(ms)[1].search(content) for ms in match_strings):
-                pages += 1
-                if pages > 1:
-                    break
-        if pages == 1:
-            singles.add(key)
-    return frozenset(singles)
+    if presences is None:
+        eligible = _eligible(hints)
+        presences = [page_presence(content, hints, eligible) for _slug, content in chapters]
+    pages: dict[str, int] = {}
+    for (_slug, content), present in zip(chapters, presences):
+        for key, patterns in present:
+            if pages.get(key, 0) < 2 and any(p.search(content) for p in patterns):
+                pages[key] = pages.get(key, 0) + 1
+    return frozenset(key for key, n in pages.items() if n == 1)
 
 
 def _is_generated_page(slug: str) -> bool:
@@ -334,9 +357,28 @@ def _is_generated_page(slug: str) -> bool:
     return slug.startswith("data/")
 
 
-def _process_sections(sections: list, hints: dict, single_page_keys: frozenset[str]) -> None:
-    for slug, chapter in _iter_chapters(sections):
-        chapter["content"] = process_chapter(chapter["content"], hints, slug, single_page_keys)
+def _process_sections(
+    sections: list,
+    hints: dict,
+    single_page_keys: frozenset[str],
+    presences: list[PagePresence] | None = None,
+) -> None:
+    for i, (slug, chapter) in enumerate(_iter_chapters(sections)):
+        present = presences[i] if presences is not None else None
+        chapter["content"] = process_chapter(chapter["content"], hints, slug, single_page_keys, present)
+
+
+def annotate_book(items: list, hints: dict) -> None:
+    """Wrap hint terms in every chapter of ``items`` in place.
+
+    Each page is folded and prefiltered once; the page count (Option D) and the
+    per-page pass share the result.
+    """
+    chapters = _collect_chapters(items, [])
+    eligible = _eligible(hints)
+    presences = [page_presence(content, hints, eligible) for _slug, content in chapters]
+    single_page_keys = compute_single_page_keys(chapters, hints, presences)
+    _process_sections(items, hints, single_page_keys, presences)
 
 
 def main() -> None:
@@ -356,8 +398,7 @@ def main() -> None:
     hints = load_hints(hints_path) if hints_path.exists() else {}
 
     items = book.get("items") or []
-    single_page_keys = compute_single_page_keys(_collect_chapters(items, []), hints)
-    _process_sections(items, hints, single_page_keys)
+    annotate_book(items, hints)
     write_book(book)
 
 

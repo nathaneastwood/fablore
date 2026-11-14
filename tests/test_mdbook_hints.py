@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 import sys
 from pathlib import Path
 
@@ -565,3 +566,66 @@ def test_apostrophe_folding_applies_to_headings_and_the_page_count():
 def test_only_apostrophes_fold_not_opening_quotes():
     """``‘`` opens a quotation in the prose; it is never an apostrophe there."""
     assert 'hint="' not in process_chapter("The Kraken‘s Barrel.\n", _BARREL)
+
+
+# ---------------------------------------------------------------------------
+# Whole-book pass
+# ---------------------------------------------------------------------------
+
+_LEGACY_CHAPTER = "main-story/usurp-the-shadow-throne/letters-from-the-beyond.md"
+
+
+def _book(*chapters: tuple[str, str]) -> list:
+    return [{"Chapter": {"path": path, "content": content, "sub_items": []}} for path, content in chapters]
+
+
+def test_annotate_book_matches_the_page_count_and_the_per_page_pass():
+    from mdbook_hints import annotate_book
+
+    items = _book(("a.md", "Sol rises. A Siren sang."), ("b.md", "Sol again."), ("data/md/x.md", "A Siren."))
+    hints = {**HINTS, "Sol": {"type": "aesir", "summary": "Aesir of Light"}}
+    annotate_book(items, hints)
+    assert items[0]["Chapter"]["content"] == '<span class="hint" hint="Sol">Sol</span> rises. A Siren sang.'
+    assert items[1]["Chapter"]["content"] == '<span class="hint" hint="Sol">Sol</span> again.'
+    assert items[2]["Chapter"]["content"] == "A Siren."
+
+
+def test_annotate_book_on_the_one_chapter_with_legacy_markup():
+    """letters-from-the-beyond.md is the only page still using ``[Text](~Key)``.
+
+    Its rewrite changes the text, so the page's prefilter has to be redone on the
+    rewritten content. Pinned against the committed hints.json, with a second copy
+    of the page so no key counts as single-page. If hints.json gains an entity this
+    page names, refresh the list.
+    """
+    from mdbook_hints import annotate_book, load_hints
+
+    source = (ROOT / "src" / _LEGACY_CHAPTER).read_text(encoding="utf-8")
+    assert "](~AesirOfLight)" in source
+    items = _book((_LEGACY_CHAPTER, source), ("copy.md", source))
+    annotate_book(items, load_hints(ROOT / "src/hints.json"))
+    out = items[0]["Chapter"]["content"]
+    spans = re.findall(r'<span class="hint" hint="([^"]+)">([^<]*)</span>', out)
+    assert spans == [
+        ("Vynnset", "Vynnset"),
+        ("Church of Pain", "Church of Pain"),
+        ("iArathael", "i’Arathael"),
+        ("OldOnes", "Old Ones"),
+        ("Aetherscribes", "Aetherscribes"),
+        ("Aesir", "Aesir"),
+        ("Solana", "Solana"),
+        ("Shadowrealm", "Shadowrealm"),
+        ("Disciples of Pain", "Disciples of Pain"),
+        ("Ursur", "Ursur"),
+        ("Chane", "Chane"),
+        ("Runeblades", "Runeblades"),
+        ("Runechant", "runechants"),
+        ("Demonastery", "Demonastery"),
+        ("The Golden Fields", "the Golden Fields"),
+        ("Embra", "Embra"),
+        ("Kien", "Kien"),
+        ("Ancient", "Ancient"),
+        ("Baalghor", "Baalghor"),
+        ("AesirOfLight", "Aesir of Light"),
+    ]
+    assert "](~" not in out
