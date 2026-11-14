@@ -109,6 +109,42 @@ def test_upsert_story_returns_story_record(db: Database) -> None:
     assert rec.story_id.startswith("ST")
 
 
+@pytest.mark.parametrize(
+    "path, expected",
+    [
+        ("src/main-story/a.md", "main-story"),
+        ("src/flavour/monarch.md", "flavour"),
+        ("src/heroes-of-rathe/boltyn-about.md", "heroes-of-rathe"),
+        ("src/short-stories/arc/b.md", "short-stories"),
+    ],
+)
+def test_upsert_story_derives_story_type_from_path(db: Database, path: str, expected: str) -> None:
+    """The story type is the first ``src/`` path segment; a declaration need not repeat it."""
+    rec = db.upsert_story(path, title="T")
+    assert rec.story_type == expected
+    assert db.conn.execute("SELECT story_type FROM stories").fetchone()["story_type"] == expected
+
+
+def test_upsert_story_dry_run_derives_story_type(db: Database, capsys) -> None:
+    rec = db.upsert_story("src/digital-tiles/x.md", title="T", dry_run=True)
+    assert rec.story_type == "digital-tiles"
+    assert "digital-tiles" in capsys.readouterr().out
+
+
+def test_upsert_story_rejects_story_type_that_disagrees_with_path(db: Database) -> None:
+    with pytest.raises(ValueError, match="story_type='flavour'.*main-story"):
+        db.upsert_story("src/main-story/a.md", story_type="flavour", title="T")
+    assert db.conn.execute("SELECT COUNT(*) FROM stories").fetchone()[0] == 0
+
+
+@pytest.mark.parametrize("path", ["src/spoilers/x.md", "src/sets/x.md", "src/loose.md"])
+def test_upsert_story_rejects_path_outside_a_story_section(db: Database, path: str) -> None:
+    """Only sections with an ``entries/`` module hold stories; anything else is a mistyped path."""
+    with pytest.raises(ValueError, match="not a story section"):
+        db.upsert_story(path, title="T")
+    assert db.conn.execute("SELECT COUNT(*) FROM stories").fetchone()[0] == 0
+
+
 def test_upsert_story_narrated_videos_stored(db: Database) -> None:
     """Narrated videos are stored in the narrated_videos table."""
     db.upsert_story(

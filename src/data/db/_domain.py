@@ -24,6 +24,7 @@ _SCRIPT_DIR = Path(__file__).resolve().parents[1]
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
+from mdbook_common import SECTION_BY_KEY  # noqa: E402
 from mdbook_heading_ids import (  # noqa: E402
     collect_heading_anchor_ids_from_path,
     format_fragment_suggestion,
@@ -1680,8 +1681,8 @@ class Database:
     def upsert_story(
         self,
         path: str | Path,
-        story_type: str,
-        title: str,
+        story_type: str | None = None,
+        title: str = "",
         authors: str = "",
         artists: str = "",
         source_link: str = "",
@@ -1713,11 +1714,10 @@ class Database:
 
         Args:
             path: Path to the ``*.md`` file under ``src/``.
-            story_type: First ``src/`` path segment. Must be one of
-                ``"archive"``, ``"digital-tiles"``, ``"equipment"``,
-                ``"flavour"``, ``"heroes-of-rathe"``, ``"main-story"``,
-                ``"other-characters"``, ``"short-stories"``, ``"summaries"``,
-                ``"weapons"``, ``"world-of-rathe"``.
+            story_type: Deprecated; derived from ``path`` (its first ``src/``
+                segment, which must name a section with an ``entries_module``
+                in ``mdbook_common.SECTIONS``). When passed it must agree with
+                the path, or ``ValueError`` is raised.
             title: Human-readable title for the story.
             authors: Author credits (free text, comma-separated suggested).
             artists: Illustration credits (free text).
@@ -1789,6 +1789,10 @@ class Database:
         """
         story_key = _story_key_from_path(path)
         story_id = _story_id(story_key)
+        derived_type = _story_type_from_key(story_key)
+        if story_type is not None and story_type != derived_type:
+            raise ValueError(f"story_type={story_type!r} disagrees with {story_key!r}, which is {derived_type!r}")
+        story_type = derived_type
 
         # Resolve characters eagerly so we fail fast before writing anything —
         # an unknown hero slug or a person named twice (once as a slug, once
@@ -3336,3 +3340,19 @@ def _story_key_from_path(path: str | Path) -> str:
     if not key.endswith(".md"):
         raise ValueError(f"Story path must be a .md file: {key}")
     return key
+
+
+def _story_type_from_key(story_key: str) -> str:
+    """Return the story type: the first segment of ``story_key``.
+
+    Only a site section with an ``entries/`` module holds stories, so any other
+    segment (a reference section, or a page loose at the ``src/`` root) is a
+    mistyped path and raises ``ValueError``.
+    """
+    segment = story_key.split("/", 1)[0] if "/" in story_key else ""
+    section = SECTION_BY_KEY.get(segment)
+    if section is None or not section.entries_module:
+        raise ValueError(
+            f"Story path {story_key!r} is not a story section path: its first segment must name a src/ section that holds stories"
+        )
+    return segment

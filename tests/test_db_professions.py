@@ -31,7 +31,7 @@ def _seed_hero(database: Database, slug: str, name: str) -> str:
 
 
 def _story(database: Database, path: str = "src/main-story/super-slam/feudmasters.md", **kw):
-    return database.upsert_story(path=path, story_type="main-story", title="T", **kw)
+    return database.upsert_story(path=path, title="T", **kw)
 
 
 def _professions_of(database: Database, name: str) -> list[str]:

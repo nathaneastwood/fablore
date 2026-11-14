@@ -32,11 +32,11 @@ ENTRIES_DIR = ROOT / "src" / "data" / "entries"
 STORIES_CSV = ROOT / "src" / "data" / "csv" / "stories.csv"
 
 
-def _declarations(module: str) -> list[tuple[str, str, int]]:
-    """Return ``(path, story_type, lineno)`` for each ``db.upsert_story`` call."""
+def _declarations(module: str) -> list[tuple[str, int]]:
+    """Return ``(path, lineno)`` for each ``db.upsert_story`` call."""
     source = (ENTRIES_DIR / f"{module}.py").read_text(encoding="utf-8")
     tree = ast.parse(source, filename=f"{module}.py")
-    found: list[tuple[str, str, int]] = []
+    found: list[tuple[str, int]] = []
     for node in ast.walk(tree):
         if not isinstance(node, ast.Call):
             continue
@@ -49,7 +49,7 @@ def _declarations(module: str) -> list[tuple[str, str, int]]:
         ):
             continue
         kwargs = {kw.arg: kw.value.value for kw in node.keywords if kw.arg and isinstance(kw.value, ast.Constant)}
-        found.append((kwargs.get("path"), kwargs.get("story_type"), node.lineno))
+        found.append((kwargs.get("path"), node.lineno))
     return found
 
 
@@ -94,11 +94,10 @@ def test_declarations_were_found() -> None:
     assert len(ALL_DECLARATIONS) > 0
 
 
-@pytest.mark.parametrize("module, path, story_type, lineno", ALL_DECLARATIONS)
-def test_declaration_has_literal_path_and_type(module, path, story_type, lineno) -> None:
-    """Both are string literals — everything else here reads them statically."""
+@pytest.mark.parametrize("module, path, lineno", ALL_DECLARATIONS)
+def test_declaration_has_literal_path(module, path, lineno) -> None:
+    """A string literal — everything else here reads it statically."""
     assert path, f"entries/{module}.py:{lineno} has no literal path="
-    assert story_type, f"entries/{module}.py:{lineno} has no literal story_type="
 
 
 def test_no_archive_page_is_declared() -> None:
@@ -109,7 +108,7 @@ def test_no_archive_page_is_declared() -> None:
     """
     archived = [
         f"entries/{module}.py:{lineno} declares {path}"
-        for module, path, _story_type, lineno in ALL_DECLARATIONS
+        for module, path, lineno in ALL_DECLARATIONS
         if path.startswith("src/archive/")
     ]
     assert archived == []
@@ -118,7 +117,7 @@ def test_no_archive_page_is_declared() -> None:
 def test_no_duplicate_paths() -> None:
     seen: dict[str, str] = {}
     duplicates: list[str] = []
-    for module, path, _story_type, lineno in ALL_DECLARATIONS:
+    for module, path, lineno in ALL_DECLARATIONS:
         where = f"entries/{module}.py:{lineno}"
         if path in seen:
             duplicates.append(f"{path} declared at {seen[path]} and again at {where}")
@@ -127,13 +126,13 @@ def test_no_duplicate_paths() -> None:
     assert not duplicates, "\n".join(duplicates)
 
 
-@pytest.mark.parametrize("module, path, story_type, lineno", ALL_DECLARATIONS)
-def test_declared_path_exists_on_disk(module, path, story_type, lineno) -> None:
+@pytest.mark.parametrize("module, path, lineno", ALL_DECLARATIONS)
+def test_declared_path_exists_on_disk(module, path, lineno) -> None:
     assert (ROOT / path).is_file(), f"entries/{module}.py:{lineno} declares a missing page: {path}"
 
 
-@pytest.mark.parametrize("module, path, story_type, lineno", ALL_DECLARATIONS)
-def test_declared_path_is_a_known_story(module, path, story_type, lineno) -> None:
+@pytest.mark.parametrize("module, path, lineno", ALL_DECLARATIONS)
+def test_declared_path_is_a_known_story(module, path, lineno) -> None:
     """A declared page must have a stories.csv row, or its links point at nothing."""
     key = path[len("src/") :] if path.startswith("src/") else path
     assert key in _story_keys(), (
@@ -142,14 +141,13 @@ def test_declared_path_is_a_known_story(module, path, story_type, lineno) -> Non
     )
 
 
-@pytest.mark.parametrize("module, path, story_type, lineno", ALL_DECLARATIONS)
-def test_story_type_matches_path_and_module(module, path, story_type, lineno) -> None:
+@pytest.mark.parametrize("module, path, lineno", ALL_DECLARATIONS)
+def test_declaration_sits_in_the_module_its_path_implies(module, path, lineno) -> None:
+    """The story type is the path's first segment (``upsert_story`` derives it and
+    rejects a disagreeing ``story_type=``); the module must be that type's module."""
     from_path = path[len("src/") :].split("/")[0] if path.startswith("src/") else ""
-    assert story_type == from_path, (
-        f"entries/{module}.py:{lineno} declares story_type={story_type!r} " f"but sits at {path!r}"
-    )
-    assert story_type == SECTIONS[module], (
-        f"entries/{module}.py:{lineno} holds a {story_type!r} declaration; " f"that module is for {SECTIONS[module]!r}"
+    assert from_path == SECTIONS[module], (
+        f"entries/{module}.py:{lineno} declares {path!r}; " f"that module is for {SECTIONS[module]!r}"
     )
 
 
