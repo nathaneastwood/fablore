@@ -20,7 +20,8 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from mdbook_common import iter_chapters, md_to_html_url, read_rows, run  # noqa: E402
+from generator_utils import write_text_if_changed  # noqa: E402
+from mdbook_common import iter_chapters, md_to_html_url, read_rows, replace_marked_block, run  # noqa: E402
 
 MARK_START = "<!-- fablore-browse:start -->"
 MARK_END = "<!-- fablore-browse:end -->"
@@ -179,13 +180,7 @@ def build_browse_html(index: dict) -> str:
 
 
 def inject_into_content(content: str, inner_html: str) -> str:
-    if MARK_START in content and MARK_END in content:
-        pre, _, rest = content.partition(MARK_START)
-        _, _, post = rest.partition(MARK_END)
-        block = f"{MARK_START}\n{inner_html}\n{MARK_END}"
-        return pre.rstrip() + "\n\n" + block + post
-    sep = "\n\n" if content.strip() else ""
-    return content.rstrip() + sep + f"{MARK_START}\n{inner_html}\n{MARK_END}\n"
+    return replace_marked_block(content, MARK_START, MARK_END, inner_html, pad_after=False)
 
 
 def walk_and_process(sections: list, index: dict) -> None:
@@ -210,13 +205,7 @@ def _process(items: list, src_root: Path) -> None:
         )
         + "\n"
     )
-    stories_json_path = src_root / "stories.json"
-    try:
-        existing = stories_json_path.read_text(encoding="utf-8")
-    except FileNotFoundError:
-        existing = None
-    if existing != stories_json:
-        stories_json_path.write_text(stories_json, encoding="utf-8")
+    write_text_if_changed(src_root / "stories.json", stories_json)
 
     walk_and_process(items, index)
 

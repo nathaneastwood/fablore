@@ -21,16 +21,17 @@ _SCRIPT_DIR = Path(__file__).resolve().parents[1]
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from pipe_csv_io import write_pipe_csv_autogen  # noqa: E402
+from pipe_csv_io import (  # noqa: E402
+    REGENERATE_CLASSES_TALENTS as _CMD_CLASSES,
+    REGENERATE_CREATE_EQUIPMENT as _CMD_EQUIPMENT,
+    REGENERATE_CREATE_HEROES as _CMD_HEROES,
+    REGENERATE_CREATE_SETS as _CMD_SETS,
+    REGENERATE_CREATE_STORIES_INDEX as _CMD_STORIES,
+    REGENERATE_CREATE_WEAPONS as _CMD_WEAPONS,
+    write_pipe_csv_autogen,
+)
 import db._queries as q  # noqa: E402
 
-# Regenerate hint strings (mirrored from the old pipe_csv_io constants)
-_CMD_STORIES = "python3 src/data/create_stories_index.py"
-_CMD_HEROES = "python3 src/data/create_heroes_csv.py"
-_CMD_WEAPONS = "python3 src/data/create_weapons_csv.py"
-_CMD_EQUIPMENT = "python3 src/data/create_equipment_csv.py"
-_CMD_SETS = "python3 src/data/create_sets_csv.py"
-_CMD_CLASSES = "python3 src/data/create_classes_talents_csv.py"
 _CMD_REGISTRY = "Use the Database class in src/data/db/ (db.upsert_story)."
 _CMD_JUNCTIONS = "Use the Database class in src/data/db/ (db.upsert_story / db.remove_story)."
 

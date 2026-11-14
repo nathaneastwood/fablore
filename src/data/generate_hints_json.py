@@ -18,6 +18,8 @@ from pathlib import Path
 
 # The preprocessor imports this module only inside its main(), so this cannot cycle.
 from mdbook_hints import get_match_strings
+from generator_utils import write_text_if_changed
+from mdbook_common import md_to_html_url
 
 ROOT = Path(__file__).resolve().parents[2]
 DB_PATH = ROOT / "src" / "data" / "fablore.db"
@@ -39,7 +41,7 @@ def _lore_url(story_key: str, fragment: str) -> str:
     key = (story_key or "").strip()
     if not key:
         return ""
-    path = key[:-3] + ".html" if key.endswith(".md") else key
+    path = md_to_html_url(key)
     frag = (fragment or "").strip().lstrip("#")
     url = f"/{path.lstrip('/')}"
     return f"{url}#{frag}" if frag else url
@@ -346,38 +348,22 @@ def _build_hints() -> dict:
             taken,
         )
 
-    for row in conn.execute("SELECT name, description FROM monsters ORDER BY name"):
-        if not row["description"]:
-            continue
-        _add(
-            hints,
-            _key(row["name"]),
-            _entry_with_match(row["name"], {"type": "monster", "summary": row["description"]}),
-            "monster",
-            taken,
-        )
-
-    for row in conn.execute("SELECT name, description FROM fauna ORDER BY name"):
-        if not row["description"]:
-            continue
-        _add(
-            hints,
-            _key(row["name"]),
-            _entry_with_match(row["name"], {"type": "fauna", "summary": row["description"]}),
-            "fauna",
-            taken,
-        )
-
-    for row in conn.execute("SELECT name, description FROM flora ORDER BY name"):
-        if not row["description"]:
-            continue
-        _add(
-            hints,
-            _key(row["name"]),
-            _entry_with_match(row["name"], {"type": "flora", "summary": row["description"]}),
-            "flora",
-            taken,
-        )
+    # The SQL stays literal: tests/test_generate_hints_json.py reads the tables out of it.
+    for kind, sql in (
+        ("monster", "SELECT name, description FROM monsters ORDER BY name"),
+        ("fauna", "SELECT name, description FROM fauna ORDER BY name"),
+        ("flora", "SELECT name, description FROM flora ORDER BY name"),
+    ):
+        for row in conn.execute(sql):
+            if not row["description"]:
+                continue
+            _add(
+                hints,
+                _key(row["name"]),
+                _entry_with_match(row["name"], {"type": kind, "summary": row["description"]}),
+                kind,
+                taken,
+            )
 
     # Groups. `category` is the displayed type when it is set ("clan", "guild",
     # "order"), which reads better than a flat "group" label and matches what
@@ -464,11 +450,10 @@ def generate(*, quiet: bool = False) -> None:
     # Rewrite only on a real change: mdbook_hints.py runs this on every build, and an
     # untouched file keeps its mtime, so nothing watching it sees a phantom edit.
     text = json.dumps(hints, ensure_ascii=False, indent=2) + "\n"
-    if OUTPUT_PATH.exists() and OUTPUT_PATH.read_text(encoding="utf-8") == text:
+    if not write_text_if_changed(OUTPUT_PATH, text):
         if not quiet:
             print(f"{OUTPUT_PATH.relative_to(ROOT)} is up to date ({len(hints)} entries)", file=sys.stderr)
         return
-    OUTPUT_PATH.write_text(text, encoding="utf-8")
     print(
         f"Wrote {len(hints)} entries to {OUTPUT_PATH.relative_to(ROOT)}",
         file=sys.stderr,

@@ -392,7 +392,6 @@ def _check_heroes_game_cardname_resolution(canonical_path: Path, game_path: Path
     """
     from create_heroes_csv import apply_lore_canonical_override, split_name_variant
     from hero_overrides import load_canonical_hero_card_name_aliases
-    from text_utils import normalize_name
 
     aliases = load_canonical_hero_card_name_aliases()
 
@@ -665,18 +664,20 @@ same reasoning that makes :data:`EPITHET_LABELS` a checked set rather than a
 trusted one."""
 
 
+def _check_closed_set(path: Path, column: str, allowed: frozenset[str], who_column: str) -> list[str]:
+    """Flag every non-blank ``column`` value in ``path`` that is not in ``allowed``."""
+    alerts: list[str] = []
+    for row in read_pipe_csv(path)[1]:
+        value = (row.get(column) or "").strip()
+        if value and value not in allowed:
+            who = (row.get(who_column) or "").strip()
+            alerts.append(f"{path.name}: {who!r} has {column} {value!r}, not one of {sorted(allowed)}")
+    return alerts
+
+
 def _check_character_statuses(path: Path) -> list[str]:
     """Ensure every ``characters.csv`` ``Status`` is one of :data:`CHARACTER_STATUSES`."""
-    if not path.is_file():
-        return []
-    _, rows = read_pipe_csv(path)
-    alerts: list[str] = []
-    for row in rows:
-        status = (row.get("Status") or "").strip()
-        if status and status not in CHARACTER_STATUSES:
-            name = (row.get("Name") or "").strip()
-            alerts.append(f"characters.csv: {name!r} has Status {status!r}, not one of {sorted(CHARACTER_STATUSES)}")
-    return alerts
+    return _check_closed_set(path, "Status", CHARACTER_STATUSES, "Name")
 
 
 def _check_no_stranded_hero_character(characters_path: Path, canonical_path: Path, links_path: Path) -> list[str]:
@@ -723,18 +724,7 @@ def _check_no_stranded_hero_character(characters_path: Path, canonical_path: Pat
 
 def _check_epithet_labels(path: Path) -> list[str]:
     """Ensure every ``character-epithets.csv`` ``Label`` is one of :data:`EPITHET_LABELS`."""
-    if not path.is_file():
-        return []
-    _, rows = read_pipe_csv(path)
-    alerts: list[str] = []
-    for row in rows:
-        label = (row.get("Label") or "").strip()
-        if label and label not in EPITHET_LABELS:
-            name = (row.get("Name") or "").strip()
-            alerts.append(
-                f"character-epithets.csv: {name!r} has Label {label!r}, " f"not one of {sorted(EPITHET_LABELS)}"
-            )
-    return alerts
+    return _check_closed_set(path, "Label", EPITHET_LABELS, "Name")
 
 
 KIN_RELATIONS = frozenset(KIN_INVERSE)
@@ -754,16 +744,7 @@ a parent without saying which, and the data should not have to guess."""
 
 def _check_kin_relations(path: Path) -> list[str]:
     """Ensure every ``character-kin.csv`` ``Relation`` is one of :data:`KIN_RELATIONS`."""
-    if not path.is_file():
-        return []
-    _, rows = read_pipe_csv(path)
-    alerts: list[str] = []
-    for row in rows:
-        relation = (row.get("Relation") or "").strip()
-        if relation and relation not in KIN_RELATIONS:
-            cid = (row.get("CharacterId") or "").strip()
-            alerts.append(f"character-kin.csv: {cid!r} has Relation {relation!r}, not one of {sorted(KIN_RELATIONS)}")
-    return alerts
+    return _check_closed_set(path, "Relation", KIN_RELATIONS, "CharacterId")
 
 
 def _check_kin_qualifiers(path: Path) -> list[str]:
@@ -771,18 +752,7 @@ def _check_kin_qualifiers(path: Path) -> list[str]:
 
     Same shape as :func:`_check_kin_relations`, one column over (migration 21).
     """
-    if not path.is_file():
-        return []
-    _, rows = read_pipe_csv(path)
-    alerts: list[str] = []
-    for row in rows:
-        qualifier = (row.get("Qualifier") or "").strip()
-        if qualifier and qualifier not in KIN_QUALIFIERS:
-            cid = (row.get("CharacterId") or "").strip()
-            alerts.append(
-                f"character-kin.csv: {cid!r} has Qualifier {qualifier!r}, not one of {sorted(KIN_QUALIFIERS)}"
-            )
-    return alerts
+    return _check_closed_set(path, "Qualifier", KIN_QUALIFIERS, "CharacterId")
 
 
 def _check_no_self_kin(path: Path) -> list[str]:

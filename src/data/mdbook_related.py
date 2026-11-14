@@ -24,6 +24,7 @@ from __future__ import annotations
 import html
 import sys
 from dataclasses import dataclass
+from functools import lru_cache
 from pathlib import Path
 
 _SCRIPT_DIR = Path(__file__).resolve().parent
@@ -215,6 +216,13 @@ def load_related_maps(data_dir: Path) -> RelatedMaps:
     )
 
 
+@lru_cache(maxsize=None)
+def _is_file(path: Path) -> bool:
+    """``path.is_file()``, asked once per path per build — many stories link the same page."""
+    return path.is_file()
+
+
+@lru_cache(maxsize=None)
 def resolve_hero_src_path(src_root: Path, canonical_slug: str) -> str | None:
     """Return ``src``-relative path to hero lore markdown if a file exists.
 
@@ -228,11 +236,11 @@ def resolve_hero_src_path(src_root: Path, canonical_slug: str) -> str | None:
     override = HERO_SLUG_LORE_FILE_OVERRIDES.get(canonical_slug.strip())
     if override:
         p = Path(override)
-        if (src_root / p).is_file():
+        if _is_file((src_root / p)):
             return p.as_posix()
     hero_dir = src_root / "heroes-of-rathe"
     for fname in (f"{canonical_slug}-about.md", f"{canonical_slug}.md"):
-        if (hero_dir / fname).is_file():
+        if _is_file((hero_dir / fname)):
             return str(Path("heroes-of-rathe") / fname)
     return None
 
@@ -294,7 +302,7 @@ def build_character_stories_fragment(
         title = maps.story_id_to_title.get(sid, "")
         if not key or not title:
             continue
-        if not (src_root / key).is_file():
+        if not _is_file((src_root / key)):
             print(
                 f"mdbook_related: story {title!r} ({sid}): omitting card (file {key!r} missing)",
                 file=sys.stderr,
@@ -453,7 +461,7 @@ def build_related_fragment(
         if not story_key:
             continue
         wk = Path(story_key).as_posix()
-        if not (src_root / wk).is_file():
+        if not _is_file((src_root / wk)):
             continue
         if _same_src_markdown(chapter_src_path, wk):
             continue
@@ -472,11 +480,10 @@ def build_related_fragment(
             reg = maps.region_row.get(rid)
             if reg:
                 rname, world_key = reg[0], reg[1]
-        subtitle = rname if rname else ""
         if not world_key:
             continue
         wk = Path(world_key).as_posix()
-        if not (src_root / wk).is_file():
+        if not _is_file((src_root / wk)):
             print(
                 f"mdbook_related: location {place!r}: omitting card (world page {wk!r} missing)",
                 file=sys.stderr,
@@ -484,11 +491,8 @@ def build_related_fragment(
             continue
         if _same_src_markdown(chapter_src_path, wk):
             continue
-        rel = relative_md_href(chapter_src_path, wk)
-        frag = (lfrag or "").strip().lstrip("#")
-        url = f"{rel}#{frag}" if frag else rel
-        href = html.escape(url)
-        loc_cards.append(("Location", place, subtitle, href))
+        href = html.escape(f"{relative_md_href(chapter_src_path, wk)}#{lfrag}")
+        loc_cards.append(("Location", place, rname, href))
 
     for rid in reg_ids:
         reg = maps.region_row.get(rid)
@@ -498,7 +502,7 @@ def build_related_fragment(
         if not world_key:
             continue
         wk = Path(world_key).as_posix()
-        if not (src_root / wk).is_file():
+        if not _is_file((src_root / wk)):
             print(
                 f"mdbook_related: region {rname!r}: omitting card (world page {wk!r} missing)",
                 file=sys.stderr,
@@ -529,7 +533,7 @@ def build_related_fragment(
             kind = _STORY_TYPE_LABELS.get(stype, "Story")
             if not key or not title:
                 continue
-            if not (src_root / key).is_file():
+            if not _is_file((src_root / key)):
                 continue
             frag = ""
             for cid in chapter_hero_cids:
@@ -548,15 +552,15 @@ def build_related_fragment(
             url = f"{rel}#{frag}" if frag else rel
             story_cards.append((kind, title, "", html.escape(url)))
 
+    # Every href comes from relative_md_href, which is never empty, so no card is filtered here.
     by_kind: dict[str, list[tuple[str, str, str, str]]] = {
-        "Hero": [c for c in hero_cards if c[3]],
-        "Character": [c for c in character_cards if c[3]],
-        "Location": [c for c in loc_cards if c[3]],
-        "Region": [c for c in reg_cards if c[3]],
+        "Hero": hero_cards,
+        "Character": character_cards,
+        "Location": loc_cards,
+        "Region": reg_cards,
     }
     for card in story_cards:
-        if card[3]:
-            by_kind.setdefault(card[0], []).append(card)
+        by_kind.setdefault(card[0], []).append(card)
     total = sum(len(by_kind[k]) for k in by_kind)
     if total == 0:
         return ""

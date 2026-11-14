@@ -28,7 +28,7 @@ if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
 from card_name_slug import slugify_card_name_stem  # noqa: E402
-from mdbook_common import iter_chapters, relative_href, run  # noqa: E402
+from mdbook_common import replace_marked_block, iter_chapters, relative_href, run  # noqa: E402
 from pipe_csv_io import read_pipe_csv  # noqa: E402
 
 MARK_START = "<!-- fablore-child-hub:start -->"
@@ -267,12 +267,7 @@ def _card_grid_html(
 
 def _inject_hub(content: str, inner_html: str) -> str:
     """Replace or insert the child-hub block (idempotent)."""
-    block = f"{MARK_START}\n{inner_html}\n{MARK_END}"
-    if MARK_START in content and MARK_END in content:
-        pre, _, rest = content.partition(MARK_START)
-        _, _, post = rest.partition(MARK_END)
-        return pre.rstrip() + "\n\n" + block + "\n\n" + post.lstrip()
-    return content.rstrip() + "\n\n" + block + "\n"
+    return replace_marked_block(content, MARK_START, MARK_END, inner_html)
 
 
 # ---------------------------------------------------------------------------

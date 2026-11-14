@@ -30,6 +30,7 @@ from mdbook_common import (  # noqa: E402
     arc_image,
     arc_raw_date,
     arc_release_date,
+    replace_marked_block,
     iter_chapters,
     load_arcs,
     load_sets,
@@ -226,12 +227,7 @@ def _arc_sections_html(
 
 def _inject_hub(content: str, inner_html: str) -> str:
     """Replace or insert the sets-hub block (idempotent)."""
-    block = f"{MARK_START}\n{inner_html}\n{MARK_END}"
-    if MARK_START in content and MARK_END in content:
-        pre, _, rest = content.partition(MARK_START)
-        _, _, post = rest.partition(MARK_END)
-        return pre.rstrip() + "\n\n" + block + "\n\n" + post.lstrip()
-    return content.rstrip() + "\n\n" + block + "\n"
+    return replace_marked_block(content, MARK_START, MARK_END, inner_html)
 
 
 # ---------------------------------------------------------------------------

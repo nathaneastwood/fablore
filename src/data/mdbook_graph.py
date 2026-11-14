@@ -37,7 +37,7 @@ if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
 from card_name_slug import slugify_card_name_stem  # noqa: E402
-from mdbook_common import iter_chapters, read_rows, run  # noqa: E402
+from mdbook_common import replace_marked_block, iter_chapters, read_rows, run  # noqa: E402
 from mdbook_common import md_to_html_url as _html_url  # noqa: E402
 from mdbook_related import resolve_hero_src_path  # noqa: E402
 
@@ -749,13 +749,7 @@ def build_graph_html(graph: dict) -> str:
 
 def inject_into_content(content: str, inner_html: str) -> str:
     """Replace the marker block in ``content``, or append one when absent."""
-    if MARK_START in content and MARK_END in content:
-        pre, _, rest = content.partition(MARK_START)
-        _, _, post = rest.partition(MARK_END)
-        block = f"{MARK_START}\n{inner_html}\n{MARK_END}"
-        return pre.rstrip() + "\n\n" + block + post
-    sep = "\n\n" if content.strip() else ""
-    return content.rstrip() + sep + f"{MARK_START}\n{inner_html}\n{MARK_END}\n"
+    return replace_marked_block(content, MARK_START, MARK_END, inner_html, pad_after=False)
 
 
 def walk_and_process(sections: list, graph: dict) -> None:

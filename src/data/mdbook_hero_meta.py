@@ -94,7 +94,6 @@ def _load_card_meta(data_dir: Path) -> dict[str, dict]:
     _, game_rows = read_pipe_csv(data_dir / "csv" / "heroes-game.csv")
     _, printings_rows = read_pipe_csv(data_dir / "csv" / "heroes-printings.csv")
     _, sets_rows = read_pipe_csv(data_dir / "csv" / "sets.csv")
-    _, set_types_rows = read_pipe_csv(data_dir / "csv" / "set-types.csv")
     _, classes_rows = read_pipe_csv(data_dir / "csv" / "classes.csv")
     _, talents_rows = read_pipe_csv(data_dir / "csv" / "talents.csv")
     _, ll_rows = read_pipe_csv(data_dir / "csv" / "heroes-ll.csv")
@@ -124,13 +123,6 @@ def _load_card_meta(data_dir: Path) -> dict[str, dict]:
             set_type_id_by_set_id[sid] = (row.get("SetTypeId") or "").strip()
             set_name_by_id[sid] = (row.get("SetName") or "").strip()
             set_release_by_id[sid] = (row.get("InitialReleaseDate") or "").strip().split("T")[0]
-
-    # set-types lookup — kept for future use / debugging
-    _ = {
-        (row.get("SetTypeId") or "").strip(): (row.get("SetType") or "").strip()
-        for row in set_types_rows
-        if (row.get("SetTypeId") or "").strip()
-    }
 
     # --- classes / talents ---
     class_name_by_id: dict[str, str] = {
@@ -428,10 +420,7 @@ def _printing_label(printing: dict) -> str:
     pieces = [printing["card_id"]]
     if printing["set_name"]:
         pieces.append(printing["set_name"])
-    if printing["foiling"]:
-        pieces.append(_FOILINGS.get(printing["foiling"], printing["foiling"]))
-    for code in filter(None, (c.strip() for c in printing["art_variation"].split(","))):
-        pieces.append(_ART_VARIATIONS.get(code, code))
+    pieces += _finish(printing)
     if printing["artist"]:
         pieces.append(f"art by {printing['artist']}")
     return ", ".join(pieces)
@@ -516,7 +505,7 @@ _VIEW_SWITCH = (
 )
 
 
-def _build_stat_block(meta: dict, data: dict, young: dict | None = None) -> str:
+def _build_stat_block(meta: dict, young: dict | None = None) -> str:
     """One header (name, Adult | Young, Card | Printings) shared by the variants below it.
 
     Switching variant swaps the name and the variant in place, so the page does not jump.
@@ -790,7 +779,7 @@ def _render_form(content: str, match: re.Match, end: int, meta: dict, data: dict
     tail = ""
     if rule:
         body, tail = body[: rule.start()].rstrip(), rule.group(0).strip() + "\n\n"
-    block = _build_stat_block(meta, data, _young_partner(meta, data, named_on_page))
+    block = _build_stat_block(meta, _young_partner(meta, data, named_on_page))
     divider = _DIVIDER + "\n\n" if _TRAIT_BLOCK_RE.search(body) else ""
     return body + "\n\n" + divider + block + "\n\n" + tail
 

@@ -29,9 +29,10 @@ from __future__ import annotations
 
 import json
 import re
-import sys
 from functools import lru_cache
 from pathlib import Path
+
+from mdbook_common import iter_chapters, read_book, write_book
 
 # ---------------------------------------------------------------------------
 # Regex constants
@@ -258,19 +259,11 @@ def _overlaps(start: int, end: int, replacements: list[tuple[int, int, str]]) ->
 
 
 def _iter_chapters(sections: list):
-    """Yield ``(slug, chapter)`` for every chapter, depth first, skipping generated pages.
-
-    Separators and part titles are not dicts carrying a ``Chapter``, so they are
-    passed over rather than indexed.
-    """
-    for section in sections:
-        chapter = section.get("Chapter") if isinstance(section, dict) else None
-        if not chapter:
-            continue
+    """Yield ``(slug, chapter)`` for every chapter, depth first, skipping generated pages."""
+    for chapter in iter_chapters(sections):
         slug = page_slug_from_path(chapter.get("path"))
         if not _is_generated_page(slug):
             yield slug, chapter
-        yield from _iter_chapters(chapter.get("sub_items") or [])
 
 
 def _collect_chapters(sections: list, out: list[tuple[str, str]]) -> list[tuple[str, str]]:
@@ -335,23 +328,22 @@ def _process_sections(sections: list, hints: dict, single_page_keys: frozenset[s
 
 
 def main() -> None:
-    if len(sys.argv) >= 3 and sys.argv[1] == "supports":
-        sys.exit(0)
+    _ctx, book = read_book()
 
-    db_path = Path(__file__).resolve().parents[2] / "src" / "data" / "fablore.db"
-    if db_path.exists():
+    # generate_hints_json writes to its own fixed paths, so these stay pinned to this file too.
+    src_dir = Path(__file__).resolve().parents[1]
+    if (src_dir / "data" / "fablore.db").exists():
         from generate_hints_json import generate
 
         generate(quiet=True)
 
-    hints_path = Path(__file__).resolve().parents[2] / "src" / "hints.json"
+    hints_path = src_dir / "hints.json"
     hints = load_hints(hints_path) if hints_path.exists() else {}
 
-    ctx, book = json.load(sys.stdin)
     items = book.get("items") or []
     single_page_keys = compute_single_page_keys(_collect_chapters(items, []), hints)
     _process_sections(items, hints, single_page_keys)
-    json.dump(book, sys.stdout, ensure_ascii=False)
+    write_book(book)
 
 
 if __name__ == "__main__":

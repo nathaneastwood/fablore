@@ -17,7 +17,6 @@ nothing installed. Holds:
 from __future__ import annotations
 
 import json
-import os
 import re
 import sys
 from collections.abc import Callable, Iterator
@@ -90,6 +89,23 @@ def iter_chapters(items: list) -> Iterator[dict]:
             yield from iter_chapters(ch.get("sub_items") or [])
 
 
+def replace_marked_block(content: str, start: str, end: str, inner_html: str, *, pad_after: bool = True) -> str:
+    """Replace the ``start``…``end`` block in ``content``, or append one (idempotent).
+
+    A replaced block keeps a blank line before it; ``pad_after`` also puts one
+    after it, folding whatever whitespace followed. An appended block goes
+    after a blank line (none when ``content`` is blank) and ends with a newline.
+    """
+    block = f"{start}\n{inner_html}\n{end}"
+    if start in content and end in content:
+        pre, _, rest = content.partition(start)
+        _, _, post = rest.partition(end)
+        tail = "\n\n" + post.lstrip() if pad_after else post
+        return pre.rstrip() + "\n\n" + block + tail
+    sep = "\n\n" if content.strip() else ""
+    return content.rstrip() + sep + block + "\n"
+
+
 # ---------------------------------------------------------------------------
 # Paths and files
 # ---------------------------------------------------------------------------
@@ -97,8 +113,17 @@ def iter_chapters(items: list) -> Iterator[dict]:
 
 @lru_cache(maxsize=None)
 def relative_href(from_src: str, to_src: str) -> str:
-    """POSIX relative URL from one ``src``-relative markdown path to another (keeps ``.md``)."""
-    return Path(os.path.relpath(Path(to_src), start=Path(from_src).parent)).as_posix()
+    """POSIX relative URL from one ``src``-relative markdown path to another (keeps ``.md``).
+
+    Pure string work: both paths are relative to the same root, so this is
+    ``os.path.relpath`` without its two ``getcwd()`` calls per pair.
+    """
+    from_dir = [p for p in from_src.split("/") if p not in ("", ".")][:-1]
+    to_parts = [p for p in to_src.split("/") if p not in ("", ".")]
+    common = 0
+    while common < min(len(from_dir), len(to_parts)) and from_dir[common] == to_parts[common]:
+        common += 1
+    return "/".join([".."] * (len(from_dir) - common) + to_parts[common:]) or "."
 
 
 def md_to_html_url(md_path: str) -> str:

@@ -14,7 +14,6 @@ throughout.
 
 from __future__ import annotations
 
-import json
 import sqlite3
 import sys
 from pathlib import Path
@@ -641,20 +640,6 @@ def _seed_stories(conn: sqlite3.Connection, data_dir: Path) -> None:
             publication_date=_s(row, "PublicationDate"),
             thumbnail_image_link=_s(row, "ThumbnailImageLink"),
         )
-        # Decode legacy JSON blob into the narrated_videos table
-        raw_videos = _s(row, "NarratedVideos")
-        if raw_videos:
-            try:
-                parsed = json.loads(raw_videos)
-                if isinstance(parsed, list):
-                    videos = [
-                        (str(v.get("author", "")), str(v.get("url", "")), "")
-                        for v in parsed
-                        if isinstance(v, dict) and v.get("author") and v.get("url")
-                    ]
-                    q.set_narrated_videos(conn, story_id, videos)
-            except (json.JSONDecodeError, TypeError):
-                pass
 
 
 def _seed_narrated_videos_from_csv(conn: sqlite3.Connection, data_dir: Path) -> None:
