@@ -25,14 +25,17 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from mdbook_common import format_date, iter_chapters, run  # noqa: E402
+from mdbook_common import SECTION_BY_KEY, arc_of, format_date, iter_chapters, run  # noqa: E402
 from mdbook_common import story_meta_item as _item  # noqa: E402
 from pipe_csv_io import read_pipe_csv  # noqa: E402
 
 MARK_START = "<!-- fablore-set-meta:start -->"
 MARK_END = "<!-- fablore-set-meta:end -->"
 
-_SKIP_FLAVOUR = frozenset({"intro"})
+# The sections that carry a set card. The flavour hub is skipped: as a
+# filename-arc page it would otherwise read as the arc "intro".
+_CARD_SECTIONS = ("flavour", "digital-tiles")
+_HUBS = frozenset(SECTION_BY_KEY[key].hub_page for key in _CARD_SECTIONS)
 
 
 # ---------------------------------------------------------------------------
@@ -138,22 +141,18 @@ def _inject(content: str, meta_html: str, *, after_h1: bool) -> str:
 # ---------------------------------------------------------------------------
 
 
-def _flavour_slug(posix_path: str) -> str | None:
-    """Return the slug for a flavour page, or None if not a flavour page."""
-    parts = posix_path.split("/")
-    if len(parts) == 2 and parts[0] == "flavour":
-        stem = parts[1].removesuffix(".md")
-        if stem not in _SKIP_FLAVOUR:
-            return stem
-    return None
+def _set_slug(posix_path: str) -> str | None:
+    """The arc slug whose set card a flavour or digital-tiles page carries, or ``None``.
 
-
-def _digital_tiles_slug(posix_path: str) -> str | None:
-    """Return the arc slug for a digital-tiles chapter, or None."""
-    parts = posix_path.split("/")
-    if len(parts) == 3 and parts[0] == "digital-tiles":
-        return parts[1]
-    return None
+    Digital tiles count only at ``digital-tiles/<arc>/<page>.md``, not deeper,
+    where :func:`arc_of` (and the hubs and Sets index) would still find an arc.
+    """
+    arc = arc_of(posix_path)
+    if arc is None or arc[0] not in _CARD_SECTIONS or posix_path in _HUBS:
+        return None
+    if arc[0] == "digital-tiles" and posix_path.count("/") != 2:
+        return None
+    return arc[1]
 
 
 # ---------------------------------------------------------------------------
@@ -165,15 +164,9 @@ def _walk_sections(sections: list, slug_meta: dict[str, dict]) -> None:
     for ch in iter_chapters(sections):
         path = Path(ch.get("path") or "").as_posix()
 
-        flavour_slug = _flavour_slug(path)
-        digital_slug = _digital_tiles_slug(path)
-
-        if flavour_slug and flavour_slug in slug_meta:
-            meta_html = _build_set_meta_html(slug_meta[flavour_slug])
-            ch["content"] = _inject(ch.get("content") or "", meta_html, after_h1=True)
-
-        elif digital_slug and digital_slug in slug_meta:
-            meta_html = _build_set_meta_html(slug_meta[digital_slug])
+        slug = _set_slug(path)
+        if slug and slug in slug_meta:
+            meta_html = _build_set_meta_html(slug_meta[slug])
             ch["content"] = _inject(ch.get("content") or "", meta_html, after_h1=True)
 
 

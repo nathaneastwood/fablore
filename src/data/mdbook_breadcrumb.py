@@ -23,6 +23,7 @@ if str(_SCRIPT_DIR) not in sys.path:
 from mdbook_common import (  # noqa: E402
     SECTIONS,
     arc_display_name,
+    arc_of,
     chapter_path,
     iter_chapters,
     load_arcs,
@@ -35,8 +36,10 @@ from mdbook_common import (  # noqa: E402
 MARK_START = "<!-- fablore-breadcrumb:start -->"
 MARK_END = "<!-- fablore-breadcrumb:end -->"
 
-# (path_prefix, section_label, hub_page, has_arc_subfolders, skip_paths), one per
-# section with a label. A skip_paths entry may be a glob (fnmatch), e.g. every hero page.
+# (path_prefix, section_label, hub_page, arc_crumb, skip_paths), one per section
+# with a label. A skip_paths entry may be a glob (fnmatch), e.g. every hero page.
+# arc_crumb is off for flavour: arc_of puts its pages in an arc, but the page is
+# the arc (its filename), so a middle crumb would repeat the page title.
 _TRAILS: tuple[tuple[str, str, str, bool, frozenset[str]], ...] = tuple(
     (
         s.prefix,
@@ -91,7 +94,7 @@ def _process_chapter(
     if not path:
         return
 
-    for prefix, label, hub_src, has_arc, skip_set in _TRAILS:
+    for prefix, label, hub_src, arc_crumb, skip_set in _TRAILS:
         if not path.startswith(prefix):
             continue
         if any(fnmatch.fnmatchcase(path, pattern) for pattern in skip_set):
@@ -103,9 +106,9 @@ def _process_chapter(
         hub_href = relative_href(path, hub_src)
         items: list[tuple[str | None, str]] = [(hub_href, label)]
 
-        if has_arc and len(parts) >= 2:
-            arc_slug = parts[0]
-            items.append((None, arc_display_name(arc_slug, arcs, sets)))
+        arc = arc_of(path) if arc_crumb else None
+        if arc:
+            items.append((None, arc_display_name(arc[1], arcs, sets)))
 
         page_title = (ch.get("name") or "").strip()
         if not page_title:

@@ -44,6 +44,7 @@ from mdbook_common import RELATED_LORE_H1 as RELATED_HEADING  # noqa: E402
 from mdbook_common import (
     SECTIONS,
     arc_display_name,
+    arc_of,
     load_arcs,
     load_sets,
     normalise_page_path,
@@ -71,8 +72,9 @@ _REFERENCE_META_RE = re.compile(
     re.DOTALL,
 )
 
-# Sections whose chapters live in arc folders (``<section>/<arc>/<story>.md``).
-# Digital tiles live in arc folders too but have never carried a position.
+# The sections whose stories get an arc context row ("Part 3 of 11"). Flavour
+# (arc in the filename) and digital tiles (one page per arc folder) are arcs to
+# arc_of, the hubs and the Sets index, but have never carried a position here.
 _ARC_SECTIONS = frozenset(
     s.key for s in SECTIONS if s.has_arcs and not s.arcs_in_filenames and s.key != "digital-tiles"
 )
@@ -377,11 +379,20 @@ def _load_story_heroes(data_dir: Path, src_root: Path) -> dict[str, list[tuple[s
 
 
 def _arc_of(path: str) -> str | None:
-    """Return the arc slug for a story chapter path, or ``None`` for anything else."""
+    """Return the arc slug for a story chapter path, or ``None`` for anything else.
+
+    Narrower than :func:`arc_of` on purpose (the breadcrumb, hubs and Sets
+    index still place these pages in the arc): only ``_ARC_SECTIONS``, only
+    ``<section>/<arc>/<story>.md`` exactly, and not the arc folder's own
+    ``index.md`` landing page (``short-stories/roll-of-honour/``).
+    """
+    arc = arc_of(path)
+    if arc is None or arc[0] not in _ARC_SECTIONS:
+        return None
     parts = normalise_page_path(path).split("/")
-    if len(parts) == 3 and parts[0] in _ARC_SECTIONS and parts[2] != "index.md":
-        return parts[1]
-    return None
+    if len(parts) != 3 or parts[2] == "index.md":
+        return None
+    return arc[1]
 
 
 def _arc_positions(sections: list) -> dict[str, tuple[int, int]]:

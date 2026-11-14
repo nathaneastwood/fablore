@@ -205,7 +205,7 @@ def test_related_tables_match_the_old_ones() -> None:
 
 
 def test_graph_tables_match_the_old_ones() -> None:
-    from mdbook_graph import _ARC_FOLDER_SECTIONS, _SKIP_STORY_TYPES, _STORY_TYPE_LABELS
+    from mdbook_graph import _SKIP_STORY_TYPES, _STORY_TYPE_LABELS
 
     assert list(_STORY_TYPE_LABELS.items()) == _CARD_LABELS + [
         ("spoilers", "Spoiler"),
@@ -213,7 +213,14 @@ def test_graph_tables_match_the_old_ones() -> None:
         ("sets", "Set"),
     ]
     assert _SKIP_STORY_TYPES == _NOT_NARRATIVE
-    assert _ARC_FOLDER_SECTIONS == frozenset({"main-story", "short-stories", "digital-tiles"})
+    # The graph's arc-folder table now lives in arc_of (tests/test_arc_of.py pins each
+    # caller's answers); the registry flags it reads still give the old split.
+    assert {s.key for s in SECTIONS if s.has_arcs and not s.arcs_in_filenames} == {
+        "main-story",
+        "short-stories",
+        "digital-tiles",
+    }
+    assert [s.key for s in SECTIONS if s.arcs_in_filenames] == ["flavour"]
 
 
 def test_story_meta_tables_match_the_old_ones() -> None:

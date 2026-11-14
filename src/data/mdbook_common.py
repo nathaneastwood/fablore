@@ -9,7 +9,8 @@ nothing installed. Holds:
   configured ``src`` directory (:func:`book_src_root`);
 * :func:`iter_chapters`, the pre-order walk over a book's chapters;
 * :func:`relative_href` between two ``src``-relative markdown paths;
-* the site-section registry (:data:`SECTIONS`) and :func:`chapter_path`;
+* the site-section registry (:data:`SECTIONS`), :func:`chapter_path` and
+  :func:`arc_of` (which arc a page is in);
 * the ``story-arcs.csv`` / ``sets.csv`` lookups the breadcrumb, hub, index and
   story-card preprocessors share;
 * the marker literals one preprocessor writes and another looks for.
@@ -316,6 +317,27 @@ SECTIONS: tuple[Section, ...] = (
 )
 
 SECTION_BY_KEY: dict[str, Section] = {s.key: s for s in SECTIONS}
+
+
+def arc_of(path: str) -> tuple[str, str] | None:
+    """``(section key, arc slug)`` for a page in an arc section, else ``None``.
+
+    In a folder-per-arc section the arc is the folder one level down
+    (``main-story/monarch/x.md`` at any depth, the arc folder's own
+    ``index.md`` included). Under ``arcs_in_filenames`` (flavour) the arc is
+    the filename stem of a direct child (``flavour/monarch.md``).
+
+    This is the structural answer only: a section hub such as
+    ``flavour/intro.md`` reads as an arc too, and nothing checks the slug
+    against ``story-arcs.csv``. Callers filter for hubs, depth and sections.
+    """
+    parts = normalise_page_path(path).split("/")
+    section = SECTION_BY_KEY.get(parts[0])
+    if section is None or not section.has_arcs:
+        return None
+    if section.arcs_in_filenames:
+        return (section.key, parts[1].removesuffix(".md")) if len(parts) == 2 else None
+    return (section.key, parts[1]) if len(parts) >= 3 else None
 
 
 # ---------------------------------------------------------------------------

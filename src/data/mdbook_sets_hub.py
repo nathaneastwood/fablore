@@ -30,6 +30,7 @@ from mdbook_common import (  # noqa: E402
     arc_id,
     arc_image,
     arc_raw_date,
+    arc_of,
     arc_release_date,
     chapter_path,
     replace_marked_block,
@@ -75,19 +76,19 @@ def _collect(
             continue
         if path in _HUB_SKIP:
             continue
-        parts = path.split("/")
-        section = parts[0]
-
-        if section == "flavour" and len(parts) == 2:
+        arc = arc_of(path)
+        if arc and arc[0] == "flavour":
+            # The flavour hub lists pages; each card reads its slug off the path.
             flavour.append({"name": ch.get("name", ""), "path": path})
 
-        elif section in ("main-story", "short-stories", "digital-tiles") and len(parts) >= 3:
-            arc_slug = parts[1]
-            story_arcs[section].setdefault(arc_slug, []).append({"name": ch.get("name", ""), "path": path})
+        elif arc:
+            section, slug = arc
+            story_arcs[section].setdefault(slug, []).append({"name": ch.get("name", ""), "path": path})
 
-        elif section == "short-stories" and len(parts) == 2:
-            # Flat page like kassais-diary.md — its own pseudo-arc
-            slug = parts[1].removesuffix(".md")
+        elif path.startswith("short-stories/") and path.count("/") == 1:
+            # Flat page like kassais-diary.md — its own pseudo-arc. Only this hub
+            # does this: arc_of, and so the Sets index, put such a page in no arc.
+            slug = path.split("/")[1].removesuffix(".md")
             story_arcs["short-stories"].setdefault(slug, []).append({"name": ch.get("name", ""), "path": path})
 
 

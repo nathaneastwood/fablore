@@ -37,7 +37,15 @@ if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
 from card_name_slug import slugify_card_name_stem  # noqa: E402
-from mdbook_common import SECTION_BY_KEY, SECTIONS, iter_chapters, read_rows, replace_marked_block, run  # noqa: E402
+from mdbook_common import (
+    SECTION_BY_KEY,
+    SECTIONS,
+    arc_of,
+    iter_chapters,
+    read_rows,
+    replace_marked_block,
+    run,
+)  # noqa: E402
 from mdbook_common import md_to_html_url as _html_url  # noqa: E402
 from mdbook_related import resolve_hero_src_path  # noqa: E402
 
@@ -52,9 +60,6 @@ _SKIP_STORY_TYPES: frozenset[str] = frozenset(s.key for s in SECTIONS if not s.n
 
 # Sets have no page of their own; the sets hub carries an anchor per arc slug.
 _SETS_HUB_URL = _html_url(SECTION_BY_KEY["sets"].hub)
-
-# Folder-per-arc sections. `flavour/` names its arc in the filename instead.
-_ARC_FOLDER_SECTIONS: frozenset[str] = frozenset(s.key for s in SECTIONS if s.has_arcs and not s.arcs_in_filenames)
 
 # Fine-grained node kind -> (display label, colour group, mark shape).
 # Groups are capped at four hues plus a neutral. A force layout puts arbitrary
@@ -127,19 +132,14 @@ def _card_url(src_root: Path, folder: str, slug: str) -> str:
 
 
 def arc_slug_for_story(story_key: str) -> str:
-    """Return the arc slug a ``StoryKey`` sits under, or ``""``.
+    """Return the arc slug a ``StoryKey`` sits under (:func:`arc_of`), or ``""``.
 
-    Arc folders sit one level below the section (``main-story/monarch/x.md``),
-    except under ``flavour/`` where the arc is the filename stem
-    (``flavour/monarch.md``). The caller still has to confirm the slug is a
-    known arc — this only says where to look.
+    No section or hub filter: the flavour hub's key (``flavour/intro.md``)
+    yields ``"intro"``, which maps to no set. The caller still has to confirm
+    the slug is a known arc — this only says where to look.
     """
-    parts = Path(story_key.strip()).as_posix().split("/")
-    if len(parts) == 2 and parts[0] == "flavour":
-        return parts[1].removesuffix(".md")
-    if len(parts) >= 3 and parts[0] in _ARC_FOLDER_SECTIONS:
-        return parts[1]
-    return ""
+    arc = arc_of(Path(story_key.strip()).as_posix())
+    return arc[1] if arc else ""
 
 
 def load_sets_by_arc(data_dir: Path) -> dict[str, str]:

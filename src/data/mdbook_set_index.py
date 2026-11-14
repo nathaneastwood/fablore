@@ -27,6 +27,7 @@ from mdbook_common import (  # noqa: E402
     arc_id,
     arc_image,
     arc_raw_date,
+    arc_of,
     arc_release_date,
     replace_marked_block,
     chapter_path,
@@ -67,16 +68,10 @@ def _collect(
             continue
         if path in _HUB_SKIP:
             continue
-        parts = path.split("/")
-        section = parts[0]
-
-        if section == "flavour" and len(parts) == 2:
-            slug = parts[1].removesuffix(".md")
-            content["flavour"].setdefault(slug, []).append({"name": ch.get("name", ""), "path": path})
-
-        elif section in ("main-story", "short-stories", "digital-tiles") and len(parts) >= 3:
-            arc_slug = parts[1]
-            content[section].setdefault(arc_slug, []).append({"name": ch.get("name", ""), "path": path})
+        arc = arc_of(path)
+        if arc:
+            section, slug = arc
+            content[section].setdefault(slug, []).append({"name": ch.get("name", ""), "path": path})
 
 
 # ---------------------------------------------------------------------------
