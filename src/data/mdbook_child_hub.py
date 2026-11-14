@@ -27,7 +27,6 @@ _SCRIPT_DIR = Path(__file__).resolve().parent
 if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
-from card_name_slug import slugify_card_name_stem  # noqa: E402
 from mdbook_common import (  # noqa: E402
     SECTIONS,
     chapter_path,
@@ -85,6 +84,27 @@ def _collect(sections: list, hub_children: dict[str, list[Chapter]]) -> None:
 # ---------------------------------------------------------------------------
 
 
+# Per card kind: (canonical CSV, game CSV, printings CSV, story junction CSV, canonical id field, game id field).
+_KIND_FILES = {
+    "weapons": (
+        "weapons-canonical.csv",
+        "weapons-game.csv",
+        "weapons-printings.csv",
+        "story-weapons.csv",
+        "CanonicalWeaponId",
+        "WeaponGameId",
+    ),
+    "equipment": (
+        "equipment-canonical.csv",
+        "equipment-game.csv",
+        "equipment-printings.csv",
+        "story-equipment.csv",
+        "CanonicalEquipmentId",
+        "EquipmentGameId",
+    ),
+}
+
+
 def _load_card_image_lookup(data_dir: Path, kind: str) -> dict[str, str]:
     """Build slug → ImageURL lookup for the earliest-release printing of each card.
 
@@ -100,22 +120,10 @@ def _load_card_image_lookup(data_dir: Path, kind: str) -> dict[str, str]:
         Mapping of ``CanonicalSlug`` to a non-empty ``ImageURL``, when available.
     """
     csv_dir = data_dir / "csv"
-    if kind == "weapons":
-        canonical_path = csv_dir / "weapons-canonical.csv"
-        game_path = csv_dir / "weapons-game.csv"
-        printings_path = csv_dir / "weapons-printings.csv"
-        canonical_id_field = "CanonicalWeaponId"
-        game_id_field = "WeaponGameId"
-    else:
-        canonical_path = csv_dir / "equipment-canonical.csv"
-        game_path = csv_dir / "equipment-game.csv"
-        printings_path = csv_dir / "equipment-printings.csv"
-        canonical_id_field = "CanonicalEquipmentId"
-        game_id_field = "EquipmentGameId"
-
-    _, canonical_rows = read_pipe_csv(canonical_path)
-    _, game_rows = read_pipe_csv(game_path)
-    _, printings_rows = read_pipe_csv(printings_path)
+    canonical_csv, game_csv, printings_csv, _, canonical_id_field, game_id_field = _KIND_FILES[kind]
+    _, canonical_rows = read_pipe_csv(csv_dir / canonical_csv)
+    _, game_rows = read_pipe_csv(csv_dir / game_csv)
+    _, printings_rows = read_pipe_csv(csv_dir / printings_csv)
     release_by_set_id = {sid: (r.get("InitialReleaseDate") or "").strip() for sid, r in load_sets(data_dir).items()}
 
     slug_by_canonical_id = {
@@ -153,31 +161,53 @@ def _load_card_image_lookup(data_dir: Path, kind: str) -> dict[str, str]:
     return image_by_slug
 
 
-_ARTICLE_TOKENS = frozenset({"the", "a", "an"})
+def _load_story_card_images(data_dir: Path, kind: str) -> dict[str, str]:
+    """Map each page's ``StoryKey`` to the art of the one card its story links to.
 
+    The card comes from the ``story-weapons.csv`` / ``story-equipment.csv``
+    junction, so a page filename that differs from the card name (e.g.
+    ``talishar-lost-prince.md`` for ``talishar-the-lost-prince``) still finds
+    its card. A story linked to no card, or to more than one, is left out and
+    the page falls back to its own ``<img>``.
 
-def _loose_slug_key(slug: str) -> str:
-    """Collapse a slug to bare alphanumerics with article words dropped.
+    Args:
+        data_dir: ``src/data`` directory.
+        kind: ``"weapons"`` or ``"equipment"``.
 
-    Lets filename-vs-card-name mismatches resolve to the same CSV entry, e.g.
-    the page ``talishar-lost-prince.md`` (card name missing "the") against
-    canonical slug ``talishar-the-lost-prince``, or ``bolt-n-boots.md``
-    (extra hyphen) against canonical slug ``boltn-boots``.
+    Returns:
+        Mapping of ``StoryKey`` to a non-empty card ``ImageURL``.
     """
-    tokens = [t for t in re.split(r"[^a-z0-9]+", slug.lower()) if t and t not in _ARTICLE_TOKENS]
-    return "".join(tokens)
+    csv_dir = data_dir / "csv"
+    canonical_csv, _, _, junction_csv, canonical_id_field, _ = _KIND_FILES[kind]
+    image_by_slug = _load_card_image_lookup(data_dir, kind)
+    _, canonical_rows = read_pipe_csv(csv_dir / canonical_csv)
+    _, story_rows = read_pipe_csv(csv_dir / "stories.csv")
+    _, junction_rows = read_pipe_csv(csv_dir / junction_csv)
 
+    slug_by_canonical_id = {
+        row[canonical_id_field]: row["CanonicalSlug"]
+        for row in canonical_rows
+        if row.get(canonical_id_field) and row.get("CanonicalSlug")
+    }
+    story_key_by_id = {
+        row["StoryId"]: row["StoryKey"] for row in story_rows if row.get("StoryId") and row.get("StoryKey")
+    }
 
-def _resolve_image(child_slug: str, image_by_slug: dict[str, str]) -> str:
-    image = image_by_slug.get(child_slug, "")
-    if image:
-        return image
+    cards_by_story_key: dict[str, set[str]] = {}
+    for row in junction_rows:
+        story_key = story_key_by_id.get(row.get("StoryId", ""))
+        canonical_id = row.get(canonical_id_field, "")
+        if story_key and canonical_id:
+            cards_by_story_key.setdefault(story_key, set()).add(canonical_id)
 
-    loose_key = _loose_slug_key(child_slug)
-    for slug, url in image_by_slug.items():
-        if _loose_slug_key(slug) == loose_key:
-            return url
-    return ""
+    image_by_story_key: dict[str, str] = {}
+    for story_key, canonical_ids in cards_by_story_key.items():
+        if len(canonical_ids) != 1:
+            continue
+        image = image_by_slug.get(slug_by_canonical_id.get(next(iter(canonical_ids)), ""), "")
+        if image:
+            image_by_story_key[story_key] = image
+    return image_by_story_key
 
 
 def _page_img_fallback(src_root: Path, child_path: str) -> str:
@@ -194,25 +224,23 @@ def _child_image(
     src_root: Path,
     child_path: str,
     hub_type: str,
-    image_by_slug: dict[str, str],
+    image_by_story_key: dict[str, str],
 ) -> tuple[str, bool]:
     """Return ``(image_url, is_card_art)``.
 
     ``is_card_art`` is ``True`` for portrait card-printing images (resolved via
-    CSV), which need different aspect-ratio handling than the landscape banner
-    images used as a page ``<img>`` fallback.
+    the story's junction link), which need different aspect-ratio handling than
+    the landscape banner images used as a page ``<img>`` fallback.
     """
     if hub_type == "plain":
         return "", False
 
     if hub_type in ("weapons", "equipment"):
-        stem = Path(child_path).stem
-        slug = slugify_card_name_stem(stem.replace("-", " "))
-        image = _resolve_image(slug, image_by_slug)
+        image = image_by_story_key.get(child_path, "")
         if image:
             return image, True
 
-    # languages hub, or weapons/equipment cards with no CSV match at all.
+    # languages hub, or weapons/equipment pages with no linked card art.
     return _page_img_fallback(src_root, child_path), False
 
 
@@ -226,14 +254,14 @@ def _card_grid_html(
     src_root: Path,
     children: list[Chapter],
     hub_type: str,
-    image_by_slug: dict[str, str],
+    image_by_story_key: dict[str, str],
 ) -> str:
     cards: list[str] = []
     for ch in children:
         path = ch["path"]
         name = html.escape(ch["name"] or Path(path).stem)
         href = html.escape(relative_href(hub_src, path))
-        image, is_card_art = _child_image(src_root, path, hub_type, image_by_slug)
+        image, is_card_art = _child_image(src_root, path, hub_type, image_by_story_key)
 
         img_html = ""
         if image:
@@ -281,16 +309,16 @@ def _inject_hubs(
             continue
         hub_type = _HUB_PAGES.get(path)
         if hub_type:
-            image_by_slug = image_lookups.get(hub_type, {})
-            inner = _card_grid_html(path, src_root, hub_children.get(path, []), hub_type, image_by_slug)
+            image_by_story_key = image_lookups.get(hub_type, {})
+            inner = _card_grid_html(path, src_root, hub_children.get(path, []), hub_type, image_by_story_key)
             ch["content"] = _inject_hub(ch.get("content") or "", inner)
 
 
 def _process(items: list, src_root: Path) -> None:
     data_dir = src_root / "data"
     image_lookups = {
-        "weapons": _load_card_image_lookup(data_dir, "weapons"),
-        "equipment": _load_card_image_lookup(data_dir, "equipment"),
+        "weapons": _load_story_card_images(data_dir, "weapons"),
+        "equipment": _load_story_card_images(data_dir, "equipment"),
     }
 
     hub_children: dict[str, list[Chapter]] = {}

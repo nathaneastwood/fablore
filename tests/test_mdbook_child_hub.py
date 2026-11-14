@@ -11,6 +11,7 @@ from mdbook_child_hub import (
     _child_image,
     _inject_hub,
     _load_card_image_lookup,
+    _load_story_card_images,
     _page_img_fallback,
 )
 
@@ -37,7 +38,7 @@ def src_root(tmp_path: Path) -> Path:
 
 @pytest.fixture
 def data_dir(tmp_path: Path) -> Path:
-    """Minimal weapons CSV trio, plus sets.csv.
+    """Minimal weapons CSV trio, plus sets.csv, stories.csv and the story-weapons junction.
 
     Printings CSV deliberately lists the *later*-released reprint set (1HP,
     2022) before the true earliest set (CRU, 2020), mirroring upstream
@@ -66,6 +67,14 @@ def data_dir(tmp_path: Path) -> Path:
         "WG1|1HP|1HP141|R|https://storage.googleapis.com/fabmaster/1HP141.png\n"
         "WG1|CRU|CRU079|R|https://storage.googleapis.com/fabmaster/cardfaces/2020-CRU/CRU079.png\n"
     )
+    # The page filename deliberately does not match the card's slug.
+    (csv_dir / "stories.csv").write_text(
+        "# AUTO-GENERATED\n"
+        "StoryId|StoryKey|StoryType\n"
+        "ST1|weapons/the-saber-of-cintari.md|weapon\n"
+        "ST2|weapons/no-image-weapon.md|weapon\n"
+    )
+    (csv_dir / "story-weapons.csv").write_text("# AUTO-GENERATED\n" "StoryId|CanonicalWeaponId\n" "ST1|CW1\n")
     return data
 
 
@@ -113,20 +122,40 @@ def test_page_img_fallback_missing_file(src_root: Path) -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_child_image_uses_csv_lookup(src_root: Path, data_dir: Path) -> None:
-    lookup = _load_card_image_lookup(data_dir, "weapons")
-    image, is_card_art = _child_image(src_root, "weapons/cintari-saber.md", "weapons", lookup)
+def test_load_story_card_images_keys_the_linked_card_by_story_key(data_dir: Path) -> None:
+    """The card comes from the story's junction row, whatever the page is called."""
+    assert _load_story_card_images(data_dir, "weapons") == {
+        "weapons/the-saber-of-cintari.md": "https://storage.googleapis.com/fabmaster/cardfaces/2020-CRU/CRU079.png"
+    }
+
+
+def test_load_story_card_images_skips_a_story_linked_to_two_cards(data_dir: Path) -> None:
+    """Two linked cards give no single answer, so the page keeps its own <img>."""
+    csv_dir = data_dir / "csv"
+    with (csv_dir / "weapons-canonical.csv").open("a") as f:
+        f.write("CW2|nebula-blade|Nebula Blade\n")
+    with (csv_dir / "weapons-game.csv").open("a") as f:
+        f.write("WG2|Nebula Blade|CW2\n")
+    with (csv_dir / "weapons-printings.csv").open("a") as f:
+        f.write("WG2|CRU|ARC077|R|https://storage.googleapis.com/fabmaster/nebula.png\n")
+    with (csv_dir / "story-weapons.csv").open("a") as f:
+        f.write("ST1|CW2\n")
+    assert _load_story_card_images(data_dir, "weapons") == {}
+
+
+def test_load_story_card_images_missing_files(tmp_path: Path) -> None:
+    data = tmp_path / "data"
+    (data / "csv").mkdir(parents=True)
+    assert _load_story_card_images(data, "equipment") == {}
+
+
+def test_child_image_uses_the_story_card(src_root: Path, data_dir: Path) -> None:
+    lookup = _load_story_card_images(data_dir, "weapons")
+    (src_root / "weapons" / "the-saber-of-cintari.md").write_text(
+        '# Saber\n\n<img src="https://example.com/banner.webp">\n'
+    )
+    image, is_card_art = _child_image(src_root, "weapons/the-saber-of-cintari.md", "weapons", lookup)
     assert image == "https://storage.googleapis.com/fabmaster/cardfaces/2020-CRU/CRU079.png"
-    assert is_card_art is True
-
-
-def test_child_image_loose_slug_match(src_root: Path) -> None:
-    """A file slug like talishar-lost-prince (missing "the") still resolves
-    against a canonical slug of talishar-the-lost-prince."""
-    lookup = {"talishar-the-lost-prince": "https://storage.googleapis.com/fabmaster/talishar.png"}
-    (src_root / "weapons" / "talishar-lost-prince.md").write_text("# Talishar\n")
-    image, is_card_art = _child_image(src_root, "weapons/talishar-lost-prince.md", "weapons", lookup)
-    assert image == "https://storage.googleapis.com/fabmaster/talishar.png"
     assert is_card_art is True
 
 
@@ -156,12 +185,12 @@ def test_child_image_no_match_no_img_is_empty(src_root: Path) -> None:
 
 
 def test_card_grid_html_renders_image_and_link(src_root: Path, data_dir: Path) -> None:
-    lookup = _load_card_image_lookup(data_dir, "weapons")
-    children = [{"name": "Cintari Saber", "path": "weapons/cintari-saber.md"}]
+    lookup = _load_story_card_images(data_dir, "weapons")
+    children = [{"name": "Cintari Saber", "path": "weapons/the-saber-of-cintari.md"}]
     html_out = _card_grid_html("weapons/armed-to-the-teeth.md", src_root, children, "weapons", lookup)
     assert 'class="sets-hub-grid"' in html_out
     assert 'class="sets-hub-card"' in html_out
-    assert 'href="cintari-saber.md"' in html_out
+    assert 'href="the-saber-of-cintari.md"' in html_out
     assert "Cintari Saber" in html_out
     assert "storage.googleapis.com" in html_out
 
