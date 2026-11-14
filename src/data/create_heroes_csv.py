@@ -257,8 +257,8 @@ def fabtcg_hero_rows(api: dict, game_rows: list[dict[str, str]]) -> list[dict[st
 def fetch_heroes_api() -> dict:
     """Fetch the fabtcg.com hero API (the same request ``../fab-ll`` makes).
 
-    Uses :mod:`urllib` rather than ``requests``, which ``requirements-data.txt``
-    does not provide.
+    Uses :mod:`urllib` rather than ``requests``: the repo's scripts are
+    stdlib-only.
     """
     request = urllib.request.Request(HEROES_API_URL, headers={"User-Agent": _USER_AGENT})
     with urllib.request.urlopen(request, timeout=30) as response:

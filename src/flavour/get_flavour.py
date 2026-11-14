@@ -25,11 +25,10 @@ invisible in the output when they go wrong:
 
 from __future__ import annotations
 
+import csv
+import json
 import re
 from pathlib import Path
-
-import numpy as np
-import pandas as pd
 
 _FLAVOUR_DIR = Path(__file__).resolve().parent
 _CSV_DIR = _FLAVOUR_DIR.parent / "data" / "csv"
@@ -84,8 +83,15 @@ def _normalise(text: str) -> str:
     return " ".join(_to_ascii_punctuation(body).split())
 
 
-def _sets() -> pd.DataFrame:
-    return pd.read_csv(_SETS_CSV, sep="|", comment="#", dtype=str).fillna("")
+def _read_pipe_csv(path: Path) -> list[dict[str, str]]:
+    """Read a pipe-delimited CSV, skipping ``#`` comment lines, blanks as ``""``."""
+    with open(path, encoding="utf-8", newline="") as f:
+        lines = [line for line in f if not line.startswith("#")]
+    return [{k: v or "" for k, v in row.items()} for row in csv.DictReader(lines, delimiter="|")]
+
+
+def _set_row(set_id: str) -> dict[str, str] | None:
+    return next((row for row in _read_pipe_csv(_SETS_CSV) if row["SetId"] == set_id), None)
 
 
 def set_name(set_id: str) -> str:
@@ -102,18 +108,16 @@ def set_name(set_id: str) -> str:
             ``set-types.csv`` are auto-generated — regenerate them with
             ``create_sets_csv.py`` rather than hand-adding a row.
     """
-    sets = _sets()
-    match = sets.loc[sets["SetId"] == set_id, "SetName"]
-    if match.empty:
+    row = _set_row(set_id)
+    if row is None:
         raise KeyError(f"{set_id!r} is not in {_SETS_CSV.name}; regenerate it with create_sets_csv.py")
-    return str(match.iloc[0])
+    return row["SetName"]
 
 
 def release_date(set_id: str) -> str:
     """Return ``set_id``'s ISO release date, or ``_UNDATED`` if it has none."""
-    sets = _sets()
-    match = sets.loc[sets["SetId"] == set_id, "InitialReleaseDate"]
-    date = str(match.iloc[0]).split("T")[0] if not match.empty else ""
+    row = _set_row(set_id)
+    date = row["InitialReleaseDate"].split("T")[0] if row else ""
     return date or _UNDATED
 
 
@@ -125,16 +129,16 @@ def page_dates(flavour_dir: Path | str | None = None) -> dict[str, str]:
     metadata card. A page with no arc row, or an arc row with no ``SetId``, falls
     back to the arc's hand-maintained ``SortDate`` and then to ``_UNDATED``.
     """
-    arcs = pd.read_csv(_STORY_ARCS_CSV, sep="|", comment="#", dtype=str).fillna("")
+    arcs = {row["Slug"]: row for row in reversed(_read_pipe_csv(_STORY_ARCS_CSV))}
     directory = Path(flavour_dir) if flavour_dir else _FLAVOUR_DIR
 
     dates: dict[str, str] = {}
     for path in sorted(directory.glob("*.md")):
         if path.name in _NOT_SET_PAGES:
             continue
-        row = arcs.loc[arcs["Slug"] == path.stem]
-        set_id = str(row["SetId"].iloc[0]) if not row.empty else ""
-        sort_date = str(row["SortDate"].iloc[0]) if not row.empty else ""
+        row = arcs.get(path.stem, {})
+        set_id = row.get("SetId", "")
+        sort_date = row.get("SortDate", "")
         dates[path.stem] = release_date(set_id) if set_id else (sort_date or _UNDATED)
     return dates
 
@@ -221,7 +225,7 @@ def create_flavour_md(
     out_file: str,
     title: str | None = None,
     drop_reprints: bool = True,
-) -> tuple[pd.DataFrame, pd.DataFrame]:
+) -> tuple[list[dict], list[dict]]:
     """Create the flavour text markdown file.
 
     Args:
@@ -233,50 +237,53 @@ def create_flavour_md(
             *earlier* set's page. Pass ``False`` only to inspect the unfiltered set.
 
     Returns:
-        A ``(kept, dropped)`` pair of pandas DataFrames with the set_id, id, name
-        and flavour text. ``dropped`` additionally carries ``reprint_of``, the
-        slug of the page that published the line first — report it, don't discard
-        it. Note this function has a side effect which creates the markdown file.
+        A ``(kept, dropped)`` pair of row lists in page order. Each row is a dict
+        with ``set_id``, ``id`` (the heading citation), ``ids`` (every printing),
+        ``name`` and ``flavor_text``. ``dropped`` rows additionally carry
+        ``reprint_of``, the slug of the page that published the line first —
+        report it, don't discard it. Note this function has a side effect which
+        creates the markdown file.
     """
-    df = pd.read_json(card_flattened_path)
-    df = df[["set_id", "id", "name", "flavor_text"]]
+    with open(card_flattened_path, encoding="utf-8") as f:
+        cards = json.load(f)
     # Equality, not the substring test that ``query("set_id in '...'")`` performs:
     # every set ID is three characters today, so the two agree, but a truncated or
     # concatenated argument would silently match nothing or several sets.
-    df = df[df["set_id"] == set_id]
-    df = df.replace("", np.nan).dropna(subset=["flavor_text"])
-    df = df.assign(flavor_text=df["flavor_text"].map(_to_ascii_punctuation))
+    cards = [c for c in cards if c.get("set_id") == set_id and c.get("flavor_text")]
     # One row per distinct line, carrying every printing that shares it: a common
     # prints once per pitch value, and the heading cites all of them rather than
     # picking one arbitrarily. Grouped on the normalised text so that a stray
-    # difference in whitespace does not split one line into two entries.
-    df = df.sort_values(["name", "id"], kind="stable")
-    df = (
-        df.assign(_key=df["flavor_text"].map(_normalise))
-        .groupby("_key", sort=False)
-        .agg(
-            set_id=("set_id", "first"),
-            name=("name", "first"),
-            flavor_text=("flavor_text", "first"),
-            ids=("id", lambda s: sorted(set(s))),
+    # difference in whitespace does not split one line into two entries. Sorting
+    # first means each line takes the name and text of its first printing.
+    cards.sort(key=lambda c: (c["name"], c["id"]))
+    lines: dict[str, dict] = {}
+    for card in cards:
+        text = _to_ascii_punctuation(card["flavor_text"])
+        row = lines.setdefault(
+            _normalise(text),
+            {"set_id": card["set_id"], "name": card["name"], "flavor_text": text, "ids": set()},
         )
-        .reset_index(drop=True)
-    )
-    df = df.assign(id=df["ids"].map(cite)).sort_values(["name", "id"], kind="stable").reset_index(drop=True)
+        row["ids"].add(card["id"])
+    rows = [{**row, "ids": sorted(row["ids"]), "id": cite(list(row["ids"]))} for row in lines.values()]
+    rows.sort(key=lambda r: (r["name"], r["id"]))
 
-    dropped = df.iloc[:0].assign(reprint_of=pd.Series(dtype=str))
+    dropped: list[dict] = []
     if drop_reprints:
         # Keyed on the filename, not the directory, so generating into a scratch
         # directory before review still excludes the page being regenerated.
         published = published_flavour_text(exclude=Path(out_file).name)
         this_date = release_date(set_id)
-        origins = df["flavor_text"].map(lambda t: published.get(_normalise(t)))
-        # Only an earlier set suppresses a line. Without the date test the
-        # relationship is symmetric, and regenerating a page would strip whatever
-        # a *later* set reprinted from it.
-        is_reprint = origins.map(lambda o: o is not None and o[1] < this_date)
-        dropped = df[is_reprint].assign(reprint_of=origins[is_reprint].map(lambda o: o[0])).reset_index(drop=True)
-        df = df[~is_reprint].reset_index(drop=True)
+        kept_rows = []
+        for row in rows:
+            origin = published.get(_normalise(row["flavor_text"]))
+            # Only an earlier set suppresses a line. Without the date test the
+            # relationship is symmetric, and regenerating a page would strip
+            # whatever a *later* set reprinted from it.
+            if origin is not None and origin[1] < this_date:
+                dropped.append({**row, "reprint_of": origin[0]})
+            else:
+                kept_rows.append(row)
+        rows = kept_rows
 
     # Protected blocks win over anything derived from upstream, and a protected
     # block for a card upstream no longer carries is still published — that is the
@@ -284,7 +291,7 @@ def create_flavour_md(
     kept = keep_blocks(out_file)
     rendered: list[tuple[str, str]] = []
     used: set[str] = set()
-    for _, row in df.iterrows():
+    for row in rows:
         block = next((kept[i] for i in row["ids"] if i in kept), None)
         if block is None:
             rendered.append((row["name"], "#### %s - (%s)\n%s" % (row["name"], row["id"], row["flavor_text"])))
@@ -305,4 +312,4 @@ def create_flavour_md(
     # otherwise rewrite the file underneath the commit.
     Path(out_file).write_text(("# %s\n\n%s" % (heading, body)).rstrip("\n") + "\n", encoding="utf-8")
 
-    return df, dropped
+    return rows, dropped

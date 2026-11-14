@@ -52,7 +52,7 @@ pip install -r requirements-dev.txt
 python3 -m pytest
 ```
 
-The tests, generators and pre-commit hooks are stdlib-only. `requirements-dev.txt` also pulls in `requirements-data.txt` (`numpy`, `pandas`), which only `src/flavour/get_flavour.py` needs.
+The tests, generators, pre-commit hooks and `src/flavour/get_flavour.py` are stdlib-only. `requirements-dev.txt` holds only the test and tooling packages.
 
 <p align="right"><a href="#readme-top">Back to top</a></p>
 
@@ -85,7 +85,7 @@ There are no third-party mdBook plugins. Each extension is a local Python prepro
 | `narrated-videos` | Embeds narrated-video links |
 | `archive-notice` | Adds the archival banner |
 
-The preprocessors are stdlib-only, so a plain `mdbook build` needs no `pip install`. The generators are stdlib-only too; `numpy` and `pandas` are only needed for `src/flavour/get_flavour.py` (see [Python data pipeline tests](#python-data-pipeline-tests)).
+The preprocessors are stdlib-only, so a plain `mdbook build` needs no `pip install`. The generators and `src/flavour/get_flavour.py` are stdlib-only too (see [Python data pipeline tests](#python-data-pipeline-tests)).
 
 ### Tooltips
 

@@ -1,6 +1,5 @@
-# Development / CI: pytest, the pre-commit runner, and get_flavour.py's deps.
-# Repo root: python -m pytest
--r requirements-data.txt
+# Development / CI: pytest and the pre-commit runner. Every script in the repo is
+# stdlib-only. Repo root: python -m pytest
 pytest>=8.0
 pytest-cov>=5.0
 pre-commit>=4.0
