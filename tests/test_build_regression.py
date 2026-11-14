@@ -196,6 +196,16 @@ class TestBookToml:
         before = set(preprocessors["archive-notice"].get("before", []))
         assert sorted(others - before) == []
 
+    def test_one_graph_preprocessor_runs_after_the_slots_it_fills(self, toml_config) -> None:
+        """The graph page and every page's graph link come from one process.
+
+        The links go into slots ``story-meta`` and ``related`` leave behind, so
+        it runs after both; a second registration would rebuild the graph.
+        """
+        preprocessors = toml_config["preprocessor"]
+        assert "graph-link" not in preprocessors
+        assert {"story-meta", "related"} <= set(preprocessors["graph"].get("after", []))
+
 
 class TestThemeAssets:
     """Guards for theme file integrity after the mdBook 0.5 upgrade."""

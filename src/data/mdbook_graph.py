@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
-"""mdBook preprocessor: generate the Lore Graph page.
+"""mdBook preprocessor: generate the Lore Graph page and link every page to it.
 
-Finds the chapter at ``graph.md`` and replaces the
-``<!-- fablore-graph:start --> … <!-- fablore-graph:end -->`` marker block with an
-inline ``<script>`` carrying the node/link payload plus the canvas shell that
-``theme/graph.js`` renders into.
+Builds the graph once per build and uses it twice:
+
+* finds the chapter at ``graph.md`` and replaces the
+  ``<!-- fablore-graph:start --> … <!-- fablore-graph:end -->`` marker block with
+  an inline ``<script>`` carrying the node/link payload plus the canvas shell
+  that ``theme/graph.js`` renders into;
+* gives every other page that is a node a link to it (``graph_backlinks``).
+  Those links go into slots ``story-meta`` and ``related`` leave behind, so
+  ``book.toml`` runs this after both.
 
 The graph is bipartite: every story is a node, every registry entity that a story
 links to is a node, and every row of the ten ``story-*`` junction CSVs is an edge.
@@ -31,6 +36,7 @@ from __future__ import annotations
 import json
 import sys
 from collections import Counter
+from functools import cache
 from pathlib import Path
 
 _SCRIPT_DIR = Path(__file__).resolve().parent
@@ -38,9 +44,11 @@ if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
 from card_name_slug import slugify_card_name_stem  # noqa: E402
+from graph_backlinks import walk_and_process as link_node_pages  # noqa: E402
 from mdbook_common import (
     SECTION_BY_KEY,
     SECTIONS,
+    RowReader,
     arc_display_name,
     arc_of,
     entity_names,
@@ -148,14 +156,14 @@ def arc_slug_for_story(story_key: str) -> str:
     return arc[1] if arc else ""
 
 
-def load_sets_by_arc(data_dir: Path) -> dict[str, str]:
+def load_sets_by_arc(data_dir: Path, *, read: RowReader | None = None) -> dict[str, str]:
     """Return ``{arc slug: set name}`` for arcs that map to a real released set.
 
     Arcs with a blank ``SetId`` (``non-set-cards``, ``interlude``) are grouping
     folders, not sets, so they get no node. ``DisplayName`` overrides the
     upstream ``SetName`` when it is set, matching the breadcrumbs and hub pages.
     """
-    arcs, sets = load_arcs(data_dir), load_sets(data_dir)
+    arcs, sets = load_arcs(data_dir, read=read), load_sets(data_dir, read=read)
     return {
         slug: arc_display_name(slug, arcs, sets)
         for slug, arc in arcs.items()
@@ -179,7 +187,13 @@ _PRINTING_SOURCES: tuple[tuple[str, str, str, str], ...] = (
 )
 
 
-def build_printing_edges(data_dir: Path, card_node: dict[str, int], set_node: dict[str, int]) -> list[tuple[int, int]]:
+def build_printing_edges(
+    data_dir: Path,
+    card_node: dict[str, int],
+    set_node: dict[str, int],
+    *,
+    read: RowReader | None = None,
+) -> list[tuple[int, int]]:
     """Return ``(card index, set index)`` pairs for the sets a card was printed in.
 
     This is the one relation in the graph that is not an appearance in a story,
@@ -200,17 +214,19 @@ def build_printing_edges(data_dir: Path, card_node: dict[str, int], set_node: di
             equipment already in the graph. Canonical ids are unique across the
             three by prefix (``CN``, ``CW``, ``CE``), so one map serves all.
         set_node: ``{arc slug: node index}`` for sets already in the graph.
+        read: CSV reader; :func:`read_rows` when not given.
 
     Returns:
         Sorted unique index pairs. Cards and sets that are not already nodes are
         skipped — printings must decorate the graph, never grow it.
     """
+    read = read or read_rows
     csv_dir = data_dir / "csv"
 
     # A set is a node only where an arc maps to it, so this also filters out
     # every set that has no stories on the site.
     slug_for_set: dict[str, str] = {}
-    for r in read_rows(csv_dir / "story-arcs.csv"):
+    for r in read(csv_dir / "story-arcs.csv"):
         sid = (r.get("SetId") or "").strip()
         slug = (r.get("Slug") or "").strip()
         if sid and slug:
@@ -219,13 +235,13 @@ def build_printing_edges(data_dir: Path, card_node: dict[str, int], set_node: di
     edges: set[tuple[int, int]] = set()
     for printings_csv, game_id_col, game_csv, canonical_col in _PRINTING_SOURCES:
         canonical_for_game: dict[str, str] = {}
-        for r in read_rows(csv_dir / game_csv):
+        for r in read(csv_dir / game_csv):
             gid = (r.get(game_id_col) or "").strip()
             cid = (r.get(canonical_col) or "").strip()
             if gid and cid:
                 canonical_for_game[gid] = cid
 
-        for r in read_rows(csv_dir / printings_csv):
+        for r in read(csv_dir / printings_csv):
             gid = (r.get(game_id_col) or "").strip()
             set_id = (r.get("SetId") or "").strip()
             card_idx = card_node.get(canonical_for_game.get(gid, ""))
@@ -272,6 +288,7 @@ def _surviving_printing_edges(
     remap: dict[int, int],
     nodes: list[dict],
     char_to_canon: dict[str, str],
+    read: RowReader,
 ) -> list[tuple[int, int]]:
     """Return the printing edges between nodes that survived the no-edge prune.
 
@@ -298,30 +315,30 @@ def _surviving_printing_edges(
             card_node[node_id] = new
         elif node_kind == "set" and node_id.startswith("SET"):
             set_node[node_id[len("SET") :]] = new
-    return build_printing_edges(data_dir, card_node, set_node)
+    return build_printing_edges(data_dir, card_node, set_node, read=read)
 
 
-def build_graph(data_dir: Path, src_root: Path, *, printings: bool = True) -> dict:
+def build_graph(data_dir: Path, src_root: Path) -> dict:
     """Build the graph payload from the committed junction CSVs.
 
     Args:
         data_dir: ``src/data`` directory holding ``csv/``.
         src_root: Book ``src`` directory, used to confirm a link target exists.
-        printings: Resolve the printing edges (``prints``). ``mdbook_graph_link``
-            passes ``False``: it only needs nodes, links and slugs, and printings
-            never add or drop a node, so skipping them saves reading seven CSVs
-            without changing any page's target. ``prints`` is then empty.
 
     Returns:
         Dict with ``nodes``, ``links`` (index pairs) and ``groups`` (legend rows).
     """
+    # Several loaders below want the same file (story-arcs.csv for the set nodes
+    # and the printings, story-characters.csv for the hero join and its own
+    # edges); each CSV is parsed once per build.
+    read = cache(read_rows)
     csv_dir = data_dir / "csv"
     b = _Builder()
 
     # --- Story nodes -------------------------------------------------------
     story_idx: dict[str, int] = {}
     story_key: dict[str, str] = {}
-    for r in read_rows(csv_dir / "stories.csv"):
+    for r in read(csv_dir / "stories.csv"):
         sid = (r.get("StoryId") or "").strip()
         key = (r.get("StoryKey") or "").strip()
         stype = (r.get("StoryType") or "").strip()
@@ -337,7 +354,7 @@ def build_graph(data_dir: Path, src_root: Path, *, printings: bool = True) -> di
     # arc↔set mapping. Joining every story in an arc to one set node turns the
     # release structure into visible clusters. Ids are prefixed so they cannot
     # collide with a registry id.
-    sets_by_arc = load_sets_by_arc(data_dir)
+    sets_by_arc = load_sets_by_arc(data_dir, read=read)
     for sid, key in story_key.items():
         slug = arc_slug_for_story(key)
         set_name = sets_by_arc.get(slug)
@@ -353,7 +370,7 @@ def build_graph(data_dir: Path, src_root: Path, *, printings: bool = True) -> di
 
     # --- Registries needed for names and URLs ------------------------------
     regions: dict[str, tuple[str, str]] = {}
-    for r in read_rows(csv_dir / "regions.csv"):
+    for r in read(csv_dir / "regions.csv"):
         rid = (r.get("RegionId") or "").strip()
         name = (r.get("RegionName") or "").strip()
         key = (r.get("WorldOfRatheStoryKey") or "").strip()
@@ -361,7 +378,7 @@ def build_graph(data_dir: Path, src_root: Path, *, printings: bool = True) -> di
             regions[rid] = (name, key)
 
     locations: dict[str, tuple[str, str, str]] = {}
-    for r in read_rows(csv_dir / "locations.csv"):
+    for r in read(csv_dir / "locations.csv"):
         lid = (r.get("LocationId") or "").strip()
         name = (r.get("Name") or "").strip()
         rid = (r.get("RegionId") or "").strip()
@@ -370,7 +387,7 @@ def build_graph(data_dir: Path, src_root: Path, *, printings: bool = True) -> di
             locations[lid] = (name, rid, frag)
 
     npcs: dict[str, tuple[str, str]] = {}
-    for r in read_rows(csv_dir / "characters.csv"):
+    for r in read(csv_dir / "characters.csv"):
         cid = (r.get("CharacterId") or "").strip()
         name = (r.get("Name") or "").strip()
         key = (r.get("OtherCharactersStoryKey") or "").strip()
@@ -378,14 +395,14 @@ def build_graph(data_dir: Path, src_root: Path, *, printings: bool = True) -> di
             npcs[cid] = (name, key)
 
     heroes: dict[str, tuple[str, str]] = {}
-    for r in read_rows(csv_dir / "heroes-canonical.csv"):
+    for r in read(csv_dir / "heroes-canonical.csv"):
         cid = (r.get("CanonicalId") or "").strip()
         slug = (r.get("CanonicalSlug") or "").strip()
         name = (r.get("CanonicalHero") or "").strip()
         if cid and slug:
             heroes[cid] = (name or slug, slug)
 
-    char_to_canon = load_story_heroes(data_dir).character_to_canonical
+    char_to_canon = load_story_heroes(data_dir, read=read).character_to_canonical
 
     weapons = {
         cid: (name, slug)
@@ -395,7 +412,7 @@ def build_graph(data_dir: Path, src_root: Path, *, printings: bool = True) -> di
                 (r.get("CanonicalWeapon") or "").strip(),
                 (r.get("CanonicalSlug") or "").strip(),
             )
-            for r in read_rows(csv_dir / "weapons-canonical.csv")
+            for r in read(csv_dir / "weapons-canonical.csv")
         )
         if cid and name
     }
@@ -407,27 +424,27 @@ def build_graph(data_dir: Path, src_root: Path, *, printings: bool = True) -> di
                 (r.get("CanonicalEquipment") or "").strip(),
                 (r.get("CanonicalSlug") or "").strip(),
             )
-            for r in read_rows(csv_dir / "equipment-canonical.csv")
+            for r in read(csv_dir / "equipment-canonical.csv")
         )
         if cid and name
     }
 
-    monsters = entity_names(csv_dir / "monsters.csv", "MonsterId", "Name")
-    fauna = entity_names(csv_dir / "fauna.csv", "FaunaId", "Name")
-    flora = entity_names(csv_dir / "flora.csv", "FloraId", "Name")
+    monsters = entity_names(csv_dir / "monsters.csv", "MonsterId", "Name", read=read)
+    fauna = entity_names(csv_dir / "fauna.csv", "FaunaId", "Name", read=read)
+    flora = entity_names(csv_dir / "flora.csv", "FloraId", "Name", read=read)
     # Groups carry their own documentation page rather than reaching one through a
     # region, because a group is not tied to one place. Without this a group node
     # has no link at all, which is what dropping the Hand of Sol's locations row
     # would otherwise have cost.
     groups: dict[str, tuple[str, str, str]] = {}
-    for r in read_rows(csv_dir / "groups.csv"):
+    for r in read(csv_dir / "groups.csv"):
         gid = (r.get("GroupId") or "").strip()
         name = (r.get("Name") or "").strip()
         key = (r.get("LoreStoryKey") or "").strip()
         frag = (r.get("LoreFragment") or "").strip().lstrip("#")
         if gid and name:
             groups[gid] = (name, key, frag)
-    food = entity_names(csv_dir / "food-and-drink.csv", "FoodDrinkId", "Name")
+    food = entity_names(csv_dir / "food-and-drink.csv", "FoodDrinkId", "Name", read=read)
 
     def _region_url(region_id: str, fragment: str = "") -> str:
         row = regions.get(region_id)
@@ -503,7 +520,7 @@ def build_graph(data_dir: Path, src_root: Path, *, printings: bool = True) -> di
     )
 
     for filename, id_col, resolve in junctions:
-        for r in read_rows(csv_dir / filename):
+        for r in read(csv_dir / filename):
             sid = (r.get("StoryId") or "").strip()
             eid = (r.get(id_col) or "").strip()
             if not sid or not eid or sid not in story_idx:
@@ -525,7 +542,7 @@ def build_graph(data_dir: Path, src_root: Path, *, printings: bool = True) -> di
     nodes = [b.nodes[i] for i in keep]
     links = sorted((remap[a], remap[c]) for a, c in b.edges)
 
-    prints = _surviving_printing_edges(data_dir, b.index, remap, nodes, char_to_canon) if printings else []
+    prints = _surviving_printing_edges(data_dir, b.index, remap, nodes, char_to_canon, read)
 
     assign_slugs(nodes)
 
@@ -720,8 +737,15 @@ def walk_and_process(sections: list, graph: dict) -> None:
             )
 
 
+def process(items: list, src_root: Path) -> None:
+    """Fill the graph page, then link every page that is a node to it."""
+    graph = build_graph(src_root / "data", src_root)
+    walk_and_process(items, graph)
+    link_node_pages(items, page_graph_targets(graph))
+
+
 def main() -> None:
-    run(lambda items, src_root: walk_and_process(items, build_graph(src_root / "data", src_root)))
+    run(process)
 
 
 if __name__ == "__main__":

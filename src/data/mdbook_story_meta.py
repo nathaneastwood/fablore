@@ -8,7 +8,7 @@ builds one HTML card in three rows, each omitted when it has nothing to show:
   belongs to, its place in that arc ("Part 3 of 11") and the heroes it
   features, most-mentioned first;
 * byline — authors, artists, publication date, and word count / reading time;
-* links — the original article, plus a slot that ``mdbook_graph_link`` fills
+* links — the original article, plus a slot that ``mdbook_graph`` fills
   with the Lore Graph link (it runs after this preprocessor).
 
 A hero or set information block that ``mdbook_hero_meta`` / ``mdbook_set_meta``
@@ -58,7 +58,7 @@ from pipe_csv_io import read_pipe_csv  # noqa: E402
 
 MARK_START = "<!-- fablore-story-meta:start -->"
 MARK_END = "<!-- fablore-story-meta:end -->"
-# mdbook_graph_link puts its link here, so it sits in the card's links row.
+# mdbook_graph (graph_backlinks) puts its link here, so it sits in the card's links row.
 GRAPH_SLOT = "<!-- fablore-graph-link:slot -->"
 # On a hero page the Lore Graph button goes here instead, after the source link
 # in the Related Lore heading row.

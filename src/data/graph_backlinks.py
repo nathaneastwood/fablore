@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-"""mdBook preprocessor: link each page to its own node in the Lore Graph.
+"""Link each page to its own node in the Lore Graph.
 
 Without this the graph is reachable only from the table of contents, so nobody
 reading a hero or region page ever finds it. Every chapter that *is* a node in
@@ -19,21 +18,18 @@ Where it goes, first match wins:
   links row, at ``GRAPH_SLOT``;
 * any other page gets a line of its own under the share sheet, or at the end.
 
+Not a preprocessor of its own: ``mdbook_graph`` builds the graph once, fills the
+graph page and then calls :func:`walk_and_process` with
+``page_graph_targets(graph)``. That is why ``book.toml`` runs ``graph`` after
+``story-meta`` and ``related`` — the slots above have to exist by then. (The two
+used to be separate processes, because the graph page's payload had to be in
+place before ``hints`` counted the pages naming each entity; ``hints`` now
+ignores ``<script>`` blocks, so the payload no longer counts and one late
+process does both.)
+
 Kept separate from ``mdbook_related.py`` on purpose. That preprocessor computes
 the same joins for its Related Lore cards, but it is large and load-bearing;
 appending one link does not justify editing it.
-
-Kept separate from ``mdbook_graph.py`` too, although both build the same graph,
-because they have to run at opposite ends of the book. This one needs the slots
-``story-meta`` and ``related`` leave behind. The graph page's payload has to be
-in place before ``hints`` runs: ``hints`` counts the pages that name an entity
-(an entity named on one page gets no tooltip), and the payload names every node,
-so moving it later changes the tooltips on 27 pages. Running ``hints`` after
-this instead changes 330. So this process rebuilds the graph, minus the
-printing edges (``printings=False``), which no backlink uses.
-
-mdBook passes ``(PreprocessorContext, Book)`` as JSON on stdin; this process must
-print only the modified ``Book`` JSON on stdout. Supports ``supports <renderer>``.
 """
 
 from __future__ import annotations
@@ -48,8 +44,7 @@ if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
 from mdbook_common import RELATED_LORE_H1 as RELATED_HEADING  # noqa: E402
-from mdbook_common import iter_chapters, md_to_html_url, relative_href, run  # noqa: E402
-from mdbook_graph import build_graph, page_graph_targets  # noqa: E402
+from mdbook_common import iter_chapters, md_to_html_url, relative_href  # noqa: E402
 from mdbook_story_meta import GRAPH_SLOT, RELATED_GRAPH_SLOT  # noqa: E402
 from mdbook_story_meta import MARK_END as STORY_META_END  # noqa: E402
 
@@ -175,20 +170,3 @@ def walk_and_process(sections: list, targets: dict[str, dict]) -> None:
                 ch["content"] = inject_into_slot(content, build_card_link_html(path, node))
             else:
                 ch["content"] = inject_into_content(content, build_link_html(path, node))
-
-
-def process(items: list, src_root: Path) -> None:
-    """Link every page that has a node to it, building the graph without its printings.
-
-    Printing edges never add or drop a node, so no page's target depends on them.
-    """
-    graph = build_graph(src_root / "data", src_root, printings=False)
-    walk_and_process(items, page_graph_targets(graph))
-
-
-def main() -> None:
-    run(process)
-
-
-if __name__ == "__main__":
-    main()

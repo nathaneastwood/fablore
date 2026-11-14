@@ -1,15 +1,10 @@
-"""Tests for :mod:`mdbook_graph_link` — the per-page backlink into the Lore Graph."""
+"""Tests for :mod:`graph_backlinks` — the per-page backlink into the Lore Graph."""
 
 from __future__ import annotations
 
-from pathlib import Path
-
 import pytest
 
-import mdbook_graph
-import mdbook_graph_link
-from mdbook_graph import build_graph, page_graph_targets
-from mdbook_graph_link import (
+from graph_backlinks import (
     MARK_END,
     MARK_START,
     GRAPH_SLOT,
@@ -282,35 +277,3 @@ def test_on_a_hero_page_the_button_follows_the_source_link_in_the_related_headin
         '<div class="related-cards">'
     ) in out
     assert out.count('class="related-head"') == 1
-
-
-# ---------------------------------------------------------------------------
-# The build: graph-link needs nodes and links, never the printings
-# ---------------------------------------------------------------------------
-
-_REPO_SRC = Path(__file__).resolve().parents[1] / "src"
-
-
-def test_graph_link_does_not_read_the_printings(monkeypatch: pytest.MonkeyPatch) -> None:
-    """Printing edges decorate the graph page only; no backlink depends on them.
-
-    graph-link runs as its own process after story-meta, so it rebuilds the
-    graph — but it has no use for the seven printings CSVs that pass reads.
-    """
-
-    def _refuse(*_args, **_kwargs):
-        raise AssertionError("graph-link built the printing edges")
-
-    monkeypatch.setattr(mdbook_graph, "build_printing_edges", _refuse)
-    items = [{"Chapter": {"path": "world-of-rathe/aria.md", "content": "# Aria\n", "sub_items": []}}]
-    mdbook_graph_link.process(items, _REPO_SRC)
-    assert MARK_START in items[0]["Chapter"]["content"]
-
-
-def test_skipping_the_printings_leaves_every_page_target_unchanged() -> None:
-    """Every page links to the node it linked to when the full graph was built."""
-    data_dir = _REPO_SRC / "data"
-    full = page_graph_targets(build_graph(data_dir, _REPO_SRC))
-    lean = page_graph_targets(build_graph(data_dir, _REPO_SRC, printings=False))
-    assert lean == full
-    assert len(full) > 100

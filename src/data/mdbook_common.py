@@ -40,7 +40,8 @@ from pipe_csv_io import read_pipe_csv  # noqa: E402
 # ---------------------------------------------------------------------------
 
 # The heading mdbook_related puts at the top of its Related Lore section;
-# mdbook_story_meta and mdbook_graph_link (both run after it) look for it.
+# mdbook_story_meta and mdbook_graph's page links (graph_backlinks), which both
+# run after it, look for it.
 RELATED_LORE_H1 = '<h1 id="related-lore">Related Lore</h1>'
 
 # mdbook_hero_meta closes a hero banner (which holds the H1) with this marker;
@@ -210,6 +211,11 @@ def first_h1_title_from_markdown(text: str) -> str | None:
 def read_rows(path: Path) -> list[dict[str, str]]:
     """The rows of a pipe CSV; ``[]`` when it is absent or empty."""
     return read_pipe_csv(path)[1]
+
+
+#: A CSV reader with :func:`read_rows`' signature. The loaders below take one so a
+#: caller that reads the same CSV twice can pass a memoised reader and parse it once.
+RowReader = Callable[[Path], list[dict[str, str]]]
 
 
 _HERO_DIR = "heroes-of-rathe/"
@@ -440,14 +446,14 @@ def story_meta_item(icon: str, inner: str) -> str:
 # ---------------------------------------------------------------------------
 
 
-def load_arcs(data_dir: Path) -> dict[str, dict[str, str]]:
+def load_arcs(data_dir: Path, *, read: RowReader | None = None) -> dict[str, dict[str, str]]:
     """``story-arcs.csv`` rows keyed by arc ``Slug``."""
-    return {r["Slug"]: r for r in read_rows(data_dir / "csv" / "story-arcs.csv") if r.get("Slug")}
+    return {r["Slug"]: r for r in (read or read_rows)(data_dir / "csv" / "story-arcs.csv") if r.get("Slug")}
 
 
-def load_sets(data_dir: Path) -> dict[str, dict[str, str]]:
+def load_sets(data_dir: Path, *, read: RowReader | None = None) -> dict[str, dict[str, str]]:
     """``sets.csv`` rows keyed by ``SetId``."""
-    return {r["SetId"]: r for r in read_rows(data_dir / "csv" / "sets.csv") if r.get("SetId")}
+    return {r["SetId"]: r for r in (read or read_rows)(data_dir / "csv" / "sets.csv") if r.get("SetId")}
 
 
 def arc_display_name(slug: str, arcs: dict, sets: dict) -> str:
@@ -508,10 +514,10 @@ def arc_id(slug: str) -> str:
 # ---------------------------------------------------------------------------
 
 
-def entity_names(path: Path, id_col: str, name_col: str) -> dict[str, str]:
+def entity_names(path: Path, id_col: str, name_col: str, *, read: RowReader | None = None) -> dict[str, str]:
     """``{id: name}`` for a simple registry CSV; rows with a blank id or name are skipped."""
     out: dict[str, str] = {}
-    for r in read_rows(path):
+    for r in (read or read_rows)(path):
         eid = (r.get(id_col) or "").strip()
         name = (r.get(name_col) or "").strip()
         if eid and name:
@@ -542,7 +548,7 @@ class StoryHeroes:
     fragments: dict[tuple[str, str], str]
 
 
-def load_story_heroes(data_dir: Path) -> StoryHeroes:
+def load_story_heroes(data_dir: Path, *, read: RowReader | None = None) -> StoryHeroes:
     """Join ``story-characters.csv`` → ``character-heroes.csv`` (→ ``CanonicalId``).
 
     Migration 17 merged ``story_npcs`` and ``story_heroes`` into one
@@ -554,10 +560,11 @@ def load_story_heroes(data_dir: Path) -> StoryHeroes:
     person declared both ways one entity, not two. The ``CanonicalId`` this
     yields is the key into ``heroes-canonical.csv``.
     """
+    read = read or read_rows
     csv_dir = data_dir / "csv"
     char_to_canon: dict[str, str] = {}
     canon_to_char: dict[str, str] = {}
-    for r in read_rows(csv_dir / "character-heroes.csv"):
+    for r in read(csv_dir / "character-heroes.csv"):
         canon_id = (r.get("CanonicalId") or "").strip()
         char_id = (r.get("CharacterId") or "").strip()
         if canon_id and char_id:
@@ -568,7 +575,7 @@ def load_story_heroes(data_dir: Path) -> StoryHeroes:
     char_stories: dict[str, set[str]] = {}
     story_heroes: dict[str, list[str]] = {}
     fragments: dict[tuple[str, str], str] = {}
-    for r in read_rows(csv_dir / "story-characters.csv"):
+    for r in read(csv_dir / "story-characters.csv"):
         sid = (r.get("StoryId") or "").strip()
         cid = (r.get("CharacterId") or "").strip()
         if not sid or not cid:

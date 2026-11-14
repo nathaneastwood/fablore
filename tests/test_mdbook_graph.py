@@ -867,3 +867,71 @@ def test_walk_only_touches_the_graph_chapter() -> None:
     assert "FABLORE_GRAPH" not in book["items"][0]["Chapter"]["content"]
     assert "FABLORE_GRAPH" in book["items"][1]["Chapter"]["content"]
     assert "FABLORE_GRAPH" not in book["items"][1]["Chapter"]["sub_items"][0]["Chapter"]["content"]
+
+
+# ---------------------------------------------------------------------------
+# The preprocessor: one graph per build, for the page and every backlink
+# ---------------------------------------------------------------------------
+
+_REPO_SRC = Path(__file__).resolve().parents[1] / "src"
+
+
+def _graph_book() -> list:
+    return [
+        {"Chapter": {"path": "graph.md", "content": f"# Lore Graph\n\n{MARK_START}\n{MARK_END}\n", "sub_items": []}},
+        {"Chapter": {"path": "world-of-rathe/aria.md", "content": "# Aria\n\nLore.\n", "sub_items": []}},
+    ]
+
+
+def test_one_process_fills_the_graph_page_and_links_each_node_page() -> None:
+    import mdbook_graph
+
+    items = _graph_book()
+    mdbook_graph.process(items, _REPO_SRC)
+
+    page = items[0]["Chapter"]["content"]
+    payload = json.loads(page.split("window.FABLORE_GRAPH=", 1)[1].split(";</script>", 1)[0])
+    assert payload["prints"], "the graph page keeps its printing edges"
+    assert "lore-graph-backlink" not in page
+
+    assert items[1]["Chapter"]["content"] == (
+        "# Aria\n\nLore.\n\n"
+        "<!-- fablore-graph-link:start -->\n"
+        '<p class="lore-graph-backlink"><a href="../graph.html#aria-world-of-rathe">'
+        "See Aria in the Lore Graph</a></p>\n"
+        "<!-- fablore-graph-link:end -->\n"
+    )
+
+
+def test_the_graph_is_built_once_per_book(monkeypatch: pytest.MonkeyPatch) -> None:
+    import mdbook_graph
+
+    calls = []
+    real = mdbook_graph.build_graph
+
+    def _counting(*args, **kwargs):
+        calls.append(kwargs)
+        return real(*args, **kwargs)
+
+    monkeypatch.setattr(mdbook_graph, "build_graph", _counting)
+    mdbook_graph.process(_graph_book(), _REPO_SRC)
+    assert calls == [{}]
+
+
+def test_each_csv_is_parsed_once_per_book(monkeypatch: pytest.MonkeyPatch) -> None:
+    """The graph page and the page links share one parse of every CSV."""
+    import mdbook_common
+    import mdbook_graph
+
+    parsed: list[str] = []
+    real = mdbook_common.read_rows
+
+    def _counting(path):
+        parsed.append(Path(path).name)
+        return real(path)
+
+    monkeypatch.setattr(mdbook_common, "read_rows", _counting)
+    monkeypatch.setattr(mdbook_graph, "read_rows", _counting)
+    mdbook_graph.process(_graph_book(), _REPO_SRC)
+    assert "story-characters.csv" in parsed
+    assert sorted(name for name in set(parsed) if parsed.count(name) > 1) == []
